@@ -1,24 +1,18 @@
 ---
 title: Experiência de logs simples em Azure Monitor (versão prévia) | Microsoft Docs
 description: A experiência de logs simples permite que você crie consultas básicas no Azure Monitor sem interagir diretamente com o KQL.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 09/12/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 323267dd47735ca54b84e47e6a55d1f2d14a0b06
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.date: 09/12/2019
+ms.openlocfilehash: 0b8b23d5d355614bf74b1b22c6a8443b9a2f9391
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262180"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932975"
 ---
 # <a name="simple-logs-experience-in-azure-monitor-preview"></a>Experiência de logs simples em Azure Monitor (versão prévia)
 Azure Monitor fornece uma [experiência rica](get-started-portal.md) para criar [consultas de log](log-query-overview.md) usando a linguagem KQL. Talvez você não precise de toda a potência do KQL, mas prefira uma experiência simplificada para os requisitos básicos de consulta. A experiência de logs simples permite que você crie consultas básicas sem interagir diretamente com o KQL. Você também pode usar logs simples como uma ferramenta de aprendizado para KQL, pois você precisa de consultas mais sofisticadas.
@@ -27,7 +21,7 @@ Azure Monitor fornece uma [experiência rica](get-started-portal.md) para criar 
 > Atualmente, os logs simples são implementados como um teste para apenas Cosmos DB e cofres de chaves. Compartilhe sua experiência com a Microsoft por meio do [User Voice](https://feedback.azure.com/forums/913690-azure-monitor) para nos ajudar a determinar se iremos expandir e lançar esse recurso.
 
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>Âmbito
 A experiência de logs simples recupera dados da tabela *AzureDiagnostics*, *AzureMetrics*e *AzureActivity* para o recurso selecionado. 
 
 ## <a name="using-simple-logs"></a>Usando logs simples
@@ -35,7 +29,7 @@ Navegue até qualquer Cosmos DB ou Key Vault em sua assinatura do Azure com [as 
 
 ![Menu](media/simple-logs/menu.png)
 
-Selecione um **campo** e um **operador** e especifique um **valor** para comparação. Clique **+** e especifique **e/ou** para adicionar critérios adicionais.
+Selecione um **campo** e um **operador** e especifique um **valor** para comparação. Clique em **+** e especifique **e/ou** para adicionar critérios adicionais.
 
 ![Critérios](media/simple-logs/criteria.png)
 

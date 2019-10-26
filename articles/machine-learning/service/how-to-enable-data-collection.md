@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 07/15/2019
+ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 109db23976f6332b24bcfa565812bd9491062691
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 25017e6ea0be5d4320832298cdadbec7ec5a05cc
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330740"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72929370"
 ---
 # <a name="collect-data-for-models-in-production"></a>Coletar dados para modelos em produção
 
@@ -47,9 +47,12 @@ A saída é salva em um blob do Azure. Como os dados são adicionados a um blob 
 O caminho para os dados de saída no blob segue esta sintaxe:
 
 ```
-/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
+/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<designation>/<year>/<month>/<day>/data.csv
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
+
+>[!Note]
+> Em versões do SDK antes de `0.1.0a16` o argumento `designation` foi nomeado `identifier`. Se seu código foi desenvolvido com uma versão anterior, você precisará atualizar de acordo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -80,8 +83,8 @@ Para habilitá-lo, você precisa:
 
     ```python
     global inputs_dc, prediction_dc
-    inputs_dc = ModelDataCollector("best_model", identifier="inputs", feature_names=["feat1", "feat2", "feat3". "feat4", "feat5", "feat6"])
-    prediction_dc = ModelDataCollector("best_model", identifier="predictions", feature_names=["prediction1", "prediction2"])
+    inputs_dc = ModelDataCollector("best_model", designation="inputs", feature_names=["feat1", "feat2", "feat3". "feat4", "feat5", "feat6"])
+    prediction_dc = ModelDataCollector("best_model", designation="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
     *CorrelationId* é um parâmetro opcional, você não precisa configurá-lo se seu modelo não exigir. Ter uma CorrelationId no local ajuda você a fazer mapeamento mais fácil com outros dados. (Os exemplos incluem: LoanNumber, CustomerId, etc.)
@@ -122,7 +125,7 @@ Se você já tiver um serviço com as dependências instaladas em seu **arquivo 
 
 1. Em **Configurações avançadas**, desmarque **habilitar coleta de dados de modelo**. 
 
-    [Coleta de dados ![check](media/how-to-enable-data-collection/CheckDataCollection.png)](./media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
+    [![verificar coleta de dados](media/how-to-enable-data-collection/CheckDataCollection.png)](./media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
 
    Nessa janela, você também pode optar por "habilitar o diagnóstico de Appinsights" para acompanhar a integridade do serviço.  
 
@@ -139,11 +142,11 @@ Você pode interromper a coleta de dados a qualquer momento. Use o código Pytho
 
   1. Vá para **Implantações** -> **selecione serviço** -> **Editar**.
 
-     [opção ![Edit](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
+     [![opção de edição](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. Em **Configurações avançadas**, desmarque **habilitar coleta de dados de modelo**. 
 
-     [Coleta de dados ![Uncheck](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+     [![desmarcar coleta de dados](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
   1. Selecione **Atualizar** para aplicar a alteração.
 
@@ -165,12 +168,12 @@ Para acessar rapidamente os dados do seu blob:
 1. Abra seu espaço de trabalho.
 1. Clique em **armazenamento**.
 
-    [![Storage](media/how-to-enable-data-collection/StorageLocation.png)](./media/how-to-enable-data-collection/StorageLocation.png#lightbox)
+    [Armazenamento![](media/how-to-enable-data-collection/StorageLocation.png)](./media/how-to-enable-data-collection/StorageLocation.png#lightbox)
 
 1. Siga o caminho para os dados de saída no blob com esta sintaxe:
 
 ```
-/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
+/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<designation>/<year>/<month>/<day>/data.csv
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
 
@@ -181,22 +184,22 @@ Para acessar rapidamente os dados do seu blob:
 
 1. Selecione **obter dados** e clique em [**armazenamento de BLOBs do Azure**](https://docs.microsoft.com/power-bi/desktop-data-sources).
 
-    [configuração de blob ![PBI](media/how-to-enable-data-collection/PBIBlob.png)](./media/how-to-enable-data-collection/PBIBlob.png#lightbox)
+    [![a configuração do blob PBI](media/how-to-enable-data-collection/PBIBlob.png)](./media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
 
 1. Adicione o nome da conta de armazenamento e insira sua chave de armazenamento. Você pode encontrar essas informações nas **configurações** do blob > > chaves de acesso. 
 
 1. Selecione o contêiner **modeldata** e clique em **Editar**. 
 
-    [Navegador ![PBI](media/how-to-enable-data-collection/pbiNavigator.png)](./media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
+    [![navegador PBI](media/how-to-enable-data-collection/pbiNavigator.png)](./media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
 
-1. No editor de consultas, clique na coluna "nome" e adicione sua conta de armazenamento 1. Caminho do modelo no filtro. Observação: se você quiser apenas examinar os arquivos de um ano ou mês específico, basta expandir o caminho do filtro. Por exemplo, basta examinar os dados de março:/modeldata/SubscriptionId >/resourcegroupname >/WorkspaceName >/WebServiceName >/ModelName >/modelversion >/Identifier >/year >/3
+1. No editor de consultas, clique na coluna "nome" e adicione sua conta de armazenamento 1. Caminho do modelo no filtro. Observação: se você quiser apenas examinar os arquivos de um ano ou mês específico, basta expandir o caminho do filtro. Por exemplo, basta examinar os dados de março:/modeldata/SubscriptionId >/resourcegroupname >/WorkspaceName >/WebServiceName >/ModelName >/modelversion >/designation >/year >/3
 
 1. Filtre os dados que são relevantes para você com base no **nome**. Se você armazenou **previsões** e **entradas**, precisará criar uma consulta para cada uma.
 
 1. Clique na seta dupla ao lado da coluna **conteúdo** para combinar os arquivos. 
 
-    [Conteúdo de @no__t 1PBI](media/how-to-enable-data-collection/pbiContent.png)](./media/how-to-enable-data-collection/pbiContent.png#lightbox)
+    [![conteúdo do PBI](media/how-to-enable-data-collection/pbiContent.png)](./media/how-to-enable-data-collection/pbiContent.png#lightbox)
 
 1. Clique em OK e os dados serão pré-carregados.
 
@@ -217,11 +220,11 @@ Para acessar rapidamente os dados do seu blob:
 
 1. No espaço de trabalho do databricks, selecione **carregar dados**.
 
-    [upload de ![DB](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
+    [upload do![DB](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
 
 1. Crie uma nova tabela e selecione **outras fontes de dados** -> armazenamento de BLOBs do Azure-> criar tabela no bloco de anotações.
 
-    [tabela ![DB](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
+    [tabela![DB](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
 1. Atualize o local dos seus dados. Segue-se um exemplo:
 
@@ -230,7 +233,7 @@ Para acessar rapidamente os dados do seu blob:
     file_type = "csv"
     ```
  
-    [![DBsetup](media/how-to-enable-data-collection/dbsetup.png)](./media/how-to-enable-data-collection/dbsetup.png#lightbox)
+    [![O dbsetup](media/how-to-enable-data-collection/dbsetup.png)](./media/how-to-enable-data-collection/dbsetup.png#lightbox)
 
 1. Siga as etapas no modelo para exibir e analisar seus dados. 
 

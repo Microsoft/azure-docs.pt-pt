@@ -1,17 +1,17 @@
 ---
-title: Usar identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para a saída do armazenamento de BLOBs do Azure (versão prévia)
+title: Autenticar saída de blob com identidade gerenciada Azure Stream Analytics
 description: Este artigo descreve como usar identidades gerenciadas para autenticar seu trabalho de Azure Stream Analytics para a saída do armazenamento de BLOBs do Azure.
 author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 2bde1e8556fb1255e27595630e061f6b80870ce1
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4215dc85da6d507b08f23cf248044ea807fe5319
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278697"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935157"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output-preview"></a>Usar identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para a saída do armazenamento de BLOBs do Azure (versão prévia)
 
@@ -25,7 +25,7 @@ Este artigo mostra como habilitar a identidade gerenciada para as saídas de blo
 
    ![Configurar Stream Analytics identidade gerenciada](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-enable-managed-identity.png)
 
-2. Na janela Propriedades de saída do coletor de saída do armazenamento de BLOBs do Azure, selecione a lista suspensa modo de autenticação e escolha **identidade gerenciada**. Para obter informações sobre outras propriedades de saída, consulte [entender as saídas de Azure Stream Analytics](./stream-analytics-define-outputs.md). Quando tiver terminado, clique em **guardar**.
+2. Na janela Propriedades de saída do coletor de saída do armazenamento de BLOBs do Azure, selecione a lista suspensa modo de autenticação e escolha **identidade gerenciada**. Para obter informações sobre outras propriedades de saída, consulte [entender as saídas de Azure Stream Analytics](./stream-analytics-define-outputs.md). Quando tiver terminado, clique em **salvar**.
 
    ![Configurar a saída do armazenamento de BLOBs do Azure](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-blob-output-blade.png)
 
@@ -235,7 +235,7 @@ Abaixo estão as limitações atuais deste recurso:
 
 4. Não há suporte para a [identidade atribuída ao usuário](../active-directory/managed-identities-azure-resources/overview.md) . Isso significa que o usuário não é capaz de inserir sua própria entidade de serviço a ser usada por seus Stream Analytics trabalho. A entidade de serviço deve ser gerada pelo Azure Stream Analytics.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Compreender as saídas do Azure Stream Analytics](./stream-analytics-define-outputs.md)
+* [Entender as saídas de Azure Stream Analytics](./stream-analytics-define-outputs.md)
 * [Azure Stream Analytics o particionamento de saída de blob personalizado](./stream-analytics-custom-path-patterns-blob-storage-output.md)

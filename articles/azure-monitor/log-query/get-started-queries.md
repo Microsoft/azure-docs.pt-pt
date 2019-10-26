@@ -3,26 +3,21 @@ title: Introdução às consultas de log no Azure Monitor | Microsoft Docs
 description: Este artigo fornece um tutorial para começar a escrever consultas de log no Azure Monitor.
 ms.service: azure-monitor
 ms.subservice: logs
-ms.topic: conceptual
+ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 05/09/2019
-ms.openlocfilehash: d9116ba1b43959402223e0cbd1e4f729e053b9b6
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
-ms.translationtype: HT
+ms.date: 10/24/2019
+ms.openlocfilehash: d0e19c8483321189cb38a4eebdbf7b2cb89785ef
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894308"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933027"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introdução às consultas de log no Azure Monitor
 
-
-> [!NOTE]
-> Você deve concluir a [introdução ao Azure Monitor log Analytics](get-started-portal.md) antes de concluir este tutorial.
-
 > [!NOTE]
 > Você pode trabalhar com este exercício em seu próprio ambiente se estiver coletando dados de pelo menos uma máquina virtual. Caso contrário, use nosso [ambiente de demonstração](https://portal.loganalytics.io/demo), que inclui muitos dados de exemplo.
-
 
 Neste tutorial, você aprenderá a escrever consultas de log em Azure Monitor. Ele ensinará como:
 
@@ -36,6 +31,10 @@ Neste tutorial, você aprenderá a escrever consultas de log em Azure Monitor. E
 
 Para obter um tutorial sobre como usar Log Analytics no portal do Azure, consulte Introdução [ao Azure Monitor log Analytics](get-started-portal.md).<br>
 Para obter mais detalhes sobre as consultas de log no Azure Monitor, consulte [visão geral das consultas de log no Azure monitor](log-query-overview.md).
+
+Siga junto com uma versão de vídeo deste tutorial abaixo:
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
 ## <a name="writing-a-new-query"></a>Escrevendo uma nova consulta
 As consultas podem começar com um nome de tabela ou o comando de *pesquisa* . Você deve começar com um nome de tabela, pois ele define um escopo claro para a consulta e melhora o desempenho da consulta e a relevância dos resultados.

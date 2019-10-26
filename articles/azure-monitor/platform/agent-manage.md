@@ -1,24 +1,18 @@
 ---
 title: Gerenciando o agente de Log Analytics do Azure | Microsoft Docs
 description: Este artigo descreve as diferentes tarefas de gerenciamento que normalmente serão executadas durante o ciclo de vida do Log Analytics o agente Windows ou Linux implantado em um computador.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/14/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 0c128aaf8102b3072b6a63c80ea860ceefbf5124
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.date: 06/14/2019
+ms.openlocfilehash: 8dec91a3987aed978bb088d1aeab48a6fd0f9fb4
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67146298"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932794"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gerenciando e mantendo o agente de Log Analytics para Windows e Linux
 
@@ -30,19 +24,19 @@ O agente de Log Analytics para Windows e Linux pode ser atualizado para a versã
 
 | Ambiente | Método de instalação | Método de atualização |
 |--------|----------|-------------|
-| Azure VM | Extensão de VM do agente de Log Analytics para Windows/Linux | O Agent é atualizado automaticamente por padrão, a menos que você tenha configurado seu modelo de Azure Resource Manager para recusar definindo a propriedade *autoUpgradeMinorVersion* como **false**. |
+| VM do Azure | Extensão de VM do agente de Log Analytics para Windows/Linux | O Agent é atualizado automaticamente por padrão, a menos que você tenha configurado seu modelo de Azure Resource Manager para recusar definindo a propriedade *autoUpgradeMinorVersion* como **false**. |
 | Imagens personalizadas de VM do Azure | Instalação manual do agente do Log Analytics para Windows/Linux | A atualização de VMs para a versão mais recente do agente precisa ser executada na linha de comando que executa o pacote do Windows Installer ou o grupo de script de shell instalável e de extração automática do Linux.|
 | VMs não Azure | Instalação manual do agente do Log Analytics para Windows/Linux | A atualização de VMs para a versão mais recente do agente precisa ser executada na linha de comando que executa o pacote do Windows Installer ou o grupo de script de shell instalável e de extração automática do Linux. |
 
 ### <a name="upgrade-windows-agent"></a>Atualizar o agente do Windows 
 
-Para atualizar o agente em uma VM do Windows para a versão mais recente não instalada usando a extensão de VM log Analytics, você pode executar no prompt de comando, script ou outra solução de automação ou usando a\<instalação\>MMASetup-Platform. msi Para.  
+Para atualizar o agente em uma VM do Windows para a versão mais recente não instalada usando a extensão de VM Log Analytics, você pode executar no prompt de comando, script ou outra solução de automação ou usando o assistente de instalação da plataforma\<MMASetup\>. msi.  
 
 Você pode baixar a versão mais recente do agente do Windows do seu espaço de trabalho Log Analytics, executando as etapas a seguir.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **log Analytics espaços de trabalho**.
+2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **log Analytics espaços de trabalho**.
 
 3. Na lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho.
 
@@ -58,7 +52,7 @@ Você pode baixar a versão mais recente do agente do Windows do seu espaço de 
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
-2. Execute **MMASetup-\<Platform\>. exe** para iniciar o assistente de instalação.
+2. Execute o **MMASetup-\<platform\>. exe** para iniciar o assistente de instalação.
 
 3. Na primeira página do assistente de instalação, clique em **Avançar**.
 
@@ -72,7 +66,7 @@ Você pode baixar a versão mais recente do agente do Windows do seu espaço de 
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
-2. Para extrair os arquivos de instalação do agente, em uma execução `MMASetup-<platform>.exe /c` de prompt de comandos com privilégios elevados, será solicitado que você forneça o caminho para o qual extrair os arquivos. Como alternativa, você pode especificar o caminho passando os argumentos `MMASetup-<platform>.exe /c /t:<Full Path>`.
+2. Para extrair os arquivos de instalação do agente, em um prompt de comando com privilégios elevados, execute `MMASetup-<platform>.exe /c` e ele solicitará o caminho para o qual extrair os arquivos. Como alternativa, você pode especificar o caminho passando os argumentos `MMASetup-<platform>.exe /c /t:<Full Path>`.
 
 3. Execute o comando a seguir, em que D:\ é o local para o arquivo de log de atualização.
 
@@ -82,7 +76,7 @@ Você pode baixar a versão mais recente do agente do Windows do seu espaço de 
 
 ### <a name="upgrade-linux-agent"></a>Atualizar agente do Linux 
 
-Há suporte para a atualização de versões anteriores (> 1.0.0-47). A execução da instalação com `--upgrade` o comando atualizará todos os componentes do agente para a versão mais recente.
+Há suporte para a atualização de versões anteriores (> 1.0.0-47). A execução da instalação com o comando `--upgrade` atualizará todos os componentes do agente para a versão mais recente.
 
 Execute o comando a seguir para atualizar o agente.
 
@@ -137,7 +131,7 @@ $mma.ReloadConfiguration()
 ```
 
 >[!NOTE]
->Se você usou a linha de comando ou o script anteriormente para instalar ou configurar o agente `EnableAzureOperationalInsights` , o foi `AddCloudWorkspace` substituído `RemoveCloudWorkspace`por e.
+>Se você usou a linha de comando ou o script anteriormente para instalar ou configurar o agente, `EnableAzureOperationalInsights` foi substituído por `AddCloudWorkspace` e `RemoveCloudWorkspace`.
 >
 
 ### <a name="linux-agent"></a>Agente do Linux
@@ -244,14 +238,14 @@ Use um dos procedimentos a seguir para desinstalar o agente do Windows ou Linux 
 3. Em **programas e recursos**, clique em **Microsoft Monitoring Agent**, em **desinstalar**e em **Sim**.
 
 >[!NOTE]
->O assistente para instalação do agente também pode ser executado clicando duas vezes em **MMASetup\>-\<Platform. exe**, que está disponível para download em um espaço de trabalho no portal do Azure.
+>O assistente para instalação do agente também pode ser executado clicando duas vezes em **MMASetup-\<plataforma\>. exe**, que está disponível para download em um espaço de trabalho no portal do Azure.
 
 #### <a name="uninstall-from-the-command-line"></a>Desinstalar da linha de comando
 O arquivo baixado para o agente é um pacote de instalação independente criado com o IExpress. O programa de instalação para o agente e os arquivos de suporte estão contidos no pacote e precisa ser extraído para ser desinstalado corretamente usando a linha de comando mostrada no exemplo a seguir.
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
-2. Para extrair os arquivos de instalação do agente, em uma execução `extract MMASetup-<platform>.exe` de prompt de comandos com privilégios elevados, será solicitado que você forneça o caminho para o qual extrair os arquivos. Como alternativa, você pode especificar o caminho passando os argumentos `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`. Para obter mais informações sobre as opções de linha de comando com suporte pelo IExpress, consulte [Opções de linha de comando para o IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) e, em seguida, atualize o exemplo para atender às suas necessidades.
+2. Para extrair os arquivos de instalação do agente, em um prompt de comando com privilégios elevados, execute `extract MMASetup-<platform>.exe` e ele solicitará o caminho para o qual extrair os arquivos. Como alternativa, você pode especificar o caminho passando os argumentos `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`. Para obter mais informações sobre as opções de linha de comando com suporte pelo IExpress, consulte [Opções de linha de comando para o IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) e, em seguida, atualize o exemplo para atender às suas necessidades.
 
 3. No prompt, digite `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.
 
@@ -292,11 +286,11 @@ Execute as etapas a seguir para configurar o agente de Log Analytics para Linux 
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-1. Editar o arquivo`/etc/opt/omi/conf/omiserver.conf`
+1. Edite o arquivo `/etc/opt/omi/conf/omiserver.conf`
 
-2. Verifique se a linha que começa `httpsport=` com define a porta 1270. Como:`httpsport=1270`
+2. Verifique se a linha que começa com `httpsport=` define a porta 1270. Como: `httpsport=1270`
 
-3. Reinicie o servidor OMI:`sudo /opt/omi/bin/service_control restart`
+3. Reinicie o servidor OMI: `sudo /opt/omi/bin/service_control restart`
 
 ## <a name="next-steps"></a>Passos seguintes
 

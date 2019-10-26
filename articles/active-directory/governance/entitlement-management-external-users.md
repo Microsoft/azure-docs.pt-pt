@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 419970985b9531ffab348491730aaf6c00e143b1
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: d3794f409b2cdc11373dc330099e5ff93d65a2a1
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527110"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934404"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management-preview"></a>Controlar o acesso para usuários externos no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -50,11 +50,13 @@ O diagrama e as etapas a seguir fornecem uma visão geral de como os usuários e
 
 ![Diagrama mostrando o ciclo de vida de usuários externos](./media/entitlement-management-external-users/external-users-lifecycle.png)
 
+1. Você [adiciona uma organização conectada](entitlement-management-organization.md) para o diretório ou domínio do Azure AD com o qual você deseja colaborar.
+
 1. Você cria um pacote do Access em seu diretório que inclui uma política [para os usuários que não estão em seu diretório](entitlement-management-access-package-create.md#for-users-not-in-your-directory).
 
 1. Você envia um [link meu portal de acesso](entitlement-management-access-package-settings.md) para seu contato na organização externa que eles podem compartilhar com seus usuários para solicitar o pacote de acesso.
 
-1. Um usuário externo (**solicitante a** neste exemplo) usa o link meu portal de acesso para [solicitar acesso](entitlement-management-request-access.md) ao pacote de acesso.
+1. Um usuário externo (**solicitante a** neste exemplo) usa o link meu portal de acesso para [solicitar acesso](entitlement-management-request-access.md) ao pacote de acesso. A forma como o usuário entra depende do tipo de autenticação do diretório ou do domínio definido na organização conectada.
 
 1. Um Aprovador [aprova a solicitação](entitlement-management-request-approve.md) (ou a solicitação é aprovada automaticamente).
 
@@ -116,6 +118,6 @@ Você também pode alterar essa configuração depois de criar o catálogo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
+- [Adicionar uma organização conectada](entitlement-management-organization.md)
 - [Para usuários que não estão em seu diretório](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
 - [Criar e gerenciar um catálogo de recursos](entitlement-management-catalog-create.md)
-- [Delegação e funções](entitlement-management-delegate.md)

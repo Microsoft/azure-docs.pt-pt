@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 27063702729d8a61ab8919c2685fcfc6f743ce09
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: fd1479a224255f74f4d47cfd90576a5afd25010f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858988"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935403"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>O que é o IoT Plug and Play Preview?
 
@@ -26,7 +26,7 @@ A visualização da IoT Plug and Play permite que os desenvolvedores de soluçõ
 
 Você pode reutilizar interfaces em modelos de recursos de dispositivo para facilitar a colaboração e acelerar o desenvolvimento.
 
-Para tornar o IoT Plug and Play funcionar diretamente com o [gêmeos digital do Azure](../digital-twins/about-digital-twins.md), o esquema de plug and Play IOT é definido usando o [DTDL (digital mydefinition Language)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). A IoT Plug and Play e as DTDL estão abertas para a Comunidade, e a Microsoft agradece a colaboração com clientes, parceiros e setor. Ambos se baseiam em padrões W3C abertos, como JSON-LD e RDF, que possibilitam uma adoção mais fácil entre serviços e ferramentas. Além disso, não há nenhum custo adicional para usar o IoT Plug and Play e DTDL. As taxas padrão para o [Hub IOT do Azure](../iot-hub/about-iot-hub.md), o [Azure IOT central](../iot-central/overview-iot-central.md)e outros serviços do Azure permanecem as mesmas.
+Para tornar o IoT Plug and Play funcionar diretamente com o [gêmeos digital do Azure](../digital-twins/about-digital-twins.md), o esquema de plug and Play IOT é definido usando o [DTDL (digital mydefinition Language)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). A IoT Plug and Play e as DTDL estão abertas para a Comunidade, e a Microsoft agradece a colaboração com clientes, parceiros e setor. Ambos se baseiam em padrões W3C abertos, como JSON-LD e RDF, que possibilitam uma adoção mais fácil entre serviços e ferramentas. Além disso, não há nenhum custo adicional para usar o IoT Plug and Play e DTDL. As taxas padrão para o [Hub IOT do Azure](../iot-hub/about-iot-hub.md), o [Azure IOT central](../iot-central/core/overview-iot-central.md)e outros serviços do Azure permanecem as mesmas.
 
 As soluções criadas no Hub IoT ou IoT Central podem se beneficiar da Plug and Play de IoT.
 
@@ -37,7 +37,7 @@ Este artigo descreve:
 - Como desenvolver um aplicativo de dispositivo IoT que dá suporte a Plug and Play de IoT.
 - Como certificar um dispositivo de Plug and Play IoT e publicar no [Catálogo de dispositivos certificado para IOT](https://catalog.azureiotsolutions.com/).
 
-## <a name="user-roles"></a>Funções de utilizador
+## <a name="user-roles"></a>Funções de usuário
 
 O Plug and Play IoT é útil para dois tipos de desenvolvedores:
 
@@ -48,7 +48,7 @@ O Plug and Play IoT é útil para dois tipos de desenvolvedores:
 
 Como desenvolvedor de soluções, você pode desenvolver uma solução de IoT hospedada na nuvem que usa dispositivos de Plug and Play de IoT. Você pode usar qualquer um dos seguintes serviços do Azure:
 
-- [IOT central](../iot-central/overview-iot-central.md) -uma solução de software como serviço IOT totalmente gerenciada que facilita a criação de produtos que conectam os mundos físicos e digitais.
+- [IOT central](../iot-central/core/overview-iot-central.md) -uma solução de software como serviço IOT totalmente gerenciada que facilita a criação de produtos que conectam os mundos físicos e digitais.
 - [Hub IOT](../iot-hub/about-iot-hub.md) -um serviço de nuvem gerenciado que atua como um hub de mensagens para comunicação bidirecional segura entre seu aplicativo IOT e seus dispositivos.
 
 Você pode encontrar dispositivos IoT Plug and Play por meio do catálogo de dispositivos certificado pelo Azure para IoT. Cada dispositivo de Plug and Play IoT no catálogo foi validado e tem um modelo de funcionalidade de dispositivo. Exiba o modelo de capacidade do dispositivo para entender a funcionalidade do dispositivo ou usá-lo para simular o dispositivo no Azure IoT Central.
@@ -82,7 +82,7 @@ Durante a visualização pública, a IoT Plug and Play está disponível nas reg
 ## <a name="message-quotas-in-iot-hub"></a>Cotas de mensagens no Hub IoT
 Durante a visualização pública, os dispositivos IoT Plug and Play enviam mensagens separadas por interface, o que pode aumentar o número de mensagens contadas em direção à sua [cota de mensagens](../iot-hub/iot-hub-devguide-quotas-throttling.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você tem uma visão geral do Plug and Play IoT, a próxima etapa sugerida é experimentar um dos guias de início rápido:
 

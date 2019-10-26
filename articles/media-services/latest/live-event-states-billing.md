@@ -1,6 +1,6 @@
 ---
-title: Estados de LiveEvent e de faturação nos serviços de multimédia do Azure | Documentos da Microsoft
-description: Este tópico apresenta uma visão geral de Estados de LiveEvent de serviços de multimédia do Azure e de faturação.
+title: Estados e cobrança do LiveEvent nos serviços de mídia do Azure | Microsoft Docs
+description: Este tópico fornece uma visão geral dos Estados de LiveEvent e da cobrança dos serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,34 +11,37 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 10/24/2019
 ms.author: juliako
-ms.openlocfilehash: 2907b5be7f8d5fda3d510484179e80b065ab64b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af3d4b51dadfaa99a166ca0ce475c5a110d8f6e8
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074899"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933687"
 ---
-# <a name="live-event-states-and-billing"></a>Estados de evento em direto e de faturação
+# <a name="live-event-states-and-billing"></a>Estados e cobrança de eventos ao vivo
 
-Nos serviços de multimédia do Azure, um evento Live começa assim que o seu estado faz a transição para de faturação **em execução**. Para parar o evento em direto de faturação, terá de parar o evento em direto.
+Nos serviços de mídia do Azure, um evento ao vivo começa a cobrança assim que sua transição de estado para **em execução**. Para interromper o evento ao vivo da cobrança, você precisa parar o evento ao vivo.
 
-Quando **LiveEventEncodingType** no seu [evento em direto](https://docs.microsoft.com/rest/api/media/liveevents) está definida como Standard ou Premium1080p, serviços de multimédia automática seja fechado desativar qualquer evento em direto que ainda está na **executar** 12 de estado horas após a transmissão de entrada é perdida e existem sem **Live saída**em execução. No entanto, será serão cobrados a hora do evento em direto foi no **em execução** estado.
+Quando o **LiveEventEncodingType** em seu [evento ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) é definido como Standard ou Premium1080p, os serviços de mídia desligam automaticamente qualquer evento ao vivo que ainda esteja no estado de **execução** 12 horas após o feed de entrada ser perdido e não há nenhuma **saída ao vivo** s em execução. No entanto, você ainda será cobrado pelo tempo em que o evento ao vivo estava no estado de **execução** .
+
+> [!NOTE]
+> Eventos ao vivo de passagem não são desligados automaticamente e devem ser explicitamente interrompidos por meio da API para evitar uma cobrança excessiva. 
 
 ## <a name="states"></a>Estados
 
-O evento em direto pode ter um dos seguintes Estados.
+O evento ao vivo pode estar em um dos Estados a seguir.
 
 |Estado|Descrição|
 |---|---|
-|**Parado**| Este é o estado inicial do evento Live após criação (a menos que o início automático foi definido como true.) Ocorre uma faturação sem neste estado. Neste estado, as propriedades de evento em direto podem ser atualizadas, mas não é permitida a transmissão em fluxo.|
-|**A partir de**| O evento em direto está a ser iniciado e os recursos estão a ser alocados. Ocorre uma faturação sem neste estado. Transmissão em fluxo a pedido ou atualizações não são permitidas durante este estado. Se ocorrer um erro, devolve o evento em direto para o estado parado.|
-|**Em execução**| O evento Live recursos teriam sido alocados, ingestão e URLs de pré-visualização ter sido gerado, e é capaz de receber transmissões em fluxo. Neste momento, a faturação é Active Directory. Tem de chamar explicitamente Stop do recurso de evento em direto para parar a faturação ainda mais.|
-|**A parar**| O evento em direto está a ser parado e recursos estão a ser desaprovisionados. Ocorre uma faturação sem neste estado transitório. Transmissão em fluxo a pedido ou atualizações não são permitidas durante este estado.|
-|**A eliminar**| O evento em direto está a ser eliminado. Ocorre uma faturação sem neste estado transitório. Transmissão em fluxo a pedido ou atualizações não são permitidas durante este estado.|
+|**Interrompido**| Esse é o estado inicial do evento ao vivo após a criação (a menos que AutoStart tenha sido definido como true). Nenhuma cobrança ocorre nesse estado. Neste estado, as propriedades do Evento em Direto podem ser atualizadas, mas a transmissão em fluxo não é permitida.|
+|**Comece**| O evento ao vivo está sendo iniciado e os recursos estão sendo alocados. Nenhuma cobrança ocorre nesse estado. Não são permitidas atualizações ou streaming durante esse estado. Se ocorrer um erro, o evento ao vivo retornará ao estado parado.|
+|**Executado**| Os recursos de evento ao vivo foram alocados, as URLs de ingestão e de visualização foram geradas e são capazes de receber fluxos ao vivo. Neste ponto, a cobrança está ativa. Você deve chamar Stop explicitamente no recurso de evento ao vivo para interromper mais cobranças.|
+|**Impedir**| O evento ao vivo está sendo interrompido e os recursos estão sendo desprovisionados. Nenhuma cobrança ocorre nesse estado transitório. Não são permitidas atualizações ou streaming durante esse estado.|
+|**Excluído**| O Evento em Direto está a ser eliminado. Nenhuma cobrança ocorre nesse estado transitório. Não são permitidas atualizações ou streaming durante esse estado.|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Descrição geral de transmissão em fluxo em direto](live-streaming-overview.md)
-- [Tutorial de transmissão em fluxo em direto](stream-live-tutorial-with-api.md)
+- [Visão geral da transmissão ao vivo](live-streaming-overview.md)
+- [Tutorial de transmissão ao vivo](stream-live-tutorial-with-api.md)

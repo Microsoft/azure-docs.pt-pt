@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 0b357a36afc44ceac8ed2c951e0f25901be9d93d
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 098dc5e2ab7d4b9533f58e03557db533eaa49a90
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264378"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931282"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Início rápido: treinar um modelo de reconhecimento de formulário e extrair dados de formulário usando a API REST com ondulação
 
@@ -38,7 +38,7 @@ Primeiro, você precisará de um conjunto de dados de treinamento em um blob de 
 
 Para treinar um modelo de reconhecimento de formulário com os documentos em seu contêiner de blob do Azure, chame a API de **treinamento** executando o comando de rotação a seguir. Antes de executar o comando, faça estas alterações:
 
-1. Substitua `<Endpoint>` pelo ponto de extremidade obtido com a chave de assinatura do reconhecedor de formulário. Você pode encontrá-lo na guia **visão geral** de recursos do reconhecedor de formulário.
+1. Substitua `<Endpoint>` pelo ponto de extremidade obtido com a assinatura do reconhecedor de formulário.
 1. Substitua `<subscription key>` pela chave de assinatura que você copiou da etapa anterior.
 1. Substitua `<SAS URL>` pela URL de assinatura de acesso compartilhado (SAS) do contêiner de armazenamento de BLOBs do Azure. Para recuperar a URL SAS, abra o Gerenciador de Armazenamento do Microsoft Azure, clique com o botão direito do mouse no contêiner e selecione **obter assinatura de acesso compartilhado**. Verifique se as permissões de **leitura** e **lista** estão marcadas e clique em **criar**. Em seguida, copie o valor na seção **URL** . Ele deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
@@ -93,7 +93,7 @@ Observe o valor `"modelId"`. Você precisará dela nas etapas a seguir.
 
 Em seguida, você analisará um documento e extrairá pares de chave-valor e tabelas dele. Chame a API **Model-Analyze** executando o comando de ondulação a seguir. Antes de executar o comando, faça estas alterações:
 
-1. Substitua `<Endpoint>` pelo ponto de extremidade obtido da chave de assinatura do reconhecedor de formulário. Você pode encontrá-lo na guia **visão geral** de recursos do reconhecedor de formulário.
+1. Substitua `<Endpoint>` pelo ponto de extremidade obtido da sua assinatura do reconhecedor de formulário.
 1. Substitua `<modelID>` pela ID do modelo que você recebeu na seção anterior.
 1. Substitua `<path to your form>` pelo caminho do arquivo do formulário (por exemplo, C:\temp\File.pdf). Para este guia de início rápido, você pode usar os arquivos na pasta **Test** do [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451).
 1. Substitua `<file type>` pelo tipo de arquivo. Tipos com suporte: `application/pdf`, `image/jpeg`, `image/png`.

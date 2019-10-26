@@ -1,5 +1,5 @@
 ---
-title: Use o reparticionamento para otimizar o processamento com Azure Stream Analytics
+title: Usar o reparticionamento para otimizar trabalhos de Azure Stream Analytics
 description: Este artigo descreve como usar o reparticionamento para otimizar Azure Stream Analytics trabalhos que não podem ser paralelizados.
 ms.service: stream-analytics
 author: mamccrea
@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: fcbef434d3b88c20cdaaeab92a973e5fbe41680d
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: bbea71464e8a1f4e93e510106d372257f155b0c6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266434"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935054"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Use o reparticionamento para otimizar o processamento com Azure Stream Analytics
 

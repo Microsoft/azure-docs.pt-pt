@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea4b8ea98365ec13f7f027215a75b9d79ea5c54e
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 6996b6163c1d5a2a4747093743a937dfd9eb7d4f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72453137"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933124"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Concluir uma implantação de autenticação com senha
 
@@ -185,7 +185,7 @@ Veja a seguir exemplos de casos de teste para autenticação sem senha com chave
 | O usuário pode entrar com o dispositivo FIDO2 (1809) | O usuário pode selecionar a chave de segurança da janela de entrada e entrar com êxito. |
 | O usuário pode registrar o dispositivo FIDO2 (1903) | O usuário pode registrar o dispositivo FIDO2 em Configurações > contas > opções de entrada > chave de segurança |
 | O usuário pode redefinir o dispositivo FIDO2 (1903) | O usuário pode redefinir o dispositivo FIDO2 nas configurações > contas > opções de entrada > chave de segurança |
-| O usuário pode entrar com o dispositivo FIDO2 (1809) | O usuário pode selecionar a chave de segurança da janela de entrada e entrar com êxito. |
+| O usuário pode entrar com o dispositivo FIDO2 (1903) | O usuário pode selecionar a chave de segurança da janela de entrada e entrar com êxito. |
 
 **FIDO sem senha entre em aplicativos Web do Azure AD**
 

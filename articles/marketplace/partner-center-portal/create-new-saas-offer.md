@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: a757ee03b8d8c7c93b191054182d077408c162db
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: da6fee7158344d331c6c2a68f0fab1b13cc3a291
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819816"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934105"
 ---
 # <a name="create-a-new-saas-offer"></a>Criar uma nova oferta de SaaS
 
@@ -196,7 +196,7 @@ O contrato padrão pode ser encontrado aqui: https://go.microsoft.com/fwlink/?li
 
 #### <a name="terms-of-use"></a>Termos de utilização
 
-Se os termos de licença forem diferentes do contrato Standard, você poderá optar por inserir seus próprios termos legais de uso aqui. Você também pode inserir até 10.000 caracteres de texto neste campo. Se os termos de uso exigirem uma descrição mais longa, insira um link de URL único nesse campo, em que os termos de licença adicionais podem ser encontrados. Ele será exibido aos clientes como um link ativo.
+Se os termos de licença forem diferentes do contrato Standard, você poderá optar por inserir seus próprios termos legais de uso aqui. Eles podem ser inseridos como texto sem formatação ou como uma URL única vinculada aos seus termos de licença.
 
 Os clientes precisam aceitar esses termos antes de tentarem seu aplicativo. 
 

@@ -1,5 +1,5 @@
 ---
-title: Problemas conhecidos em navegadores (biblioteca de autenticação da Microsoft para JavaScript)
+title: Problemas conhecidos no Internet Explorer e no Microsoft Edge (MSAL para JavaScript)
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre os problemas conhecidos ao usar a biblioteca de autenticação da Microsoft para JavaScript (MSAL. js) com os navegadores do Internet Explorer e do Microsoft Edge.
 services: active-directory
@@ -18,12 +18,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d2de7f8a34b38d377d80d574dd7e52c46286bb9
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: e7b4e24a02bcce372f020833a82b685748432c39
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803046"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934828"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>Problemas conhecidos no Internet Explorer e nos navegadores do Microsoft Edge com MSAL. js
 

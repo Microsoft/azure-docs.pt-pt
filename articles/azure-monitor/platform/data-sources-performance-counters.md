@@ -1,73 +1,67 @@
 ---
-title: Recolher e analisar os contadores de desempenho no Azure Monitor | Documentos da Microsoft
-description: Contadores de desempenho são recolhidos pelo Azure Monitor para analisar o desempenho em agentes Windows e Linux.  Este artigo descreve como configurar a recolha de contadores de desempenho para ambos os Windows e agentes do Linux, detalhes de que eles são armazenados na área de trabalho e como analisá-los no portal do Azure.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
-ms.service: log-analytics
+title: Coletar e analisar contadores de desempenho no Azure Monitor | Microsoft Docs
+description: Os contadores de desempenho são coletados pelo Azure Monitor para analisar o desempenho em agentes do Windows e do Linux.  Este artigo descreve como configurar a coleta de contadores de desempenho para agentes do Windows e do Linux, os detalhes deles são armazenados no espaço de trabalho e como analisá-los no portal do Azure.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2018
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 76f4061af816c59e644db99913193ed6fcf24d18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/28/2018
+ms.openlocfilehash: d007d3dab1625d58a561d35bb111923fbdeb3482
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205755"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932442"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Windows e Linux origens de dados de desempenho no Azure Monitor
-Contadores de desempenho no Windows e no Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  O Azure Monitor pode recolher contadores de desempenho em intervalos frequentes para análise quase em Tempo Real (NRT), além de agregar dados de desempenho para análise de termo mais tempo e relatórios.
+# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Fontes de dados de desempenho do Windows e do Linux no Azure Monitor
+Os contadores de desempenho no Windows e no Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  Azure Monitor pode coletar contadores de desempenho em intervalos frequentes para análise NRT (quase em tempo real), além de agregar dados de desempenho para análise e relatórios de longo prazo.
 
 ![Contadores de desempenho](media/data-sources-performance-counters/overview.png)
 
-## <a name="configuring-performance-counters"></a>Configurar contadores de desempenho
-Configurar contadores de desempenho a partir do [menu de dados nas definições avançadas](agent-data-sources.md#configuring-data-sources).
+## <a name="configuring-performance-counters"></a>Configurando contadores de desempenho
+Configure contadores de desempenho no [menu dados em configurações avançadas](agent-data-sources.md#configuring-data-sources).
 
-Quando configurar os contadores de Windows ou o desempenho do Linux para uma nova área de trabalho em primeiro lugar, é-lhe dada a opção para criar rapidamente vários contadores comuns.  São listados com uma caixa de verificação junto a cada um.  Certifique-se de que quaisquer contadores que pretende criar inicialmente são verificados e, em seguida, clique em **adicionar os contadores de desempenho selecionados**.
+Ao configurar os contadores de desempenho do Windows ou do Linux pela primeira vez para um novo espaço de trabalho, você terá a opção de criar rapidamente vários contadores comuns.  São listados com uma caixa de verificação junto a cada um.  Verifique se todos os contadores que você deseja criar inicialmente estão marcados e clique em **adicionar os contadores de desempenho selecionados**.
 
-Para contadores de desempenho do Windows, pode escolher uma instância específica de cada contador de desempenho. Para contadores de desempenho do Linux, a instância de cada contador que escolher aplica-se a todos os contadores de subordinados do contador principal. A tabela seguinte mostra as instâncias comuns disponíveis para os contadores de desempenho do Linux e Windows.
+Para contadores de desempenho do Windows, você pode escolher uma instância específica para cada contador de desempenho. Para contadores de desempenho do Linux, a instância de cada contador que você escolhe aplica-se a todos os contadores filho do contador pai. A tabela a seguir mostra as instâncias comuns disponíveis para os contadores de desempenho do Linux e do Windows.
 
 | Nome da Instância | Descrição |
 | --- | --- |
-| \_Total |Total de todas as instâncias |
+| Total de \_ |Total de todas as instâncias |
 | \* |Todas as instâncias |
-| (/&#124;/var) |Corresponde a instâncias com o nome: / ou /var |
+| (/&#124;/var) |Corresponde a instâncias nomeadas:/ou/var |
 
 ### <a name="windows-performance-counters"></a>Contadores de desempenho do Windows
 
-![Configurar os contadores de desempenho do Windows](media/data-sources-performance-counters/configure-windows.png)
+![Configurar contadores de desempenho do Windows](media/data-sources-performance-counters/configure-windows.png)
 
-Siga este procedimento para adicionar um novo contador de desempenho do Windows para recolher.
+Siga este procedimento para adicionar um novo contador de desempenho do Windows a ser coletado.
 
-1. Escreva o nome do contador na caixa de texto no formato *objeto (instância) \counter*.  Quando começa a digitar, é apresentada uma lista de correspondência de contadores comuns.  Pode selecionar um contador da lista ou tipo em seu próprio dashboard.  Também podem retornar todas as instâncias de um contador específico, especificando *object\counter*.  
+1. Digite o nome do contador na caixa de texto no formato *objeto (instância) \counter*.  Quando você começar a digitar, verá uma lista correspondente de contadores comuns.  Você pode selecionar um contador na lista ou digitar um do seu próprio.  Você também pode retornar todas as instâncias para um determinado contador especificando *objeto\contador*.  
 
-    Quando a recolha de contadores de desempenho do SQL Server a partir de instâncias nomeadas, tudo com o nome início de contadores de instância com *MSSQL$* e seguido do nome da instância.  Por exemplo, para recolher o contador da taxa de acessos de Cache em Log todas as bases de dados do objeto de desempenho da base de dados para o SQL com o nome a instância INST2, especificar `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
+    Ao coletar SQL Server contadores de desempenho de instâncias nomeadas, todos os contadores de instância nomeados começam com *MSSQL $* e seguidos pelo nome da instância.  Por exemplo, para coletar o contador de taxa de acertos do cache de log para todos os bancos de dados do objeto de desempenho do Database para a instância SQL nomeada INST2, especifique `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
 
-2. Clique em **+** ou prima **Enter** para adicionar o contador à lista.
-3. Quando adiciona um contador, ele usa o padrão de 10 segundos para seus **intervalo de amostragem**.  Pode alterar isto para um valor mais alto de até como 1800 segundos (30 minutos) para reduzir os requisitos de armazenamento dos dados de desempenho coletados.
-4. Quando tiver terminado a adição de contadores, clique nas **guardar** botão na parte superior do ecrã, para guardar a configuração.
+2. Clique em **+** ou pressione **Enter** para adicionar o contador à lista.
+3. Quando você adiciona um contador, ele usa o padrão de 10 segundos para seu **intervalo de amostragem**.  Você pode alterar isso para um valor mais alto de até 1800 segundos (30 minutos) se desejar reduzir os requisitos de armazenamento dos dados de desempenho coletados.
+4. Quando você terminar de adicionar contadores, clique no botão **salvar** na parte superior da tela para salvar a configuração.
 
 ### <a name="linux-performance-counters"></a>Contadores de desempenho do Linux
 
-![Configurar os contadores de desempenho do Linux](media/data-sources-performance-counters/configure-linux.png)
+![Configurar contadores de desempenho do Linux](media/data-sources-performance-counters/configure-linux.png)
 
-Siga este procedimento para adicionar um novo contador de desempenho do Linux para recolher.
+Siga este procedimento para adicionar um novo contador de desempenho do Linux a ser coletado.
 
-1. Por predefinição, todas as alterações de configuração são automaticamente enviados por push para todos os agentes.  Para agentes do Linux, um ficheiro de configuração é enviado para o recoletor de dados Fluentd.  Se deseja modificar esse arquivo manualmente em cada agente do Linux, em seguida, desmarque a caixa *aplicar configuração abaixo aos meus computadores Linux* e siga as orientações abaixo.
-2. Escreva o nome do contador na caixa de texto no formato *objeto (instância) \counter*.  Quando começa a digitar, é apresentada uma lista de correspondência de contadores comuns.  Pode selecionar um contador da lista ou tipo em seu próprio dashboard.  
-3. Clique em **+** ou prima **Enter** para adicionar o contador para a lista de outros contadores para o objeto.
-4. Todos os contadores de um objeto de utilizar a mesma **intervalo de amostragem**.  A predefinição é 10 segundos.  Alterar isso para um valor mais alto de até como 1800 segundos (30 minutos) para reduzir os requisitos de armazenamento dos dados de desempenho coletados.
-5. Quando tiver terminado a adição de contadores, clique nas **guardar** botão na parte superior do ecrã, para guardar a configuração.
+1. Por padrão, todas as alterações de configuração são automaticamente enviadas para todos os agentes.  Para agentes do Linux, um arquivo de configuração é enviado para o coletor de dados Fluentd.  Se você quiser modificar esse arquivo manualmente em cada agente do Linux, desmarque a caixa *aplicar configuração abaixo a meus computadores Linux* e siga as orientações abaixo.
+2. Digite o nome do contador na caixa de texto no formato *objeto (instância) \counter*.  Quando você começar a digitar, verá uma lista correspondente de contadores comuns.  Você pode selecionar um contador na lista ou digitar um do seu próprio.  
+3. Clique em **+** ou pressione **Enter** para adicionar o contador à lista de outros contadores para o objeto.
+4. Todos os contadores de um objeto usam o mesmo **intervalo de amostragem**.  O padrão é 10 segundos.  Altere isso para um valor mais alto de até 1800 segundos (30 minutos) se você quiser reduzir os requisitos de armazenamento dos dados de desempenho coletados.
+5. Quando você terminar de adicionar contadores, clique no botão **salvar** na parte superior da tela para salvar a configuração.
 
-#### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configurar contadores de desempenho do Linux no ficheiro de configuração
-Em vez de configurar contadores de desempenho do Linux no portal do Azure, tem a opção de editar ficheiros de configuração no agente Linux.  Métricas de desempenho para recolher são controladas mediante a configuração no **/etc/optar ativamente por participar/microsoft/omsagent/\<id da área de trabalho\>/conf/omsagent.conf**.
+#### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configurar contadores de desempenho do Linux no arquivo de configuração
+Em vez de configurar contadores de desempenho do Linux usando o portal do Azure, você tem a opção de editar arquivos de configuração no agente do Linux.  As métricas de desempenho a serem coletadas são controladas pela configuração em **/etc/opt/microsoft/omsagent/\<ID do espaço de trabalho\>/conf/omsagent.conf**.
 
-Cada objeto ou categoria, das métricas de desempenho para recolher deve ser definidos no ficheiro de configuração como um único `<source>` elemento. A sintaxe segue o padrão abaixo.
+Cada objeto, ou categoria, das métricas de desempenho a serem coletadas deve ser definido no arquivo de configuração como um único elemento de `<source>`. A sintaxe segue o padrão abaixo.
 
     <source>
       type oms_omi  
@@ -78,76 +72,76 @@ Cada objeto ou categoria, das métricas de desempenho para recolher deve ser def
     </source>
 
 
-Os parâmetros neste elemento são descritos na tabela seguinte.
+Os parâmetros neste elemento são descritos na tabela a seguir.
 
 | Parâmetros | Descrição |
 |:--|:--|
-| object\_name | Nome do objeto para a coleção. |
-| instance\_regex |  R *expressão regular* definir quais as instâncias para recolher. O valor: `.*` Especifica todas as instâncias. Para recolher métricas de processador para apenas os \_instância Total, poderia especificar `_Total`. Para recolher métricas de processo para apenas as instâncias crond ou sshd, pode especificar: `(crond\|sshd)`. |
-| counter\_name\_regex | R *expressão regular* definir quais contadores (para o objeto) para recolher. Para recolher todos os contadores para o objeto, especifique: `.*`. Para recolher contadores para espaço de comutação apenas para o objeto de memória, por exemplo, pode especificar: `.+Swap.+` |
-| interval | Frequência em que os contadores do objeto são recolhidos. |
+| nome do\_de objeto | Nome do objeto da coleção. |
+| Regex de\_de instância |  Uma *expressão regular* que define quais instâncias coletar. O valor: `.*` especifica todas as instâncias. Para coletar métricas do processador somente para a instância total do \_, você pode especificar `_Total`. Para coletar métricas de processo somente para as instâncias crond ou sshd, você pode especificar: `(crond\|sshd)`. |
+| \_Regex de nome de\_do contador | Uma *expressão regular* que define os contadores (para o objeto) a serem coletados. Para coletar todos os contadores do objeto, especifique: `.*`. Para coletar somente contadores de espaço de permuta para o objeto de memória, por exemplo, você pode especificar: `.+Swap.+` |
+| intervalo | Frequência em que os contadores do objeto são coletados. |
 
 
-A tabela seguinte lista os objetos e os contadores que pode especificar no arquivo de configuração.  Há contadores adicionais disponíveis para determinadas aplicações conforme descrito em [recolher contadores de desempenho de aplicações do Linux no Azure Monitor](data-sources-linux-applications.md).
+A tabela a seguir lista os objetos e contadores que você pode especificar no arquivo de configuração.  Há contadores adicionais disponíveis para determinados aplicativos, conforme descrito em [coletar contadores de desempenho para aplicativos do Linux em Azure monitor](data-sources-linux-applications.md).
 
 | Nome do objeto | Nome do contador |
 |:--|:--|
-| Disco lógico | % De Inodes livres |
+| Disco lógico | % De inodes livres |
 | Disco lógico | % De espaço livre |
-| Disco lógico | % De Inodes utilizados |
-| Disco lógico | % De espaço utilizado |
-| Disco lógico | Bytes Lidos de Disco/seg |
-| Disco lógico | Leituras de disco/seg |
-| Disco lógico | As transferências de disco/seg |
-| Disco lógico | Bytes Escritos em Disco/seg |
-| Disco lógico | Escritas de disco/seg |
+| Disco lógico | % De inodes usados |
+| Disco lógico | % De espaço usado |
+| Disco lógico | Bytes de leitura de disco/s |
+| Disco lógico | Leituras de disco/s |
+| Disco lógico | Transferências de disco/s |
+| Disco lógico | Bytes de gravação no disco/s |
+| Disco lógico | Gravações de disco/s |
 | Disco lógico | Megabytes livres |
-| Disco lógico | Bytes de disco lógico/seg |
+| Disco lógico | Bytes de disco lógico/s |
 | Memória | % De memória disponível |
-| Memória | % De espaço de comutação disponível |
-| Memória | % De memória utilizada |
-| Memória | % De espaço de comutação utilizado |
-| Memória | MBytes de memória disponíveis |
-| Memória | Comutação em MBytes disponíveis |
-| Memória | Leituras de paginações/seg |
-| Memória | Páginas escritas/seg |
-| Memória | Páginas/seg |
-| Memória | Espaço de comutação \ MBytes disponíveis |
-| Memória | Memória utilizada em MBytes |
-| Rede | Total de Bytes transmitidos |
-| Rede | Total de Bytes recebidos |
-| Rede | Total de Bytes |
+| Memória | % De espaço de permuta disponível |
+| Memória | % De memória usada |
+| Memória | % De espaço de permuta utilizado |
+| Memória | Memória de MBytes disponíveis |
+| Memória | Troca de MBytes disponíveis |
+| Memória | Leituras de página/s |
+| Memória | Gravações de página/s |
+| Memória | Páginas/s |
+| Memória | Espaço de permuta usado em Mbytes |
+| Memória | Mbytes de memória usados |
+| Rede | Total de bytes transmitidos |
+| Rede | Total de bytes recebidos |
+| Rede | Total de bytes |
 | Rede | Total de pacotes transmitidos |
 | Rede | Total de pacotes recebidos |
-| Rede | Total Rx de erros |
-| Rede | Erros de total Tx |
-| Rede | Colisões total |
-| Disco físico | Média Disco seg/leitura |
-| Disco físico | Média Disco seg/transferência |
-| Disco físico | Média Disco seg/escritas |
-| Disco físico | Bytes de disco físico/seg |
-| Process | Tempo de PCT privilegiado |
-| Process | Tempo de utilizador de PCT |
-| Process | KBytes de memória utilizada |
-| Process | Memória compartilhada virtual |
-| Processador | % De tempo DPC |
-| Processador | % De tempo inativo |
+| Rede | Total de erros de RX |
+| Rede | Total de erros TX |
+| Rede | Total de colisões |
+| Disco físico | Média de disco s/leitura |
+| Disco físico | Média de disco s/transferência |
+| Disco físico | Média de disco s/gravação |
+| Disco físico | Bytes de disco físico/s |
+| Processo | Percentual de tempo privilegiado |
+| Processo | Tempo de usuário do PCT |
+| Processo | KBytes de memória usada |
+| Processo | Memória compartilhada virtual |
+| Processador | % De tempo de DPC |
+| Processador | % De tempo ocioso |
 | Processador | % De tempo de interrupção |
 | Processador | % De tempo de espera de e/s |
-| Processador | % De tempo nice |
+| Processador | % De tempo adequado |
 | Processador | % De tempo privilegiado |
-| Processador | % Tempo do processador |
-| Processador | % Tempo de utilizador |
+| Processador | % De tempo do processador |
+| Processador | % De tempo do usuário |
 | Sistema | Memória física livre |
-| Sistema | Espaço livre em ficheiros de paginação |
-| Sistema | Memória Virtual livre |
+| Sistema | Espaço livre em arquivos de paginação |
+| Sistema | Memória virtual livre |
 | Sistema | Processos |
-| Sistema | Tamanho armazenado em ficheiros de paginação |
-| Sistema | Tempo de atividade |
+| Sistema | Tamanho armazenado em arquivos de paginação |
+| Sistema | Atividade |
 | Sistema | Utilizadores |
 
 
-Segue-se a configuração predefinida para as métricas de desempenho.
+A seguir está a configuração padrão para métricas de desempenho.
 
     <source>
       type oms_omi
@@ -182,48 +176,48 @@ Segue-se a configuração predefinida para as métricas de desempenho.
     </source>
 
 ## <a name="data-collection"></a>Recolha de dados
-Monitor do Azure recolhe todos os contadores de desempenho especificado no respetivo intervalo de amostragem especificado em todos os agentes que tenham que contador instalado.  Os dados não são agregados e os dados não processados estão disponíveis em todas as vistas de consulta de registo durante o período especificado pela sua subscrição.
+Azure Monitor coleta todos os contadores de desempenho especificados em seu intervalo de amostragem especificado em todos os agentes que têm esse contador instalado.  Os dados não são agregados e os dados brutos estão disponíveis em todas as exibições de consulta de log durante a duração especificada pela sua assinatura.
 
-## <a name="performance-record-properties"></a>Propriedades de registo de desempenho
-Registos de desempenho têm um tipo de **Perf** e ter as propriedades na tabela seguinte.
+## <a name="performance-record-properties"></a>Propriedades do registro de desempenho
+Os registros de desempenho têm um **tipo de desempenho** e têm as propriedades na tabela a seguir.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Computador |Computador que o evento foi recolhido a partir de. |
+| Computador |Computador do qual o evento foi coletado. |
 | CounterName |Nome do contador de desempenho |
-| CounterPath |Caminho completo do contador na forma \\ \\ \<computador >\\object(instance)\\contador. |
+| Caminho |Caminho completo do contador no formulário \\\\\<computador >\\objeto (instância)\\contador. |
 | CounterValue |Valor numérico do contador. |
-| InstanceName |Nome da instância do evento.  Vazia se nenhuma instância. |
+| Instância |Nome da instância do evento.  Vazio se não houver nenhuma instância. |
 | ObjectName |Nome do objeto de desempenho |
-| SourceSystem |Tipo de agente que foram recolhidos os dados de. <br><br>Ligar OpsManager – agente de Windows, direta ou SCOM <br> Linux – todos os agentes do Linux  <br> AzureStorage – diagnósticos do Azure |
-| TimeGenerated |Data e hora que de dados foi o objeto de amostragem. |
+| SourceSystem |Tipo de agente do qual os dados foram coletados. <br><br>OpsManager – agente do Windows, conexão direta ou SCOM <br> Linux – todos os agentes do Linux  <br> AzureStorage – Diagnóstico do Azure |
+| TimeGenerated |Data e hora em que os dados foram amostrados. |
 
-## <a name="sizing-estimates"></a>As estimativas de dimensionamento
- Uma estimativa aproximada de coleção de um contador específico em intervalos de 10 segundos é cerca de 1 MB por dia, por instância.  Pode estimar as necessidades de armazenamento de um contador específico com a fórmula seguinte.
+## <a name="sizing-estimates"></a>Estimativas de dimensionamento
+ Uma estimativa aproximada para a coleta de um determinado contador em intervalos de 10 segundos é de cerca de 1 MB por dia por instância.  Você pode estimar os requisitos de armazenamento de um determinado contador com a fórmula a seguir.
 
     1 MB x (number of counters) x (number of agents) x (number of instances)
 
-## <a name="log-queries-with-performance-records"></a>Consultas de registo com registos de desempenho
-A tabela seguinte fornece exemplos diferentes de consultas de registo que obter registos de desempenho.
+## <a name="log-queries-with-performance-records"></a>Registrar consultas com registros de desempenho
+A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam registros de desempenho.
 
 | Consulta | Descrição |
 |:--- |:--- |
-| Desempenho |Todos os dados de desempenho |
-| Desempenho &#124; onde computador = = "MyComputer" |Todos os dados de desempenho de um computador específico |
-| Desempenho &#124; onde CounterName = = "Comprimento de fila de disco atual" |Todos os dados de desempenho de um contador específico |
-| Desempenho &#124; onde ObjectName = = "Processador" e CounterName = = "% de tempo do processador" e InstanceName = = total" &#124; resumir AVGCPU = avg(CounterValue) por computador |Utilização média da CPU em todos os computadores |
-| Desempenho &#124; onde CounterName = = "% de tempo do processador" &#124; resumir AggregatedValue = max(CounterValue) por computador |Máximo de utilização da CPU em todos os computadores |
-| Perf &#124; where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" &#124; summarize AggregatedValue = avg(CounterValue) by InstanceName |Duração média da fila de disco atual em todas as instâncias de um determinado computador |
-| Desempenho &#124; onde CounterName = = "Transferências de disco/seg" &#124; resumir AggregatedValue = percentil (CounterValue, 95) por computador |95 º percentil de transferência de disco/seg em todos os computadores |
-| Desempenho &#124; onde CounterName = = "% de tempo do processador" e InstanceName = = total" &#124; resumir AggregatedValue = avg(CounterValue) por bin (TimeGenerated, 1 hora), computador |Média por hora de utilização da CPU em todos os computadores |
-| Desempenho &#124; onde computador = = "MyComputer" e CounterName startswith_cs "%" e InstanceName = = total" &#124; resumir AggregatedValue = percentil (CounterValue, 70) por bin (TimeGenerated, 1 hora), CounterName | Percentil de 70 por hora de cada contador % de percentagem de um computador específico |
-| Desempenho &#124; onde CounterName = = "% de tempo do processador" e InstanceName = = , total"e o computador = ="MyComputer" &#124; resumir ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentil (CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) por bin (TimeGenerated, 1 hora), computador |Por hora média, mínimo, máxima e 75 percentil utilização da CPU para um computador específico |
-| Desempenho &#124; onde ObjectName = = "MSSQL$ INST2: bases de dados" e InstanceName = = "principal" | Todos os dados de desempenho do objeto de desempenho da base de dados para o banco de dados mestra a instância nomeada do SQL Server INST2.  
+| Perf |Todos os dados de desempenho |
+| Perf &#124; , em que Computer = = "MyComputer" |Todos os dados de desempenho de um computador específico |
+| Desempenho &#124; em que CounterName = = "comprimento da fila de disco atual" |Todos os dados de desempenho de um determinado contador |
+| Perf &#124; , em que ObjectName = = "Processor" e CounterName = = "% Processor Time" e InstanceName = = " &#124; _ total" resume AVGCPU = AVG (Comvalue) por computador |Utilização média da CPU em todos os computadores |
+| Desempenho &#124; em que CounterName = = "% Processor Time &#124; " resume AggregatedValue = Max (Comvalue) por computador |Utilização máxima da CPU em todos os computadores |
+| Perf &#124; , em que ObjectName = = "LogicalDisk" e CounterName = = "comprimento atual da fila do disco" e computador = = " &#124; mycomputername" resume AggregatedValue = AVG (Comvalue) por InstanceName |Comprimento médio da fila de disco atual em todas as instâncias de um determinado computador |
+| Desempenho &#124; em que CounterName = = "transferências de disco/ &#124; s" resume AggregatedValue = percentil (comvalue, 95) por computador |95 º percentil de transferências de disco/s em todos os computadores |
+| Desempenho &#124; em que CounterName = = "% Processor Time" e InstanceName = = "_ &#124; total" resume AggregatedValue = AVG (comvalue) por bin (TimeGenerated, 1h), Computer |Média horária de uso da CPU em todos os computadores |
+| Perf &#124; , em que Computer = = "MyComputer" e CounterName startswith_cs "%" e InstanceName = = &#124; "_ total" resumem AggregatedValue = percentil (myValue, 70) por bin (TimeGenerated, 1h), CounterName | A cada hora 70 percentil de cada contador de% por cento para um determinado computador |
+| Perf &#124; = = "% Processor Time" e InstanceName = = "_ total" e Computer = = "MyComputer" &#124; resume ["min (comvalue)"] = min (comvalue), ["AVG (comvalue)"] = AVG (comvalue), ["percentile75 (comvalue)"] = percentil (comvalue, 75), ["Max (comvalue)"] = Max (comvalue) por bin (TimeGenerated, 1h), Computer |Média por hora, mínimo, máximo e 75-percentil de uso da CPU para um computador específico |
+| Perf &#124; , em que ObjectName = = "MSSQL $ INST2: Databases" e InstanceName = = "Master" | Todos os dados de desempenho do objeto de desempenho Database para o banco de dados mestre da instância SQL Server nomeada INST2.  
 
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Recolher contadores de desempenho de aplicações do Linux](data-sources-linux-applications.md) incluindo MySQL e Apache HTTP Server.
-* Saiba mais sobre [registar as consultas](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
-* Exportar os dados recolhidos para [Power BI](powerbi.md) para análise e visualizações adicionais.
+## <a name="next-steps"></a>Passos seguintes
+* [Colete contadores de desempenho de aplicativos Linux](data-sources-linux-applications.md) , incluindo MySQL e Apache HTTP Server.
+* Saiba mais sobre [consultas de log](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.  
+* Exporte os dados coletados para [Power bi](powerbi.md) para análise e visualizações adicionais.

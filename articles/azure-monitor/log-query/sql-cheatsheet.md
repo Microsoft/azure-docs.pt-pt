@@ -1,53 +1,47 @@
 ---
-title: SQL para referência rápida do Azure Monitor log consulta | Documentos da Microsoft
-description: Ajuda para os utilizadores familiarizados com SQL na gravação de consultas de registo no Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Roteiro de consulta do SQL para Azure Monitor log | Microsoft Docs
+description: Ajuda para os usuários familiarizados com o SQL na gravação de consultas de log no Azure Monitor.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/21/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: b756b9484273c098dbeb6685430f70626b3af787
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/21/2018
+ms.openlocfilehash: 4acf3c2f8cee3ca9e679915eec677b6dd92792bf
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789240"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932918"
 ---
-# <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>SQL para referência rápida do Azure Monitor log consulta 
+# <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>Roteiro de consulta do SQL para Azure Monitor log 
 
-A tabela abaixo ajuda os utilizadores que estão familiarizados com o SQL para aprender a linguagem de consulta de Kusto escrever consultas de registo no Azure Monitor. Dê uma olhada no comando T-SQL para resolver cenários comuns e o equivalente numa consulta de registo do Azure Monitor.
+A tabela a seguir ajuda os usuários que estão familiarizados com o SQL a aprender a linguagem de consulta Kusto para gravar consultas de log em Azure Monitor. Observe o comando T-SQL para a solução de cenários comuns e o equivalente em uma consulta Azure Monitor log.
 
-## <a name="sql-to-azure-monitor"></a>SQL para o Azure Monitor
+## <a name="sql-to-azure-monitor"></a>SQL para Azure Monitor
 
-Descrição                             |Consulta SQL                                                                                          |Consulta de registo do Azure Monitor
+Descrição                             |Consulta SQL                                                                                          |Azure Monitor consulta de log
 ----------------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------
-Selecione todos os dados a partir de uma tabela            |`SELECT * FROM dependencies`                                                                       |<code>dependencies</code>
+Selecionar todos os dados de uma tabela            |`SELECT * FROM dependencies`                                                                       |<code>dependencies</code>
 Selecionar colunas específicas de uma tabela    |`SELECT name, resultCode FROM dependencies`                                                        |<code>dependencies <br>&#124; project name, resultCode</code>
-Selecionar 100 registos de uma tabela         |`SELECT TOP 100 * FROM dependencies`                                                               |<code>dependencies <br>&#124; take 100</code>
-Avaliação nulo                         |`SELECT * FROM dependencies WHERE resultCode IS NOT NULL`                                          |<code>dependencies <br>&#124; where isnotnull(resultCode)</code>
-Comparação de cadeias de caracteres: igualdade             |`SELECT * FROM dependencies WHERE name = "abcde"`                                                  |<code>dependencies <br>&#124; where name == "abcde"</code>
-Comparação de cadeias de caracteres: subcadeia            |`SELECT * FROM dependencies WHERE name like "%bcd%"`                                                   |<code>dependencies <br>&#124; where name contains "bcd"</code>
-Comparação de cadeias de caracteres: carateres universais             |`SELECT * FROM dependencies WHERE name like "abc%"`                                                |<code>dependencies <br>&#124; where name startswith "abc"</code>
+Selecionar registros de 100 de uma tabela         |`SELECT TOP 100 * FROM dependencies`                                                               |<code>dependencies <br>&#124; take 100</code>
+Avaliação nula                         |`SELECT * FROM dependencies WHERE resultCode IS NOT NULL`                                          |<code>dependencies <br>&#124; where isnotnull(resultCode)</code>
+Comparação de cadeia de caracteres: igualdade             |`SELECT * FROM dependencies WHERE name = "abcde"`                                                  |<code>dependencies <br>&#124; where name == "abcde"</code>
+Comparação de cadeia de caracteres: substring            |`SELECT * FROM dependencies WHERE name like "%bcd%"`                                                   |<code>dependencies <br>&#124; where name contains "bcd"</code>
+Comparação de cadeia de caracteres: curinga             |`SELECT * FROM dependencies WHERE name like "abc%"`                                                |<code>dependencies <br>&#124; where name startswith "abc"</code>
 Comparação de datas: último dia             |`SELECT * FROM dependencies WHERE timestamp > getdate()-1`                                         |<code>dependencies <br>&#124; where timestamp > ago(1d)</code>
 Comparação de datas: intervalo de datas             |`SELECT * FROM dependencies WHERE timestamp BETWEEN '2016-10-01' AND '2016-11-01'`                 |<code>dependencies <br>&#124; where timestamp between (datetime(2016-10-01) .. datetime(2016-10-01))</code>
-Booleanos de comparação                      |`SELECT * FROM dependencies WHERE !(success)`                                                      |<code>dependencies <br>&#124; where success == "False" </code>
+Comparação de booliano                      |`SELECT * FROM dependencies WHERE !(success)`                                                      |<code>dependencies <br>&#124; where success == "False" </code>
 Ordenar                                    |`SELECT name, timestamp FROM dependencies ORDER BY timestamp asc`                                  |<code>dependencies <br>&#124; order by timestamp asc </code>
-Distintos                                |`SELECT DISTINCT name, type  FROM dependencies`                                                    |<code>dependencies <br>&#124; summarize by name, type </code>
+Distinção                                |`SELECT DISTINCT name, type  FROM dependencies`                                                    |<code>dependencies <br>&#124; summarize by name, type </code>
 Agrupamento, agregação                   |`SELECT name, AVG(duration) FROM dependencies GROUP BY name`                                       |<code>dependencies <br>&#124; summarize avg(duration) by name </code>
-Aliases de coluna, expandir                  |`SELECT operation_Name as Name, AVG(duration) as AvgD FROM dependencies GROUP BY name`             |<code>dependencies <br>&#124; summarize AvgD=avg(duration) by operation_Name <br>&#124; project Name=operation_Name, AvgD</code>
-N registros Top pela medida                |`SELECT TOP 100 name, COUNT(*) as Count FROM dependencies GROUP BY name ORDER BY Count asc`        |<code>dependencies <br>&#124; summarize Count=count() by name <br>&#124; top 100 by Count asc</code>
+Aliases de coluna, estender                  |`SELECT operation_Name as Name, AVG(duration) as AvgD FROM dependencies GROUP BY name`             |<code>dependencies <br>&#124; summarize AvgD=avg(duration) by operation_Name <br>&#124; project Name=operation_Name, AvgD</code>
+N principais registros por medida                |`SELECT TOP 100 name, COUNT(*) as Count FROM dependencies GROUP BY name ORDER BY Count asc`        |<code>dependencies <br>&#124; summarize Count=count() by name <br>&#124; top 100 by Count asc</code>
 União                                   |`SELECT * FROM dependencies UNION SELECT * FROM exceptions`                                        |<code>union dependencies, exceptions</code>
 União: com condições                  |`SELECT * FROM dependencies WHERE value > 4 UNION SELECT * FROM exceptions WHERE value < 5`                |<code>dependencies <br>&#124; where value > 4 <br>&#124; union (exceptions <br>&#124; where value < 5)</code>
-Aderir                                    |`SELECT * FROM dependencies JOIN exceptions ON dependencies.operation_Id = exceptions.operation_Id`|<code>dependencies <br>&#124; join (exceptions) on operation_Id == operation_Id</code>
+Associar                                    |`SELECT * FROM dependencies JOIN exceptions ON dependencies.operation_Id = exceptions.operation_Id`|<code>dependencies <br>&#124; join (exceptions) on operation_Id == operation_Id</code>
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Sempre o processo as lições [escrever consultas de registo no Azure Monitor](get-started-queries.md).
+- Percorra as lições sobre como [escrever consultas de log em Azure monitor](get-started-queries.md).

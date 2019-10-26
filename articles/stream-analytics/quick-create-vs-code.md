@@ -1,5 +1,5 @@
 ---
-title: Criar um trabalho de nuvem Azure Stream Analytics no Visual Studio Code (visualização)
+title: Criar um trabalho de nuvem Azure Stream Analytics no Visual Studio Code
 description: Este guia de início rápido mostra como começar criando um trabalho de Stream Analytics, Configurando entradas, saídas e definindo uma consulta com Visual Studio Code.
 ms.service: stream-analytics
 author: mamccrea
@@ -7,14 +7,14 @@ ms.author: mamccrea
 ms.date: 09/16/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 3301be3a067982cb90e663fe3782319eb0b90ba0
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 35e2711bbb3cd6dc0662146a566014dd65d879bc
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673137"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935091"
 ---
-# <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Início rápido: Criar um trabalho de nuvem Azure Stream Analytics no Visual Studio Code (visualização)
+# <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Início rápido: criar um trabalho de Azure Stream Analytics nuvem no Visual Studio Code (visualização)
 
 Este guia de início rápido mostra como criar e executar um trabalho de Stream Analytics usando a extensão Azure Stream Analytics para Visual Studio Code. O trabalho de exemplo lê os dados de streaming de um dispositivo de Hub IoT. Você define um trabalho que calcula a temperatura média quando mais de 27 ° e grava os eventos de saída resultantes em um novo arquivo no armazenamento de BLOBs.
 
@@ -60,14 +60,14 @@ Antes de definir o trabalho de Stream Analytics, você deve preparar os dados, q
    
    |**Definição**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
-   |Subscription  | \<A sua subscrição\> |  Selecione a subscrição do Azure que pretende utilizar. |
-   |Resource group   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta. |
+   |Subscrição  | \<A sua subscrição\> |  Selecione a subscrição do Azure que pretende utilizar. |
+   |Grupo de recursos   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta. |
    |Região  |  \<Selecione a região mais próxima dos seus utilizadores\> | Selecione uma localização geográfica na qual você pode hospedar o Hub IoT. Use o local mais próximo de seus usuários. |
    |Nome do Hub IoT  | MyASAIoTHub  |   Selecione um nome para o Hub IoT.   |
 
    ![Criar um Hub IoT](./media/quick-create-vs-code/create-iot-hub.png)
 
-4. Selecione **avançar: Defina tamanho e escala @ no__t-0.
+4. Selecione **Avançar: definir tamanho e escala**.
 
 5. Selecione o seu **Escalão de preço e dimensionamento**. Para este guia de início rápido, selecione a camada **F1-Free** se ela ainda estiver disponível em sua assinatura. Se a camada gratuita não estiver disponível, escolha a camada mais baixa disponível. Para obter mais informações, consulte [preços do Hub IOT](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -101,7 +101,7 @@ Antes de definir o trabalho de Stream Analytics, você deve preparar os dados, q
 
 ## <a name="create-a-stream-analytics-project"></a>Criar um projeto do Stream Analytics
 
-1. Em Visual Studio Code, pressione **Ctrl + Shift + P** para abrir a paleta de comandos. Em seguida, digite **asa** e selecione **ASA: Crie um novo projeto @ no__t-0.
+1. Em Visual Studio Code, pressione **Ctrl + Shift + P** para abrir a paleta de comandos. Em seguida, digite **asa** e selecione **asa: criar novo projeto**.
 
    ![Criar novo projeto](./media/quick-create-vs-code/create-new-project.png)
 
@@ -141,7 +141,7 @@ Siga as instruções em [testar com dados de exemplo](vscode-local-run.md) para 
 
 ## <a name="define-an-input"></a>Definir uma entrada
 
-1. Selecione **Ctrl + Shift + P** para abrir a paleta de comandos e digite **ASA: Adicione a entrada @ no__t-0.
+1. Selecione **Ctrl + Shift + P** para abrir a paleta de comandos e insira **asa: Adicionar entrada**.
 
    ![Adicionar Stream Analytics entrada no VS Code](./media/quick-create-vs-code/add-input.png)
 
@@ -159,9 +159,9 @@ Siga as instruções em [testar com dados de exemplo](vscode-local-run.md) para 
 
    |Definição|Valor sugerido|Descrição|
    |-------|---------------|-----------|
-   |Name|Input|Introduza um nome para identificar a entrada da tarefa.|
+   |Nome|Input|Introduza um nome para identificar a entrada da tarefa.|
    |IotHubNamespace|MyASAIoTHub|Escolha ou insira o nome do seu hub IoT. Os nomes de Hub IoT serão detectados automaticamente se forem criados na mesma assinatura.|
-   |SharedAccessPolicyName|iothubowner| |
+   |sharedAccessPolicyName|iothubowner| |
 
    ![Configurar entrada no Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
 
@@ -169,7 +169,7 @@ Siga as instruções em [testar com dados de exemplo](vscode-local-run.md) para 
 
 ## <a name="define-an-output"></a>Definir uma saída
 
-1. Selecione **Ctrl + Shift + P** para abrir a paleta de comandos. Em seguida, digite **ASA: Adicione a saída @ no__t-0.
+1. Selecione **Ctrl + Shift + P** para abrir a paleta de comandos. Em seguida, insira **asa: adicionar saída**.
 
    ![Adicionar Stream Analytics saída no VS Code](./media/quick-create-vs-code/add-output.png)
 
@@ -183,7 +183,7 @@ Siga as instruções em [testar com dados de exemplo](vscode-local-run.md) para 
 
    |Definição|Valor sugerido|Descrição|
    |-------|---------------|-----------|
-   |Name|Output| Insira um nome para identificar a saída do trabalho.|
+   |Nome|Saída| Insira um nome para identificar a saída do trabalho.|
    |Conta de Armazenamento|asaquickstartstorage|Escolha ou insira o nome da sua conta de armazenamento. Os nomes de contas de armazenamento são detetados automaticamente se forem criados na mesma subscrição.|
    |Contentor|container1|Selecione o contentor existente que criou na conta de armazenamento.|
    |Padrão do Caminho|saída|Introduza o nome de um caminho de ficheiro a ser criado no contentor.|
@@ -266,4 +266,4 @@ Neste guia de início rápido, você implantou um trabalho simples de Stream Ana
 Para saber mais sobre as ferramentas de Azure Stream Analytics para o Visual Studio, prossiga para o seguinte artigo:
 
 > [!div class="nextstepaction"]
-> [Use o Visual Studio para ver tarefas do Azure Stream Analytics](stream-analytics-vs-tools.md)
+> [Usar o Visual Studio para exibir Azure Stream Analytics trabalhos](stream-analytics-vs-tools.md)

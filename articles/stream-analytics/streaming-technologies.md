@@ -1,62 +1,62 @@
 ---
-title: Escolha uma análise em tempo real e a tecnologia de processamento no Azure de transmissão em fluxo
-description: Saiba mais sobre como escolher a análise à direita em tempo real e a tecnologia de processamento de transmissão em fluxo para criar a sua aplicação no Azure.
+title: Escolha uma solução de processamento em tempo real e de fluxo no Azure
+description: Saiba mais sobre como escolher a tecnologia correta de processamento de streaming e análise em tempo real para criar seu aplicativo no Azure.
 author: zhongc
 ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: f46a35d971c008b61d4899e30101ea562d3cefea
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 3bde2964c40553d02a56f57f9c459cc6afa3f660
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483412"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924899"
 ---
-# <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Escolha uma análise em tempo real e a tecnologia de processamento no Azure de transmissão em fluxo
+# <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Escolha uma análise em tempo real e tecnologia de processamento de streaming no Azure
 
-Vários serviços estão disponíveis para análise em tempo real e processamento de transmissão em fluxo no Azure. Este artigo fornece as informações necessárias decidir qual a tecnologia que é a melhor opção para a sua aplicação.
+Há vários serviços disponíveis para análise em tempo real e processamento de streaming no Azure. Este artigo fornece as informações de que você precisa para decidir qual tecnologia é a melhor opção para seu aplicativo.
 
-## <a name="when-to-use-azure-stream-analytics"></a>Quando utilizar o Azure Stream Analytics
+## <a name="when-to-use-azure-stream-analytics"></a>Quando usar Azure Stream Analytics
 
-O Azure Stream Analytics é o serviço recomendado para o stream analytics no Azure. Destina-se para uma vasta gama de cenários que incluem, mas não está limitado a:
+Azure Stream Analytics é o serviço recomendado para o Stream Analytics no Azure. Ela é destinada a uma ampla gama de cenários que incluem, mas não estão limitados a:
 
-* Dashboards para visualização de dados
-* Em tempo real [alertas](stream-analytics-set-up-alerts.md) de padrões temporais e geográficos ou de anomalias
+* Painéis para visualização de dados
+* [Alertas](stream-analytics-set-up-alerts.md) em tempo real de padrões temporais e espaciais ou anomalias
 * Extrair, Transformar, Carregar (ETL)
-* [Padrão de origem do evento](/azure/architecture/patterns/event-sourcing)
+* [Padrão de fornecimento do evento](/azure/architecture/patterns/event-sourcing)
 * [IoT Edge](stream-analytics-edge.md)
 
-A adição de um Azure Stream Analytics tarefa ao seu aplicativo é a forma mais rápida de obter análise de transmissão a cópia de segurança e em execução no Azure, utilizando a linguagem SQL que já conhece. O Azure Stream Analytics é um serviço de tarefa, para que não temos de clusters de gestão do tempo, e não precisa se preocupar sobre o tempo de inatividade com um SLA de 99,9% no nível de tarefa. Faturação também é feita no nível tarefa tornando os custos com inicialização baixa (uma unidade transmissão em fluxo), mas escaláveis (até 192 unidades de transmissão em fluxo). É muito mais económica para executar algumas tarefas do Stream Analytics que executamos e mantemos um cluster.
+Adicionar um trabalho de Azure Stream Analytics ao seu aplicativo é a maneira mais rápida de colocar o Stream Analytics em funcionamento no Azure, usando a linguagem SQL que você já conhece. O Azure Stream Analytics é um serviço de trabalho, de modo que você não precisa gastar tempo gerenciando clusters e não precisa se preocupar com a inatividade com um SLA de 99,9% no nível do trabalho. A cobrança também é feita no nível do trabalho, tornando os custos de inicialização baixos (uma unidade de streaming), mas escalonável (até 192 unidades de streaming). É muito mais econômico executar alguns trabalhos de Stream Analytics do que executar e manter um cluster.
 
-O Azure Stream Analytics tem uma Rica experiência de out-of-the-box. Pode imediatamente tirar partido das seguintes funcionalidades sem qualquer configuração adicional:
+Azure Stream Analytics tem uma experiência avançada e rica. Você pode aproveitar imediatamente os seguintes recursos sem nenhuma configuração adicional:
 
-* Operadores temporais incorporadas, tal como [agregados em janelas](stream-analytics-window-functions.md), associações temporais e funções de análise temporais.
-* Nativa do Azure [entrada](stream-analytics-add-inputs.md) e [saída](stream-analytics-define-outputs.md) adaptadores
-* Suporte para a alteração lenta [dados de referência](stream-analytics-use-reference-data.md) (também conhecido como um tabelas de pesquisa), incluindo a junção com dados de referência de geoespacial para barreira geográfica.
-* Integrado a soluções, como [deteção de anomalias](stream-analytics-machine-learning-anomaly-detection.md)
-* Várias janelas de tempo da mesma consulta
-* Capacidade de criar vários operadores temporais nas sequências arbitrários.
-* Em 100 ms a latência de ponto-a-ponto de entrada que chegam ao Hubs de eventos, para a saída de destino nos Hubs de eventos, incluindo o atraso de rede de e para os Hubs de eventos a alto débito a constante
+* Operadores temporais internos, como [agregações em janelas](stream-analytics-window-functions.md), junções temporais e funções analíticas temporais.
+* Adaptadores de [entrada](stream-analytics-add-inputs.md) e [saída](stream-analytics-define-outputs.md) nativos do Azure
+* Suporte para dados de [referência](stream-analytics-use-reference-data.md) de alteração lenta (também conhecidos como tabelas de pesquisa), incluindo a junção com dados de referência geoespaciais para o isolamento geográfico.
+* Soluções integradas, como [detecção de anomalias](stream-analytics-machine-learning-anomaly-detection.md)
+* Várias janelas de tempo na mesma consulta
+* Capacidade de compor vários operadores temporais em sequências arbitrárias.
+* Abaixo da 100-ms latência de ponta a ponta da entrada chegando aos hubs de eventos, à saída inicial dos hubs de eventos, incluindo o atraso da rede de e para os hubs de eventos, em alta taxa de transferência sustentada
 
 ## <a name="when-to-use-other-technologies"></a>Quando usar outras tecnologias
 
-### <a name="you-need-to-input-from-or-output-to-kafka"></a>Terá de entrada do ou de saída ao Kafka
+### <a name="you-need-to-input-from-or-output-to-kafka"></a>Você precisa de entrada ou saída para Kafka
 
-O Azure Stream Analytics não tem uma entrada do Apache Kafka ou adaptador de saída. Se tiver de eventos de destino numa ou precisar de enviar para o Kafka, e não tiver um requisito para executar seu próprio cluster do Kafka, pode continuar a utilizar o Stream Analytics através do envio de eventos para Hubs de eventos com a API de Kafka de Hubs de eventos sem alterar o remetente do evento. Se tiver de executar seu próprio cluster do Kafka, pode utilizar o Spark Structured Streaming, que é totalmente suportado em [Azure Databricks](../azure-databricks/index.yml), ou do Storm na [Azure HDInsight](../hdinsight/storm/apache-storm-overview.md).
+Azure Stream Analytics não tem um adaptador de entrada ou saída Apache Kafka. Se você tiver uma aterrissagem de eventos ou precisar enviar para Kafka e não tiver um requisito para executar seu próprio cluster Kafka, poderá continuar a usar Stream Analytics enviando eventos para os hubs de eventos usando a API de Kafka dos hubs de eventos sem alterar o remetente do evento. Se você precisar executar seu próprio cluster Kafka, poderá usar o streaming estruturado do Spark, que tem suporte total em [Azure Databricks](../azure-databricks/index.yml)ou Storm no [Azure HDInsight](../hdinsight/storm/apache-storm-overview.md).
 
-### <a name="you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c"></a>Quer escrever UDFs, UDAs e desserializadores personalizados num idioma diferente do JavaScript ouC#
+### <a name="you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c"></a>Você deseja gravar UDFs, UDAs e desserializadores personalizados em um idioma diferente do JavaScript ouC#
 
-O Azure Stream Analytics suporta funções definidas pelo utilizador (UDF) ou agregações definidas pelo utilizador (UDA) em JavaScript para tarefas na cloud e C# para as tarefas do IoT Edge. C#definido pelo utilizador desserializadores também são suportados. Se pretender implementar um desserializador, uma UDF ou uma UDA em outras linguagens, como Java ou Python, pode utilizar a transmissão estruturada do Spark. Também pode executar os Hubs de eventos **EventProcessorHost** nas suas próprias máquinas virtuais para efetuar o processamento de transmissão em fluxo arbitrário.
+O Azure Stream Analytics dá suporte a UDF (funções definidas pelo usuário) ou UDA (agregações definidas pelo usuário) em JavaScript para C# trabalhos de nuvem e para trabalhos de IOT Edge. C#também há suporte para os desserializadores definidos pelo usuário. Se você quiser implementar um desserializador, um UDF ou um UDA em outras linguagens, como Java ou Python, você pode usar o streaming estruturado do Spark. Você também pode executar os hubs de eventos **EventProcessorHost** em suas próprias máquinas virtuais para fazer processamento de streaming arbitrário.
 
-### <a name="your-solution-is-in-a-multi-cloud-or-on-premises-environment"></a>A sua solução é num ambiente de várias Clouds ou no local
+### <a name="your-solution-is-in-a-multi-cloud-or-on-premises-environment"></a>Sua solução está em um ambiente de várias nuvens ou local
 
-O Azure Stream Analytics é a tecnologia proprietária da Microsoft e só está disponível no Azure. Se precisar de sua solução seja portátil entre nuvens ou no local, considere tecnologias de open source, como a transmissão estruturada do Spark ou Storm.
+Azure Stream Analytics é a tecnologia proprietária da Microsoft e está disponível apenas no Azure. Se você precisar que sua solução seja portátil entre nuvens ou locais, considere tecnologias de software livre, como streaming estruturado Spark ou Storm.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Criar uma tarefa de Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
-* [Criar uma tarefa do Stream Analytics com o Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Criar uma tarefa do Stream Analytics com o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Criar uma tarefa do Stream Analytics com o Visual Studio Code](quick-create-vs-code.md)
+* [Criar um trabalho de Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
+* [Criar um trabalho de Stream Analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
+* [Criar um trabalho de Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
+* [Criar um trabalho de Stream Analytics usando Visual Studio Code](quick-create-vs-code.md)

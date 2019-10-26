@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Biblioteca de cliente facial para .NET | Microsoft Docs'
+title: 'Início rápido: biblioteca de cliente facial para .NET | Microsoft Docs'
 description: Introdução à biblioteca de cliente facial para .NET.
 services: cognitive-services
 author: PatrickFarley
@@ -9,14 +9,14 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 09f46b3d938e57f996a18f1558b587dcf9e410a8
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 4f06e423c6dcc561ef8e51c33f24cd9f88a681b5
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70166482"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935893"
 ---
-# <a name="quickstart-face-client-library-for-net"></a>Início rápido: Biblioteca de cliente facial para .NET
+# <a name="quickstart-face-client-library-for-net"></a>Início rápido: biblioteca de cliente facial para .NET
 
 Introdução à biblioteca de cliente facial para .NET. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. O serviço de API de Detecção Facial fornece acesso a algoritmos avançados para detectar e reconhecer rostos humanos em imagens.
 
@@ -29,7 +29,7 @@ Use a biblioteca de cliente facial para .NET para:
 * [Identificar uma face](#identify-a-face)
 * [Tirar um instantâneo para a migração de dados](#take-a-snapshot-for-data-migration)
 
-[](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet) |  | [Exemplos](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face&sort=0) de pacote de[código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face)[(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1) | da biblioteca de documentação de referência
+[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)  | [amostras](https://docs.microsoft.com/samples/browse/?products=azure&term=face) do NuGet ([código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face)  | [do pacote)  |  de](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1) biblioteca
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,13 +45,13 @@ Os serviços cognitivas do Azure são representados pelos recursos do Azure que 
 * Obtenha uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias gratuitamente. Depois de se inscrever, ele estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Exiba seu recurso no [portal do Azure](https://portal.azure.com/).
 
-Depois de obter uma chave de sua assinatura ou recurso de avaliação, [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a URL `FACE_SUBSCRIPTION_KEY` do ponto de extremidade, denominada e `FACE_ENDPOINT`, respectivamente.
+Depois de obter uma chave de sua assinatura ou recurso de avaliação, [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a URL do ponto de extremidade, denominada `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`, respectivamente.
 
 ### <a name="create-a-new-c-application"></a>Criar um novo C# aplicativo
 
 Crie um novo aplicativo .NET Core em seu editor ou IDE preferido. 
 
-Em uma janela de console (como cmd, PowerShell ou bash), use o `dotnet new` comando para criar um novo aplicativo de console com o nome. `face-quickstart` Este comando cria um projeto simples de " C# Olá, mundo" com um único arquivo de origem: *Program.cs*. 
+Em uma janela de console (como cmd, PowerShell ou bash), use o comando `dotnet new` para criar um novo aplicativo de console com o nome `face-quickstart`. Este comando cria um projeto simples de " C# Olá, mundo" com um único arquivo de origem: *Program.cs*. 
 
 ```console
 dotnet new console -n face-quickstart
@@ -73,11 +73,11 @@ Build succeeded.
 ...
 ```
 
-No diretório do projeto, abra o arquivo *Program.cs* no seu editor ou IDE preferido. Adicione as seguintes `using` diretivas:
+No diretório do projeto, abra o arquivo *Program.cs* no seu editor ou IDE preferido. Adicione as seguintes diretivas de `using`:
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_using)]
 
-No método do `Main` aplicativo, crie variáveis para o ponto de extremidade e a chave do Azure do recurso.
+No método de `Main` do aplicativo, crie variáveis para o ponto de extremidade e a chave do Azure do recurso.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_mainvars)]
 
@@ -95,12 +95,12 @@ Se você estiver usando o IDE do Visual Studio, a biblioteca de cliente estará 
 
 As classes e interfaces a seguir tratam de alguns dos principais recursos do SDK do .NET facial:
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) | Essa classe representa sua autorização para usar o serviço de face e você precisa dela para todas as funcionalidades de face. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes. |
 |[FaceOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperations?view=azure-dotnet)|Essa classe manipula as tarefas básicas de detecção e reconhecimento que você pode fazer com as faces humanas. |
 |[DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet)|Essa classe representa todos os dados que foram detectados de uma única face em uma imagem. Você pode usá-lo para recuperar informações detalhadas sobre a face.|
-|[FaceListOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet)|Essa classe gerencia os constructos da facelist armazenados na nuvem, que armazenam um conjunto de faces classificado. |
+|[FaceListOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet)|Essa classe gerencia os constructos da **facelist** armazenados na nuvem, que armazenam um conjunto de faces classificado. |
 |[PersonGroupPersonExtensions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongrouppersonextensions?view=azure-dotnet)| Essa classe gerencia as construções de **pessoas** armazenadas na nuvem, que armazenam um conjunto de faces que pertencem a uma única pessoa.|
 |[PersonGroupOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet)| Essa classe gerencia as construções de grupo de **pessoas** armazenadas na nuvem, que armazenam um conjunto de objetos de **pessoa** asclassificadas. |
 |[ShapshotOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)|Essa classe gerencia a funcionalidade de instantâneo. Você pode usá-lo para salvar temporariamente todos os dados de face baseados em nuvem e migrar esses dados para uma nova assinatura do Azure. |
@@ -120,13 +120,13 @@ Os trechos de código a seguir mostram como realizar as seguintes tarefas com a 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
 > [!NOTE]
-> Este início rápido pressupõe que você [criou variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e o ponto `FACE_SUBSCRIPTION_KEY` de extremidade de face, chamados e. `FACE_ENDPOINT`
+> Este início rápido pressupõe que você [criou variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e o ponto de extremidade de face, chamados `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`.
 
 Em um novo método, crie uma instância de um cliente com o ponto de extremidade e a chave. Crie um objeto [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) com sua chave e use-o com seu ponto de extremidade para criar um objeto [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) .
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_auth)]
 
-Você provavelmente desejará chamar esse método no `Main` método.
+Você provavelmente desejará chamar esse método no método `Main`.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_client)]
 
@@ -144,7 +144,7 @@ A operação de detecção final usará um objeto [FaceClient](https://docs.micr
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_call)]
 
-Nesse caso, o `DetectFaceExtract` método detecta rostos em três das imagens na URL fornecida e cria uma lista de objetos [DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet) na memória do programa. A lista de valores [FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet) especifica quais recursos extrair. Consulte o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/Face/Program.cs) para obter o código auxiliar que pode imprimir esses dados de forma intuitiva.
+Nesse caso, o método `DetectFaceExtract` detecta rostos em três das imagens na URL fornecida e cria uma lista de objetos [DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet) na memória do programa. A lista de valores [FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet) especifica quais recursos extrair. Consulte o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/Face/Program.cs) para obter o código auxiliar que pode imprimir esses dados de forma intuitiva.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect)]
 
@@ -192,7 +192,7 @@ Em um novo método, adicione o código a seguir. Esse código associa os nomes d
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_persongroup_files)]
 
-Em seguida, adicione o código a seguir para criar um objeto **Person** para cada pessoa no dicionário e adicionar os dados de face das imagens apropriadas. Cada objeto **Person** é associado ao mesmo **Person** por meio de sua cadeia de caracteres de ID exclusiva. Lembre-se de passar `client`as `url`variáveis, `RECOGNITION_MODEL1` e para esse método.
+Em seguida, adicione o código a seguir para criar um objeto **Person** para cada pessoa no dicionário e adicionar os dados de face das imagens apropriadas. Cada objeto **Person** é associado ao mesmo **Person** por meio de sua cadeia de caracteres de ID exclusiva. Lembre-se de passar as variáveis `client`, `url`e `RECOGNITION_MODEL1` nesse método.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_persongroup_create)]
 
@@ -209,11 +209,11 @@ Este grupo de **pessoas** e seus objetos **Person** associados agora estão pron
 A operação identificar usa uma imagem de uma pessoa (ou várias pessoas) e procura encontrar a identidade de cada face na imagem. Ele compara cada face detectada a um **Person**, um banco de dados de objetos **Person** diferentes cujos recursos facial são conhecidos.
 
 > [!IMPORTANT]
-> Para executar este exemplo, você deve primeiro executar o código em [criar e treinar um grupo de pessoas](#create-and-train-a-person-group). As variáveis usadas&mdash;nessa seção`client`, `url` `RECOGNITION_MODEL1` e&mdash;também devem estar disponíveis aqui.
+> Para executar este exemplo, você deve primeiro executar o código em [criar e treinar um grupo de pessoas](#create-and-train-a-person-group). As variáveis usadas nessa seção&mdash;`client`, `url`e `RECOGNITION_MODEL1`&mdash;também devem estar disponíveis aqui.
 
 ### <a name="get-a-test-image"></a>Obter uma imagem de teste
 
-Observe que o código para [criar e treinar um grupo Person](#create-and-train-a-person-group) define uma variável `sourceImageFileName`. Essa variável corresponde à imagem&mdash;de origem a imagem que contém as pessoas a serem identificadas.
+Observe que o código para [criar e treinar um grupo Person](#create-and-train-a-person-group) define uma variável `sourceImageFileName`. Essa variável corresponde à imagem de origem&mdash;imagem que contém as pessoas a serem identificadas.
 
 ### <a name="identify-faces"></a>Identificar rostos
 
@@ -221,7 +221,7 @@ O código a seguir usa a imagem de origem e cria uma lista de todas as faces det
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_identify_sources)]
 
-O próximo trecho de código chama a operação identificar e imprime os resultados no console. Aqui, o serviço tenta corresponder cada face da imagem de origem a uma **pessoa** no determinado resourcegroup.
+O próximo trecho de código chama a operação identificar e imprime os resultados no console. Aqui, o serviço tenta corresponder cada face da imagem de origem a uma **pessoa** **no determinado resourcegroup**.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_identify)]
 
@@ -235,11 +235,11 @@ Neste exemplo, você vai migrar o grupo de **pessoas** que criou em [criar e tre
 
 Primeiro, você deve ter uma segunda assinatura do Azure com um recurso de face; Você pode fazer isso seguindo as etapas na seção [configuração](#setting-up) . 
 
-Em seguida, defina as variáveis a seguir `Main` no método do seu programa. Você precisará criar novas variáveis de ambiente para a ID da assinatura da sua conta do Azure, bem como a chave, o ponto de extremidade e a ID da assinatura da sua nova conta (destino). 
+Em seguida, defina as variáveis a seguir no método `Main` do seu programa. Você precisará criar novas variáveis de ambiente para a ID da assinatura da sua conta do Azure, bem como a chave, o ponto de extremidade e a ID da assinatura da sua nova conta (destino). 
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_vars)]
 
-Para este exemplo, declare uma variável para a ID do usuário de **pessoa**&mdash;de destino o objeto que pertence à nova assinatura, para a qual você copiará os dados.
+Para este exemplo, declare uma variável para a ID do **usuário** de destino&mdash;o objeto que pertence à nova assinatura, para a qual você copiará os dados.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_vars)]
 
@@ -277,7 +277,7 @@ Neste ponto, o novo objeto **Person** deve ter os mesmos dados que o original e 
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute o aplicativo no diretório do aplicativo com o `dotnet run` comando.
+Execute o aplicativo no diretório do aplicativo com o comando `dotnet run`.
 
 ```dotnet
 dotnet run

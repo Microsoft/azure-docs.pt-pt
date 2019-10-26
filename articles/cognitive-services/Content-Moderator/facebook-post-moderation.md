@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Conteúdo moderado do Facebook – Content Moderator'
+title: 'Tutorial: conteúdo moderado do Facebook – Content Moderator'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, você aprenderá a usar o Content Moderator baseado em aprendizado de máquina para ajudar postagens moderadas do Facebook e comentários.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: bd2ed09294ad122b7e8af045f01d3c6f63fcc510
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5aa4cc24484a4ba1da608da9676ade492db35b6c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564934"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72936015"
 ---
-# <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutorial: Postagens e comandos moderados do Facebook com o Azure Content Moderator
+# <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutorial: postagens moderadas do Facebook e comandos com o Azure Content Moderator
 
 Neste tutorial, você aprenderá a usar o Azure Content Moderator para ajudar a moderar as postagens e os comentários em uma página do Facebook. O Facebook enviará o conteúdo postado pelos visitantes para o serviço de Content Moderator. Em seguida, seus fluxos de trabalho de Content Moderator publicarão o conteúdo ou criarão revisões dentro da ferramenta de revisão, dependendo das pontuações e dos limites de conteúdo. Consulte o [vídeo de demonstração de Build 2017](https://channel9.msdn.com/Events/Build/2017/T6033) para obter um exemplo de trabalho desse cenário.
 
@@ -68,11 +68,11 @@ Entre no [portal do Azure](https://portal.azure.com/) e siga estas etapas:
 1. Vá para o Aplicativo de funções recém-criado.
 1. No aplicativo, vá para a guia **recursos da plataforma** e selecione **configuração**. Na seção **configurações do aplicativo** da página seguinte, selecione **nova configuração de aplicativo** para adicionar os seguintes pares de chave/valor:
     
-    | Nome da configuração do aplicativo | value   | 
+    | Nome da configuração do aplicativo | valor   | 
     | -------------------- |-------------|
     | cm:TeamId   | O TeamId do Content Moderator  | 
     | cm:SubscriptionKey | A chave de subscrição do Content Moderator. Veja [Credenciais](review-tool-user-guide/credentials.md) |
-    | cm:Region | O nome da região do Content Moderator, sem os espaços. |
+    | cm:Region | O nome da região do Content Moderator, sem os espaços. Você pode encontrá-lo no campo **local** da guia **visão geral** do recurso do Azure.|
     | cm:ImageWorkflow | Nome do fluxo de trabalho a executar em Imagens |
     | cm:TextWorkflow | Nome do fluxo de trabalho a executar em Texto |
     | cm:CallbackEndpoint | URL para o Aplicativo de funções CMListener que será criado posteriormente neste guia |
@@ -81,7 +81,7 @@ Entre no [portal do Azure](https://portal.azure.com/) e siga estas etapas:
 
     Clique no botão **salvar** na parte superior da página.
 
-1. Volte para a guia **recursos da plataforma** . Use o **+** botão no painel esquerdo para abrir o painel **nova função** . A função que você está prestes a criar receberá eventos do Facebook.
+1. Volte para a guia **recursos da plataforma** . Use o botão **+** no painel esquerdo para abrir o painel **nova função** . A função que você está prestes a criar receberá eventos do Facebook.
 
     ![Azure Functions painel com o botão Adicionar função realçado.](images/new-function.png)
 

@@ -7,14 +7,14 @@ ms.author: mamccrea
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.openlocfilehash: eb3b25387df33f8d366a088f9fa63e0dc96290bf
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 834447d15336fcd6d56f2979113aaef7e22ecb8f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173262"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934300"
 ---
-# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Início rápido: Criar um trabalho de Azure Stream Analytics usando o Visual Studio
+# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Início rápido: criar um trabalho de Azure Stream Analytics usando o Visual Studio
 
 Este início rápido mostra como criar e executar uma tarefa do Stream Analytics com ferramentas do Azure Stream Analytics para Visual Studio. O trabalho de exemplo lê os dados de streaming de um dispositivo de Hub IoT. Você define um trabalho que calcula a temperatura média quando mais de 27 ° e grava os eventos de saída resultantes em um novo arquivo no armazenamento de BLOBs.
 
@@ -40,14 +40,14 @@ Antes de definir o trabalho de Stream Analytics, você deve preparar os dados, q
    
    |**Definição**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
-   |Subscription  | \<A sua subscrição\> |  Selecione a subscrição do Azure que pretende utilizar. |
-   |Resource group   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta. |
+   |Subscrição  | \<A sua subscrição\> |  Selecione a subscrição do Azure que pretende utilizar. |
+   |Grupo de recursos   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta. |
    |Região  |  \<Selecione a região mais próxima dos seus utilizadores\> | Selecione uma localização geográfica na qual você pode hospedar o Hub IoT. Use o local mais próximo de seus usuários. |
    |Nome do Hub IoT  | MyASAIoTHub  |   Selecione um nome para o Hub IoT.   |
 
    ![Criar um Hub IoT](./media/stream-analytics-quick-create-vs/create-iot-hub.png)
 
-4. Selecione **avançar: Definir tamanho e escala**.
+4. Selecione **Avançar: definir tamanho e escala**.
 
 5. Selecione o seu **Escalão de preço e dimensionamento**. Para este guia de início rápido, selecione a camada **F1-Free** se ela ainda estiver disponível em sua assinatura. Se a camada gratuita não estiver disponível, escolha a camada mais baixa disponível. Para obter mais informações, consulte [preços do Hub IOT](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -67,11 +67,11 @@ Antes de definir o trabalho de Stream Analytics, você deve preparar os dados, q
 
 1. No canto superior esquerdo do portal do Azure, selecione **Criar um recurso** > **Armazenamento** > **Conta de armazenamento**.
 
-2. No painel **criar conta de armazenamento** , insira um nome de conta de armazenamento, um local e um grupo de recursos. Escolha o mesmo local e grupo de recursos que o Hub IoT que você criou. Em seguida, clique em revisar **+ criar** para criar a conta.
+2. No painel **criar conta de armazenamento** , insira um nome de conta de armazenamento, um local e um grupo de recursos. Escolha o mesmo local e grupo de recursos que o Hub IoT que você criou. Em seguida, clique em **revisar + criar** para criar a conta.
 
    ![Criar conta de armazenamento](./media/stream-analytics-quick-create-portal/create-storage-account.png)
 
-3. Depois que sua conta de armazenamento for criada, selecione o bloco BLOBs no painel **visão geral** .
+3. Depois que sua conta de armazenamento for criada, selecione o bloco **BLOBs** no painel **visão geral** .
 
    ![Descrição geral da conta de armazenamento](./media/stream-analytics-quick-create-portal/blob-storage.png)
 
@@ -111,11 +111,11 @@ Repare nos elementos que são incluídos num projeto do Azure Stream Analytics.
    |**Definição**  |**Valor sugerido**  |**Descrição**   |
    |---------|---------|---------|
    |Alias de Entrada  |  Input   |  Introduza um nome para identificar a entrada da tarefa.   |
-   |Tipo de Fonte   |  Fluxo de Dados |  Escolha a fonte de entrada apropriada: Fluxo de dados ou dados de referência.   |
-   |Source  |  IoT Hub |  Escolha a origem de entrada adequada.   |
-   |Resource  | Escolha a origem de dados na conta atual | Opte por introduzir dados manualmente ou selecionar uma conta existente.   |
-   |Subscription  |  \<A sua subscrição\>   | Selecione a assinatura do Azure que tem o Hub IoT que você criou.   |
-   |IoT Hub  |  MyASAIoTHub   |  Escolha ou insira o nome do seu hub IoT. Os nomes de Hub IoT serão detectados automaticamente se forem criados na mesma assinatura.   |
+   |Tipo de Fonte   |  Fluxo de Dados |  Escolha a origem de entrada adequada: Fluxo de Dados ou Dados de Referência.   |
+   |Origem  |  Hub IoT |  Escolha a origem de entrada adequada.   |
+   |Recurso  | Escolha a origem de dados na conta atual | Opte por introduzir dados manualmente ou selecionar uma conta existente.   |
+   |Subscrição  |  \<A sua subscrição\>   | Selecione a assinatura do Azure que tem o Hub IoT que você criou.   |
+   |Hub IoT  |  MyASAIoTHub   |  Escolha ou insira o nome do seu hub IoT. Os nomes de Hub IoT serão detectados automaticamente se forem criados na mesma assinatura.   |
    
 3. Mantenha as outras opções com os valores predefinidos e selecione **Guardar** para guardar as definições.  
 
@@ -129,10 +129,10 @@ Repare nos elementos que são incluídos num projeto do Azure Stream Analytics.
 
    |**Definição**  |**Valor sugerido**  |**Descrição**   |
    |---------|---------|---------|
-   |Alias de Saída  |  Output   |  Introduza um nome para identificar a saída da tarefa.   |
-   |Sink   |  Blob Storage |  Escolha o sink adequado.    |
-   |Resource  |  Apresente as definições da origem de dados manualmente |  Opte por introduzir dados manualmente ou selecionar uma conta existente.   |
-   |Subscription  |  \<A sua subscrição\>   | Selecione a subscrição do Azure que tem a conta de armazenamento que criou. A conta de armazenamento pode estar na mesma subscrição ou numa diferente. Este exemplo assume que criou a conta de armazenamento na mesma subscrição.   |
+   |Alias de Saída  |  Saída   |  Introduza um nome para identificar a saída da tarefa.   |
+   |Sink   |  Armazenamento de Blobs |  Escolha o sink adequado.    |
+   |Recurso  |  Apresente as definições da origem de dados manualmente |  Opte por introduzir dados manualmente ou selecionar uma conta existente.   |
+   |Subscrição  |  \<A sua subscrição\>   | Selecione a subscrição do Azure que tem a conta de armazenamento que criou. A conta de armazenamento pode estar na mesma subscrição ou numa diferente. Este exemplo assume que criou a conta de armazenamento na mesma subscrição.   |
    |Conta de Armazenamento  |  asaquickstartstorage   |  Escolha ou introduza o nome da conta de armazenamento. Os nomes de contas de armazenamento são detetados automaticamente se forem criados na mesma subscrição.   |
    |Contentor  |  container1   |  Selecione o contentor existente que criou na conta de armazenamento.   |
    |Padrão do Caminho  |  saída   |  Introduza o nome de um caminho de ficheiro a ser criado no contentor.   |
@@ -198,11 +198,11 @@ Quando já não for necessário, elimine o grupo de recursos, a tarefa de transm
 
 2. Na página do grupo de recursos, selecione **Eliminar**, escreva o nome do recurso a eliminar na caixa de texto e, em seguida, selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, implementou uma tarefa simples do Stream Analytics com o Visual Studio. Também pode implementar tarefas do Stream Analytics com o [portal do Azure](stream-analytics-quick-create-portal.md) e o [PowerShell](stream-analytics-quick-create-powershell.md). 
 
 Para saber mais sobre as ferramentas de Azure Stream Analytics para o Visual Studio, prossiga para o seguinte artigo:
 
 > [!div class="nextstepaction"]
-> [Use o Visual Studio para ver tarefas do Azure Stream Analytics](stream-analytics-vs-tools.md)
+> [Usar o Visual Studio para exibir Azure Stream Analytics trabalhos](stream-analytics-vs-tools.md)

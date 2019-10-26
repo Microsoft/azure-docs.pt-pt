@@ -1,94 +1,94 @@
 ---
-title: Autenticar a tarefa do Azure Stream Analytics para a saída de geração 1 de armazenamento do Azure Data Lake
-description: Este artigo descreve como utilizar identidades geridas para autenticar a sua tarefa do Azure Stream Analytics para a saída de geração 1 de armazenamento do Azure Data Lake.
+title: Autenticar Azure Stream Analytics para Azure Data Lake Storage Gen1
+description: Este artigo descreve como usar identidades gerenciadas para autenticar seu trabalho de Azure Stream Analytics para Azure Data Lake Storage Gen1 saída.
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 695591fedfacb34742335a6e9d6ca32a9c77eb7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 01741ea56b9e6f55c1393e88fc7991d410c33119
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148622"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934986"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autenticar o Stream Analytics para a geração 1 de armazenamento do Azure Data Lake com identidades geridas
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autenticar Stream Analytics para Azure Data Lake Storage Gen1 usando identidades gerenciadas
 
-O Azure Stream Analytics suporta a autenticação de identidade gerida com a saída de geração 1 do Azure Data Lake Storage (ADLS). A identidade é um aplicativo gerenciado registado no Azure Active Directory que representa uma determinada tarefa do Stream Analytics e pode ser utilizada para autenticar a um recurso de destino. Identidades geridas eliminam as limitações dos métodos de autenticação baseada no utilizador, como a necessidade de autenticar devido a alterações de palavra-passe ou as Expirações de token de utilizador que ocorrem a cada 90 dias. Além disso, ajudam a identidades geridas com a automatização de implementações de tarefa do Stream Analytics essa saída a geração 1 de armazenamento do Azure Data Lake.
+O Azure Stream Analytics dá suporte à autenticação Azure Data Lake Storage de identidade gerenciada com a saída de Gen1 (ADLS). A identidade é uma aplicação gerida registada no Azure Active Directory que representa uma determinada tarefa do Stream Analytics e que pode ser utilizada para autenticar em relação a um recurso visado. As identidades geridas eliminam as limitações dos métodos de autenticação baseados no utilizador, como a necessidade de reautenticação devido às alterações de palavra-passe ou às expirações de token de utilizador que ocorrem a cada 90 dias. Além disso, as identidades gerenciadas ajudam com a automação de implantações Stream Analytics trabalho que geram uma saída para Azure Data Lake Storage Gen1.
 
-Este artigo mostra três formas de ativar a identidade gerida para uma tarefa do Azure Stream Analytics que gera a saída para um Gen1 de armazenamento do Azure Data Lake através do portal do Azure, implementação do modelo do Azure Resource Manager e ferramentas do Azure Stream Analytics para Visual Studio.
+Este artigo mostra três maneiras de habilitar a identidade gerenciada para um trabalho Azure Stream Analytics que gera um Azure Data Lake Storage Gen1 por meio do portal do Azure, Azure Resource Manager implantação de modelo e ferramentas de Azure Stream Analytics para o Visual Studio.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-1. Comece por criar uma nova tarefa de Stream Analytics ou ao abrir uma tarefa existente no portal do Azure. Na barra de menus localizada no lado esquerdo do ecrã, selecione **identidade gerido** localizada sob **configurar**.
+1. Comece criando um novo trabalho de Stream Analytics ou abrindo um trabalho existente no portal do Azure. Na barra de menus localizada no lado esquerdo da tela, selecione **identidade gerenciada** localizada em **Configurar**.
 
-   ![Configurar a identidade de análise do Stream gerido](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
+   ![Configurar Stream Analytics identidade gerenciada](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. Selecione **atribuídas a utilização de sistema de identidade gerido** da janela que aparece à direita. Clique em **guardar** para um principal de serviço para a identidade da tarefa de Stream Analytics no Azure Active Directory. O ciclo de vida da identidade criado recentemente será gerido pelo Azure. Quando a tarefa do Stream Analytics é eliminada, a identidade associada (ou seja, o principal de serviço) é eliminada automaticamente pelo Azure.
+2. Selecione **usar identidade gerenciada atribuída pelo sistema** na janela que aparece à direita. Clique em **salvar** em uma entidade de serviço para obter a identidade do trabalho de Stream Analytics no Azure Active Directory. O ciclo de vida da identidade recém-criada será gerenciado pelo Azure. Quando o trabalho de Stream Analytics é excluído, a identidade associada (ou seja, a entidade de serviço) é excluída automaticamente pelo Azure.
 
-   Quando a configuração é guardada, o ID de objeto (OID) de principal de serviço está listado como ID de Principal, conforme mostrado abaixo:
+   Quando a configuração é salva, a ID de objeto (OID) da entidade de serviço é listada como a ID da entidade de segurança, conforme mostrado abaixo:
 
-   ![ID de principal de serviço do Stream Analytics](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
+   ![ID da entidade de serviço Stream Analytics](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
  
-   O principal de serviço tem o mesmo nome que a tarefa do Stream Analytics. Por exemplo, se o nome da sua tarefa é **MyASAJob**, o nome do principal de serviço criado também está **MyASAJob**.
+   A entidade de serviço tem o mesmo nome que o trabalho de Stream Analytics. Por exemplo, se o nome do seu trabalho for **MyASAJob**, o nome da entidade de serviço criada também será **MyASAJob**.
 
-3. Na janela de propriedades de saída do sink de saída do ADLS Gen1, clique em baixo e selecione o modo de autenticação * * identidade gerido * *.
+3. Na janela Propriedades de saída da ADLS Gen1 coletor de saída, clique na lista suspensa modo de autenticação e selecione * * identidade gerenciada * *.
 
-4. Preencha o resto das propriedades. Para saber mais sobre como criar uma saída do ADLS, veja [criar uma saída de Data lake Store com o stream analytics](../data-lake-store/data-lake-store-stream-analytics.md). Quando tiver terminado, clique em **guardar**.
+4. Preencha o restante das propriedades. Para saber mais sobre como criar uma saída de ADLS, confira [criar uma saída do data Lake Store com o Stream Analytics](../data-lake-store/data-lake-store-stream-analytics.md). Quando tiver terminado, clique em **salvar**.
 
-   ![Configurar o armazenamento do Azure Data Lake](./media/stream-analytics-managed-identities-adls/stream-analytics-configure-adls.png)
+   ![Configurar Azure Data Lake Storage](./media/stream-analytics-managed-identities-adls/stream-analytics-configure-adls.png)
  
-5. Navegue para a página de descrição geral do seu Gen1 do ADLS e clique em **Explorador de dados**.
+5. Navegue até a página Visão geral do seu ADLS Gen1 e clique em **Data Explorer**.
 
-   ![Configurar a descrição geral do Data Lake Storage](./media/stream-analytics-managed-identities-adls/stream-analytics-adls-overview.png)
+   ![Configurar Data Lake Storage visão geral](./media/stream-analytics-managed-identities-adls/stream-analytics-adls-overview.png)
 
-6. No painel do Explorador de dados, selecione **acesso** e clique em **Add** no painel de acesso.
+6. No painel data Explorer, selecione **acesso** e clique em **Adicionar** no painel de acesso.
 
-   ![Configurar o acesso do Data Lake Storage](./media/stream-analytics-managed-identities-adls/stream-analytics-adls-access.png)
+   ![Configurar o acesso ao Data Lake Storage](./media/stream-analytics-managed-identities-adls/stream-analytics-adls-access.png)
 
-7. Na caixa de texto a **selecionar utilizador ou grupo** painel, escreva o nome do principal de serviço. Lembre-se de que o nome do principal de serviço também é o nome da tarefa de Stream Analytics correspondente. Quando começar a escrever o nome do principal, ele será exibido abaixo da caixa de texto. Escolha o nome principal de serviço desejado e clique em **selecione**.
+7. Na caixa de texto do painel **Selecionar usuário ou grupo** , digite o nome da entidade de serviço. Lembre-se de que o nome da entidade de serviço também é o nome do trabalho de Stream Analytics correspondente. Quando você começar a digitar o nome principal, ele será exibido abaixo da caixa de texto. Escolha o nome da entidade de serviço desejada e clique em **selecionar**.
 
-   ![Selecione um nome principal de serviço](./media/stream-analytics-managed-identities-adls/stream-analytics-service-principal-name.png)
+   ![Selecione um nome da entidade de serviço](./media/stream-analytics-managed-identities-adls/stream-analytics-service-principal-name.png)
  
-8. Na **permissões** painel, verifique o **escrever** e **Execute** permissões e atribuí-lo ao **esta pasta e todos os filhos**. Em seguida, clique em **Ok**.
+8. No painel **permissões** , verifique as permissões de **gravação** e **execução** e atribua-as a **esta pasta e a todos os filhos**. Em seguida, clique em **OK**.
 
-   ![Selecione a escrita e permissões de execução](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
+   ![Selecionar permissões de gravação e execução](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
  
-9. O principal de serviço está listado em **permissões atribuídas** sobre o **acesso** painel, conforme mostrado abaixo. Agora pode voltar atrás e iniciar a tarefa de Stream Analytics.
+9. A entidade de serviço está listada sob **permissões atribuídas** no painel de **acesso** , conforme mostrado abaixo. Agora você pode voltar e iniciar seu trabalho de Stream Analytics.
 
-   ![Lista no portal de acesso do Stream Analytics](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
+   ![Lista de acesso Stream Analytics no portal](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
 
-   Para saber mais sobre permissões do sistema de ficheiros de geração 1 de armazenamento do Data Lake, veja [controlo de acesso no Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
+   Para saber mais sobre Data Lake Storage Gen1 permissões do sistema de arquivos, consulte [controle de acesso em Azure data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
 
-## <a name="stream-analytics-tools-for-visual-studio"></a>Ferramentas de análise do Stream para o Visual Studio
+## <a name="stream-analytics-tools-for-visual-studio"></a>Ferramentas de Stream Analytics para o Visual Studio
 
-1. Na JobConfig.json, defina **identidade atribuída de sistema de utilização** ao **verdadeiro**.
+1. Em JobConfig. JSON, defina **usar identidade atribuída pelo sistema** como **true**.
 
-   ![Configuração de tarefa do Stream Analytics geridos identidades](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
+   ![Stream Analytics identidades gerenciadas da configuração de trabalho](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
 
-2. Na janela de propriedades de saída do sink de saída do ADLS Gen1, clique em baixo e selecione o modo de autenticação * * identidade gerido * *.
+2. Na janela Propriedades de saída da ADLS Gen1 coletor de saída, clique na lista suspensa modo de autenticação e selecione * * identidade gerenciada * *.
 
-   ![Identidades geridas de saída do ADLS](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
+   ![Identidades gerenciadas de saída do ADLS](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
 
-3. Preencha o resto das propriedades e clique em **guardar**.
+3. Preencha o restante das propriedades e clique em **salvar**.
 
-4. Clique em **submeter para o Azure** no editor de consultas.
+4. Clique em **Enviar para o Azure** no editor de consultas.
 
-   Quando submete a tarefa, as ferramentas de fazer duas coisas:
+   Quando você envia o trabalho, as ferramentas fazem duas coisas:
 
-   * Cria automaticamente um serviço principal para a identidade da tarefa do Stream Analytics no Azure Active Directory. O ciclo de vida da identidade criado recentemente será gerido pelo Azure. Quando a tarefa do Stream Analytics é eliminada, a identidade associada (ou seja, o principal de serviço) é eliminada automaticamente pelo Azure.
+   * Cria automaticamente uma entidade de serviço para a identidade do trabalho de Stream Analytics no Azure Active Directory. O ciclo de vida da identidade recém-criada será gerenciado pelo Azure. Quando o trabalho de Stream Analytics é excluído, a identidade associada (ou seja, a entidade de serviço) é excluída automaticamente pelo Azure.
 
-   * Definir automaticamente **escrever** e **Execute** permissões para a geração 1 ADLS prefixo do caminho utilizado na tarefa e atribuí-lo a esta pasta e todos os filhos.
+   * Definir automaticamente as permissões de **gravação** e **execução** para o caminho de prefixo de ADLS Gen1 usado no trabalho e atribuí-lo a essa pasta e a todos os filhos.
 
-5. Pode gerar modelos do Resource Manager com a seguinte propriedade usando [CI do Stream Analytics. Pacote Nuget do CD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) versão 1.5.0 ou superior numa máquina de compilação (fora do Visual Studio). Siga os passos de implementação de modelo na secção seguinte para obter o serviço principal e conceder acesso ao serviço principal através do PowerShell do Resource Manager.
+5. Você pode gerar os modelos do Resource Manager com a seguinte propriedade usando [Stream Analytics CI. CD NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) versão 1.5.0 ou superior em um computador de compilação (fora do Visual Studio). Siga as etapas de implantação do modelo do Resource Manager na próxima seção para obter a entidade de serviço e conceder acesso à entidade de serviço por meio do PowerShell.
 
-## <a name="resource-manager-template-deployment"></a>Implementação de modelo do Resource Manager
+## <a name="resource-manager-template-deployment"></a>Implantação do modelo do Resource Manager
 
-1. Pode criar uma *Microsoft.StreamAnalytics/streamingjobs* recursos com uma identidade gerida, incluindo a seguinte propriedade na seção de recurso do modelo do Resource Manager:
+1. Você pode criar um recurso *Microsoft. StreamAnalytics/streamingjobs* com uma identidade gerenciada, incluindo a seguinte propriedade na seção de recursos do seu modelo do Resource Manager:
 
     ```json
     "Identity": {
@@ -96,9 +96,9 @@ Este artigo mostra três formas de ativar a identidade gerida para uma tarefa do
     },
     ```
 
-   Esta propriedade diz ao Azure Resource Manager para criar e gerir a identidade para a sua tarefa do Azure Stream Analytics.
+   Essa propriedade informa Azure Resource Manager para criar e gerenciar a identidade de seu trabalho de Azure Stream Analytics.
 
-   **Tarefa de exemplo**
+   **Trabalho de exemplo**
    
    ```json
    {
@@ -132,7 +132,7 @@ Este artigo mostra três formas de ativar a identidade gerida para uma tarefa do
    }
    ```
   
-   **Resposta de tarefa de exemplo**
+   **Exemplo de resposta de trabalho**
 
    ```json
    {
@@ -152,19 +152,19 @@ Este artigo mostra três formas de ativar a identidade gerida para uma tarefa do
    }
    ```
 
-   Tome nota do ID Principal da resposta de tarefa para conceder acesso ao recurso do ADLS necessário.
+   Anote a ID da entidade de segurança da resposta do trabalho para conceder acesso ao recurso ADLS necessário.
 
-   O **ID de inquilino** é o ID do inquilino do Azure Active Directory em que o principal de serviço é criado. O principal de serviço é criado no inquilino do Azure que seja considerada fidedigna pela subscrição.
+   A **ID do locatário** é a ID do locatário de Azure Active Directory em que a entidade de serviço é criada. A entidade de serviço é criada no locatário do Azure que é confiável para a assinatura.
 
-   O **tipo** indica o tipo de identidade gerida, conforme explicado em tipos de identidades geridas. Apenas o tipo de sistema atribuído é suportado.
+   O **tipo** indica o tipo de identidade gerenciada, conforme explicado em tipos de identidades gerenciadas. Somente o tipo atribuído ao sistema tem suporte.
 
-2. Fornece acesso ao principal de serviço com o PowerShell. Para dar acesso ao serviço principal através do PowerShell, execute o seguinte comando:
+2. Forneça acesso à entidade de serviço usando o PowerShell. Para conceder acesso à entidade de serviço por meio do PowerShell, execute o seguinte comando:
 
    ```powershell
    Set-AzDataLakeStoreItemAclEntry -AccountName <accountName> -Path <Path> -AceType User -Id <PrinicpalId> -Permissions <Permissions>
    ```
 
-   O **PrincipalId** é o ID de objeto do principal de serviço e está listado no ecrã do portal, uma vez criado o principal de serviço. Se criou a tarefa através de uma implementação de modelo do Resource Manager, o ID de objeto é listado na propriedade de identidade da resposta de tarefa.
+   O **PrincipalId** é a ID de objeto da entidade de serviço e é listado na tela do portal assim que a entidade de serviço é criada. Se você criou o trabalho usando uma implantação de modelo do Resource Manager, a ID do objeto será listada na propriedade Identity da resposta do trabalho.
 
    **Exemplo**
 
@@ -173,17 +173,17 @@ Este artigo mostra três formas de ativar a identidade gerida para uma tarefa do
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   Para saber mais sobre o comando acima do PowerShell, consulte a [Set-AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) documentação.
+   Para saber mais sobre o comando do PowerShell acima, consulte a documentação do [set-AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) .
 
 ## <a name="limitations"></a>Limitações
-Esta funcionalidade não suporta o seguinte:
+Este recurso não oferece suporte ao seguinte:
 
-1. **Acesso de multi-inquilino**: O principal de serviço criado para uma determinada tarefa do Stream Analytics irão residir no inquilino do Azure Active Directory no qual a tarefa foi criada e não pode ser utilizada em relação a um recurso que reside num inquilino do Azure Active Directory diferente. Por conseguinte, só pode utilizar o MSI nos recursos do ADLS Gen 1 que estão no mesmo inquilino do Azure Active Directory como a tarefa do Azure Stream Analytics. 
+1. **Acesso multilocatário**: a entidade de serviço criada para um determinado trabalho de Stream Analytics residirá no locatário Azure Active Directory no qual o trabalho foi criado e não pode ser usada em um recurso que resida em um Azure Active Directory diferente vários. Portanto, você só pode usar o MSI em recursos do ADLS Gen 1 que estão dentro do mesmo locatário Azure Active Directory que o seu trabalho de Azure Stream Analytics. 
 
-2. **[Identidade de utilizador atribuída](../active-directory/managed-identities-azure-resources/overview.md)** : não é suportada. Isso significa que o utilizador não é capaz de introduzir as suas próprias principal de serviço a ser utilizado pelo seu trabalho do Stream Analytics. O principal de serviço é gerado pelo Azure Stream Analytics.
+2. **[Identidade atribuída ao usuário](../active-directory/managed-identities-azure-resources/overview.md)** : não tem suporte. Isso significa que o usuário não é capaz de inserir sua própria entidade de serviço a ser usada por seus Stream Analytics trabalho. A entidade de serviço é gerada pelo Azure Stream Analytics.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Criar uma saída de Data lake Store com o stream analytics](../data-lake-store/data-lake-store-stream-analytics.md)
-* [Testar consultas do Stream Analytics localmente com o Visual Studio](stream-analytics-vs-tools-local-run.md)
-* [Dados em direto de teste localmente, utilizando ferramentas do Azure Stream Analytics para Visual Studio](stream-analytics-live-data-local-testing.md) 
+* [Criar uma saída do data Lake Store com o Stream Analytics](../data-lake-store/data-lake-store-stream-analytics.md)
+* [Testar Stream Analytics consultas localmente com o Visual Studio](stream-analytics-vs-tools-local-run.md)
+* [Testar dados dinâmicos localmente usando o Azure Stream Analytics Tools para Visual Studio](stream-analytics-live-data-local-testing.md) 

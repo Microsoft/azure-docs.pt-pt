@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/21/2019
+ms.date: 10/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bcd27378039d539e36c72cf6e8fec7e8a1425e54
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 1faf6e4c9124d494507a124013d5fd8588f4b41b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750347"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934928"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento da máquina virtual do Azure do SAP HANA
 
@@ -40,7 +40,7 @@ As condições mínimas de SAP HANA certificadas para os diferentes tipos de arm
 
 - O Azure SSD Premium-/Hana/log deve ser armazenado em cache com o [acelerador de gravação](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)do Azure. O volume/Hana/data pode ser colocado em SSD Premium sem o Acelerador de Gravação do Azure ou no ultra Disk
 - Ultra Disk do Azure pelo menos para o volume/Hana/log. O volume/Hana/data pode ser colocado em qualquer SSD Premium sem Acelerador de Gravação do Azure ou para obter tempos de reinicialização mais rápidos
-- Volumes **NFS v 4.1** sobre Azure NetApp Files para/Hana/log **e** /Hana/data
+- Volumes **NFS v 4.1** sobre Azure NetApp Files para/Hana/log **e** /Hana/Data. O volume de/Hana/Shared pode usar o protocolo NFS v3 ou NFS v 4.1. O protocolo NFS v 4.1 é obrigatório para volumes/Hana/data e/Hana/log.
 
 Alguns dos tipos de armazenamento podem ser combinados. Por exemplo, é possível colocar/Hana/data no armazenamento Premium e/Hana/log pode ser colocado em armazenamento de ultra disco para obter a baixa latência necessária. No entanto, não é recomendável misturar volumes NFS para, por exemplo,/Hana/data e usar um dos outros tipos de armazenamento certificados para/Hana/log
 
@@ -230,10 +230,10 @@ Nessa configuração, você os volumes/Hana/data e/Hana/log no mesmo disco. Os v
 Os tipos de VM M416xx_v2 ainda não foram disponibilizados pela Microsoft para o público. Os valores listados se destinam a ser um ponto de partida e precisam ser avaliados em relação às demandas reais. A vantagem com o ultra Disk do Azure é que os valores de IOPS e taxa de transferência podem ser adaptados sem a necessidade de desligar a VM ou de interromper a carga de trabalho aplicada ao sistema.  
 
 ## <a name="nfs-v41-volumes-on-azure-netapp-files"></a>Volumes NFS v 4.1 no Azure NetApp Files
-O Azure NetApp Files fornece compartilhamentos NFS nativos que podem ser usados para volumes/Hana/Shared,/Hana/data e/Hana/log. O uso de compartilhamentos NFS baseados em seja para esses volumes requer o uso do protocolo v 4.1 NFS. Não há suporte para o protocolo de NFS v3 para o uso de volumes relacionados ao HANA ao basear os compartilhamentos em seja. 
+O Azure NetApp Files fornece compartilhamentos NFS nativos que podem ser usados para volumes/Hana/Shared,/Hana/data e/Hana/log. O uso de compartilhamentos NFS baseados em seja para os volumes/Hana/data e/Hana/log requer o uso do protocolo v 4.1 NFS. Não há suporte para o protocolo de NFS v3 para o uso de volumes/Hana/data e/Hana/log ao basear os compartilhamentos em seja. 
 
 > [!IMPORTANT]
-> o protocolo NFS v3 implementado em Azure NetApp Files não tem suporte para ser usado para/Hana/Shared,/Hana/data e/Hana/log
+> O protocolo NFS v3 implementado em Azure NetApp Files não tem suporte para ser usado para/Hana/data e/Hana/log. O uso do NFS 4,1 é obrigatório para volumes/Hana/data e/Hana/log de um ponto de vista funcional. Enquanto para o volume/Hana/Shared, o NFS v3 ou o protocolo NFS v 4.1 podem ser usados a partir de um ponto de vista funcional.
 
 ### <a name="important-considerations"></a>Considerações importantes
 Ao considerar Azure NetApp Files para o SAP NetWeaver e o SAP HANA, esteja ciente das seguintes considerações importantes:
@@ -270,21 +270,21 @@ Os [limites de taxa de transferência de Azure NetApp files](https://docs.micros
 
 Para atender aos requisitos de taxa de transferência mínima do SAP para dados e log, e de acordo com as diretrizes para `/hana/shared`, os tamanhos recomendados seriam semelhantes a:
 
-| Volume | Tamanho<br /> Camada de armazenamento Premium | Tamanho<br /> Camada de armazenamento ultra |
+| Volume | Tamanho<br /> Camada de armazenamento Premium | Tamanho<br /> Camada de armazenamento ultra | Protocolo NFS com suporte |
 | --- | --- | --- |
-| /Hana/log | 4 TiB | 2 TiB |
-| /Hana/data | 6,3 TiB | 3,2 TiB |
-| /Hana/Shared | Max (512 GB, 1xRAM) por 4 nós de trabalho | Max (512 GB, 1xRAM) por 4 nós de trabalho |
+| /Hana/log | 4 TiB | 2 TiB | 4\.1 |
+| /Hana/data | 6,3 TiB | 3,2 TiB | 4\.1 |
+| /Hana/Shared | Max (512 GB, 1xRAM) por 4 nós de trabalho | Max (512 GB, 1xRAM) por 4 nós de trabalho | V3 ou v 4.1 |
 
 A configuração de SAP HANA para o layout apresentado neste artigo, usando Azure NetApp Files camada de armazenamento ultra seria semelhante a:
 
-| Volume | Tamanho<br /> Camada de armazenamento ultra |
+| Volume | Tamanho<br /> Camada de armazenamento ultra | Protocolo NFS com suporte |
 | --- | --- |
-| /hana/log/mnt00001 | 2 TiB |
-| /hana/log/mnt00002 | 2 TiB |
-| /hana/data/mnt00001 | 3,2 TiB |
-| /hana/data/mnt00002 | 3,2 TiB |
-| /Hana/Shared | 2 TiB |
+| /hana/log/mnt00001 | 2 TiB | 4\.1 |
+| /hana/log/mnt00002 | 2 TiB | 4\.1 |
+| /hana/data/mnt00001 | 3,2 TiB | 4\.1 |
+| /hana/data/mnt00002 | 3,2 TiB | 4\.1 |
+| /Hana/Shared | 2 TiB | V3 ou v 4.1 |
 
 > [!NOTE]
 > As recomendações de dimensionamento Azure NetApp Files declaradas aqui estão direcionadas para atender aos requisitos mínimos do SAP expressos em direção aos seus provedores de infraestrutura. Em implantações reais de clientes e cenários de carga de trabalho, isso pode não ser suficiente. Use essas recomendações como um ponto de partida e adapte-se com base nos requisitos de sua carga de trabalho específica.  

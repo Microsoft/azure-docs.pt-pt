@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: a2eb8bf10454ee01953ddd37025f0c0048d00a0a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: b0fa4dbc336067ee3e3b2baa49ec872f65a3154b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813753"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933520"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurar a recuperação após desastre para VMs de Hyper-V para um site no local secundário
 
@@ -28,6 +28,9 @@ Este artigo mostra-lhe como configurar a recuperação após desastre para um si
 > * Configurar o mapeamento de rede 
 > * Criar uma política de replicação
 > * Ativar replicação para uma VM
+
+> [!WARNING]
+> Observe que o suporte a ASR para usar a configuração do SCVMM em conta em breve será preterido e, portanto, recomendamos que você leia os detalhes de [substituição](scvmm-site-recovery-deprecation.md) antes de continuar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -64,7 +67,7 @@ Prepare o VMM da seguinte forma:
 
 Selecione o que pretende replicar e para onde pretende que seja replicado.
 
-1. Clique **site Recovery** > etapa1: **Objetivo preparar**a infraestrutura > de**proteção**.
+1. Clique em **Site Recovery** > **Passo 1: Preparar a Infraestrutura** > **Objetivo de proteção**.
 2. Selecione **Para site de recuperação** e selecione **Sim, com o Hyper-V**.
 3. Selecione **Sim** para indicar que está a utilizar o VMM para gerir os anfitriões de Hyper-V.
 4. Se tiver um servidor do VMM secundário, selecione **Sim**. Se estiver a implementar a replicação entre clouds num único servidor do VMM, clique em **Não**. Em seguida, clique em **OK**.
@@ -115,7 +118,7 @@ Selecione o servidor do VMM e a cloud de destino:
 1. Clique em **Preparar a infraestrutura** > **Destino** e selecione o servidor do VMM de destino.
 2. São apresentadas as clouds do VMM que estão sincronizadas com o Site Recovery. Selecione a cloud de destino.
 
-   ![Destino](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
+   ![Visar](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
 
 
 ## <a name="set-up-a-replication-policy"></a>Configurar uma política de replicação
@@ -132,8 +135,8 @@ Antes de começar, confirme que todos os anfitriões que utilizam a política t�
 1. Em **Frequência de cópia**, especifique a frequência com que pretende replicar dados delta após a replicação inicial (a cada 30 segundos, 5 ou 15 minutos).
 2. Em **Retenção do ponto de recuperação**, especifique (em horas) qual será a duração da janela de retenção para cada ponto de recuperação. As máquinas replicadas podem ser recuperadas para qualquer ponto nessa janela.
 3. Em **Frequência de instantâneos consistentes com a aplicação**, especifique a frequência (1 a 12 horas) com que os pontos de recuperação que contêm os instantâneos consistentes com aplicações são criados. O Hyper-V utiliza dois tipos de instantâneos:
-    - **Instantâneo padrão**: Fornece um instantâneo incremental de toda a máquina virtual.
-    - **Instantâneo consistente com o aplicativo**: Usa um instantâneo pontual dos dados do aplicativo dentro da VM. O Serviço de Cópia Sombra de Volumes (VSS) garante que as aplicações estão num estado consistente quando se obtém o instantâneo. A ativação dos instantâneos consistentes com a aplicação afeta o desempenho das aplicações nas VMs de origem. Defina um número menor do que o número de pontos de recuperação adicionais que está a configurar.
+    - **Instantâneo padrão**: disponibiliza um instantâneo incremental de toda a máquina virtual.
+    - **Instantâneo consistente com a aplicação**: cria um instantâneo de ponto no tempo dos dados da aplicação dentro da VM. O Serviço de Cópia Sombra de Volumes (VSS) garante que as aplicações estão num estado consistente quando se obtém o instantâneo. A ativação dos instantâneos consistentes com a aplicação afeta o desempenho das aplicações nas VMs de origem. Defina um número menor do que o número de pontos de recuperação adicionais que está a configurar.
 4. Em **Compressão da transferência de dados**, especifique se os dados de replicação transferidos devem ser comprimidos.
 5. Selecione **Eliminar VM de réplica** para especificar que a máquina virtual de réplica deve ser eliminada caso desative a proteção na VM de origem. Se ativar esta definição, quando desativar a proteção na VM de origem, esta é removida da consola do Site Recovery, as definições do Site Recovery para o VMM são removidas da consola do VMM e a réplica é eliminada.
 6. Em **Método de replicação inicial**, se estiver a replicar através da rede, especifique se a replicação inicial deve ser iniciada ou agendada. Para poupar largura de banda, pode considerar agendá-la para fora do seu horário mais preenchido. Em seguida, clique em **OK**.

@@ -1,24 +1,18 @@
 ---
 title: Trabalhar com cadeias de caracteres em consultas de log de Azure Monitor | Microsoft Docs
 description: Descreve como editar, comparar, Pesquisar e executar uma variedade de outras operações em cadeias de caracteres em Azure Monitor consultas de log.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 0dd61deb372822c5c564758d26d4c4a4938c1064
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.date: 08/16/2018
+ms.openlocfilehash: 0d7bf025b414df819887192bb59f7fd8da64b5d9
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741466"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932936"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabalhar com cadeias de caracteres em consultas de log de Azure Monitor
 
@@ -44,7 +38,7 @@ print "this is a 'string' literal in double \" quotes"
 print 'this is a "string" literal in single \' quotes'
 ```
 
-Para impedir que\\"" atue como um caractere de escape, adicione\@"" como um prefixo à cadeia de caracteres:
+Para impedir que "\\" atue como um caractere de escape, adicione "\@" como um prefixo à cadeia de caracteres:
 
 ```Kusto
 print @"C:\backslash\not\escaped\with @ prefix"
@@ -53,12 +47,12 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>Comparações de cadeia de caracteres
 
-Operator       |Descrição                         |Diferenciar maiúsculas de minúsculas|Exemplo (rendimento `true`)
+Operador       |Descrição                         |Diferenciar maiúsculas de minúsculas|Exemplo (produz `true`)
 ---------------|------------------------------------|--------------|-----------------------
-`==`           |É igual a                              |Sim           |`"aBc" == "aBc"`
-`!=`           |Diferente de                          |Sim           |`"abc" != "ABC"`
-`=~`           |É igual a                              |Não            |`"abc" =~ "ABC"`
-`!~`           |Diferente de                          |Não            |`"aBc" !~ "xyz"`
+`==`           |Igual a                              |Sim           |`"aBc" == "aBc"`
+`!=`           |Não é igual a                          |Sim           |`"abc" != "ABC"`
+`=~`           |Igual a                              |Não            |`"abc" =~ "ABC"`
+`!~`           |Não é igual a                          |Não            |`"aBc" !~ "xyz"`
 `has`          |O lado direito é um termo completo no lado esquerdo |Não|`"North America" has "america"`
 `!has`         |O lado direito não é um termo completo no lado esquerdo       |Não            |`"North America" !has "amer"` 
 `has_cs`       |O lado direito é um termo completo no lado esquerdo |Sim|`"North America" has_cs "America"`
@@ -97,12 +91,12 @@ Conta ocorrências de uma subcadeia de caracteres em uma cadeia de caracteres. P
 countof(text, search [, kind])
 ```
 
-### <a name="arguments"></a>Argumentos:
-- `text`-A cadeia de caracteres de entrada 
-- `search`-Cadeia de caracteres simples ou expressão regular para correspondência dentro do texto.
-- `kind` -  | _Regex_ normal (padrão: normal).
+### <a name="arguments"></a>Argumentos
+- `text`-a cadeia de caracteres de entrada 
+- `search`-cadeia de caracteres simples ou expressão regular para correspondência dentro do texto.
+- `kind` - _Regex_ _normal_ | (padrão: normal).
 
-### <a name="returns"></a>Devolve
+### <a name="returns"></a>Apresenta
 
 O número de vezes que a cadeia de caracteres de pesquisa pode ser correspondida no contêiner. Correspondências de cadeia de caracteres simples podem se sobrepor enquanto o Regex faz a correspondência.
 
@@ -139,12 +133,12 @@ extract(regex, captureGroup, text [, typeLiteral])
 
 ### <a name="arguments"></a>Argumentos
 
-- `regex`-Uma expressão regular.
-- `captureGroup`-Uma constante inteira positiva que indica o grupo de captura a ser extraído. 0 para a correspondência inteira, 1 para o valor correspondido pelo primeiro ' (' parêntese ') ' na expressão regular, 2 ou mais para parênteses subsequentes.
-- `text`-Uma cadeia de caracteres a ser pesquisada.
-- `typeLiteral`-Um literal de tipo opcional (por exemplo, typeof (Long)). Se fornecido, a subcadeia de caracteres extraída será convertida nesse tipo.
+- `regex`-uma expressão regular.
+- `captureGroup`-uma constante inteira positiva que indica o grupo de captura a ser extraído. 0 para a correspondência inteira, 1 para o valor correspondido pelo primeiro ' (' parêntese ') ' na expressão regular, 2 ou mais para parênteses subsequentes.
+- `text`-uma cadeia de caracteres a ser pesquisada.
+- `typeLiteral`-um literal de tipo opcional (por exemplo, typeof (Long)). Se fornecido, a subcadeia de caracteres extraída será convertida nesse tipo.
 
-### <a name="returns"></a>Devolve
+### <a name="returns"></a>Apresenta
 A subcadeia de caracteres correspondente ao grupo de captura de grupos de captura indicado, opcionalmente, convertida em typeLiteral.
 Se não houver correspondência ou a conversão de tipo falhar, retornará NULL.
 
@@ -246,11 +240,11 @@ replace(regex, rewrite, input_text)
 
 ### <a name="arguments"></a>Argumentos
 
-- `regex`-A expressão regular a ser correspondente. Ele pode conter grupos de captura em ' (' parênteses ') '.
-- `rewrite`-O Regex de substituição para qualquer correspondência feita por Regex correspondente. Use \ 0 para se referir a toda a correspondência, \ 1 para o primeiro grupo de captura, \ 2, e assim por diante para grupos de captura subsequentes.
-- `input_text`-A cadeia de caracteres de entrada para pesquisa.
+- `regex`-a expressão regular a ser correspondente. Ele pode conter grupos de captura em ' (' parênteses ') '.
+- `rewrite`-o Regex de substituição para qualquer correspondência feita pelo Regex correspondente. Use \ 0 para se referir a toda a correspondência, \ 1 para o primeiro grupo de captura, \ 2, e assim por diante para grupos de captura subsequentes.
+- `input_text`-a cadeia de caracteres de entrada para pesquisar.
 
-### <a name="returns"></a>Devolve
+### <a name="returns"></a>Apresenta
 O texto depois de substituir todas as correspondências de Regex por avaliações de reescrita. As correspondências não se sobrepõem.
 
 ### <a name="examples"></a>Exemplos
@@ -266,10 +260,10 @@ Pode ter os seguintes resultados:
 
 Atividade                                        |substituição
 ------------------------------------------------|----------------------------------------------------------
-4663-foi feita uma tentativa de acessar um objeto  |ID da atividade 4663: Foi feita uma tentativa de acessar um objeto.
+4663-foi feita uma tentativa de acessar um objeto  |ID da atividade 4663: foi feita uma tentativa de acessar um objeto.
 
 
-## <a name="split"></a>split
+## <a name="split"></a>dividir
 
 Divide uma determinada cadeia de caracteres de acordo com um delimitador especificado e retorna uma matriz das subcadeias de caracteres resultantes.
 
@@ -278,11 +272,11 @@ Divide uma determinada cadeia de caracteres de acordo com um delimitador especif
 split(source, delimiter [, requestedIndex])
 ```
 
-### <a name="arguments"></a>Argumentos:
+### <a name="arguments"></a>Argumentos
 
-- `source`-A cadeia de caracteres a ser dividida de acordo com o delimitador especificado.
-- `delimiter`-O delimitador que será usado para dividir a cadeia de caracteres de origem.
-- `requestedIndex`-Um índice opcional baseado em zero. Se fornecido, a matriz de cadeia de caracteres retornada manterá somente esse item (se existir).
+- `source`-a cadeia de caracteres a ser dividida de acordo com o delimitador especificado.
+- `delimiter`-o delimitador que será usado para dividir a cadeia de caracteres de origem.
+- `requestedIndex`-um índice opcional baseado em zero. Se fornecido, a matriz de cadeia de caracteres retornada manterá somente esse item (se existir).
 
 
 ### <a name="examples"></a>Exemplos
@@ -335,11 +329,11 @@ Extrai uma substring de uma determinada cadeia de caracteres de origem, iniciand
 substring(source, startingIndex [, length])
 ```
 
-### <a name="arguments"></a>Argumentos:
+### <a name="arguments"></a>Argumentos
 
-- `source`-A cadeia de caracteres de origem da qual a subcadeia de caracteres será retirada.
-- `startingIndex`-A posição de caractere inicial com base em zero da subcadeia de caracteres solicitada.
-- `length`-Um parâmetro opcional que pode ser usado para especificar o comprimento solicitado da subcadeia de caracteres retornada.
+- `source`-a cadeia de caracteres de origem da qual a subcadeia de caracteres será retirada.
+- `startingIndex`-a posição de caractere inicial com base em zero da subcadeia de caracteres solicitada.
+- `length`-um parâmetro opcional que pode ser usado para especificar o comprimento solicitado da subcadeia de caracteres retornada.
 
 ### <a name="examples"></a>Exemplos
 ```Kusto

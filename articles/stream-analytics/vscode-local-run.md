@@ -1,17 +1,17 @@
 ---
-title: Testar Azure Stream Analytics consultas localmente com Visual Studio Code (versão prévia)
+title: Testar Azure Stream Analytics consultas com Visual Studio Code
 description: Este artigo descreve como testar consultas localmente com Azure Stream Analytics Tools for Visual Studio Code.
 ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 05/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 751cdf50fccc654dfab06b4d18428531312d08e6
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 2791fb923f193815d718dbd2269cbcd11583a4ea
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673032"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924976"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio-code"></a>Testar Stream Analytics consultas localmente com Visual Studio Code
 
@@ -27,7 +27,7 @@ Use este guia de [início rápido](quick-create-vs-code.md) para aprender a cria
 
 Você pode usar a extensão de Azure Stream Analytics para Visual Studio Code para testar seus trabalhos de Stream Analytics localmente com dados de exemplo.
 
-1. Depois de criar seu trabalho de Stream Analytics, use **Ctrl + Shift + P** para abrir a paleta de comandos. Em seguida, digite e selecione **ASA: Adicione a entrada @ no__t-0.
+1. Depois de criar seu trabalho de Stream Analytics, use **Ctrl + Shift + P** para abrir a paleta de comandos. Em seguida, digite e selecione **asa: Adicionar entrada**.
 
     ![Adicionar entrada do ASA no Visual Studio Code](./media/vscode-local-run/add-input.png)
 

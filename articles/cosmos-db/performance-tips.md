@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
 ms.openlocfilehash: 27f39af480db8c0a044489a2efe6d2e4447b6db1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/25/2019
 ms.locfileid: "71261316"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Dicas de desempenho para Azure Cosmos DB e .NET
@@ -25,10 +25,10 @@ Azure Cosmos DB é um banco de dados distribuído rápido e flexível que é dim
 
 Então, se você estiver perguntando "como posso melhorar meu desempenho de banco de dados?" Considere as seguintes opções:
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Funcionamento em Rede
 <a id="direct-connection"></a>
 
-1. **Política de conexão: Usar o modo de conexão direta**
+1. **Política de conexão: usar o modo de conexão direta**
 
     Como um cliente se conecta a Azure Cosmos DB tem implicações importantes no desempenho, especialmente em termos de latência de cliente observada. Há duas definições de configuração principais disponíveis para configurar a política de conexão do cliente – o *modo* de conexão e o *protocolo*de conexão.  Os dois modos disponíveis são:
 
@@ -47,7 +47,7 @@ Então, se você estiver perguntando "como posso melhorar meu desempenho de banc
      |Modo de conexão  |Protocolo com suporte  |SDKs com suporte  |Porta de API/serviço  |
      |---------|---------|---------|---------|
      |Gateway  |   HTTPS    |  Todos os SDKS    |   SQL (443), Mongo (10250, 10255, 10256), tabela (443), Cassandra (10350), grafo (443)    |
-     |Direto    |     TCP    |  SDK .NET    | Portas dentro do intervalo de 10000 a 20.000 |
+     |Direto    |     TCP    |  .NET SDK    | Portas dentro do intervalo de 10000 a 20.000 |
 
      O Azure Cosmos DB oferece um modelo de programação RESTful simples e aberto por HTTPS. Além disso, ele oferece um protocolo TCP eficiente, que também é RESTful em seu modelo de comunicação e está disponível por meio do SDK do cliente .NET. O TCP direto e o HTTPS usam SSL para autenticação inicial e criptografia de tráfego. Para obter o melhor desempenho, use o protocolo TCP quando possível.
 
@@ -94,7 +94,7 @@ Então, se você estiver perguntando "como posso melhorar meu desempenho de banc
 
     Quando possível, coloque todos os aplicativos que chamam Azure Cosmos DB na mesma região que o banco de dados Cosmos do Azure. Para uma comparação aproximada, as chamadas para Azure Cosmos DB na mesma região são concluídas dentro de 1-2 ms, mas a latência entre a costa oeste e a leste dos EUA é > 50 ms. Essa latência pode variar de acordo com a solicitação até a solicitação, dependendo da rota tomada pela solicitação à medida que ele passa do cliente para o limite de datacenter do Azure. A menor latência possível é obtida garantindo que o aplicativo de chamada esteja localizado na mesma região do Azure que o ponto de extremidade de Azure Cosmos DB provisionado. Para obter uma lista de regiões disponíveis, consulte [regiões do Azure](https://azure.microsoft.com/regions/#services).
 
-    ![Ilustração da política de conexão de Azure Cosmos DB](./media/performance-tips/same-region.png)
+    ![ilustração da política de conexão de Azure Cosmos DB](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
 4. **Aumentar o número de threads/tarefas**
 
@@ -128,11 +128,11 @@ Então, se você estiver perguntando "como posso melhorar meu desempenho de banc
 
      O SDK do SQL .NET versão 1.9.0 e superior oferece suporte a consultas paralelas, que permitem consultar uma coleção particionada em paralelo. Para obter mais informações, consulte [exemplos de código](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) relacionados ao trabalho com os SDKs. Consultas paralelas são projetadas para melhorar a latência de consulta e a taxa de transferência em relação à sua contraparte serial. As consultas paralelas fornecem dois parâmetros que os usuários podem ajustar para atender aos requisitos personalizados, (a) MaxDegreeOfParallelism: para controlar o número máximo de partições, então, pode ser consultado em paralelo e (b) MaxBufferedItemCount: para controlar o número de resultados previamente buscados.
 
-    (a) o ***grau de ajuste da\: consulta paralela de paralelismo*** funciona consultando várias partições em paralelo. No entanto, os dados de uma partição individual são buscados em série em relação à consulta. A definição `MaxDegreeOfParallelism` do no [SDK v2](sql-api-sdk-dotnet.md) ou `MaxConcurrency` no [SDK v3](sql-api-sdk-dotnet-standard.md) para o número de partições tem a chance máxima de obter a consulta de melhor desempenho, desde que todas as outras condições do sistema permaneçam as mesmas. Se você não souber o número de partições, poderá definir o grau de paralelismo como um número alto, e o sistema escolherá o mínimo (número de partições, entrada fornecida pelo usuário) como o grau de paralelismo.
+    (a) ***grau de ajuste de paralelismo\:*** a consulta paralela funciona consultando várias partições em paralelo. No entanto, os dados de uma partição individual são buscados em série em relação à consulta. Definir o `MaxDegreeOfParallelism` no [SDK v2](sql-api-sdk-dotnet.md) ou `MaxConcurrency` no [SDK v3](sql-api-sdk-dotnet-standard.md) para o número de partições tem a chance máxima de alcançar a consulta de melhor desempenho, desde que todas as outras condições do sistema permaneçam as mesmas. Se você não souber o número de partições, poderá definir o grau de paralelismo como um número alto, e o sistema escolherá o mínimo (número de partições, entrada fornecida pelo usuário) como o grau de paralelismo.
 
     É importante observar que as consultas paralelas produzem os melhores benefícios se os dados forem distribuídos uniformemente entre todas as partições em relação à consulta. Se a coleção particionada for particionada de forma que toda ou a maioria dos dados retornados por uma consulta esteja concentrada em algumas partições (uma partição, no pior caso), o desempenho da consulta seria afunilado por essas partições.
 
-    (b) ***ajuste MaxBufferedItemCount\:***  a consulta paralela foi projetada para buscar antecipadamente resultados enquanto o lote atual de resultados está sendo processado pelo cliente. A busca prévia ajuda na melhoria da latência geral de uma consulta. MaxBufferedItemCount é o parâmetro para limitar o número de resultados previamente buscados. A definição de MaxBufferedItemCount como o número esperado de resultados retornados (ou um número mais alto) permite que a consulta receba o máximo benefício da busca prévia.
+    (b) ***ajuste do MaxBufferedItemCount\:*** a consulta paralela foi projetada para buscar previamente os resultados enquanto o lote atual de resultados está sendo processado pelo cliente. A busca prévia ajuda na melhoria da latência geral de uma consulta. MaxBufferedItemCount é o parâmetro para limitar o número de resultados previamente buscados. A definição de MaxBufferedItemCount como o número esperado de resultados retornados (ou um número mais alto) permite que a consulta receba o máximo benefício da busca prévia.
 
     A busca prévia funciona da mesma maneira, independentemente do grau de paralelismo, e há um único buffer para os dados de todas as partições.  
 6. **Ativar GC do lado do servidor**
@@ -165,13 +165,13 @@ Então, se você estiver perguntando "como posso melhorar meu desempenho de banc
    > [!NOTE] 
    > A propriedade maxItemCount não deve ser usada apenas para fins de paginação. É o principal uso para melhorar o desempenho das consultas, reduzindo o número máximo de itens retornados em uma única página.  
 
-   Você também pode definir o tamanho da página usando os SDKs de Azure Cosmos DB disponíveis. A propriedade [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) no feedoptions permite que você defina o número máximo de itens a serem retornados na operação de enumeração. Quando `maxItemCount` é definido como-1, o SDK localiza automaticamente o valor ideal dependendo do tamanho do documento. Por exemplo:
+   Você também pode definir o tamanho da página usando os SDKs de Azure Cosmos DB disponíveis. A propriedade [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) no feedoptions permite que você defina o número máximo de itens a serem retornados na operação de enumeração. Quando `maxItemCount` é definido como-1, o SDK localiza automaticamente o valor ideal, dependendo do tamanho do documento. Por exemplo:
     
    ```csharp
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
    ```
     
-   Quando uma consulta é executada, os dados resultantes são enviados em um pacote TCP. Se você especificar um valor muito baixo `maxItemCount`para, o número de corridas necessárias para enviar os dados no pacote TCP será alto, o que afetará o desempenho. Portanto, se você não tiver certeza de qual valor definir `maxItemCount` para propriedade, é melhor defini-lo como-1 e permitir que o SDK escolha o valor padrão. 
+   Quando uma consulta é executada, os dados resultantes são enviados em um pacote TCP. Se você especificar um valor muito baixo para `maxItemCount`, o número de viagens necessárias para enviar os dados no pacote TCP será alto, o que afetará o desempenho. Portanto, se você não tiver certeza de qual valor definir para `maxItemCount` Propriedade, é melhor defini-lo como-1 e permitir que o SDK escolha o valor padrão. 
 
 11. **Aumentar o número de threads/tarefas**
 
@@ -183,9 +183,9 @@ Então, se você estiver perguntando "como posso melhorar meu desempenho de banc
 
     - Para aplicativos executáveis, isso pode ser feito desmarcando a opção **preferir 32 bits** na janela **Propriedades do projeto** , na guia **Compilar** .
 
-    - Para projetos de teste baseados em VSTest, isso pode ser feito **selecionando**->testar**configurações**->**de teste arquitetura de processador padrão como x64**, na opção de menu **teste do Visual Studio** .
+    - Para projetos de teste baseados em VSTest, isso pode ser feito selecionando **testar**->**configurações de teste**->**arquitetura de processador padrão como x64**, na opção de menu **teste do Visual Studio** .
 
-    - Para aplicativos Web ASP.net implantados localmente, isso pode ser feito verificando o **uso da versão de 64 bits do IIS Express para sites e projetos**, em **ferramentas**->**Opções**->**projetos e soluções** **Projetos da Web.** ->
+    - Para aplicativos Web ASP.NET implantados localmente, isso pode ser feito verificando o **uso da versão de 64 bits do IIS Express para sites e projetos**, em **ferramentas**->**opções**->**projetos e soluções**-> **Projetos da Web**.
 
     - Para aplicativos Web ASP.NET implantados no Azure, isso pode ser feito escolhendo a **plataforma como 64 bits** nas **configurações do aplicativo** na portal do Azure.
 
@@ -202,7 +202,7 @@ Então, se você estiver perguntando "como posso melhorar meu desempenho de banc
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
     ```
 
-    Para obter mais informações, consulte [Azure Cosmos DB políticas](index-policy.md)de indexação.
+    Para obter mais informações, consulte [Azure Cosmos DB políticas de indexação](index-policy.md).
 
 ## <a name="throughput"></a>Débito
 <a id="measure-rus"></a>
@@ -215,7 +215,7 @@ Então, se você estiver perguntando "como posso melhorar meu desempenho de banc
 
     A complexidade de uma consulta afeta quantas unidades de solicitação são consumidas para uma operação. O número de predicados, a natureza dos predicados, o número de UDFs e o tamanho do conjunto de dados de origem influenciam o custo das operações de consulta.
 
-    Para medir a sobrecarga de qualquer operação (criar, atualizar ou excluir), inspecione o cabeçalho [x-MS-Request-encharge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (ou a propriedade RequestCharge equivalente em ResourceResponse\<T > ou FeedResponse\<t > no SDK do .net) para Meça o número de unidades de solicitação consumidas por essas operações.
+    Para medir a sobrecarga de qualquer operação (criar, atualizar ou excluir), inspecione o cabeçalho [x-MS-Request-encharge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (ou a propriedade RequestCharge equivalente em ResourceResponse\<t > ou FeedResponse\<t > no SDK do .net) para medir o número de unidades de solicitação consumidas por essas operações.
 
     ```csharp
     // Measure the performance (request units) of writes

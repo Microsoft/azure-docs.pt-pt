@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Habilitar a autenticação em um aplicativo de página única-Azure Active Directory B2C'
+title: 'Tutorial: habilitar a autenticação em um aplicativo de página única-Azure Active Directory B2C'
 description: Saiba como usar Azure Active Directory B2C para fornecer logon de usuário para um aplicativo de página única (JavaScript).
 services: active-directory-b2c
 author: mmacy
@@ -10,14 +10,14 @@ ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9b3d18a7f59415b27b1a70067c9a8a610140ca25
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 40b92f24922b146dfdc66c1b0a59aab748dea6f2
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672928"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931374"
 ---
-# <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>Tutorial: Habilitar a autenticação em um aplicativo de página única usando Azure Active Directory B2C (Azure AD B2C)
+# <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>Tutorial: habilitar a autenticação em um aplicativo de página única usando Azure Active Directory B2C (Azure AD B2C)
 
 Este tutorial mostra como usar o Azure Active Directory B2C (Azure AD B2C) para entrar e inscrever usuários em um SPA (aplicativo de página única). O Azure AD B2C permite que seus aplicativos se autentiquem em contas sociais, contas corporativas e Azure Active Directory contas usando protocolos padrão abertos.
 
@@ -52,7 +52,7 @@ No segundo tutorial que você concluiu como parte dos pré-requisitos, você reg
 1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
 1. Selecione **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 1. Selecione **aplicativos**e, em seguida, selecione o aplicativo *webapp1* .
-1. Em **URL de resposta**, `http://localhost:6420`adicione.
+1. Em **URL de resposta**, adicione `http://localhost:6420`.
 1. Selecione **Guardar**.
 1. Na página Propriedades, registre a **ID do aplicativo**. Você usará a ID do aplicativo em uma etapa posterior quando atualizar o código no aplicativo Web de página única.
 
@@ -70,8 +70,8 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 Agora que você obteve o exemplo, atualize o código com o nome do locatário Azure AD B2C e a ID do aplicativo que você registrou em uma etapa anterior.
 
-1. Abra o `index.html` arquivo na raiz do diretório de exemplo.
-1. Na definição, modifique o valor clientId com a ID do aplicativo que você registrou em uma etapa anterior. `msalConfig` Em seguida, atualize o valor do URI de **autoridade** com seu nome de locatário Azure ad B2C. Também atualize o URI com o nome do fluxo de usuário de inscrição/entrada criado em um dos pré-requisitos (por exemplo, *B2C_1_signupsignin1*).
+1. Abra o arquivo `index.html` na raiz do diretório de exemplo.
+1. Na definição de `msalConfig`, modifique o valor **clientId** com a ID do aplicativo que você registrou em uma etapa anterior. Em seguida, atualize o valor do URI de **autoridade** com seu nome de locatário Azure ad B2C. Também atualize o URI com o nome do fluxo de usuário de inscrição/entrada criado em um dos pré-requisitos (por exemplo, *B2C_1_signupsignin1*).
 
     ```javascript
     var msalConfig = {
@@ -87,7 +87,7 @@ Agora que você obteve o exemplo, atualize o código com o nome do locatário Az
     };
     ```
 
-    O nome do fluxo de usuário usado neste tutorial é **B2C_1_signupsignin1**. Se você estiver usando um nome de fluxo de usuário diferente, especifique esse nome `authority` no valor.
+    O nome do fluxo de usuário usado neste tutorial é **B2C_1_signupsignin1**. Se você estiver usando um nome de fluxo de usuário diferente, especifique esse nome no valor `authority`.
 
 ## <a name="run-the-sample"></a>Executar o exemplo
 
@@ -115,6 +115,9 @@ O exemplo dá suporte à inscrição, à entrada, à edição de perfil e à red
 
 ### <a name="sign-up-using-an-email-address"></a>Inscrever-se com um endereço de e-mail
 
+> [!WARNING]
+> Depois de inscrever-se ou entrar, você poderá ver um [erro de permissões insuficiente](#error-insufficient-permissions). Devido à implementação atual do código de exemplo, esse erro é esperado. Esse problema será resolvido em uma versão futura do exemplo de código, no momento em que esse aviso será removido.
+
 1. Selecione **logon** para iniciar o fluxo de usuário do *B2C_1_signupsignin1* especificado em uma etapa anterior.
 1. O Azure AD B2C apresenta uma página de início de sessão com uma ligação de inscrição. Como você ainda não tem uma conta, selecione o link **inscrever-se agora** .
 1. O fluxo de trabalho de inscrição apresenta uma página para recolher e verificar a identidade do utilizador através de um endereço de e-mail. O fluxo de trabalho de inscrição também coleta a senha do usuário e os atributos solicitados definidos no fluxo do usuário.
@@ -131,7 +134,7 @@ Agora você pode usar seu endereço de email e senha para entrar no aplicativo.
 
 ### <a name="error-insufficient-permissions"></a>Erro: permissões insuficientes
 
-Depois de entrar, o aplicativo exibe um erro de permissões insuficientes-isso é **esperado**:
+Depois de entrar, o aplicativo pode retornar um erro de permissões insuficientes:
 
 ```Output
 ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.
@@ -139,7 +142,7 @@ Correlation ID: ce15bbcc-0000-0000-0000-494a52e95cd7
 Timestamp: 2019-07-20 22:17:27Z
 ```
 
-Você recebe esse erro porque o aplicativo Web está tentando acessar uma API da Web protegida pelo diretório de demonstração, *fabrikamb2c*. Como seu token de acesso é válido somente para seu diretório do Azure AD, a chamada à API é, portanto, não autorizada.
+Você recebe esse erro porque o aplicativo Web está tentando acessar uma API da Web protegida pelo diretório de demonstração, *fabrikamb2c*. Como seu token de acesso é válido somente para seu diretório do Azure AD, a chamada à API não é autorizada.
 
 Para corrigir esse erro, continue no próximo tutorial da série (consulte [próximas etapas](#next-steps)) para criar uma API Web protegida para seu diretório.
 
@@ -155,4 +158,4 @@ Neste artigo, você aprendeu a:
 Agora passe para o próximo tutorial da série para conceder acesso a uma API Web protegida do SPA:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Conceder acesso a uma API Web do ASP.NET Core de um SPA usando Azure AD B2C >](active-directory-b2c-tutorials-spa-webapi.md)
+> [Tutorial: conceder acesso a uma API Web ASP.NET Core de um SPA usando Azure AD B2C >](active-directory-b2c-tutorials-spa-webapi.md)

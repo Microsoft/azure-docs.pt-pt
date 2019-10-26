@@ -1,6 +1,6 @@
 ---
-title: Diagnóstico de proxy inverso do Azure Service Fabric | Documentos da Microsoft
-description: Saiba como monitorizar e diagnosticar o processamento da solicitação, o proxy inverso.
+title: Diagnóstico de proxy reverso do Azure Service Fabric | Microsoft Docs
+description: Saiba como monitorar e diagnosticar o processamento de solicitações no proxy reverso.
 services: service-fabric
 documentationcenter: .net
 author: kavyako
@@ -13,36 +13,36 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: c9c8c649208cff95f4ee515d39cc8cca3e2c64bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6074b799e992371d41de050f68690e450f008789
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726847"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933969"
 ---
-# <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Monitorizar e diagnosticar o processamento da solicitação, o proxy inverso
+# <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Monitorar e diagnosticar o processamento de solicitações no proxy reverso
 
-A partir da versão 5.7 do Service Fabric, estão disponíveis para a recolha de eventos de proxy inverso. Os eventos estão disponíveis em dois canais, uma com apenas eventos de erro relacionados com a falha de processamento de pedidos com o proxy inverso e um segundo canal que contém eventos verbosos com entradas para pedidos com êxito ou falhadas.
+A partir da versão 5,7 do Service Fabric, os eventos de proxy reverso estão disponíveis para coleta. Os eventos estão disponíveis em dois canais, um com apenas eventos de erro relacionados à falha de processamento de solicitação no proxy reverso e no segundo canal que contém eventos detalhados com entradas para solicitações bem-sucedidas e com falha.
 
-Consulte a [recolher eventos de proxy inverso](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) para ativar a recolha de eventos destes canais no local e os clusters do Azure Service Fabric.
+Consulte [coletar eventos de proxy reverso](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) para habilitar a coleta de eventos desses canais em clusters locais e do Azure Service Fabric.
 
-## <a name="troubleshoot-using-diagnostics-logs"></a>Resolver problemas com registos de diagnóstico
-Aqui estão alguns exemplos sobre como interpretar os registos de falha comuns que um pode encontrar:
+## <a name="troubleshoot-using-diagnostics-logs"></a>Solucionar problemas usando logs de diagnóstico
+Aqui estão alguns exemplos de como interpretar os logs de falha comuns que um pode encontrar:
 
-1. Proxy inverso devolverá o código de estado de resposta 504 (tempo limite).
+1. O proxy reverso retorna o código de status de resposta 504 (timeout).
 
-    Uma das razões pode dever-o a conseguir responder dentro do período de tempo limite de pedido de serviço.
-   O primeiro evento abaixo os detalhes do pedido recebido, o proxy inverso de registos. 
-   O segundo evento indica que o pedido falhou ao encaminhamento ao serviço, devido a "Erro interno = ERROR_WINHTTP_TIMEOUT" 
+    Um motivo pode ser devido à falha do serviço de responder dentro do período de tempo limite da solicitação.
+   O primeiro evento abaixo registra em log os detalhes da solicitação recebida no proxy reverso. 
+   O segundo evento indica que a solicitação falhou ao encaminhar para o serviço, devido a "erro interno = ERROR_WINHTTP_TIMEOUT" 
 
-    O payload inclui:
+    A carga inclui:
 
-   * **traceId**: Este GUID pode ser utilizado para correlacionar a todos os eventos correspondentes a um único pedido. Na abaixo dois eventos, o traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**, implicando a que pertencem à mesma solicitação.
-   * **requestUrl**: O URL (URL de proxy inverso) para o qual o pedido foi enviado.
-   * **verb**: Verbo HTTP.
-   * **remoteAddress**: Endereço do cliente enviar o pedido.
-   * **resolvedServiceUrl**: URL de ponto final de serviço ao qual a solicitação de entrada foi resolvida. 
-   * **errorDetails**: Obter informações adicionais sobre a falha.
+   * **TraceID**: esse GUID pode ser usado para correlacionar todos os eventos correspondentes a uma única solicitação. Nos dois eventos abaixo, TraceID = **2f87b722-e254-4ac2-a802-fd315c1a0271**, implicando que eles pertencem à mesma solicitação.
+   * **requestUrl**: a URL (URL de proxy reverso) para a qual a solicitação foi enviada.
+   * **verbo: verbo**http.
+   * **RemoteAddress**: endereço do cliente que está enviando a solicitação.
+   * **resolvedServiceUrl**: URL de ponto de extremidade de serviço para a qual a solicitação de entrada foi resolvida. 
+   * **errorDetails**: informações adicionais sobre a falha.
 
      ```
      {
@@ -81,12 +81,12 @@ Aqui estão alguns exemplos sobre como interpretar os registos de falha comuns q
      }
      ```
 
-2. Proxy inverso devolve o código de estado de resposta 404 (não encontrado). 
+2. O proxy reverso retorna o código de status de resposta 404 (não encontrado). 
     
-    Aqui está um evento de exemplo em que o proxy inverso devolve 404, uma vez que ele não foi possível encontrar o ponto de extremidade de serviço correspondente.
-    As entradas de payload de interesse aqui são:
-   * **processRequestPhase**: Indica a fase de durante o processamento de solicitação quando a falha ocorreu, ***TryGetEndpoint*** como ao tentar obter o ponto final de serviço para reencaminhar para. 
-   * **errorDetails**: Lista os critérios de pesquisa de ponto final. Aqui pode ver que o listenerName especificado = **FrontEndListener** ao passo que a lista de ponto final de réplica contém apenas um serviço de escuta com o nome **OldListener**.
+    Veja um evento de exemplo em que o proxy reverso retorna 404, já que ele não encontrou o ponto de extremidade de serviço correspondente.
+    As entradas de conteúdo de interesse aqui são:
+   * **processRequestPhase**: indica a fase durante o processamento da solicitação quando a falha ocorreu, ***TryGetEndpoint*** ou seja ao tentar buscar o ponto de extremidade de serviço para encaminhar. 
+   * **errorDetails**: lista os critérios de pesquisa do ponto de extremidade. Aqui você pode ver que listenername especificado = **FrontEndListener** , enquanto que a lista de pontos de extremidade de réplica contém apenas um ouvinte com o nome **OldListener**.
     
      ```
      {
@@ -104,16 +104,16 @@ Aqui estão alguns exemplos sobre como interpretar os registos de falha comuns q
      }
      }
      ```
-     Outro exemplo em que o proxy reverso pode devolver 404 não encontrado é: Parâmetro de configuração de ApplicationGateway\Http **SecureOnlyMode** está definido como verdadeiro com o proxy inverso a escutar **HTTPS**, no entanto, todos os pontos de extremidade de réplica são inseguros (escuta de HTTP).
-     Inverter devolve de proxy 404, uma vez que ele não é possível localizar um ponto de extremidade escutando HTTPS para encaminhar a solicitação. Analisar os parâmetros no caso de payload ajuda a limitar o problema:
+     Outro exemplo em que o proxy reverso pode retornar 404 não encontrado é: o parâmetro de configuração ApplicationGateway\Http **SecureOnlyMode** está definido como true com o proxy reverso escutando em **https**, mas todos os pontos de extremidade de réplica não são seguros ( escutando em HTTP).
+     O proxy reverso retorna 404, pois não consegue encontrar um ponto de extremidade ouvindo em HTTPS para encaminhar a solicitação. A análise dos parâmetros no conteúdo do evento ajuda a restringir o problema:
     
      ```
       "errorDetails": "SecureOnlyMode = true, gateway protocol = https, listenerName = NewListener, replica endpoint = {\"Endpoints\":{\"OldListener\":\"Http:\/\/localhost:8491\/LocationApp\/\", \"NewListener\":\"Http:\/\/localhost:8492\/LocationApp\/\"}}"
      ```
 
-3. Pedido para o proxy inverso falha com um erro de tempo limite. 
-    Os registos de eventos contêm um evento com os detalhes de pedido recebido (não mostrados aqui).
-    O próximo evento mostra que o serviço respondeu com um código de 404 estado e proxy inverso inicia uma voltar a resolver. 
+3. A solicitação para o proxy reverso falha com um erro de tempo limite. 
+    Os logs de eventos contêm um evento com os detalhes da solicitação recebida (não mostrado aqui).
+    O próximo evento mostra que o serviço respondeu com um código de status 404 e o proxy reverso inicia uma reresolução. 
 
     ```
     {
@@ -134,11 +134,11 @@ Aqui estão alguns exemplos sobre como interpretar os registos de falha comuns q
       }
     }
     ```
-    Aquando da recolha de todos os eventos, verá um comboio de eventos que mostra cada resolve e a tentativa de encaminhamento.
-    O último evento na série mostra que o processamento do pedido falhou com um tempo limite, juntamente com o número de tentativas de resolver com êxito.
+    Ao coletar todos os eventos, você verá um treinamento de eventos mostrando todas as tentativas de resolução e encaminhamento.
+    O último evento da série mostra que o processamento da solicitação falhou com um tempo limite, junto com o número de tentativas de resolução bem-sucedidas.
     
     > [!NOTE]
-    > Recomenda-se mantenha a recolha de eventos de canal verboso desativada por predefinição e habilitá-lo para resolução de problemas de forma necessidade.
+    > É recomendável manter a coleta de eventos do canal detalhado desabilitada por padrão e habilitá-la para solução de problemas de acordo com a necessidade.
 
     ```
     {
@@ -157,13 +157,13 @@ Aqui estão alguns exemplos sobre como interpretar os registos de falha comuns q
     }
     ```
     
-    Se a coleção estiver ativada para apenas os eventos de erro/crítico, verá um evento com detalhes sobre o tempo limite e o número de tentativas de resolução. 
+    Se a coleção estiver habilitada somente para eventos críticos/de erro, você verá um evento com detalhes sobre o tempo limite e o número de tentativas de resolução. 
     
-    Serviços que pretendem enviar um código de 404 estado ao usuário, deve adicionar um cabeçalho "X-ServiceFabric" na resposta. Depois do cabeçalho é adicionado à resposta, o proxy inverso reencaminha o código de estado para o cliente.  
+    Os serviços que pretendem enviar um código de status 404 de volta para o usuário devem adicionar um cabeçalho "X-perfabric" na resposta. Depois que o cabeçalho é adicionado à resposta, o proxy reverso encaminha o código de status de volta para o cliente.  
 
-4. Casos em que o cliente desligou o pedido.
+4. Casos em que o cliente desconectou a solicitação.
 
-    Seguinte evento é registado quando o proxy inverso está a reencaminhar a resposta ao cliente, mas o cliente desligar:
+    O evento a seguir é registrado quando o proxy reverso está encaminhando a resposta para o cliente, mas o cliente se desconecta:
 
     ```
     {
@@ -181,24 +181,24 @@ Aqui estão alguns exemplos sobre como interpretar os registos de falha comuns q
       }
     }
     ```
-5. Proxy inverso devolve 404 FABRIC_E_SERVICE_DOES_NOT_EXIST
+5. O proxy reverso retorna 404 FABRIC_E_SERVICE_DOES_NOT_EXIST
 
-    Erro FABRIC_E_SERVICE_DOES_NOT_EXIST é devolvido se o esquema URI não está especificado para o ponto final de serviço no manifesto do serviço.
+    O erro FABRIC_E_SERVICE_DOES_NOT_EXIST será retornado se o esquema de URI não for especificado para o ponto de extremidade de serviço no manifesto do serviço.
 
     ```
     <Endpoint Name="ServiceEndpointHttp" Port="80" Protocol="http" Type="Input"/>
     ```
 
-    Para resolver o problema, especifique o esquema URI no manifesto.
+    Para resolver o problema, especifique o esquema de URI no manifesto.
     ```
     <Endpoint Name="ServiceEndpointHttp" UriScheme="http" Port="80" Protocol="http" Type="Input"/>
     ```
 
 > [!NOTE]
-> Eventos relacionados com o processamento da solicitação websocket não são atualmente registados. Isso será adicionado na próxima versão.
+> Os eventos relacionados ao processamento de solicitações WebSocket não estão registrados no momento. Isso será adicionado na próxima versão.
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Agregação de eventos e coleções com o Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) para ativar a recolha de registos em clusters do Azure.
-* Para ver eventos do Service Fabric no Visual Studio, consulte [monitorizar e diagnosticar localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
-* Consulte a [configurar o proxy inverso para ligar a serviços seguros](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) para o Azure Resource Manager exemplos de modelos para configurar o secure proxy inverso, com o certificado de serviço diferentes opções de validação.
-* Leia [proxy inverso do Service Fabric](service-fabric-reverseproxy.md) para saber mais.
+## <a name="next-steps"></a>Passos seguintes
+* [Agregação e coleta de eventos usando o Windows diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md) para habilitar a coleta de log em clusters do Azure.
+* Para exibir Service Fabric eventos no Visual Studio, consulte [monitorar e diagnosticar localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
+* Consulte [Configurar o proxy reverso para se conectar a serviços seguros](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample#configure-reverse-proxy-to-connect-to-secure-services) para exemplos de modelo de Azure Resource Manager para configurar o proxy reverso seguro com as diferentes opções de validação de certificado de serviço.
+* Leia [Service Fabric proxy reverso](service-fabric-reverseproxy.md) para saber mais.

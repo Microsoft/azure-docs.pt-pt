@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: 74bb062713eac44310edcc8d1cdaed605e964681
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: e4e65f38f71b458c34a6747c434ebcd1d8a1b350
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264431"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931579"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Início rápido: biblioteca de cliente do reconhecedor de formulário para .NET
 
@@ -43,7 +43,7 @@ Use a biblioteca de cliente do formulário Recognizer para .NET para:
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-Depois de obter uma chave de sua assinatura ou recurso de avaliação, [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave, denominada `FORM_RECOGNIZER_KEY`.
+Depois de obter uma chave de sua assinatura ou recurso de avaliação, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e o ponto de extremidade, chamados `FORM_RECOGNIZER_KEY` e `FORM_RECOGNIZER_ENDPOINT`, respectivamente.
 
 ### <a name="create-a-new-c-application"></a>Criar um novo C# aplicativo
 
@@ -120,7 +120,6 @@ Esses trechos de código mostram como realizar as seguintes tarefas com a biblio
 
 Antes de definir qualquer método, adicione as definições de variável a seguir à parte superior da classe **programa** . Você precisará preencher algumas das variáveis por conta própria. 
 
-* Você pode encontrar o valor do ponto de extremidade do serviço na seção **visão geral** do portal do Azure. 
 * Para recuperar a URL SAS para seus dados de treinamento, abra o Gerenciador de Armazenamento do Microsoft Azure, clique com o botão direito do mouse no contêiner e selecione **obter assinatura de acesso compartilhado**. Verifique se as permissões de **leitura** e **lista** estão marcadas e clique em **criar**. Em seguida, copie o valor na seção **URL** . Ele deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Se você precisar de um formulário de exemplo para analisar, poderá usar um dos arquivos na pasta **Test** do conjunto de [dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451). Este guia usa apenas formulários em PDF.
 

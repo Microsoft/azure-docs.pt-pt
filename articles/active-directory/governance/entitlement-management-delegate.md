@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d44a4265c3729bff3d983395a37a6cb64a463d4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: fd9eb97b88be3ed68398cf7844b03e6a1fc9cd1b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389123"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934445"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management-preview"></a>Delegação e funções no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -99,6 +99,7 @@ A tabela a seguir lista as tarefas que as funções de gerenciamento de direitos
 | Tarefa | ADM | Criador do catálogo | Proprietário do catálogo | Gerenciador de pacotes de acesso |
 | --- | :---: | :---: | :---: | :---: |
 | [Delegar a um criador de catálogo](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
+| [Adicionar uma organização conectada](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |
 | [Criar um novo catálogo](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | [Adicionar um recurso a um catálogo](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | [Adicionar um proprietário do catálogo](entitlement-management-catalog-create.md#add-additional-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |

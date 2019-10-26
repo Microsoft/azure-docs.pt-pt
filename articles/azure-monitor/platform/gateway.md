@@ -1,24 +1,18 @@
 ---
 title: Conectar computadores usando o gateway de Log Analytics | Microsoft Docs
 description: Conecte seus dispositivos e computadores monitorados por Operations Manager usando o gateway de Log Analytics para enviar dados para a automação do Azure e o serviço de Log Analytics quando eles não tiverem acesso à Internet.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/24/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 26d437ea813b1ebef25b799a119d47652bfd10c9
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
-ms.translationtype: HT
+ms.date: 10/24/2019
+ms.openlocfilehash: ba0ee29b48be259bddd898c3d1119b77f6ee5228
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898759"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932310"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conectar computadores sem acesso à Internet usando o gateway de Log Analytics no Azure Monitor
 

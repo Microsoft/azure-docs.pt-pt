@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: d8b6b1bfcbceb1168d0f74c73e72bd42b41bb2ec
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b052772bbfe9d69e430d9f722d8db56b48db7610
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562511"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933478"
 ---
 Selecione **Compilar**. Na caixa de diálogo que é aberta, selecione uma pasta para a qual exportar o projeto do Xcode.
 
@@ -26,27 +26,30 @@ Na pasta do projeto Xcode exportada, execute este comando no terminal para insta
 pod install --repo-update
 ```
 
-Agora você pode abrir `Unity-iPhone.xcworkspace` o para abrir o projeto no Xcode:
+Agora você pode abrir `Unity-iPhone.xcworkspace` para abrir o projeto no Xcode:
 
 ```bash
 open ./Unity-iPhone.xcworkspace
 ```
 
 > [!NOTE]
-> Se você vir um `library not found for -lPods-Unity-iPhone` erro, provavelmente você abriu o `.xcodeproj` arquivo em vez do `.xcworkspace` arquivo. 
+> Consulte as etapas de solução de problemas [aqui](../articles/spatial-anchors/quickstarts/get-started-unity-ios.md#cocoapods-issues-on-macos-catalina-1015) se você estiver tendo problemas de CocoaPod após a atualização para o MacOS Catalina (10,15).
 
 Selecione o nó raiz **Unity-iPhone** para exibir as configurações do projeto e, em seguida, selecione a guia **geral** .
 
 Em **assinatura**, verifique se a **assinatura gerenciar automaticamente** está habilitada. Se não estiver, habilite-o e, em seguida, selecione **habilitar automático** na caixa de diálogo que aparece para redefinir as configurações de compilação.
 
-Em **informações de implantação**, verifique se o **destino de implantação** está `11.0`definido como.
+Em **informações de implantação**, verifique se o **destino de implantação** está definido como `11.0`.
 
 ### <a name="deploy-the-app-to-your-ios-device"></a>Implantar o aplicativo em seu dispositivo iOS
 
 Conecte o dispositivo iOS ao Mac e defina o **esquema ativo** para seu dispositivo IOS.
 
-![Selecione o dispositivo](./media/spatial-anchors-unity/select-device.png)
+![Selecionar o dispositivo](./media/spatial-anchors-unity/select-device.png)
 
 Selecione **Compilar e execute o esquema atual**.
 
 ![Implantar e executar](./media/spatial-anchors-unity/deploy-run.png)
+
+> [!NOTE]
+> Se você vir um erro `library not found for -lPods-Unity-iPhone`, provavelmente você abriu o arquivo `.xcodeproj` em vez do arquivo `.xcworkspace`.

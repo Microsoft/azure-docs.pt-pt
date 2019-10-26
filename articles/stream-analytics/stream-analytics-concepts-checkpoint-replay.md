@@ -1,6 +1,6 @@
 ---
-title: Ponto de verificação e repetição conceitos de recuperação de tarefa no Azure Stream Analytics
-description: Este artigo descreve o ponto de verificação e repetição conceitos de recuperação de tarefa no Azure Stream Analytics.
+title: Conceitos de ponto de verificação e recuperação de reprodução no Azure Stream Analytics
+description: Este artigo descreve os conceitos de ponto de verificação e de recuperação de trabalho de reprodução no Azure Stream Analytics.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -9,67 +9,67 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9dcfbd4b5fcc8462c88b16f585424166ecd3d499
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26d8d8248c9dcc57edaaa4a90f87071ee61a70ce
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61361898"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935033"
 ---
-# <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Conceitos de ponto de verificação e repetição em tarefas do Azure Stream Analytics
-Este artigo descreve os internos ponto de verificação e repetição conceitos no Azure Stream Analytics e o impacto que aqueles tem na recuperação da tarefa. Sempre que é executada uma tarefa do Stream Analytics, informações de estado são mantidas internamente. Que informações de estado são salvas num ponto de verificação periodicamente. Em alguns cenários, as informações de ponto de verificação são utilizadas para a recuperação de tarefa se ocorrer uma falha da tarefa ou a atualização. Em outras circunstâncias, o ponto de verificação não pode ser utilizado para recuperação e uma repetição é necessária.
+# <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Conceitos de ponto de verificação e reprodução em trabalhos de Azure Stream Analytics
+Este artigo descreve os conceitos internos de ponto de verificação e reprodução no Azure Stream Analytics e o impacto que eles têm na recuperação do trabalho. Cada vez que um trabalho de Stream Analytics é executado, as informações de estado são mantidas internamente. Essas informações de estado são salvas em um ponto de verificação periodicamente. Em alguns cenários, as informações de ponto de verificação serão usadas para recuperação de trabalho se ocorrer uma falha de trabalho ou atualização. Em outras circunstâncias, o ponto de verificação não pode ser usado para recuperação e uma reprodução é necessária.
 
-## <a name="stateful-query-logicin-temporal-elements"></a>Lógica de consulta com monitoração de Estado nos elementos temporais
-Um da capacidade única de trabalho do Azure Stream Analytics consiste em efetuar o processamento com monitoração de estado, tais como funções de análise temporais, associações temporais e agregados em janelas. Cada um destes operadores mantém informações de estado quando a tarefa é executada. O tamanho máximo da janela para esses elementos de consulta é de sete dias. 
+## <a name="stateful-query-logicin-temporal-elements"></a>Lógica de consulta com estado em elementos temporais
+Um dos recursos exclusivos do trabalho Azure Stream Analytics é executar o processamento com estado, como agregações em janelas, junções temporais e funções analíticas temporais. Cada um desses operadores mantém informações de estado quando o trabalho é executado. O tamanho máximo da janela para esses elementos de consulta é de sete dias. 
 
-O conceito de janela temporal é apresentado em vários elementos de consulta do Stream Analytics:
-1. Agregados em janelas (grupo por de em cascata, saltos e deslizante windows)
+O conceito de janela temporal aparece em vários elementos de consulta Stream Analytics:
+1. Agregações em janela (grupo por de em cascata, salto e janelas deslizantes)
 
-2. Associações temporais (associação com DATEDIFF)
+2. Junções temporais (junção com DATEDIFF)
 
-3. Funções de análise temporais (ISFIRST, LAST e desfasamento com duração de limite)
+3. Funções analíticas temporais (isprimeiro, último e retardo com limite de duração)
 
 
-## <a name="job-recovery-from-node-failure-including-os-upgrade"></a>Recuperação de tarefa de falha de nó, incluindo a atualização do SO
-Sempre que for executada uma tarefa do Stream Analytics, internamente ele é dimensionado para fazer o trabalho em vários nós de trabalho. Estado de cada nó de trabalho é foi efetuada a verificação intervalos de poucos minutos, que ajuda o recuperar se ocorrer uma falha de sistema.
+## <a name="job-recovery-from-node-failure-including-os-upgrade"></a>Recuperação de trabalho de falha de nó, incluindo atualização do so
+Cada vez que um trabalho de Stream Analytics é executado, internamente, ele é escalado horizontalmente para fazer o trabalho entre vários nós de trabalho. O estado de cada nó de trabalho é verificado a cada poucos minutos, o que ajuda o sistema a se recuperar se ocorrer uma falha.
 
-Às vezes, poderá falhar um nó de trabalho de determinada ou uma atualização do sistema operativo pode ocorrer para esse nó de trabalho. Para recuperar automaticamente, o Stream Analytics adquire um novo nó de bom estado de funcionamento e estado do nó de trabalho anterior é restaurado a partir do mais recente disponível ponto de verificação. Para retomar o trabalho, uma pequena quantidade de repetição é necessária para restaurar o estado a partir da hora de quando o ponto de verificação é tirado. Normalmente, a lacuna de restauro é apenas alguns minutos. Quando o suficiente unidades de transmissão em fluxo são selecionadas para a tarefa, a repetição deve ser concluída rapidamente. 
+Às vezes, um determinado nó de trabalho pode falhar ou uma atualização do sistema operacional pode ocorrer para esse nó de trabalho. Para recuperar automaticamente, Stream Analytics adquire um novo nó íntegro e o estado anterior do nó de trabalho é restaurado do ponto de verificação mais recente disponível. Para retomar o trabalho, uma pequena quantidade de repetição é necessária para restaurar o estado a partir da hora em que o ponto de verificação é obtido. Normalmente, o intervalo de restauração é de apenas alguns minutos. Quando unidades de streaming suficientes são selecionadas para o trabalho, a reprodução deve ser concluída rapidamente. 
 
-Numa consulta paralela completamente, o tempo que demora a recuperar-se após uma falha de nó de trabalho é proporcional ao:
+Em uma consulta totalmente paralela, o tempo necessário para acompanhar após a falha de um nó de trabalho é proporcional a:
 
-[a taxa de eventos de entrada] x [o comprimento de lacuna] / [o número de partições de processamento]
+[a taxa de eventos de entrada] x [o comprimento do intervalo]/[número de partições de processamento]
 
-Se alguma vez observar o atraso de processamento significativo devido a falha de nó e de atualização de SO, considere fazer a consulta totalmente em paralelo e dimensionar a tarefa para alocar mais unidades de transmissão em fluxo. Para obter mais informações, consulte [dimensionar uma tarefa Azure Stream Analytics para aumentar o débito](stream-analytics-scale-jobs.md).
+Se você observar um atraso significativo no processamento devido à falha do nó e à atualização do sistema operacional, considere tornar a consulta totalmente paralela e dimensione o trabalho para alocar mais unidades de streaming. Para obter mais informações, consulte [dimensionar um trabalho de Azure Stream Analytics para aumentar a taxa de transferência](stream-analytics-scale-jobs.md).
 
-Atual Stream Analytics não mostra um relatório quando esse tipo de processo de recuperação estiver em curso.
+O Stream Analytics atual não mostra um relatório quando esse tipo de processo de recuperação está ocorrendo.
 
-## <a name="job-recovery-from-a-service-upgrade"></a>Recuperação de tarefa de uma atualização de serviço 
-Microsoft, ocasionalmente, atualiza os binários que executam tarefas do Stream Analytics no serviço do Azure. Estes tempos, tarefas de execução dos utilizadores são atualizadas para a versão mais recente e a tarefa é reiniciado automaticamente. 
+## <a name="job-recovery-from-a-service-upgrade"></a>Recuperação de trabalho de uma atualização de serviço 
+Ocasionalmente, a Microsoft atualiza os binários que executam os trabalhos de Stream Analytics no serviço do Azure. Nesses momentos, os trabalhos em execução dos usuários são atualizados para a versão mais recente e o trabalho é reiniciado automaticamente. 
 
-Atualmente, o formato de ponto de verificação de recuperação não é mantido entre as atualizações. Como resultado, o estado da consulta de transmissão em fluxo deve ser restaurado utilizando inteiramente os técnica de repetição. Para permitir que as tarefas de Stream Analytics reproduzir exatamente iguais de entrada de antes, é importante definir a política de retenção para a origem de dados para, pelo menos, a janela de tamanhos de na sua consulta. Caso contrário, pode resultar em resultados parciais ou incorretos durante a atualização de serviço, uma vez que a origem de dados não pode ser mantidas suficientemente novamente para incluir o tamanho da janela completa.
+Atualmente, o formato do ponto de verificação de recuperação não é preservado entre atualizações. Como resultado, o estado da consulta de streaming deve ser totalmente restaurado usando a técnica de reprodução. Para permitir que Stream Analytics trabalhos reproduzam exatamente a mesma entrada de antes, é importante definir a política de retenção para os dados de origem para pelo menos os tamanhos de janela em sua consulta. Não fazer isso pode resultar em resultados incorretos ou parciais durante a atualização do serviço, pois os dados de origem podem não ser retidos muito o suficiente para incluir o tamanho completo da janela.
 
-Em geral, a quantidade de repetição necessária é proporcional ao tamanho da janela multiplicado pela taxa de eventos média. Por exemplo, para uma tarefa com uma taxa de entrada de 1000 eventos por segundo, um tamanho de janela maior do que uma hora é considerado têm um tamanho grande de repetição. Até uma hora de dados poderá ter de ser novamente processados para inicializar o estado, para que este possa produzir completa e resultados corretos, o que podem causar um atraso (nenhuma saída) de saída durante um período prolongado. As consultas com nenhuma windows ou outros operadores temporais, como `JOIN` ou `LAG`, teria de repetição de zero.
+Em geral, a quantidade de repetição necessária é proporcional ao tamanho da janela multiplicada pela taxa média de eventos. Por exemplo, para um trabalho com uma taxa de entrada de 1000 eventos por segundo, um tamanho de janela maior que uma hora é considerado com um tamanho de reprodução grande. Até uma hora de dados talvez precisem ser reprocessados para inicializar o estado para que ele possa produzir resultados completos e corretos, o que pode causar uma saída atrasada (sem saída) por algum período estendido. Consultas sem Windows ou outros operadores temporais, como `JOIN` ou `LAG`, teriam zero reprodução.
 
-## <a name="estimate-replay-catch-up-time"></a>Tempo de catch-up de repetição de estimativa
-Para calcular o comprimento do atraso devido a uma atualização de serviço, pode seguir essa técnica:
+## <a name="estimate-replay-catch-up-time"></a>Estimar tempo de atualização de reprodução
+Para estimar o comprimento do atraso devido a uma atualização de serviço, você pode seguir esta técnica:
 
-1. Carregar a entrada Hub de eventos com dados suficientes para cobrir o maior tamanho de janela na sua consulta, a taxa de evento esperado. Timestamp dos eventos deve ser próximo da hora de relógio de parede durante esse período de tempo, como se se trata de uma feed de entrada em direto. Por exemplo, se tiver uma janela de 3 dias na sua consulta, enviar eventos para o Hub de eventos para três dias e continue a enviar eventos. 
+1. Carregue o Hub de eventos de entrada com dados suficientes para cobrir o maior tamanho de janela em sua consulta, na taxa de eventos esperados. O carimbo de data/hora dos eventos deve estar próximo ao tempo do relógio de parede durante esse período de tempo, como se fosse um feed de entrada ao vivo. Por exemplo, se você tiver uma janela de três dias em sua consulta, envie eventos para o Hub de eventos por três dias e continue a enviar eventos. 
 
-2. Começar a utilizar a tarefa **agora** como a hora de início. 
+2. Inicie o trabalho usando **agora** como a hora de início. 
 
-3. Medir o tempo entre a hora de início e quando é gerado o primeiro resultado. O tempo é aproximada quanto a tarefa serão cobrados durante uma atualização do serviço de atraso.
+3. Meça o tempo entre a hora de início e quando a primeira saída é gerada. O tempo é aproximado quanto atraso o trabalho incorrerá durante uma atualização de serviço.
 
-4. Se o atraso é demasiado longo, tente a tarefa de partição e aumentar o número de SUs, pelo que a carga é feita para mais nós. Em alternativa, considere reduzir o tamanho de janela na sua consulta e efetuar a agregação ou outra com monitoração de estado de processamento na saída produzida pela tarefa de Stream Analytics no coletor downstream (por exemplo, com a base de dados SQL do Azure).
+4. Se o atraso for muito longo, tente particionar seu trabalho e aumentar o número do SUs, para que a carga seja distribuída para mais nós. Como alternativa, considere reduzir os tamanhos de janela em sua consulta e executar agregação adicional ou outro processamento com estado na saída produzida pelo trabalho de Stream Analytics no coletor downstream (por exemplo, usando o banco de dados SQL do Azure).
 
-Para preocupação de estabilidade do serviço geral durante a atualização das tarefas de missão crítica, considere a execução de trabalhos de duplicados em regiões emparelhadas do Azure. Para obter mais informações, consulte [fiabilidade da tarefa de garantia de Stream Analytics durante as atualizações de serviço](stream-analytics-job-reliability.md).
+Para uma preocupação de estabilidade de serviço geral durante a atualização de trabalhos de missão crítica, considere a execução de trabalhos duplicados em regiões emparelhadas do Azure. Para obter mais informações, consulte [garantir a confiabilidade Stream Analytics trabalho durante atualizações de serviço](stream-analytics-job-reliability.md).
 
-## <a name="job-recovery-from-a-user-initiated-stop-and-start"></a>Recuperação de tarefa de um usuário iniciou pare e inicie
-Para editar a sintaxe de consulta numa tarefa de transmissão em fluxo, ou para ajustar as entradas e saídas, a tarefa tem de ser parado para fazer as alterações e atualizar o design de tarefa. Em tais cenários, quando um usuário interrompe a tarefa de transmissão em fluxo e inicia-o novamente, o cenário de recuperação é semelhante à atualização de serviço. 
+## <a name="job-recovery-from-a-user-initiated-stop-and-start"></a>Recuperação de trabalho de uma parada e início iniciados pelo usuário
+Para editar a sintaxe de consulta em um trabalho de streaming ou para ajustar entradas e saídas, o trabalho precisa ser interrompido para fazer as alterações e atualizar o design do trabalho. Nesses cenários, quando um usuário para o trabalho de streaming e o inicia novamente, o cenário de recuperação é semelhante à atualização de serviço. 
 
-Dados de ponto de verificação não podem ser utilizados para um reinício de tarefa iniciada pelo utilizador. Para estimar o atraso de saída durante um reinício desse tipo, utilize o mesmo procedimento conforme descrito na secção anterior e aplicar a atenuação semelhante, se o atraso é demasiado longo.
+Os dados de ponto de verificação não podem ser usados para reiniciar um trabalho iniciado pelo usuário. Para estimar o atraso de saída durante tal reinicialização, use o mesmo procedimento conforme descrito na seção anterior e aplique uma mitigação semelhante se o atraso for muito longo.
 
-## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre a fiabilidade e escalabilidade, veja estes artigos:
-- [Tutorial: Configurar alertas para tarefas do Azure Stream Analytics](stream-analytics-set-up-alerts.md)
-- [Dimensionar uma tarefa Azure Stream Analytics para aumentar o débito](stream-analytics-scale-jobs.md)
-- [Garante a confiabilidade de tarefa do Stream Analytics durante as atualizações de serviço](stream-analytics-job-reliability.md)
+## <a name="next-steps"></a>Passos seguintes
+Para obter mais informações sobre confiabilidade e escalabilidade, consulte estes artigos:
+- [Tutorial: configurar alertas para trabalhos de Azure Stream Analytics](stream-analytics-set-up-alerts.md)
+- [Dimensionar um trabalho de Azure Stream Analytics para aumentar a taxa de transferência](stream-analytics-scale-jobs.md)
+- [Garantir a confiabilidade Stream Analytics trabalho durante atualizações de serviço](stream-analytics-job-reliability.md)

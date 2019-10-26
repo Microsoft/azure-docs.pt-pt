@@ -5,14 +5,14 @@ author: deborahc
 ms.topic: tutorial
 ms.service: cosmos-db
 ms.date: 09/25/2019
-ms.author: de
+ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 05c9558479e0ad0bf9e05c8f5cae25d7fce6be42
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 679887ca6e9ad7713480899d1b40fddf9923c4c0
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023857"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931508"
 ---
 # <a name="create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Criar um bloco de anotações no Azure Cosmos DB para analisar e visualizar os dados
 
@@ -28,7 +28,7 @@ Nesta seção, você criará o banco de dados Cosmos do Azure, o contêiner, e i
 
 1. Navegue até sua conta do Azure Cosmos e abra o **Data Explorer.**
 
-1. Vá para a guia **blocos de anotações** , selecione `…` ao lado de **meus blocos de anotações** e crie um **novo bloco de anotações**. Selecione **Python 3** como o kernel padrão.
+1. Vá para a guia **blocos de anotações** , selecione `…` ao lado de **meus blocos** de anotações e crie um **novo bloco de anotações**. Selecione **Python 3** como o kernel padrão.
 
    ![Criar um novo Notebook](./media/create-notebook-visualize-data/create-new-notebook.png)
 
@@ -121,7 +121,7 @@ Antes de executar consultas para analisar os dados, você pode ler os dados do c
 {Query text}
 ```
 
-Para saber mais, consulte os [comandos e recursos de bloco de anotações internos no artigo Azure Cosmos DB](use-notebook-features-and-commands.md) . Você executará o Query-`SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. Os resultados serão salvos em um dataframe do pandas chamado df_cosmos. Cole o seguinte comando em uma nova célula do bloco de anotações e execute-o:
+Para saber mais, consulte os [comandos e recursos de bloco de anotações internos no artigo Azure Cosmos DB](use-notebook-features-and-commands.md) . Você executará o `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`de consulta. Os resultados serão salvos em um dataframe do pandas chamado df_cosmos. Cole o seguinte comando em uma nova célula do bloco de anotações e execute-o:
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
@@ -141,7 +141,7 @@ df_cosmos.head(10)
 
 Nesta seção, você executará algumas consultas nos dados recuperados.
 
-* **Query1** Execute uma consulta Group by no dataframe para obter a soma da receita total de vendas de cada país e exibir 5 itens dos resultados. Em uma nova célula do bloco de anotações, execute o seguinte código:
+* **Query1:** Execute uma consulta Group by no dataframe para obter a soma da receita total de vendas de cada país e exibir 5 itens dos resultados. Em uma nova célula do bloco de anotações, execute o seguinte código:
 
    ```python
    df_revenue = df_cosmos.groupby("Country").sum().reset_index()

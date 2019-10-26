@@ -1,5 +1,5 @@
 ---
-title: Simulação de negociação de elevada frequência com o Azure Stream Analytics
+title: Negociação de alta frequência usando Azure Stream Analytics
 description: Como fazer a preparação e classificação de modelos de regressão linear num trabalho do Azure Stream Analytics.
 services: stream-analytics
 author: zhongc
@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: ae82c0e72287ee4c89cb3fb2294bf4bd79aec8c3
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 9d3c1a730c34632403669794bdd97f95e3b3662d
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598642"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925519"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulação de negociação de elevada frequência com o Stream Analytics
 A combinação da linguagem SQL e das funções definidas pelo utilizador (UDFs) e dos agregados definidos pelo utilizador (UDAs) de JavaScript no Azure Stream Analytics permite aos utilizadores realizar análises avançadas. As análises avançadas podem incluir preparação e classificação de machine learning online, bem como simulação de processos sem estado. Este artigo descreve como realizar uma regressão linear num trabalho do Azure Stream Analytics que faz preparação e classificação contínua num cenário comercial de elevada frequência.
@@ -203,7 +203,7 @@ modelInput AS (
 
 Uma vez que o Azure Stream Analytics não tem uma função de regressão linear incorporada, utilizamos as agregações **SUM** e **AVG** para calcular os coeficientes do modelo linear.
 
-![Fórmula de matemática de regressão linear](./media/stream-analytics-high-frequency-trading/linear-regression-formula.png)
+![Fórmula matemática de regressão linear](./media/stream-analytics-high-frequency-trading/linear-regression-formula.png)
 
 ```SQL
 modelagg AS (
@@ -451,9 +451,9 @@ SELECT
 FROM simulation /* output trade simulation to PBI */
 ```
 
-![Gráfico de Power BI obra visual](./media/stream-analytics-high-frequency-trading/trades-power-bi-chart.png)
+![Comércio Power BI visual do gráfico](./media/stream-analytics-high-frequency-trading/trades-power-bi-chart.png)
 
-![Gráfico de PNL Power BI visual](./media/stream-analytics-high-frequency-trading/pnl-power-bi-chart.png)
+![Visual de gráfico do PNL Power BI](./media/stream-analytics-high-frequency-trading/pnl-power-bi-chart.png)
 
 
 ## <a name="summary"></a>Resumo

@@ -1,24 +1,18 @@
 ---
 title: Excluir e restaurar o espaço de trabalho do Azure Log Analytics | Microsoft Docs
 description: Saiba como excluir seu espaço de trabalho Log Analytics se você tiver criado um em uma assinatura pessoal ou reestruturar seu modelo de espaço de trabalho.
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/11/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: fb6714a52a65ef5efe4725b99acb30cb67af20c3
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.date: 10/11/2019
+ms.openlocfilehash: f15e9c2a5980c8fb6d98f7bf9187b030e6910523
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299278"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932377"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Excluir e restaurar o espaço de trabalho do Azure Log Analytics
 
@@ -52,9 +46,9 @@ Você pode excluir um espaço de trabalho usando o [PowerShell](https://docs.mic
 1. Para entrar, vá para a [portal do Azure](https://portal.azure.com). 
 2. No portal do Azure, selecione **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **log Analytics espaços de trabalho**.
 3. Na lista de espaços de trabalho do Log Analytics, selecione um espaço de trabalho e clique em **excluir** na parte superior do painel central.
-   opção ![Delete do painel Propriedades do espaço de trabalho @ no__t-1
+   ![opção Excluir do painel Propriedades do espaço de trabalho](media/delete-workspace/log-analytics-delete-workspace.png)
 4. Quando a janela mensagem de confirmação for exibida solicitando que você confirme a exclusão do espaço de trabalho, clique em **Sim**.
-   exclusão de @no__t 0Confirm do espaço de trabalho @ no__t-1
+   ![confirmar a exclusão do espaço de trabalho](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
 
 ## <a name="recover-workspace"></a>Recuperar espaço de trabalho
 

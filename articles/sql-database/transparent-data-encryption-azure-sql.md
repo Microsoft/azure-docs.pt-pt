@@ -11,12 +11,12 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 9261bae0d2bee990a5048cb87a863d96e1854d00
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: b63a8c9defdf154f35a847f29182b49ff94ff3a6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061933"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933196"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption para o banco de dados SQL e data warehouse
 
@@ -27,7 +27,7 @@ Instância Gerenciada bancos de dados criados por meio da restauração herdam o
 
 A Transparent Data Encryption criptografa o armazenamento de um banco de dados inteiro usando uma chave simétrica chamada a chave de criptografia do banco de dados. Essa chave de criptografia de banco de dados é protegida pelo protetor de Transparent Data Encryption. O protetor é um certificado gerenciado por serviço (criptografia de dados transparente gerenciada pelo serviço) ou uma chave assimétrica armazenada em Azure Key Vault (Bring Your Own Key). Você define o protetor de Transparent Data Encryption no nível do servidor para o banco de dados SQL do Azure e data warehouse e o nível de instância para o SQL Instância Gerenciada do Azure. O termo *servidor* se refere ao servidor e à instância em todo este documento, a menos que indicado de forma diferente.
 
-Na inicialização do banco de dados, a chave de criptografia do banco de dados criptografado é descriptografada e, em seguida, usada para descriptografia e recriptografia dos arquivos de banco de dados no processo de Mecanismo de Banco de Dados SQL Server. A Transparent Data Encryption executa criptografia de e/s em tempo real e a descriptografia dos dados no nível da página. Cada página é descriptografada quando lida na memória e, em seguida, criptografada antes de ser gravada no disco. Para obter uma descrição geral da Transparent Data Encryption, consulte Transparent [Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
+Na inicialização do banco de dados, a chave de criptografia do banco de dados criptografado é descriptografada e, em seguida, usada para descriptografia e recriptografia dos arquivos de banco de dados no processo de Mecanismo de Banco de Dados SQL Server. A Transparent Data Encryption executa criptografia de e/s em tempo real e a descriptografia dos dados no nível da página. Cada página é descriptografada quando lida na memória e, em seguida, criptografada antes de ser gravada no disco. Para obter uma descrição geral da Transparent Data Encryption, consulte [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
 
 SQL Server em execução em uma máquina virtual do Azure também podem usar uma chave assimétrica de Key Vault. As etapas de configuração são diferentes de usar uma chave assimétrica no banco de dados SQL e no SQL Instância Gerenciada. Para obter mais informações, consulte [gerenciamento extensível de chaves usando Azure Key Vault (SQL Server)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server).
 
@@ -45,9 +45,9 @@ A Microsoft também move e gerencia diretamente as chaves conforme necessário p
 [TDE com chaves gerenciadas pelo cliente no Azure Key Vault](transparent-data-encryption-byok-azure-sql.md) permite criptografar a DEK (chave de criptografia de banco de dados) com uma chave assimétrica gerenciada pelo cliente chamada protetor TDE.  Isso também é conhecido como suporte a Bring Your Own Key (BYOK) para Transparent Data Encryption. No cenário BYOK, o protetor de TDE é armazenado em um [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)gerenciado e de Propriedade do cliente, o sistema de gerenciamento de chaves externas baseado em nuvem do Azure. O protetor de TDE pode ser [gerado pelo cofre de chaves ou transferido para o cofre de chaves](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys) de um dispositivo HSM local. O TDE DEK, que é armazenado na página de inicialização de um banco de dados, é criptografado e descriptografado pelo protetor TDE, que é armazenado em Azure Key Vault e nunca deixa o cofre de chaves.  O banco de dados SQL precisa receber permissões para o cofre de chaves de Propriedade do cliente para descriptografar e criptografar o DEK. Se as permissões do SQL Server lógico para o cofre de chaves forem revogadas, um banco de dados ficará inacessível e todos eles serão criptografados. Para o banco de dados SQL do Azure, o protetor TDE é definido no nível lógico do SQL Server e é herdado por todos os bancos de dados associados a esse servidor. Para o [Azure SQL instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance) (recurso BYOK na versão prévia), o protetor de TDE é definido no nível de instância e é herdado por todos os bancos de dados *criptografados* nessa instância. O termo *servidor* se refere ao servidor e à instância em todo este documento, a menos que indicado de forma diferente.
 
 Com a integração do TDE com o Azure Key Vault, os usuários podem controlar as principais tarefas de gerenciamento, incluindo rotações de chaves, permissões do Key Vault, backups de chave e habilitar a auditoria/relatórios em todos os protetores do TDE usando a funcionalidade do Azure Key Vault. O Key Vault fornece gerenciamento de chaves central, aproveita os HSMs (módulos de segurança de hardware) monitorados e permite a separação de tarefas entre o gerenciamento de chaves e dados para ajudar a atender às políticas de segurança.
-Para saber mais sobre a Transparent Data Encryption com integração de Azure Key Vault (suporte a Bring Your Own Key) para o banco de dados SQL do Azure, SQL Instância Gerenciada (recurso BYOK em versão prévia) e data warehouse, consulte Transparent [Data Encryption com Azure Key Vault integração](transparent-data-encryption-byok-azure-sql.md)do.
+Para saber mais sobre a Transparent Data Encryption com integração de Azure Key Vault (suporte a Bring Your Own Key) para o banco de dados SQL do Azure, SQL Instância Gerenciada (recurso BYOK em versão prévia) e data warehouse, consulte [Transparent Data Encryption com Azure Key Vault integração](transparent-data-encryption-byok-azure-sql.md)do.
 
-Para começar a usar a criptografia de dados transparente com a integração de Azure Key Vault (suporte a Bring Your Own Key), consulte o guia de instruções Ativar a Transparent [Data Encryption usando sua própria chave de Key Vault usando o PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
+Para começar a usar a criptografia de dados transparente com a integração de Azure Key Vault (suporte a Bring Your Own Key), consulte o guia de instruções [ativar a Transparent Data Encryption usando sua própria chave de Key Vault usando o PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
 
 ## <a name="move-a-transparent-data-encryption-protected-database"></a>Mover um banco de dados protegido por Transparent Data Encryption
 
@@ -69,7 +69,10 @@ Por exemplo, se o arquivo BACPAC for exportado de uma instância de SQL Server l
 
 A única exceção é quando você exporta de e para um banco de dados SQL. A Transparent Data Encryption está habilitada no novo banco de dados, mas o próprio arquivo BACPAC ainda não é criptografado.
 
-## <a name="manage-transparent-data-encryption-in-the-azure-portal"></a>Gerenciar a Transparent Data Encryption no portal do Azure
+
+## <a name="manage-transparent-data-encryption"></a>Gerenciar a Transparent Data Encryption
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+Gerencie a Transparent Data Encryption no portal do Azure.
 
 Para configurar a Transparent Data Encryption por meio do portal do Azure, você deve estar conectado como o proprietário do Azure, o colaborador ou o Gerenciador de segurança do SQL.
 
@@ -81,7 +84,8 @@ Você define a chave mestra de Transparent Data Encryption, também conhecida co
 
 ![Transparent Data Encryption com suporte a Bring Your Own Key](./media/transparent-data-encryption-azure-sql/tde-byok-support.png)
 
-## <a name="manage-transparent-data-encryption-by-using-powershell"></a>Gerenciar a Transparent Data Encryption usando o PowerShell
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+Gerencie a Transparent Data Encryption usando o PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -108,20 +112,22 @@ Use os seguintes cmdlets para o banco de dados SQL do Azure e data warehouse:
 > [!IMPORTANT]
 > Para o Azure SQL Instância Gerenciada, use o comando T-SQL [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) para ativar e desativar a Transparent Data Encryption em um nível de banco de dados e verifique o [exemplo de script do PowerShell](transparent-data-encryption-byok-azure-sql-configure.md) para gerenciar a Transparent Data Encryption em um nível de instância.
 
-## <a name="manage-transparent-data-encryption-by-using-transact-sql"></a>Gerenciar a Transparent Data Encryption usando Transact-SQL
+# <a name="transact-sqltabazure-transactsql"></a>[Transact-SQL](#tab/azure-TransactSQL)
+Gerencie a Transparent Data Encryption usando o Transact-SQL.
 
 Conecte-se ao banco de dados usando um logon que seja um administrador ou membro da função **DBManager** no banco de dados mestre.
 
 | Comando | Descrição |
 | --- | --- |
 | [ALTER DATABASE (banco de dados SQL do Azure)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) | DEFINIR ativar/desativar criptografia criptografa ou descriptografa um banco de dados |
-| [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Retorna informações sobre o estado de criptografia de um banco de dados e suas chaves de criptografia de banco de dados associadas |
-| [sys.dm_pdw_nodes_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |Retorna informações sobre o estado de criptografia de cada nó de data warehouse e suas chaves de criptografia de banco de dados associadas |
+| [sys. dm _database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Retorna informações sobre o estado de criptografia de um banco de dados e suas chaves de criptografia de banco de dados associadas |
+| [sys. dm _pdw_nodes_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |Retorna informações sobre o estado de criptografia de cada nó de data warehouse e suas chaves de criptografia de banco de dados associadas |
 |  | |
 
 Não é possível alternar o protetor de Transparent Data Encryption para uma chave de Key Vault usando o Transact-SQL. Use o PowerShell ou o portal do Azure.
 
-## <a name="manage-transparent-data-encryption-by-using-the-rest-api"></a>Gerenciar a Transparent Data Encryption usando a API REST
+# <a name="rest-apitabazure-restapi"></a>[API REST](#tab/azure-RESTAPI)
+Gerencie a Transparent Data Encryption usando a API REST.
 
 Para configurar a Transparent Data Encryption por meio da API REST, você deve estar conectado como o proprietário do Azure, o colaborador ou o Gerenciador de segurança do SQL.
 Use o seguinte conjunto de comandos para o banco de dados SQL do Azure e data warehouse:
@@ -142,7 +148,7 @@ Use o seguinte conjunto de comandos para o banco de dados SQL do Azure e data wa
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter uma descrição geral da Transparent Data Encryption, consulte Transparent [Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
-- Para saber mais sobre a Transparent Data Encryption com suporte de Bring Your Own Key para o banco de dados SQL do Azure, o SQL Instância Gerenciada do Azure e o data warehouse, consulte Transparent [Data Encryption com suporte a Bring your own Key](transparent-data-encryption-byok-azure-sql.md).
-- Para começar a usar a Transparent Data Encryption com suporte a Bring Your Own Key, consulte o guia de instruções Ativar a Transparent [Data Encryption usando sua própria chave de Key Vault usando o PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
+- Para obter uma descrição geral da Transparent Data Encryption, consulte [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
+- Para saber mais sobre a Transparent Data Encryption com suporte de Bring Your Own Key para o banco de dados SQL do Azure, o SQL Instância Gerenciada do Azure e o data warehouse, consulte [Transparent Data Encryption com suporte a Bring your own Key](transparent-data-encryption-byok-azure-sql.md).
+- Para começar a usar a Transparent Data Encryption com suporte a Bring Your Own Key, consulte o guia de instruções [ativar a Transparent Data Encryption usando sua própria chave de Key Vault usando o PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
 - Para obter mais informações sobre Key Vault, consulte a [página de documentação do Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).

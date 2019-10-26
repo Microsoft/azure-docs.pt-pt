@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Funções definidas pelo utilizador para JavaScript do Stream Analytics do Azure | Documentos da Microsoft '
+title: Azure Stream Analytics funções definidas pelo usuário do JavaScript
 description: Neste tutorial, vai realizar mecânicas de consulta avançada com as funções definidas pelo utilizador do JavaScript
 services: stream-analytics
 author: rodrigoamicrosoft
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: c7414ee159303465d6698ce9c47d04ba37c0c46e
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 8a26e369783da8b59837e669dcd45a338ce82722
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329369"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935006"
 ---
-# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutorial: Funções definidas pelo utilizador para JavaScript do Stream Analytics do Azure
+# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutorial: funções definidas pelo utilizador do JavaScript do Azure Stream Analytics
  
 O Azure Stream Analytics suporta as funções definidas pelo utilizador escritas no JavaScript. Com o conjunto avançado de métodos de **Cadeia**, **RegExp**, **Matemática**, **Matriz** e **Data** que o JavaScript dispõe, as transformações de dados complexas com tarefas do Stream Analytics tornam-se mais fáceis de criar.
 
@@ -46,16 +46,16 @@ Eis algumas coisas que não pode fazer com uma função definida pelo utilizador
 Embora as funções como **Date.GetDate()** ou **Math.random()** não estejam bloqueadas na definição das funções, deve evitar utilizá-las. Estas funções **não** devolvem o mesmo resultado sempre que as chamar e o serviço Azure Stream Analytics não mantém um diário das invocações de função e dos resultados devolvidos. Se uma função devolve diferentes resultados nos mesmos eventos, não é garantida repetibilidade quando uma tarefa for reiniciada por si ou pelo serviço do Stream Analytics.
 
 ## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>Adicionar uma função definida pelo utilizador do JavaScript no portal do Azure
-Para criar uma função de definidas pelo utilizador de JavaScript simples numa tarefa do Stream Analytics existente, siga estes passos:
+Para criar uma função definida pelo usuário do JavaScript simples em um trabalho de Stream Analytics existente, siga estas etapas:
 
 > [!NOTE]
-> Estes passos funcionem nas tarefas do Stream Analytics configuradas para ser executada na cloud. Se a tarefa de Stream Analytics é configurada para executar no Azure IoT Edge, em vez disso, utilizar o Visual Studio e [escrever usando a função definida pelo utilizador C# ](stream-analytics-edge-csharp-udf.md).
+> Essas etapas funcionam na Stream Analytics trabalhos configurados para serem executados na nuvem. Se seu trabalho de Stream Analytics estiver configurado para ser executado em Azure IoT Edge, use o Visual Studio e [escreva a função definida pelo C#usuário usando ](stream-analytics-edge-csharp-udf.md).
 
 1.  No portal do Azure, encontre a tarefa do Stream Analytics.
 
-2. Sob o **topologia da tarefa** cabeçalho, selecione **funções**. É apresentada uma lista vazia das funções.
+2. No título **topologia do trabalho** , selecione **funções**. É apresentada uma lista vazia das funções.
 
-3.  Para criar uma nova função definida pelo utilizador, selecione **+ adicionar**.
+3.  Para criar uma nova função definida pelo usuário, selecione **+ Adicionar**.
 
 4.  No painel **Nova Função**, para **Tipo de Função**, selecione **JavaScript**. É apresentado um modelo de função predefinido no editor.
 
@@ -73,7 +73,7 @@ Para criar uma função de definidas pelo utilizador de JavaScript simples numa 
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Chamar uma função definida pelo utilizador do JavaScript numa consulta
 
-1. No editor de consulta, sob o **topologia da tarefa** cabeçalho, selecione **consulta**.
+1. No editor de consultas, no cabeçalho **topologia do trabalho** , selecione **consulta**.
 2.  Edite a consulta e, em seguida, chame a função definida pelo utilizador, da seguinte forma:
 
     ```SQL
@@ -121,7 +121,7 @@ Array | Array
 Null, Undefined | NULL
 Qualquer outro tipo (por exemplo, uma função ou erro) | Não suportado (resultados num erro de runtime)
 
-Linguagem JavaScript diferencia maiúsculas de minúsculas e os campos do objeto no código JavaScript letras maiúsculas e minúsculas tem de corresponder as maiúsculas e minúsculas dos campos nos dados de entrada. Tenha em atenção que os trabalhos com o nível de compatibilidade 1.0 converterá campos da instrução SQL SELECT para estar em minúsculas. No nível de compatibilidade 1.1 e posteriores, campos da instrução SELECT terão a mesmo tem maiúsculas e minúsculas, conforme especificado na consulta SQL.
+A linguagem JavaScript diferencia maiúsculas de minúsculas e maiúsculas e minúsculas dos campos de objeto no código JavaScript devem corresponder à capitalização dos campos nos dados de entrada. Observe que os trabalhos com nível de compatibilidade 1,0 converterão os campos da instrução SQL SELECT para que sejam minúsculos. No nível de compatibilidade 1,1 e superior, os campos da instrução SELECT terão a mesma maiúsculas e minúsculas especificados na consulta SQL.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 Os erros de runtime do JavaScript são considerados fatais e são apresentados no Registo de atividades. Para obter o registo, no portal do Azure, aceda à sua tarefa e selecione **Registo de atividades**.

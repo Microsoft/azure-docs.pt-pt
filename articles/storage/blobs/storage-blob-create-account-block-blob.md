@@ -8,18 +8,81 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1df1d5180d951e7a720ec82c548438892a47a426
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 98a9295363461864d3abbb11bbc22b8bd8d6fdfa
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881869"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933184"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Criar uma conta do BlockBlobStorage
 
 O tipo de conta BlockBlobStorage permite criar blobs de blocos com características de desempenho premium. Esse tipo de conta de armazenamento é otimizado para cargas de trabalho com altas taxas de transações ou que exigem tempos de acesso muito rápidos. Este artigo mostra como criar uma conta do BlockBlobStorage usando o portal do Azure, o CLI do Azure ou o Azure PowerShell.
 
 Para obter mais informações sobre contas do BlockBlobStorage, consulte [visão geral da conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+
+Nenhum.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Este artigo de instruções requer o módulo Azure PowerShell AZ Version 1.2.0 ou posterior. Execute `Get-Module -ListAvailable Az` para encontrar a versão atual. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-Az-ps)(Instalar o módulo do Azure PowerShell).
+
+# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Você pode entrar no Azure e executar CLI do Azure comandos de uma das duas maneiras:
+
+- Você pode executar comandos da CLI de dentro do portal do Azure, em Azure Cloud Shell.
+- Você pode instalar a CLI e executar comandos da CLI localmente.
+
+### <a name="use-azure-cloud-shell"></a>Utilizar o Azure Cloud Shell
+
+O Azure Cloud Shell é um shell Bash gratuito que pode ser executado diretamente no portal do Azure. O CLI do Azure é pré-instalado e configurado para ser usado com sua conta. Clique no botão **Cloud Shell** no menu na seção superior direita da portal do Azure:
+
+[![Cloud Shell](../common/media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
+
+O botão inicia um shell interativo que você pode usar para executar as etapas descritas neste artigo de instruções:
+
+[![Captura de ecrã que mostra a janela do Cloud Shell no portal](../common/media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
+
+### <a name="install-the-cli-locally"></a>Instalar a CLI localmente
+
+Também pode instalar e utilizar a CLI do Azure localmente. Este artigo de instruções requer que você esteja executando o CLI do Azure versão 2.0.46 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+
+---
+
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+
+Inicie sessão no [portal do Azure](https://portal.azure.com).
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Entre em sua assinatura do Azure com o comando `Connect-AzAccount` e siga as instruções na tela para autenticar.
+
+```powershell
+Connect-AzAccount
+```
+
+# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para iniciar o Azure Cloud Shell, entre no [portal do Azure](https://portal.azure.com).
+
+Para fazer logon em sua instalação local da CLI, execute o comando [AZ login](/cli/azure/reference-index#az-login) :
+
+```cli
+az login
+```
+
+---
+
+## <a name="create-a-blockblobstorage-account"></a>Criar uma conta do BlockBlobStorage
 
 ## <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Para criar uma conta do BlockBlobStorage no portal do Azure, siga estas etapas:
@@ -118,6 +181,8 @@ Para criar uma conta de blob de blocos usando o CLI do Azure, você deve primeir
     --kind "BlockBlobStorage" \
     --sku "Premium_LRS"
    ```
+
+---
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -3,16 +3,16 @@ title: Perguntas frequentes-Monitor de Desempenho de Rede solução no Azure | M
 description: Este artigo captura as perguntas frequentes sobre Monitor de Desempenho de Rede no Azure. O Monitor de Desempenho de Rede (NPM) ajuda a monitorar o desempenho de suas redes quase em tempo real e detectar e localizar afunilamentos de desempenho de rede.
 ms.service: azure-monitor
 ms.subservice: logs
-ms.topic: article
+ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 26e9215c7e00eca59d33f7e8d259a689ad642f19
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
-ms.translationtype: HT
+ms.openlocfilehash: b451597d2d91117e11b1becd8b4ab96f981dade8
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898856"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931324"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Perguntas frequentes sobre a solução Monitor de Desempenho de Rede
 

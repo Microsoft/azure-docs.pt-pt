@@ -3,20 +3,20 @@ title: Criar e usar destinos de computação para treinamento de modelo
 titleSuffix: Azure Machine Learning
 description: Configure os ambientes de treinamento (destinos de computação) para treinamento de modelo do Machine Learning. Você pode alternar facilmente entre ambientes de treinamento. Inicie o treinamento localmente. Se você precisar escalar horizontalmente, alterne para um destino de computação baseado em nuvem.
 services: machine-learning
-author: heatherbshapiro
-ms.author: hshapiro
+author: rastala
+ms.author: roastala
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 95ded3c184836ac58a0f97d1bf30dd2e3c123ccb
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 46a212719846eddc7d21f3aeb0815dfbf4119e15
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755976"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935356"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e usar destinos de computação para treinamento de modelo 
 
@@ -295,7 +295,7 @@ Para ver os destinos de computação para seu espaço de trabalho, use as seguin
  
 1. Em __aplicativos__, selecione __computação__.
 
-    [![View guia computação](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
+    [![exibir guia de computação](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
 
 ### <a id="portal-create"></a>Criar um destino de computação
 

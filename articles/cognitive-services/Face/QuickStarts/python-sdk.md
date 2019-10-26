@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 617e9a40c253d98c32ae8b4c9426f3148c23d125
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: b265ec68039f03c09d45c9605965de8ce0baba99
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176141"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935878"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Início rápido: biblioteca de cliente facial para Python
 
@@ -29,7 +29,7 @@ Use a biblioteca de cliente facial para Python para:
 * Verificar faces
 * Tirar um instantâneo para a migração de dados
 
-[Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)@no__t-[1 código-fonte de biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [pacote (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [amostras](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face&sort=0)
+[Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)  |   | [(PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/)  | [amostras](https://docs.microsoft.com/samples/browse/?products=azure&term=face) do[código-fonte de biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,11 +45,11 @@ Os serviços cognitivas do Azure são representados pelos recursos do Azure que 
 * Obtenha uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias gratuitamente. Depois de se inscrever, ele estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Exibir seu recurso no [portal do Azure](https://portal.azure.com/)
 
-Depois de obter uma chave de sua assinatura ou recurso de avaliação, [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave, denominada `FACE_SUBSCRIPTION_KEY`.
+Depois de obter uma chave de sua assinatura ou recurso de avaliação, [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave chamada `FACE_SUBSCRIPTION_KEY`.
  
 ### <a name="create-a-new-python-application"></a>Criar uma aplicação Python nova
 
-Crie um novo script Python @ no__t-0*QuickStart-File.py*, por exemplo. Em seguida, abra-o em seu editor preferido ou IDE e importe as bibliotecas a seguir.
+Crie um novo script Python&mdash;*QuickStart-File.py*, por exemplo. Em seguida, abra-o em seu editor preferido ou IDE e importe as bibliotecas a seguir.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_imports)]
 

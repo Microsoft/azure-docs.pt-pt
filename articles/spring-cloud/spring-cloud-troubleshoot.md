@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/07/2019
 ms.author: v-vasuke
-ms.openlocfilehash: ee51841046962a6896b4c16e651f85ff761a69fc
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 546c97421fdb3a581a22e34f6110986a1a0732b6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592472"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72929154"
 ---
 # <a name="troubleshooting-guide-for-common-problems"></a>Guia de solução de problemas comuns
 
@@ -119,7 +119,7 @@ Se a consulta for interrompida, ainda poderá utilizar o seguinte comando para o
 
 `az spring-cloud app show-deploy-log -n <app-name>`
 
-Verifique se seu aplicativo está empacotado no [formato jar executável](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html)correto. Caso contrário, verá um erro semelhante ao seguinte:
+Garanta que a aplicação está comprimida no [formato executável jar](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html) correto. Caso contrário, verá um erro semelhante ao seguinte:
 
 `Error: Invalid or corrupt jarfile /jar/38bc8ea1-a6bb-4736-8e93-e8f3b52c8714`
 
@@ -165,7 +165,7 @@ As variáveis de ambiente informam a estrutura de nuvem Spring do Azure, garanti
             </dependency>
         ```
 
-1. Com o ponto de extremidade do acionador do Spring Boot habilitado, vá para a portal do Azure e localize a página de configuração do seu aplicativo.  Adicione uma variável de ambiente com o nome `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE' and the value ` * '. 
+1. Com o ponto de extremidade do acionador do Spring Boot habilitado, vá para a portal do Azure e localize a página de configuração do seu aplicativo.  Adicione uma variável de ambiente com o nome `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` e o valor `*`. 
 
 1. Reinicie o aplicativo.
 

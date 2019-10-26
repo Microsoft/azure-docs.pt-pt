@@ -1,6 +1,6 @@
 ---
-title: Início rápido - criar aplicação do iOS com as âncoras espaciais do Azure | Documentos da Microsoft
-description: Neste início rápido, irá aprender a criar uma aplicação iOS com as âncoras espaciais.
+title: Início rápido-criar aplicativo iOS com âncoras espaciais do Azure | Microsoft Docs
+description: Neste guia de início rápido, você aprende a criar um aplicativo iOS usando âncoras espaciais.
 author: craigktreasure
 manager: aliemami
 services: azure-spatial-anchors
@@ -8,23 +8,23 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 56360238db8632e74a95c057a7fe643b5cea3151
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 42a97646a6881ead61ceeaff3fe8c0c8d73d6057
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206824"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72929401"
 ---
-# <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Início rápido: Criar uma aplicação iOS com o Azure âncoras espaciais, em Objective-C ou Swift
+# <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Início rápido: criar um aplicativo iOS com âncoras espaciais do Azure, em Swift ou Objective-C
 
-Este guia de introdução mostra como criar uma aplicação iOS com [âncoras geográficos de Azure](../overview.md) em Swift ou Objective-C. Âncoras espaciais do Azure é um serviço de programador para várias plataformas que permite-lhe criar experiências de realidade mista usando objetos que manter a respetiva localização em todos os dispositivos ao longo do tempo. Quando tiver terminado, terá uma aplicação do iOS ARKit que pode guardar e lembre-se de uma âncora de espacial.
+Este guia de início rápido aborda como criar um aplicativo iOS usando [âncoras espaciais do Azure](../overview.md) em Swift ou Objective-C. As âncoras espaciais do Azure são um serviço de desenvolvedor de plataforma cruzada que permite que você crie experiências de realidade mista usando objetos que persistem seu local entre dispositivos ao longo do tempo. Quando tiver terminado, você terá um aplicativo ARKit iOS que pode salvar e lembrar uma âncora espacial.
 
 Vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma conta de âncoras espaciais
-> * Configurar a chave de conta e o identificador da conta de âncoras espaciais
-> * Implementar e executar num dispositivo iOS
+> * Configurar o identificador de conta de âncoras espaciais e a chave de conta
+> * Implantar e executar em um dispositivo iOS
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -32,19 +32,19 @@ Vai aprender a:
 
 Para concluir este início rápido, certifique-se de que tem:
 
-- Uma máquina de macOS desenvolvedor ativada com <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10 e posterior</a> e <a href="https://cocoapods.org" target="_blank">CocoaPods</a> instalado.
-- Git instalado através do HomeBrew. Introduza o seguinte comando numa única linha de Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Em seguida, execute `brew install git`.
-- Um desenvolvedor ativado <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">compatível com o ARKit</a> dispositivo iOS.
+- Uma máquina macOS habilitada para o desenvolvedor com o <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10 +</a> e o <a href="https://cocoapods.org" target="_blank">CocoaPods</a> instalados.
+- Git instalado via HomeBrew. Digite o seguinte comando em uma única linha do terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Em seguida, execute `brew install git`.
+- Um dispositivo IOS <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">compatível com o ARKit</a> habilitado para desenvolvedor.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## <a name="open-the-sample-project"></a>Abra o projeto de exemplo
+## <a name="open-the-sample-project"></a>Abrir o projeto de exemplo
 
-Utilize o Terminal para executar as seguintes ações.
+Use o terminal para executar as seguintes ações.
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Instale os pods necessários com o CocoaPods:
+Instale o pods necessário usando CocoaPods:
 
 # <a name="swifttabopenproject-swift"></a>[Swift](#tab/openproject-swift)
 
@@ -64,9 +64,12 @@ cd ./iOS/Objective-C/
 
 ---
 
-Executar `pod install --repo-update` para instalar os CocoaPods para o projeto.
+Execute `pod install --repo-update` para instalar o CocoaPods para o projeto.
 
 Agora, abra o `.xcworkspace` no Xcode.
+
+> [!NOTE]
+> Consulte as etapas de solução de problemas [aqui](#cocoapods-issues-on-macos-catalina-1015) se você estiver tendo problemas de CocoaPod após a atualização para o MacOS Catalina (10,15).
 
 # <a name="swifttabopenproject-swift"></a>[Swift](#tab/openproject-swift)
 
@@ -82,46 +85,58 @@ open ./SampleObjC.xcworkspace
 
 ---
 
-## <a name="configure-account-identifier-and-key"></a>Configurar o identificador de conta e chave
+## <a name="configure-account-identifier-and-key"></a>Configurar o identificador e a chave da conta
 
-A próxima etapa é configurar a aplicação para utilizar o seu identificador de conta e chave da conta. Copiou num editor de texto quando [como configurar o recurso de âncoras geográficos](#create-a-spatial-anchors-resource).
+A próxima etapa é configurar o aplicativo para usar o identificador de conta e a chave de conta. Você os copiou em um editor de texto ao [Configurar o recurso âncoras espaciais](#create-a-spatial-anchors-resource).
 
 # <a name="swifttabopenproject-swift"></a>[Swift](#tab/openproject-swift)
 
 Abra `iOS/Swift/SampleSwift/ViewControllers/BaseViewController.swift`.
 
-Localize a `spatialAnchorsAccountKey` campo e substitua `Set me` com a chave de conta.
+Localize o campo `spatialAnchorsAccountKey` e substitua `Set me` pela chave de conta.
 
-Localize a `spatialAnchorsAccountId` campo e substitua `Set me` com o identificador de conta.
+Localize o campo `spatialAnchorsAccountId` e substitua `Set me` pelo identificador da conta.
 
 # <a name="objective-ctabopenproject-objc"></a>[Objective-C](#tab/openproject-objc)
 
 Abra `iOS/Objective-C/SampleObjC/BaseViewController.m`.
 
-Localize a `SpatialAnchorsAccountKey` campo e substitua `Set me` com a chave de conta.
+Localize o campo `SpatialAnchorsAccountKey` e substitua `Set me` pela chave de conta.
 
-Localize a `SpatialAnchorsAccountId` campo e substitua `Set me` com o identificador de conta.
+Localize o campo `SpatialAnchorsAccountId` e substitua `Set me` pelo identificador da conta.
 
 ---
 
-## <a name="deploy-the-app-to-your-ios-device"></a>Implementar a aplicação no seu dispositivo iOS
+## <a name="deploy-the-app-to-your-ios-device"></a>Implantar o aplicativo em seu dispositivo iOS
 
-Ligue o dispositivo iOS para o Mac e o conjunto a **esquema do Active Directory** para o seu dispositivo iOS.
+Conecte o dispositivo iOS ao Mac e defina o **esquema ativo** para seu dispositivo IOS.
 
-![Selecione o dispositivo](./media/get-started-ios/select-device.png)
+![Selecionar o dispositivo](./media/get-started-ios/select-device.png)
 
-Selecione **criar e, em seguida, executar o esquema atual**.
+Selecione **Compilar e execute o esquema atual**.
 
-![Implementar e executar](./media/get-started-ios/deploy-run.png)
+![Implantar e executar](./media/get-started-ios/deploy-run.png)
 
 > [!NOTE]
-> Se vir um `library not found for -lPods-SampleObjC` erro, provavelmente aberta da `.xcodeproj` de ficheiros em vez do `.xcworkspace`. Abra o `.xcworkspace` e tente novamente.
+> Se você vir um erro `library not found for -lPods-SampleObjC`, provavelmente abriu o arquivo `.xcodeproj` em vez do `.xcworkspace`. Abra o `.xcworkspace` e tente novamente.
 
-No Xcode, pare a aplicação ao premir **parar**.
+No Xcode, pare o aplicativo pressionando **parar**.
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+### <a name="cocoapods-issues-on-macos-catalina-1015"></a>Problemas de CocoaPods no Catalina do macOS (10,15)
+
+Se você atualizou recentemente para o macOS (10,15) e tinha o CocoaPods instalado com antecedência, CocoaPods pode estar em um estado rompido e falhar ao configurar corretamente seus arquivos de projeto e de `.xcworkspace`. Para resolver esse problema, você precisará reinstalar o CocoaPods executando os seguintes comandos:
+
+```shell
+brew update
+brew install cocoapods --build-from-source
+brew link --overwrite cocoapods
+```
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
-> [Tutorial: Partilha âncoras geográficos em todos os dispositivos](../tutorials/tutorial-share-anchors-across-devices.md)
+> [Tutorial: compartilhar âncoras espaciais entre dispositivos](../tutorials/tutorial-share-anchors-across-devices.md)

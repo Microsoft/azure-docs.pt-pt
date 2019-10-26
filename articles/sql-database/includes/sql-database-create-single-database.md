@@ -5,12 +5,12 @@ ms.subservice: single-database
 ms.topic: include
 ms.date: 07/31/2019
 ms.author: mathoma
-ms.openlocfilehash: d4c426c5fe31f8fc2bfaf4697c05456124cafcb1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ff5505c2cb35d088565773e8d0ba01e8abb4b8c3
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098999"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933246"
 ---
 Nesta etapa, você criará um banco de dados individual do banco de dados SQL do Azure. 
 
@@ -31,27 +31,27 @@ Crie seu grupo de recursos e um banco de dados individual usando o portal do Azu
 
 3. Na guia **noções básicas** , na seção **detalhes do projeto** , digite ou selecione os seguintes valores:
 
-   - **Subscrição**: Clique na lista suspensa e selecione a assinatura correta, se ela não aparecer.
-   - **Grupo de recursos**: Selecione **criar novo**, tipo `myResourceGroup`e selecione **OK**.
+   - **Assinatura**: menu suspenso e selecione a assinatura correta, se ela não aparecer.
+   - **Grupo de recursos**: selecione **criar novo**, digite `myResourceGroup`e selecione **OK**.
 
      ![Novo banco de dados SQL-guia básico](../media/sql-database-get-started-portal/new-sql-database-basics.png)
 
 4. Na seção **detalhes do banco de dados** , digite ou selecione os seguintes valores:
 
-   - **Nome do banco de dados**: Introduza `mySampleDatabase`.
-   - **Servidor**: Selecione **criar novo**, insira os valores a seguir e selecione **selecionar**.
-       - **Nome do servidor**: Digite `mysqlserver`; junto com alguns números para exclusividade.
-       - **Logon de administrador do servidor**: Digite `azureuser`.
-       - **Senha**: Digite uma senha complexa que atenda aos requisitos de senha.
-       - **Local**: Escolha um local na lista suspensa, `West US`como.
+   - **Nome do banco de dados**: Insira `mySampleDatabase`.
+   - **Servidor**: selecione **criar novo**, insira os valores a seguir e selecione **selecionar**.
+       - **Nome do servidor**: tipo `mysqlserver`; junto com alguns números para exclusividade.
+       - **Logon de administrador do servidor**: digite `azureuser`.
+       - **Senha**: digite uma senha complexa que atenda aos requisitos de senha.
+       - **Local**: escolha um local na lista suspensa, como `West US`.
 
          ![Novo servidor](../media/sql-database-get-started-portal/new-server.png)
 
       > [!IMPORTANT]
       > Lembre-se de registrar o logon de administrador do servidor e a senha para que você possa fazer logon no servidor e nos bancos de dados para este e outros guias de início rápido. Se você esquecer seu logon ou senha, poderá obter o nome de logon ou redefinir a senha na página do **SQL Server** . Para abrir a página do **SQL Server** , selecione o nome do servidor na página **visão geral** do banco de dados após a criação do banco de dados.
 
-   - **Deseja usar o pool elástico do SQL**: Selecione a opção **não** .
-   - **Computação + armazenamento**: Selecione **configurar banco de dados**. 
+   - **Deseja usar o pool elástico do SQL**: selecione a opção **não** .
+   - **Computação + armazenamento**: selecione **configurar banco de dados**. 
 
      ![Detalhes do banco de dados SQL](../media/sql-database-get-started-portal/sql-db-basic-db-details.png)
 
@@ -59,7 +59,7 @@ Crie seu grupo de recursos e um banco de dados individual usando o portal do Azu
 
      ![Gen4 provisionado](../media/sql-database-get-started-portal/create-database-provisioned.png)
 
-   - Examine as configurações para **Max vCores**, **min vCores**, **atraso**de autopausa e **tamanho máximo de dados**. Altere-os conforme desejado.
+   - Examine as configurações para **Max vCores**, **min vCores**, **atraso de autopausa**e **tamanho máximo de dados**. Altere-os conforme desejado.
    - Aceite os termos de visualização e clique em **OK**.
    - Selecione **Aplicar**.
 
@@ -71,7 +71,7 @@ Crie seu grupo de recursos e um banco de dados individual usando o portal do Azu
    > [!IMPORTANT]
    > Certifique-se de selecionar os dados de **exemplo (AdventureWorksLT)** para que você possa seguir com facilidade esse e outros guias de início rápido do banco de dados SQL do Azure que usam esse dado.
 
-7. Deixe o restante dos valores como padrão e selecione revisar **+ criar** na parte inferior do formulário.
+7. Deixe o restante dos valores como padrão e selecione **revisar + criar** na parte inferior do formulário.
 8. Examine as configurações finais e selecione **criar**.
 
 9. No formulário do **banco de dados SQL** , selecione **criar** para implantar e provisionar o grupo de recursos, o servidor e o banco de dados.
@@ -142,6 +142,15 @@ Crie seu grupo de recursos e um banco de dados individual usando o PowerShell.
    $database
    ```
 
+Esta parte do artigo usa os seguintes cmdlets do PowerShell:
+
+| Comando | Notas |
+|---|---|
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Cria um servidor de banco de dados SQL que hospeda bancos de dados individuais e pools elásticos. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Cria uma regra de firewall para um servidor lógico. | 
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Cria um novo banco de dados do banco de dados SQL do Azure. | 
+
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Crie seu grupo de recursos e um banco de dados individual usando AZ CLI.
@@ -207,5 +216,16 @@ Crie seu grupo de recursos e um banco de dados individual usando AZ CLI.
       --family Gen5 \
       --capacity 2
    ```
+
+Este script utiliza os seguintes comandos. Cada comando na tabela liga à documentação específica do comando.
+
+| Comando | Notas |
+|---|---|
+| [conjunto de contas AZ](/cli/azure/account?view=azure-cli-latest#az-account-set) | Define uma assinatura como a assinatura ativa atual. | 
+| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Cria um servidor de banco de dados SQL que hospeda bancos de dados individuais e pools elásticos. |
+| [AZ SQL Server Firewall – regra Create](/cli/azure/sql/server/firewall-rule) | Cria as regras de firewall de um servidor. | 
+| [az sql db create](/cli/azure/sql/db?view=azure-cli-latest) | Cria um banco de dados. | 
+
 
 ---

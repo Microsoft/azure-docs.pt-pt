@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 3c9e5185bfcaf99765ec29874cea407fe55bfb17
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 131a71e27bba1c37b6d50b718b8eac788109a59f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058331"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933770"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Visualização – Proteja seu cluster usando políticas de segurança pod no serviço de kubernetes do Azure (AKS)
 
@@ -106,10 +106,10 @@ NAME         PRIV    CAPS   SELINUX    RUNASUSER          FSGROUP     SUPGROUP  
 privileged   true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *     configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
 ```
 
-A política de segurança de Pod *privilegiado* é aplicada a qualquer usuário autenticado no cluster AKs. Essa atribuição é controlada por ClusterRoles e ClusterRoleBindings. Use o comando [kubectl Get clusterrolebindings][kubectl-get] e procure o *padrão: privilegiado* : Binding:
+A política de segurança de Pod *privilegiado* é aplicada a qualquer usuário autenticado no cluster AKs. Essa atribuição é controlada por ClusterRoles e ClusterRoleBindings. Use o comando [kubectl Get clusterrolebindings][kubectl-get] e procure o *padrão: Privileged:* Binding:
 
 ```console
-kubectl get clusterrolebindings default:priviledged -o yaml
+kubectl get clusterrolebindings default:privileged -o yaml
 ```
 
 Conforme mostrado na seguinte saída condensada, o ClusterRole de *PSP: Restricted* é atribuído a qualquer *sistema: usuários autenticados* . Essa capacidade fornece um nível básico de restrições sem que suas próprias políticas sejam definidas.
@@ -119,12 +119,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   [...]
-  name: default:priviledged
+  name: default:privileged
   [...]
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: psp:priviledged
+  name: psp:privileged
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: Group
@@ -135,7 +135,7 @@ subjects:
 
 ## <a name="create-a-test-user-in-an-aks-cluster"></a>Criar um usuário de teste em um cluster AKS
 
-Por padrão, quando você usa o comando [AZ AKs Get-Credentials][az-aks-get-credentials] , as credenciais de *administrador* para o cluster AKs são adicionadas à sua `kubectl` configuração. O usuário administrador ignora a imposição de políticas de segurança de Pod. Se você usar a integração de Azure Active Directory para seus clusters AKS, poderá entrar com as credenciais de um usuário não administrador para ver a imposição de políticas em ação. Neste artigo, vamos criar uma conta de usuário de teste no cluster AKS que você pode usar.
+Por padrão, quando você usa o comando [AZ AKs Get-Credentials][az-aks-get-credentials] , as credenciais de *administrador* para o cluster AKs são adicionadas à sua configuração do `kubectl`. O usuário administrador ignora a imposição de políticas de segurança de Pod. Se você usar a integração de Azure Active Directory para seus clusters AKS, poderá entrar com as credenciais de um usuário não administrador para ver a imposição de políticas em ação. Neste artigo, vamos criar uma conta de usuário de teste no cluster AKS que você pode usar.
 
 Crie um namespace de exemplo chamado *PSP-AKs* para recursos de teste usando o comando [kubectl Create namespace][kubectl-create] . Em seguida, crie uma conta de serviço chamada *usuário não administrador* usando o comando [kubectl Create USERACCOUNT][kubectl-create] :
 
@@ -156,7 +156,7 @@ kubectl create rolebinding \
 
 ### <a name="create-alias-commands-for-admin-and-non-admin-user"></a>Criar comandos de alias para administrador e usuário não administrador
 
-Para destacar a diferença entre o usuário administrador regular ao usar `kubectl` o e o usuário não administrador criado nas etapas anteriores, crie dois aliases de linha de comando:
+Para destacar a diferença entre o usuário administrador regular ao usar `kubectl` e o usuário não administrador criado nas etapas anteriores, crie dois aliases de linha de comando:
 
 * O alias **kubectl-admin** é para o usuário administrador regular e tem como escopo o namespace *PSP-AKs* .
 * O alias **kubectl-nonadminuser** é para o *usuário não administrador* criado na etapa anterior e tem como escopo o namespace *PSP-AKs* .
@@ -170,7 +170,7 @@ alias kubectl-nonadminuser='kubectl --as=system:serviceaccount:psp-aks:nonadmin-
 
 ## <a name="test-the-creation-of-a-privileged-pod"></a>Testar a criação de um pod privilegiado
 
-Primeiro, vamos testar o que acontece quando você agenda um pod com o contexto de `privileged: true`segurança de. Esse contexto de segurança Escalona os privilégios do pod. Na seção anterior que mostrou as políticas de segurança de Pod AKS padrão, a política *restrita* deve negar essa solicitação.
+Primeiro, vamos testar o que acontece quando você agenda um pod com o contexto de segurança de `privileged: true`. Esse contexto de segurança Escalona os privilégios do pod. Na seção anterior que mostrou as políticas de segurança de Pod AKS padrão, a política *restrita* deve negar essa solicitação.
 
 Crie um arquivo chamado `nginx-privileged.yaml` e cole o seguinte manifesto YAML:
 
@@ -267,7 +267,7 @@ kubectl-nonadminuser delete -f nginx-unprivileged.yaml
 
 ## <a name="test-creation-of-a-pod-with-a-specific-user-context"></a>Testar a criação de um pod com um contexto de usuário específico
 
-No exemplo anterior, a imagem de contêiner tentou usar automaticamente a raiz para associar NGINX à porta 80. Essa solicitação foi negada pela política de segurança Pod *restrita* padrão, portanto, não é possível iniciar o pod. Agora, vamos tentar executar o mesmo Pod NGINX com um contexto de usuário específico, `runAsUser: 2000`como.
+No exemplo anterior, a imagem de contêiner tentou usar automaticamente a raiz para associar NGINX à porta 80. Essa solicitação foi negada pela política de segurança Pod *restrita* padrão, portanto, não é possível iniciar o pod. Agora, vamos tentar executar o mesmo Pod NGINX com um contexto de usuário específico, como `runAsUser: 2000`.
 
 Crie um arquivo chamado `nginx-unprivileged-nonroot.yaml` e cole o seguinte manifesto YAML:
 
@@ -445,7 +445,7 @@ kubectl apply -f psp-deny-privileged-clusterrolebinding.yaml
 
 ## <a name="test-the-creation-of-an-unprivileged-pod-again"></a>Testar a criação de um pod sem privilégios novamente
 
-Com a política de segurança de Pod personalizada aplicada e uma associação para a conta de usuário usar a política, vamos tentar criar um pod sem privilégios novamente. Use o mesmo `nginx-privileged.yaml` manifesto para criar o Pod usando o comando [kubectl Apply][kubectl-apply] :
+Com a política de segurança de Pod personalizada aplicada e uma associação para a conta de usuário usar a política, vamos tentar criar um pod sem privilégios novamente. Use o mesmo manifesto `nginx-privileged.yaml` para criar o Pod usando o comando [kubectl Apply][kubectl-apply] :
 
 ```console
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml

@@ -1,5 +1,5 @@
 ---
-title: Testar Azure Stream Analytics consultas localmente com o Visual Studio
+title: Testar Azure Stream Analytics consultas localmente no Visual Studio
 description: Este artigo descreve como testar consultas localmente com o Azure Stream Analytics Tools para Visual Studio.
 services: stream-analytics
 author: su-jie
@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: 4ec427ad7af18f4f301e1e62ca21af643a0425aa
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 01383531293635af8c15f891928eec004e05b54d
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914017"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925046"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Testar Stream Analytics consultas localmente com o Visual Studio
 
@@ -72,11 +72,11 @@ Você pode ver o progresso na janela de **saída** .
 
 ![Saída de dados de exemplo](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-03.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 
-* [Quickstart: Criar um trabalho de Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Use o Visual Studio para ver tarefas do Azure Stream Analytics](stream-analytics-vs-tools.md)
+* [Início rápido: criar um trabalho de Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
+* [Usar o Visual Studio para exibir Azure Stream Analytics trabalhos](stream-analytics-vs-tools.md)
 * [Testar dados dinâmicos localmente usando o Azure Stream Analytics Tools para Visual Studio (visualização)](stream-analytics-live-data-local-testing.md)
-* [Tutorial: Implantar um trabalho de Azure Stream Analytics com CI/CD usando o Azure DevOps](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [Tutorial: implantar um trabalho de Azure Stream Analytics com CI/CD usando o Azure DevOps](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Integrar e desenvolver continuamente as ferramentas do Stream Analytics](stream-analytics-tools-for-visual-studio-cicd.md)

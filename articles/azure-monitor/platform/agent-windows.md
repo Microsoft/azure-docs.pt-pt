@@ -1,24 +1,18 @@
 ---
 title: Conectar computadores Windows ao Azure Monitor | Microsoft Docs
 description: Este artigo descreve como conectar computadores Windows hospedados em outras nuvens ou locais para Azure Monitor com o agente do Log Analytics para Windows.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/07/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 6c8d25a9df49323866e99487ef6c648dede40ec4
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.date: 10/07/2019
+ms.openlocfilehash: abe114a989c4ec672d391a7fd7d83341d4c52638
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72033949"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932782"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Conectar computadores Windows ao Azure Monitor
 
@@ -44,7 +38,7 @@ Para compreender a configuração suportada, consulte [sistemas operativos Windo
 ## <a name="obtain-workspace-id-and-key"></a>Obter o ID e a chave da área de trabalho
 Antes de instalar o agente de Log Analytics para Windows, você precisa da ID e da chave do espaço de trabalho para seu espaço de trabalho Log Analytics.  Essas informações são necessárias durante a instalação de cada método de instalação para configurar corretamente o agente e garantir que ele possa se comunicar com êxito com Azure Monitor no Azure comercial e na nuvem do governo dos EUA. 
 
-1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
+1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
 2. Na lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho no qual você pretende configurar o agente para relatar.
 3. Selecione **Definições avançadas**.<br><br> ![Definições Avançadas do Log Analytics](media/agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
 4. Selecione **Origens Ligadas** e, em seguida, selecione **Servidores Windows**.   
@@ -67,9 +61,9 @@ Para configurar o uso do protocolo [TLS 1,2](https://docs.microsoft.com/windows-
 
 Configure o .NET Framework 4,6 ou posterior para dar suporte à criptografia segura, pois ele está desabilitado por padrão. A [criptografia forte](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) usa protocolos de rede mais seguros, como o TLS 1,2, e bloqueia protocolos que não são seguros. 
 
-1. Localize a seguinte subchave do registro: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v4.0.30319**.  
+1. Localize a seguinte subchave do registro: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\. NETFramework\v4.0.30319**.  
 2. Crie o valor DWORD **SchUseStrongCrypto** sob essa subchave com um valor de **1**.  
-3. Localize a seguinte subchave do registro: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v4.0.30319**.  
+3. Localize a seguinte subchave do registro: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\. NETFramework\v4.0.30319**.  
 4. Crie o valor DWORD **SchUseStrongCrypto** sob essa subchave com um valor de **1**. 
 5. Reinicie o sistema para que as configurações entrem em vigor. 
 
@@ -101,7 +95,7 @@ A tabela a seguir realça os parâmetros específicos com suporte na instalaçã
 
 |Opções específicas do MMA                   |Notas         |
 |---------------------------------------|--------------|
-| NOAPM=1                               | Parâmetro opcional. Instala o agente sem o monitoramento do desempenho de aplicativos .NET.|   
+| NOAPM = 1                               | Parâmetro opcional. Instala o agente sem o monitoramento do desempenho de aplicativos .NET.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = configurar o agente para relatar a um espaço de trabalho                |
 |OPINSIGHTS_WORKSPACE_ID                | ID do espaço de trabalho (GUID) para o espaço de trabalho a ser adicionado                    |
 |OPINSIGHTS_WORKSPACE_KEY               | Chave do espaço de trabalho usada para autenticar inicialmente com o espaço de trabalho |
@@ -138,7 +132,7 @@ O exemplo a seguir instala o agente de 64 bits, identificado pelo valor `URI`. V
 >[!NOTE]
 >Este exemplo de procedimento e script não oferece suporte à atualização do agente já implantado em um computador Windows.
 
-As versões de 32 bits e 64 bits do pacote do agente têm códigos de produto diferentes e novas versões lançadas também têm um valor exclusivo.  O código do produto é um GUID que é a identificação principal de um aplicativo ou produto e é representado pela propriedade Windows Installer **ProductCode** .  O valor `ProductId` no script **MMAgent. ps1** deve corresponder ao código do produto do pacote do instalador do agente de 32 bits ou 64 bits.
+As versões de 32 bits e 64 bits do pacote do agente têm códigos de produto diferentes e novas versões lançadas também têm um valor exclusivo.  O código do produto é um GUID que é a identificação principal de um aplicativo ou produto e é representado pela propriedade Windows Installer **ProductCode** .  O valor de `ProductId` no script **MMAgent. ps1** deve corresponder ao código do produto do pacote do instalador do agente de 32 bits ou 64 bits.
 
 Para recuperar o código do produto do pacote de instalação do agente diretamente, você pode usar o Orca. exe a partir dos [componentes de SDK do Windows para os desenvolvedores de Windows Installer](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) que é um componente do Windows Software Development Kit ou usando o PowerShell após um [ script de exemplo](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) escrito por um MVP (Microsoft valioso Professional).  Para qualquer abordagem, você precisa primeiro extrair o arquivo **MOMAgent. msi** do pacote de instalação do MMASetup.  Isso é mostrado anteriormente na primeira etapa na seção [instalar o agente usando a linha de comando](#install-the-agent-using-the-command-line).  
 
@@ -190,11 +184,11 @@ Para recuperar o código do produto do pacote de instalação do agente diretame
 
 Depois que a instalação do agente for concluída, verifique se ele está conectado com êxito e se os relatórios podem ser realizados de duas maneiras.  
 
-No computador, no **Painel de Controlo**, localize o item **Microsoft Monitoring Agent**.  Selecione-o e, no separador **Azure Log Analytics**, o agente deverá apresentar uma mensagem que diz: **O Microsoft Monitoring Agent se conectou com êxito ao serviço de Microsoft Operations Management Suite.**<br><br> ![Estado da ligação do MMA ao Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
+No computador, no **Painel de Controlo**, localize o item **Microsoft Monitoring Agent**.  Selecione-o e, na guia **log Analytics do Azure** , o agente deve exibir uma mensagem dizendo: **a Microsoft Monitoring Agent se conectou com êxito ao serviço de Microsoft Operations Management Suite.**<br><br> ![Estado da ligação do MMA ao Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
 Você também pode executar uma consulta de log simples no portal do Azure.  
 
-1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, digite **Azure monitor**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Azure monitor**.  
+1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Azure monitor**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Azure monitor**.  
 2. Selecione **logs** no menu. 
 2. No painel logs, no campo de consulta tipo:  
 

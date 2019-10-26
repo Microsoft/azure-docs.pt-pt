@@ -1,5 +1,5 @@
 ---
-title: Usar o pacote NuGet Azure Stream Analytics CI/CD para integração e desenvolvimento
+title: Usar o pacote NuGet do Azure Stream Analytics CI/CD
 description: Este artigo descreve como usar Azure Stream Analytics pacote NuGet CI/CD para configurar um processo de implantação e integração contínua.
 services: stream-analytics
 author: su-jie
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 47bcd29ca8a1da0c42f7bc39aeb4ffc1ad8e8571
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 6f5ba06841af580cd80b3b46bec972f717ded044
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172905"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934247"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Usar o pacote NuGet Azure Stream Analytics CI/CD para integração e desenvolvimento 
 Este artigo descreve como usar o pacote NuGet Azure Stream Analytics CI/CD para configurar um processo de implantação e integração contínua.
@@ -46,7 +46,7 @@ Quando um projeto do Visual Studio Stream Analytics é compilado com êxito, ele
 Os parâmetros padrão no arquivo Parameters. JSON são das configurações em seu projeto do Visual Studio. Se você quiser implantar em outro ambiente, substitua os parâmetros de acordo.
 
 > [!NOTE]
-> Para todas as credenciais, os valores padrão são definidos como NULL. Você precisa definir os valores antes de implantar na nuvem.
+> Para todas as credenciais, os valores padrão são definidos como NULL. Você precisa **definir** os valores antes de implantar na nuvem.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {
@@ -91,8 +91,8 @@ Exemplo:
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Quickstart: Criar um trabalho de nuvem Azure Stream Analytics no Visual Studio](stream-analytics-quick-create-vs.md)
-* [Testar consultas do Stream Analytics localmente com o Visual Studio](stream-analytics-vs-tools-local-run.md)
+* [Início rápido: criar um trabalho de Azure Stream Analytics nuvem no Visual Studio](stream-analytics-quick-create-vs.md)
+* [Testar Stream Analytics consultas localmente com o Visual Studio](stream-analytics-vs-tools-local-run.md)
 * [Explorar Azure Stream Analytics trabalhos com o Visual Studio](stream-analytics-vs-tools.md)

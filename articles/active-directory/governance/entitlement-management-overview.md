@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a467856550bf2deaab931b3fe2f54b7986f12f8a
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 136a9994415b42c456ebdb0caa8ed6edcc7b4534
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430310"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934377"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>O que é a gestão de direitos do Azure AD? (Pré-visualização)
 
@@ -121,6 +121,7 @@ Para entender melhor o gerenciamento de direitos e sua documentação, você dev
 | Tipo de recurso | O tipo de recurso, que inclui grupos, aplicativos e sites do SharePoint Online. |
 | função de recurso | Uma coleção de permissões associadas a um recurso. |
 | diretório de recursos | Um diretório que tem um ou mais recursos a serem compartilhados. |
+| organização conectada | Um diretório ou domínio do Azure AD externo com o qual você tem uma relação. |
 | usuários atribuídos | Uma atribuição de um pacote de acesso a um usuário, para que o usuário tenha todas as funções de recurso desse pacote de acesso. |
 | Desabilitar | O processo de disponibilizar um pacote de acesso para os usuários solicitarem. |
 

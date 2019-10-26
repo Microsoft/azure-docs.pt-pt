@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: e7f08c175972826a8b226d7e80f563ac71ba23db
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 78482b5d7013ffa3bbb0a34dd04c8c48626dc77a
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514770"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72926656"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -150,7 +150,7 @@ Consulte https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.ht
 
 Copie todos os buckets para o armazenamento de blobs de Amazon Web Services (AWS) usando uma chave de acesso e um token SAS. Primeiro, defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
 
-- azcopy CP "https://s3.amazonaws.com/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
+- azcopy CP "https://s3.amazonaws.com/ " "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
 
 Copie todos os buckets para o armazenamento de blobs de uma região Amazon Web Services (AWS) usando uma chave de acesso e um token SAS. Primeiro, defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
 
@@ -172,7 +172,7 @@ Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket
 
 **--comprimento da verificação**                         Verifique o comprimento de um arquivo no destino após a transferência. Se houver uma incompatibilidade entre a origem e o destino, a transferência será marcada como com falha. (padrão true)
 
---a cadeia de caracteres **de verificação MD5** especifica como os hashes MD5 estritamente devem ser validados durante o download. Disponível somente ao baixar. Opções disponíveis: NOCHECK, LogOn, FailIfDifferent, FailIfDifferentOrMissing. (padrão ' FailIfDifferent ') (padrão "FailIfDifferent")
+--a cadeia de caracteres **de verificação MD5** especifica como os hashes MD5 estritamente devem ser validados durante o download. Disponível somente ao baixar. Opções disponíveis: NOCHECK, LogOn, FailIfDifferent, FailIfDifferentOrMissing. (padrão "FailIfDifferent")
 
 **--** cadeia de caracteres de disposição de conteúdo defina o cabeçalho de disposição de conteúdo. Retornado no download.
 
@@ -204,15 +204,15 @@ Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket
 
 **--include-a cadeia de caracteres de padrão** inclui apenas esses arquivos ao copiar. Essa opção dá suporte a caracteres curinga (*). Separar arquivos usando um '; '.
 
-**--** cadeia de caracteres de nível de log defina o detalhamento de log para o arquivo de log, níveis disponíveis: informações (todas as solicitações/respostas), aviso (respostas lentas), erro (somente solicitações com falha) e nenhum (nenhum log de saída). (padrão ' INFO '). (padrão "INFO")
+**--** cadeia de caracteres de nível de log defina o detalhamento de log para o arquivo de log, níveis disponíveis: informações (todas as solicitações/respostas), aviso (respostas lentas), erro (somente solicitações com falha) e nenhum (nenhum log de saída). (padrão "INFO")
 
 **--** carregamento da cadeia de caracteres de metadados para o armazenamento do Azure com esses pares de chave-valor como metadados.
 
 **--no-palpite-tipo MIME**                   Impede que o AzCopy detecte o tipo de conteúdo com base na extensão ou no conteúdo do arquivo.
 
-**--substituir** cadeia de caracteres substituirá os arquivos conflitantes e os BLOBs no destino se esse sinalizador for definido como true. (padrão ' true ') Os valores possíveis incluem ' true ', ' false ' e ' prompt '. (padrão "true")
+**--substituir** cadeia de caracteres substituirá os arquivos conflitantes e os BLOBs no destino se esse sinalizador for definido como true. Os valores possíveis incluem ' true ', ' false ' e ' prompt '. (padrão "true")
 
-**--Page-blob-camada – blob de** página de carregamento de cadeia de caracteres para o armazenamento do Azure usando essa camada de BLOB. (padrão ' none '). (padrão "None")
+**--Page-blob-camada – blob de** página de carregamento de cadeia de caracteres para o armazenamento do Azure usando essa camada de BLOB. (padrão "None")
 
 **--preservar-último-modificado-hora**          Disponível somente quando o destino é sistema de arquivos.
 
@@ -222,9 +222,9 @@ Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket
 
 **--S2S-Detect-origem-alterado**           Verifique se a origem foi alterada após a enumeração.
 
-**--S2S-Handle-inválida-a cadeia de caracteres de metadados** especifica como as chaves de metadados inválidas são tratadas. Opções disponíveis: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (padrão ' ExcludeIfInvalid '). (padrão "ExcludeIfInvalid")
+**--S2S-Handle-inválida-a cadeia de caracteres de metadados** especifica como as chaves de metadados inválidas são tratadas. Opções disponíveis: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (padrão "ExcludeIfInvalid")
 
-**--S2S-preserve-acesso-camada**             Preserve a camada de acesso durante a cópia de serviço para serviço. Consulte armazenamento de [BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para garantir que a conta de armazenamento de destino dê suporte à configuração da camada de acesso. Nos casos em que não há suporte para a configuração da camada de acesso, use s2sPreserveAccessTier = false para ignorar a cópia da camada de acesso. (padrão true).  (padrão true)
+**--S2S-preserve-acesso-camada**             Preserve a camada de acesso durante a cópia de serviço para serviço. Consulte armazenamento de [BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para garantir que a conta de armazenamento de destino dê suporte à configuração da camada de acesso. Nos casos em que não há suporte para a configuração da camada de acesso, use s2sPreserveAccessTier = false para ignorar a cópia da camada de acesso. (padrão true)
 
 **--S2S-preserve-Propriedades**              Preserve as propriedades completas durante a cópia de serviço para serviço. Para AWS S3 e fonte de arquivo não único de arquivo do Azure, a operação de lista não retorna propriedades completas de objetos e arquivos. Para preservar as propriedades completas, o AzCopy precisa enviar uma solicitação adicional por objeto ou arquivo. (padrão true)
 

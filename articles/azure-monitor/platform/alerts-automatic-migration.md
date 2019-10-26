@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/19/2019
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: fbc024b6ae6e3ebfed6f64067158352e8201aef5
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: e0ac349554fa580c4ac88b26e76d0bea1ecf738b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69642568"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932715"
 ---
 # <a name="understand-the-automatic-migration-process-for-your-classic-alert-rules"></a>Entender o processo de migração automática para suas regras de alerta clássicas
 
@@ -28,7 +28,7 @@ Este artigo orienta você pelo processo de migração automática e ajuda você 
   - Para as exceções, o cliente pode continuar a criar novas regras de alerta clássicas e usar seus alertas clássicos até junho de 2020.
 - A partir de **1º de setembro de 2019**, a migração de alertas clássicos será disparada em lotes para qualquer cliente que tenha alertas clássicos.
 - Assim como acontece com a ferramenta de migração voluntária, certas regras de alerta clássicas que não são migrada serão deixadas como estão. Essas regras de alerta clássicas continuarão a ter suporte até 2020 de junho. No entanto, qualquer regra de alerta clássica inválida será excluída, pois elas não são funcionais.
-Todas as regras de alerta clássicas que estão monitorando recursos de destino excluídos ou em [métricas que não são mais](alerts-understand-migration.md#classic-alert-rules-on-deprecated-metrics) suportadas são consideradas inválidas.
+Todas as regras de alerta clássicas que estão monitorando recursos de destino excluídos ou em [métricas que não são mais suportadas](alerts-understand-migration.md#classic-alert-rules-on-deprecated-metrics) são consideradas inválidas.
 - Depois que a migração para sua assinatura for iniciada, a menos que haja problemas, a migração deve ser concluída em uma hora. Os clientes podem monitorar o status da migração na [folha de migração no Azure monitor](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel).
 - Os proprietários da assinatura receberão um email sobre a conclusão bem-sucedida da migração.
 - Se houver problemas durante a migração, os proprietários da assinatura também receberão um email informando que eles são os mesmos. Os clientes podem usar a folha de migração para ver os detalhes completos do problema.

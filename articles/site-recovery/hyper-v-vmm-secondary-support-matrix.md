@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 9c3a19d44a4ac0fba37f4815b65b17c26d257dbc
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 46d6cba1d702773639420a3bc5ac74b9c16ce706
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813615"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933818"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V em um site secundário
 
@@ -21,7 +21,9 @@ Este artigo resume o que tem suporte quando você usa o serviço de [Azure site 
 > [!NOTE]
 > Você só pode replicar para um site secundário quando seus hosts Hyper-V são gerenciados em nuvens do VMM.
 
-  
+> [!WARNING]
+> Observe que o suporte a ASR para usar a configuração do SCVMM em conta em breve será preterido e, portanto, recomendamos que você leia os detalhes de [substituição](scvmm-site-recovery-deprecation.md) antes de continuar.
+
 
 ## <a name="host-servers"></a>Servidores host
 
@@ -57,7 +59,7 @@ Somente computadores Linux com o seguinte armazenamento podem ser replicados:
 Agrupamento do host NIC | Sim 
 Host-VLAN | Sim 
 Host-IPv4 | Sim 
-Host - IPv6 | Não 
+Host-IPv6 | Não 
 VM convidada-agrupamento NIC | Não
 VM convidada-IPv4 | Sim
 VM convidada-IPv6 | Não
@@ -98,7 +100,7 @@ Vários caminhos (MPIO) | Sim
 
 ## <a name="vaults"></a>Cofres
 
-**ação** | **Suportado**
+**Ação** | **Suportado**
 --- | --- 
 Mover cofres entre grupos de recursos (dentro de ou entre assinaturas) |  Não
 Mover armazenamento, rede, VMs do Azure entre grupos de recursos (dentro de ou entre assinaturas) | Não
@@ -107,13 +109,13 @@ Mover armazenamento, rede, VMs do Azure entre grupos de recursos (dentro de ou e
 
 O provedor coordena as comunicações entre os servidores do VMM. 
 
-**Latest** | **Atualizações**
+**Mais recente** | **Atualizações**
 --- | --- 
 5.1.19 ([disponível no portal](https://aka.ms/downloaddra) | [Recursos e correções mais recentes](https://support.microsoft.com/kb/3155002)
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Replicar VMs do Hyper-V em nuvens do VMM para um site secundário](tutorial-vmm-to-vmm.md)
 

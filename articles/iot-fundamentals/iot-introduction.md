@@ -1,71 +1,71 @@
 ---
-title: Introdução para a Internet das coisas (IoT) do Azure
-description: Introdução a explicar os conceitos básicos do Azure IoT e os serviços de IoT, incluindo exemplos que ajudam a ilustrar o uso de IoT.
+title: Introdução à Internet das Coisas do Azure (IoT)
+description: Introdução explicando os conceitos básicos do Azure IoT e dos serviços de IoT, incluindo exemplos que ajudam a ilustrar o uso do IoT.
 author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: e1cb588d68153a88d8b55b2696b376c4eb8704f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f46ebcabd98c7a8c3376157c72da9ec5ed424a4
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61232256"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935219"
 ---
-# <a name="what-is-azure-internet-of-things-iot"></a>O que é o Azure Internet das coisas (IoT)?
+# <a name="what-is-azure-internet-of-things-iot"></a>O que é o Azure Internet das Coisas (IoT)?
 
 A Internet das Coisas (IoT) do Azure é uma coleção de serviços cloud geridos pela Microsoft que ligam, monitorizam e controlam milhares de milhões de recursos de IoT. Em termos mais simples, uma solução IoT é composta por um ou mais dispositivos IoT e por um ou mais serviços de back-end em execução na cloud que comunicam entre si. 
 
-Este artigo discute as noções básicas do IoT, fala sobre casos de utilização e explica resumidamente os oito serviços separados disponíveis. Ao compreender o que está disponível, pode descobrir o que deseja examinar mais atentamente que ajudam a projetar seu cenário.
+Este artigo discute os fundamentos da IoT, fala sobre casos de uso e explica brevemente os oito serviços separados disponíveis. Ao entender o que está disponível, você pode descobrir o que deseja ver mais de forma mais próxima para ajudar a criar seu cenário.
 
 ## <a name="introduction"></a>Introdução
 
-As partes principais de uma solução de IoT são os seguintes: dispositivos, serviços de back-end e as comunicações entre os dois. 
+As principais partes de uma solução de IoT são as seguintes: dispositivos, serviços de back-end e as comunicações entre os dois. 
 
 ### <a name="iot-devices"></a>Dispositivos IoT
 
-Dispositivos são geralmente constituídos por um quadro do circuito com sensores ligados que se ligam à internet. Número de dispositivos a comunicar através de um chip de Wi-Fi. Aqui estão alguns exemplos de dispositivos IoT:
+Geralmente, os dispositivos são compostos de uma placa de circuito com sensores anexados que se conectam à Internet. Muitos dispositivos se comunicam por meio de um chip Wi-Fi. Aqui estão alguns exemplos de dispositivos IoT:
 
-* sensores de pressão uma bomba de petróleo remoto
-* sensores de temperatura e humidade numa unidade de ar condicionado
-* acelerômetros num elevator
-* sensores de presença numa sala
+* sensores de pressão em uma bomba de óleo remota
+* sensores de temperatura e umidade em uma unidade de condicionamento de ar
+* acelerômetros em um elevador
+* sensores de presença em uma sala
 
-Dois dispositivos que são usados com freqüência na criação do protótipo são o básico MX Chip IoT Devkit provenientes de dispositivos Microsoft e Raspberry PI. Devkit de Chip MX tem sensores incorporados para temperatura, pressão, umidade, bem como um gyroscope e acelerômetro, magnetômetro e um chip de Wi-Fi. Raspberry PI é um dispositivo de IoT para o qual pode anexar muitos tipos diferentes de sensores, pelo que pode selecionar exatamente o que precisa para o seu cenário. 
+Dois dispositivos que são usados com frequência para a protótipoing são o devkit básico de chips MX da Microsoft e dispositivos Raspberry PI. A devkit do chip MX tem sensores internos para temperatura, pressão, umidade, bem como um giroscópio e acelerômetro, um magnetômetro e um chip Wi-Fi. O Raspberry PI é um dispositivo IoT ao qual você pode anexar vários tipos diferentes de sensores, para que você possa selecionar exatamente o que precisa para seu cenário. 
 
-Para obter mais informações sobre os dispositivos de IoT disponíveis, confira do setor maior [catálogo de dispositivos certificada for IoT](https://catalog.azureiotsolutions.com/alldevices).
+Para obter mais informações sobre dispositivos IoT disponíveis, confira o maior [Catálogo de dispositivos certificados do setor para IOT](https://catalog.azureiotsolutions.com/alldevices).
 
-O [IoT Device SDKs](../iot-hub/iot-hub-devguide-sdks.md) permitem-lhe criar aplicações que são executadas nos seus dispositivos para realizarem as tarefas que precisam. Com os SDKs, pode enviar telemetria ao seu hub IoT, receber atualizações e as mensagens do IoT Hub e assim por diante.
+Os [SDKs do dispositivo IOT](../iot-hub/iot-hub-devguide-sdks.md) permitem que você crie aplicativos que são executados em seus dispositivos para que eles possam executar as tarefas necessárias. Com os SDKs, você pode enviar telemetria para o Hub IoT, receber mensagens e atualizações do Hub IoT e assim por diante.
 
 ### <a name="communication"></a>Comunicação
 
-O dispositivo pode comunicar com serviços de back-end em ambas as direções. Aqui estão alguns exemplos de como o dispositivo pode comunicar com a solução de back-end.
+Seu dispositivo pode se comunicar com serviços de back-end em ambas as direções. Aqui estão alguns exemplos de como o dispositivo pode se comunicar com a solução de back-end.
 
 #### <a name="examples"></a>Exemplos 
 
-* O dispositivo pode enviar temperatura de um camião ligasse móveis a cada 5 minutos para um IoT Hub. 
+* Seu dispositivo pode enviar a temperatura de um caminhão de refrigeração móvel a cada 5 minutos para um hub IoT. 
 
-* O serviço de back-end pode pedir o dispositivo para enviar telemetria com mais frequência para ajudar a diagnosticar um problema. 
+* O serviço de back-end pode solicitar que o dispositivo envie telemetria com mais frequência para ajudar a diagnosticar um problema. 
 
-* O dispositivo pode enviar alertas com base nos valores ler a partir do respetivos sensores. Por exemplo, se um reactor do batch numa fábrica químicas a monitorizar, pode querer enviar um alerta quando as temperaturas excede um determinado valor.
+* Seu dispositivo pode enviar alertas com base nos valores lidos de seus sensores. Por exemplo, se estiver monitorando um reator em lote em uma planta química, talvez você queira enviar um alerta quando as temperaturas excederem um determinado valor.
 
-* O dispositivo pode enviar informações a um dashboard para ver por operadores humanos. Por exemplo, uma sala de controle num refinery pode mostrar a temperatura e a pressão de cada pipe, bem como o volume que passam desse pipe, permitindo que os operadores para assistir à mesma. 
+* Seu dispositivo pode enviar informações para um painel para exibição por operadores humanos. Por exemplo, uma sala de controle em um refinamento pode mostrar a temperatura e a pressão de cada pipe, bem como o volume que flui por esse pipe, permitindo que os operadores o assistam. 
 
-Estas tarefas e muito mais, podem ser implementada usando o [IoT Device SDKs](../iot-hub/iot-hub-devguide-sdks.md).
+Essas tarefas e muito mais, podem ser implementadas usando os [SDKs do dispositivo IOT](../iot-hub/iot-hub-devguide-sdks.md).
 
-#### <a name="connection-considerations"></a>Considerações sobre a ligação
+#### <a name="connection-considerations"></a>Considerações sobre conexão
 
-A ligação segura e fiável de dispositivos é, frequentemente, o maior desafio para as soluções IoT. Isso é porque dispositivos IoT têm características diferentes em comparação com outros clientes, como browsers e aplicações móveis. Especificamente, os dispositivos IoT:
+A ligação segura e fiável de dispositivos é, frequentemente, o maior desafio para as soluções IoT. Isso ocorre porque os dispositivos IoT têm características diferentes quando comparados a outros clientes, como navegadores e aplicativos móveis. Especificamente, os dispositivos IoT:
 
 * São, frequentemente, sistemas incorporados sem nenhum operador humano (ao contrário de um telefone).
 
 * Podem ser implementados em localizações remotas, onde o acesso físico é dispendioso.
 
-* Podem apenas ser acessíveis através do back-end da solução. Não há outro modo de interagir com o dispositivo.
+* Podem apenas ser acessíveis através da solução de back-end. Não há outro modo de interagir com o dispositivo.
 
-* Podem ter potência e recursos de processamento limitados.
+* Podem recursos de processamento e um poder limitados.
 
 * Podem ter uma conectividade de rede intermitente, lente ou dispendiosa.
 
@@ -73,60 +73,60 @@ A ligação segura e fiável de dispositivos é, frequentemente, o maior desafio
 
 ### <a name="back-end-services"></a>Serviços de back-end 
 
-Aqui estão algumas das funções que pode fornecer um serviço de back-end.
+Aqui estão algumas das funções que um serviço de back-end pode fornecer.
 
-* Receber telemetria à escala dos seus dispositivos e determinar como processar e armazenar esses dados.
+* Receber telemetria em escala de seus dispositivos e determinar como processar e armazenar esses dados.
 
 * Analisar a telemetria para fornecer informações, em tempo real ou após o fato.
 
-* Enviar comandos a partir da cloud para um dispositivo específico. 
+* Enviar comandos da nuvem para um dispositivo específico. 
 
-* Aprovisionamento de dispositivos e controlar que dispositivos podem ligar à sua infraestrutura.
+* Provisionamento de dispositivos e controle quais dispositivos podem se conectar à sua infraestrutura.
 
-* Controlar o estado dos seus dispositivos e monitorizar as respetivas atividades.
+* Controle o estado de seus dispositivos e monitore suas atividades.
 
-Por exemplo, num cenário de manutenção preditiva, o back-end de cloud armazena telemetria históricos. A solução utiliza estes dados para identificar potenciais comportamentos anómalos em bombas específicas antes de poderem provocar um problema real. Com a análise de dados, poderá identificar que a solução preventiva deve enviar um comando de volta para o dispositivo, para uma ação corretiva. Este processo gera um ciclo de comentários automatizado entre o dispositivo e a cloud, que aumenta significativamente a eficiência da solução.
+Por exemplo, em um cenário de manutenção preditiva, o back-end de nuvem armazena a telemetria histórica. A solução utiliza estes dados para identificar potenciais comportamentos anómalos em bombas específicas antes de poderem provocar um problema real. Com a análise de dados, poderá identificar que a solução preventiva deve enviar um comando de volta para o dispositivo, para uma ação corretiva. Este processo gera um ciclo de comentários automatizado entre o dispositivo e a cloud, que aumenta significativamente a eficiência da solução.
 
 ## <a name="an-iot-example"></a>Um exemplo de IoT
 
-Eis um exemplo de como uma empresa utilizado IoT para poupar milhões de dólares. 
+Aqui está um exemplo de como uma empresa usou a IoT para economizar milhões de dólares. 
 
-Há uma sede do escritório cattle grande com centenas de milhares de cows. É muito importante para manter o controle de que muitos cows e saber como está fazendo e requer muito dirigir em torno. Sensores que vinculado para cada único dos ovos de ouro, envio de informações como as coordenadas do GPS e temperatura para um serviço de back-end sejam escritos para uma base de dados.
+Há um enorme Ranch de burro com centenas de milhares de vacas. É um grande problema manter o controle de muitas vacas e saber como elas estão fazendo, e requer muita condução. Eles anexaram sensores a cada vaca único, enviando informações como as coordenadas do GPS e a temperatura para um serviço de back-end a ser gravado em um banco de dados.
 
-Em seguida, eles têm um serviço de análise que analisa os dados de entrada e analisa os dados para cada dos ovos de ouro verificar perguntas semelhante ao seguinte:
+Em seguida, eles têm um serviço analítico que verifica os dados de entrada e analisa os dados de cada vaca para verificar perguntas como as seguintes:
 
-* Dos ovos de ouro que está a executar uma temperatura? Quanto dos ovos de ouro está em execução uma temperatura? Se tiver sido mais de um dia, obtenha as coordenadas do GPS e vá encontrar dos ovos de ouro e, se apropriado, trate-o com antibióticos. 
+* O vaca está executando uma temperatura? Por quanto tempo o vaca estava executando uma temperatura? Se tiver sido mais de um dia, obtenha as coordenadas do GPS e localize o vaca e, se apropriado, trate-o com antibióticos. 
 
-* É dos ovos de ouro no mesmo lugar mais de um dia? Se assim for, obtenha as coordenadas do GPS e localizar dos ovos de ouro. Dos ovos de ouro caiu numa cliff? É dos ovos de ouro injured? Dos ovos de ouro precisa de ajuda? 
+* O vaca está no mesmo local por mais de um dia? Nesse caso, obtenha as coordenadas do GPS e localize o vaca. O vaca caiu de um Cliff? Vaca feridas? O vaca precisa de ajuda? 
 
-Implementar esta solução de IoT possibilitado da empresa para verificar e tratar os cows rapidamente e de fim de reduzir a quantidade de tempo que eles tinham que gastar dirigir em torno de a verificação em seus animais, salvá-los muito dinheiro. Para obter mais exemplos reais de como as empresas usam IoT, veja [Microsoft estudos de caso técnicos para IoT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured). 
+A implementação dessa solução de IoT tornou possível para a empresa verificar e tratar o vacas rapidamente e reduzir a quantidade de tempo que tinham para gastar a verificação de seus animais, economizando muito dinheiro. Para obter mais exemplos da vida real de como as empresas usam a IoT, consulte [estudos de caso técnico da Microsoft para IOT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured). 
 
 ## <a name="iot-services"></a>Serviços de IoT
 
-Existem vários serviços relacionados com a IoT no Azure e pode ser confuso descobrir qual deles que pretende utilizar. Alguns, como o IoT Central e os Aceleradores de solução de IoT, fornecem modelos para ajudar a criar sua própria solução e começar a trabalhar rapidamente. Pode também totalmente a desenvolver suas próprias soluções com outros serviços disponíveis – tudo isso depende em quanto ajuda que pretende e quanto controle. Aqui está uma lista dos serviços disponíveis, bem como o que pode usá-los para.
+Há vários serviços relacionados a IoT no Azure e pode ser confuso descobrir qual deles você deseja usar. Alguns, como IoT Central e os aceleradores de solução de IoT, fornecem modelos para ajudá-lo a criar sua própria solução e a começar rapidamente. Você também pode desenvolver totalmente suas próprias soluções usando outros serviços disponíveis. tudo isso depende da quantidade de ajuda que você deseja e da quantidade de controle. Aqui está uma lista dos serviços disponíveis, bem como de que você pode usá-los.
 
-1. [**Centro de IoT**](../iot-central/overview-iot-central.md): Esta é uma solução de SaaS que lhe permite ligar, monitorizar e gerir os seus dispositivos IoT. Para começar, selecione um modelo para o seu tipo de dispositivo e criar e testar uma aplicação básica do Centro de IoT que irão utilizar os operadores do dispositivo. A aplicação do Centro de IoT também permitirá que monitorizar os dispositivos e aprovisionar novos dispositivos. Este serviço destina-se a soluções simples que não necessitam de personalização avançada do serviço. 
+1. [**IOT central**](../iot-central/core/overview-iot-central.md): essa é uma solução de SaaS que ajuda você a conectar, monitorar e gerenciar seus dispositivos IOT. Para iniciar, selecione um modelo para o tipo de dispositivo e crie e teste um aplicativo de IoT Central básico que os operadores do dispositivo usarão. O aplicativo IoT Central também permitirá que você monitore os dispositivos e provisione novos dispositivos. Esse serviço é para soluções simples que não exigem uma personalização profunda do serviço. 
 
-2. [**Aceleradores de solução de IoT**](/azure/iot-suite): Esta é uma coleção de soluções de PaaS, que pode utilizar para acelerar o desenvolvimento de uma solução de IoT. Começar com uma solução de IoT fornecida e, em seguida, personalizar totalmente essa solução aos seus requisitos. Precisa de competências em Java ou .NET para personalizar o back-end e habilidades em JavaScript para personalizar a visualização. 
+2. [**Aceleradores de solução de IOT**](/azure/iot-suite): trata-se de uma coleção de soluções de PaaS que você pode usar para acelerar o desenvolvimento de uma solução de IOT. Você começa com uma solução de IoT fornecida e, em seguida, personaliza totalmente essa solução para seus requisitos. Você precisa de habilidades Java ou .NET para personalizar as habilidades de back-end e JavaScript para personalizar a visualização. 
 
-3. [**IoT Hub**](/azure/iot-hub/): Este serviço permite-lhe ligar a partir dos seus dispositivos para um hub IoT e monitor e controle milhares de milhões de dispositivos IoT. Isso é especialmente útil se precisar de comunicação bidirecional entre os dispositivos de IoT e o seu back-end. Este é o serviço subjacente para o IoT Central e os Aceleradores de solução de IoT. 
+3. [**Hub IOT**](/azure/iot-hub/): esse serviço permite que você se conecte de seus dispositivos a um hub IOT e monitore e controle bilhões de dispositivos IOT. Isso é especialmente útil se você precisar de comunicação bidirecional entre seus dispositivos IoT e seu back-end. Este é o serviço subjacente para os aceleradores de solução IoT Central e IoT. 
 
-4. [**Serviço aprovisionamento de dispositivos do IoT Hub**](/azure/iot-dps/): Este é um serviço auxiliar para o IoT Hub que pode utilizar para aprovisionar dispositivos ao seu hub IoT com segurança. Com este serviço, pode aprovisionar facilmente milhões de dispositivos rapidamente, em vez de aprovisionamento-los individualmente. 
+4. [**Serviço de provisionamento de dispositivos no Hub IOT**](/azure/iot-dps/): esse é um serviço auxiliar para o Hub IOT que você pode usar para provisionar dispositivos para o Hub IOT com segurança. Com esse serviço, você pode facilmente provisionar milhões de dispositivos rapidamente, em vez de provisioná-los um a um. 
 
-5. [**IoT Edge**](/azure/iot-edge/): Este serviço baseia-se sobre o IoT Hub. Ele pode ser usado para analisar os dados nos dispositivos IoT, em vez de na cloud. Ao mover as partes da sua carga de trabalho no Edge, mensagens menos precisam de ser enviados para a cloud. 
+5. [**IOT Edge**](/azure/iot-edge/): esse serviço se baseia na parte superior do Hub IOT. Ele pode ser usado para analisar dados em dispositivos IoT em vez de na nuvem. Ao mover partes de sua carga de trabalho para a borda, menos mensagens precisam ser enviadas para a nuvem. 
 
-6. [**Os gémeos Digital do Azure**](../digital-twins/index.yml): Este serviço permite-lhe criar modelos abrangentes do ambiente físico. Pode modelar as relações e interações entre pessoas, espaços e dispositivos. Por exemplo, pode prever uma manutenção precisa de uma fábrica, analisar os requisitos de energia em tempo real para uma rede elétrica ou otimizar a utilização de espaço disponível para um office.
+6. [**Gêmeos digital do Azure**](../digital-twins/index.yml): esse serviço permite que você crie modelos abrangentes do ambiente físico. Você pode modelar as relações e as interações entre pessoas, espaços e dispositivos. Por exemplo, você pode prever as necessidades de manutenção de uma fábrica, analisar os requisitos de energia em tempo real para uma grade elétrica ou otimizar o uso de espaço disponível para um escritório.
 
-7. [**Time Series Insights**](/azure/time-series-insights): Este serviço permite-lhe armazenar, visualizar e consultar grandes quantidades de dados de séries de tempo geradas pelos dispositivos de IoT. Pode utilizar este serviço com o IoT Hub. 
+7. [**Time Series insights**](/azure/time-series-insights): esse serviço permite que você armazene, visualize e consulte grandes quantidades de dados de série temporal gerados por dispositivos IOT. Você pode usar esse serviço com o Hub IoT. 
 
-8. [**Azure Maps**](/azure/azure-maps): Este serviço fornece informações geográficas para aplicações web e móveis. Existe um conjunto completo de REST APIs, bem como um controlo de JavaScript baseado na web que pode ser utilizado para criar aplicações flexíveis que funcionam em aplicações de ambiente de trabalho ou móveis para dispositivos Apple e Windows.
+8. [**Mapas do Azure**](/azure/azure-maps): esse serviço fornece informações geográficas para aplicativos Web e móveis. Há um conjunto completo de APIs REST, bem como um controle JavaScript baseado na Web que pode ser usado para criar aplicativos flexíveis que funcionam em aplicativos móveis ou de desktop para dispositivos Apple e Windows.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para alguns casos de negócios propriamente dito e da arquitetura utilizada, consulte a [estudos de caso Microsoft Azure IoT técnicos](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured).
+Para alguns casos de negócios reais e a arquitetura usada, consulte as [Microsoft Azure estudos de caso técnico de IOT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured).
 
-Para alguns projetos de exemplo que pode experimentar com um IoT DevKit, consulte a [catálogo de projeto de IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/). 
+Para alguns projetos de exemplo que você pode experimentar com um DevKit de IoT, consulte o [Catálogo de projetos do IOT devkit](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/). 
 
-Para obter uma explicação mais abrangente de diferentes serviços e como elas são usadas, consulte [tecnologias e serviços do Azure IoT](iot-services-and-technologies.md).
+Para obter uma explicação mais abrangente dos diferentes serviços e como eles são usados, consulte [tecnologias e serviços do Azure IOT](iot-services-and-technologies.md).
 
 Para um debate aprofundado da arquitetura do IoT, veja [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (Arquitetura de Referência do Microsoft Azure IoT).

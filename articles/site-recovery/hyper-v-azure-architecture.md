@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 4035746772b44d7267d6a9cd90c7bdc02c804a8a
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 20f325ff64581396f5f7ab2ce05a2479cdb45118
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147080"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933551"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Hyper-V para o Azure
 
@@ -39,6 +39,8 @@ A tabela e o gráfico a seguir fornecem uma exibição de alto nível dos compon
 ![Arquitetura](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
+> [!WARNING]
+> Observe que o suporte a ASR para usar a configuração do SCVMM em conta em breve será preterido e, portanto, recomendamos que você leia os detalhes de [substituição](scvmm-site-recovery-deprecation.md) antes de continuar.
 
 ## <a name="architectural-components---hyper-v-with-vmm"></a>Componentes arquitetônicos – Hyper-V com o VMM
 
@@ -70,7 +72,7 @@ A tabela e o gráfico a seguir fornecem uma exibição de alto nível dos compon
 1. Depois de ativar a proteção para uma VM Hyper-V, no portal do Azure ou no local, **Ativar a proteção** é iniciado.
 2. A tarefa verifica se a máquina está em conformidade com os pré-requisitos, antes de invocar o [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), para configurar a replicação com as definições que configurou.
 3. A tarefa inicia a replicação inicial ao invocar o método [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), para inicializar uma replicação de VM completa e enviar os discos virtuais da VM para o Azure.
-4. Pode monitorizar a tarefa no separador **Tarefas**.      ![Lista de tarefas](media/hyper-v-azure-architecture/image1.png) ![Ativar a desagregação da proteção](media/hyper-v-azure-architecture/image2.png)
+4. Você pode monitorar o trabalho na guia **trabalhos** .      ![lista de trabalhos](media/hyper-v-azure-architecture/image1.png) ![habilitar a busca detalhada de proteção](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Replicação de dados inicial
@@ -84,7 +86,7 @@ A tabela e o gráfico a seguir fornecem uma exibição de alto nível dos compon
 
 ### <a name="finalize-protection-process"></a>Finalizar processo de proteção
 
-1. Após a conclusão da replicação inicial, o trabalho finalizar a **proteção na máquina virtual** é executado. Ele configura a rede e outras configurações de pós-replicação, para que a VM seja protegida.
+1. Após a conclusão da replicação inicial, o trabalho **finalizar a proteção na máquina virtual** é executado. Ele configura a rede e outras configurações de pós-replicação, para que a VM seja protegida.
 2. Neste estágio, você pode verificar as configurações da VM para certificar-se de que ela está pronta para failover. Você pode executar uma análise de recuperação de desastre (failover de teste) para a VM, para verificar se ela faz failover conforme o esperado. 
 
 
@@ -131,9 +133,9 @@ Se ocorrer um erro de replicação, haverá uma repetição interna. Retry é cl
 Depois que sua infraestrutura local estiver funcionando novamente, você poderá fazer failback. O failback ocorre em três estágios:
 
 1. Disparar um failover planejado do Azure para o site local:
-    - **Minimize o tempo**de inatividade: Se você usar essa opção Site Recovery sincronizará os dados antes do failover. Ele verifica os blocos de dados alterados e os baixa no site local, enquanto a VM do Azure continua em execução, minimizando o tempo de inatividade. Quando você especifica manualmente que o failover deve ser concluído, a VM do Azure é desligada, todas as alterações delta finais são copiadas e o failover é iniciado.
-    - **Download completo**: Com essa opção, os dados são sincronizados durante o failover. Essa opção baixa todo o disco. É mais rápido porque nenhuma soma de verificação é calculada, mas há mais tempo de inatividade. Use esta opção se você estiver executando as VMs do Azure de réplica por algum tempo ou se a VM local foi excluída.
-    - **Criar VM**: Você pode optar por fazer failback para a mesma VM ou para uma VM alternativa. Você pode especificar que Site Recovery deve criar a VM, caso ela ainda não exista.
+    - **Minimizar o tempo de inatividade**: se você usar essa opção Site Recovery sincronizará os dados antes do failover. Ele verifica os blocos de dados alterados e os baixa no site local, enquanto a VM do Azure continua em execução, minimizando o tempo de inatividade. Quando você especifica manualmente que o failover deve ser concluído, a VM do Azure é desligada, todas as alterações delta finais são copiadas e o failover é iniciado.
+    - **Download completo**: com esta opção, os dados são sincronizados durante o failover. Essa opção baixa todo o disco. É mais rápido porque nenhuma soma de verificação é calculada, mas há mais tempo de inatividade. Use esta opção se você estiver executando as VMs do Azure de réplica por algum tempo ou se a VM local foi excluída.
+    - **Criar VM**: você pode optar por fazer failback para a mesma VM ou para uma VM alternativa. Você pode especificar que Site Recovery deve criar a VM, caso ela ainda não exista.
 
 2. Após a conclusão da sincronização inicial, selecione para concluir o failover. Após a conclusão, você pode fazer logon na VM local para verificar se tudo está funcionando conforme o esperado. No portal do Azure, você pode ver que as VMs do Azure foram interrompidas.
 3.  Em seguida, você confirma o failover para concluir e começa a acessar a carga de trabalho da VM local novamente.
@@ -141,7 +143,7 @@ Depois que sua infraestrutura local estiver funcionando novamente, você poderá
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 
 Siga [este tutorial](tutorial-prepare-azure.md) para começar a usar a replicação do Hyper-V para o Azure.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 4404f785116110d99dc242d2dae39c4a462f45e9
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: df64575039e08292da5aed5b611ac54d625634a6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376253"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933884"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
@@ -83,7 +83,7 @@ As etapas a seguir mostram como preparar a máquina virtual para a movimentaçã
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>Criar o cofre em qualquer região, exceto a região de origem
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) > **Serviços de Recuperação**.
-1. Selecione **criar um recurso** > **ferramentas** > de gerenciamento de**backup e site Recovery**.
+1. Selecione **criar um recurso** > **ferramentas de gerenciamento** > **backup e site Recovery**.
 1. No **Nome**, especifique o nome amigável **ContosoVMVault**. Se tiver mais do que uma subscrição, selecione a que for adequada.
 1. Crie o grupo de recursos **ContosoRG**.
 1. Selecione uma região do Azure. Para verificar as regiões com suporte, consulte disponibilidade geográfica em [Azure site Recovery detalhes de preços](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -99,11 +99,11 @@ Site Recovery recupera uma lista das VMs que estão associadas à assinatura e a
 
 1. Na próxima etapa, selecione a VM que você deseja mover e, em seguida, selecione **OK**.
 1. Em **configurações**, selecione **recuperação de desastre**.
-1. Em **Configurar** > **região de destino**de recuperação de desastre, selecione a região de destino para a qual você irá replicar.
+1. Em **Configurar recuperação de desastre** > **região de destino**, selecione a região de destino para a qual você irá replicar.
 1. Para este tutorial, aceite as outras predefinições.
 1. Selecione **Ativar replicação**. Esta etapa inicia um trabalho para habilitar a replicação para a VM.
 
-    ![Ativar replicação](media/tutorial-migrate-azure-to-azure/settings.png)
+    ![Ativar a replicação](media/tutorial-migrate-azure-to-azure/settings.png)
 
 ## <a name="move"></a>Mover
 
@@ -111,16 +111,16 @@ As etapas a seguir mostram como executar a movimentação para a região de dest
 
 1. Vá para o cofre. Em **configurações** > **itens replicados**, selecione a VM e, em seguida, selecione **failover**.
 2. Em **Ativação pós-falha**, selecione **Mais recente**.
-3. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tenta encerrar a VM de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode seguir o progresso da ativação pós-falha na página **Trabalhos**.
+3. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tenta encerrar a VM de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode seguir o progresso da ativação pós-falha na página **Tarefas**.
 4. Depois que o trabalho for concluído, verifique se a VM aparece na região de destino do Azure conforme o esperado.
 
 
-## <a name="discard"></a>Dispensar 
+## <a name="discard"></a>Carte 
 
 Caso você tenha verificado a VM movida e precise fazer alterações no ponto de failover ou deseja voltar a um ponto anterior, nos **itens replicados**, selecione a VM > **alterar ponto de recuperação**. Esta etapa fornece a opção de especificar um ponto de recuperação diferente e o failover para aquele. 
 
 
-## <a name="commit"></a>Consolidar 
+## <a name="commit"></a>Consolidação 
 
 Depois de verificar a VM movida e estar pronto para confirmar a alteração, nos **itens replicados**, selecione a VM > **confirmar**. Essa etapa conclui o processo de movimentação para a região de destino. Aguarde até que o trabalho de confirmação seja concluído.
 
@@ -140,7 +140,7 @@ Se você não tiver planos para reutilizar nenhum dos recursos de origem, conclu
 1. Exclua todos os recursos de rede relevantes na região de origem que você identificou em [pré-requisitos](#prerequisites).
 1. Exclua a conta de armazenamento correspondente na região de origem.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você moveu uma VM do Azure para uma região diferente do Azure. Agora você pode configurar a recuperação de desastre para a VM que você moveu.
 

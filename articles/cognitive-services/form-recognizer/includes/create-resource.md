@@ -5,12 +5,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/12/2019
 ms.author: pafarley
-ms.openlocfilehash: c2d3119283b5b75eeca6b0e0737f62eee00e81c6
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 14740e780f6143f19f843891c16b25df761d0b4f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72237436"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931266"
 ---
 Quando você tiver acesso para usar o reconhecedor de formulário, receberá um email de boas-vindas com vários links e recursos. Use o link "portal do Azure" nessa mensagem para abrir o portal do Azure e criar um recurso de reconhecimento de formulário. No painel **criar** , forneça as seguintes informações:
 
@@ -25,4 +25,4 @@ Quando você tiver acesso para usar o reconhecedor de formulário, receberá um 
 > [!IMPORTANT]
 > Normalmente, quando você cria um recurso de serviço cognitiva no portal do Azure, você tem a opção de criar uma chave de assinatura de vários serviços (usada em vários serviços cognitivas) ou uma chave de assinatura de serviço único (usada somente com um serviço de cognitiva específico). No entanto, como o reconhecedor de formulário é uma versão de visualização, ele não está incluído na assinatura de vários serviços e você não pode criar a assinatura de serviço único, a menos que use o link fornecido no email de boas-vindas.
 
-Quando o recurso do reconhecedor de formulário concluir a implantação, localize-o e selecione-o na lista **todos os recursos** no Portal. Em seguida, selecione a guia **chaves** para exibir suas chaves de assinatura. Qualquer chave dará ao aplicativo acesso ao recurso. Copie o valor da **chave 1**.
+Quando o recurso do reconhecedor de formulário concluir a implantação, localize-o e selecione-o na lista **todos os recursos** no Portal. Em seguida, selecione a guia **início rápido** para exibir os dados da sua assinatura. Salve os valores de **key1** e **ponto de extremidade** em um local temporário. Você os usará nas etapas a seguir.

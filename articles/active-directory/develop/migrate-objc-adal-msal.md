@@ -19,12 +19,12 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 208c644c26006fb99139abe1b05c63f90eff448d
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 514a74ed0ae52fb7f2a7b7d7f19c0b364dc2ba91
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803271"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934868"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrar aplicativos para o MSAL para iOS e macOS
 
@@ -73,7 +73,7 @@ Há duas maneiras de fornecer escopos no MSAL:
 
 * Forneça uma lista de todas as permissões de que seus aplicativos precisam. Por exemplo: 
 
-    `@[@"https://graph.microsot.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
+    `@[@"https://graph.microsoft.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
 
     Nesse caso, o aplicativo solicita as permissões de `directory.read` e `directory.write`. O usuário será solicitado a consentir essas permissões se elas ainda não tiverem consentidas antes para este aplicativo. O aplicativo também pode receber permissões adicionais para as quais o usuário já tenha consentido para o aplicativo. O usuário só será solicitado a dar consentimento para novas permissões ou permissões que não foram concedidas.
 

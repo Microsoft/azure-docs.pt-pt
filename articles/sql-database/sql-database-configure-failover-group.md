@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 9206fd264854cd9e5d8e46473dd60b05a3362fdd
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 626677ef9444e0ad99fd3678e23bdeec62fd920c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329360"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933397"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configurar um grupo de failover para o banco de dados SQL do Azure
 
@@ -48,7 +48,7 @@ Crie seu grupo de failover e adicione seu banco de dados a ele usando o portal d
 
 1. Na página **grupo de failover** , insira ou selecione os valores necessários e, em seguida, selecione **criar**.
 
-   - **Bancos de dados dentro do grupo**: Escolha o banco de dados que você deseja adicionar ao grupo de failover. Adicionar o banco de dados ao grupo de failover iniciará automaticamente o processo de replicação geográfica. 
+   - **Bancos de dados dentro do grupo**: escolha o banco que deseja adicionar ao grupo de failover. Adicionar o banco de dados ao grupo de failover iniciará automaticamente o processo de replicação geográfica. 
         
     ![Adicionar Banco de BD SQL ao grupo de failover](media/sql-database-single-database-failover-group-tutorial/add-sqldb-to-failover-group.png)
 
@@ -355,7 +355,7 @@ Crie o gateway de rede virtual primária usando o portal do Azure.
 
    ![Adicionar gateway para instância gerenciada primária](media/sql-database-managed-instance-failover-group-tutorial/add-subnet-gateway-primary-vnet.png)
 
-1. Depois que o gateway de sub-rede for criado, selecione **criar um recurso** no painel de navegação esquerdo e `Virtual network gateway` digite na caixa de pesquisa. Selecione o recurso de **Gateway de rede virtual** publicado pela **Microsoft**. 
+1. Depois que o gateway de sub-rede for criado, selecione **criar um recurso** no painel de navegação esquerdo e digite `Virtual network gateway` na caixa de pesquisa. Selecione o recurso de **Gateway de rede virtual** publicado pela **Microsoft**. 
 
    ![Criar um novo gateway de rede virtual](media/sql-database-managed-instance-failover-group-tutorial/create-virtual-network-gateway.png)
 
@@ -363,15 +363,15 @@ Crie o gateway de rede virtual primária usando o portal do Azure.
 
    A tabela a seguir mostra os valores necessários para o gateway para a instância gerenciada primária:
  
-    | **Campo** | Value |
+    | **Campo** | Valor |
     | --- | --- |
     | **Subscrição** |  A assinatura na qual a instância gerenciada primária é. |
-    | **Name** | O nome do seu gateway de rede virtual. | 
+    | **Nome** | O nome do seu gateway de rede virtual. | 
     | **Região** | A região onde sua instância gerenciada secundária é. |
     | **Tipo de gateway** | Selecione **VPN**. |
     | **Tipo de VPN** | Selecionar **baseado em rota** |
-    | **SKU**| Mantenha o padrão `VpnGw1`de. |
-    | **Location**| O local onde a instância gerenciada secundária e a rede virtual secundária são.   |
+    | **SKU**| Mantenha o padrão de `VpnGw1`. |
+    | **Localização**| O local onde a instância gerenciada secundária e a rede virtual secundária são.   |
     | **Rede virtual**| Selecione a rede virtual para sua instância gerenciada secundária. |
     | **Endereço IP público**| Selecione **Criar novo**. |
     | **Nome do endereço IP público**| Insira um nome para seu endereço IP. |
@@ -424,18 +424,18 @@ Repita as etapas na seção anterior para criar a sub-rede de rede virtual e o g
 
    A tabela a seguir mostra os valores necessários para o gateway para a instância gerenciada secundária:
 
-   | **Campo** | Value |
+   | **Campo** | Valor |
    | --- | --- |
    | **Subscrição** |  A assinatura na qual a instância gerenciada secundária é. |
-   | **Name** | O nome do seu gateway de rede virtual, `secondary-mi-gateway`como. | 
+   | **Nome** | O nome do seu gateway de rede virtual, como `secondary-mi-gateway`. | 
    | **Região** | A região onde sua instância gerenciada secundária é. |
    | **Tipo de gateway** | Selecione **VPN**. |
    | **Tipo de VPN** | Selecionar **baseado em rota** |
-   | **SKU**| Mantenha o padrão `VpnGw1`de. |
-   | **Location**| O local onde a instância gerenciada secundária e a rede virtual secundária são.   |
-   | **Rede virtual**| Selecione a rede virtual que foi criada na seção 2, `vnet-sql-mi-secondary`como. |
+   | **SKU**| Mantenha o padrão de `VpnGw1`. |
+   | **Localização**| O local onde a instância gerenciada secundária e a rede virtual secundária são.   |
+   | **Rede virtual**| Selecione a rede virtual que foi criada na seção 2, como `vnet-sql-mi-secondary`. |
    | **Endereço IP público**| Selecione **Criar novo**. |
-   | **Nome do endereço IP público**| Insira um nome para seu endereço IP, `secondary-gateway-IP`como. |
+   | **Nome do endereço IP público**| Insira um nome para seu endereço IP, como `secondary-gateway-IP`. |
    | &nbsp; | &nbsp; |
 
    ![Configurações do gateway secundário](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)
@@ -484,20 +484,24 @@ A chave compartilhada usada para ambas as conexões deve ser a mesma para cada c
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Crie conexões entre os dois gateways usando o portal do Azure. 
 
-1. Navegue até o grupo de recursos na [portal do Azure](https://portal.azure.com) e selecione o gateway primário que você criou na etapa 4. 
-1. Selecione **conexões** em **configurações** e, em seguida, selecione **Adicionar** para criar uma nova conexão. 
+1. Selecione **criar um recurso** no [portal do Azure](https://portal.azure.com).
+1. Digite `connection` na caixa de pesquisa e pressione ENTER para pesquisar, que leva você para o recurso de **conexão** , publicado pela Microsoft.
+1. Selecione **criar** para criar sua conexão. 
+1. Na guia **noções básicas** , selecione os valores a seguir e, em seguida, selecione **OK**. 
+    1. Selecione `VNet-to-VNet` para o **tipo de conexão**. 
+    1. Selecione a subscrição na lista pendente. 
+    1. Selecione o grupo de recursos para sua instância gerenciada na lista suspensa. 
+    1. Selecione o local da instância gerenciada primária na lista suspensa 
+1. Na guia **configurações** , selecione ou insira os seguintes valores e, em seguida, selecione **OK**:
+    1. Escolha o gateway de rede primário para o **primeiro gateway de rede virtual**, como `Primary-Gateway`.  
+    1. Escolha o gateway de rede secundário para o **segundo gateway de rede virtual**, como `Secondary-Gateway`. 
+    1. Marque a caixa de seleção ao lado de **estabelecer conectividade bidirecional**. 
+    1. Deixe o nome da conexão primária padrão ou renomeie-o para um valor de sua escolha. 
+    1. Forneça uma **chave compartilhada (PSK)** para a conexão, como `mi1m2psk`. 
 
-   ![Adicionar conexão ao gateway primário](media/sql-database-managed-instance-failover-group-tutorial/add-primary-gateway-connection.png)
+   ![Criar conexão de gateway](media/sql-database-managed-instance-failover-group-tutorial/create-gateway-connection.png)
 
-1. Insira um nome para a conexão e digite um valor para a **chave compartilhada**. 
-1. Selecione o **segundo gateway de rede virtual** e, em seguida, selecione o gateway para a instância gerenciada secundária. 
-
-   ![Criar conexão primária para secundária](media/sql-database-managed-instance-failover-group-tutorial/create-primary-to-secondary-connection.png)
-
-1. Selecione **OK** para adicionar a nova conexão de gateway primário a secundário.
-1. Repita essas etapas para criar uma conexão do gateway da instância gerenciada secundária para o gateway da instância gerenciada primária. 
-
-   ![Criar conexão secundária com primária](media/sql-database-managed-instance-failover-group-tutorial/create-secondary-to-primary-connection.png)
+1. Na guia **Resumo** , examine as configurações da conexão bidirecional e, em seguida, selecione **OK** para criar a conexão. 
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -637,13 +641,13 @@ Teste o failover de seu grupo de failover usando o PowerShell.
 
 Quando o grupo de failover estiver configurado, atualize a cadeia de conexão do seu aplicativo para o ponto de extremidade do ouvinte. Isso manterá seu aplicativo conectado ao ouvinte do grupo de failover, em vez do banco de dados primário, do pool elástico ou da instância gerenciada. Dessa forma, você não precisa atualizar manualmente a cadeia de conexão toda vez que a entidade do banco de dados SQL do Azure faz failover e o tráfego é roteado para qualquer entidade que esteja primária no momento. 
 
-O ponto de extremidade do ouvinte está na forma de `fog-name.database.windows.net` e fica visível na portal do Azure, ao exibir o grupo de failover:
+O ponto de extremidade do ouvinte está na forma de `fog-name.database.windows.net`e fica visível na portal do Azure, ao exibir o grupo de failover:
 
 ![Cadeia de conexão do grupo de failover](media/sql-database-configure-failover-group/find-failover-group-connection-string.png)
 
 ## <a name="remarks"></a>Observações
 
-- A remoção de um grupo de failover para um banco de dados único ou em pool não interrompe a replicação e não exclui o banco de dados replicado. Você precisará parar manualmente a replicação geográfica e excluir o banco de dados do servidor secundário se desejar adicionar um banco de dados individual ou em pool de volta a um grupo de failover após sua remoção. A falha em qualquer coisa pode resultar em um erro semelhante a `The operation cannot be performed due to multiple errors` ao tentar adicionar o banco de dados ao grupo de failover. 
+- A remoção de um grupo de failover para um banco de dados único ou em pool não interrompe a replicação e não exclui o banco de dados replicado. Você precisará parar manualmente a replicação geográfica e excluir o banco de dados do servidor secundário se desejar adicionar um banco de dados individual ou em pool de volta a um grupo de failover depois que ele tiver sido removido. A falha de qualquer coisa pode resultar em um erro semelhante a `The operation cannot be performed due to multiple errors` ao tentar adicionar o banco de dados ao grupo de failover. 
 
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 17fa443c3b0113d80a020f2a43c7099cf5a832d2
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 2f9d2cea7adaf2e46feb0417ea9631ce02478f80
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772891"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934139"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnosticar e solucionar problemas ao usar o gatilho de Azure Functions para Cosmos DB
 
@@ -43,9 +43,9 @@ A função do Azure falha com a mensagem de erro "a coleção de origem ' Collec
 
 Isso significa que um ou ambos os contêineres Cosmos do Azure necessários para o gatilho funcionar não existem ou não estão acessíveis para a função do Azure. **O erro em si informará qual contêiner e banco de dados Cosmos do Azure é o gatilho procurando** com base em sua configuração.
 
-1. Verifique o `ConnectionStringSetting` atributo e se ele **faz referência a uma configuração existente no aplicativo de funções do Azure**. O valor nesse atributo não deve ser a própria cadeia de conexão, mas o nome do parâmetro de configuração.
-2. Verifique se o `databaseName` e `collectionName` o existem em sua conta do Azure Cosmos. Se você estiver usando a substituição automática de valor `%settingName%` (usando padrões), verifique se o nome da configuração existe em sua aplicativo de funções do Azure.
-3. Se você não especificar um `LeaseCollectionName/leaseCollectionName`, o padrão será "concessões". Verifique se esse contêiner existe. Opcionalmente, você pode definir `CreateLeaseCollectionIfNotExists` o atributo em seu gatilho `true` para para criá-lo automaticamente.
+1. Verifique o atributo `ConnectionStringSetting` e se ele **faz referência a uma configuração que existe em seu aplicativo de funções do Azure**. O valor nesse atributo não deve ser a própria cadeia de conexão, mas o nome do parâmetro de configuração.
+2. Verifique se as `databaseName` e `collectionName` existem na sua conta do cosmos do Azure. Se você estiver usando a substituição automática de valor (usando padrões de `%settingName%`), verifique se o nome da configuração existe em seu Aplicativo de funções do Azure.
+3. Se você não especificar um `LeaseCollectionName/leaseCollectionName`, o padrão será "concessões". Verifique se esse contêiner existe. Opcionalmente, você pode definir o atributo `CreateLeaseCollectionIfNotExists` em seu gatilho para `true` para criá-lo automaticamente.
 4. Verifique a [configuração de firewall da sua conta do Azure Cosmos](how-to-configure-firewall.md) para ver se não está bloqueando a função do Azure.
 
 ### <a name="azure-function-fails-to-start-with-shared-throughput-collection-should-have-a-partition-key"></a>Falha ao iniciar a função do Azure com "a coleção de produtividade compartilhada deve ter uma chave de partição"
@@ -54,21 +54,21 @@ As versões anteriores da extensão de Azure Cosmos DB não tinham suporte usand
 
 ### <a name="azure-function-fails-to-start-with-the-lease-collection-if-partitioned-must-have-partition-key-equal-to-id"></a>Falha na inicialização da função do Azure com "a coleção de concessão, se particionada, deve ter a chave de partição igual à ID".
 
-Esse erro significa que o contêiner de concessões atuais está particionado, mas o caminho da chave de `/id`partição não é. Para resolver esse problema, você precisa recriar o contêiner de concessões com `/id` o como a chave de partição.
+Esse erro significa que o contêiner de concessões atuais está particionado, mas o caminho da chave de partição não é `/id`. Para resolver esse problema, você precisa recriar o contêiner de concessões com `/id` como a chave de partição.
 
 ### <a name="you-see-a-value-cannot-be-null-parameter-name-o-in-your-azure-functions-logs-when-you-try-to-run-the-trigger"></a>Você verá um "o valor não pode ser nulo. Nome do parâmetro: o "em seus logs de Azure Functions quando você tenta executar o gatilho
 
 Esse problema será exibido se você estiver usando o portal do Azure e tentar selecionar o botão **executar** na tela ao inspecionar uma função do Azure que usa o gatilho. O gatilho não exige que você selecione executar para iniciar, ele será iniciado automaticamente quando a função do Azure for implantada. Se você quiser verificar o fluxo de log da função do Azure na portal do Azure, basta acessar o contêiner monitorado e inserir alguns novos itens, você verá automaticamente o gatilho em execução.
 
-### <a name="my-changes-take-too-long-be-received"></a>Minhas alterações demoram muito para serem recebidas
+### <a name="my-changes-take-too-long-to-be-received"></a>Minhas alterações demoram muito para serem recebidas
 
 Esse cenário pode ter várias causas e todas elas devem ser verificadas:
 
-1. Sua função do Azure está implantada na mesma região que sua conta do Azure Cosmos? Para uma latência de rede ideal, a função do Azure e sua conta do Azure Cosmos devem ser colocalizadas na mesma região do Azure.
-2. As alterações que ocorrem no contêiner Cosmos do Azure são contínuas ou esporádicas?
-Se for o último, pode haver algum atraso entre as alterações sendo armazenadas e a função do Azure que a seleciona. Isso ocorre porque, internamente, quando o gatilho verifica se há alterações no contêiner Cosmos do Azure e não localiza nenhum pendente para ser lido, ele será suspenso por uma quantidade configurável de tempo (5 segundos, por padrão) antes de verificar se há novas alterações (para evitar o alto consumo de RU). Você pode configurar esse tempo de suspensão por `FeedPollDelay/feedPollDelay` meio da configuração na [configuração](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) do seu gatilho (espera-se que o valor esteja em milissegundos).
+1. A Função do Azure está implementada na mesma região que a sua conta do Azure Cosmos? Para obter uma latência de rede ideal, tanto a Função do Azure como a sua conta do Azure Cosmos devem estar colocadas na mesma região do Azure.
+2. As alterações que ocorrem no contentor do Azure Cosmos são contínuas ou esporádicas?
+Se for a última, poderá existir algum atraso entre as alterações a serem armazenadas e a Função do Azure que as seleciona. Tal ocorre porque, internamente, quando o acionador verifica a existência de alterações no contentor do Azure Cosmos e não encontra nenhuma pendente para ser lida, este entra no modo de suspensão durante um período de tempo configurável (5 segundos, por predefinição) antes de verificar a existência de novas alterações (para evitar um consumo elevado de RUs). Pode configurar este tempo de suspensão através da definição `FeedPollDelay/feedPollDelay` na [configuração](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) do acionador (espera-se que o valor esteja em milissegundos).
 3. O contêiner Cosmos do Azure pode ser [limitado por taxa](./request-units.md).
-4. Você pode usar o `PreferredLocations` atributo em seu gatilho para especificar uma lista separada por vírgulas de regiões do Azure para definir uma ordem de conexão preferencial personalizada.
+4. Você pode usar o atributo `PreferredLocations` em seu gatilho para especificar uma lista separada por vírgulas de regiões do Azure para definir uma ordem de conexão preferencial personalizada.
 
 ### <a name="some-changes-are-missing-in-my-trigger"></a>Algumas alterações estão ausentes no meu gatilho
 
@@ -78,14 +78,14 @@ Quando sua função do Azure recebe as alterações, ele geralmente as processa 
 
 Se algumas alterações estiverem ausentes no destino, isso pode significar que o erro ocorre durante a execução da função do Azure depois que as alterações foram recebidas.
 
-Nesse cenário, o melhor curso de ação é adicionar `try/catch blocks` seu código e dentro dos loops que possam estar processando as alterações, para detectar qualquer falha em um determinado subconjunto de itens e tratá-los adequadamente (enviá-los para outro armazenamento para mais análise ou tentar novamente). 
+Nesse cenário, o melhor curso de ação é adicionar blocos de `try/catch` em seu código e dentro dos loops que podem estar processando as alterações, para detectar qualquer falha de um determinado subconjunto de itens e tratá-los de forma adequada (enviá-los para outro armazenamento para mais análise ou tentar novamente). 
 
 > [!NOTE]
 > Por padrão, o gatilho de Azure Functions para Cosmos DB não repetirá um lote de alterações se houver uma exceção sem tratamento durante a execução do código. Isso significa que o motivo pelo qual as alterações não chegaram no destino é porque você está falhando em processá-las.
 
 Se você descobrir que algumas alterações não foram recebidas por seu gatilho, o cenário mais comum é que há **outra função do Azure em execução**. Pode ser outra função do Azure implantada no Azure ou uma função do Azure em execução localmente na máquina de um desenvolvedor que tenha **exatamente a mesma configuração** (mesmo contêineres monitorados e de concessão), e essa função do Azure está roubando um subconjunto das alterações que você esperaria que sua função do Azure fosse processada.
 
-Além disso, o cenário pode ser validado, se você souber quantas instâncias do Azure Aplicativo de funções você está executando. Se você inspecionar o contêiner de concessões e contar o número de itens de concessão no, os valores `Owner` distintos da propriedade neles devem ser iguais ao número de instâncias de seu aplicativo de funções. Se houver mais proprietários do que as instâncias conhecidas do Azure Aplicativo de funções, isso significa que esses proprietários extras são o "roubar" as alterações.
+Além disso, o cenário pode ser validado, se você souber quantas instâncias do Azure Aplicativo de funções você está executando. Se você inspecionar o contêiner de concessões e contar o número de itens de concessão no, os valores distintos da propriedade `Owner` neles contidos deverão ser iguais ao número de instâncias do seu Aplicativo de funções. Se houver mais Proprietários do que as instâncias conhecidas da Aplicação de Funções do Azure, tal significa que estes proprietários adicionais serão os responsáveis pelo “roubo” das alterações.
 
 Uma maneira fácil de solucionar essa situação é aplicar um `LeaseCollectionPrefix/leaseCollectionPrefix` à sua função com um valor novo/diferente ou, como alternativa, testar com um novo contêiner de concessões.
 
@@ -98,13 +98,13 @@ Para processar novamente todos os itens em um contêiner desde o início:
 
 Definir [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) como true instruirá a função do Azure a começar a ler as alterações desde o início do histórico da coleção, em vez da hora atual. Isso só funciona quando não há concessões já criadas (ou seja, documentos na coleção de concessões). Definir essa propriedade como true quando houver concessões já criadas não tem efeito; Nesse cenário, quando uma função é interrompida e reiniciada, ela começa a ler do último ponto de verificação, conforme definido na coleção de concessões. Para reprocessar desde o início, siga as etapas acima de 1-4.  
 
-### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>A associação só pode ser feita com\<> de documento IReadOnlyList ou JArray
+### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>A associação só pode ser feita com IReadOnlyList\<documento > ou JArray
 
 Esse erro ocorrerá se seu projeto Azure Functions (ou qualquer projeto referenciado) contiver uma referência manual do NuGet para o SDK do Azure Cosmos DB com uma versão diferente daquela fornecida pela [extensão Azure Functions Cosmos DB](./troubleshoot-changefeed-functions.md#dependencies).
 
 Para solucionar essa situação, remova a referência manual do NuGet que foi adicionada e permita que o Azure Cosmos DB referência do SDK seja resolvido por meio do pacote de extensão Azure Functions Cosmos DB.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Habilitar o monitoramento para seu Azure Functions](../azure-functions/functions-monitoring.md)
 * [Solução de problemas do SDK do .NET Azure Cosmos DB](./troubleshoot-dot-net-sdk.md)

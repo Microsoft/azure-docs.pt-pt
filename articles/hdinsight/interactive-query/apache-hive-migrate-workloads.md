@@ -7,12 +7,12 @@ ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 0363f2d8da1ca1371fd55107c6487c3d96f6d00e
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 1b270663a83461ecd777599fead9d717e93482c0
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091460"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72930892"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrar cargas de trabalho do hive do Azure HDInsight 3,6 para o HDInsight 4,0
 
@@ -30,14 +30,14 @@ Este artigo aborda os seguintes assuntos:
 Uma vantagem do hive é a capacidade de exportar metadados para um banco de dados externo (chamado de metastore do hive). O **metastore do hive** é responsável por armazenar estatísticas de tabela, incluindo o local de armazenamento de tabela, nomes de coluna e informações de índice de tabela. O esquema de banco de dados do metastore difere entre as versões do hive. Faça o seguinte para atualizar um metastore do hive do HDInsight 3,6 para que ele seja compatível com o HDInsight 4,0.
 
 1. Crie uma nova cópia do seu metastore externo. O HDInsight 3,6 e o HDInsight 4,0 exigem esquemas de metastore diferentes e não podem compartilhar um único metastore. Consulte [usar repositórios de metadados externos no Azure HDInsight](../hdinsight-use-external-metadata-stores.md) para saber mais sobre como anexar um metastore externo a um cluster HDInsight. 
-2. Inicie uma ação de script em seu cluster do HDI 3,6, com "nós de cabeçalho" como o tipo de nó para execução. Cole o URI a seguir na caixa de texto marcada como "URI do https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh script bash":. Na caixa de texto marcada como "Arguments", insira o ServerName, o banco de dados, o nome de usuário e a senha para o metastore do hive copiado, separados por espaços. Não inclua ". database.windows.net" ao especificar o servername.
+2. Inicie uma ação de script em seu cluster do HDI 3,6, com "nós de cabeçalho" como o tipo de nó para execução. Cole o URI a seguir na caixa de texto marcada como "URI do script bash": https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh. Na caixa de texto marcada como "Arguments", insira o ServerName, o banco de dados, o nome de usuário e a senha para o metastore do Hive **copiado** , separados por espaços. Não inclua ". database.windows.net" ao especificar o servername.
 
 > [!Warning]
 > A atualização que converte o esquema de metadados do HDInsight 3,6 para o esquema do HDInsight 4,0 não pode ser revertida.
 
 ## <a name="migrate-hive-tables-to-hdinsight-40"></a>Migrar tabelas do hive para o HDInsight 4,0
 
-Depois de concluir o conjunto anterior de etapas para migrar o metastore do hive para o HDInsight 4,0, as tabelas e os bancos de dados registrados no metastore estarão visíveis no cluster HDInsight 4,0 executando `show tables` ou `show databases` de dentro do cluster . Confira a [execução da consulta em versões do hdinsight](#query-execution-across-hdinsight-versions) para obter informações sobre a execução da consulta em clusters do hdinsight 4,0.
+Depois de concluir o conjunto anterior de etapas para migrar o metastore do hive para o HDInsight 4,0, as tabelas e os bancos de dados registrados no metastore estarão visíveis no cluster HDInsight 4,0 executando `show tables` ou `show databases` de dentro do cluster. Confira a [execução da consulta em versões do hdinsight](#query-execution-across-hdinsight-versions) para obter informações sobre a execução da consulta em clusters do hdinsight 4,0.
 
 No entanto, os dados reais das tabelas não ficam acessíveis até que o cluster tenha acesso às contas de armazenamento necessárias. Para garantir que seu cluster HDInsight 4,0 possa acessar os mesmos dados que o cluster HDInsight 3,6 antigo, conclua as seguintes etapas:
 
@@ -66,9 +66,9 @@ Talvez seja necessário ajustar as propriedades do seu depósito antes de execut
 Depois que as propriedades da tabela forem definidas corretamente, execute a ferramenta de migração de depósito do hive de um dos cabeçalho de cluster usando o Shell SSH:
 
 1. Conecte-se ao seu cabeçalho de cluster usando SSH. Para obter instruções, consulte [conectar-se ao HDInsight usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
-1. Abra um shell de logon como o usuário do hive executando`sudo su - hive`
-1. Determine a versão da pilha de plataformas de dados `ls /usr/hdp`do Hortonworks executando. Isso exibirá uma cadeia de caracteres de versão que você deve usar no próximo comando.
-1. Execute o comando a seguir no Shell. Substituir `${{STACK_VERSION}}` pela cadeia de caracteres da versão da etapa anterior:
+1. Abra um shell de logon como o usuário do hive executando `sudo su - hive`
+1. Determine a versão da pilha de plataformas de dados executando `ls /usr/hdp`. Isso exibirá uma cadeia de caracteres de versão que você deve usar no próximo comando.
+1. Execute o comando a seguir no Shell. Substitua `${{STACK_VERSION}}` pela cadeia de caracteres da versão da etapa anterior:
 
 ```bash
 /usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true -m automatic --modifyManagedTables
@@ -97,14 +97,14 @@ No HDInsight 4,0, o HiveCLI foi substituído por Beeline. HiveCLI é um cliente 
 
 No HDInsight 3,6, o cliente de GUI para interagir com o servidor do hive é a exibição do hive do Ambari. O HDInsight 4,0 substitui a exibição do hive pelo Hortonworks data Analytics Studio (DAS). O DAS não é fornecido com clusters HDInsight prontos para uso e não é um pacote oficialmente com suporte. No entanto, o DAS pode ser instalado no cluster da seguinte maneira:
 
-Inicie uma ação de script no cluster, com "nós de cabeçalho" como o tipo de nó para execução. Cole o seguinte URI na caixa de texto marcada como "URI do script bash": https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
+Inicie uma ação de script no cluster, com "nós de cabeçalho" como o tipo de nó para execução. Cole o URI a seguir na caixa de texto marcada como "URI do script bash": https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
 
-Aguarde de 5 a 10 minutos e, em seguida, inicie o data Analytics Studio usando\<esta URL: https://ClusterName >. azurehdinsight. net/das/
+Aguarde de 5 a 10 minutos e, em seguida, inicie o data Analytics Studio usando esta URL: https://\<ClusterName >. azurehdinsight. net/das/
 
 Quando o DAS estiver instalado, se você não vir as consultas que você executou no Visualizador de consultas, execute as seguintes etapas:
 
 1. Defina as configurações de Hive, tez e DAS, conforme descrito neste [guia para solução de problemas de instalação do das](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html).
-2. Verifique se as seguintes configurações de diretório do armazenamento do Azure são blobs de página e se estão listadas `fs.azure.page.blob.dirs`em:
+2. Verifique se as seguintes configurações de diretório do armazenamento do Azure são blobs de página e se estão listadas em `fs.azure.page.blob.dirs`:
     * `hive.hook.proto.base-directory`
     * `tez.history.logging.proto-base-dir`
 3. Reinicie HDFS, Hive, tez e DAS em ambos os cabeçalho.

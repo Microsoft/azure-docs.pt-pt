@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 44f72df28191d02a6d320671e0173eb1306e0c78
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 446c870ba60d7931fafb9f9b1c7e8fc017f60e4d
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845695"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933859"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar a recuperação após desastre de VMs de Hyper-V no local para o Azure
 
@@ -32,6 +32,10 @@ Neste tutorial, ficará a saber como:
 > [!NOTE]
 > Os tutoriais mostram o caminho de implantação mais simples para um cenário. Utilizam opções predefinidas sempre que possível e não mostram todas as definições e caminhos possíveis. Para obter instruções detalhadas, examine os artigos na seção **guias** de instruções da documentação do [site Recovery](https://docs.microsoft.com/azure/site-recovery).
 
+> [!WARNING]
+> Observe que o suporte a ASR para usar a configuração do SCVMM em conta em breve será preterido e, portanto, recomendamos que você leia os detalhes de [substituição](scvmm-site-recovery-deprecation.md) antes de continuar.
+
+
 ## <a name="before-you-begin"></a>Antes de começar
 
 Este é o terceiro tutorial de uma série. Ele pressupõe que você já tenha concluído as tarefas nos tutoriais anteriores:
@@ -43,7 +47,7 @@ Este é o terceiro tutorial de uma série. Ele pressupõe que você já tenha co
 
 1. Na portal do Azure, vá para **cofres dos serviços de recuperação** e selecione o cofre. Preparamos o cofre **ContosoVMVault** no tutorial anterior.
 2. Em **introdução**, selecione **site Recovery**e, em seguida, selecione **preparar infraestrutura**.
-3. Em **meta** > de proteção**onde os computadores estão localizados?** , selecione **local**.
+3. Em **meta de proteção** > **onde os computadores estão localizados?** , selecione **local**.
 4. Em **onde você deseja replicar seus computadores?** , selecione para o **Azure**.
 5. Em **seus computadores são virtualizados?** , selecione **Sim, com o Hyper-V**.
 6. No **, você está usando o System Center VMM para gerenciar seus hosts do Hyper-V?** , selecione **não**.
@@ -68,13 +72,13 @@ Para configurar o ambiente de origem, você cria um site do Hyper-V e adiciona a
 
     ![Site Hyper-V](./media/hyper-v-azure-tutorial/hyperv-site.png)
 
-4. Depois que o site for criado, em **preparar origem** > **etapa 1: Selecione site**do Hyper-V, selecione o site que você criou.
+4. Depois que o site for criado, em **preparar origem** > **etapa 1: selecionar site do Hyper-V**, selecione o site que você criou.
 5. Selecione **+ servidor Hyper-V**.
 
     ![Servidor Hyper-V](./media/hyper-v-azure-tutorial/hyperv-server.png)
 
 6. Baixe o instalador para o provedor de Site Recovery de Microsoft Azure.
-7. Transferir a chave de registo do cofre. Você precisa dessa chave para instalar o provedor. A chave é válida durante cinco dias depois de gerá-la.
+7. Transfira a chave de registo do cofre. Você precisa dessa chave para instalar o provedor. A chave é válida durante cinco dias depois de gerá-la.
 
     ![Baixar o provedor e a chave de registro](./media/hyper-v-azure-tutorial/download.png)
     
@@ -121,7 +125,7 @@ A Recuperação de Sites verifica que tem uma ou mais contas de armazenamento e 
 
 ## <a name="set-up-a-replication-policy"></a>Configurar uma política de replicação
 
-1. Selecione **preparar infraestrutura** > **configurações** > **de replicação + criar e associar**.
+1. Selecione **preparar infraestrutura** > **configurações de replicação** >  **+ criar e associar**.
 2. Em **Criar e associar política**, especifique um nome de política. Estamos usando o **ContosoReplicationPolicy**.
 3. Para este tutorial, vamos deixar as configurações padrão:
     - A **frequência de cópia** indica a frequência com que os dados Delta (após a replicação inicial) serão replicados. A frequência padrão é a cada cinco minutos.
@@ -132,16 +136,16 @@ A Recuperação de Sites verifica que tem uma ou mais contas de armazenamento e 
 
     ![Política de replicação](./media/hyper-v-azure-tutorial/replication-policy.png)
 
-## <a name="enable-replication"></a>Ativar replicação
+## <a name="enable-replication"></a>Ativar a replicação
 
 1. No **aplicativo replicate**, selecione **origem**.
 2. Em **Origem**, selecione o site **ContosoHyperVSite**. Em seguida, selecione **OK**.
 3. Em **destino**, verifique o destino (Azure), a assinatura do cofre e o modelo de implantação do **Gerenciador de recursos** .
 4. Se você estiver usando as configurações do tutorial, selecione a conta de armazenamento **contosovmsacct1910171607** criada no tutorial anterior para dados replicados. Selecione também a rede **ContosoASRnet** , na qual as VMs do Azure serão localizadas após o failover.
-5. Em **máquinas** > virtuais**selecione**, selecione a VM que você deseja replicar. Em seguida, selecione **OK**.
+5. Em **máquinas virtuais** > **selecione**, selecione a VM que você deseja replicar. Em seguida, selecione **OK**.
 
    Pode controlar o progresso da ação **Ativar Proteção** em **Tarefas** > **Tarefas do Site Recovery**. Depois que o trabalho **finalizar proteção** for concluído, a replicação inicial será concluída e a VM estará pronta para failover.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Executar um teste de recuperação após desastre](tutorial-dr-drill-azure.md)

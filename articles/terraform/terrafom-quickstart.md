@@ -7,12 +7,12 @@ ms.service: azure
 ms.topic: quickstart
 ms.date: 09/20/2019
 ms.author: nepeters
-ms.openlocfilehash: c53f3a31b46f00d3207cd8f47dcfbfa131c03666
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 6f9b6a73e279ca5923e32c7c524f9a55e260526d
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173513"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924818"
 ---
 # <a name="create-a-terraform-configuration-for-azure"></a>Criar uma configuração do Terraform para o Azure
 
@@ -22,7 +22,7 @@ Neste exemplo, você tem experiência na criação de uma configuração do Terr
 
 Nesta seção, você criará a configuração para uma instância de Azure Cosmos DB.
 
-Selecione **experimentar agora** para abrir o Azure cloud Shell. Uma vez aberto, insira `code .` em para abrir o editor de código do Cloud Shell.
+Selecione **experimentar agora** para abrir o Azure cloud Shell. Uma vez aberto, insira em `code .` para abrir o editor de código do Cloud Shell.
 
 ```bash
 code .
@@ -47,8 +47,8 @@ resource "random_integer" "ri" {
 
 resource "azurerm_cosmosdb_account" "vote-cosmos-db" {
   name                = "tfex-cosmos-db-${random_integer.ri.result}"
-  location            = "${azurerm_resource_group.vote-resource-group.location}"
-  resource_group_name = "${azurerm_resource_group.vote-resource-group.name}"
+  location            = azurerm_resource_group.vote-resource-group.location
+  resource_group_name = azurerm_resource_group.vote-resource-group.name
   offer_type          = "Standard"
   kind                = "GlobalDocumentDB"
 
@@ -91,9 +91,9 @@ Depois de concluído, você pode ver que o grupo de recursos foi criado e uma in
 
 Atualize a configuração para incluir uma instância de contêiner do Azure. O contêiner executa um aplicativo que lê e grava dados no Cosmos DB.
 
-Copie a configuração a seguir na parte inferior do `main.tf` arquivo. Salve o arquivo quando terminar.
+Copie a configuração a seguir na parte inferior do arquivo de `main.tf`. Salve o arquivo quando terminar.
 
-Duas variáveis de ambiente são definidas `COSMOS_DB_ENDPOINT` , `COSMOS_DB_MASTERKEY`e. Essas variáveis mantêm o local e a chave para acessar o banco de dados. Os valores dessas variáveis são obtidos da instância de banco de dados criada na última etapa. Esse processo é conhecido como interpolação. Para saber mais sobre a interpolação de Terraform, consulte [sintaxe de interpolação](https://www.terraform.io/docs/configuration/interpolation.html).
+Duas variáveis de ambiente são definidas, `COSMOS_DB_ENDPOINT` e `COSMOS_DB_MASTERKEY`. Essas variáveis mantêm o local e a chave para acessar o banco de dados. Os valores dessas variáveis são obtidos da instância de banco de dados criada na última etapa. Esse processo é conhecido como interpolação. Para saber mais sobre a interpolação de Terraform, consulte [sintaxe de interpolação](https://www.terraform.io/docs/configuration/interpolation.html).
 
 
 A configuração também inclui um bloco de saída, que retorna o FQDN (nome de domínio totalmente qualificado) da instância de contêiner.
@@ -101,8 +101,8 @@ A configuração também inclui um bloco de saída, que retorna o FQDN (nome de 
 ```hcl
 resource "azurerm_container_group" "vote-aci" {
   name                = "vote-aci"
-  location            = "${azurerm_resource_group.vote-resource-group.location}"
-  resource_group_name = "${azurerm_resource_group.vote-resource-group.name}"
+  location            = azurerm_resource_group.vote-resource-group.location
+  resource_group_name = azurerm_resource_group.vote-resource-group.name
   ip_address_type     = "public"
   dns_name_label      = "vote-aci"
   os_type             = "linux"
@@ -118,8 +118,8 @@ resource "azurerm_container_group" "vote-aci" {
     }
 
     secure_environment_variables = {
-      "COSMOS_DB_ENDPOINT"  = "${azurerm_cosmosdb_account.vote-cosmos-db.endpoint}"
-      "COSMOS_DB_MASTERKEY" = "${azurerm_cosmosdb_account.vote-cosmos-db.primary_master_key}"
+      "COSMOS_DB_ENDPOINT"  = azurerm_cosmosdb_account.vote-cosmos-db.endpoint
+      "COSMOS_DB_MASTERKEY" = azurerm_cosmosdb_account.vote-cosmos-db.primary_master_key
       "TITLE"               = "Azure Voting App"
       "VOTE1VALUE"          = "Cats"
       "VOTE2VALUE"          = "Dogs"
@@ -128,7 +128,7 @@ resource "azurerm_container_group" "vote-aci" {
 }
 
 output "dns" {
-  value = "${azurerm_container_group.vote-aci.fqdn}"
+  value = azurerm_container_group.vote-aci.fqdn
 }
 ```
 
@@ -138,7 +138,7 @@ Execute `terraform plan` para criar o plano atualizado e visualizar as alteraç�
 terraform plan --out plan.out
 ```
 
-Por fim, `terraform apply` execute para aplicar a configuração.
+Por fim, execute `terraform apply` para aplicar a configuração.
 
 ```bash
 terraform apply plan.out

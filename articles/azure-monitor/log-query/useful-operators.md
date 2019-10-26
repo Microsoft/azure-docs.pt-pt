@@ -1,49 +1,43 @@
 ---
-title: Consultas de registo de operadores útil no Azure Monitor | Documentos da Microsoft
-description: Consultas de registo de funções comuns a utilizar para diferentes cenários no Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Operadores úteis em consultas de log de Azure Monitor | Microsoft Docs
+description: Funções comuns a serem usadas em cenários diferentes em consultas Azure Monitor log.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/21/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: d11445c3f31f9aced6fdb9783575d10a026de1f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/21/2018
+ms.openlocfilehash: 022a9f638b3a7d8ae4ebeff8062f258ada7a14f8
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61424143"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932888"
 ---
-# <a name="useful-operators-in-azure-monitor-log-queries"></a>Operadores úteis em consultas de registo do Azure Monitor
+# <a name="useful-operators-in-azure-monitor-log-queries"></a>Operadores úteis em consultas de log de Azure Monitor
 
-A tabela abaixo fornece algumas funções comuns a utilizar para diferentes cenários em consultas de registo do Azure Monitor.
+A tabela a seguir fornece algumas funções comuns a serem usadas em cenários diferentes em consultas Azure Monitor log.
 
 ## <a name="useful-operators"></a>Operadores úteis
 
-Category                                |Função de análise relevantes
+Categoria                                |Função de análise relevante
 ----------------------------------------|----------------------------------------
-Aliases de seleção e na coluna            |`project`, `project-away`, `extend`
-Tabelas temporárias e constantes          |`let scalar_alias_name = …;` <br> `let table_alias_name =  …  …  … ;`| 
-Comparação e operadores de seqüência de caracteres         |`startswith`, `!startswith`, `has`, `!has` <br> `contains`, `!contains`, `containscs` <br> `hasprefix`, `!hasprefix`, `hassuffix`, `!hassuffix`, `in`, `!in` <br> `matches regex` <br> `==`, `=~`, `!=`, `!~`
+Aliases de seleção e coluna            |`project`, `project-away`, `extend`
+Tabelas e constantes temporárias          |`let scalar_alias_name = …;` <br> `let table_alias_name =  …  …  … ;`| 
+Comparação e operadores de cadeia de caracteres         |`startswith`, `!startswith`, `has``!has` <br> `contains`, `!contains`, `containscs` <br> `hasprefix`, `!hasprefix`, `hassuffix`, `!hassuffix`, `in`, `!in` <br> `matches regex` <br> `==`, `=~`, `!=``!~`
 Funções de cadeia de caracteres comuns                 |`strcat()`, `replace()`, `tolower()`, `toupper()`, `substring()`, `strlen()`
-Funções de matemáticas comuns                   |`sqrt()`, `abs()` <br> `exp()`, `exp2()`, `exp10()`, `log()`, `log2()`, `log10()`, `pow()` <br> `gamma()`, `gammaln()`
-Análise de texto                            |`extract()`, `extractjson()`, `parse`, `split()`
-Limitando a saída                         |`take`, `limit`, `top`, `sample`
-Funções de data                          |`now()`, `ago()` <br> `datetime()`, `datepart()`, `timespan` <br> `startofday()`, `startofweek()`, `startofmonth()`, `startofyear()` <br> `endofday()`, `endofweek()`, `endofmonth()`, `endofyear()` <br> `dayofweek()`, `dayofmonth()`, `dayofyear()` <br> `getmonth()`, `getyear()`, `weekofyear()`, `monthofyear()`
-Agrupamento e a agregação                |`summarize by` <br> `max()`, `min()`, `count()`, `dcount()`, `avg()`, `sum()` <br> `stddev()`, `countif()`, `dcountif()`, `argmax()`, `argmin()` <br> `percentiles()`, `percentile_array()`
+Funções matemáticas comuns                   |`sqrt()`, `abs()` <br> `exp()`, `exp2()`, `exp10()`, `log()`, `log2()`, `log10()`, `pow()` <br> `gamma()`, `gammaln()`
+Analisando texto                            |`extract()`, `extractjson()`, `parse``split()`
+Limitando a saída                         |`take`, `limit`, `top``sample`
+Funções de data                          |`now()`, `ago()` <br> `datetime()`, `datepart()`, `timespan` <br> `startofday()`, `startofweek()`, `startofmonth()``startofyear()` <br> `endofday()`, `endofweek()`, `endofmonth()``endofyear()` <br> `dayofweek()`, `dayofmonth()`, `dayofyear()` <br> `getmonth()`, `getyear()`, `weekofyear()``monthofyear()`
+Agrupamento e agregação                |`summarize by` <br> `max()`, `min()`, `count()`, `dcount()`, `avg()`, `sum()` <br> `stddev()`, `countif()`, `dcountif()`, `argmax()`, `argmin()` <br> `percentiles()`, `percentile_array()`
 Junções e uniões                        |`join kind=leftouter`, `inner`, `rightouter`, `fullouter`, `leftanti` <br> `union`
-Ordenação, a ordem                             |`sort`, `order` 
+Classificar, ordem                             |`sort`, `order` 
 Objeto dinâmico (JSON e matriz)         |`parsejson()` <br> `makeset()`, `makelist()` <br> `split()`, `arraylength()` <br> `zip()`, `pack()`
-Operadores lógicos                       |`and`, `or`, `iff(condition, value_t, value_f)` <br> `binary_and()`, `binary_or()`, `binary_not()`, `binary_xor()`
-Aprendizagem automática                        |`evaluate autocluster`, `basket`, `diffpatterns`, `extractcolumns`
+Operadores lógicos                       |`and`, `or`, `iff(condition, value_t, value_f)` <br> `binary_and()`, `binary_or()`, `binary_not()``binary_xor()`
+Machine learning                        |`evaluate autocluster`, `basket`, `diffpatterns``extractcolumns`
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Sempre o processo de uma aula sobre o [escrever consultas de registo no Azure Monitor](get-started-queries.md).
+- Percorra uma lição sobre as [consultas de log de gravação em Azure monitor](get-started-queries.md).

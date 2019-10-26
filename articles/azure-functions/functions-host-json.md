@@ -1,20 +1,18 @@
 ---
 title: referência de host. JSON para Azure Functions 2. x
 description: Documentação de referência para o arquivo Azure Functions host. JSON com o tempo de execução v2.
-services: functions
 author: ggailey777
-manager: jeconnoc
-keywords: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 9eb68bb4accafa708d738ea40210980358f60f24
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 2a61a2ba74ccdaa69b26cae65dd4f74a7b837ccf
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596863"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72927452"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>referência de host. JSON para Azure Functions 2. x  
 
@@ -150,9 +148,7 @@ Uma lista de funções que o host de trabalho executa. Uma matriz vazia signific
 ## <a name="functiontimeout"></a>functionTimeout
 
 Indica a duração do tempo limite para todas as funções. Ele segue o formato de cadeia de caracteres TimeSpan. Em um plano de consumo sem servidor, o intervalo válido é de 1 segundo a 10 minutos e o valor padrão é 5 minutos.  
-Em um plano dedicado (serviço de aplicativo), não há nenhum limite geral e o padrão depende da versão de tempo de execução: 
-+ Versão 1. x: o padrão é *NULL*, o que indica que não há tempo limite.   
-+ Versão 2. x: o valor padrão é 30 minutos. Um valor de `-1` indica execução não associada.
+Em um plano dedicado (serviço de aplicativo), não há nenhum limite geral e o valor padrão é 30 minutos. Um valor de `-1` indica execução não associada.
 
 ```json
 {

@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a278fdd194b841cbb8620999fe79c3affb4e0b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 70273a45bb60fca57292275ea0bb564e17a6f4e9
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389519"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934791"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Criar um novo pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -68,9 +68,9 @@ Aqui estão as etapas de alto nível para criar um novo pacote de acesso.
 
 1. No menu à esquerda, clique em **pacotes de acesso**.
 
-    ![Gerenciamento de direitos no portal do Azure](./media/entitlement-management-shared/elm-access-packages.png)
-
 1. Clique em **novo pacote de acesso**.
+
+    ![Gerenciamento de direitos no portal do Azure](./media/entitlement-management-shared/access-packages-list.png)
 
 ## <a name="basics"></a>Noções básicas
 
@@ -104,7 +104,7 @@ Na guia **funções de recurso** , selecione os recursos a serem incluídos no p
 
     Se você estiver criando o pacote de acesso em um catálogo existente, poderá selecionar qualquer recurso que já esteja no catálogo sem o proprietário dele.
 
-    Se você for um administrador global, um administrador de usuário ou proprietário do catálogo, terá a opção adicional de selecionar os recursos que possui, que ainda não estão no catálogo. Se você selecionar recursos que não estão atualmente no catálogo selecionado, esses recursos também serão adicionados ao catálogo para que outros administradores de catálogo criem pacotes de acesso com. Se você quiser selecionar apenas os recursos que estão atualmente no catálogo selecionado, marque a caixa de seleção **ver apenas** na parte superior da seleção de panorâmica.
+    Se você for um administrador global, um administrador de usuário ou proprietário do catálogo, terá a opção adicional de selecionar os recursos que possui, que ainda não estão no catálogo. Se você selecionar recursos que não estão atualmente no catálogo selecionado, esses recursos também serão adicionados ao catálogo para que outros administradores de catálogo criem pacotes de acesso com. Se você quiser selecionar apenas os recursos que estão atualmente no catálogo selecionado, marque a caixa de seleção **ver somente** na parte superior do painel Selecionar.
 
 1. Depois de selecionar os recursos, na lista **função** , selecione a função que você deseja que os usuários sejam atribuídos para o recurso.
 
@@ -118,7 +118,7 @@ Na guia **solicitações** , você cria a primeira política para especificar qu
 
 ![Pacote de acesso – guia solicitações](./media/entitlement-management-access-package-create/requests.png)
 
-Execute as etapas em uma das seções a seguir.
+Dependendo de quem você deseja poder solicitar esse pacote de acesso, execute as etapas em uma das seções a seguir.
 
 [!INCLUDE [Entitlement management request policy](../../../includes/active-directory-entitlement-management-request-policy.md)]
 

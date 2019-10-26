@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 694c8866a69d8488511be1670ba3d3013a4a3423
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: a20ff526ba00f5b6521198122972071360bb58d6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392517"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934466"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>Exibir, adicionar e remover atribuições para um pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -70,11 +70,9 @@ Em alguns casos, talvez você queira atribuir diretamente usuários específicos
 
     ![Atribuições-Adicionar usuário ao pacote de acesso](./media/entitlement-management-access-package-assignments/assignments-add-user.png)
 
-1. Clique em **Adicionar usuários** para selecionar os usuários aos quais você deseja atribuir o pacote do Access.
+1. Clique em **Adicionar usuários** para selecionar os usuários aos quais você deseja atribuir este pacote de acesso.
 
-1. Na lista **selecionar política** , selecione uma política que tenha a configuração [nenhum (somente atribuições diretas do administrador)](entitlement-management-access-package-request-policy.md#none-administrator-direct-assignments-only) .
-
-    Se esse pacote de acesso não tiver esse tipo de política, você poderá clicar em **criar nova política** para adicionar um.
+1. Na lista **selecionar política** , selecione uma política que o ciclo de vida e as solicitações futuras dos usuários serão governadas e controladas pelo. Se desejar que os usuários selecionados tenham configurações de política diferentes, você poderá clicar em **criar nova política** para adicionar uma nova política.
 
 1. Defina a data e a hora em que você deseja que a atribuição de usuários selecionados inicie e termine. Se uma data de término não for fornecida, as configurações do ciclo de vida da política serão usadas.
 

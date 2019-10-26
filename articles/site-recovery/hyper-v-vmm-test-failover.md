@@ -1,107 +1,111 @@
 ---
-title: Executar um teste de recuperação após desastre de VMs de Hyper-V para um site secundário com o Azure Site Recovery | Documentos da Microsoft
-description: Saiba como executar um teste de DR para as VMs de Hyper-V em clouds do VMM num Datacenter secundário no local com o Azure Site Recovery.
+title: Executar uma análise de recuperação de desastre de VMs do Hyper-V para um site secundário usando Azure Site Recovery | Microsoft Docs
+description: Saiba como executar uma análise de DR para VMs do Hyper-V em nuvens do VMM para um datacenter local secundário usando Azure Site Recovery.
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: dc8deb16f7d124c5fb11568f25050eee99a245b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef8504f3f79d23fa0d59493c06cfbe133e1c4113
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60865533"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933462"
 ---
-# <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Executar um teste de DR para as VMs de Hyper-V para um site secundário
+# <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Executar uma análise de DR para VMs do Hyper-V para um site secundário
 
 
-Este artigo descreve como fazer um teste de (DR recuperação) após desastre para VMs de Hyper-V geridos em clouds do System Center Virtual Machine Manager V(MM) para um site secundário no local, utilizando [do Azure Site Recovery](site-recovery-overview.md).
+Este artigo descreve como fazer uma análise de DR (recuperação de desastre) para VMs do Hyper-V que são gerenciadas em nuvens System Center Virtual Machine Manager V (MM), em um site local secundário, usando [Azure site Recovery](site-recovery-overview.md).
 
-Executar uma ativação pós-falha de teste para validar a sua estratégia de replicação e efetuar um teste de DR sem qualquer perda de dados ou de indisponibilidade. Uma ativação pós-falha de teste não tem nenhum impacto sobre a replicação em curso ou em seu ambiente de produção. 
+Você executa um failover de teste para validar sua estratégia de replicação e executa uma análise de recuperação de desastre sem qualquer perda de dados ou tempo de inatividade. Um failover de teste não tem nenhum impacto sobre a replicação em andamento ou em seu ambiente de produção. 
 
-## <a name="how-do-test-failovers-work"></a>Como testar as ativações pós-falha trabalho?
-
-Executar uma ativação pós-falha dos principais para o site secundário. Se quiser simplesmente verificar que uma VM efetua a ativação pós-falha, pode executar uma ativação pós-falha de teste sem configurar nada no site secundário. Se quiser verificar se funciona de ativação pós-falha de aplicação, conforme esperado, terá de configurar o funcionamento em rede e infraestrutura na localização secundária.
-- Pode executar uma ativação pós-falha de teste numa única VM, ou num [plano de recuperação](site-recovery-create-recovery-plans.md).
-- Pode executar uma ativação pós-falha de teste sem uma rede, com uma rede existente, ou com uma rede criada automaticamente. Obter mais detalhes sobre estas opções são fornecidos na tabela abaixo.
-    - Pode executar uma ativação pós-falha de teste sem uma rede. Esta opção é útil se quiser simplesmente verificar que uma VM foi capaz de fazer a ativação pós-falha, mas não será possível verificar a qualquer configuração de rede.
-    - Execute a ativação pós-falha com uma rede existente. Recomendamos que não utilize uma rede de produção.
-    - Executar a ativação pós-falha e deixar que criar automaticamente uma rede de teste de recuperação de sites. Neste caso Site Recovery irá criar a rede automaticamente e limpá-los quando a ativação pós-falha de teste está concluída.
-- Tem de selecionar um ponto de recuperação para ativação pós-falha de teste: 
-    - **Processado mais recentemente**: Esta opção faz a uma VM através do ponto de recuperação mais recente processado pelo Site Recovery. Esta opção proporciona um RTO (Objetivo de Tempo de Recuperação) baixo, porque não é despendido tempo ao processar os dados não processados.
-    - **Mais recente consistente com a aplicação**: Esta opção de ativação pós-falha numa VM para o ponto mais recente recuperação consistente com a aplicação processado pelo Site Recovery. 
-    - **Mais recente**: Esta opção processa primeiro todos os dados que tenham sido enviados para o serviço de recuperação de Site, para criar um ponto de recuperação para cada VM antes de realizar a ativação pós-falha para o mesmo. Esta opção disponibiliza o último RPO (objetivo de ponto de recuperação), uma vez que a VM criada após a ativação pós-falha terá todos os dados replicados para o Site Recovery quando a ativação pós-falha foi acionada.
-    - **MULTI-VM mais recente processado**: Disponível para planos de recuperação que incluem uma ou mais VMs que tenham a consistência multi VM ativada. As VMs com a definição ativada com a ativação pós-falha do ponto de recuperação consistente de várias VMS mais recente. Outras VMs com a ativação pós-falha do ponto de recuperação processado mais recente.
-    - **MULTI-VM mais recente consistente com a aplicação**: Esta opção está disponível para planos de recuperação com uma ou mais VMs que tenham a consistência multi VM ativada. VMs que fazem parte de um grupo de replicação a ativação pós-falha do ponto de recuperação consistentes com aplicações de várias VMS mais recente. Outras VMs com a ativação pós-falha para o ponto de recuperação consistente com a aplicação mais recente.
-    - **Custom**: Utilize esta opção para efetuar a ativação pós-falha de uma VM específica para um ponto de recuperação específico.
+> [!WARNING]
+> Observe que o suporte a ASR para usar a configuração do SCVMM em conta em breve será preterido e, portanto, recomendamos que você leia os detalhes de [substituição](scvmm-site-recovery-deprecation.md) antes de continuar.
 
 
+## <a name="how-do-test-failovers-work"></a>Como funcionam os failovers de teste?
 
-## <a name="prepare-networking"></a>Preparar o sistema de rede
+Você executa um failover de teste do site primário para o secundário. Se você simplesmente deseja verificar se uma VM faz failover, é possível executar um teste sem configurar nada no site secundário. Se você quiser verificar se o failover de aplicativo funciona conforme o esperado, será necessário configurar a rede e a infraestrutura no local secundário.
+- Você pode executar um failover de teste em uma única VM ou em um [plano de recuperação](site-recovery-create-recovery-plans.md).
+- Você pode executar um failover de teste sem uma rede, com uma rede existente ou com uma rede criada automaticamente. Mais detalhes sobre essas opções são fornecidos na tabela a seguir.
+    - Você pode executar um failover de teste sem uma rede. Essa opção será útil se você simplesmente quiser verificar se uma VM foi capaz de fazer failover, mas não poderá verificar nenhuma configuração de rede.
+    - Execute o failover com uma rede existente. Recomendamos que você não use uma rede de produção.
+    - Execute o failover e permita que Site Recovery crie automaticamente uma rede de teste. Nesse caso, Site Recovery criará a rede automaticamente e a limpará quando o failover de teste for concluído.
+- Você precisa selecionar um ponto de recuperação para o failover de teste: 
+    - **Mais recente processado**: essa opção falha em uma VM para o último ponto de recuperação processado pelo site Recovery. Esta opção proporciona um RTO (Objetivo de Tempo de Recuperação) baixo, porque não é despendido tempo ao processar os dados não processados.
+    - **Consistente com o aplicativo mais recente**: essa opção faz failover de uma VM para o ponto de recuperação consistente com o aplicativo mais recente processado pelo site Recovery. 
+    - **Mais recente**: essa opção primeiro processa todos os dados que foram enviados para site Recovery serviço, para criar um ponto de recuperação para cada VM antes de fazer failover para ela. Essa opção fornece o RPO mais baixo (objetivo de ponto de recuperação), pois a VM criada após o failover terá todos os dados replicados para Site Recovery quando o failover foi disparado.
+    - **Várias VMs processadas mais recentemente**: disponíveis para planos de recuperação que incluem uma ou mais VMs com consistência de várias VMs habilitada. As VMs com a configuração habilitada fazem failover para o ponto de recuperação consistente de várias VMs comum mais recente. Outras VMs fazem failover para o último ponto de recuperação processado.
+    - **Várias VMs mais recentes consistentes**com o aplicativo: essa opção está disponível para planos de recuperação com uma ou mais VMs com consistência de várias VMs habilitada. As VMs que fazem parte de um grupo de replicação fazem failover para o ponto de recuperação mais recente consistente com o aplicativo de várias VMs comum. Outras VMs fazem failover para o ponto de recuperação consistente com o aplicativo mais recente.
+    - **Personalizado**: Use essa opção para fazer failover de uma VM específica para um ponto de recuperação específico.
 
-Quando executa uma ativação pós-falha de teste, lhe forem pedidas para selecionar as definições de rede para máquinas de réplica de teste, conforme resumido na tabela.
+
+
+## <a name="prepare-networking"></a>Preparar a rede
+
+Ao executar um failover de teste, você será solicitado a selecionar as configurações de rede para máquinas de réplica de teste, conforme resumido na tabela.
 
 | **Opção** | **Detalhes** | |
 | --- | --- | --- |
-| **Nenhum** | A VM de teste é criada no anfitrião onde está localizada a VM de réplica. Não é adicionado para a cloud e não está ligado a nenhuma rede.<br/><br/> Pode ligar a máquina a uma rede VM depois de este ter sido criado.| |
-| **Utilizar existente** | A VM de teste é criada no anfitrião onde está localizada a VM de réplica. Ele não é adicionado para a cloud.<br/><br/>Crie uma rede VM isolada da rede de produção.<br/><br/>Se estiver a utilizar uma rede baseada em VLAN, recomendamos que crie uma rede lógica separada (não utilizada em produção) no VMM para esta finalidade. Esta rede lógica é utilizada para criar redes VM para ativações pós-falha de teste.<br/><br/>A rede lógica deve ser associada a, pelo menos, um dos adaptadores de rede de todos os servidores de Hyper-V que alojam máquinas virtuais.<br/><br/>Para redes lógicas de VLAN, sites de rede que adicionar à rede lógica devem ser isolados.<br/><br/>Se estiver a utilizar uma rede lógica baseada em Virtualização de rede do Windows, o Azure Site Recovery cria automaticamente redes VM isoladas. | |
-| **Criar uma rede** | Uma rede de teste temporário é criada automaticamente com base na definição que especificou no **rede lógica** e dos respetivos sites de rede relacionados.<br/><br/> Ativação pós-falha verifica que as VMs são criadas.<br/><br/> Deve utilizar esta opção se a um plano de recuperação utilizar mais de uma rede VM.<br/><br/> Se estiver a utilizar redes de Virtualização de rede do Windows, esta opção pode criar automaticamente redes VM com as mesmas configurações de (sub-redes e conjuntos de endereços IP) na rede de máquina virtual de réplica. Estas redes VM são limpas automaticamente após a conclusão da ativação pós-falha de teste.<br/><br/> O teste de VM é criada no anfitrião no qual existe a máquina virtual de réplica. Ele não é adicionado para a cloud.|
+| **None** | A VM de teste é criada no host no qual a VM de réplica está localizada. Ele não é adicionado à nuvem e não está conectado a nenhuma rede.<br/><br/> Você pode conectar o computador a uma rede VM depois que ela tiver sido criada.| |
+| **Usar existente** | A VM de teste é criada no host no qual a VM de réplica está localizada. Ele não é adicionado à nuvem.<br/><br/>Crie uma rede VM isolada da sua rede de produção.<br/><br/>Se você estiver usando uma rede baseada em VLAN, recomendamos que você crie uma rede lógica separada (não usada em produção) no VMM para essa finalidade. Essa rede lógica é usada para criar redes VM para failovers de teste.<br/><br/>A rede lógica deve ser associada a pelo menos um dos adaptadores de rede de todos os servidores Hyper-V que estão hospedando máquinas virtuais.<br/><br/>Para redes lógicas de VLAN, os sites de rede que você adiciona à rede lógica devem ser isolados.<br/><br/>Se você estiver usando uma rede lógica baseada em virtualização de rede do Windows, Azure Site Recovery criar automaticamente redes VM isoladas. | |
+| **Criar uma rede** | Uma rede de teste temporária é criada automaticamente com base na configuração que você especificar em **rede lógica** e seus sites de rede relacionados.<br/><br/> O failover verifica se as VMs são criadas.<br/><br/> Você deve usar essa opção se um plano de recuperação usar mais de uma rede VM.<br/><br/> Se você estiver usando redes de virtualização de rede do Windows, essa opção poderá criar automaticamente redes VM com as mesmas configurações (sub-redes e pools de endereços IP) na rede da máquina virtual de réplica. Essas redes VM são limpas automaticamente após a conclusão do failover de teste.<br/><br/> A VM de teste é criada no host no qual a máquina virtual de réplica existe. Ele não é adicionado à nuvem.|
 
 ### <a name="best-practices"></a>Melhores práticas
 
-- Uma rede de produção de teste faz com que o tempo de inatividade para cargas de trabalho de produção. Peça aos seus utilizadores para não utilizar aplicações relacionadas ao teste de recuperação após desastre está em curso.
+- Testar uma rede de produção causa tempo de inatividade para cargas de trabalho de produção. Peça aos seus usuários que não usem aplicativos relacionados quando a análise de recuperação de desastre estiver em andamento.
 
-- A rede de teste não têm de corresponder o tipo de rede lógica de VMM utilizado para ativação pós-falha de teste. Mas, algumas combinações não funcionam:
+- A rede de teste não precisa corresponder ao tipo de rede lógica do VMM usado para failover de teste. Mas, algumas combinações não funcionam:
 
-     - Se a réplica utilizar DHCP e o isolamento baseado em VLAN, a rede VM para a réplica não precisa de um conjunto de endereços IP estáticos. Assim, usando a virtualização de rede do Windows para ativação pós-falha de teste não funcionará porque não existem conjuntos de endereços disponíveis. 
+     - Se a réplica usar o isolamento baseado em VLAN e DHCP, a rede VM da réplica não precisará de um pool de endereços IP estáticos. Portanto, o uso da virtualização de rede do Windows para o failover de teste não funcionará porque nenhum pool de endereços está disponível. 
         
-     - Ativação pós-falha de teste não funcionará se a rede de réplica utiliza sem isolamento, e a rede de teste utiliza Virtualização de rede do Windows. Isto acontece porque a rede sem isolamento não tem sub-redes necessárias para criar uma rede de Virtualização de rede do Windows.
+     - O failover de teste não funcionará se a rede de réplica não usar nenhum isolamento e a rede de teste usar a virtualização de rede do Windows. Isso ocorre porque a rede de não isolamento não tem as sub-redes necessárias para criar uma rede de virtualização de rede do Windows.
         
-- Recomendamos que não utilize a rede que selecionou para mapeamento de rede, para ativação pós-falha de teste.
+- Recomendamos que você não use a rede selecionada para o mapeamento de rede para o failover de teste.
 
-- Como as máquinas virtuais de réplica estão ligadas a redes VM mapeadas após a ativação pós-falha depende de como a rede VM é configurada na consola do VMM.
+- Como as máquinas virtuais de réplica são conectadas às redes de VM mapeadas após o failover depende de como a rede VM é configurada no console do VMM.
 
 
 ### <a name="vm-network-configured-with-no-isolation-or-vlan-isolation"></a>Rede VM configurada sem isolamento ou isolamento de VLAN
 
-Se uma rede VM é configurada no VMM, sem isolamento ou isolamento de VLAN, tenha em atenção o seguinte:
+Se uma rede VM estiver configurada no VMM sem isolamento ou isolamento de VLAN, observe o seguinte:
 
-- Se o DHCP for definido para a rede VM, a máquina virtual de réplica está ligada para o ID de VLAN através das definições de que são especificadas para o site de rede na rede lógica associada. A máquina virtual recebe o respetivo endereço IP do servidor DHCP disponível.
-- Não precisa de definir um conjunto de endereços IP estáticos para a rede VM de destino. Se um conjunto de endereços IP estáticos é utilizado para a rede VM, a máquina virtual de réplica está ligada para o ID de VLAN através das definições de que são especificadas para o site de rede na rede lógica associada.
-- A máquina virtual recebe o respetivo endereço IP do conjunto que está definido para a rede VM. Se um conjunto de endereços IP estáticos não está definido na rede VM de destino, a alocação de endereços IP irá falhar. Crie o conjunto de endereços IP em servidores do VMM de origem e de destino que irá utilizar para proteção e recuperação.
+- Se o DHCP for definido para a rede VM, a máquina virtual de réplica será conectada à ID da VLAN por meio das configurações especificadas para o site de rede na rede lógica associada. A máquina virtual recebe seu endereço IP do servidor DHCP disponível.
+- Você não precisa definir um pool de endereços IP estáticos para a rede VM de destino. Se um pool de endereços IP estáticos for usado para a rede VM, a máquina virtual de réplica será conectada à ID da VLAN por meio das configurações especificadas para o site de rede na rede lógica associada.
+- A máquina virtual recebe seu endereço IP do pool definido para a rede VM. Se um pool de endereços IP estáticos não estiver definido na rede VM de destino, haverá falha na alocação de endereço IP. Crie o pool de endereços IP nos servidores VMM de origem e de destino que serão usados para proteção e recuperação.
 
-### <a name="vm-network-with-windows-network-virtualization"></a>Rede VM com Virtualização de rede do Windows
+### <a name="vm-network-with-windows-network-virtualization"></a>Rede VM com virtualização de rede do Windows
 
-Se uma rede VM é configurada no VMM com a virtualização de rede do Windows, tenha em atenção o seguinte:
+Se uma rede VM estiver configurada no VMM com a virtualização de rede do Windows, observe o seguinte:
 
-- Deve definir um conjunto estático para a rede de VM de destino, independentemente se a rede VM de origem está configurada para utilizar o DHCP ou um conjunto de endereços IP estáticos. 
-- Se definir o DHCP, o servidor do VMM de destino funciona como um servidor DHCP e fornece um endereço IP do conjunto que está definido para a rede VM de destino.
-- Se a utilização de um conjunto de endereços IP estáticos for definida para o servidor de origem, o servidor do VMM de destino aloca um endereço IP do conjunto. Em ambos os casos, a alocação de endereços IP irá falhar se não for definido um conjunto de endereços IP estáticos.
+- Você deve definir um pool estático para a rede VM de destino, independentemente se a rede VM de origem está configurada para usar DHCP ou um pool de endereços IP estáticos. 
+- Se você definir o DHCP, o servidor VMM de destino atuará como um servidor DHCP e fornecerá um endereço IP do pool definido para a rede VM de destino.
+- Se o uso de um pool de endereços IP estáticos for definido para o servidor de origem, o servidor VMM de destino alocará um endereço IP do pool. Em ambos os casos, a alocação de endereço IP falhará se um pool de endereços IP estáticos não estiver definido.
 
 
 
 ## <a name="prepare-the-infrastructure"></a>Preparar a infraestrutura
 
-Se quiser simplesmente verificar que uma VM pode efetuar a ativação pós-falha, pode executar uma ativação pós-falha de teste sem uma infraestrutura. Se quiser fazer uma exploração de DR completa para testar ativação pós-falha de aplicação, terá de preparar a infraestrutura no site secundário:
+Se você simplesmente deseja verificar se uma VM pode fazer failover, você pode executar um failover de teste sem uma infraestrutura. Se desejar fazer uma análise completa de DR para testar o failover de aplicativo, você precisará preparar a infraestrutura no site secundário:
 
-- Se executar uma ativação pós-falha de teste usando uma rede existente, prepare o Active Directory, DHCP e DNS na rede.
-- Se executar uma ativação pós-falha de teste com a opção para criar automaticamente uma rede VM, terá de adicionar recursos de infraestrutura de rede criados automaticamente, antes de executar a ativação pós-falha de teste. Num plano de recuperação, pode facilitar isso adicionando um passo manual antes de 1 de grupo no plano de recuperação que pretende utilizar para ativação pós-falha de teste. Em seguida, adicione os recursos de infraestrutura para a rede automaticamente criada antes de executar a ativação pós-falha de teste.
+- Se você executar um failover de teste usando uma rede existente, prepare Active Directory, DHCP e DNS nessa rede.
+- Se você executar um failover de teste com a opção de criar uma rede VM automaticamente, precisará adicionar recursos de infraestrutura à rede criada automaticamente, antes de executar o failover de teste. Em um plano de recuperação, você pode facilitar isso adicionando uma etapa manual antes do grupo-1 no plano de recuperação que você pretende usar para o failover de teste. Em seguida, adicione os recursos de infraestrutura à rede criada automaticamente antes de executar o failover de teste.
 
 
 ### <a name="prepare-dhcp"></a>Preparar o DHCP
-Se as máquinas virtuais envolvido na ativação pós-falha de teste utilizar DHCP, crie um servidor DHCP de teste dentro da rede isolada com o objetivo de ativação pós-falha de teste.
+Se as máquinas virtuais envolvidas no failover de teste usarem DHCP, crie um servidor DHCP de teste na rede isolada para fins de failover de teste.
 
 
-### <a name="prepare-active-directory"></a>Preparar o Active Directory
-Para executar uma ativação pós-falha de teste para teste de aplicativos, precisa de uma cópia do ambiente do Active Directory de produção no seu ambiente de teste. Para obter mais informações, reveja os [considerações de ativação pós-falha para o Active Directory de teste](site-recovery-active-directory.md#test-failover-considerations).
+### <a name="prepare-active-directory"></a>Preparar Active Directory
+Para executar um failover de teste para testes de aplicativos, você precisa de uma cópia do ambiente de Active Directory de produção em seu ambiente de teste. Para obter mais informações, examine as [considerações de failover de teste para Active Directory](site-recovery-active-directory.md#test-failover-considerations).
 
-### <a name="prepare-dns"></a>Prepare DNS
-Prepare um servidor DNS para a ativação pós-falha de teste da seguinte forma:
+### <a name="prepare-dns"></a>Preparar o DNS
+Prepare um servidor DNS para o failover de teste da seguinte maneira:
 
-* **DHCP**: Se as máquinas virtuais utilizar DHCP, o endereço IP do teste DNS deve ser atualizado no servidor DHCP de teste. Se estiver a utilizar um tipo de rede de Virtualização de rede do Windows, o servidor VMM atua como o servidor DHCP. Por conseguinte, o endereço IP de DNS deve ser atualizado na rede de ativação pós-falha de teste. Neste caso, as máquinas virtuais se registrar para o servidor DNS relevante.
-* **Endereço estático**: Se as máquinas virtuais utilizam um endereço IP estático, o endereço IP do servidor DNS de teste deve ser atualizado na rede de ativação pós-falha de teste. Poderá ter de atualizar o DNS com o endereço IP de máquinas de virtuais de teste. Pode utilizar o seguinte script de exemplo para essa finalidade:
+* **DHCP**: se as máquinas virtuais usarem DHCP, o endereço IP do DNS de teste deverá ser atualizado no servidor DHCP de teste. Se você estiver usando um tipo de rede de virtualização de rede do Windows, o servidor VMM atuará como o servidor DHCP. Portanto, o endereço IP do DNS deve ser atualizado na rede de failover de teste. Nesse caso, as máquinas virtuais se registram no servidor DNS relevante.
+* **Endereço estático**: se as máquinas virtuais usarem um endereço IP estático, o endereço IP do servidor DNS de teste deverá ser atualizado na rede de failover de teste. Talvez seja necessário atualizar o DNS com o endereço IP das máquinas virtuais de teste. Você pode usar o seguinte script de exemplo para essa finalidade:
 
         Param(
         [string]$Zone,
@@ -117,34 +121,34 @@ Prepare um servidor DNS para a ativação pós-falha de teste da seguinte forma:
 
 ## <a name="run-a-test-failover"></a>Executar uma ativação pós-falha de teste
 
-Este procedimento descreve como executar uma ativação pós-falha de teste para um plano de recuperação. Em alternativa, pode executar a ativação pós-falha para uma única máquina virtual no **máquinas virtuais** separador.
+Este procedimento descreve como executar um failover de teste para um plano de recuperação. Como alternativa, você pode executar o failover para uma única máquina virtual na guia **máquinas virtuais** .
 
-1. Selecione **planos de recuperação** > *recoveryplan_name*. Clique em **ativação pós-falha** > **ativação pós-falha de teste**.
-2. Sobre o **testar ativação pós-falha** painel, especifique a forma como as VMs de réplica devem estar ligadas a redes após a ativação pós-falha de teste.
-3. Controlar o progresso de ativação pós-falha no **tarefas** separador.
-4. Após a conclusão da ativação pós-falha, certifique-se de que as VMs iniciam com êxito.
-5. Quando tiver terminado, clique em **ativação pós-falha de teste de limpeza** no plano de recuperação. Em **Notas**, registe e guarde todas as observações associadas à ativação pós-falha de teste. Este passo elimina quaisquer VMs e redes que foram criadas pelo Site Recovery durante a ativação pós-falha de teste. 
+1. Selecione **planos de recuperação** > *recoveryplan_name*. Clique em **failover** > **failover de teste**.
+2. Na folha **failover de teste** , especifique como as VMs de réplica devem ser conectadas às redes após o failover de teste.
+3. Acompanhe o progresso do failover na guia **trabalhos** .
+4. Após a conclusão do failover, verifique se as VMs são iniciadas com êxito.
+5. Quando terminar, clique em **failover de teste de limpeza** no plano de recuperação. Em **Notas**, registe e guarde todas as observações associadas à ativação pós-falha de teste. Esta etapa exclui todas as VMs e redes que foram criadas por Site Recovery durante o failover de teste. 
 
 ![Ativação pós-falha de teste](./media/hyper-v-vmm-test-failover/TestFailover.png)
  
 
 
 > [!TIP]
-> O endereço IP fornecido para uma máquina virtual durante a ativação pós-falha de teste é o mesmo endereço IP que receberia a máquina virtual para uma ativação de pós-falha não planeada ou não planeada (a pressupor que o endereço IP está disponível na rede de ativação pós-falha de teste). Se o mesmo endereço IP não está disponível na rede de ativação pós-falha de teste, a máquina virtual recebe outro endereço IP que está disponível na rede de ativação pós-falha de teste.
+> O endereço IP fornecido a uma máquina virtual durante o failover de teste é o mesmo endereço IP que a máquina virtual receberia para um failover planejado ou não planejado (supondo que o endereço IP esteja disponível na rede de failover de teste). Se o mesmo endereço IP não estiver disponível na rede de failover de teste, a máquina virtual receberá outro endereço IP que está disponível na rede de failover de teste.
 
 
 
-### <a name="run-a-test-failover-to-a-production-network"></a>Executar uma ativação pós-falha para uma rede de produção
+### <a name="run-a-test-failover-to-a-production-network"></a>Executar um failover de teste para uma rede de produção
 
-Recomendamos que não executar uma ativação pós-falha de teste para a sua rede de site de recuperação de produção que especificou durante o mapeamento da rede. Mas se precisar de validar a conectividade de rede ponto a ponto numa VM com ativação pós-falha, tenha em atenção os seguintes pontos:
+Recomendamos que você não execute um failover de teste para sua rede de site de recuperação de produção que você especificou durante o mapeamento de rede. Mas se você precisar validar a conectividade de rede de ponta a ponta em uma VM com failover, observe os seguintes pontos:
 
-* Certifique-se de que a VM principal está encerrada ao fazer a ativação pós-falha de teste. Caso contrário, serão executados na mesma rede duas máquinas virtuais com a mesma identidade ao mesmo tempo. Nessa situação pode levar a conseqüências indesejadas.
-* Todas as alterações que fizer a ativação pós-falha de teste as VMs são perdidas quando limpar as máquinas de virtuais de ativação pós-falha de teste. Estas alterações não são replicadas para as VMs primárias.
-* Teste como este leva para o período de indisponibilidade para a sua aplicação de produção. Peça aos utilizadores da aplicação para não utilizar a aplicação quando o exploração de DR está em curso.  
+* Certifique-se de que a VM primária seja desligada quando você estiver fazendo o failover de teste. Caso contrário, duas máquinas virtuais com a mesma identidade serão executadas na mesma rede ao mesmo tempo. Essa situação pode levar a consequências indesejadas.
+* As alterações feitas nas VMs de failover de teste são perdidas quando você limpa as máquinas virtuais de failover de teste. Essas alterações não são replicadas de volta para as VMs primárias.
+* Os testes como esse levam ao tempo de inatividade para seu aplicativo de produção. Peça que os usuários do aplicativo não usem o aplicativo quando a análise de DR estiver em andamento.  
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Depois de executar uma exploração de DR com êxito, poderá [executar uma ativação pós-falha completa](site-recovery-failover.md).
+## <a name="next-steps"></a>Passos seguintes
+Depois de executar uma análise de DR com êxito, você pode [executar um failover completo](site-recovery-failover.md).
 
 
 
