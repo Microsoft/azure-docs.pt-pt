@@ -11,12 +11,12 @@ metadata:
   author: jpconnock
   ms.author: jpconnock
   ms.date: 09/26/2019
-  ms.openlocfilehash: 0dcbe8d01761e8feb06cd5705a104d8c9e5196e0
-  ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+  ms.openlocfilehash: 671093610cc53fae3a06f9b185ef258ab2097305
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/08/2019
-  ms.locfileid: "72038606"
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72933366"
 landingContent:
 - title: Acerca do Azure Spring Cloud
   linkLists:
@@ -38,6 +38,22 @@ landingContent:
     links:
     - text: Preparar uma aplicação Java Spring para a implementação
       url: spring-cloud-tutorial-prepare-app-deployment.md
+- title: Configurar o serviço
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Utilizar o Servidor de Configuração para manter a configuração da aplicação
+      url: spring-cloud-tutorial-config-server.md
+    - text: Dimensionar a aplicação manualmente
+      url: spring-cloud-tutorial-scale-manual.md
+  - linkListType: how-to-guide
+    links:
+    - text: Automatizar o pipeline CI/CD no Azure Spring Cloud
+      url: spring-cloud-howto-cicd.md
+    - text: Ativar as implementações Azul-Verde com o Azure Spring Cloud
+      url: spring-cloud-howto-staging-environment.md
+    - text: Utilizar o armazenamento persistente no Azure Spring Cloud
+      url: spring-cloud-howto-persistent-storage.md
 - title: Monitorizar a aplicação
   linkLists:
   - linkListType: tutorial
@@ -60,19 +76,3 @@ landingContent:
       url: spring-cloud-tutorial-bind-mysql.md
     - text: Vincular a aplicação ao Azure CosmosDB
       url: spring-cloud-tutorial-bind-cosmos.md
-- title: Configurar o serviço
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Utilizar o Servidor de Configuração para manter a configuração da aplicação
-      url: spring-cloud-tutorial-config-server.md
-    - text: Dimensionar a aplicação manualmente
-      url: spring-cloud-tutorial-scale-manual.md
-  - linkListType: how-to-guide
-    links:
-    - text: Automatizar o pipeline CI/CD no Azure Spring Cloud
-      url: spring-cloud-howto-cicd.md
-    - text: Ativar as implementações Azul-Verde com o Azure Spring Cloud
-      url: spring-cloud-howto-staging-environment.md
-    - text: Utilizar o armazenamento persistente no Azure Spring Cloud
-      url: spring-cloud-howto-persistent-storage.md

@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: e74fbe6e358c3a230fe466f3e73850022574a868
-  ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+  ms.openlocfilehash: 866faa560a9ffbc08bf171951b6e1456cabe5a3d
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/11/2019
-  ms.locfileid: "70919069"
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72935248"
 highlightedContent:
   items:
   - title: O que é o IoT do Azure?
@@ -56,17 +56,17 @@ conceptualContent:
       text: Ver mais
   - title: Utilizar o IoT Central do Azure para implementar uma solução completamente gerida de IoT
     links:
-    - url: ../iot-central/overview-iot-central.md
+    - url: ../iot-central/core/overview-iot-central.md
       itemType: overview
       text: O que é o Azure IoT Central?
-    - url: ../iot-central/quick-deploy-iot-central.md
+    - url: ../iot-central/core/quick-deploy-iot-central.md
       itemType: quickstart
       text: Criar uma aplicação de IoT Central
-    - url: ../iot-central/tutorial-define-device-type.md
+    - url: ../iot-central/core/tutorial-define-device-type.md
       itemType: tutorial
       text: Definir o tipo para o seu dispositivo
     footerLink:
-      url: ../iot-central/index.yml
+      url: ../iot-central/core/index.yml
       text: Ver mais
   - title: Utilizar aceleradores de soluções de IoT do Azure para personalizar uma solução pré-criada de IoT
     links:
