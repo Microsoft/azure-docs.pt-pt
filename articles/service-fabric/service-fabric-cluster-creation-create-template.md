@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: atsenthi
-ms.openlocfilehash: 9030a1d9d0b1e3f9b84f6636b0d3d758ab4cfa3b
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 4a2fe8238a1ac6f668450aca4e2fd6d2b4ba04a5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599983"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901534"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Criar um modelo do Gerenciador de recursos de Cluster Service Fabric
 
@@ -38,7 +38,7 @@ Os modelos do Resource Manager de exemplo estão disponíveis nos [exemplos do A
 Este artigo usa o modelo de exemplo de [cluster seguro de cinco nós][service-fabric-secure-cluster-5-node-1-nodetype] e parâmetros de modelo. Baixe *azuredeploy. JSON* e *azuredeploy. Parameters. JSON* em seu computador e abra os dois arquivos em seu editor de texto favorito.
 
 > [!NOTE]
-> Para nuvens nacionais (Azure governamental, Azure China, Azure Alemanha), você também deve adicionar o seguinte `fabricSettings` ao seu modelo `AADTokenEndpointFormat` : `AADLoginEndpoint`e `AADCertEndpointFormat`.
+> Para nuvens nacionais (Azure governamental, Azure China, Azure Alemanha), você também deve adicionar o seguinte `fabricSettings` ao seu modelo: `AADLoginEndpoint`, `AADTokenEndpointFormat` e `AADCertEndpointFormat`.
 
 ## <a name="add-certificates"></a>Adicionar certificados
 Você adiciona certificados a um modelo do Resource Manager de cluster referenciando o cofre de chaves que contém as chaves de certificado. Adicione esses valores e parâmetros de cofre de chaves em um arquivo de parâmetros de modelo do Resource Manager (*azuredeploy. Parameters. JSON*).
@@ -146,7 +146,7 @@ O certificado de autenticação de cluster deve ser configurado tanto no recurso
 Você adiciona a configuração do Azure AD a um modelo do Resource Manager de cluster referenciando o cofre de chaves que contém as chaves de certificado. Adicione esses parâmetros e valores do Azure AD em um arquivo de parâmetros de modelo do Resource Manager (*azuredeploy. Parameters. JSON*). 
 
 > [!NOTE]
-> Os locatários e usuários do Azure AD devem ser criados antes da criação do cluster.  Para obter mais informações, leia [Configurar o Azure ad para autenticar clientes](service-fabric-cluster-creation-setup-aad.md).
+> No Linux, os locatários e usuários do Azure AD devem ser criados antes da criação do cluster.  Para obter mais informações, leia [Configurar o Azure ad para autenticar clientes](service-fabric-cluster-creation-setup-aad.md).
 
 ```json
 {
@@ -258,17 +258,17 @@ O diagrama a seguir ilustra onde o cofre de chaves e a configuração do Azure A
 
 ![Mapa de dependência do Resource Manager][cluster-security-arm-dependency-map]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora que você tem um modelo para o cluster, saiba como [implantar o cluster no Azure](service-fabric-cluster-creation-via-arm.md).  Se você ainda não fez isso, leia a [lista de verificação de preparação de produção](service-fabric-production-readiness-checklist.md) antes de implantar um cluster de produção.
 
 Para saber mais sobre a sintaxe e as propriedades JSON para os recursos implantados neste artigo, consulte:
 
-* [Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/clusters)
-* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
-* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
-* [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
-* [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers)
-* [Microsoft.Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets)
+* [Microsoft. infabric/clusters](/azure/templates/microsoft.servicefabric/clusters)
+* [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+* [Microsoft. Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+* [Microsoft. Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+* [Microsoft. Network/balancers](/azure/templates/microsoft.network/loadbalancers)
+* [Microsoft. Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets)
 
 <!-- Links -->
 [service-fabric-cluster-security]: service-fabric-cluster-security.md

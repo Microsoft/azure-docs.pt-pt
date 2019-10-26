@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 05cd68c7be005a5b148b7d3e691c46a0d067b0c0
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: aac20034fb4a528e48d5b383f39205a952878539
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262858"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900698"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Alterar o modelo de licença para uma máquina virtual SQL Server no Azure
 Este artigo descreve como alterar o modelo de licença para uma VM (máquina virtual) SQL Server no Azure usando o novo provedor de recursos de VM do SQL, **Microsoft. SqlVirtualMachine**.
@@ -31,7 +31,7 @@ O modelo pago conforme o uso significa que o custo por segundo da execução da 
 
 Benefício Híbrido do Azure permite o uso de licenças SQL Server com o Software Assurance ("licença qualificada") em máquinas virtuais do Azure. Com o Benefício Híbrido do Azure, os clientes não são cobrados pelo uso de uma licença SQL Server em uma VM. Mas eles ainda devem pagar pelo custo da computação em nuvem subjacente (ou seja, a taxa base), o armazenamento e os backups. Eles também devem pagar pela e/s associada ao uso dos serviços (conforme aplicável).
 
-De acordo com os termos de produto da Microsoft: "Os clientes devem indicar que estão usando o banco de dados SQL do Azure (Instância Gerenciada, Pool Elástico e Banco de Dados Individual), Azure Data Factory, SQL Server Integration Services ou SQL Server máquinas virtuais em Benefício Híbrido do Azure para SQL Server ao configurar cargas de trabalho no Azure. "
+De acordo com os termos de produto da Microsoft: "os clientes devem indicar que estão usando o banco de dados SQL do Azure (Instância Gerenciada, Pool Elástico e Banco de Dados Individual), Azure Data Factory, SQL Server Integration Services ou SQL Server máquinas virtuais no Azure Benefício híbrido para SQL Server ao configurar cargas de trabalho no Azure. "
 
 Para indicar o uso de Benefício Híbrido do Azure para SQL Server em uma VM do Azure e estar em conformidade, você tem três opções:
 
@@ -44,7 +44,7 @@ O tipo de licença de SQL Server é definido quando a VM é provisionada. Você 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O uso do provedor de recursos da VM do SQL requer a extensão SQL Server IaaS. Assim, você precisa do seguinte:
-- Uma [subscrição do Azure](https://azure.microsoft.com/free/).
+- Uma [assinatura do Azure](https://azure.microsoft.com/free/).
 - [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default). 
 - Uma [vm SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registrada com o [provedor de recursos de VM do SQL](virtual-machines-windows-sql-register-with-resource-provider.md).
 
@@ -149,12 +149,12 @@ Você pode alterar o tipo de licença de uma VM SQL Server como pré-pago ou Ben
 
 ## <a name="known-errors"></a>Erros conhecidos
 
-### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>O recurso ' Microsoft. SqlVirtualMachine/SqlVirtualMachines/\<Resource-Group > ' no grupo de recursos\<' > grupo de recursos ' não foi encontrado.
+### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>O recurso ' Microsoft. SqlVirtualMachine/SqlVirtualMachines/\<Resource-Group > ' no grupo de recursos '\<> do grupo de recursos ' não foi encontrado.
 Esse erro ocorre quando você tenta alterar o modelo de licença em uma VM SQL Server que não foi registrada com o provedor de recursos de VM do SQL:
 
 `The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' under resource group '\<resource-group>' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set.`
 
-Você precisará registrar o provedor de recursos em sua [assinatura](virtual-machines-windows-sql-register-with-resource-provider.md#register-the-sql-vm-resource-provider-with-a-subscription)e [registrar sua VM de SQL Server com o provedor de recursos](virtual-machines-windows-sql-register-with-resource-provider.md). 
+Você precisará registrar sua assinatura com o provedor de recursos e [registrar sua VM de SQL Server com o provedor de recursos](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
 ### <a name="cannot-validate-argument-on-parameter-sku"></a>Não é possível validar o argumento no parâmetro ' SKU '
 Você pode encontrar esse erro ao tentar alterar seu modelo de licença de VM SQL Server usando Azure PowerShell versões posteriores a 4,0:

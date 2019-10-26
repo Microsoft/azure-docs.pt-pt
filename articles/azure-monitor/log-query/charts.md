@@ -1,36 +1,30 @@
 ---
-title: Criação de gráficos e diagramas de consultas de registo do Azure Monitor | Documentos da Microsoft
-description: Descreve várias visualizações no Azure Monitor para apresentar os dados de registo de formas diferentes.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Criando gráficos e diagramas de consultas Azure Monitor log | Microsoft Docs
+description: Descreve várias visualizações no Azure Monitor para exibir os dados de log de maneiras diferentes.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 07d0866bd697587da170a00e8077a57035989d32
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/16/2018
+ms.openlocfilehash: 34975a1752467c61ea5b329210473eee266c98d1
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60594048"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900403"
 ---
-# <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Criação de gráficos e diagramas de consultas de registo do Azure Monitor
+# <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Criando gráficos e diagramas de consultas Azure Monitor log
 
 > [!NOTE]
-> Deve efetuar [Advanced agregações em consultas de registo do Azure Monitor](advanced-aggregations.md) antes de concluir esta lição.
+> Você deve concluir [agregações avançadas em consultas de Azure monitor log antes de](advanced-aggregations.md) concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Este artigo descreve várias visualizações no Azure Monitor para apresentar os dados de registo de formas diferentes.
+Este artigo descreve várias visualizações no Azure Monitor para exibir os dados de log de maneiras diferentes.
 
-## <a name="charting-the-results"></a>Os resultados de criação de gráficos
-Comece por rever como quantos computadores existem por sistema operativo, durante a última hora:
+## <a name="charting-the-results"></a>Criação de gráficos dos resultados
+Comece examinando quantos computadores existem por sistema operacional, durante a última hora:
 
 ```Kusto
 Heartbeat
@@ -38,17 +32,17 @@ Heartbeat
 | summarize count(Computer) by OSType  
 ```
 
-Por predefinição, os resultados apresentam como uma tabela:
+Por padrão, os resultados são exibidos como uma tabela:
 
-![Tabela](media/charts/table-display.png)
+![Tabelas](media/charts/table-display.png)
 
-Para obter uma visão melhor, selecione **gráfico**e escolha o **circular** opção para visualizar os resultados:
+Para obter uma exibição melhor, selecione **gráfico**e escolha a opção **pizza** para visualizar os resultados:
 
-![Gráfico circular](media/charts/charts-and-diagrams-pie.png)
+![Gráfico de pizza](media/charts/charts-and-diagrams-pie.png)
 
 
-## <a name="timecharts"></a>Timecharts
-Mostra a média, os percentis 50 º e 95 º percentis, de tempo do processador em contentores de 1 hora. A consulta gera várias séries e, em seguida, pode selecionar qual série para mostrar no gráfico de tempo:
+## <a name="timecharts"></a>Gráficos de
+Mostre os percentuais médio, 50 º e 95 º do tempo do processador em compartimentos de 1 hora. A consulta gera várias séries e você pode selecionar qual série deve ser mostrada no gráfico de tempo:
 
 ```Kusto
 Perf
@@ -57,13 +51,13 @@ Perf
 | summarize avg(CounterValue), percentiles(CounterValue, 50, 95)  by bin(TimeGenerated, 1h)
 ```
 
-Selecione o **linha** opção de exibição de gráfico:
+Selecione a opção de exibição de gráfico de **linhas** :
 
 ![Gráfico de linhas](media/charts/charts-and-diagrams-multiSeries.png)
 
 ### <a name="reference-line"></a>Linha de referência
 
-Uma linha de referência pode ajudá-lo a identificar facilmente se a métrica exceder um limiar específico. Para adicionar uma linha num gráfico, expanda o conjunto de dados com uma coluna de constante:
+Uma linha de referência pode ajudá-lo a identificar facilmente se a métrica excedeu um limite específico. Para adicionar uma linha a um gráfico, estenda o conjunto de um com uma coluna constante:
 
 ```Kusto
 Perf
@@ -76,7 +70,7 @@ Perf
 ![Linha de referência](media/charts/charts-and-diagrams-multiSeriesThreshold.png)
 
 ## <a name="multiple-dimensions"></a>Várias dimensões
-Várias expressões no `by` cláusula de `summarize` criar várias linhas nos resultados, um para cada combinação de valores.
+Várias expressões na cláusula `by` de `summarize` criar várias linhas nos resultados, uma para cada combinação de valores.
 
 ```Kusto
 SecurityEvent
@@ -84,21 +78,21 @@ SecurityEvent
 | summarize count() by tostring(EventID), AccountType, bin(TimeGenerated, 1h)
 ```
 
-Quando exibir os resultados como um gráfico, ele usa a primeira coluna do `by` cláusula. O exemplo seguinte mostra um gráfico de colunas empilhadas usando o _EventID._ Tem de ser de dimensões `string` digitar, tão neste exemplo o _EventID_ é que está a ser convertido em cadeia de caracteres. 
+Quando você exibe os resultados como um gráfico, ele usa a primeira coluna da cláusula `by`. O exemplo a seguir mostra um gráfico de colunas empilhadas usando o _EventID._ As dimensões devem ser do tipo `string`, portanto, neste exemplo, o _EventID_ está sendo convertido em String. 
 
 ![Gráfico de barras EventID](media/charts/charts-and-diagrams-multiDimension1.png)
 
-Pode alternar entre ao selecionar a lista pendente com o nome da coluna. 
+Você pode alternar entre selecionando o menu suspenso com o nome da coluna. 
 
-![Gráfico de barras AccountType](media/charts/charts-and-diagrams-multiDimension2.png)
+![Tipo de conta de gráfico de barras](media/charts/charts-and-diagrams-multiDimension2.png)
 
-## <a name="next-steps"></a>Passos Seguintes
-Consulte outras lições para utilizar o [linguagem de consulta de Kusto](/azure/kusto/query/) com o Azure Monitor registos de dados:
+## <a name="next-steps"></a>Passos seguintes
+Consulte outras lições para usar a [linguagem de consulta Kusto](/azure/kusto/query/) com Azure monitor dados de log:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)
 - [Funções de agregação](aggregations.md)
 - [Agregações avançadas](advanced-aggregations.md)
-- [Estruturas de dados e JSON](json-data-structures.md)
-- [Escrita de consultas avançado](advanced-query-writing.md)
-- [Associações](joins.md)
+- [JSON e estruturas de dados](json-data-structures.md)
+- [Gravação de consulta avançada](advanced-query-writing.md)
+- [Junções](joins.md)

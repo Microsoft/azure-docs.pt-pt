@@ -3,22 +3,23 @@ title: CLI do Azure Service Fabric-serviço de malha sfctl-réplica | Microsoft 
 description: Descreve os comandos de sfctl de malha de serviço da CLI do Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 6819bb32eecf8477e2c0727b50641858db21c784
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: e8eaa5fd7c9eeeff3f70a949b04d0fbf5f6c388f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035906"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901161"
 ---
 # <a name="sfctl-mesh-service-replica"></a>sfctl mesh service-replica
 Obter detalhes da réplica e listar réplicas de um determinado serviço em um recurso de aplicativo.
@@ -48,7 +49,7 @@ Obtém as informações sobre todas as réplicas de um serviço. As informaçõe
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
@@ -71,7 +72,7 @@ Obtém as informações sobre a réplica de serviço com o nome fornecido. As in
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 

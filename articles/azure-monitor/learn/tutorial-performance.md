@@ -1,21 +1,19 @@
 ---
 title: Diagnosticar problemas de desempenho com o Azure Application Insights | Microsoft Docs
 description: Tutorial para localizar e diagnosticar problemas de desempenho na sua aplicação com o Azure Application Insights.
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/13/2019
-ms.service: application-insights
 ms.custom: mvc
-ms.topic: tutorial
-manager: carmonm
-ms.openlocfilehash: 9768191d98bf1987ac24564869107cdd6bf19e8d
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: cd1a483cd50051ade5d7d4f45c8eb7e5d8351787
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69031996"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900448"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Localizar e diagnosticar problemas de desempenho com o Azure Application Insights
 
@@ -79,7 +77,7 @@ O Application Insights recolhe detalhes de desempenho das várias operações da
 ## <a name="use-logs-data-for-server"></a>Usar dados de logs para o servidor
  Os logs fornecem uma linguagem de consulta avançada que permite analisar todos os dados coletados por Application Insights. Pode utilizá-lo para efetuar uma análise detalhada dos dados de pedido e desempenho.
 
-1. Volte para o painel detalhes da operação e clique ![Logs](media/tutorial-performance/app-viewinlogs-icon.png)**exibição de ícone nos logs (análise)**
+1. Volte para o painel detalhes da operação e clique no botão](media/tutorial-performance/app-viewinlogs-icon.png)**de exibição de ícone logs de ![nos logs (análise)**
 
 2. Os logs são abertos com uma consulta para cada uma das exibições no painel.  Pode executar estas consultas como estão ou modificá-las de acordo com os seus requisitos.  A primeira consulta mostra a duração desta operação ao longo do tempo.
 
@@ -100,11 +98,11 @@ Além de identificar os processos de servidor a otimizar, o Application Insights
 ## <a name="use-logs-data-for-client"></a>Usar dados de logs para o cliente
 Assim como os dados coletados para o desempenho do servidor, o Application Insights disponibiliza todos os dados do cliente para análise profunda usando logs.
 
-1. Retorne ao resumo do navegador e clique no ícone **de ![Logs ](media/tutorial-performance/app-viewinlogs-icon.png) exibir nos logs (análise)**
+1. Retorne ao resumo do navegador e clique no ícone de logs de ![](media/tutorial-performance/app-viewinlogs-icon.png) **Exibir nos logs (análise)**
 
 2. Os logs são abertos com uma consulta para cada uma das exibições no painel. A primeira consulta mostra a duração das diferentes vistas de página ao longo do tempo.
 
-    ![Consulta de logs](media/tutorial-performance/10-page-view-logs.png)
+    ![consulta de logs](media/tutorial-performance/10-page-view-logs.png)
 
 3.  O diagnóstico inteligente é um recurso de logs que identifica padrões exclusivos nos dados. Ao clicar no ponto de Diagnóstico Inteligente no gráfico de linhas, a mesma consulta é executada sem os registos que causaram a anomalia. Os detalhes desses registos são apresentados na secção de comentários da consulta, para que possa identificar as propriedades das vistas de página que estão a causar a duração excessiva.
 

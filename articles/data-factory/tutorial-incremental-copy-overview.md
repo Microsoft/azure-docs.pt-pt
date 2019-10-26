@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 15ff84bf8a194c6172864601e3aefe78f9cc13a3
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 51a6721c8bbac86e9c96ee392de3199b0456860f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140589"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901361"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Carrega dados de forma incremental a partir de um arquivo de dados de origem para um arquivo de dados de destino
 
@@ -54,12 +54,12 @@ Para modelos, consulte o seguinte:
 - [Copiar novos arquivos por LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
 ## <a name="loading-new-files-only-by-using-time-partitioned-folder-or-file-name"></a>Carregar novos arquivos somente usando a pasta ou o nome do arquivo particionado.
-Você só pode copiar novos arquivos, onde os arquivos ou pastas já foram particionados com informações da fatia do tempo como parte do nome do arquivo ou da pasta (por exemplo,/yyyy/mm/dd/File.csv). É a abordagem mais de desempenho para o carregamento incremental de novos arquivos. 
+Você só pode copiar novos arquivos, onde os arquivos ou pastas já foram particionados com informações da fatia do tempo como parte do nome do arquivo ou da pasta (por exemplo,/yyyy/mm/dd/File.csv). É a abordagem de melhor desempenho para carregar incrementalmente novos arquivos. 
 
 Para obter instruções passo a passo, veja o seguinte tutorial: <br/>
 - [Copiar incrementalmente novos arquivos com base na pasta particionada do tempo ou no nome do arquivo do armazenamento de BLOBs do Azure para o armazenamento de BLOBs do Azure](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Avançar para o tutorial seguinte: 
 
 > [!div class="nextstepaction"]

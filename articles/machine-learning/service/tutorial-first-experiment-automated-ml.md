@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/26/2019
-ms.openlocfilehash: dcd6f2ea6f5c79664af0c2431da07549e71c26bc
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 726ac906b5f237cfc40a8399b7b1bef3071f98f3
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72035674"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901789"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutorial: criar seu primeiro modelo de classificação com o Machine Learning automatizado
 
@@ -73,7 +73,7 @@ Você conclui as seguintes etapas de configuração e execução de experimento 
    Campo | Descrição | Valor do tutorial
    ----|---|---
    Nome da computação |Um nome exclusivo que identifica o contexto de computação.|automl-computação
-   @No__t_1size &nbsp;machine virtual| Selecione o tamanho da máquina virtual para sua computação.|Standard_DS12_V2
+   Tamanho do&nbsp;máquina&nbsp;virtual| Selecione o tamanho da máquina virtual para sua computação.|Standard_DS12_V2
    Nós mín./máx. (em configurações avançadas)| Para criar o perfil de dados, você deve especificar um ou mais nós.|Nós mínimos: 1<br>Máximo de nós: 6
 
    >[!NOTE]
@@ -118,10 +118,10 @@ Você conclui as seguintes etapas de configuração e execução de experimento 
    >[!NOTE]
    > Neste tutorial, você não definirá uma pontuação de métrica ou um limite máximo de núcleos por iterações. Nem você bloqueará o teste de algoritmos.
    
-   @No__t_0settings avançado|Descrição|Valor &nbsp;for &nbsp;tutorial
+   Configurações de&nbsp;avançadas|Descrição|Valor &nbsp;for &nbsp;tutorial
    ------|---------|---
    Métrica primária| Métrica de avaliação para a qual o algoritmo de aprendizado de máquina será medido.|AUC_weighted
-   Critérios de saída| Se um critério for atendido, o trabalho de treinamento será interrompido. |@No__t_0job de treinamento &nbsp;time: 5 <br> <br> Máximo de &nbsp; # &nbsp;of&#58;&nbsp;iterations 10
+   Critérios de saída| Se um critério for atendido, o trabalho de treinamento será interrompido. |Tempo de&nbsp;do trabalho de treinamento&nbsp;: 5 <br> <br> Máximo de &nbsp; # &nbsp;of&#58;&nbsp;iterations 10
    Pré-processamento| Habilita o pré-processamento feito pelo aprendizado de máquina automatizado. Isso inclui a limpeza automática de dados, a preparação e a transformação para gerar recursos sintéticos.| Ativar
    Tipo de validação | Escolha um tipo de validação cruzada.|Validação cruzada de K-fold
    Número de validações | Número de testes. | 2 validações cruzadas 
@@ -169,6 +169,8 @@ Nesse contexto de experimento, **VotingEnsemble** é considerado o melhor modelo
     
 Agora você tem um serviço Web operacional para gerar previsões.
 
+Prossiga para as [**próximas etapas**](#next-steps) para saber mais sobre como consumir seu novo serviço Web e testar suas previsões usando o suporte Azure Machine Learning interno do Power bi.
+
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Os arquivos de implantação são maiores que os dados e os arquivos de teste, portanto, eles custam mais para serem armazenados. Exclua somente os arquivos de implantação para minimizar os custos em sua conta ou se você quiser manter o espaço de trabalho e os arquivos de teste. Caso contrário, exclua o grupo de recursos inteiro, se você não planeja usar nenhum dos arquivos.  
@@ -192,7 +194,7 @@ Exclua apenas a instância de implantação do portal do Azure, se você quiser 
 Neste tutorial de aprendizado de máquina automatizado, você usou a página de aterrissagem do espaço de trabalho para criar e implantar um modelo de classificação. Consulte estes artigos para obter mais informações e as próximas etapas:
 
 > [!div class="nextstepaction"]
-> [Consumir um serviço Web](how-to-consume-web-service.md)
+> [Consumir um serviço Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Saiba mais sobre o [pré-processamento](how-to-create-portal-experiments.md#preprocess).
 + Saiba mais sobre a [criação de perfil de dados](how-to-create-portal-experiments.md#profile).

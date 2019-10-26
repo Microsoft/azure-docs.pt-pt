@@ -3,22 +3,23 @@ title: CLI do Azure Service Fabric-telemetria de configurações de sfctl | Micr
 description: Descreve os comandos de telemetria das configurações de sfctl da CLI do Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: cf5ebbeb4d9b4757e0c55eeb1a9268065efb2c7c
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: d926c71ae8fd9e196b86c14c7fb96cc65b587b65
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035196"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900984"
 ---
 # <a name="sfctl-settings-telemetry"></a>sfctl settings telemetry
 Defina as configurações de telemetria locais para esta instância do sfctl.
@@ -47,7 +48,7 @@ Ativar ou desativar a telemetria.
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
@@ -66,6 +67,6 @@ sfctl settings telemetry set_telemetry --on
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Configure](service-fabric-cli.md) a CLI do Service Fabric.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

@@ -3,22 +3,23 @@ title: CLI do Azure Service Fabric – agendamento de caos sfctl | Microsoft Doc
 description: Descreve os comandos de agendamento de sfctl da CLI do Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 1664978110b7c700906cbf4e6c80806ac70f1f05
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 443a8186ac6e57360105e59e30f84db997cd2251
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036521"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72897547"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Obter e definir o cronograma de caos.
@@ -27,7 +28,7 @@ Obter e definir o cronograma de caos.
 
 |Comando|Descrição|
 | --- | --- |
-| Get | Obtenha o cronograma de caos definindo quando e como executar o caos. |
+| Obter | Obtenha o cronograma de caos definindo quando e como executar o caos. |
 | set | Defina o agendamento usado pelo caos. |
 
 ## <a name="sfctl-chaos-schedule-get"></a>Get da agenda de caos sfctl
@@ -39,7 +40,7 @@ Obtém a versão do cronograma de caos em uso e o cronograma de caos que define 
 
 |Argumento|Descrição|
 | --- | --- |
-| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -47,24 +48,24 @@ Obtém a versão do cronograma de caos em uso e o cronograma de caos que define 
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
 ## <a name="sfctl-chaos-schedule-set"></a>conjunto de agendamento de caos sfctl
 Defina o agendamento usado pelo caos.
 
-O caos agendará automaticamente as execuções com base na programação de caos. A versão na agenda de entrada fornecida deve corresponder à versão do cronograma de caos no servidor. Se a versão fornecida não corresponder à versão no servidor, o agendamento de caos não será atualizado. Se a versão fornecida corresponder à versão no servidor, o agendamento de caos será atualizado e a versão do cronograma de caos no servidor será incrementada em um e voltará para 0 após 2.147.483.647. Se o caos estiver em execução quando essa chamada for feita, a chamada falhará.
+O caos agendará automaticamente as execuções com base na programação de caos. O agendamento de caos será atualizado se a versão fornecida corresponder à versão no servidor. Ao atualizar o cronograma de caos, a versão no servidor é incrementada em 1. A versão no servidor voltará para 0 depois de atingir um grande número. Se o caos estiver em execução quando essa chamada for feita, a chamada falhará.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
 | --caos-Parameters-Dictionary | Lista codificada JSON que representa um mapeamento de nomes de cadeia de caracteres para os Caosparameters a serem usados pelos trabalhos. |
-| --expiry-date-utc | A data e a hora de quando parar de usar a agenda para agendar caos.  Default\: 9999-12-31T23\:59\:59.999Z. |
+| --Data de expiração-UTC | A data e a hora de quando parar de usar a agenda para agendar caos.  Padrão\: 9999-12-31T23\:59\:59.999 Z. |
 | --trabalhos | Lista codificada em JSON de ChaosScheduleJobs que representa quando executar o caos e com com quais parâmetros executar o caos. |
-| --start-date-utc | A data e a hora de quando começar a usar a agenda para agendar caos.  Default\: 1601-01-01T00\:00\:00.000 z. |
-| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --Data de início-UTC | A data e a hora de quando começar a usar a agenda para agendar caos.  Padrão\: 1601-01-01T00\:00\:00.000 Z. |
+| --Timeout-t | Padrão\: 60. |
 | --versão | O número de versão do agendamento. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -73,7 +74,7 @@ O caos agendará automaticamente as execuções com base na programação de cao
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
@@ -144,6 +145,6 @@ O comando a seguir define um agendamento (supondo que a agenda atual tem a vers�
     ]
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Configure](service-fabric-cli.md) a CLI do Service Fabric.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

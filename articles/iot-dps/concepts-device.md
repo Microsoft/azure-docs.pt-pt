@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 8ea1be02dee0e0ef00010e8ac7a4dfb75eadbe96
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: dc4ffc4965d6a3c05693c7566a2c51538584f372
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173390"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72897587"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Conceitos de dispositivo do serviço de provisionamento de dispositivos no Hub IoT
 
@@ -44,7 +44,7 @@ Os segredos do dispositivo também podem ser armazenados em software (memória),
 
 ## <a name="registration-id"></a>ID de registro
 
-A ID de registro é usada para identificar exclusivamente um dispositivo no serviço de provisionamento de dispositivos. A ID de registro deve ser exclusiva no [escopo da ID](#id-scope)do serviço de provisionamento. Cada dispositivo deve ter uma ID de registro. A ID de registro é alfanumérica, em letras minúsculas e pode conter hifens.
+A ID de registro é usada para identificar exclusivamente um dispositivo no serviço de provisionamento de dispositivos. A ID do dispositivo deve ser exclusiva no [escopo da ID](#id-scope)do serviço de provisionamento. Cada dispositivo deve ter uma ID de registro. A ID de registro é alfanumérica, não diferencia maiúsculas de minúsculas e pode conter caracteres especiais, incluindo dois pontos, ponto, sublinhado e hífen.
 
 * No caso do TPM, a ID de registro é fornecida pelo próprio TPM.
 * No caso do atestado baseado em X. 509, a ID de registro é fornecida como o nome da entidade do certificado.

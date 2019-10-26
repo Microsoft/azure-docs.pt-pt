@@ -4,19 +4,19 @@ description: Entender a solução de problemas comuns da proteção por senha do
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 690d49a94ff4f516e24494622ca378eb0794fee9
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 62395b0b6f1ed152292106a774c1e2f7c6d4f11f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71314938"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893276"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Solução de problemas de proteção de senha do Azure AD
 
@@ -40,7 +40,7 @@ O principal sintoma desse problema é 30018 eventos no log de eventos do adminis
 
 1. O computador host proxy está bloqueando o acesso ao ponto de extremidade RPC (dinâmico ou estático) escutado pelo serviço de proxy
 
-   O instalador de proxy de proteção de senha do Azure AD cria automaticamente uma regra de entrada do firewall do Windows que permite o acesso a qualquer porta de entrada escutada pelo serviço de proxy de proteção de senha do Azure AD. Se essa regra for excluída ou desabilitada posteriormente, os agentes de DC não poderão se comunicar com o serviço de proxy. Se o firewall interno do Windows tiver sido desabilitado no lugar de outro produto de firewall, você deverá configurar esse firewall para permitir o acesso a qualquer porta de entrada escutada pelo serviço de proxy de proteção de senha do Azure AD. Essa configuração pode se tornar mais específica se o serviço de proxy tiver sido configurado para escutar em uma porta RPC estática específica (usando `Set-AzureADPasswordProtectionProxyConfiguration` o cmdlet).
+   O instalador de proxy de proteção de senha do Azure AD cria automaticamente uma regra de entrada do firewall do Windows que permite o acesso a qualquer porta de entrada escutada pelo serviço de proxy de proteção de senha do Azure AD. Se essa regra for excluída ou desabilitada posteriormente, os agentes de DC não poderão se comunicar com o serviço de proxy. Se o firewall interno do Windows tiver sido desabilitado no lugar de outro produto de firewall, você deverá configurar esse firewall para permitir o acesso a qualquer porta de entrada escutada pelo serviço de proxy de proteção de senha do Azure AD. Essa configuração pode se tornar mais específica se o serviço de proxy tiver sido configurado para escutar em uma porta RPC estática específica (usando o cmdlet `Set-AzureADPasswordProtectionProxyConfiguration`).
 
 1. O computador host proxy não está configurado para permitir que os controladores de domínio possam fazer logon no computador. Esse comportamento é controlado por meio da atribuição de privilégio de usuário "acessar este computador pela rede". Todos os controladores de domínio em todos os domínios na floresta devem receber esse privilégio. Essa configuração geralmente é restrita como parte de um esforço maior de proteção de rede.
 
@@ -50,9 +50,9 @@ O principal sintoma desse problema é 30018 eventos no log de eventos do adminis
 
 1. Verifique se a floresta e todos os servidores proxy estão registrados no mesmo locatário do Azure.
 
-   Você pode verificar esse requisito executando os cmdlets `Get-AzureADPasswordProtectionDCAgent` do `Get-AzureADPasswordProtectionProxy` e do PowerShell e, em `AzureTenant` seguida, comparar a propriedade de cada item retornado. Para a operação correta, o nome do locatário relatado deve ser o mesmo em todos os agentes de DC e servidores proxy.
+   Você pode verificar esse requisito executando os cmdlets `Get-AzureADPasswordProtectionProxy` e `Get-AzureADPasswordProtectionDCAgent` PowerShell e, em seguida, comparar a propriedade `AzureTenant` de cada item retornado. Para a operação correta, o nome do locatário relatado deve ser o mesmo em todos os agentes de DC e servidores proxy.
 
-   Se houver uma condição de incompatibilidade de registro de locatário do Azure, esse problema poderá ser `Register-AzureADPasswordProtectionProxy` corrigido executando os `Register-AzureADPasswordProtectionForest` cmdlets do PowerShell e/ou conforme necessário, certificando-se de usar credenciais do mesmo locatário do Azure para todos os registros.
+   Se houver uma condição de incompatibilidade de registro de locatário do Azure, esse problema poderá ser corrigido executando o `Register-AzureADPasswordProtectionProxy` e/ou `Register-AzureADPasswordProtectionForest` cmdlets do PowerShell, conforme necessário, certificando-se de usar credenciais do mesmo locatário do Azure para todos os registros.
 
 ## <a name="dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files"></a>O agente de DC não pode criptografar ou descriptografar arquivos de política de senha
 
@@ -166,7 +166,7 @@ Como o prazo final é verificado apenas na inicialização inicial, você poder�
 > [!IMPORTANT]
 > A Microsoft recomenda que os agentes de DC da visualização pública expirados sejam atualizados imediatamente para a versão mais recente.
 
-Uma maneira fácil de descobrir agentes de DC em seu ambiente que precisam ser atualizados é executando o `Get-AzureADPasswordProtectionDCAgent` cmdlet, por exemplo:
+Uma maneira fácil de descobrir agentes de DC em seu ambiente que precisam ser atualizados é executando o cmdlet `Get-AzureADPasswordProtectionDCAgent`, por exemplo:
 
 ```powershell
 PS C:\> Get-AzureADPasswordProtectionDCAgent
@@ -187,7 +187,7 @@ PS C:\> $LatestAzureADPasswordProtectionVersion = "1.2.125.0"
 PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion -lt $LatestAzureADPasswordProtectionVersion}
 ```
 
-O software de proxy de proteção de senha do Azure AD não é limitado por tempo em nenhuma versão. A Microsoft ainda recomenda que ambos os agentes de DC e proxy sejam atualizados para as versões mais recentes à medida que são lançados. O `Get-AzureADPasswordProtectionProxy` cmdlet pode ser usado para localizar agentes de proxy que exigem atualizações, semelhante ao exemplo acima para agentes de DC.
+O software de proxy de proteção de senha do Azure AD não é limitado por tempo em nenhuma versão. A Microsoft ainda recomenda que ambos os agentes de DC e proxy sejam atualizados para as versões mais recentes à medida que são lançados. O cmdlet `Get-AzureADPasswordProtectionProxy` pode ser usado para localizar agentes de proxy que exigem atualizações, semelhante ao exemplo acima para agentes de DC.
 
 Consulte [atualizando o agente de DC](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) e [atualizando o agente de proxy](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent) para obter mais detalhes sobre os procedimentos de atualização específicos.
 
@@ -197,7 +197,7 @@ Se ocorrer uma situação em que o serviço do agente DC está causando problema
 
 Outra medida de correção seria definir o modo de habilitação como não no portal de proteção de senha do Azure AD. Depois que a política atualizada for baixada, cada serviço de agente de DC entrará em um modo inativo onde todas as senhas são aceitas no estado em que se encontram. Para obter mais informações, consulte [impor modo](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
 
-## <a name="removal"></a>Remoção
+## <a name="removal"></a>Removidos
 
 Se for decidido desinstalar o software de proteção de senha do Azure AD e limpar todo o estado relacionado dos domínios e da floresta, essa tarefa poderá ser realizada usando as seguintes etapas:
 
@@ -216,7 +216,7 @@ Se for decidido desinstalar o software de proteção de senha do Azure AD e limp
 
    Não omita o asterisco ("*") no final do valor da variável $keywords.
 
-   Os objetos resultantes encontrados por meio do `Get-ADObject` comando podem ser canalizados `Remove-ADObject`ou excluídos manualmente.
+   Os objetos resultantes encontrados por meio do comando `Get-ADObject` podem ser canalizados para `Remove-ADObject`ou excluídos manualmente.
 
 4. Remova manualmente todos os pontos de conexão do agente DC em cada contexto de nomenclatura de domínio. Pode haver um desses objetos por controlador de domínio na floresta, dependendo de quanto o software foi implantado. O local desse objeto pode ser descoberto com o seguinte comando do PowerShell Active Directory:
 
@@ -226,7 +226,7 @@ Se for decidido desinstalar o software de proteção de senha do Azure AD e limp
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
-   Os objetos resultantes encontrados por meio do `Get-ADObject` comando podem ser canalizados `Remove-ADObject`ou excluídos manualmente.
+   Os objetos resultantes encontrados por meio do comando `Get-ADObject` podem ser canalizados para `Remove-ADObject`ou excluídos manualmente.
 
    Não omita o asterisco ("*") no final do valor da variável $keywords.
 

@@ -4,19 +4,19 @@ description: Obtenha uma visão geral das configurações com suporte em uma pol
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: reference
 ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 834b13c512bca1b7c43c3c8e93a72383a82db198
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 5a3518dfcad3678dc298ba8529e731d48ec1d195
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274177"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893465"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de configurações de acesso condicional Azure Active Directory
 
@@ -145,7 +145,7 @@ Para implantar automaticamente essa extensão em navegadores Chrome, crie a segu
 | Caminho | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Nome | 1 |
 | Tipo | REG_SZ (cadeia de caracteres) |
-| Dados | ppnbnpeolgkicgegkbkbjmhlideopiji; https @ no__t-0//clients2. google. com/Service/Update2/CRX |
+| Dados | ppnbnpeolgkicgegkbkbjmhlideopiji; https\://clients2.google.com/service/update2/crx |
 
 Para obter suporte ao Chrome no **Windows 8.1 e no 7**, crie a seguinte chave do registro:
 

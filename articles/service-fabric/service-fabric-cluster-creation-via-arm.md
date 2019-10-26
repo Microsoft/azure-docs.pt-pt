@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: atsenthi
-ms.openlocfilehash: 4a865102cbc33da4140f3e25e4b4926eade8e162
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 241349724929845afa2fd2a4bacabf9b5017cc7c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599969"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901558"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Criar um Cluster Service Fabric usando Azure Resource Manager 
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Azure portal](service-fabric-cluster-creation-via-portal.md)
+> * [Portal do Azure](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
 Um [cluster de Service Fabric do Azure](service-fabric-deploy-anywhere.md) é um conjunto de máquinas virtuais conectadas à rede em que seus microserviços são implantados e gerenciados.  Um Cluster Service Fabric em execução no Azure é um recurso do Azure e é implantado usando o Azure Resource Manager. Este artigo descreve como implantar um cluster de Service Fabric seguro no Azure usando o Gerenciador de recursos. Você pode usar um modelo de cluster padrão ou um modelo personalizado.  Se você ainda não tiver um modelo personalizado, poderá [aprender a criar um](service-fabric-cluster-creation-create-template.md).
 
-A segurança do cluster é configurada quando o cluster é instalado pela primeira vez e não pode ser alterada posteriormente. Antes de configurar um cluster, leia [Service Fabric cenários de segurança de cluster][service-fabric-cluster-security]. No Azure, Service Fabric usa o certificado X509 para proteger o cluster e seus pontos de extremidade, autenticar clientes e criptografar dados. Azure Active Directory também é recomendável para proteger o acesso aos pontos de extremidade de gerenciamento. Os locatários e usuários do Azure AD devem ser criados antes da criação do cluster.  Para obter mais informações, leia [Configurar o Azure ad para autenticar clientes](service-fabric-cluster-creation-setup-aad.md).
+O tipo de segurança escolhido para proteger o cluster (ou seja,: Windows Identity, X509 etc.) deve ser especificado para a criação inicial do cluster e não pode ser alterado depois disso. Antes de configurar um cluster, leia [Service Fabric cenários de segurança de cluster][service-fabric-cluster-security]. No Azure, Service Fabric usa o certificado X509 para proteger o cluster e seus pontos de extremidade, autenticar clientes e criptografar dados. Azure Active Directory também é recomendável para proteger o acesso aos pontos de extremidade de gerenciamento. Para obter mais informações, leia [Configurar o Azure ad para autenticar clientes](service-fabric-cluster-creation-setup-aad.md).
 
 Se você estiver criando um cluster de produção para executar cargas de trabalho de produção, recomendamos que você leia primeiro a [lista de verificação de preparação de produção](service-fabric-production-readiness-checklist.md).
 
@@ -44,7 +44,7 @@ Neste artigo, use os módulos Service Fabric RM PowerShell ou CLI do Azure para 
 * [CLI do Azure versão 2,0 e posterior][azure-CLI]
 
 Você pode encontrar a documentação de referência para os módulos de Service Fabric aqui:
-* [Az.ServiceFabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
+* [AZ. onfabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
 * [módulo AZ it CLI](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -74,7 +74,7 @@ O modelo usado está disponível nos [exemplos de modelo do Service Fabric do Az
 O comando a seguir pode criar clusters Windows ou Linux, você precisa especificar o sistema operacional de acordo. Os comandos do PowerShell/CLI também geram o certificado no *CertificateOutputFolder*especificado; no entanto, verifique se a pasta do certificado já foi criada. O comando também usa outros parâmetros, como SKU de VM.
 
 > [!NOTE]
-> O comando do PowerShell a seguir funciona apenas com `Az` o módulo Azure PowerShell. Para verificar a versão atual do Azure Resource Manager versão do PowerShell, execute o seguinte comando do PowerShell "Get-Module AZ". Siga [este link](/powershell/azure/install-Az-ps) para atualizar sua versão Azure Resource Manager PowerShell. 
+> O comando do PowerShell a seguir funciona apenas com o módulo Azure PowerShell `Az`. Para verificar a versão atual do Azure Resource Manager versão do PowerShell, execute o seguinte comando do PowerShell "Get-Module AZ". Siga [este link](/powershell/azure/install-Az-ps) para atualizar sua versão Azure Resource Manager PowerShell. 
 >
 >
 
@@ -173,7 +173,7 @@ Use o comando a seguir para criar um cluster, se você tiver um certificado que 
 Se esse for um certificado assinado por uma autoridade de certificação que você acabará usando para outros fins também, é recomendável que você forneça um grupo de recursos distinto especificamente para o cofre de chaves. Recomendamos que você coloque o cofre de chaves em seu próprio grupo de recursos. Essa ação permite que você remova os grupos de recursos de computação e armazenamento, incluindo o grupo de recursos que contém o cluster de Service Fabric, sem perder suas chaves e segredos. **O grupo de recursos que contém o cofre de chaves *deve estar na mesma região* que o cluster que o está usando.**
 
 ### <a name="use-the-default-five-node-one-node-type-template-that-ships-in-the-module"></a>Usar o modelo padrão de cinco nós, um tipo de nó que é fornecido no módulo
-O modelo usado está disponível nos [exemplos do Azure: Modelo do Windows [](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure) emodelo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) do Ubuntu
+O modelo usado está disponível nos [exemplos do Azure: modelo do Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) e [modelo do Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
 Implantar o cluster usando o PowerShell:
 
@@ -289,7 +289,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
     --template-file $templateFilePath --parameter-file $parametersFilePath 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste ponto, você tem um cluster seguro em execução no Azure. Em seguida, [Conecte-se ao seu cluster](service-fabric-connect-to-secure-cluster.md) e saiba como [gerenciar os segredos do aplicativo](service-fabric-application-secret-management.md).
 
 Para obter a sintaxe e as propriedades JSON para usar um modelo, consulte [referência de modelo Microsoft. perfabric/clusters](/azure/templates/microsoft.servicefabric/clusters).

@@ -1,34 +1,28 @@
 ---
-title: Avançadas consultas no Azure Monitor | Documentos da Microsoft
-description: Este artigo fornece um tutorial para utilizar o portal de análise para escrever consultas no Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Consultas avançadas no Azure Monitor | Microsoft Docs
+description: Este artigo fornece um tutorial para usar o portal de análise para escrever consultas no Azure Monitor.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/15/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 65713ed9c2d0635e776a7a7e5f205b6d55438ed4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 11/15/2018
+ms.openlocfilehash: 8895224bef037c8c3f8b28a6085359837478d924
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589579"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894509"
 ---
-# <a name="writing-advanced-queries-in-azure-monitor"></a>Escrever avançadas consultas no Azure Monitor
+# <a name="writing-advanced-queries-in-azure-monitor"></a>Gravando consultas avançadas no Azure Monitor
 
 > [!NOTE]
-> Deve efetuar [introdução ao Log Analytics do Azure Monitor](get-started-portal.md) e [introdução às consultas](get-started-queries.md) antes de concluir esta lição.
+> Você deve concluir a introdução [ao Azure Monitor log Analytics](get-started-portal.md) e [a introdução às consultas](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-## <a name="reusing-code-with-let"></a>Reutilização de código com let
-Utilize `let` para atribuir os resultados para uma variável e fazer referência a ele mais tarde na consulta:
+## <a name="reusing-code-with-let"></a>Reutilizando código com Let
+Use `let` para atribuir resultados a uma variável e se referir a ele mais tarde na consulta:
 
 ```Kusto
 // get all events that have level 2 (indicates warning level)
@@ -40,7 +34,7 @@ warning_events
 | summarize count() by Computer 
 ```
 
-Também pode atribuir valores constantes para variáveis. Isso oferece suporte a um método para definir os parâmetros para os campos que precisa alterar toda vez que executar a consulta. Modificar os parâmetros conforme necessário. Por exemplo, para calcular o espaço livre em disco e memória livre (em percentis), numa janela de tempo especificado:
+Você também pode atribuir valores constantes a variáveis. Isso dá suporte a um método para configurar parâmetros para os campos que você precisa alterar toda vez que executar a consulta. Modifique esses parâmetros conforme necessário. Por exemplo, para calcular o espaço livre em disco e a memória livre (em percentils), em uma determinada janela de tempo:
 
 ```Kusto
 let startDate = datetime(2018-08-01T12:55:02);
@@ -58,10 +52,10 @@ Perf
 union FreeDiskSpace, FreeMemory
 ```
 
-Isto torna mais fácil alterar o início da hora de fim da próxima vez que executar a consulta.
+Isso facilita a alteração do início da hora de término na próxima vez que você executar a consulta.
 
-### <a name="local-functions-and-parameters"></a>Funções locais e parâmetros
-Utilize `let` instruções para criar funções que podem ser utilizadas da mesma consulta. Por exemplo, defina uma função que usa um campo datetime (no formato UTC) e converte-o para um formato padrão dos EUA. 
+### <a name="local-functions-and-parameters"></a>Funções e parâmetros locais
+Use `let` instruções para criar funções que podem ser usadas na mesma consulta. Por exemplo, defina uma função que usa um campo DateTime (no formato UTC) e o converte em um formato padrão dos EUA. 
 
 ```Kusto
 let utc_to_us_date_format = (t:datetime)
@@ -75,8 +69,8 @@ Event
 | project TimeGenerated, USTimeGenerated, Source, Computer, EventLevel, EventData 
 ```
 
-## <a name="print"></a>Impressão
-`print` Devolve uma tabela com uma única coluna e uma única linha, que mostra o resultado de um cálculo. Isto é frequentemente utilizado em casos em que é necessário um cálculo simple. Por exemplo, para encontrar a hora atual no PST e adicionar uma coluna com EST:
+## <a name="print"></a>Imprimir
+`print` retornará uma tabela com uma única coluna e uma única linha, mostrando o resultado de um cálculo. Isso geralmente é usado nos casos em que você precisa de um cálculo simples. Por exemplo, para localizar a hora atual em PST e adicionar uma coluna com EST:
 
 ```Kusto
 print nowPst = now()-8h
@@ -84,7 +78,7 @@ print nowPst = now()-8h
 ```
 
 ## <a name="datatable"></a>DataTable
-`datatable` permite-lhe definir um conjunto de dados. Fornecer um esquema e um conjunto de valores e, em seguida, encaminhar a tabela em todos os outros elementos de consulta. Por exemplo, para criar uma tabela de utilização de RAM e calcular o valor médio por hora:
+`datatable` permite que você defina um conjunto de dados. Você fornece um esquema e um conjunto de valores e, em seguida, canaliza a tabela em qualquer outro elemento de consulta. Por exemplo, para criar uma tabela de uso de RAM e calcular o valor médio por hora:
 
 ```Kusto
 datatable (TimeGenerated: datetime, usage_percent: double)
@@ -101,7 +95,7 @@ datatable (TimeGenerated: datetime, usage_percent: double)
 | summarize avg(usage_percent) by bin(TimeGenerated, 1h)
 ```
 
-Construções de DataTable também são muito úteis durante a criação de uma tabela de pesquisa. Por exemplo, para mapear dados de tabela, como IDs de evento a _SecurityEvent_ tabela, para tipos de eventos listados em outro lugar, crie uma tabela de pesquisa com os tipos de eventos usando `datatable` e Junte-se a essa datatable com  _SecurityEvent_ dados:
+As construções de DataTable também são muito úteis ao criar uma tabela de pesquisa. Por exemplo, para mapear dados de tabela, como IDs de evento da tabela _SecurityEvent_ , para tipos de evento listados em outro lugar, crie uma tabela de pesquisa com os tipos de evento usando `datatable` e ingresse nesse DataTable com os dados _SecurityEvent_ :
 
 ```Kusto
 let eventCodes = datatable (EventID: int, EventType:string)
@@ -129,13 +123,13 @@ SecurityEvent
 | project TimeGenerated, Account, AccountType, Computer, EventType
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-Consulte outras lições para utilizar o [linguagem de consulta de Kusto](/azure/kusto/query/) com o Azure Monitor registos de dados:
+## <a name="next-steps"></a>Passos seguintes
+Consulte outras lições para usar a [linguagem de consulta Kusto](/azure/kusto/query/) com Azure monitor dados de log:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)
 - [Funções de agregação](aggregations.md)
 - [Agregações avançadas](advanced-aggregations.md)
-- [Estruturas de dados e JSON](json-data-structures.md)
-- [Associações](joins.md)
-- [Gráficos](charts.md)
+- [JSON e estruturas de dados](json-data-structures.md)
+- [Junções](joins.md)
+- [Spersão](charts.md)

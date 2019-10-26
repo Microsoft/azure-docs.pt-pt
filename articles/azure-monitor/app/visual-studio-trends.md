@@ -1,26 +1,20 @@
 ---
 title: Analisar Tendências no Visual Studio | Microsoft Docs
 description: Analise, visualize e explore tendências na sua telemetria do Application Insights no Visual Studio.
-services: application-insights
-documentationcenter: .net
-author: NumberByColors
-manager: carmonm
-ms.assetid: 3150c6fc-2691-44f6-a290-fc5cd68e692a
-ms.service: application-insights
-ms.custom: vs-azure
-ms.workload: azure-vs
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: 2b08dfd87910cbb9f23f6b108a970d160612e1a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: vs-azure
+ms.openlocfilehash: da1cd3ed9d07b1eb1304f6b26999af92d2704537
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255895"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899308"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analisar Tendências no Visual Studio
 A ferramenta Application Insights Trends visualiza como eventos de telemetria importantes da sua aplicação Web alteram ao longo do tempo, ajudando-o a identificar rapidamente problemas e anomalias. Ao ligá-lo a informações mais detalhadas de diagnóstico, o Trends pode ajudá-lo a melhorar o desempenho da aplicação, identificar as causas de exceções e descobrir conhecimentos aprofundados dos seus eventos personalizados.
@@ -60,7 +54,7 @@ O Application Insights Trends cria uma visualização de séries de tempo a part
 
 Utilize os controlos na parte superior da janela para ajustar que tipos de telemetria pretende ver. Em primeiro lugar, escolha os tipos de telemetria nos quais está interessado:
 
-* **Tipo de telemetria** -pedidos de servidor, exceções, dependências ou eventos personalizados
+* **Tipo de telemetria** -solicitações de servidor, exceções, dependências ou eventos personalizados
 * **Intervalo de tempo** – Em qualquer lugar nos últimos 30 minutos para os últimos 3 dias
 * **Agrupar Por** – Tipo de exceção, ID do problema, país/região e muito mais.
 
@@ -69,7 +63,7 @@ Em seguida, clique em **Analisar Telemetria** para executar a consulta.
 Para navegar entre bolhas na visualização:
 
 * Clique para selecionar uma bolha, que atualiza os filtros na parte inferior da janela, resumir apenas os eventos que ocorreram durante um período de tempo específico
-* Faça duplo clique numa bolha para navegar para a ferramenta de pesquisa e ver todos os eventos de telemetria individuais que ocorreram durante esse período de tempo
+* Clique duas vezes em uma bolha para navegar até a ferramenta de pesquisa e ver todos os eventos de telemetria individuais que ocorreram durante esse período de tempo
 * Faça Ctrl-clique numa bolha desmarcá-la na visualização.
 
 > [!TIP]
@@ -77,8 +71,8 @@ Para navegar entre bolhas na visualização:
 > 
 > 
 
-## <a name="filter"></a>Filtro
-Detete tendências mais específicas com os controlos de filtro na parte inferior da janela. Para aplicar um filtro, clique no respetivo nome. Pode alternar rapidamente entre diferentes filtros para detetar as tendências que possam estar ocultas numa dimensão específica da sua telemetria. Se aplicar um filtro a uma dimensão, como Tipo de Exceção, filtros noutras dimensões permanecem clicáveis, mesmo que pareçam estar desativados. Para anular a aplicação de um filtro, clique nele novamente. Faça CTRL-clique para selecionar vários filtros na mesma dimensão.
+## <a name="filter"></a>Filtrar
+Detete tendências mais específicas com os controlos de filtro na parte inferior da janela. Para aplicar um filtro, clique no respetivo nome. Pode alternar rapidamente entre diferentes filtros para detetar as tendências que possam estar ocultas numa dimensão específica da sua telemetria. Se você aplicar um filtro em uma dimensão, como tipo de exceção, os filtros em outras dimensões permanecerão clicáveis, embora sejam exibidos esmaecidos. Para cancelar a aplicação de um filtro, clique nele novamente. Faça CTRL-clique para selecionar vários filtros na mesma dimensão.
 
 ![Filtros de tendência](./media/visual-studio-trends/TrendsFiltering-750.png)
 
@@ -94,7 +88,7 @@ Para anular a aplicação de um destes filtros, clique no botão **Remover filtr
 ![Vários filtros](./media/visual-studio-trends/TrendsFiltering2-750.png)
 
 ## <a name="find-anomalies"></a>Localizar anomalias
-A ferramenta Trends pode realçar bolhas de eventos que são anómalos em comparação com outras bolhas na mesma série de tempo. Na lista pendente Tipo de vista, selecione **Contagens no registo de tempo (realçar anomalias)** ou **Percentagens no registo de tempo (realçar anomalias)** . As bolhas vermelhas são anómalas. Anomalias são definidas como bolhas com contagens/percentagens que excedem 2,1 vezes o desvio padrão das contagens/percentagens que ocorreram anteriormente dois períodos de tempo (48 horas se estiver a ver as últimas 24 horas, etc.).
+A ferramenta Trends pode realçar bolhas de eventos que são anómalos em comparação com outras bolhas na mesma série de tempo. Na lista pendente Tipo de vista, selecione **Contagens no registo de tempo (realçar anomalias)** ou **Percentagens no registo de tempo (realçar anomalias)** . As bolhas vermelhas são anómalas. As anomalias são definidas como bolhas com contagens/percentuais que excedem 2,1 vezes o desvio padrão das contagens/percentuais que ocorreram nos últimos dois períodos de tempo (48 horas se você estiver exibindo as últimas 24 horas, etc.).
 
 ![Os pontos coloridos indicam anomalias](./media/visual-studio-trends/TrendsAnomalies-750.png)
 

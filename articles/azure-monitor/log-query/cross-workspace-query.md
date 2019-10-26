@@ -1,24 +1,18 @@
 ---
 title: Consultar entre recursos com Azure Monitor | Microsoft Docs
 description: Este artigo descreve como você pode consultar recursos de vários espaços de trabalho e aplicativo do Application insights em sua assinatura.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/05/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: a1ea4012b7cda5b5deab82027e5547a9c9ef786f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 06/05/2019
+ms.openlocfilehash: e74c81956ab0590b8b7237d3ecf60ae242a43b73
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650159"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894480"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Executar consultas de log entre recursos no Azure Monitor  
 
@@ -110,7 +104,7 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ## <a name="using-cross-resource-query-for-multiple-resources"></a>Usando a consulta entre recursos para vários recursos
 Ao usar consultas entre recursos para correlacionar dados de vários espaços de trabalho do Log Analytics e Application Insights recursos, a consulta pode se tornar complexa e difícil de manter. Você deve aproveitar as [funções em Azure monitor consultas de log](functions.md) para separar a lógica de consulta do escopo dos recursos de consulta, o que simplifica a estrutura de consulta. O exemplo a seguir demonstra como você pode monitorar vários Application Insights recursos e visualizar a contagem de solicitações com falha por nome do aplicativo. 
 
-Crie uma consulta como a seguinte que faça referência ao escopo dos recursos de Application Insights. O `withsource= SourceApp` comando adiciona uma coluna que designa o nome do aplicativo que enviou o log. [Salve a consulta como função](functions.md#create-a-function) com o alias _applicationsScoping_.
+Crie uma consulta como a seguinte que faça referência ao escopo dos recursos de Application Insights. O comando `withsource= SourceApp` adiciona uma coluna que designa o nome do aplicativo que enviou o log. [Salve a consulta como função](functions.md#create-a-function) com o alias _applicationsScoping_.
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources
@@ -141,7 +135,7 @@ applicationsScoping
 
 ![Timechart](media/cross-workspace-query/chart.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Examine [analisar dados de log em Azure monitor](log-query-overview.md) para obter uma visão geral das consultas de log e como Azure monitor dados de log são estruturados.
 - Examine [Azure monitor consultas de log](query-language.md) para exibir todos os recursos para Azure monitor consultas de log.

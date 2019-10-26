@@ -1,23 +1,18 @@
 ---
-title: 'Referência da API do agente do insights Aplicativo Azure: habilitar mecanismo de instrumentação | Microsoft Docs'
+title: Referência da API do agente do insights Aplicativo Azure
 description: Referência de API do agente Application Insights. Enable-InstrumentationEngine. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
-services: application-insights
-documentationcenter: .net
-author: TimothyMothra
-manager: alexklim
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/23/2019
+author: TimothyMothra
 ms.author: tilee
-ms.openlocfilehash: 9958121c38b96dc9cfa4dda2812fa9ce2b18d785
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 04/23/2019
+ms.openlocfilehash: 796c2cc669e238499223d233cf4ddcf740af7c95
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388293"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899728"
 ---
 # <a name="application-insights-agent-api-enable-instrumentationengine"></a>API do agente de Application Insights: Enable-InstrumentationEngine
 

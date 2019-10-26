@@ -1,5 +1,5 @@
 ---
-title: Tutorial-arquivar logs de Azure Active Directory em uma conta de armazenamento | Microsoft Docs
+title: Tutorial-arquivar logs de diretório em uma conta de armazenamento | Microsoft Docs
 description: Saiba como configurar Diagnóstico do Azure para enviar por push Azure Active Directory logs para uma conta de armazenamento
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d98fb0677b864fccfb5abd2b08381db1bd1c9c8f
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: bce2c032eaa5ec77544477ff75e22492d70a650e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989742"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895091"
 ---
-# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Tutorial: Arquivar logs do Azure AD em uma conta de armazenamento do Azure
+# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Tutorial: arquivar logs do Azure AD em uma conta de armazenamento do Azure
 
 Neste tutorial, vai aprender a configurar as definições de diagnóstico do Azure Monitor para encaminhar registos do Azure Active Directory (Azure AD) para uma conta de armazenamento do Azure.
 
@@ -73,7 +73,7 @@ Para utilizar esta funcionalidade, precisa de:
 
     ![Conta de armazenamento](./media/quickstart-azure-monitor-route-logs-to-storage-account/StorageAccount.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Interpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md) (Interpretar o esquema dos registos de auditoria no Azure Monitor)
 * [Interpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md) (Interpretar o esquema dos registos de início de sessão no Azure Monitor)

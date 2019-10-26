@@ -1,51 +1,133 @@
 ---
-title: Funções de modelo do Azure Resource Manager - recursos | Documentos da Microsoft
-description: Descreve as funções para utilizar num modelo do Azure Resource Manager para recuperar valores sobre os recursos.
+title: Funções de modelo de Azure Resource Manager – recursos | Microsoft Docs
+description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager para recuperar valores sobre recursos.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7e13e2bed4e881d12737d8e0df0ff0ba2bb2bca9
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: cf791bd262849cd93a155a19ade8f8fc377f8da6
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827469"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894203"
 ---
-# <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos Azure Resource Manager
+# <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recurso para modelos de Azure Resource Manager
 
-O Resource Manager proporciona as seguintes funções para obter valores do recurso:
+O Gerenciador de recursos fornece as seguintes funções para obter valores de recurso:
 
-* [lista *](#list)
-* [Fornecedores](#providers)
-* [reference](#reference)
+* [extensionResourceId](#extensionresourceid)
+* [lista](#list)
+* [fornecedor](#providers)
+* [referência](#reference)
 * [resourceGroup](#resourcegroup)
-* [resourceId](#resourceid)
+* [Identificação](#resourceid)
 * [subscrição](#subscription)
+* [subscriptionResourceId](#subscriptionresourceid)
+* [tenantResourceId](#tenantresourceid)
 
-Para obter valores de parâmetros, variáveis ou a implementação atual, veja [das funções de valor de implementação](resource-group-template-functions-deployment.md).
+Para obter valores de parâmetros, variáveis ou a implantação atual, consulte [funções de valor de implantação](resource-group-template-functions-deployment.md).
+
+## <a name="extensionresourceid"></a>extensionResourceId
+
+```json
+extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)
+```
+
+Retorna a ID de recurso para um [recurso de extensão](extension-resource-types.md), que é um tipo de recurso que é aplicado a outro recurso a ser adicionado aos seus recursos.
+
+### <a name="parameters"></a>Parâmetros
+
+| Parâmetro | Obrigatório | Tipo | Descrição |
+|:--- |:--- |:--- |:--- |
+| resourceId |Sim |string |A ID de recurso para o recurso ao qual o recurso de extensão é aplicado. |
+| resourceType |Sim |string |Tipo de recurso, incluindo namespace do provedor de recursos. |
+| resourceName1 |Sim |string |Nome do recurso. |
+| resourceName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
+
+Continue adicionando nomes de recursos como parâmetros quando o tipo de recurso incluir mais segmentos.
+
+### <a name="return-value"></a>Valor de retorno
+
+O formato básico da ID do recurso retornado por essa função é:
+
+```json
+{scope}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
+```
+
+O segmento de escopo varia de acordo com o recurso que está sendo estendido.
+
+Quando o recurso de extensão é aplicado a um **recurso**, a ID do recurso é retornada no seguinte formato:
+
+```json
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{baseResourceProviderNamespace}/{baseResourceType}/{baseResourceName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
+```
+
+Quando o recurso de extensão é aplicado a um **grupo de recursos**, o formato é:
+
+```json
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
+```
+
+Quando o recurso de extensão é aplicado a uma **assinatura**, o formato é:
+
+```json
+/subscriptions/{subscriptionId}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
+```
+
+Quando o recurso de extensão é aplicado a um **grupo de gerenciamento**, o formato é:
+
+```json
+/providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
+```
+
+### <a name="extensionresourceid-example"></a>exemplo de extensionResourceId
+
+O exemplo a seguir retorna a ID de recurso para um bloqueio de grupo de recursos.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "lockName":{
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "lockResourceId": {
+            "type": "string",
+            "value": "[extensionResourceId(resourceGroup().Id , 'Microsoft.Authorization/locks', parameters('lockName'))]"
+        }
+    }
+}
+```
 
 <a id="listkeys" />
 <a id="list" />
 
-## <a name="list"></a>list*
+## <a name="list"></a>lista
 
-`list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
+```json
+list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
+```
 
-A sintaxe dessa função varia de acordo com o nome das operações de lista. Cada implementação retorna valores para o tipo de recurso que oferece suporte a uma operação de lista. O nome da operação deve começar `list`com. Alguns usos comuns são `listKeys` e. `listSecrets` 
+A sintaxe dessa função varia de acordo com o nome das operações de lista. Cada implementação retorna valores para o tipo de recurso que oferece suporte a uma operação de lista. O nome da operação deve começar com `list`. Alguns usos comuns são `listKeys` e `listSecrets`. 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceName ou resourceIdentifier |Sim |cadeia |Identificador exclusivo para o recurso. |
-| apiVersion |Sim |cadeia |Versão de API do Estado de runtime do recurso. Normalmente, no formato, **dd-mm-aaaa**. |
-| functionValues |Não |objeto | Um objeto que tem valores para a função. Fornecer apenas este objeto para as funções que suportam a receção de um objeto com valores de parâmetros, tal como **listAccountSas** numa conta de armazenamento. Um exemplo de passagem de valores de função é mostrado neste artigo. | 
+| resourceName ou resourceIdentifier |Sim |string |Identificador exclusivo do recurso. |
+| apiVersion |Sim |string |Versão de API do estado do tempo de execução do recurso. Normalmente, no formato, **aaaa-mm-dd**. |
+| functionValues |Não |objeto | Um objeto que tem valores para a função. Forneça apenas esse objeto para funções que dão suporte ao recebimento de um objeto com valores de parâmetro, como **listAccountSas** em uma conta de armazenamento. Um exemplo de passagem de valores de função é mostrado neste artigo. | 
 
 ### <a name="valid-uses"></a>Usos válidos
 
-As funções de lista só podem ser usadas nas propriedades de uma definição de recurso e na seção de saídas de um modelo ou implantação. Quando usado com a [iteração de propriedade](resource-group-create-multiple.md#property-iteration), você pode usar as funções de lista para `input` porque a expressão é atribuída à propriedade de recurso. Você não pode usá- `count` los com o porque a contagem deve ser determinada antes que a função list seja resolvida.
+As funções de lista só podem ser usadas nas propriedades de uma definição de recurso e na seção de saídas de um modelo ou implantação. Quando usado com a [iteração de propriedade](resource-group-create-multiple.md#property-iteration), você pode usar as funções de lista para `input` porque a expressão é atribuída à propriedade de recurso. Você não pode usá-los com `count` porque a contagem deve ser determinada antes que a função list seja resolvida.
 
 ### <a name="implementations"></a>Implementações
 
@@ -53,110 +135,110 @@ Os usos possíveis da lista * são mostrados na tabela a seguir.
 
 | Tipo de recurso | Nome da função |
 | ------------- | ------------- |
-| Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
-| Microsoft.AppConfiguration/configurationStores | ListKeys |
-| Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
-| Microsoft.Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
-| Microsoft.BatchAI/workspaces/experiments/jobs | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
-| Microsoft.Blockchain/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
-| Microsoft.Blockchain/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
-| Microsoft.BotService/botServices/channels | listChannelWithKeys |
-| Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/listkeys) |
-| Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
-| Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
-| Microsoft.ContainerRegistry/registries | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
-| Microsoft.ContainerRegistry/registries | [listUsages](/rest/api/containerregistry/registries/listusages) |
-| Microsoft.ContainerRegistry/registries/webhooks | [listEvents](/rest/api/containerregistry/webhooks/listevents) |
-| Microsoft.ContainerRegistry/registries/runs | [listLogSasUrl](/rest/api/containerregistry/runs/getlogsasurl) |
-| Microsoft.ContainerRegistry/registries/tasks | [listDetails](/rest/api/containerregistry/tasks/getdetails) |
-| Microsoft.ContainerService/managedClusters | [listClusterAdminCredential](/rest/api/aks/managedclusters/listclusteradmincredentials) |
-| Microsoft.ContainerService/managedClusters | [listClusterUserCredential](/rest/api/aks/managedclusters/listclusterusercredentials) |
-| Microsoft.ContainerService/managedClusters/accessProfiles | [listCredential](/rest/api/aks/managedclusters/getaccessprofile) |
-| Microsoft.DataBox/jobs | listCredentials |
-| Microsoft.DataFactory/datafactories/gateways | listauthkeys |
-| Microsoft.DataFactory/factories/integrationruntimes | [listauthkeys](/rest/api/datafactory/integrationruntimes/listauthkeys) |
-| Microsoft.DataLakeAnalytics/accounts/storageAccounts/Containers | [listSasTokens](/rest/api/datalakeanalytics/storageaccounts/listsastokens) |
-| Microsoft.Devices/iotHubs | [listkeys](/rest/api/iothub/iothubresource/listkeys) |
-| Microsoft.Devices/provisioningServices/keys | [listkeys](/rest/api/iot-dps/iotdpsresource/listkeysforkeyname) |
-| Microsoft.Devices/provisioningServices | [listkeys](/rest/api/iot-dps/iotdpsresource/listkeys) |
-| Microsoft.DevTestLab/labs | [ListVhds](/rest/api/dtl/labs/listvhds) |
-| Microsoft.DevTestLab/labs/schedules | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
-| Microsoft.DevTestLab/labs/users/serviceFabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
-| Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
-| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/databaseaccounts/listconnectionstrings) |
-| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
-| Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
-| Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
-| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/domains/listsharedaccesskeys) |
-| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/topics/listsharedaccesskeys) |
-| Microsoft.EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub/namespaces/listkeys) |
-| Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub/disasterrecoveryconfigs/listkeys) |
-| Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub/eventhubs/listkeys) |
-| Microsoft.ImportExport/jobs | [listBitLockerKeys](/rest/api/storageimportexport/bitlockerkeys/list) |
-| Microsoft.LabServices/users | [ListEnvironments](/rest/api/labservices/globalusers/listenvironments) |
-| Microsoft.LabServices/users | [ListLabs](/rest/api/labservices/globalusers/listlabs) |
+| Microsoft. AnalysisServices/Servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
+| Microsoft. AppConfiguration/configurationStores | ListKeys |
+| Microsoft. Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
+| Microsoft. batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
+| Microsoft. BatchAI/espaços de trabalho/experimentos/trabalhos | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
+| Microsoft. Blockchain/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
+| Microsoft. Blockchain/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
+| Microsoft. BotService/botServices/Channels | listChannelWithKeys |
+| Microsoft. cache/Redis | [listKeys](/rest/api/redis/redis/listkeys) |
+| Microsoft. Cognitivaservices/contas | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
+| Microsoft. ContainerRegistry/registros | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
+| Microsoft. ContainerRegistry/registros | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
+| Microsoft. ContainerRegistry/registros | [listUsages](/rest/api/containerregistry/registries/listusages) |
+| Microsoft. ContainerRegistry/registros/WebHooks | [listEvents](/rest/api/containerregistry/webhooks/listevents) |
+| Microsoft. ContainerRegistry/registros/execuções | [listLogSasUrl](/rest/api/containerregistry/runs/getlogsasurl) |
+| Microsoft. ContainerRegistry/registros/tarefas | [listDetails](/rest/api/containerregistry/tasks/getdetails) |
+| Microsoft. ContainerService/managedClusters | [listClusterAdminCredential](/rest/api/aks/managedclusters/listclusteradmincredentials) |
+| Microsoft. ContainerService/managedClusters | [listClusterUserCredential](/rest/api/aks/managedclusters/listclusterusercredentials) |
+| Microsoft. ContainerService/managedClusters/accessProfiles | [listCredential](/rest/api/aks/managedclusters/getaccessprofile) |
+| Microsoft. Data Box/Jobs | listCredentials |
+| Microsoft. datafactory/datafactorings/gateways | listauthkeys |
+| Microsoft. datafactory/fábricas/integrationruntimes | [listauthkeys](/rest/api/datafactory/integrationruntimes/listauthkeys) |
+| Microsoft. DataLakeAnalytics/accounts/storageAccounts/containers | [listSasTokens](/rest/api/datalakeanalytics/storageaccounts/listsastokens) |
+| Microsoft. Devices/iotHubs | [listkeys](/rest/api/iothub/iothubresource/listkeys) |
+| Microsoft. Devices/provisioningServices/Keys | [listkeys](/rest/api/iot-dps/iotdpsresource/listkeysforkeyname) |
+| Microsoft. Devices/provisioningServices | [listkeys](/rest/api/iot-dps/iotdpsresource/listkeys) |
+| Microsoft. DevTestLab/Labs | [ListVhds](/rest/api/dtl/labs/listvhds) |
+| Microsoft. DevTestLab/Labs/Schedules | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
+| Microsoft. DevTestLab/Labs/usuários/perfabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
+| Microsoft. DevTestLab/Labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
+| Microsoft. DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/databaseaccounts/listconnectionstrings) |
+| Microsoft. DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
+| Microsoft. DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
+| Microsoft. DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
+| Microsoft. EventGrid/domínios | [listKeys](/rest/api/eventgrid/domains/listsharedaccesskeys) |
+| Microsoft. EventGrid/tópicos | [listKeys](/rest/api/eventgrid/topics/listsharedaccesskeys) |
+| Microsoft. EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub/namespaces/listkeys) |
+| Microsoft. EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub/disasterrecoveryconfigs/listkeys) |
+| Microsoft. EventHub/namespaces/Eventhubs/authorizationRules | [listkeys](/rest/api/eventhub/eventhubs/listkeys) |
+| Microsoft. ImportExport/Jobs | [listBitLockerKeys](/rest/api/storageimportexport/bitlockerkeys/list) |
+| Microsoft. LabServices/usuários | [ListEnvironments](/rest/api/labservices/globalusers/listenvironments) |
+| Microsoft. LabServices/usuários | [ListLabs](/rest/api/labservices/globalusers/listlabs) |
 | Microsoft. Logic/integrationAccounts/Agreements | [listContentCallbackUrl](/rest/api/logic/agreements/listcontentcallbackurl) |
 | Microsoft. Logic/integrationAccounts/assemblies | [listContentCallbackUrl](/rest/api/logic/integrationaccountassemblies/listcontentcallbackurl) |
-| Microsoft.Logic/integrationAccounts | [listCallbackUrl](/rest/api/logic/integrationaccounts/getcallbackurl) |
-| Microsoft.Logic/integrationAccounts | [listKeyVaultKeys](/rest/api/logic/integrationaccounts/listkeyvaultkeys) |
+| Microsoft. Logic/integrationAccounts | [listCallbackUrl](/rest/api/logic/integrationaccounts/getcallbackurl) |
+| Microsoft. Logic/integrationAccounts | [listKeyVaultKeys](/rest/api/logic/integrationaccounts/listkeyvaultkeys) |
 | Microsoft. Logic/integrationAccounts/Maps | [listContentCallbackUrl](/rest/api/logic/maps/listcontentcallbackurl) |
-| Microsoft.Logic/integrationAccounts/partners | [listContentCallbackUrl](/rest/api/logic/partners/listcontentcallbackurl) |
-| Microsoft.Logic/integrationAccounts/schemas | [listContentCallbackUrl](/rest/api/logic/schemas/listcontentcallbackurl) |
-| Microsoft.Logic/workflows | [listCallbackUrl](/rest/api/logic/workflows/listcallbackurl) |
-| Microsoft.Logic/workflows | [listSwagger](/rest/api/logic/workflows/listswagger) |
-| Microsoft.Logic/workflows/triggers | [listCallbackUrl](/rest/api/logic/workflowtriggers/listcallbackurl) |
-| Microsoft.Logic/workflows/versions/triggers | [listCallbackUrl](/rest/api/logic/workflowversions/listcallbackurl) |
-| Microsoft.MachineLearning/webServices | [listkeys](/rest/api/machinelearning/webservices/listkeys) |
-| Microsoft.MachineLearning/Workspaces | listworkspacekeys |
-| Microsoft.MachineLearningServices/workspaces/computes | ListKeys |
-| Microsoft.MachineLearningServices/workspaces | ListKeys |
-| Microsoft.Maps/accounts | [listKeys](/rest/api/maps-management/accounts/listkeys) |
-| Microsoft.Media/mediaservices/assets | [listContainerSas](/rest/api/media/assets/listcontainersas) |
-| Microsoft.Media/mediaservices/assets | [listStreamingLocators](/rest/api/media/assets/liststreaminglocators) |
-| Microsoft.Media/mediaservices/streamingLocators | [listContentKeys](/rest/api/media/streaminglocators/listcontentkeys) |
-| Microsoft.Media/mediaservices/streamingLocators | [listPaths](/rest/api/media/streaminglocators/listpaths) |
-| Microsoft.Network/applicationSecurityGroups | listIpConfigurations |
-| Microsoft.NotificationHubs/Namespaces/authorizationRules | [listkeys](/rest/api/notificationhubs/namespaces/listkeys) |
-| Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules | [listkeys](/rest/api/notificationhubs/notificationhubs/listkeys) |
-| Microsoft.OperationalInsights/workspaces | [listKeys](/rest/api/loganalytics/workspaces%202015-03-20/listkeys) |
-| Microsoft.Relay/namespaces/authorizationRules | [listkeys](/rest/api/relay/namespaces/listkeys) |
-| Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys |
-| Microsoft.Relay/namespaces/HybridConnections/authorizationRules | [listkeys](/rest/api/relay/hybridconnections/listkeys) |
-| Microsoft.Relay/namespaces/WcfRelays/authorizationRules | [listkeys](/rest/api/relay/wcfrelays/listkeys) |
-| Microsoft.Search/searchServices | [listAdminKeys](/rest/api/searchmanagement/adminkeys/get) |
-| Microsoft.Search/searchServices | [listQueryKeys](/rest/api/searchmanagement/querykeys/listbysearchservice) |
-| Microsoft.ServiceBus/namespaces/authorizationRules | [listkeys](/rest/api/servicebus/namespaces/listkeys) |
-| Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/servicebus/disasterrecoveryconfigs/listkeys) |
-| Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listkeys](/rest/api/servicebus/queues/listkeys) |
-| Microsoft.ServiceBus/namespaces/topics/authorizationRules | [listkeys](/rest/api/servicebus/topics/listkeys) |
-| Microsoft.SignalRService/SignalR | [listkeys](/rest/api/signalr/signalr/listkeys) |
+| Microsoft. Logic/integrationAccounts/Partners | [listContentCallbackUrl](/rest/api/logic/partners/listcontentcallbackurl) |
+| Microsoft. Logic/integrationAccounts/schemas | [listContentCallbackUrl](/rest/api/logic/schemas/listcontentcallbackurl) |
+| Microsoft. Logic/workflows | [listCallbackUrl](/rest/api/logic/workflows/listcallbackurl) |
+| Microsoft. Logic/workflows | [listSwagger](/rest/api/logic/workflows/listswagger) |
+| Microsoft. Logic/workflows/triggers | [listCallbackUrl](/rest/api/logic/workflowtriggers/listcallbackurl) |
+| Microsoft. Logic/workflows/Versions/triggers | [listCallbackUrl](/rest/api/logic/workflowversions/listcallbackurl) |
+| Microsoft. MachineLearning/WebServices | [listkeys](/rest/api/machinelearning/webservices/listkeys) |
+| Microsoft. MachineLearning/Workspaces | listworkspacekeys |
+| Microsoft. MachineLearningServices/espaços de trabalho/computações | ListKeys |
+| Microsoft. MachineLearningServices/Workspaces | ListKeys |
+| Microsoft. Maps/contas | [listKeys](/rest/api/maps-management/accounts/listkeys) |
+| Microsoft. Media/mediaservices/assets | [listContainerSas](/rest/api/media/assets/listcontainersas) |
+| Microsoft. Media/mediaservices/assets | [listStreamingLocators](/rest/api/media/assets/liststreaminglocators) |
+| Microsoft. Media/mediaservices/streamingLocators | [listContentKeys](/rest/api/media/streaminglocators/listcontentkeys) |
+| Microsoft. Media/mediaservices/streamingLocators | [listPaths](/rest/api/media/streaminglocators/listpaths) |
+| Microsoft. Network/applicationSecurityGroups | listIpConfigurations |
+| Microsoft. NotificationHubs/namespaces/authorizationRules | [listkeys](/rest/api/notificationhubs/namespaces/listkeys) |
+| Microsoft. NotificationHubs/namespaces/NotificationHubs/authorizationRules | [listkeys](/rest/api/notificationhubs/notificationhubs/listkeys) |
+| Microsoft. OperationalInsights/Workspaces | [listKeys](/rest/api/loganalytics/workspaces%202015-03-20/listkeys) |
+| Microsoft. Relay/namespaces/authorizationRules | [listkeys](/rest/api/relay/namespaces/listkeys) |
+| Microsoft. Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys |
+| Microsoft. Relay/namespaces/HybridConnections/authorizationRules | [listkeys](/rest/api/relay/hybridconnections/listkeys) |
+| Microsoft. Relay/namespaces/WcfRelays/authorizationRules | [listkeys](/rest/api/relay/wcfrelays/listkeys) |
+| Microsoft. Search/SearchServices | [listAdminKeys](/rest/api/searchmanagement/adminkeys/get) |
+| Microsoft. Search/SearchServices | [listQueryKeys](/rest/api/searchmanagement/querykeys/listbysearchservice) |
+| Microsoft. ServiceBus/namespaces/authorizationRules | [listkeys](/rest/api/servicebus/namespaces/listkeys) |
+| Microsoft. ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/servicebus/disasterrecoveryconfigs/listkeys) |
+| Microsoft. ServiceBus/namespaces/filas/authorizationRules | [listkeys](/rest/api/servicebus/queues/listkeys) |
+| Microsoft. ServiceBus/namespaces/tópicos/authorizationRules | [listkeys](/rest/api/servicebus/topics/listkeys) |
+| Microsoft. SignalRService/Signalr | [listkeys](/rest/api/signalr/signalr/listkeys) |
 | Microsoft.Storage/storageAccounts | [listAccountSas](/rest/api/storagerp/storageaccounts/listaccountsas) |
 | Microsoft.Storage/storageAccounts | [listkeys](/rest/api/storagerp/storageaccounts/listkeys) |
 | Microsoft.Storage/storageAccounts | [listServiceSas](/rest/api/storagerp/storageaccounts/listservicesas) |
-| Microsoft.StorSimple/managers/devices | [listFailoverSets](/rest/api/storsimple/devices/listfailoversets) |
-| Microsoft.StorSimple/managers/devices | [listFailoverTargets](/rest/api/storsimple/devices/listfailovertargets) |
-| Microsoft.StorSimple/managers | [listActivationKey](/rest/api/storsimple/managers/getactivationkey) |
-| Microsoft.StorSimple/managers | [listPublicEncryptionKey](/rest/api/storsimple/managers/getpublicencryptionkey) |
-| Microsoft.Web/connectionGateways | ListStatus |
-| microsoft.web/connections | listconsentlinks |
-| Microsoft.Web/customApis | listWsdlInterfaces |
-| microsoft.web/locations | listwsdlinterfaces |
-| microsoft.web/apimanagementaccounts/apis/connections | listconnectionkeys |
-| microsoft.web/apimanagementaccounts/apis/connections | listsecrets |
-| microsoft.web/sites/functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecrets) |
-| microsoft.web/sites/hybridconnectionnamespaces/relays | [listkeys](/rest/api/appservice/webapps/listhybridconnectionkeys) |
-| microsoft.web/sites | [listsyncfunctiontriggerstatus](/rest/api/appservice/webapps/listsyncfunctiontriggers) |
-| microsoft.web/sites/slots/functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecretsslot) |
+| Microsoft. StorSimple/Managers/Devices | [listFailoverSets](/rest/api/storsimple/devices/listfailoversets) |
+| Microsoft. StorSimple/Managers/Devices | [listFailoverTargets](/rest/api/storsimple/devices/listfailovertargets) |
+| Microsoft. StorSimple/Managers | [listActivationKey](/rest/api/storsimple/managers/getactivationkey) |
+| Microsoft. StorSimple/Managers | [listPublicEncryptionKey](/rest/api/storsimple/managers/getpublicencryptionkey) |
+| Microsoft. Web/connectionGateways | ListStatus |
+| Microsoft. Web/Connections | listconsentlinks |
+| Microsoft. Web/customApis | listWsdlInterfaces |
+| Microsoft. Web/locais | listwsdlinterfaces |
+| Microsoft. Web/apimanagementaccounts/APIs/conexões | listconnectionkeys |
+| Microsoft. Web/apimanagementaccounts/APIs/conexões | listsecrets |
+| Microsoft. Web/sites/funções | [listsecrets](/rest/api/appservice/webapps/listfunctionsecrets) |
+| Microsoft. Web/sites/hybridconnectionnamespaces/retransmissões | [listkeys](/rest/api/appservice/webapps/listhybridconnectionkeys) |
+| Microsoft. Web/sites | [listsyncfunctiontriggerstatus](/rest/api/appservice/webapps/listsyncfunctiontriggers) |
+| Microsoft. Web/sites/Slots/funções | [listsecrets](/rest/api/appservice/webapps/listfunctionsecretsslot) |
 
-Para determinar que tipos de recursos tem uma operação de lista, tem as seguintes opções:
+Para determinar quais tipos de recursos têm uma operação de lista, você tem as seguintes opções:
 
-* Ver os [operações de REST API](/rest/api/) para um fornecedor de recursos e procure para operações de lista. Por exemplo, contas de armazenamento têm o [listKeys operação](/rest/api/storagerp/storageaccounts).
-* Use o cmdlet do PowerShell [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) . O exemplo seguinte obtém todas as operações de lista para contas de armazenamento:
+* Exiba as [operações da API REST](/rest/api/) para um provedor de recursos e procure por operações de lista. Por exemplo, as contas de armazenamento têm a [operação listKeys](/rest/api/storagerp/storageaccounts).
+* Use o cmdlet do PowerShell [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) . O exemplo a seguir obtém todas as operações de lista para contas de armazenamento:
 
   ```powershell
   Get-AzProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
   ```
-* Utilize o seguinte comando da CLI do Azure para filtrar apenas as operações de lista:
+* Use o comando CLI do Azure a seguir para filtrar apenas as operações de lista:
 
   ```azurecli
   az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
@@ -183,19 +265,19 @@ O objeto retornado varia de acordo com a função de lista que você usa. Por ex
 }
 ```
 
-Outras funções de lista têm formatos de retornados diferentes. Para ver o formato de uma função, incluí-lo na secção de saídas como mostra o modelo de exemplo.
+Outras funções de lista têm diferentes formatos de retorno. Para ver o formato de uma função, inclua-a na seção de saídas, conforme mostrado no modelo de exemplo.
 
 ### <a name="remarks"></a>Observações
 
-Especifique o recurso com o nome de recurso ou o [resourceId função](#resourceid). Ao usar uma função de lista no mesmo modelo que implanta o recurso referenciado, use o nome do recurso.
+Especifique o recurso usando o nome do recurso ou a [função ResourceId](#resourceid). Ao usar uma função de lista no mesmo modelo que implanta o recurso referenciado, use o nome do recurso.
 
 Se você usar uma função de **lista** em um recurso que é implantado condicionalmente, a função será avaliada mesmo que o recurso não seja implantado. Você receberá um erro se a função de **lista** se referir a um recurso que não existe. Use a função **If** para garantir que a função só seja avaliada quando o recurso estiver sendo implantado. Consulte a [função If](resource-group-template-functions-logical.md#if) para obter um modelo de exemplo que usa If e List com um recurso implantado condicionalmente.
 
 ### <a name="list-example"></a>Exemplo de lista
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) mostra como devolver as chaves primária e secundárias da conta de armazenamento na secção de saídas. Ele também retorna um token SAS para a conta de armazenamento. 
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) a seguir mostra como retornar as chaves primária e secundária de uma conta de armazenamento na seção de saídas. Ele também retorna um token SAS para a conta de armazenamento. 
 
-Para obter o token SAS, passe um objeto para a hora de expiração. O tempo de expiração deve estar no futuro. Este exemplo destina-se para mostrar como utilizar as funções de lista. Normalmente, poderia usar o token SAS num valor de recursos em vez de retorná-lo como um valor de saída. Valores de saída são armazenados no histórico de implementação e não são seguras.
+Para obter o token SAS, passe um objeto para a hora de expiração. O tempo de expiração deve estar no futuro. Este exemplo destina-se a mostrar como você usa as funções de lista. Normalmente, você usaria o token SAS em um valor de recurso em vez de retorná-lo como um valor de saída. Os valores de saída são armazenados no histórico de implantação e não são seguros.
 
 ```json
 {
@@ -260,22 +342,24 @@ Para obter o token SAS, passe um objeto para a hora de expiração. O tempo de e
 }
 ```
 
-## <a name="providers"></a>Fornecedores
+## <a name="providers"></a>fornecedor
 
-`providers(providerNamespace, [resourceType])`
+```json
+providers(providerNamespace, [resourceType])
+```
 
-Devolve informações sobre um fornecedor de recursos e os tipos de recursos suportados. Se não fornecer um tipo de recurso, a função devolve todos os tipos suportados para o fornecedor de recursos.
+Retorna informações sobre um provedor de recursos e seus tipos de recursos com suporte. Se você não fornecer um tipo de recurso, a função retornará todos os tipos com suporte para o provedor de recursos.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Sim |cadeia |Espaço de nomes do fornecedor |
-| resourceType |Não |cadeia |O tipo de recurso dentro do espaço de nomes especificado. |
+| providerNamespace |Sim |string |Namespace do provedor |
+| resourceType |Não |string |O tipo de recurso no namespace especificado. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Cada tipo suportado é devolvido no seguinte formato: 
+Cada tipo com suporte é retornado no seguinte formato: 
 
 ```json
 {
@@ -285,11 +369,11 @@ Cada tipo suportado é devolvido no seguinte formato:
 }
 ```
 
-Ordenação de matriz de valores devolvidos não é garantido.
+A ordenação de matriz dos valores retornados não é garantida.
 
 ### <a name="providers-example"></a>Exemplo de provedores
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) mostra como usar a função de fornecedor:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) a seguir mostra como usar a função de provedor:
 
 ```json
 {
@@ -313,7 +397,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 }
 ```
 
-Para o **Microsoft. Web** fornecedor de recursos e **sites** tipo de recurso, o exemplo anterior retorna um objeto no seguinte formato:
+Para o provedor de recursos **Microsoft. Web** e o tipo de recurso **sites** , o exemplo anterior retorna um objeto no seguinte formato:
 
 ```json
 {
@@ -337,27 +421,29 @@ Para o **Microsoft. Web** fornecedor de recursos e **sites** tipo de recurso, o 
 
 ## <a name="reference"></a>Referência
 
-`reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
+```json
+reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
+```
 
-Devolve um objeto que representa o estado de runtime de um recurso.
+Retorna um objeto que representa o estado de tempo de execução de um recurso.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceName ou resourceIdentifier |Sim |cadeia |Nome ou o identificador exclusivo de um recurso. Ao fazer referência um recurso no modelo atual, forneça apenas o nome de recurso como um parâmetro. Ao fazer referência a um recurso implantado anteriormente, forneça a ID do recurso. |
-| apiVersion |Não |cadeia |Versão de API do recurso especificado. Inclua este parâmetro quando o recurso não está aprovisionado no mesmo modelo. Normalmente, no formato, **dd-mm-aaaa**. Para obter as versões de API válidas para seu recurso, consulte [referência de modelo](/azure/templates/). |
-| "Completo" |Não |cadeia |Valor que especifica se pretende devolver o objeto de recurso completo. Se não especificar `'Full'`, apenas o objeto de propriedades do recurso é retornado. O objeto completo inclui valores, como o ID de recurso e o local. |
+| resourceName ou resourceIdentifier |Sim |string |Nome ou identificador exclusivo de um recurso. Ao fazer referência a um recurso no modelo atual, forneça apenas o nome do recurso como um parâmetro. Ao fazer referência a um recurso implantado anteriormente, forneça a ID do recurso. |
+| apiVersion |Não |string |Versão de API do recurso especificado. Inclua esse parâmetro quando o recurso não for provisionado no mesmo modelo. Normalmente, no formato, **aaaa-mm-dd**. Para obter as versões de API válidas para seu recurso, consulte [referência de modelo](/azure/templates/). |
+| Completo |Não |string |Valor que especifica se o objeto de recurso completo deve ser retornado. Se você não especificar `'Full'`, somente o objeto de propriedades do recurso será retornado. O objeto completo inclui valores como a ID do recurso e o local. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Cada tipo de recurso devolve as propriedades diferentes para a função de referência. A função não retornará um único formato predefinido. Além disso, o valor retornado é diferente com base no se especificou o objeto completo. Para ver as propriedades de um tipo de recurso, retornar o objeto na secção de saídas, conforme mostrado no exemplo.
+Cada tipo de recurso retorna propriedades diferentes para a função de referência. A função não retorna um único formato predefinido. Além disso, o valor retornado difere com base no fato de você ter especificado o objeto completo. Para ver as propriedades de um tipo de recurso, retorne o objeto na seção de saídas, conforme mostrado no exemplo.
 
 ### <a name="remarks"></a>Observações
 
-A função de referência obtém o estado de tempo de execução de um recurso anteriormente implementado ou um recurso implementado no modelo atual. Este artigo mostra exemplos para ambos os cenários.
+A função de referência recupera o estado de tempo de execução de um recurso implantado anteriormente ou de um recurso implantado no modelo atual. Este artigo mostra exemplos para ambos os cenários.
 
-Normalmente, utiliza a **referência** função para retornar um valor específico de um objeto, como o ponto final do blob URI ou o nome de domínio completamente qualificado.
+Normalmente, você usa a função de **referência** para retornar um valor específico de um objeto, como o URI do ponto de extremidade do BLOB ou o nome de domínio totalmente qualificado.
 
 ```json
 "outputs": {
@@ -372,7 +458,7 @@ Normalmente, utiliza a **referência** função para retornar um valor específi
 }
 ```
 
-Utilize `'Full'` quando necessitar de valores do recurso que não fazem parte do esquema de propriedades. Por exemplo, para definir políticas de acesso do Cofre de chaves, obter as propriedades de identidade para uma máquina virtual.
+Use `'Full'` quando precisar de valores de recurso que não fazem parte do esquema de propriedades. Por exemplo, para definir as políticas de acesso do cofre de chaves, obtenha as propriedades de identidade de uma máquina virtual.
 
 ```json
 {
@@ -398,7 +484,7 @@ Utilize `'Full'` quando necessitar de valores do recurso que não fazem parte do
 
 ### <a name="valid-uses"></a>Usos válidos
 
-A função de referência pode ser apenas as propriedades de uma definição do recurso e na secção de saídas de um modelo ou a implementação. Quando usado com a iteração de [Propriedade](resource-group-create-multiple.md#property-iteration), você pode usar a `input` função de referência para o porque a expressão é atribuída à propriedade de recurso. Você não pode usá- `count` lo com o porque a contagem deve ser determinada antes que a função de referência seja resolvida.
+A função de referência só pode ser usada nas propriedades de uma definição de recurso e na seção de saídas de um modelo ou implantação. Quando usado com a [iteração de propriedade](resource-group-create-multiple.md#property-iteration), você pode usar a função de referência para `input` porque a expressão é atribuída à propriedade de recurso. Você não pode usá-lo com `count` porque a contagem deve ser determinada antes que a função de referência seja resolvida.
 
 Você não pode usar a função de referência nas saídas de um [modelo aninhado](resource-group-linked-templates.md#nested-template) para retornar um recurso que você implantou no modelo aninhado. Em vez disso, use um [modelo vinculado](resource-group-linked-templates.md#external-template).
 
@@ -406,7 +492,7 @@ Se você usar a função de **referência** em um recurso que é implantado cond
 
 ### <a name="implicit-dependency"></a>Dependência implícita
 
-Ao utilizar a função de referência, é implicitamente declarar que um recurso depende outro recurso, se o recurso referenciado está aprovisionado no mesmo modelo e consultar o recurso pelo respetivo nome (ID de recurso não). Não precisa de utilizar também a propriedade dependsOn. A função não é avaliada até que o recurso referenciado seja concluída a implementação.
+Usando a função de referência, você declara implicitamente que um recurso depende de outro recurso se o recurso referenciado é provisionado no mesmo modelo e você se refere ao recurso por seu nome (não ID de recurso). Você também não precisa usar a propriedade depending. A função não é avaliada até que o recurso referenciado tenha concluído a implantação.
 
 ### <a name="resource-name-or-identifier"></a>Identificador ou nome do recurso
 
@@ -434,11 +520,11 @@ Ao construir uma referência totalmente qualificada a um recurso, a ordem para c
 
 Por exemplo:
 
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt`está correto `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` não está correto
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` está correta `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` não está correta
 
 ### <a name="reference-example"></a>Exemplo de referência
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) implementa um recurso e faz referência a esse recurso.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) a seguir implanta um recurso e faz referência a esse recurso.
 
 ```json
 {
@@ -477,7 +563,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 }
 ``` 
 
-O exemplo anterior devolve os dois objetos. O objeto de propriedades é no seguinte formato:
+O exemplo anterior retorna os dois objetos. O objeto de propriedades está no seguinte formato:
 
 ```json
 {
@@ -495,7 +581,7 @@ O exemplo anterior devolve os dois objetos. O objeto de propriedades é no segui
 }
 ```
 
-O objeto completo é no seguinte formato:
+O objeto completo está no seguinte formato:
 
 ```json
 {
@@ -532,7 +618,7 @@ O objeto completo é no seguinte formato:
 }
 ```
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) faz referência a uma conta de armazenamento que não está implementada neste modelo. A conta de armazenamento já existe na mesma subscrição.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) a seguir faz referência a uma conta de armazenamento que não está implantada neste modelo. A conta de armazenamento já existe na mesma assinatura.
 
 ```json
 {
@@ -558,13 +644,15 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 ## <a name="resourcegroup"></a>resourceGroup
 
-`resourceGroup()`
+```json
+resourceGroup()
+```
 
-Devolve um objeto que representa o grupo de recursos atual. 
+Retorna um objeto que representa o grupo de recursos atual. 
 
 ### <a name="return-value"></a>Valor de retorno
 
-O objeto devolvido é no seguinte formato:
+O objeto retornado está no seguinte formato:
 
 ```json
 {
@@ -585,9 +673,9 @@ A propriedade **ManagedBy** é retornada somente para grupos de recursos que con
 
 ### <a name="remarks"></a>Observações
 
-A `resourceGroup()` função não pode ser usada em um modelo implantado [no nível da assinatura](deploy-to-subscription.md). Ele só pode ser usado em modelos implantados em um grupo de recursos.
+A função `resourceGroup()` não pode ser usada em um modelo [implantado no nível da assinatura](deploy-to-subscription.md). Ele só pode ser usado em modelos implantados em um grupo de recursos.
 
-Uma utilização comum da função resourceGroup é criar recursos na mesma localização que o grupo de recursos. O exemplo seguinte utiliza a localização do grupo de recursos para atribuir a localização para um web site.
+Um uso comum da função resourcegroup é criar recursos no mesmo local que o grupo de recursos. O exemplo a seguir usa o local do grupo de recursos para atribuir o local de um site.
 
 ```json
 "resources": [
@@ -605,7 +693,7 @@ Você também pode usar a função resourcegroup para aplicar marcas do grupo de
 
 ### <a name="resource-group-example"></a>Exemplo de grupo de recursos
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) devolve as propriedades do grupo de recursos.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) a seguir retorna as propriedades do grupo de recursos.
 
 ```json
 {
@@ -637,28 +725,37 @@ O exemplo anterior retorna um objeto no seguinte formato:
 
 ## <a name="resourceid"></a>resourceId
 
-`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
+```json
+resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)
+```
 
-Devolve o identificador exclusivo de um recurso. Utilize esta função quando o nome do recurso é ambíguo ou não aprovisionada dentro do mesmo modelo. 
+Retorna o identificador exclusivo de um recurso. Você usa essa função quando o nome do recurso é ambíguo ou não provisionado no mesmo modelo. 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Não |a cadeia de caracteres (formato de GUID) |Valor predefinido é a subscrição atual. Especifica este valor quando precisar de recuperar um recurso noutra subscrição. |
-| resourceGroupName |Não |cadeia |Valor predefinido é o grupo de recursos atual. Especifica este valor quando precisar de recuperar um recurso noutro grupo de recursos. |
-| resourceType |Sim |cadeia |Tipo de recurso, incluindo o espaço de nomes de fornecedor de recursos. |
-| resourceName1 |Sim |cadeia |Nome do recurso. |
-| resourceName2 |Não |Cadeia de caracteres |Próximo segmento de nome de recurso, se necessário. |
+| subscriptionId |Não |Cadeia de caracteres (no formato GUID) |O valor padrão é a assinatura atual. Especifique esse valor quando precisar recuperar um recurso em outra assinatura. |
+| resourceGroupName |Não |string |O valor padrão é o grupo de recursos atual. Especifique esse valor quando precisar recuperar um recurso em outro grupo de recursos. |
+| resourceType |Sim |string |Tipo de recurso, incluindo namespace do provedor de recursos. |
+| resourceName1 |Sim |string |Nome do recurso. |
+| resourceName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue adicionando nomes de recursos como parâmetros quando o tipo de recurso incluir mais segmentos.
 
 ### <a name="return-value"></a>Valor de retorno
 
-O identificador é devolvido no seguinte formato:
+A ID do recurso é retornada no seguinte formato:
 
-**/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}**
+```json
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
 
+Para obter a ID em outros formatos, consulte:
+
+* [extensionResourceId](#extensionresourceid)
+* [subscriptionResourceId](#subscriptionresourceid)
+* [tenantResourceId](#tenantresourceid)
 
 ### <a name="remarks"></a>Observações
 
@@ -688,15 +785,7 @@ Para obter a ID de recurso de um recurso em uma assinatura e um grupo de recurso
 "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-Quando usado com uma [implantação em nível de assinatura](deploy-to-subscription.md), `resourceId()` a função só pode recuperar a ID dos recursos implantados nesse nível. Por exemplo, você pode obter a ID de uma definição de política ou definição de função, mas não a ID de uma conta de armazenamento. Para implantações em um grupo de recursos, o oposto é true. Você não pode obter a ID de recurso dos recursos implantados no nível da assinatura.
-
-Para obter a ID de recurso de um recurso de nível de assinatura ao implantar no escopo da assinatura, use:
-
-```json
-"[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
-```
-
-Muitas vezes, terá de utilizar esta função quando utilizar uma conta de armazenamento ou a rede virtual num grupo de recursos alternativos. O exemplo seguinte mostra como um recurso de um grupo de recurso externo pode ser facilmente utilizado:
+Geralmente, você precisa usar essa função ao usar uma conta de armazenamento ou uma rede virtual em um grupo de recursos alternativo. O exemplo a seguir mostra como um recurso de um grupo de recursos externo pode ser usado facilmente:
 
 ```json
 {
@@ -742,7 +831,7 @@ Muitas vezes, terá de utilizar esta função quando utilizar uma conta de armaz
 
 ### <a name="resource-id-example"></a>Exemplo de ID de recurso
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) devolve o ID de recurso para uma conta de armazenamento no grupo de recursos:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) a seguir retorna a ID de recurso para uma conta de armazenamento no grupo de recursos:
 
 ```json
 {
@@ -770,24 +859,26 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| sameRGOutput | Cadeia | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | Cadeia | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | Cadeia | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | Cadeia | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
-## <a name="subscription"></a>subscription
+## <a name="subscription"></a>subscrição
 
-`subscription()`
+```json
+subscription()
+```
 
-Devolve detalhes sobre a subscrição para a implementação atual. 
+Retorna detalhes sobre a assinatura para a implantação atual. 
 
 ### <a name="return-value"></a>Valor de retorno
 
-A função devolve o seguinte formato:
+A função retorna o seguinte formato:
 
 ```json
 {
@@ -800,7 +891,7 @@ A função devolve o seguinte formato:
 
 ### <a name="subscription-example"></a>Exemplo de assinatura
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) mostra a função de subscrição chamada na secção de saídas. 
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) a seguir mostra a função de assinatura chamada na seção de saídas. 
 
 ```json
 {
@@ -816,10 +907,124 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 }
 ```
 
+## <a name="subscriptionresourceid"></a>subscriptionResourceId
+
+```json
+subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceName2], ...)
+```
+
+Retorna o identificador exclusivo de um recurso implantado no nível da assinatura.
+
+### <a name="parameters"></a>Parâmetros
+
+| Parâmetro | Obrigatório | Tipo | Descrição |
+|:--- |:--- |:--- |:--- |
+| subscriptionId |Não |Cadeia de caracteres (no formato GUID) |O valor padrão é a assinatura atual. Especifique esse valor quando precisar recuperar um recurso em outra assinatura. |
+| resourceType |Sim |string |Tipo de recurso, incluindo namespace do provedor de recursos. |
+| resourceName1 |Sim |string |Nome do recurso. |
+| resourceName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
+
+Continue adicionando nomes de recursos como parâmetros quando o tipo de recurso incluir mais segmentos.
+
+### <a name="return-value"></a>Valor de retorno
+
+O identificador é retornado no seguinte formato:
+
+```json
+/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
+
+### <a name="remarks"></a>Observações
+
+Use essa função para obter a ID do recurso para os recursos que são [implantados na assinatura](deploy-to-subscription.md) em vez de um grupo de recursos. A ID retornada difere do valor retornado pela função [ResourceId](#resourceid) , não incluindo um valor de grupo de recursos.
+
+### <a name="subscriptionresourceid-example"></a>exemplo de subscriptionResourceID
+
+O modelo a seguir atribui uma função interna. Você pode implantá-lo em um grupo de recursos ou assinatura. Ele usa a função subscriptionResourceId para obter a ID de recurso para funções internas.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "principalId": {
+            "type": "string",
+            "metadata": {
+                "description": "The principal to assign the role to"
+            }
+        },
+        "builtInRoleType": {
+            "type": "string",
+            "allowedValues": [
+                "Owner",
+                "Contributor",
+                "Reader"
+            ],
+            "metadata": {
+                "description": "Built-in role to assign"
+            }
+        },
+        "roleNameGuid": {
+            "type": "string",
+            "defaultValue": "[newGuid()]",
+            "metadata": {
+                "description": "A new GUID used to identify the role assignment"
+            }
+        }
+    },
+    "variables": {
+        "Owner": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
+        "Contributor": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
+        "Reader": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2018-09-01-preview",
+            "name": "[parameters('roleNameGuid')]",
+            "properties": {
+                "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
+                "principalId": "[parameters('principalId')]"
+            }
+        }
+    ]
+}
+```
+
+## <a name="tenantresourceid"></a>tenantResourceId
+
+```json
+tenantResourceId(resourceType, resourceName1, [resourceName2], ...)
+```
+
+Retorna o identificador exclusivo de um recurso implantado no nível do locatário.
+
+### <a name="parameters"></a>Parâmetros
+
+| Parâmetro | Obrigatório | Tipo | Descrição |
+|:--- |:--- |:--- |:--- |
+| resourceType |Sim |string |Tipo de recurso, incluindo namespace do provedor de recursos. |
+| resourceName1 |Sim |string |Nome do recurso. |
+| resourceName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
+
+Continue adicionando nomes de recursos como parâmetros quando o tipo de recurso incluir mais segmentos.
+
+### <a name="return-value"></a>Valor de retorno
+
+O identificador é retornado no seguinte formato:
+
+```json
+/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
+
+### <a name="remarks"></a>Observações
+
+Você usa essa função para obter a ID de recurso para um recurso que é implantado no locatário. A ID retornada difere dos valores retornados por outras funções de ID de recurso, não incluindo os valores de grupo de recursos ou de assinatura.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
-* Para intercalar vários modelos, veja [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
-* Para fazer a iteração de um número especificado de vezes ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
-* Para ver como implementar o modelo que criou, veja [implementar uma aplicação com o modelo Azure Resource Manager](resource-group-template-deploy.md).
+* Para obter uma descrição das seções em um modelo de Azure Resource Manager, consulte [criando modelos de Azure Resource Manager](resource-group-authoring-templates.md).
+* Para mesclar vários modelos, consulte [usando modelos vinculados com Azure Resource Manager](resource-group-linked-templates.md).
+* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
+* Para ver como implantar o modelo que você criou, consulte [implantar um aplicativo com Azure Resource Manager modelo](resource-group-template-deploy.md).
 

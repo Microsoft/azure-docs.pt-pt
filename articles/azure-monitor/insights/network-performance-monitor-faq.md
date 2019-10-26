@@ -1,23 +1,18 @@
 ---
 title: Perguntas frequentes-Monitor de Desempenho de Rede solução no Azure | Microsoft Docs
 description: Este artigo captura as perguntas frequentes sobre Monitor de Desempenho de Rede no Azure. O Monitor de Desempenho de Rede (NPM) ajuda a monitorar o desempenho de suas redes quase em tempo real e detectar e localizar afunilamentos de desempenho de rede.
-services: log-analytics
-documentationcenter: ''
-author: vinynigam
-manager: agummadi
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 10/12/2018
+author: vinynigam
 ms.author: vinigam
-ms.openlocfilehash: b3274c214aa60c930e62e651af960d5f01cbdd20
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
-ms.translationtype: MT
+ms.date: 10/12/2018
+ms.openlocfilehash: 26e9215c7e00eca59d33f7e8d259a689ad642f19
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782116"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898856"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Perguntas frequentes sobre a solução Monitor de Desempenho de Rede
 
@@ -64,7 +59,7 @@ Para o nó oferecer suporte ao monitoramento usando o protocolo TCP:
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>Como posso alterar a porta TCP usada pelo NPM para monitoramento?
-Você pode alterar a porta TCP usada pelo NPM para monitoramento, executando o script [EnableRules. ps1](https://aka.ms/npmpowershellscript) . Você precisa inserir o número da porta que pretende usar como parâmetro. Por exemplo, para habilitar o TCP na porta 8060, `EnableRules.ps1 8060`execute. Certifique-se de usar a mesma porta TCP em todos os nós que estão sendo usados para monitoramento.
+Você pode alterar a porta TCP usada pelo NPM para monitoramento, executando o script [EnableRules. ps1](https://aka.ms/npmpowershellscript) . Você precisa inserir o número da porta que pretende usar como parâmetro. Por exemplo, para habilitar o TCP na porta 8060, execute `EnableRules.ps1 8060`. Certifique-se de usar a mesma porta TCP em todos os nós que estão sendo usados para monitoramento.
 
 O script configura apenas o Firewall do Windows localmente. Se você tiver regras de firewall de rede ou grupo de segurança de rede (NSG), certifique-se de que elas permitam o tráfego destinado à porta TCP usada pelo NPM.
 
@@ -165,17 +160,17 @@ E2EMedianLatency é a latência atualizada a cada três minutos após a agregaç
 
 ### <a name="why-does-hop-by-hop-latency-numbers-differ-from-hoplatencyvalues"></a>Por que os números de latência de salto por salto são diferentes de HopLatencyValues 
 HopLatencyValues são de origem para ponto de extremidade.
-Por exemplo: Saltos-A, B, C. AvgHopLatency-10, 15, 20. Isso significa origem para uma latência = 10, latência de origem para B = 15 e a latência de origem para C é 20. A interface do usuário calculará A latência de salto-B como 5 na topologia
+Por exemplo: Hops-A, B, C. AvgHopLatency-10, 15, 20. Isso significa origem para uma latência = 10, latência de origem para B = 15 e a latência de origem para C é 20. A interface do usuário calculará A latência de salto-B como 5 na topologia
 
 ### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>A solução mostra a perda de 100%, mas há conectividade entre a origem e o destino
 Isso pode acontecer se o Firewall do host ou o firewall intermediário (firewall de rede ou NSG do Azure) estiver bloqueando a comunicação entre o agente de origem e o destino pela porta que está sendo usada para monitoramento pelo NPM (por padrão, a porta é 8084, a menos que o o cliente alterou isso).
 
-* Para verificar se o Firewall do host não está bloqueando a comunicação na porta necessária, exiba o status de integridade dos nós de origem e de destino no seguinte modo de exibição: Configuração de Monitor de Desempenho de Rede >-nós de >. 
+* Para verificar se o Firewall do host não está bloqueando a comunicação na porta necessária, exiba o status de integridade dos nós de origem e de destino no seguinte modo de exibição: configuração de Monitor de Desempenho de Rede->-nós de >. 
   Se eles não estiverem íntegros, exiba as instruções e execute uma ação corretiva. Se os nós estiverem íntegros, vá para a etapa b. abaixo.
 * Para verificar se um firewall de rede intermediário ou o Azure NSG não está bloqueando a comunicação na porta necessária, use o utilitário PsPing de terceiros usando as instruções abaixo:
   * o utilitário psping está disponível para download [aqui](https://technet.microsoft.com/sysinternals/psping.aspx) 
   * Execute o comando a seguir no nó de origem.
-    * psping-n 15 \<o IPAddress\>do nó de destino:p ortnumber por padrão NPM usa a porta 8084. Caso você tenha alterado explicitamente isso usando o script EnableRules. ps1, insira o número da porta personalizada que você está usando). Este é um ping do computador do Azure para o local
+    * psping-n 15 \<o IPAddress do nó de destino\>:p ortNumber por padrão NPM usa a porta 8084. Caso você tenha alterado explicitamente isso usando o script EnableRules. ps1, insira o número da porta personalizada que você está usando). Este é um ping do computador do Azure para o local
 * Verifique se os pings foram bem-sucedidos. Caso contrário, ele indica que um firewall de rede intermediário ou o Azure NSG está bloqueando o tráfego nessa porta.
 * Agora, execute o comando do nó de destino para o IP do nó de origem.
 
@@ -190,7 +185,7 @@ O NPM agora descobre circuitos do ExpressRoute e conexões de emparelhamento em 
 
 Pode haver um cenário em que há uma conexão íntegra entre os nós locais e do Azure, mas o tráfego não está passando pelo circuito de ExpressRoute configurado para ser monitorado pelo NPM. 
 
-Isso pode acontecer se:
+Este problema pode ocorrer se:
 
 * O circuito ER está inoperante.
 * Os filtros de rota são configurados de forma que eles forneçam prioridade a outras rotas (como uma conexão VPN ou outro circuito de ExpressRoute) no circuito de ExpressRoute pretendido. 
@@ -228,11 +223,11 @@ O processo NPM é configurado para parar se utilizar mais de 5% dos recursos de 
 O NPM cria apenas uma regra de firewall do Windows local nos nós em que o script do PowerShell EnableRules. ps1 é executado para permitir que os agentes criem conexões TCP entre si na porta especificada. A solução não modifica nenhuma regra de firewall de rede ou grupo de segurança de rede (NSG).
 
 ### <a name="how-can-i-check-the-health-of-the-nodes-being-used-for-monitoring"></a>Como posso verificar a integridade dos nós que estão sendo usados para monitoramento?
-Você pode exibir o status de integridade dos nós que estão sendo usados para monitoramento no seguinte modo de exibição: Configuração de Monitor de Desempenho de Rede >-nós de >. Se um nó não estiver íntegro, você poderá exibir os detalhes do erro e executar a ação sugerida.
+Você pode exibir o status de integridade dos nós que estão sendo usados para monitoramento na seguinte exibição: Monitor de Desempenho de Rede-> Configuration-> nós. Se um nó não estiver íntegro, você poderá exibir os detalhes do erro e executar a ação sugerida.
 
 ### <a name="can-npm-report-latency-numbers-in-microseconds"></a>É possível NPM números de latência de relatório em microssegundos?
 NPM arredonda os números de latência na interface do usuário e em milissegundos. Os mesmos dados são armazenados em uma granularidade mais alta (às vezes, até quatro casas decimais).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre Monitor de Desempenho de Rede fazendo referência à [solução de monitor de desempenho de rede no Azure](../../azure-monitor/insights/network-performance-monitor.md).

@@ -1,21 +1,19 @@
 ---
 title: Diagnosticar exceções de runtime com o Azure Application Insights | Microsoft Docs
 description: Tutorial para localizar e diagnosticar exceções de runtime na sua aplicação com o Azure Application Insights.
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
-ms.service: application-insights
 ms.custom: mvc
-ms.topic: tutorial
-manager: carmonm
-ms.openlocfilehash: 19455998ca13b9abf48bb1cb3856e38b5c47ef52
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 70ecc5dc95aced3eb901f24910339eb059ba0c17
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595603"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900479"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Localizar e diagnosticar exceções de runtime com o Azure Application Insights
 
@@ -34,7 +32,7 @@ O Azure Application Insights recolhe telemetria da sua aplicação para ajudar a
 
 Para concluir este tutorial:
 
-- Instale [Visual Studio 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
+- Instale o [Visual Studio 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
     - Desenvolvimento ASP.NET e Web
     - Desenvolvimento do Azure
 - Transfira e instale o [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
@@ -75,7 +73,7 @@ O Application Insights recolhe as falhas ocorridas na sua aplicação e permite-
     ![Detalhes da exceção](media/tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>Identificar o código com falhas
-O Snapshot Debugger recolhe instantâneos das exceções mais frequentes na sua aplicação para o ajudar a diagnosticar a raiz do problema na produção.  Pode ver instantâneos de depuração no portal para visualizar a pilha de chamadas e inspecionar as variáveis em cada frame de pilha de chamadas. Depois disso, tem a opção para depurar o código-fonte ao transferir o instantâneo e abri-lo no Visual Studio Enterprise de 2019.
+O Snapshot Debugger recolhe instantâneos das exceções mais frequentes na sua aplicação para o ajudar a diagnosticar a raiz do problema na produção.  Pode ver instantâneos de depuração no portal para visualizar a pilha de chamadas e inspecionar as variáveis em cada frame de pilha de chamadas. Posteriormente, você tem a opção de depurar o código-fonte baixando o instantâneo e abrindo-o no Visual Studio 2019 Enterprise.
 
 1. Nas propriedades da exceção, clique em **Abrir instantâneo de depuração**.
 2. O painel **Depurar Instantâneo** é aberto com a pilha de chamadas relativas ao pedido.  Clique num dos métodos disponíveis para ver os valores de todas as variáveis locais no momento do pedido.  Tomando como ponto de partida o método principal neste exemplo, é possível ver variáveis locais que não têm qualquer valor.
@@ -86,9 +84,9 @@ O Snapshot Debugger recolhe instantâneos das exceções mais frequentes na sua 
 
     ![Depurar o instantâneo](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
 
-4. Em seguida, tem a opção para transferir este instantâneo para o Visual Studio onde poderemos localizar o código real que precisa de ser corrigido. Para tal, clique em **transferir instantâneo**.
+4. Em seguida, você tem a opção de baixar esse instantâneo no Visual Studio, onde podemos localizar o código real que precisa ser corrigido. Para fazer isso, clique em **baixar instantâneo**.
 5. O instantâneo é carregado para o Visual Studio.
-6. Agora, pode executar uma sessão de depuração no Visual Studio Enterprise, que identifica rapidamente a linha de código que causou a exceção.
+6. Agora você pode executar uma sessão de depuração no Visual Studio Enterprise que identifica rapidamente a linha de código que causou a exceção.
 
     ![Exceção no código](media/tutorial-runtime-exceptions/exception-code.png)
 
@@ -111,7 +109,7 @@ Se ligar o Application Insights a um sistema de controlo, como o Azure DevOps ou
 
     ![Novo Item de Trabalho](media/tutorial-runtime-exceptions/new-work-item.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora que aprendeu a identificar exceções de runtime, avance para o próximo tutorial para saber como identificar e diagnosticar problemas de desempenho.
 
 > [!div class="nextstepaction"]

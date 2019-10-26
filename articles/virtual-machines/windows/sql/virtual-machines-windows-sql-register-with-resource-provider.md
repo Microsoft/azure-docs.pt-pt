@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2f0fac5e1951f593ea769f73feb21a60afe9c02b
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 433480b4a587b3a085c3b1c0ba4122ae98eb4508
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756183"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72897725"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrar uma máquina virtual SQL Server no Azure com o provedor de recursos de VM do SQL
 
@@ -246,9 +246,9 @@ Execute o seguinte trecho de código do PowerShell:
   ```
 ---
 
-## <a name="register-the-sql-vm-resource-provider-with-a-subscription"></a>Registrar o provedor de recursos de VM do SQL com uma assinatura 
+## <a name="register-subscription-with-rp"></a>Registrar assinatura com RP
 
-Para registrar sua VM SQL Server com o provedor de recursos de VM do SQL, você deve registrar o provedor de recursos com sua assinatura. Você pode fazer isso usando o portal do Azure, o CLI do Azure ou o PowerShell.
+Para registrar sua VM SQL Server com o provedor de recursos de VM do SQL, você deve primeiro registrar sua assinatura com o provedor de recursos.  Você pode fazer isso usando o portal do Azure, o CLI do Azure ou o PowerShell.
 
 ### <a name="azure-portal"></a>Portal do Azure
 

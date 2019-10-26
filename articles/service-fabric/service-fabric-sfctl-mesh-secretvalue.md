@@ -3,22 +3,23 @@ title: CLI do Azure Service Fabric-segredo de malha sfctl | Microsoft Docs
 description: Descreve os comandos secretovalue da malha sfctl da CLI do Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 5200c40afe62ce3a236a3a16b59b64deb8d24ced
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 96ce4efe00d89c136a0c11d445170b2f67be6fcd
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035930"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901184"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
 Obter e excluir recursos de segredo de malha.
@@ -27,9 +28,9 @@ Obter e excluir recursos de segredo de malha.
 
 |Comando|Descrição|
 | --- | --- |
-| eliminar | Exclui o valor especificado do recurso secreto nomeado. |
+| delete | Exclui o valor especificado do recurso secreto nomeado. |
 | list | Listar nomes de todos os valores do recurso secreto especificado. |
-| mostrar | Recupere o valor de uma versão especificada de um recurso secreto. |
+| mostrar | Lista o valor especificado do recurso secreto. |
 
 ## <a name="sfctl-mesh-secretvalue-delete"></a>exclusão de segredo de malha de sfctl
 Exclui o valor especificado do recurso secreto nomeado.
@@ -49,7 +50,7 @@ Exclui o recurso de valor secreto identificado pelo nome. O nome do recurso norm
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
@@ -70,12 +71,12 @@ Obtém informações sobre todos os recursos de valor secreto do recurso secreto
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
 ## <a name="sfctl-mesh-secretvalue-show"></a>sfctl de malha do segredo mostrar
-Recupere o valor de uma versão especificada de um recurso secreto.
+Lista o valor especificado do recurso secreto.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -91,11 +92,11 @@ Recupere o valor de uma versão especificada de um recurso secreto.
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Configure](service-fabric-cli.md) a CLI do Service Fabric.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

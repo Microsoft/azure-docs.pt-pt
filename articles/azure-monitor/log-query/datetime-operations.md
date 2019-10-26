@@ -1,58 +1,52 @@
 ---
-title: Trabalhar com valores de hora da data em consultas de registo do Azure Monitor | Documentos da Microsoft
-description: Descreve como trabalhar com dados de data e hora em consultas de registo do Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Trabalhando com valores de data e hora em consultas de log de Azure Monitor | Microsoft Docs
+description: Descreve como trabalhar com dados de data e hora em Azure Monitor consultas de log.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 402511ba3c45e8bd12cb7f92ecd54f6084c8ada2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/16/2018
+ms.openlocfilehash: 6ff095d674a11d95ed4fd2d008c3e664dd595fef
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62112362"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894220"
 ---
-# <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Trabalhar com valores de hora da data em consultas de registo do Azure Monitor
+# <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Trabalhando com valores de data e hora em consultas de log de Azure Monitor
 
 > [!NOTE]
-> Deve efetuar [começar com o portal do Analytics](get-started-portal.md) e [introdução às consultas](get-started-queries.md) antes de concluir esta lição.
+> Você deve concluir [a introdução ao portal de análise](get-started-portal.md) e [começar a usar as consultas antes de](get-started-queries.md) concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Este artigo descreve como trabalhar com dados de data e hora em consultas de registo do Azure Monitor.
+Este artigo descreve como trabalhar com dados de data e hora em consultas Azure Monitor log.
 
 
-## <a name="date-time-basics"></a>Noções básicas de tempo de data
-A linguagem de consulta de Kusto tem dois tipos de dados principal associados com datas e horas: datetime e período de tempo. Todas as datas são expressos em UTC. Embora vários formatos de datetime sejam suportados, o formato de ISO8601 é preferencial. 
+## <a name="date-time-basics"></a>Noções básicas de data e hora
+A linguagem de consulta Kusto tem dois tipos de dados principais associados a datas e horas: DateTime e TimeSpan. Todas as datas são expressas em UTC. Embora haja suporte para vários formatos DateTime, o formato ISO8601 é preferencial. 
 
-Períodos de tempo são expressos como um valor decimal seguido de uma unidade de tempo:
+Os TimeSpans são expressos como um decimal seguido por uma unidade de tempo:
 
-|forma abreviada   | unidade de tempo    |
+|abreviada   | unidade de tempo    |
 |:---|:---|
-|d           | dia          |
-|h           | hora         |
-|m           | Minuto       |
-|s           | Segundo       |
-|ms          | milissegundo  |
-|microssegundo | microssegundo  |
-|escala        | nanosecond   |
+|3D           | diário          |
+|h           | dia         |
+|m           | Demorar       |
+|s           | microssegundo       |
+|Srta          | milésimo  |
+|microssegundos | microssegundos  |
+|traços        | 100 nanossegundos   |
 
-Datetimes podem ser criadas por lançando uma cadeia, utilizando o `todatetime` operador. Por exemplo, para rever os heartbeats VM enviados num período de tempo específico, utilize o `between` operador especificar um intervalo de tempo.
+DateTimes podem ser criados por meio da conversão de uma cadeia de caracteres usando o operador de `todatetime`. Por exemplo, para examinar as pulsações de VM enviadas em um período específico, use o operador `between` para especificar um intervalo de tempo.
 
 ```Kusto
 Heartbeat
 | where TimeGenerated between(datetime("2018-06-30 22:46:42") .. datetime("2018-07-01 00:57:27"))
 ```
 
-Outro cenário comum é comparar um datetime ao presente. Por exemplo, para ver todos os heartbeats durante os últimos dois minutos, pode usar o `now` operador em conjunto com um intervalo de tempo que representa os dois minutos:
+Outro cenário comum é comparar um DateTime com o presente. Por exemplo, para ver todas as pulsações nos últimos dois minutos, você pode usar o operador de `now` junto com um TimeSpan que representa dois minutos:
 
 ```Kusto
 Heartbeat
@@ -65,13 +59,13 @@ Heartbeat
 | where TimeGenerated > now(-2m)
 ```
 
-O método mais curto e mais legível que está a utilizar o `ago` operador:
+O método mais curto e legível, embora esteja usando o operador de `ago`:
 ```Kusto
 Heartbeat
 | where TimeGenerated > ago(2m)
 ```
 
-Suponha que, em vez de saber o tempo de início e de fim, sabe que a hora de início e a duração. Pode reescrever a consulta da seguinte forma:
+Suponha que, em vez de saber a hora de início e término, você saiba a hora de início e a duração. Você pode reescrever a consulta da seguinte maneira:
 
 ```Kusto
 let startDatetime = todatetime("2018-06-30 20:12:42.9");
@@ -81,8 +75,8 @@ Heartbeat
 | extend timeFromStart = TimeGenerated - startDatetime
 ```
 
-## <a name="converting-time-units"></a>Conversão de unidades de tempo
-Pode querer express um datetime ou timespan numa unidade de tempo diferente da predefinição. Por exemplo, se estiver a rever eventos de erro dos últimos 30 minutos e precisar de uma coluna calculada que mostra como há muito tempo evento ter acontecido:
+## <a name="converting-time-units"></a>Convertendo unidades de tempo
+Talvez você queira expressar um DateTime ou TimeSpan em uma unidade de tempo diferente do padrão. Por exemplo, se você estiver revisando eventos de erro dos últimos 30 minutos e precisar de uma coluna calculada mostrando quanto tempo atrás o evento ocorreu:
 
 ```Kusto
 Event
@@ -91,7 +85,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-O `timeAgo` coluna contém valores, tais como: "00:09:31.5118992", que significa que estão formatados como hh:mm:ss.fffffff. Se pretender formatar estes valores para o `numver` de minutos desde a hora de início, dividi-lo por "1 minuto":
+A coluna `timeAgo` contém valores como: "00:09:31.5118992", o que significa que eles são formatados como hh: mm: SS. fffffff. Se você quiser formatar esses valores para a `numver` de minutos desde a hora de início, divida esse valor por "1 minuto":
 
 ```Kusto
 Event
@@ -102,10 +96,10 @@ Event
 ```
 
 
-## <a name="aggregations-and-bucketing-by-time-intervals"></a>As agregações e bucketing por intervalos de tempo
-Outro cenário comum é a necessidade de obter as estatísticas sobre um determinado período de tempo num grão de tempo específico. Para este cenário, um `bin` operador pode ser usado como parte de uma cláusula de summarize.
+## <a name="aggregations-and-bucketing-by-time-intervals"></a>Agregações e bucketing por intervalos de tempo
+Outro cenário comum é a necessidade de obter estatísticas em um determinado período de tempo em um intervalo de tempo específico. Para esse cenário, um operador de `bin` pode ser usado como parte de uma cláusula de resumo.
 
-Utilize a seguinte consulta para obter o número de eventos que ocorreram durante a última meia hora a cada 5 minutos:
+Use a consulta a seguir para obter o número de eventos que ocorreram a cada 5 minutos durante a última meia hora:
 
 ```Kusto
 Event
@@ -115,7 +109,7 @@ Event
 
 Essa consulta produz a seguinte tabela:  
 
-|TimeGenerated(UTC)|events_count|
+|TimeGenerated (UTC)|events_count|
 |--|--|
 |2018-08-01T09:30:00.000|54|
 |2018-08-01T09:35:00.000|41|
@@ -124,7 +118,7 @@ Essa consulta produz a seguinte tabela:
 |2018-08-01T09:50:00.000|41|
 |2018-08-01T09:55:00.000|16|
 
-Outra forma de criar registos de resultados é usar as funções, tais como `startofday`:
+Outra maneira de criar buckets de resultados é usar funções, como `startofday`:
 
 ```Kusto
 Event
@@ -134,17 +128,17 @@ Event
 
 Essa consulta produz os seguintes resultados:
 
-|timestamp|count_|
+|carimbo de data/hora|contar|
 |--|--|
-|2018-07-28T00:00:00.000|7,136|
-|2018-07-29T00:00:00.000|12,315|
-|2018-07-30T00:00:00.000|16,847|
-|2018-07-31T00:00:00.000|12,616|
-|2018-08-01T00:00:00.000|5,416|
+|2018-07-28T00:00:00.000|7\.136|
+|2018-07-29T00:00:00.000|12.315|
+|2018-07-30T00:00:00.000|16.847|
+|2018-07-31T00:00:00.000|12.616|
+|2018-08-01T00:00:00.000|5\.416|
 
 
 ## <a name="time-zones"></a>Fusos horários
-Uma vez que todos os valores de datetime são expressos em UTC, muitas vezes é útil converter esses valores para o fuso horário local. Por exemplo, utilize este cálculo para converter UTC PST vezes:
+Como todos os valores de data e hora são expressos em UTC, geralmente é útil converter esses valores no fuso horário local. Por exemplo, use este cálculo para converter UTC para horas PST:
 
 ```Kusto
 Event
@@ -153,21 +147,21 @@ Event
 
 ## <a name="related-functions"></a>Funções relacionadas
 
-| Category | Função |
+| Categoria | Função |
 |:---|:---|
-| Converter tipos de dados | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
-| Valor arredonda para o tamanho de discretização | [bin](/azure/kusto/query/binfunction) |
-| Obtenha uma data específica ou a hora | [ago](/azure/kusto/query/agofunction) [now](/azure/kusto/query/nowfunction)   |
-| Obtenha a parte do valor | [datetime_part](/azure/kusto/query/datetime-partfunction) [getmonth](/azure/kusto/query/getmonthfunction) [monthofyear](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [dayofmonth](/azure/kusto/query/dayofmonthfunction) [dayofweek](/azure/kusto/query/dayofweekfunction) [dayofyear](/azure/kusto/query/dayofyearfunction) [weekofyear](/azure/kusto/query/weekofyearfunction) |
-| Obter um valor de data relativa  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
+| Converter tipos de dados | [ToDateTime](/azure/kusto/query/todatetimefunction)  [ToTimeSpan](/azure/kusto/query/totimespanfunction)  |
+| Valor arredondado para tamanho do compartimento | [compartimento](/azure/kusto/query/binfunction) |
+| Obter uma data ou hora específica | [há](/azure/kusto/query/agofunction) [agora](/azure/kusto/query/nowfunction)   |
+| Obter parte do valor | [datetime_part](/azure/kusto/query/datetime-partfunction) [GetMonth](/azure/kusto/query/getmonthfunction) [MonthOfYear](/azure/kusto/query/monthofyearfunction) [$ year](/azure/kusto/query/getyearfunction) [DayOfMonth](/azure/kusto/query/dayofmonthfunction) [DayOfWeek](/azure/kusto/query/dayofweekfunction) [DayOfYear](/azure/kusto/query/dayofyearfunction) [WeekOfYear](/azure/kusto/query/weekofyearfunction) |
+| Obter um valor de data relativa  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [ENDOFMONTH](/azure/kusto/query/endofmonthfunction) [ENDOFYEAR](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [STARTOFMONTH](/azure/kusto/query/startofmonthfunction) [STARTOFYEAR](/azure/kusto/query/startofyearfunction) |
 
-## <a name="next-steps"></a>Passos Seguintes
-Consulte outras lições para utilizar o [linguagem de consulta de Kusto](/azure/kusto/query/) com o Azure Monitor registos de dados:
+## <a name="next-steps"></a>Passos seguintes
+Consulte outras lições para usar a [linguagem de consulta Kusto](/azure/kusto/query/) com Azure monitor dados de log:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Funções de agregação](aggregations.md)
 - [Agregações avançadas](advanced-aggregations.md)
-- [Estruturas de dados e JSON](json-data-structures.md)
-- [Escrita de consultas avançado](advanced-query-writing.md)
-- [Associações](joins.md)
-- [Gráficos](charts.md)
+- [JSON e estruturas de dados](json-data-structures.md)
+- [Gravação de consulta avançada](advanced-query-writing.md)
+- [Junções](joins.md)
+- [Spersão](charts.md)

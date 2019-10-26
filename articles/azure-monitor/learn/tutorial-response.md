@@ -1,25 +1,19 @@
 ---
 title: Responder a eventos com Alertas do Log Analytics do Azure | Microsoft Docs
 description: Este tutorial ajuda-o a compreender os alertas com o Log Analytics para identificar informações importantes na sua área de trabalho e notificá-lo proativamente de problemas ou invocar ações para tentar corrigi-las.
-services: log-analytics
-documentationcenter: log-analytics
-author: MGoedtel
-manager: carmonm
-editor: ''
-ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: tutorial
-ms.date: 10/05/2018
+author: MGoedtel
 ms.author: magoedte
+ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 6521688e595230951e0753fd67c2bf9b02e0a6ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a30b7569c14aaccb40b357cc5acb82b0e32d2895
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589899"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894665"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Responder a eventos com Alertas do Azure Monitor
 Os alertas no Azure Monitor podem identificar informações importantes no repositório do Log Analytics. Estes são criados pelas regras de alerta que executam automaticamente pesquisas de registos em intervalos regulares, e se os resultados da pesquisa de registos corresponderem a critérios de específicos, então será criado um registo de alerta que poderá ser configurado para efetuar uma resposta automática.  Este tutorial é uma continuação do tutorial [Criar e partilhar dashboards de dados do Log Analytics](tutorial-logs-dashboards.md).   
@@ -40,7 +34,7 @@ Os alertas são criados por regras de alerta no Azure Monitor e podem executar a
 
 No exemplo seguinte, o utilizador cria uma regra de alerta de medição métrica com base na consulta *Azure VMs – Utilização do Processador* guardada em [Visualizar tutorial de dados](tutorial-logs-dashboards.md).  É criado um alerta para cada máquina virtual que excede um limiar de 90%.  
 
-1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
+1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
 2. No painel da esquerda, selecione **Alertas** e, em seguida, clique em **Nova Regra de Alerta** na parte superior da página para criar um novo alerta.<br><br> ![Criar nova regra de alerta](./media/tutorial-response/alert-rule-02.png)<br>
 3. Para o primeiro passo, na secção **Criar Alerta**, vai selecionar a sua área de trabalho do Log Analytics como o recurso, pois é um sinal de alerta baseado em registo.  Filtre os resultados ao escolher a **Subscrição** específica na lista pendente, se tiver mais do que uma, que contém a área de trabalho do Log Analytics e a VM criadas anteriormente.  Filtre o **Tipo de Recurso** ao selecionar **Log Analytics** na lista pendente.  Por fim, selecione o **Recurso** **DefaultLAWorkspace** e, em seguida, clique em **Concluído**.<br><br> ![Criar alerta, passo 1](./media/tutorial-response/alert-rule-03.png)<br>
 4. Na secção **Critérios de Alerta**, clique em **Adicionar Critérios** para selecionar a nossa consulta guardada e, em seguida, especifique a lógica que a regra de alerta segue.  No painel **Configurar lógica de sinal**, selecione *Azure VMs – Utilização do Processador* na lista.  O painel atualiza para apresentar as definições de configuração do alerta.  Na parte superior, mostra os resultados dos últimos 30 minutos do sinal selecionado e a consulta de pesquisa.  
@@ -50,7 +44,7 @@ No exemplo seguinte, o utilizador cria uma regra de alerta de medição métrica
    c. Na secção Acionar Alerta Com Base Em, selecione **Falhas de segurança consecutivas** e na lista pendente selecione **Maior que** e introduza 3.  
    d. Na secção Avaliação baseada em, modifique o valor **Período** para **30** minutos. A regra é executada a cada cinco minutos e devolve registos que foram criados nos últimos trinta minutos anteriores à hora atual.  Definir o período de tempo para uma janela maior tem em conta o potencial da latência de dados e garante que a consulta devolve dados para evitar um falso negativo em que o alerta nunca é acionado.  
 6. Clique em **Concluído** para concluir a regra de alerta.<br><br> ![Configurar sinal de alerta](./media/tutorial-response/alert-signal-logic-02.png)<br> 
-7. Agora passando ao segundo passo, indique o nome do alerta no campo **Nome da regra de alerta**, como **Percentagem da CPU maior que 90%**.  Especifique uma **Descrição** detalhando especificidades do alerta e selecione **Crítico (Grav 0)** como o valor de **Gravidade** nas opções fornecidas.<br><br> ![Configurar detalhes do alerta](./media/tutorial-response/alert-signal-logic-04.png)<br>
+7. Agora passando ao segundo passo, indique o nome do alerta no campo **Nome da regra de alerta**, como **Percentagem da CPU maior que 90%** .  Especifique uma **Descrição** detalhando especificidades do alerta e selecione **Crítico (Grav 0)** como o valor de **Gravidade** nas opções fornecidas.<br><br> ![Configurar detalhes do alerta](./media/tutorial-response/alert-signal-logic-04.png)<br>
 8. Para ativar imediatamente a regra de alerta na criação, aceite o valor predefinido de **Ativar regra após criação**.
 9. Para o terceiro e último passo, especifica um **Grupo de Ações**, que garante que as mesmas ações são feitas sempre que um alerta é acionado e pode ser utilizado para cada regra que definir.  Configure um novo grupo de ações com as seguintes informações:  
    a. Selecione **Novo grupo de ações** e o painel **Adicionar grupo de ações** é apresentado.  
@@ -70,7 +64,7 @@ Agora que criou um alerta, pode ver os alertas do Azure num painel único e geri
 
 Quando o alerta é acionado, a tabela reflete a condição e quantas vezes ocorreu no intervalo de tempo selecionado (a predefinição é as últimas seis horas).  Deve haver um e-mail correspondente na sua caixa de correio semelhante ao seguinte exemplo mostrando a máquina virtual inválida e os principais resultados que correspondem à consulta de pesquisa neste caso.<br><br> ![Exemplo de ação de e-mail de alerta](./media/tutorial-response/azure-alert-email-notification-01.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu como as regras de alertas podem identificar e responder proativamente a um problema quando executam pesquisas de registo em intervalos agendados e corresponder a critérios específicos.
 
 Siga esta ligação para ver os exemplos de scripts do Log Analytics pré-criados.  

@@ -1,5 +1,5 @@
 ---
-title: Relatório de inícios de sessão de risco no portal do Azure Active Directory | Microsoft Docs
+title: Relatório de entradas arriscadas no portal | Microsoft Docs
 description: Saiba mais sobre o relatório de inícios de sessão de risco no portal do Azure Active Directory
 services: active-directory
 author: cawrites
@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72493400ba20ef3c838a636b66afdf26aa00ff62
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 31a002af32ac6c07e6358a3ccd0f1420d3e8c9ef
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127424"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895192"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Relatório de inícios de sessão de risco no portal do Azure Active Directory
 
@@ -42,9 +42,9 @@ Para saber como configurar as políticas que disparam essas detecções de risco
 
 Os relatórios de entradas arriscadas estão disponíveis para os usuários nas seguintes funções:
 
-- Administrador de Segurança
+- Administrador de segurança
 - Administrador Global
-- Leitor de Segurança
+- Leitor de segurança
 
 Para saber como atribuir funções administrativas a um usuário no Azure Active Directory, consulte [Exibir e atribuir funções de administrador no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
 
@@ -109,7 +109,7 @@ Ao selecionar uma detecção de risco, você obtém um modo de exibição de rel
 ![Inícios de Sessão de Risco](./media/concept-risky-sign-ins/457.png)
 
 > [!IMPORTANT]
-> Às vezes, você pode encontrar uma detecção de risco sem uma entrada de logon correspondente no [relatório](concept-sign-ins.md)de entradas. Isso ocorre porque a proteção de identidade avalia o risco de entradas interativas e **não** interativas, enquanto o relatório de entradas mostra apenas as entradas interativas.
+> Às vezes, você pode encontrar uma detecção de risco sem uma entrada de logon correspondente no [relatório](concept-sign-ins.md)de entradas. Isso ocorre porque a proteção de identidade avalia o risco de entradas **interativas e** **não interativas** , enquanto o relatório de entradas mostra apenas as entradas interativas.
 
 Ao selecionar um utilizador, obtém uma vista de relatório detalhado para este utilizador que lhe permite:
 

@@ -3,22 +3,23 @@ title: CLI do Azure Service Fabric-nó sfctl | Microsoft Docs
 description: Descreve os comandos de nó do Service Fabric CLI sfctl.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 9d41f978dd6a87287d8743e321acf35ff4909544
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 29a66beb354edc96a9ece2bb37766dbde6a9fe49
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034981"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901108"
 ---
 # <a name="sfctl-node"></a>sfctl node
 Gerencie os nós que formam um cluster.
@@ -27,15 +28,15 @@ Gerencie os nós que formam um cluster.
 
 |Comando|Descrição|
 | --- | --- |
-| desactivar | Desative um nó de Cluster Service Fabric com a intenção de desativação especificada. |
-| ativar | Ative um nó de Cluster Service Fabric que esteja desativado no momento. |
-| health | Obtém a integridade de um nó de Service Fabric. |
-| info | Obtém as informações sobre um nó específico no Cluster Service Fabric. |
+| Desativar | Desative um nó de Cluster Service Fabric com a intenção de desativação especificada. |
+| Desabilitar | Ative um nó de Cluster Service Fabric que esteja desativado no momento. |
+| saúde | Obtém a integridade de um nó de Service Fabric. |
+| detalhes | Obtém as informações sobre um nó específico no Cluster Service Fabric. |
 | list | Obtém a lista de nós no Cluster Service Fabric. |
-| load | Obtém as informações de carga de um nó de Service Fabric. |
-| remove-state | Notifica Service Fabric que o estado persistente em um nó foi removido permanentemente ou perdido. |
-| report-health | Envia um relatório de integridade no nó Service Fabric. |
-| restart | Reinicia um nó de Cluster Service Fabric. |
+| carregar | Obtém as informações de carga de um nó de Service Fabric. |
+| remover estado | Notifica Service Fabric que o estado persistente em um nó foi removido permanentemente ou perdido. |
+| relatório-integridade | Envia um relatório de integridade no nó Service Fabric. |
+| reiniciar | Reinicia um nó de Cluster Service Fabric. |
 | transição | Inicia ou para um nó de cluster. |
 | transição-status | Obtém o progresso de uma operação iniciada usando StartNodeTransition. |
 
@@ -49,8 +50,8 @@ Desative um nó de Cluster Service Fabric com a intenção de desativação espe
 |Argumento|Descrição|
 | --- | --- |
 | --node-Name [obrigatório] | O nome do nó. |
-| --deactivation-intent | Descreve a intenção ou o motivo da desativação do nó. Os valores possíveis são os seguintes. |
-| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --tentativa de desativação | Descreve a intenção ou o motivo da desativação do nó. Os valores possíveis são os seguintes. |
+| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -58,7 +59,7 @@ Desative um nó de Cluster Service Fabric com a intenção de desativação espe
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
@@ -72,7 +73,7 @@ Ativa um nó de Cluster Service Fabric que está desativado no momento. Depois d
 |Argumento|Descrição|
 | --- | --- |
 | --node-Name [obrigatório] | O nome do nó. |
-| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -80,7 +81,7 @@ Ativa um nó de Cluster Service Fabric que está desativado no momento. Depois d
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
@@ -94,8 +95,8 @@ Obtém a integridade de um nó de Service Fabric. Use EventsHealthStateFilter pa
 |Argumento|Descrição|
 | --- | --- |
 | --node-Name [obrigatório] | O nome do nó. |
-| --events-health-state-filter | Permite filtrar a coleção de objetos HealthEvent retornados com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor inteiro de um dos seguintes Estados de integridade. Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, todas as entradas serão retornadas. Os valores de estado são uma enumeração baseada em sinalizador e, portanto, o valor pode ser uma combinação desses valores, obtida usando o operador ' OR ' bit-up. Por exemplo, se o valor fornecido for 6, todos os eventos com o valor OK (2) e Warning (4) serão retornados.  <br> -Default-valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None-filtro que não corresponde a nenhum valor de HealthState. Usado para não retornar nenhum resultado em uma determinada coleção de Estados. O valor é 1.  <br> -Ok-filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning-filtro que corresponde à entrada com o valor Warning de HealthState. O valor é 4.  <br> -Error-filtro que corresponde à entrada com o valor Error de HealthState. O valor é 8.  <br> -All-filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
-| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --eventos-estado de integridade do filtro | Permite filtrar a coleção de objetos HealthEvent retornados com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor inteiro de um dos seguintes Estados de integridade. Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, todas as entradas serão retornadas. Os valores de estado são uma enumeração baseada em sinalizador e, portanto, o valor pode ser uma combinação desses valores, obtida usando o operador ' OR ' bit-up. Por exemplo, se o valor fornecido for 6, todos os eventos com o valor OK (2) e Warning (4) serão retornados.  <br> -Default-valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None-filtro que não corresponde a nenhum valor de HealthState. Usado para não retornar nenhum resultado em uma determinada coleção de Estados. O valor é 1.  <br> -Ok-filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning-filtro que corresponde à entrada com o valor Warning de HealthState. O valor é 4.  <br> -Error-filtro que corresponde à entrada com o valor Error de HealthState. O valor é 8.  <br> -All-filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
+| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -103,7 +104,7 @@ Obtém a integridade de um nó de Service Fabric. Use EventsHealthStateFilter pa
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
@@ -117,7 +118,7 @@ A resposta inclui o nome, o status, a ID, a integridade, o tempo de atividade e 
 |Argumento|Descrição|
 | --- | --- |
 | --node-Name [obrigatório] | O nome do nó. |
-| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -125,7 +126,7 @@ A resposta inclui o nome, o status, a ID, a integridade, o tempo de atividade e 
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
@@ -139,9 +140,9 @@ A resposta inclui o nome, o status, a ID, a integridade, o tempo de atividade e 
 |Argumento|Descrição|
 | --- | --- |
 | --continuação-token | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se ajustam em uma única resposta. Quando esse valor é passado para a próxima chamada à API, a API retorna o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. |
-| --max-results | O número máximo de resultados a serem retornados como parte das consultas paginadas. Esse parâmetro define o limite superior no número de resultados retornados. Os resultados retornados podem ser menores que os resultados máximos especificados se não couberem na mensagem de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se esse parâmetro for zero ou não for especificado, a consulta paginável incluirá o máximo possível de resultados que couberem na mensagem de retorno. |
-| --node-status-filter | Permite filtrar os nós com base no NodeStatus. Somente os nós que correspondem ao valor de filtro especificado serão retornados. O valor do filtro pode ser um dos seguintes.  \: Padrão padrão. |
-| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --Max-Results | O número máximo de resultados a serem retornados como parte das consultas paginadas. Esse parâmetro define o limite superior no número de resultados retornados. Os resultados retornados podem ser menores que os resultados máximos especificados se não couberem na mensagem de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se esse parâmetro for zero ou não for especificado, a consulta paginável incluirá o máximo possível de resultados que couberem na mensagem de retorno. |
+| --node-status-filtro | Permite filtrar os nós com base no NodeStatus. Somente os nós que correspondem ao valor de filtro especificado serão retornados. O valor do filtro pode ser um dos seguintes.  Padrão\: padrão. |
+| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -149,7 +150,7 @@ A resposta inclui o nome, o status, a ID, a integridade, o tempo de atividade e 
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
@@ -163,7 +164,7 @@ Recupera as informações de carga de um nó Service Fabric para todas as métri
 |Argumento|Descrição|
 | --- | --- |
 | --node-Name [obrigatório] | O nome do nó. |
-| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -171,23 +172,21 @@ Recupera as informações de carga de um nó Service Fabric para todas as métri
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
 ## <a name="sfctl-node-remove-state"></a>remover estado do nó sfctl
 Notifica Service Fabric que o estado persistente em um nó foi removido permanentemente ou perdido.
 
-Isso implica que não é possível recuperar o estado persistente desse nó. Isso geralmente acontece se um disco rígido tiver sido limpo, ou se um disco rígido falhar. O nó precisa estar inoperante para que essa operação seja bem-sucedida. Essa operação permite Service Fabric saber que as réplicas nesse nó não existem mais e que Service Fabric deve parar de esperar que essas réplicas sejam revertidas. Não execute este cmdlet se o estado no nó não tiver sido removido e o nó puder ser revertido com seu estado intacto.
-
-A partir do Service Fabric 6,5, para usar este cmdlet para nós de semente, altere os nós de semente para nós regulares (não semente) e, em seguida, invoque esse cmdlet para remover o estado do nó. Se o cluster estiver em execução no Azure, depois que o nó semente ficar inativo, Service Fabric tentará alterá-lo para um nó não semente automaticamente. Para fazer isso acontecer, verifique se o número de nós não semente no tipo de nó primário não é menor que o número de nós de semente inativos. Se necessário, adicione mais nós ao tipo de nó primário para conseguir isso. Para o cluster autônomo, se o nó semente inoperante não se espera retornar com seu estado intacto, remova o nó do cluster, consulte [remover nós de Service Fabric cluster autônomo](/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes) 
+Isso implica que não é possível recuperar o estado persistente desse nó. Isso geralmente acontece se um disco rígido tiver sido limpo, ou se um disco rígido falhar. O nó precisa estar inoperante para que essa operação seja bem-sucedida. Essa operação permite Service Fabric saber que as réplicas nesse nó não existem mais e que Service Fabric deve parar de esperar que essas réplicas sejam revertidas. Não execute este cmdlet se o estado no nó não tiver sido removido e o nó puder ser revertido com seu estado intacto. A partir do Service Fabric 6,5, para usar esta API para nós de semente, altere os nós de semente para nós regulares (não semente) e, em seguida, invoque essa API para remover o estado do nó. Se o cluster estiver em execução no Azure, depois que o nó semente ficar inativo, Service Fabric tentará alterá-lo para um nó não semente automaticamente. Para fazer isso acontecer, verifique se o número de nós não semente no tipo de nó primário não é menor que o número de nós de semente inativos. Se necessário, adicione mais nós ao tipo de nó primário para conseguir isso. Para o cluster autônomo, se o nó semente inoperante não se espera retornar com seu estado intacto, remova o nó do cluster, consulte https\://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
 | --node-Name [obrigatório] | O nome do nó. |
-| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -195,7 +194,7 @@ A partir do Service Fabric 6,5, para usar este cmdlet para nós de semente, alte
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
@@ -209,15 +208,15 @@ Relata o estado de integridade do nó de Service Fabric especificado. O relatór
 |Argumento|Descrição|
 | --- | --- |
 | --Health-Property [obrigatório] | A propriedade das informações de integridade. <br><br> Uma entidade pode ter relatórios de integridade para propriedades diferentes. A propriedade é uma cadeia de caracteres e não uma enumeração fixa para permitir a flexibilidade do reporter para categorizar a condição de estado que dispara o relatório. Por exemplo, um reporter com SourceID "LocalWatchdog" pode monitorar o estado do disco disponível em um nó, para que ele possa relatar a propriedade "AvailableDisk" nesse nó. O mesmo Reporter pode monitorar a conectividade do nó, para que possa relatar uma propriedade "Connectivity" no mesmo nó. No repositório de integridade, esses relatórios são tratados como eventos de integridade separados para o nó especificado. Junto com SourceID, a propriedade identifica exclusivamente as informações de integridade. |
-| --Estado de integridade [obrigatório] | Os valores possíveis\: incluem "Invalid", "OK", "Warning", "Error", "Unknown". |
+| --Estado de integridade [obrigatório] | Os valores possíveis incluem\: "Invalid", "OK", "Warning", "Error", "Unknown". |
 | --node-Name [obrigatório] | O nome do nó. |
 | --Source-ID [obrigatório] | O nome de origem que identifica o componente de cliente/Watchdog/sistema que gerou as informações de integridade. |
 | --Descrição | A descrição das informações de integridade. <br><br> Ele representa o texto livre usado para adicionar informações legíveis ao relatório. O comprimento máximo da cadeia de caracteres para a descrição é de 4096 caracteres. Se a cadeia de caracteres fornecida for maior, ela será truncada automaticamente. Quando truncado, os últimos caracteres da descrição contêm um marcador "[truncado]" e o tamanho total da cadeia de caracteres é de 4096 caracteres. A presença do marcador indica para os usuários que o truncamento ocorreu. Observe que, quando truncado, a descrição tem menos de 4096 caracteres a partir da cadeia de caracteres original. |
 | --imediato | Um sinalizador que indica se o relatório deve ser enviado imediatamente. <br><br> Um relatório de integridade é enviado para um aplicativo Service Fabric gateway, que encaminha para o repositório de integridade. Se Immediate for definido como true, o relatório será enviado imediatamente do gateway HTTP para o repositório de integridade, independentemente das configurações do cliente de malha que o aplicativo de gateway HTTP está usando. Isso é útil para relatórios críticos que devem ser enviados assim que possível. Dependendo do tempo e de outras condições, o envio do relatório ainda poderá falhar, por exemplo, se o gateway HTTP estiver fechado ou se a mensagem não alcançar o gateway. Se Immediate for definido como false, o relatório será enviado com base nas configurações do cliente de integridade do gateway HTTP. Portanto, ele será em lote de acordo com a configuração do HealthReportSendInterval. Essa é a configuração recomendada porque permite que o cliente de integridade Otimize as mensagens de relatório de integridade para o repositório de integridade, bem como o processamento do relatório de integridade. Por padrão, os relatórios não são enviados imediatamente. |
-| --remove-when-expired | Valor que indica se o relatório será removido do repositório de integridade quando ele expirar. <br><br> Se definido como true, o relatório será removido do repositório de integridade depois de expirar. Se definido como false, o relatório será tratado como um erro quando expirado. O valor dessa propriedade é false por padrão. Quando os clientes relatam periodicamente, eles devem definir RemoveWhenExpired false (padrão). Dessa forma, o relator tem problemas (por exemplo, deadlock) e não pode relatar, a entidade é avaliada com erro quando o relatório de integridade expira. Isso sinaliza a entidade como estando em estado de integridade de erro. |
-| --sequence-number | O número de sequência deste relatório de integridade como uma cadeia de caracteres numérica. <br><br> O número de sequência do relatório é usado pelo repositório de integridade para detectar relatórios obsoletos. Se não for especificado, um número de sequência será gerado automaticamente pelo cliente de integridade quando um relatório for adicionado. |
-| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
-| --ttl | A duração para a qual este relatório de integridade é válido. Esse campo usa o formato ISO8601 para especificar a duração. <br><br> Quando os clientes relatam periodicamente, eles devem enviar relatórios com mais frequência do que a vida útil. Se os clientes reportarem a transição, eles poderão definir a vida útil como infinito. Quando a vida útil expira, o evento de integridade que contém as informações de integridade é removido do repositório de integridade, se RemoveWhenExpired for verdadeiro ou avaliado com erro, se RemoveWhenExpired false. Se não for especificado, o padrão de vida útil para valor infinito. |
+| --Remove-When-Expired | Valor que indica se o relatório será removido do repositório de integridade quando ele expirar. <br><br> Se definido como true, o relatório será removido do repositório de integridade depois de expirar. Se definido como false, o relatório será tratado como um erro quando expirado. O valor dessa propriedade é false por padrão. Quando os clientes relatam periodicamente, eles devem definir RemoveWhenExpired false (padrão). Dessa forma, o relator tem problemas (por exemplo, deadlock) e não pode relatar, a entidade é avaliada com erro quando o relatório de integridade expira. Isso sinaliza a entidade como estando em estado de integridade de erro. |
+| --número da sequência | O número de sequência deste relatório de integridade como uma cadeia de caracteres numérica. <br><br> O número de sequência do relatório é usado pelo repositório de integridade para detectar relatórios obsoletos. Se não for especificado, um número de sequência será gerado automaticamente pelo cliente de integridade quando um relatório for adicionado. |
+| --Timeout-t | Padrão\: 60. |
+| --TTL | A duração para a qual este relatório de integridade é válido. Esse campo usa o formato ISO8601 para especificar a duração. <br><br> Quando os clientes relatam periodicamente, eles devem enviar relatórios com mais frequência do que a vida útil. Se os clientes reportarem a transição, eles poderão definir o tempo muito ao vivo para infinito. Quando a vida útil expira, o evento de integridade que contém as informações de integridade é removido do repositório de integridade, se RemoveWhenExpired for verdadeiro ou avaliado com erro, se RemoveWhenExpired false. Se não for especificado, o padrão de vida útil para valor infinito. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -225,7 +224,7 @@ Relata o estado de integridade do nó de Service Fabric especificado. O relatór
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
@@ -239,9 +238,9 @@ Reinicia um nó de Cluster Service Fabric que já foi iniciado.
 |Argumento|Descrição|
 | --- | --- |
 | --node-Name [obrigatório] | O nome do nó. |
-| --create-fabric-dump | Especifique true para criar um despejo do processo do nó de malha. Isso diferencia maiúsculas de minúsculas.  Padrão\: false. |
-| --node-instance-id | A ID da instância do nó de destino. Se a ID da instância for especificada, o nó será reiniciado somente se corresponder à instância atual do nó. Um valor padrão de "0" corresponderia A qualquer ID de instância. A ID da instância pode ser obtida usando a consulta obter nó.  Padrão\: 0. |
-| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --Create-Fabric-dump | Especifique true para criar um despejo do processo do nó de malha. Isso diferencia maiúsculas de minúsculas.  Padrão\: false. |
+| --node-Instance-ID | A ID da instância do nó de destino. Se a ID da instância for especificada, o nó será reiniciado somente se corresponder à instância atual do nó. Um valor padrão de "0" corresponderia A qualquer ID de instância. A ID da instância pode ser obtida usando a consulta obter nó.  Padrão\: 0. |
+| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -249,7 +248,7 @@ Reinicia um nó de Cluster Service Fabric que já foi iniciado.
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
@@ -267,7 +266,7 @@ Inicia ou para um nó de cluster.  Um nó de cluster é um processo, não a pró
 | --node-tipo de transição [obrigatório] | Indica o tipo de transição a ser executado.  NodeTransitionType. Start iniciará um nó parado. NodeTransitionType. Stop irá parar um nó que está ativo. |
 | --Operation-ID [obrigatório] | Um GUID que identifica uma chamada dessa API.  Isso é passado para a API GetProgress correspondente. |
 | --Stop-Duration-in-seconds [obrigatório] | A duração, em segundos, para manter o nó parado.  O valor mínimo é 600, o máximo é 14400.  Depois que esse tempo expirar, o nó será automaticamente retornado. |
-| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -275,7 +274,7 @@ Inicia ou para um nó de cluster.  Um nó de cluster é um processo, não a pró
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
@@ -290,7 +289,7 @@ Obtém o progresso de uma operação iniciada com StartNodeTransition usando o o
 | --- | --- |
 | --node-Name [obrigatório] | O nome do nó. |
 | --Operation-ID [obrigatório] | Um GUID que identifica uma chamada dessa API.  Isso é passado para a API GetProgress correspondente. |
-| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -298,7 +297,7 @@ Obtém o progresso de uma operação iniciada com StartNodeTransition usando o o
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 

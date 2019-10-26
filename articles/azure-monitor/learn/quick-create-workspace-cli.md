@@ -1,61 +1,55 @@
 ---
-title: Criar uma área de trabalho do Log Analytics com a CLI do Azure | Documentos da Microsoft
-description: Saiba como criar uma área de trabalho do Log Analytics para ativar a recolha de dados e soluções de gerenciamento de seus ambientes na cloud e no local com a CLI do Azure.
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Criar um espaço de trabalho Log Analytics usando CLI do Azure | Microsoft Docs
+description: Saiba como criar um espaço de trabalho Log Analytics para habilitar soluções de gerenciamento e coleta de dados de seus ambientes de nuvem e locais com o CLI do Azure.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 03/12/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 7ee8302a026cf7584996bca481e79190586b77b3
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.date: 03/12/2019
+ms.openlocfilehash: 18bfc99ded6e3e9171fbb20fbf329700817829de
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838842"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895003"
 ---
-# <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Criar uma área de trabalho do Log Analytics com a CLI 2.0 do Azure
+# <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Criar um espaço de trabalho Log Analytics com o CLI do Azure 2,0
 
 A CLI 2.0 do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este guia de início rápido mostra como usar CLI do Azure 2,0 para implantar um espaço de trabalho Log Analytics no Azure Monitor. Um espaço de trabalho Log Analytics é um ambiente exclusivo para dados de Azure Monitor log. Cada espaço de trabalho tem seu próprio repositório de dados e configuração, e as fontes de dados e soluções são configuradas para armazenar seus dados em um espaço de trabalho específico. Você precisará de um espaço de trabalho Log Analytics se pretender coletar dados das seguintes fontes:
 
-* Recursos do Azure na sua subscrição  
-* Computadores monitorizados pelo System Center Operations Manager no local  
-* Coleções de dispositivos do System Center Configuration Manager  
+* Recursos do Azure em sua assinatura  
+* Computadores locais monitorados pelo System Center Operations Manager  
+* Coleções de dispositivos de System Center Configuration Manager  
 * Dados de diagnóstico ou de registo do armazenamento do Azure  
  
-Para outras origens, como as VMs do Azure e o Windows ou VMs do Linux no seu ambiente, consulte os seguintes tópicos:
+Para outras fontes, como VMs do Azure e VMs do Windows ou Linux em seu ambiente, consulte os seguintes tópicos:
 
-* [Recolher dados de máquinas virtuais do Azure](../learn/quick-collect-azurevm.md)
-* [Recolher dados de computador com Linux híbrida](../learn/quick-collect-linux-computer.md)
-* [Recolher dados do computador de Windows híbrida](quick-collect-windows-computer.md)
+* [Coletar dados de máquinas virtuais do Azure](../learn/quick-collect-azurevm.md)
+* [Coletar dados de um computador Linux híbrido](../learn/quick-collect-linux-computer.md)
+* [Coletar dados de um computador Windows híbrido](quick-collect-windows-computer.md)
 
-Se não tiver uma subscrição do Azure, crie [uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie [uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este guia de início rápido requer a execução da versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se optar por instalar e utilizar a CLI localmente, este guia de início rápido requer a execução da versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="create-a-workspace"></a>Criar uma área de trabalho
-Crie um espaço de trabalho com [AZ Group Deployment Create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). O exemplo a seguir cria um espaço de trabalho no local *eastus* usando um modelo do Resource Manager do computador local. O modelo JSON está configurado para apenas solicitar-lhe o nome da área de trabalho e especifica um valor predefinido para os outros parâmetros que provavelmente seria usado como uma configuração padrão no seu ambiente. Ou pode armazenar o modelo numa conta de armazenamento do Azure para acesso partilhado na sua organização. Para obter mais informações sobre como trabalhar com modelos, consulte [implementar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+## <a name="create-a-workspace"></a>Criar áreas de trabalho
+Crie um espaço de trabalho com [AZ Group Deployment Create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). O exemplo a seguir cria um espaço de trabalho no local *eastus* usando um modelo do Resource Manager do computador local. O modelo JSON é configurado para solicitar apenas o nome do espaço de trabalho e especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão em seu ambiente. Ou você pode armazenar o modelo em uma conta de armazenamento do Azure para acesso compartilhado em sua organização. Para obter mais informações sobre como trabalhar com modelos, consulte [implantar recursos com modelos do Resource Manager e CLI do Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 Para obter informações sobre regiões com suporte, consulte [regiões log Analytics está disponível no](https://azure.microsoft.com/regions/services/) e procure por Azure monitor no campo **Pesquisar um produto** . 
 
-Os seguintes parâmetros de definir um valor predefinido:
+Os parâmetros a seguir definem um valor padrão:
 
-* localização – a predefinição é E.U.A. leste
-* SKU - é predefinido para o escalão de preço por GB novo lançado no modelo de preços de Abril de 2018
+* local-o padrão é leste dos EUA
+* SKU-usa como padrão o novo tipo de preço por GB lançado no modelo de preços de abril de 2018
 
 >[!WARNING]
->Se criar ou configurar uma área de trabalho do Log Analytics numa subscrição que tenha optado pelo modelo de preços de Abril de 2018 novo, o escalão de preço de Log Analytics só é válida é **PerGB2018**. 
+>Se você estiver criando ou configurando um Log Analytics espaço de trabalho em uma assinatura que tenha optado pelo novo modelo de preços de abril de 2018, o único tipo de preço válido de Log Analytics será **PerGB2018**. 
 >
 
-### <a name="create-and-deploy-template"></a>Criar e implementar modelo
+### <a name="create-and-deploy-template"></a>Criar e implantar modelo
 
 1. Copie e cole a seguinte sintaxe JSON no seu ficheiro:
 
@@ -113,22 +107,22 @@ Os seguintes parâmetros de definir um valor predefinido:
     }
     ```
 
-2. Edite o modelo para satisfazer os seus requisitos. Revisão [Microsoft.OperationalInsights/workspaces modelo](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referência para saber quais propriedades e valores são suportados. 
-3. Guarde este ficheiro como **deploylaworkspacetemplate.json** para uma pasta local.   
+2. Edite o modelo para atender às suas necessidades. Examine a referência de [modelo Microsoft. OperationalInsights/Workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber quais são as propriedades e os valores com suporte. 
+3. Salve esse arquivo como **deploylaworkspacetemplate. JSON** em uma pasta local.   
 4. Está pronto para implementar este modelo. Use os comandos a seguir da pasta que contém o modelo. Quando for solicitado um nome de espaço de trabalho, forneça um nome que seja globalmente exclusivo em todas as assinaturas do Azure.
 
     ```azurecli
     az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
     ```
 
-A implementação pode demorar alguns minutos a concluir. Quando terminar, verá uma mensagem semelhante ao seguinte, que inclui o resultado:
+A implementação pode demorar alguns minutos a concluir. Quando ele for concluído, você verá uma mensagem semelhante à seguinte que inclui o resultado:
 
-![Exemplo de resultado quando a implementação estiver concluída](media/quick-create-workspace-cli/template-output-01.png)
+![Resultado de exemplo quando a implantação é concluída](media/quick-create-workspace-cli/template-output-01.png)
 
-## <a name="next-steps"></a>Passos Seguintes
-Agora que tem uma área de trabalho disponível, pode configurar a recolha de monitorização de telemetria, executar pesquisas de registos para analisar esses dados e adicionar uma solução de gestão para fornecer dados adicionais e informações de análise.  
+## <a name="next-steps"></a>Passos seguintes
+Agora que você tem um espaço de trabalho disponível, é possível configurar a coleta de telemetria de monitoramento, executar pesquisas de log para analisar esses dados e adicionar uma solução de gerenciamento para fornecer dados adicionais e informações analíticas.  
 
-* Para ativar a recolha de dados dos recursos do Azure com o diagnóstico do Azure ou o armazenamento do Azure, veja [registos do serviço de recolha do Azure e as métricas de utilização do Log Analytics](../platform/collect-azure-metrics-logs.md).  
-* Adicione [System Center Operations Manager como origem de dados](../platform/om-agents.md) para recolher dados de agentes que reportam o grupo de gestão do Operations Manager e o armazenamos em sua área de trabalho do Log Analytics.  
-* Ligue-se [Configuration Manager](../platform/collect-sccm.md) para importar computadores que são membros de coleções na hierarquia.  
+* Para habilitar a coleta de dados de recursos do Azure com o Diagnóstico do Azure ou o armazenamento do Azure, consulte [coletar logs e métricas de serviço do Azure para uso no log Analytics](../platform/collect-azure-metrics-logs.md).  
+* Adicione [System Center Operations Manager como uma fonte de dados](../platform/om-agents.md) para coletar dados de agentes que relatam seu grupo de gerenciamento de Operations Manager e armazená-los em seu espaço de trabalho do log Analytics.  
+* Conecte [Configuration Manager](../platform/collect-sccm.md) para importar computadores que são membros de coleções na hierarquia.  
 * Examine as [soluções de monitoramento](../insights/solutions.md) disponíveis e como adicionar ou remover uma solução do seu espaço de trabalho.

@@ -11,18 +11,21 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: iainfou
-ms.openlocfilehash: 3876c6f80e9f18059ab4abac67732cdbf2ca24fa
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: ffcff84c7778ec3d6395e1c7a706c0deb2a0dc90
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248314"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893440"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Políticas de bloqueio de senha e conta em domínios gerenciados
 
 Para gerenciar a segurança de usuário no Azure Active Directory Domain Services (AD DS do Azure), você pode definir políticas de senha refinadas que controlam as configurações de bloqueio de conta ou a complexidade e o comprimento mínimo da senha. Uma política de senha refinada padrão é criada e aplicada a todos os usuários em um domínio gerenciado AD DS do Azure. Para fornecer controle granular e atender às necessidades específicas de negócios ou de conformidade, políticas adicionais podem ser criadas e aplicadas a grupos de usuários específicos.
 
 Este artigo mostra como criar e configurar uma política de senha refinada no Azure AD DS usando o Centro Administrativo do Active Directory.
+
+> [!NOTE]
+> As políticas de senha só estão disponíveis para os domínios gerenciados AD DS do Azure criados usando o modelo de implantação do Resource Manager. Para domínios gerenciados mais antigos criados usando [o clássico, migre do modelo de rede virtual clássica para o Gerenciador de recursos][migrate-from-classic].
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -34,6 +37,7 @@ Para concluir este artigo, você precisa dos seguintes recursos e privilégios:
   * Se necessário, [crie um locatário Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
 * Um Azure Active Directory Domain Services domínio gerenciado habilitado e configurado em seu locatário do Azure AD.
   * Se necessário, conclua o tutorial para [criar e configurar uma instância de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+  * A instância do AD DS do Azure deve ter sido criada usando o modelo de implantação do Gerenciador de recursos. Se necessário, [migre do modelo de rede virtual clássica para o Gerenciador de recursos][migrate-from-classic].
 * Uma VM de gerenciamento do Windows Server que é unida ao domínio gerenciado AD DS do Azure.
   * Se necessário, conclua o tutorial para [criar uma VM de gerenciamento][tutorial-create-management-vm].
 * Uma conta de usuário que é membro do grupo de *Administradores de DC do Azure ad* em seu locatário do Azure AD.
@@ -130,3 +134,4 @@ Para obter mais informações sobre políticas de senha e usar o centro de admin
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
+[migrate-from-classic]: migrate-from-classic-vnet.md

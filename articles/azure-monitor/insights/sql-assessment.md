@@ -1,99 +1,93 @@
 ---
-title: Otimizar seu ambiente do SQL Server com o Azure Monitor | Documentos da Microsoft
-description: Com o Azure Monitor, pode utilizar a solução de verificação de estado de funcionamento do SQL para avaliar o risco e estado de funcionamento dos seus ambientes num intervalo regular.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Otimize seu ambiente de SQL Server com Azure Monitor | Microsoft Docs
+description: Com o Azure Monitor, você pode usar a solução de verificação de integridade do SQL para avaliar o risco e a integridade de seus ambientes em intervalos regulares.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 03/28/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 94b23bc29c3c986e6a0cd74e0805b5d47ce35849
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/28/2019
+ms.openlocfilehash: 7808ead7ec4191bdf17e3ab225aeaa909abd7d08
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62120638"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900671"
 ---
-# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Otimizar seu ambiente de SQL com a solução de verificação de estado de funcionamento do SQL Server no Azure Monitor
+# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Otimize seu ambiente SQL com a solução de verificação de integridade SQL Server no Azure Monitor
 
-![Símbolo de verificação de estado de funcionamento do SQL](./media/sql-assessment/sql-assessment-symbol.png)
+![Símbolo de verificação de integridade do SQL](./media/sql-assessment/sql-assessment-symbol.png)
 
-Pode utilizar a solução de verificação de estado de funcionamento do SQL para avaliar o risco e estado de funcionamento dos seus ambientes de servidor num intervalo regular. Este artigo irá ajudá-lo a instalar a solução para que pode tomar medidas corretivas para potenciais problemas.
+Você pode usar a solução verificação de integridade do SQL para avaliar o risco e a integridade de seus ambientes de servidor em intervalos regulares. Este artigo o ajudará a instalar a solução para que você possa tomar ações corretivas para possíveis problemas.
 
-Esta solução fornece uma lista prioritária de recomendações específicas para sua infra-estrutura de servidor implementado. As recomendações são categorizadas em seis áreas de foco que ajudá-lo rapidamente entender o risco e tomar medidas corretivas.
+Essa solução fornece uma lista priorizada de recomendações específicas para sua infraestrutura de servidor implantado. As recomendações são categorizadas em seis áreas de foco que ajudam você a entender rapidamente o risco e a tomar medidas corretivas.
 
-As recomendações feitas baseiam-se o conhecimento e a experiência obtida pelos engenheiros da Microsoft de milhares de visitas a clientes. Cada recomendação fornece orientações sobre por que um problema poderá são importantes para si e como implementar as alterações sugeridas.
+As recomendações feitas são baseadas no conhecimento e na experiência obtidas pelos engenheiros da Microsoft de milhares de visitas a clientes. Cada recomendação fornece orientação sobre por que um problema pode ser importante para você e como implementar as alterações sugeridas.
 
-Pode escolher áreas de foco que são mais importantes para a sua organização e acompanhar seu progresso em relação a execução de um ambiente gratuito e em bom estado de risco.
+Você pode escolher as áreas de foco que são mais importantes para sua organização e acompanhar seu progresso em relação à execução de um ambiente íntegro e sem riscos.
 
-Depois de adicionar a solução e uma avaliação é concluído, resumo informações para áreas de foco são mostradas no **verificação de estado de funcionamento do SQL** dashboard para a infraestrutura no seu ambiente. As secções seguintes descrevem como utilizar as informações sobre o **verificação de estado de funcionamento do SQL** dashboard, onde pode ver e, em seguida, efetuar as ações recomendadas para a sua infraestrutura do SQL Server.
+Depois de adicionar a solução e uma avaliação ser concluída, as informações resumidas para áreas de foco são mostradas no painel de **verificação de integridade do SQL** para a infraestrutura em seu ambiente. As seções a seguir descrevem como usar as informações no painel de **verificação de integridade do SQL** , onde você pode exibir e, em seguida, executar as ações recomendadas para sua infraestrutura de SQL Server.
 
-![imagem do mosaico de verificação de estado de funcionamento do SQL](./media/sql-assessment/sql-healthcheck-summary-tile.png)
+![imagem do bloco verificação de integridade do SQL](./media/sql-assessment/sql-healthcheck-summary-tile.png)
 
-![imagem do dashboard de verificação de estado de funcionamento do SQL](./media/sql-assessment/sql-healthcheck-dashboard-01.png)
+![imagem do painel de verificação da integridade do SQL](./media/sql-assessment/sql-healthcheck-dashboard-01.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A solução de verificação de estado de funcionamento do SQL requer uma versão suportada do .NET Framework 4 instalado em cada computador que tenha o Microsoft Monitoring Agent (MMA) instalado.  O agente MMA é utilizado pelo System Center 2016 - Operations Manager e o Operations Manager 2012 R2 e o Azure Monitor.  
-* A solução suporta a versão 2012, 2014 e 2016 do SQL Server.
-* Uma área de trabalho do Log Analytics para adicionar a solução de verificação de estado de funcionamento do SQL no Azure marketplace no portal do Azure.  Para instalar a solução, tem de ser um administrador ou contribuinte na subscrição do Azure.
+* A solução de verificação de integridade do SQL requer uma versão com suporte do .NET Framework 4 instalada em cada computador que tenha o Microsoft Monitoring Agent (MMA) instalado.  O agente MMA é usado pelo System Center 2016-Operations Manager e Operations Manager 2012 R2 e Azure Monitor.  
+* A solução dá suporte à SQL Server versão 2012, 2014 e 2016.
+* Um espaço de trabalho Log Analytics para adicionar a solução de verificação de integridade do SQL do Azure Marketplace no portal do Azure.  Para instalar a solução, você deve ser um administrador ou colaborador na assinatura do Azure.
 
   > [!NOTE]
-  > Depois de adicionar a solução, o ficheiro de AdvisorAssessment.exe é adicionado aos servidores com os agentes. Leia e, em seguida, enviados para o Azure Monitor na cloud para processamento de dados de configuração. Lógica é aplicada para os dados recebidos e o serviço em nuvem regista os dados.
+  > Depois de adicionar a solução, o arquivo AdvisorAssessment. exe é adicionado aos servidores com agentes. Os dados de configuração são lidos e enviados para Azure Monitor na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço cloud regista os dados.
   >
   >
 
-Para efetuar a verificação de estado de funcionamento em relação a seus servidores do SQL Server, necessitam de um agente e a conectividade para o Azure Monitor utilizando um dos seguintes métodos suportados:
+Para executar a verificação de integridade em seus servidores de SQL Server, eles exigem um agente e conectividade para Azure Monitor usando um dos seguintes métodos com suporte:
 
-1. Instalar o [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) se o servidor já não é monitorizado pelo System Center 2016 - Operations Manager ou do Operations Manager 2012 R2.
-2. Se está a ser monitorizado com o System Center 2016 - Operations Manager ou do Operations Manager 2012 R2 e o grupo de gestão não está integrado com o Azure Monitor, o servidor pode ser multihomed com o Log Analytics para recolher dados e reencaminhar para o serviço e ainda ser monitorizados pelo Operations Manager.  
-3. Caso contrário, se o grupo de gestão do Operations Manager está integrado com o serviço, terá de adicionar os controladores de domínio para a recolha de dados pelo serviço de seguir os passos em [adicionar computadores geridos por agente](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) depois de ativar a solução na sua área de trabalho.  
+1. Instale o [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) se o servidor ainda não estiver monitorado pelo System Center 2016-Operations Manager ou Operations Manager 2012 R2.
+2. Se ele for monitorado com o System Center 2016-Operations Manager ou Operations Manager 2012 R2 e o grupo de gerenciamento não estiver integrado com o Azure Monitor, o servidor poderá ser multihomed com Log Analytics para coletar dados e encaminhar para o serviço e ainda ser monitorado por Operations Manager.  
+3. Caso contrário, se o grupo de gerenciamento de Operations Manager estiver integrado ao serviço, você precisará adicionar os controladores de domínio para a coleta de dados pelo serviço seguindo as etapas em [Adicionar computadores gerenciados por agente](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) depois de habilitar a solução em seu espaço.  
 
-O agente no seu servidor SQL, os relatórios a um grupo de gestão do Operations Manager, recolhe os dados, por sua vez encaminha para o respetivo servidor de gestão atribuído e, em seguida, é enviado diretamente a partir de um servidor de gestão para o Azure Monitor.  Os dados não são gravados para as bases de dados do Operations Manager.  
+O agente no SQL Server que relata para um grupo de gerenciamento de Operations Manager, coleta dados, encaminha para seu servidor de gerenciamento atribuído e é enviado diretamente de um servidor de gerenciamento para Azure Monitor.  Os dados não são gravados nos bancos de dado do Operations Manager.  
 
-Se o SQL Server é monitorizado pelo Operations Manager, terá de configurar uma Operations Manager conta Run As. Ver [Operations Manager Run as contas do Azure Monitor](#operations-manager-run-as-accounts-for-log-analytics) abaixo para obter mais informações.
+Se o SQL Server for monitorado pelo Operations Manager, você precisará configurar uma conta Executar como Operations Manager. Consulte [Operations Manager contas Executar como para Azure monitor](#operations-manager-run-as-accounts-for-log-analytics) abaixo para obter mais informações.
 
-## <a name="sql-health-check-data-collection-details"></a>Detalhes de recolha de dados SQL de verificação de estado de funcionamento
-Verificação de estado de funcionamento do SQL recolhe dados das seguintes origens a utilizar o agente que tiver ativado:
+## <a name="sql-health-check-data-collection-details"></a>Detalhes da coleta de dados da verificação de integridade do SQL
+A verificação de integridade do SQL coleta dados das seguintes fontes usando o agente que você habilitou:
 
-* Windows Management Instrumentation (WMI)
+* Instrumentação de Gerenciamento do Windows (WMI)
 * Registo
 * Contadores de desempenho
-* Ver resultados de gestão dinâmica do SQL Server
+* SQL Server resultados da exibição de gerenciamento dinâmico
 
-Dados são recolhidos no SQL Server e reencaminhados para o Log Analytics a cada sete dias.
+Os dados são coletados na SQL Server e encaminhados para Log Analytics a cada sete dias.
 
-## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Executar como contas do Operations Manager para o Log Analytics
-O log Analytics utiliza o grupo de gestão e agente do Operations Manager para recolher e enviar dados para o serviço Log Analytics. É criado de análise do registo sobre pacotes de gestão para cargas de trabalho fornecer valor agregado dos serviços. Cada carga de trabalho requer privilégios de carga de trabalho específica para executar os pacotes de gestão num contexto de segurança diferentes, como uma conta de utilizador de domínio. Tem de fornecer informações de credenciais ao configurar uma conta do Operations Manager Run As.
+## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Operations Manager contas Executar como para Log Analytics
+Log Analytics usa o agente de Operations Manager e o grupo de gerenciamento para coletar e enviar dados para o serviço de Log Analytics. Log Analytics baseia-se nos pacotes de gerenciamento para cargas de trabalho para fornecer serviços de valor agregado. Cada carga de trabalho requer privilégios específicos de carga de trabalho para executar pacotes de gerenciamento em um contexto de segurança diferente, como uma conta de usuário de domínio. Você precisa fornecer informações de credenciais Configurando uma conta Executar como Operations Manager.
 
-Utilize as seguintes informações para configurar a Operations Manager conta Run As para verificação de estado de funcionamento do SQL.
+Use as informações a seguir para definir a conta Executar como Operations Manager para verificação de integridade do SQL.
 
-### <a name="set-the-run-as-account-for-sql-health-check"></a>Definir a conta Run As para verificação de estado de funcionamento do SQL
- Se já estiver a utilizar o pacote de gestão do SQL Server, deve usar essa configuração de Run As.
+### <a name="set-the-run-as-account-for-sql-health-check"></a>Definir a conta Executar como para verificação de integridade do SQL
+ Se você já estiver usando o pacote de gerenciamento SQL Server, deverá usar essa configuração executar como.
 
-#### <a name="to-configure-the-sql-run-as-account-in-the-operations-console"></a>Para configurar a conta Run As do SQL na consola de operações
+#### <a name="to-configure-the-sql-run-as-account-in-the-operations-console"></a>Para configurar a conta Executar como do SQL no console de operações
 > [!NOTE]
-> Por predefinição, o pacote de gestão de fluxos de trabalho é executado no contexto de segurança da conta do sistema Local. Se estiver a utilizar o Microsoft Monitoring Agent ligado diretamente ao serviço em vez relatórios diretamente a um grupo de gestão do Operations Manager, ignorar os passos 1 a 5 abaixo e execute o T-SQL ou o exemplo de PowerShell, especificando NT AUTHORITY\SYSTEM como o nome de utilizador.
+> Por padrão, os fluxos de trabalho no pacote de gerenciamento são executados no contexto de segurança da conta do sistema local. Se você estiver usando o Microsoft Monitoring Agent conectado diretamente ao serviço, em vez de reportar diretamente a um grupo de gerenciamento de Operations Manager, pule as etapas 1-5 abaixo e execute o exemplo de T-SQL ou PowerShell, especificando NT AUTHORITY\SYSTEM como o nome de usuário.
 >
 >
 
-1. No Operations Manager, abra a consola de operações e, em seguida, clique em **administração**.
-2. Sob **configuração de Run As**, clique em **perfis**e abra **SQL avaliação perfil Run As**.
-3. Sobre o **contas Run as** página, clique em **Add**.
-4. Selecione uma conta Run As do Windows que contém as credenciais necessárias para o SQL Server, ou clique em **New** para criar um.
+1. No Operations Manager, abra o console de operações e clique em **Administração**.
+2. Em **configuração de executar como**, clique em **perfis**e abra **avaliação do SQL perfil executar como**.
+3. Na página **contas Executar como** , clique em **Adicionar**.
+4. Selecione uma conta Executar como do Windows que contenha as credenciais necessárias para SQL Server ou clique em **novo** para criar uma.
 
    > [!NOTE]
-   > O tipo de conta Run As tem de ser Windows. A conta Run As tem de ser também parte do grupo de administradores Local em todos os servidores do Windows que aloja a instâncias do SQL Server.
+   > O tipo de conta Executar como deve ser Windows. A conta Executar como também deve fazer parte do grupo de administradores locais em todos os servidores Windows que hospedam SQL Server instâncias.
    >
    >
 5. Clique em **Guardar**.
-6. Modificar e, em seguida, execute o seguinte exemplo de T-SQL em cada instância do SQL Server para conceder as permissões mínimas necessárias para a conta Run As efetuar a verificação de estado de funcionamento. No entanto, não precisa de fazer isso, se uma conta Run As já faz parte da função de servidor sysadmin em instâncias do SQL Server.
+6. Modifique e execute o seguinte exemplo de T-SQL em cada instância de SQL Server para conceder permissões mínimas necessárias para a conta Executar como executar a verificação de integridade. No entanto, você não precisa fazer isso se uma conta Executar como já faz parte da função de servidor sysadmin em instâncias de SQL Server.
 
 ```
     ---
@@ -114,8 +108,8 @@ Utilize as seguintes informações para configurar a Operations Manager conta Ru
 
 ```
 
-#### <a name="to-configure-the-sql-run-as-account-using-windows-powershell"></a>Para configurar a conta Run As do SQL com o Windows PowerShell
-Abra uma janela do PowerShell e execute o seguinte script depois atualizou-lo com as suas informações:
+#### <a name="to-configure-the-sql-run-as-account-using-windows-powershell"></a>Para configurar a conta Executar como do SQL usando o Windows PowerShell
+Abra uma janela do PowerShell e execute o script a seguir depois de atualizá-lo com suas informações:
 
 ```
     import-module OperationsManager
@@ -126,129 +120,129 @@ Abra uma janela do PowerShell e execute o seguinte script depois atualizou-lo co
     Set-SCOMRunAsProfile -Action "Add" -Profile $Profile -Account $Account
 ```
 
-## <a name="understanding-how-recommendations-are-prioritized"></a>Compreender a forma como as recomendações são priorizadas
-Cada recomendação feita é fornecida um valor de peso que identifica a importância relativa da recomendação. Apenas as dez mais importantes recomendações são apresentadas.
+## <a name="understanding-how-recommendations-are-prioritized"></a>Entendendo como as recomendações são priorizadas
+Cada recomendação feita recebe um valor de peso que identifica a importância relativa da recomendação. Somente as dez recomendações mais importantes são mostradas.
 
 ### <a name="how-weights-are-calculated"></a>Como os pesos são calculados
-Pesos são valores agregados com base em três fatores principais:
+Os pesos são valores agregados com base em três fatores-chave:
 
-* O *probabilidade* que um problema identificado causará problemas. Uma probabilidade maior equivale a uma maior pontuação geral para a recomendação.
-* O *impacto* do problema na sua organização se ele faz com que um problema. Um impacto maior equivale a uma maior pontuação geral para a recomendação.
-* O *esforço* necessário para implementar a recomendação. Um esforço maior equivale a uma menor pontuação geral para a recomendação.
+* A *probabilidade* de que um problema identificado causará problemas. Uma probabilidade mais alta é igual a uma pontuação geral maior para a recomendação.
+* O *impacto* do problema na sua organização se isso causar um problema. Um impacto maior é igual a uma pontuação geral maior para a recomendação.
+* O *esforço* necessário para implementar a recomendação. Um esforço mais alto é igual a uma pontuação geral menor para a recomendação.
 
-O peso de cada recomendação é expressa como uma percentagem da pontuação total disponível para todas as áreas de foco. Por exemplo, se uma recomendação na área de foco de segurança e conformidade tem uma pontuação igual a 5%, implementar essa recomendação irá aumentar seu % de pontuação por 5 geral da segurança e conformidade.
+O peso de cada recomendação é expresso como um percentual da pontuação total disponível para cada área de foco. Por exemplo, se uma recomendação na área de foco de segurança e conformidade tiver uma pontuação de 5%, implementar essa recomendação aumentará sua pontuação geral de segurança e conformidade em 5%.
 
 ### <a name="focus-areas"></a>Áreas de foco
-**Segurança e conformidade** -esta área de foco mostra recomendações para potenciais ameaças de segurança e falhas, as políticas empresariais e os requisitos de conformidade técnicos, jurídicos e regulamentares.
+**Segurança e conformidade** – essa área de foco mostra recomendações para possíveis ameaças à segurança e violações, políticas corporativas e requisitos de conformidade técnica, legal e regulatório.
 
-**Disponibilidade e continuidade do negócio** -esta área de foco mostra recomendações para a disponibilidade do serviço, a resiliência da infraestrutura e proteção de negócios.
+**Disponibilidade e continuidade dos negócios** – essa área de foco mostra recomendações para disponibilidade de serviço, resiliência de sua infraestrutura e proteção de negócios.
 
-**Desempenho e escalabilidade** -esta área de foco mostra recomendações para ajudar a sua organização infraestrutura de TI aumentam, certifique-se de que o seu ambiente de TI cumpre os requisitos de desempenho atuais e é capaz de responder para alterar a infraestrutura necessidades.
+**Desempenho e escalabilidade** -essa área de foco mostra recomendações para ajudar a expansão da infraestrutura de ti de sua organização, garantir que seu ambiente de ti atenda aos requisitos de desempenho atuais e que seja capaz de responder às necessidades de infraestrutura em constante mudança.
 
-**Atualizar, migração e a implantação** -esta área de foco mostra recomendações para o ajudar a atualizar, migrar e implemente o SQL Server para a sua infraestrutura existente.
+**Atualização, migração e implantação** – essa área de foco mostra recomendações para ajudá-lo a atualizar, migrar e implantar SQL Server em sua infraestrutura existente.
 
-**Operações e monitorização** -esta área de foco mostra recomendações para ajudar a simplificar as operações de TI, implementar a manutenção preventiva e maximizar o desempenho.
+**Operações e monitoramento** – essa área de foco mostra recomendações para ajudar a simplificar suas operações de ti, implementar a manutenção preventiva e maximizar o desempenho.
 
-**Gestão de configuração e alteração** -esta área de foco mostra recomendações para ajudar a proteger as operações diárias, certifique-se de que as alterações não negativamente afetam a sua infraestrutura, estabelecerem procedimentos de controlo de alteração e para controlar e auditar configurações do sistema.
+**Gerenciamento de alterações e configurações** – essa área de foco mostra recomendações para ajudar a proteger as operações diárias, garantir que as alterações não afetem negativamente sua infraestrutura, estabelecer procedimentos de controle de alterações e controlar e auditar o sistema Figura.
 
-### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Deve visar à pontuação 100% em todas as áreas de foco?
-Não necessariamente. As recomendações baseiam-se o conhecimento e experiências obtidas pelos engenheiros da Microsoft em milhares de visitas a clientes. No entanto, não infra-estruturas de dois servidor são os mesmos e recomendações específicas podem ser mais ou menos relevantes para si. Por exemplo, algumas recomendações de segurança poderão ser menos relevantes, se as máquinas virtuais não são expostas à Internet. Algumas recomendações de disponibilidade podem ser menos relevantes para os serviços que fornecem o relatório e a coleta de dados ad hoc de baixa prioridade. Problemas que são importantes para uma empresa madura e podem ser menos importantes para uma inicialização. Pode querer identificar quais áreas de foco são suas prioridades e, em seguida, examinar como as suas pontuações alteram ao longo do tempo.
+### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Você deve visar a pontuação de 100% em cada área de foco?
+Não necessariamente. As recomendações são baseadas no conhecimento e nas experiências obtidas pelos engenheiros da Microsoft em milhares de visitas a clientes. No entanto, não há duas infraestruturas de servidor iguais, e recomendações específicas podem ser mais ou menos relevantes para você. Por exemplo, algumas recomendações de segurança podem ser menos relevantes se suas máquinas virtuais não estiverem expostas à Internet. Algumas recomendações de disponibilidade podem ser menos relevantes para serviços que fornecem relatórios e coleta de dados ad hoc de baixa prioridade. Os problemas que são importantes para um negócio maduro podem ser menos importantes para uma inicialização. Talvez você queira identificar quais áreas de foco são suas prioridades e, em seguida, examinar como suas pontuações mudam ao longo do tempo.
 
-Cada recomendação inclui documentação de orientação sobre por que é importante. Deve usar essa orientação para avaliar se implementar a recomendação é adequada para si, tendo em conta a natureza de seus serviços de TI e as necessidades de negócio da sua organização.
+Cada recomendação inclui diretrizes sobre por que é importante. Você deve usar essas diretrizes para avaliar se a implementação da recomendação é apropriada para você, considerando a natureza dos seus serviços de ti e as necessidades comerciais da sua organização.
 
-## <a name="use-health-check-focus-area-recommendations"></a>Utilize recomendações de área de foco verificar o estado de funcionamento
-Antes de poder utilizar uma solução de avaliação no Azure Monitor, tem de ter a solução instalada.  Depois de ser instalado, pode ver o resumo de recomendações com o mosaico de verificação de estado de funcionamento do SQL no **descrição geral** página para o Monitor do Azure no portal do Azure.
+## <a name="use-health-check-focus-area-recommendations"></a>Usar recomendações da área de foco de verificação de integridade
+Para poder usar uma solução de avaliação no Azure Monitor, você deve ter a solução instalada.  Após a instalação, você pode exibir o resumo das recomendações usando o bloco verificação de integridade do SQL na página **visão geral** para Azure Monitor no portal do Azure.
 
-Ver as avaliações de conformidade resumidos para sua infraestrutura e, em seguida, no teste de recomendações.
+Exiba as avaliações de conformidade resumidas para sua infraestrutura e, em seguida, faça drill-in nas recomendações.
 
-### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para ver as recomendações para uma área de foco e tomar medidas corretivas
+### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para exibir as recomendações para uma área de foco e tomar uma ação corretiva
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Monitorizar**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Monitorizar**.
-3. Na **Insights** secção do menu, selecione **mais**.  
-4. Sobre o **descrição geral** página, clique no **verificação de estado de funcionamento do SQL** mosaico.
-5. Sobre o **verificar o estado de funcionamento** página, reveja as informações de resumo em um dos painéis de área de foco e, em seguida, clique num para ver as recomendações para essa área de foco.
-6. Em qualquer uma das páginas de área de foco, pode ver as fez para o seu ambiente de recomendações ordenadas por prioridade. Clique numa recomendação em **Objetos afetados** para ver detalhes sobre por que motivo a recomendação é feita.<br><br> ![imagem de recomendações de verificação de estado de funcionamento do SQL](./media/sql-assessment/sql-healthcheck-dashboard-02.png)<br>
-7. Pode efetuar ações corretivas sugeridas na **ações sugeridas**. Quando o item tiver sido resolvido, avaliações posteriores gravará que recomenda ações foram executadas e irão aumentar a sua pontuação de conformidade. Itens corrigidos aparecem como **objetos transmitidos**.
+3. Na seção **insights** do menu, selecione **mais**.  
+4. Na página **visão geral** , clique no bloco **verificação de integridade do SQL** .
+5. Na página **verificação de integridade** , examine as informações de resumo em uma das folhas da área de foco e clique em uma para exibir as recomendações para essa área de foco.
+6. Em qualquer uma das páginas da área de foco, você pode exibir as recomendações priorizadas feitas para seu ambiente. Clique em uma recomendação em **objetos afetados** para exibir detalhes sobre por que a recomendação é feita.<br><br> ![imagem das recomendações de verificação de integridade do SQL](./media/sql-assessment/sql-healthcheck-dashboard-02.png)<br>
+7. Você pode tomar ações corretivas sugeridas em **ações sugeridas**. Quando o item for resolvido, as avaliações posteriores registrarão que as ações recomendadas foram executadas e a pontuação de conformidade aumentará. Os itens corrigidos aparecem como **objetos passados**.
 
 ## <a name="ignore-recommendations"></a>Ignorar recomendações
-Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que o Azure Monitor irá utilizar para impedir que as recomendações de aparecer no seu os resultados da avaliação.
+Se você tiver recomendações que deseja ignorar, poderá criar um arquivo de texto que Azure Monitor será usado para impedir que as recomendações apareçam nos resultados da avaliação.
 
-### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar as recomendações que irá ignorar
-1. No menu do Azure Monitor, clique em **registos**.
-2. Utilize a seguinte consulta para recomendações de lista que tenham falhado para computadores no seu ambiente.
+### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar as recomendações que serão ignoradas
+1. No menu Azure Monitor, clique em **logs**.
+2. Use a consulta a seguir para listar as recomendações que falharam para computadores em seu ambiente.
 
     ```
     SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-    Eis uma captura de ecrã que mostra a consulta de registo:<br><br> ![recomendações com falhas](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
+    Aqui está uma captura de tela mostrando a consulta de log:<br><br> ![recomendações com falha](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
 
-3. Escolha as recomendações que pretende ignorar. Vai utilizar os valores para RecommendationId no próximo procedimento.
+3. Escolha as recomendações que você deseja ignorar. Você usará os valores para a Recomendaçãoid no próximo procedimento.
 
-### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Para criar e utilizar um ficheiro de texto IgnoreRecommendations.txt
-1. Crie um ficheiro denominado IgnoreRecommendations.txt.
-2. Cole ou introduza cada RecommendationId para cada recomendação que pretende que o Azure Monitor para ignorar numa linha separada e, em seguida, guarde e feche o ficheiro.
-3. Coloca o ficheiro na pasta em cada computador onde pretende que o Azure Monitor para ignorar recomendações.
-   * Em computadores com o Microsoft Monitoring Agent (conectado diretamente ou através do Operations Manager) - *SystemDrive*: \Programas\Microsoft Agent\Agent de monitorização
-   * No servidor de gestão do Operations Manager - *SystemDrive*: \Programas\Microsoft System Center 2012 R2\Operations Manager\Server
-   * No servidor de gestão do Operations Manager 2016 - *SystemDrive*: \Programas\Microsoft System Center 2016\Operations Manager\Server
+### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Para criar e usar um arquivo de texto IgnoreRecommendations. txt
+1. Crie um arquivo chamado IgnoreRecommendations. txt.
+2. Cole ou digite cada Recomendaçãoid para cada recomendação que você deseja que Azure Monitor ignore em uma linha separada e, em seguida, salve e feche o arquivo.
+3. Coloque o arquivo na pasta a seguir em cada computador em que você deseja que Azure Monitor ignore as recomendações.
+   * Em computadores com o Microsoft Monitoring Agent (conectado diretamente ou por meio de Operations Manager)- *systemdrive*: \Program Files\Microsoft Monitoring Agent\Agent
+   * Na Operations Manager servidor de gerenciamento- *systemdrive*: \Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
+   * Na Operations Manager servidor de gerenciamento 2016- *systemdrive*: \Program Files\Microsoft System Center 2016 \ Operations Manager\Server
 
-### <a name="to-verify-that-recommendations-are-ignored"></a>Para verificar que as recomendações são ignoradas
-1. Após a próxima agendada execuções de avaliação, por predefinição, 7 dias, as recomendações especificadas são marcadas ignorado e não serão apresentados no dashboard de avaliação.
-2. Pode utilizar as seguintes consultas de pesquisa de registos para listar todas as recomendações ignoradas.
+### <a name="to-verify-that-recommendations-are-ignored"></a>Para verificar se as recomendações são ignoradas
+1. Após a execução da próxima avaliação agendada, por padrão a cada 7 dias, as recomendações especificadas são marcadas como ignoradas e não serão exibidas no painel de avaliação.
+2. Você pode usar as consultas de pesquisa de log a seguir para listar todas as recomendações ignoradas.
 
     ```
     SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-3. Se decidir posteriormente que pretende ver recomendações ignoradas, remova todos os ficheiros IgnoreRecommendations.txt ou pode remover RecommendationIDs dos mesmos.
+3. Se você decidir posteriormente que deseja ver as recomendações ignoradas, remova todos os arquivos IgnoreRecommendations. txt ou remova o as recommendationids deles.
 
-## <a name="sql-health-check-solution-faq"></a>Solução de verificação de estado de funcionamento do SQL FAQ
-*A frequência com que é executada uma verificação de estado de funcionamento?*
+## <a name="sql-health-check-solution-faq"></a>Perguntas frequentes da solução de verificação da integridade do SQL
+*Com que frequência uma verificação de integridade é executada?*
 
 * A verificação é executada a cada sete dias.
 
-*Existe uma forma de configurar a frequência com que a verificação é executada?*
+*Há uma maneira de configurar a frequência com que a verificação é executada?*
 
 * Neste momento, não.
 
-*Se for detetado o outro servidor depois adicionei a solução de verificação de estado de funcionamento do SQL, irá ser deu entrada?*
+*Se outro servidor for descoberto após ter adicionado a solução de verificação de integridade do SQL, ele será verificado?*
 
-* Sim, assim que o descobrir que seu check-in de, em seguida, no, a cada sete dias.
+* Sim, depois de ser descoberto, ele é verificado a partir de então, a cada sete dias.
 
-*Se um servidor está desativado, quando irá este ser removido da verificação de estado de funcionamento?*
+*Se um servidor for encerrado, quando ele será removido da verificação de integridade?*
 
-* Se um servidor não enviar dados para três semanas, este é removido.
+* Se um servidor não enviar dados por 3 semanas, ele será removido.
 
-*O que é o nome do processo que faz a recolha de dados?*
+*Qual é o nome do processo que faz a coleta de dados?*
 
-* AdvisorAssessment.exe
+* AdvisorAssessment. exe
 
-*Quanto tempo demora para recolher dados?*
+*Quanto tempo leva para os dados serem coletados?*
 
-* A recolha de dados real no servidor demora cerca de 1 hora. Pode demorar mais tempo nos servidores que têm um grande número de instâncias do SQL ou bases de dados.
+* A coleta de dados real no servidor leva cerca de 1 hora. Pode levar mais tempo em servidores que têm um grande número de instâncias ou bancos de dados SQL.
 
-*Que tipo de dados é recolhido?*
+*Que tipo de dados é coletado?*
 
-* Os seguintes tipos de dados são recolhidos:
-  * WMI
+* Os seguintes tipos de dados são coletados:
+  * ESSES
   * Registo
   * Contadores de desempenho
-  * Vistas de gestão dinâmica do SQL (DMV).
+  * Exibições de gerenciamento dinâmico do SQL (DMV).
 
-*Existe uma forma de configurar quando os dados são recolhidos?*
+*Há uma maneira de configurar quando os dados são coletados?*
 
 * Neste momento, não.
 
-*Por que motivo é necessário configurar uma conta Run As?*
+*Por que é necessário configurar uma conta Executar como?*
 
-* Para o SQL Server, um pequeno número de consultas SQL é executado. Na ordem que sejam executadas, deve ser utilizada uma conta Run As com permissões de VIEW SERVER STATE para SQL.  Além disso, para consultar o WMI, as credenciais de administrador local são necessárias.
+* Por SQL Server, um pequeno número de consultas SQL é executado. Para que eles sejam executados, uma conta Executar como com permissões Exibir estado do servidor para SQL deve ser usada.  Além disso, para consultar o WMI, são necessárias credenciais de administrador local.
 
-*Por que motivo exibir apenas as recomendações de 10 principais?*
+*Por que exibir apenas as 10 principais recomendações?*
 
-* Em vez de apresentar uma lista exaustiva esmagadora de tarefas, recomendamos que se concentre em endereçamento de recomendações ordenadas por prioridade em primeiro lugar. Depois de corrigi-los, recomendações adicionais estarão disponíveis. Se preferir ver a lista detalhada, pode ver todas as recomendações com a pesquisa de registos do Log Analytics.
+* Em vez de fornecer uma lista exaustiva de tarefas, recomendamos que você se concentre primeiro em abordar as recomendações priorizadas. Depois de solucioná-los, recomendações adicionais ficarão disponíveis. Se você preferir ver a lista detalhada, poderá exibir todas as recomendações usando a pesquisa de log Log Analytics.
 
-*Existe uma forma de ignorar uma recomendação?*
+*Há uma maneira de ignorar uma recomendação?*
 
-* Sim, consulte [ignorar recomendações](#ignore-recommendations) secção acima.
+* Sim, consulte a seção [ignorar recomendações](#ignore-recommendations) acima.
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Registar as consultas](../log-query/log-query-overview.md) para saber como analisar dados de verificação de estado de funcionamento do SQL detalhados e recomendações.
+## <a name="next-steps"></a>Passos seguintes
+* [Registre consultas](../log-query/log-query-overview.md) para saber como analisar dados e recomendações de verificação de integridade do SQL detalhados.

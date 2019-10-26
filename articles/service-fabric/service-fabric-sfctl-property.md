@@ -3,22 +3,23 @@ title: CLI do Azure Service Fabric-Propriedade sfctl | Microsoft Docs
 description: Descreve os comandos de Propriedade do Service Fabric CLI sfctl.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 34e6fc0d4e6e0817f9312a6565a2dd5dd99fdab9
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 368dad54c611e4532b46f11669bcf8e363b9a740
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035256"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901059"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Armazenar e consultar Propriedades em nomes de Service Fabric.
@@ -27,8 +28,8 @@ Armazenar e consultar Propriedades em nomes de Service Fabric.
 
 |Comando|Descrição|
 | --- | --- |
-| eliminar | Exclui a propriedade de Service Fabric especificada. |
-| Get | Obtém a propriedade de Service Fabric especificada. |
+| delete | Exclui a propriedade de Service Fabric especificada. |
+| Obter | Obtém a propriedade de Service Fabric especificada. |
 | list | Obtém informações sobre todas as propriedades de Service Fabric em um determinado nome. |
 | Posicione | Cria ou atualiza uma propriedade Service Fabric. |
 
@@ -41,9 +42,9 @@ Exclui a propriedade Service Fabric especificada em um determinado nome. É nece
 
 |Argumento|Descrição|
 | --- | --- |
-| --Name-ID [obrigatório] | O nome do Service Fabric, sem o esquema\:de URI ' Fabric '. |
+| --Name-ID [obrigatório] | O nome do Service Fabric, sem o esquema de URI ' Fabric\:'. |
 | --property-name [obrigatório] | Especifica o nome da propriedade a ser obtida. |
-| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -51,7 +52,7 @@ Exclui a propriedade Service Fabric especificada em um determinado nome. É nece
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
@@ -64,9 +65,9 @@ Obtém a propriedade Service Fabric especificada em um determinado nome. Isso se
 
 |Argumento|Descrição|
 | --- | --- |
-| --Name-ID [obrigatório] | O nome do Service Fabric, sem o esquema\:de URI ' Fabric '. |
+| --Name-ID [obrigatório] | O nome do Service Fabric, sem o esquema de URI ' Fabric\:'. |
 | --property-name [obrigatório] | Especifica o nome da propriedade a ser obtida. |
-| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -74,7 +75,7 @@ Obtém a propriedade Service Fabric especificada em um determinado nome. Isso se
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
@@ -87,10 +88,10 @@ Um nome de Service Fabric pode ter uma ou mais propriedades nomeadas que armazen
 
 |Argumento|Descrição|
 | --- | --- |
-| --Name-ID [obrigatório] | O nome do Service Fabric, sem o esquema\:de URI ' Fabric '. |
+| --Name-ID [obrigatório] | O nome do Service Fabric, sem o esquema de URI ' Fabric\:'. |
 | --continuação-token | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se ajustam em uma única resposta. Quando esse valor é passado para a próxima chamada à API, a API retorna o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. |
 | --include-valores | Permite especificar se os valores das propriedades retornadas devem ser incluídos. True se os valores devem ser retornados com os metadados; False para retornar apenas os metadados de propriedade. |
-| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -98,7 +99,7 @@ Um nome de Service Fabric pode ter uma ou mais propriedades nomeadas que armazen
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
@@ -111,11 +112,11 @@ Cria ou atualiza a propriedade de Service Fabric especificada em um determinado 
 
 |Argumento|Descrição|
 | --- | --- |
-| --Name-ID [obrigatório] | O nome do Service Fabric, sem o esquema\:de URI ' Fabric '. |
+| --Name-ID [obrigatório] | O nome do Service Fabric, sem o esquema de URI ' Fabric\:'. |
 | --property-name [obrigatório] | O nome da propriedade de Service Fabric. |
 | --valor [obrigatório] | Descreve um valor de Propriedade Service Fabric. Esta é uma cadeia de caracteres JSON. <br><br> A cadeia de caracteres JSON tem dois campos, o ' tipo ' dos dados e o ' valor ' dos dados. O valor ' Kind ' deve ser o primeiro item a ser exibido na cadeia de caracteres JSON e pode ser os valores ' binary ', ' Int64 ', ' Double ', ' String ' ou ' GUID '. O valor deve ser serializado para os tipos especificados. Os valores ' Kind ' e ' data ' devem ser fornecidos como cadeias de caracteres. |
-| --custom-id-type | A ID de tipo personalizado da propriedade. Usando essa propriedade, o usuário é capaz de marcar o tipo do valor da propriedade. |
-| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --ID-personalizada-tipo | A ID de tipo personalizado da propriedade. Usando essa propriedade, o usuário é capaz de marcar o tipo do valor da propriedade. |
+| --Timeout-t | Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -123,11 +124,11 @@ Cria ou atualiza a propriedade de Service Fabric especificada em um determinado 
 | --- | --- |
 | --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
 | --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
 | --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
 | --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Configure](service-fabric-cli.md) a CLI do Service Fabric.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

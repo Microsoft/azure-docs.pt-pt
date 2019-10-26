@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: a2c121ed58882427022b716081b096c913d447f8
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
-ms.translationtype: MT
+ms.openlocfilehash: be9301bdc70279974bbdbb5d2cb874e5bccc9358
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423626"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898449"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Início rápido: Verifique a ortografia com a API REST do Verificação Ortográfica do Bing eC#
 
@@ -24,17 +24,17 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Qualquer edição do [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/).
-* Para instalar `Newtonsoft.Json` o como um pacote NuGet no Visual Studio:
+* Para instalar o `Newtonsoft.Json` como um pacote NuGet no Visual Studio:
     1. Em **Gerenciador de soluções**, clique com o botão direito do mouse no arquivo da solução.
     1. Selecione **gerenciar pacotes NuGet para solução**.
-    1. `Newtonsoft.Json` Procure e instale o pacote.
+    1. Procure `Newtonsoft.Json` e instale o pacote.
 * Se você estiver usando o linux/MacOS, esse aplicativo poderá ser executado usando o [mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Crie uma nova solução de console `SpellCheckSample` chamada no Visual Studio. Em seguida, adicione os seguintes espaços de nomes ao ficheiro de código principal.
+1. Crie uma nova solução de console chamada `SpellCheckSample` no Visual Studio. Em seguida, adicione os seguintes espaços de nomes ao ficheiro de código principal.
     
     ```csharp
     using System;
@@ -62,7 +62,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
     }
     ```
 
-3. Crie uma variável para os parâmetros de pesquisa. Acrescente seu código de mercado `mkt=`após. O código do mercado é o país do qual você faz a solicitação. Além disso, acrescente seu modo de verificação ortográfica `&mode=`após. O `proof` modo é (captura a maioria dos erros de ortografia/gramática `spell` ) ou (captura a maior parte da ortografia, mas não a quantidade de erros gramaticais).
+3. Crie uma variável para os parâmetros de pesquisa. Acrescente seu código de mercado após `mkt=`. O código do mercado é o país do qual você faz a solicitação. Além disso, acrescente seu modo de verificação ortográfica após `&mode=`. O modo é `proof` (captura a maioria dos erros de ortografia/gramática) ou `spell` (captura a maior parte da ortografia, mas não a quantidade de erros gramaticais).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -70,15 +70,15 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
 
 ## <a name="create-and-send-a-spell-check-request"></a>Criar e enviar uma solicitação de verificação ortográfica
 
-1. Crie uma função assíncrona `SpellCheck()` chamada para enviar uma solicitação à API. Crie um `HttpClient`e adicione sua chave de assinatura `Ocp-Apim-Subscription-Key` ao cabeçalho. Em seguida, execute as etapas a seguir na função.
+1. Crie uma função assíncrona chamada `SpellCheck()` para enviar uma solicitação à API. Crie um `HttpClient`e adicione sua chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key`. Em seguida, execute as etapas a seguir na função.
 
     ```csharp
     async static void SpellCheck()
     {
-        HttpClient client = new HttpClient();
+        var client = new HttpClient();
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
 
-        HttpResponseMessage response = new HttpResponseMessage();
+        HttpResponseMessage response = null;
         // add the rest of the code snippets here (except for main())...
     }
     ```
@@ -89,24 +89,21 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
     string uri = host + path + params_;
     ```
 
-3. Crie uma lista com um `KeyValuePair` objeto que contém o texto e use-o para criar `FormUrlEncodedContent` um objeto. Defina as informações de cabeçalho e use `PostAsync()` para enviar a solicitação.
+3. Crie uma lista com um objeto `KeyValuePair` que contém o texto e use-o para criar um objeto `FormUrlEncodedContent`. Defina as informações de cabeçalho e use `PostAsync()` para enviar a solicitação.
 
     ```csharp
-    List<KeyValuePair<string, string>> values = new List<KeyValuePair<string, string>>();
-    values.Add(new KeyValuePair<string, string>("text", text));
+    var values = new Dictionary<string, string>();
+    values.Add("text", text);
     
-    using (FormUrlEncodedContent content = new FormUrlEncodedContent(values))
-    {
-        content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
-        response = await client.PostAsync(uri, content);
-    }
+    content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
+    response = await client.PostAsync(uri, new FormUrlEncodedContent(values));
     ```
 
 ## <a name="get-and-print-the-api-response"></a>Obter e imprimir a resposta da API
 
 ### <a name="get-the-client-id-header"></a>Obter o cabeçalho da ID do cliente
 
-Se a resposta contiver `X-MSEdge-ClientID` um cabeçalho, obtenha o valor e imprima-o.
+Se a resposta contiver um cabeçalho `X-MSEdge-ClientID`, obtenha o valor e imprima-o.
 
 ``` csharp
 string client_id;
@@ -142,7 +139,7 @@ static void Main(string[] args)
 
 ## <a name="example-json-response"></a>Exemplo de resposta JSON
 
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -182,7 +179,7 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação Web de página única](../tutorials/spellcheck.md)

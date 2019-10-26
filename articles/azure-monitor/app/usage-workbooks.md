@@ -1,130 +1,125 @@
 ---
-title: Criar relatórios interativos com pastas de trabalho do Azure Monitor | Documentos da Microsoft
-description: Simplificar a geração de relatórios complexos com pastas de trabalho parametrizadas pré-criados e personalizadas
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Criar relatórios interativos com Azure Monitor pastas de trabalho | Microsoft docs
+description: Simplifique relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: 6d84ad69b067f730bbfbcad9e46bdc9ae2036ead
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bbbf511286c63acf4a939e0a0e7d9c3dc9efa75b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569615"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899375"
 ---
-# <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Criar relatórios interativos com pastas de trabalho do Azure Monitor
+# <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Criar relatórios interativos com Azure Monitor pastas de trabalho
 
-Pastas de trabalho do texto, de combinar [consultas de análise](https://docs.microsoft.com/azure/application-insights/app-insights-analytics), métricas do Azure e parâmetros em relatórios interativos avançados. Pastas de trabalho são editáveis por quaisquer outros membros da Equipe que têm acesso aos mesmos recursos do Azure.
+As pastas de trabalho combinam texto, [consultas de análise](https://docs.microsoft.com/azure/application-insights/app-insights-analytics), métricas do Azure e parâmetros em relatórios interativos sofisticados. As pastas de trabalho são editáveis por outros membros da equipe que têm acesso aos mesmos recursos do Azure.
 
-Pastas de trabalho são úteis para cenários como:
+As pastas de trabalho são úteis para cenários como:
 
-* Explorar a utilização da sua aplicação, quando não sabe de antemão as métricas de interesse: número de utilizadores, taxas de retenção, as taxas de conversão, etc. Ao contrário de outras ferramentas de análise de utilização, as pastas de trabalho permitem-lhe combinar vários tipos de visualizações e análises, tornando-os excelentes para esse tipo de exploração de forma livre.
-* Para a sua equipa, que explica como um recurso recém-lançada está sendo executada, por utilizador que mostra contagens para interações de chave e outras métricas.
-* Compartilhamento dos resultados de um A / B de experimentação na sua aplicação com outros membros da sua equipa. Pode explicar os objetivos para a experimentação com o texto e depois mostrar cada métrica de utilização e a consulta do Analytics utilizados para avaliar a experimentação, juntamente com claras explicativos para se cada uma foi acima ou abaixo-soltar.
-* O impacto de uma indisponibilidade de relatórios sobre a utilização da sua aplicação, a combinação de dados, a explicação de texto e uma discussão das próximas etapas para evitar interrupções no futuro.
+* Explorando o uso de seu aplicativo quando você não conhece as métricas de interesse com antecedência: números de usuários, taxas de retenção, taxas de conversão, etc. Ao contrário de outras ferramentas de análise de uso, as pastas de trabalho permitem combinar vários tipos de visualizações e análises, tornando-as excelentes para esse tipo de exploração de forma livre.
+* Explicando à sua equipe como um recurso recém-lançado está sendo executado, mostrando as contagens de usuários para as principais interações e outras métricas.
+* Compartilhando os resultados de um experimento A/B em seu aplicativo com outros membros de sua equipe. Você pode explicar as metas para o experimento com texto e, em seguida, mostrar cada métrica de uso e consulta de análise usada para avaliar o experimento, juntamente com as chamadas claras para se cada métrica estava acima ou abaixo do destino.
+* Relatar o impacto de uma interrupção no uso de seu aplicativo, combinar dados, explicação de texto e uma discussão das próximas etapas para evitar interrupções no futuro.
 
-## <a name="starting-with-a-template-or-saved-workbook"></a>Começando com um modelo ou de pasta de trabalho guardada
+## <a name="starting-with-a-template-or-saved-workbook"></a>Iniciando com um modelo ou pasta de trabalho salva
 
-Uma pasta de trabalho é constituída por secções que consiste de forma independente editáveis gráficos, tabelas, texto e os controles de entrada. Para compreender melhor as pastas de trabalho, é melhor abrir uma cópia de segurança. 
+Uma pasta de trabalho é composta por seções que consistem em gráficos, tabelas, texto e controles de entrada independentemente de serem editados. Para entender melhor as pastas de trabalho, é melhor abrir uma. 
 
-Selecione **livros** no menu esquerdo do dentro do Application Insights experiência para a sua aplicação.
+Selecione **pastas de trabalho** no menu à esquerda de dentro da experiência de Application insights para seu aplicativo.
 
-![Captura de ecrã de navegação para pastas de trabalho](./media/usage-workbooks/001-workbooks.png)
+![Captura de tela de navegação para pastas de trabalho](./media/usage-workbooks/001-workbooks.png)
 
-Esta ação inicia uma galeria de pasta de trabalho com um número de pastas de trabalho criados previamente para ajudar a começar.
+Isso inicia uma galeria de pastas de trabalho com várias pastas de trabalho predefinidas para ajudá-lo a começar.
 
-![Captura de ecrã da Galeria de livro](./media/usage-workbooks/002-workbook-gallery.png)
+![Captura de tela da Galeria de pastas de trabalho](./media/usage-workbooks/002-workbook-gallery.png)
 
-Vamos começar com o **modelo predefinido**, que se encontra sob o cabeçalho **guia de introdução**.
+Começaremos com o **modelo padrão**, localizado no **início rápido**do título.
 
-![Captura de ecrã da Galeria de livro](./media/usage-workbooks/003-default-template.png)
+![Captura de tela da Galeria de pastas de trabalho](./media/usage-workbooks/003-default-template.png)
 
-## <a name="editing-rearranging-cloning-and-deleting-workbook-sections"></a>Editar, reorganizar, a clonagem e excluir seções do livro
+## <a name="editing-rearranging-cloning-and-deleting-workbook-sections"></a>Editando, reorganizando, clonando e excluindo seções da pasta de trabalho
 
-Pastas de trabalho tem dois modos: **modo de edição**, e **modo de leitura**. Quando a pasta de trabalho padrão é iniciado pela primeira vez, é aberto no **modo de edição**. Isto mostra todo o conteúdo da pasta de trabalho, inclusive todos os passos e parâmetros que caso contrário, estão ocultas. **Modo de leitura** apresenta uma vista de estilo do relatório simplificada. Isto permite-lhe abstrair a complexidade que se seguiu à criação de um relatório enquanto ainda tem o mecanismo subjacente apenas alguns cliques de distância quando necessário para modificação.
+As pastas de trabalho têm dois modos: **modo de edição**e **modo de leitura**. Quando a pasta de trabalho padrão é iniciada pela primeira vez, ela é aberta no **modo de edição**. Isso mostra todo o conteúdo da pasta de trabalho, incluindo quaisquer etapas e parâmetros ocultos. O **modo de leitura** apresenta uma exibição de estilo de relatório simplificada. Isso permite abstrair a complexidade da criação de um relatório e ainda ter a mecânica subjacente apenas alguns cliques quando necessário para modificação.
 
-![Controles de edição de secção de pastas de trabalho do Application Insights](./media/usage-workbooks/editing-controls-new.png)
+![Controles de edição da seção Application Insights pastas de trabalho](./media/usage-workbooks/editing-controls-new.png)
 
-1. Quando terminar uma seção de edição, clique em **feito editando** no canto inferior esquerdo da secção.
+1. Quando terminar de editar uma seção, clique em **edição concluída** no canto inferior esquerdo da seção.
 
-2. Para criar um duplicado de uma seção, clique a **clonar esta secção** ícone. A criação de secções duplicadas é uma ótima maneira de iterar numa consulta sem perder iterações anteriores.
+2. Para criar uma duplicata de uma seção, clique no ícone **clonar esta seção** . A criação de seções duplicadas é uma ótima maneira de iterar em uma consulta sem perder as iterações anteriores.
 
-3. Para mover para cima uma seção numa pasta de trabalho, clique nas **mover para cima** ou **mover para baixo** ícone.
+3. Para mover uma seção para cima em uma pasta de trabalho, clique no ícone **mover para cima** ou **mover para baixo** .
 
-4. Para remover permanentemente uma secção, clique a **remover** ícone.
+4. Para remover uma seção permanentemente, clique no ícone **remover** .
 
-## <a name="adding-text-and-markdown-sections"></a>Adicionar texto e secções do Markdown
+## <a name="adding-text-and-markdown-sections"></a>Adicionando seções de texto e redução
 
-Adicionar títulos, explicações e comentários para os livros o ajuda a transformar um conjunto de tabelas e gráficos numa narrativa. Secções de texto no suporte de pastas de trabalho do [sintaxe de Markdown](https://daringfireball.net/projects/markdown/) para formatação de texto, como cabeçalhos, negrito, itálico e listas com marcas.
+Adicionar títulos, explicações e comentários às suas pastas de trabalho ajuda a transformar um conjunto de tabelas e gráficos em uma narração. As seções de texto em pastas de trabalho dão suporte à [sintaxe de redução](https://daringfireball.net/projects/markdown/) para formatação de texto, como títulos, negrito, itálico e listas com marcadores.
 
-Para adicionar uma secção de texto ao seu livro, utilize o **adicionar texto** botão na parte inferior da pasta de trabalho ou na parte inferior de qualquer seção.
+Para adicionar uma seção de texto à pasta de trabalho, use o botão **Adicionar texto** na parte inferior da pasta de trabalho ou na parte inferior de qualquer seção.
 
-## <a name="adding-query-sections"></a>Adicionar as secções de consulta
+## <a name="adding-query-sections"></a>Adicionando seções de consulta
 
-![Secção de consulta em pastas de trabalho](./media/usage-workbooks/analytics-section-new.png)
+![Seção de consulta em pastas de trabalho](./media/usage-workbooks/analytics-section-new.png)
 
-Para adicionar a secção de consulta ao seu livro, utilize o **adicionar consulta** botão na parte inferior da pasta de trabalho ou na parte inferior de qualquer seção.
+Para adicionar a seção de consulta à sua pasta de trabalho, use o botão **Adicionar consulta** na parte inferior da pasta de trabalho ou na parte inferior de qualquer seção.
 
-As secções de consulta são altamente flexíveis e podem ser utilizadas para responder a perguntas como:
+As seções de consulta são altamente flexíveis e podem ser usadas para responder a perguntas como:
 
-* Como muitas exceções seu site colocado durante o período de tempo mesmo como um declínio em utilização?
-* Qual era a distribuição de tempos de carregamento de página para utilizadores que visualizam alguns página?
-* O número de utilizadores visualizados um conjunto de páginas em seu site, mas não de algum outro conjunto de páginas? Isso pode ser útil para entender se tiver clusters de utilizadores que utilizam diferentes subconjuntos de funcionalidade de seu site (utilizar o `join` operador com o `kind=leftanti` modificador no [linguagem de consulta de Kusto](/azure/kusto/query/)).
+* Quantas exceções o site emitiu durante o mesmo período de tempo como um declínio no uso?
+* Qual foi a distribuição de tempos de carregamento de página para usuários que visualizam alguma página?
+* Quantos usuários exibiram algum conjunto de páginas no seu site, mas não algum outro conjunto de páginas? Isso pode ser útil para entender se você tem clusters de usuários que usam subconjuntos diferentes da funcionalidade do site (use o operador de `join` com o modificador `kind=leftanti` na [linguagem de consulta Kusto](/azure/kusto/query/)).
 
-Também não está apenas limitadas a consulta do contexto do aplicativo iniciado o livro de. Pode consultar em várias aplicações monitorizadas do Application Insights como áreas de trabalho do Log Analytics, desde que tem a permissão de acesso a esses recursos.
+Você também não está limitado a consultar o contexto do aplicativo do qual iniciou a pasta de trabalho. Você pode consultar vários Application Insights aplicativos monitorados, bem como espaços de trabalho de Log Analytics, contanto que tenha permissão de acesso a esses recursos.
 
-A consulta de adicional utilização de recursos do Application Insights externa a **aplicação** identificador.
+Para consultar recursos de Application Insights externos adicionais, use o identificador do **aplicativo** .
 
 ```
 union app('app01').requests, app('app02').requests, requests
 | summarize count() by bin(timestamp, 1h)
 ```  
 
-Esta consulta é a combinação de pedidos de três diferentes aplicações. Uma aplicação com o nome app01, uma aplicação com o nome app02 e as solicitações do recurso do Application Insights local.
+Essa consulta combina solicitações de três aplicativos diferentes. Um aplicativo chamado app01, um aplicativo chamado app02 e as solicitações do recurso de Application Insights local.
 
-Para obter dados a partir de uma utilização de área de trabalho do Log Analytics externa a **área de trabalho** identificador.
+Para efetuar pull de dados de um espaço de trabalho de Log Analytics externo, use o identificador de **espaço de trabalho** .
 
-Para saber mais sobre consultas entre recursos Consulte a [obter diretrizes oficiais](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search).
+Para saber mais sobre consultas entre recursos, consulte a [orientação oficial](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search).
 
-### <a name="advanced-analytic-query-settings"></a>Definições de consulta de análise avançadas
+### <a name="advanced-analytic-query-settings"></a>Configurações avançadas de consulta analítica
 
-Cada secção tem suas próprias definições avançadas, que são acessíveis através do ícone de definições ![controles de edição de secção de pastas de trabalho do Application Insights](./media/usage-workbooks/005-settings.png) localizado à direita do **adicionar parâmetros** botão.
+Cada seção tem suas próprias configurações avançadas, que podem ser acessadas por meio do ícone de configurações ![seção Application Insights pastas de trabalho editar controles](./media/usage-workbooks/005-settings.png) localizados à direita do botão **adicionar parâmetros** .
 
-![Controles de edição de secção de pastas de trabalho do Application Insights](./media/usage-workbooks/0006-settings-expanded.png)
+![Controles de edição da seção Application Insights pastas de trabalho](./media/usage-workbooks/0006-settings-expanded.png)
 
    |         |          |
    | ---------------- |:-----|
-   | **Largura personalizada**    | Defina esta opção para tornar um item a um tamanho arbitrário, pelo que pode ajustar o número de itens numa única linha, permitindo-lhe organizar melhor seus gráficos e tabelas em relatórios interativos avançados.  |
-   | **Condicionalmente visível** | Utilize esta opção para ocultar os passos com base num parâmetro quando no modo de leitura. |
-   | **Exportar um parâmetro**| Isso permite que uma linha selecionada na grelha ou gráfico para fazer com que os passos posteriores alterar os valores ou fiquem visíveis.  |
-   | **Mostrar a consulta durante a edição não** | Esta ação apresenta a consulta acima do gráfico ou na tabela, mesmo quando no modo de leitura.
-   | **Mostrar abrir no botão análise quando não a editar** | Esta ação adiciona o ícone de análise azul para o canto direito do gráfico para permitir o acesso de um clique.|
+   | **Largura personalizada**    | Defina isso para tornar um item um tamanho arbitrário, para que você possa ajustar muitos itens em uma única linha, permitindo que você organize melhor seus gráficos e tabelas em relatórios interativos sofisticados.  |
+   | **Condicionalmente visível** | Use isso para ocultar as etapas com base em um parâmetro no modo de leitura. |
+   | **Exportar um parâmetro**| Isso permite que uma linha selecionada na grade ou no gráfico cause etapas posteriores para alterar valores ou tornar-se visível.  |
+   | **Mostrar consulta quando não estiver editando** | Isso exibe a consulta acima do gráfico ou tabela, mesmo quando estiver no modo de leitura.
+   | **Mostrar botão abrir no Analytics quando não estiver editando** | Isso adiciona o ícone de análise azul ao canto direito do gráfico para permitir o acesso com um clique.|
 
-A maioria destas definições são bastante intuitiva, mas entender **exportar um parâmetro** é melhor examinar uma pasta de trabalho que utiliza essa funcionalidade.
+A maioria dessas configurações é bastante intuitiva, mas para entender a **exportação de um parâmetro** , é melhor examinar uma pasta de trabalho que usa essa funcionalidade.
 
-Um dos livros criados previamente fornece informações sobre como os utilizadores ativos.
+Uma das pastas de trabalho predefinidas fornece informações sobre usuários ativos.
 
-A primeira secção da pasta de trabalho baseia-se nos dados de consulta de análise:
+A primeira seção da pasta de trabalho baseia-se nos dados de consulta analítica:
 
-![Controles de edição de secção de pastas de trabalho do Application Insights](./media/usage-workbooks/003-active-users.png)
+![Controles de edição da seção Application Insights pastas de trabalho](./media/usage-workbooks/003-active-users.png)
 
-A segunda seção também se baseia nos dados de consulta de análise, mas a seleção de uma linha na primeira tabela interativamente irá atualizar o conteúdo do gráfico:
+A segunda seção também é baseada em dados de consulta analítica, mas a seleção de uma linha na primeira tabela atualizará interativamente o conteúdo do gráfico:
 
-![Controles de edição de secção de pastas de trabalho do Application Insights](./media/usage-workbooks/004-active-users-trend.png)
+![Controles de edição da seção Application Insights pastas de trabalho](./media/usage-workbooks/004-active-users-trend.png)
 
- Isso é possível através da utilização do **quando um item é selecionado, exportar um parâmetro** definições que são ativadas na consulta de análise da tabela avançadas.
+ Isso é possível por meio do uso de **quando um item é selecionado, exportar** configurações avançadas de parâmetro que estão habilitadas na consulta de análise da tabela.
 
-![Controles de edição de secção de pastas de trabalho do Application Insights](./media/usage-workbooks/007-settings-export.png)
+![Controles de edição da seção Application Insights pastas de trabalho](./media/usage-workbooks/007-settings-export.png)
 
-A segunda consulta de análise, em seguida, utiliza os valores exportados quando é selecionada uma linha. Se nenhuma linha for selecionada, é assumida como predefinição para a linha que representa os valores geral. 
+Em seguida, a segunda consulta de análise utiliza os valores exportados quando uma linha é selecionada. Se nenhuma linha for selecionada, o padrão será a linha que representa os valores gerais. 
 
 ```
 let start = startofday(ago({TimeRange} + {Metric}));
@@ -139,60 +134,60 @@ union customEvents, pageViews
 | render timechart 
 ```
 
-## <a name="adding-metrics-sections"></a>Adicionar as secções de métricas
+## <a name="adding-metrics-sections"></a>Adicionando seções de métricas
 
-As secções de métricas dão-lhe acesso total ao incorporar dados de métricas do Azure Monitor para os relatórios interativos. Muitas das pastas de trabalho criados previamente irão conter dados de consulta de análise e dados de métrica que lhe permite tirar partido das funcionalidades de ambos os tudo num único local. Também tem a capacidade para enviar dados de métrica de recursos em qualquer uma das subscrições que tem acesso.
+As seções de métricas oferecem acesso completo para incorporar Azure Monitor dados de métricas em seus relatórios interativos. Muitas das pastas de trabalho predefinidas conterão dados de consulta analítica e dados de métrica, permitindo que você aproveite ao máximo os dois recursos em um só lugar. Você também tem a capacidade de extrair dados de métrica de recursos em qualquer uma das assinaturas às quais você tem acesso.
 
-Eis um exemplo de dados de Máquina Virtual que está a ser extraídos numa pasta de trabalho para fornecer uma visualização de grade de desempenho de CPU:
+Aqui está um exemplo de dados da máquina virtual que estão sendo obtidos em uma pasta de trabalho para fornecer uma visualização em grade do desempenho da CPU:
 
-![Controles de edição de secção de pastas de trabalho do Application Insights](./media/usage-workbooks/008-metrics-grid.png)
+![Controles de edição da seção Application Insights pastas de trabalho](./media/usage-workbooks/008-metrics-grid.png)
 
-## <a name="adding-parameter-sections"></a>Adicionar parâmetro secções
+## <a name="adding-parameter-sections"></a>Adicionando seções de parâmetro
 
-Parâmetros de pasta de trabalho permitem-lhe alterar valores na pasta de trabalho sem ter de editar manualmente as secções de consulta ou de texto.  Isso remove a necessidade de que precisam de compreender a linguagem de consulta do analytics subjacente e expandindo imensamente o público-alvo potencial de relatórios com base no livro.
+Os parâmetros da pasta de trabalho permitem alterar valores na pasta de trabalho sem precisar editar manualmente as seções de consulta ou texto.  Isso elimina a necessidade de entender a linguagem de consulta de análise subjacente e expandir muito o possível público de relatórios baseados em pastas de trabalho.
 
-Os valores dos parâmetros são substituídos na consulta, texto ou outras seções de parâmetro ao colocar o nome do parâmetro entre chavetas, como ``{parameterName}``.  Os nomes dos parâmetros estão limitados a regras semelhantes como identificadores de JavaScript, caracteres alfabéticos basicamente ou carateres de sublinhado, seguidos por carateres alfanuméricos ou carateres de sublinhado. Por exemplo, **a1** é permitido, mas **1a** não é permitida.
+Os valores dos parâmetros são substituídos em seções de consulta, texto ou outro parâmetro, colocando o nome do parâmetro entre chaves, como ``{parameterName}``.  Os nomes de parâmetro são limitados a regras semelhantes como identificadores JavaScript, basicamente caracteres alfabéticos ou sublinhados, seguidos de caracteres alfanuméricos ou sublinhados. Por exemplo, **a1** é permitido, mas **1a** não é permitido.
 
-Os parâmetros são lineares, começando do início de uma pasta de trabalho e que flui para baixo para passos posteriores.  Parâmetros declarados posteriormente numa pasta de trabalho podem substituir as que foram declarados mais acima.  Isso também permite que a utilização de consultas para aceder os valores de parâmetros definidos mais acima de parâmetros.  No passo de um parâmetro em si, os parâmetros são também lineares, à esquerda para a direita, em que parâmetros para a direita podem depender de um parâmetro que declarei anteriormente nesse mesmo passo.
+Os parâmetros são lineares, começando na parte superior de uma pasta de trabalho e fluindo para etapas posteriores.  Os parâmetros declarados posteriormente em uma pasta de trabalho podem substituir aqueles que foram declarados mais detalhadamente.  Isso também permite que os parâmetros que usam consultas acessem os valores dos parâmetros definidos mais adiante.  Dentro da própria etapa de um parâmetro, os parâmetros também são lineares, da esquerda para a direita, em que os parâmetros à direita podem depender de um parâmetro declarado anteriormente na mesma etapa.
  
-Existem quatro tipos diferentes de parâmetros que são atualmente suportados:
+Há quatro tipos diferentes de parâmetros com suporte no momento:
 
   |         |          |
    | ---------------- |:-----|
-   | **Texto**    | o utilizador irá editar uma caixa de texto e, opcionalmente, pode fornecer uma consulta para preencher o valor predefinido. |
-   | **Lista pendente** | O utilizador irá escolher a partir de um conjunto de valores. |
-   | **Seletor de intervalo de tempo**| O utilizador irá escolher a partir de um conjunto predefinido de valores de intervalo de tempo ou escolha entre mais de um intervalo de tempo personalizado.|
-   | **Seleccionador de recursos** | O utilizador irá escolher a partir de recursos selecionados para a pasta de trabalho.|
+   | **Text** (Texto)    | o usuário Editará uma caixa de texto e, opcionalmente, você poderá fornecer uma consulta para preencher o valor padrão. |
+   | **Lista suspensa** | O usuário escolherá um conjunto de valores. |
+   | **Seletor de intervalo de tempo**| O usuário escolherá um conjunto predefinido de valores de intervalo de tempo ou escolherá um intervalo de tempo personalizado.|
+   | **Seletor de recursos** | O usuário escolherá os recursos selecionados para a pasta de trabalho.|
 
-### <a name="using-a-text-parameter"></a>Com um parâmetro de texto
+### <a name="using-a-text-parameter"></a>Usando um parâmetro de texto
 
-O valor de um usuário digita na caixa de texto é substituído diretamente na consulta, sem carateres de escape ou aspas. Se o valor que precisa é uma cadeia de caracteres, a consulta deve ter o parâmetro entre aspas (como **'{parameter}'** ).
+O valor que um usuário digita na caixa de texto é substituído diretamente na consulta, sem escape ou quot. Se o valor necessário for uma cadeia de caracteres, a consulta deverá ter aspas em volta do parâmetro (como **' {Parameter} '** ).
 
-Isso permite que o valor numa caixa de texto a ser utilizado em qualquer lugar. Pode ser um nome de tabela, nome da coluna, nome da função, operador, etc.
+Isso permite que o valor em uma caixa de texto seja usado em qualquer lugar. Pode ser um nome de tabela, nome de coluna, nome de função, operador, etc.
 
-O tipo de parâmetro de texto tem uma definição **obter o valor predefinido de consulta do analytics**, que permite que o autor do livro para usar uma consulta para preencher o valor predefinido para essa caixa de texto.
+O tipo de parâmetro de texto tem uma configuração **obter valor padrão da consulta de análise**, que permite que o autor da pasta de trabalho use uma consulta para popular o valor padrão dessa caixa de texto.
 
-Ao utilizar o valor predefinido de uma consulta do analytics, apenas o primeiro valor da primeira linha (0 de linha, coluna 0) é utilizado como o valor predefinido. Portanto, é recomendado para limitar a consulta para devolver apenas uma linha e uma coluna. Todos os dados devolvidos pela consulta são ignorados. 
+Ao usar o valor padrão de uma consulta de análise, somente o primeiro valor da primeira linha (linha 0, coluna 0) é usado como o valor padrão. Portanto, é recomendável limitar sua consulta para retornar apenas uma linha e uma coluna. Todos os outros dados retornados pela consulta são ignorados. 
 
-O valor que a consulta devolve será substituído diretamente sem carateres de escape ou aspas. Se a consulta retornaria nenhuma linha, o resultado do parâmetro é uma cadeia vazia (se o parâmetro não for necessário) ou não definida (se o parâmetro é necessário).
+Qualquer valor que a consulta retornar será substituído diretamente sem escape ou quot. Se a consulta não retornar nenhuma linha, o resultado do parâmetro será uma cadeia de caracteres vazia (se o parâmetro não for necessário) ou indefinido (se o parâmetro for necessário).
 
-### <a name="using-a-dropdown"></a>Utilizar uma lista pendente
+### <a name="using-a-dropdown"></a>Usando uma lista suspensa
 
-O tipo de parâmetro de lista pendente permite-lhe criar um controle de lista pendente, que permite a seleção de um ou vários valores.
+O tipo de parâmetro DropDown permite criar um controle suspenso, permitindo a seleção de um ou vários valores.
 
-A lista pendente é preenchido por uma consulta do analytics. Se a consulta devolve uma coluna, os valores nessa coluna são ambos os **valor** e o **etiqueta** no controle de lista pendente. Se a consulta devolve duas colunas, a primeira coluna é o **valor**, e a segunda coluna é o **etiqueta** mostrado na lista pendente.  Se a consulta devolve três colunas, a coluna de 3 é usada para indicar a seleção predefinida nessa lista pendente.  Esta coluna pode ser qualquer tipo, mas o mais simples é usar bool ou tipos numéricos, em que 0 é false e 1 é verdadeiro.
+A lista suspensa é preenchida por uma consulta de análise. Se a consulta retornar uma coluna, os valores nessa coluna serão o **valor** e o **rótulo** no controle suspenso. Se a consulta retornar duas colunas, a primeira coluna será o **valor**e a segunda coluna será o **rótulo** mostrado na lista suspensa.  Se a consulta retornar três colunas, a 3ª coluna será usada para indicar a seleção padrão nesse menu suspenso.  Essa coluna pode ser qualquer tipo, mas a mais simples é usar tipos bool ou numéricos, em que 0 é false e 1 é verdadeiro.
 
- Se a coluna é um tipo de cadeia de caracteres, cadeia de caracteres nulos/vazios é considerada FALSO e qualquer outro valor é considerado verdadeira. Para listas pendentes de seleção única, o primeiro valor com um valor VERDADEIRO é utilizado como a seleção predefinida.  Para vários seleção dropdowns, todos os valores com um valor VERDADEIRO são utilizados como o conjunto predefinido selecionado. Os itens na lista pendente são apresentados em qualquer ordem, a consulta devolveu linhas. 
+ Se a coluna for um tipo de cadeia de caracteres, uma cadeia de caracteres nula/vazia será considerada falsa e qualquer outro valor será considerado verdadeiro. Para listas suspensas de seleção única, o primeiro valor com um valor true é usado como a seleção padrão.  Para listas suspensas de seleção múltipla, todos os valores com um valor true são usados como o conjunto selecionado padrão. Os itens na lista suspensa são mostrados em qualquer ordem em que a consulta retorna linhas. 
 
-Vamos examinar os parâmetros presentes no relatório de utilizadores ativos. Clique no símbolo de edição junto a **TimeRange**.
+Vamos examinar os parâmetros presentes no relatório de usuários ativos. Clique no símbolo de edição ao lado de **timerange**.
 
-![Controles de edição de secção de pastas de trabalho do Application Insights](./media/usage-workbooks/009-time-range.png)
+![Controles de edição da seção Application Insights pastas de trabalho](./media/usage-workbooks/009-time-range.png)
 
-Isso iniciará o item de menu Edit Parameter:
+Isso abrirá o item de menu Editar parâmetro:
 
-![Controles de edição de secção de pastas de trabalho do Application Insights](./media/usage-workbooks/010-time-range-edit.png)
+![Controles de edição da seção Application Insights pastas de trabalho](./media/usage-workbooks/010-time-range-edit.png)
 
-A consulta usa um recurso da linguagem de consulta do analytics chamado um **datatable** que permite-lhe gerar uma tabela arbitrária, cheia de conteúdo, do nada! Por exemplo, a seguinte consulta do analytics:
+A consulta usa um recurso da linguagem de consulta do Analytics chamado **DataTable** que permite gerar uma tabela arbitrária, cheia de conteúdo, sem ar fino! Por exemplo, a seguinte consulta de análise:
 
 ```
 datatable( column1:string, column2:string )
@@ -204,9 +199,9 @@ datatable( column1:string, column2:string )
 
 Gera o resultado:
 
-![Controles de edição de secção de pastas de trabalho do Application Insights](./media/usage-workbooks/011-data-table.png)
+![Controles de edição da seção Application Insights pastas de trabalho](./media/usage-workbooks/011-data-table.png)
 
-Um exemplo mais aplicável está a utilizar uma lista pendente para escolher a partir de um conjunto de países/regiões por nome:
+Um exemplo mais aplicável é usar uma lista suspensa para escolher um conjunto de países/regiões por nome:
 
 ```
 customEvents
@@ -217,51 +212,51 @@ customEvents
 | order by client_CountryOrRegion asc
 ```
 
-A consulta mostra os resultados da seguinte forma:
+A consulta exibirá os resultados da seguinte maneira:
 
-![Lista pendente do país](./media/usage-workbooks/012-country-dropdown.png)
+![Lista suspensa de país](./media/usage-workbooks/012-country-dropdown.png)
 
-Listas pendentes são incrivelmente poderosas ferramentas para personalizar e criar relatórios interativos.
+As listas suspensas são ferramentas incrivelmente poderosas para personalizar e criar relatórios interativos.
 
 ### <a name="time-range-parameters"></a>Parâmetros de intervalo de tempo
 
-Enquanto pode fazer o seu parâmetro de intervalo de tempo personalizado através do tipo de parâmetro de lista pendente, também pode utilizar o tipo de parâmetro de intervalo de tempo de out-of-box, se não tiver o mesmo grau de flexibilidade. 
+Embora seja possível criar seu próprio parâmetro de intervalo de tempo personalizado por meio do tipo de parâmetro DropDown, você também pode usar o tipo de parâmetro de intervalo de tempo pronto para uso se não precisar do mesmo grau de flexibilidade. 
 
-Tipos de parâmetros de intervalo de tempo tem 15 intervalos predefinidos que vão de cinco minutos para os últimos 90 dias. Também é uma opção para permitir a seleção de intervalo de tempo personalizado, que permite que o operador do relatório para escolha explícita iniciar e parar valores para o intervalo de tempo.
+Os tipos de parâmetro de intervalo de tempo têm 15 intervalos padrão que vão de cinco minutos até os últimos 90 dias. Há também uma opção para permitir a seleção de intervalo de tempo personalizado, que permite que o operador do relatório escolha valores explícitos de início e parada para o intervalo de tempo.
 
-### <a name="resource-picker"></a>Seleccionador de recursos
+### <a name="resource-picker"></a>Seletor de recursos
 
-O tipo de parâmetro de Seletor de recurso dá-lhe a capacidade de definir o âmbito do relatório para determinados tipos de recursos. Um exemplo de livro pré-criados que aproveita o tipo de Seletor de recurso é o **Insights falha** pasta de trabalho.
+O tipo de parâmetro do seletor de recursos oferece a capacidade de fazer o escopo do relatório para determinados tipos de recursos. Um exemplo de pasta de trabalho predefinida que utiliza o tipo de seletor de recursos é a pasta de trabalho de **informações de falha** .
 
-![Lista pendente do país](./media/usage-workbooks/013-resource-picker.png)
+![Lista suspensa de país](./media/usage-workbooks/013-resource-picker.png)
 
-## <a name="saving-and-sharing-workbooks-with-your-team"></a>A guardar e partilhar pastas de trabalho com a sua equipa
+## <a name="saving-and-sharing-workbooks-with-your-team"></a>Salvando e compartilhando pastas de trabalho com sua equipe
 
-Pastas de trabalho são salvas dentro de um recurso do Application Insights, no **os meus relatórios** secção é privada para ou na **relatórios partilhados** secção que esteja acessível para todos os utilizadores com acesso à Recurso do Application Insights. Para ver todas as pastas de trabalho no recurso, clique a **aberto** botão na barra de ação.
+As pastas de trabalho são salvas em um recurso de Application Insights, na seção **meus relatórios** , que é particular para você ou na seção **relatórios compartilhados** , que é acessível a todos com acesso ao recurso de Application insights. Para exibir todas as pastas de trabalho no recurso, clique no botão **abrir** na barra de ação.
 
-Para partilhar uma pasta de trabalho que se encontra atualmente num **os meus relatórios**:
+Para compartilhar uma pasta de trabalho que está atualmente em **meus relatórios**:
 
-1. Clique em **aberto** na barra de ação
-2. Clique no botão "..." ao lado da pasta de trabalho que pretende partilhar
-3. Clique em **mover para relatórios partilhados**.
+1. Clique em **abrir** na barra de ação
+2. Clique no botão "..." botão ao lado da pasta de trabalho que você deseja compartilhar
+3. Clique em **mover para relatórios compartilhados**.
 
-Para partilhar uma pasta de trabalho com uma ligação ou através de e-mail, clique em **partilhar** na barra de ação. Tenha em atenção que os destinatários da ligação precisam de acesso a este recurso no portal do Azure para ver a pasta de trabalho. Para fazer edições, os destinatários precisam, pelo menos, permissões de Contribuidor para o recurso.
+Para compartilhar uma pasta de trabalho com um link ou por email, clique em **compartilhar** na barra de ação. Tenha em mente que os destinatários do link precisam de acesso a esse recurso no portal do Azure para exibir a pasta de trabalho. Para fazer edições, os destinatários precisam de pelo menos permissões de colaborador para o recurso.
 
-Para afixar uma ligação para uma pasta de trabalho a um Dashboard do Azure:
+Para fixar um link em uma pasta de trabalho em um painel do Azure:
 
-1. Clique em **aberto** na barra de ação
-2. Clique no botão "..." ao lado da pasta de trabalho que pretende afixar
-3. Clique em **afixar ao dashboard**.
+1. Clique em **abrir** na barra de ação
+2. Clique no botão "..." botão ao lado da pasta de trabalho que você deseja fixar
+3. Clique em **fixar no painel**.
 
-## <a name="contributing-workbook-templates"></a>Contribuir com modelos de livros
+## <a name="contributing-workbook-templates"></a>Modelos de pasta de trabalho de contribuição
 
-Criou um modelo de pasta de trabalho formidável e queira compartilhá-lo com a Comunidade? Para saber mais, visite nosso [repositório do GitHub](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md).
+Você criou um modelo de pasta de trabalho incrível e deseja compartilhá-lo com a Comunidade? Para saber mais, visite nosso [repositório GitHub](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md).
 
-## <a name="next-steps"></a>Passos Seguintes
-- Para permitir experiências de utilização, começar a enviar [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [vistas de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
-- Se já tiver enviar eventos personalizados ou vistas de página, explore as ferramentas de utilização para saber como os utilizadores utilizam o seu serviço.
+## <a name="next-steps"></a>Passos seguintes
+- Para habilitar as experiências de uso, comece a enviar [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [exibições de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Se você já enviar eventos personalizados ou exibições de página, explore as ferramentas de uso para saber como os usuários usam seu serviço.
     - [Utilizadores, Sessões, Eventos](../../azure-monitor/app/usage-segmentation.md)
     - [Funis](../../azure-monitor/app/usage-funnels.md)
     - [Retenção](../../azure-monitor/app/usage-retention.md)
     - [Fluxos do Utilizador](../../azure-monitor/app/usage-flows.md)
-    - [Adicionar contexto de utilizador](../../azure-monitor/app/usage-send-user-context.md)
+    - [Adicionar contexto de usuário](../../azure-monitor/app/usage-send-user-context.md)

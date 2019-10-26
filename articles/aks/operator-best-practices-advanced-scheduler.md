@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: a31f839b4bad79a52f5cab386d17e3084314784b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: f260e019ffa6eb89e8a2c1e17d2bf239e74290c2
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026117"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900112"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para recursos avançados do Agendador no serviço de kubernetes do Azure (AKS)
 
@@ -44,7 +44,7 @@ Quando você implanta um pod em um cluster AKS, o kubernetes só agenda pods em 
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
 ```
 
-Com um toleration aplicado a nós, você definirá um submeio na especificação Pod que permite o agendamento nos nós. O exemplo a seguir define o `sku: gpu` e o `effect: NoSchedule` para tolerar o o o seu que é aplicado ao nó na etapa anterior:
+Com um toleration aplicado a nós, você definirá um submeio na especificação Pod que permite o agendamento nos nós. O exemplo a seguir define o `sku: gpu` e `effect: NoSchedule` para tolerar o o o o seu que é aplicado ao nó na etapa anterior:
 
 ```yaml
 kind: Pod
@@ -106,7 +106,7 @@ Vejamos um exemplo de nós com uma grande quantidade de memória. Esses nós pod
 kubectl label node aks-nodepool1 hardware:highmem
 ```
 
-Em seguida, uma especificação Pod adiciona a propriedade `nodeSelector` para definir um seletor de nó que corresponde ao conjunto de rótulos em um nó:
+Uma especificação de Pod adiciona a propriedade `nodeSelector` para definir um seletor de nó que corresponde ao conjunto de rótulos em um nó:
 
 ```yaml
 kind: Pod
@@ -179,7 +179,7 @@ Um bom exemplo é um aplicativo Web que também usa um cache do Azure para Redis
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-Este exemplo é uma implantação mais complexa do que o uso de seletores de nó ou afinidade de nó. A implantação lhe dá controle sobre como o kubernetes agenda pods em nós e pode isolar os recursos logicamente. Para obter um exemplo completo deste aplicativo Web com o cache do Azure para Redis exemplo, consulte [colocar pods no mesmo nó][k8s-pod-affinity].
+Este exemplo é uma implantação mais complexa do que o uso de seletores de nó ou afinidade de nó. A implantação lhe dá controle sobre como o kubernetes agenda pods em nós e pode isolar os recursos logicamente. Para obter um exemplo completo deste aplicativo Web com o cache do Azure para Redis exemplo, consulte [co-localizar pods no mesmo nó][k8s-pod-affinity].
 
 ## <a name="next-steps"></a>Passos seguintes
 

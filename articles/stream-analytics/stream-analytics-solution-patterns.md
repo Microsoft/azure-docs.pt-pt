@@ -1,20 +1,20 @@
 ---
-title: Padrões de solução de Azure Stream Analytics
-description: Saiba mais sobre os diferentes padrões comuns de solução para Azure Stream Analytics.
+title: Padrões da solução Azure Stream Analytics
+description: Saiba mais sobre os padrões comuns de solução para Azure Stream Analytics, como painel, mensagens de evento, armazenamentos de dados, enriquecimento de dados de referência e monitoramento.
 author: zhongc
 ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: cbc9ffe9510cf0888e8d8b62ea112b6517117eed
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 2d936a538a54edce9e3f13ea7865d57b8243c4a5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173044"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901678"
 ---
-# <a name="azure-stream-analytics-solution-patterns"></a>Padrões de solução de Azure Stream Analytics
+# <a name="azure-stream-analytics-solution-patterns"></a>Padrões da solução Azure Stream Analytics
 
 Como muitos outros serviços no Azure, a Stream Analytics é melhor usada com outros serviços para criar uma solução de ponta a ponta maior. Este artigo discute soluções simples de Azure Stream Analytics e vários padrões de arquitetura. Você pode criar esses padrões para desenvolver soluções mais complexas. Os padrões descritos neste artigo podem ser usados em uma ampla variedade de cenários. Exemplos de padrões específicos do cenário estão disponíveis em [arquiteturas de solução do Azure](https://azure.microsoft.com/solutions/architecture/?product=stream-analytics).
 
@@ -80,7 +80,7 @@ Esse padrão também pode ser usado para implementar um mecanismo de regras em q
 
 ## <a name="add-machine-learning-to-your-real-time-insights"></a>Adicione Machine Learning às suas ideias em tempo real
 
-Azure Stream Analytics [modelo de detecção](stream-analytics-machine-learning-anomaly-detection.md) de anomalias interno é uma maneira conveniente de introduzir Machine Learning ao seu aplicativo em tempo real. Para uma maior variedade de necessidades de Machine Learning, consulte [Azure Stream Analytics integra-se ao serviço de Pontuação de Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
+Azure Stream Analytics modelo de detecção de [anomalias](stream-analytics-machine-learning-anomaly-detection.md) interno é uma maneira conveniente de introduzir Machine Learning ao seu aplicativo em tempo real. Para uma maior variedade de necessidades de Machine Learning, consulte [Azure Stream Analytics integra-se ao serviço de Pontuação de Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
 
 Para usuários avançados que desejam incorporar o treinamento online e a pontuação no mesmo pipeline de Stream Analytics, consulte este exemplo de como fazer isso com a [regressão linear](stream-analytics-high-frequency-trading.md).
 
@@ -92,7 +92,7 @@ Outro padrão comum é o data warehousing em tempo real, também chamado de stre
 
 ![Data Warehousing do ASA](media/stream-analytics-solution-patterns/datawarehousing.png)
 
-Uma maneira de melhorar a taxa de transferência com alguma compensação de latência é arquivar os eventos no armazenamento de BLOBs do Azure e, em seguida, importá [-los para SQL data warehouse com o polybase](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md). Você deve unir manualmente a saída de Stream Analytics para o armazenamento de BLOBs e a entrada do armazenamento de BLOBs para SQL Data Warehouse [arquivando os dados por carimbo de data/hora](stream-analytics-custom-path-patterns-blob-storage-output.md) e importando periodicamente.
+Uma maneira de melhorar a taxa de transferência com alguma compensação de latência é arquivar os eventos no armazenamento de BLOBs do Azure e, em seguida, [importá-los para SQL data warehouse com o polybase](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md). Você deve unir manualmente a saída de Stream Analytics para o armazenamento de BLOBs e a entrada do armazenamento de BLOBs para SQL Data Warehouse [arquivando os dados por carimbo de data/hora](stream-analytics-custom-path-patterns-blob-storage-output.md) e importando periodicamente.
 
 Nesse padrão de uso, Azure Stream Analytics é usado como um mecanismo de ETL quase em tempo real. Eventos que chegam recentemente são transformados continuamente e armazenados para consumo de serviço de análise downstream.
 
@@ -149,7 +149,7 @@ A reinicialização a partir do momento é simples de fazer, com a compensação
 
 O provisionamento de mais recursos pode acelerar o processo, mas o efeito de ter um surto de taxa de processamento é complexo.
 
-- Teste se seu trabalho é escalonável para um número maior de SUs. Nem todas as consultas são escalonáveis. Você precisa certificar-se de que sua [](stream-analytics-parallelization.md)consulta está paralelizada.
+- Teste se seu trabalho é escalonável para um número maior de SUs. Nem todas as consultas são escalonáveis. Você precisa certificar-se de que sua consulta está [paralelizada](stream-analytics-parallelization.md).
 
 - Verifique se há partições suficientes nos hubs de eventos upstream ou no Hub IoT que você pode adicionar mais unidades de taxa de transferência (TUs) para dimensionar a taxa de transferência de entrada. Lembre-se de que cada Hub de eventos TU maximizar a uma taxa de saída de 2 MB/s.
 
@@ -157,7 +157,7 @@ O provisionamento de mais recursos pode acelerar o processo, mas o efeito de ter
 
 A coisa mais importante é antecipar a alteração da taxa de processamento, testar esses cenários antes de entrar em produção e estar pronto para dimensionar o processamento corretamente durante o tempo de recuperação de falha.
 
-No cenário extremo que os eventos de entrada são todos atrasados, é [possível que todos os eventos atrasados sejam](stream-analytics-time-handling.md) descartados se você aplicou uma janela de chegada tardia ao seu trabalho. A remoção dos eventos pode parecer um comportamento misterioso no início; no entanto, considerando Stream Analytics é um mecanismo de processamento em tempo real, espera-se que os eventos de entrada estejam próximos do tempo do relógio do mural. Ele precisa descartar eventos que violam essas restrições.
+No cenário extremo que os eventos de entrada são todos atrasados, é [possível que todos os eventos atrasados sejam descartados](stream-analytics-time-handling.md) se você aplicou uma janela de chegada tardia ao seu trabalho. A remoção dos eventos pode parecer um comportamento misterioso no início; no entanto, considerando Stream Analytics é um mecanismo de processamento em tempo real, espera-se que os eventos de entrada estejam próximos do tempo do relógio do mural. Ele precisa descartar eventos que violam essas restrições.
 
 ### <a name="lambda-architectures-or-backfill-process"></a>Arquiteturas lambda ou processo de aterramento
 
@@ -174,7 +174,7 @@ Para o preenchimento posterior, ainda é importante, pelo menos, provisionar tem
 |**Painéis**   |Cria uma lacuna    |OK para uma interrupção curta    |Usar para interrupção longa |
 |**Alertas**   |Aceitável |OK para uma interrupção curta    |Não é necessário |
 |**Aplicativo de fornecimento de eventos** |Aceitável |OK para uma interrupção curta    |Usar para interrupção longa |
-|**Armazém de dados**   |Perda de dados  |Aceitável |Não é necessário |
+|**Data Warehousing**   |Perda de dados  |Aceitável |Não é necessário |
 |**Análise offline**  |Perda de dados  |Aceitável |Não é necessário|
 
 ## <a name="putting-it-all-together"></a>Juntar tudo
@@ -183,7 +183,7 @@ Não é difícil imaginar que todos os padrões de solução mencionados acima p
 
 A chave é projetar seu sistema em padrões combináveis, para que cada subsistema possa ser compilado, testado, atualizado e recuperado de forma independente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora você viu uma variedade de padrões de solução usando Azure Stream Analytics. Em seguida, pode criar o seu primeiro trabalho do Stream Analytics e experimentá-lo na prática:
 

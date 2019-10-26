@@ -1,25 +1,19 @@
 ---
 title: Criar e partilhar dashboards de dados do Log Analytics do Azure | Microsoft Docs
 description: Este tutorial ajuda você a entender como os painéis de Log Analytics podem visualizar todas as suas consultas de log salvas, oferecendo a você uma única lente para exibir seu ambiente.
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: tutorial
-ms.date: 06/19/2019
+author: mgoedtel
 ms.author: magoedte
+ms.date: 06/19/2019
 ms.custom: mvc
-ms.openlocfilehash: c859fb9b8b3509e8369559a3a9a4d45cb4e34125
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: baa510e060a3bca46110842600262345072b1a18
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414160"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894800"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Criar e partilhar dashboards dos dados do Log Analytics
 
@@ -39,7 +33,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 ## <a name="create-a-shared-dashboard"></a>Criar um dashboard partilhado
 Selecione **painel** para abrir o [painel](../../azure-portal/azure-portal-dashboards.md)padrão. Seu painel terá aparência diferente do exemplo abaixo.
 
-![Dashboard do portal do Azure](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
+![Painel do portal do Azure](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
 
 Aqui, pode reunir os dados operacionais mais importantes para as TI em todos os recursos do Azure, incluindo telemetria do Log Analytics do Azure.  Antes de entrarmos em visualização de uma consulta de log, vamos primeiro criar um painel e compartilhá-lo.  Em seguida, podemos nos concentrar em nossa consulta de log de desempenho de exemplo, que será renderizada como um gráfico de linhas e a adicionará ao painel.  
 
@@ -60,7 +54,7 @@ Quando cria um dashboard, é privado por predefinição, o que significa que é 
 
 Abra Log Analytics selecionando **logs** no menu Azure monitor. Ele começa com uma nova consulta em branco.
 
-![Home page](media/tutorial-logs-dashboards/homepage.png)
+![Página de boas-vindas](media/tutorial-logs-dashboards/homepage.png)
 
 Insira a consulta a seguir para retornar os registros de utilização do processador para computadores Windows e Linux, agrupados por computador e TimeGenerated, e exibidos em um gráfico Visual. Clique em **executar** para executar a consulta e exibir o gráfico resultante.
 
@@ -73,7 +67,7 @@ Perf
 
 Salve a consulta selecionando o botão **salvar** na parte superior da página.
 
-![Guardar consulta](media/tutorial-logs-dashboards/save-query.png)
+![Salvar consulta](media/tutorial-logs-dashboards/save-query.png)
 
 No painel de controle **Salvar consulta** , forneça um nome como *VMs do Azure-utilização do processador* e uma categoria como *painéis* e clique em **salvar**.  Dessa forma, você pode criar uma biblioteca de consultas comuns que você pode usar e modificar.  Por fim, fixe isso no painel compartilhado criado anteriormente selecionando o botão **fixar no painel** no canto superior direito da página e, em seguida, selecionando o nome do painel.
 

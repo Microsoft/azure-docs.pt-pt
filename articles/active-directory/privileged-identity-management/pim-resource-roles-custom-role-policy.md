@@ -1,5 +1,5 @@
 ---
-title: Usar funções personalizadas para recursos do Azure em PIM-Azure Active Directory | Microsoft Docs
+title: Usar funções personalizadas para recursos do Azure em Privileged Identity Management Azure Active Directory | Microsoft Docs
 description: Saiba como usar funções personalizadas para recursos do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 03/30/2018
+ms.date: 10/23/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d36514c97cf1f45ee0a435d3b716019d2762e5a
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 8e940dd0e4c653ed4921a9e8f245aab34107ba95
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804191"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895718"
 ---
-# <a name="use-custom-roles-for-azure-resources-in-pim"></a>Usar funções personalizadas para recursos do Azure no PIM
+# <a name="use-custom-roles-for-azure-resources-in-privileged-identity-management"></a>Usar funções personalizadas para recursos do Azure no Privileged Identity Management
 
-Talvez seja necessário aplicar configurações Privileged Identity Management do PIM (Azure Active Directory estrito) a alguns membros de uma função, fornecendo, ao mesmo tempo, uma autonomia maior para outras pessoas. Considere um cenário no qual sua organização contrata vários associados de contrato para auxiliar no desenvolvimento de um aplicativo que será executado em uma assinatura do Azure.
+Talvez seja necessário aplicar configurações de PIM (Privileged Identity Management estrita) a alguns usuários em uma função privilegiada em sua organização do Azure Active Directory (Azure AD), fornecendo, ao mesmo tempo, autonomia maior para outras pessoas. Considere, por exemplo, um cenário em que sua organização contrata vários associados de contrato para auxiliar no desenvolvimento de um aplicativo que será executado em uma assinatura do Azure.
 
 Como administrador de recursos, você deseja que os funcionários estejam qualificados para acesso sem a necessidade de aprovação. No entanto, todos os associados de contrato devem ser aprovados quando solicitam acesso aos recursos da organização.
 
-Siga as etapas descritas na próxima seção para definir as configurações de PIM direcionadas para funções de recurso do Azure.
+Siga as etapas descritas na próxima seção para definir as configurações de Privileged Identity Management direcionadas para funções de recurso do Azure.
 
 ## <a name="create-the-custom-role"></a>Criar a função personalizada
 
@@ -40,15 +40,15 @@ Ao criar uma função personalizada, inclua um nome descritivo para que você po
 
 ## <a name="apply-pim-settings"></a>Aplicar configurações de PIM
 
-Depois que a função for criada em seu locatário, na portal do Azure, vá para o painel **Privileged Identity Management-recursos do Azure** . Selecione o recurso ao qual a função se aplica.
+Depois que a função for criada em sua organização do Azure AD, vá para a página **Privileged Identity Management-recursos do Azure** no portal do Azure. Selecione o recurso ao qual a função se aplica.
 
 ![O painel "Privileged Identity Management-recursos do Azure"](media/pim-resource-roles-custom-role-policy/aadpim-manage-azure-resource-some-there.png)
 
-[Defina as configurações de função PIM](pim-resource-roles-configure-role-settings.md) que devem ser aplicadas a esses membros da função.
+[Defina Privileged Identity Management configurações de função](pim-resource-roles-configure-role-settings.md) que devem ser aplicadas a esses membros da função.
 
 Por fim, [atribua funções](pim-resource-roles-assign-roles.md) ao grupo distinto de membros que você deseja direcionar com essas configurações.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Definir configurações de função de recurso do Azure no PIM](pim-resource-roles-configure-role-settings.md)
+- [Definir configurações de função de recurso do Azure no Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
 - [Custom roles in Azure](../../role-based-access-control/custom-roles.md) (Funções personalizadas no Azure)

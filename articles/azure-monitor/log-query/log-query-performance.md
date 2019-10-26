@@ -1,39 +1,33 @@
 ---
-title: Escrever consultas de registo eficiente no Azure Monitor | Documentos da Microsoft
-description: Referências a recursos para aprender a escrever consultas do Log Analytics.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Gravando consultas de log eficientes no Azure Monitor | Microsoft Docs
+description: Referências a recursos para aprender a escrever consultas no Log Analytics.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/17/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 25d6b582ed4d4e24df3841f4191471296e25abd8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/17/2019
+ms.openlocfilehash: a5ee03f6c42f076549856161a6ebe0b1888fe4aa
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60519376"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894123"
 ---
-# <a name="writing-efficient-log-queries-in-azure-monitor"></a>Escrever consultas de registo eficiente no Azure Monitor
-Este artigo fornece recomendações para escrever consultas de registo eficiente no Azure Monitor. Com essas estratégias, pode garantir que suas consultas serão executadas rapidamente e com mínima sobrecarga.
+# <a name="writing-efficient-log-queries-in-azure-monitor"></a>Gravando consultas de log eficientes no Azure Monitor
+Este artigo fornece recomendações para escrever consultas de log eficientes no Azure Monitor. Usando essas estratégias, você pode garantir que suas consultas serão executadas rapidamente e com um mínimo de ouvido.
 
-## <a name="scope-your-query"></a>Definir o âmbito sua consulta
-Ter a sua consulta processar mais dados do que realmente precisa pode levar a uma consulta de execução longa e, muitas vezes, resultar em demasiados dados nos seus resultados para analisar com eficiência. Em casos extremos, a consulta pode até mesmo o tempo limite e falhar.
+## <a name="scope-your-query"></a>Escopo da consulta
+Ter seu processo de consulta mais dados do que você realmente precisa pode levar a uma consulta de longa execução e, muitas vezes, resultar em muitos dados em seus resultados para analisar efetivamente. Em casos extremos, a consulta pode até atingir o tempo limite e falhar.
 
-### <a name="specify-your-data-source"></a>Especifique a sua origem de dados
-A primeira etapa da criação de uma consulta eficiente esteja a limitar seu escopo de suas fontes de dados necessários. Especificar uma tabela será sempre preferencial ao longo de executar uma pesquisa de texto grande, como `search *`. Para consultar uma tabela específica, comece a sua consulta com o nome da tabela como a seguir:
+### <a name="specify-your-data-source"></a>Especificar sua fonte de dados
+A primeira etapa na escrita de uma consulta eficiente é limitar seu escopo às suas fontes de dados necessárias. A especificação de uma tabela é sempre preferida na execução de uma pesquisa de texto larga, como `search *`. Para consultar uma tabela específica, inicie a consulta com o nome da tabela como no seguinte:
 
 ``` Kusto
 requests | ...
 ```
 
-Pode usar [pesquisa](/azure/kusto/query/searchoperator) para procurar um valor em múltiplas colunas em tabelas específicas, usando uma consulta semelhante ao seguinte:
+Você pode usar a [pesquisa](/azure/kusto/query/searchoperator) para pesquisar um valor em várias colunas em tabelas específicas usando uma consulta semelhante à seguinte:
 
 ``` Kusto
 search in (exceptions) "The server was not found"
@@ -41,14 +35,14 @@ search in (exceptions) "The server was not found"
 search in (exceptions, customEvents) "timeout"
 ```
 
-Uso [União](/azure/kusto/query/unionoperator) para consultar várias tabelas semelhante ao seguinte:
+Use [Union](/azure/kusto/query/unionoperator) para consultar várias tabelas como as seguintes:
 
 ``` Kusto
 union requests, traces | ...
 ```
 
-### <a name="specify-a-time-range"></a>Especifique um intervalo de tempo
-Também deve limitar sua consulta para o intervalo de tempo de dados de que necessita. Por predefinição, a sua consulta incluirá dados recolhidos nas últimas 24 horas. Pode alterar essa opção no [Seletor de intervalo de tempo](get-started-portal.md#select-a-time-range) ou adicioná-lo explicitamente à sua consulta. É melhor adicionar o filtro de tempo imediatamente após o nome da tabela para que o resto da sua consulta só processa os dados dentro do intervalo:
+### <a name="specify-a-time-range"></a>Especificar um intervalo de tempo
+Você também deve limitar a consulta para o intervalo de tempo dos dados que você precisa. Por padrão, a consulta incluirá os dados coletados nas últimas 24 horas. Você pode alterar essa opção no [seletor de intervalo de tempo](get-started-portal.md#select-a-time-range) ou adicioná-la explicitamente à sua consulta. É melhor adicionar o filtro de tempo imediatamente após o nome da tabela para que o restante da consulta processe apenas os dados dentro desse intervalo:
 
 ``` Kusto
 requests | where timestamp > ago(1h)
@@ -56,17 +50,17 @@ requests | where timestamp > ago(1h)
 requests | where timestamp between (ago(1h) .. ago(30m))
 ```
    
-### <a name="get-only-the-latest-records"></a>Obter apenas os registos mais recentes
+### <a name="get-only-the-latest-records"></a>Obter somente os registros mais recentes
 
-Para devolver apenas os registos mais recente, utilize o *top* operador como a seguinte consulta que devolve os registos de 10 mais recentes com sessão iniciada *rastreios* tabela:
+Para retornar apenas os registros mais recentes, use o operador *Top* como na consulta a seguir, que retorna os 10 registros mais recentes registrados na tabela de *rastreamentos* :
 
 ``` Kusto
 traces | top 10 by timestamp
 ```
 
    
-### <a name="filter-records"></a>Filtrar registos
-Para rever apenas os registos que correspondem a uma determinada condição, utilize o *em que* operador como a seguinte consulta devolve apenas os registos em que o _severityLevel_ valor é superior a 0:
+### <a name="filter-records"></a>Filtrar registros
+Para examinar somente os logs que correspondem a uma determinada condição, use o operador *Where* como na consulta a seguir que retorna somente os registros nos quais o valor de _nível_ é maior que 0:
 
 ``` Kusto
 traces | where severityLevel > 0
@@ -74,12 +68,12 @@ traces | where severityLevel > 0
 
 
 
-## <a name="string-comparisons"></a>Comparações de seqüência de caracteres
-Quando [avaliar as cadeias de caracteres](/azure/kusto/query/datatypes-string-operators), normalmente, deve utilizar `has` em vez de `contains` quando está à procura de tokens completas. `has` é mais eficiente, pois ele não precisa pesquisar para subcadeias de carateres.
+## <a name="string-comparisons"></a>Comparações de cadeia de caracteres
+Ao [avaliar cadeias de caracteres](/azure/kusto/query/datatypes-string-operators), geralmente você deve usar `has` em vez de `contains` ao procurar tokens completos. `has` é mais eficiente, pois não precisa procurar subcadeias de caracteres.
 
 ## <a name="returned-columns"></a>Colunas retornadas
 
-Uso [projeto](/azure/kusto/query/projectoperator) para restringir o conjunto de colunas a ser processado apenas àqueles que precisa:
+Use o [projeto](/azure/kusto/query/projectoperator) para restringir o conjunto de colunas que estão sendo processadas somente para os que você precisa:
 
 ``` Kusto
 traces 
@@ -87,9 +81,9 @@ traces
 | ...
 ```
 
-Embora seja possível usar [expandir](/azure/kusto/query/extendoperator) para calcular valores e criar suas próprias colunas, normalmente é mais eficiente para filtrar numa coluna de tabela.
+Embora você possa usar [Extend](/azure/kusto/query/extendoperator) para calcular valores e criar suas próprias colunas, normalmente será mais eficiente filtrar em uma coluna de tabela.
 
-Por exemplo, a primeira consulta abaixo que filtra no _operação\_Name_ seria mais eficiente do que o segundo que cria um novo _subscrição_ coluna e os filtros no mesmo:
+Por exemplo, a primeira consulta abaixo que filtra na _operação\_nome_ seria mais eficiente do que a segunda, que cria uma nova coluna de _assinatura_ e filtra:
 
 ``` Kusto
 customEvents 
@@ -101,8 +95,8 @@ customEvents
 ```
 
 ## <a name="using-joins"></a>Usando junções
-Ao utilizar o [associação](/azure/kusto/query/joinoperator) operador, selecione a tabela com menos linhas de estar no lado esquerdo da consulta.
+Ao usar o operador de [junção](/azure/kusto/query/joinoperator) , escolha a tabela com menos linhas para o lado esquerdo da consulta.
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre as melhores práticas de consulta, veja [consultar as melhores práticas](/azure/kusto/query/best-practices).
+## <a name="next-steps"></a>Passos seguintes
+Para saber mais sobre as práticas recomendadas de consulta, consulte [práticas recomendadas de consulta](/azure/kusto/query/best-practices).

@@ -1,23 +1,24 @@
 ---
-title: Habilidades da API Web personalizada em um pipeline de enriquecimento
-titleSuffix: Azure Cognitive Search
-description: Estenda os recursos do Azure Pesquisa Cognitiva habilidades chamando as APIs da Web. Use a habilidade personalizada da API Web para integrar seu código personalizado.
+title: Habilidades de pesquisa cognitiva personalizada-Azure Search
+description: Estenda os recursos de habilidades de pesquisa cognitiva chamando para APIs da Web
+services: search
 manager: nitinme
 author: luiscabrer
-ms.author: luisca
-ms.service: cognitive-search
+ms.service: search
+ms.workload: search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 54c51993733091d326c59c4ac4ec3662cc704021
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: HT
+ms.date: 05/02/2019
+ms.author: luisca
+ms.openlocfilehash: fda4f96c2c73c5a2d39435a509afcf654ed77b70
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784896"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901324"
 ---
-# <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Habilidades da API Web personalizada em um pipeline de enriquecimento de Pesquisa Cognitiva do Azure
+# <a name="custom-web-api-skill"></a>Habilidades da API Web personalizada
 
-A habilidade **personalizada da API Web** permite estender o enriquecimento de ai chamando para um ponto de extremidade de API Web que fornece operações personalizadas. Semelhante às habilidades internas, uma habilidade de **API Web personalizada** tem entradas e saídas. Dependendo das entradas, sua API da Web recebe uma carga JSON quando o indexador é executado e gera uma carga JSON como uma resposta, juntamente com um código de status de êxito. Espera-se que a resposta tenha as saídas especificadas por sua habilidade personalizada. Qualquer outra resposta é considerada um erro e nenhum aperfeiçoamento é realizado.
+A habilidade **personalizada da API Web** permite que você estenda a pesquisa cognitiva chamando para um ponto de extremidade da API Web fornecendo operações personalizadas. Semelhante às habilidades internas, uma habilidade de **API Web personalizada** tem entradas e saídas. Dependendo das entradas, sua API da Web recebe uma carga JSON quando o indexador é executado e gera uma carga JSON como uma resposta, juntamente com um código de status de êxito. Espera-se que a resposta tenha as saídas especificadas por sua habilidade personalizada. Qualquer outra resposta é considerada um erro e nenhum aperfeiçoamento é realizado.
 
 A estrutura dos conteúdos JSON é descrita mais adiante neste documento.
 
@@ -41,6 +42,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 | httpHeaders | Uma coleção de pares chave-valor em que as chaves representam nomes de cabeçalho e valores representam valores de cabeçalho que serão enviados à sua API Web junto com a carga. Os cabeçalhos a seguir estão proibidos de estarem nesta coleção: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
 | tempo limite | Adicional Quando especificado, indica o tempo limite para o cliente http fazer a chamada à API. Ele deve ser formatado como um valor XSD "dayTimeDuration" (um subconjunto restrito de um valor de [duração ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Por exemplo, `PT60S` por 60 segundos. Se não estiver definido, um valor padrão de 30 segundos será escolhido. O tempo limite pode ser definido como um máximo de 230 segundos e um mínimo de 1 segundo. |
 | batchSize | Adicional Indica quantos "registros de dados" (consulte a estrutura de carga _JSON_ abaixo) será enviado por chamada à API. Se não estiver definido, um padrão de 1000 será escolhido. Recomendamos que você use esse parâmetro para obter uma compensação adequada entre a indexação da taxa de transferência e a carga em sua API |
+| degreeOfParallelism | Adicional Quando especificado, indica o número de chamadas que o indexador fará em paralelo ao ponto de extremidade que você forneceu. Você pode diminuir esse valor se o ponto de extremidade estiver falhando em muito alto de uma carga de solicitação ou o gerar se o ponto de extremidade for capaz de aceitar mais solicitações e você quiser um aumento no desempenho do indexador.  Se não estiver definido, será usado um valor padrão de 5. O degreeOfParallelism pode ser definido como um máximo de 10 e um mínimo de 1. |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
@@ -203,5 +205,5 @@ Para casos em que a API Web não está disponível ou retorna um erro de HTTP, u
 
 + [Habilidades de energia: um repositório de habilidades personalizadas](https://aka.ms/powerskills)
 + [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
-+ [Adicionar uma habilidade personalizada a um pipeline de enriquecimento de ia](cognitive-search-custom-skill-interface.md)
-+ [Exemplo: criando uma habilidade personalizada para o enriquecimento de ia (cognitiva-Search-Create-Custom-Skill-example.md)
++ [Adicionar habilidades personalizadas à pesquisa cognitiva](cognitive-search-custom-skill-interface.md)
++ [Exemplo: criando uma habilidade personalizada para pesquisa cognitiva](cognitive-search-create-custom-skill-example.md)

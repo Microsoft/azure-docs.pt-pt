@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 10/22/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76ba284ec1a30322a24c762a1829b399f2583c6c
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: e25213305e2bf73bfe6980c0a09ffc73bd4f94ae
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032922"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893681"
 ---
-# <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management-preview"></a>Tutorial: Criar seu primeiro pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)
+# <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management-preview"></a>Tutorial: criar seu primeiro pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)
 
 > [!IMPORTANT]
 > O gerenciamento de direitos do Azure Active Directory (AD do Azure) está atualmente em visualização pública.
@@ -32,7 +32,7 @@ ms.locfileid: "69032922"
 
 O gerenciamento de acesso a todos os recursos de que os funcionários precisam, como grupos, aplicativos e sites, é uma função importante para as organizações. Você deseja conceder aos funcionários o nível certo de acesso de que eles precisam para serem produtivos e remover o acesso quando não for mais necessário.
 
-Neste tutorial, você trabalha para o Banco Woodgrove como um administrador de ti. Você foi solicitado a criar um pacote de recursos para um projeto Web que os usuários internos possam solicitar por autoatendimento. As solicitações exigem aprovação e o acesso do usuário expira após 30 dias. Para este tutorial, os recursos do projeto Web são apenas uma associação em um único grupo, mas pode ser uma coleção de grupos, aplicativos ou sites do SharePoint Online.
+Neste tutorial, você trabalha para o Banco Woodgrove como um administrador de ti. Você foi solicitado a criar um pacote de recursos para uma campanha de marketing que os usuários internos podem solicitar por autoatendimento. As solicitações não exigem aprovação e o acesso do usuário expira após 30 dias. Para este tutorial, os recursos da campanha de marketing são apenas membros de um único grupo, mas podem ser uma coleção de grupos, aplicativos ou sites do SharePoint Online.
 
 ![Descrição geral do cenário](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
@@ -40,9 +40,8 @@ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar um pacote de acesso com um grupo como um recurso
-> * Designar um Aprovador
+> * Permitir que um usuário em seu diretório solicite acesso
 > * Demonstrar como um usuário interno pode solicitar o pacote de acesso
-> * Aprovar a solicitação de acesso
 
 Para obter uma demonstração passo a passo do processo de implantação de Azure Active Directory gerenciamento de direitos, incluindo a criação de seu primeiro pacote de acesso, veja o vídeo a seguir:
 
@@ -55,11 +54,11 @@ Para usar o gerenciamento de direitos do Azure AD (versão prévia), você deve 
 - Azure AD Premium P2
 - Licença do Enterprise Mobility + Security (EMS) e5
 
-Se você não tiver uma licença Azure AD Premium P2 ou Enterprise Mobility + Security e5, crie uma [avaliação gratuita Enterprise Mobility + Security E5](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1).
+Para obter mais informações, consulte [requisitos de licença](entitlement-management-overview.md#license-requirements).
 
-## <a name="step-1-set-up-users-and-group"></a>Passo 1: Configurar usuários e grupo
+## <a name="step-1-set-up-users-and-group"></a>Etapa 1: Configurar usuários e grupo
 
-Um diretório de recursos tem um ou mais recursos para compartilhar. Nesta etapa, você cria um grupo chamado **grupo de engenharia** no diretório do Banco Woodgrove que é o recurso de destino para gerenciamento de direitos. Você também configura um solicitante interno.
+Um diretório de recursos tem um ou mais recursos para compartilhar. Nesta etapa, você cria um grupo chamado **recursos de marketing** no diretório do Banco Woodgrove, que é o recurso de destino para gerenciamento de direitos. Você também configura um solicitante interno.
 
 **Função de pré-requisito:** Administrador global ou administrador de usuários
 
@@ -71,22 +70,20 @@ Um diretório de recursos tem um ou mais recursos para compartilhar. Nesta etapa
 
 1. Crie ou configure os dois usuários a seguir. Você pode usar esses nomes ou nomes diferentes. **Admin1** pode ser o usuário no qual você está conectado no momento.
 
-    | Name | Função de diretório | Descrição |
-    | --- | --- | --- |
-    | **Admin1** | Administrador Global<br/>-ou-<br/>Administrador limitado (administrador do usuário) | Administrador e aprovador |
-    | **Requestor1** | Utilizador | Solicitante interno |
+    | Nome | Função de diretório |
+    | --- | --- |
+    | **Admin1** | Administrador global<br/>-ou-<br/>Administrador do usuário |
+    | **Requestor1** | Utilizador |
 
-    Para este tutorial, o administrador e o aprovador são a mesma pessoa, mas você normalmente designa uma ou mais pessoas para serem aprovadas.
-
-1. Crie um grupo de segurança do Azure AD chamado **grupo de engenharia** com um tipo de associação **atribuído**.
+1. Crie um grupo de segurança do Azure AD chamado **recursos de marketing** com um tipo de associação **atribuído**.
 
     Esse grupo será o recurso de destino para gerenciamento de direitos. O grupo deve estar vazio de membros para iniciar.
 
-## <a name="step-2-create-an-access-package"></a>Passo 2: Criar um pacote de acesso
+## <a name="step-2-create-an-access-package"></a>Etapa 2: criar um pacote de acesso
 
-Um *pacote do Access* é um grupo de todos os recursos que um usuário precisa para trabalhar em um projeto ou executar seu trabalho. Os pacotes de acesso são definidos emcontêineres chamados catálogos. Nesta etapa, você cria um **pacote de acesso do projeto Web** no catálogo **geral** .
+Um *pacote do Access* é um pacote de recursos que uma equipe ou projeto precisa e é regido por políticas. Os pacotes de acesso são definidos em contêineres chamados *catálogos*. Nesta etapa, você cria um pacote de acesso de **campanha de marketing** no catálogo **geral** .
 
-**Função de pré-requisito:** Administrador global ou administrador de usuários
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
 ![Criar um pacote de acesso](./media/entitlement-management-access-package-first/elm-access-package.png)
 
@@ -94,13 +91,13 @@ Um *pacote do Access* é um grupo de todos os recursos que um usuário precisa p
 
 1. No menu à esquerda, clique em **governança de identidade**
 
-1. No menu à esquerda, clique em **pacotes de acesso**.  Se você vir **acesso negado**, verifique se há uma licença Azure ad Premium P2 presente nesse diretório.
+1. No menu à esquerda, clique em **pacotes de acesso**.  Se você vir **acesso negado**, verifique se uma licença Azure ad Premium P2 está presente no seu diretório.
 
 1. Clique em **novo pacote de acesso**.
 
-    ![Gerenciamento de direitos no portal do Azure](./media/entitlement-management-access-package-first/access-packages-list.png)
+    ![Gerenciamento de direitos no portal do Azure](./media/entitlement-management-shared/access-packages-list.png)
 
-1. Na guia **noções básicas** , digite o nome pacote de acesso do **projeto Web** e descrição **do pacote de acesso para o projeto Web de engenharia**.
+1. Na guia **noções básicas** , digite o nome do pacote de acesso **da campanha de marketing** e o **acesso de descrição aos recursos da campanha**.
 
 1. Deixe a lista suspensa **Catálogo** definida como **geral**.
 
@@ -108,11 +105,11 @@ Um *pacote do Access* é um grupo de todos os recursos que um usuário precisa p
 
 1. Clique em **Avançar** para abrir a guia **funções de recurso** .
 
-    Nessa guia, você seleciona as permissões a serem incluídas no pacote de acesso.
+    Nessa guia, você seleciona os recursos e a função de recurso para incluir no pacote de acesso.
 
-1. Clique em **grupos**.
+1. Clique em **grupos e equipes**.
 
-1. No painel Selecionar grupos, localize e selecione o grupo de **grupos de engenharia** que você criou anteriormente.
+1. No painel Selecionar grupos, localize e selecione o grupo de **recursos de marketing** que você criou anteriormente.
 
     Por padrão, você vê grupos dentro e fora do catálogo **geral** . Quando você seleciona um grupo fora do catálogo **geral** , ele será adicionado ao catálogo **geral** .
 
@@ -124,71 +121,45 @@ Um *pacote do Access* é um grupo de todos os recursos que um usuário precisa p
 
     ![Novo pacote de acesso – guia funções de recurso](./media/entitlement-management-access-package-first/resource-roles.png)
 
-1. Clique em **Avançar** para abrir a guia **política** .
+1. Clique em **Avançar** para abrir a guia **solicitações** .
 
-1. Defina a alternância **criar primeira política** para **mais tarde**.
+    Nessa guia, você cria uma política de solicitação. Uma *política* define as regras ou guardrails para acessar um pacote de acesso. Você cria uma política que permite que um usuário específico no diretório de recursos solicite esse pacote de acesso.
 
-    Você criará a política na próxima seção.
+1. Na seção **usuários que podem solicitar acesso** , clique em **para usuários em seu diretório** e clique em **usuários e grupos específicos**.
 
-    ![Novo pacote de acesso-guia política](./media/entitlement-management-access-package-first/policy.png)
+    ![Novo pacote de acesso-guia solicitações](./media/entitlement-management-access-package-first/requests.png)
 
-1. Clique em **Avançar** para abrir a guia revisar **+ criar** .
+1. Clique em **Adicionar usuários e grupos**.
+
+1. No painel Selecionar usuários e grupos, selecione o usuário **Requestor1** que você criou anteriormente.
+
+    ![Novo pacote de acesso-guia solicitações-Selecionar usuários e grupos](./media/entitlement-management-access-package-first/requests-select-users-groups.png)
+
+1. Clique em **Selecionar**.
+
+1. Role para baixo até as seções **aprovação** e **habilitar solicitações** .
+
+1. Deixe **exigir aprovação** definida como **não**.
+
+1. Para **habilitar solicitações**, clique em **Sim** para habilitar esse pacote de acesso para ser solicitado assim que ele for criado.
+
+    ![Novo pacote de acesso-guia solicitações-aprovação e habilitar solicitações](./media/entitlement-management-access-package-first/requests-approval-enable.png)
+
+1. Clique em **Avançar** para abrir a guia **ciclo de vida** .
+
+1. Na seção **expiração** , defina **acesso atribuições de pacote expirar** para **número de dias**.
+
+1. A definição das **atribuições expira após** **30** dias.
+
+    ![Novo pacote de acesso-guia ciclo de vida](./media/entitlement-management-access-package-first/lifecycle.png)
+
+1. Clique em **Avançar** para abrir a guia **revisar + criar** .
 
     ![Novo pacote de acesso-guia examinar + criar](./media/entitlement-management-access-package-first/review-create.png)
 
-1. Examine as configurações do pacote de acesso e clique em **criar**.
-
-    Você poderá ver uma mensagem informando que o pacote de acesso não ficará visível para os usuários porque o catálogo ainda não está habilitado.
-
-    ![Novo pacote de acesso-mensagem não visível](./media/entitlement-management-access-package-first/not-visible.png)
-
-1. Clique em **OK**.
-
     Após alguns instantes, você deverá ver uma notificação de que o pacote de acesso foi criado com êxito.
 
-## <a name="step-3-create-a-policy"></a>Passo 3: Criar uma política
-
-Uma *política* define as regras ou guardrails para acessar um pacote de acesso. Nesta etapa, você cria uma política que permite que um usuário específico no diretório de recursos solicite o pacote de acesso. Você também pode especificar que as solicitações devem ser aprovadas e quem será o aprovador.
-
-![Criar uma política de pacote de acesso](./media/entitlement-management-access-package-first/elm-access-package-policy.png)
-
-**Função de pré-requisito:** Administrador global ou administrador de usuários
-
-1. No **pacote de acesso do projeto Web**, no menu à esquerda, clique em **políticas**.
-
-    ![Lista de políticas do pacote de acesso](./media/entitlement-management-access-package-first/policies-list.png)
-
-1. Clique em **Adicionar política** para abrir criar política.
-
-1. Digite o nome **política** e descrição do solicitante interno **permite que os usuários neste diretório solicitem acesso aos recursos do projeto Web**.
-
-1. Na seção **usuários que podem solicitar acesso** , clique em **para usuários em seu diretório**.
-
-    ![Criar política](./media/entitlement-management-access-package-first/policy-create.png)
-
-1. Role para baixo até a seção **Selecionar usuários e grupos** e clique em **Adicionar usuários e grupos**.
-
-1. No painel Selecionar usuários e grupos, selecione o usuário **Requestor1** que você criou anteriormente e, em seguida, clique em **selecionar**.
-
-1. Na seção **solicitação** , defina **exigir aprovação** como **Sim**.
-
-1. Na seção **selecionar aprovadores** , clique em **Adicionar aprovadores**.
-
-1. No painel Selecionar Aprovadores, selecione o **admin1** que você criou anteriormente e, em seguida, clique em **selecionar**.
-
-    Para este tutorial, o administrador e o aprovador são a mesma pessoa, mas você pode designar outra pessoa como um Aprovador.
-
-1. Na seção **expiração** , definir o **pacote de acesso expira** para o **número de dias**.
-
-1. O **acesso definido expira após** **30** dias.
-
-1. Para **habilitar política**, clique em **Sim**.
-
-    ![Criar configurações de política](./media/entitlement-management-access-package-first/policy-create-settings.png)
-
-1. Clique em **criar** para criar a **política interna**do solicitante.
-
-1. No menu à esquerda do pacote de acesso do projeto Web, clique em **visão geral**.
+1. No menu à esquerda do pacote de acesso da campanha de marketing, clique em **visão geral**.
 
 1. Copie o **link meu portal de acesso**.
 
@@ -196,9 +167,9 @@ Uma *política* define as regras ou guardrails para acessar um pacote de acesso.
 
     ![Visão geral do pacote de acesso – link meu portal de acesso](./media/entitlement-management-shared/my-access-portal-link.png)
 
-## <a name="step-4-request-access"></a>Passo 4: Pedir acesso
+## <a name="step-3-request-access"></a>Etapa 3: solicitar acesso
 
-Nesta etapa, você executa as etapas como solicitante **interno** e solicita acesso ao pacote de acesso. Os solicitantes enviam suas solicitações usando um site chamado meu portal de acesso. O portal meu acesso permite que os solicitantes enviem solicitações para pacotes do Access, consulte os pacotes de acesso aos quais eles já têm acesso e exibam o histórico de solicitações.
+Nesta etapa, você executa as etapas como **solicitante interno** e solicita acesso ao pacote de acesso. Os solicitantes enviam suas solicitações usando um site chamado meu portal de acesso. O portal meu acesso permite que os solicitantes enviem solicitações para pacotes do Access, consulte os pacotes de acesso aos quais eles já têm acesso e exibam o histórico de solicitações.
 
 **Função de pré-requisito:** Solicitante interno
 
@@ -208,7 +179,7 @@ Nesta etapa, você executa as etapas como solicitante **interno** e solicita ace
 
 1. Entre no portal meu acesso como **Requestor1**.
 
-    Você deve ver o **pacote de acesso do projeto Web**.
+    Você deve ver o pacote de acesso à **campanha de marketing** .
 
 1. Se necessário, na coluna **Descrição** , clique na seta para exibir detalhes sobre o pacote de acesso.
 
@@ -218,65 +189,35 @@ Nesta etapa, você executa as etapas como solicitante **interno** e solicita ace
 
 1. Clique em **solicitar acesso** para abrir o painel solicitar acesso.
 
-1. Na caixa **justificativa de negócios** , digite a justificativa **trabalhando no projeto Web**.
+    ![Meu Portal de acesso – botão solicitar acesso](./media/entitlement-management-access-package-first/my-access-request-access-button.png)
 
-1. Defina a **solicitação para período específico** alternar para **Sim**.
-
-1. Defina a **data de início** como hoje e a **data de término** como amanhã.
+1. Na caixa **justificativa de negócios** , digite a justificativa **que estou trabalhando na nova campanha de marketing**.
 
     ![Meu Portal de acesso-solicitar acesso](./media/entitlement-management-shared/my-access-request-access.png)
 
-1. Clique em **Submit** (Submeter).
+1. Clique em **Enviar**.
 
 1. No menu à esquerda, clique em **histórico de solicitações** para verificar se sua solicitação foi enviada.
 
-## <a name="step-5-approve-access-request"></a>Passo 5: Aprovar solicitação de acesso
+## <a name="step-4-validate-that-access-has-been-assigned"></a>Etapa 4: validar que o acesso foi atribuído
 
-Nesta etapa, você entra como o usuário **Aprovador** e aprova a solicitação de acesso para o solicitante interno. Os aprovadores usam o mesmo meu portal de acesso que os solicitantes usam para enviar solicitações. Usando o meu portal de acesso, os aprovadores podem exibir as aprovações pendentes e aprovar ou negar solicitações.
+Nesta etapa, você confirma que o **solicitante interno** recebeu o pacote de acesso e que agora ele é um membro do grupo de **recursos de marketing** .
 
-**Função de pré-requisito:** Aprovador
-
-1. Saia do meu portal de acesso.
-
-1. Entre no [portal meu acesso](https://myaccess.microsoft.com) como **admin1**.
-
-1. No menu à esquerda, cliqueem aprovações.
-
-1. Na guia **pendente** , localize **Requestor1**.
-
-    Se você não vir a solicitação de Requestor1, aguarde alguns minutos e tente novamente.
-
-1. Clique no link **Exibir** para abrir o painel solicitação de acesso.
-
-1. Clique em **aprovar**.
-
-1. Na caixa **motivo** , digite o motivo do **acesso aprovado para o projeto Web**.
-
-    ![Meu Portal de acesso-solicitação de acesso](./media/entitlement-management-shared/my-access-approve-request.png)
-
-1. Clique em **Enviar** para enviar sua decisão.
-
-    Você deverá ver uma mensagem de que foi aprovada com êxito.
-
-## <a name="step-6-validate-that-access-has-been-assigned"></a>Passo 6: Validar que o acesso foi atribuído
-
-Agora que você aprovou a solicitação de acesso, nesta etapa, você confirma que o **solicitante interno** recebeu o pacote de acesso e que agora ele é um membro do grupo de **grupos de engenharia** .
-
-**Função de pré-requisito:** Administrador global ou administrador de usuários
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
 1. Saia do meu portal de acesso.
 
-1. Entre no [portal do Azure](https://portal.azure.com) como o **admin1**.
+1. Entre no [portal do Azure](https://portal.azure.com) como **admin1**.
 
 1. Clique em **Azure Active Directory** e em **governança de identidade**.
 
 1. No menu à esquerda, clique em **pacotes de acesso**.
 
-1. Localize e clique em **pacote de acesso do projeto Web**.
+1. Localize e clique em pacote de acesso à **campanha de marketing** .
 
 1. No menu à esquerda, clique em **solicitações**.
 
-    Você deve ver Requestor1 e a política de solicitante interna com o status de **entregue**.
+    Você deve ver Requestor1 e a política inicial com o status de **entregue**.
 
 1. Clique na solicitação para ver os detalhes da solicitação.
 
@@ -284,47 +225,43 @@ Agora que você aprovou a solicitação de acesso, nesta etapa, você confirma q
 
 1. No painel de navegação esquerdo, clique em **Azure Active Directory**.
 
-1. Clique em **grupos** e abra o grupo **grupo de engenharia** .
+1. Clique em **grupos** e abra o grupo **recursos de marketing** .
 
 1. Clique em **Membros**.
 
     Você deve ver **Requestor1** listadas como um membro.
 
-    ![Membros do grupo de engenharia](./media/entitlement-management-access-package-first/group-members.png)
+    ![Membros de recursos de marketing](./media/entitlement-management-access-package-first/group-members.png)
 
-## <a name="step-7-clean-up-resources"></a>Passo 7: Limpar recursos
+## <a name="step-5-clean-up-resources"></a>Etapa 5: limpar os recursos
 
-Nesta etapa, você remove as alterações feitas e exclui o pacote de acesso do **pacote de acesso ao projeto Web** .
+Nesta etapa, você remove as alterações feitas e exclui o pacote de acesso à **campanha de marketing** .
 
 **Função de pré-requisito:**  Administrador global ou administrador de usuários
 
 1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
 
-1. Abra o **pacote de acesso ao projeto Web**.
+1. Abra o pacote de acesso à **campanha de marketing** .
 
-1. Cliqueem atribuições.
+1. Clique em **atribuições**.
 
-1. Para **Requestor1**, clique nas reticências ( **...** ) e, em seguida, clique em **Remover acesso**.
+1. Para **Requestor1**, clique nas reticências ( **...** ) e, em seguida, clique em **Remover acesso**. Na mensagem que aparece, clique em **Sim**.
 
-    O status será alterado de entregue para expirado.
-
-1. Clique em **políticas**.
-
-1. Para a **política do solicitante interno**, clique nas reticências ( **...** ) e, em seguida, clique em **excluir**.
+    Após alguns instantes, o status será alterado de entregue para expirado.
 
 1. Clique em **funções de recurso**.
 
-1. Para **grupo de engenharia**, clique nas reticências ( **...** ) e, em seguida, clique em **remover função de recurso**.
+1. Para **recursos de marketing**, clique nas reticências ( **...** ) e, em seguida, clique em **remover função de recurso**. Na mensagem que aparece, clique em **Sim**.
 
 1. Abra a lista de pacotes de acesso.
 
-1. Para **projeto de acesso ao projeto Web**, clique nas reticências ( **...** ) e, em seguida, clique em **excluir**.
+1. Para **campanha de marketing**, clique nas reticências ( **...** ) e, em seguida, clique em **excluir**. Na mensagem que aparece, clique em **Sim**.
 
 1. Em Azure Active Directory, exclua todos os usuários que você criou, como **Requestor1** e **admin1**.
 
-1. Exclua o grupo de **grupos de engenharia** .
+1. Exclua o grupo de **recursos de marketing** .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Avance para o próximo artigo para saber mais sobre as etapas comuns do cenário no gerenciamento de direitos.
 > [!div class="nextstepaction"]

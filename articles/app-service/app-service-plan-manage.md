@@ -5,22 +5,22 @@ keywords: serviço de aplicativo, serviço de aplicativo do Azure, escala, plano
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: cfowler
+manager: gwallace
 editor: ''
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 10/24/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a5e69209c30eae816837ce8f00a065231a5fd821
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: e8bdc749ee354e75a6043dbd6dac3f93a606f79e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067215"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898978"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gerenciar um plano do serviço de aplicativo no Azure
 
@@ -33,23 +33,17 @@ Um [plano de serviço Azure app](overview-hosting-plans.md) fornece os recursos 
 
 Você pode criar um plano do serviço de aplicativo vazio ou pode criar um plano como parte da criação do aplicativo.
 
-1. Na [portal do Azure](https://portal.azure.com), selecione **novo** > **Web + móvel**e, em seguida, selecione **aplicativo Web** ou outro tipo de aplicativo do serviço de aplicativo.
-
-2. Selecione um plano do serviço de aplicativo existente ou crie um plano para o novo aplicativo.
+1. Na [portal do Azure](https://portal.azure.com), selecione **novo** > **aplicativo Web** ou outro tipo de aplicativo do serviço de aplicativo.
 
    ![Crie um aplicativo no portal do Azure.][createWebApp]
 
-   Para criar um plano:
+2. Configure a seção **detalhes da instância** antes de configurar o plano do serviço de aplicativo. As configurações, como **publicar** e **sistemas operacionais** , podem alterar os tipos de preço disponíveis para seu plano do serviço de aplicativo. A **região** determina onde o plano do serviço de aplicativo é criado.
+   
+3. Na seção **plano do serviço de aplicativo** , selecione um plano existente ou crie um plano selecionando **criar novo**.
 
-   a. Selecione **[+] criar novo**.
+   ![Crie um plano do serviço de aplicativo.][createASP] 
 
-      ![Crie um plano do serviço de aplicativo.][createASP] 
-
-   b. Para o **plano do serviço de aplicativo**, insira o nome do plano.
-
-   c. Para **local**, selecione um local apropriado.
-
-   d. Para **tipo de preço**, selecione um tipo de preço apropriado para o serviço. Selecione **Exibir tudo** para exibir mais opções de preços, como **gratuito** e **compartilhado**. Depois de selecionar o tipo de preço, clique no botão **selecionar** .
+4. Ao criar um plano, você pode selecionar o tipo de preço do novo plano. Em **SKU e tamanho**, selecione **alterar tamanho** para alterar o tipo de preço. 
 
 <a name="move"></a>
 
@@ -65,25 +59,20 @@ Você pode mover um aplicativo para outro plano do serviço de aplicativo, desde
 
 1. Na [portal do Azure](https://portal.azure.com), navegue até o aplicativo que você deseja mover.
 
-1. No menu, procure a seção **plano do serviço de aplicativo** .
+2. No menu à esquerda, selecione **Alterar plano do serviço de aplicativo**.
 
-1. Selecione **Alterar plano do serviço de aplicativo** para abrir o seletor do **plano do serviço de aplicativo** .
+3. Na lista suspensa **plano do serviço de aplicativo** , selecione um plano existente para o qual mover o aplicativo. A lista suspensa mostra apenas os planos que estão no mesmo grupo de recursos e região geográfica que o plano do serviço de aplicativo atual. Se esse plano não existir, ele permitirá que você crie um plano por padrão. Você também pode criar um novo plano manualmente selecionando **criar novo**.
 
+4. Se você criar um plano, poderá selecionar o tipo de preço do novo plano. Em **tipo de preço**, selecione a camada existente para alterá-la. 
+   
+   > [!IMPORTANT]
+   > Se você estiver movendo um aplicativo de um plano de camadas superiores para um plano de nível inferior, como de **D1** a **F1**, o aplicativo poderá perder certos recursos no plano de destino. Por exemplo, se seu aplicativo usar certificados SSL, você poderá ver esta mensagem de erro:
+   >
+   > `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
+
+5. Quando terminar, selecione **OK**.
+   
    ![Seletor de plano do serviço de aplicativo.][change] 
-
-1. No seletor do **plano do serviço de aplicativo** , selecione um plano existente para mover esse aplicativo.   
-
-A página **selecionar plano do serviço de aplicativo** mostra apenas os planos que estão no mesmo grupo de recursos e região geográfica que o plano do serviço de aplicativo do aplicativo atual.
-
-Cada plano tem seu próprio tipo de preço. Por exemplo, mover um site de uma camada **gratuita** para uma camada **Standard** permite que todos os aplicativos atribuídos a ele usem os recursos e recursos da camada **Standard** . No entanto, mover um aplicativo de um plano de camada superior para um plano de camada inferior significa que você não tem mais acesso a determinados recursos. Se seu aplicativo usar um recurso que não está disponível no plano de destino, você receberá um erro que mostra qual recurso está em uso que não está disponível. 
-
-Por exemplo, se um de seus aplicativos usar certificados SSL, você poderá ver esta mensagem de erro:
-
-`Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
-
-Nesse caso, antes de poder mover o aplicativo para o plano de destino, você precisa:
-- Escalar verticalmente o tipo de preço do plano de destino para **básico** ou superior.
-- Remova todas as conexões SSL para seu aplicativo.
 
 ## <a name="move-an-app-to-a-different-region"></a>Mover um aplicativo para uma região diferente
 

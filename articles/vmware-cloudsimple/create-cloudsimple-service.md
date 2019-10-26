@@ -8,19 +8,20 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 99194c42dbc6ef07301be517021bf0fb4b4e7c23
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 8648f2c9cc0175050d4b7642f5235d47159ecfaf
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173512"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893950"
 ---
 # <a name="create-the-azure-vmware-solution-by-cloudsimple-service"></a>Criar a solução do Azure VMware pelo serviço CloudSimple
 
 Para começar a usar a solução Azure VMware por CloudSimple, crie a solução Azure VMware pelo serviço CloudSimple no portal do Azure.
 
-> [!IMPORTANT]
-> Antes de criar o serviço CloudSimple, você deve registrar o provedor de recursos Microsoft. VMwareCloudSimple em sua assinatura do Azure. Siga as etapas em [habilitar o provedor de recursos Microsoft. VMwareCloudSimple em sua assinatura do Azure](enable-cloudsimple-service.md).
+## <a name="before-you-begin"></a>Antes de começar
+
+Aloque um bloco CIDR/28 para a sub-rede de gateway. Uma sub-rede de gateway é necessária por serviço CloudSimple e é exclusiva para a região na qual ela é criada. A sub-rede de gateway é usada para serviços de rede de borda e requer um bloco CIDR/28. O espaço de endereço de sub-rede de gateway deve ser exclusivo. Ele não deve se sobrepor a nenhuma rede que se comunica com o ambiente CloudSimple. As redes que se comunicam com o CloudSimple incluem redes locais e redes virtuais do Azure.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -30,10 +31,10 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Selecione **Todos os serviços**.
 2. Procure **Serviços CloudSimples**.
-    ![Search CloudSimple serviço @ no__t-1
+    ](media/create-cloudsimple-service-search.png) do serviço CloudSimple Search ![
 3. Selecione **Serviços CloudSimples**.
 4. Clique em **Adicionar** para criar um novo serviço.
-    ![Add CloudSimple serviço @ no__t-1
+    ![adicionar](media/create-cloudsimple-service-add.png) do serviço CloudSimple
 5. Selecione a assinatura na qual você deseja criar o serviço CloudSimple.
 6. Selecione o grupo de recursos para o serviço. Para adicionar um novo grupo de recursos, clique em **criar novo**.
 7. Insira o nome para identificar o serviço.

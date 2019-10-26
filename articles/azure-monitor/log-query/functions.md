@@ -1,24 +1,18 @@
 ---
 title: Funções em consultas de log de Azure Monitor | Microsoft Docs
 description: Este artigo descreve como usar funções para chamar uma consulta de outra consulta de log no Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/15/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 75beb7b66863efd2fb3679f034a3663dca4a6d2f
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 11/15/2018
+ms.openlocfilehash: 8d8473b88327d3d17346a0351d0a9fc510152cd8
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076707"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894182"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Usando funções em consultas de log de Azure Monitor
 
@@ -30,10 +24,10 @@ Crie uma função com Log Analytics na portal do Azure clicando em **salvar** e,
 
 | Definição | Descrição |
 |:---|:---|
-| Name           | Nome de exibição da consulta no **Gerenciador de consultas**. |
+| Nome           | Nome de exibição da consulta no **Gerenciador de consultas**. |
 | Guardar como        | Função |
-| Alias de Função | Nome curto para usar a função em outras consultas. Não pode conter espaços e deve ser exclusivo. |
-| Category       | Uma categoria para organizar consultas e funções salvas no **Gerenciador de consultas**. |
+| Alias da função | Nome curto para usar a função em outras consultas. Não pode conter espaços e deve ser exclusivo. |
+| Categoria       | Uma categoria para organizar consultas e funções salvas no **Gerenciador de consultas**. |
 
 > [!NOTE]
 > Uma função no Azure Monitor não pode conter outra função.

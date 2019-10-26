@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: f1dfbbc6036273e6ddf724e185e23073e7a78505
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
-ms.translationtype: HT
+ms.openlocfilehash: 6d40f7d81faa77a48a32aadefdf44ed89e184efb
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809107"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900788"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: parte 2-exibir as mensagens roteadas
 
@@ -116,9 +116,9 @@ Para ver os dados numa visualização do Power BI, configure primeiro uma taref
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Adicionar uma entrada à tarefa do Stream Analytics
 
-4. Em **topologia do trabalho**, selecione **entradas**.
+1. Em **topologia do trabalho**, selecione **entradas**.
 
-5. No painel **entradas** , selecione **Adicionar entrada de fluxo** e selecione Hub IOT. No ecrã apresentado, preencha os campos seguintes:
+2. No painel **entradas** , selecione **Adicionar entrada de fluxo** e selecione Hub IOT. No ecrã apresentado, preencha os campos seguintes:
 
    **Alias de entrada**: este tutorial utiliza **contosoinputs**.
 
@@ -138,7 +138,7 @@ Para ver os dados numa visualização do Power BI, configure primeiro uma taref
 
    ![Configurar as entradas para o trabalho do Stream Analytics](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-inputs.png)
 
-6. Selecione **Guardar**.
+3. Selecione **Guardar**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Adicionar uma saída à tarefa do Stream Analytics
 

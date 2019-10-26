@@ -1,24 +1,18 @@
 ---
 title: Otimize seu ambiente de Active Directory com Azure Monitor | Microsoft Docs
 description: Você pode usar a solução de verificação de integridade Active Directory para avaliar o risco e a integridade de seus ambientes em intervalos regulares.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 09/10/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: a0ffe7b8726ee78ca81751687bebd3c435365576
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.date: 09/10/2019
+ms.openlocfilehash: bdc84a9213bd98981040775d3fec90f45edac54f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883082"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899193"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Otimize seu ambiente de Active Directory com a solução de verificação de integridade Active Directory no Azure Monitor
 
@@ -47,7 +41,7 @@ Depois de adicionar a solução e uma verificação for concluída, as informaç
 * Um espaço de trabalho Log Analytics para adicionar a solução de verificação de integridade Active Directory do Azure Marketplace no portal do Azure. Não há nenhuma configuração adicional necessária.
 
   > [!NOTE]
-  > Depois de adicionar a solução, o arquivo AdvisorAssessment. exe é adicionado aos servidores com agentes. Os dados de configuração são lidos e enviados para Azure Monitor na nuvem para processamento. Lógica é aplicada para os dados recebidos e o serviço em nuvem regista os dados.
+  > Depois de adicionar a solução, o arquivo AdvisorAssessment. exe é adicionado aos servidores com agentes. Os dados de configuração são lidos e enviados para Azure Monitor na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço cloud regista os dados.
   >
   >
 
@@ -191,7 +185,7 @@ Após a execução da próxima verificação de integridade agendada, por padrã
 
 *Qual é o nome do processo que faz a coleta de dados?*
 
-* AdvisorAssessment.exe
+* AdvisorAssessment. exe
 
 *Quanto tempo leva para os dados serem coletados?*
 
@@ -209,6 +203,6 @@ Após a execução da próxima verificação de integridade agendada, por padrã
 
 * Sim, consulte a seção [ignorar recomendações](#ignore-recommendations) acima.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Use [Azure monitor consultas de log](../log-query/log-query-overview.md) para saber como analisar dados e recomendações de verificação de integridade do AD detalhados.

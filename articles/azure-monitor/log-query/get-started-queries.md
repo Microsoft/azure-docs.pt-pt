@@ -1,24 +1,18 @@
 ---
 title: Introdução às consultas de log no Azure Monitor | Microsoft Docs
 description: Este artigo fornece um tutorial para começar a escrever consultas de log no Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 05/09/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 6eb066e04cfa561a4fa443b8c8f9582e286a4d7b
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
-ms.translationtype: MT
+ms.date: 05/09/2019
+ms.openlocfilehash: d9116ba1b43959402223e0cbd1e4f729e053b9b6
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076747"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894308"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introdução às consultas de log no Azure Monitor
 
@@ -63,7 +57,7 @@ A consulta mostrada acima retorna 10 resultados da tabela *SecurityEvent* , em n
 * O caractere de pipe (|) separa os comandos, portanto, a saída do primeiro na entrada do comando a seguir. Você pode adicionar qualquer número de elementos canalizados.
 * Seguir o pipe é o comando **Take** , que retorna um número específico de registros arbitrários da tabela.
 
-Na verdade, poderíamos executar a consulta mesmo sem `| take 10` adicionar, que ainda seria válida, mas poderia retornar até 10.000 resultados.
+Na verdade, poderíamos executar a consulta mesmo sem adicionar `| take 10`-isso ainda seria válido, mas poderia retornar até 10.000 resultados.
 
 ### <a name="search-queries"></a>Consultas de pesquisa
 As consultas de pesquisa são menos estruturadas e geralmente mais adequadas para localizar registros que incluem um valor específico em qualquer uma de suas colunas:
@@ -73,7 +67,7 @@ search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
 
-Essa consulta pesquisa a tabela *SecurityEvent* em busca de registros que contenham a frase "criptografia". Desses registros, 10 registros serão retornados e exibidos. Se omitirmos a `in (SecurityEvent)` parte e simplesmente executar `search "Cryptographic"`, a pesquisa passará por *todas as* tabelas, o que levaria mais tempo e será menos eficiente.
+Essa consulta pesquisa a tabela *SecurityEvent* em busca de registros que contenham a frase "criptografia". Desses registros, 10 registros serão retornados e exibidos. Se omitirmos a parte `in (SecurityEvent)` e apenas executar `search "Cryptographic"`, a pesquisa passará por *todas as* tabelas, o que levaria mais tempo e será menos eficiente.
 
 > [!WARNING]
 > As consultas de pesquisa são normalmente mais lentas do que as consultas baseadas em tabela, pois precisam processar mais dados. 
@@ -116,7 +110,7 @@ Ao escrever condições de filtro, você pode usar as seguintes expressões:
 |:---|:---|:---|
 | == | Verificar igualdade<br>(diferencia maiúsculas de minúsculas) | `Level == 8` |
 | =~ | Verificar igualdade<br>(não diferencia maiúsculas de minúsculas) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
-| !=, <> | Verificar desigualdade<br>(as duas expressões são idênticas) | `Level != 4` |
+| ! =, < > | Verificar desigualdade<br>(as duas expressões são idênticas) | `Level != 4` |
 | *e*, *ou* | Necessário entre as condições| `Level == 16 or CommandLine != ""` |
 
 Para filtrar por várias condições, você pode usar o **e**o:
@@ -135,14 +129,14 @@ SecurityEvent
 ```
     
 > [!NOTE]
-> Os valores podem ter tipos diferentes, portanto, talvez seja necessário convertê-los para executar a comparação no tipo correto. Por exemplo, a coluna de *nível* de SecurityEvent é do tipo cadeia de caracteres, portanto, você deve convertê-la em um tipo numérico, como *int* ou *Long*, antes de poder usar operadores numéricos nele:`SecurityEvent | where toint(Level) >= 10`
+> Os valores podem ter tipos diferentes, portanto, talvez seja necessário convertê-los para executar a comparação no tipo correto. Por exemplo, a coluna de *nível* SecurityEvent é do tipo cadeia de caracteres, portanto, você deve convertê-la em um tipo numérico, como *int* ou *Long*, antes de poder usar operadores numéricos nele: `SecurityEvent | where toint(Level) >= 10`
 
 ## <a name="specify-a-time-range"></a>Especificar um intervalo de tempo
 
 ### <a name="time-picker"></a>Seletor de hora
 O seletor de tempo está ao lado do botão Executar e indica que estamos consultando somente os registros das últimas 24 horas. Esse é o intervalo de tempo padrão aplicado a todas as consultas. Para obter somente os registros da última hora, selecione _última hora_ e execute a consulta novamente.
 
-![Seletor de Intervalo de Tempo](media/get-started-queries/timepicker.png)
+![Selecionador de hora](media/get-started-queries/timepicker.png)
 
 
 ### <a name="time-filter-in-query"></a>Filtro de tempo na consulta
@@ -154,7 +148,7 @@ SecurityEvent
 | where toint(Level) >= 10
 ```
 
-No momento acima, o `ago(30m)` filtro significa "30 minutos atrás" para que essa consulta retorne apenas os registros dos últimos 30 minutos. Outras unidades de tempo incluem dias (2D), minutos (25m) e segundos (10s).
+No filtro de tempo acima `ago(30m)` significa "30 minutos atrás" para que essa consulta retorne apenas os registros dos últimos 30 minutos. Outras unidades de tempo incluem dias (2D), minutos (25m) e segundos (10s).
 
 
 ## <a name="project-and-extend-select-and-compute-columns"></a>Project e extend: selecionar e calcular colunas
@@ -226,7 +220,7 @@ Perf
 ```
 
 ### <a name="summarize-by-a-time-column"></a>Resumir por uma coluna de tempo
-O agrupamento de resultados também pode ser baseado em uma coluna de tempo ou em outro valor contínuo. Simplesmente Resumindo `by TimeGenerated` , embora crie grupos para cada milissegundo durante o intervalo de tempo, uma vez que esses são valores exclusivos. 
+O agrupamento de resultados também pode ser baseado em uma coluna de tempo ou em outro valor contínuo. Simplesmente Resumindo `by TimeGenerated` o criaria grupos para cada milissegundo durante o intervalo de tempo, já que esses são valores exclusivos. 
 
 Para criar grupos com base em valores contínuos, é melhor dividir o intervalo em unidades gerenciáveis usando **bin**. A consulta a seguir analisa os registros de *desempenho* que medem a memória livre (*MBytes disponíveis*) em um computador específico. Ele calcula o valor médio de cada período de 1 hora nos últimos 7 dias:
 
@@ -244,6 +238,6 @@ Para tornar a saída mais clara, selecione para exibi-la como um gráfico de tem
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre como [escrever consultas de pesquisa](search-queries.md)

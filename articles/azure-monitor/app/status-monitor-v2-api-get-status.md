@@ -1,23 +1,18 @@
 ---
-title: 'Referência da API do agente do insights Aplicativo Azure: obter status | Microsoft Docs'
+title: Referência da API do agente do insights Aplicativo Azure
 description: Referência de API do agente Application Insights. Get-ApplicationInsightsMonitoringStatus. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicações Web ASP.NET alojadas no local, em VMs ou no Azure.
-services: application-insights
-documentationcenter: .net
-author: TimothyMothra
-manager: alexklim
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/23/2019
+author: TimothyMothra
 ms.author: tilee
-ms.openlocfilehash: 6e103e1856e338669224540a991c4b9ea6b10d6d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 04/23/2019
+ms.openlocfilehash: 9b1010404cb876ed818dd54cf527987c6cf0ffe0
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389862"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899696"
 ---
 # <a name="application-insights-agent-api-get-applicationinsightsmonitoringstatus"></a>API do agente de Application Insights: Get-ApplicationInsightsMonitoringStatus
 

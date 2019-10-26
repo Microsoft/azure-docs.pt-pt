@@ -1,34 +1,28 @@
 ---
 title: Exemplos de consulta de log de Azure Monitor | Microsoft Docs
 description: Exemplos de consultas de log no Azure Monitor usando a linguagem de consulta Kusto.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 10/01/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 7cdd471e6618e83483f6cc304f284a1669f3b67b
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
-ms.translationtype: MT
+ms.date: 10/01/2019
+ms.openlocfilehash: 2ded97e427c8ecf4584ee486408de14a26f014eb
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718903"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900372"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exemplos de consulta de log de Azure Monitor
 Este artigo inclui vários exemplos de [consultas](log-query-overview.md) que usam a [linguagem de consulta Kusto](/azure/kusto/query/) para recuperar diferentes tipos de dados de log de Azure monitor. Métodos diferentes são usados para consolidar e analisar dados, para que você possa usar esses exemplos para identificar estratégias diferentes que podem ser usadas para seus próprios requisitos.  
 
 Consulte a [referência de linguagem Kusto](https://docs.microsoft.com/azure/kusto/query/) para obter detalhes sobre as diferentes palavras-chave usadas nesses exemplos. Siga uma [lição sobre como criar consultas](get-started-queries.md) se você for novo no Azure monitor.
 
-## <a name="events"></a>Events
+## <a name="events"></a>Eventos
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>Pesquisar eventos no nível do aplicativo descritos como "criptografia"
-Este exemplo pesquisa a tabela **Events** para encontrar registos em que **EventLog** é _Application_ e **RenderedDescription** contém _cryptographic_. Inclui registros das últimas 24 horas.
+Este exemplo pesquisa a tabela de **eventos** em busca de registros nos quais **EventLog** é _Application_ e **RenderedDescription** contém _criptografia_. Inclui registros das últimas 24 horas.
 
 ```Kusto
 Event
@@ -38,13 +32,13 @@ Event
 ```
 
 ### <a name="search-events-related-to-unmarshaling"></a>Eventos de pesquisa relacionados ao desempacotamento
-**Evento** de tabelas de pesquisa e **SecurityEvents** para registros que mencionam o desempacotamento.
+**Evento** de tabelas de pesquisa e **SecurityEvents** para registros que mencionam o _desempacotamento_.
 
 ```Kusto
 search in (Event, SecurityEvent) "unmarshaling"
 ```
 
-## <a name="heartbeat"></a>Heartbeat
+## <a name="heartbeat"></a>Batida
 
 ### <a name="chart-a-week-over-week-view-of-the-number-of-computers-sending-data"></a>Gráfico uma exibição semana a semana do número de computadores que enviam dados
 
@@ -79,7 +73,7 @@ Heartbeat
 ### <a name="match-protected-status-records-with-heartbeat-records"></a>Corresponder registros de status protegidos com registros de pulsação
 
 Este exemplo localiza registros de status de proteção relacionados e registros de pulsação, com correspondência no computador e no horário.
-Observe que o campo de tempo é arredondado para o minuto mais próximo. Usamos o cálculo de compartimento de tempo de execução `round_time=bin(TimeGenerated, 1m)`para fazer isso:.
+Observe que o campo de tempo é arredondado para o minuto mais próximo. Usamos o cálculo do compartimento de tempo de execução para fazer isso: `round_time=bin(TimeGenerated, 1m)`.
 
 ```Kusto
 let protection_data = ProtectionStatus
@@ -205,10 +199,10 @@ Perf
 | render timechart
 ```
 
-## <a name="protection-status"></a>Estado da proteção
+## <a name="protection-status"></a>Status de proteção
 
 ### <a name="computers-with-non-reporting-protection-status-duration"></a>Computadores com duração de status de proteção sem relatórios
-Este exemplo apresenta uma lista dos computadores que tiveram o estado de proteção _Not Reporting_ e durante quanto tempo estiveram nesse estado.
+Este exemplo lista os computadores que tiveram um status de proteção de _não relatório_ e a duração em que estavam nesse status.
 
 ```Kusto
 ProtectionStatus
@@ -237,7 +231,7 @@ protection_data | join (heartbeat_data) on Computer, round_time
 ### <a name="count-security-events-by-activity-id"></a>Contar eventos de segurança por ID de atividade
 
 
-Este exemplo se baseia na estrutura fixa da coluna **atividade** : \<\>-Nomeda\>ID.\<
+Este exemplo se baseia na estrutura fixa da coluna **atividade** : \<ID\>-nome\<\>.
 Ele analisa o valor da **atividade** em duas novas colunas e conta a ocorrência de cada **ActivityId**.
 
 ```Kusto
@@ -249,7 +243,7 @@ SecurityEvent
 ```
 
 ### <a name="count-security-events-related-to-permissions"></a>Contar eventos de segurança relacionados a permissões
-Este exemplo mostra o número de registos **securityEvent** em que a coluna **Activity** contém o termo _Permissions_ completo. A consulta aplica-se a registos criados nos últimos 30 minutos.
+Este exemplo mostra o número de registros **securityEvent** , no qual a coluna **atividade** contém as _permissões_de termo inteiro. A consulta se aplica aos registros criados nos últimos 30 minutos.
 
 ```Kusto
 SecurityEvent
@@ -278,7 +272,7 @@ SecurityEvent
 ```
 
 ### <a name="parse-activity-name-and-id"></a>Nome e ID da atividade de análise
-Os dois exemplos abaixo dependem da estrutura fixa da coluna **atividade** : \<\>-Nomeda\>ID.\< O primeiro exemplo usa o operador **Parse** para atribuir valores a duas novas colunas: **ActivityId** e **activityDesc**.
+Os dois exemplos abaixo dependem da estrutura fixa da coluna **atividade** : \<ID\>-nome\<\>. O primeiro exemplo usa o operador **Parse** para atribuir valores a duas novas colunas: **ActivityId** e **activityDesc**.
 
 ```Kusto
 SecurityEvent

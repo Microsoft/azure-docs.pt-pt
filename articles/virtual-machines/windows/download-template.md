@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 37e833e5ba2fcbc9fcfe0a27d5b607a5c6cdd55b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 39abe054869bf68a254b9305a680ecc892359300
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079538"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898877"
 ---
 # <a name="download-the-template-for-a-vm"></a>Transferir o modelo para uma VM
 Quando você cria uma VM no Azure usando o portal ou o PowerShell, um modelo do Resource Manager é criado automaticamente para você. Você pode usar esse modelo para duplicar rapidamente uma implantação. O modelo contém informações sobre todos os recursos em um grupo de recursos. Para uma máquina virtual, isso significa que o modelo contém tudo o que é criado para dar suporte à VM nesse grupo de recursos, incluindo os recursos de rede.
@@ -32,22 +32,18 @@ Quando você cria uma VM no Azure usando o portal ou o PowerShell, um modelo do 
 5. Selecione **baixar** no menu na parte superior e salve o arquivo. zip em seu computador local.
 6. Abra o arquivo. zip e extraia os arquivos para uma pasta. O arquivo. zip contém:
    
-   * deploy.ps1
-   * deploy.sh 
-   * implanter. rb
-   * DeploymentHelper.cs
-   * parameters.json
-   * template.json
+   * Parameters. JSON
+   * template. JSON
 
 O arquivo template. JSON é o modelo.
 
 ## <a name="download-the-template-using-powershell"></a>Baixar o modelo usando o PowerShell
-Você também pode baixar o arquivo de modelo. JSON usando o cmdlet [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup) . Você pode usar o `-path` parâmetro para fornecer o nome de arquivo e o caminho para o arquivos. JSON. Este exemplo mostra como baixar o modelo para o grupo de recursos chamado **MyResource** Group para a pasta **C:\users\public\downloads** em seu computador local.
+Você também pode baixar o arquivo de modelo. JSON usando o cmdlet [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup) . Você pode usar o parâmetro `-path` para fornecer o nome de arquivo e o caminho para o arquivos. JSON. Este exemplo mostra como baixar o modelo para o grupo de recursos chamado **MyResource** Group para a pasta **C:\users\public\downloads** em seu computador local.
 
 ```powershell
     Export-AzResourceGroup -ResourceGroupName "myResourceGroup" -Path "C:\users\public\downloads"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre a implantação de recursos usando modelos, confira [explicação do modelo do Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 

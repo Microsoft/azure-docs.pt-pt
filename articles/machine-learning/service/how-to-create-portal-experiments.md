@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: 45207eb1cdc62f2468d8b0c052723337c18d5021
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 2de24d36d78ebf5edf6ef65471e85b53d954486e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350561"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900751"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>Criar, explorar e implantar experimentos automatizados de aprendizado de máquina com a página de aterrissagem do espaço de trabalho Azure Machine Learning (versão prévia)
 
@@ -38,7 +38,7 @@ ms.locfileid: "71350561"
 
 1. Navegue até o painel esquerdo. Selecione **ml automatizado** na seção **autor** .
 
-[![Painel de navegação portal do Azure](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+[painel de navegação do![portal do Azure](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
  Se esta for a primeira vez que você faz qualquer experimento, você verá a tela **introdução** . 
 
@@ -56,7 +56,7 @@ Caso contrário, você verá o painel **automatizado do Machine Learning** com u
 
     Campo|Descrição
     ---|---
-    Nome de computação| Insira um nome exclusivo que identifique o contexto de computação.
+    Nome da computação| Insira um nome exclusivo que identifique o contexto de computação.
     Tamanho da máquina virtual| Selecione o tamanho da máquina virtual para sua computação.
     Nós mín./máx. (em configurações avançadas)| Para criar o perfil de dados, você deve especificar um ou mais nós. Insira o número máximo de nós para sua computação. O padrão é 6 nós para uma computação AML.
     
@@ -82,9 +82,9 @@ Caso contrário, você verá o painel **automatizado do Machine Learning** com u
 
         Campo| Descrição
         ----|----
-        Formato do ficheiro| Define o layout e o tipo de dados armazenados em um arquivo.
+        Formato de arquivo| Define o layout e o tipo de dados armazenados em um arquivo.
         Delimitador| Um ou mais caracteres para especificar o limite entre regiões separadas e independentes em texto sem formatação ou outros fluxos de dados.
-        Codificação| Identifica o bit para a tabela de esquema de caractere a ser usada para ler seu conjunto de seus.
+        Encoding| Identifica o bit para a tabela de esquema de caractere a ser usada para ler seu conjunto de seus.
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de uma, se houver, serão tratados.
         Ignorar linhas | Indica quantas linhas, se houver, são ignoradas no conjunto de registros.
     
@@ -99,16 +99,16 @@ Caso contrário, você verá o painel **automatizado do Machine Learning** com u
 1. Selecionar coluna de destino; Essa é a coluna na qual você gostaria de fazer previsões.
 
 1. Para previsão:
-    1. Selecione a coluna de tempo: Esta coluna contém os dados de tempo a serem usados.
+    1. Selecionar coluna de tempo: esta coluna contém os dados de hora a serem usados.
 
-    1. Selecione o horizonte de previsão: Indique quantas unidades de tempo (minutos/horas/dias/semanas/meses/anos) o modelo será capaz de prever para o futuro. Quanto mais o modelo for necessário para prever no futuro, menor será a sua precisão. [Saiba mais sobre previsão e previsão horizonte](how-to-auto-train-forecast.md).
+    1. Selecione previsão Horizonte: indica quantas unidades de tempo (minutos/horas/dias/semanas/meses/anos) o modelo será capaz de prever para o futuro. Quanto mais o modelo for necessário para prever no futuro, menor será a sua precisão. [Saiba mais sobre previsão e previsão horizonte](how-to-auto-train-forecast.md).
 
 1. Adicional Configurações avançadas: configurações adicionais que você pode usar para controlar melhor o trabalho de treinamento. Caso contrário, os padrões serão aplicados com base na seleção de experimento e nos dados. 
 
     Definições avançadas|Descrição
     ------|------
     Métrica primária| Métrica principal usada para pontuar seu modelo. [Saiba mais sobre métricas de modelo](how-to-configure-auto-train.md#explore-model-metrics).
-    Critérios de saída| Quando qualquer um desses critérios for atendido, o trabalho de treinamento será interrompido. <br> *Tempo de trabalho de treinamento (minutos)* : Por quanto tempo permitir que o trabalho de treinamento seja executado.  <br> *Número máximo de iterações*: Número máximo de pipelines (iterações) a serem testados no trabalho de treinamento. O trabalho não será executado mais do que o número especificado de iterações. <br> *Limite de pontuação da métrica*:  Pontuação de métrica mínima para todos os pipelines. Isso garante que, se você tiver uma métrica de destino definida que deseja alcançar, não gaste mais tempo no trabalho de treinamento do que o necessário.
+    Critérios de saída| Quando qualquer um desses critérios for atendido, o trabalho de treinamento será interrompido. <br> *Tempo de trabalho de treinamento (minutos)* : por quanto tempo permitir que o trabalho de treinamento seja executado.  <br> *Número máximo de iterações*: número máximo de pipelines (iterações) a serem testados no trabalho de treinamento. O trabalho não será executado mais do que o número especificado de iterações. <br> *Limite de Pontuação de métrica*: Pontuação de métrica mínima para todos os pipelines. Isso garante que, se você tiver uma métrica de destino definida que deseja alcançar, não gaste mais tempo no trabalho de treinamento do que o necessário.
     Pré-processamento| Selecione para habilitar ou desabilitar o pré-processamento feito pelo Machine Learning automatizado. O pré-processamento inclui a limpeza, preparação e transformação automáticas de dados para gerar recursos sintéticos. [Saiba mais sobre o pré-processamento](#preprocess).
     Validação| Selecione uma das opções de validação cruzada para usar no trabalho de treinamento. [Saiba mais sobre a validação cruzada](how-to-configure-auto-train.md).
     Simultaneidade| Selecione os limites de vários núcleos que você gostaria de usar ao usar a computação de vários núcleos.
@@ -128,29 +128,29 @@ Estatísticas|Descrição
 Funcionalidade| Nome da coluna que está sendo resumida.
 Perfil| Visualização embutida com base no tipo inferido. Por exemplo, cadeias de caracteres, Boolianos e datas terão contagens de valor, enquanto decimais (numéricos) têm histogramas aproximados. Isso permite que você tenha uma compreensão rápida da distribuição dos dados.
 Distribuição de tipo| Valor na linha contagem de tipos dentro de uma coluna. Os nulos são de seu próprio tipo, portanto, essa visualização é útil para detectar valores ímpares ou ausentes.
-Type|Tipo inferido da coluna. Os valores possíveis incluem: cadeias de caracteres, Boolianos, datas e decimais.
+Tipo|Tipo inferido da coluna. Os valores possíveis incluem: cadeias de caracteres, Boolianos, datas e decimais.
 Mín.| Valor mínimo da coluna. Entradas em branco aparecem para recursos cujo tipo não tem uma ordenação inerente (por exemplo, Boolianos).
-Máx.| Valor máximo da coluna. 
-Count| Número total de entradas ausentes e não ausentes na coluna.
+Máx| Valor máximo da coluna. 
+Contagem| Número total de entradas ausentes e não ausentes na coluna.
 Contagem não ausente| Número de entradas na coluna que não estão ausentes. Cadeias de caracteres e erros vazios são tratados como valores, portanto, eles não contribuirão para a "contagem não encontrada".
 Quantis| Valores aproximados em cada Quantil para fornecer uma noção da distribuição dos dados.
-média| Média aritmética ou médio da coluna.
+Significa| Média aritmética ou médio da coluna.
 Desvio padrão| Medida da quantidade de dispersão ou variação dos dados desta coluna.
-Variância| A medida de difundir os dados desta coluna é de seu valor médio. 
-Assimetrias| Medida de quão diferentes os dados dessa coluna são de uma distribuição normal.
-Kurtosis| A medida de quão cauda os dados desta coluna é comparada a uma distribuição normal.
+Varia| A medida de difundir os dados desta coluna é de seu valor médio. 
+Distorção| Medida de quão diferentes os dados dessa coluna são de uma distribuição normal.
+Curtose| A medida de quão cauda os dados desta coluna é comparada a uma distribuição normal.
 
 <a name="preprocess"></a>
 
 ## <a name="advanced-preprocessing-options"></a>Opções avançadas de pré-processamento
 
-Ao configurar seus experimentos, você pode habilitar a configuração `Preprocess`avançada. Isso significa que as etapas de pré-processamento e personalização de dados a seguir são executadas automaticamente.
+Ao configurar seus experimentos, você pode habilitar a configuração avançada `Preprocess`. Isso significa que as etapas de pré-processamento e personalização de dados a seguir são executadas automaticamente.
 
-|&nbsp;Etapas de pré-processamento| Descrição |
+|Pré-processando&nbsp;etapas| Descrição |
 | ------------- | ------------- |
-|Remova cardinalidade elevada ou nenhum recurso de variância|Descarte-os dos conjuntos de treinamento e validação, incluindo recursos com todos os valores ausentes, o mesmo valor em todas as linhas ou com cardinalidade extremamente alta (por exemplo, hashes, IDs ou GUIDs).|
-|Impute valores em falta|Para recursos numéricos, imputar com a média de valores na coluna.<br/><br/>Para recursos categóricos, imputar com o valor mais frequente.|
-|Gerar recursos adicionais|Para recursos de DateTime: Ano, mês, dia, dia da semana, dia do ano, trimestre, semana do ano, hora, minuto, segundo.<br/><br/>Para recursos de texto: A frequência do termo com base em unigrams, bi-grams e Tri-Character-grams.|
+|Descartar alta cardinalidade ou nenhum recurso de variação|Descarte-os dos conjuntos de treinamento e validação, incluindo recursos com todos os valores ausentes, o mesmo valor em todas as linhas ou com cardinalidade extremamente alta (por exemplo, hashes, IDs ou GUIDs).|
+|Imputar valores ausentes|Para recursos numéricos, imputar com a média de valores na coluna.<br/><br/>Para recursos categóricos, imputar com o valor mais frequente.|
+|Gerar recursos adicionais|Para recursos de data e hora: ano, mês, dia, dia da semana, dia do ano, trimestre, semana do ano, hora, minuto, segundo.<br/><br/>Para recursos de texto: a frequência de termos com base em unigrams, bi-grams e Tri-Character-grams.|
 |Transformar e codificar |Recursos numéricos com poucos valores exclusivos são transformados em recursos categóricos.<br/><br/>A codificação One-Hot é executada para uma baixa cardinalidade categórica; para alta cardinalidade, codificação One-Hot-hash.|
 |Incorporações de palavras|Texto featurizer que converte vetores de tokens de texto em vetores de sentença usando um modelo pré-treinado. O vetor de incorporação de cada palavra em um documento é agregado em conjunto para produzir um vetor de recurso de documento.|
 |Codificações de destino|Para recursos categóricos, o mapeia cada categoria com o valor de destino médio para problemas de regressão e a probabilidade de classe de cada classe para problemas de classificação. O peso baseado em frequência e a validação cruzada de k-fold são aplicados para reduzir o ajuste do mapeamento e do ruído causados por categorias de dados esparsas.|
@@ -168,13 +168,13 @@ Depois que a fase de preparação do experimento for concluída, você verá a t
 
 Os trabalhos de treinamento podem levar algum tempo para que cada pipeline termine a execução.
 
-[![Painel de detalhes de execução](media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
+[![painel de detalhes de execução](media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
 
 ### <a name="view-training-run-details"></a>Exibir detalhes da execução de treinamento
 
 Faça uma busca detalhada em qualquer um dos modelos de saída para ver detalhes de execução de treinamento, como métricas de desempenho e gráficos de distribuição. [Saiba mais sobre gráficos](how-to-understand-automated-ml.md).
 
-[![Detalhes da iteração](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
+[detalhes da iteração de![](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
 
 ## <a name="deploy-your-model"></a>Implantar seu modelo
 
@@ -184,15 +184,15 @@ O ML automatizado ajuda você a implantar o modelo sem escrever código:
 
 1. Você tem algumas opções de implantação. 
 
-    + Opção 1: Para implantar o melhor modelo (de acordo com os critérios de métrica que você definiu), selecione implantar melhor modelo na página executar detalhes.
+    + Opção 1: para implantar o melhor modelo (de acordo com os critérios de métrica que você definiu), selecione implantar melhor modelo na página executar detalhes.
 
-    + Opção 2: Para implantar uma iteração de modelo específica deste experimento, faça uma busca detalhada no modelo para abrir sua página de detalhes de execução e selecione implantar modelo.
+    + Opção 2: para implantar uma iteração de modelo específica deste experimento, faça uma busca detalhada no modelo para abrir sua página de detalhes de execução e selecione implantar modelo.
 
 1. Preencha o painel **implantar modelo** .
 
-    Campo| Value
+    Campo| Valor
     ----|----
-    Nome da implementação| Insira um nome exclusivo para sua implantação.
+    Nome da implantação| Insira um nome exclusivo para sua implantação.
     Descrição da implantação| Insira uma descrição para identificar melhor a finalidade dessa implantação.
     Script de Pontuação| Gerar automaticamente ou carregar seu próprio arquivo de pontuação. [Saiba mais sobre o script de Pontuação](how-to-deploy-and-where.md#script)
     Script de ambiente| Gerar automaticamente ou carregar seu próprio arquivo de ambiente.
@@ -205,7 +205,7 @@ O ML automatizado ajuda você a implantar o modelo sem escrever código:
 
     ![Implantação concluída](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png) 
 
-Agora você tem um serviço Web operacional para gerar previsões!
+Agora você tem um serviço Web operacional para gerar previsões! Você pode testar as previsões consultando o serviço do [suporte Azure Machine Learning interno Power bi](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 
 ## <a name="next-steps"></a>Passos seguintes
 
