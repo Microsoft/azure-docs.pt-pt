@@ -1,5 +1,5 @@
 ---
-title: Tipos de endereços IP no Azure
+title: Tipos de endereço IP no Azure
 titlesuffix: Azure Virtual Network
 description: Saiba mais sobre os endereços IP públicos e privados no Azure.
 services: virtual-network
@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0c86f9ad134e9b640d33d1a391c5387af9f9afd
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65236352"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965668"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure
 
 Pode atribuir endereços IP a recursos do Azure para comunicar com outros recursos do Azure, a rede no local e a Internet. Existem dois tipos de endereços IP que pode utilizar no Azure:
 
-* **Endereços IP públicos**: Utilizado para comunicação com a Internet, incluindo os serviços do Azure destinados ao público.
-* **Endereços IP privados**: Utilizado para comunicação dentro de uma rede virtual do Azure (VNet) e a sua rede no local, ao utilizar um gateway de VPN ou circuito ExpressRoute para expandir a sua rede para o Azure.
+* **Endereços IP públicos**: utilizados para comunicação com a Internet, incluindo os serviços do Azure destinados ao público.
+* **Endereços IP privados**: utilizados para comunicação dentro de uma rede virtual do Azure (VNet) e da sua rede no local quando utiliza um gateway de VPN ou o circuito do ExpressRoute para expandir a sua rede para o Azure.
 
 Também pode criar um intervalo de endereços IP públicos estáticos contíguo, por meio de um prefixo IP público. [Saiba mais sobre o prefixo IP público](public-ip-address-prefix.md).
 
 > [!NOTE]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos:  [Resource Manager e clássica](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Este artigo explica como utilizar o modelo de implementação Resource Manager, o que é recomendado pela Microsoft para a maioria das novas implementações em vez do [modelo de implementação clássica](virtual-network-ip-addresses-overview-classic.md).
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com os recursos: [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Este artigo explica como utilizar o modelo de implementação Resource Manager, o que é recomendado pela Microsoft para a maioria das novas implementações em vez do [modelo de implementação clássica](virtual-network-ip-addresses-overview-classic.md).
 > 
 
 Se estiver familiarizado com o modelo de implementação clássica, veja as [diferenças dos endereços IP entre a implementação Clássica e Resource Manager](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
@@ -48,7 +48,7 @@ No Azure Resource Manager, os endereços [IP públicos](virtual-network-public-i
 
 ### <a name="ip-address-version"></a>Versão do endereço IP
 
-Os endereços IP públicos são criados com um endereço IPv4 ou IPv6. Os endereços IPv6 públicos só podem ser atribuídos a balanceadores de carga com acesso à Internet.
+Os endereços IP públicos são criados com um endereço IPv4 ou IPv6. 
 
 ### <a name="sku"></a>SKU
 
@@ -57,31 +57,31 @@ Os endereços IP públicos são criados com um dos SKUs seguintes:
 >[!IMPORTANT]
 > Têm de ser utilizados SKUs de correspondência para o balanceador de carga e os recursos de IP público. Não é possível ter uma mistura de recursos de SKU básicos e recursos de SKU standard. Não é possível anexar máquinas virtuais autónomas, máquinas virtuais num recurso de conjunto de disponibilidade ou uma máquina virtual dos recursos do conjunto de dimensionamento para ambos os SKUs em simultâneo.  Os novos designs devem ponderar a utilização de recursos SKU Standard.  Veja [Balanceador de Carga Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter mais detalhes.
 
-#### <a name="basic"></a>Básica
+#### <a name="basic"></a>Basic
 
 Todos os endereços IP públicos criados antes da introdução de SKUs são endereços IP públicos de SKU Básico. Com a introdução de SKUs, tem a opção de especificar que SKU pretende que o endereço IP público seja. Os endereços de SKU Básico:
 
 - São atribuídos com o método de alocação estático ou dinâmico.
-- Ter um fluxo de originado pela entrada ajustável tempo limite de 4 a 30 minutos, com uma predefinição de 4 minutos e o tempo limite de inatividade fluxo originado pela saída fixo de 4 minutos de inatividade.
+- Ter um tempo limite de ociosidade de fluxo originado de entrada ajustável de 4-30 minutos, com um padrão de 4 minutos e o tempo limite de ociosidade do fluxo de saída fixo de 4 minutos.
 - Estão abertos por predefinição.  Os grupos de segurança de rede são recomendados, mas opcionais para restringir o tráfego de entrada ou de saída.
 - São atribuídos a qualquer recurso do Azure ao qual possa ser atribuído um endereço IP público, como interfaces de rede, Gateways de VPN, Gateways de Aplicação e Balanceadores de carga com acesso à Internet.
-- Não suportam cenários de zona de disponibilidade.  Tem de utilizar o IP público de SKU padrão para cenários de zona de disponibilidade. Para obter mais informações sobre zonas de disponibilidade, veja [Descrição geral de zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Não oferecem suporte a cenários de zona de disponibilidade.  Você precisa usar o IP público do SKU padrão para cenários de zona de disponibilidade. Para obter mais informações sobre zonas de disponibilidade, veja [Descrição geral de zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-#### <a name="standard"></a>Standard
+#### <a name="standard"></a>Padrão
 
 Os endereços IP de SKU Standard:
 
-- Utilize sempre o método de alocação estático.
-- Ter um fluxo de originado pela entrada ajustável tempo limite de 4 a 30 minutos, com uma predefinição de 4 minutos e o tempo limite de inatividade fluxo originado pela saída fixo de 4 minutos de inatividade.
+- Sempre use o método de alocação estática.
+- Ter um tempo limite de ociosidade de fluxo originado de entrada ajustável de 4-30 minutos, com um padrão de 4 minutos e o tempo limite de ociosidade do fluxo de saída fixo de 4 minutos.
 - São seguros por predefinição e fechados ao tráfego de entrada. Tem de especificar a lista de permissões para o tráfego de entrada com um [grupo de segurança de rede](security-overview.md#network-security-groups).
-- Atribuídos a interfaces de rede, balanceadores de carga Standard público, Gateways de aplicação ou Gateways de VPN. Para obter mais informações sobre o Balanceador de carga Standard, veja [Balanceador de carga Standard do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Zona redundante por predefinição e, opcionalmente, zonal (podem ser criados zonais e garantidos numa zona de disponibilidade específico). Para obter mais informações sobre zonas de disponibilidade, veja [Descrição geral de zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Atribuído a interfaces de rede, balanceadores de carga públicos padrão, gateways de aplicativo ou gateways de VPN. Para obter mais informações sobre Standard Load Balancer, consulte [Standard Load Balancer do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Com redundância de zona por padrão e, opcionalmente, zonal (pode ser criado zonal e garantido em uma zona de disponibilidade específica). Para obter mais informações sobre zonas de disponibilidade, veja [Descrição geral de zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
-> Falha de comunicação de entrada com um recurso de SKU padrão até que crie e associe uma [grupo de segurança de rede](security-overview.md#network-security-groups) e permitir explicitamente o tráfego de entrada desejado.
+> A comunicação de entrada com um recurso SKU padrão falha até que você crie e associe um [grupo de segurança de rede](security-overview.md#network-security-groups) e permita explicitamente o tráfego de entrada desejado.
 
 > [!NOTE]
-> Só estão disponíveis endereços IP públicos com o SKU básico ao usar [instância de serviço de metadados IMDS](../virtual-machines/windows/instance-metadata-service.md). Standard SKU não é suportado.
+> Somente endereços IP públicos com SKU básico estão disponíveis ao usar o [serviço de metadados de instância IMDS](../virtual-machines/windows/instance-metadata-service.md). Não há suporte para o SKU Standard.
 
 ### <a name="allocation-method"></a>Método de alocação
 
@@ -111,8 +111,8 @@ Pode especificar uma etiqueta de nome de domínio DNS par um recurso IP público
 > Cada etiqueta de nome de domínio criada tem de ser exclusiva no âmbito da respetiva localização do Azure.  
 >
 
-### <a name="dns-best-practices"></a>Melhores práticas DNS
-Se alguma vez precisar de migrar para uma região diferente, não é possível migrar o FQDN do seu endereço IP público. Como melhor prática, pode utilizar o FQDN para criar um registo CNAME de domínio personalizado que aponta para o endereço IP público no Azure. Se precisar de mover para um IP público diferente, esta operação requer uma atualização para o registo CNAME, em vez de precisar de atualizar manualmente o FQDN para o novo endereço. Pode usar [DNS do Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) ou um fornecedor DNS externo para o registo de DNS. 
+### <a name="dns-best-practices"></a>Práticas recomendadas de DNS
+Se você precisar migrar para uma região diferente, não poderá migrar o FQDN do seu endereço IP público. Como prática recomendada, você pode usar o FQDN para criar um registro CNAME de domínio personalizado apontando para o endereço IP público no Azure. Se você precisar mudar para um IP público diferente, será necessária uma atualização para o registro CNAME em vez de atualizar manualmente o FQDN para o novo endereço. Você pode usar o [DNS do Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) ou um provedor DNS externo para seu registro DNS. 
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
 
@@ -128,17 +128,17 @@ Um [Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc
 
 ### <a name="application-gateways"></a>Gateways de aplicação
 
-Pode associar um endereço IP público a um [Gateway de Aplicação](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure, ao atribuí-lo à configuração do **front-end** do gateway. Este endereço IP público funciona como um VIP com balanceamento de carga. Só pode atribuir um *dinâmica* endereço IP público básico para uma configuração gateway de aplicação V1 front-end e apenas um *estático* endereços SKU padrão para uma configuração de front-end da V2.
+Pode associar um endereço IP público a um [Gateway de Aplicação](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure, ao atribuí-lo à configuração do **front-end** do gateway. Este endereço IP público funciona como um VIP com balanceamento de carga. Você só pode atribuir um endereço IP público básico *dinâmico* a uma configuração de front-end do gateway de aplicativo v1 e apenas um endereço de SKU padrão *estático* para uma configuração de front-end v2.
 
 ### <a name="at-a-glance"></a>De relance
 A tabela seguinte mostra a propriedade específica através da qual os endereços IP públicos podem ser associados a recursos de nível superior e os métodos de alocação possíveis (dinâmico ou estático) que podem ser utilizados.
 
-| Recurso de nível superior | Associação de endereço IP | Dinâmica | Estático |
+| Recurso de nível superior | Associação de endereço IP | Dinâmico | Estático |
 | --- | --- | --- | --- |
 | Máquina virtual |Interface de rede |Sim |Sim |
 | Balanceador de carga com acesso à Internet |Configuração de front-end |Sim |Sim |
 | Gateway de VPN |Configuração de IP do gateway |Sim |Não |
-| Gateway de aplicação |Configuração de front-end |Sim (apenas V1) |Sim (apenas V2) |
+| Gateway de aplicação |Configuração de front-end |Sim (somente v1) |Sim (somente v2) |
 
 ## <a name="private-ip-addresses"></a>Endereços IP Privados
 Os endereços IP privados permitem aos recursos do Azure comunicar com outros recursos numa [rede virtual](virtual-networks-overview.md) ou numa rede no local através de um gateway de VPN ou de um circuito do ExpressRoute, sem utilizar um endereço IP acessível pela Interne.
@@ -149,18 +149,14 @@ No modelo de implementação Azure Resource Manager, os endereços IP privados s
 * Balanceadores de carga internos (ILBs)
 * Gateways de aplicação
 
-### <a name="ip-address-version"></a>Versão do endereço IP
-
-Os endereços IP privados são criados com um endereço IPv4 ou IPv6. Os endereços IPv6 privados só podem ser atribuídos com o método alocação dinâmico. Não é possível comunicar entre endereços IPv6 privados numa rede virtual. Pode comunicar internamente com um endereço IPv6 privado a partir da Internet, através de um balanceador de carga com acesso à Internet. Veja [Criar um balanceador de carga com acesso à Internet com IPv6](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter detalhes.
-
 ### <a name="allocation-method"></a>Método de alocação
 
 Os endereços IP privados são alocados a partir do intervalo de endereços da sub-rede da rede virtual em que um recurso está implementado. O Azure reserva os primeiros quatro endereços em cada intervalo de endereços da sub-rede, de modo a que os endereços não possam ser atribuídos aos recursos. Por exemplo, se o intervalo de endereços da sub-rede for 10.0.0.0/16, não é possível atribuir os endereços 10.0.0.0 a 10.0.0.3 aos recursos. Os endereços IP dentro do intervalo de endereços da sub-rede só podem ser atribuídos a um recurso de cada vez. 
 
 Os endereços IP privados podem ser alocados de duas formas:
 
-- **Dinâmica**: O Azure atribui o endereço seguinte disponível atribuído ou não reservado IP no intervalo de endereços da sub-rede. Por exemplo, o Azure atribui o endereço 10.0.0.10 a um novo recurso caso os endereços 10.0.0.4 a 10.0.0.9 já estejam atribuídos a outros recursos. Dinâmico é o método de alocação predefinido. Após a atribuição, os endereços IP dinâmicos só são lançados se uma interface de rede for eliminada, atribuída a uma sub-rede diferente dentro da mesma rede virtual, ou se o método de alocação for alterado para estático e for especificado um endereço IP diferente. Por predefinição, o Azure atribui o endereço atribuído de forma dinâmica anterior como endereço estático quando o utilizador altera o método de alocação de dinâmico para estático.
-- **Estático**: Pode selecionar e atribuir qualquer endereço IP atribuído ou não reservado no intervalo de endereços da sub-rede. Por exemplo, se o intervalo de endereços de uma sub-rede for 10.0.0.0/16 e os endereços 10.0.0.4 a 10.0.0.9 já estiverem atribuídos a outros recursos, o utilizador pode atribuir qualquer endereço entre 10.0.0.10 e 10.0.255.254. Os endereços estáticos só são lançados se uma interface de rede for eliminada. Se o utilizador alterar o método de alocação para dinâmico, o Azure atribui de forma dinâmica o endereço IP estático atribuído anteriormente como endereço dinâmico, mesmo que o endereço não seja o endereço seguinte disponível do intervalo de endereços da sub-rede. O endereço também muda se a interface de rede for atribuída a uma sub-rede diferente dentro da mesma rede virtual, mas, para atribuir a interface de rede a uma sub-rede diferente, tem, primeiro, de alterar o método de alocação de estático para dinâmico. Assim que tiver atribuído a interface de rede a uma sub-rede diferente, pode alterar o método de alocação novamente para estático e atribuir um endereço IP do intervalo de endereços da nova sub-rede.
+- **Dinâmica**: o Azure atribui o endereço IP não atribuído ou não reservado seguinte disponível no intervalo de endereços da sub-rede. Por exemplo, o Azure atribui o endereço 10.0.0.10 a um novo recurso caso os endereços 10.0.0.4 a 10.0.0.9 já estejam atribuídos a outros recursos. Dinâmico é o método de alocação predefinido. Após a atribuição, os endereços IP dinâmicos só são lançados se uma interface de rede for eliminada, atribuída a uma sub-rede diferente dentro da mesma rede virtual, ou se o método de alocação for alterado para estático e for especificado um endereço IP diferente. Por predefinição, o Azure atribui o endereço atribuído de forma dinâmica anterior como endereço estático quando o utilizador altera o método de alocação de dinâmico para estático.
+- **Estática**: o utilizador seleciona e atribui um endereço IP não atribuído ou não reservado qualquer do intervalo de endereços da sub-rede. Por exemplo, se o intervalo de endereços de uma sub-rede for 10.0.0.0/16 e os endereços 10.0.0.4 a 10.0.0.9 já estiverem atribuídos a outros recursos, o utilizador pode atribuir qualquer endereço entre 10.0.0.10 e 10.0.255.254. Os endereços estáticos só são lançados se uma interface de rede for eliminada. Se o utilizador alterar o método de alocação para dinâmico, o Azure atribui de forma dinâmica o endereço IP estático atribuído anteriormente como endereço dinâmico, mesmo que o endereço não seja o endereço seguinte disponível do intervalo de endereços da sub-rede. O endereço também muda se a interface de rede for atribuída a uma sub-rede diferente dentro da mesma rede virtual, mas, para atribuir a interface de rede a uma sub-rede diferente, tem, primeiro, de alterar o método de alocação de estático para dinâmico. Assim que tiver atribuído a interface de rede a uma sub-rede diferente, pode alterar o método de alocação novamente para estático e atribuir um endereço IP do intervalo de endereços da nova sub-rede.
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
 
@@ -181,18 +177,18 @@ Pode atribuir um endereço IP privado à configuração de **front-end** de um [
 ### <a name="at-a-glance"></a>De relance
 A tabela seguinte mostra a propriedade específica através da qual os endereços IP privados podem ser associados a recursos de nível superior e os métodos de alocação possíveis (dinâmico ou estático) que podem ser utilizados.
 
-| Recurso de nível superior | Associação de endereço IP | Dinâmica | Estático |
+| Recurso de nível superior | Associação de endereço IP | Dinâmico | Estático |
 | --- | --- | --- | --- |
 | Máquina virtual |Interface de rede |Sim |Sim |
-| Load balancer |Configuração de front-end |Sim |Sim |
+| Balanceador de carga |Configuração de front-end |Sim |Sim |
 | Gateway de aplicação |Configuração de front-end |Sim |Sim |
 
-## <a name="limits"></a>Limits
+## <a name="limits"></a>Limites
 Os limites impostos no endereçamento IP estão indicados no conjunto completo de [limites para redes](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) no Azure. Os limites são por região e por subscrição. Pode [contactar o suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar os limites predefinidos até aos limites máximos, com base nas necessidades da sua atividade.
 
 ## <a name="pricing"></a>Preços
 Os endereços IP públicos podem ter custos nominais. Para saber mais sobre os preços dos endereços IP no Azure, reveja a página [Preços de Endereços IP](https://azure.microsoft.com/pricing/details/ip-addresses).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Deploy a VM with a static public IP using the Azure portal (Implementar uma VM com IP público estático através do portal do Azure)](virtual-network-deploy-static-pip-arm-portal.md)
 * [Deploy a VM with a static private IP address using the Azure portal (Implementar uma VM com um endereço IP privado estático através do portal do Azure)](virtual-networks-static-private-ip-arm-pportal.md)

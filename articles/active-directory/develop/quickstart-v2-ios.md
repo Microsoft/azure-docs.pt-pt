@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 09/24/2019
 ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dce3fea1427632f37d826b79016e3aa3e22dad5f
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: a96aab3fc5dfa62039732f7860f1e96e3f60e445
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264168"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964039"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Início rápido: conectar usuários e chamar a API de Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -62,7 +62,7 @@ Este início rápido se aplica a aplicativos iOS e macOS. Algumas etapas são ne
 >      - Na seção **nome** , insira um nome de aplicativo significativo que será exibido aos usuários do aplicativo quando eles entrarem ou consentirem em seu aplicativo.
 >      - Ignorar outras configurações nesta página.
 >      - Selecione `Register`.
-> 1. Na seção **gerenciar** , selecione `Authentication` @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5.
+> 1. Na seção **gerenciar** , selecione `Authentication` > `Add Platform` > `iOS`.
 >      - Insira o ***identificador do pacote*** para seu aplicativo. O identificador de pacote é apenas uma cadeia de caracteres exclusiva que identifica exclusivamente seu aplicativo, por exemplo `com.<yourname>.identitysample.MSALMacOS`. Anote o valor que você usa.
 >      - Observe que a configuração do iOS também é aplicável a aplicativos macOS.
 > 1. Selecione `Configure` e salve os detalhes de ***configuração do MSAL*** para mais tarde neste guia de início rápido.

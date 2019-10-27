@@ -11,12 +11,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
-ms.openlocfilehash: 28b702192b41d3b4a8151e3127a4297c28712fa2
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: ab3971b4fb6065701d693debf55242be7b15295e
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390706"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965963"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Alta disponibilidade e banco de dados SQL do Azure
 
@@ -89,12 +89,14 @@ A versão com redundância de zona da arquitetura de alta disponibilidade é ilu
 
 A [ADR (recuperação de banco de dados acelerada)](sql-database-accelerated-database-recovery.md) é um novo recurso do mecanismo de banco de dados SQL que melhora muito a disponibilidade do banco de dados, especialmente na presença de transações de longa execução. ADR está disponível no momento para bancos de dados individuais, pools elásticos e SQL Data Warehouse do Azure.
 
-## <a name="testing-database-fault-resiliency"></a>Testando resiliência de falha de banco de dados
+## <a name="testing-application-fault-resiliency"></a>Testando a resiliência de falha do aplicativo
 
-A alta disponibilidade é uma parte fundamenental da plataforma do banco de dados SQL do Azure e funciona de forma transparente para seu aplicativo de banco de dados. No entanto, reconhecemos que talvez você queira testar como as operações de failover automático iniciadas durante os eventos planejados ou não planejados afetariam o aplicativo antes de implantá-lo para produção. Você pode chamar uma API especial para reiniciar o banco de dados ou o pool elástico, que, por sua vez, disparará o failover. No caso de banco de dados com redundância de zona ou pool elástico, a chamada à API resultaria em redirecionar as conexões de cliente para o novo primário em um AZ diferente. Assim, além de testar como o failover afeta as sessões de banco de dados existentes, você também pode verificar se ele impacta o desempenho de ponta a ponta. Como a operação de reinicialização é intrusiva e um grande número delas poderia enfatizar a plataforma, apenas uma chamada de failover é permitida a cada 30 minutos para cada banco de dados ou pool elástico. Para obter detalhes, consulte [failover de banco de dados](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) e failover de [pool elástico](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover).       
+A alta disponibilidade é uma parte fundamental da plataforma do banco de dados SQL do Azure que funciona de forma transparente para seu aplicativo de banco de dados. No entanto, reconhecemos que talvez você queira testar como as operações de failover automático iniciadas durante os eventos planejados ou não planejados afetariam o aplicativo antes de implantá-lo na produção. Você pode chamar uma API especial para reiniciar um banco de dados ou um pool elástico que, por sua vez, disparará um failover. No caso de um banco de dados com redundância de zona ou pool elástico, a chamada à API resultaria no redirecionamento de conexões de cliente para o novo primário em uma zona de disponibilidade diferente da zona de disponibilidade do primário antigo. Assim, além de testar como o failover afeta as sessões de banco de dados existentes, você também pode verificar se ele altera o desempenho de ponta a ponta devido a alterações na latência de rede. Como a operação de reinicialização é intrusiva e um grande número delas poderia enfatizar a plataforma, apenas uma chamada de failover é permitida a cada 30 minutos para cada banco de dados ou pool elástico. 
+
+Um failover pode ser iniciado usando A API REST ou o PowerShell. Para a API REST, consulte [failover de banco de dados](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) e failover de [pool elástico](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover). Para o PowerShell, consulte [Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover) e [Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover). As chamadas à API REST também podem ser feitas de CLI do Azure usando o comando [AZ REST](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-rest) .
 
 > [!IMPORTANT]
-> O comando de failover não está disponível atualmente para bancos de dados Hypescale e instancses gerenciados.  
+> O comando de failover não está disponível atualmente na camada de serviço de hiperescala e para Instância Gerenciada.
 
 ## <a name="conclusion"></a>Conclusão
 

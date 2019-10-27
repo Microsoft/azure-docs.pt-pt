@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: fc5a974273cbc0398e9fee7b60b424a46ef5dd30
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 979fa8bed99a8244e9ebae9de4b615bfac4bd773
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949721"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72966469"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos Managed disks
 
@@ -33,7 +33,7 @@ Os Managed disks são integrados aos conjuntos de disponibilidade para garantir 
 
 ### <a name="integration-with-availability-zones"></a>Integração com o Zonas de Disponibilidade
 
-O Managed disks oferece suporte a [zonas de disponibilidade](../articles/availability-zones/az-overview.md), que é uma oferta de alta disponibilidade que protege seus aplicativos contra falhas do datacenter. As zonas de disponibilidade são localizações físicas únicas dentro de uma região do Azure. Cada zona é constituída por um ou mais datacenters equipados com energia, refrigeração e redes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. Com o Zonas de Disponibilidade, o Azure oferece um SLA de tempo de atividade de VM melhor do setor 99,99%.
+O Managed disks oferece suporte a [zonas de disponibilidade](../articles/availability-zones/az-overview.md), que é uma oferta de alta disponibilidade que protege seus aplicativos contra falhas do datacenter. As Zonas de Disponibilidade são localizações físicas exclusivas numa região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. Com o Zonas de Disponibilidade, o Azure oferece um SLA de tempo de atividade de VM melhor do setor 99,99%.
 
 ### <a name="azure-backup-support"></a>Suporte do backup do Azure
 
@@ -51,11 +51,11 @@ Você pode usar o [RBAC (controle de acesso baseado em função) do Azure](../ar
 
 ## <a name="encryption"></a>Encriptação
 
-O Managed disks oferece dois tipos diferentes de criptografia. O primeiro é Criptografia do Serviço de Armazenamento (SSE), que é executado pelo serviço de armazenamento. A segunda é Azure Disk Encryption (ADE), que pode ser habilitada no sistema operacional e nos discos de dados para suas VMs.
+O Managed disks oferece dois tipos diferentes de criptografia. A primeira é a SSE (criptografia do servidor), que é executada pelo serviço de armazenamento. A segunda é Azure Disk Encryption (ADE), que pode ser habilitada no sistema operacional e nos discos de dados para suas VMs.
 
-### <a name="storage-service-encryption-sse"></a>Criptografia do Serviço de Armazenamento (SSE)
+### <a name="server-side-encryption"></a>Encriptação do lado do servidor
 
-O [Azure criptografia do serviço de armazenamento](../articles/storage/common/storage-service-encryption.md) fornece criptografia em repouso e protege seus dados para atender aos compromissos de conformidade e segurança da organização. A SSE é habilitada por padrão para todos os discos gerenciados, instantâneos e imagens em todas as regiões em que os Managed disks estão disponíveis. Visite a [página de perguntas frequentes Managed disks](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para obter mais detalhes.
+A [criptografia do lado do servidor do Azure](../articles/storage/common/storage-service-encryption.md) fornece criptografia em repouso e protege seus dados para atender aos compromissos de conformidade e segurança organizacional. A criptografia do lado do servidor é habilitada por padrão para todos os discos gerenciados, instantâneos e imagens em todas as regiões em que os Managed disks estão disponíveis. Visite a [página de perguntas frequentes Managed disks](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para obter mais detalhes.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 

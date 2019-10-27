@@ -1,130 +1,132 @@
 ---
-title: Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para MariaDB
-description: Saiba como criar cópias de segurança e restaurar um servidor na base de dados do Azure para MariaDB com a CLI do Azure.
-author: rachel-msft
-ms.author: raagyema
+title: Como fazer backup e restaurar um servidor no banco de dados do Azure para MariaDB
+description: Saiba como fazer backup e restaurar um servidor no banco de dados do Azure para MariaDB usando o CLI do Azure.
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 11/10/2018
-ms.openlocfilehash: 409fe7b76306036cad19980459ca718c87118d8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/25/2019
+ms.openlocfilehash: ae2e8049c58be312eed380fe2197985e61d28a26
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171387"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965229"
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para MariaDB com a CLI do Azure
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Como fazer backup e restaurar um servidor no banco de dados do Azure para MariaDB usando o CLI do Azure
 
-## <a name="backup-happens-automatically"></a>Cópia de segurança ocorre automaticamente
-
-Base de dados do Azure para MariaDB servidores são uma cópia de segurança periodicamente para ativar funcionalidades de restauro. Ao utilizar esta funcionalidade pode restaurar o servidor e todas as suas bases de dados para um anterior ponto anterior no tempo, num servidor novo.
+O backup do banco de dados do Azure para servidores MariaDB é feito periodicamente para habilitar os recursos de restauração. Usando esse recurso, você pode restaurar o servidor e todos os seus bancos de dados para um ponto anterior no tempo, em um novo servidor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este guia de procedimentos, terá de:
+Para concluir este guia de instruções, você precisa de:
 
-- Um [base de dados do Azure para MariaDB servidor e base de dados](quickstart-create-mariadb-server-database-using-azure-cli.md)
+- Um [banco de dados do Azure para servidor MariaDB e banco de dados](quickstart-create-mariadb-server-database-using-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!IMPORTANT]
-> Este guia de procedimentos é necessário utilizar a CLI do Azure versão 2.0 ou posterior. Para confirmar a versão, no prompt de comando da CLI do Azure, introduza `az --version`. Para instalar ou atualizar, veja [instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+> Este guia de instruções requer que você use CLI do Azure versão 2,0 ou posterior. Para confirmar a versão, no prompt de comando CLI do Azure, digite `az --version`. Para instalar ou atualizar, consulte [instalar CLI do Azure]( /cli/azure/install-azure-cli).
 
-## <a name="set-backup-configuration"></a>Configuração de conjunto de cópia de segurança
+## <a name="set-backup-configuration"></a>Definir configuração de backup
 
-Fazer a escolha entre configurar seu servidor para cópias de segurança localmente redundantes ou cópias de segurança georredundante durante a criação do servidor.
+Você faz a escolha entre configurar o servidor para backups com redundância local ou backups com redundância geográfica na criação do servidor.
 
 > [!NOTE]
-> Depois de criar um servidor, o tipo de redundância tem, vs geograficamente redundantes localmente redundantes, não pode ser mudado.
+> Depois que um servidor é criado, o tipo de redundância que ele tem, geograficamente redundante versus redundância local, não pode ser alternado.
 >
 
-Durante a criação de um servidor através da `az mariadb server create` comando, o `--geo-redundant-backup` parâmetro decide sua opção de redundância da cópia de segurança. Se `Enabled`, as cópias de segurança com redundância geográfica direcionadas. Ou se `Disabled` localmente redundantes backups são feitos.
+Ao criar um servidor por meio do comando `az mariadb server create`, o parâmetro `--geo-redundant-backup` decide sua opção de redundância de backup. Se `Enabled`, os backups com redundância geográfica serão feitos. Ou se `Disabled` backups com redundância local forem feitos.
 
-O período de retenção de cópia de segurança é definido pelo parâmetro `--backup-retention`.
+O período de retenção de backup é definido pelo parâmetro `--backup-retention`.
 
-Para obter mais informações sobre como definir esses valores durante a criação, consulte a [base de dados do Azure para MariaDB server início rápido da CLI](quickstart-create-mariadb-server-database-using-azure-cli.md).
+Para obter mais informações sobre como definir esses valores durante a criação, consulte o guia de [início rápido da CLI do banco de dados do Azure para MariaDB Server](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
-O período de retenção de cópia de segurança de um servidor pode ser alterado da seguinte forma:
+O período de retenção de backup de um servidor pode ser alterado da seguinte maneira:
 
 ```azurecli-interactive
 az mariadb server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
-O exemplo anterior altera o período de retenção de cópia de segurança de mydemoserver para 10 dias.
+O exemplo anterior altera o período de retenção de backup de mydemoserver para 10 dias.
 
-O período de retenção de cópia de segurança controla até que ponto no tempo que pode ser obtido um restauro de ponto no tempo, uma vez que é baseado em cópias de segurança disponíveis. Restauro de ponto no tempo é descrito mais detalhadamente na secção seguinte.
+O período de retenção de backup controla o quanto o tempo uma restauração pontual pode ser recuperada, pois ela é baseada em backups disponíveis. A restauração pontual é descrita mais detalhadamente na próxima seção.
 
-## <a name="server-point-in-time-restore"></a>Restauro de ponto no tempo do servidor
+## <a name="server-point-in-time-restore"></a>Restauração pontual do servidor
 
-Pode restaurar o servidor para um ponto anterior no tempo. Os dados restaurados são copiados para um novo servidor e o servidor existente é deixado como está. Por exemplo, se uma tabela acidentalmente cair no meio-dia hoje em dia, pode restaurar para o tempo, pouco antes do meio-dia. Em seguida, pode obter a tabela em falta e os dados da cópia restaurada do servidor.
+Você pode restaurar o servidor para um ponto anterior no tempo. Os dados restaurados são copiados para um novo servidor e o servidor existente é deixado como está. Por exemplo, se uma tabela for acidentalmente descartada ao meio-dia de hoje, você poderá restaurar para a hora logo antes do meio-dia. Em seguida, você pode recuperar a tabela e os dados ausentes da cópia restaurada do servidor.
 
-Para restaurar o servidor, utilize a CLI do Azure [restauro do servidor az mariadb](/cli/azure/mariadb/server#az-mariadb-server-restore) comando.
+Para restaurar o servidor, use o comando CLI do Azure [AZ MariaDB Server Restore](/cli/azure/mariadb/server#az-mariadb-server-restore) .
 
-### <a name="run-the-restore-command"></a>Execute o comando de restauro
+### <a name="run-the-restore-command"></a>Executar o comando Restore
 
-Para restaurar o servidor, no prompt de comando da CLI do Azure, introduza o seguinte comando:
+Para restaurar o servidor, no prompt de comando CLI do Azure, digite o seguinte comando:
 
 ```azurecli-interactive
 az mariadb server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time 2018-03-13T13:59:00Z --source-server mydemoserver
 ```
 
-O `az mariadb server restore` comando requer os seguintes parâmetros:
+O comando `az mariadb server restore` requer os seguintes parâmetros:
 
 | Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  O grupo de recursos em que o servidor de origem existe.  |
-| name | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
-| restore-point-in-time | 2018-03-13T13:59:00Z | Selecione um ponto anterior no tempo para restaurar para. Esta data e hora têm de estar dentro do período de retenção de cópias de segurança do servidor de origem. Utilize o formato de data e hora ISO8601. Por exemplo, pode utilizar o seu fuso horário local, como `2018-03-13T05:59:00-08:00`. Também pode utilizar o formato UTC Zulu, por exemplo, `2018-03-13T13:59:00Z`. |
+| resource-group |  myResourceGroup |  O grupo de recursos no qual o servidor de origem existe.  |
+| nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
+| restore-point-in-time | 2018-03-13T13:59:00Z | Selecione um ponto no tempo para o qual restaurar. Esta data e hora têm de estar dentro do período de retenção de cópias de segurança do servidor de origem. Use o formato de data e hora do ISO8601. Por exemplo, você pode usar seu próprio fuso horário local, como `2018-03-13T05:59:00-08:00`. Você também pode usar o formato UTC Zulu, por exemplo, `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | O nome ou ID do servidor de origem do qual pretende restaurar. |
 
-Quando restaurar um servidor para um ponto anterior no tempo, é criado um novo servidor. O servidor original e respetivas bases de dados a partir do ponto no tempo especificado, são copiados para o novo servidor.
+Quando você restaura um servidor para um ponto anterior no tempo, um novo servidor é criado. O servidor original e seus bancos de dados do ponto especificado no tempo são copiados para o novo servidor.
 
-A localização e valores de escalão de preço para o servidor restaurado permanecerem o mesmo que o servidor original.
+Os valores de local e tipo de preço para o servidor restaurado permanecem os mesmos que o servidor original. 
 
-Depois do processo de restauro estar concluído, localize o novo servidor e certifique-se de que os dados são restaurados conforme esperado.
+Após a conclusão do processo de restauração, localize o novo servidor e verifique se os dados foram restaurados conforme o esperado. O novo servidor tem o mesmo nome de logon e senha do administrador do servidor que eram válidos para o servidor existente no momento em que a restauração foi iniciada. A senha pode ser alterada na página **visão geral** do novo servidor.
 
-## <a name="geo-restore"></a>Restauro geográfico
+O novo servidor criado durante uma restauração não tem as regras de firewall ou os pontos de extremidade de serviço de VNet que existiam no servidor original. Essas regras precisam ser configuradas separadamente para esse novo servidor.
 
-Se tiver configurado o seu servidor para cópias de segurança georredundante, um novo servidor de pode ser criado da cópia de segurança desse servidor existente. Este novo servidor de pode ser criado em qualquer região que a base de dados do Azure para MariaDB está disponível.  
+## <a name="geo-restore"></a>Restauração geográfica
 
-Para criar um servidor utilizando uma cópia de segurança com redundância geográfica, utilize a CLI do Azure `az mariadb server georestore` comando.
+Se você configurou o servidor para backups com redundância geográfica, um novo servidor pode ser criado a partir do backup desse servidor existente. Esse novo servidor pode ser criado em qualquer região em que o banco de dados do Azure para MariaDB esteja disponível.  
+
+Para criar um servidor usando um backup com redundância geográfica, use o comando CLI do Azure `az mariadb server georestore`.
 
 > [!NOTE]
-> Quando é criado um servidor pode não estar imediatamente disponível para o restauro geográfico. Poderá demorar algumas horas para os metadados necessários ser preenchido.
+> Quando um servidor é criado pela primeira vez, ele pode não estar imediatamente disponível para a restauração geográfica. Pode levar algumas horas para que os metadados necessários sejam preenchidos.
 >
 
-A geo restaurar o servidor, no prompt de comando da CLI do Azure, introduza o seguinte comando:
+Para restaurar a localização geográfica do servidor, no prompt de comando CLI do Azure, digite o seguinte comando:
 
 ```azurecli-interactive
 az mariadb server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8
 ```
 
-Este comando cria um novo servidor chamado *mydemoserver georestored* na região E.U.A. Leste que irão pertencer ao *myresourcegroup*. É para fins gerais, servidor de geração 5 com 8 vCores. O servidor é criado a partir da cópia de segurança georredundante de *mydemoserver*, que também se encontra no grupo de recursos *myresourcegroup*
+Este comando cria um novo servidor chamado *mydemoserver-georestore* no leste dos EUA que pertencerá ao *MyResource*. É um servidor Uso Geral, Gen 5 com 8 vCores. O servidor é criado a partir do backup com redundância geográfica de *mydemoserver*, que também está no grupo de recursos *MyResource* Group
 
-Se quiser criar o novo servidor no grupo de recursos diferente do servidor existente, em seguida, no `--source-server` parâmetro seria qualificar o nome do servidor como no exemplo seguinte:
+Se você quiser criar o novo servidor em um grupo de recursos diferente do servidor existente, no parâmetro `--source-server`, você qualificaria o nome do servidor como no exemplo a seguir:
 
 ```azurecli-interactive
 az mariadb server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMariaDB/servers/mydemoserver" --location eastus --sku-name GP_Gen5_8
 
 ```
 
-O `az mariadb server georestore` comando requer os seguintes parâmetros:
+O comando `az mariadb server georestore` requer os seguintes parâmetros:
 
 | Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
-|resource-group| myResourceGroup | O nome do grupo de recursos, o novo servidor irá pertencer a.|
-|name | mydemoserver-georestored | O nome do novo servidor. |
-|source-server | mydemoserver | O nome do servidor existente, cujas cópias de segurança com redundância geográfica são utilizadas. |
-|location | eualeste | A localização do novo servidor. |
-|sku-name| GP_Gen5_8 | Este parâmetro define o escalão de preço, a geração de computação e o número de vCores do novo servidor. GP_Gen5_8 mapeia para fins gerais, servidor de geração 5 com 8 vCores.|
+|resource-group| myResourceGroup | O nome do grupo de recursos ao qual o novo servidor pertencerá.|
+|nome | mydemoserver-georestaurado | O nome do novo servidor. |
+|source-server | mydemoserver | O nome do servidor existente cujos backups com redundância geográfica são usados. |
+|localização | eastus | O local do novo servidor. |
+|nome de SKU| GP_Gen5_8 | Esse parâmetro define o tipo de preço, a geração de computação e o número de vCores do novo servidor. O GP_Gen5_8 é mapeado para um servidor Uso Geral, Gen 5 com 8 vCores.|
 
->[!Important]
->Ao criar um novo servidor por um restauro geográfico, ele herda o mesmo tamanho de armazenamento e o escalão de preço que o servidor de origem. Não não possível alterar estes valores durante a criação. Depois de criar o novo servidor, o tamanho de armazenamento pode ser aumentado.
+Ao criar um novo servidor por uma restauração geográfica, ele herda o mesmo tamanho de armazenamento e tipo de preço que o servidor de origem. Esses valores não podem ser alterados durante a criação. Depois que o novo servidor é criado, seu tamanho de armazenamento pode ser escalado verticalmente.
 
-Depois do processo de restauro estar concluído, localize o novo servidor e certifique-se de que os dados são restaurados conforme esperado.
+Após a conclusão do processo de restauração, localize o novo servidor e verifique se os dados foram restaurados conforme o esperado. O novo servidor tem o mesmo nome de logon e senha do administrador do servidor que eram válidos para o servidor existente no momento em que a restauração foi iniciada. A senha pode ser alterada na página **visão geral** do novo servidor.
 
-## <a name="next-steps"></a>Passos Seguintes
+O novo servidor criado durante uma restauração não tem as regras de firewall ou os pontos de extremidade de serviço de VNet que existiam no servidor original. Essas regras precisam ser configuradas separadamente para esse novo servidor.
 
-- Saiba mais sobre o serviço [cópias de segurança](concepts-backup.md).
-- Saiba mais sobre [continuidade do negócio](concepts-business-continuity.md) opções.
+## <a name="next-steps"></a>Passos seguintes
+
+- Saiba mais sobre os [backups](concepts-backup.md) do serviço
+- Saiba mais sobre [réplicas](concepts-read-replicas.md)
+- Saiba mais sobre as opções de [continuidade dos negócios](concepts-business-continuity.md)

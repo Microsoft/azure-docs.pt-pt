@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 9bc4d60eab0dac80d1b2b524f32bc506a66dee18
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: aca417ebbc6f9af80058ddece32842f38918ce60
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516678"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964766"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Instalar o tempo de execução de Azure IoT Edge em sistemas Linux baseados em Debian
 
@@ -167,7 +167,7 @@ Um único dispositivo de IoT Edge pode ser provisionado manualmente usando uma c
 
 ### <a name="option-1-manual-provisioning"></a>Opção 1: provisionamento manual
 
-Para provisionar manualmente um dispositivo, você precisa fornecê-lo com uma [cadeia de conexão de dispositivo](how-to-register-device-portal.md) que você pode criar registrando um novo dispositivo em seu hub IOT.
+Para provisionar manualmente um dispositivo, você precisa fornecê-lo com uma [cadeia de conexão de dispositivo](how-to-register-device.md#register-in-the-azure-portal) que você pode criar registrando um novo dispositivo em seu hub IOT.
 
 Abra o arquivo de configuração.
 

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
-ms.custom: aaddev
-ms.openlocfilehash: 205fe340b82f667ecd2c1d1360bc35a150c5f76b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.custom: aaddev, scenarios:getting-started, languages:Java
+ms.openlocfilehash: ff7563a9ebbbc996af56f94b8e23d349752ef9f4
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934538"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964107"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Início rápido: Adicionar entrada com a Microsoft a um aplicativo Web Java
 

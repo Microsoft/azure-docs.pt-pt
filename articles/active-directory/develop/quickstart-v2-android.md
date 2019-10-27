@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/16/2019
 ms.author: twhitney
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e11e47952f70ce0cd212ca93eff1c38f2b3993a8
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 2704a6e1af2f06b49b1d3817ad7a30bf53419ffe
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678058"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72963992"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início rápido: Conectar usuários e chamar a API de Microsoft Graph de um aplicativo Android
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: Iniciar sessão dos utilizadores e chamar a Microsoft Graph API a partir de uma aplicação Android
 
 Este guia de início rápido usa um exemplo de código para demonstrar como um aplicativo Android pode entrar em contas pessoais, corporativas ou de estudante e, em seguida, obter um token de acesso e chamar a API de Microsoft Graph.
 
@@ -34,11 +34,11 @@ Este guia de início rápido usa um exemplo de código para demonstrar como um a
 > * Android Studio 
 > * O Android 16 + é necessário
 
-## <a name="step-1-get-the-sample-app"></a>Passo 1: Obter a aplicação de exemplo
+## <a name="step-1-get-the-sample-app"></a>Etapa 1: obter o aplicativo de exemplo
 
 [Clone o código](https://github.com/Azure-Samples/ms-identity-android-java.git).
 
-## <a name="step-2-register-your-application"></a>Passo 2: Registar a sua aplicação
+## <a name="step-2-register-your-application"></a>Etapa 2: registrar seu aplicativo
 
 Para registrar um objeto de aplicativo e adicionar as informações de registro do objeto de aplicativo ao projeto de exemplo manualmente, siga estas etapas:
 
@@ -56,7 +56,7 @@ Para registrar um objeto de aplicativo e adicionar as informações de registro 
 1. Insira o hash de assinatura gerado no portal em **hash de assinatura**.
 1. Clique em `Configure` e faça uma cópia da **configuração MSAL**. Você copiará e colará isso em um arquivo de configuração na próxima etapa. Clique em **Concluído**.
 
-## <a name="step-3-add-your-app-registration"></a>Passo 3: Adicionar o registro do aplicativo
+## <a name="step-3-add-your-app-registration"></a>Etapa 3: Adicionar o registro do aplicativo
 
 1. Abra o projeto de exemplo no Android Studio.
 1. Dentro do **aplicativo** > **res** > **RAW**, abra **auth_config_multiple_account. JSON**.  Cole o conteúdo da configuração MSAL. Isso adiciona a ID do cliente, a ID do locatário e o redirect_uri do Portal. Ele terá uma aparência semelhante a esta, mas com os valores preenchidos para a ID do cliente, ID do locatário e redirect_uri:
@@ -80,8 +80,8 @@ Para registrar um objeto de aplicativo e adicionar as informações de registro 
     }
     ```
 
-1. Abra o **aplicativo** > **res** > **RAW**, abra **auth_config_single_account. JSON**e cole o conteúdo da configuração do MSAL. Ele se parecerá com o arquivo **auth_config_multiple_account. JSON** acima.
-1. Nos**manifestos**do **aplicativo** >   > **AndroidManifest. xml**, localize a atividade `BrowserTabActivity`. Essa entrada permite que a Microsoft chame de volta para seu aplicativo depois de concluir a autenticação:
+1. Abra o **app** > **res** > **RAW**, abra **auth_config_single_account. JSON**e cole o conteúdo da configuração do MSAL. Ele se parecerá com o arquivo **auth_config_multiple_account. JSON** acima.
+1. Em **manifestos** de > de **aplicativo** > **AndroidManifest. xml**, localize a atividade de `BrowserTabActivity`. Essa entrada permite que a Microsoft chame de volta para seu aplicativo depois de concluir a autenticação:
 
     ```xml
     ...
@@ -110,14 +110,14 @@ Para registrar um objeto de aplicativo e adicionar as informações de registro 
             </activity>
     ```
     
-1. Substitua o nome do pacote pelo que você registrou na portal do Azure para o valor de `android:host=`.  Nesse caso, será: `com.azuresamples.msalandroidapp`.
+1. Substitua o nome do pacote pelo que você registrou na portal do Azure para o valor `android:host=`.  Nesse caso, será: `com.azuresamples.msalandroidapp`.
 
     > [!IMPORTANT]
     > O valor de **caminho Android:** **deve** ter um caractere "/" à esquerda, ou você receberá uma linha vermelha abaixo do valor e o aplicativo de exemplo não será executado.
      
 1. Substitua o hash de chave que você obteve ao executar o keytool anteriormente e inserido na portal do Azure, para o valor de `android:path=`. O hash de assinatura não deve ser codificado em URL.
 
-## <a name="step-4-run-the-sample-app"></a>Passo 4: Execute a aplicação de exemplo
+## <a name="step-4-run-the-sample-app"></a>Etapa 4: executar o aplicativo de exemplo
 
 Selecione seu emulador ou dispositivo na lista suspensa de **dispositivos disponíveis** do Android Studio e execute o aplicativo.
 
@@ -138,7 +138,7 @@ No modo de conta múltipla, você pode repetir as mesmas etapas.  Além disso, v
 
 O código é organizado em fragmentos que mostram como escrever um aplicativo MSAL único e de várias contas. Os arquivos de código são organizados da seguinte maneira:
 
-| Ficheiro  | Demonstrar  |
+| Ficheiros  | Demonstrar  |
 |---------|---------|
 | MainActivity | Gerencia a interface do usuário |
 | MSGraphRequestWrapper  | Chama a API de Microsoft Graph usando o token fornecido por MSAL |
@@ -172,7 +172,7 @@ Isso instrui o gradle a baixar e compilar o MSAL da central do Maven.
 
 ### <a name="msal-imports"></a>Importações do MSAL
 
-As importações que são relevantes para a biblioteca MSAL são `com.microsoft.identity.client.*`.  Por exemplo, você verá `import com.microsoft.identity.client.PublicClientApplication;`, que é o namespace para a classe `PublicClientApplication`, que representa seu aplicativo cliente público.
+As importações que são relevantes para a biblioteca MSAL são `com.microsoft.identity.client.*`.  Por exemplo, você verá `import com.microsoft.identity.client.PublicClientApplication;` qual é o namespace para a classe `PublicClientApplication`, que representa seu aplicativo cliente público.
 
 ### <a name="singleaccountmodefragmentjava"></a>SingleAccountModeFragment. java
 
@@ -240,7 +240,7 @@ mSingleAccountApp.signOut(new ISingleAccountPublicClientApplication.SignOutCallb
 
 #### <a name="get-a-token-interactively-or-silently"></a>Obter um token de forma interativa ou silenciosa
 
-Para apresentar o menor número de prompts para o usuário, você normalmente obterá um token silenciosamente. Em seguida, se houver um erro, tente obter o token interativamente. Na primeira vez que o aplicativo chama `signIn()`, ele age efetivamente como uma chamada para `acquireToken()`, o que solicitará ao usuário as credenciais.
+Para apresentar o menor número de prompts para o usuário, você normalmente obterá um token silenciosamente. Em seguida, se houver um erro, tente obter o token interativamente. Na primeira vez que o aplicativo chama `signIn()`, ele age efetivamente como uma chamada para `acquireToken()`, que solicitará as credenciais ao usuário.
 
 Algumas situações em que o usuário pode ser solicitado a selecionar sua conta, inserir suas credenciais ou consentir as permissões solicitadas pelo seu aplicativo são:
 
@@ -251,7 +251,7 @@ Algumas situações em que o usuário pode ser solicitado a selecionar sua conta
 * Quando seu aplicativo está solicitando acesso a um recurso pela primeira vez
 * Quando MFA ou outras políticas de acesso condicional são necessárias
 
-O código para obter um token interativamente, ou seja, com a interface do usuário que envolve o User, está em `initializeUI()`, no manipulador de cliques `callGraphApiInteractiveButton`:
+O código para obter um token interativamente, ou seja, com a interface do usuário que envolverá o usuários, está em `initializeUI()`, no manipulador de cliques `callGraphApiInteractiveButton`:
 
 ```java
 /**
@@ -266,7 +266,7 @@ O código para obter um token interativamente, ou seja, com a interface do usuá
 mSingleAccountApp.acquireToken(getActivity(), getScopes(), getAuthInteractiveCallback());
 ```
 
-Se o usuário já tiver entrado, `acquireTokenSilentAsync()` permitirá que os aplicativos solicitem tokens silenciosamente, conforme mostrado em `initializeUI()`, no manipulador de cliques `callGraphApiSilentButton`:
+Se o usuário já tiver entrado, `acquireTokenSilentAsync()` permite que os aplicativos solicitem tokens silenciosamente, conforme mostrado na `initializeUI()`, no manipulador de `callGraphApiSilentButton` clique:
 
 ```java
 /**
@@ -427,7 +427,7 @@ Algumas situações em que o usuário pode ser solicitado a selecionar sua conta
 * Quando seu aplicativo está solicitando acesso a um recurso pela primeira vez
 * Quando MFA ou outras políticas de acesso condicional são necessárias
 
-Os aplicativos de conta múltipla normalmente devem adquirir tokens interativamente, ou seja, com a interface do usuário que envolve a usuária, com uma chamada para `acquireToken()`.  O código para obter um token interativamente está em `initializeUI()`, no manipulador de cliques `callGraphApiInteractiveButton`:
+Aplicativos de conta múltipla normalmente devem adquirir tokens interativamente, ou seja, com a interface do usuário, com uma chamada para `acquireToken()`.  O código para obter um token interativamente está em `initializeUI()`, no manipulador de cliques `callGraphApiInteractiveButton`:
 
 ```java
 /**
@@ -444,7 +444,7 @@ Os aplicativos de conta múltipla normalmente devem adquirir tokens interativame
 mMultipleAccountApp.acquireToken(getActivity(), getScopes(), getAuthInteractiveCallback());
 ```
 
-Os aplicativos não devem exigir que o usuário entre sempre que solicitar um token. Se o usuário já tiver entrado, `acquireTokenSilentAsync()` permitirá que os aplicativos solicitem tokens sem avisar o usuário, conforme mostrado em `initializeUI()` no manipulador de cliques `callGraphApiSilentButton`:
+Os aplicativos não devem exigir que o usuário entre sempre que solicitar um token. Se o usuário já tiver entrado, `acquireTokenSilentAsync()` permitirá que os aplicativos solicitem tokens sem avisar o usuário, conforme mostrado na `initializeUI()` no manipulador de clique `callGraphApiSilentButton`:
 
 ```java
 /**
@@ -461,7 +461,7 @@ getAuthSilentCallback());
 
 #### <a name="remove-an-account"></a>Remover uma conta
 
-O código para remover uma conta e todos os tokens em cache para a conta está em `initializeUI()` no manipulador para o botão Remover conta. Antes de remover uma conta, você precisa de um objeto de conta, que você obtém de funções MSAL como `getAccounts()` e `acquireToken()`. Como a remoção de uma conta é uma operação assíncrona, o retorno de chamada `onRemoved` é fornecido para atualizar a interface do usuário.
+O código para remover uma conta e todos os tokens em cache para a conta está em `initializeUI()` no manipulador para o botão Remover conta. Antes de remover uma conta, você precisa de um objeto de conta, que você obtém de funções MSAL como `getAccounts()` e `acquireToken()`. Como a remoção de uma conta é uma operação assíncrona, o `onRemoved` retorno de chamada é fornecido para atualizar a interface do usuário.
 
 ```java
 /**

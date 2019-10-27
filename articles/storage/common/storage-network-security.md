@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 908e44ef17dcfcf7042eab32cfd6d1fc3a565ac7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: af5b2a8c6894846ec529763f80c78bc50debabe6
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72927122"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965512"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls de armazenamento do Azure
 
@@ -358,11 +358,11 @@ Você pode gerenciar regras de rede IP para contas de armazenamento por meio do 
 
 ## <a name="exceptions"></a>Exceções
 
-As regras de rede ajudam a criar um ambiente seguro para acesso entre seus aplicativos e seus dados para a maioria dos cenários. No entanto, alguns aplicativos usam serviços que não podem ser isolados exclusivamente por meio de regras de rede virtual ou de endereço IP. Mas esses serviços devem ser concedidos à conta de armazenamento para habilitar a funcionalidade completa do aplicativo. Você pode usar a exceção ***permitir serviços confiáveis da Microsoft...*** para habilitar alguns cenários de acesso para seus dados, logs ou análises.
+As regras de rede ajudam a criar um ambiente seguro para conexões entre seus aplicativos e seus dados para a maioria dos cenários. No entanto, alguns aplicativos usam serviços que não podem ser isolados exclusivamente por meio de regras de rede virtual ou de endereço IP. Mas esses serviços devem ser concedidos ao armazenamento para habilitar a funcionalidade completa do aplicativo. Nessas situações, você pode usar a configuração ***permitir que serviços confiáveis da Microsoft...*** para habilitar o acesso aos seus dados, logs ou análises.
 
 ### <a name="trusted-microsoft-services"></a>Serviços confiáveis da Microsoft
 
-Alguns serviços da Microsoft operam de redes não podem receber acesso por meio de regras de rede existentes. Você pode permitir que um subconjunto desses serviços confiáveis da Microsoft acesse a conta de armazenamento, mantendo as regras de rede para outros aplicativos. Esses serviços podem usar a autenticação forte para se conectar a uma conta de armazenamento. Habilitamos dois tipos de acesso confiável para serviços da Microsoft.
+Alguns serviços da Microsoft operam de redes que não podem ser incluídas em suas regras de rede. Você pode permitir que um subconjunto desses serviços confiáveis da Microsoft acesse a conta de armazenamento, mantendo as regras de rede para outros aplicativos. Esses serviços podem usar a autenticação forte para se conectar à sua conta de armazenamento com segurança. Habilitamos dois tipos de acesso confiável para serviços da Microsoft.
 
 - Os recursos de alguns serviços podem receber acesso para operações de seleção, como gravar logs ou para backup.
 - Uma instância específica de alguns serviços pode receber acesso [atribuindo uma função de RBAC](storage-auth-aad.md#assign-rbac-roles-for-access-rights) à instância de recurso.
@@ -396,7 +396,7 @@ A exceção **permitir serviços confiáveis da Microsoft...** permite que inst�
 
 ### <a name="storage-analytics-data-access"></a>Acesso a dados da análise de armazenamento
 
-Em alguns casos, o acesso para leitura de logs de diagnóstico e métricas é necessário fora do limite de rede. Ao configurar o acesso de serviços confiáveis à conta de armazenamento, você pode permitir o acesso de leitura para os arquivos de log, as tabelas de métricas ou ambos. [Saiba mais sobre como trabalhar com a análise de armazenamento.](/azure/storage/storage-analytics)
+Em alguns casos, o acesso para ler os logs de diagnóstico e as métricas é necessário fora do limite de rede. Ao configurar o acesso de serviços confiáveis à conta de armazenamento, você pode permitir o acesso de leitura para os arquivos de log, as tabelas de métricas ou ambos. [Saiba mais sobre como trabalhar com a análise de armazenamento.](/azure/storage/storage-analytics)
 
 ### <a name="managing-exceptions"></a>Gerenciando exceções
 

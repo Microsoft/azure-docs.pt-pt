@@ -11,12 +11,12 @@ author: memildin
 manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
-ms.openlocfilehash: a8b380355d7eee6b79bff01d29160fdd3b42800d
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 40e556b5d0fe22629eeca9a088d10ea5fc9b95ac
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285812"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965487"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Segurança de dados avançada para o banco de dado SQL do Azure
 
@@ -26,7 +26,7 @@ A segurança de dados avançada é um pacote unificado para recursos avançados 
 
 O ADS (Advanced Data Security) fornece um conjunto de recursos avançados de segurança do SQL, incluindo a descoberta de dados & classificação, avaliação de vulnerabilidade e proteção avançada contra ameaças.
 
-- A [& de descoberta de dados](sql-database-data-discovery-and-classification.md) (atualmente em versão prévia) fornece recursos incorporados ao banco de dado SQL do Azure para descobrir, classificar, rotular & proteger os dados confidenciais em seus bancos. Pode ser utilizada para oferecer visibilidade sobre o estado de classificação da base de dados e para controlar o acesso aos dados confidenciais na base de dados e além dos respetivos limites.
+- A [classificação de & de descoberta de dados](sql-database-data-discovery-and-classification.md) fornece recursos incorporados ao banco de dado SQL do Azure para descobrir, classificar, rotular & proteger os dados confidenciais em seus bancos. Pode ser utilizada para oferecer visibilidade sobre o estado de classificação da base de dados e para controlar o acesso aos dados confidenciais na base de dados e além dos respetivos limites.
 - A [avaliação de vulnerabilidades](sql-vulnerability-assessment.md) é um serviço fácil de configurar que pode descobrir, acompanhar e ajudá-lo a corrigir possíveis vulnerabilidades no banco de dados. Oferece visibilidade sobre o estado de segurança e inclui passos acionáveis para resolver problemas de segurança e melhorar as fortificações da sua base de dados.
 - A [proteção avançada contra ameaças](sql-database-threat-detection-overview.md) detecta atividades anormais que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar seu banco de dados. Monitoriza continuamente a sua base de dados quanto a atividades suspeitas e apresenta alertas de segurança imediata em potenciais vulnerabilidades, ataques de injeção SQL e padrões de acesso de base de dados anómalos. Alertas de proteção avançada contra ameaças fornecem detalhes da atividade suspeita e recomendam a ação de como investigar e mitigar a ameaça.
 

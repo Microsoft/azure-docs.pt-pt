@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46b2ec4a790b5425d837d6a5530b8562ce85ca38
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: efe6946a3de2a95f15e017dbd65e2ec84cc2f2f3
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852779"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964077"
 ---
-# <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Início rápido: Chame a Microsoft Graph API a partir de uma aplicação da Plataforma Universal do Windows (UWP)
+# <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Início Rápido: Chamar a Microsoft Graph API a partir de uma aplicação da Plataforma Universal do Windows (UWP)
 
 Este guia de início rápido contém um exemplo de código que demonstra como um aplicativo Plataforma Universal do Windows (UWP) pode conectar usuários com contas pessoais ou contas corporativas e de estudante, obter um token de acesso e chamar a API Microsoft Graph.
 
@@ -34,18 +34,18 @@ Este guia de início rápido contém um exemplo de código que demonstra como um
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
 > [!div renderon="docs" class="sxs-lookup"]
 > Tem duas opções para iniciar a aplicação de início rápido:
-> * Express [Opção 1: Registre e configure automaticamente seu aplicativo e, em seguida, baixe seu exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * Manual [Opção 2: Registrar e configurar manualmente seu aplicativo e exemplo de código](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> * [Express] [Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [Manual] [Opção 2: registar e configurar manualmente a aplicação e o exemplo de código](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registre e configure automaticamente seu aplicativo e, em seguida, baixe seu exemplo de código
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código
 >
 > 1. Vá para o novo painel de [registros de aplicativo de portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs) .
 > 1. Introduza um nome para a sua aplicação e clique em **Registar**.
 > 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação num só clique.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: Registrar e configurar manualmente seu aplicativo e exemplo de código
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: registar e configurar manualmente a aplicação e o exemplo de código
 > [!div renderon="docs"]
-> #### <a name="step-1-register-your-application"></a>Passo 1: Registar a sua aplicação
+> #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução, siga os passos a seguir:
 > 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
@@ -57,7 +57,7 @@ Este guia de início rápido contém um exemplo de código que demonstra como um
 >      - Selecione **Registar** para criar a aplicação.
 > 1. Na lista de páginas da aplicação, selecione **Autenticação**.
 > 1. Expanda a seção **Desktop + dispositivos** .  (Se os **dispositivos desktop +** não estiverem visíveis, primeiro clique na faixa superior para exibir a experiência de autenticação de visualização)
-> 1. Na seção **URI** de redirecionamento, selecione **Adicionar URI**.  Digite **urn: IETF: WG: OAuth: 2.0: OOB**.
+> 1. Na seção **URI de redirecionamento** , selecione **Adicionar URI**.  Digite **urn: IETF: WG: OAuth: 2.0: OOB**.
 > 1. Selecione **Guardar**.
 
 > [!div renderon="portal" class="sxs-lookup"]
@@ -69,15 +69,15 @@ Este guia de início rápido contém um exemplo de código que demonstra como um
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurada](media/quickstart-v2-uwp/green-check.png) A sua aplicação está configurada com estes atributos.
 
-#### <a name="step-2-download-your-visual-studio-project"></a>Passo 2: Baixe seu projeto do Visual Studio
+#### <a name="step-2-download-your-visual-studio-project"></a>Passo 2: Transfira o seu projeto do Visual Studio
 
  - [Baixe o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Configurar seu projeto do Visual Studio
+#### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Configurar o projeto do Visual Studio
 
 1. Extraia o ficheiro zip para uma pasta local próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
 1. Abra o projeto no Visual Studio. Você pode ser solicitado a instalar um SDK do UWP. Nesse caso, aceite.
-1. Edite **MainPage.XAML.cs** e substitua os valores do `ClientId` campo:
+1. Edite **MainPage.XAML.cs** e substitua os valores do campo `ClientId`:
 
     ```csharp
     private const string ClientId = "Enter_the_Application_Id_here";
@@ -87,13 +87,13 @@ Este guia de início rápido contém um exemplo de código que demonstra como um
 > > Este guia de início rápido dá suporte a Enter_the_Supported_Account_Info_Here.    
 
 > [!div renderon="docs"]
-> Em que:
+> Onde:
 > - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
 >
 > > [!TIP]
 > > Para localizar o valor da *ID do aplicativo*, vá para a seção **visão geral** no portal
 
-#### <a name="step-4-run-your-application"></a>Passo 4: Executar a aplicação
+#### <a name="step-4-run-your-application"></a>Etapa 4: executar seu aplicativo
 
 Se você quiser experimentar o início rápido em seu computador Windows:
 
@@ -129,13 +129,13 @@ PublicClientApp = new PublicClientApplicationBuilder.Create(ClientId)
                                                     .Build();
 ```
 
-> |Em que: ||
+> |Onde: ||
 > |---------|---------|
 > | `ClientId` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
 
 ### <a name="requesting-tokens"></a>Pedir tokens
 
-O MSAL tem dois métodos para adquirir tokens em um aplicativo UWP `AcquireTokenInteractive` : `AcquireTokenSilent`e.
+O MSAL tem dois métodos para adquirir tokens em um aplicativo UWP: `AcquireTokenInteractive` e `AcquireTokenSilent`.
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 
@@ -144,20 +144,20 @@ Algumas situações exigem forçar os usuários a interagir com o ponto de extre
 - A primeira vez que os usuários entram no aplicativo
 - Quando os utilizadores possam ter de reintroduzir as respetivas credenciais por a palavra-passe ter expirado
 - Quando seu aplicativo está solicitando acesso a um recurso, o usuário precisa consentir
-- Quando é precisa a autenticação de dois fatores
+- Quando é necessária autenticação de dois fatores
 
 ```csharp
 authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
                       .ExecuteAsync();
 ```
 
-> |Em que:||
+> |Onde:||
 > |---------|---------|
 > | `scopes` | Contém os âmbitos que estão a ser pedidos (como o `{ "user.read" }` para o Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` para as API Web personalizadas). |
 
 #### <a name="get-a-user-token-silently"></a>Obter um token de utilizador automaticamente
 
-Use o `AcquireTokenSilent` método para obter tokens para acessar recursos protegidos após o `AcquireTokenInteractive` método inicial. Você não deseja exigir que o usuário valide suas credenciais toda vez que precisar acessar um recurso. Na maior parte do tempo que você deseja que as aquisições e a renovação de tokens sem qualquer interação do usuário
+Use o método `AcquireTokenSilent` para obter tokens para acessar recursos protegidos após o método de `AcquireTokenInteractive` inicial. Você não deseja exigir que o usuário valide suas credenciais toda vez que precisar acessar um recurso. Na maior parte do tempo que você deseja que as aquisições e a renovação de tokens sem qualquer interação do usuário
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
@@ -166,7 +166,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Em que: ||
+> |Onde: ||
 > |---------|---------|
 > | `scopes` | Contém os âmbitos que estão a ser pedidos (como o `{ "user.read" }` para o Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` para as API Web personalizadas) |
 > | `firstAccount` | Especifica a primeira conta de usuário no cache (o MSAL dá suporte a vários usuários em um único aplicativo) |

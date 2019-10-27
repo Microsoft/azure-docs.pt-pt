@@ -3,16 +3,17 @@ title: Criar uma imagem do registro de contêiner do Azure de um aplicativo
 description: Use o comando AZ ACR Pack Build para criar uma imagem de contêiner de um aplicativo e enviar por push para o registro de contêiner do Azure, sem usar um Dockerfile.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 10/24/2019
 ms.author: danlep
-ms.openlocfilehash: b544820a0c496e0814de44790ea9c28878031a7d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 34ef0fe4be00cfa7ce3e73c23eec636784071e56
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293896"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965901"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Criar e enviar por push uma imagem de um aplicativo usando um Buildpack nativo de nuvem
 
@@ -32,25 +33,23 @@ No mínimo, especifique o seguinte ao executar `az acr pack build`:
 * Um registro de contêiner do Azure em que você executa o comando
 * Um nome de imagem e uma marca para a imagem resultante
 * Um dos [locais de contexto com suporte](container-registry-tasks-overview.md#context-locations) para tarefas ACR, como um diretório local, um repositório GitHub ou um tarball remoto
-* O nome de uma imagem do Buildpack Builder, como `cloudfoundry/cnb:0.0.12-bionic`.  
+* O nome de uma imagem do Buildpack Builder adequada para seu aplicativo. Caches do registro de contêiner do Azure as imagens do Construtor, como `cloudfoundry/cnb:0.0.34-cflinuxfs3` para compilações mais rápidas.  
 
 o `az acr pack build` dá suporte a outros recursos de comandos de tarefas ACR, incluindo a [execução de variáveis](container-registry-tasks-reference-yaml.md#run-variables) e logs de [execução de tarefas](container-registry-tasks-overview.md#view-task-logs) que são transmitidos e também salvos para recuperação posterior.
 
 ## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>Exemplo: criar imagem do node. js com o construtor de Cloud Foundry
 
-O exemplo a seguir cria uma imagem de contêiner do aplicativo node. js no repositório [Azure-Samples/NodeJS-docs-Hello-World](https://github.com/Azure-Samples/nodejs-docs-hello-world) , usando o Construtor `cloudfoundry/cnb:0.0.12-bionic`:
+O exemplo a seguir cria uma imagem de contêiner de um aplicativo node. js no repositório [Azure-Samples/NodeJS-docs-Hello-World](https://github.com/Azure-Samples/nodejs-docs-hello-world) , usando o construtor de `cloudfoundry/cnb:0.0.34-cflinuxfs3`. Esse construtor é armazenado em cache pelo registro de contêiner do Azure, portanto, um parâmetro de `--pull` não é necessário:
 
 ```azurecli
 az acr pack build \
     --registry myregistry \
     --image {{.Run.Registry}}/node-app:1.0 \
-    --pull --builder cloudfoundry/cnb:0.0.12-bionic \
+    --builder cloudfoundry/cnb:0.0.34-cflinuxfs3 \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
-Este exemplo cria a imagem `node-app` com a marca `1.0` e a envia para o registro de contêiner *myregistry* . Aqui, o nome do registro de destino é explicitamente anexado ao nome da imagem. Se não for especificado, a URL do registro será automaticamente precedida ao nome da imagem.
-
-O parâmetro `--pull` especifica que o comando efetua pull da imagem mais recente do construtor.
+Este exemplo cria a imagem `node-app` com a marca `1.0` e a envia para o registro de contêiner *myregistry* . Neste exemplo, o nome do registro de destino é explicitamente anexado ao nome da imagem. Se não for especificado, o nome do servidor de logon do registro será automaticamente anexado ao nome da imagem.
 
 A saída do comando mostra o progresso da criação e do envio por push da imagem. 
 
@@ -70,7 +69,7 @@ Navegue até `localhost:1337` em seu navegador favorito para ver o aplicativo We
 
 ## <a name="example-build-java-image-with-heroku-builder"></a>Exemplo: Compilar imagem Java com o Heroku Builder
 
-O exemplo a seguir cria uma imagem de contêiner do aplicativo Java no repositório [buildpack/Sample-java-app](https://github.com/buildpack/sample-java-app) , usando o Construtor `heroku/buildpacks:18`:
+O exemplo a seguir cria uma imagem de contêiner do aplicativo Java no repositório [buildpack/Sample-java-app](https://github.com/buildpack/sample-java-app) , usando o construtor de `heroku/buildpacks:18`. O parâmetro `--pull` especifica que o comando deve efetuar pull da imagem mais recente do construtor. 
 
 ```azurecli
 az acr pack build \
@@ -81,8 +80,6 @@ az acr pack build \
 ```
 
 Este exemplo cria a imagem `java-app` marcada com a ID de execução do comando e a envia para o registro de contêiner *myregistry* .
-
-O parâmetro `--pull` especifica que o comando efetua pull da imagem mais recente do construtor.
 
 A saída do comando mostra o progresso da criação e do envio por push da imagem. 
 

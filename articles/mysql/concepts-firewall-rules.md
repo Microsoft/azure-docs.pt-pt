@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/22/2019
-ms.openlocfilehash: 1d75b9e7d997b0c62c7e235187907f0556318efe
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 10/25/2019
+ms.openlocfilehash: 434ecbcf5158009b8e74ae392aeea95b5ea8b281
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970413"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72963442"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Banco de dados do Azure para as regras de firewall do servidor MySQL
 Os firewalls impedem todo o acesso ao seu servidor de banco de dados até que você especifique quais computadores têm permissão. O firewall concede acesso ao servidor com base no endereço IP de origem de cada solicitação.
@@ -43,13 +43,16 @@ Para permitir que os aplicativos do Azure se conectem ao seu banco de dados do A
 
 ![Configurar permitir acesso aos serviços do Azure no portal](./media/concepts-firewall-rules/allow-azure-services.png)
 
+### <a name="connecting-from-a-vnet"></a>Conectando de uma VNet
+Para se conectar com segurança ao banco de dados do Azure para servidor MySQL de uma VNet, considere o uso de [pontos de extremidade de serviço de VNet](./concepts-data-access-and-security-vnet.md). 
+
 ## <a name="programmatically-managing-firewall-rules"></a>Gerir regras de firewall programaticamente
 Além do portal do Azure, as regras de firewall podem ser gerenciadas programaticamente usando o CLI do Azure. Consulte também [criar e gerenciar regras de firewall do banco de dados do Azure para MySQL usando CLI do Azure](./howto-manage-firewall-using-cli.md)
 
 ## <a name="troubleshooting-firewall-issues"></a>Solucionando problemas de firewall
 Considere os seguintes pontos quando o acesso ao banco de dados do Microsoft Azure para o serviço do servidor MySQL não se comportar conforme o esperado:
 
-* **As alterações na lista de permissões ainda não entraram em vigor:** As alterações à configuração da firewall da Base de Dados do Azure para Servidor MySQL podem demorar até cinco minutos a serem aplicadas.
+* **As alterações na lista de permissões ainda não entraram em vigor:** Pode haver um atraso de até cinco minutos para que as alterações na configuração do firewall do banco de dados do Azure para MySQL tenham efeito.
 
 * **O logon não está autorizado ou uma senha incorreta foi usada:** Se um logon não tiver permissões no servidor do banco de dados do Azure para MySQL ou se a senha usada estiver incorreta, a conexão com o banco de dados do Azure para servidor MySQL será negada. Criar uma definição de firewall só proporciona aos clientes uma oportunidade para tentar ligar ao seu servidor; cada cliente tem de indicar as credenciais de segurança necessárias.
 
@@ -59,9 +62,10 @@ Considere os seguintes pontos quando o acesso ao banco de dados do Microsoft Azu
 
    * Em alternativa, obtenha o endereçamento IP estático para os computadores cliente e adicione os endereços IP como regras de firewall.
 
-* **O IP do servidor parece ser público:** As ligações ao servidor da Base de Dados do Azure para MySQL são encaminhadas através de um gateway do Azure acessível publicamente. No entanto, o IP real do servidor está protegido pela firewall. Para obter mais informações, veja o [artigo sobre a arquitetura de conectividade](concepts-connectivity-architecture.md). 
+* O **IP do servidor parece ser público:** As conexões com o banco de dados do Azure para servidor MySQL são roteadas por meio de um gateway do Azure acessível publicamente. No entanto, o IP real do servidor está protegido pela firewall. Para obter mais informações, veja o [artigo sobre a arquitetura de conectividade](concepts-connectivity-architecture.md). 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Criar e gerenciar regras de firewall do banco de dados do Azure para MySQL usando o portal do Azure](./howto-manage-firewall-using-portal.md)
 * [Criar e gerenciar regras de firewall do banco de dados do Azure para MySQL usando o CLI do Azure](./howto-manage-firewall-using-cli.md)
+- [Pontos de extremidade de serviço de VNet no banco de dados do Azure para MySQL](./concepts-data-access-and-security-vnet.md)
