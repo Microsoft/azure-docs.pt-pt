@@ -110,13 +110,7 @@
 - name: Guias de procedimentos
   items:
     - name: Registar um dispositivo do IoT Edge
-      items:
-        - name: Portal do Azure
-          href: how-to-register-device-portal.md
-        - name: CLI do Azure
-          href: how-to-register-device-cli.md
-        - name: Visual Studio Code
-          href: how-to-register-device-vscode.md
+      href: how-to-register-device.md
     - name: Instalar e gerir o IoT Edge
       items:
         - name: Linux
