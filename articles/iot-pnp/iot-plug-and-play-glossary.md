@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: a5c9d2d54fcce1179e43c38027db23c3d7e557e8
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: db3581616b369345ad654593192048e8573c6fa4
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249292"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935215"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossário de termos para a visualização de IoT Plug and Play
 
@@ -117,7 +117,7 @@ Um [desenvolvedor de dispositivos](#device-developer) usa a [linguagem digital d
 
 ## <a name="device-provisioning-service"></a>Serviço de provisionamento de dispositivos
 
-O [Azure IOT central](#azure-iot-central) usa o serviço de provisionamento de dispositivos para gerenciar todo o registro e a conexão do dispositivo. Para obter mais informações, consulte [conectividade do dispositivo no Azure IOT central](../iot-central/concepts-connectivity-pnp.md). Você também pode usar o serviço de provisionamento de dispositivos para gerenciar o registro e a conexão de dispositivos com sua solução IoT baseada no Hub IoT. Para obter mais informações, consulte [Provisionando dispositivos com o serviço de provisionamento de dispositivos no Hub IOT do Azure](../iot-dps/about-iot-dps.md).
+O [Azure IOT central](#azure-iot-central) usa o serviço de provisionamento de dispositivos para gerenciar todo o registro e a conexão do dispositivo. Para obter mais informações, consulte [conectividade do dispositivo no Azure IOT central](../iot-central/core/concepts-connectivity-pnp.md). Você também pode usar o serviço de provisionamento de dispositivos para gerenciar o registro e a conexão de dispositivos com sua solução IoT baseada no Hub IoT. Para obter mais informações, consulte [Provisionando dispositivos com o serviço de provisionamento de dispositivos no Hub IOT do Azure](../iot-dps/about-iot-dps.md).
 
 ## <a name="device-registration"></a>Registo de dispositivo
 

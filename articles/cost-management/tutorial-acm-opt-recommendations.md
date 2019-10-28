@@ -1,111 +1,111 @@
 ---
-title: Tutorial - reduzir os custos do Azure com recomendações de otimização | Documentos da Microsoft
-description: Este tutorial ajuda-o a reduzir os custos do Azure, quando agir em recomendações de otimização.
+title: Tutorial-reduzir os custos do Azure com recomendações de otimização | Microsoft Docs
+description: Este tutorial ajuda a reduzir os custos do Azure quando você atua em recomendações de otimização.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/30/2019
+ms.date: 10/24/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 9306e44655bd172343f20ac4fda2b2c56afcfb88
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 603de4d9bed936ecb91f130b0e30f6d1383a9092
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164497"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935755"
 ---
-# <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: Otimizar os custos de recomendações
+# <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: otimizar os custos de recomendações
 
-O Azure Cost Management funciona com o Assistente do Azure para fornecer recomendações de otimização de custos. O Assistente do Azure ajuda a otimizar e melhorar a eficiência ao identificar recursos subutilizados e inativos. Este tutorial explica-lhe um exemplo de onde identificar subutilizados recursos do Azure e, em seguida, tomar providências para reduzir os custos.
+O Azure Cost Management funciona com o Assistente do Azure para dar recomendações de otimização de custos. O Assistente do Azure ajuda-o a otimizar e melhorar a eficiência, ao identificar os recursos inativos e subutilizados. Este tutorial explica um exemplo em que você identifica os recursos subutilizados do Azure e, em seguida, passa a agir para reduzir os custos.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Ver recomendações de otimização para ver o potencial ineficiências de utilização de custos
-> * Agir sobre uma recomendação para redimensionar uma máquina virtual para uma opção mais rentável
-> * Certifique-se a ação para se certificar de que a máquina virtual foi redimensionada com êxito
+> * Exibir recomendações de otimização de custo para exibir possíveis ineficiências de uso
+> * Agir em uma recomendação para redimensionar uma máquina virtual para uma opção mais econômica
+> * Verifique a ação para garantir que a máquina virtual foi redimensionada com êxito
 
 ## <a name="prerequisites"></a>Pré-requisitos
-As recomendações estão disponíveis para uma variedade de âmbitos e tipos de conta do Azure, incluindo [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) os clientes. Para ver a lista completa dos tipos de conta suportados, consulte [dados de compreender a gestão de custos](understand-cost-mgt-data.md). Tem de ter, pelo menos, acesso de leitura a um ou mais dos seguintes âmbitos para ver os dados de custos. Para obter mais informações sobre âmbitos, consulte [entender e trabalhar com âmbitos](understand-work-scopes.md).
+As recomendações estão disponíveis para uma variedade de escopos e tipos de conta do Azure. Para exibir a lista completa de tipos de conta com suporte, consulte [entender os dados de gerenciamento de custos](understand-cost-mgt-data.md). Tem de ter, pelo menos, acesso de leitura a um ou mais dos seguintes âmbitos para ver os dados de custos. Para obter mais informações sobre escopos, consulte [entender e trabalhar com escopos](understand-work-scopes.md).
 
 - Subscrição
 - Grupo de recursos
 
-Tem de ter máquinas virtuais ativas com, pelo menos, de 14 dias de atividade.
+Você deve ter máquinas virtuais ativas com pelo menos 14 dias de atividade.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com/).
 
-## <a name="view-cost-optimization-recommendations"></a>Ver recomendações de otimização de custos
+## <a name="view-cost-optimization-recommendations"></a>Exibir recomendações de otimização de custo
 
-Para ver recomendações de otimização de custos para uma subscrição, abra o âmbito pretendido no portal do Azure e selecione **recomendações do assistente**.
+Para exibir as recomendações de otimização de custo para uma assinatura, abra o escopo desejado no portal do Azure e selecione **recomendações do Advisor**.
 
-Para ver as recomendações para um grupo de gestão, abra o âmbito pretendido no portal do Azure e selecione **análise de custo** no menu. Utilize o **âmbito** envenenadas para mudar para um âmbito diferente, por exemplo, um grupo de gestão. Selecione **recomendações do assistente** no menu. Para obter mais informações sobre âmbitos, consulte [entender e trabalhar com âmbitos](understand-work-scopes.md).
+Para exibir as recomendações para um grupo de gerenciamento, abra o escopo desejado no portal do Azure e selecione **análise de custo** no menu. Use o **escopo** do Pill para alternar para um escopo diferente, como um grupo de gerenciamento. Selecione **recomendações do Advisor** no menu. Para obter mais informações sobre escopos, consulte [entender e trabalhar com escopos](understand-work-scopes.md).
 
-![Custos recomendações do Assistente de gestão apresentadas no portal do Azure](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
+![Recomendações do supervisor de gerenciamento de custos mostradas na portal do Azure](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 
-A lista de recomendações identifica ineficiências de utilização ou mostra as recomendações de compra que podem ajudar a poupar dinheiro adicional. O totalizados **potenciais poupanças anuais** mostra a quantidade total, que pode economizar se encerrar ou desalocar todas as suas VMs que cumpram as regras de recomendação. Se não quiser encerrá-las, deve considerar o redimensionamento-los para um SKU de VM mais barato.
+A lista de recomendações identifica as ineficiências de uso ou mostra as recomendações de compra que podem ajudá-lo a economizar dinheiro adicional. A economia de **potencial anual** total mostra o valor total que você pode salvar se você desligar ou desalocar todas as suas VMs que atendem às regras de recomendação. Se você não quiser desligá-los, considere redimensioná-los para uma SKU de VM menos dispendiosa.
 
-O **impacto** categoria, juntamente com o **potenciais poupanças anuais**, foram concebidos para ajudar a identificar as recomendações que têm o potencial de guardar tanto quanto possível.
+A categoria de **impacto** , juntamente com a **economia potencial anual**, foi projetada para ajudar a identificar as recomendações que têm o potencial de economizar o máximo possível.
 
-Recomendações de alto impacto incluem:
-- [Comprar instâncias de máquinas virtuais reservadas para poupar dinheiro sobre os custos de pay as you go](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
-- [Otimizar a máquina virtual passar por redimensionamento ou encerrar subutilizadas instâncias](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
-- [Utilize o armazenamento Standard para armazenar instantâneos de Managed Disks](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
+As recomendações de alto impacto incluem:
+- [Comprar instâncias de máquinas virtuais reservadas para economizar dinheiro nos custos pagos conforme o uso](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
+- [Otimizar o gasto de máquinas virtuais redimensionando ou desligando instâncias subutilizadas](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
+- [Usar o armazenamento padrão para armazenar instantâneos de Managed Disks](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
 
-Impacto intermédio recomendações incluem:
-- [Eliminar pipelines do Azure Data Factory que estão a falhar](../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)
-- [Reduzir os custos, eliminando o circuito do ExpressRoute não aprovisionado](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits)
-- [Reduzir os custos, eliminar ou reconfigurar gateways de rede virtual Inativos](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways)
+As recomendações de impacto médio incluem:
+- [Excluir Azure Data Factory pipelines que estão falhando](../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)
+- [Reduzir custos eliminando circuitos do ExpressRoute não provisionados](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits)
+- [Reduzir custos ao excluir ou reconfigurar gateways de rede virtual ociosas](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways)
 
-## <a name="act-on-a-recommendation"></a>Agir sobre uma recomendação
+## <a name="act-on-a-recommendation"></a>Agir em uma recomendação
 
-O Assistente do Azure monitoriza a utilização da máquina virtual durante 14 dias e, em seguida, identifica as máquinas virtuais subutilizadas. Máquinas virtuais cuja utilização da CPU é cinco por cento ou menos e utilização de rede é de sete MB ou menos para quatro ou mais dias são considerados máquinas de virtuais de baixa utilização.
+O Azure Advisor monitora o uso da sua máquina virtual por sete dias e identifica máquinas virtuais subutilizadas. Máquinas virtuais cuja utilização da CPU é de cinco% ou menos e o uso da rede é de sete MB ou menos para quatro ou mais dias são considerados máquinas virtuais de baixa utilização.
 
-Os 5% ou menos definição de utilização da CPU é o padrão, mas pode ajustar as definições. Para obter mais informações sobre como ajustar a definição, consulte a [configurar a regra de utilização média da CPU ou a recomendação de máquina virtual de baixa utilização](../advisor/advisor-get-started.md#configure-low-usage-vm-recommendation).
+A configuração de utilização de CPU de 5% ou menos é a padrão, mas você pode ajustar as configurações. Para obter mais informações sobre como ajustar a configuração, consulte [Configurar a regra média de utilização da CPU ou a recomendação de máquina virtual de uso baixo](../advisor/advisor-get-started.md#configure-low-usage-vm-recommendation).
 
-Embora alguns cenários podem resultar numa utilização reduzida por design, que, muitas vezes, pode poupar dinheiro ao alterar o tamanho das suas máquinas virtuais para tamanhos de menos dispendiosos. Suas poupanças reais podem variar se escolher uma ação de redimensionamento. Vamos examinar um exemplo de redimensionamento de uma máquina virtual.
+Embora alguns cenários possam resultar em baixa utilização por design, muitas vezes você pode economizar dinheiro alterando o tamanho de suas máquinas virtuais para tamanhos menos caros. Sua economia real pode variar se você escolher uma ação de redimensionamento. Vamos examinar um exemplo de redimensionamento de uma máquina virtual.
 
-Na lista de recomendações, clique a **dimensionar ou encerramento subutilizados máquinas virtuais** recomendação. Na lista de candidatos de máquina virtual, selecione uma máquina virtual, de redimensionar e, em seguida, clique na máquina virtual. Detalhes da máquina virtual são apresentados para que pode verificar as métricas de utilização. O **potenciais poupanças anuais** valor é o que pode poupar se desligar ou remover a VM. Redimensionar uma VM irá provavelmente poupar dinheiro, mas não vai economizar o montante total das poupanças anuais potenciais.
+Na lista de recomendações, clique no **tamanho correto ou desligando a recomendação de máquinas virtuais subutilizadas** . Na lista de candidatos à máquina virtual, escolha uma máquina virtual para redimensionar e clique na máquina virtual. Os detalhes da máquina virtual são mostrados para que você possa verificar as métricas de utilização. O valor de **economia anual potencial** é o que você pode salvar se você desligar ou remover a VM. O redimensionamento de uma VM provavelmente economizará dinheiro, mas você não economizará a quantidade total de economia anual potencial.
 
-![Exemplo de detalhes da recomendação](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
+![Exemplo de detalhes de recomendação](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
 
-Nos detalhes de VM, verifique a utilização da máquina virtual para confirmar que é um candidato de redimensionamento adequado.
+Nos detalhes da VM, verifique a utilização da máquina virtual para confirmar se é um candidato de redimensionamento adequado.
 
-![VM de exemplo que mostra utilização histórica de detalhes](./media/tutorial-acm-opt-recommendations/vm-details.png)
+![Detalhes da VM de exemplo mostrando a utilização histórica](./media/tutorial-acm-opt-recommendations/vm-details.png)
 
-Tenha em atenção o tamanho da máquina virtual atual. Depois de verificar que a máquina virtual deve ser redimensionada, feche os detalhes da VM para que vê a lista de máquinas virtuais.
+Anote o tamanho da máquina virtual atual. Depois de verificar se a máquina virtual deve ser redimensionada, feche os detalhes da VM para ver a lista de máquinas virtuais.
 
-Na lista de candidatos para encerrar ou redimensionar, selecione **redimensionar a máquina virtual**.
-![Recomendação de exemplo com a opção para redimensionar a máquina virtual](./media/tutorial-acm-opt-recommendations/resize-vm.png)
+Na lista de candidatos a serem desligados ou redimensionados, selecione * * Redimensionar *&lt;FromVirtualMachineSKU&gt;* para *&lt;ToVirtualMachineSKU&gt;* * *.
+![exemplo de recomendação com a opção de redimensionar a máquina virtual](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
-Em seguida, é apresentada uma lista de opções de redimensionamento disponíveis. Escolha o método que vai dar o melhor desempenho e rentabilidade para o seu cenário. No exemplo a seguir, é redimensionado escolhido a opção de um **DS14\_V2** para um **DS13\_V2**. Seguir a recomendação economiza us $551.30/ mês ou US $6,615.60/ ano.
+Em seguida, você verá uma lista de opções de redimensionamento disponíveis. Escolha aquela que fornecerá o melhor desempenho e a economia de custo para seu cenário. No exemplo a seguir, a opção escolhida redimensiona de **Standard_D8s_v3** para **Standard_D2s_v3**.
 
-![Lista de exemplo de onde pode escolher um tamanho de tamanhos de VM disponíveis](./media/tutorial-acm-opt-recommendations/choose-size.png)
+![Exemplo de uma lista de tamanhos de VM disponíveis onde você pode escolher um tamanho](./media/tutorial-acm-opt-recommendations/choose-size.png)
 
-Depois de escolher um tamanho adequado, clique em **selecione** para iniciar a ação de redimensionamento.
+Depois de escolher um tamanho adequado, clique em **redimensionar** para iniciar a ação de redimensionamento.
 
-Redimensionamento necessita de uma máquina virtual ativamente em execução para reiniciar. Se a máquina virtual está num ambiente de produção, recomendamos que execute a operação de redimensionamento após o expediente. O reinício de agendamento pode reduzir as interrupções causadas por uma indisponibilidade em instantes.
+O redimensionamento requer que uma máquina virtual em execução ativamente seja reiniciada. Se a máquina virtual estiver em um ambiente de produção, recomendamos que você execute a operação de redimensionamento após o horário comercial. O agendamento da reinicialização pode reduzir as interrupções causadas por uma indisponibilidade momentaneamente.
 
-## <a name="verify-the-action"></a>Certifique-se a ação
+## <a name="verify-the-action"></a>Verificar a ação
 
-Quando o redimensionamento de VM for concluída com êxito, é apresentada uma notificação do Azure.
+Quando o redimensionamento da VM for concluído com êxito, uma notificação do Azure será mostrada.
 
-![Notificação de máquina de virtual redimensionada com êxito](./media/tutorial-acm-opt-recommendations/resized-notification.png)
+![Notificação de máquina virtual redimensionada com êxito](./media/tutorial-acm-opt-recommendations/resized-notification.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Ver recomendações de otimização para ver o potencial ineficiências de utilização de custos
-> * Agir sobre uma recomendação para redimensionar uma máquina virtual para uma opção mais rentável
-> * Certifique-se a ação para se certificar de que a máquina virtual foi redimensionada com êxito
+> * Exibir recomendações de otimização de custo para exibir possíveis ineficiências de uso
+> * Agir em uma recomendação para redimensionar uma máquina virtual para uma opção mais econômica
+> * Verifique a ação para garantir que a máquina virtual foi redimensionada com êxito
 
-Se já não leu o artigo de gestão de custos de melhores práticas, ele fornece diretrizes de alto nível e princípios a ter em consideração para o ajudar a gerir os custos.
+Se você ainda não leu o artigo práticas recomendadas de gerenciamento de custos, ele fornece diretrizes e princípios de alto nível a serem considerados para ajudar a gerenciar os custos.
 
 > [!div class="nextstepaction"]
-> [Melhores práticas de gestão de custos](cost-mgt-best-practices.md)
+> [Práticas recomendadas de gerenciamento de custos](cost-mgt-best-practices.md)

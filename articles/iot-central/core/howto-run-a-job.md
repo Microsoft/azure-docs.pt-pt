@@ -1,0 +1,112 @@
+---
+title: Criar e executar trabalhos em seu aplicativo de IoT Central do Azure | Microsoft Docs
+description: Os trabalhos do Azure IoT Central permitem recursos de gerenciamento de dispositivos em massa, como a atualização de uma propriedade de dispositivo, a configuração ou a execução de um comando.
+ms.service: iot-central
+services: iot-central
+author: sarahhubbard
+ms.author: sahubbar
+ms.date: 07/08/2019
+ms.topic: conceptual
+manager: peterpr
+ms.openlocfilehash: 2a18cfabdecf930f45ca10ae25e9be44cf3f1a5c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72953151"
+---
+# <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Criar e executar um trabalho em seu aplicativo de IoT Central do Azure
+
+Você pode usar Microsoft Azure IoT Central para gerenciar seus dispositivos conectados em escala usando trabalhos. Os trabalhos permitem que você faça atualizações em massa nas propriedades, configurações e comandos do dispositivo. Este artigo explica como começar a usar trabalhos em seu próprio aplicativo.
+
+> [!NOTE] 
+> No momento, não há suporte para trabalhos para dispositivos Azure IoT Edge. 
+
+## <a name="create-and-run-a-job"></a>Criar e executar um trabalho
+
+Esta seção mostra como criar e executar um trabalho. Ele mostra como aumentar a velocidade do ventilador para várias máquinas de vendas refrigeradas.
+
+1. Navegue até trabalhos no painel de navegação.
+
+2. Selecione **+ novo** para criar um novo trabalho.
+
+    ![Criar novo trabalho](./media/howto-run-a-job/createnewjob.png)
+
+3. Insira um nome e uma descrição para identificar o trabalho que você está criando.
+
+4. Selecione o conjunto de dispositivos ao qual você deseja que seu trabalho se aplique. Depois de selecionar o conjunto de dispositivos, você verá o lado direito popular com os dispositivos no conjunto de dispositivos. Se você selecionar um conjunto de dispositivos quebrado, nenhum dispositivo será exibido e você verá uma mensagem informando que seu conjunto de dispositivos está quebrado.
+
+5. Em seguida, escolha o tipo de trabalho a ser definido (uma configuração, propriedade ou comando). Selecione **+** ao lado do tipo de trabalho selecionado e adicione suas operações.
+
+    ![Configurar trabalho](./media/howto-run-a-job/configurejob.png)
+
+6. No lado direito, escolha os dispositivos nos quais você gostaria de executar o trabalho. Ao marcar a caixa de seleção superior, todos os dispositivos são selecionados em todo o conjunto de dispositivos. Ao marcar a caixa de seleção ao lado de **nome**, todos os dispositivos na página atual são selecionados.
+
+7. Depois de selecionar os dispositivos, escolha **executar** ou **salvar**. O trabalho agora aparece na página de **trabalhos** principais. Nessa exibição, você pode ver seu trabalho em execução no momento e o histórico de qualquer trabalho executado anteriormente. O trabalho em execução sempre aparece na parte superior da lista. Seu trabalho salvo pode ser aberto novamente a qualquer momento para continuar editando ou para ser executado.
+
+    ![Exibir trabalho](./media/howto-run-a-job/viewjob.png)
+
+    > [!NOTE]
+    > Você pode exibir o histórico de seus trabalhos executados anteriormente por até 30 dias.
+
+8. Para obter uma visão geral do seu trabalho, selecione o trabalho a ser exibido na lista. Esta visão geral contém os detalhes do trabalho, dispositivos e valores de status do dispositivo. Nesta visão geral, você também pode selecionar **baixar detalhes do trabalho** para baixar um arquivo. csv dos detalhes do seu trabalho, incluindo os dispositivos e seus valores de status. Essas informações podem ser úteis para a solução de problemas.
+
+    ![Ver o estado do dispositivo](./media/howto-run-a-job/downloaddetails.png)
+
+### <a name="stop-a-running-job"></a>Interromper um trabalho em execução
+
+Para interromper um trabalho em execução, selecione-o e escolha **parar** no painel. O status do trabalho muda para refletir que o trabalho foi interrompido.
+
+   ![Parar trabalho](./media/howto-run-a-job/stopjob.png)
+
+### <a name="run-a-stopped-job"></a>Executar um trabalho parado
+
+Para executar um trabalho que está parado no momento, selecione o trabalho parado. Escolha **executar** no painel. O status do trabalho muda para refletir que o trabalho agora está em execução novamente.
+
+   ![Trabalho retomado](./media/howto-run-a-job/resumejob.png)
+
+## <a name="copy-a-job"></a>Copiar um trabalho
+
+Para copiar um trabalho existente que você criou, selecione-o na página principais trabalhos e selecione **copiar**. Uma nova cópia da configuração do trabalho é aberta para você editar. Você pode salvar ou executar o novo trabalho. Se forem feitas alterações no conjunto de dispositivos selecionado, elas serão refletidas nesse trabalho copiado para você editar.
+
+   ![Trabalho de cópia](./media/howto-run-a-job/copyjob.png)
+
+## <a name="view-the-job-status"></a>Exibir o status do trabalho
+
+Depois que um trabalho é criado, a coluna **status** é atualizada com a mensagem de status mais recente do trabalho. A tabela a seguir lista os valores de status possíveis:
+
+| Mensagem de estado       | Significado do status                                          |
+| -------------------- | ------------------------------------------------------- |
+| Concluído            | Este trabalho foi executado em todos os dispositivos.              |
+| Com Falhas               | Este trabalho falhou e não foi executado completamente nos dispositivos.  |
+| Pendente              | Esse trabalho ainda não começou a ser executado em dispositivos.         |
+| A executar              | Este trabalho está sendo executado em dispositivos.             |
+| Parada              | Este trabalho foi interrompido manualmente por um usuário.           |
+
+A mensagem de status é seguida por uma visão geral dos dispositivos no trabalho. A tabela a seguir lista os possíveis valores de status do dispositivo:
+
+| Mensagem de estado       | Significado do status                                                     |
+| -------------------- | ------------------------------------------------------------------ |
+| Bem-sucedido            | O número de dispositivos em que o trabalho foi executado com êxito.       |
+| Com Falhas               | O número de dispositivos nos quais o trabalho falhou ao ser executado.       |
+
+### <a name="view-the-device-status"></a>Exibir o status do dispositivo
+
+Para exibir o status do trabalho e de todos os dispositivos afetados, selecione o trabalho. Para baixar um arquivo. csv que inclui os detalhes do trabalho, incluindo a lista de dispositivos e seus valores de status, selecione **baixar detalhes do trabalho**. Ao lado de cada nome de dispositivo, você verá uma das seguintes mensagens de status:
+
+| Mensagem de estado       | Significado do status                                                                |
+| -------------------- | ----------------------------------------------------------------------------- |
+| Concluído            | O trabalho foi executado neste dispositivo.                                     |
+| Com Falhas               | O trabalho não pôde ser executado neste dispositivo. A mensagem de erro mostra mais informações.  |
+| Pendente              | O trabalho ainda não foi executado neste dispositivo.                                   |
+
+> [!NOTE]
+> Se um dispositivo tiver sido excluído, você não poderá selecionar o dispositivo e ele será exibido como excluído com a ID do dispositivo.
+
+## <a name="next-steps"></a>Passos seguintes
+
+Agora que você aprendeu como criar trabalhos em seu aplicativo IoT Central do Azure, aqui estão algumas próximas etapas:
+
+- [Utilizar conjuntos de dispositivos](howto-use-device-sets.md)
+- [Gerir os seus dispositivos](howto-manage-devices.md)
+- [Versão do seu modelo de dispositivo](howto-version-device-template.md)

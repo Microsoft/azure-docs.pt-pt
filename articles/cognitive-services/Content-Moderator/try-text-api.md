@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: bf3f08436fb4bac56907b342c991709947f4c24d
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7a7085eccf05fb65bf7b9036c738a1d17e91a433
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754192"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935899"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Texto moderado do console de API
 
@@ -61,9 +61,6 @@ Para **Content-Type**, selecione o tipo de conteúdo que você deseja para a tel
 ### <a name="sample-text-to-scan"></a>Texto de exemplo para verificação
 
 Na caixa **corpo da solicitação** , insira algum texto. O exemplo a seguir mostra uma grafia intencional no texto.
-
-> [!NOTE]
-> O número de seguro social inválido no texto de exemplo a seguir é intencional. A finalidade é transmitir o formato de entrada e saída de exemplo.
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.

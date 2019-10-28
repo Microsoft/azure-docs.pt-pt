@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 8ad2bdd0f12abad08515f0314b9c03cc971127cb
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 847b36c2aab761383a4a25bd4da5c626c4744ce1
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059205"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935485"
 ---
 # <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>Analisar logs de Apache Hadoop no Azure HDInsight
 
@@ -32,7 +32,7 @@ Quando você cria um cluster HDInsight, seis tabelas são criadas automaticament
 * ambariserverlog
 * ambariagentlog
 
-Os nomes de arquivo de tabela são **u\<ClusterName\<> DDMonYYYYatHHMMSSsss TableName >** .
+Os nomes dos arquivos de tabela são **u\<clustername > DDMonYYYYatHHMMSSsss\<tablename >** .
 
 Essas tabelas contêm os seguintes campos:
 
@@ -41,20 +41,20 @@ Essas tabelas contêm os seguintes campos:
 * EventTimestamp
 * Host
 * MALoggingHash
-* Message
+* Mensagem
 * N
 * PreciseTimeStamp
-* Role
+* Função
 * RowIndex
 * Inquilino
-* TIMESTAMP
+* ESTAMPA
 * TraceLevel
 
 ### <a name="tools-for-accessing-the-logs"></a>Ferramentas para acessar os logs
 Há muitas ferramentas disponíveis para acessar dados nessas tabelas:
 
 * Visual Studio
-* Explorador do Storage do Azure
+* Explorador do Armazenamento do Azure
 * Power Query para Excel
 
 #### <a name="use-power-query-for-excel"></a>Usar o Power Query para Excel
@@ -71,7 +71,7 @@ Power Query pode ser instalado de [Microsoft Power Query para Excel](https://www
    
     ![Logs do HDInsight Hadoop armazenados no armazenamento de tabelas do Azure](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-table-names.png)
 5. Clique com o botão direito do mouse na tabela hadoopservicelog no painel **navegador** e selecione **Editar**. Você deverá ver quatro colunas. Opcionalmente, exclua as colunas **chave de partição**, **chave de linha**e **carimbo de data/hora** selecionando-as e, em seguida, clicando em **remover colunas** das opções na faixa.
-6. Clique no ícone de expansão na coluna conteúdo para escolher as colunas que você deseja importar para a planilha do Excel. Para esta demonstração, escolhi TraceLevel e ComponentName: Ele pode fornecer algumas informações básicas sobre quais componentes tiveram problemas.
+6. Clique no ícone de expansão na coluna conteúdo para escolher as colunas que você deseja importar para a planilha do Excel. Para esta demonstração, escolhi TraceLevel e ComponentName: ele pode fornecer algumas informações básicas sobre quais componentes tiveram problemas.
    
     ![Logs do Hadoop no HDInsight escolher colunas Excel](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png "Logs do Hadoop no HDInsight escolher colunas Excel")
 7. Clique em **OK** para importar os dados.
@@ -85,7 +85,7 @@ Agora você pode usar o Excel para filtrar e classificar conforme necessário. T
 **Utilizar o Visual Studio**
 
 1. Abra o Visual Studio.
-2. No menu **Exibir** , clique em **Cloud Explorer**. Ou simplesmente clique em **Ctrl\, + CTRL + X**.
+2. No menu **Exibir** , clique em **Cloud Explorer**. Ou simplesmente clique em **Ctrl +\, CTRL + X**.
 3. No **Cloud Explorer**, selecione **tipos de recursos**.  A outra opção disponível é **grupos de recursos**.
 4. Expanda **contas de armazenamento**, a conta de armazenamento padrão para o cluster e, em seguida, **tabelas**.
 5. Clique duas vezes em **hadoopservicelog**.
@@ -98,16 +98,15 @@ Agora você pode usar o Excel para filtrar e classificar conforme necessário. T
     Para obter mais informações sobre como construir filtros, consulte [construir cadeias de caracteres de filtro para o designer de tabela](../../vs-azure-tools-table-designer-construct-filter-strings.md).
 
 ## <a name="logs-written-to-azure-blob-storage"></a>Logs gravados no armazenamento de BLOBs do Azure
+
 Os logs gravados nas tabelas do Azure fornecem um nível de insight sobre o que está acontecendo com um cluster HDInsight. No entanto, essas tabelas não fornecem logs no nível da tarefa, o que pode ser útil para detalhar os problemas quando eles ocorrerem. Para fornecer esse próximo nível de detalhes, os clusters HDInsight são configurados para gravar logs de tarefas em sua conta de armazenamento de BLOBs para qualquer trabalho enviado por meio do Templeton. Praticamente, isso significa que os trabalhos enviados usando os cmdlets Microsoft Azure PowerShell ou as APIs de envio de trabalho do .NET, não os trabalhos enviados por meio de acesso de linha de comando/RDP ao cluster. 
 
 Para exibir os logs, consulte [acessar Apache Hadoop logs de aplicativo do yarn no HDInsight baseado em Linux](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-
-Para obter mais informações sobre logs de aplicativos, consulte [simplificando o gerenciamento e o acesso de logs de usuários no Apache HADOOP yarn](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
-
-
 ## <a name="view-cluster-health-and-job-logs"></a>Exibir logs de trabalho e integridade do cluster
+
 ### <a name="access-the-ambari-ui"></a>Acessar a interface do usuário do amAmbari
+
 No portal do Azure, clique em um nome de cluster HDInsight para abrir o painel do cluster. No painel cluster, clique em **painel**.
 
 ![Painel de cluster de inicialização do HDInsight](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
@@ -134,185 +133,185 @@ Algumas dessas mensagens de erro também podem ser vistas no portal do Azure qua
 
 ### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
 * **Descrição**: Forneça detalhes do banco de dados SQL do Azure para pelo menos um componente a fim de usar configurações personalizadas para metastores do hive e do Oozie.
-* **Mitigação**: O usuário precisa fornecer um metastore de SQL Azure válido e tentar a solicitação novamente.  
+* **Mitigação**: o usuário precisa fornecer um metastore de SQL Azure válido e tentar a solicitação novamente.  
 
 ### <a id="AzureRegionNotSupported"></a>AzureRegionNotSupported
-* **Descrição**: Não foi possível criar o cluster na região *nameOfYourRegion*. Use uma região do HDInsight válida e tente a solicitação novamente.
-* **Mitigação**: O cliente deve criar a região de cluster que atualmente dá suporte a eles: Sudeste Asiático, Europa Ocidental, Europa Setentrional, leste dos EUA ou oeste dos EUA.  
+* **Descrição**: não foi possível criar o cluster na região *nameOfYourRegion*. Use uma região do HDInsight válida e tente a solicitação novamente.
+* **Mitigação**: o cliente deve criar a região de cluster que atualmente dá suporte a eles: sudeste asiático, Europa Ocidental, Europa setentrional, leste dos EUA ou oeste dos EUA.  
 
 ### <a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound
-* **Descrição**: O servidor não pôde localizar o registro de cluster solicitado.  
-* **Mitigação**: Repita a operação.
+* **Descrição**: o servidor não pôde localizar o registro de cluster solicitado.  
+* **Mitigação**: repita a operação.
 
 ### <a id="ClusterDnsNameInvalidReservedWord"></a>ClusterDnsNameInvalidReservedWord
-* **Descrição**: O nome DNS do cluster *seunomedns* é inválido. Verifique se o nome começa e termina com alfanumérico e pode conter apenas o caractere especial '-'  
-* **Mitigação**: Certifique-se de que você usou um nome DNS válido para o cluster que inicia e termina com alfanumérico e não contém caracteres especiais além do traço '-' e, em seguida, repita a operação.
+* **Descrição**: o nome DNS do cluster *seunomedns* é inválido. Verifique se o nome começa e termina com alfanumérico e pode conter apenas o caractere especial '-'  
+* **Mitigação**: Verifique se você usou um nome DNS válido para o cluster que inicia e termina com alfanumérico e não contém caracteres especiais além do traço '-' e repita a operação.
 
 ### <a id="ClusterNameUnavailable"></a>ClusterNameUnavailable
-* **Descrição**: O nome do cluster *yourClusterName* não está disponível. Escolha outro nome.  
-* **Mitigação**: O usuário deve especificar um ClusterName que seja exclusivo e não exista e tente novamente. Se o usuário estiver usando o portal, a interface de usuário irá notificá-los se um nome de cluster já estiver sendo usado durante as etapas de criação.
+* **Descrição**: o nome do cluster *yourClusterName* não está disponível. Escolha outro nome.  
+* **Mitigação**: o usuário deve especificar um ClusterName que seja exclusivo e que não exista e tente novamente. Se o usuário estiver usando o portal, a interface de usuário irá notificá-los se um nome de cluster já estiver sendo usado durante as etapas de criação.
 
 ### <a id="ClusterPasswordInvalid"></a>ClusterPasswordInvalid
-* **Descrição**: A senha do cluster é inválida. A senha deve ter pelo menos 10 caracteres e deve conter pelo menos um número, uma letra maiúscula, uma letra minúscula e um caractere especial sem espaços e não deve conter o nome de usuário como parte dela.  
-* **Mitigação**: Forneça uma senha de cluster válida e repita a operação.
+* **Descrição**: a senha do cluster é inválida. A senha deve ter pelo menos 10 caracteres e deve conter pelo menos um número, uma letra maiúscula, uma letra minúscula e um caractere especial sem espaços e não deve conter o nome de usuário como parte dela.  
+* **Mitigação**: forneça uma senha de cluster válida e repita a operação.
 
 ### <a id="ClusterUserNameInvalid"></a>ClusterUserNameInvalid
-* **Descrição**: O nome de usuário do cluster é inválido. Verifique se o nome de usuário não contém caracteres especiais ou espaços.  
-* **Mitigação**: Forneça um nome de usuário de cluster válido e repita a operação.
+* **Descrição**: o nome de usuário do cluster é inválido. Verifique se o nome de usuário não contém caracteres especiais ou espaços.  
+* **Mitigação**: forneça um nome de usuário de cluster válido e repita a operação.
 
 ### <a id="ClusterUserNameInvalidReservedWord"></a>ClusterUserNameInvalidReservedWord
-* **Descrição**: O nome DNS do cluster *yourDnsClusterName* é inválido. Verifique se o nome começa e termina com alfanumérico e pode conter apenas o caractere especial '-'  
-* **Mitigação**: Forneça um nome de usuário de cluster DNS válido e repita a operação.
+* **Descrição**: o nome DNS do cluster *yourDnsClusterName* é inválido. Verifique se o nome começa e termina com alfanumérico e pode conter apenas o caractere especial '-'  
+* **Mitigação**: forneça um nome de usuário de cluster DNS válido e repita a operação.
 
 ### <a id="ContainerNameMisMatchWithDnsName"></a>ContainerNameMisMatchWithDnsName
-* **Descrição**: O nome do contêiner no URI *seuuricontêiner* e o nome DNS *seunomedns* no corpo da solicitação devem ser iguais.  
+* **Descrição**: o nome do contêiner no URI *seuuricontêiner* e o nome DNS *seunomedns* no corpo da solicitação devem ser iguais.  
 * **Mitigação**: Verifique se o nome do contêiner e o nome DNS são iguais e tente a operação novamente.
 
 ### <a id="DataNodeDefinitionNotFound"></a>DataNodeDefinitionNotFound
-* **Descrição**: Configuração de cluster inválida. Não é possível localizar nenhuma definição de nó de dados no tamanho do nó.  
-* **Mitigação**: Repita a operação.
+* **Descrição**: configuração de cluster inválida. Não é possível localizar nenhuma definição de nó de dados no tamanho do nó.  
+* **Mitigação**: repita a operação.
 
 ### <a id="DeploymentDeletionFailure"></a>DeploymentDeletionFailure
-* **Descrição**: Falha na exclusão da implantação do cluster  
-* **Mitigação**: Repita a operação de exclusão.
+* **Descrição**: falha na exclusão da implantação para o cluster  
+* **Mitigação**: repita a operação de exclusão.
 
 ### <a id="DnsMappingNotFound"></a>DnsMappingNotFound
-* **Descrição**: Erro de configuração do serviço. Informações de mapeamento DNS necessárias não encontradas.  
-* **Mitigação**: Exclua o cluster e crie um novo cluster.
+* **Descrição**: erro de configuração de serviço. Informações de mapeamento DNS necessárias não encontradas.  
+* **Mitigação**: exclua o cluster e crie um novo cluster.
 
 ### <a id="DuplicateClusterContainerRequest"></a>DuplicateClusterContainerRequest
-* **Descrição**: Tentativa de criação de contêiner de cluster duplicada. O registro existe para *nameOfYourContainer* , mas as ETags não coincidem.
-* **Mitigação**: Forneça um nome exclusivo para o contêiner e repita a operação de criação.
+* **Descrição**: tentativa de criação de contêiner de cluster duplicada. O registro existe para *nameOfYourContainer* , mas as ETags não coincidem.
+* **Mitigação**: forneça um nome exclusivo para o contêiner e repita a operação de criação.
 
 ### <a id="DuplicateClusterInHostedService"></a>DuplicateClusterInHostedService
-* **Descrição**: O serviço hospedado *nameOfYourHostedService* já contém um cluster. Um serviço hospedado não pode conter vários clusters  
-* **Mitigação**: Hospede o cluster em outro serviço hospedado.
+* **Descrição**: o serviço hospedado *nameOfYourHostedService* já contém um cluster. Um serviço hospedado não pode conter vários clusters  
+* **Mitigação**: hospede o cluster em outro serviço hospedado.
 
 ### <a id="FailureToUpdateDeploymentStatus"></a>FailureToUpdateDeploymentStatus
-* **Descrição**: O servidor não pôde atualizar o estado da implantação do cluster.  
-* **Mitigação**: Repita a operação. Se isso acontecer várias vezes, entre em contato com o CSS.
+* **Descrição**: o servidor não pôde atualizar o estado da implantação do cluster.  
+* **Mitigação**: repita a operação. Se isso acontecer várias vezes, entre em contato com o CSS.
 
 ### <a id="HdiRestoreClusterAltered"></a>HdiRestoreClusterAltered
-* **Descrição**: O *yourClusterName* do cluster foi excluído como parte da manutenção. Recrie o cluster.
-* **Mitigação**: Recrie o cluster.
+* **Descrição**: o cluster *yourClusterName* foi excluído como parte da manutenção. Recrie o cluster.
+* **Mitigação**: recrie o cluster.
 
 ### <a id="HeadNodeConfigNotFound"></a>HeadNodeConfigNotFound
-* **Descrição**: Configuração de cluster inválida. Configuração de nó de cabeçalho necessária não encontrada em tamanhos de nó.
-* **Mitigação**: Repita a operação.
+* **Descrição**: configuração de cluster inválida. Configuração de nó de cabeçalho necessária não encontrada em tamanhos de nó.
+* **Mitigação**: repita a operação.
 
 ### <a id="HostedServiceCreationFailure"></a>HostedServiceCreationFailure
-* **Descrição**: Não é possível criar o serviço hospedado *nameOfYourHostedService*. Tente solicitar novamente.  
-* **Mitigação**: Repita a solicitação.
+* **Descrição**: não é possível criar o serviço hospedado *nameOfYourHostedService*. Tente solicitar novamente.  
+* **Mitigação**: repita a solicitação.
 
 ### <a id="HostedServiceHasProductionDeployment"></a>HostedServiceHasProductionDeployment
-* **Descrição**: O serviço hospedado *nameOfYourHostedService* já tem uma implantação de produção. Um serviço hospedado não pode conter várias implantações de produção. Repita a solicitação com um nome de cluster diferente.
+* **Descrição**: o serviço hospedado *nameOfYourHostedService* já tem uma implantação de produção. Um serviço hospedado não pode conter várias implantações de produção. Repita a solicitação com um nome de cluster diferente.
 * **Mitigação**: Use um nome de cluster diferente e repita a solicitação.
 
 ### <a id="HostedServiceNotFound"></a>HostedServiceNotFound
-* **Descrição**: Não foi possível encontrar o serviço hospedado *nameOfYourHostedService* para o cluster.  
-* **Mitigação**: Se o cluster estiver em estado de erro, exclua-o e tente novamente.
+* **Descrição**: não foi possível encontrar o serviço hospedado *nameOfYourHostedService* para o cluster.  
+* **Mitigação**: se o cluster estiver em estado de erro, exclua-o e tente novamente.
 
 ### <a id="HostedServiceWithNoDeployment"></a>HostedServiceWithNoDeployment
-* **Descrição**: O serviço hospedado *nameOfYourHostedService* não tem nenhuma implantação associada.  
-* **Mitigação**: Se o cluster estiver em estado de erro, exclua-o e tente novamente.
+* **Descrição**: o serviço hospedado *nameOfYourHostedService* não tem nenhuma implantação associada.  
+* **Mitigação**: se o cluster estiver em estado de erro, exclua-o e tente novamente.
 
 ### <a id="InsufficientResourcesCores"></a>InsufficientResourcesCores
-* **Descrição**: A SubscriptionId *suaidassinatura* não tem núcleos restantes para criar o cluster *yourClusterName*. Obrigatório: *resourcesRequired*, disponível: *resourcesAvailable*.  
+* **Descrição**: o SubscriptionId *suaidassinatura* não tem núcleos restantes para criar o cluster *yourClusterName*. Obrigatório: *resourcesRequired*, disponível: *resourcesAvailable*.  
 * **Mitigação**: Libere recursos em sua assinatura ou aumente os recursos disponíveis para a assinatura e tente criar o cluster novamente.
 
 ### <a id="InsufficientResourcesHostedServices"></a>InsufficientResourcesHostedServices
-* **Descrição**: A ID da assinatura *suaidassinatura* não tem uma cota para um novo HostedService criar o cluster *yourClusterName*.  
+* **Descrição**: a ID da assinatura *suaidassinatura* não tem uma cota para um novo HostedService criar cluster *yourClusterName*.  
 * **Mitigação**: Libere recursos em sua assinatura ou aumente os recursos disponíveis para a assinatura e tente criar o cluster novamente.
 
 ### <a id="InternalErrorRetryRequest"></a>InternalErrorRetryRequest
-* **Descrição**: O servidor encontrou um erro interno. Tente solicitar novamente.  
-* **Mitigação**: Repita a solicitação.
+* **Descrição**: o servidor encontrou um erro interno. Tente solicitar novamente.  
+* **Mitigação**: repita a solicitação.
 
 ### <a id="InvalidAzureStorageLocation"></a>InvalidAzureStorageLocation
-* **Descrição**: O local de armazenamento do Azure *Dataregionname* não é um local válido. Verifique se a região está correta e repita a solicitação.
-* **Mitigação**: Selecione um local de armazenamento que ofereça suporte ao HDInsight, verifique se o cluster está colocalizado e repita a operação.
+* **Descrição**: o local de armazenamento do Azure *dataregionname* não é um local válido. Verifique se a região está correta e repita a solicitação.
+* **Mitigação**: selecione um local de armazenamento que ofereça suporte ao HDInsight, verifique se o cluster está colocalizado e repita a operação.
 
 ### <a id="InvalidNodeSizeForDataNode"></a>InvalidNodeSizeForDataNode
-* **Descrição**: Tamanho de VM inválido para nós de dados. Somente o tamanho de ' VM grande ' tem suporte para todos os nós de dados.  
-* **Mitigação**: Especifique o tamanho do nó com suporte para o nó de dados e repita a operação.
+* **Descrição**: tamanho de VM inválido para nós de dados. Somente o tamanho de ' VM grande ' tem suporte para todos os nós de dados.  
+* **Mitigação**: especifique o tamanho do nó com suporte para o nó de dados e repita a operação.
 
 ### <a id="InvalidNodeSizeForHeadNode"></a>InvalidNodeSizeForHeadNode
-* **Descrição**: Tamanho de VM inválido para o nó de cabeçalho. Somente o tamanho ' VM ExtraLarge ' tem suporte para o nó de cabeçalho.  
-* **Mitigação**: Especifique o tamanho do nó com suporte para o nó principal e repita a operação
+* **Descrição**: tamanho de VM inválido para o nó de cabeçalho. Somente o tamanho ' VM ExtraLarge ' tem suporte para o nó de cabeçalho.  
+* **Mitigação**: especifique o tamanho do nó com suporte para o nó principal e repita a operação
 
 ### <a id="InvalidRightsForDeploymentDeletion"></a>InvalidRightsForDeploymentDeletion
-* **Descrição**: A ID da assinatura *suaidassinatura* que está sendo usada não tem permissões suficientes para executar a operação de exclusão para o cluster *yourClusterName*.  
-* **Mitigação**: Se o cluster estiver em estado de erro, remova-o e tente novamente.  
+* **Descrição**: a ID da assinatura *suaidassinatura* que está sendo usada não tem permissões suficientes para executar a operação de exclusão para o cluster *yourClusterName*.  
+* **Mitigação**: se o cluster estiver em estado de erro, remova-o e tente novamente.  
 
 ### <a id="InvalidStorageAccountBlobContainerName"></a>InvalidStorageAccountBlobContainerName
-* **Descrição**: O nome do contêiner de BLOB da conta de armazenamento externo *yourContainerName* é inválido. Verifique se o nome começa com uma letra e contém apenas letras minúsculas, números e traços.  
-* **Mitigação**: Especifique um nome de contêiner de blob de conta de armazenamento válido e repita a operação.
+* **Descrição**: o nome do contêiner de BLOB da conta de armazenamento externa *yourContainerName* é inválido. Verifique se o nome começa com uma letra e contém apenas letras minúsculas, números e traços.  
+* **Mitigação**: especifique um nome de contêiner de blob de conta de armazenamento válido e repita a operação.
 
 ### <a id="InvalidStorageAccountConfigurationSecretKey"></a>InvalidStorageAccountConfigurationSecretKey
-* **Descrição**: A configuração da conta de armazenamento externa *seunomecontaarmazenamento* é necessária para que os detalhes da chave secreta sejam definidos.  
-* **Mitigação**: Especifique uma chave secreta válida para a conta de armazenamento e repita a operação.
+* **Descrição**: a configuração da conta de armazenamento externa *seunomecontaarmazenamento* é necessária para que os detalhes da chave secreta sejam definidos.  
+* **Mitigação**: especifique uma chave secreta válida para a conta de armazenamento e repita a operação.
 
 ### <a id="InvalidVersionHeaderFormat"></a>InvalidVersionHeaderFormat
-* **Descrição**: O cabeçalho de versão *yourVersionHeader* não está no formato válido de aaaa-mm-dd.  
-* **Mitigação**: Especifique um formato válido para o cabeçalho de versão e repita a solicitação.
+* **Descrição**: o cabeçalho de versão *yourVersionHeader* não está no formato válido de aaaa-mm-dd.  
+* **Mitigação**: especifique um formato válido para o cabeçalho de versão e repita a solicitação.
 
 ### <a id="MoreThanOneHeadNode"></a>MoreThanOneHeadNode
-* **Descrição**: Configuração de cluster inválida. Mais de uma configuração de nó de cabeçalho encontrada.  
+* **Descrição**: configuração de cluster inválida. Mais de uma configuração de nó de cabeçalho encontrada.  
 * **Mitigação**: Edite a configuração para que apenas um nó de cabeçalho seja especificado.
 
 ### <a id="OperationTimedOutRetryRequest"></a>OperationTimedOutRetryRequest
-* **Descrição**: A operação não pôde ser concluída dentro do tempo permitido ou o máximo de tentativas de repetição possível. Tente solicitar novamente.  
-* **Mitigação**: Repita a solicitação.
+* **Descrição**: a operação não pôde ser concluída dentro do tempo permitido ou o máximo de tentativas de repetição possível. Tente solicitar novamente.  
+* **Mitigação**: repita a solicitação.
 
 ### <a id="ParameterNullOrEmpty"></a>ParameterNullOrEmpty
-* **Descrição**: O parâmetro *yourParameterName* não pode ser nulo ou vazio.  
-* **Mitigação**: Especifique um valor válido para o parâmetro.
+* **Descrição**: o parâmetro *yourParameterName* não pode ser nulo ou vazio.  
+* **Mitigação**: especifique um valor válido para o parâmetro.
 
 ### <a id="PreClusterCreationValidationFailure"></a>PreClusterCreationValidationFailure
-* **Descrição**: Uma ou mais das entradas de solicitação de criação de cluster não são válidas. Verifique se os valores de entrada estão corretos e repita a solicitação.  
+* **Descrição**: uma ou mais das entradas de solicitação de criação de cluster não são válidas. Verifique se os valores de entrada estão corretos e repita a solicitação.  
 * **Mitigação**: Verifique se os valores de entrada estão corretos e repita a solicitação.
 
 ### <a id="RegionCapabilityNotAvailable"></a>RegionCapabilityNotAvailable
-* **Descrição**: A funcionalidade de região não está disponível para a região *seunomeregião* e a ID de assinatura *suaidassinatura*.  
-* **Mitigação**: Especifique uma região que ofereça suporte a clusters HDInsight. As regiões com suporte público são: Sudeste Asiático, Europa Ocidental, Europa Setentrional, leste dos EUA ou oeste dos EUA.
+* **Descrição**: a funcionalidade de região não está disponível para a região *SEUNOMEREGIÃO* e a ID de assinatura *suaidassinatura*.  
+* **Mitigação**: especifique uma região que dê suporte a clusters HDInsight. As regiões com suporte público são: Sudeste Asiático, Europa Ocidental, Europa Setentrional, leste dos EUA ou oeste dos EUA.
 
 ### <a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
-* **Descrição**: A conta de armazenamento *seunomecontaarmazenamento* está na região *nomeregiãoatual*. Deve ser o mesmo que a região de cluster *yourClusterRegionName*.  
-* **Mitigação**: Especifique uma conta de armazenamento na mesma região em que seu cluster está ou se os dados já estiverem na conta de armazenamento, crie um novo cluster na mesma região que a conta de armazenamento existente. Se você estiver usando o portal, a interface do usuário notificará sobre esse problema com antecedência.
+* **Descrição**: a conta de armazenamento *seunomecontaarmazenamento* está na região *nomeregiãoatual*. Deve ser o mesmo que a região de cluster *yourClusterRegionName*.  
+* **Mitigação**: especifique uma conta de armazenamento na mesma região em que o cluster está ou, se os dados já estiverem na conta de armazenamento, crie um novo cluster na mesma região que a conta de armazenamento existente. Se você estiver usando o portal, a interface do usuário notificará sobre esse problema com antecedência.
 
 ### <a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive
-* **Descrição**: A ID de assinatura fornecida *suaidassinatura* não está ativa.  
-* **Mitigação**: Reative sua assinatura ou obtenha uma nova assinatura válida.
+* **Descrição**: a ID de assinatura fornecida *suaidassinatura* não está ativa.  
+* **Mitigação**: reative sua assinatura ou obtenha uma nova assinatura válida.
 
 ### <a id="SubscriptionIdNotFound"></a>SubscriptionIdNotFound
-* **Descrição**: A ID de assinatura *suaidassinatura* não pôde ser encontrada.  
+* **Descrição**: a ID de assinatura *suaidassinatura* não pôde ser encontrada.  
 * **Mitigação**: Verifique se sua ID de assinatura é válida e repita a operação.
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
-* **Descrição**: Não é possível resolver *YOURDNSURL*DNS. Verifique se a URL totalmente qualificada para o ponto de extremidade do blob foi fornecida.  
-* **Mitigação**: Forneça uma URL de blob válida. A URL deve ser totalmente válida, incluindo a partir de *http://* e terminando em *. com*.
+* **Descrição**: não é possível resolver *yourDnsUrl*DNS. Verifique se a URL totalmente qualificada para o ponto de extremidade do blob foi fornecida.  
+* **Mitigação**: forneça uma URL de blob válida. A URL deve ser totalmente válida, incluindo a partir de *http://* e terminando em *. com*.
 
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
-* **Descrição**: Não é possível verificar o local do recurso *yourDnsUrl*. Verifique se a URL totalmente qualificada para o ponto de extremidade do blob foi fornecida.  
-* **Mitigação**: Forneça uma URL de blob válida. A URL deve ser totalmente válida, incluindo a partir de *http://* e terminando em *. com*.
+* **Descrição**: não é possível verificar o local do recurso *yourDnsUrl*. Verifique se a URL totalmente qualificada para o ponto de extremidade do blob foi fornecida.  
+* **Mitigação**: forneça uma URL de blob válida. A URL deve ser totalmente válida, incluindo a partir de *http://* e terminando em *. com*.
 
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
-* **Descrição**: A funcionalidade de versão não está disponível para a versão *versãoespecificada* e a ID de assinatura *suaidassinatura*.  
-* **Mitigação**: Escolha uma versão que esteja disponível e repita a operação.
+* **Descrição**: a funcionalidade de versão não está disponível para a versão *VERSÃOESPECIFICADA* e a ID de assinatura *suaidassinatura*.  
+* **Mitigação**: escolha uma versão que esteja disponível e repita a operação.
 
 ### <a id="VersionNotSupported"></a>VersionNotSupported
-* **Descrição**: Não há suporte para a versão *versãoespecificada* .
-* **Mitigação**: Escolha uma versão com suporte e repita a operação.
+* **Descrição**: não há suporte para a versão *versãoespecificada* .
+* **Mitigação**: escolha uma versão com suporte e repita a operação.
 
 ### <a id="VersionNotSupportedInRegion"></a>VersionNotSupportedInRegion
-* **Descrição**: A versão *versãoespecificada* não está disponível na região do Azure *regiãoespecificada*.  
-* **Mitigação**: Escolha uma versão com suporte na região especificada e repita a operação.
+* **Descrição**: a versão *versãoespecificada* não está disponível na região do Azure *regiãoespecificada*.  
+* **Mitigação**: escolha uma versão com suporte na região especificada e repita a operação.
 
 ### <a id="WasbAccountConfigNotFound"></a>WasbAccountConfigNotFound
-* **Descrição**: Configuração de cluster inválida. A configuração da conta WASB necessária não foi encontrada em contas externas.  
+* **Descrição**: configuração de cluster inválida. A configuração da conta WASB necessária não foi encontrada em contas externas.  
 * **Mitigação**: Verifique se a conta existe e se está corretamente especificada na configuração e repita a operação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Habilitar despejos de heap para serviços de Apache Hadoop no HDInsight baseado em Linux](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Manage HDInsight clusters by using the Apache Ambari Web UI](../hdinsight-hadoop-manage-ambari.md) (Gerir clusters do HDInsight através da IU da Web do Apache Ambari)

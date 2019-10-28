@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de Jira com o Azure Data Factory (pré-visualização) | Documentos da Microsoft
-description: Saiba como copiar dados de Jira para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
+title: Copiar dados do JIRA usando o Azure Data Factory | Microsoft Docs
+description: Saiba como copiar dados do JIRA para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,53 +10,50 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: c6cf30a8d4f750aa8e1c2b7531c4a604642e88b4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: c48533175d21475a1c42eddc9dc6123f8e4050fb
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092031"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935542"
 ---
-# <a name="copy-data-from-jira-using-azure-data-factory-preview"></a>Copiar dados de Jira com o Azure Data Factory (pré-visualização)
+# <a name="copy-data-from-jira-using-azure-data-factory"></a>Copiar dados do JIRA usando o Azure Data Factory
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados do Jira. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados do JIRA. Ele se baseia no artigo [visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
-> [!IMPORTANT]
-> Este conector está atualmente em pré-visualização. Pode experimentá-lo e envie-nos comentários. Se quiser realizar uma dependência em conectores de pré-visualização na sua solução, contacte o [Suporte do Azure](https://azure.microsoft.com/support/).
-
-## <a name="supported-capabilities"></a>Capacidades suportadas
+## <a name="supported-capabilities"></a>Recursos com suporte
 
 Este conector do JIRA tem suporte para as seguintes atividades:
 
 - [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
-Pode copiar dados de Jira para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Você pode copiar dados do JIRA para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como fontes/coletores pela atividade de cópia, consulte a tabela [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-O Azure Data Factory fornece um driver incorporado para permitir a conectividade, portanto não precisa de instalar manualmente a qualquer driver utilizar este conector.
+O Azure Data Factory fornece um driver interno para habilitar a conectividade, portanto, você não precisa instalar manualmente nenhum driver usando esse conector.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o conector do Jira.
+As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Data Factory entidades específicas ao conector do JIRA.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 
-As seguintes propriedades são suportadas para o serviço de Jira ligado:
+As propriedades a seguir têm suporte para o serviço vinculado do JIRA:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type deve ser definida como: **Jira** | Sim |
-| host | O nome ou endereço IP anfitrião do serviço Jira. (por exemplo, jira.example.com)  | Sim |
-| port | A porta TCP que o servidor de Jira utiliza para escutar ligações de cliente. O valor predefinido é 443 se ligar através de HTTPS ou 8080 se ligar através de HTTP.  | Não |
-| username | O nome de utilizador que utiliza para aceder ao serviço do Jira.  | Sim |
-| password | A palavra-passe correspondente ao nome do usuário fornecida no campo de nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é true.  | Não |
-| useHostVerification | Especifica se exige o nome de anfitrião no certificado do servidor de acordo com o nome de anfitrião do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
-| usePeerVerification | Especifica se pretende verificar a identidade do servidor ao ligar-se através de SSL. O valor predefinido é true.  | Não |
+| tipo | A propriedade Type deve ser definida como: **JIRA** | Sim |
+| hospedeira | O endereço IP ou nome do host do serviço JIRA. (por exemplo, jira.example.com)  | Sim |
+| porta | A porta TCP que o servidor JIRA usa para escutar conexões de cliente. O valor padrão é 443 se estiver se conectando por meio de HTTPS ou 8080 se estiver se conectando por meio de HTTP.  | Não |
+| o nome de utilizador | O nome de usuário que você usa para acessar o serviço JIRA.  | Sim |
+| palavra-passe | A senha correspondente ao nome de usuário que você forneceu no campo username. Marque este campo como uma SecureString para armazená-lo com segurança no Data Factory ou [faça referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| useEncryptedEndpoints | Especifica se os pontos de extremidade da fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não |
+| useHostVerification | Especifica se deve ser necessário o nome do host no certificado do servidor para corresponder ao nome do host do servidor ao se conectar via SSL. O valor padrão é true.  | Não |
+| usePeerVerification | Especifica se a identidade do servidor deve ser verificada ao se conectar via SSL. O valor padrão é true.  | Não |
 
 **Exemplo:**
 
@@ -78,16 +75,16 @@ As seguintes propriedades são suportadas para o serviço de Jira ligado:
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Propriedades de DataSet
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados do Jira.
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte pelo conjunto de JIRA.
 
-Para copiar dados do Jira, defina a propriedade de tipo de conjunto de dados para **JiraObject**. São suportadas as seguintes propriedades:
+Para copiar dados do JIRA, defina a propriedade Type do conjunto de dado como **JiraObject**. As propriedades a seguir têm suporte:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **JiraObject** | Sim |
-| tableName | Nome da tabela. | Não (se for especificada "query" na origem de atividade) |
+| tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **JiraObject** | Sim |
+| tableName | Nome da tabela. | Não (se "Query" na origem da atividade for especificada) |
 
 **Exemplo**
 
@@ -108,18 +105,18 @@ Para copiar dados do Jira, defina a propriedade de tipo de conjunto de dados par
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas por origem do Jira.
+Para obter uma lista completa de seções e propriedades disponíveis para definir atividades, consulte o artigo [pipelines](concepts-pipelines-activities.md) . Esta seção fornece uma lista das propriedades com suporte pela origem do JIRA.
 
-### <a name="jirasource-as-source"></a>JiraSource como origem
+### <a name="jirasource-as-source"></a>JiraSource como fonte
 
-Para copiar dados do Jira, defina o tipo de origem na atividade de cópia para **JiraSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados do JIRA, defina o tipo de origem na atividade de cópia como **JiraSource**. As propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **JiraSource** | Sim |
-| query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como: **JiraSource** | Sim |
+| consulta | Use a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "TableName" no DataSet for especificado) |
 
-**Example:**
+**Exemplo:**
 
 ```json
 "activities":[
@@ -156,4 +153,4 @@ Para copiar dados do Jira, defina o tipo de origem na atividade de cópia para *
 Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Azure Data Factory, consulte [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

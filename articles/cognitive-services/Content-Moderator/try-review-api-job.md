@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 4eded22d5f7a8f19f286f9e90185d695b4c28fc6
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 83ee8e0c0583cba72da8702e196f0f38128f8d8a
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755288"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935961"
 ---
 # <a name="define-and-use-moderation-jobs-rest"></a>Definir e usar trabalhos de moderação (REST)
 
@@ -28,7 +28,7 @@ Um trabalho de moderação serve como um tipo de wrapper para a funcionalidade d
 
 ## <a name="create-a-job"></a>Criar uma tarefa
 
-Para criar um trabalho de moderação, vá para a página [trabalho – criar](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) referência de API e selecione o botão para a região de chave (você pode encontrá-la na URL do ponto de extremidade na página **credenciais** da [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/)). Isso inicia o console de API, no qual você pode facilmente construir e executar chamadas à API REST.
+Para criar um trabalho de moderação, vá para a página [trabalho – criar](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) referência de API e selecione o botão para a sua região de assinatura (você pode encontrá-la na URL do ponto de extremidade na página **credenciais** da [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/)). Isso inicia o console de API, no qual você pode facilmente construir e executar chamadas à API REST.
 
 ![Trabalho – criar seleção de região de página](images/test-drive-job-1.png)
 

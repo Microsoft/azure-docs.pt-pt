@@ -1,6 +1,6 @@
 ---
-title: Cobertura de geocodificação do Azure Maps | Documentos da Microsoft
-description: Saiba mais sobre a cobertura de Geocodificação do Azure Maps
+title: Cobertura geocodificação no mapas do Azure | Microsoft Docs
+description: Saiba mais sobre a cobertura de geocodificação no Azure Maps
 author: walsehgal
 ms.author: v-musehg
 ms.date: 03/22/2019
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: a5e5f4ab286289e223a2fe10ff8cf45f43309f04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 44e9e7220594cc84c78e2f540cce8b595643ac56
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785947"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72927471"
 ---
-# <a name="azure-maps-geocoding-coverage"></a>Cobertura de geocodificação do Azure Maps
+# <a name="azure-maps-geocoding-coverage"></a>Cobertura de geocodificação do mapas do Azure
 
-Quando procurar uma localização com o Azure Maps, o serviço de pesquisa demora seus termos de pesquisa e devolve as coordenadas de latitude e longitude, um processo chamado geocodificação. No entanto, o Maps não tem o mesmo nível de informações e a precisão para todas as regiões e países. Utilize este artigo para determinar que tipo de localizações pode fiável Procurar em cada região. 
+Quando você procura um local com o Azure Maps, o serviço de pesquisa leva seus termos de pesquisa e retorna as coordenadas de latitude e longitude, um processo chamado geocodificação. No entanto, o Maps não tem o mesmo nível de informações e precisão para todas as regiões e países. Use este artigo para determinar que tipo de locais você pode Pesquisar de forma confiável em cada região. 
 
-A capacidade de geocode num país/região é dependente da cobertura de dados de estrada e a precisão da geocodificação do serviço de geocodificação. São utilizadas as seguintes categorizações especificar o nível de suporte de geocodificação em cada país/região.
-* **Pontos de endereços** -dados de endereços podem ser resolvidos para uma coordenadas de latitude/longitude dentro do parcel de endereço (limite de propriedade). Por vezes referido como "Rooftop' precisa. Este é o maior nível de precisão disponível para endereços. 
-* **Hospedar números** -endereços são interpolados para uma coordenada de latitude/longitude na rua.
-* **Nível de rua** -endereços são resolvidos para as coordenadas de latitude/longitude da rua que contém o endereço. O número de casa não pode ser processado.
-* **Nível de cidade** -são suportados nomes de locais de cidade.
+A capacidade de geocódigo em um país/região depende da cobertura de dados de estrada e da precisão de geocodificação do serviço de geocodificação. As categorizações a seguir são usadas, especifique o nível de suporte de geocodificação em cada país/região.
+* **Pontos de endereço** -os dados de endereços podem ser resolvidos para uma coordenada de latitude/longitude dentro da remessa de endereço (limite de propriedade). Às vezes, chamado de ' Rooftop ' preciso. Esse é o nível mais alto de precisão disponível para endereços. 
+* **Números de casa** -os endereços são interpolados a uma coordenada de latitude/longitude na rua.
+* **Nível de rua** -os endereços são resolvidos para a coordenada de latitude/longitude da rua que contém o endereço. O número da casa não pode ser processado.
+* **Nível de cidade** – os nomes de local de cidade têm suporte.
 
 ## <a name="americas"></a>Américas
 
@@ -31,7 +31,7 @@ A capacidade de geocode num país/região é dependente da cobertura de dados de
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Anguila                                            |                 |                |              |      ✓     |          ✓         |
 | Antártida                                          |                 |                |              |      ✓     |          ✓         |
-| Antigua And Barbuda                                 |                 |                |       ✓      |      ✓     |          ✓         |
+| Antígua e Barbuda                                 |                 |                |       ✓      |      ✓     |          ✓         |
 | Argentina                                           |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
 | Aruba                                               |                 |                |              |      ✓     |          ✓         |
 | Baamas                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -48,7 +48,7 @@ A capacidade de geocode num país/região é dependente da cobertura de dados de
 | Costa Rica                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Cuba                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Dominica                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Dominicana                                          |                 |                |       ✓      |      ✓     |          ✓         |
+| Dominicanaa                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Equador                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | El Salvador                                         |                 |                |       ✓      |      ✓     |          ✓         |
 | Ilhas Falkland (Malvinas)                                    |                 |                |              |      ✓     |          ✓         |
@@ -70,21 +70,21 @@ A capacidade de geocode num país/região é dependente da cobertura de dados de
 | Peru                                                |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Porto Rico                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | São Bartolomeu                                    |                 |                |       ✓      |      ✓     |          ✓         |
-| São Cristóvão e Neves                               |                 |                |       ✓      |      ✓     |          ✓         |
+| São Cristóvão e Névis                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Santa Lúcia                                         |                 |                |              |      ✓     |          ✓         |
-| São Martinho                                        |                 |                |       ✓      |      ✓     |          ✓         |
-| São Pedro e Miquelão                           |                 |                |       ✓      |      ✓     |          ✓         |
+| São Martin                                        |                 |                |       ✓      |      ✓     |          ✓         |
+| São Pedro e Miquelon                           |                 |                |       ✓      |      ✓     |          ✓         |
 | São Vicente e Granadinas                    |                 |                |              |      ✓     |          ✓         |
-| Sint Maarten                                        |                 |                |       ✓      |      ✓     |          ✓         |
+| Santo Maarten                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Ilhas Geórgia do Sul e Sandwich do Sul        |                 |                |              |      ✓     |          ✓         |
 | Suriname                                            |                 |                |              |      ✓     |          ✓         |
-| Trindade e Tobago                                 |                 |                |       ✓      |      ✓     |          ✓         |
+| Trinidad e Tobago                                 |                 |                |       ✓      |      ✓     |          ✓         |
 | Ilhas Menores Afastadas dos Estados Unidos                |                 |                |              |      ✓     |          ✓         |
 | Estados Unidos da América                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uruguai                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Ilhas Virgens Britânicas                              |                 |                |              |      ✓     |          ✓         |
-| As Ilhas Virgens                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Ilhas Virgens dos EUA                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 
 ## <a name="asia-pacific"></a>Ásia-Pacífico
 
@@ -98,13 +98,13 @@ A capacidade de geocode num país/região é dependente da cobertura de dados de
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Camboja                                            |                 |                |              |      ✓     |          ✓         |
 | China                                               |                 |                |              |      ✓     |          ✓         |
-| Ilha do Natal                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
-| Ilhas dos Cocos (Keeling)                             |                 |                |              |      ✓     |          ✓         |
-| Comores                                             |                 |                |              |      ✓     |          ✓         |
+| Ilha Christmas                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
+| Ilhas Cocos (Keeling)                             |                 |                |              |      ✓     |          ✓         |
+| Ilhas                                             |                 |                |              |      ✓     |          ✓         |
 | Ilhas Cook                                        |                 |                |              |      ✓     |          ✓         |
 | Fiji                                                |                  |                |              |      ✓     |          ✓        |
-| Polinésia Francesa                                    |                 |                |              |      ✓     |          ✓         |
-| Ilha Heard e das Ilhas McDonald                   |                 |                |              |      ✓     |          ✓         |
+| Polinésia francesa                                    |                 |                |              |      ✓     |          ✓         |
+| Ilha Heard e Ilhas McDonald                   |                 |                |              |      ✓     |          ✓         |
 | RAE de Hong Kong                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonésia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Índia                                               |        ✓        |        ✓       |       ✓      |      ✓     |                   |
@@ -112,13 +112,13 @@ A capacidade de geocode num país/região é dependente da cobertura de dados de
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Coreia                                         |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
-| RAE de Macau                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Rae de Macau                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malásia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Micronésia                                          |                 |                |              |      ✓     |          ✓         |
 | Mongólia                                            |                 |                |              |      ✓     |          ✓         |
 | Nauru                                               |                 |                |              |      ✓     |          ✓         |
 | Nepal                                               |                 |                |              |      ✓     |          ✓         |
-| Nova Caledónia                                       |                 |                |              |      ✓     |          ✓         |
+| Nova Caledônia                                       |                 |                |              |      ✓     |          ✓         |
 | Nova Zelândia                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Niue                                                |                 |                |              |      ✓     |          ✓         |
 | Ilha Norfolk                                      |                 |                |              |      ✓     |          ✓         |
@@ -127,15 +127,13 @@ A capacidade de geocode num país/região é dependente da cobertura de dados de
 | Paquistão                                            |                 |                |              |      ✓     |          ✓         |
 | Palau                                               |                 |                |              |      ✓     |          ✓         |
 | Papua-Nova Guiné                                    |                 |                |              |      ✓     |          ✓         |
-| Ilhas Paracel                                     |                 |                |              |      ✓     |                    |
 | Filipinas                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
 | Samoa                                               |                 |                |              |      ✓     |          ✓         |
-| Ilhas Senkaku/Diaoyutai                                     |        ✓        |                |              |      ✓     |          ✓         |
+| Ilhas Senkaku                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Singapura                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ilhas Salomão                                     |                 |                |              |      ✓     |          ✓         |
-| Territórios Austrais Kurils                                     |        ✓        |                |              |      ✓     |          ✓         |
-| Ilhas spratly                                     |                 |                |              |      ✓     |                    |
+| Curilas do Sul                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Sri Lanka                                           |                 |                |              |      ✓     |          ✓         |
 | Taiwan                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Tailândia                                            |        ✓        |                |       ✓      |      ✓     |          ✓         |
@@ -180,15 +178,15 @@ A capacidade de geocode num país/região é dependente da cobertura de dados de
 | Ilha de Man                                         |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Itália                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Jan Mayen                                           |        ✓        |                |              |      ✓     |          ✓         |
-| Jersey                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Camisas                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Cazaquistão                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Kosovo                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Quirguistão                                          |                 |                |              |      ✓     |          ✓         |
+| Quirguizistão                                          |                 |                |              |      ✓     |          ✓         |
 | Letónia                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Listenstaine                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Lituânia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Luxemburgo                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Macedónia do Norte                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Nordeste da Macedônia                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Moldova                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Mónaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -197,10 +195,10 @@ A capacidade de geocode num país/região é dependente da cobertura de dados de
 | Noruega                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Polónia                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Portugal                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| \+ Açores e Madeira                                 |                 |                |       ✓      |      ✓     |          ✓         |
+| \+ Açores e madeira                                 |                 |                |       ✓      |      ✓     |          ✓         |
 | Roménia                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Federação Russa                                  |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| San Marino                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| São Marinho                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Sérvia                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Eslováquia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Eslovénia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -213,7 +211,7 @@ A capacidade de geocode num país/região é dependente da cobertura de dados de
 | Turquemenistão                                        |                 |                |              |      ✓     |          ✓         |
 | Ucrânia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Reino Unido                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Uzbequistão                                          |                 |                |              |      ✓     |          ✓         |
+| Usbequistão                                          |                 |                |              |      ✓     |          ✓         |
 | Cidade do Vaticano                                        |                 |                |       ✓      |      ✓     |          ✓         |
 
 
@@ -224,7 +222,7 @@ A capacidade de geocode num país/região é dependente da cobertura de dados de
 | Afeganistão                                         |                 |                |              |      ✓     |          ✓         |
 | Argélia                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Angola                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Barém                                             |        ✓        |       ✓        |       ✓      |      ✓     |          ✓         |
+| Bahrain                                             |        ✓        |       ✓        |       ✓      |      ✓     |          ✓         |
 | Benim                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Botsuana                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Ilha Bouvet                                       |                 |                |              |      ✓     |          ✓         |
@@ -233,22 +231,22 @@ A capacidade de geocode num país/região é dependente da cobertura de dados de
 | Camarões                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Cabo Verde                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | República Centro-Africana                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Chade                                                |                 |                |       ✓      |      ✓     |          ✓         |
+| Chad                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Congo                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Costa do Marfim (Côte d’Ivoire)                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | República Democrática do Congo                    |                 |                |       ✓      |      ✓     |          ✓         |
-| Jibuti                                            |                 |                |       ✓      |      ✓     |          ✓         |
+| Djibuti                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Egito                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guiné Equatorial, República da                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Eritreia                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Etiópia                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Territórios Austrais Franceses|                        |                |              |      ✓     |          ✓         |
+| Territórios franceses do Sul|                        |                |              |      ✓     |          ✓         |
 | Gabão                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Gâmbia                                              |                 |                |              |      ✓     |          ✓         |
 | Gana                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Guiné                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Guiné-Bissau                                       |                 |                |       ✓      |      ✓     |          ✓         |
-| Irão                                                |                 |                |              |      ✓     |          ✓         |
+| Irã                                                |                 |                |              |      ✓     |          ✓         |
 | Iraque                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Israel                                              |        ✓        |       ✓        |              |      ✓     |          ✓         |
 | Jordânia                                              |        ✓        |       ✓        |       ✓      |      ✓     |          ✓         |
@@ -274,12 +272,12 @@ A capacidade de geocode num país/região é dependente da cobertura de dados de
 | Nigéria                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Omã                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Catar                                               |        ✓        |                |       ✓      |      ✓     |          ✓         |
-| Reunião                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Réunion                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ruanda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Santa Helena                                        |                 |                |              |      ✓     |          ✓         |
 | Arábia Saudita                                        |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Senegal                                             |                 |                |       ✓      |      ✓     |          ✓         |
-| Seicheles                                          |                 |                |       ✓      |      ✓     |          ✓         |
+| Seychelles                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Serra Leoa                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Somália                                             |                 |                |              |      ✓     |          ✓         |
 | África do Sul                                        |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -299,9 +297,9 @@ A capacidade de geocode num país/região é dependente da cobertura de dados de
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a geocodificação de mapas do Azure, consulte a [pesquisa](https://docs.microsoft.com/rest/api/maps/search) páginas de referência.
+Para obter mais informações sobre a geocodificação do Azure Maps, consulte as páginas de referência de [pesquisa](https://docs.microsoft.com/rest/api/maps/search) .
 
-Saiba mais sobre o [áreas de cobertura para os mapas de serviço de tráfego](traffic-coverage.md). 
+Saiba mais sobre as [áreas de cobertura para o serviço de tráfego de mapas](traffic-coverage.md). 
 

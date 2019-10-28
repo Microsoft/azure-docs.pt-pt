@@ -1,29 +1,23 @@
 ---
 title: Logs do IIS no Azure Monitor | Microsoft Docs
 description: O Serviços de Informações da Internet (IIS) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Azure Monitor.  Este artigo descreve como configurar a coleta de logs do IIS e detalhes dos registros que eles criam no Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: cc0fcbb2005ce2aaa70c9e1d2a9993d341169209
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.date: 11/28/2018
+ms.openlocfilehash: a865f43585ccbb31569e2ca0987aae62a89a9281
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814232"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932490"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Coletar logs do IIS no Azure Monitor
 O Serviços de Informações da Internet (IIS) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Azure Monitor e armazenados como [dados de log](data-platform.md).
 
-![Registos do IIS](media/data-sources-iis-logs/overview.png)
+![Registos IIS](media/data-sources-iis-logs/overview.png)
 
 ## <a name="configuring-iis-logs"></a>Configurando logs do IIS
 Azure Monitor coleta entradas de arquivos de log criados pelo IIS, portanto, você deve [Configurar o IIS para registro em log](https://technet.microsoft.com/library/hh831775.aspx).
@@ -42,7 +36,7 @@ Os registros de log do IIS têm um tipo de **W3CIISLog** e têm as propriedades 
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Computer |Nome do computador do qual o evento foi coletado. |
+| Computador |Nome do computador do qual o evento foi coletado. |
 | cIP |Endereço IP do cliente. |
 | csMethod |Método da solicitação, como GET ou POST. |
 | csReferer |Site do qual o usuário seguiu um link para o site atual. |
@@ -50,7 +44,7 @@ Os registros de log do IIS têm um tipo de **W3CIISLog** e têm as propriedades 
 | csUserName |Nome do usuário autenticado que acessou o servidor. Os usuários anônimos são indicados por um hífen. |
 | csUriStem |Destino da solicitação, como uma página da Web. |
 | csUriQuery |Consulta, se houver, que o cliente estava tentando executar. |
-| ManagementGroupName |Nome do grupo de gerenciamento para agentes de Operations Manager.  Para outros agentes, é AOI -\<ID da área de trabalho\> |
+| ManagementGroupName |Nome do grupo de gerenciamento para agentes de Operations Manager.  Para outros agentes, isso é AOI-\<ID do espaço de trabalho\> |
 | RemoteIPCountry |País/região do endereço IP do cliente. |
 | RemoteIPLatitude |Latitude do endereço IP do cliente. |
 | RemoteIPLongitude |Longitude do endereço IP do cliente. |
@@ -58,11 +52,11 @@ Os registros de log do IIS têm um tipo de **W3CIISLog** e têm as propriedades 
 | scSubStatus |Código de erro de substatus. |
 | scWin32Status |Código de status do Windows. |
 | sIP |Endereço IP do servidor Web. |
-| SourceSystem |OpsMgr |
+| SourceSystem |Mom |
 | Esporte |Porta no servidor ao qual o cliente se conectou. |
 | sSiteName |Nome do site do IIS. |
 | TimeGenerated |Data e hora em que a entrada foi registrada. |
-| TimeTaken |Período de tempo para processar a solicitação em milissegundos. |
+| timeTaken |Período de tempo para processar a solicitação em milissegundos. |
 
 ## <a name="log-queries-with-iis-logs"></a>Consultas de log com logs do IIS
 A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam registros de log do IIS.
@@ -72,9 +66,9 @@ A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam 
 | W3CIISLog |Todos os registros de log do IIS. |
 | W3CIISLog &#124; em que scStatus = = 500 |Todos os registros de log do IIS com um status de retorno de 500. |
 | Contagem &#124; de Resumo de W3CIISLog () por cIP |Contagem de entradas de log do IIS por endereço IP do cliente. |
-| W3CIISLog &#124; where csHost=="www\.contoso.com" &#124; summarize count() by csUriStem |Contagem de entradas de log do IIS por URL para o\.host www contoso.com. |
+| W3CIISLog &#124; em que csHost = = "www\.contoso.com &#124; " resumir contagem () por csUriStem |Contagem de entradas de log do IIS por URL para o host www\.contoso.com. |
 | W3CIISLog &#124; resumite Sum (csBytes) por &#124; computador, pegue 500000 |Total de bytes recebidos por cada computador do IIS. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Configure Azure Monitor para coletar outras [fontes de dados](agent-data-sources.md) para análise.
-* Saiba mais sobre [registar as consultas](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções.
+* Saiba mais sobre [consultas de log](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.

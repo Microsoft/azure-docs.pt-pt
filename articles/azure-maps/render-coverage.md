@@ -1,6 +1,6 @@
 ---
-title: Cobertura do Azure Maps de composição | Documentos da Microsoft
-description: Saiba mais sobre a cobertura de composição no Azure Maps
+title: Renderize a cobertura no Azure Maps | Microsoft Docs
+description: Saiba mais sobre a cobertura de renderização no Azure Maps
 author: jingjing-z
 ms.author: jinzh
 ms.date: 03/22/2019
@@ -8,31 +8,31 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 7feea92d48a826000fd8aa878b95658b79d6d908
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5affc9952cfe13ebfeede126051f2236499d1343
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869985"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934297"
 ---
-# <a name="azure-maps-render-coverage"></a>Cobertura de composição do Azure Maps
+# <a name="azure-maps-render-coverage"></a>Cobertura de renderização do Azure Maps
 
-Mapas do Azure utiliza quadrícula mosaicos e mosaicos em vetor, a criação de mapas. Em sua resolução menor, todo o mundo se encaixa num único mosaico. Em sua resolução mais elevada, um único mosaico representa 38 metros quadrados. Como aplicar zoom num mapa, por conseguinte, pode ver cada vez mais detalhes sobre continentes, regiões, cidades e ruas individuais. Para obter mais informações, consulte [níveis de Zoom e grelha de mosaico](zoom-levels-and-tile-grid.md).
+O Azure Maps usa blocos de rasterização e blocos de vetor para criar mapas. Em sua resolução mais baixa, o mundo inteiro se ajusta a um único bloco. Em sua resolução mais alta, um único bloco representa 38 metros quadrados. Ao ampliar um mapa, portanto, você pode ver cada vez mais detalhes sobre continentes, regiões, cidades e ruas individuais. Para obter mais informações, consulte [níveis de zoom e grade de blocos](zoom-levels-and-tile-grid.md).
 
-No entanto, o Maps não tem o mesmo nível de informações e a precisão em todas as regiões. As tabelas seguintes fornecem informações sobre o nível de detalhe composto que pode esperar de cada região.
+No entanto, o Maps não tem o mesmo nível de informações e precisão para todas as regiões. As tabelas a seguir fornecem informações sobre o nível de detalhes renderizados que você pode esperar de cada região.
 
 ## <a name="legend"></a>Legenda
 
 | Símbolo | Significado |
 |--------|---------|
-| ✓ | Região é representada com dados detalhados.   |
-| Ø | Região é representada com dados simplificada. |
+| ✓ | A região é representada com dados detalhados.   |
+| A partir do | A região é representada com dados simplificados. |
 
 
 ## <a name="africa"></a>África 
 
 
-| País/Região | Mosaicos de varredura unificados | Mosaicos em vetor unificados |
+| País/Região | Blocos de varredura unificados | Blocos de vetor unificados |
 | ------ | :------------------: | :------------------: |
 | Argélia                          | ✓ | ✓ |
 | Angola                           | ✓ | ✓ |
@@ -42,26 +42,26 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 | Burundi                          | ✓ | ✓ |
 | Cabo Verde                       | ✓ | ✓ |
 | Camarões                         | ✓ | ✓ |
-| República Centro-Africana         | ✓ | Ø |
-| Chade                             | ✓ | Ø |
-| Comores                          | ✓ | Ø |
+| República Centro-Africana         | ✓ | A partir do |
+| Chad                             | ✓ | A partir do |
+| Ilhas                          | ✓ | A partir do |
 | República Democrática do Congo | ✓ | ✓ |
-| Costa do Marfim (Côte d’Ivoire)                    | ✓ | Ø |
-| Jibuti                         | ✓ | Ø |
+| Costa do Marfim (Côte d’Ivoire)                    | ✓ | A partir do |
+| Djibuti                         | ✓ | A partir do |
 | Egito                            | ✓ | ✓ |
-| Guiné Equatorial                | ✓ | Ø |
-| Eritreia                          | ✓ | Ø |
-| Etiópia                         | ✓ | Ø |
+| Guiné Equatorial                | ✓ | A partir do |
+| Eritreia                          | ✓ | A partir do |
+| Etiópia                         | ✓ | A partir do |
 | Gabão                            | ✓ | ✓ |
-| Gâmbia                           | ✓ | Ø |
+| Gâmbia                           | ✓ | A partir do |
 | Gana                            | ✓ | ✓ |
-| Guiné                           | ✓ | Ø |
-| Guiné-Bissau                    | ✓ | Ø |
+| Guiné                           | ✓ | A partir do |
+| Guiné-Bissau                    | ✓ | A partir do |
 | Quénia                            | ✓ | ✓ |
 | Lesoto                          | ✓ | ✓ |
-| Libéria                          | ✓ | Ø |
-| Líbia                            | ✓ | Ø |
-| Madagáscar                       | ✓ | Ø |
+| Libéria                          | ✓ | A partir do |
+| Líbia                            | ✓ | A partir do |
+| Madagáscar                       | ✓ | A partir do |
 | Malawi                           | ✓ | ✓ |
 | Mali                             | ✓ | ✓ |
 | Mauritânia                       | ✓ | ✓ |
@@ -72,10 +72,10 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 | Namíbia                          | ✓ | ✓ |
 | Níger                            | ✓ | ✓ |
 | Nigéria                          | ✓ | ✓ |
-| Reunião                          | ✓ | ✓ |
+| Réunion                          | ✓ | ✓ |
 | Ruanda                           | ✓ | ✓ |
-| Santa Helena, Ascensão e Tristão da Cunha | ✓ | Ø |
-| São Tomé e Príncipe            | ✓ | Ø |
+| Santa Helena, ascensão e Tristão da Cunha | ✓ | A partir do |
+| São Tomé e Príncipe            | ✓ | A partir do |
 | Senegal                          | ✓ | ✓ |
 | Serra Leoa                     | ✓ | ✓ |
 | Somália                          | ✓ | ✓ |
@@ -83,7 +83,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 | Sudão do Sul                      | ✓ | ✓ |
 | Sudão                            | ✓ | ✓ |
 | Suazilândia                        | ✓ | ✓ |
-| Unidos República Unida da Tanzânia      | ✓ | ✓ |
+| República americana da Tanzânia      | ✓ | ✓ |
 | Togo                             | ✓ | ✓ |
 | Tunísia                          | ✓ | ✓ |
 | Uganda                           | ✓ | ✓ |
@@ -92,7 +92,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 
 ## <a name="americas"></a>Américas
 
-| País/Região | Mosaicos de varredura unificados | Mosaicos em vetor unificados |
+| País/Região | Blocos de varredura unificados | Blocos de vetor unificados |
 | ------ | :------------------: | :------------------: |
 | Anguila                  | ✓ | ✓ |
 | Antígua e Barbuda       | ✓ | ✓ |
@@ -115,9 +115,9 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 | Dominica                  | ✓ | ✓ |
 | República Dominicana        | ✓ | ✓ |
 | Equador                   | ✓ | ✓ |
-| Ilhas Falkland (Malvinas) | ✓ | ✓ |
+| Ilhas Malvinas (Malvinas) | ✓ | ✓ |
 | Guiana Francesa             | ✓ | ✓ |
-| Gronelândia                 | ✓ | Ø |
+| Gronelândia                 | ✓ | A partir do |
 | Granada                   | ✓ | ✓ |
 | Guadalupe                | ✓ | ✓ |
 | Guatemala                 | ✓ | ✓ |
@@ -134,17 +134,17 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 | Paraguai                  | ✓ | ✓ |
 | Peru                      | ✓ | ✓ |
 | Porto Rico               | ✓ | ✓ |
-| Quebeque (Canadá)           | ✓ | ✓ |
+| Quebec (Canadá)           | ✓ | ✓ |
 | São Bartolomeu          | ✓ | ✓ |
 | São Cristóvão e Neves     | ✓ | ✓ |
 | Santa Lúcia               | ✓ | ✓ |
-| São Martinho (francês)     | ✓ | ✓ |
-| São Pedro e Miquelão | ✓ | ✓ |
+| Saint Martin (francês)     | ✓ | ✓ |
+| São Pedro e Miquelon | ✓ | ✓ |
 | São Vicente e Granadinas | ✓ | ✓ |
-| Sint Maarten (Holandês)      | ✓ | ✓ |
+| Santo Maarten (Holandês)      | ✓ | ✓ |
 | Ilhas Geórgia do Sul e Sandwich do Sul | ✓ | ✓ |
 | Suriname                  | ✓ | ✓ |
-| Trindade e Tobago       | ✓ | ✓ |
+| Trinidad e Tobago       | ✓ | ✓ |
 | Ilhas Turcas e Caicos  | ✓ | ✓ |
 | Estados Unidos             | ✓ | ✓ |
 | Uruguai                   | ✓ | ✓ |
@@ -154,111 +154,110 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 
 ## <a name="asia"></a>Ásia 
 
-| País/Região | Mosaicos de varredura unificados | Mosaicos em vetor unificados |
+| País/Região | Blocos de varredura unificados | Blocos de vetor unificados |
 | ------ | :------------------: | :------------------: |
-| Afeganistão               |   | Ø |
-| Barém                   | ✓ | ✓ |
-| Bangladeche                |   | Ø |
-| Butão                    |   | Ø |
-| Território Britânico do Oceano Índico |   | Ø |
+| Afeganistão               |   | A partir do |
+| Bahrain                   | ✓ | ✓ |
+| Bangladeche                |   | A partir do |
+| Butão                    |   | A partir do |
+| Território Britânico do Oceano Índico |   | A partir do |
 | Brunei                    | ✓ | ✓ |
-| Camboja                  |   | Ø |
-| China                     |   | Ø |
-| Ilhas dos Cocos (Keeling)   |   | Ø |
-| República Democrática Popular da Coreia do Norte |   | Ø |
-| Takeshima       |   | Ø |
+| Camboja                  |   | A partir do |
+| China                     |   | A partir do |
+| Ilhas Cocos (Keeling)   |   | A partir do |
+| República Democrática Popular da Coreia do Norte |   | A partir do |
 | RAE de Hong Kong             | ✓ | ✓ |
-| Índia                     | Ø | ✓ | 
+| Índia                     | A partir do | ✓ | 
 | Indonésia                 | ✓ | ✓ |
-| Irão                      |   | Ø |
+| Irã                      |   | A partir do |
 | Iraque                      | ✓ | ✓ |
 | Israel                    |   | ✓ |
-| Japão                     |   | Ø |
+| Japão                     |   | A partir do |
 | Jordânia                    | ✓ | ✓ |
 | Cazaquistão                |   | ✓ |
 | Kuwait                    | ✓ | ✓ |
-| Quirguistão                |   | Ø |
-| República Democrática Popular do Laos |   | Ø |
+| Quirguizistão                |   | A partir do |
+| República Democrática Popular do Laos |   | A partir do |
 | Líbano                   | ✓ | ✓ |
-| RAE de Macau                 | ✓ | ✓ |
+| Rae de Macau                 | ✓ | ✓ |
 | Malásia                  | ✓ | ✓ |
-| Maldivas                  |   | Ø |
-| Mongólia                  |   | Ø |
-| Myanmar                   |   | Ø |
-| Nepal                     |   | Ø |
+| Maldivas                  |   | A partir do |
+| Mongólia                  |   | A partir do |
+| Myanmar                   |   | A partir do |
+| Nepal                     |   | A partir do |
 | Omã                      | ✓ | ✓ |
-| Paquistão                  |   | Ø |
+| Paquistão                  |   | A partir do |
 | Filipinas               | ✓ | ✓ |
 | Catar                     | ✓ | ✓ |
-| República da Coreia         | ✓ | Ø |
+| República da Coreia         | ✓ | A partir do |
 | Arábia Saudita              | ✓ | ✓ |
-| Ilhas Senkaku/Diaoyutai           |   | ✓ |
+| Ilhas Senkaku           |   | ✓ |
 | Singapura                 | ✓ | ✓|
-| Sri Lanka                 |   | Ø |
-| República Árabe Síria      |   | Ø |
+| Sri Lanka                 |   | A partir do |
+| República Árabe Síria      |   | A partir do |
 | Taiwan                    | ✓ | ✓ |
-| Tajiquistão                |   | Ø |
+| Tajiquistão                |   | A partir do |
 | Tailândia                  | ✓ | ✓ |
-| Timor-Leste               |   | Ø |
-| Turquemenistão              |   | Ø |
+| Timor-Timor Leste               |   | A partir do |
+| Turquemenistão              |   | A partir do |
 | Emirados Árabes Unidos      | ✓ | ✓ |
-| Ilhas Menores Afastadas dos Estados Unidos |   | Ø |
-| Uzbequistão                |   | Ø |
+| Ilhas Menores Afastadas dos Estados Unidos |   | A partir do |
+| Usbequistão                |   | A partir do |
 | Vietname                   | ✓ | ✓ |
 | Iémen                     | ✓ | ✓ |
 
-## <a name="oceania"></a>Oceânia
+## <a name="oceania"></a>Oceania
 
-| País/Região | Mosaicos de varredura unificados | Mosaicos em vetor unificados |
+| País/Região | Blocos de varredura unificados | Blocos de vetor unificados |
 | ------ | :------------------: | :------------------: |
 | Samoa Americana            |   | ✓ |
 | Austrália                 | ✓ | ✓ |
-| Ilhas Cook              |   | Ø |
-| Fiji                      |   | Ø |
-| Polinésia Francesa          |   | Ø |
+| Ilhas Cook              |   | A partir do |
+| Fiji                      |   | A partir do |
+| Polinésia francesa          |   | A partir do |
 | Guam                      | ✓ | ✓ |
-| Kiribati                  |   | Ø |
-| Ilhas Marshall          |   | Ø |
-| Micronésia                |   | Ø |
-| Nauru                     |   | Ø |
-| Nova Caledónia             |   | Ø |
+| Kiribati                  |   | A partir do |
+| Ilhas Marshall          |   | A partir do |
+| Micronésia                |   | A partir do |
+| Nauru                     |   | A partir do |
+| Nova Caledônia             |   | A partir do |
 | Nova Zelândia               | ✓ | ✓ |
-| Niue                      |   | Ø |
-| Ilha Norfolk            |   | Ø |
-| Palau                     |   | Ø |
-| Papua-Nova Guiné          |   | Ø |
-| Pitcairn                  |   | Ø |
-| Samoa                     |   | Ø |
-| Ilhas Salomão           |   | Ø|
-| Toquelau                   |   | Ø |
-| Tonga                     |   | Ø |
-| Tuvalu                    |   | Ø |
-| Vanuatu                   |   | Ø |
-| Wallis e Futuna         |   | Ø |
+| Niue                      |   | A partir do |
+| Ilha Norfolk            |   | A partir do |
+| Palau                     |   | A partir do |
+| Papua-Nova Guiné          |   | A partir do |
+| Pitcairn                  |   | A partir do |
+| Samoa                     |   | A partir do |
+| Ilhas Salomão           |   | A partir do|
+| Toquelau                   |   | A partir do |
+| Tonga                     |   | A partir do |
+| Tuvalu                    |   | A partir do |
+| Vanuatu                   |   | A partir do |
+| Wallis e Futuna         |   | A partir do |
 
 
 ## <a name="europe"></a>Europa
 
-| País/Região | Mosaicos de varredura unificados | Mosaicos em vetor unificados |
+| País/Região | Blocos de varredura unificados | Blocos de vetor unificados |
 | ------ | :------------------: | :------------------: |
 | Albânia                   | ✓ | ✓ |
 | Andorra                   | ✓ | ✓ |
-| Arménia                   | ✓ | Ø |
+| Arménia                   | ✓ | A partir do |
 | Áustria                   | ✓ | ✓ |
-| Azerbaijão                | ✓ | Ø |
-| Bielorrússia                   | Ø | ✓ |
+| Azerbaijão                | ✓ | A partir do |
+| Bielorrússia                   | A partir do | ✓ |
 | Bélgica                   | ✓ | ✓ |
-| Bosnia e Herzegovina        | ✓ | ✓ |
+| Bósnia-Herzegovina        | ✓ | ✓ |
 | Bulgária                  | ✓ | ✓ |
 | Croácia                   | ✓ | ✓ |
 | Chipre                    | ✓ | ✓ |
 | República Checa            | ✓ | ✓ |
 | Dinamarca                   | ✓ | ✓ |
 | Estónia                   | ✓ | ✓ |
-| Ilhas Faroé             | ✓ | Ø |
+| Ilhas Faroé             | ✓ | A partir do |
 | Finlândia                   | ✓ | ✓ |
 | França                    | ✓ | ✓ |
-| Geórgia                   | ✓ | Ø |
+| Geórgia                   | ✓ | A partir do |
 | Alemanha                   | ✓ | ✓ |
 | Gibraltar                 | ✓ | ✓ |
 | Grécia                    | ✓ | ✓ |
@@ -269,12 +268,12 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 | Ilha de Man               | ✓ | ✓ |
 | Itália                     | ✓ | ✓ |
 | Jan Mayen                 | ✓ | ✓ |
-| Jersey                    | ✓ | ✓ |
+| Camisas                    | ✓ | ✓ |
 | Letónia                    | ✓ | ✓ |
-| Liechtenstein             | ✓ | ✓ |
+| Listenstaine             | ✓ | ✓ |
 | Lituânia                 | ✓ | ✓ |
 | Luxemburgo                | ✓ | ✓ |
-| Macedónia do Norte           | ✓ | ✓ |
+| Nordeste da Macedônia           | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldova                   | ✓ | ✓ |
 | Mónaco                    | ✓ | ✓ |
@@ -285,11 +284,11 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 | Portugal                  | ✓ | ✓ |
 | Roménia                   | ✓ | ✓ |
 | Federação Russa        | ✓ | ✓ |
-| San Marino                | ✓ | ✓ |
+| São Marinho                | ✓ | ✓ |
 | Sérvia                    | ✓ | ✓ |
 | Eslováquia                  | ✓ | ✓ |
 | Eslovénia                  | ✓ | ✓ |
-| Territórios Austrais Kurils           | ✓ | ✓ |
+| Curilas do Sul           | ✓ | ✓ |
 | Espanha                     | ✓ | ✓ |
 | Svalbard                  | ✓ | ✓ |
 | Suécia                    | ✓ | ✓ |
@@ -299,8 +298,8 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 | Reino Unido            | ✓ | ✓ |
 | Cidade do Vaticano              | ✓ | ✓ |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a composição do Azure Maps, consulte [níveis de Zoom e grelha de mosaico](zoom-levels-and-tile-grid.md).
+Para obter mais informações sobre a renderização do Azure Maps, consulte [níveis de zoom e grade de blocos](zoom-levels-and-tile-grid.md).
 
-Saiba mais sobre o [áreas de cobertura para os mapas de serviço de encaminhamento](routing-coverage.md). 
+Saiba mais sobre as [áreas de cobertura para o serviço de roteamento de mapas](routing-coverage.md). 

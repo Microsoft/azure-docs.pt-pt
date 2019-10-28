@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de teste com o Azure Data Factory (pré-visualização) | Documentos da Microsoft
-description: Saiba como copiar dados de exploração para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
+title: Copiar dados do Drill usando Azure Data Factory | Microsoft Docs
+description: Saiba como copiar dados de análise para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,32 +10,29 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: e5a88b2ec46332e329c7c703a2f89e58b8323820
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: bdbb5742c74ff2b8871b00c7251af03ec8e026ad
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090394"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931128"
 ---
-# <a name="copy-data-from-drill-using-azure-data-factory-preview"></a>Copiar dados de teste com o Azure Data Factory (pré-visualização)
+# <a name="copy-data-from-drill-using-azure-data-factory"></a>Copiar dados do Drill usando Azure Data Factory
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de teste. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados do Drill. Ele se baseia no artigo [visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
-> [!IMPORTANT]
-> Este conector está atualmente em pré-visualização. Pode experimentá-lo e envie-nos comentários. Se quiser realizar uma dependência em conectores de pré-visualização na sua solução, contacte o [Suporte do Azure](https://azure.microsoft.com/support/).
-
-## <a name="supported-capabilities"></a>Capacidades suportadas
+## <a name="supported-capabilities"></a>Recursos com suporte
 
 Este conector de análise tem suporte para as seguintes atividades:
 
 - [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
-Pode copiar dados de exploração de qualquer arquivo de dados sink suportado. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Você pode copiar dados do Drill para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como fontes/coletores pela atividade de cópia, consulte a tabela [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-O Azure Data Factory fornece um driver incorporado para permitir a conectividade, portanto não precisa de instalar manualmente a qualquer driver utilizar este conector.
+O Azure Data Factory fornece um driver interno para habilitar a conectividade, portanto, você não precisa instalar manualmente nenhum driver usando esse conector.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,19 +42,19 @@ O Azure Data Factory fornece um driver incorporado para permitir a conectividade
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o conector de exploração.
+As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Data Factory entidades específicas ao conector de análise.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 
-As seguintes propriedades são suportadas para o serviço de exploração ligado:
+As propriedades a seguir têm suporte para o serviço de análise detalhada:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type deve ser definida como: **Análise** | Sim |
-| connectionString | Uma cadeia de ligação de ODBC para ligar a desagregação. <br/>Marque este campo como uma SecureString para armazená-lo com segurança em Data Factory. Você também pode colocar a senha em Azure Key Vault e efetuar pull da `pwd` configuração da cadeia de conexão. Consulte os exemplos a seguir e [armazene as credenciais no artigo Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
+| tipo | A propriedade Type deve ser definida como: **Drill** | Sim |
+| connectionString | Uma cadeia de conexão ODBC para se conectar ao Drill. <br/>Marque este campo como uma SecureString para armazená-lo com segurança em Data Factory. Você também pode colocar a senha em Azure Key Vault e extrair a configuração de `pwd` da cadeia de conexão. Consulte os exemplos a seguir e [armazene as credenciais no artigo Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usará o Azure Integration Runtime padrão. |Não |
 
-**Example:**
+**Exemplo:**
 
 ```json
 {
@@ -108,18 +105,18 @@ As seguintes propriedades são suportadas para o serviço de exploração ligado
 ```
 
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Propriedades de DataSet
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados de teste.
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte pelo conjunto de detalhes de análise.
 
-Para copiar dados de teste, definir a propriedade de tipo de conjunto de dados para **DrillTable**. São suportadas as seguintes propriedades:
+Para copiar dados do Drill, defina a propriedade Type do conjunto de dado como **drilltable**. As propriedades a seguir têm suporte:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **DrillTable** | Sim |
-| schema | Nome do esquema. |Não (se for especificada "query" na origem de atividade)  |
-| table | Nome da tabela. |Não (se for especificada "query" na origem de atividade)  |
-| tableName | Nome da tabela com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Use `schema` e`table` para uma nova carga de trabalho. | Não (se for especificada "query" na origem de atividade) |
+| tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **drilltable** | Sim |
+| Esquema | Nome do esquema. |Não (se "Query" na origem da atividade for especificada)  |
+| Tabela | Nome da tabela. |Não (se "Query" na origem da atividade for especificada)  |
+| tableName | Nome da tabela com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Use `schema` e `table` para uma nova carga de trabalho. | Não (se "Query" na origem da atividade for especificada) |
 
 **Exemplo**
 
@@ -140,18 +137,18 @@ Para copiar dados de teste, definir a propriedade de tipo de conjunto de dados p
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas pela origem de exploração.
+Para obter uma lista completa de seções e propriedades disponíveis para definir atividades, consulte o artigo [pipelines](concepts-pipelines-activities.md) . Esta seção fornece uma lista das propriedades com suporte pela origem do Drill.
 
-### <a name="drillsource-as-source"></a>DrillSource como origem
+### <a name="drillsource-as-source"></a>Aprofunde-se como fonte
 
-Para copiar dados de teste, definir o tipo de origem na atividade de cópia para **DrillSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados do Drill, defina o tipo de origem na atividade de cópia como **drillname**. As propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **DrillSource** | Sim |
-| query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como: **drillname** | Sim |
+| consulta | Use a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "TableName" no DataSet for especificado) |
 
-**Example:**
+**Exemplo:**
 
 ```json
 "activities":[
@@ -188,4 +185,4 @@ Para copiar dados de teste, definir o tipo de origem na atividade de cópia para
 Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Azure Data Factory, consulte [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

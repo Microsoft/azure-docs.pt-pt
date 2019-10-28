@@ -1,171 +1,165 @@
 ---
-title: Recolher o desempenho de aplicações do Linux no Azure Monitor | Documentos da Microsoft
-description: Este artigo fornece detalhes para configurar o agente do Log Analytics para Linux recolher contadores de desempenho para o MySQL e Apache HTTP Server.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
-ms.service: log-analytics
+title: Coletar desempenho do aplicativo Linux no Azure Monitor | Microsoft Docs
+description: Este artigo fornece detalhes sobre como configurar o agente de Log Analytics para Linux para coletar contadores de desempenho para MySQL e Apache HTTP Server.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/04/2017
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: ea74440a5c8a9a2584e742ec72ccf888b6bb5ad9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 05/04/2017
+ms.openlocfilehash: 60f09035f4aabcbd6348fb5608b812ca4b001b45
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60628919"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932459"
 ---
-# <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Recolher contadores de desempenho de aplicações do Linux no Azure Monitor 
+# <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Coletar contadores de desempenho para aplicativos do Linux no Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-Este artigo fornece detalhes para configurar o [agente do Log Analytics para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) recolher contadores de desempenho de aplicações específicas para o Azure Monitor.  Os aplicativos incluídos neste artigo são:  
+Este artigo fornece detalhes sobre como configurar o [agente de log Analytics para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) para coletar contadores de desempenho para aplicativos específicos no Azure monitor.  Os aplicativos incluídos neste artigo são:  
 
 - [MySQL](#mysql)
-- [Apache HTTP Server](#apache-http-server)
+- [Servidor HTTP Apache](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
-Se o servidor MySQL ou servidor MariaDB é detetado no computador quando é instalado o agente Log Analytics, um fornecedor para o servidor MySQL de monitorização de desempenho será instalado automaticamente. Este fornecedor estabelece ligação ao servidor MySQL/MariaDB local para expor as estatísticas de desempenho. As credenciais de utilizador MySQL tem de ser configuradas para que o fornecedor possam acessar o servidor MySQL.
+Se o servidor MySQL ou o servidor MariaDB for detectado no computador quando o agente de Log Analytics estiver instalado, um provedor de monitoramento de desempenho para o servidor MySQL será instalado automaticamente. Esse provedor se conecta ao servidor MySQL/MariaDB local para expor as estatísticas de desempenho. As credenciais de usuário do MySQL devem ser configuradas para que o provedor possa acessar o servidor MySQL.
 
-### <a name="configure-mysql-credentials"></a>Configurar as credenciais do MySQL
-O fornecedor de MySQL OMI exige que o usuário MySQL pré-configurado e instalado bibliotecas de cliente do MySQL para consultar o desempenho e informações de estado de funcionamento da instância do MySQL.  Estas credenciais são armazenadas num arquivo de autenticação que é armazenado no agente Linux.  O ficheiro de autenticação especifica o endereço de enlace e a porta a instância do MySQL está a escutar e quais as credenciais a utilizar para reunir as métricas.  
+### <a name="configure-mysql-credentials"></a>Configurar credenciais do MySQL
+O provedor de OMI do MySQL requer um usuário do MySQL pré-configurado e as bibliotecas de cliente do MySQL instaladas para consultar as informações de desempenho e integridade da instância do MySQL.  Essas credenciais são armazenadas em um arquivo de autenticação armazenado no agente do Linux.  O arquivo de autenticação especifica qual endereço de ligação e porta a instância do MySQL está escutando e quais credenciais usar para coletar métricas.  
 
-Durante a instalação do agente do Log Analytics para Linux o OMI MySQL fornecedor irá analisar MySQL cnf de ficheiros de configuração (localizações predefinidas) para o endereço de enlace e a porta e parcialmente definir o ficheiro de autenticação do MySQL OMI.
+Durante a instalação do agente de Log Analytics para Linux, o provedor de OMI do MySQL examinará os arquivos de configuração do MySQL My. cnf (locais padrão) para o endereço de ligação e a porta e definirá parcialmente o arquivo de autenticação do OMI do MySQL.
 
-O ficheiro de autenticação do MySQL é armazenado em `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
+O arquivo de autenticação do MySQL é armazenado em `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
 
 
-### <a name="authentication-file-format"></a>Formato de ficheiro de autenticação
-Segue-se o formato do ficheiro de autenticação do MySQL OMI
+### <a name="authentication-file-format"></a>Formato do arquivo de autenticação
+Este é o formato para o arquivo de autenticação OMI do MySQL
 
     [Port]=[Bind-Address], [username], [Base64 encoded Password]
     (Port)=(Bind-Address), (username), (Base64 encoded Password)
     (Port)=(Bind-Address), (username), (Base64 encoded Password)
     AutoUpdate=[true|false]
 
-As entradas no ficheiro de autenticação estão descritas na tabela seguinte.
+As entradas no arquivo de autenticação são descritas na tabela a seguir.
 
 | Propriedade | Descrição |
 |:--|:--|
-| Port | Representa a porta atual que está a escutar a instância do MySQL. Porta 0 Especifica que as propriedades seguintes são utilizadas para a instância predefinida. |
-| Endereço de enlace| Endereço-atual MySQL bind. |
-| username| Utilizador MySQL utilizado para utilizar para monitorizar a instância do servidor MySQL. |
-| Palavra-passe de codificada em Base64| Palavra-passe do utilizador de monitorização MySQL codificado em Base64. |
-| AutoUpdate| Especifica se pretende reanalisar para alterações no arquivo cnf e substituir o ficheiro de autenticação do MySQL OMI quando o fornecedor do MySQL OMI é atualizado. |
+| Porta | Representa a porta atual na qual a instância do MySQL está escutando. A porta 0 especifica que as propriedades a seguir são usadas para a instância padrão. |
+| Endereço de associação| Endereço de associação do MySQL atual. |
+| o nome de utilizador| Usuário do MySQL usado para monitorar a instância do MySQL Server. |
+| Senha codificada em base64| Senha do usuário de monitoramento do MySQL codificada em base64. |
+| AutoUpdate| Especifica se é para examinar novamente as alterações no arquivo My. cnf e substituir o arquivo de autenticação OMI do MySQL quando o provedor de OMI do MySQL for atualizado. |
 
-### <a name="default-instance"></a>Instância predefinida
-O ficheiro de autenticação do MySQL OMI pode definir um número de instância e a porta predefinida para facilitar o gerenciamento de várias instâncias de MySQL num anfitrião Linux mais fácil.  A instância predefinida está em falta por uma instância com a porta 0. Todas as instâncias adicionais herdará as propriedades definidas na instância predefinida, a menos que especificam valores diferentes. Por exemplo, se for adicionada a instância do MySQL à escuta na porta '3308', endereço de enlace a instância predefinida, nome de utilizador e palavra-passe de codificada em Base64 serão utilizados para experimentar e monitorizar a instância que ouça 3308. Se a instância no 3308 está vinculada a outro endereço e utiliza o mesmo par de nome de utilizador e palavra-passe de MySQL não é necessário apenas o enlace de endereço e as outras propriedades serão herdadas.
+### <a name="default-instance"></a>Instância padrão
+O arquivo de autenticação OMI do MySQL pode definir uma instância padrão e um número da porta para facilitar o gerenciamento de várias instâncias do MySQL em um host Linux.  A instância padrão é denotada por uma instância com a porta 0. Todas as instâncias adicionais herdarão as propriedades definidas da instância padrão, a menos que especifiquem valores diferentes. Por exemplo, se a instância do MySQL ouvindo na porta ' 3308 ' for adicionada, o endereço de ligação, o nome de usuário e a senha codificada em base64 da instância padrão serão usados para tentar monitorar a instância escutando em 3308. Se a instância em 3308 estiver associada a outro endereço e usar o mesmo nome de usuário e senha do MySQL, somente o endereço de ligação será necessário e as outras propriedades serão herdadas.
 
-A tabela seguinte inclui as definições de instância de exemplo 
+A tabela a seguir tem configurações de instância de exemplo 
 
-| Descrição | Ficheiro |
+| Descrição | Ficheiros |
 |:--|:--|
-| Instância predefinida e instância com a porta 3308. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=, ,`<br>`AutoUpdate=true` |
-| Instância predefinida e instância com porta 3308 e outro nome de utilizador e palavra-passe. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=127.0.1.1, myuser2,cGluaGVhZA==`<br>`AutoUpdate=true` |
+| Instância padrão e instância com a porta 3308. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=, ,`<br>`AutoUpdate=true` |
+| Instância padrão e instância com a porta 3308 e nome de usuário e senha diferentes. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=127.0.1.1, myuser2,cGluaGVhZA==`<br>`AutoUpdate=true` |
 
 
-### <a name="mysql-omi-authentication-file-program"></a>Programa de ficheiro de autenticação do MySQL OMI
-Incluído com a instalação do fornecedor MySQL OMI é um programa de ficheiro de autenticação de MySQL OMI que pode ser usado para editar o ficheiro de autenticação do MySQL OMI. O programa de ficheiro de autenticação pode ser encontrado na seguinte localização.
+### <a name="mysql-omi-authentication-file-program"></a>Programa de arquivo de autenticação do MySQL OMI
+Incluído na instalação do provedor de OMI do MySQL está um programa de arquivo de autenticação do MySQL OMI que pode ser usado para editar o arquivo de autenticação OMI do MySQL. O programa de arquivo de autenticação pode ser encontrado no local a seguir.
 
     /opt/microsoft/mysql-cimprov/bin/mycimprovauth
 
 > [!NOTE]
-> O ficheiro de credenciais tem de ser legível pela conta omsagent. Executar o comando de mycimprovauth como omsgent é recomendado.
+> O arquivo de credenciais deve ser legível pela conta omsagent. É recomendável executar o comando mycimprovauth como omsgent.
 
-A tabela seguinte fornece detalhes sobre a sintaxe para a utilização de mycimprovauth.
+A tabela a seguir fornece detalhes sobre a sintaxe para usar o mycimprovauth.
 
 | Operação | Exemplo | Descrição
 |:--|:--|:--|
-| AutoUpdate *falsa ou verdadeira* | mycimprovauth autoupdate false | Define o ficheiro de autenticação ou não será atualizado automaticamente no reiniciar ou atualizar. |
-| predefinição *palavra-passe do endereço de enlace de nome de utilizador* | mycimprovauth padrão 127.0.0.1 raiz pwd | Define a instância predefinida no OMI MySQL de ficheiro de autenticação.<br>O campo de palavra-passe deve ser introduzido no texto sem formatação – a palavra-passe no ficheiro de autenticação de OMI do MySQL estará Base 64 codificada. |
-| eliminar *predefinido ou port_num* | mycimprovauth 3308 | Elimina a instância especificada por qualquer um dos padrão ou por número de porta. |
-| Obter ajuda | ajuda de mycimprov | Mostra uma lista de comandos a utilizar. |
-| Impressão | mycimprov impressão | Mostra uma fácil ler MySQL OMI o ficheiro de autenticação. |
-| Atualizar port_num *palavra-passe do endereço de enlace de nome de utilizador* | mycimprov atualização 3307 127.0.0.1 raiz pwd | Atualiza a instância especificada ou adiciona a instância, se não existir. |
+| atualização automática *falsa ou verdadeira* | mycimprovauth AutoUpdate false | Define se o arquivo de autenticação será atualizado ou não automaticamente na reinicialização ou atualização. |
+| *senha de nome de usuário do endereço de ligação* padrão | mycimprovauth padrão 127.0.0.1 root pwd | Define a instância padrão no arquivo de autenticação OMI do MySQL.<br>O campo de senha deve ser inserido em texto sem formatação-a senha no arquivo de autenticação OMI do MySQL será codificada em base 64. |
+| excluir *padrão ou port_num* | mycimprovauth 3308 | Exclui a instância especificada por padrão ou por número de porta. |
+| Ajuda | ajuda do mycimprov | Imprime uma lista de comandos a serem usados. |
+| Imprimir | mycimprov imprimir | Imprime um arquivo de autenticação de OMI do MySQL fácil de ler. |
+| atualizar *a senha do nome de usuário do endereço de ligação* do port_num | atualização do mycimprov 3307 127.0.0.1 raiz pwd | Atualiza a instância especificada ou adiciona a instância, caso ela não exista. |
 
-Os comandos de exemplo seguintes definem uma conta de usuário padrão para o servidor MySQL no localhost.  O campo de palavra-passe deve ser introduzido no texto sem formatação – a palavra-passe no ficheiro de autenticação de OMI do MySQL estará Base 64 codificada
+Os comandos de exemplo a seguir definem uma conta de usuário padrão para o servidor MySQL no localhost.  O campo de senha deve ser inserido em texto sem formatação-a senha no arquivo de autenticação OMI do MySQL será codificada em base 64
 
     sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
     sudo /opt/omi/bin/service_control restart
 
-### <a name="database-permissions-required-for-mysql-performance-counters"></a>Permissões de base de dados necessárias para contadores de desempenho do MySQL
-O utilizador MySQL necessita de acesso para as consultas seguintes para recolher dados de desempenho do servidor MySQL. 
+### <a name="database-permissions-required-for-mysql-performance-counters"></a>Permissões de banco de dados necessárias para contadores de desempenho do MySQL
+O usuário do MySQL requer acesso às consultas a seguir para coletar dados de desempenho do servidor MySQL. 
 
     SHOW GLOBAL STATUS;
     SHOW GLOBAL VARIABLES:
 
 
-O utilizador MySQL também requer acesso SELECT para as seguintes tabelas de predefinição.
+O usuário do MySQL também requer acesso de seleção às tabelas padrão a seguir.
 
 - information_schema
-- mysql. 
+- MySQL. 
 
-Esses privilégios podem ser concedidos ao executar os seguintes comandos de concessão.
+Esses privilégios podem ser concedidos executando os seguintes comandos Grant.
 
     GRANT SELECT ON information_schema.* TO ‘monuser’@’localhost’;
     GRANT SELECT ON mysql.* TO ‘monuser’@’localhost’;
 
 
 > [!NOTE]
-> Para conceder permissões a um MySQL utilizador monitorização, o utilizador conceder tem de ter o privilégio "GRANT opção", bem como o privilégio de ser concedido.
+> Para conceder permissões a um usuário de monitoramento do MySQL, o usuário de concessão deve ter o privilégio ' GRANT OPTION ', bem como o privilégio que está sendo concedido.
 
 ### <a name="define-performance-counters"></a>Definir contadores de desempenho
 
-Depois de configurar o agente do Log Analytics para Linux enviar dados para o Azure Monitor, tem de configurar os contadores de desempenho a recolher.  Utilize o procedimento [Windows e Linux origens de dados de desempenho no Azure Monitor](data-sources-performance-counters.md) com os contadores na tabela seguinte.
+Depois de configurar o agente de Log Analytics para Linux para enviar dados para Azure Monitor, você deve configurar os contadores de desempenho a serem coletados.  Use o procedimento em [fontes de dados de desempenho do Windows e do Linux no Azure monitor](data-sources-performance-counters.md) com os contadores na tabela a seguir.
 
 | Nome do objeto | Nome do contador |
 |:--|:--|
-| Base de Dados MySQL | Espaço em disco, em Bytes |
+| Base de Dados MySQL | Espaço em disco em bytes |
 | Base de Dados MySQL | Tabelas |
-| Servidor MySQL | Ligação abortadas Pct |
-| Servidor MySQL | Porcentagem de utilização da ligação |
-| Servidor MySQL | Utilização de espaço em disco em Bytes |
-| Servidor MySQL | Pct de análise de tabela completa |
-| Servidor MySQL | Conjunto de memória intermédia de InnoDB pressionar Pct |
-| Servidor MySQL | Pct de utilização de conjunto de memória intermédia de InnoDB |
-| Servidor MySQL | Pct de utilização de conjunto de memória intermédia de InnoDB |
-| Servidor MySQL | Pct de acerto na Cache de chave |
-| Servidor MySQL | Porcentagem de utilização da Cache de chave |
-| Servidor MySQL | Porcentagem de escrita da Cache de chave |
-| Servidor MySQL | Porcentagem de acertos de Cache da consulta |
-| Servidor MySQL | Porcentagem de Prunes da Cache de consulta |
-| Servidor MySQL | Porcentagem de utilização da Cache de consulta |
-| Servidor MySQL | Pct de acerto na Cache de tabela |
-| Servidor MySQL | Porcentagem de utilização da Cache de tabela |
-| Servidor MySQL | Pct de contenção de bloqueio de tabela |
+| Servidor MySQL | Porcentagem de conexão anulada |
+| Servidor MySQL | PCT de uso de conexão |
+| Servidor MySQL | Uso de espaço em disco em bytes |
+| Servidor MySQL | PCT de verificação de tabela completa |
+| Servidor MySQL | Percentual de ocorrência do pool de buffers InnoDB |
+| Servidor MySQL | % De uso do pool de buffers InnoDB |
+| Servidor MySQL | % De uso do pool de buffers InnoDB |
+| Servidor MySQL | PCT de ocorrência de cache de chave |
+| Servidor MySQL | PCT de uso do cache de chaves |
+| Servidor MySQL | PCT de gravação do cache de chaves |
+| Servidor MySQL | PCT de ocorrência do cache de consulta |
+| Servidor MySQL | PCT de removidas de cache de consulta |
+| Servidor MySQL | PCT de uso do cache de consulta |
+| Servidor MySQL | PCT de ocorrência do cache de tabela |
+| Servidor MySQL | PCT de uso de cache de tabela |
+| Servidor MySQL | PCT de contenção de bloqueio de tabela |
 
-## <a name="apache-http-server"></a>Apache HTTP Server 
-Apache HTTP Server seja detetada no computador quando o pacote de omsagent é instalado, o fornecedor para Apache HTTP Server da monitorização de desempenho será instalado automaticamente. Este fornecedor se baseia num módulo de Apache que tem de ser carregado no Apache HTTP Server para aceder aos dados de desempenho. O módulo pode ser carregado com o seguinte comando:
+## <a name="apache-http-server"></a>Servidor HTTP Apache 
+Se o Apache HTTP Server for detectado no computador quando o pacote omsagent estiver instalado, um provedor de monitoramento de desempenho para o Apache HTTP Server será instalado automaticamente. Esse provedor se baseia em um módulo do Apache que deve ser carregado no servidor HTTP do Apache para acessar dados de desempenho. O módulo pode ser carregado com o seguinte comando:
 ```
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -c
 ```
 
-Descarregar o módulo de monitorização do Apache, execute o seguinte comando:
+Para descarregar o módulo de monitoramento do Apache, execute o seguinte comando:
 ```
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 ```
 
 ### <a name="define-performance-counters"></a>Definir contadores de desempenho
 
-Depois de configurar o agente do Log Analytics para Linux enviar dados para o Azure Monitor, tem de configurar os contadores de desempenho a recolher.  Utilize o procedimento [Windows e Linux origens de dados de desempenho no Azure Monitor](data-sources-performance-counters.md) com os contadores na tabela seguinte.
+Depois de configurar o agente de Log Analytics para Linux para enviar dados para Azure Monitor, você deve configurar os contadores de desempenho a serem coletados.  Use o procedimento em [fontes de dados de desempenho do Windows e do Linux no Azure monitor](data-sources-performance-counters.md) com os contadores na tabela a seguir.
 
 | Nome do objeto | Nome do contador |
 |:--|:--|
-| Apache HTTP Server | Operadores de ocupado |
-| Apache HTTP Server | Funções de trabalho ociosas |
-| Apache HTTP Server | Operadores de ocupado PCT |
-| Apache HTTP Server | Pct total da CPU |
-| Apache Virtual Host | Erros por minuto - cliente |
-| Apache Virtual Host | Erros por minuto - servidor |
-| Apache Virtual Host | KB por solicitação |
-| Apache Virtual Host | Pedidos KB por segundo |
-| Apache Virtual Host | Pedidos por segundo |
+| Servidor HTTP Apache | Trabalhadores ocupados |
+| Servidor HTTP Apache | Trabalhos ociosos |
+| Servidor HTTP Apache | Porcentagem de trabalhadores ocupados |
+| Servidor HTTP Apache | Percentual total de CPU |
+| Host virtual Apache | Erros por minuto – cliente |
+| Host virtual Apache | Erros por minuto-servidor |
+| Host virtual Apache | KB por solicitação |
+| Host virtual Apache | Solicitações em KB por segundo |
+| Host virtual Apache | Solicitações por segundo |
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Recolher contadores de desempenho](data-sources-performance-counters.md) agentes de Linux.
-* Saiba mais sobre [registar as consultas](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
+## <a name="next-steps"></a>Passos seguintes
+* [Coletar contadores de desempenho](data-sources-performance-counters.md) de agentes do Linux.
+* Saiba mais sobre [consultas de log](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções. 

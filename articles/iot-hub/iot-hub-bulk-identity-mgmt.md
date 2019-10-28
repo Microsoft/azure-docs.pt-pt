@@ -1,6 +1,6 @@
 ---
-title: Importar a exportação de identidades de dispositivos do IoT Hub do Azure | Documentos da Microsoft
-description: Como utilizar o SDK do serviço IoT do Azure para realizar operações em massa em relação de registo de identidade para importar e Exportar identidades do dispositivo. Operações de importação permitem-lhe criar, atualizar e eliminar as identidades de dispositivos em massa.
+title: Importar exportação de identidades de dispositivo do Hub IoT do Azure | Microsoft Docs
+description: Como usar o SDK do serviço IoT do Azure para executar operações em massa no registro de identidade para importar e exportar identidades de dispositivo. As operações de importação permitem criar, atualizar e excluir identidades de dispositivo em massa.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,37 +8,37 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/11/2019
 ms.author: robinsh
-ms.openlocfilehash: 5dd93af7deec2b0c8c90f6a8586de905207ad0a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32c7a2a79c8d6a35008255b3c117f20d04ad7749
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796367"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72927407"
 ---
-# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importar e Exportar identidades de dispositivos do IoT Hub em massa
+# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importar e exportar identidades de dispositivo do Hub IoT em massa
 
-Cada hub IoT tem um registo de identidades, que pode usar para criar recursos por dispositivo no serviço. Também o registo de identidade permite-lhe controlar o acesso aos pontos finais do dispositivo com acesso à. Este artigo descreve como importar e Exportar identidades de dispositivos em massa de e para um registo de identidades.
+Cada Hub IoT tem um registro de identidade que você pode usar para criar recursos por dispositivo no serviço. O registro de identidade também permite que você controle o acesso aos pontos de extremidade voltados para o dispositivo. Este artigo descreve como importar e exportar identidades de dispositivo em massa de e para um registro de identidade.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Operações de importação e exportação ocorrem no contexto do *tarefas* que permitem que execute operações de serviço em massa em relação a um hub IoT.
+As operações de importação e exportação ocorrem no contexto de *trabalhos* que permitem que você execute operações de serviço em massa em um hub IOT.
 
-O **RegistryManager** classe inclui o **ExportDevicesAsync** e **ImportDevicesAsync** métodos que utilizam o **tarefa** framework. Esses métodos permitem-lhe exportar, importar e sincronizar a totalidade de um registo de identidades do hub IoT.
+A classe **registrymanager** inclui os métodos **ExportDevicesAsync** e **ImportDevicesAsync** que usam a estrutura de **trabalho** . Esses métodos permitem exportar, importar e sincronizar todo o registro de identidade do Hub IoT.
 
-Este tópico aborda o uso da **RegistryManager** classe e **tarefa** sistema para executar em massa importações e exportações de dispositivos de e para o registo de identidade de um hub IoT. Também pode utilizar o serviço de aprovisionamento de dispositivos do Azure IoT Hub para ativar o zero touch, just-in-time aprovisionamento um ou mais hubs IoT sem que seja necessária intervenção humana. Para obter mais informações, consulte a [documentação do serviço de aprovisionamento](/azure/iot-dps).
+Este tópico discute o uso da classe **registrymanager** e do sistema de **trabalho** para executar importações e exportações em massa de dispositivos de e para o registro de identidade de um hub IOT. Você também pode usar o serviço de provisionamento de dispositivos no Hub IoT do Azure para habilitar o provisionamento sem toque e Just-in-time para um ou mais hubs IoT sem a necessidade de intervenção humana. Para saber mais, consulte a [documentação do serviço de provisionamento](/azure/iot-dps).
 
 
-## <a name="what-are-jobs"></a>O que são tarefas?
+## <a name="what-are-jobs"></a>O que são trabalhos?
 
-A utilizar operações de registo de identidade a **tarefa** sistema quando a operação:
+As operações de registro de identidade usam o sistema de **trabalho** quando a operação:
 
-* Tem um tempo de execução potencialmente longo em comparação com operações de tempo de execução padrão.
+* Tem um tempo de execução potencialmente longo em comparação com as operações de tempo de execução padrão.
 
-* Devolve uma grande quantidade de dados para o usuário.
+* Retorna uma grande quantidade de dados para o usuário.
 
-Em vez de uma única chamada à API à espera ou de bloqueio no resultado da operação, a operação cria de forma assíncrona uma **tarefa** para esse hub IoT. A operação, em seguida, imediatamente devolve um **JobProperties** objeto.
+Em vez de uma única chamada à API aguardando ou bloqueando o resultado da operação, a operação cria de forma assíncrona um **trabalho** para o Hub IOT. Em seguida, a operação retorna imediatamente um objeto **JobProperties** .
 
-O seguinte trecho de código do c# mostra como criar uma tarefa de exportação:
+O trecho C# de código a seguir mostra como criar um trabalho de exportação:
 
 ```csharp
 // Call an export job on the IoT Hub to retrieve all devices
@@ -47,26 +47,26 @@ JobProperties exportJob = await
 ```
 
 > [!NOTE]
-> Para utilizar o **RegistryManager** no seu código c#, adicione o **Microsoft.Azure.Devices** pacote NuGet ao seu projeto. O **RegistryManager** classe está no **Microsoft.Azure.Devices** espaço de nomes.
+> Para usar a classe **registrymanager** em seu C# código, adicione o pacote NuGet **Microsoft. Azure. Devices** ao seu projeto. A classe **registrymanager** está no namespace **Microsoft. Azure. Devices** .
 
-Pode utilizar o **RegistryManager** classe para consultar o estado da **tarefa** usando retornado **JobProperties** metadados. Para criar uma instância do **RegistryManager** de classe, utilize o **CreateFromConnectionString** método.
+Você pode usar a classe **registrymanager** para consultar o estado do **trabalho** usando os metadados de **JobProperties** retornados. Para criar uma instância da classe **registrymanager** , use o método **CreateFromConnectionString** .
 
 ```csharp
 RegistryManager registryManager =
   RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
 ```
 
-Para localizar a cadeia de ligação do hub IoT, no portal do Azure:
+Para localizar a cadeia de conexão para o Hub IoT, na portal do Azure:
 
 - Navegue até ao seu hub IoT.
 
-- Selecione **políticas de acesso partilhado**.
+- Selecione **políticas de acesso compartilhado**.
 
-- Selecione uma política, tendo em conta as permissões que necessárias.
+- Selecione uma política, levando em conta as permissões necessárias.
 
-- Copie o connectionstring do painel no lado direito da tela.
+- Copie o ConnectionString do painel no lado direito da tela.
 
-O seguinte trecho de código do c# mostra como consultar a cada cinco segundos para ver se a tarefa foi concluída em execução:
+O trecho C# de código a seguir mostra como sondar a cada cinco segundos para ver se o trabalho concluiu a execução:
 
 ```csharp
 // Wait until job is finished
@@ -85,28 +85,28 @@ while(true)
 }
 ```
 
-## <a name="device-importexport-job-limits"></a>Limites de tarefa de importação/exportação do dispositivo
+## <a name="device-importexport-job-limits"></a>Limites de trabalho de importação/exportação de dispositivo
 
-Importar apenas 1 dispositivo Active Directory ou a tarefa de exportação é permitida por vez para todas as camadas do IoT Hub. IoT Hub também tem limites de taxa de operações de tarefas. Para obter mais informações, consulte [referência - IoT Hub quotas e limitação](iot-hub-devguide-quotas-throttling.md).
+Somente um trabalho de importação ou exportação de dispositivo ativo é permitido por vez para todas as camadas do Hub IoT. O Hub IoT também tem limites para a taxa de operações de trabalhos. Para saber mais, consulte [referência – cotas e limitação do Hub IOT](iot-hub-devguide-quotas-throttling.md).
 
 ## <a name="export-devices"></a>Exportar dispositivos
 
-Utilize o **ExportDevicesAsync** método para exportar a totalidade de um registo de identidades do hub IoT para uma [armazenamento do Azure](../storage/index.yml) contentor de Blobs com uma [assinatura de acesso partilhado](../storage/common/storage-security-guide.md#data-plane-security).
+Use o método **ExportDevicesAsync** para exportar todo o registro de identidade do Hub IOT para um contêiner de blobs de [armazenamento do Azure](../storage/index.yml) usando uma [assinatura de acesso compartilhado](../storage/common/storage-security-guide.md#authorization).
 
-Este método permite-lhe criar cópias de segurança confiáveis das suas informações de dispositivo num contentor de BLOBs que controla.
+Esse método permite que você crie backups confiáveis de suas informações de dispositivo em um contêiner de BLOBs que você controla.
 
-O **ExportDevicesAsync** método requer dois parâmetros:
+O método **ExportDevicesAsync** requer dois parâmetros:
 
-* R *cadeia de caracteres* que contém um URI de um contentor de Blobs. Este URI tem de conter um token SAS que concede acesso de escrita ao contentor. A tarefa cria um blob de blocos nesse contêiner para armazenar os dados de dispositivo de exportação serializada. O token SAS tem de incluir estas permissões:
+* Uma *cadeia de caracteres* que contém um URI de um contêiner de BLOB. Esse URI deve conter um token SAS que conceda acesso de gravação ao contêiner. O trabalho cria um blob de blocos nesse contêiner para armazenar os dados do dispositivo de exportação serializados. O token SAS deve incluir estas permissões:
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
      | SharedAccessBlobPermissions.Delete
    ```
 
-* R *booleano* que indica se pretende excluir as chaves de autenticação a partir dos seus dados de exportação. Se **false**, chaves de autenticação estão incluídas na saída de exportação. Caso contrário, as chaves são exportadas como **nulo**.
+* Um *booliano* que indica se você deseja excluir as chaves de autenticação dos dados de exportação. Se **for false**, as chaves de autenticação serão incluídas na saída de exportação. Caso contrário, as chaves são exportadas como **nulas**.
 
-O seguinte trecho de código do c# mostra como iniciar uma tarefa de exportação que inclui as chaves de autenticação do dispositivo nos exportar dados e, em seguida, efetuar consultas para conclusão:
+O trecho C# de código a seguir mostra como iniciar um trabalho de exportação que inclui chaves de autenticação de dispositivo nos dados de exportação e, em seguida, sondagem para conclusão:
 
 ```csharp
 // Call an export job on the IoT Hub to retrieve all devices
@@ -129,9 +129,9 @@ while(true)
 }
 ```
 
-A tarefa armazena sua saída no contentor de BLOBs fornecido como um blob de blocos com o nome **devices.txt**. Os dados de saída consiste em dados de dispositivo JSON serializada, com um dispositivo por linha.
+O trabalho armazena sua saída no contêiner de blob fornecido como um blob de blocos com o nome **Devices. txt**. Os dados de saída consistem em dados de dispositivo serializado JSON, com um dispositivo por linha.
 
-O exemplo seguinte mostra os dados de saída:
+O exemplo a seguir mostra os dados de saída:
 
 ```json
 {"id":"Device1","eTag":"MA==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
@@ -141,7 +141,7 @@ O exemplo seguinte mostra os dados de saída:
 {"id":"Device5","eTag":"MA==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
 ```
 
-Se um dispositivo tiver dados duplo, os dados de duplo também são exportados, juntamente com os dados do dispositivo. O exemplo seguinte mostra este formato. Todos os dados a partir da linha de "twinETag" até que o fim é dados duplo.
+Se um dispositivo tiver dados de entrelaçamento, os dados de entrelaçamento também serão exportados junto com os dados do dispositivo. O exemplo a seguir mostra esse formato. Todos os dados da linha "twinETag" até o final são dados de linhas.
 
 ```json
 {
@@ -188,7 +188,7 @@ Se um dispositivo tiver dados duplo, os dados de duplo também são exportados, 
 }
 ```
 
-Se precisar de acesso a estes dados no código, pode facilmente anular a serialização este dados com o **ExportImportDevice** classe. O seguinte trecho de código do c# mostra como ler informações de dispositivo que tenha sido anteriormente exportadas para um blob de blocos:
+Se você precisar de acesso a esses dados no código, poderá desserializar facilmente esses dados usando a classe **ExportImportDevice** . O trecho C# de código a seguir mostra como ler as informações do dispositivo que foram exportadas anteriormente para um blob de blocos:
 
 ```csharp
 var exportedDevices = new List<ExportImportDevice>();
@@ -206,22 +206,22 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 
 ## <a name="import-devices"></a>Importar dispositivos
 
-O **ImportDevicesAsync** método na **RegistryManager** classe permite-lhe efetuar operações em massa para importação e sincronização de um registo de identidades do hub IoT. Como o **ExportDevicesAsync** método, o **ImportDevicesAsync** método utiliza o **tarefa** framework.
+O método **ImportDevicesAsync** na classe **registrymanager** permite que você execute operações de importação e sincronização em massa em um registro de identidade do Hub IOT. Como o método **ExportDevicesAsync** , o método **ImportDevicesAsync** usa a estrutura de **trabalho** .
 
-Tenha cuidado com o **ImportDevicesAsync** método porque além de aprovisionar novos dispositivos no seu registo de identidade, ele pode também atualizar e eliminar dispositivos existentes.
+Tome cuidado com o método **ImportDevicesAsync** porque, além de provisionar novos dispositivos no registro de identidade, ele também pode atualizar e excluir dispositivos existentes.
 
 > [!WARNING]
-> Uma operação de importação não pode ser anulada. Sempre faça backup dos dados existentes com o **ExportDevicesAsync** método para outro contentor de BLOBs, antes de fazer em massa altera para o seu registo de identidade.
+> Uma operação de importação não pode ser desfeita. Sempre faça backup dos dados existentes usando o método **ExportDevicesAsync** para outro contêiner de BLOBs antes de fazer alterações em massa no registro de identidade.
 
-O **ImportDevicesAsync** método usa dois parâmetros:
+O método **ImportDevicesAsync** usa dois parâmetros:
 
-* R *cadeia de caracteres* que contém um URI de um [armazenamento do Azure](../storage/index.yml) contentor de BLOBs para utilizar como *entrada* para a tarefa. Este URI tem de conter um token SAS que concede acesso de leitura para o contentor. Este contentor pode conter um blob com o nome **devices.txt** que contém os dados de dispositivo serializada para importar para o seu registo de identidade. Os dados de importação tem de conter informações de dispositivos no mesmo formato de JSON que o **ExportImportDevice** tarefa utiliza quando cria um **devices.txt** blob. O token SAS tem de incluir estas permissões:
+* Uma *cadeia de caracteres* que contém um URI de um contêiner de blob de [armazenamento do Azure](../storage/index.yml) a ser usado como *entrada* para o trabalho. Esse URI deve conter um token SAS que conceda acesso de leitura ao contêiner. Esse contêiner deve conter um blob com o nome **Devices. txt** que contém os dados do dispositivo serializado para importar para o registro de identidade. Os dados de importação devem conter informações de dispositivo no mesmo formato JSON que o trabalho **ExportImportDevice** usa ao criar um blob **Devices. txt** . O token SAS deve incluir estas permissões:
 
    ```csharp
    SharedAccessBlobPermissions.Read
    ```
 
-* R *cadeia de caracteres* que contém um URI de um [armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/) contentor de BLOBs para utilizar como *saída* da tarefa. A tarefa cria um blob de blocos neste contentor para armazenar as informações de erro de importação concluída **tarefa**. O token SAS tem de incluir estas permissões:
+* Uma *cadeia de caracteres* que contém um URI de um contêiner de blob de [armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/) a ser usado como *saída* do trabalho. O trabalho cria um blob de blocos nesse contêiner para armazenar qualquer informação de erro do **trabalho**de importação concluído. O token SAS deve incluir estas permissões:
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
@@ -229,54 +229,54 @@ O **ImportDevicesAsync** método usa dois parâmetros:
    ```
 
 > [!NOTE]
-> Os dois parâmetros podem apontar para o mesmo contentor de Blobs. Os parâmetros separados simplesmente permitem mais controle sobre seus dados à medida que o contentor de saída necessita de permissões adicionais.
+> Os dois parâmetros podem apontar para o mesmo contêiner de BLOB. Os parâmetros separados simplesmente permitem mais controle sobre seus dados, pois o contêiner de saída requer permissões adicionais.
 
-O seguinte trecho de código do c# mostra como iniciar uma tarefa de importação:
+O trecho C# de código a seguir mostra como iniciar um trabalho de importação:
 
 ```csharp
 JobProperties importJob = 
    await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
 
-Este método também pode ser utilizado para importar os dados para o dispositivo duplo. O formato para os dados de entrada é igual ao formato mostrado na **ExportDevicesAsync** secção. Dessa forma, pode reimportar os dados exportados. O **$metadata** é opcional.
+Esse método também pode ser usado para importar os dados para o dispositivo. O formato da entrada de dados é o mesmo que o formato mostrado na seção **ExportDevicesAsync** . Dessa forma, você pode reimportar os dados exportados. O **$Metadata** é opcional.
 
 ## <a name="import-behavior"></a>Comportamento de importação
 
-Pode utilizar o **ImportDevicesAsync** método para executar as seguintes operações em massa no seu registo de identidade:
+Você pode usar o método **ImportDevicesAsync** para executar as seguintes operações em massa em seu registro de identidade:
 
-* Registo em massa de novos dispositivos
-* Eliminações em massa de dispositivos existentes
-* Em massa alterações de estado (ativar ou desativar dispositivos)
-* Atribuição de novas chaves de autenticação do dispositivo em massa
-* Em massa auto-regeneração das chaves de autenticação do dispositivo
-* Atualização em massa de dados duplo
+* Registro em massa de novos dispositivos
+* Exclusões em massa de dispositivos existentes
+* Alterações de status em massa (habilitar ou desabilitar dispositivos)
+* Atribuição em massa de novas chaves de autenticação de dispositivo
+* Regeneração automática em massa de chaves de autenticação de dispositivo
+* Atualização em massa de dados de entrelaçamento
 
-Pode executar qualquer combinação das operações anteriores num único **ImportDevicesAsync** chamar. Por exemplo, pode registar novos dispositivos e eliminar ou atualizar dispositivos existentes ao mesmo tempo. Quando utilizado juntamente com o **ExportDevicesAsync** método, pode migrar completamente todos os seus dispositivos de um hub IoT para outro.
+Você pode executar qualquer combinação das operações anteriores em uma única chamada **ImportDevicesAsync** . Por exemplo, você pode registrar novos dispositivos e excluir ou atualizar dispositivos existentes ao mesmo tempo. Quando usado junto com o método **ExportDevicesAsync** , você pode migrar completamente todos os seus dispositivos de um hub IOT para outro.
 
-Se o ficheiro de importação inclui metadados de duplo, em seguida, estes metadados substitui os metadados de duplo existente. Se o ficheiro de importação não inclui metadados duplo, em seguida, apenas o `lastUpdateTime` metadados é atualizado com a hora atual.
+Se o arquivo de importação incluir metadados de entrelaçamento, esses metadados substituirão os metadados de entrelaçamento existentes. Se o arquivo de importação não incluir metadados de entrelaçamento, somente os metadados de `lastUpdateTime` serão atualizados usando a hora atual.
 
-Utilizar o opcional **importMode** propriedade nos dados de serialização de importação para cada dispositivo controlar o importação processo por dispositivo. O **importMode** propriedade tem as seguintes opções:
+Use a propriedade **importmode** opcional nos dados de serialização de importação para cada dispositivo para controlar o processo de importação por dispositivo. A propriedade **importmode** tem as seguintes opções:
 
 | importMode | Descrição |
 | --- | --- |
-| **createOrUpdate** |Se não existir um dispositivo com a especificado **ID**, recentemente está registado. <br/>Se o dispositivo já existir, informações existentes serão substituídas com os dados de entrada fornecidos sem para o **ETag** valor. <br> O utilizador pode, opcionalmente, especificar dados duplo, juntamente com os dados do dispositivo. Etag do duplo, se for especificado, é processada independentemente da etag do dispositivo. Se existir um erro de correspondência com o etag o duplo existente, um erro é escrito para o ficheiro de registo. |
-| **criar** |Se não existir um dispositivo com a especificado **ID**, recentemente está registado. <br/>Se o dispositivo já existir, um erro é escrito para o ficheiro de registo. <br> O utilizador pode, opcionalmente, especificar dados duplo, juntamente com os dados do dispositivo. Etag do duplo, se for especificado, é processada independentemente da etag do dispositivo. Se existir um erro de correspondência com o etag o duplo existente, um erro é escrito para o ficheiro de registo. |
-| **update** |Se já existe um dispositivo com a especificado **ID**, informações existentes serão substituídas com os dados de entrada fornecidos sem para o **ETag** valor. <br/>Se o dispositivo não existir, um erro é escrito para o ficheiro de registo. |
-| **updateIfMatchETag** |Se já existe um dispositivo com a especificado **ID**, informações existentes serão substituídas com os dados de entrada fornecidos apenas se houver um **ETag** corresponder. <br/>Se o dispositivo não existir, um erro é escrito para o ficheiro de registo. <br/>Se houver uma **ETag** erro de correspondência, um erro é escrito para o ficheiro de registo. |
-| **createOrUpdateIfMatchETag** |Se não existir um dispositivo com a especificado **ID**, recentemente está registado. <br/>Se o dispositivo já existir, informações existentes serão substituídas com os dados de entrada fornecidos apenas se houver uma **ETag** corresponder. <br/>Se houver uma **ETag** erro de correspondência, um erro é escrito para o ficheiro de registo. <br> O utilizador pode, opcionalmente, especificar dados duplo, juntamente com os dados do dispositivo. Etag do duplo, se for especificado, é processada independentemente da etag do dispositivo. Se existir um erro de correspondência com o etag o duplo existente, um erro é escrito para o ficheiro de registo. |
-| **eliminar** |Se já existe um dispositivo com a especificado **ID**, este é eliminado sem para o **ETag** valor. <br/>Se o dispositivo não existir, um erro é escrito para o ficheiro de registo. |
-| **deleteIfMatchETag** |Se já existe um dispositivo com o especificado **ID**, é eliminado apenas se existir um **ETag** corresponder. Se o dispositivo não existir, um erro é escrito para o ficheiro de registo. <br/>Se existir um erro de correspondência de ETag, um erro é escrito para o ficheiro de registo. |
+| **createOrUpdate** |Se um dispositivo não existir com a **ID**especificada, ele será registrado recentemente. <br/>Se o dispositivo já existir, as informações existentes serão substituídas pelos dados de entrada fornecidos sem considerar o valor de **ETag** . <br> Opcionalmente, o usuário pode especificar o entrelaçar dados junto com os dados do dispositivo. O ETag de ' s ', se especificado, é processado independentemente da eTag do dispositivo. Se houver uma incompatibilidade com a ETag de ' s existente, um erro será gravado no arquivo de log. |
+| **criar** |Se um dispositivo não existir com a **ID**especificada, ele será registrado recentemente. <br/>Se o dispositivo já existir, um erro será gravado no arquivo de log. <br> Opcionalmente, o usuário pode especificar o entrelaçar dados junto com os dados do dispositivo. O ETag de ' s ', se especificado, é processado independentemente da eTag do dispositivo. Se houver uma incompatibilidade com a ETag de ' s existente, um erro será gravado no arquivo de log. |
+| **cumulativo** |Se já existir um dispositivo com a **ID**especificada, as informações existentes serão substituídas pelos dados de entrada fornecidos sem considerar o valor de **ETag** . <br/>Se o dispositivo não existir, um erro será gravado no arquivo de log. |
+| **updateIfMatchETag** |Se já existir um dispositivo com a **ID**especificada, as informações existentes serão substituídas pelos dados de entrada fornecidos somente se houver uma correspondência **ETag** . <br/>Se o dispositivo não existir, um erro será gravado no arquivo de log. <br/>Se houver uma incompatibilidade de **ETag** , um erro será gravado no arquivo de log. |
+| **createOrUpdateIfMatchETag** |Se um dispositivo não existir com a **ID**especificada, ele será registrado recentemente. <br/>Se o dispositivo já existir, as informações existentes serão substituídas pelos dados de entrada fornecidos somente se houver uma correspondência de **ETag** . <br/>Se houver uma incompatibilidade de **ETag** , um erro será gravado no arquivo de log. <br> Opcionalmente, o usuário pode especificar o entrelaçar dados junto com os dados do dispositivo. O ETag de ' s ', se especificado, é processado independentemente da eTag do dispositivo. Se houver uma incompatibilidade com a ETag de ' s existente, um erro será gravado no arquivo de log. |
+| **eliminar** |Se um dispositivo já existir com a **ID**especificada, ele será excluído sem considerar o valor de **ETag** . <br/>Se o dispositivo não existir, um erro será gravado no arquivo de log. |
+| **deleteIfMatchETag** |Se já existir um dispositivo com a **ID**especificada, ele será excluído somente se houver uma correspondência **ETag** . Se o dispositivo não existir, um erro será gravado no arquivo de log. <br/>Se houver uma incompatibilidade de ETag, um erro será gravado no arquivo de log. |
 
 > [!NOTE]
-> Se os dados de serialização não definem explicitamente uma **importMode** sinalizador para um dispositivo, assume como predefinição **createOrUpdate** durante a operação de importação.
+> Se os dados de serialização não definirem explicitamente um sinalizador **importmode** para um dispositivo, o padrão será **createOrUpdate** durante a operação de importação.
 
-## <a name="import-devices-example--bulk-device-provisioning"></a>Importar do exemplo de dispositivos – em massa de aprovisionamento de dispositivos
+## <a name="import-devices-example--bulk-device-provisioning"></a>Exemplo de importação de dispositivos – provisionamento de dispositivos em massa
 
-O seguinte exemplo de código do c# ilustra como gerar várias identidades de dispositivo que:
+O exemplo C# de código a seguir ilustra como gerar várias identidades de dispositivo que:
 
-* Incluem as chaves de autenticação.
-* Gravar essa informação do dispositivo para um blob de blocos.
-* Importe os dispositivos para o registo de identidade.
+* Incluir chaves de autenticação.
+* Grave essas informações de dispositivo em um blob de blocos.
+* Importe os dispositivos para o registro de identidade.
 
 ```csharp
 // Provision 1,000 more devices
@@ -342,9 +342,9 @@ while(true)
 }
 ```
 
-## <a name="import-devices-example--bulk-deletion"></a>Importar do exemplo de dispositivos – eliminação em massa
+## <a name="import-devices-example--bulk-deletion"></a>Exemplo de importação de dispositivos – exclusão em massa
 
-O exemplo de código seguinte mostra como eliminar os dispositivos que foi adicionado com o código de exemplo anterior:
+O exemplo de código a seguir mostra como excluir os dispositivos que você adicionou usando o exemplo de código anterior:
 
 ```csharp
 // Step 1: Update each device's ImportMode to be Delete
@@ -392,9 +392,9 @@ while(true)
 }
 ```
 
-## <a name="get-the-container-sas-uri"></a>Obter o URI de SAS do contentor
+## <a name="get-the-container-sas-uri"></a>Obter o URI de SAS do contêiner
 
-O exemplo de código seguinte mostra-lhe como gerar uma [URI de SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md) com leitura, escrita e eliminação de permissões para um contentor de BLOBs:
+O exemplo de código a seguir mostra como gerar um [URI de SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md) com permissões de leitura, gravação e exclusão para um contêiner de blob:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -419,18 +419,18 @@ static string GetContainerSasUri(CloudBlobContainer container)
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu a realizar operações em massa de registo de identidade num IoT hub. Siga estas ligações para saber mais sobre como gerir o IoT Hub do Azure:
+Neste artigo, você aprendeu a executar operações em massa em relação ao registro de identidade em um hub IoT. Siga estes links para saber mais sobre como gerenciar o Hub IoT do Azure:
 
-* [Métricas do IoT Hub](iot-hub-metrics.md)
-* [Registos do IoT Hub](iot-hub-monitor-resource-health.md)
+* [Métricas do Hub IoT](iot-hub-metrics.md)
+* [Logs do Hub IoT](iot-hub-monitor-resource-health.md)
 
-Para explorar ainda mais os recursos do IoT Hub, veja:
+Para explorar ainda mais os recursos do Hub IoT, consulte:
 
-* [guia para programadores do IoT Hub](iot-hub-devguide.md)
-* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
+* [Implantando ia em dispositivos de borda com Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
-Para explorar, utilizando o serviço de aprovisionamento de dispositivos do IoT Hub para ativar o aprovisionamento sem toque e just-in-time, consulte: 
+Para explorar o uso do serviço de provisionamento de dispositivos no Hub IoT para habilitar o provisionamento sem toque e Just-in-time, consulte: 
 
 * [Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure](/azure/iot-dps)

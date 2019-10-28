@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 7fe254aa6e78133102a295c5e60a10d29f6382a4
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ea1b8af69402aade370725f3a4dfdee4b5595ce6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757174"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931658"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Criar revisões de transcrição de vídeo usando o .NET
 
@@ -80,23 +80,20 @@ using Newtonsoft.Json;
 
 ### <a name="add-private-properties"></a>Adicionar propriedades privadas
 
-Adicione as propriedades particulares a seguir ao namespace VideoTranscriptReviews, classe Program.
-
-Quando indicado, substitua os valores de exemplo para essas propriedades.
+Adicione as propriedades particulares a seguir ao namespace **VideoTranscriptReviews**, classe **Program**. Atualize os campos `AzureEndpoint` e `CMSubscriptionKey` com os valores de sua URL de ponto de extremidade e chave de assinatura. Você pode encontrá-los na guia **início rápido** do recurso na portal do Azure.
 
 ```csharp
 namespace VideoReviews
 {
     class Program
     {
-        // NOTE: Replace this example location with the location for your Content Moderator account.
+        // NOTE: Enter a valid endpoint URL
         /// <summary>
-        /// The region/location for your Content Moderator account, 
-        /// for example, westus.
+        /// The endpoint URL of your subscription
         /// </summary>
-        private static readonly string AzureRegion = "YOUR CONTENT MODERATOR REGION";
+        private static readonly string AzureEndpoint = "YOUR ENDPOINT URL";
 
-        // NOTE: Replace this example key with a valid subscription key.
+        // NOTE: Enter a valid subscription key.
         /// <summary>
         /// Your Content Moderator subscription key.
         /// </summary>
@@ -111,12 +108,6 @@ namespace VideoReviews
         /// the Content Moderator web site. Your team name is the Id associated 
         /// with your subscription.</remarks>
         private const string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
-
-        /// <summary>
-        /// The base URL fragment for Content Moderator calls.
-        /// </summary>
-        private static readonly string AzureBaseURL =
-            $"{AzureRegion}.api.cognitive.microsoft.com";
 
         /// <summary>
         /// The minimum amount of time, in milliseconds, to wait between calls
@@ -141,7 +132,7 @@ public static ContentModeratorClient NewClient()
 {
     return new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey))
     {
-        Endpoint = AzureBaseURL
+        Endpoint = AzureEndpoint
     };
 }
 ```

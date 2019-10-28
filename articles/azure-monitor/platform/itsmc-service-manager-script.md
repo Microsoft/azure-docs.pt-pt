@@ -1,50 +1,44 @@
 ---
-title: Automatizada de script para criar aplicação Web do Service Manager para estabelecer ligação com o conector de gestão do serviço de TI no Azure | Documentos da Microsoft
-description: Crie uma aplicação Web do Service Manager utilizando um script automatizado para estabelecer ligação com o conector de gestão do serviço de TI no Azure e monitorizar e gerir centralmente os itens de trabalho ITSM.
-services: log-analytics
-documentationcenter: ''
-author: jyothirmaisuri
-manager: riyazp
-editor: ''
-ms.assetid: 879e819f-d880-41c8-9775-a30907e42059
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Script automatizado para criar Service Manager aplicativo Web para se conectar com Conector de Gerenciamento de Serviços de TI no Azure | Microsoft Docs
+description: Crie um aplicativo Web Service Manager usando um script automatizado para se conectar com Conector de Gerenciamento de Serviços de TI no Azure e monitorar e gerenciar centralmente os itens de trabalho de ITSM.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/23/2018
+author: JYOTHIRMAISURI
 ms.author: v-jysur
-ms.openlocfilehash: 42adbf7a6f0e7bb462e6bc9b690c61d4ade0cae2
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.date: 01/23/2018
+ms.openlocfilehash: 443fe6aa7e97e666075a2fbb985a9b8b00baf81a
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479709"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932256"
 ---
-# <a name="create-service-manager-web-app-using-the-automated-script"></a>Criar aplicação Web do Service Manager utilizando o script automatizado
+# <a name="create-service-manager-web-app-using-the-automated-script"></a>Criar Service Manager aplicativo Web usando o script automatizado
 
-Utilize o seguinte script para criar a aplicação Web para a sua instância do Service Manager. Obter mais informações sobre a ligação do Service Manager estão aqui: [Aplicação Web do Service Manager](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Use o script a seguir para criar o aplicativo Web para sua instância de Service Manager. Mais informações sobre Service Manager conexão estão aqui: [Service Manager aplicativo Web](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
-Execute o script, fornecendo os seguintes detalhes necessários:
+Execute o script fornecendo os seguintes detalhes necessários:
 
-- Detalhes da subscrição do Azure
+- Detalhes da assinatura do Azure
 - Nome do grupo de recursos
-- Location
-- Detalhes do servidor do Service Manager (nome do servidor, domínio, nome de utilizador e palavra-passe)
-- Prefixo do nome do site para a sua aplicação Web
-- Espaço de nomes do ServiceBus.
+- Localização
+- Detalhes do Service Manager Server (nome do servidor, domínio, nome de usuário e senha)
+- Prefixo do nome do site para seu aplicativo Web
+- Namespace do ServiceBus.
 
-O script irá criar a aplicação Web com o nome que especificou (juntamente com algumas cadeias de caracteres adicionais para o tornar único). Ele gera os **URL de aplicação Web**, **ID de cliente**, e **segredo do cliente**.
+O script criará o aplicativo Web usando o nome que você especificou (juntamente com algumas cadeias de caracteres adicionais para torná-lo exclusivo). Ele gera a **URL do aplicativo Web**, a **ID do cliente**e o **segredo do cliente**.
 
-Guarde estes valores, irá necessitar destes valores quando criar uma ligação com o conector de gestão do serviço de TI.
+Salve esses valores, você precisará desses valores ao criar uma conexão com Conector de Gerenciamento de Serviços de TI.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
- Windows Management Framework 5.0 ou superior.
-Windows 10 tem 5.1 por predefinição. Pode baixar o framework a partir [aqui](https://www.microsoft.com/download/details.aspx?id=50395):
+ Windows Management Framework 5,0 ou superior.
+O Windows 10 tem 5,1 por padrão. Você pode baixar a estrutura [aqui](https://www.microsoft.com/download/details.aspx?id=50395):
 
-Utilize o seguinte script:
+Use o seguinte script:
 
 ```powershell
 ####################################

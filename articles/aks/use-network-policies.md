@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 6c7cf82381dfb895fdaa0f130e33b2dc9a6e7403
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 350e553563aa152c61c922727fb87937bedd14b5
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169744"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72928500"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteger o tráfego entre pods usando as políticas de rede no serviço de kubernetes do Azure (AKS)
 
@@ -22,7 +22,7 @@ Este artigo mostra como instalar o mecanismo de política de rede e criar polít
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Você precisa do CLI do Azure versão 2.0.61 ou posterior instalado e configurado. Execute @ no__t-0 para localizar a versão. Se você precisar instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
+Você precisa do CLI do Azure versão 2.0.61 ou posterior instalado e configurado. Execute `az --version` para localizar a versão. Se você precisar instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
 
 > [!TIP]
 > Se você usou o recurso de política de rede durante a visualização, recomendamos que você [crie um novo cluster](#create-an-aks-cluster-and-enable-network-policy).
@@ -69,7 +69,11 @@ Para ver as políticas de rede em ação, vamos criar e, em seguida, expandir um
 * Permitir o tráfego com base em rótulos de Pod.
 * Permitir tráfego com base no namespace.
 
-Primeiro, vamos criar um cluster AKS que dê suporte à política de rede. O recurso de política de rede só pode ser habilitado quando o cluster é criado. Não é possível habilitar a política de rede em um cluster AKS existente.
+Primeiro, vamos criar um cluster AKS que dê suporte à política de rede. 
+
+> [!IMPORTANT]
+>
+> O recurso de política de rede só pode ser habilitado quando o cluster é criado. Não é possível habilitar a política de rede em um cluster AKS existente.
 
 Para usar a política de rede do Azure, você deve usar o [plug-in do CNI do Azure][azure-cni] e definir sua própria rede virtual e sub-redes. Para obter informações mais detalhadas sobre como planejar os intervalos de sub-rede necessários, consulte [Configurar a rede avançada][use-advanced-networking]. A política de rede Calico pode ser usada com esse mesmo plug-in do Azure CNI ou com o plug-in Kubenet CNI.
 

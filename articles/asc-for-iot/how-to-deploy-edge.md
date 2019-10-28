@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2019
 ms.author: mlottner
-ms.openlocfilehash: 128265cd3e69cd27bab6538c9eb376410439824d
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 009ae89327272ae4b9acd82eb415aad724d14988
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176666"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934353"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implantar um módulo de segurança em seu dispositivo IoT Edge
 
@@ -107,7 +107,7 @@ Há três etapas para criar uma implantação de IoT Edge para a central de segu
 1. Clique em **Guardar**.
 1. Role até a parte inferior da guia e selecione **definir configurações avançadas de tempo de execução do Edge**. 
    
-1. Altere a **imagem** em **Hub de borda** para **MCR.Microsoft.com/azureiotedge-Hub:1.0.9-RC2**.
+1. Altere a **imagem** em **Hub de borda** para **MCR.Microsoft.com/azureiotedge-Hub:1.0.8.3**.
 
 1. Verifique se a **opção criar opções** está definida como: 
          
@@ -169,7 +169,7 @@ Se você encontrar um problema, os logs de contêiner serão a melhor maneira de
    | Nome | IMAGEM |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0 |
-   | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.9-rc2 |
+   | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    
    Se os contêineres mínimos necessários não estiverem presentes, verifique se o manifesto de implantação do IoT Edge está alinhado com as configurações recomendadas. Para obter mais informações, consulte [implantar IOT Edge Module](#deployment-using-azure-portal).

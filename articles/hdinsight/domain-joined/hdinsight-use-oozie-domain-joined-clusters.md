@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 99f8c2b40445fe282800d096353bee1c7a934ebe
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: b644d293afd429bdc68fba66c119eb7146d0daf0
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918116"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935469"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Executar o Apache Oozie em clusters Hadoop do HDInsight com Enterprise Security Package
 
@@ -41,7 +41,7 @@ Para obter mais informações sobre Secure Shell (SSH), consulte [conectar-se ao
    ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
    ```
 
-2. Para verificar a autenticação Kerberos bem-sucedida, use `klist` o comando. Caso contrário, use `kinit` para iniciar a autenticação Kerberos.
+2. Para verificar a autenticação Kerberos bem-sucedida, use o comando `klist`. Caso contrário, use `kinit` para iniciar a autenticação Kerberos.
 
 3. Entre no gateway do HDInsight para registrar o token OAuth necessário para acessar o Azure Data Lake Storage:   
      ```bash
@@ -61,9 +61,9 @@ As definições de fluxo de trabalho Oozie são escritas em Apache Hadoop hPDL (
    tar -xvf oozie-examples.tar.gz
    hdfs dfs -put examples /user/<DomainUser>/
    ```
-   Substituir `DomainUser` pelo nome de usuário do domínio. 
-   Substitua `DomainUserPath` pelo caminho do diretório base do usuário do domínio. 
-   Substitua `ClusterVersion` pela versão do cluster Hortonworks Data Platform (HDP).
+   Substitua `DomainUser` pelo nome de usuário do domínio.
+   Substitua `DomainUserPath` pelo caminho do diretório base para o usuário do domínio.
+   Substitua `ClusterVersion` pela sua versão da plataforma de dados do cluster.
 
 2. Use a seguinte instrução para criar e editar um novo arquivo:
    ```bash
@@ -167,7 +167,7 @@ As definições de fluxo de trabalho Oozie são escritas em Apache Hadoop hPDL (
        <end name="end" />
     </workflow-app>
    ```
-4. Substituir `clustername` pelo nome do cluster. 
+4. Substitua `clustername` pelo nome do cluster. 
 
 5. Para salvar o arquivo, selecione CTRL + X. Introduza `Y`. Em seguida, selecione **Enter**.
 
@@ -184,9 +184,9 @@ As definições de fluxo de trabalho Oozie são escritas em Apache Hadoop hPDL (
 
      - As ações do servidor Hive 2 e do hive 1 executam uma consulta em uma tabela hive de exemplo fornecida com o HDInsight.
 
-     As ações do hive usam as credenciais definidas na seção credenciais para autenticação usando a palavra- `cred` chave no elemento Action.
+     As ações do hive usam as credenciais definidas na seção de credenciais para autenticação usando a palavra-chave `cred` no elemento Action.
 
-6. Use o seguinte comando para copiar o `workflow.xml` arquivo para `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`:
+6. Use o seguinte comando para copiar o arquivo de `workflow.xml` para `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`:
      ```bash
     hdfs dfs -put workflow.xml /user/<domainuser>/examples/apps/map-reduce/workflow.xml
      ```
@@ -219,11 +219,11 @@ As definições de fluxo de trabalho Oozie são escritas em Apache Hadoop hPDL (
        hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
    ```
 
-   * Use o `adl://home` URI para a `nameNode` Propriedade se você tiver Azure data Lake Storage Gen1 como o armazenamento de cluster primário. Se você estiver usando o armazenamento de BLOBs do Azure, `wasb://home`altere-o para. Se você estiver usando Azure Data Lake Storage Gen2, altere para `abfs://home`.
+   * Use o URI de `adl://home` para a propriedade `nameNode` se você tiver Azure Data Lake Storage Gen1 como o armazenamento de cluster primário. Se você estiver usando o armazenamento de BLOBs do Azure, altere-o para `wasb://home`. Se você estiver usando Azure Data Lake Storage Gen2, altere para `abfs://home`.
    * Substitua `domainuser` pelo nome de usuário do domínio.  
-   * Substituir `ClusterShortName` pelo nome curto do cluster. Por exemplo, se o nome do cluster for https:// *[exemplo link]* sechadoopcontoso.azurehdisnight.net, `clustershortname` os primeiros seis caracteres do cluster: **sechad**.  
+   * Substitua `ClusterShortName` pelo nome curto do cluster. Por exemplo, se o nome do cluster for https:// *[exemplo de link]* sechadoopcontoso.azurehdisnight.net, o `clustershortname` será os primeiros seis caracteres do cluster: **sechad**.  
    * Substitua `jdbcurlvalue` pela URL JDBC da configuração do hive. Um exemplo é JDBC: hive2://headnodehost: 10001/; transportmode = http.      
-   * Para salvar o arquivo, selecione CTRL + X, digite `Y`e, em seguida, selecione **Enter**.
+   * Para salvar o arquivo, selecione CTRL + X, insira `Y`e, em seguida, selecione **Enter**.
 
    Esse arquivo de propriedades precisa estar presente localmente ao executar trabalhos do Oozie.
 
@@ -315,7 +315,7 @@ Os logs de auditoria do Ranger para ações do servidor Hive 2 mostram Oozie exe
 
 ## <a name="configure-user-authorization-in-oozie"></a>Configurar a autorização do usuário no Oozie
 
-O Oozie sozinho tem uma configuração de autorização de usuário que pode impedir que os usuários interrompam ou excluam os trabalhos de outros usuários. Para habilitar essa configuração, defina `oozie.service.AuthorizationService.security.enabled` como. `true` 
+O Oozie sozinho tem uma configuração de autorização de usuário que pode impedir que os usuários interrompam ou excluam os trabalhos de outros usuários. Para habilitar essa configuração, defina o `oozie.service.AuthorizationService.security.enabled` como `true`. 
 
 Para obter mais informações, consulte [instalação e configuração do Apache Oozie](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
 

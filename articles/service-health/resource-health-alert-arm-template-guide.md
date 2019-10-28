@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 7ccd84042d11b586d524d4eb76eba03111e0b3c5
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 0948edec05b97dd604393218e3eeb3302548af82
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71099016"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933561"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurar alertas do Resource Health usando modelos do Resource Manager
 
@@ -43,7 +43,7 @@ Para seguir as instruções nesta página, você precisará configurar algumas c
 
         (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
-3. Crie e salve um modelo do Resource Manager para alertas de `resourcehealthalert.json` Resource Health como ([Veja os detalhes abaixo](#resource-manager-template-options-for-resource-health-alerts))
+3. Crie e salve um modelo do Resource Manager para alertas de Resource Health como `resourcehealthalert.json` ([Veja os detalhes abaixo](#resource-manager-template-options-for-resource-health-alerts))
 
 4. Criar uma nova implantação de Azure Resource Manager usando este modelo
 
@@ -147,7 +147,7 @@ Resource Health alertas podem ser configurados para monitorar eventos em três e
  * Nível do grupo de recursos
  * Nível de recurso
 
-O modelo de alerta é configurado no nível de assinatura, mas se você quiser configurar seu alerta para apenas notificar sobre determinados recursos ou recursos dentro de um determinado grupo de recursos, bastará modificar a `scopes` seção no modelos.
+O modelo de alerta é configurado no nível de assinatura, mas se você quiser configurar seu alerta para apenas notificar sobre determinados recursos ou recursos em um determinado grupo de recursos, bastará modificar a seção `scopes` no modelo acima.
 
 Para um escopo de nível de grupo de recursos, a seção Escopos deve ser semelhante a:
 ```json
@@ -170,7 +170,7 @@ Por exemplo: `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroup
 
 ### <a name="adjusting-the-resource-types-which-alert-you"></a>Ajustando os tipos de recursos que alertam você
 
-Os alertas na assinatura ou no nível do grupo de recursos podem ter tipos diferentes de recursos. Se você quiser limitar os alertas a serem provenientes apenas de um determinado subconjunto de tipos de recursos, poderá defini `condition` -los na seção do modelo, desta forma:
+Os alertas na assinatura ou no nível do grupo de recursos podem ter tipos diferentes de recursos. Se você quiser limitar os alertas a serem fornecidos apenas de um determinado subconjunto de tipos de recursos, poderá defini-los na seção `condition` do modelo, desta forma:
 
 ```json
 "condition": {
@@ -195,12 +195,12 @@ Os alertas na assinatura ou no nível do grupo de recursos podem ter tipos difer
 },
 ```
 
-Aqui, usamos o `anyOf` wrapper para permitir que o alerta de integridade do recurso corresponda a qualquer uma das condições que especificamos, permitindo alertas que se destinam a tipos de recursos específicos.
+Aqui, usamos o wrapper `anyOf` para permitir que o alerta de integridade do recurso corresponda a qualquer uma das condições que especificamos, permitindo alertas que se destinam a tipos de recursos específicos.
 
 ### <a name="adjusting-the-resource-health-events-that-alert-you"></a>Ajustar os eventos de Resource Health que alertam você
-Quando os recursos passam por um evento de integridade, eles podem percorrer uma série de estágios que representam o estado do evento de `Active`integridade `InProgress`: `Updated`,, `Resolved`e.
+Quando os recursos passam por um evento de integridade, eles podem percorrer uma série de estágios que representam o estado do evento de integridade: `Active`, `In Progress`, `Updated`e `Resolved`.
 
-Você pode querer ser notificado apenas quando um recurso se tornar não íntegro; nesse caso, você deseja configurar seu alerta para notificar apenas quando o `status` for `Active`. No entanto, se você também quiser ser notificado sobre os outros estágios, poderá adicionar esses detalhes da seguinte maneira:
+Você pode querer ser notificado apenas quando um recurso se tornar não íntegro; nesse caso, você deseja configurar o alerta para notificar apenas quando o `status` for `Active`. No entanto, se você também quiser ser notificado sobre os outros estágios, poderá adicionar esses detalhes da seguinte maneira:
 
 ```json
 "condition": {
@@ -214,7 +214,7 @@ Você pode querer ser notificado apenas quando um recurso se tornar não íntegr
                 },
                 {
                     "field": "status",
-                    "equals": "InProgress"
+                    "equals": "In Progress"
                 },
                 {
                     "field": "status",
@@ -230,11 +230,11 @@ Você pode querer ser notificado apenas quando um recurso se tornar não íntegr
 }
 ```
 
-Se você deseja ser notificado para todos os quatro estágios de eventos de integridade, você pode remover essa condição em conjunto e o alerta o notificará independentemente da `status` propriedade.
+Se você quiser ser notificado para todos os quatro estágios de eventos de integridade, poderá remover essa condição, e o alerta o notificará independentemente da propriedade `status`.
 
 ### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>Ajuste dos alertas de Resource Health para evitar eventos "desconhecidos"
 
-Azure Resource Health pode relatar a integridade mais recente de seus recursos, monitorando-os constantemente usando executores de teste. Os status de integridade informados relevantes são: "Disponível", "não disponível" e "degradado". No entanto, em situações em que o executor e o recurso do Azure não conseguem se comunicar, um status de integridade "desconhecido" é relatado para o recurso e isso é considerado um evento de integridade "ativo".
+Azure Resource Health pode relatar a integridade mais recente de seus recursos, monitorando-os constantemente usando executores de teste. Os status de integridade informados relevantes são: "disponível", "não disponível" e "degradado". No entanto, em situações em que o executor e o recurso do Azure não conseguem se comunicar, um status de integridade "desconhecido" é relatado para o recurso e isso é considerado um evento de integridade "ativo".
 
 No entanto, quando um recurso relata "desconhecido", é provável que seu status de integridade não tenha sido alterado desde o último relatório preciso. Se você quiser eliminar alertas em eventos "desconhecidos", poderá especificar essa lógica no modelo:
 
@@ -409,7 +409,7 @@ Usando os diferentes ajustes descritos na seção anterior, aqui está um modelo
                                 },
                                 {
                                     "field": "status",
-                                    "equals": "InProgress",
+                                    "equals": "In Progress",
                                     "containsAny": null
                                 },
                                 {
@@ -436,7 +436,7 @@ Usando os diferentes ajustes descritos na seção anterior, aqui está um modelo
 
 No entanto, você saberá melhor quais configurações são eficazes para você, portanto, use as ferramentas ensinadas nesta documentação para fazer sua própria personalização.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o Resource Health:
 -  [Visão geral de Azure Resource Health](Resource-health-overview.md)

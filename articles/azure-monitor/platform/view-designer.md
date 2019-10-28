@@ -1,24 +1,18 @@
 ---
 title: Criar exibições para analisar dados de log em Azure Monitor | Microsoft Docs
 description: Usando o designer de exibição no Azure Monitor, você pode criar exibições personalizadas que são exibidas na portal do Azure e conter uma variedade de visualizações nos dados no espaço de trabalho Log Analytics. Este artigo contém uma visão geral do designer de exibição e apresenta procedimentos para criar e editar exibições personalizadas.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/22/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 33930823fbeb42011d8e2a368d17c9a21070a243
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 06/22/2018
+ms.openlocfilehash: a1a4dbffed37480178d1b94a77587ca251396db6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035603"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931942"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Criar exibições personalizadas usando o designer de exibição no Azure Monitor
 Usando o designer de exibição no Azure Monitor, você pode criar uma variedade de exibições personalizadas na portal do Azure que podem ajudá-lo a Visualizar dados em seu espaço de trabalho do Log Analytics. Este artigo apresenta uma visão geral do designer de exibição e dos procedimentos para criar e editar exibições personalizadas.
@@ -27,12 +21,12 @@ Usando o designer de exibição no Azure Monitor, você pode criar uma variedade
 
 Para obter mais informações sobre o designer de exibição, consulte:
 
-* [Referência de bloco](view-designer-tiles.md): Fornece um guia de referência para as configurações de cada um dos blocos disponíveis em suas exibições personalizadas.
-* [Referência da parte de visualização](view-designer-parts.md): Fornece um guia de referência para as configurações para as partes de visualização que estão disponíveis em suas exibições personalizadas.
+* [Referência de bloco](view-designer-tiles.md): fornece um guia de referência para as configurações de cada um dos blocos disponíveis em suas exibições personalizadas.
+* [Referência de parte de visualização](view-designer-parts.md): fornece um guia de referência para as configurações para as partes de visualização que estão disponíveis em suas exibições personalizadas.
 
 
 ## <a name="concepts"></a>Conceitos
-As exibições são exibidas na página de **visão geral** Azure Monitor no portal do Azure. Abra essa página no menu **Azure monitor** clicando em **mais** na seção insights. Os blocos em cada exibição personalizada são exibidos em ordem alfabética e os blocos para as soluções de monitoramento são instalados no mesmo espaço de trabalho.
+As exibições são exibidas na página de **visão geral** Azure Monitor no portal do Azure. Abra essa página no menu **Azure monitor** clicando em **mais** na seção **insights** . Os blocos em cada exibição personalizada são exibidos em ordem alfabética e os blocos para as soluções de monitoramento são instalados no mesmo espaço de trabalho.
 
 ![Página de visão geral](media/view-designer/overview-page.png)
 
@@ -40,7 +34,7 @@ As exibições criadas com o designer de exibição contêm os elementos descrit
 
 | Parte | Descrição |
 |:--- |:--- |
-| Mosaicos | São exibidos na sua página de **visão geral** do Azure monitor. Cada bloco exibe um resumo Visual da exibição personalizada que ele representa. Cada tipo de peça fornece uma visualização diferente de seus registros. Selecione um bloco para exibir uma exibição personalizada. |
+| Blocos | São exibidos na sua página de **visão geral** do Azure monitor. Cada bloco exibe um resumo Visual da exibição personalizada que ele representa. Cada tipo de peça fornece uma visualização diferente de seus registros. Selecione um bloco para exibir uma exibição personalizada. |
 | Exibição personalizada | Exibido quando você seleciona um bloco. Cada exibição contém uma ou mais partes de visualização. |
 | Partes de visualização | Apresente uma visualização dos dados no espaço de trabalho Log Analytics com base em uma ou mais [consultas de log](../log-query/log-query-overview.md). A maioria das partes inclui um cabeçalho, que fornece uma visualização de alto nível e uma lista, que exibe os resultados principais. Cada tipo de parte fornece uma visualização diferente dos registros no espaço de trabalho Log Analytics. Você seleciona elementos na parte para executar uma consulta de log que fornece registros detalhados. |
 
@@ -65,7 +59,7 @@ As opções são descritas na tabela a seguir:
 | +          | Defina um filtro personalizado que é definido para a exibição. |
 
 
-## <a name="create-a-new-view"></a>Criar uma nova vista
+## <a name="create-a-new-view"></a>Criar uma nova exibição
 Você pode criar um novo modo de exibição no designer de exibição selecionando o **Designer de exibição** no menu do seu espaço de trabalho do log Analytics.
 
 ![Bloco do designer de exibição](media/view-designer/view-designer-tile.png)
@@ -75,11 +69,11 @@ Você pode criar um novo modo de exibição no designer de exibição selecionan
 Use o designer de exibição para criar novas exibições ou editar as existentes. 
 
 O designer de exibição tem três painéis: 
-* **Design**: Contém a exibição personalizada que você está criando ou editando. 
-* **Controles**: Contém os blocos e as partes que você adiciona ao painel **design** . 
-* **Propriedades**: Exibe as propriedades dos blocos ou das partes selecionadas.
+* **Design**: contém a exibição personalizada que você está criando ou editando. 
+* **Controles**: contém os blocos e as partes que você adiciona ao painel **design** . 
+* **Propriedades**: exibe as propriedades dos blocos ou das partes selecionadas.
 
-![Estruturador de Vista](media/view-designer/view-designer-screenshot.png)
+![Ver Estruturador](media/view-designer/view-designer-screenshot.png)
 
 ### <a name="configure-the-view-tile"></a>Configurar o bloco de exibição
 Uma exibição personalizada pode ter apenas um único bloco. Para exibir o bloco atual ou selecionar um alternativo, selecione a guia **bloco** no painel de **controle** . O painel **Propriedades** exibe as propriedades do bloco atual. 
@@ -105,7 +99,7 @@ As opções para trabalhar com modos de exibição no modo de edição são desc
 |:--|:--|
 | Guardar        | Salva as alterações e fecha a exibição. |
 | Cancelar      | Descarta as alterações e fecha a exibição. |
-| Eliminar Vista | Exclui a exibição. |
+| Excluir modo de exibição | Exclui a exibição. |
 | Exportar      | Exporta a exibição para um [modelo de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) que você pode importar para outro espaço de trabalho. O nome do arquivo é o nome da exibição e tem uma extensão *omsview* . |
 | Importar      | Importa o arquivo *omsview* que você exportou de outro espaço de trabalho. Essa ação substitui a configuração da exibição existente. |
 | Clone       | Cria uma nova exibição e a abre no designer de exibição. O nome da nova exibição é o mesmo que o nome original, mas com *cópia* acrescentada a ela. |

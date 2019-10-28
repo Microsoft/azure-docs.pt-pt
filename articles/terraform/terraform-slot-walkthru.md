@@ -9,30 +9,30 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2019
-ms.openlocfilehash: ec2ed1da46df2793a241c9c89d168a6c5d462b9d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
-ms.translationtype: MT
+ms.openlocfilehash: fbc6d30f8bc161ecf1a4e4093d0b69e99eec527b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169819"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924997"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Utilizar o Terraform para aprovisionar infraestruturas com os blocos de implementação do Azure
 
 Pode utilizar os [blocos de implementação do Azure](/azure/app-service/deploy-staging-slots) para alternar entre diferentes versões da sua aplicação. Esta capacidade ajuda-o a minimizar o impacto de implementações interrompidas. 
 
-Este artigo apresenta um exemplo de utilização de blocos de implementação ao orientá-lo pela implementação de duas aplicações através do GitHub e do Azure. Uma das aplicações encontra-se alojada num bloco de produção. A segunda aplicação encontra-se alojada num bloco de teste. (Os nomes "produção" e "teste" são arbitrários e podem referir-se ao que o utilizador pretende para o seu cenário.) Após configurar os seus blocos de implementação, pode utilizar o Terraform para alternar entre os dois blocos, conforme necessário.
+Este artigo apresenta um exemplo de utilização de blocos de implementação ao orientá-lo pela implementação de duas aplicações através do GitHub e do Azure. Uma das aplicações encontra-se alojada num bloco de produção. A segunda aplicação encontra-se alojada num bloco de teste. (Os nomes "produção" e "preparo" são arbitrários e podem ser qualquer coisa que você queira que represente seu cenário.) Depois de configurar os slots de implantação, você pode usar o Terraform para alternar entre os dois slots, conforme necessário.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Assinatura do Azure**: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-- **Conta do GitHub**: Você precisa de uma conta do [GitHub](https://www.github.com) para bifurcar e usar o repositório GitHub de teste.
+- **Conta do GitHub**: tem de ter uma conta no [GitHub](https://www.github.com) para criar um fork e utilizar o repositório de teste do GitHub.
 
 ## <a name="create-and-apply-the-terraform-plan"></a>Criar e aplicar o plano do Terraform
 
 1. Navegue para o [portal do Azure](https://portal.azure.com).
 
-1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
+1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se não tiver selecionado um ambiente anteriormente, selecione **Bash** como o seu ambiente.
 
     ![Comando do Cloud Shell](./media/terraform-slot-walkthru/azure-portal-cloud-shell-button-min.png)
 
@@ -42,13 +42,13 @@ Este artigo apresenta um exemplo de utilização de blocos de implementação ao
     cd clouddrive
     ```
 
-1. Crie um diretório denominado `deploy`.
+1. Crie um diretório com o nome `deploy`.
 
     ```bash
     mkdir deploy
     ```
 
-1. Crie um diretório denominado `swap`.
+1. Crie um diretório com o nome `swap`.
 
     ```bash
     mkdir swap
@@ -58,7 +58,7 @@ Este artigo apresenta um exemplo de utilização de blocos de implementação ao
 
     ![Cloud Shell após criar diretórios](./media/terraform-slot-walkthru/cloud-shell-after-creating-dirs.png)
 
-1. Altere os diretórios para o diretório `deploy`.
+1. Mude para o diretório `deploy`.
 
     ```bash
     cd deploy
@@ -70,7 +70,7 @@ Este artigo apresenta um exemplo de utilização de blocos de implementação ao
     vi deploy.tf
     ```
 
-1. Prima a tecla I para entrar no modo de inserção.
+1. Selecione a tecla I para entrar no modo de inserção.
 
 1. Cole o seguinte código no editor:
 
@@ -85,8 +85,8 @@ Este artigo apresenta um exemplo de utilização de blocos de implementação ao
 
     resource "azurerm_app_service_plan" "slotDemo" {
         name                = "slotAppServicePlan"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
         sku {
             tier = "Standard"
             size = "S1"
@@ -95,17 +95,17 @@ Este artigo apresenta um exemplo de utilização de blocos de implementação ao
 
     resource "azurerm_app_service" "slotDemo" {
         name                = "slotAppService"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
-        app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
+        app_service_plan_id = azurerm_app_service_plan.slotDemo.id
     }
 
     resource "azurerm_app_service_slot" "slotDemo" {
         name                = "slotAppServiceSlotOne"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
-        app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
-        app_service_name    = "${azurerm_app_service.slotDemo.name}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
+        app_service_plan_id = azurerm_app_service_plan.slotDemo.id
+        app_service_name    = azurerm_app_service.slotDemo.name
     }
     ```
 
@@ -123,7 +123,7 @@ Este artigo apresenta um exemplo de utilização de blocos de implementação ao
     cat deploy.tf
     ```
 
-1. Inicie o Terraform.
+1. Inicialize o Terraform.
 
     ```bash
     terraform init
@@ -262,7 +262,7 @@ Para testar a alternância entre os dois blocos de implementação, execute os s
     vi swap.tf
     ```
 
-1. Prima a tecla I para entrar no modo de inserção.
+1. Selecione a tecla I para entrar no modo de inserção.
 
 1. Cole o seguinte código no editor:
 
@@ -286,7 +286,7 @@ Para testar a alternância entre os dois blocos de implementação, execute os s
     :wq
     ```
 
-1. Inicie o Terraform.
+1. Inicialize o Terraform.
 
     ```bash
     terraform init

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 6b1e1dfec69d73b7fe2648a1eb9ead2ae4622bc5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
-ms.translationtype: HT
+ms.openlocfilehash: 39e1099f1700e9ade412bb4cb81bc38e814ecfae
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72897756"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935646"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copiar dados de ou para um sistema de arquivos usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -100,21 +100,15 @@ As propriedades a seguir têm suporte para o serviço vinculado do sistema de ar
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . 
 
-- Para **parquet, texto delimitado, JSON, Avro e formato binário**, consulte a seção [parquet, texto delimitado, JSON, Avro e DataSet de formato binário](#format-based-dataset) .
-- Para outros formatos, como o **formato Orc**, consulte outra seção do conjunto de um [formato](#other-format-dataset) .
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a>Parquet, texto delimitado, JSON, Avro e conjunto de DataSet de formato binário
-
-Para copiar dados de e para **parquet, texto delimitado, JSON, Avro e formato binário**, consulte [formato parquet](format-parquet.md), [formato de texto delimitado](format-delimited-text.md), formato de [Avro](format-avro.md) e artigo de [formato binário](format-binary.md) em conjunto de dados com base em formato e configurações com suporte . As propriedades a seguir têm suporte para o sistema de arquivos em configurações `location` no conjunto de base de formato:
+As propriedades a seguir têm suporte para o sistema de arquivos em configurações `location` no conjunto de base de formato:
 
 | Propriedade   | Descrição                                                  | Obrigatório |
 | ---------- | ------------------------------------------------------------ | -------- |
 | tipo       | A propriedade Type em `location` no DataSet deve ser definida como **FileServerLocation**. | Sim      |
 | folderPath | O caminho para a pasta. Se você quiser usar curinga para filtrar a pasta, ignore essa configuração e especifique nas configurações de origem da atividade. | Não       |
 | fileName   | O nome do arquivo sob o folderPath fornecido. Se você quiser usar curinga para filtrar arquivos, ignore essa configuração e especifique nas configurações de origem da atividade. | Não       |
-
-> [!NOTE]
-> O conjunto de dados do tipo **FileShare** com parquet/formato de texto mencionado na próxima seção ainda tem suporte como é para a atividade de cópia/pesquisa/GetMetadata para compatibilidade com versões anteriores, mas não funciona com o fluxo de dados de mapeamento. Você é sugerido para usar esse novo modelo no futuro, e a interface do usuário de criação do ADF mudou para gerar esses novos tipos.
 
 **Exemplo:**
 
@@ -142,9 +136,10 @@ Para copiar dados de e para **parquet, texto delimitado, JSON, Avro e formato bi
 }
 ```
 
-### <a name="other-format-dataset"></a>Outro conjunto de DataSet de formato
+### <a name="legacy-dataset-model"></a>Modelo de conjunto de DataSet herdado
 
-Para copiar dados de e para o sistema de arquivos no **formato Orc**, há suporte para as seguintes propriedades:
+>[!NOTE]
+>O modelo de conjunto de itens a seguir ainda tem suporte como está para compatibilidade com versões anteriores. Você deve usar o novo modelo mencionado na seção acima no futuro, e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -198,12 +193,9 @@ Para obter uma lista completa de seções e propriedades disponíveis para defin
 
 ### <a name="file-system-as-source"></a>Sistema de arquivos como fonte
 
-- Para copiar de **parquet, de texto delimitado, JSON, Avro e formato binário**, consulte a seção [parquet, texto delimitado, JSON, Avro e fonte de formato binário](#format-based-source) .
-- Para copiar de outros formatos, como o **formato Orc**, consulte [outra seção fonte de formato](#other-format-source) .
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a>Parquet, texto delimitado, JSON, Avro e fonte de formato binário
-
-Para copiar dados de **parquet, texto delimitado, JSON, Avro e formato binário**, consulte [formato parquet](format-parquet.md), [formato de texto delimitado](format-delimited-text.md), formato de [Avro](format-avro.md) e artigo de [formato binário](format-binary.md) na fonte da atividade de cópia baseada em formato e com suporte Configurações. As propriedades a seguir têm suporte para o sistema de arquivos em configurações `storeSettings` em fonte de cópia baseada em formato:
+As propriedades a seguir têm suporte para o sistema de arquivos em configurações `storeSettings` em fonte de cópia baseada em formato:
 
 | Propriedade                 | Descrição                                                  | Obrigatório                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -214,9 +206,6 @@ Para copiar dados de **parquet, texto delimitado, JSON, Avro e formato binário*
 | modifiedDatetimeStart    | Filtro de arquivos com base no atributo: última modificação. Os arquivos serão selecionados se a hora da última modificação estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário UTC no formato "2018-12-01T05:00:00Z". <br> As propriedades podem ser nulas, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de os.  Quando `modifiedDatetimeStart` tem o valor DateTime, mas `modifiedDatetimeEnd` é NULL, isso significa que os arquivos cujo último atributo modificado é maior ou igual ao valor DateTime serão selecionados.  Quando `modifiedDatetimeEnd` tem o valor DateTime, mas `modifiedDatetimeStart` é NULL, isso significa que os arquivos cujo último atributo modificado é menor do que o valor DateTime será selecionado. | Não                                            |
 | modifiedDatetimeEnd      | O mesmo que acima.                                               | Não                                            |
 | maxConcurrentConnections | O número de conexões a serem conectadas ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não                                            |
-
-> [!NOTE]
-> Para o formato de texto parquet/delimitado, a fonte da atividade de cópia do tipo **FileSystemProvider** mencionada na próxima seção ainda tem suporte como está para compatibilidade com versões anteriores. Você é sugerido para usar esse novo modelo no futuro, e a interface do usuário de criação do ADF mudou para gerar esses novos tipos.
 
 **Exemplo:**
 
@@ -259,9 +248,10 @@ Para copiar dados de **parquet, texto delimitado, JSON, Avro e formato binário*
 ]
 ```
 
-#### <a name="other-format-source"></a>Outra fonte de formato
+#### <a name="legacy-source-model"></a>Modelo de origem herdado
 
-Para copiar dados do sistema de arquivos no **formato Orc**, as propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
+>[!NOTE]
+>O modelo de origem de cópia a seguir ainda tem suporte como está para compatibilidade com versões anteriores. Você deve usar o novo modelo mencionado acima no futuro, e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -303,21 +293,15 @@ Para copiar dados do sistema de arquivos no **formato Orc**, as propriedades a s
 
 ### <a name="file-system-as-sink"></a>Sistema de arquivos como coletor
 
-- Para copiar para **parquet, texto delimitado, JSON, Avro e formato binário**, consulte a seção [parquet, texto delimitado, JSON, Avro e coletor de formato binário](#format-based-sink) .
-- Para copiar para outros formatos, como o **formato Orc**, consulte outra seção de [coletor de formato](#other-format-sink) .
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-sink"></a>Parquet, texto delimitado, JSON, Avro e coletor de formato binário
-
-Para copiar dados em **formato parquet, de texto delimitado, JSON, Avro e binário**, consulte [formato parquet](format-parquet.md), [formato de texto delimitado](format-delimited-text.md), [formato de Avro](format-avro.md) e artigo de [formato binário](format-binary.md) no coletor de atividade de cópia com base em formato e com suporte Configurações. As propriedades a seguir têm suporte para o sistema de arquivos em configurações `storeSettings` no coletor de cópia com base em formato:
+As propriedades a seguir têm suporte para o sistema de arquivos em configurações `storeSettings` no coletor de cópia com base em formato:
 
 | Propriedade                 | Descrição                                                  | Obrigatório |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | tipo                     | A propriedade Type em `storeSettings` deve ser definida como **FileServerWriteSetting**. | Sim      |
 | copyBehavior             | Define o comportamento de cópia quando a origem é arquivos de um armazenamento de dados baseado em arquivo.<br/><br/>Os valores permitidos são:<br/><b>-PreserveHierarchy (padrão)</b>: preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>-FlattenHierarchy</b>: todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm nomes gerados automaticamente. <br/><b>-MergeFiles</b>: mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, será um nome de arquivo gerado automaticamente. | Não       |
 | maxConcurrentConnections | O número de conexões para se conectar ao repositório de dados simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não       |
-
-> [!NOTE]
-> Para o formato de texto parquet/delimitado, o coletor de atividade de cópia do tipo **FileSystemSink** mencionado na próxima seção ainda tem suporte como está para compatibilidade com versões anteriores. Você é sugerido para usar esse novo modelo no futuro, e a interface do usuário de criação do ADF mudou para gerar esses novos tipos.
 
 **Exemplo:**
 
@@ -354,9 +338,10 @@ Para copiar dados em **formato parquet, de texto delimitado, JSON, Avro e binár
 ]
 ```
 
-#### <a name="other-format-sink"></a>Outro coletor de formato
+#### <a name="legacy-sink-model"></a>Modelo de coletor herdado
 
-Para copiar dados para o sistema de arquivos no **formato Orc**, há suporte para as seguintes propriedades na seção **Sink** :
+>[!NOTE]
+>O modelo de coletor de cópia a seguir ainda tem suporte como está para compatibilidade com versões anteriores. Você deve usar o novo modelo mencionado acima no futuro, e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |

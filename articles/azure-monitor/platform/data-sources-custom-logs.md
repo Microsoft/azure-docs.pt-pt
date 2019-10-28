@@ -1,24 +1,18 @@
 ---
 title: Coletar logs personalizados em Azure Monitor | Microsoft Docs
 description: Azure Monitor pode coletar eventos de arquivos de texto em computadores Windows e Linux.  Este artigo descreve como definir um novo log personalizado e detalhes dos registros que eles criam no Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/26/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 957df2d03352756c74a5450de240afde2615e50b
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 09/26/2019
+ms.openlocfilehash: 3bd40e9a266305ac94ed53806bf394891e89c125
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177622"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932498"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Logs personalizados no Azure Monitor
 
@@ -83,7 +77,7 @@ A tabela a seguir fornece exemplos de padrões válidos para especificar arquivo
 
 | Descrição | Caminho |
 |:--- |:--- |
-| Todos os arquivos em *C:\Logs* com extensão. txt no agente do Windows |C:\Logs @ no__t-0\*.txt |
+| Todos os arquivos em *C:\Logs* com extensão. txt no agente do Windows |C:\Logs\\\*. txt |
 | Todos os arquivos em *C:\Logs* com um nome que começa com log e uma extensão. txt no agente do Windows |C:\Logs\ log\*.txt |
 | Todos os arquivos em */var/log/Audit* com a extensão. txt no agente do Linux |/var/log/Audit/*. txt |
 | Todos os arquivos em */var/log/Audit* com um nome que começa com log e uma extensão. txt no agente do Linux |/var/log/Audit/log\*.txt |
@@ -95,7 +89,7 @@ A tabela a seguir fornece exemplos de padrões válidos para especificar arquivo
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Passo 4. Forneça um nome e uma descrição para o log
 O nome que você especificar será usado para o tipo de log, conforme descrito acima.  Ele sempre terminará com _CL para distingui-lo como um log personalizado.
 
-1. Digite um nome para o log.  O sufixo **\_CL** é fornecido automaticamente.
+1. Digite um nome para o log.  O sufixo **CL\_** é fornecido automaticamente.
 2. Adicione uma **Descrição**opcional.
 3. Clique em **Avançar** para salvar a definição de log Personalizada.
 
@@ -129,7 +123,7 @@ Os registros de log personalizados têm um tipo com o nome do log que você forn
 | TimeGenerated |Data e hora em que o registro foi coletado por Azure Monitor.  Se o log usar um delimitador baseado em tempo, esse será o tempo coletado da entrada. |
 | SourceSystem |Tipo de agente do qual o registro foi coletado. <br> OpsManager – agente do Windows, conexão direta ou System Center Operations Manager <br> Linux – todos os agentes do Linux |
 | RawData |Texto completo da entrada coletada. Provavelmente, você desejará [analisar esses dados em propriedades individuais](../log-query/parse-text.md). |
-| ManagementGroupName |Nome do grupo de gerenciamento para o System Center Operations Manage Agents.  Para outros agentes, isso é AOI-\<workspace ID @ no__t-1 |
+| ManagementGroupName |Nome do grupo de gerenciamento para o System Center Operations Manage Agents.  Para outros agentes, isso é AOI-\<ID do espaço de trabalho\> |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Exemplo de explicação de como adicionar um log personalizado
@@ -147,7 +141,7 @@ Fornecemos um dos arquivos de log e podemos ver os eventos que serão coletados.
 ![Carregar e analisar um log de exemplo](media/data-sources-custom-logs/delimiter.png)
 
 ### <a name="add-log-collection-paths"></a>Adicionar caminhos de coleção de logs
-Os arquivos de log estarão localizados em *C:\MyApp\Logs*.  Um novo arquivo será criado todos os dias com um nome que inclui a data no padrão *appaaaammdd. log*.  Um padrão suficiente para esse log seria *C:\MyApp\Logs @ no__t-1\*.log*.
+Os arquivos de log estarão localizados em *C:\MyApp\Logs*.  Um novo arquivo será criado todos os dias com um nome que inclui a data no padrão *appaaaammdd. log*.  Um padrão suficiente para esse log seria *C:\MyApp\Logs\\\*. log*.
 
 ![Caminho da coleção de logs](media/data-sources-custom-logs/collection-path.png)
 

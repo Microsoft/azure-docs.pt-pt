@@ -1,24 +1,18 @@
 ---
 title: Criando sua implantação de logs de Azure Monitor | Microsoft Docs
 description: Este artigo descreve as considerações e recomendações para os clientes se preparando para implantar um espaço de trabalho no Azure Monitor.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/20/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 24eb8440ed4746b51b92ce371b5d58b8d55de9a3
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 09/20/2019
+ms.openlocfilehash: ae737b908aad95f61cef922b493b41752da68f14
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177601"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932356"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Criando sua implantação de logs de Azure Monitor
 
@@ -63,7 +57,7 @@ Se você estiver usando o System Center Operations Manager 2012 R2 ou posterior:
 * Os computadores Linux que relatam para um grupo de gerenciamento devem ser configurados para relatar diretamente a um espaço de trabalho Log Analytics. Se os computadores Linux já estiverem se reportando diretamente a um espaço de trabalho e você quiser monitorá-los com Operations Manager, siga estas etapas para [relatar a um grupo de gerenciamento de Operations Manager](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
 * Você pode instalar o Log Analytics agente do Windows no computador Windows e fazer com que ele se reporte a ambos Operations Manager integrados a um espaço de trabalho e a um espaço de trabalho diferente.
 
-## <a name="access-control-overview"></a>Visão geral do controle de acesso
+## <a name="access-control-overview"></a>Descrição geral do controlo de acesso
 
 Com o RBAC (controle de acesso baseado em função), você pode conceder aos usuários e grupos apenas a quantidade de acesso de que eles precisam para trabalhar com dados de monitoramento em um espaço de trabalho. Isso permite que você se alinhe com o modelo operacional da organização de ti usando um único espaço de trabalho para armazenar os dados coletados habilitados em todos os seus recursos. Por exemplo, você concede acesso à sua equipe responsável pelos serviços de infraestrutura hospedados em VMs (máquinas virtuais) do Azure e, como resultado, eles terão acesso apenas aos logs gerados pelas VMs. Isso está seguindo nosso novo modelo de log de contexto de recurso. A base desse modelo é para cada registro de log emitido por um recurso do Azure, ele é automaticamente associado a esse recurso. Os logs são encaminhados para um espaço de trabalho central que respeita o escopo e o RBAC com base nos recursos.
 
