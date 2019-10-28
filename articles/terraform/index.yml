@@ -4,18 +4,17 @@ summary: Saiba como utilizar o Terraform para aprovisione máquinas virtuais e o
 metadata:
   title: Documentação do Terraform no Azure – Tutoriais, exemplos, referência e recursos
   description: Saiba como utilizar o Terraform para aprovisione máquinas virtuais e outras infraestruturas no Azure de forma fiável.
-  services: azure
   ms.service: terraform
-  ms.topic: landing-page
   author: TomArcherMsft
   ms.author: tarcher
-  ms.date: 09/20/2019
-  ms.openlocfilehash: 35391f886d473b91ab99d27bff64d64903ba0545
-  ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+  ms.topic: landing-page
+  ms.date: 10/26/2019
+  ms.openlocfilehash: dbc4ed58b32312023b3248662357777d8567fff9
+  ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/20/2019
-  ms.locfileid: "71173529"
+  ms.lasthandoff: 10/27/2019
+  ms.locfileid: "72969507"
 landingContent:
 - title: Acerca do Terraform no Azure
   linkLists:
@@ -34,7 +33,7 @@ landingContent:
     - text: Instalar e configurar o Terraform (Install and configure Terraform)
       url: /azure/virtual-machines/linux/terraform-install-configure?/azure/terraform/toc.json&bc=/azure/bread/toc.json
     - text: Criar uma configuração do Terraform para o Azure
-      url: terrafom-quickstart.md
+      url: terraform-create-configuration.md
     - text: Instalar a extensão do Terraform no Visual Studio Code
       url: terraform-vscode-extension.md
     - text: Criar um modelo de base do Terraform com o Yeoman
@@ -58,7 +57,7 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Criar uma VM do Terraform com o MSI ativado
-      url: terraform-vm-msi.md
+      url: terraform-vm-managed-identities-for-azure-resources.md
     - text: Criar um cluster de VMs com módulos do Terraform (Create a VM cluster with Terraform modules)
       url: terraform-create-vm-cluster-module.md
     - text: Criar um cluster de VMs com o Terraform e o HCL

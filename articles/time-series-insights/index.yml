@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: KingdomOfEnds
   ms.author: v-adgera
-  ms.date: 09/04/2019
-  ms.openlocfilehash: 3505a6f42998fcfb35c6baab3377cad83e30a3d3
-  ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+  ms.date: 10/21/2019
+  ms.openlocfilehash: a4ef19a43ee4c38b32dc1aaf5d36b5a12c7ae61b
+  ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/15/2019
-  ms.locfileid: "72333015"
+  ms.lasthandoff: 10/28/2019
+  ms.locfileid: "72990218"
 landingContent:
 - title: Acerca do Azure Time Series Insights
   linkLists:
@@ -27,6 +27,14 @@ landingContent:
       url: time-series-insights-update-overview.md
     - text: Acerca da GA do Azure Time Series Insights
       url: time-series-insights-overview.md
+    - text: Visualização de exemplo do SDK do cliente
+      url: https://tsiclientsample.azurewebsites.net/
+  - linkListType: concept
+    links:
+    - text: Visualizar dados na Pré-visualização do explorador do Time Series Insights
+      url: time-series-insights-update-explorer.md
+    - text: Modelo de Série de Tempo
+      url: time-series-insights-update-tsm.md
   - linkListType: video
     links:
     - text: Time Series Insight para aplicações IoT. (13:31)
@@ -41,18 +49,6 @@ landingContent:
     links:
     - text: Tutorial da Pré-visualização do Azure Time Series Insights
       url: time-series-insights-update-create-environment.md
-    - text: Visualização de exemplo do SDK do cliente
-      url: https://tsiclientsample.azurewebsites.net/
-  - linkListType: how-to-guide
-    links:
-    - text: Aprovisionar e gerir
-      url: time-series-insights-update-how-to-manage.md
-  - linkListType: concept
-    links:
-    - text: Visualizar dados na Pré-visualização do explorador do Time Series Insights
-      url: time-series-insights-update-explorer.md
-- title: Planear e preparar para a Pré-visualização
-  linkLists:
   - linkListType: deploy
     links:
     - text: Ligar aos Hubs de Eventos
@@ -65,54 +61,12 @@ landingContent:
       url: time-series-insights-update-storage-ingress.md
   - linkListType: how-to-guide
     links:
+    - text: Aprovisionar e gerir
+      url: time-series-insights-update-how-to-manage.md
     - text: Conceder acesso a dados
       url: time-series-insights-data-access.md
     - text: Formular o JSON para consultas
       url: time-series-insights-update-how-to-shape-events.md
-  - linkListType: concept
-    links:
-    - text: Modelo de Série de Tempo
-      url: time-series-insights-update-tsm.md
-- title: Introdução à GA
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Explorar a GA do Azure Time Series Insights
-      url: time-series-quickstart.md
-  - linkListType: tutorial
-    links:
-    - text: Criar um ambiente do Time Series Insights
-      url: tutorial-create-populate-tsi-environment.md
-    - text: Visualização de exemplo do SDK do cliente
-      url: https://tsiclientsample.azurewebsites.net/
-  - linkListType: how-to-guide
-    links:
-    - text: Criar um ambiente
-      url: time-series-insights-get-started.md
-  - linkListType: concept
-    links:
-    - text: Visualizar dados no explorador do Time Series Insights
-      url: time-series-insights-explorer.md
-- title: Planear e preparar para a GA
-  linkLists:
-  - linkListType: deploy
-    links:
-    - text: Ligar aos Hubs de Eventos
-      url: time-series-insights-how-to-add-an-event-source-eventhub.md
-    - text: Ligar a um Hub IoT
-      url: time-series-insights-how-to-add-an-event-source-iothub.md
-    - text: Planear o ambiente
-      url: time-series-insights-environment-planning.md
-    - text: Dimensionar o seu ambiente
-      url: time-series-insights-how-to-scale-your-environment.md
-  - linkListType: how-to-guide
-    links:
-    - text: Conceder acesso a dados
-      url: time-series-insights-data-access.md
-    - text: Formular o JSON para consultas
-      url: how-to-shape-query-json.md
-    - text: Enviar eventos
-      url: time-series-insights-send-events.md
 - title: Referência da API
   linkLists:
   - linkListType: reference

@@ -5,6 +5,7 @@
     - name: Sobre os Serviços de Multimédia
       href: media-services-overview.md
     - name: Novidades nos Serviços de Multimédia
+      displayName: release notes
       href: release-notes.md
 - name: Tutoriais
   expanded: true
