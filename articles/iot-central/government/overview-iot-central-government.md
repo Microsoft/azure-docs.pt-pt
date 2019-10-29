@@ -7,14 +7,16 @@ ms.date: 10/23/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: b9b40b46800242569c543c85941684d4332a4c13
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 02918df348414058d176246da5c2d0f14df7b405
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72957567"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73026653"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Criando soluções governamentais com o Azure IoT Central
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 Introdução à criação de soluções do Smart City utilizando os modelos de aplicativo IoT Central do Azure. Comece agora com **monitoramento de qualidade de água**, **monitoramento de consumo de água**e gerenciamento de **resíduos conectado**.
 

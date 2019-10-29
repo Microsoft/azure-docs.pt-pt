@@ -8,19 +8,21 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: f87e1a7893fa8c2ea22711f90696a5d2836eb3ac
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 8272764e967fccfbfa88d54e688f9d7aaf4e0917
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965615"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027689"
 ---
 # <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central – arquitetura de aplicativo de medidor inteligente
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 Este artigo fornece uma visão geral da arquitetura de modelo do aplicativo de monitoramento do medidor inteligente. O diagrama a seguir mostra uma arquitetura comumente usada para o aplicativo de medidor inteligente no Azure usando IoT Central plataforma.
 
-> [!div class="mx-imgBorder"]
-> ![arquitetura de medidor inteligente](media/concept-iot-central-smart-meter/smart-meter-app-architecture.png)
+[!div class="mx-imgBorder"]
+![arquitetura de medidor inteligente](media/concept-iot-central-smart-meter/smart-meter-app-architecture.png)
 
 Esta arquitetura é composta pelos seguintes componentes. Algumas soluções podem não exigir todos os componentes listados aqui.
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: e3a8a537ae8c971119cfd08fbf80dc169df1d384
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: f1759bd2cc82073378c5668682f4cecf8482c2d3
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619307"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042250"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Comparar Active Directory Domain Services autogerenciados, Azure Active Directory e gerenciados Azure Active Directory Domain Services
 
@@ -37,9 +37,9 @@ Este artigo de visão geral compara e contrasta como essas soluções de identid
 Se você tiver aplicativos e serviços que precisam de acesso a mecanismos de autenticação tradicionais, como Kerberos ou NTLM, há duas maneiras de fornecer Active Directory Domain Services na nuvem:
 
 * Um domínio *gerenciado* que você cria usando Azure Active Directory Domain Services. A Microsoft cria e gerencia os recursos necessários.
-* Um domínio autogerenciado que você cria e configura usando recursos tradicionais, como VMS (máquinas virtuais), SO convidado do Windows Server e Active Directory Domain Services. Em seguida, Continue administrando esses recursos.
+* Um domínio *autogerenciado* que você cria e configura usando recursos tradicionais, como VMS (máquinas virtuais), SO convidado do Windows Server e Active Directory Domain Services. Em seguida, Continue administrando esses recursos.
 
-Com o Azure AD DS, os principais componentes de serviço são implantados e mantidos para você pela Microsoft como uma experiência de domínio gerenciada. Você não implanta, gerencia, aplica patches e protege a infraestrutura de AD DS para componentes como as VMs, o sistema operacional Windows Server ou controladores de domínio (DCs). O Azure AD DS fornece um subconjunto menor de recursos para o ambiente de AD DS tradicional autogerenciado, que reduz parte da complexidade do design e do gerenciamento. Por exemplo, não há florestas do AD, domínio, sites e links de replicação para design e manutenção. Para aplicativos e serviços que são executados na nuvem e precisam de acesso a mecanismos de autenticação tradicionais, como Kerberos ou NTLM, o Azure AD DS fornece uma experiência de domínio gerenciada com a quantidade mínima de sobrecarga administrativa.
+Com o Azure AD DS, os principais componentes de serviço são implantados e mantidos para você pela Microsoft como uma experiência de domínio *gerenciada* . Você não implanta, gerencia, aplica patches e protege a infraestrutura de AD DS para componentes como as VMs, o sistema operacional Windows Server ou controladores de domínio (DCs). O Azure AD DS fornece um subconjunto menor de recursos para o ambiente de AD DS tradicional autogerenciado, que reduz parte da complexidade do design e do gerenciamento. Por exemplo, não há florestas do AD, domínio, sites e links de replicação para design e manutenção. Para aplicativos e serviços que são executados na nuvem e precisam de acesso a mecanismos de autenticação tradicionais, como Kerberos ou NTLM, o Azure AD DS fornece uma experiência de domínio gerenciada com a quantidade mínima de sobrecarga administrativa.
 
 Ao implantar e executar um ambiente de AD DS autogerenciado, você precisa manter toda a infraestrutura e os componentes de diretório associados. Há uma sobrecarga de manutenção adicional com um ambiente de AD DS autogerenciado, mas você pode executar tarefas adicionais, como estender o esquema ou criar relações de confiança de floresta. Os modelos de implantação comuns para um ambiente de AD DS autogerenciado que fornece identidade para aplicativos e serviços na nuvem incluem o seguinte:
 
@@ -94,12 +94,12 @@ Em um dispositivo ingressado no Azure AD, a autenticação do usuário acontece 
 |:--------------------------------| --------------------------------------------------- | ------------------------------------------------------------------------- |
 | Dispositivo controlado por            | Azure AD                                            | Domínio gerenciado do Azure AD DS                                                |
 | Representação no diretório | Objetos de dispositivo no diretório do Azure AD            | Objetos de computador no domínio gerenciado AD DS do Azure                        |
-| Authentication                  | Protocolos baseados em OAuth/OpenID Connect              | Protocolos Kerberos e NTLM                                               |
+| Autenticação                  | Protocolos baseados em OAuth/OpenID Connect              | Protocolos Kerberos e NTLM                                               |
 | Gestão                      | Software de MDM (gerenciamento de dispositivo móvel), como o Intune | Política de Grupo                                                              |
-| Redes                      | Funciona na Internet                             | Exige que os computadores estejam na mesma rede virtual que o domínio gerenciado |
+| Funcionamento em Rede                      | Funciona na Internet                             | Deve estar conectado ou emparelhado com a rede virtual em que o domínio gerenciado está implantado |
 | Ótimo para...                    | Dispositivos móveis ou de área de trabalho do usuário final                  | VMs de servidor implantadas no Azure                                              |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar a usar o Azure AD DS, [crie um domínio gerenciado do azure AD DS usando o portal do Azure][tutorial-create].
 

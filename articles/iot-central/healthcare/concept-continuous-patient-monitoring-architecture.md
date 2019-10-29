@@ -8,14 +8,17 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 2a03d47dc2b50cd9410cb3efa94012bd18680953
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: cf8cfc5fe75ff5364f812af034d772c7aadd891c
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72957539"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027482"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>Arquitetura de monitoramento de pacientes contínua
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 As soluções de monitoramento de pacientes contínuas podem ser criadas aproveitando o modelo de aplicativo fornecido e usando a arquitetura descrita abaixo como orientação.
 
 >[!div class="mx-imgBorder"] 

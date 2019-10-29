@@ -8,8 +8,6 @@
       href: overview-iot-options.md
     - name: Apresentação da IU
       href: overview-iot-central-tour.md
-    - name: Manter-se ligado
-      href: concepts-stay-connected.md
 - name: Inícios rápidos
   expanded: true
   items:

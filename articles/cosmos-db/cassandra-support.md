@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 66a972e66c35cdd5b8dedceefbe3dbd008380da9
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b48384b8333a5affc76d8af8e057bd911f14068b
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327149"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043496"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funcionalidades do Apache Cassandra suportadas pela API para Cassandra do Azure Cosmos DB 
 
@@ -140,7 +140,7 @@ O Azure Cosmos DB suporta os seguintes comandos de base de dados nas contas da A
 * BATCH – só são suportados comandos arquivados 
 * DELETE
 
-Todas as operações CRUD quando executadas por meio do SDK compatível com CQLV4 retornarão informações adicionais sobre o erro, unidades de solicitação consumidas. Os comandos DELETE e Update precisam ser tratados com a governança de recursos em consideração, para evitar o uso correto da taxa de transferência provisionada. 
+Todas as operações CRUD quando executadas por meio do SDK compatível com CQLV4 retornarão informações adicionais sobre o erro, unidades de solicitação consumidas. Os comandos DELETE e Update precisam ser tratados com a governança de recursos em consideração para garantir o uso correto da taxa de transferência provisionada. 
 * Tenha em atenção que, caso seja especificado, o valor gc_grace_seconds tem de ser zero.
 
 ```csharp

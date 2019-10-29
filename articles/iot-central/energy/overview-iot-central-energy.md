@@ -8,14 +8,18 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: a8f8b91e2990b85f5bcbd5aef5d70d3b6fb800e1
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: aaf591bcc75521cb83d8c74f5220d37f77f1f349
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965550"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027661"
 ---
 # <a name="build-energy-solutions-with-iot-central"></a>Crie soluções de energia com IoT Central 
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
+
 Os medidores inteligentes e os painéis solares estão desempenhando um papel importante na transformação do setor de energia. Os medidores inteligentes fornecem mais controles e informações em tempo real sobre os consumos de energia e o crescimento dos painéis solars está impulsionando a inovação na geração de energia renovável. Os aplicativos de monitoramento de medidores inteligentes e de painel solar são modelos de exemplo para mostrar os vários recursos. Os parceiros podem aproveitar esses modelos para criar soluções de energia com IoT Central para suas necessidades específicas. Nenhuma codificação nova e nenhum custo adicional é necessário para implantar e usar esses aplicativos. Saiba mais sobre modelos de aplicativos de energia e seus recursos.
 
 
@@ -36,8 +40,8 @@ Você pode experimentar o [aplicativo de monitoramento do medidor inteligente gr
 
 Depois de implantar o aplicativo, você verá os dados de medidor simulados no painel, conforme mostrado na figura abaixo. Este modelo é um aplicativo de exemplo que você pode estender e personalizar facilmente para seus casos de uso específicos.
 
-> [!div class="mx-imgBorder"]
-> ![painel do aplicativo de medidor inteligente](media/overview-iot-central-energy/smart-meter-app-dashboard.png)
+[!div class="mx-imgBorder"]
+![painel do aplicativo de medidor inteligente](media/overview-iot-central-energy/smart-meter-app-dashboard.png)
 
 
 ## <a name="what-is-the-solar-panel-monitoring-application"></a>O que é o aplicativo de monitoramento do painel solar?

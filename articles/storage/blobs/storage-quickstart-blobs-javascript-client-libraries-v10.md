@@ -9,18 +9,18 @@ ms.author: karler
 ms.date: 08/29/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: fc6ccaae698043db631c7724c6aabbca16f4328f
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: de21791e1ae11554f7a57c17c3935c0993bea1f9
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172847"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025370"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascripthtml-in-the-browser"></a>Início rápido: Carregar, listar e excluir BLOBs usando o SDK do V10 de armazenamento do Azure para JavaScript/HTML no navegador
+# <a name="quickstart-upload-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascripthtml-in-the-browser"></a>Início rápido: carregar, listar e excluir BLOBs usando o SDK do V10 de armazenamento do Azure para JavaScript/HTML no navegador
 
-Neste guia de início rápido, você aprenderá a usar o [V10 do SDK de armazenamento do Azure para JavaScript-](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob#readme) biblioteca de BLOBs para gerenciar BLOBs do código JavaScript executado inteiramente no navegador. A abordagem utilizada aqui mostra como utilizar as medidas de segurança necessárias para garantir acesso protegido para a sua conta do blob storage.
+Neste guia de início rápido, você aprenderá a usar o [V10 do SDK de armazenamento do Azure para JavaScript-biblioteca de BLOBs](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob#readme) para gerenciar BLOBs do código JavaScript executado inteiramente no navegador. A abordagem utilizada aqui mostra como utilizar as medidas de segurança necessárias para garantir acesso protegido para a sua conta do blob storage.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -81,13 +81,13 @@ az storage account generate-sas \
 
 Poderá achar que as séries de valores a seguir a cada parâmetro são algo crípticas. Estes valores de parâmetros são obtidos a partir da primeira letra da respetiva permissão. A tabela seguinte explica a proveniência dos valores:
 
-| Parâmetro        | Value   | Descrição  |
+| Parâmetro        | Valor   | Descrição  |
 |------------------|---------|---------|
-| *permissões* (permissões)    | racwdl  | Esta SAS permite capacidades de *leitura*, *acrescento*, *criação*, *escrita*, *eliminação* e *listagem*. |
+| *permissions* (permissões)    | racwdl  | Esta SAS permite capacidades de *leitura*, *acrescento*, *criação*, *escrita*, *eliminação* e *listagem*. |
 | *resource-types* (tipos de recursos) | sco     | Os recursos que a SAS afeta são *serviço*, *contentor* e *objeto*. |
 | *services* (serviços)       | b       | O serviço que a SAS afeta é o serviço de *blobs*. |
 
-Agora que a SAS é gerada, copie o valor de retorno e salve-o em algum lugar para uso em uma etapa futura. Se você gerou a SAS usando um método diferente do CLI do Azure, será necessário remover a inicial `?` se ela estiver presente. Esse caractere é um separador de URL que já foi fornecido no modelo de URL mais adiante neste tópico onde a SAS é usada.
+Agora que a SAS é gerada, copie o valor de retorno e salve-o em algum lugar para uso em uma etapa futura. Se você gerou a SAS usando um método diferente do CLI do Azure, precisará remover o `?` inicial, se ele estiver presente. Esse caractere é um separador de URL que já foi fornecido no modelo de URL mais adiante neste tópico onde a SAS é usada.
 
 > [!IMPORTANT]
 > Na produção, transmita sempre tokens os SAS através de SSL. Além disso, os tokens SAS devem gerados no servidor e enviados para a página HTML, de modo a serem transmitidos novamente para o Armazenamento de Blobs do Azure. Uma abordagem que pode considerar passa por utilizar uma função sem servidor para gerar os tokens SAS. O portal do Azure inclui modelos de funções que têm a capacidade de gerar um SAS com uma função de JavaScript.
@@ -126,7 +126,7 @@ Primeiro, crie uma nova pasta chamada *Azure-BLOBs-JavaScript* e abra-a no vs Co
 
 Para configurar a extensão do depurador no VS Code, selecione **depurar > adicionar configuração...** e, em seguida, selecione **Chrome** ou **Edge**, dependendo de qual extensão você instalou na seção pré-requisitos anteriormente. Essa ação cria um arquivo *Launch. JSON* e o abre no editor.
 
-Em seguida, modifique o arquivo *Launch. JSON* para que `url` o valor `/index.html` inclua, conforme mostrado:
+Em seguida, modifique o arquivo *Launch. JSON* para que o valor de `url` inclua `/index.html` conforme mostrado:
 
 ```json
 {
@@ -168,27 +168,27 @@ Quando você fizer alterações no *index. html*, certifique-se de recarregar a 
 
 ### <a name="add-the-blob-storage-client-library"></a>Adicionar a biblioteca de cliente de armazenamento de BLOBs
 
-Para habilitar chamadas para a API de armazenamento de BLOBs, primeiro [Baixe a biblioteca de cliente do SDK de armazenamento do Azure para JavaScript-blob](https://aka.ms/downloadazurestoragejsblob), extraia o conteúdo do zip e coloque o arquivo *Azure-Storage. blob. js* na pasta *Azure-BLOBs-JavaScript* .
+Para habilitar chamadas para a API de armazenamento de BLOBs, primeiro [Baixe a biblioteca de cliente do SDK de armazenamento do Azure para JavaScript-blob](https://aka.ms/downloadazurestoragejsblob), extraia o conteúdo do zip e coloque o arquivo *Azure-Storage-BLOB. js* na pasta *Azure-BLOBs-JavaScript* .
 
-Em seguida, Cole o seguinte HTML em *index. html* após `</body>` a marca de fechamento, substituindo o comentário do espaço reservado.
+Em seguida, Cole o seguinte HTML em *index. html* após a marca de fechamento `</body>`, substituindo o comentário do espaço reservado.
 
 ```html
-<script src="azure-storage.blob.js" charset="utf-8"></script>
+<script src="azure-storage-blob.js" charset="utf-8"></script>
 
 <script>
 // You'll add code here in the following sections.
 </script>
 ```
 
-Esse código adiciona uma referência ao arquivo de script e fornece um local para seu próprio código JavaScript. Para os fins deste guia de início rápido, estamos usando o arquivo de script *Azure-Storage. blob. js* para que você possa abri-lo em vs Code, ler seu conteúdo e definir pontos de interrupção. Em produção, você deve usar o arquivo mais Compact *Azure-Storage. blob. min. js* que também é fornecido no arquivo zip.
+Esse código adiciona uma referência ao arquivo de script e fornece um local para seu próprio código JavaScript. Para os fins deste guia de início rápido, estamos usando o arquivo de script *Azure-Storage-BLOB. js* para que você possa abri-lo em vs Code, ler seu conteúdo e definir pontos de interrupção. Em produção, você deve usar o arquivo mais Compact *Azure-Storage. blob. min. js* que também é fornecido no arquivo zip.
 
 Você pode saber mais sobre cada função de armazenamento de BLOBs na [documentação de referência](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index). Observe que algumas das funções no SDK estão disponíveis somente no node. js ou disponíveis apenas no navegador.
 
-O código em *Azure-Storage. blob. js* exporta uma variável global chamada `azblob`, que você usará em seu código JavaScript para acessar as APIs de armazenamento de BLOBs.
+O código em *Azure-Storage-BLOB. js* exporta uma variável global chamada `azblob`, que você usará em seu código JavaScript para acessar as APIs de armazenamento de BLOBs.
 
 ### <a name="add-the-initial-javascript-code"></a>Adicionar o código JavaScript inicial
 
-Em seguida, Cole o código a seguir `<script>` no elemento mostrado no bloco de código anterior, substituindo o comentário do espaço reservado.
+Em seguida, Cole o código a seguir no elemento `<script>` mostrado no bloco de código anterior, substituindo o comentário do espaço reservado.
 
 ```javascript
 const createContainerButton = document.getElementById("create-container-button");
@@ -206,7 +206,7 @@ const reportStatus = message => {
 }
 ```
 
-Esse código cria campos para cada elemento HTML que será usado pelo código a seguir e implementa uma `reportStatus` função para exibir a saída.
+Esse código cria campos para cada elemento HTML que será usado pelo código a seguir e implementa uma função `reportStatus` para exibir a saída.
 
 Nas seções a seguir, adicione cada novo bloco de código JavaScript após o bloco anterior.
 
@@ -318,7 +318,7 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", uploadFiles);
 ```
 
-Esse código conecta o botão **selecionar e carregar arquivos** ao elemento oculto `file-input` . Dessa forma, o evento de `click` botão dispara o evento de `click` entrada de arquivo e exibe o seletor de arquivo. Depois de selecionar arquivos e fechar a caixa de diálogo, `input` o evento ocorre e `uploadFiles` a função é chamada. Essa função chama a função [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) somente de navegador para cada arquivo selecionado. Cada chamada retorna uma promessa, que é adicionada a uma lista para que todos possam ser aguardados de uma só vez, fazendo com que os arquivos sejam carregados em paralelo.
+Esse código conecta o botão **selecionar e carregar arquivos** ao elemento oculto `file-input`. Dessa forma, o evento `click` de botão dispara o evento de entrada do arquivo `click` e exibe o seletor de arquivos. Depois de selecionar os arquivos e fechar a caixa de diálogo, o evento `input` ocorre e a função `uploadFiles` é chamada. Essa função chama a função [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) somente de navegador para cada arquivo selecionado. Cada chamada retorna uma promessa, que é adicionada a uma lista para que todos possam ser aguardados de uma só vez, fazendo com que os arquivos sejam carregados em paralelo.
 
 ### <a name="delete-blobs"></a>Eliminar blobs
 
@@ -346,7 +346,7 @@ const deleteFiles = async () => {
 deleteButton.addEventListener("click", deleteFiles);
 ```
 
-Esse código chama a função [BlobURL. Delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) para remover cada arquivo selecionado na lista. Em seguida, ele `listFiles` chama a função mostrada anteriormente para atualizar o conteúdo da lista de **arquivos** .
+Esse código chama a função [BlobURL. Delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) para remover cada arquivo selecionado na lista. Em seguida, ele chama a função `listFiles` mostrada anteriormente para atualizar o conteúdo da lista de **arquivos** .
 
 ### <a name="run-and-test-the-web-application"></a>Executar e testar o aplicativo Web
 

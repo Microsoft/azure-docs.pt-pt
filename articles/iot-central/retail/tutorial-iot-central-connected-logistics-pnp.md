@@ -6,14 +6,16 @@ ms.author: nandab
 ms.service: iot-central
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: fda81e6b41232dfaa11343a28643138d5a3760c6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0fc9291fcb17d6200b32bb04a0a3ffeed5dea713
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72957343"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027340"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>Tutorial: implantar e percorrer um modelo de aplicativo de logística conectado
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 Este tutorial mostra como começar implantando um modelo de aplicativo de **logística IOT central conectado** . Você aprenderá a implantar o modelo, o que está incluído prontamente e o que você talvez queira fazer em seguida.
 

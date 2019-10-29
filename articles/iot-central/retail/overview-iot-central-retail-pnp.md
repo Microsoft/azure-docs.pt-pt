@@ -9,14 +9,17 @@ ms.service: iot-central
 services: iot-central
 ms.custom:
 - iot-p0-scenario
-ms.openlocfilehash: 5db494b17b131e79bc84ccd6cfa2888bf3632e1d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b0200be389e6f0d59690f041695da368de6828ba
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72957455"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027381"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Criando soluções de varejo com o Azure IoT Central
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 O Azure IoT Central é uma plataforma de aplicativo de Internet das Coisas (IoT) para construtores de solução que simplifica os desafios de criação de & de gerenciamento de aplicativos escalonáveis. Neste artigo, destacaremos vários modelos de aplicativos específicos de varejo dentro de IoT Central. Os construtores de solução podem aproveitar os modelos publicados para criar soluções de IoT para otimizar a cadeia de fornecedores, melhorar a experiência na loja para os clientes e acompanhar o inventário com mais eficiência.
 
 > [!div class="mx-imgBorder"]

@@ -13,7 +13,9 @@
     - name: Arquitetura da monitorização contínua do paciente
       href: concept-continuous-patient-monitoring-architecture.md
     - name: Conectividade
-      href: ../core/concepts-connectivity-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+      href: ../core/overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+    - name: O que são modelos de aplicação?
+      href: ../core/concepts-app-templates.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
 - name: Guias de procedimentos
   items:
     - name: Criar um dashboard de triagem de dados de saúde
@@ -48,8 +50,6 @@
           href: ../core/howto-export-data-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Criar regras personalizadas
           href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
-        - name: Criar análises personalizadas com o Databricks
-          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Criar análises personalizadas com o Databricks
           href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
     - name: Administração
@@ -110,8 +110,6 @@
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
     - name: Browsers suportados
       href: ../core/iot-central-supported-browsers.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
-    - name: Documentação de referência da API
-      href: 'https://go.microsoft.com/fwlink/?linkid=2109131'
     - name: API do Azure para FHIR
       href: 'https://docs.microsoft.com/azure/healthcare-apis/'
     - name: Criar soluções seguras na área da saúde

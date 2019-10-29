@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aabfe803a6ee40491dd95fe7def9a31838c80e65
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7d98dd0f4f9cdc506b8807932a255d14d3022d49
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72928982"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024619"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Início rápido: definir a expiração de grupos do Office 365 no Azure Active Directory
 
@@ -27,13 +27,13 @@ Neste início rápido, vai definir a política de expiração dos seus grupos do
 
 A política de expiração é simples:
 
-- Grupos com atividades do usuário são renovados automaticamente à medida que a expiração é próxima (versão prévia)
+- Grupos com atividades do usuário são renovados automaticamente à medida que a expiração é próxima
 - Os proprietários do grupo são notificados para renovar um grupo prestes a expirar
 - Um grupo que não seja renovado é eliminado
 - Um grupo do Office 365 eliminado pode ser restaurado dentro de 30 dias por um proprietário do grupo ou por um administrador do Azure AD
 
 > [!NOTE]
-> Os grupos agora usam a inteligência do Azure AD para renovar automaticamente com base no uso recente (atualmente em visualização pública, portanto, nenhuma inscrição é necessária). Esse recurso é baseado na atividade do usuário em grupos em serviços do Office 365, como Outlook, SharePoint, Teams, Yammer e outros.
+> Os grupos agora usam a inteligência do Azure AD para renovar automaticamente com base no uso recente. Essa decisão de renovação se baseia na atividade do usuário em grupos entre os serviços do Office 365, como Outlook, SharePoint, Teams, Yammer e outros.
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
