@@ -53,8 +53,10 @@
       href: resource-scenario-status.md
     - name: Descrição dos pré-requisitos
       href: pre-reqs.md
-    - name: Topologias de rede para as migrações para a instância gerida da BD SQL do Azure
+    - name: "Topologias de rede das migrações de MI da BD\_SQL do Azure"
       href: resource-network-topologies.md
+    - name: "Funções personalizadas das migrações online do SQL\_Server para MI da BD\_SQL do Azure"
+      href: resource-custom-roles-sql-db-managed-instance.md
     - name: Resolução de problemas e problemas conhecidos
       items:
         - name: Resolver problemas de conectividade da base de dados de origem

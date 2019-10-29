@@ -36,7 +36,7 @@
           href: log-query/get-started-portal.md
         - name: Registar consultas
           href: log-query/get-started-queries.md
-        - name: Visualizar dados de registo
+        - name: Dashboard com dados de registo
           href: learn/tutorial-logs-dashboards.md
         - name: Alertar relativamente aos dados de registo
           href: learn/tutorial-response.md
@@ -50,7 +50,7 @@
           href: learn/tutorial-alert.md
         - name: Compreender os utilizadores da aplicação
           href: learn/tutorial-users.md
-        - name: Criar dashboards personalizados
+        - name: Dashboard com dados da aplicação
           href: learn/tutorial-app-dashboards.md
     - name: Arquivar métricas de plataforma e registos de dados
       href: learn/tutorial-archive-data.md
@@ -889,7 +889,11 @@
         - name: Livros
           href: app/usage-workbooks.md
         - name: Dashboards
-          href: app/app-insights-dashboards.md
+          items:
+            - name: Dashboard com os dados de registo
+              href: learn/tutorial-logs-dashboards.md
+            - name: Dashboard com os dados da aplicação
+              href: learn/tutorial-app-dashboards.md
         - name: Enviar dados para o Grafana
           href: platform/grafana-plugin.md
     - name: Alertas
@@ -1098,10 +1102,8 @@
           href: platform/metrics-supported.md
         - name: Métricas suportadas para os alertas mais recentes
           href: platform/alerts-metric-near-real-time.md
-    - name: Registos de Diagnóstico
-      items:
-        - name: 'Serviços, categorias e esquemas suportados para os registos de diagnósticos'
-          href: platform/diagnostic-logs-schema.md
+    - name: 'Serviços, categorias e esquemas do registo de recursos'
+      href: platform/diagnostic-logs-schema.md
     - name: CLI do Azure
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: CLI do Azure - Application Insights (Pré-visualização)
@@ -1110,9 +1112,11 @@
       href: app/azure-functions-supported-features.md
     - name: Azure PowerShell
       items:
+        - name: 'Alertas, Métricas, Registo de Atividades, Dimensionamento Automático'
+          href: /powershell/module/az.monitor
         - name: Application Insights
           href: /powershell/module/az.applicationinsights
-        - name: Registos
+        - name: Log Analytics
           href: /powershell/module/az.operationalinsights
     - name: API REST
       items:

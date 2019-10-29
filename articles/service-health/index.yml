@@ -1,0 +1,43 @@
+### YamlMime:Landing
+title: Documentação do Azure Service Health
+summary: O Azure Service Health é um conjunto de experiências que fornece orientação e suporte personalizados quando os problemas nos serviços do Azure estiverem a afetá-lo ou possam afetá-lo no futuro. O Azure Service Health inclui o estado do Azure, o serviço de estado de funcionamento e o Resource Health.
+metadata:
+  title: Documentação do Azure Service Health
+  description: O Azure Service Health é um conjunto de experiências que fornece orientação e suporte personalizados para quando é afetado por problemas nos serviços do Azure. O Azure Service Health pode notificá-lo, ajudá-lo a compreender o impacto dos problemas e mantê-lo atualizado à medida que o problema é resolvido. O Azure Service Health também pode ajudá-lo a preparar-se para manutenções planeadas e alterações que podem afetar a disponibilidade dos recursos.
+  services: service-health
+  ms.service: service-health
+  ms.topic: landing-page
+  author: rboucher
+  ms.author: robb
+  ms.date: 10/08/2019
+  ms.openlocfilehash: 83380e57a5d67431fccf1d808b8c8f69eddc5962
+  ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 10/27/2019
+  ms.locfileid: "72966010"
+landingContent:
+- title: Acerca do Azure Service Health
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Service Health
+      url: overview.md
+    - text: Estado do Azure
+      url: azure-status-overview.md
+    - text: Serviço de estado de funcionamento
+      url: service-health-overview.md
+    - text: Estado de Funcionamento de Recursos
+      url: resource-health-overview.md
+  - linkListType: video
+    links:
+    - text: Vídeo de introdução ao Azure Service Health
+      url: https://www.microsoft.com/videoplayer/embed/RE2OgX6
+- title: Ser notificado
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Seja notificado quando ocorrer um problema com o serviço do Azure que o afete
+      url: alerts-activity-log-service-notifications.md
+    - text: Seja notificado quando o recurso do Azure ficar indisponível
+      url: resource-health-alert-arm-template-guide.md

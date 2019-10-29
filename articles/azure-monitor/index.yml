@@ -1,134 +1,109 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação do Azure Monitor
+summary: Monitorizar o Azure e os serviços no local. Agregar e analisar métricas, registos e rastreios. Acionar alertas e enviar notificações ou chamar soluções automatizadas.
 metadata:
-  title: Documentação do Azure Monitor | Microsoft Docs
-  description: 'O Azure Monitor, que agora inclui o Log Analytics e o Application Insights, fornece ferramentas sofisticadas para recolher e analisar telemetria que lhe permite maximizar o desempenho e disponibilidade dos seus recursos e aplicações na cloud e locais.'
+  title: Documentação do Azure Monitor
+  description: O Azure Monitor, que agora inclui o Log Analytics e o Application Insights, fornece ferramentas sofisticadas para recolher e analisar telemetria que lhe permite maximizar o desempenho e disponibilidade dos seus recursos e aplicações na cloud e locais.
   services: azure-monitor
-  author: bwren
-  manager: carmonm
   ms.service: azure-monitor
-  ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 01/25/2019
-  ms.author: bwren
-abstract:
-  description: 'O Azure Monitor, que agora inclui o Log Analytics e o Application Insights, fornece ferramentas sofisticadas para recolher e analisar telemetria que lhe permite maximizar o desempenho e disponibilidade dos seus recursos e aplicações na cloud e locais. Ajuda a compreender o desempenho das suas aplicações e identifica proativamente os problemas que as afetam e os recursos de que dependem.'
-sections:
-  - title: Conteúdo sugerido
-    items:
-      - type: paragraph
-        text: Utilize as seguintes ligações para ver uma lista de conteúdos sugeridos para o Log Analytics e o Application Insights.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/azure-monitor/azure-monitor-log-hub">Log Analytics</a>
-          - html: <a href="/azure/azure-monitor/azure-monitor-app-hub">Application Insights</a>
-  - title: Inícios rápidos de cinco minutos
-    items:
-      - type: paragraph
-        text: Saiba como recolher e analisar métricas e registos recolhidos a partir dos recursos do Azure.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/Chart.svg'
-            text: Monitorizar métricas
-            href: /azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal
-          - image:
-              src: /azure/azure-monitor/media/index/log-analytics.svg
-            text: Analisar registos
-            href: /azure/log-analytics/query-language/get-started-analytics-portal
-          - image:
-              src: 'https://docs.microsoft.com/azure/media/index/virtualmachine.svg'
-            text: VMs do Azure
-            href: /azure/log-analytics/log-analytics-quick-collect-azurevm
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
-            text: Computador com Linux
-            href: /azure/log-analytics/log-analytics-quick-collect-linux-computer
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_Windows.svg'
-            text: Computador Windows
-            href: /azure/log-analytics/log-analytics-quick-collect-windows-computer
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_alert.svg'
-            text: Auditoria e Alertas da Subscrição
-            href: /azure/monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription
-      - type: paragraph
-        text: Saiba como começar a monitorizar a sua aplicação com o Azure Monitor Application Insights.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/dotnet.svg'
-            text: .NET
-            href: /azure/application-insights/quick-monitor-portal
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_NETcore.svg'
-            text: .NET Core
-            href: /azure/application-insights/app-insights-dotnetcore-quick-start
-          - image:
-              src: 'https://docs.microsoft.com/media/common/nodejs.svg'
-            text: Node.js
-            href: /azure/application-insights/app-insights-nodejs-quick-start
-          - image:
-              src: /azure/application-insights/media/index/mobile-center.png
-            text: Telemóvel
-            href: /azure/application-insights/app-insights-mobile-center-quickstart
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_web-color.svg'
-            text: Web site
-            href: /azure/application-insights/app-insights-website-monitoring
-  - title: Tutoriais passo a passo
-    items:
-      - type: paragraph
-        text: 'Saiba como analisar, visualizar e atuar sobre os dados recolhidos.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/log-analytics/log-analytics-tutorial-viewdata">Ver ou analisar os dados recolhidos</a>
-          - html: <a href="/azure/log-analytics/log-analytics-tutorial-dashboards">Criar e partilhar dashboards</a>
-          - html: <a href="/azure/monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule">Dimensionamento automático com base no desempenho da aplicação ou numa agenda</a>
-          - html: <a href="/azure/monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data">Arquivamento dos dados de monitorização</a>
-      - type: paragraph
-        text: Saiba como melhorar continuamente o desempenho e a utilização das suas aplicações Web.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/application-insights/app-insights-tutorial-runtime-exceptions">Encontrar e diagnosticar exceções de runtime</a>
-          - html: <a href="/azure/application-insights/app-insights-tutorial-performance">Encontrar e diagnosticar problemas de desempenho</a>
-          - html: <a href="/azure/application-insights/app-insights-tutorial-alert">Monitorizar e alertar relativamente ao estado de funcionamento das aplicações</a>
-          - html: <a href="/azure/application-insights/app-insights-tutorial-users">Analisar a utilização e as informações dos clientes</a>
-          - html: <a href="/azure/application-insights/app-insights-tutorial-dashboards">Criar dashboards de KPI personalizados</a>
-  - title: Vídeo de Formação Gratuita da PluralSight
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Administrador do Azure
-            href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-  - title: Amostras
-    items:
-      - type: paragraph
-        text: Utilize os exemplos seguintes para configurar e gerir o Log Analytics.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/log-analytics/powershell-samples">O Azure PowerShell</a>
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Linha de Comandos
-            html: <p><a href="/powershell/module/az.operationalinsights">O Azure PowerShell</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/loganalytics">Referência da API REST</a></p>
+  author: rboucher
+  ms.author: robb
+  ms.date: 10/08/2019
+  ms.openlocfilehash: 5ea61f712898c13864e28a4f091521d36f52884c
+  ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 10/27/2019
+  ms.locfileid: "72965857"
+landingContent:
+- title: Acerca do Azure Monitor
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure Monitor?
+      url: overview.md
+    - text: O que são registos/Log Analytics do Azure Monitor?
+      url: overview.md
+    - text: Página de hub de conteúdo dos registos/Log Analytics do Azure Monitor
+      url: azure-monitor-log-hub.md
+    - text: O que é o Application Insights?
+      url: app/app-insights-overview.md
+    - text: Página de hub de conteúdo do Application Insights
+      url: azure-monitor-app-hub.md
+- title: Acerca da monitorização dos dados
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Descrição geral das Origens de dados
+      url: platform/data-sources.md
+    - text: Descrição geral da Plataforma de dados
+      url: platform/data-platform.md
+- title: Inícios rápidos de 10 minutos
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Monitorizar e criar alertas sobre métricas
+      url: platform/alerts-metric.md
+    - text: Analisar registos
+      url: log-query/get-started-portal.md
+    - text: VMs do Azure no Log Analytics
+      url: learn/quick-collect-azurevm.md
+    - text: VMs do Linux no Log Analytics
+      url: learn/quick-collect-linux-computer.md
+    - text: VMs do Windows no Log Analytics
+      url: learn/quick-collect-windows-computer.md
+    - text: Alerta sobre Eventos de subscrição
+      url: platform/alerts-activity-log.md
+- title: Monitorizar aplicações
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: .NET
+      url: learn/quick-monitor-portal.md
+    - text: .NET Core
+      url: learn/dotnetcore-quick-start.md
+    - text: Node.js
+      url: learn/nodejs-quick-start.md
+    - text: Telemóvel
+      url: azure-monitor-app-hub.md
+    - text: Web site
+      url: app/website-monitoring.md
+- title: Formação
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Formação Gratuita da Pluralsight – Administrador do Azure
+      url: https://go.microsoft.com/fwlink/?linkid=2012827
+- title: Referência – CLI
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Métricas, Dimensionamento automático, Definições de diagnóstico, Alertas
+      url: /cli/azure/monitor?view=azure-cli-latest
+    - text: Log Analytics
+      url: /cli/azure/ext/log-analytics/monitor?view=azure-cli-latest
+    - text: Application Insights
+      url: /cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest
+- title: Referência – PowerShell
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Métricas, Dimensionamento automático, Definições de diagnóstico, Alertas
+      url: /powershell/module/az.monitor/?view=azps-2.6.0
+    - text: Log Analytics
+      url: /powershell/module/az.operationalinsights
+    - text: Application Insights
+      url: /powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.7.0&viewFallbackFrom=azps-2.5.0
+- title: Referência – API REST
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Métricas, Dimensionamento automático, Definições de diagnóstico, Alertas
+      url: /rest/api/monitor
+    - text: Log Analytics
+      url: /rest/api/loganalytics
+    - text: Application Insights
+      url: /rest/api/application-insights/
+    - text: Sandbox da API REST do Application Insights
+      url: https://dev.applicationinsights.io

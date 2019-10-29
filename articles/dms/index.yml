@@ -5,15 +5,15 @@ metadata:
   description: " Saiba como permitir migrações totalmente integradas a partir de várias origens de bases de dados para as plataformas de Dados do Azure com um período de indisponibilidade mínimo com o Azure Database Migration Service."
   author: HJToland3
   ms.author: jtoland
-  ms.date: 10/12/2019
+  ms.date: 10/25/2019
   ms.service: dms
   ms.topic: landing-page
-  ms.openlocfilehash: bb2eec4e07eb444549c5b8491799d491a1960250
-  ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+  ms.openlocfilehash: 747879433bb9badc9a9a37f0826f78f6dd4c53fe
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/13/2019
-  ms.locfileid: "72293783"
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72934123"
 landingContent:
 - title: Acerca do Azure Database Migration Service
   linkLists:
@@ -65,6 +65,8 @@ landingContent:
       url: known-issues-azure-sql-online.md
     - text: Topologias de rede para migrações de instância gerida da Base de Dados SQL
       url: resource-network-topologies.md
+    - text: Funções personalizadas das migrações online do SQL Server para a instância gerida da Base de Dados SQL
+      url: resource-custom-roles-sql-db-managed-instance.md
   - linkListType: video
     links:
     - text: Migrar o SQL Server 2008 para a instância gerida da Base de Dados SQL

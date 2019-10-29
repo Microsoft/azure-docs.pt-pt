@@ -1,60 +1,59 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação sobre desenvolvimento seguro
+summary: Saiba como desenvolver e implementar aplicações seguras no Azure com os nossos exemplos de aplicações, melhores práticas e orientação.
 metadata:
-  document_id: null
   title: Documentação sobre desenvolvimento seguro no Microsoft Azure
-  meta.description: Learn how to develop secure apps on Azure.
+  description: Saiba como desenvolver aplicações seguras no Azure.
   services: security
-  author: TerryLanfear
-  manager: rkarlin
   ms.service: security
   ms.subservice: develop
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/30/2019
+  author: TerryLanfear
   ms.author: terrylan
-abstract:
-  description: 'Saiba como desenvolver e implementar aplicações seguras no Azure com os nossos exemplos de aplicações, melhores práticas e orientação.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 2
-        items:
-          - href: /azure/security/develop/secure-dev-overview
-            html: <p>Desenvolver uma aplicação Web segura no Azure</p>
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_get-started.svg'
-            title: Introdução
-          - href: 'https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider'
-            html: <p>Principais cinco itens de segurança para aplicações Web</p>
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_learn-about.svg'
-            title: Desenvolva as suas competências com o Microsoft Learn
-  - title: Exemplos de aplicação seguros
-    items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/security/develop/secure-web-app">Aplicação Web num contentor do Linux</a>
-          - html: <a href="/azure/security/develop/secure-aad-app">Aplicação Web com o Azure Active Directory</a>
-          - html: <a href="/azure/security/develop/secure-pci-web-app">Indústria dos cartões de pagamento</a>
-  - title: Conceitos
-    items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/security/develop/secure-dev-overview">Melhores práticas de desenvolvimento seguro</a>
-  - title: Recursos
-    items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/security/develop/security-code-analysis-overview">Análise do Código de Segurança da Microsoft</a>
-          - html: <a href="/azure/security/develop/threat-modeling-tool">Ferramenta de modelação de ameaças</a>
+  manager: rkarlin
+  ms.date: 10/24/2019
+  ms.openlocfilehash: 53e59e7d5ef28d8cb09015b7de296b298af9c3f7
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72934074"
+landingContent:
+- title: Desenvolver exemplos de aplicações seguras
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Aplicação Web num contentor do Linux
+      url: secure-web-app.md
+    - text: Aplicação Web com o Azure Active Directory
+      url: secure-aad-app.md
+    - text: Indústria dos cartões de pagamento
+      url: secure-pci-web-app.md
+- title: Introdução
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Melhores práticas de desenvolvimento seguro
+      url: secure-dev-overview.md
+    - text: Fase de conceção
+      url: secure-design.md
+    - text: Fase de desenvolvimento
+      url: secure-develop.md
+    - text: Fase de implementação
+      url: secure-deploy.md
+- title: Adicionar ferramentas de análise ao desenvolvimento seguro
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Análise do código de segurança
+      url: security-code-analysis-overview.md
+    - text: Modelação de ameaças
+      url: threat-modeling-tool.md
+- title: Aumentar as competências
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Principais cinco itens de segurança
+      url: https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider
+    - text: Proteger as aplicações na cloud no Azure
+      url: https://docs.microsoft.com/learn/paths/secure-your-cloud-apps

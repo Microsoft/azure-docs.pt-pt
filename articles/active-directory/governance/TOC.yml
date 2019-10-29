@@ -42,6 +42,8 @@
           items:
             - name: Delegar a criadores de catálogos
               href: entitlement-management-delegate-catalog.md
+            - name: Adicionar uma organização associada
+              href: entitlement-management-organization.md
             - name: Gerir o acesso dos utilizadores externos
               href: entitlement-management-external-users.md
             - name: Ver relatórios e registos

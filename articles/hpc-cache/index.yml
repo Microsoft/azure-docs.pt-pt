@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: ekpgh
   ms.author: rohogue
-  ms.date: 09/24/2019
-  ms.openlocfilehash: 0914d3458a153c05a5bd818c448b69f0ef133fb4
-  ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+  ms.date: 10/21/2019
+  ms.openlocfilehash: 28e120f271fd6d700649125f86d5d8569cccd7df
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/10/2019
-  ms.locfileid: "72254449"
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72930865"
 landingContent:
 - title: Acerca do Azure HPC Cache
   linkLists:
@@ -35,6 +35,8 @@ landingContent:
       url: hpc-cache-add-storage.md
     - text: Montar clientes
       url: hpc-cache-mount.md
+    - text: Gerir e monitorizar a cache
+      url: hpc-cache-manage.md
   - linkListType: concept
     links:
     - text: Planear o espaço de nomes agregado

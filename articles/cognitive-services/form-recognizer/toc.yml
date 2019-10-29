@@ -23,6 +23,10 @@
               href: quickstarts/python-receipts.md
     - name: Utilizar o SDK .NET
       href: quickstarts/dotnet-sdk.md
+- name: Tutoriais
+  items:
+    - name: Utilizar o Reconhecedor de Formato com o Azure Logic Apps
+      href: tutorial-form-recognizer-with-logic-apps.md
 - name: Guias de procedimentos
   items:
     - name: Criar um conjunto de dados de preparação

@@ -304,10 +304,14 @@
           href: resource-group-template-functions-resource.md
         - name: Funções de cadeia
           href: resource-group-template-functions-string.md
-    - name: Eliminação completa de modo
-      href: complete-mode-deletion.md
-    - name: Limite de instância de recurso
-      href: resources-without-rg-limit.md
+    - name: Capacidades de recursos
+      items:
+        - name: Eliminação completa de modo
+          href: complete-mode-deletion.md
+        - name: Tipos de recursos extensão
+          href: extension-resource-types.md
+        - name: Limite de instância de recurso
+          href: resources-without-rg-limit.md
     - name: Fornecedores de recursos por serviço
       href: azure-services-resource-providers.md
     - name: REST - Resource Manager

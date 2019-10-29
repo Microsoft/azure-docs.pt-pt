@@ -2,7 +2,7 @@
 title: Documentação de Imagem Digitalizada
 summary: A API de Imagem Digitalizada baseada na cloud fornece aos programadores acesso a algoritmos avançados para processamento de imagens e devolução de informações. Ao carregar uma imagem ou especificar um URL de imagem, os algoritmos da Imagem Digitalizada da Microsoft podem analisar o conteúdo visual de formas diferentes com base nas entradas e opções do utilizador. Saiba como analisar conteúdo visual de formas diferentes com inícios rápidos, tutoriais e exemplos.
 metadata:
-  title: Documentação de Imagem Digitalizada
+  title: Documentação da Imagem Digitalizada – Inícios Rápidos, Tutoriais, Referência da API – Serviços Cognitivos do Azure | Microsoft Docs
   description: A API de Imagem Digitalizada baseada na cloud fornece aos programadores acesso a algoritmos avançados para processamento de imagens e devolução de informações. Ao carregar uma imagem ou especificar um URL de imagem, os algoritmos da Imagem Digitalizada da Microsoft podem analisar o conteúdo visual de formas diferentes com base nas entradas e opções do utilizador. Saiba como analisar conteúdo visual de formas diferentes com inícios rápidos, tutoriais e exemplos.
   services: cognitive-services
   ms.service: cognitive-services
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/01/2019
-  ms.openlocfilehash: 8c09125fde66c62ecbb1560d2327c6b9671accf8
-  ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+  ms.openlocfilehash: 115f02f82e598db227541c44f69954b1f3805f71
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2019
-  ms.locfileid: "72176286"
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72931799"
 landingContent:
 - title: Sobre a Imagem Digitalizada
   linkLists:
@@ -44,6 +44,8 @@ landingContent:
       url: quickstarts-sdk/java-sdk.md
     - text: Utilizar o SDK Node
       url: quickstarts-sdk/node-sdk.md
+    - text: Utilizar o SDK do Go
+      url: quickstarts-sdk/go-sdk.md
 - title: Detetar objetos em imagens
   linkLists:
   - linkListType: concept
@@ -60,6 +62,8 @@ landingContent:
       url: quickstarts-sdk/java-sdk.md
     - text: Utilizar o SDK Node
       url: quickstarts-sdk/node-sdk.md
+    - text: Utilizar o SDK do Go
+      url: quickstarts-sdk/go-sdk.md
 - title: Aplicação de etiquetas de conteúdo a imagens
   linkLists:
   - linkListType: concept
@@ -76,6 +80,8 @@ landingContent:
       url: quickstarts-sdk/java-sdk.md
     - text: Utilizar o SDK Node
       url: quickstarts-sdk/node-sdk.md
+    - text: Utilizar o SDK do Go
+      url: quickstarts-sdk/go-sdk.md
 - title: Utilizar contentores
   linkLists:
   - linkListType: get-started
@@ -108,6 +114,8 @@ landingContent:
       url: quickstarts-sdk/java-sdk.md
     - text: Utilizar o SDK Node
       url: quickstarts-sdk/node-sdk.md
+    - text: Utilizar o SDK do Go
+      url: quickstarts-sdk/go-sdk.md
 - title: Referência
   linkLists:
   - linkListType: reference
@@ -132,3 +140,11 @@ landingContent:
       url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
     - text: Interface de Linha de Comandos do Azure (CLI)
       url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+- title: Ajuda e comentários
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: UserVoice
+      url: https://cognitive.uservoice.com/forums/430309-computer-vision-api
+    - text: Stack Overflow
+      url: https://stackoverflow.com/questions/tagged/microsoft-cognitive

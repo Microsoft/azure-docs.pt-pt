@@ -308,6 +308,8 @@
           href: connector-oracle-responsys.md
         - name: Cloud do Serviço Oracle
           href: connector-oracle-service-cloud.md
+        - name: Formato ORC
+          href: format-orc.md
         - name: Formato Parquet
           href: format-parquet.md
         - name: PayPal

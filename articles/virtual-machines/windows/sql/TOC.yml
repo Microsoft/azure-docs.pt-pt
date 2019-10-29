@@ -56,28 +56,37 @@
               href: virtual-machines-windows-ps-sql-keyvault.md
 - name: Guias de procedimentos
   items:
-    - name: Criar uma VM de SQL
+    - name: Criar s VM do SQL
       items:
         - name: Utilizar o portal
           href: virtual-machines-windows-portal-sql-server-provision.md
         - name: Utilizar o Azure PowerShell
           href: virtual-machines-windows-ps-sql-create.md
-    - name: Registar-se junto do fornecedor de recursos
-      href: virtual-machines-windows-sql-register-with-resource-provider.md
-    - name: Alterar o modelo de licenciamento
-      href: virtual-machines-windows-sql-ahb.md
-    - name: Alterar a edição
-      href: virtual-machines-windows-sql-change-edition.md
+    - name: Registo com Fornecedor de Recursos da VM do SQL
+      displayName: 'resource provider, registration'
+      items:
+        - name: VM única
+          href: virtual-machines-windows-sql-register-with-resource-provider.md
+        - name: Registo em massa de múltiplas VMs
+          href: virtual-machines-windows-sql-bulk-register-with-resource-provider.md
+    - name: Gerir
+      items:
+        - name: Modelo de licenciamento
+          displayName: 'ahb, ahub, payg, change, modify, update'
+          href: virtual-machines-windows-sql-ahb.md
+        - name: Edição
+          displayName: 'change, modify, update'
+          href: virtual-machines-windows-sql-change-edition.md
+        - name: Armazenamento do Microsoft Azure para cópia de segurança e restauro
+          href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
     - name: Migrar
       items:
-        - name: Migrar uma bases de dados SQL Server
+        - name: "Base de dados de SQL\_Server para VM"
           href: virtual-machines-windows-migrate-sql.md
         - name: VM para uma nova região
           href: virtual-machines-windows-sql-move-different-region.md
     - name: Configurar uma Elevada Disponibilidade
       items:
-        - name: Utilizar o Armazenamento do Azure para o restauro e a cópia de segurança
-          href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
         - name: Grupo de disponibilidade Always On
           items:
             - name: CLI da VM do SQL do Azure
