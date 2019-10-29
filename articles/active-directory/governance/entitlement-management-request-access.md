@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86ab995327522ac5dead9b3f944e0760084aedce
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e57a216efee39df0ad22712b281073a68600e0df
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389094"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990746"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Solicitar acesso a um pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -58,12 +58,13 @@ Depois de encontrar o pacote de acesso no portal meu acesso, você pode enviar u
 
 1. Localize o pacote de acesso na lista.  Se necessário, você pode pesquisar digitando uma cadeia de caracteres de pesquisa e, em seguida, selecionando o **nome**, o **Catálogo**ou o filtro de **recursos** .
 
-    ![Meu Portal de acesso – pesquisa de recursos](./media/entitlement-management-request-access/elm-myaccess-resource-search.png)
+    ![Meu Portal de acesso – pesquisa de recursos](./media/entitlement-management-request-access/my-access-resource-search.png)
+
 1. Clique na marca de seleção para selecionar o pacote de acesso.
 
-    ![Meu Portal de acesso-pacotes de acesso](./media/entitlement-management-shared/my-access-access-packages.png)
-
 1. Clique em **solicitar acesso** para abrir o painel solicitar acesso.
+
+    ![Meu Portal de acesso-pacotes de acesso](./media/entitlement-management-request-access/my-access-request-access-button.png)
 
 1. Se a caixa de **justificativa de negócios** for exibida, digite uma justificativa para a necessidade de acesso.
 
@@ -78,6 +79,12 @@ Depois de encontrar o pacote de acesso no portal meu acesso, você pode enviar u
 1. Clique em **histórico de solicitações** para ver uma lista de suas solicitações e o status.
 
     Se o pacote de acesso exigir aprovação, a solicitação estará agora em um estado de aprovação pendente.
+
+### <a name="select-a-policy"></a>Selecionar uma política
+
+Se você solicitar acesso a um pacote do Access que tenha várias políticas aplicáveis, você poderá ser solicitado a selecionar uma política. Por exemplo, um Gerenciador de pacotes do Access pode configurar um pacote de acesso com duas políticas para dois grupos de funcionários internos. A primeira política pode permitir o acesso por 60 dias e exigir aprovação. A segunda política pode permitir o acesso por 2 dias e não requer aprovação. Se você encontrar esse cenário, deverá selecionar a política que deseja usar.
+
+![Meu Portal de acesso-solicitar acesso-várias políticas](./media/entitlement-management-request-access/my-access-multiple-policies.png)
 
 ## <a name="cancel-a-request"></a>Cancelar uma solicitação
 
@@ -94,12 +101,6 @@ Se você enviar uma solicitação de acesso e a solicitação ainda estiver no e
     ![Meu Portal de acesso-Cancelar solicitação](./media/entitlement-management-request-access/my-access-cancel-request.png)
 
 1. Clique em **histórico de solicitações** para confirmar que a solicitação foi cancelada.
-
-## <a name="select-a-policy"></a>Selecionar uma política
-
-Se você estiver solicitando acesso a um pacote de acesso que tenha várias políticas aplicáveis, você poderá ser solicitado a selecionar uma política. Por exemplo, um Gerenciador de pacotes do Access pode configurar um pacote de acesso com duas políticas para dois grupos de funcionários internos. A primeira política pode permitir o acesso por 60 dias e exigir aprovação. A segunda política pode permitir o acesso por 2 dias e não requer aprovação. Se você encontrar esse cenário, deverá selecionar a política que deseja usar.
-
-**Função de pré-requisito:** Solicitante
 
 ## <a name="next-steps"></a>Passos seguintes
 

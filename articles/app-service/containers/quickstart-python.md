@@ -16,18 +16,18 @@ ms.author: cephalin
 ms.custom: seo-python-october2019
 experimental: false
 experiment_id: 1e304dc9-5add-4b
-ms.openlocfilehash: 101a8e11d57ef8cb1bdce7804b33a8151797264f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 8c3015f78df1427af760f14bd948057643ef2a98
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933751"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990830"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Início rápido: criar um aplicativo Python no serviço de Azure App no Linux
 
 Neste guia de início rápido, você implanta um aplicativo Web Python [no serviço de aplicativo no Linux](app-service-linux-intro.md), o serviço de hospedagem na Web altamente escalonável e com aplicação de patch automática do Azure. Você usa a [CLI (interface de linha de comando) local do Azure](/cli/azure/install-azure-cli) em um computador Mac, Linux ou Windows. O aplicativo Web que você configura usa uma camada de serviço de aplicativo gratuita, portanto, não há custos no decorrer deste artigo.
 
-Se preferir implantar aplicativos por meio de um IDE, consulte [implantar aplicativos Python no serviço de aplicativo de Visual Studio Code](/python/tutorial-deploy-app-service-on-linux-01).
+Se preferir implantar aplicativos por meio de um IDE, consulte [implantar aplicativos Python no serviço de aplicativo de Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -176,7 +176,7 @@ Depois que a implantação for concluída, volte para a janela do navegador aber
 ![Executar um aplicativo Python de exemplo atualizado no Azure](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
 
 > [!TIP]
-> O Visual Studio Code fornece extensões poderosas para o Python e o serviço de Azure App, que simplificam o processo de implantação de aplicativos Web Python no serviço de aplicativo. Para obter mais informações, consulte [implantar aplicativos Python no serviço de aplicativo de Visual Studio Code](/python/tutorial-deploy-app-service-on-linux-01).
+> O Visual Studio Code fornece extensões poderosas para o Python e o serviço de Azure App, que simplificam o processo de implantação de aplicativos Web Python no serviço de aplicativo. Para obter mais informações, consulte [implantar aplicativos Python no serviço de aplicativo de Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
 ## <a name="stream-logs"></a>Transmitir registos
 

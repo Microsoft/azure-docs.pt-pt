@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ffad0656169c49268eac6aa4a107f3445cba614
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: fd218c61114c1e15009ace5a9a9bd7a536996e86
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72600358"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968653"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-contentful"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com conteúdo
 
@@ -48,7 +48,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 * O conteúdo dá suporte ao provisionamento **de usuário just in time**
 
 > [!NOTE]
-> O identificador desse aplicativo é um valor de cadeia de caracteres fixo, de modo que apenas uma instância pode ser configurada em um locatário.
+> O identificador deste aplicativo é um valor de cadeia de caracteres fixo. Somente uma instância pode ser configurada em um locatário.
 
 ## <a name="adding-contentful-from-the-gallery"></a>Adicionando conteúdo da Galeria
 
@@ -59,7 +59,7 @@ Para configurar a integração do conteúdo com o Azure AD, você precisa adicio
 1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
 1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
 1. Na seção **Adicionar da Galeria** , digite **conteúdo** na caixa de pesquisa.
-1. Selecione **conteúdo** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. Selecione o **conteúdo** nos resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-contentful"></a>Configurar e testar o logon único do Azure AD para conteúdo
 
@@ -86,22 +86,22 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **configuração básica do SAML** , se você quiser configurar o aplicativo no modo iniciado pelo **IDP** , insira os valores para os seguintes campos:
 
-    Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão: `https://be.contentful.com/sso/<organization_id>/consume`
+    - Na caixa de texto **URL de resposta** , copie a URL ACS (serviço de consumidor de asserção) da página de instalação de SSO em conteúdo. Ele terá a seguinte aparência: `https://be.contentful.com/sso/<organization_id>/consume`
 
 1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
-    Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://be.contentful.com/sso/<organization_id>/login`
+    - Na caixa de texto **URL de logon** , copie a mesma URL ACS (serviço de consumidor de asserção). Ele terá a seguinte aparência: `https://be.contentful.com/sso/<organization_id>/login`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de resposta e a URL de logon reais. Contate a [equipe de suporte ao cliente com conteúdo](mailto:support@contentful.com) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de resposta e a URL de logon reais copiando a URL do ACS (serviço de consumidor de asserção) da página de instalação de SSO em conteúdo.
 
-1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize **certificado (bruto)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![O link de download do certificado](common/certificateraw.png)
+    ![O link de download do certificado](common/certificatebase64.png)
 
-1. Na seção **configurar conteúdo** , copie as URLs apropriadas com base em seu requisito.
+1. Na seção **configurar conteúdo** , copie a URL de logon para configurar o SSO com conteúdo.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+    ![Copiar URLs de configuração](media/contentful-tutorial/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -129,13 +129,22 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
     ![O link Adicionar usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da página.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da página.
 1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
 ## <a name="configure-contentful-sso"></a>Configurar SSO com conteúdo
 
-Para configurar o logon único no lado do **conteúdo** , você precisa enviar o **certificado (bruto)** baixado e as URLs copiadas apropriadas de portal do Azure para a [equipe de suporte do conteúdo](mailto:support@contentful.com). Eles definem essa configuração para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
+Siga estas etapas para configurar o logon único no lado do **conteúdo** .
+
+1. Em [conteúdo](https://app.contentful.com), navegue até a página de configuração de SSO em **configurações da organização**.
+1. Clique em **configurar SSO**.
+1. Copie e cole a URL de logon da seção **configurar conteúdo** no Azure AD.
+1. Copie e cole o certificado do arquivo de certificado Base64 que você baixou do Azure AD.
+1. Configure um nome de SSO para logon iniciado pelo SP.
+1. Clique em **habilitar SSO**.
+
+Se isso não funcionar, entre em contato com a [equipe de suporte ao conteúdo](mailto:support@contentful.com).
 
 ### <a name="create-contentful-test-user"></a>Criar usuário de teste com conteúdo
 
@@ -151,7 +160,7 @@ Ao clicar no bloco conteúdo no painel de acesso, você deverá ser conectado au
 
 - [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

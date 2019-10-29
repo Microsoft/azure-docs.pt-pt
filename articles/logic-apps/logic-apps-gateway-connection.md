@@ -1,6 +1,6 @@
 ---
-title: Acessar fontes de dados locais de aplicativos lógicos do Azure
-description: Conectar-se a fontes de dados locais de aplicativos lógicos criando um gateway de dados local
+title: Acessar fontes de dados locais-aplicativos lógicos do Azure
+description: Conectar-se a fontes de dados locais de aplicativos lógicos do Azure criando um recurso de gateway de dados local do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/18/2019
-ms.openlocfilehash: 4b333df740fbd4c2243ea3f166593ca0a6f4bbad
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 6a01999eff6accf1b8d7f56729d9dce77fbedb0a
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675682"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72988718"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conectar-se a fontes de dados locais de aplicativos lógicos do Azure
 
@@ -77,7 +77,7 @@ Depois de instalar o gateway em um computador local, crie o recurso do Azure par
 
 1. Em **gateways de dados locais**, selecione **Adicionar**.
 
-   ![Adicionar gateway de dados](./media/logic-apps-gateway-connection/add-gateway.png)
+   ![Adicionar novo recurso do Azure para gateway de dados](./media/logic-apps-gateway-connection/add-azure-data-gateway-resource.png)
 
 1. Em **criar gateway de conexão**, forneça essas informações para o recurso de gateway. Quando terminar, selecione **Criar**.
 
@@ -92,7 +92,7 @@ Depois de instalar o gateway em um computador local, crie o recurso do Azure par
 
    Aqui está um exemplo que mostra uma instalação de gateway que está na mesma região que o recurso de gateway e está vinculado à mesma conta do Azure:
 
-   ![Fornecer detalhes para criar um recurso de gateway de dados](./media/logic-apps-gateway-connection/gateway-details.png)
+   ![Fornecer detalhes para criar um recurso de gateway de dados](./media/logic-apps-gateway-connection/add-azure-data-gateway-information.png)
 
 <a name="connect-logic-app-gateway"></a>
 
@@ -155,7 +155,7 @@ Para criar um recurso de gateway diferente, vincule a instalação do gateway a 
 
    Por exemplo:
 
-   ![Excluir gateway](./media/logic-apps-gateway-connection/gateway-delete.png)
+   ![Excluir recurso de gateway no Azure](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway-resource.png)
 
 <a name="faq"></a>
 

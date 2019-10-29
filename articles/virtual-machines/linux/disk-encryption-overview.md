@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 053c52d7d1a0282d72ad76408b77c96aa3b0e3e4
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: a3d48d53c2d4d0c859b58a94b12ffa94590b18a5
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174695"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989642"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VMs Linux 
 
@@ -23,7 +23,7 @@ Se você usar a [central de segurança do Azure](../../security-center/index.yml
 ![Alerta de criptografia de disco da central de segurança do Azure](media/disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!WARNING]
-> - Se você tiver usado anteriormente Azure Disk Encryption com o Azure AD para criptografar uma VM, você deve continuar usando essa opção para criptografar sua VM. Consulte [Azure Disk Encryption com o Azure AD (versão anterior)](disk-encryption-overview-aad.md) para obter detalhes. 
+> - Se você usou anteriormente Azure Disk Encryption com o Azure AD para criptografar uma VM, você deve continuar a usar essa opção para criptografar sua VM. Consulte [Azure Disk Encryption com o Azure AD (versão anterior)](disk-encryption-overview-aad.md) para obter detalhes. 
 > - Algumas recomendações podem aumentar o uso de recursos de dados, rede ou computação, resultando em custos adicionais de licença ou assinatura. Você deve ter uma assinatura ativa válida do Azure para criar recursos no Azure nas regiões com suporte.
 
 Você pode aprender os conceitos básicos do Azure Disk Encryption para Linux em apenas alguns minutos com a [criação e a criptografia de uma VM do Linux com CLI do Azure início rápido](disk-encryption-cli-quickstart.md) ou a [criação e a criptografia de uma VM do Linux com o início rápido do Azure PowerShell](disk-encryption-powershell-quickstart.md).
@@ -96,7 +96,7 @@ Um exemplo de comandos que podem ser usados para montar os discos de dados e cri
 ## <a name="networking-requirements"></a>Requisitos de rede
 
 Para habilitar o recurso Azure Disk Encryption, as VMs do Linux devem atender aos seguintes requisitos de configuração de ponto de extremidade de rede:
-  - Para obter um token para se conectar ao cofre de chaves, a VM do Linux deve ser capaz de se conectar a um ponto de extremidade Azure Active Directory, @no__t -0login. microsoftonline. com @ no__t-1.
+  - Para obter um token para se conectar ao cofre de chaves, a VM do Linux deve ser capaz de se conectar a um ponto de extremidade Azure Active Directory, \[login.microsoftonline.com\].
   - Para gravar as chaves de criptografia no cofre de chaves, a VM do Linux deve ser capaz de se conectar ao ponto de extremidade do cofre de chaves.
   - A VM do Linux deve ser capaz de se conectar a um ponto de extremidade de armazenamento do Azure que hospeda o repositório de extensões do Azure e uma conta de armazenamento do Azure que hospeda os arquivos VHD.
   -  Se sua política de segurança limitar o acesso de VMs do Azure à Internet, você poderá resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída com os IPs. Para obter mais informações, consulte [Azure Key Vault atrás de um firewall](../../key-vault/key-vault-access-behind-firewall.md).  

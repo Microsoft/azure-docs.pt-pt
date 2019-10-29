@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: c39a2e8daf9ca46902cf1a1fac89c59918a6854d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b261594076857b841ba288dfaba8b5b8e9250065
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934336"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72987937"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associações do barramento de serviço do Azure para Azure Functions
 
@@ -61,7 +61,7 @@ O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
 public static void Run(
-    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] 
+    [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] 
     string myQueueItem,
     Int32 deliveryCount,
     DateTime enqueuedTimeUtc,
@@ -74,12 +74,6 @@ public static void Run(
     log.LogInformation($"MessageId={messageId}");
 }
 ```
-
-Este exemplo é para Azure Functions versão 1. x. Para fazer com que esse código funcione para 2. x:
-
-- [omitir o parâmetro de direitos de acesso](#trigger---configuration)
-- Altere o tipo do parâmetro de log de `TraceWriter` para `ILogger`
-- alterar `log.Info` para `log.LogInformation`
 
 ### <a name="trigger---c-script-example"></a>Gatilho- C# exemplo de script
 

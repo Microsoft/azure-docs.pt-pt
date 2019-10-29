@@ -1,5 +1,5 @@
 ---
-title: 'Solucionar problemas de falha de backup do Azure: status do agente convidado não disponível'
+title: 'Solucionar problemas de falha de backup do Azure: problemas de agente e extensão'
 description: Sintomas, causas e resoluções de falhas de backup do Azure relacionadas ao agente, à extensão e aos discos.
 ms.reviewer: saurse
 author: dcurwin
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9d76dfa338a697825868c31cfe6fc11e5235730b
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: b344af71eac04cc355ba157e18d9de9d84a9cc63
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533718"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969074"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha de backup do Azure: problemas com o agente ou extensão
 
@@ -58,7 +58,7 @@ Depois de registrar e agendar uma VM para o serviço de backup do Azure, o backu
 Ação recomendada:<br>
 Para resolver esse problema, remova o bloqueio no grupo de recursos da VM e repita a operação para disparar a limpeza.
 > [!NOTE]
-> O serviço de backup cria um grupo de recursos separado do que o grupo de recursos da VM para armazenar a coleção de pontos de restauração. Os clientes são aconselhados a não bloquear o grupo de recursos criado para uso pelo serviço de backup. O formato de nomenclatura do grupo de recursos criado pelo serviço de backup é: AzureBackupRG_ `<Geo>`_ `<number>` por exemplo: AzureBackupRG_northeurope_1
+> O serviço de backup cria um grupo de recursos separado do que o grupo de recursos da VM para armazenar a coleção de pontos de restauração. Os clientes são aconselhados a não bloquear o grupo de recursos criado para uso pelo serviço de backup. O formato de nomenclatura do grupo de recursos criado pelo serviço de backup é: AzureBackupRG_`<Geo>`_`<number>` por exemplo: AzureBackupRG_northeurope_1
 
 **Etapa 1: [remover o bloqueio do grupo de recursos do ponto de restauração](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Etapa 2: [limpar a coleção de pontos de restauração](#clean_up_restore_point_collection)**<br>
@@ -225,7 +225,7 @@ A conclusão dessas etapas faz com que a extensão seja reinstalada durante o pr
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Remover o bloqueio do grupo de recursos do ponto de recuperação
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Opção ir para **todos os recursos**, selecione o grupo de recursos coleção de pontos de restauração no seguinte formato AzureBackupRG_ `<Geo>`_ `<number>`.
+2. Opção ir para **todos os recursos**, selecione o grupo de recursos coleção de pontos de restauração no seguinte formato AzureBackupRG_`<Geo>`_`<number>`.
 3. Na seção **configurações** , selecione **bloqueios** para exibir os bloqueios.
 4. Para remover o bloqueio, selecione as reticências e clique em **excluir**.
 
@@ -254,12 +254,12 @@ Depois de remover o bloqueio, dispare um backup ad hoc/manual. Isso garantirá q
 Para limpar manualmente a coleção de pontos de restauração, que não é limpa devido ao bloqueio no grupo de recursos, tente as seguintes etapas:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. No menu **Hub** , clique em **todos os recursos**, selecione o grupo de recursos com o seguinte formato AzureBackupRG_ `<Geo>`_ `<number>` em que sua VM está localizada.
+2. No menu **Hub** , clique em **todos os recursos**, selecione o grupo de recursos com o seguinte formato AzureBackupRG_`<Geo>`_`<number>` onde sua VM está localizada.
 
     ![Excluir bloqueio](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
 3. Clique em grupo de recursos, a folha **visão geral** é exibida.
-4. Selecione a opção **Mostrar tipos ocultos** para exibir todos os recursos ocultos. Selecione as coleções de pontos de restauração com o seguinte formato AzureBackupRG_ `<VMName>`_ `<number>`.
+4. Selecione a opção **Mostrar tipos ocultos** para exibir todos os recursos ocultos. Selecione as coleções de pontos de restauração com o seguinte formato AzureBackupRG_`<VMName>`_`<number>`.
 
     ![Excluir bloqueio](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 

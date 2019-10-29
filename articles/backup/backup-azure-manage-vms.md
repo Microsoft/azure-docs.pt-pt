@@ -1,5 +1,5 @@
 ---
-title: Gerenciar e monitorar backups de VM do Azure usando o serviço de backup do Azure
+title: Gerenciar e monitorar backups de VM do Azure com o serviço de backup do Azure
 description: Saiba como gerenciar e monitorar backups de VM do Azure usando o serviço de backup do Azure.
 ms.reviewer: sogup
 author: dcurwin
@@ -8,17 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 24e36e231d80a82362333b7a711f94cf627816ac
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 3781ac1be547f6733417c4f0cae9f3e8681ea9e8
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029251"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969241"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerenciar backups de VM do Azure com o serviço de backup do Azure
 
 Este artigo descreve como gerenciar VMs (máquinas virtuais) do Azure cujo backup é feito usando o serviço de [backup do Azure](backup-overview.md). O artigo também resume as informações de backup que você pode encontrar no painel do cofre.
-
 
 No portal do Azure, o painel do cofre dos serviços de recuperação fornece acesso a informações do cofre, incluindo:
 
@@ -77,11 +76,12 @@ Para gerenciar uma política de backup:
      ![Escolher uma política de backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
 ## <a name="run-an-on-demand-backup"></a>Executar um backup sob demanda
+
 Você pode executar um backup sob demanda de uma VM depois de configurar sua proteção. Tenha estes detalhes em mente:
 
-- Se o backup inicial estiver pendente, o backup sob demanda criará uma cópia completa da VM no cofre dos serviços de recuperação.
-- Se o backup inicial for concluído, um backup sob demanda só enviará alterações do instantâneo anterior para o cofre dos serviços de recuperação. Ou seja, os backups posteriores são sempre incrementais.
-- O período de retenção para um backup sob demanda é o valor de retenção que você especifica ao disparar o backup.
+* Se o backup inicial estiver pendente, o backup sob demanda criará uma cópia completa da VM no cofre dos serviços de recuperação.
+* Se o backup inicial for concluído, um backup sob demanda só enviará alterações do instantâneo anterior para o cofre dos serviços de recuperação. Ou seja, os backups posteriores são sempre incrementais.
+* O período de retenção para um backup sob demanda é o valor de retenção que você especifica ao disparar o backup.
 
 Para disparar um backup sob demanda:
 
@@ -147,32 +147,32 @@ Para retomar a proteção de uma VM:
 
 Há duas maneiras de excluir os dados de backup de uma VM:
 
-- No painel do item do cofre, selecione parar backup e siga as instruções para [parar proteção e excluir dados de backup](#stop-protection-and-delete-backup-data) .
+* No painel do item do cofre, selecione parar backup e siga as instruções para [parar proteção e excluir dados de backup](#stop-protection-and-delete-backup-data) .
 
   ![Selecione parar backup](./media/backup-azure-manage-vms/stop-backup-buttom.png)
 
-- No painel do item do cofre, selecione excluir dados de backup. Essa opção será habilitada se você tiver optado por [interromper a proteção e manter a opção de dados de backup](#stop-protection-and-retain-backup-data) durante a proteção da VM de parada
+* No painel do item do cofre, selecione excluir dados de backup. Essa opção será habilitada se você tiver optado por [interromper a proteção e manter a opção de dados de backup](#stop-protection-and-retain-backup-data) durante a proteção da VM de parada
 
   ![Selecione Excluir backup](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-  - No [painel do item do cofre](#view-vms-on-the-dashboard), selecione **excluir dados de backup**.
-  - Digite o nome do item de backup para confirmar que você deseja excluir os pontos de recuperação.
+  * No [painel do item do cofre](#view-vms-on-the-dashboard), selecione **excluir dados de backup**.
+  * Digite o nome do item de backup para confirmar que você deseja excluir os pontos de recuperação.
 
     ![Eliminar dados de cópia de segurança](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
-  - Para excluir os dados de backup do item, selecione **excluir**. Uma mensagem de notificação permite que você saiba que os dados de backup foram excluídos.
+  * Para excluir os dados de backup do item, selecione **excluir**. Uma mensagem de notificação permite que você saiba que os dados de backup foram excluídos.
 
   > [!NOTE]
   > Ao excluir dados de backup, você exclui todos os pontos de recuperação associados. Você não pode escolher pontos de recuperação específicos para excluir.
 
 ### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>Item de backup em que a fonte de dados primária não existe mais
 
-- Se as VMs do Azure configuradas para o backup do Azure forem excluídas ou movidas sem interromper a proteção, os trabalhos de backup agendados e os trabalhos de backup sob demanda (ad-hoc) falharão com o erro UserErrorVmNotFoundV2. A pré-verificação de backup será exibida como crítica somente para trabalhos de backup ad hoc com falha (trabalhos agendados com falha não são exibidos). 
-- Esses itens de backup permanecem ativos no sistema que aderem à política de backup e retenção definida pelo usuário. Os dados de backup para essas VMs do Azure serão mantidos de acordo com a política de retenção. Os pontos de recuperação expirados (exceto o último ponto de recuperação) são limpos de acordo com o período de retenção definido na política de backup.
-- Os usuários são recomendados para excluir os itens de backup em que a fonte de dados primária não existe mais para evitar custos adicionais, se o item/dados de backup dos recursos de exclusão não for mais necessário, pois o último ponto de recuperação é mantido para sempre e o usuário é cobrado como de acordo com o preço de backup aplicável.
-
+* Se as VMs do Azure configuradas para o backup do Azure forem excluídas ou movidas sem interromper a proteção, os trabalhos de backup agendados e os trabalhos de backup sob demanda (ad-hoc) falharão com o erro UserErrorVmNotFoundV2. A pré-verificação de backup será exibida como crítica somente para trabalhos de backup ad hoc com falha (trabalhos agendados com falha não são exibidos).
+* Esses itens de backup permanecem ativos no sistema que aderem à política de backup e retenção definida pelo usuário. Os dados de backup para essas VMs do Azure serão mantidos de acordo com a política de retenção. Os pontos de recuperação expirados (exceto o último ponto de recuperação) são limpos de acordo com o período de retenção definido na política de backup.
+* Os usuários são recomendados para excluir os itens de backup em que a fonte de dados primária não existe mais para evitar custos adicionais, se o item/dados de backup dos recursos de exclusão não for mais necessário, pois o último ponto de recuperação é mantido para sempre e o usuário é cobrado como de acordo com o preço de backup aplicável.
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba como [fazer backup de VMs do Azure nas configurações da VM](backup-azure-vms-first-look-arm.md).
-- Saiba como [restaurar VMs](backup-azure-arm-restore-vms.md).
-- Saiba como [monitorar backups de VM do Azure](backup-azure-monitor-vms.md).
+
+* Saiba como [fazer backup de VMs do Azure nas configurações da VM](backup-azure-vms-first-look-arm.md).
+* Saiba como [restaurar VMs](backup-azure-arm-restore-vms.md).
+* Saiba como [monitorar backups de VM do Azure](backup-azure-monitor-vms.md).

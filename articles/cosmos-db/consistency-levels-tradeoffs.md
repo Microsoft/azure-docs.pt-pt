@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9178b8007d707af2df150102b2d344a44106a9ca
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: f241f243860635db443b732f94d12956bbe0f9d8
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755193"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990628"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromissos de consistência, disponibilidade e desempenho 
 
@@ -62,6 +62,10 @@ A tabela a seguir define a relação entre o modelo de consistência e a durabil
 *K* = o número de versões *"K"* (ou seja, atualizações) de um item.
 
 *T* = o intervalo de tempo *"T"* desde a última atualização.
+
+## <a name="strong-consistency-and-multi-master"></a>Consistência forte e vários mestres
+
+As contas do cosmos configuradas para vários mestres não podem ser configuradas para uma consistência forte, pois não é possível que um sistema distribuído forneça um RPO de zero e um RTO igual a zero. Além disso, não há nenhum benefício de latência de gravação para usar a consistência forte com vários mestres, uma vez que qualquer gravação em qualquer região deve ser replicada e confirmada em todas as regiões configuradas na conta. Isso resulta na mesma latência de gravação que uma conta mestra única.
 
 ## <a name="next-steps"></a>Passos seguintes
 

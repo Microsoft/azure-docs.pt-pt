@@ -3,7 +3,7 @@ title: Diagnostique, solucione problemas e resolva problemas no Azure Time Serie
 description: Este artigo descreve como diagnosticar, solucionar problemas e resolver problemas comuns que você pode encontrar em seu ambiente de Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 78a991fb310c635648513e6472543b9f5c01119d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 7c9dcdf43e819e20126f948fa08f4f8f476036ac
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330850"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991261"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnosticar e resolver problemas em seu ambiente de Time Series Insights
 
@@ -40,11 +40,11 @@ Azure Time Series Insights dá suporte apenas a dados JSON. Para obter exemplos 
 
 * Para um hub IoT no Hub IoT do Azure, você deve fornecer a chave que tem permissões de **conexão de serviço** . Uma das **iothubowner** ou políticas de **serviço** funcionarão, pois ambas têm permissões de **conexão de serviço** .
 
-   [@no__t-permissões de conexão do serviço de Hub do 1IoT](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
+   [![permissões de conexão do serviço do Hub IoT](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
 * Para um hub de eventos nos hubs de eventos do Azure, você deve fornecer a chave que tem permissões de **escuta** . Qualquer uma das políticas de **leitura** ou de **Gerenciamento** funcionará porque ambas têm permissões de **escuta** .
 
-   [permissões de escuta do Hub @no__t 1Event](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
+   [![permissões de escuta do hub de eventos](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
 ### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>Causa C: o grupo de consumidores fornecido não é exclusivo para Time Series Insights
 
@@ -69,7 +69,7 @@ O limite de limitação é imposto com base na capacidade e no tipo de SKU do am
 
 A figura a seguir mostra um ambiente Time Series Insights que tem uma SKU de S1 e uma capacidade de 3. Ele pode ingressar 3 milhões eventos por dia.
 
-[capacidade atual de SKU de @no__t 1Environment](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
+[capacidade atual de SKU do ambiente de![](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
 Como exemplo, suponha que um ambiente ingere mensagens de um hub de eventos. A taxa de entrada diária é de ~ 67.000 mensagens. Essa taxa se traduz em aproximadamente 46 mensagens a cada minuto. 
 

@@ -3,7 +3,7 @@ title: Autenticar e autorizar usando uma API no Azure Time Series Insights | Mic
 description: Este artigo descreve como configurar a autenticação e a autorização para um aplicativo personalizado que chama a API de Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
@@ -12,18 +12,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: e98c004b802711c83558bf4d7ec86c418679836b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 4fd68f770cbe48b15646ec41c0bf94be5e760a50
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981155"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990192"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para Azure Time Series Insights API
 
 Este documento descreve como registrar um aplicativo no Azure Active Directory usando a folha novo Azure Active Directory. Os aplicativos registrados no Azure Active Directory permitem que os usuários se autentiquem no e estejam autorizados a usar a API do Azure Time Series Insight associada a um ambiente de Time Series Insights.
 
-## <a name="service-principal"></a>Principal de serviço
+## <a name="service-principal"></a>Entidade de serviço
 
 As seções a seguir descrevem como configurar um aplicativo para acessar a API de Time Series Insights em nome de um aplicativo. O aplicativo pode então consultar ou publicar dados de referência no ambiente de Time Series Insights usando suas próprias credenciais de aplicativo por meio de Azure Active Directory.
 
@@ -33,7 +33,7 @@ O fluxo de registro do aplicativo Azure Active Directory envolve três etapas pr
 
 1. [Registrar um aplicativo](#azure-active-directory-app-registration) no Azure Active Directory.
 1. Autorize o aplicativo a ter [acesso a dados ao ambiente de time Series insights](#granting-data-access).
-1. Use a **ID do aplicativo** e o **segredo do cliente** para adquirir um token do `https://api.timeseries.azure.com/` em seu [aplicativo cliente](#client-app-initialization). O token pode ser usado para chamar a API de Time Series Insights.
+1. Use a **ID do aplicativo** e o **segredo do cliente** para adquirir um token de `https://api.timeseries.azure.com/` em seu [aplicativo cliente](#client-app-initialization). O token pode ser usado para chamar a API de Time Series Insights.
 
 Por **etapa 3**, separar o seu aplicativo e suas credenciais de usuário permite que você:
 
@@ -59,15 +59,15 @@ Por **etapa 3**, separar o seu aplicativo e suas credenciais de usuário permite
 
 1. Para o ambiente de Time Series Insights, selecione **políticas de acesso a dados** e selecione **Adicionar**.
 
-   [![Add nova política de acesso a dados para o ambiente de Time Series Insights](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
+   [![Adicionar nova política de acesso a dados ao ambiente de Time Series Insights](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
 
 1. Na caixa de diálogo **Selecionar usuário** , Cole o **nome do aplicativo** ou a **ID do aplicativo** na seção Azure Active Directory registro do aplicativo.
 
-   [![Find um aplicativo na caixa de diálogo Selecionar usuário](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
+   [![localizar um aplicativo na caixa de diálogo Selecionar usuário](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
 
 1. Selecione a função. Selecione **leitor** para consultar dados ou **colaborador** para consultar dados e alterar dados de referência. Selecione **OK**.
 
-   [Leitor de @no__t 1Pick ou colaborador na caixa de diálogo Selecionar função de usuário](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
+   [![selecionar leitor ou colaborador na caixa de diálogo Selecionar função de usuário](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
 
 1. Salve a política selecionando **OK**.
 
@@ -105,12 +105,12 @@ Por **etapa 3**, separar o seu aplicativo e suas credenciais de usuário permite
 
 Esta seção descreve os cabeçalhos de solicitação HTTP comuns e os parâmetros usados para fazer consultas em relação às APIs de versão Time Series Insights GA e versão prévia. Os requisitos específicos da API são abordados com mais detalhes na [documentação de referência da API REST do time Series insights](https://docs.microsoft.com/rest/api/time-series-insights/).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 
 Para executar consultas autenticadas em relação às [APIs REST do time Series insights](https://docs.microsoft.com/rest/api/time-series-insights/), um token de portador OAuth 2,0 válido deve ser passado no [cabeçalho Authorization](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) usando um cliente REST de sua escolha (post, JavaScript C#,). 
 
 > [!IMPORTANT]
-> O token deve ser emitido exatamente para o recurso `https://api.timeseries.azure.com/` (também conhecido como "público" do token).
+> O token deve ser emitido exatamente para o recurso de `https://api.timeseries.azure.com/` (também conhecido como "público" do token).
 > * O [](https://www.getpostman.com/) **AuthURL** de postmaster com, portanto, está em conformidade com: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
 
 > [!TIP]
@@ -120,19 +120,19 @@ Para executar consultas autenticadas em relação às [APIs REST do time Series 
 
 Cabeçalhos de solicitação necessários:
 
-- `Authorization` para autenticação e autorização, um token de portador OAuth 2,0 válido deve ser passado no cabeçalho Authorization. O token deve ser emitido exatamente para o recurso `https://api.timeseries.azure.com/` (também conhecido como "público" do token).
+- `Authorization` para autenticação e autorização, um token de portador OAuth 2,0 válido deve ser passado no cabeçalho Authorization. O token deve ser emitido exatamente para o recurso de `https://api.timeseries.azure.com/` (também conhecido como "público" do token).
 
 Cabeçalhos de solicitação opcionais:
 
-- `Content-type`-somente `application/json` tem suporte.
+- Há suporte para `application/json` somente `Content-type`.
 - `x-ms-client-request-id`-uma ID de solicitação do cliente. O serviço registra esse valor. Permite que o serviço rastreie a operação entre serviços.
 - `x-ms-client-session-id`-uma ID de sessão de cliente. O serviço registra esse valor. Permite que o serviço rastreie um grupo de operações relacionadas entre serviços.
 - `x-ms-client-application-name`-nome do aplicativo que gerou essa solicitação. O serviço registra esse valor.
 
 Cabeçalhos de resposta:
 
-- `Content-type`-somente `application/json` tem suporte.
-- `x-ms-request-id`-ID de solicitação gerada pelo servidor. Pode ser usado para contatar a Microsoft para investigar uma solicitação.
+- Há suporte para `application/json` somente `Content-type`.
+- `x-ms-request-id`-ID da solicitação gerada pelo servidor. Pode ser usado para contatar a Microsoft para investigar uma solicitação.
 
 ### <a name="http-parameters"></a>Parâmetros HTTP
 

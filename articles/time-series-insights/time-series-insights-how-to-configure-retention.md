@@ -3,20 +3,19 @@ title: Como configurar a retenção em seu ambiente de Azure Time Series Insight
 description: Este artigo descreve como configurar a retenção em seu ambiente de Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: bf6788bac7003bec0ccfc171d622cd9b28bf43e0
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ff4d326af691ae27894dc94d7581ba68951f090e
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330889"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990063"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configurando a retenção no Time Series Insights
 
@@ -41,7 +40,7 @@ Para obter informações detalhadas para entender melhor essas configurações, 
 
 1. No título **configurações** , selecione **Configurar**.
 
-    [Configurações do ![Select e, em seguida, configurar](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
+    [![selecionar configurações e, em seguida, configurar](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
 1. Selecione o **tempo de retenção de dados (em dias)** para configurar a retenção usando a barra deslizante ou digite um número na caixa de texto.
 
@@ -49,7 +48,7 @@ Para obter informações detalhadas para entender melhor essas configurações, 
 
 1. Alterne a configuração de **comportamento de limite de armazenamento excedido** . Selecione **limpar dados antigos** ou **Pausar** comportamento de entrada.
 
-    [retenção de ![Data-aceita e salva.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
+    [retenção de dados![-aceite e salve.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
 
 1. Aceite a caixa de seleção indicando que você analisou a documentação e entendeu os riscos potenciais de perda de dados. Selecione **salvar** para configurar as alterações.
 

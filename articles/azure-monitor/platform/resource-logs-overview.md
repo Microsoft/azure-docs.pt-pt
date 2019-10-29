@@ -7,12 +7,12 @@ ms.topic: reference
 author: rboucher
 ms.author: robb
 ms.date: 10/22/2019
-ms.openlocfilehash: e1bf6a55568671ddb8f6999356cc9be43ce6a728
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b953f9b5e5fd8c853746caad3047986786bd1317
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804022"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989609"
 ---
 # <a name="azure-resource-logs-overview"></a>Visão geral dos logs de recursos do Azure
 Os logs de recursos do Azure são [os logs de plataforma](platform-logs-overview.md) emitidos pelos recursos do Azure que descrevem sua operação interna. Todos os logs de recursos compartilham um esquema comum de nível superior com a flexibilidade de cada serviço para emitir propriedades exclusivas para seus próprios eventos.
@@ -25,8 +25,8 @@ Os logs de recursos são gerados automaticamente por recursos do Azure com supor
 
 | Destino | Cenário |
 |:---|:---|:---|
-| [Área de trabalho do Log Analytics](resource-logs-collect-storage.md) | Analise os logs com outros dados de monitoramento e aproveite Azure Monitor recursos como consultas de log e alertas de log. |
-| [Armazenamento do Azure](archive-diagnostic-logs.md) | Arquive os logs para auditoria ou backup. |
+| [Área de trabalho do Log Analytics](resource-logs-collect-workspace.md) | Analise os logs com outros dados de monitoramento e aproveite Azure Monitor recursos como consultas de log e alertas de log. |
+| [Armazenamento do Azure](resource-logs-collect-storage.md) | Arquive os logs para auditoria ou backup. |
 | [Hub de eventos](resource-logs-stream-event-hubs.md) | Transmita os logs para sistemas de registro em log e telemetria de terceiros.  |
 
 ## <a name="compute-resources"></a>Recursos de computação

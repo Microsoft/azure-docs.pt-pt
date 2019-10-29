@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/18/2018
-ms.openlocfilehash: 393087f4d5c5e7a52fd2dd10d20362a045a0075b
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.date: 10/25/2019
+ms.openlocfilehash: 1bcb433230af856e92c7e418fc81b35bea549ddf
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122669"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72987984"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Como configurar o Apache Kafka no HDInsight para criar tópicos automaticamente
 
@@ -25,42 +25,40 @@ Para habilitar a criação automática de tópicos em um cluster existente por m
 
 1. No [portal do Azure](https://portal.azure.com), selecione o cluster Kafka.
 
-2. Na __visão geral do cluster__, selecione __painel do cluster__.
+1. Em **painéis de cluster**, selecione **Ambari página inicial**.
 
-    ![Imagem do portal com o painel do cluster selecionado](./media/apache-kafka-auto-create-topics/kafka-cluster-overview.png)
+    ![Imagem do portal com o painel do cluster selecionado](./media/apache-kafka-auto-create-topics/azure-portal-cluster-dashboard-ambari.png)
 
-3. Em seguida, selecione __painel do cluster HDInsight__. Quando solicitado, autentique usando as credenciais de logon (admin) para o cluster.
+    Quando solicitado, autentique usando as credenciais de logon (admin) para o cluster. Como alternativa, você pode se conectar ao Amabri diretamente de `https://CLUSTERNAME.azurehdinsight.net/` em que `CLUSTERNAME` é o nome do seu cluster Kafka.
 
-    ![Imagem da entrada do painel do cluster HDInsight](./media/apache-kafka-auto-create-topics/hdinsight-cluster-dashboard.png)
-
-3. Selecione o serviço Kafka na lista à esquerda da página.
+1. Selecione o serviço Kafka na lista à esquerda da página.
 
     ![Guia lista de serviços do Apache Ambari](./media/apache-kafka-auto-create-topics/hdinsight-service-list.png)
 
-4. Selecione Configurações no meio da página.
+1. Selecione Configurações no meio da página.
 
     ![Guia Configurações do serviço Apache Ambari](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
 
-5. No campo filtro, insira um valor de `auto.create`.
+1. No campo filtro, insira um valor de `auto.create`.
 
     ![Campo de filtro de pesquisa do Apache Ambari](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
 
-    Isso filtra a lista de propriedades e exibe a `auto.create.topics.enable` configuração.
+    Isso filtra a lista de propriedades e exibe a configuração `auto.create.topics.enable`.
 
-6. Altere o valor de `auto.create.topics.enable` para `true`e, em seguida, selecione salvar. Adicione uma observação e, em seguida, selecione salvar novamente.
+1. Altere o valor de `auto.create.topics.enable` para `true`e, em seguida, selecione **salvar**. Adicione uma observação e, em seguida, selecione **salvar** novamente.
 
     ![Imagem da entrada auto. Create. topics. Enable](./media/apache-kafka-auto-create-topics/auto-create-topics-enable.png)
 
-7. Selecione o serviço Kafka, selecione __reiniciar__e, em seguida, selecione __reiniciar todos os afetados__. Quando solicitado, selecione __confirmar reiniciar tudo__.
+1. Selecione o serviço Kafka, selecione __reiniciar__e, em seguida, selecione __reiniciar todos os afetados__. Quando solicitado, selecione __confirmar reiniciar tudo__.
 
     ![O Apache Ambari reinicia todos os afetados](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 
 > [!NOTE]  
 > Você também pode definir valores de Ambari por meio da API REST do Ambari. Isso geralmente é mais difícil, pois você precisa fazer várias chamadas REST para recuperar a configuração atual, modificá-la etc. Para obter mais informações, consulte o documento [gerenciar clusters HDInsight usando a API REST do Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md) .
 
-## <a name="resource-manager-templates"></a>Modelos do Resource Manager
+## <a name="resource-manager-templates"></a>Modelos do Gestor de Recursos
 
-Ao criar um cluster Kafka usando um modelo de Azure Resource Manager, você pode definir `auto.create.topics.enable` diretamente adicionando-o a `kafka-broker`um. O trecho de código JSON a seguir demonstra como definir esse `true`valor como:
+Ao criar um cluster Kafka usando um modelo de Azure Resource Manager, você pode definir diretamente `auto.create.topics.enable` adicionando-o a um `kafka-broker`. O trecho de código JSON a seguir demonstra como definir esse valor como `true`:
 
 ```json
 "clusterDefinition": {

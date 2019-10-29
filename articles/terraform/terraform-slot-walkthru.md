@@ -1,26 +1,23 @@
 ---
-title: Utilizar o Terraform com blocos de implementação de fornecedor do Azure
+title: Tutorial-provisionar a infraestrutura com os slots de implantação do Azure usando o Terraform
 description: Tutorial sobre como utilizar o Terraform com os blocos de implementação de fornecedor do Azure
-services: terraform
-ms.service: azure
-keywords: terraform, devops, máquina virtual, Azure, blocos de implementação
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: fbc6d30f8bc161ecf1a4e4093d0b69e99eec527b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
-ms.translationtype: HT
+ms.date: 10/26/2019
+ms.openlocfilehash: 209bc23c6f8e96734506e3017ed2b16e51c77a00
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72924997"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969277"
 ---
-# <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Utilizar o Terraform para aprovisionar infraestruturas com os blocos de implementação do Azure
+# <a name="tutorial-provision-infrastructure-with-azure-deployment-slots-using-terraform"></a>Tutorial: provisionar a infraestrutura com os slots de implantação do Azure usando o Terraform
 
 Pode utilizar os [blocos de implementação do Azure](/azure/app-service/deploy-staging-slots) para alternar entre diferentes versões da sua aplicação. Esta capacidade ajuda-o a minimizar o impacto de implementações interrompidas. 
 
-Este artigo apresenta um exemplo de utilização de blocos de implementação ao orientá-lo pela implementação de duas aplicações através do GitHub e do Azure. Uma das aplicações encontra-se alojada num bloco de produção. A segunda aplicação encontra-se alojada num bloco de teste. (Os nomes "produção" e "preparo" são arbitrários e podem ser qualquer coisa que você queira que represente seu cenário.) Depois de configurar os slots de implantação, você pode usar o Terraform para alternar entre os dois slots, conforme necessário.
+Este artigo apresenta um exemplo de utilização de blocos de implementação ao orientá-lo pela implementação de duas aplicações através do GitHub e do Azure. Uma das aplicações encontra-se alojada num bloco de produção. A segunda aplicação encontra-se alojada num bloco de teste. (Os nomes "produção" e "preparo" são arbitrários. Eles podem ser qualquer um que seja apropriado para seu cenário.) Depois de configurar os slots de implantação, use Terraform para alternar entre os dois slots, conforme necessário.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -64,13 +61,11 @@ Este artigo apresenta um exemplo de utilização de blocos de implementação ao
     cd deploy
     ```
 
-1. No [editor vi](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html), crie um ficheiro com o nome `deploy.tf`. Este ficheiro contém a [configuração do Terraform](https://www.terraform.io/docs/configuration/index.html).
+1. No Cloud Shell, crie um ficheiro com o nome `deploy.tf`.
 
     ```bash
-    vi deploy.tf
+    code deploy.tf
     ```
-
-1. Selecione a tecla I para entrar no modo de inserção.
 
 1. Cole o seguinte código no editor:
 
@@ -109,13 +104,7 @@ Este artigo apresenta um exemplo de utilização de blocos de implementação ao
     }
     ```
 
-1. Prima a tecla Esc para sair do modo de inserção.
-
-1. Guarde o ficheiro e saia do editor vi ao inserir o seguinte comando:
-
-    ```bash
-    :wq
-    ```
+1. Salve o arquivo ( **&lt;Ctrl > S**) e saia do editor ( **&lt;Ctrl > Q**).
 
 1. Agora que já criou o ficheiro, verifique os seus conteúdos.
 
@@ -207,7 +196,7 @@ Após criar o fork para o repositório do projeto de teste, configure os blocos 
 
 1. No separador **Opção de implementação**, selecione **OK**.
 
-Nesta fase, já implementou o bloco de produção. Para implementar um bloco de teste, execute todos os passos anteriores nesta secção e modifique apenas o seguinte:
+Neste ponto, você implantou o slot de produção. Para implantar o slot de preparo, execute as etapas anteriores com as seguintes modificações:
 
 - No passo 3, selecione o recurso **slotAppServiceSlotOne**.
 
@@ -219,8 +208,6 @@ Nesta fase, já implementou o bloco de produção. Para implementar um bloco de 
 
 Nas secções anteriores, configurou dois blocos, o **slotAppService** e o **slotAppServiceSlotOne** para implementar a partir de diferentes ramos no GitHub. Vamos pré-visualizar as aplicações Web para nos certificarmos de que estas foram implementadas com êxito.
 
-Realize os seguintes passos duas vezes. No passo 3, selecione **slotAppService** na primeira vez e, em seguida, selecione **slotAppServiceSlotOne** na segunda vez.
-
 1. No menu principal do portal do Azure, selecione **Grupos de recursos**.
 
 1. Selecione **slotDemoResourceGroup**.
@@ -231,18 +218,15 @@ Realize os seguintes passos duas vezes. No passo 3, selecione **slotAppService**
 
     ![Selecionar o URL no separador da descrição geral para compor a aplicação](./media/terraform-slot-walkthru/resource-url.png)
 
-> [!NOTE]
-> Esta ação pode demorar alguns minutos pois o Azure tem de criar e implementar o site a partir do GitHub.
->
->
+1. Dependendo do aplicativo selecionado, você verá os seguintes resultados:
+    - aplicativo Web **slotAppService** – página azul com um título de página de **slot demo app 1**. 
+    - aplicativo Web **slotAppServiceSlotOne** – página verde com um título de página do **slot demo app 2**.
 
-Para a aplicação Web **slotAppService**, verá uma página azul com o título **Slot Demo App 1**. Para a aplicação Web **slotAppServiceSlotOne**, verá uma página verde com o título **Slot Demo App 2**.
-
-![Pré-visualizar as aplicações para testar se estas foram implementadas com êxito](./media/terraform-slot-walkthru/app-preview.png)
+    ![Pré-visualizar as aplicações para testar se estas foram implementadas com êxito](./media/terraform-slot-walkthru/app-preview.png)
 
 ## <a name="swap-the-two-deployment-slots"></a>Alternar entre dois blocos de implementação
 
-Para testar a alternância entre os dois blocos de implementação, execute os seguintes passos:
+Para testar a troca de dois slots de implantação, execute as seguintes etapas:
  
 1. Alterne para o separador do browser que está a executar o **slotAppService** (a aplicação com a página azul). 
 
@@ -256,13 +240,11 @@ Para testar a alternância entre os dois blocos de implementação, execute os s
     cd clouddrive/swap
     ```
 
-1. No editor vi, crie um ficheiro com o nome `swap.tf`.
+1. No Cloud Shell, crie um ficheiro com o nome `swap.tf`.
 
     ```bash
-    vi swap.tf
+    code swap.tf
     ```
-
-1. Selecione a tecla I para entrar no modo de inserção.
 
 1. Cole o seguinte código no editor:
 
@@ -278,13 +260,7 @@ Para testar a alternância entre os dois blocos de implementação, execute os s
     }
     ```
 
-1. Prima a tecla Esc para sair do modo de inserção.
-
-1. Guarde o ficheiro e saia do editor vi ao inserir o seguinte comando:
-
-    ```bash
-    :wq
-    ```
+1. Salve o arquivo ( **&lt;Ctrl > S**) e saia do editor ( **&lt;Ctrl > Q**).
 
 1. Inicialize o Terraform.
 
@@ -304,7 +280,7 @@ Para testar a alternância entre os dois blocos de implementação, execute os s
     terraform apply
     ```
 
-1. Após o Terraform concluir a alternância entre blocos, regresse ao browser que está a compor a aplicação Web **slotAppService** e atualize a página. 
+1. Após o Terraform ter trocado os slots, retorne ao navegador. Atualize a página. 
 
 A aplicação Web no seu bloco de teste **slotAppServiceSlotOne** foi alternada para o bloco de produção e encontra-se representada a verde. 
 
@@ -317,3 +293,8 @@ terraform apply
 ```
 
 Após a aplicação alternar, verá a configuração original.
+
+## <a name="next-steps"></a>Passos seguintes
+
+> [!div class="nextstepaction"] 
+> [Terraform no Azure](/azure/ansible/)

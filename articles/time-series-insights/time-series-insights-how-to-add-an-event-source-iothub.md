@@ -3,7 +3,7 @@ title: Como adicionar uma origem de evento do Hub IoT a Azure Time Series Insigh
 description: Este artigo descreve como adicionar uma origem de evento que está conectada a um hub IoT ao seu ambiente de Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: eaac2e3e2fc489b364729711da151c28cde86d6c
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: f9dd79bacf2d21e0c7e7681e5217d5e874b2b30e
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274686"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991201"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Adicionar uma origem de evento do Hub IoT ao seu ambiente de Time Series Insights
 
@@ -42,7 +42,7 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
 1. Em **configurações**, selecione **pontos de extremidade internos**e, em seguida, selecione o ponto final de **eventos** .
 
-   [![On a página de pontos de extremidade de compilação, selecione o botão eventos](media/time-series-insights-how-to-add-an-event-source-iothub/1-iot-hub.png)](media/time-series-insights-how-to-add-an-event-source-iothub/1-iot-hub.png#lightbox)
+   [![na página pontos de extremidade de compilação, selecione o botão eventos](media/time-series-insights-how-to-add-an-event-source-iothub/1-iot-hub.png)](media/time-series-insights-how-to-add-an-event-source-iothub/1-iot-hub.png#lightbox)
 
 1. Em **grupos de consumidores**, insira um nome exclusivo para o grupo de consumidores. Use esse mesmo nome em seu ambiente de Time Series Insights ao criar uma nova origem de evento.
 
@@ -56,7 +56,7 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
 1. Em **topologia do ambiente**, selecione **origens do evento**e, em seguida, selecione **Adicionar**.
 
-   [Fontes de evento ![Select e, em seguida, selecione o botão Adicionar](media/time-series-insights-how-to-add-an-event-source-iothub/2-add-event-source.png)](media/time-series-insights-how-to-add-an-event-source-iothub/2-add-event-source.png#lightbox)
+   [![selecionar origens do evento e, em seguida, selecione o botão Adicionar](media/time-series-insights-how-to-add-an-event-source-iothub/2-add-event-source.png)](media/time-series-insights-how-to-add-an-event-source-iothub/2-add-event-source.png#lightbox)
 
 1. No **novo painel origem do evento** , para **nome da origem do evento**, insira um nome que seja exclusivo para esse time Series insights ambiente. Por exemplo, insira **Event-Stream**.
 
@@ -66,11 +66,11 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
    * Se você já tiver um hub IoT em uma de suas assinaturas, selecione usar o **Hub IOT de assinaturas disponíveis**. Essa opção é a abordagem mais fácil.
    
-     [opções de @no__t 1Select no novo painel de origem do evento](media/time-series-insights-how-to-add-an-event-source-iothub/3-select-an-import-option.png)](media/time-series-insights-how-to-add-an-event-source-iothub/3-select-an-import-option.png#lightbox)
+     [![selecionar opções no novo painel de origem do evento](media/time-series-insights-how-to-add-an-event-source-iothub/3-select-an-import-option.png)](media/time-series-insights-how-to-add-an-event-source-iothub/3-select-an-import-option.png#lightbox)
 
     * A tabela a seguir descreve as propriedades que são necessárias para a opção **usar o Hub IOT de assinaturas disponíveis** :
 
-       [painel de origem do evento ![New-Propriedades a serem definidas na opção usar o Hub IoT de assinaturas disponíveis](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png#lightbox)
+       [![novo painel de origem do evento-Propriedades a serem definidas na opção usar o Hub IoT de assinaturas disponíveis](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png#lightbox)
 
        | Propriedade | Descrição |
        | --- | --- |

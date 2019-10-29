@@ -3,22 +3,21 @@ title: 'Início rápido: Azure Time Series Insights Explorer | Microsoft Docs'
 description: Este guia de início rápido mostra como começar a usar o Azure Time Series Insights Explorer em seu navegador da Web para visualizar grandes volumes de dados de IoT. Visita guiada pelas principais funcionalidades num ambiente de demonstração.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 09/23/2019
-ms.openlocfilehash: 83446facc734c0bfa24b7e78916d652467d01415
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 156e95c88bc3c66890ba9c8baf9b281330b60186
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978687"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990914"
 ---
-# <a name="quickstart-explore-azure-time-series-insights"></a>Início rápido: Explorar o Azure Time Series Insights
+# <a name="quickstart-explore-azure-time-series-insights"></a>Guia de introdução: Explorar o Azure Time Series Insights
 
 Este guia de início rápido do Azure Time Series Insights Explorer ajuda você a começar a usar o Time Series Insights em um ambiente de demonstração gratuita. Neste guia de início rápido, você aprende a usar seu navegador da Web para visualizar grandes volumes de dados de IoT e recursos principais de Tour que estão geralmente disponíveis agora.
 
@@ -39,45 +38,45 @@ Este início rápido do Time Series Insights Explorer oferece um tour guiado de 
 
 1. A página Quick Tour Time Series Insights é exibida. Selecione **Avançar** para iniciar o tour rápido.
 
-   [![Select próximo](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png#lightbox)
+   [![Selecione Avançar](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png#lightbox)
 
 ## <a name="explore-the-demo-environment"></a>Explore o ambiente de demonstração
 
 1. O **painel de seleção de tempo** é exibido. Utilize este painel para selecionar um intervalo de tempo para visualizar.
 
-   [painel de seleção de ![Time](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
+   [painel de seleção de![tempo](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
 
 1. Selecione um intervalo de tempo e arraste-o na região. Em seguida, selecione **Pesquisar**.
 
-   [![Select um período de tempo](media/quickstart/quickstart3.png)](media/quickstart/quickstart3.png#lightbox)
+   [![selecionar um intervalo de tempo](media/quickstart/quickstart3.png)](media/quickstart/quickstart3.png#lightbox)
 
    O Time Series Insights apresenta uma visualização de gráfico para o intervalo de tempo especificado. Você pode executar várias ações no gráfico de linhas. Por exemplo, você pode filtrar, fixar, classificar e empilhar.
 
    Para retornar ao **painel de seleção de tempo**, selecione a seta para baixo conforme mostrado:
 
-   [![Chart](media/quickstart/quickstart4.png)](media/quickstart/quickstart4.png#lightbox)
+   [Gráfico de![](media/quickstart/quickstart4.png)](media/quickstart/quickstart4.png#lightbox)
 
 1. Selecione **Adicionar** no **painel termos** para adicionar um novo termo de pesquisa.
 
-   [item de ![Add](media/quickstart/quickstart5.png)](media/quickstart/quickstart5.png#lightbox)
+   [![Adicionar item](media/quickstart/quickstart5.png)](media/quickstart/quickstart5.png#lightbox)
 
 1. No gráfico, pode selecionar uma região, clicar com o botão direito na região e selecionar **Explorar Eventos**.
 
-   [Eventos de ![Explore](media/quickstart/quickstart6.png)](media/quickstart/quickstart6.png#lightbox)
+   [![explorar eventos](media/quickstart/quickstart6.png)](media/quickstart/quickstart6.png#lightbox)
 
    Uma grade de seus dados brutos é exibida na região que você está explorando.
 
-   [exibição de @no__t 1Grid](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png#lightbox)
+   [exibição de grade![](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png#lightbox)
 
 ## <a name="select-and-filter-data"></a>Selecionar e filtrar dados
 
 1. Edite seus termos para alterar os valores no gráfico. Adicione outro termo para fazer a correlação cruzada de diferentes tipos de valores.
 
-   [![Add um termo](media/quickstart/quickstart8.png)](media/quickstart/quickstart8.png#lightbox)
+   [![adicionar um termo](media/quickstart/quickstart8.png)](media/quickstart/quickstart8.png#lightbox)
 
 1. Insira um termo de filtro na caixa **série de filtro** para filtragem da série improvisadas. Para o guia de introdução, introduza **Station5** para correlacionar entre si a temperatura e a pressão dessa estação.
 
-   [série ![Filter](media/quickstart/quickstart9.png)](media/quickstart/quickstart9.png#lightbox)
+   [![série de filtro](media/quickstart/quickstart9.png)](media/quickstart/quickstart9.png#lightbox)
 
 Depois de concluir o guia de introdução, pode experimentar com o conjunto de dados de exemplo para criar visualizações diferentes.
 

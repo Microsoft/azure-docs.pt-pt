@@ -4,14 +4,14 @@ description: Mostra como os tipos de recurso lidam com a exclusão de modo compl
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: de1b5080e72f79626ca0c749efe4122721f14922
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 03e91e4be967e822d17144af848f51e73851b1e6
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528581"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969186"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Exclusão de recursos do Azure para implantações de modo completo
 
@@ -61,7 +61,6 @@ Ir para um namespace do provedor de recursos:
 > - [Microsoft. ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft. ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft. ContainerService](#microsoftcontainerservice)
-> - [Microsoft. ContentModerator](#microsoftcontentmoderator)
 > - [Microsoft. CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft. CostManagement](#microsoftcostmanagement)
 > - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
@@ -277,6 +276,7 @@ Ir para um namespace do provedor de recursos:
 > | Aliases de dataalias | Não |
 > | denyAssignments | Não |
 > | elevateAccess | Não |
+> | findOrphanRoleAssignments | Não |
 > | bloquea | Não |
 > | Permissões | Não |
 > | policyAssignments | Não |
@@ -394,6 +394,7 @@ Ir para um namespace do provedor de recursos:
 > | billingAccounts/createBillingRoleAssignment | Não |
 > | billingAccounts/createInvoiceSectionOperations | Não |
 > | billingAccounts/clientes | Não |
+> | billingAccounts/clientes/billingPermissions | Não |
 > | billingAccounts/clientes/billingSubscriptions | Não |
 > | billingAccounts/clientes/initiateTransfer | Não |
 > | billingAccounts/clientes/políticas | Não |
@@ -451,6 +452,7 @@ Ir para um namespace do provedor de recursos:
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
 > | blockchainMembers | Sim |
+> | cordaMembers | Sim |
 > | observadores | Sim |
 
 ## <a name="microsoftblueprint"></a>Microsoft. Blueprint
@@ -641,6 +643,8 @@ Ir para um namespace do provedor de recursos:
 > | proximityPlacementGroups | Sim |
 > | restorePointCollections | Sim |
 > | restorePointCollections/restorePoints | Não |
+> | sharedVMExtensions | Sim |
+> | sharedVMExtensions/versões | Não |
 > | sharedVMImages | Sim |
 > | sharedVMImages/versões | Não |
 > | instantâneos | Sim |
@@ -700,6 +704,7 @@ Ir para um namespace do provedor de recursos:
 > | registros/buildTasks | Sim |
 > | registros/buildTasks/etapas | Não |
 > | registros/eventGridFilters | Não |
+> | registros/generateCredentials | Não |
 > | registros/getBuildSourceUploadUrl | Não |
 > | registros/GetCredentials | Não |
 > | registros/importImage | Não |
@@ -710,7 +715,9 @@ Ir para um namespace do provedor de recursos:
 > | registros/execuções | Não |
 > | registros/execuções/cancelamento | Não |
 > | registros/scheduleRun | Não |
+> | registros/scopeMaps | Não |
 > | registros/tarefas | Sim |
+> | registros/tokens | Não |
 > | registros/updatePolicies | Não |
 > | registros/WebHooks | Sim |
 > | registros/WebHooks/getCallbackConfig | Não |
@@ -724,14 +731,6 @@ Ir para um namespace do provedor de recursos:
 > | contêinerservices | Sim |
 > | managedClusters | Sim |
 > | openShiftManagedClusters | Sim |
-
-## <a name="microsoftcontentmoderator"></a>Microsoft. ContentModerator
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Eliminação completa de modo |
-> | ------------- | ----------- |
-> | aplicações | Sim |
-> | updateCommunicationPreference | Não |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft. CortanaAnalytics
 
@@ -821,8 +820,6 @@ Ir para um namespace do provedor de recursos:
 > | datacatalogs/fontes de pesquisa/verificações | Não |
 > | datacatalogs/fontes/exames/conjuntos de valores | Não |
 > | datacatalogs/fontes/exames/gatilhos | Não |
-> | datacatalogs/scantargets | Não |
-> | datacatalogs/scantargets/DataSets | Não |
 
 ## <a name="microsoftdatafactory"></a>Microsoft. datafactory
 
@@ -887,6 +884,9 @@ Ir para um namespace do provedor de recursos:
 > | ------------- | ----------- |
 > | servidores | Sim |
 > | servidores/consultores | Não |
+> | servidores/privateEndpointConnectionProxies | Não |
+> | servidores/privateEndpointConnections | Não |
+> | servidores/privateLinkResources | Não |
 > | servidores/queryTexts | Não |
 > | servidores/recoverableServers | Não |
 > | servidores/topQueryStatistics | Não |
@@ -900,6 +900,9 @@ Ir para um namespace do provedor de recursos:
 > | ------------- | ----------- |
 > | servidores | Sim |
 > | servidores/consultores | Não |
+> | servidores/privateEndpointConnectionProxies | Não |
+> | servidores/privateEndpointConnections | Não |
+> | servidores/privateLinkResources | Não |
 > | servidores/queryTexts | Não |
 > | servidores/recoverableServers | Não |
 > | servidores/topQueryStatistics | Não |
@@ -914,6 +917,7 @@ Ir para um namespace do provedor de recursos:
 > | serverGroups | Sim |
 > | servidores | Sim |
 > | servidores/consultores | Não |
+> | servidores/chaves | Não |
 > | servidores/privateEndpointConnectionProxies | Não |
 > | servidores/privateEndpointConnections | Não |
 > | servidores/privateLinkResources | Não |
@@ -943,6 +947,7 @@ Ir para um namespace do provedor de recursos:
 > | ------------- | ----------- |
 > | applicationgroups | Sim |
 > | applicationgroups/aplicativos | Não |
+> | applicationgroups/desktops | Não |
 > | applicationgroups/startmenuitems | Não |
 > | hostpools | Sim |
 > | hostpools/sessionhosts | Não |
@@ -1088,6 +1093,7 @@ Ir para um namespace do provedor de recursos:
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
 > | autoManagedVmConfigurationProfiles | Sim |
+> | configurationProfileAssignments | Não |
 > | guestConfigurationAssignments | Não |
 > | antivírus | Não |
 > | softwareUpdateProfile | Não |
@@ -1129,6 +1135,7 @@ Ir para um namespace do provedor de recursos:
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
 > | maquina | Sim |
+> | máquinas/extensões | Sim |
 
 ## <a name="microsofthybriddata"></a>Microsoft. HybridData
 
@@ -1235,6 +1242,7 @@ Ir para um namespace do provedor de recursos:
 > | ------------- | ----------- |
 > | espaços | Sim |
 > | espaços de trabalho/computações | Não |
+> | espaços de trabalho/eventGridFilters | Não |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft. ManagedIdentity
 
@@ -1322,6 +1330,7 @@ Ir para um namespace do provedor de recursos:
 > | mediaservices/liveEvents | Sim |
 > | mediaservices/liveEvents/liveOutputs | Não |
 > | mediaservices/liveOutputOperations | Não |
+> | mediaservices/mediaGraphs | Não |
 > | mediaservices/streamingEndpointOperations | Não |
 > | mediaservices/streamingEndpoints | Sim |
 > | mediaservices/streamingLocators | Não |
@@ -1520,6 +1529,7 @@ Ir para um namespace do provedor de recursos:
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
 > | policyEvents | Não |
+> | policyMetadata | Não |
 > | policyStates | Não |
 > | policyTrackedResources | Não |
 > | correções | Não |
@@ -1610,6 +1620,8 @@ Ir para um namespace do provedor de recursos:
 > | ------------- | ----------- |
 > | Implantações | Não |
 > | implantações/operações | Não |
+> | deploymentScripts | Sim |
+> | deploymentScripts/logs | Não |
 > | Vincule | Não |
 > | notifyResourceJobs | Não |
 > | fornecedor | Não |
@@ -1659,6 +1671,7 @@ Ir para um namespace do provedor de recursos:
 > | applicationWhitelistings | Não |
 > | assessmentMetadata | Não |
 > | Avaliações | Não |
+> | automações | Sim |
 > | AutoProvisioningSettings | Não |
 > | Conformidades | Não |
 > | dataCollectionAgents | Não |

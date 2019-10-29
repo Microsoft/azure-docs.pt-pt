@@ -1,5 +1,5 @@
 ---
-title: 'Backup do Azure: recuperar arquivos e pastas de um backup de VM do Azure'
+title: 'Backup do Azure: recuperar arquivos e pastas do backup de VM do Azure'
 description: Recuperar arquivos de um ponto de recuperação de máquina virtual do Azure
 ms.reviewer: pullabhk
 author: dcurwin
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1c0d470f12cf54c900fec3c453b7e5f07d0b2325
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: df8e309ecb2a81205684c60076015f79ac8c4c8f
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900321"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968491"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos do backup de máquina virtual do Azure
 
@@ -74,10 +74,9 @@ Para restaurar arquivos ou pastas do ponto de recuperação, acesse a máquina v
     - porta de saída 3260
 
 > [!Note]
-> 
-> * O nome do arquivo de script baixado terá o **nome geográfico** a ser preenchido na URL. Por exemplo: o nome do script baixado começa com \'VMname\'\_\'geoname\'_\'GUID\', como ContosoVM_wcus_12345678....<br><br>
-> * A URL seria "https:\//pod01-rec2.wcus.backup.windowsazure.com"
-
+>
+> - O nome do arquivo de script baixado terá o **nome geográfico** a ser preenchido na URL. Por exemplo: o nome do script baixado começa com \'VMname\'\_\'geoname\'_\'GUID\', como ContosoVM_wcus_12345678....<br><br>
+> - A URL seria "https:\//pod01-rec2.wcus.backup.windowsazure.com"
 
    Para o Linux, o script requer os componentes ' Open-iSCSI ' e ' lshw ' para se conectar ao ponto de recuperação. Se os componentes não existirem no computador em que o script é executado, o script solicitará permissão para instalar os componentes. Forneça consentimento para instalar os componentes necessários.
 
@@ -276,7 +275,7 @@ Esse recurso foi criado para acessar os dados da VM sem a necessidade de restaur
 
 #### <a name="select-recovery-point-who-can-generate-script"></a>Selecionar ponto de recuperação (que pode gerar script)
 
-O script fornece acesso aos dados da VM, é importante regular quem pode gerá-lo em primeiro lugar. É necessário fazer logon no portal do Azure e ser autorizado pelo [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) para poder gerar o script.
+O script fornece acesso aos dados da VM, é importante regular quem pode gerá-lo em primeiro lugar. É necessário entrar no portal do Azure e o RBAC deve ser [autorizado](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) a ser capaz de gerar o script.
 
 A recuperação de arquivo precisa do mesmo nível de autorização necessário para restauração de VM e restauração de discos. Em outras palavras, somente usuários autorizados podem exibir os dados da VM que podem gerar o script.
 

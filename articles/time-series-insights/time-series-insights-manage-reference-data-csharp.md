@@ -3,21 +3,20 @@ title: Gerenciar dados de referência no ambiente de C# Azure Time Series insigh
 description: Este artigo descreve como gerenciar dados de referência para um ambiente de Azure Time Series Insights criando um aplicativo personalizado escrito na linguagem C# .net (c-Sharp).
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: d4f206b63be38c902f93a084889e60184ce03e07
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 4eb8a22ee56203fe84df6ee1cff779e3f3bdf491
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958046"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990047"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Gerenciar dados de referência do GA para um ambiente de Azure Time Series Insights usandoC#
 
@@ -29,7 +28,7 @@ Conclua as etapas a seguir antes de compilar e executar o código de exemplo:
 
 1. [Crie um conjunto de dados de referência](time-series-insights-add-reference-data-set.md).
 
-1. Configure o token de acesso de autorização para o aplicativo. Certifique-se de que o token seja adquirido por meio da API Azure Active Directory. Você deve passar esse token no cabeçalho `Authorization` de cada solicitação de API de consulta.
+1. Configure o token de acesso de autorização para o aplicativo. Certifique-se de que o token seja adquirido por meio da API Azure Active Directory. Você deve passar esse token no cabeçalho de `Authorization` de cada solicitação de API de consulta.
 
    Para obter informações sobre como configurar aplicativos não interativos, consulte [autenticação e autorização](time-series-insights-authentication-and-authorization.md).
 
@@ -40,7 +39,7 @@ Conclua as etapas a seguir antes de compilar e executar o código de exemplo:
 
 ## <a name="project-dependencies"></a>Dependências do projeto
 
-Adicione pacotes NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` e `Newtonsoft.Json` para este exemplo.
+Adicione os pacotes NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` e `Newtonsoft.Json` para este exemplo.
 
 ## <a name="c-sample-code"></a>C#código de exemplo
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: 8a26e369783da8b59837e669dcd45a338ce82722
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9ddf8a2a11cb863a0016726074c5279bfde96959
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935006"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990230"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutorial: funções definidas pelo utilizador do JavaScript do Azure Stream Analytics
  
@@ -71,6 +71,9 @@ Para criar uma função definida pelo usuário do JavaScript simples em um traba
 6.  Selecione **Guardar**. A função é apresentada na lista das funções.
 7.  Selecione a nova função **hex2Int** e marque a definição da função. Todas as funções têm um prefixo **UDF** adicionado ao alias da função. Tem de *incluir o prefixo* quando chama a função na sua consulta do Stream Analytics. Neste caso, tem de chamar **UDF.hex2Int**.
 
+## <a name="testing-javascript-udfs"></a>Testando UDFs de JavaScript 
+Você pode testar e depurar a lógica de UDF do JavaScript em qualquer navegador. Atualmente, não há suporte para a depuração e o teste da lógica dessas funções definidas pelo usuário no portal Stream Analytics. Depois que a função funcionar conforme o esperado, você poderá adicioná-la ao trabalho de Stream Analytics conforme mencionado acima e, em seguida, chamá-la diretamente da sua consulta.
+
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Chamar uma função definida pelo utilizador do JavaScript numa consulta
 
 1. No editor de consultas, no cabeçalho **topologia do trabalho** , selecione **consulta**.
@@ -125,7 +128,6 @@ A linguagem JavaScript diferencia maiúsculas de minúsculas e maiúsculas e min
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 Os erros de runtime do JavaScript são considerados fatais e são apresentados no Registo de atividades. Para obter o registo, no portal do Azure, aceda à sua tarefa e selecione **Registo de atividades**.
-
 
 ## <a name="other-javascript-user-defined-function-patterns"></a>Outros padrões da função definida pelo utilizador do JavaScript
 

@@ -1,22 +1,19 @@
 ---
-title: Criar uma topologia de rede híbrida de Hub e spoke com o Terraform no Azure
+title: Tutorial-criar uma topologia de rede híbrida de Hub e spoke no Azure usando o Terraform
 description: Tutorial ilustrando como criar uma arquitetura de referência de rede híbrida inteira no Azure usando o Terraform
-services: terraform
-ms.service: azure
-keywords: Terraform, Hub e spoke, redes, redes híbridas, DevOps, máquina virtual, Azure, emparelhamento vnet, solução de virtualização de rede
-author: VaijanathB
-manager: jeconnoc
-ms.author: vaangadi
+ms.service: terraform
+author: tomarchermsft
+ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 5c2a61dd9da6d233a4b1410042f2125a1c300758
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: 8d85163e746f1d2d0713a9a4f247a2061e0029b8
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173450"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969403"
 ---
-# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-with-terraform-in-azure"></a>Tutorial: Criar uma topologia de rede híbrida de Hub e spoke com o Terraform no Azure
+# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-in-azure-using-terraform"></a>Tutorial: criar uma topologia de rede híbrida de Hub e spoke no Azure usando o Terraform
 
 Esta série de tutoriais mostra como usar o Terraform para implementar no Azure uma [topologia de rede de Hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). 
 
@@ -34,13 +31,13 @@ Este tutorial abrange as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Assinatura do Azure**: Se você ainda não tiver uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- **Assinatura do Azure**: se você ainda não tiver uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-- **Instalar e configurar o Terraform**: Para provisionar VMs e outras infraestruturas no Azure, [Instale e configure o Terraform](/azure/virtual-machines/linux/terraform-install-configure)
+- **Instalar e configurar o Terraform**: para provisionar VMs e outras infraestruturas no Azure, [Instale e configure o Terraform](/azure/virtual-machines/linux/terraform-install-configure)
 
 ## <a name="hub-and-spoke-topology-architecture"></a>Arquitetura de topologia hub e spoke
 
-Na topologia hub e spoke, o Hub é uma VNet. A VNet atua como um ponto central de conectividade para sua rede local. Os spokes são VNets que partilham com o hub e podem ser utilizados para isolar cargas de trabalho. O tráfego flui entre o datacenter no local e o hub através de uma ligação de gateway ExpressRoute ou de VPN. A imagem a seguir demonstra os componentes em uma topologia hub e spoke:
+Na topologia hub e spoke, o Hub é uma VNet. A VNet atua como um ponto central de conectividade para sua rede local. Os spokes são VNets que partilham com o hub e podem ser utilizados para isolar cargas de trabalho. O tráfego flui entre o datacenter no local e o hub através de uma ligação de gateway do ExpressRoute ou de VPN. A imagem a seguir demonstra os componentes em uma topologia hub e spoke:
 
 ![Arquitetura de topologia hub e spoke no Azure](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-architecture.png)
 
@@ -83,7 +80,7 @@ Crie o diretório que contém os arquivos de configuração do Terraform para a 
 
 1. Navegue para o [portal do Azure](https://portal.azure.com).
 
-1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
+1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se não tiver selecionado um ambiente anteriormente, selecione **Bash** como o seu ambiente.
 
     ![Comando do Cloud Shell](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
 

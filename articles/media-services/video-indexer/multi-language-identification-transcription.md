@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/01/2019
 ms.author: juliako
-ms.openlocfilehash: 983b66be6b51c9af5987e539ea1175a65c9269b3
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: f0dede42891069bb5d01ddc33f3797c20c5493d7
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70862047"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968748"
 ---
 # <a name="automatically-identify-and-transcribe-multi-language-content-preview"></a>Identificar e transcrever automaticamente o conteúdo em vários idiomas (visualização)
 
@@ -39,7 +39,7 @@ Você pode escolher a **detecção de vários idiomas** ao carregar e indexar se
 
 ## <a name="choosing-multilingual-identification-on-indexing-with-api"></a>Escolhendo a identificação multilíngüe na indexação com a API
 
-Ao indexar ou [reindexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) um vídeo usando a API, escolha a `multi-language detection` opção no `sourceLanguage` parâmetro.
+Ao indexar ou [reindexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) um vídeo usando a API, escolha a opção `multi-language detection` no parâmetro `sourceLanguage`.
 
 ### <a name="model-output"></a>Saída do modelo
 
@@ -86,10 +86,9 @@ Além disso, cada instância na seção transcrição incluirá o idioma no qual
 * A criação e edição de projeto não está disponível atualmente para vídeos em vários idiomas.
 * Os modelos de idioma personalizados não estão disponíveis ao usar a detecção de vários idiomas.
 * Não há suporte para a adição de palavras-chave.
-* Não há suporte para a API "atualizar transcrição".
 * Ao exportar arquivos de legenda oculta, a indicação de idioma não será exibida.
+* A API de transcrição de atualização não dá suporte a vários arquivos de idiomas.
 
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Descrição geral do Video Indexer](video-indexer-overview.md)

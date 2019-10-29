@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/15/2019
+ms.date: 10/26/2019
 ms.author: raynew
-ms.openlocfilehash: f0b66806138311508725d377b59b83c1b1365674
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: d689d25b9c9c7704047ccd3cfc98aa2ea583d20b
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553540"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968812"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de suporte para replicar VMs do Azure de uma região para outra
 
@@ -47,7 +47,7 @@ Você pode replicar e recuperar VMs entre duas regiões no mesmo cluster geográ
 **Cluster geográfico** | **Regiões do Azure**
 -- | --
 Estados | Leste do Canadá, centro-Canadá, Sul EUA Central, Oeste EUA Central, leste dos EUA, leste dos EUA 2, oeste dos EUA, oeste dos EUA 2, EUA Central, norte EUA Central
-Europa | Oeste do Reino Unido, Sul do Reino Unido, Europa Setentrional, Europa Ocidental, França central, sul da França, oeste da África do Sul, norte da África do Sul
+Europa | Oeste do Reino Unido, Sul do Reino Unido, Europa Setentrional, Europa Ocidental, França central, sul da França, oeste da África do Sul, norte da África do Sul, leste da Noruega, oeste da Noruega
 Ásia | Sul da Índia, Índia central, Índia ocidental, Sudeste Asiático, Ásia Oriental, leste do Japão, oeste do Japão, Coreia central, sul da Coreia, EAU Central, Norte dos EAU
 Austrália   | Leste da Austrália, sudeste da Austrália, Austrália Central, Austrália Central 2
 Azure Government    | GOV-Virgínia, EUA GOV Iowa, US GOV-Arizona, US GOV Texas, US DOD leste, US DOD central 
@@ -162,7 +162,7 @@ Tamanho | Qualquer tamanho de VM do Azure com pelo menos 2 núcleos de CPU e 1 G
 Conjuntos de disponibilidade | Suportadas | Se você habilitar a replicação para uma VM do Azure com as opções padrão, um conjunto de disponibilidade será criado automaticamente, com base nas configurações de região de origem. Você pode modificar essas configurações.
 Zonas de disponibilidade | Suportadas |
 Benefício de uso híbrido (HUB) | Suportadas | Se a VM de origem tiver uma licença de HUB habilitada, um failover de teste ou VM que passou por failover também usará a licença de HUB.
-Conjuntos de dimensionamento de VMs | Não suportado |
+Conjuntos de dimensionamento de máquinas virtuais | Não suportado |
 Imagens da galeria do Azure-publicado pela Microsoft | Suportadas | Com suporte se a VM for executada em um sistema operacional com suporte.
 Imagens da galeria do Azure-publicadas por terceiros | Suportadas | Com suporte se a VM for executada em um sistema operacional com suporte.
 Imagens personalizadas-publicadas por terceiros | Suportadas | Com suporte se a VM for executada em um sistema operacional com suporte.

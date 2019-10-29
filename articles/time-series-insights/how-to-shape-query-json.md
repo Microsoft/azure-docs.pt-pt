@@ -2,19 +2,19 @@
 title: Práticas recomendadas para o Shaping de JSON em consultas Azure Time Series Insights | Microsoft Docs
 description: Saiba como melhorar sua eficiência de consulta do Azure Time Series Insights.
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
+ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
 ms.date: 10/09/2019
-ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 4916397d05ad9d5fcae7624bf558eb7dc5be940f
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 09090354012d2cd3ba050ff9c94593947f27b006
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274413"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990283"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Forma JSON para maximizar o desempenho da consulta 
 
@@ -35,6 +35,9 @@ Pense em como você envia eventos para Time Series Insights. Ou seja, você semp
 1. Certifique-se de que você não atinja os limites de propriedade máxima de Time Series Insights de:
    - 600 Propriedades (colunas) para ambientes S1.
    - 800 Propriedades (colunas) para ambientes S2.
+
+> [!TIP]
+> Examine [os limites e o planejamento](time-series-insights-update-plan.md) na visualização Azure Time Series insights.
 
 As diretrizes a seguir ajudam a garantir o melhor desempenho de consulta possível:
 
@@ -94,16 +97,16 @@ Considere o seguinte conteúdo JSON enviado ao seu ambiente Time Series Insights
 
    | deviceId | messageId | deviceLocation |
    | --- | --- | --- |
-   | FXXX | LINHA @ no__t-0DATA | UE |
-   | FYYY | LINHA @ no__t-0DATA | EUA |
+   | FXXX | DADOS de\_de linha | UE |
+   | FYYY | DADOS de\_de linha | EUA |
 
 * Time Series Insights tabela de eventos, após o nivelamento:
 
    | deviceId | messageId | deviceLocation | carimbo de data/hora | série. Taxa de fluxo ft3/s | série. Pressão do óleo do motor psi |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | LINHA @ no__t-0DATA | UE | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34,7 |
-   | FXXX | LINHA @ no__t-0DATA | UE | 2018-01-17T01:17:00Z | 2.445906400680542 | 49,2 |
-   | FYYY | LINHA @ no__t-0DATA | EUA | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22,2 |
+   | FXXX | DADOS de\_de linha | UE | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34,7 |
+   | FXXX | DADOS de\_de linha | UE | 2018-01-17T01:17:00Z | 2.445906400680542 | 49,2 |
+   | FYYY | DADOS de\_de linha | EUA | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22,2 |
 
 > [!NOTE]
 > - A coluna **DeviceID** serve como o cabeçalho de coluna para os vários dispositivos em uma frota. Tornar o valor **DeviceID** seu próprio nome de propriedade limita o total de dispositivos a 595 (para ambientes S1) ou 795 (para ambientes S2) com as outras cinco colunas.
@@ -164,21 +167,21 @@ Exemplo de carga JSON:
 
    | deviceId | Series. tagId | messageId | deviceLocation | tipo | unidade |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | LINHA @ no__t-0DATA | UE | Taxa de fluxo | ft3/s |
-   | FXXX | oilPressure | LINHA @ no__t-0DATA | UE | Pressão do óleo do motor | psi |
-   | FYYY | pumpRate | LINHA @ no__t-0DATA | EUA | Taxa de fluxo | ft3/s |
-   | FYYY | oilPressure | LINHA @ no__t-0DATA | EUA | Pressão do óleo do motor | psi |
+   | FXXX | pumpRate | DADOS de\_de linha | UE | Taxa de fluxo | ft3/s |
+   | FXXX | oilPressure | DADOS de\_de linha | UE | Pressão do óleo do motor | psi |
+   | FYYY | pumpRate | DADOS de\_de linha | EUA | Taxa de fluxo | ft3/s |
+   | FYYY | oilPressure | DADOS de\_de linha | EUA | Pressão do óleo do motor | psi |
 
 * Time Series Insights tabela de eventos, após o nivelamento:
 
    | deviceId | Series. tagId | messageId | deviceLocation | tipo | unidade | carimbo de data/hora | série. valor |
    | --- | --- | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | LINHA @ no__t-0DATA | UE | Taxa de fluxo | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
-   | FXXX | oilPressure | LINHA @ no__t-0DATA | UE | Pressão do óleo do motor | psi | 2018-01-17T01:17:00Z | 34,7 |
-   | FXXX | pumpRate | LINHA @ no__t-0DATA | UE | Taxa de fluxo | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
-   | FXXX | oilPressure | LINHA @ no__t-0DATA | UE | Pressão do óleo do motor | psi | 2018-01-17T01:17:00Z | 49,2 |
-   | FYYY | pumpRate | LINHA @ no__t-0DATA | EUA | Taxa de fluxo | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
-   | FYYY | oilPressure | LINHA @ no__t-0DATA | EUA | Pressão do óleo do motor | psi | 2018-01-17T01:18:00Z | 22,2 |
+   | FXXX | pumpRate | DADOS de\_de linha | UE | Taxa de fluxo | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
+   | FXXX | oilPressure | DADOS de\_de linha | UE | Pressão do óleo do motor | psi | 2018-01-17T01:17:00Z | 34,7 |
+   | FXXX | pumpRate | DADOS de\_de linha | UE | Taxa de fluxo | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
+   | FXXX | oilPressure | DADOS de\_de linha | UE | Pressão do óleo do motor | psi | 2018-01-17T01:17:00Z | 49,2 |
+   | FYYY | pumpRate | DADOS de\_de linha | EUA | Taxa de fluxo | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
+   | FYYY | oilPressure | DADOS de\_de linha | EUA | Pressão do óleo do motor | psi | 2018-01-17T01:18:00Z | 22,2 |
 
 > [!NOTE]
 > - As colunas **DeviceID** e **Series. tagId** servem como cabeçalhos de coluna para os vários dispositivos e marcas em uma frota. O uso de cada um como seu próprio atributo limita a consulta ao total de dispositivos 594 (para ambientes S1) ou 794 (para ambientes S2), com as outras seis colunas.
@@ -195,7 +198,7 @@ Para uma propriedade com um grande número de valores possíveis, é melhor envi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Leia mais sobre como enviar [mensagens de dispositivo do Hub IOT para a nuvem](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+- Leia mais sobre como enviar [mensagens de dispositivo do Hub IOT para a nuvem](../iot-hub/iot-hub-devguide-messages-construct.md).
 
 - Leia [Azure Time Series insights sintaxe de consulta](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) para saber mais sobre a sintaxe de consulta para a API REST de acesso a dados Time Series insights.
 

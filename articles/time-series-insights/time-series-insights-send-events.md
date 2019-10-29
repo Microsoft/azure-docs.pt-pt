@@ -3,21 +3,20 @@ title: Enviar eventos para um ambiente de Azure Time Series Insights | Microsoft
 description: Saiba como configurar um hub de eventos e executar um aplicativo de exemplo para enviar eventos por push que você pode exibir em Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: accf3adea08e713a7a2f06bb175c759ae66a72c0
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 2878a77918fdd1c1cd298ae536bcdd3bec065e91
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274625"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991134"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Enviar eventos para um ambiente de Time Series Insights usando um hub de eventos
 
@@ -30,14 +29,14 @@ Este artigo explica como criar e configurar um hub de eventos nos hubs de evento
 1. Selecione seu hub de eventos.
 1. Ao criar um hub de eventos, você está criando um namespace de Hub de eventos. Se você ainda não criou um hub de eventos dentro do namespace, no menu, em **entidades**, crie um hub de eventos.  
 
-    [![List dos hubs de eventos](media/send-events/1-event-hub-namespace.png)](media/send-events/1-event-hub-namespace.png#lightbox)
+    [![lista de hubs de eventos](media/send-events/1-event-hub-namespace.png)](media/send-events/1-event-hub-namespace.png#lightbox)
 
 1. Depois de criar um hub de eventos, selecione-o na lista de hubs de eventos.
 1. No menu, em **entidades**, selecione **hubs de eventos**.
 1. Selecione o nome do hub de eventos para configurá-lo.
 1. Em **visão geral**, selecione **grupos de consumidores**e, em seguida, selecione grupo de **consumidores**.
 
-    [![Create um grupo de consumidores](media/send-events/2-consumer-group.png)](media/send-events/2-consumer-group.png#lightbox)
+    [![criar um grupo de consumidores](media/send-events/2-consumer-group.png)](media/send-events/2-consumer-group.png#lightbox)
 
 1. Certifique-se de criar um grupo de consumidores que é usado exclusivamente pelo seu Time Series Insights origem do evento.
 
@@ -46,11 +45,11 @@ Este artigo explica como criar e configurar um hub de eventos nos hubs de evento
 
 1. No menu, em **configurações**, selecione **políticas de acesso compartilhado**e, em seguida, selecione **Adicionar**.
 
-    [políticas de acesso compartilhado @no__t 1Select e, em seguida, selecione o botão Adicionar](media/send-events/3-shared-access-policy.png)](media/send-events/3-shared-access-policy.png#lightbox)
+    [![selecione políticas de acesso compartilhado e, em seguida, selecione o botão Adicionar](media/send-events/3-shared-access-policy.png)](media/send-events/3-shared-access-policy.png#lightbox)
 
 1. No painel **Adicionar nova política de acesso compartilhado** , crie um acesso compartilhado chamado **MySendPolicy**. Você usa essa política de acesso compartilhado para enviar eventos nos C# exemplos mais adiante neste artigo.
 
-    [![In a caixa nome da política, digite MySendPolicy](media/send-events/4-shared-access-policy-confirm.png)](media/send-events/4-shared-access-policy-confirm.png#lightbox)
+    [![na caixa nome da política, digite MySendPolicy](media/send-events/4-shared-access-policy-confirm.png)](media/send-events/4-shared-access-policy-confirm.png#lightbox)
 
 1. Em **declaração**, marque a caixa de seleção **Enviar** .
 
@@ -72,18 +71,18 @@ A atualização de Time Series Insights usa instâncias para adicionar dados con
 
 1. Acesse **políticas de acesso compartilhado** > **MySendPolicy**. Copie o valor da **cadeia de conexão-chave primária**.
 
-    [![Copy o valor da cadeia de conexão de chave primária](media/send-events/5-sample-code-connection-string.png)](media/send-events/5-sample-code-connection-string.png#lightbox)
+    [![copiar o valor da cadeia de conexão de chave primária](media/send-events/5-sample-code-connection-string.png)](media/send-events/5-sample-code-connection-string.png#lightbox)
 
 1. Aceda a https://tsiclientsample.azurewebsites.net/windFarmGen.html. A URL executa dispositivos simulados do Windmill.
 1. Na caixa **cadeia de conexão do hub de eventos** na página da Web, Cole a cadeia de conexão que você copiou no [campo de entrada Windmill](#push-events-to-windmills-sample).
   
-    [![Paste a cadeia de conexão de chave primária na caixa Cadeia de conexão do hub de eventos](media/send-events/6-wind-mill-sim.png)](media/send-events/6-wind-mill-sim.png#lightbox)
+    [![colar a cadeia de conexão de chave primária na caixa Cadeia de conexão do hub de eventos](media/send-events/6-wind-mill-sim.png)](media/send-events/6-wind-mill-sim.png#lightbox)
 
 1. Selecione **clique para iniciar**. O simulador gera a instância JSON que você pode usar diretamente.
 
 1. Volte para o Hub de eventos na portal do Azure. Na página **visão geral** , você verá os novos eventos que são recebidos pelo hub de eventos.
 
-    [página de visão geral do hub de eventos ![An que mostra as métricas para o Hub de eventos](media/send-events/7-telemetry.png)](media/send-events/7-telemetry.png#lightbox)
+    [![uma página de visão geral do hub de eventos que mostra as métricas para o Hub de eventos](media/send-events/7-telemetry.png)](media/send-events/7-telemetry.png#lightbox)
 
 ## <a name="supported-json-shapes"></a>Formas JSON suportadas
 

@@ -3,7 +3,7 @@ title: Como gerenciar seu ambiente de Azure Time Series Insights usando modelos 
 description: Este artigo descreve como gerenciar seu ambiente de Azure Time Series Insights de forma programática usando Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.devlang: csharp
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: b3aa6d06add1d80512eda0e62888b4a36760e98c
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: f7a88dafb9662e404cedf10334b22af149a3cd16
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274795"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991221"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Criar Time Series Insights recursos usando modelos de Azure Resource Manager
 
@@ -64,8 +64,8 @@ O procedimento a seguir descreve como usar o PowerShell para implantar um modelo
      | eventHubNamespaceName | O namespace do hub de eventos de origem. |
      | eventHubName | O nome do hub de eventos de origem. |
      | consumerGroupName | O nome do grupo de consumidores que o serviço de Time Series Insights usará para ler os dados do hub de eventos. **Observação:** Para evitar a contenção de recursos, esse grupo de consumidores deve ser dedicado ao serviço de Time Series Insights e não compartilhado com outros leitores. |
-     | environmentName | O nome do ambiente. O nome não pode incluir: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` e quaisquer caracteres de controle. Todos os outros carateres são permitidos.|
-     | eventSourcename | O nome do recurso filho de origem do evento. O nome não pode incluir: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` e quaisquer caracteres de controle. Todos os outros carateres são permitidos. |
+     | environmentName | O nome do ambiente. O nome não pode incluir: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`e quaisquer caracteres de controle. Todos os outros carateres são permitidos.|
+     | eventSourcename | O nome do recurso filho de origem do evento. O nome não pode incluir: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`e quaisquer caracteres de controle. Todos os outros carateres são permitidos. |
 
     <div id="optional-parameters"></div>
 

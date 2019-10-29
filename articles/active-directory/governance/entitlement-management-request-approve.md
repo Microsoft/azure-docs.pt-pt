@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/18/2019
+ms.date: 10/27/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78243f02cbbe3d06b94ee52d6193865dbfa27121
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: da3e1b6439b033742af62d548775cfb628e955b7
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488989"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990683"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management-preview"></a>Aprovar ou negar solicitações de acesso no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -50,7 +50,7 @@ Se você não tiver o email, poderá encontrar as solicitações de acesso que a
 
 1. Entre no portal meu acesso em [https://myaccess.microsoft.com](https://myaccess.microsoft.com).
 
-1. No menu à esquerda, clique  em aprovações para ver uma lista de solicitações de acesso com aprovação pendente.
+1. No menu à esquerda, clique em **aprovações** para ver uma lista de solicitações de acesso com aprovação pendente.
 
 1. Na guia **pendente** , localize a solicitação.
 
@@ -70,7 +70,7 @@ Depois de abrir uma solicitação de acesso com aprovação pendente, você pode
 
 1. Se necessário, insira um motivo.
 
-    ![Meu Portal de acesso-solicitação de acesso](./media/entitlement-management-shared/my-access-approve-request.png)
+    ![Meu Portal de acesso-solicitação de acesso](./media/entitlement-management-request-approve/my-access-approve-request.png)
 
 1. Clique em **Enviar** para enviar sua decisão.
 

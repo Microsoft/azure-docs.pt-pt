@@ -1,22 +1,19 @@
 ---
-title: Validar uma rede hub e spoke com o Terraform no Azure
+title: Tutorial – validar uma rede hub e spoke no Azure usando o Terraform
 description: Tutorial para validar a topologia de rede hub e spoke com todas as redes virtuais conectadas entre si.
-services: terraform
-ms.service: azure
-keywords: Terraform, Hub e spoke, redes, redes híbridas, DevOps, máquina virtual, Azure, emparelhamento vnet,
-author: VaijanathB
-manager: jeconnoc
-ms.author: vaangadi
+ms.service: terraform
+author: tomarchermsft
+ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: e35af0fcf4a8f1f8f0446be44fe5b0bb6eeec693
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: b0b761fcd79f7129befefa37ce11d9c70cf7cb96
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169709"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969340"
 ---
-# <a name="tutorial-validate-a-hub-and-spoke-network-with-terraform-in-azure"></a>Tutorial: Validar uma rede hub e spoke com o Terraform no Azure
+# <a name="tutorial-validate-a-hub-and-spoke-network-in-azure-using-terraform"></a>Tutorial: validar uma rede hub e spoke no Azure usando o Terraform
 
 Neste artigo, você executa os arquivos Terraform criados no artigo anterior desta série. O resultado é uma validação da conectividade entre as redes virtuais de demonstração.
 
@@ -43,7 +40,7 @@ Depois de concluir os [pré-requisitos](#prerequisites), verifique se os arquivo
 
 1. Navegue para o [portal do Azure](https://portal.azure.com).
 
-1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
+1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se não tiver selecionado um ambiente anteriormente, selecione **Bash** como o seu ambiente.
 
     ![Comando do Cloud Shell](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
 
@@ -59,7 +56,7 @@ Depois de concluir os [pré-requisitos](#prerequisites), verifique se os arquivo
     cd hub-spoke
     ```
 
-1. Execute o `ls` comando para verificar se os `.tf` arquivos de configuração criados nos tutoriais anteriores estão listados:
+1. Execute o comando `ls` para verificar se os arquivos de configuração `.tf` criados nos tutoriais anteriores estão listados:
 
     ![Arquivos de configuração de demonstração do Terraform](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-config-files.png)
 
@@ -73,7 +70,7 @@ Depois de concluir os [pré-requisitos](#prerequisites), verifique se os arquivo
     
     ![Exemplo de resultados do comando "Terraform init"](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-init.png)
     
-1. Execute o `terraform plan` comando para ver o efeito da implantação antes da execução:
+1. Execute o comando `terraform plan` para ver o efeito da implantação antes da execução:
 
     ```bash
     terraform plan
@@ -87,7 +84,7 @@ Depois de concluir os [pré-requisitos](#prerequisites), verifique se os arquivo
     terraform apply
     ```
     
-    Insira `yes` quando for solicitado a confirmar a implantação.
+    Insira `yes` quando solicitado a confirmar a implantação.
 
     ![Exemplo de resultados do comando "Terraform Apply"](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-apply.png)
     
@@ -103,22 +100,22 @@ Esta seção mostra como testar a conectividade do ambiente simulado local para 
 
 1. Ao lado do logon de texto **usando a conta local da VM**, copie o comando **SSH** para a área de transferência.
 
-1. A partir de uma linha de comandos do Linux, execute `ssh` para estabelecer ligação ao ambiente no local simulado. Use a senha especificada no `on-prem.tf` arquivo de parâmetro.
+1. Em um prompt do Linux, execute `ssh` para se conectar ao ambiente simulado local. Use a senha especificada no arquivo de parâmetro `on-prem.tf`.
 
-1. Execute o `ping` comando para testar a conectividade com a VM Jumpbox na VNet do Hub:
+1. Execute o comando `ping` para testar a conectividade com a VM Jumpbox na VNet do Hub:
 
    ```bash
    ping 10.0.0.68
    ```
 
-1. Execute o `ping` comando para testar a conectividade com as VMs Jumpbox em cada spoke:
+1. Execute o comando `ping` para testar a conectividade com as VMs Jumpbox em cada spoke:
 
    ```bash
    ping 10.1.0.68
    ping 10.2.0.68
    ```
 
-1. Para sair da sessão SSH na máquina virtual da **VM local** , digite `exit` e pressione &lt;Enter >.
+1. Para sair da sessão SSH na máquina virtual da **VM local** , insira `exit` e pressione &lt;Enter >.
 
 ## <a name="troubleshoot-vpn-issues"></a>Solucionar problemas de VPN
 
@@ -134,7 +131,7 @@ Quando não for mais necessário, exclua os recursos criados na série de tutori
     terraform destroy
     ```
 
-    Insira `yes` quando for solicitado a confirmar a remoção dos recursos.
+    Insira `yes` quando solicitado a confirmar a remoção dos recursos.
 
 1. Altere os diretórios para o diretório pai:
 
@@ -142,7 +139,7 @@ Quando não for mais necessário, exclua os recursos criados na série de tutori
     cd ..
     ```
 
-1. Exclua `hub-scope` o diretório (incluindo todos os seus arquivos):
+1. Exclua o diretório `hub-scope` (incluindo todos os seus arquivos):
 
     ```bash
     rm -r hub-spoke

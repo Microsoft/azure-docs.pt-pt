@@ -3,21 +3,20 @@ title: Como dimensionar seu ambiente de Azure Time Series Insights | Microsoft D
 description: Este artigo descreve como dimensionar seu ambiente de Azure Time Series Insights. Use o portal do Azure para adicionar ou subtrair capacidade em um SKU de preços.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: a899de22137decc1eb1578369a2751710c17abda
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 3f03f5ed75c720c9b0daf30d721ef4d2aee9749c
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332854"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991165"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Como dimensionar seu ambiente de Time Series Insights
 
@@ -27,21 +26,9 @@ Você pode usar a portal do Azure para aumentar ou diminuir a capacidade em um d
 
 No entanto, a alteração da SKU do tipo de preço não é permitida. Por exemplo, um ambiente com um SKU de preço S1 não pode ser convertido em um S2, ou vice-versa.
 
-## <a name="s1-sku-ingress-rates-and-capacities"></a>Taxas e capacidades de entrada de SKU S1
+## <a name="ga-limits"></a>Limites de GA
 
-| Capacidade de SKU S1 | Taxa de entrada | Capacidade máxima de armazenamento
-| --- | --- | --- |
-| 1 | 1 GB (1 milhão eventos) | 30 GB (30 milhões eventos) por mês |
-| 10 | 10 GB (10 milhões eventos) | 300 GB (300 milhões eventos) por mês |
-
-## <a name="s2-sku-ingress-rates-and-capacities"></a>Taxas e capacidades de entrada de SKU S2
-
-| Capacidade de SKU S2 | Taxa de entrada | Capacidade máxima de armazenamento
-| --- | --- | --- |
-| 1 | 10 GB (10 milhões eventos) | 300 GB (300 milhões eventos) por mês |
-| 10 | 100 GB (100 milhões eventos) | 3 TB (3.000.000.000 eventos) por mês |
-
-As capacidades são dimensionadas linearmente, de modo que uma SKU S1 com capacidade 2 dá suporte a 2 GB (2 milhões) de eventos por dia e 60 GB (eventos 60 milhões) por mês.
+[!INCLUDE [Azure Time Series Insights GA limits](../../includes/time-series-insights-ga-limits.md)]
 
 ## <a name="change-the-capacity-of-your-environment"></a>Alterar a capacidade de seu ambiente
 
@@ -49,11 +36,11 @@ As capacidades são dimensionadas linearmente, de modo que uma SKU S1 com capaci
 
 1. No menu de seu ambiente de Time Series Insights, selecione **Configurar**.
 
-   [@no__t -1configure. png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
+   [![configurar. png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
 
 1. Ajuste o controle deslizante **capacidade** para selecionar a capacidade que atende aos requisitos para suas taxas de entrada e capacidade de armazenamento. Observe a **taxa de entrada**, a **capacidade de armazenamento**e a atualização de **custo estimado** dinamicamente para mostrar o impacto da alteração.
 
-   [![Slider](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
+   [Controle deslizante de![](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
 
    Como alternativa, você pode digitar o número do multiplicador de capacidade na caixa de texto à direita do controle deslizante.
 

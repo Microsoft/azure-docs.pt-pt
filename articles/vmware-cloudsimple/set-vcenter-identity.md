@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d314cc55096f681d1bcf66d33c4c30a4060751e9
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 9d2986acc47087c267193eee43136e030abcc422
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972659"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990307"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configurar fontes de identidade do vCenter para usar Active Directory
 
@@ -30,7 +30,11 @@ Você pode configurar seu Active Directory controladores de domínio e domínio 
 
 Este guia explica as tarefas para configurar Active Directory controladores de domínio e domínio em execução no local ou como máquinas virtuais em suas assinaturas.  Se você quiser usar o Azure AD como a origem da identidade, consulte [usar o Azure ad como um provedor de identidade para o vCenter na nuvem privada do CloudSimple](azure-ad.md) para obter instruções detalhadas sobre como configurar a origem da identidade.
 
-Antes de [Adicionar uma fonte de identidade](#add-an-identity-source-on-vcenter), escale temporariamente [os privilégios do vCenter](escalate-private-cloud-privileges.md).
+Antes de [Adicionar uma fonte de identidade](#add-an-identity-source-on-vcenter), [Escale temporariamente os privilégios do vCenter](escalate-private-cloud-privileges.md).
+
+> [!CAUTION]
+> Novos usuários devem ser adicionados somente a *Cloud-Owner-Group*, *Cloud-global-cluster-admin-Group*, *Cloud-Global-Storage-admin-Group*, *Cloud-Global-Network-admin-Group* ou, *Cloud-global-VM-admin-Group*.  Os usuários adicionados ao grupo de *Administradores* serão removidos automaticamente.  Somente contas de serviço devem ser adicionadas ao grupo *Administradores* .  
+
 
 ## <a name="identity-source-options"></a>Opções de origem de identidade
 
@@ -49,14 +53,14 @@ Use as informações na tabela a seguir ao configurar seu domínio de Active Dir
 
 | **Opção** | **Descrição** |
 |------------|-----------------|
-| **Name** | Nome da origem da identidade. |
+| **Nome** | Nome da origem da identidade. |
 | **DN de base para usuários** | Nome distinto base para os usuários. |
 | **Nome de domínio** | FDQN do domínio, por exemplo, example.com. Não forneça um endereço IP nesta caixa de texto. |
 | **Alias de domínio** | O nome NetBIOS do domínio. Adicione o nome NetBIOS do domínio Active Directory como um alias da origem de identidade se você estiver usando autenticações SSPI. |
 | **DN de base para grupos** | O nome distinto base para os grupos. |
-| **URL do servidor primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Use o formato `ldap://hostname:port` ou `ldaps://hostname:port`. A porta geralmente é 389 para conexões LDAP e 636 para conexões LDAPs. Para Active Directory implantações de controlador de vários domínios, a porta geralmente é 3268 para LDAP e 3269 para LDAPs.<br><br>Um certificado que estabelece confiança para o ponto de extremidade LDAPS do servidor Active Directory é necessário quando você usa `ldaps://` o na URL LDAP primária ou secundária. |
+| **URL do servidor primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Use o formato `ldap://hostname:port` ou `ldaps://hostname:port`. A porta geralmente é 389 para conexões LDAP e 636 para conexões LDAPs. Para Active Directory implantações de controlador de vários domínios, a porta geralmente é 3268 para LDAP e 3269 para LDAPs.<br><br>Um certificado que estabelece confiança para o ponto de extremidade LDAPs do servidor Active Directory é necessário quando você usa `ldaps://` na URL LDAP primária ou secundária. |
 | **URL do servidor secundário** | Endereço de um servidor LDAP do controlador de domínio secundário que é usado para failover. |
-| **Escolher certificado** | Se você quiser usar LDAPS com o servidor LDAP Active Directory ou a origem de identidade do servidor OpenLDAP, um botão escolher certificado será exibido `ldaps://`depois que você digitar na caixa de texto URL. Uma URL secundária não é necessária. |
+| **Escolher certificado** | Se você quiser usar LDAPs com o servidor LDAP Active Directory ou a origem de identidade do servidor OpenLDAP, um botão escolher certificado será exibido depois que você digitar `ldaps://` na caixa de texto URL. Uma URL secundária não é necessária. |
 | **Nome de Utilizador** | ID de um usuário no domínio que tem um mínimo de acesso somente leitura ao DN base para usuários e grupos. |
 | **Palavra-passe** | Senha do usuário que é especificada pelo nome de usuário. |
 
@@ -114,7 +118,7 @@ Depois que a conexão de rede for estabelecida, siga as etapas em [adicionar Act
 
     ![Início de Sessão Único](media/OnPremAD02.png)
 
-5. Abra a guia **fontes de identidade** e **+** clique para adicionar uma nova fonte de identidade.
+5. Abra a guia **fontes de identidade** e clique em **+** para adicionar uma nova fonte de identidade.
 
     ![Fontes de identidade](media/OnPremAD03.png)
 

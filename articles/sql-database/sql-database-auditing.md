@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: cc12579a4932894b730b04cdc77acc0151168bdb
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: d5214b6a6ffcb7c78fc00fe0305a1d1846b328f8
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010203"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990266"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -74,7 +74,7 @@ A seção a seguir descreve a configuração de auditoria usando o portal do Azu
 1. Aceda ao [Portal do Azure](https://portal.azure.com).
 2. Navegue até **auditoria** no título segurança no painel banco de dados SQL/servidor.
 
-    <a id="auditing-screenshot"></a>![Painel de navegação][1]
+    <a id="auditing-screenshot"></a>![painel de navegação][1]
 
 3. Se preferir configurar uma política de auditoria de servidor, você poderá selecionar o link **exibir configurações do servidor** na página de auditoria do banco de dados. Em seguida, você pode exibir ou modificar as configurações de auditoria do servidor. As políticas de auditoria de servidor se aplicam a todos os bancos de dados existentes e recém-criados neste servidor.
 
@@ -91,18 +91,19 @@ A seção a seguir descreve a configuração de auditoria usando o portal do Azu
    > [!WARNING]
    > Habilitar a auditoria para Log Analytics incorrerá em custo com base nas taxas de ingestão. Esteja ciente do custo associado com o uso dessa [opção](https://azure.microsoft.com/pricing/details/monitor/)ou considere armazenar os logs de auditoria em uma conta de armazenamento do Azure.
 
-    ![Opções de armazenamento](./media/sql-database-auditing-get-started/auditing-select-destination.png)
+    ![opções de armazenamento](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
 6. Para configurar a gravação de logs de auditoria em uma conta de armazenamento, selecione **armazenamento** e abra **detalhes do armazenamento**. Selecione a conta de armazenamento do Azure na qual os logs serão salvos e, em seguida, selecione o período de retenção. Os logs antigos serão excluídos. Em seguida, clique em **OK**.
 
    > [!IMPORTANT]
-   > O valor padrão do período de retenção é 0 (retenção ilimitada). Você pode alterar esse valor movendo o controle deslizante de **retenção (dias)** em **configurações de armazenamento** ao configurar a conta de armazenamento para auditoria.
+   > - O valor padrão do período de retenção é 0 (retenção ilimitada). Você pode alterar esse valor movendo o controle deslizante de **retenção (dias)** em **configurações de armazenamento** ao configurar a conta de armazenamento para auditoria.
+   > - Se você alterar o período de retenção de 0 (retenção ilimitada) para qualquer outro valor, observe que a retenção será aplicada somente aos logs gravados após a alteração do valor de retenção (logs gravados durante o período em que a retenção foi definida como ilimitada são preservados, mesmo após a retenção está habilitada)
 
     ![conta de armazenamento](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 7. Para configurar a gravação de logs de auditoria em um espaço de trabalho Log Analytics, selecione **log Analytics (versão prévia)** e abra **log Analytics detalhes**. Selecione ou crie o espaço de trabalho Log Analytics em que os logs serão gravados e clique em **OK**.
 
-    ![Área de trabalho do Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    ![Espaço de trabalho Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
 8. Para configurar a gravação de logs de auditoria para um hub de eventos, selecione **Hub de eventos (versão prévia)** e abra **detalhes do hub de eventos**. Selecione o Hub de eventos em que os logs serão gravados e clique em **OK**. Certifique-se de que o Hub de eventos esteja na mesma região que o seu banco de dados e servidor.
 
@@ -197,8 +198,8 @@ Se você optar por gravar logs de auditoria em uma conta de armazenamento do Azu
 
 Com bancos de dados replicados geograficamente, quando você habilita a auditoria no banco de dados primário, o banco de dados secundário terá uma política de auditoria idêntica. Também é possível configurar a auditoria no banco de dados secundário habilitando a auditoria no **servidor secundário**, independentemente do banco de dados primário.
 
-- Nível de servidor (**recomendado**): Ative a auditoria no **servidor primário** , bem como no **servidor secundário** -os bancos de dados primários e secundários serão auditados de forma independente com base em sua respectiva política de nível de servidor.
-- Nível de banco de dados: A auditoria no nível do banco de dados para bancos de dados secundários só pode ser configurada a partir das configurações de auditoria do banco de dados primário.
+- Nível de servidor (**recomendado**): ativar a auditoria no **servidor primário** , bem como no **servidor secundário** – os bancos de dados primário e secundário serão auditados independentemente com base em sua respectiva política de nível de servidor.
+- Nível de banco de dados: a auditoria no nível de banco de dados para bancos de dados secundários só pode ser definida a partir das configurações de auditoria do banco de dados primário.
   - A auditoria deve ser habilitada no *próprio banco de dados primário*, não no servidor.
   - Após a habilitação da auditoria no banco de dados primário, ela também será habilitada no banco de dados secundário.
 
@@ -218,7 +219,7 @@ Em produção, é provável que você atualize suas chaves de armazenamento peri
 3. Volte para a página de configuração de auditoria, alterne a chave de acesso de armazenamento de secundária para primária e clique em **OK**. Em seguida, clique em **salvar** na parte superior da página de configuração de auditoria.
 4. Volte para a página de configuração de armazenamento e regenere a chave de acesso secundária (em preparação para o ciclo de atualização da próxima chave).
 
-## <a name="additional-information"></a>Informações Adicionais
+## <a name="additional-information"></a>Informação Adicional
 
 - Para obter detalhes sobre o formato de log, hierarquia da pasta de armazenamento e convenções de nomenclatura, consulte a [referência de formato de log de auditoria de blob](https://go.microsoft.com/fwlink/?linkid=829599).
 

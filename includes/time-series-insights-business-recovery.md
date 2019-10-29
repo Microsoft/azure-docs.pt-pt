@@ -1,15 +1,16 @@
 ---
 ms.topic: include
 ms.service: time-series-insights
-author: kingdomofends
-ms.author: adgera
+author: deepakpalled
+ms.author: dpalled
+manager: cshankar
 ms.date: 10/09/2019
-ms.openlocfilehash: 61842a8f410d972c21614f625f7d4f36476cb239
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 038d25a01c02799f48b8430fb6ac3facc1cd3bd6
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72259103"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990836"
 ---
 ## <a name="business-disaster-recovery"></a>Recuperação de desastres de negócios
 
@@ -23,8 +24,8 @@ Recursos adicionais de alta disponibilidade fornecidos por meio do Azure (e tamb
 
 - **Failover**: o Azure fornece [replicação geográfica e balanceamento de carga](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region).
 - **Restauração de dados** e **recuperação de armazenamento**: o Azure fornece [várias opções para preservar e recuperar dados](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption).
-- **Recuperação de site**: o Azure fornece recursos de recuperação de site por meio de [Azure site Recovery](https://docs.microsoft.com/azure/site-recovery/).
-- **Backup do Azure**: o [backup do Azure](https://docs.microsoft.com/azure/backup/backup-architecture) dá suporte ao backup local e na nuvem das VMs do Azure.
+- **Azure site Recovery**: o Azure fornece recursos de recuperação de site por meio de [Azure site Recovery](https://docs.microsoft.com/azure/site-recovery/).
+- **Backup do Azure**: o [backup do Azure](https://docs.microsoft.com/azure/backup/backup-architecture) dá suporte ao backup local e na nuvem de VMs do Azure.
 
 Certifique-se de habilitar os recursos relevantes do Azure para fornecer alta disponibilidade global entre regiões para seus dispositivos e usuários.
 
@@ -35,8 +36,8 @@ Certifique-se de habilitar os recursos relevantes do Azure para fornecer alta di
 
 Alguns serviços do Azure IoT também incluem recursos internos de recuperação de desastres de negócios:
 
-- [Recuperação de desastre de alta disponibilidade do Hub IOT](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr), incluindo redundância de região interna
-- [Políticas de hubs de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
+- [Recuperação de desastre de alta disponibilidade do Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr), que inclui redundância de região interna
+- [Políticas de hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
 - [Redundância de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
 A integração do Time Series Insights com os outros serviços fornece outras oportunidades de recuperação de desastre. Por exemplo, a telemetria enviada ao Hub de eventos pode ser persistida em um banco de dados de armazenamento de BLOBs do Azure de backup.

@@ -1,49 +1,49 @@
 ---
-title: Configurar um servidor de processos no Azure para a VM de VMware e a reativação pós-falha do servidor físico com o Azure Site Recovery | Documentos da Microsoft
-description: Este artigo descreve como configurar um servidor de processos no Azure, a reativação pós-falha de VMs do Azure para VMware.
+title: Configurar um servidor de processo no Azure para VM VMware e failback de servidor físico com o Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como configurar um servidor de processo no Azure para fazer failback de VMs do Azure para VMware.
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 10/21/2019
 ms.author: ramamill
-ms.openlocfilehash: 037f0ff64b114ce9341702564147825099695aa0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 080edfc86848bb6c6579c177c72d3fbd3214a06a
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110035"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968842"
 ---
-# <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurar um servidor de processos no Azure para reativação pós-falha
+# <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurar um servidor de processo no Azure para failback
 
-Depois de efetuar a ativação pós-falha de VMs de VMware ou servidores físicos para o Azure com [recuperação de Site](site-recovery-overview.md), pode efetuar a ativação-los para o site no local quando for novamente em funcionamento. Para efetuar a reativação pós-falha, terá de configurar um servidor de processo temporário no Azure, para processar a replicação do Azure para o local. É possível eliminar esta VM após a conclusão da reativação pós-falha.
+Depois de realizar o failover de VMs VMware ou servidores físicos para o Azure usando [site Recovery](site-recovery-overview.md), você poderá fazer failback deles para o site local quando ele estiver em funcionamento novamente. Para fazer failback, você precisa configurar um servidor de processo temporário no Azure para lidar com a replicação do Azure para o local. Você pode excluir essa VM após a conclusão do failback.
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Saiba mais sobre o [nova proteção](vmware-azure-reprotect.md) e [reativação pós-falha](vmware-azure-failback.md) processo.
+Saiba mais sobre o processo de Nova [proteção](vmware-azure-reprotect.md) e [failback](vmware-azure-failback.md) .
 
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
 
 
-## <a name="deploy-a-process-server-in-azure"></a>Implementar um servidor de processos no Azure
+## <a name="deploy-a-process-server-in-azure"></a>Implantar um servidor de processo no Azure
 
-1. No cofre > **infraestrutura do Site Recovery**> **gerir** > **Configuration Servers**, selecione o servidor de configuração.
-2. Na página do servidor, clique em **+ servidor de processos**
-3. Na **Adicionar servidor de processos** página e selecionar a opção para implementar o servidor de processos no Azure.
-4. Especifique as definições do Azure, incluindo a subscrição utilizada para ativação pós-falha, um grupo de recursos, a região do Azure utilizada para a ativação pós-falha e a rede virtual na qual estão localizadas as VMs do Azure. Se tiver utilizado a várias redes do Azure, precisa de um servidor de processo em cada uma.
+1. No cofre > **site Recovery infraestrutura**> **gerenciar** > **servidores de configuração**, selecione o servidor de configuração.
+2. Na página servidor, clique em **+ servidor de processo**
+3. Na página **Adicionar servidor de processo** e selecione para implantar o servidor de processo no Azure.
+4. Especifique as configurações do Azure, incluindo a assinatura usada para failover, um grupo de recursos, a região do Azure usada para failover e a rede virtual na qual as VMs do Azure estão localizadas. Se você usou várias redes do Azure, precisará de um servidor de processo em cada uma.
 
-   ![Adicionar item de galeria do servidor de processo](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
+   ![Adicionar item da Galeria de servidores de processo](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
 
-4. Na **nome do servidor**, **nome de utilizador**, e **palavra-passe**, especifique um nome para o servidor de processos e as credenciais que serão atribuídas as permissões de administrador no servidor.
-5. Especifique uma conta de armazenamento a ser utilizado para os discos VM do servidor, a sub-rede na qual a VM do servidor de processo estarão localizado e o endereço IP do servidor que será atribuído quando a VM é iniciado.
-6. Clique em **OK** botão para iniciar a implementação da VM do servidor de processo.
+4. Em **nome do servidor**, **nome de usuário**e **senha**, especifique um nome para o servidor de processo e as credenciais às quais serão atribuídas permissões de administrador no servidor.
+5. Especifique uma conta de armazenamento a ser usada para os discos de VM do servidor, a sub-rede na qual a VM do servidor de processo será localizada e o endereço IP do servidor que será atribuído quando a VM for iniciada.
+6. Clique no botão **OK** para iniciar a implantação da VM do servidor de processo. O servidor de processo será implantado no SKU do Standard_A8_v2. Verifique se esse SKU de VM está disponível para sua assinatura.
 
 >
 
-## <a name="registering-the-process-server-running-in-azure-to-a-configuration-server-running-on-premises"></a>Registar o servidor de processos (em execução no Azure) para um servidor de configuração (em execução no local)
+## <a name="registering-the-process-server-running-in-azure-to-a-configuration-server-running-on-premises"></a>Registrando o servidor de processo (em execução no Azure) em um servidor de configuração (em execução local)
 
-Depois da VM do servidor de processo está em execução, tem de registá-lo com o servidor de configuração no local, da seguinte forma:
+Depois que a VM do servidor de processo estiver em execução, você precisa registrá-la no servidor de configuração local, da seguinte maneira:
 
 [!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
 

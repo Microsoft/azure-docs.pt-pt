@@ -8,57 +8,69 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: 875c2002d477a95b44ad1491cb716e2ef70697e7
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 830dc313ea321f74c495f46c7c2d4ea5f9d4e5b5
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954841"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968548"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Fazer backup de um farm do SharePoint no Azure com o DPM
+
 Você faz backup de um farm do SharePoint para Microsoft Azure usando o System Center Data Protection Manager (DPM) da mesma maneira que faz backup de outras fontes de dados. O backup do Azure fornece flexibilidade no agendamento de backup para criar pontos de backup diários, semanais, mensais ou anuais e fornece opções de política de retenção para vários pontos de backup. O DPM fornece a capacidade de armazenar cópias de disco locais para RTO (objetivos de tempo de recuperação) rápidos e armazenar cópias no Azure para retenção econômica e de longo prazo.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Versões com suporte do SharePoint e cenários de proteção relacionados
+
 O backup do Azure para DPM dá suporte aos seguintes cenários:
 
-| Carga de trabalho | Version | Implantação do SharePoint | Tipo de implantação do DPM | DPM – System Center 2012 R2 | Proteção e recuperação |
+| Carga de trabalho | Versão | Implantação do SharePoint | Tipo de implantação do DPM | DPM – System Center 2012 R2 | Proteção e recuperação |
 | --- | --- | --- | --- | --- | --- |
-| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint implantado como um servidor físico ou uma máquina virtual Hyper-V/VMware <br> -------------- <br> AlwaysOn do SQL |Servidor físico ou máquina virtual do Hyper-V local |Dá suporte ao backup no Azure do pacote cumulativo de atualizações 5 |Proteger opções de recuperação do farm do SharePoint: Farm de recuperação, banco de dados e arquivo ou item de lista dos pontos de recuperação de disco.  Recuperação de farm e banco de dados de pontos de recuperação do Azure. |
+| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3,0 |SharePoint implantado como um servidor físico ou uma máquina virtual Hyper-V/VMware <br> -------------- <br> AlwaysOn do SQL |Servidor físico ou máquina virtual do Hyper-V local |Dá suporte ao backup no Azure do pacote cumulativo de atualizações 5 |Proteger opções de recuperação de farm do SharePoint: farm de recuperação, banco de dados e arquivo ou item de lista de pontos de recuperação de disco.  Recuperação de farm e banco de dados de pontos de recuperação do Azure. |
 
 ## <a name="before-you-start"></a>Antes de começar
+
 Há algumas coisas que você precisa confirmar antes de fazer backup de um farm do SharePoint no Azure.
 
 ### <a name="prerequisites"></a>Pré-requisitos
+
 Antes de prosseguir, certifique-se de ter atendido todos os [pré-requisitos para usar backup do Microsoft Azure](backup-azure-dpm-introduction.md#prerequisites-and-limitations) para proteger as cargas de trabalho. Algumas tarefas para os pré-requisitos incluem: criar um cofre de backup, baixar as credenciais do cofre, instalar o agente de backup do Azure e registrar o DPM/Servidor de Backup do Azure com o cofre.
 
 ### <a name="dpm-agent"></a>Agente do DPM
+
 O agente do DPM deve ser instalado no servidor que está executando o SharePoint, os servidores que estão executando o SQL Server e todos os outros servidores que fazem parte do farm do SharePoint. Para obter mais informações sobre como configurar o agente de proteção, consulte [Configurar o agente de proteção](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  A única exceção é que você instala o agente somente em um único servidor de front-end da Web (WFE). O DPM precisa do agente em um servidor WFE apenas para servir como o ponto de entrada para proteção.
 
 ### <a name="sharepoint-farm"></a>Farm do SharePoint
+
 Para cada 10 milhões itens no farm, deve haver pelo menos 2 GB de espaço no volume em que a pasta do DPM está localizada. Esse espaço é necessário para a geração de catálogo. Para que o DPM recupere itens específicos (conjuntos de sites, sites, listas, bibliotecas de documentos, pastas, documentos individuais e itens de lista), a geração de catálogo cria uma lista das URLs contidas em cada banco de dados de conteúdo. Você pode exibir a lista de URLs no painel Item recuperável na área de tarefa **recuperação** de console do administrador do DPM.
 
 ### <a name="sql-server"></a>SQL Server
+
 O DPM é executado como uma conta LocalSystem. Para fazer backup de bancos de dados do SQL Server, o DPM precisa de privilégios sysadmin nessa conta para o servidor que está executando o SQL Server. Defina NT AUTHORITY\SYSTEM para *sysadmin* no servidor que está executando SQL Server antes de fazer o backup.
 
 Se o farm do SharePoint tiver SQL Server bancos de dados configurados com aliases de SQL Server, instale os componentes de cliente do SQL Server no servidor Web front-end que o DPM protegerá.
 
 ### <a name="sharepoint-server"></a>SharePoint Server
+
 Embora o desempenho dependa de muitos fatores, como o tamanho do farm do SharePoint, como orientação geral, um servidor DPM pode proteger um farm do SharePoint de 25 TB.
 
 ### <a name="dpm-update-rollup-5"></a>Pacote cumulativo de atualizações 5 do DPM
+
 Para iniciar a proteção de um farm do SharePoint para o Azure, você precisa instalar o pacote cumulativo de atualizações 5 do DPM ou posterior. O pacote cumulativo de atualizações 5 fornece a capacidade de proteger um farm do SharePoint no Azure se o farm for configurado usando o SQL AlwaysOn.
 Para obter mais informações, consulte a postagem no blog que apresenta o [pacote cumulativo de atualizações 5 do DPM](https://blogs.technet.com/b/dpm/archive/2015/02/11/update-rollup-5-for-system-center-2012-r2-data-protection-manager-is-now-available.aspx)
 
 ### <a name="whats-not-supported"></a>O que não é suportado
+
 * O DPM que protege um farm do SharePoint não protege índices de pesquisa ou bancos de dados de serviço de aplicativo. Você precisará configurar a proteção desses bancos de dados separadamente.
 * O DPM não fornece backup de bancos de dados do SharePoint SQL Server que são hospedados em compartilhamentos de SOFS (servidor de arquivos de escalabilidade horizontal).
 
 ## <a name="configure-sharepoint-protection"></a>Configurar a proteção do SharePoint
+
 Antes de usar o DPM para proteger o SharePoint, você deve configurar o Serviço gravador VSS do SharePoint (serviço de gravador do WSS) usando o **ConfigureSharePoint. exe**.
 
 Você pode encontrar **ConfigureSharePoint. exe** na pasta [caminho de instalação do DPM] \bin no servidor Web front-end. Essa ferramenta fornece o agente de proteção com as credenciais para o farm do SharePoint. Você o executa em um único servidor WFE. Se você tiver vários servidores WFE, selecione apenas um ao configurar um grupo de proteção.
 
 ### <a name="to-configure-the-sharepoint-vss-writer-service"></a>Para configurar o serviço de gravador VSS do SharePoint
+
 1. No servidor WFE, em um prompt de comando, vá para [local de instalação do DPM] \bin\
 2. Digite ConfigureSharePoint-EnableSharePointProtection.
 3. Insira as credenciais de administrador do farm. Essa conta deve ser um membro do grupo de Administradores local no servidor WFE. Se o administrador do farm não for um administrador local, conceda as seguintes permissões no servidor WFE:
@@ -71,11 +83,13 @@ Você pode encontrar **ConfigureSharePoint. exe** na pasta [caminho de instalaç
 >
 
 ## <a name="back-up-a-sharepoint-farm-by-using-dpm"></a>Fazer backup de um farm do SharePoint usando o DPM
+
 Depois de configurar o DPM e o farm do SharePoint, conforme explicado anteriormente, o SharePoint pode ser protegido pelo DPM.
 
 ### <a name="to-protect-a-sharepoint-farm"></a>Para proteger um farm do SharePoint
+
 1. Na guia **proteção** da console do administrador do DPM, clique em **novo**.
-    ![Nova guia proteção](./media/backup-azure-backup-sharepoint/dpm-new-protection-tab.png)
+    ![nova guia proteção](./media/backup-azure-backup-sharepoint/dpm-new-protection-tab.png)
 2. Na página **Selecionar tipo de grupo de proteção** do assistente para **criar novo grupo de proteção** , selecione **servidores**e clique em **Avançar**.
 
     ![Selecionar tipo de grupo de proteção](./media/backup-azure-backup-sharepoint/select-protection-group-type.png)
@@ -142,8 +156,9 @@ Depois de configurar o DPM e o farm do SharePoint, conforme explicado anteriorme
     ![Resumo](./media/backup-azure-backup-sharepoint/summary.png)
 
 ## <a name="restore-a-sharepoint-item-from-disk-by-using-dpm"></a>Restaurar um item do SharePoint do disco usando o DPM
+
 No exemplo a seguir, a *recuperação do item do SharePoint* foi acidentalmente excluída e precisa ser recuperada.
-![Protection4 do SharePoint do DPM](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection5.png)
+![](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection5.png) protection4 do DPM
 
 1. Abra o **console do administrador do DPM**. Todos os farms do SharePoint protegidos pelo DPM são mostrados na guia **proteção** .
 
@@ -203,6 +218,7 @@ No exemplo a seguir, a *recuperação do item do SharePoint* foi acidentalmente 
     >
 
 ## <a name="restore-a-sharepoint-database-from-azure-by-using-dpm"></a>Restaurar um banco de dados do SharePoint do Azure usando o DPM
+
 1. Para recuperar um banco de dados de conteúdo do SharePoint, navegue por vários pontos de recuperação (conforme mostrado anteriormente) e selecione o ponto de recuperação que deseja restaurar.
 
     ![Protection8 do SharePoint do DPM](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection9.png)
@@ -212,11 +228,11 @@ No exemplo a seguir, a *recuperação do item do SharePoint* foi acidentalmente 
    > Como o farm do SharePoint está protegido para retenção de longo prazo no Azure, nenhuma informação de catálogo (metadados) está disponível no servidor DPM. Como resultado, sempre que um banco de dados de conteúdo do SharePoint de ponto no tempo precisar ser recuperado, você precisará catalogar o farm do SharePoint novamente.
    >
    >
-3. Cliqueem recatalogar.
+3. Clique em **recatalogar**.
 
     ![Protection10 do SharePoint do DPM](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
-    A janela status de recatalogação de **nuvem** é aberta.
+    A janela status de **recatalogação de nuvem** é aberta.
 
     ![Protection11 do SharePoint do DPM](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
@@ -229,6 +245,7 @@ No exemplo a seguir, a *recuperação do item do SharePoint* foi acidentalmente 
 5. Neste ponto, siga as etapas de recuperação anteriores neste artigo para recuperar um banco de dados de conteúdo do SharePoint do disco.
 
 ## <a name="next-steps"></a>Passos seguintes
+
 * Saiba mais sobre a proteção do DPM do SharePoint-Confira [série de vídeos – proteção do DPM do SharePoint](https://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
 * Examine as [notas de versão do System Center 2012-Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 * Examine as [notas de versão para Data Protection Manager no System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)

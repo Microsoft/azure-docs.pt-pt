@@ -16,13 +16,13 @@ ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 9c6458eea2b1352e7d13ea6691eac4498182ecd3
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
+ms.lasthandoff: 10/28/2019
 ms.locfileid: "71680079"
 ---
-# <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorar uma máquina virtual do Linux no Azure
+# <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Tutorial: monitorar uma máquina virtual do Linux no Azure
 
 O monitoramento do Azure usa agentes para coletar dados de inicialização e de desempenho de VMs do Azure, armazenar esses dados no armazenamento do Azure e torná-los acessíveis por meio do portal, do módulo Azure PowerShell e do CLI do Azure. O monitoramento avançado é fornecido com o Azure Monitor para VMs coletando métricas de desempenho, descobrir componentes de aplicativos instalados na VM e inclui gráficos de desempenho e mapa de dependências.
 
@@ -30,9 +30,9 @@ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Ativar diagnósticos de arranque numa VM
-> * Ver diagnóstico de arranque
+> * Ver diagnósticos de arranque
 > * Ver métricas de anfitrião da VM
-> * Ativar o Azure Monitor para VMs
+> * Habilitar Azure Monitor para VMs
 > * Exibir métricas de desempenho da VM
 > * Criar um alerta
 
@@ -42,7 +42,7 @@ O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para execu
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial precisará que execute a versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="create-vm"></a>Criar VM
 
@@ -129,13 +129,13 @@ Para habilitar o monitoramento de sua VM do Azure com o Azure Monitor para VMs:
 
 1. No portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
 
-2. Na página de VM, na **monitorização** secção, selecione **Insights (pré-visualização)** .
+2. Na página VM, na seção **monitoramento** , selecione **insights (versão prévia)** .
 
-3. Sobre o **Insights (pré-visualização)** página, selecione **Experimente agora o**.
+3. Na página **insights (versão prévia)** , selecione **experimentar agora**.
 
-    ![Ativar o Azure Monitor para as VMs para uma VM](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![Habilitar Azure Monitor para VMs para uma VM](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
 
-4. Sobre o **integração de informações do Azure Monitor** página, se tiver um existentes do Log Analytics área de trabalho na mesma subscrição, selecione-o na lista pendente.  
+4. Na página de **integração do Azure monitor insights** , se você tiver um espaço de trabalho log Analytics existente na mesma assinatura, selecione-o na lista suspensa.  
 
     A lista seleciona o espaço de trabalho padrão e o local onde a VM é implantada na assinatura. 
 
@@ -144,7 +144,7 @@ Para habilitar o monitoramento de sua VM do Azure com o Azure Monitor para VMs:
 
 Depois de habilitar o monitoramento, talvez seja necessário aguardar vários minutos para poder exibir as métricas de desempenho da VM.
 
-![Ativar o Azure Monitor para monitorização de processamento da implementação de VMs](../../azure-monitor/insights/media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
+![Habilitar o processamento de implantação de monitoramento de Azure Monitor para VMs](../../azure-monitor/insights/media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
 
 ## <a name="view-vm-performance-metrics"></a>Exibir métricas de desempenho da VM
 
@@ -152,7 +152,7 @@ Azure Monitor para VMs inclui um conjunto de gráficos de desempenho que visam v
 
 1. No portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
 
-2. Na página de VM, na **monitorização** secção, selecione **Insights (pré-visualização)** .
+2. Na página VM, na seção **monitoramento** , selecione **insights (versão prévia)** .
 
 3. Selecione a guia **desempenho** .
 
@@ -185,7 +185,7 @@ Neste tutorial, você configurou e exibiu o desempenho de sua VM. Aprendeu a:
 > * Ativar diagnósticos de arranque na VM
 > * Ver diagnósticos de arranque
 > * Ver métricas de anfitrião
-> * Ativar o Azure Monitor para VMs
+> * Habilitar Azure Monitor para VMs
 > * Ver métricas da VM
 > * Criar um alerta
 
