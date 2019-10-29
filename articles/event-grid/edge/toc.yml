@@ -1,0 +1,62 @@
+- name: Documentação do Event Grid no IoT Edge
+  href: index.yml
+- name: Documentação sobre como mudar para o Azure Event Grid
+  href: ../overview.md
+- name: Descrição geral
+  items:
+    - name: O que é o Event Grid no IoT Edge?
+      href: overview.md
+- name: Tutoriais
+  items:
+    - name: Publicar e subscrever eventos localmente
+      href: pub-sub-events-webhook-local.md
+    - name: Publicar e subscrever eventos na cloud
+      href: pub-sub-events-webhook-cloud.md
+    - name: Reencaminhar eventos para o Azure Event Grid
+      href: forward-events-event-grid-cloud.md
+    - name: Reencaminhar eventos para o Hub IoT do Azure
+      href: forward-events-iothub.md
+    - name: Reagir aos eventos do Armazenamento de Blobs localmente
+      href: react-blob-storage-events-locally.md
+- name: Amostras
+  href: 'https://github.com/Azure/event-grid-iot-edge'
+- name: Conceitos
+  items:
+    - name: Conceitos do Event Grid
+      href: concepts.md
+    - name: Segurança e autenticação
+      href: security-authentication.md
+    - name: Esquemas de eventos
+      href: event-schemas.md
+    - name: Entrega e tentativa
+      href: delivery-retry.md
+    - name: Criação de batches de saída
+      href: delivery-output-batching.md
+    - name: Filtragem avançada
+      href: advanced-filtering.md
+- name: Guias de procedimentos
+  items:
+    - name: Persistir estado
+      items:
+        - name: Linux
+          href: persist-state-linux.md
+        - name: Windows
+          href: persist-state-windows.md
+    - name: Configurar protocolos de API
+      href: configure-api-protocol.md
+    - name: Configurar a autenticação de cliente
+      href: configure-client-auth.md
+    - name: Configurar a autenticação de subscritor do webhook
+      href: configure-webhook-subscriber-auth.md
+    - name: Configurar a autenticação de identidade
+      href: configure-identity-auth.md
+    - name: Resolução de problemas
+      href: troubleshoot.md
+- name: Referência
+  items:
+    - name: API REST
+      href: api.md
+    - name: Configurar o Event Grid
+      href: configure-event-grid.md
+    - name: Esquema de configuração de Módulo Duplo
+      href: twin-json.md

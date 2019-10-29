@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo de varejo no Azure IoT Central | Microsoft Docs
+title: Criar um aplicativo de análise no repositório no Azure IoT Central | Microsoft Docs
 description: Este tutorial mostra como criar um aplicativo de varejo de análise no repositório no IoT Central. Você o criará, personalizará e adicionará dispositivos de sensor.
 services: iot-central
 ms.service: iot-central
@@ -10,12 +10,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 10/03/2019
-ms.openlocfilehash: 528658b85542580df5eeb62f0c146aadef44f517
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
-ms.translationtype: MT
+ms.openlocfilehash: 03a10fa74b87ca6ab28b11c5c4fb0cfb7ca6ddb1
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72956412"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969605"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Tutorial: criar um aplicativo de análise no repositório no Azure IoT Central
 

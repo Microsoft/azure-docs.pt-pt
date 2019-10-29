@@ -1,5 +1,5 @@
 ---
-title: Store blobs de blocos em dispositivos - Azure IoT Edge | Documentos da Microsoft
+title: Armazenar blobs de blocos em dispositivos – Azure IoT Edge | Microsoft Docs
 description: Entenda as camadas e os recursos de vida útil, consulte operações de armazenamento de BLOBs com suporte e conecte-se à sua conta de armazenamento de BLOBs.
 author: arduppal
 manager: mchad
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7d504bae16b5b9b10debd916ef8888e90e79364e
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: a3eadb7a431d74a7a5f76c35b38c9d19fcfcf0d1
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844167"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72987949"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Armazene dados na borda com o armazenamento de BLOBs do Azure no IoT Edge
 
-Armazenamento de Blobs do Azure no IoT Edge fornece uma [blob de blocos](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) solução de armazenamento na periferia. Um módulo de armazenamento de BLOBs em seu dispositivo IoT Edge se comporta como um serviço blob de blocos do Azure, exceto que os blobs de blocos são armazenados localmente em seu dispositivo IoT Edge. Pode aceder a blobs com os mesmos métodos SDK de armazenamento do Azure ou bloquear chamadas de API de BLOBs que já está habituado a. Este artigo explica os conceitos relacionados ao armazenamento de BLOBs do Azure no contêiner IoT Edge que executa um serviço blob em seu dispositivo IoT Edge.
+O armazenamento de BLOBs do Azure no IoT Edge fornece uma solução de armazenamento de [blob de blocos](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) na borda. Um módulo de armazenamento de BLOBs em seu dispositivo IoT Edge se comporta como um serviço blob de blocos do Azure, exceto que os blobs de blocos são armazenados localmente em seu dispositivo IoT Edge. Você pode acessar seus BLOBs usando os mesmos métodos do SDK de armazenamento do Azure ou chamadas de API de blob de bloco para os quais você já está acostumado. Este artigo explica os conceitos relacionados ao armazenamento de BLOBs do Azure no contêiner IoT Edge que executa um serviço blob em seu dispositivo IoT Edge.
 
 Esse módulo é útil em cenários:
 * onde os dados precisam ser armazenados localmente até que possam ser processados ou transferidos para a nuvem. Esses dados podem ser vídeos, imagens, dados de finanças, dados de hospital ou quaisquer outros dados não estruturados.
@@ -39,7 +39,7 @@ Este módulo vem com os recursos **deviceToCloudUpload** e **deviceAutoDelete** 
 - Especifique a conta de armazenamento do Azure para a qual você deseja que os dados sejam carregados.
 - Especifique os contêineres que você deseja carregar no Azure. Esse módulo permite que você especifique nomes de contêiner de origem e de destino.
 - Escolha a capacidade de excluir os BLOBs imediatamente, após a conclusão do carregamento para o armazenamento em nuvem
-- Faça upload de blob completo ( `Put Blob` usando operação) e carregamento em nível de `Put Block` bloco `Put Block List` (usando operações e).
+- Faça upload de blob completo (usando `Put Blob` operação) e carregamento em nível de bloco (usando operações de `Put Block` e `Put Block List`).
 
 Esse módulo usa o carregamento em nível de bloco, quando seu blob é composto por blocos. Aqui estão alguns dos cenários comuns:
 
@@ -73,7 +73,7 @@ Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão standard n
 
 ## <a name="devicetocloudupload-and-deviceautodelete-properties"></a>Propriedades deviceToCloudUpload e deviceAutoDelete
 
-Use as propriedades desejadas do módulo para definir **deviceToCloudUploadProperties** e **deviceAutoDeleteProperties**. As propriedades desejadas podem ser definidas durante a implantação ou alteradas posteriormente editando-se o módulo e sem a necessidade de reimplantar. É recomendável verificar o "módulo `reported configuration` " e `configurationValidation` para garantir que os valores sejam propagados corretamente.
+Use as propriedades desejadas do módulo para definir **deviceToCloudUploadProperties** e **deviceAutoDeleteProperties**. As propriedades desejadas podem ser definidas durante a implantação ou alteradas posteriormente editando-se o módulo e sem a necessidade de reimplantar. É recomendável verificar o "módulo"/"para `reported configuration` e `configurationValidation` para garantir que os valores sejam propagados corretamente.
 
 ### <a name="devicetoclouduploadproperties"></a>deviceToCloudUploadProperties
 
@@ -81,11 +81,11 @@ O nome dessa configuração é `deviceToCloudUploadProperties`. Se você estiver
 
 | Propriedade | Valores Possíveis | Explicação |
 | ----- | ----- | ---- |
-| carregar | true, false | Defina como `false` por padrão. Se você quiser ativar o recurso, defina esse campo como `true`. <br><br> Variável de ambiente:`deviceToCloudUploadProperties__uploadOn={false,true}` |
-| uploadOrder | NewestFirst, OldestFirst | Permite que você escolha a ordem na qual os dados são copiados para o Azure. Defina como `OldestFirst` por padrão. A ordem é determinada pela hora da última modificação do blob. <br><br> Variável de ambiente:`deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
-| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`é uma cadeia de conexão que permite especificar a conta de armazenamento para a qual você deseja que os dados sejam carregados. Especifique `Azure Storage Account Name`, `Azure Storage Account Key`, .`End point suffix` Adicione o EndpointSuffix apropriado do Azure em que os dados serão carregados, varia para o Azure global, o Azure governamental e o Microsoft Azure Stack. <br><br> Você pode optar por especificar a cadeia de conexão SAS do armazenamento do Azure aqui. Mas você precisa atualizar essa propriedade quando ela expirar. <br><br> Variável de ambiente:`deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
-| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Permite que você especifique os nomes de contêiner que deseja carregar no Azure. Esse módulo permite que você especifique nomes de contêiner de origem e de destino. Se você não especificar o nome do contêiner de destino, ele atribuirá automaticamente o nome `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`do contêiner como. Você pode criar cadeias de caracteres de modelo para o nome do contêiner de destino, confira a coluna de valores possíveis. <br>*% h-> nome do Hub IoT (3-50 caracteres). <br>*% d-> IoT Edge ID do dispositivo (1 a 129 caracteres). <br>*% m-> nome do módulo (1 a 64 caracteres). <br>*% c-> nome do contêiner de origem (3 a 63 caracteres). <br><br>O tamanho máximo do nome do contêiner é de 63 caracteres, enquanto atribui automaticamente o nome do contêiner de destino se o tamanho do contêiner exceder 63 caracteres, ele cortará cada seção (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) como 15 personagens. <br><br> Variável de ambiente:`deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
-| deleteAfterUpload | true, false | Defina como `false` por padrão. Quando definido como `true`, ele excluirá automaticamente os dados quando o carregamento para o armazenamento em nuvem for concluído. <br><br> Variável de ambiente:`deviceToCloudUploadProperties__deleteAfterUpload={false,true}` |
+| carregar | verdadeiro, falso | Defina como `false` por padrão. Se você quiser ativar o recurso, defina esse campo como `true`. <br><br> Variável de ambiente: `deviceToCloudUploadProperties__uploadOn={false,true}` |
+| uploadOrder | NewestFirst, OldestFirst | Permite que você escolha a ordem na qual os dados são copiados para o Azure. Defina como `OldestFirst` por padrão. A ordem é determinada pela hora da última modificação do blob. <br><br> Variável de ambiente: `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
+| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` é uma cadeia de conexão que permite especificar a conta de armazenamento para a qual você deseja que os dados sejam carregados. Especifique `Azure Storage Account Name`, `Azure Storage Account Key``End point suffix`. Adicione o EndpointSuffix apropriado do Azure em que os dados serão carregados, varia para o Azure global, o Azure governamental e o Microsoft Azure Stack. <br><br> Você pode optar por especificar a cadeia de conexão SAS do armazenamento do Azure aqui. Mas você precisa atualizar essa propriedade quando ela expirar. <br><br> Variável de ambiente: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
+| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Permite que você especifique os nomes de contêiner que deseja carregar no Azure. Esse módulo permite que você especifique nomes de contêiner de origem e de destino. Se você não especificar o nome do contêiner de destino, ele atribuirá automaticamente o nome do contêiner como `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`. Você pode criar cadeias de caracteres de modelo para o nome do contêiner de destino, confira a coluna de valores possíveis. <br>*% h-> nome do Hub IoT (3-50 caracteres). <br>*% d-> IoT Edge ID do dispositivo (1 a 129 caracteres). <br>*% m-> nome do módulo (1 a 64 caracteres). <br>*% c-> nome do contêiner de origem (3 a 63 caracteres). <br><br>O tamanho máximo do nome do contêiner é de 63 caracteres, enquanto atribui automaticamente o nome do contêiner de destino se o tamanho do contêiner exceder 63 caracteres, ele cortará cada seção (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) como 15 personagens. <br><br> Variável de ambiente: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
+| deleteAfterUpload | verdadeiro, falso | Defina como `false` por padrão. Quando estiver definido como `true`, ele excluirá automaticamente os dados quando o carregamento para o armazenamento em nuvem for concluído. <br><br> Variável de ambiente: `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` |
 
 
 ### <a name="deviceautodeleteproperties"></a>deviceAutoDeleteProperties
@@ -94,16 +94,16 @@ O nome dessa configuração é `deviceAutoDeleteProperties`. Se você estiver us
 
 | Propriedade | Valores Possíveis | Explicação |
 | ----- | ----- | ---- |
-| deleteOn | true, false | Defina como `false` por padrão. Se você quiser ativar o recurso, defina esse campo como `true`. <br><br> Variável de ambiente:`deviceAutoDeleteProperties__deleteOn={false,true}` |
-| deleteAfterMinutes | `<minutes>` | Especifique o tempo em minutos. O módulo excluirá automaticamente os BLOBs do armazenamento local quando esse valor expirar. <br><br> Variável de ambiente:`deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
-| retainWhileUploading | true, false | Por padrão, ele é definido `true`como e manterá o blob enquanto estiver carregando para armazenamento em nuvem se deleteAfterMinutes expirar. Você pode defini-lo `false` como e ele excluirá os dados assim que deleteAfterMinutes expirar. Nota: Para que essa propriedade funcione, o upload deve ser definido como true. <br><br> Variável de ambiente:`deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
+| excluir | verdadeiro, falso | Defina como `false` por padrão. Se você quiser ativar o recurso, defina esse campo como `true`. <br><br> Variável de ambiente: `deviceAutoDeleteProperties__deleteOn={false,true}` |
+| deleteAfterMinutes | `<minutes>` | Especifique o tempo em minutos. O módulo excluirá automaticamente os BLOBs do armazenamento local quando esse valor expirar. <br><br> Variável de ambiente: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
+| retainWhileUploading | verdadeiro, falso | Por padrão, ele é definido como `true`e manterá o blob enquanto estiver carregando para armazenamento em nuvem se deleteAfterMinutes expirar. Você pode defini-lo como `false` e ele excluirá os dados assim que deleteAfterMinutes expirar. Observação: para que essa propriedade funcione, o upload deve ser definido como true. <br><br> Variável de ambiente: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## <a name="using-smb-share-as-your-local-storage"></a>Usando o compartilhamento SMB como seu armazenamento local
 Você pode fornecer o compartilhamento SMB como seu caminho de armazenamento local, ao implantar o contêiner do Windows desse módulo no host do Windows.
 
 Verifique se o compartilhamento SMB e o dispositivo IoT estão em domínios mutuamente confiáveis.
 
-Você pode executar `New-SmbGlobalMapping` o comando do PowerShell para mapear o compartilhamento SMB localmente no dispositivo IOT que executa o Windows.
+Você pode executar `New-SmbGlobalMapping` comando do PowerShell para mapear o compartilhamento SMB localmente no dispositivo IoT que executa o Windows.
 
 Abaixo estão as etapas de configuração:
 ```PowerShell
@@ -118,7 +118,7 @@ Este comando usará as credenciais para autenticar com o servidor SMB remoto. Em
 
 Verifique se o usuário no dispositivo IoT pode ler/gravar no compartilhamento SMB remoto.
 
-Para sua implantação, o valor `<storage mount>` de pode ser **G:/ContainerData: C:/BlobRoot**. 
+Para sua implantação, o valor de `<storage mount>` pode ser **G:/ContainerData: C:/BlobRoot**. 
 
 ## <a name="granting-directory-access-to-container-user-on-linux"></a>Concedendo acesso ao diretório para o usuário de contêiner no Linux
 Se você tiver usado a [montagem de volume](https://docs.docker.com/storage/volumes/) para armazenamento em suas opções de criação para contêineres do Linux, não precisará realizar etapas adicionais, mas se você usou a montagem de [Associação](https://docs.docker.com/storage/bind-mounts/) , essas etapas serão necessárias para executar o serviço corretamente.
@@ -137,7 +137,7 @@ Exemplo:<br>
 `sudo chmod -R 700 /srv/containerdata `
 
 
-Se você precisar executar o serviço como um usuário que não seja o **Absie**, poderá especificar sua ID de usuário personalizada em na propriedade "user" em seu manifesto de implantação. Nesse caso, você precisa usar a ID `0`de grupo padrão ou raiz.
+Se você precisar executar o serviço como um usuário que não seja o **Absie**, poderá especificar sua ID de usuário personalizada em na propriedade "user" em seu manifesto de implantação. Nesse caso, você precisa usar a ID de grupo raiz ou padrão `0`.
 
 ```json
 “createOptions”: { 
@@ -154,13 +154,13 @@ sudo chmod -R 700 <blob-dir>
 
 Para obter informações sobre como configurar arquivos de log para seu módulo, consulte essas [práticas recomendadas de produção](https://docs.microsoft.com/azure/iot-edge/production-checklist#set-up-logs-and-diagnostics).
 
-## <a name="connect-to-your-blob-storage-module"></a>Ligar ao seu módulo de armazenamento de BLOBs
+## <a name="connect-to-your-blob-storage-module"></a>Conectar-se ao seu módulo de armazenamento de BLOBs
 
-Pode utilizar o nome da conta e a chave de conta que configurou para o seu módulo aceder ao armazenamento de BLOBs no seu dispositivo IoT Edge.
+Você pode usar o nome da conta e a chave de conta que você configurou para o seu módulo para acessar o armazenamento de BLOBs em seu dispositivo de IoT Edge.
 
-Especifique o seu dispositivo IoT Edge como o ponto final do blob para o armazenamento de quaisquer pedidos que fizer nele. Pode [criar uma cadeia de ligação para um ponto de final de armazenamento explícita](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) usando as informações do dispositivo IoT Edge e o nome da conta que configurou.
+Especifique o dispositivo de IoT Edge como o ponto de extremidade de BLOB para as solicitações de armazenamento que você fizer a ele. Você pode [criar uma cadeia de conexão para um ponto de extremidade de armazenamento explícito](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) usando as informações do dispositivo IOT Edge e o nome da conta que você configurou.
 
-- Para módulos que são implantados no mesmo dispositivo em que o armazenamento de BLOBs do Azure no módulo IoT Edge está em execução, `http://<module name>:11002/<account name>`o ponto de extremidade do blob é:.
+- Para módulos que são implantados no mesmo dispositivo em que o armazenamento de BLOBs do Azure no módulo IoT Edge está em execução, o ponto de extremidade do blob é: `http://<module name>:11002/<account name>`.
 - Para módulos ou aplicativos em execução em um dispositivo diferente, você precisa escolher o ponto de extremidade certo para sua rede. Dependendo da configuração de sua rede, escolha um formato de ponto de extremidade, de modo que o tráfego de dados do seu módulo ou aplicativo externo possa acessar o dispositivo que executa o armazenamento de BLOBs do Azure no módulo IoT Edge. O ponto de extremidade do blob para este cenário é um de:
   - `http://<device IP >:11002/<account name>`
   - `http://<IoT Edge device hostname>:11002/<account name>`
@@ -174,7 +174,7 @@ Os exemplos de início rápido a seguir usam idiomas que também são suportados
 
 - [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 - [Python](../storage/blobs/storage-quickstart-blobs-python.md)
-    - Temos um problema conhecido ao usar esse SDK porque esta versão do módulo não retorna o tempo de criação de BLOB. Portanto, poucos métodos como BLOBs de lista não funcionam. Como solução alternativa, defina a versão de API explicitamente no cliente de blob como ' 2017-04-17 '. <br>Exemplo`block_blob_service._X_MS_VERSION = '2017-04-17'`
+    - Temos um problema conhecido ao usar esse SDK porque esta versão do módulo não retorna o tempo de criação de BLOB. Portanto, poucos métodos como BLOBs de lista não funcionam. Como solução alternativa, defina a versão de API explicitamente no cliente de blob como ' 2017-04-17 '. <br>Exemplo: `block_blob_service._X_MS_VERSION = '2017-04-17'`
 - [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-v10.md)
 - [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-v10.md)
 - [Ruby](../storage/blobs/storage-quickstart-blobs-ruby.md)
@@ -189,7 +189,7 @@ Você pode usar [Gerenciador de armazenamento do Azure](https://azure.microsoft.
 
 1. Conectar-se ao armazenamento do Azure usando uma cadeia de conexão
 
-1. Forneça a cadeia de conexão:`DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
+1. Forneça a cadeia de conexão: `DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
 
 1. Percorra as etapas para se conectar.
 
@@ -201,7 +201,7 @@ Você pode usar [Gerenciador de armazenamento do Azure](https://azure.microsoft.
 
 1. Você também pode optar por conectar suas contas de armazenamento do Azure em Gerenciador de Armazenamento. Essa configuração fornece uma exibição única para a conta de armazenamento local e para a conta de armazenamento do Azure
 
-## <a name="supported-storage-operations"></a>Operações de armazenamento suportadas
+## <a name="supported-storage-operations"></a>Operações de armazenamento com suporte
 
 Os módulos de armazenamento de BLOBs no IoT Edge usam os SDKs de armazenamento do Azure e são consistentes com a versão 2017-04-17 da API de armazenamento do Azure para pontos de extremidade de blob de blocos. 
 
@@ -209,67 +209,73 @@ Como nem todas as operações de armazenamento de BLOBs do Azure têm suporte pe
 
 ### <a name="account"></a>Conta
 
-Suporte para:
+Porta
 
 - Listar contentores
 
-Não suportado:
+Sem suporte
 
-- Obter e definir as propriedades do serviço de BLOBs
-- Solicitação de simulação de blob
+- Obter e definir propriedades do serviço blob
+- Solicitação de blob de simulação
 - Obter estatísticas do serviço blob
-- Obtenha informações de conta
+- Obter informações da conta
 
 ### <a name="containers"></a>Contentores
 
-Suporte para:
+Porta
 
-- Criar e eliminar o contentor
-- Obter metadados e propriedades do contentor
+- Criar e excluir contêiner
+- Obter propriedades e metadados do contêiner
 - Listar blobs
-- Obter e definir o contentor de ACL
-- Metadados do conjunto de contentor
+- Obter e definir ACL de contêiner
+- Definir metadados do contêiner
 
-Não suportado:
+Sem suporte
 
-- Contentor de concessão
+- Contêiner de concessão
 
 ### <a name="blobs"></a>Blobs
 
-Suporte para:
+Porta
 
-- Colocar, obter e eliminar BLOBs
-- Obter e definir propriedades de blob
-- Obter e definir os metadados do blob
+- Colocar, obter e excluir blob
+- Obter e definir propriedades de BLOB
+- Obter e definir metadados de BLOB
 
-Não suportado:
+Sem suporte
 
 - Blob de concessão
 - Blob de instantâneo
-- Copiar e anular o blob de cópia
-- Anular a eliminação de BLOBs
-- Definir camada de blob
+- Copiar e anular cópia de BLOB
+- Restaurar blob
+- Definir camada de BLOB
 
 ### <a name="block-blobs"></a>Blobs de bloco
 
-Suporte para:
+Porta
 
 - Colocar bloco
-- Colocar e obter a lista de bloqueios
+- Colocar e obter lista de blocos
 
-Não suportado:
+Sem suporte
 
-- Colocar o bloco de URL
+- Colocar bloco da URL
 
-## <a name="release-notes"></a>Notas de Versão
+## <a name="event-grid-on-iot-edge-integration"></a>Grade de eventos na integração de IoT Edge
+> [!CAUTION]
+> A integração com a grade de eventos no IoT Edge está em versão prévia
 
-Aqui estão as [notas de versão no Hub](https://hub.docker.com/_/microsoft-azure-blob-storage) do Docker para este módulo
+Este armazenamento de BLOBs do Azure no módulo IoT Edge agora fornece integração com a grade de eventos no IoT Edge. Para obter informações detalhadas sobre essa integração, consulte o [tutorial para implantar os módulos, publicar eventos e verificar a entrega de eventos](../event-grid/edge/react-blob-storage-events-locally.md).
+
+## <a name="release-notes"></a>Notas de Lançamento
+
+Aqui estão as [notas de versão no Hub do Docker](https://hub.docker.com/_/microsoft-azure-blob-storage) para este módulo
 
 ## <a name="feedback"></a>Comentários
 
 Seus comentários são importantes para que possamos tornar este módulo e seus recursos úteis e fáceis de usar. Compartilhe seus comentários e informe-nos como podemos melhorar.
 
-Você pode entrar em contato conosco emabsiotfeedback@microsoft.com
+Você pode entrar em contato conosco em absiotfeedback@microsoft.com
 
 ## <a name="next-steps"></a>Passos seguintes
 

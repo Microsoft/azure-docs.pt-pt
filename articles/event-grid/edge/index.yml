@@ -1,0 +1,67 @@
+### YamlMime:Landing
+title: Documentação do Event Grid no IoT Edge
+summary: Saiba como utilizar o Event Grid no IoT Edge para reagir a eventos relevantes gerados nos dispositivos periféricos em tempo quase real.
+metadata:
+  title: Documentação do Event Grid no IoT Edge
+  description: Saiba como utilizar o Event Grid no IoT Edge para reagir a eventos relevantes gerados nos dispositivos periféricos em tempo quase real.
+  services: event-grid
+  ms.service: event-grid
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.collection: collection
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 10/12/2019
+  ms.openlocfilehash: 4b79d64240b96ed41b535f8dbcd1155d67e76282
+  ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 10/28/2019
+  ms.locfileid: "72991618"
+landingContent:
+- title: Acerca do Event Grid no IoT Edge
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Event Grid no IoT Edge?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Conceitos do Event Grid
+      url: concepts.md
+    - text: Esquemas de eventos
+      url: event-schemas.md
+    - text: Criação de batches de saída
+      url: delivery-output-batching.md
+    - text: Filtragem avançada
+      url: advanced-filtering.md
+    - text: Entrega e tentativa
+      url: delivery-retry.md
+- title: Cenários
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Publicar e subscrever eventos localmente
+      url: pub-sub-events-webhook-local.md
+    - text: Publicar e subscrever eventos na cloud
+      url: pub-sub-events-webhook-cloud.md
+    - text: Reencaminhar eventos para o Azure Event Grid
+      url: forward-events-event-grid-cloud.md
+    - text: Reencaminhar eventos para o Hub IoT do Azure
+      url: forward-events-event-grid-cloud.md
+    - text: Reagir aos eventos do Armazenamento de Blobs do Azure localmente
+      url: react-blob-storage-events-locally.md
+- title: Segurança
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Segurança e autenticação
+      url: security-authentication.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurar a autenticação de cliente
+      url: configure-client-auth.md
+    - text: Configurar a autenticação de subscritor do webhook
+      url: configure-webhook-subscriber-auth.md
+    - text: Configurar a autenticação de identidade
+      url: configure-identity-auth.md

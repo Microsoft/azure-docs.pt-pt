@@ -1,37 +1,35 @@
 ---
-title: Configurar Azure Cloud Shell para Terraform
+title: Tutorial – configurar Azure Cloud Shell para Terraform
 description: Utilize o Terraform com o Azure Cloud Shell para simplificar a autenticação e a configuração de modelos.
-services: terraform
-ms.service: azure
-keywords: terraform, programadores, conjunto de dimensionamento, máquina virtual, rede, armazenamento, módulos
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: e0a59697a3e4da97cf082c4c771fe93ad33b6035
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: 693ed462fb1ba3dfed079e8ae97152732c771253
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173551"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969583"
 ---
-# <a name="terraform-cloud-shell-development"></a>Desenvolvimento do Terraform com o Cloud Shell 
+# <a name="tutorial-configure-azure-cloud-shell-for-terraform"></a>Tutorial: configurar Azure Cloud Shell para Terraform
 
-O Terraform funciona muito bem a partir de uma linha de comandos do Bash, como o Terminal no macOS ou Bash no Windows ou Linux. Executar as configurações do Terraform na experiência Bash do [Azure Cloud Shell](/azure/cloud-shell/overview) tem algumas vantagens exclusivas para acelerar o ciclo de desenvolvimento.
-
-Este artigo de conceitos abrange as funcionalidades do Cloud Shell que o ajudam a escrever scripts do Terraform que são implementados no Azure.
+O Terraform funciona bem de uma linha de comando do bash no macOS, Windows ou Linux. Executar as configurações do Terraform na experiência do bash do [Azure cloud Shell](/azure/cloud-shell/overview) tem algumas vantagens exclusivas. Este tutorial mostra como gravar scripts Terraform que implantam no Azure usando Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="automatic-credential-configuration"></a>Configuração automática de credenciais
 
-O Terraform está instalado e imediatamente disponível no Cloud Shell. Os scripts do Terraform são autenticados com o Azure quando existe sessão iniciada no Cloud Shell para gerir a infraestrutura sem qualquer configuração adicional. A autenticação automática ignora a necessidade de criar manualmente um principal de serviço do Active Directory e configurar as variáveis de fornecedor do Terraform do Azure.
+O Terraform está instalado e imediatamente disponível no Cloud Shell. Os scripts do Terraform são autenticados com o Azure quando existe sessão iniciada no Cloud Shell para gerir a infraestrutura sem qualquer configuração adicional. A autenticação automática ignora dois processos manuais:
+- Criando uma entidade de serviço Active Directory.
+- Configurando as variáveis do provedor Terraform do Azure.
 
 
 ## <a name="using-modules-and-providers"></a>Utilizar Módulos e Fornecedores
 
-Os módulos do Terraform do Azure necessitam de credenciais para aceder e efetuar alterações aos recursos na sua subscrição do Azure. Ao trabalhar no Cloud Shell, adicione o seguinte código aos seus scripts para utilizar os módulos do Terraform do Azure no Cloud Shell:
+Os módulos Terraform do Azure exigem credenciais para acessar e modificar os recursos do Azure. Para usar os módulos Terraform no Cloud Shell, adicione o seguinte código:
+
 
 ```hcl
 # Configure the Microsoft Azure Provider
@@ -50,5 +48,5 @@ A CLI do Azure está disponível no Cloud Shell e é uma ótima ferramenta para 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Create a small VM cluster using the Module Registry](terraform-create-vm-cluster-module.md) (Criar um pequeno cluster de VM com o Registo do Módulo)
-[Create a small VM cluster using custom HCL](terraform-create-vm-cluster-with-infrastructure.md) (Criar um pequeno cluster de VM com HCL personalizado)
+> [!div class="nextstepaction"]
+> [Criar um cluster de VM pequeno usando o registro de módulo](terraform-create-vm-cluster-module.md)

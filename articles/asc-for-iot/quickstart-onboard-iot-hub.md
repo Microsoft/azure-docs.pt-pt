@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2019
 ms.author: mlottner
-ms.openlocfilehash: 45eaa6d4c66c9ec8e25d728fb70f389912a00793
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 67361c402bdbc82d5df01709dc962b59671cb2aa
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72928427"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991403"
 ---
 # <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>Início rápido: integração da central de segurança do Azure para o serviço de IoT no Hub IoT
 
@@ -44,7 +44,7 @@ Para habilitar a segurança em seu hub IoT:
 
 1. Abra o **Hub IOT** no portal do Azure. 
 1. No menu **segurança** , clique em **proteger sua solução de IOT**.    
-1. Clique em **Guardar**. 
+
 
 Parabéns! Você concluiu a habilitação da central de segurança do Azure para IoT em seu hub IoT. 
 
