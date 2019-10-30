@@ -10,12 +10,12 @@ ms.date: 10/28/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c8f4250d2df7703ad2960c2d68cd015cb6ec2bc
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
-ms.translationtype: MT
+ms.openlocfilehash: 254fa924ea2104e76a475c106f16f4672dd1eec1
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052884"
+ms.locfileid: "73033319"
 ---
 # <a name="cloud-authentication-staged-rollout-public-preview"></a>Autenticação de nuvem: distribuição em etapas (visualização pública)
 
@@ -80,8 +80,6 @@ Esses cenários não têm suporte para a distribuição em etapas:
 ## <a name="get-started-with-staged-rollout"></a>Introdução à distribuição em etapas
 
 Se você quiser testar a entrada de sincronização de hash de senha (PHS) usando a distribuição em etapas, conclua o trabalho abaixo para habilitar a distribuição em etapas de sincronização de hash de senha.
-
-Para obter mais informações sobre os cmdlets do PowerShell usados, consulte [visualização do AzureAD 2,0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout)
 
 ## <a name="pre-work-for-password-hash-sync"></a>Pré-trabalho para sincronização de hash de senha
 
@@ -241,6 +239,3 @@ Veja como você pode acompanhar as entradas do usuário que ainda estão ocorren
 -   **P: podemos usar o PowerShell para executar a distribuição em etapas?**
 
 -   R: Sim, encontre a documentação para usar o PowerShell para executar a distribuição em etapas aqui.
-
-## <a name="next-steps"></a>Próximos Passos
-- [Versão prévia do AzureAD 2,0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

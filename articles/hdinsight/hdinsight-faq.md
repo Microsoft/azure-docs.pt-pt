@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 5b9011e2a95dc1bdb86311111123db3c994f3aee
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
-ms.translationtype: HT
+ms.openlocfilehash: 044a63274f7f24831b1f791982f36898199616a6
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044944"
+ms.locfileid: "73052503"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: perguntas frequentes
 
@@ -387,3 +387,7 @@ Para obter informações sobre os recursos de integração do processamento de f
 ### <a name="is-there-a-way-to-dynamically-terminate-the-head-node-of-the-cluster-when-the-cluster-is-idle-for-a-specific-period"></a>Há uma maneira de encerrar dinamicamente o nó principal do cluster quando o cluster está ocioso por um período específico?
 
 Você não pode fazer isso com clusters HDInsight. Você pode usar Azure Data Factory para esses cenários.
+
+### <a name="what-compliance-offerings-does-hdinsight-offer"></a>Quais ofertas de conformidade o HDInsight oferece?
+
+Para obter informações de conformidade, consulte a [central de confiabilidade da Microsoft](https://www.microsoft.com/trust-center) e a [visão geral da conformidade do Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
