@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/03/2019
-ms.openlocfilehash: 891e8a261e092de0ffcef3941dd48f01942a8030
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.date: 10/27/2019
+ms.openlocfilehash: e25e31a9ed656d625d2025d8d0086d23ecf10682
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802579"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043210"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql-single-server"></a>Problemas conhecidos/limitações de migração com migrações online do PostgreSQL para o BD do Azure para PostgreSQL-servidor único
 
@@ -31,7 +31,7 @@ Problemas conhecidos e limitações associadas a migrações online do PostgreSQ
     > Para PostgreSQL versão 10, atualmente o DMS dá suporte apenas à migração da versão 10,3 para o banco de dados do Azure para PostgreSQL. Estamos planejando dar suporte a versões mais recentes do PostgreSQL em breve.
 
 - Para habilitar a replicação lógica no arquivo PostgreSQL **. conf de origem** , defina os seguintes parâmetros:
-  - **wal_level** = logical
+  - **wal_level** = lógico
   - **max_replication_slots** = [número máximo de bancos de dados para migração]; Se você quiser migrar quatro bancos de dados, defina o valor como 4
   - **max_wal_senders** = [número de bancos de dados em execução simultânea]; o valor recomendado é 10
 - Adicionar o IP do agente DMS à origem PostgreSQL pg_hba. conf
@@ -81,35 +81,35 @@ Problemas conhecidos e limitações associadas a migrações online do PostgreSQ
 
 ## <a name="datatype-limitations"></a>Limitações de DataType
 
-- **Limitação**: Se houver um tipo de dados ENUM no banco de dados PostgreSQL de origem, a migração falhará durante a sincronização contínua.
+- **Limitação**: se houver um tipo de dados enum no banco de dados PostgreSQL de origem, a migração falhará durante a sincronização contínua.
 
-    **Solução alternativa**: Modifique o tipo de dados ENUM para o caractere variável no banco de dados do Azure para PostgreSQL.
+    **Solução alternativa**: modifique o tipo de dados enum para o caractere variável no banco de dados do Azure para PostgreSQL.
 
-- **Limitação**: Se não houver nenhuma chave primária em tabelas, a sincronização contínua falhará.
+- **Limitação**: se não houver uma chave primária em tabelas, a sincronização contínua falhará.
 
     **Solução alternativa**: Defina temporariamente uma chave primária para a tabela para que a migração continue. Você pode remover a chave primária após a conclusão da migração de dados.
 
-- **Limitação**: JSONB DataType não tem suporte para migração.
+- **Limitação**: não há suporte para o tipo de dados JSONB para migração.
 
 ## <a name="lob-limitations"></a>Limitações de LOB
 
 As colunas de LOB (objeto grande) são colunas que podem crescer muito. Para PostgreSQL, exemplos de tipos de dados LOB incluem XML, JSON, imagem, texto, etc.
 
-- **Limitação**: Se os tipos de dados LOB forem usados como chaves primárias, a migração falhará.
+- **Limitação**: se os tipos de dados LOB forem usados como chaves primárias, a migração falhará.
 
-    **Solução alternativa**: Substitua a chave primária por outros tipos de texto ou colunas que não são LOB.
+    **Solução alternativa**: substitua a chave primária por outros tipos de texto ou colunas que não são LOB.
 
-- **Limitação**: Se o comprimento da coluna de objeto grande (LOB) for maior que 32 KB, os dados poderão ser truncados no destino. Você pode verificar o comprimento da coluna LOB usando esta consulta:
+- **Limitação**: se o comprimento da coluna de objeto grande (LOB) for maior que 32 KB, os dados poderão ser truncados no destino. Você pode verificar o comprimento da coluna LOB usando esta consulta:
 
     ```
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Solução alternativa**: Se você tiver um objeto LOB maior que 32 KB, entre em contato com a equipe de engenharia em [solicitar migrações de banco de dados do Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+    **Solução alternativa**: se você tiver um objeto LOB maior que 32 KB, contate a equipe de engenharia em [solicitar migrações de banco de dados do Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
-- **Limitação**: Se houver colunas LOB na tabela e não houver nenhum conjunto de chaves primária para a tabela, os dados poderão não ser migrados para essa tabela.
+- **Limitação**: se houver colunas LOB na tabela e não houver nenhum conjunto de chaves primária para a tabela, os dados poderão não ser migrados para essa tabela.
 
-    **Solução alternativa**: Defina temporariamente uma chave primária para a tabela para que a migração continue. Você pode remover a chave primária após a conclusão da migração de dados.
+    **Solução alternativa**: Defina temporariamente uma chave primária para a tabela para continuar a migração. Você pode remover a chave primária após a conclusão da migração de dados.
 
 ## <a name="postgresql10-workaround"></a>Solução alternativa de PostgreSQL10
 
@@ -153,28 +153,31 @@ ALTER USER PG_User SET search_path = fnRenames, pg_catalog, "$user", public;
 COMMIT;
 ```
 
+  > [!NOTE]
+  > No script anterior, "PG_User" refere-se ao nome de usuário que está sendo usado para se conectar à origem de migração.
+
 ## <a name="limitations-when-migrating-online-from-aws-rds-postgresql"></a>Limitações ao migrar online do AWS RDS PostgreSQL
 
 Ao tentar executar uma migração online do AWS RDS PostgreSQL para o banco de dados do Azure para PostgreSQL, você pode encontrar os erros a seguir.
 
-- **Erro**: O Valor predefinido de coluna '{column}' na tabela '{table}' na base de dados '{database}' é diferente nos servidores de origem e de destino. É '{value on source}' na origem e '{value on target}' no destino.
+- **Erro**: o valor padrão da coluna ' {Column} ' na tabela ' {Table} ' no banco de dados ' {database} ' é diferente nos servidores de origem e de destino. É '{value on source}' na origem e '{value on target}' no destino.
 
-  **Limitação**: Esse erro ocorre quando o valor padrão em um esquema de coluna é diferente entre os bancos de dados de origem e de destino.
+  **Limitação**: esse erro ocorre quando o valor padrão em um esquema de coluna é diferente entre os bancos de dados de origem e de destino.
   **Solução alternativa**: Verifique se o esquema no destino corresponde ao esquema na origem. Para obter detalhes sobre a migração de esquema, consulte a [documentação de migração online do PostgreSQL do Azure](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
-- **Erro**: A base de dados de destino '{database}' tem '{number of tables}' tabelas, ao passo que a base de dados de origem '{database}' tem '{number of tables}' tabelas. O número de tabelas nas bases de dados de origem e de destino deve coincidir.
+- **Erro**: o banco de dados de destino ' {database} ' tem ' {Number of Tables} ' tabelas onde o banco de dados de origem ' {database} ' tem ' {Number of Tables} ' tabelas. O número de tabelas nas bases de dados de origem e de destino deve coincidir.
 
-  **Limitação**: Esse erro ocorre quando o número de tabelas é diferente entre os bancos de dados de origem e de destino.
+  **Limitação**: esse erro ocorre quando o número de tabelas é diferente entre os bancos de dados de origem e de destino.
   **Solução alternativa**: Verifique se o esquema no destino corresponde ao esquema na origem. Para obter detalhes sobre a migração de esquema, consulte a [documentação de migração online do PostgreSQL do Azure](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
 - **Erro:** O banco de dados de origem {Database} está vazio.
 
-  **Limitação**: Esse erro ocorre quando o banco de dados de origem está vazio. Tal deve-se provavelmente devido ao facto de ter selecionado a base de dados incorreta como origem.
-  **Solução alternativa**: Verifique novamente o banco de dados de origem que você selecionou para migração e tente novamente.
+  **Limitação**: esse erro ocorre quando o banco de dados de origem está vazio. Tal deve-se provavelmente devido ao facto de ter selecionado a base de dados incorreta como origem.
+  **Solução alternativa**: Verifique o banco de dados de origem selecionado para migração e tente novamente.
 
 - **Erro:** O banco de dados de destino {Database} está vazio. Migre o esquema.
 
-  **Limitação**: Esse erro ocorre quando não há nenhum esquema no banco de dados de destino. Verifique se o esquema no destino corresponde ao esquema na origem.
+  **Limitação**: esse erro ocorre quando não há nenhum esquema no banco de dados de destino. Verifique se o esquema no destino corresponde ao esquema na origem.
   **Solução alternativa**: Verifique se o esquema no destino corresponde ao esquema na origem. Para obter detalhes sobre a migração de esquema, consulte a [documentação de migração online do PostgreSQL do Azure](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
 ## <a name="other-limitations"></a>Outras limitações

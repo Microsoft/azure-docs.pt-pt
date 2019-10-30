@@ -8,14 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: dd7e3ed767539f8de46e5f77a39b1e7bac0cb3b0
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: b408d2cc0754cc1f2dd8671d037d4f9d348e883b
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965810"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027639"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Tutorial: criar e percorrer o modelo de aplicativo de monitoramento do painel solar 
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 Este tutorial orienta você pelo processo de criação do aplicativo de monitoramento de painel solar, que inclui um modelo de dispositivo de exemplo com dados simulados. Neste tutorial, ficará a saber:
 
@@ -41,8 +43,8 @@ Você pode criar esse aplicativo em três etapas simples:
 
 2. Selecione a guia **energia** e clique em **criar aplicativo** no bloco **painel solar monitoramento** do aplicativo. 
 
-    > [!div class="mx-imgBorder"]
-    > ![](media/tutorial-iot-central-solar-panel/solar-panel-build.png) de aplicativo de compilação
+    [!div class="mx-imgBorder"]
+    ![](media/tutorial-iot-central-solar-panel/solar-panel-build.png) de aplicativo de compilação
   
 3. **Criar aplicativo** abrirá o formulário **novo aplicativo** . Preencha os detalhes solicitados, conforme mostrado na figura abaixo:
     * **Nome do aplicativo**: escolha um nome para seu aplicativo IOT central. 
@@ -70,37 +72,37 @@ Adatum é uma empresa de energia fictícia, que monitora e gerencia painéis sol
 * Acompanhe a geração de energia total para fins de planejamento e cobrança
 * Operações de comando e controle, como ativar o painel e atualizar a versão do firmware. No modelo, os botões de comando mostram as funcionalidades possíveis e não enviam comandos reais.
 
-> [!div class="mx-imgBorder"]
-> painel de monitoramento do painel solar ![](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
+[!div class="mx-imgBorder"]
+painel de monitoramento do painel solar ![](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
 
 ### <a name="devices"></a>Dispositivos
 O aplicativo vem com um dispositivo de painel solar de exemplo. Você pode ver os detalhes do dispositivo clicando na guia **dispositivos** .
 
-> [!div class="mx-imgBorder"]
-> ![dispositivos do painel solar](media/tutorial-iot-central-solar-panel/solar-panel-device.png)
+[!div class="mx-imgBorder"]
+![dispositivos do painel solar](media/tutorial-iot-central-solar-panel/solar-panel-device.png)
 
 
 Clique no link **SP0123456789** do dispositivo de exemplo para ver os detalhes do dispositivo. Na página **Propriedades da atualização** , você pode atualizar as propriedades graváveis do dispositivo e visualizar os valores atualizados no painel. 
 
-> [!div class="mx-imgBorder"]
-> ![Propriedades do painel solar](media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png)
+[!div class="mx-imgBorder"]
+![Propriedades do painel solar](media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png)
 
 
 ### <a name="device-template"></a>Modelo de dispositivo
 Clique na guia **modelos de dispositivo** para ver o modelo de dispositivo do painel solar. O modelo tem a interface predefinida para dados, propriedade, comandos e exibições.
 
-> [!div class="mx-imgBorder"]
-> ![modelo de dispositivos do painel solar](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
+[!div class="mx-imgBorder"]
+![modelo de dispositivos do painel solar](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Se você decidir não continuar usando este aplicativo, exclua seu aplicativo com as seguintes etapas:
 
-1. No menu à esquerda, abra a guia Administração
+1. No painel esquerdo, abra a guia Administração
 2. Selecione Configurações do aplicativo e clique no botão excluir na parte inferior da página. 
 
-    > [!div class="mx-imgBorder"]
-    > ![excluir](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png) de aplicativo
+    [!div class="mx-imgBorder"]
+    ![excluir](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png) de aplicativo
 
 
 ## <a name="next-steps"></a>Passos seguintes

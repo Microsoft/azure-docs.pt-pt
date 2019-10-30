@@ -7,14 +7,17 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 9af8a94953d7893c71cfc413f9259ec8582a8899
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a0bf3b555334b67659975c150711eab02b957c6e
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72955152"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73026600"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Tutorial: criar um aplicativo de gerenciamento de resíduos conectado no IoT Central
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 Este tutorial orienta você a criar um aplicativo de gerenciamento de lixo conectado do Azure IoT Central do IoT Central modelo de aplicativo de **Gerenciamento de resíduos conectado** . 
 
 O tutorial aprenderá a: 
@@ -45,7 +48,7 @@ Para criar um novo aplicativo de gerenciamento de lixo conectado do Azure IoT Ce
 
     ![Introduza a sua conta da organização](./media/tutorial-connectedwastemanagement/sign-in.png)
 
-2. Clique em **Compilar** no menu de navegação à esquerda e selecione a guia **governo** . A página do governo exibe vários modelos de aplicativos do governo.
+2. Clique em **Compilar** no painel esquerdo e selecione a guia **governo** . A página do governo exibe vários modelos de aplicativos do governo.
 
     ![Criar modelos de aplicativo do governo](./media/tutorial-connectedwastemanagement/iotcentral-government-tab-overview.png)
 
@@ -255,8 +258,8 @@ Como um construtor, você pode alterar várias configurações para personalizar
 
 Se você não pretende usar este aplicativo, exclua seu aplicativo com as seguintes etapas:
 
-1. Abra a guia Administração no menu de navegação à esquerda do seu aplicativo IoT Central. 
-2. Selecione Configurações do aplicativo e clique no botão excluir na parte inferior da página. 
+1. Abra a guia Administração no painel esquerdo do seu aplicativo IoT Central.
+2. Selecione Configurações do aplicativo e clique no botão excluir na parte inferior da página.
 
   
 

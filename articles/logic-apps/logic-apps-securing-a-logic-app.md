@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: f9b23e00c954e8babb1fe920bca1aa2ea5f9298e
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b219eb50254ecd347f731d332c3236be028834ba
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799489"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045041"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados no aplicativo lógico do Azure
 
@@ -266,11 +266,11 @@ Muitos gatilhos e ações têm configurações para ocultar entradas, saídas ou
 
 1. No [portal do Azure](https://portal.azure.com), abra seu aplicativo lógico no designer do aplicativo lógico.
 
-   ![Abrir aplicativo lógico de exemplo](./media/logic-apps-securing-a-logic-app/sample-logic-app.png)
+   ![Abrir o aplicativo lógico no designer de aplicativo lógico](./media/logic-apps-securing-a-logic-app/open-sample-logic-app-in-designer.png)
 
 1. No gatilho ou na ação em que você deseja proteger os dados, selecione o botão de reticências ( **...** ) e, em seguida, selecione **configurações**.
 
-   ![Abrir "configurações"](./media/logic-apps-securing-a-logic-app/open-settings.png)
+   ![Abrir configurações de gatilho ou ação](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
 
 1. Ative as **entradas seguras**, as **saídas seguras**ou ambas. Quando tiver terminado, selecione **Concluído**.
 
@@ -278,11 +278,11 @@ Muitos gatilhos e ações têm configurações para ocultar entradas, saídas ou
 
    A ação ou gatilho agora mostra um ícone de cadeado na barra de título.
 
-   ![Ícone de cadeado na barra de título](./media/logic-apps-securing-a-logic-app/title-bar-lock-icon.png)
+   ![A barra de título da ação ou do gatilho mostra o ícone de cadeado](./media/logic-apps-securing-a-logic-app/lock-icon-action-trigger-title-bar.png)
 
    Os tokens que representam saídas seguras de ações anteriores também mostram ícones de bloqueio. Por exemplo, quando você seleciona tal saída da lista de conteúdo dinâmico a ser usada em uma ação, esse token mostra um ícone de cadeado.
 
-   ![Selecionar saída](./media/logic-apps-securing-a-logic-app/select-secured-token.png)
+   ![Selecionar token para saída segura](./media/logic-apps-securing-a-logic-app/select-secured-token.png)
 
 1. Depois que o aplicativo lógico for executado, você poderá exibir o histórico dessa execução.
 
@@ -292,7 +292,7 @@ Muitos gatilhos e ações têm configurações para ocultar entradas, saídas ou
 
       Se você optar por proteger as entradas e saídas, esses valores agora aparecerão ocultos.
 
-      ![Dados ocultos no histórico de execuções](./media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
+      ![Entradas e saídas ocultas no histórico de execuções](./media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
 
 <a name="secure-data-code-view"></a>
 
@@ -349,7 +349,7 @@ Aqui estão algumas [considerações a serem examinadas](#obfuscation-considerat
 
   Quando você ativa manualmente as **entradas seguras** em um gatilho ou ação, os aplicativos lógicos protegem essas entradas no histórico de execuções. Se uma ação downstream usar explicitamente as saídas visíveis desse gatilho ou ação como entradas, os aplicativos lógicos ocultarão as entradas dessa ação do downstream no histórico de execuções, mas *não habilitarão* **entradas seguras** nessa ação e não ocultarão essa ação produz.
 
-  ![Entradas seguras e impacto de downstream na maioria das ações](./media/logic-apps-securing-a-logic-app/secure-inputs-flow.png)
+  ![Entradas seguras e impacto de downstream na maioria das ações](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
 
   Se as ações redigir, analisar JSON e resposta usarem explicitamente as saídas visíveis do gatilho ou da ação que tem as entradas protegidas, os aplicativos lógicos ocultarão as entradas e saídas das ações, mas *não habilitarão* as **entradas seguras** da ação configuração. Se uma ação downstream usar explicitamente as saídas ocultas das ações compor, analisar JSON ou resposta como entradas, os aplicativos lógicos *não ocultarão as entradas ou saídas da ação downstream*.
 

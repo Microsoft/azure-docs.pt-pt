@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: f01d4a3a53ac9acf1350e4eea0526cf8584140a4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: a2eafd6bb34b897f3492ddcffd6841f0fabc4ca7
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789077"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034551"
 ---
 Ao criar um sistema, é importante compreender as possíveis ameaças ao sistema e adicionar as defesas apropriadas de acordo, à medida que o sistema é projetado e arquitetado. É importante projetar o produto desde o início com segurança em mente, pois entender como um invasor pode ser capaz de comprometer um sistema ajuda a garantir que as atenuações apropriadas estejam em vigor desde o início.
 
@@ -116,7 +116,7 @@ Um gateway de campo é diferente de um mero roteador de tráfego, pois ele tinha
 
 ### <a name="the-cloud-gateway-zone"></a>A zona do gateway de nuvem
 
-O gateway de nuvem é um sistema que permite a comunicação remota de e para dispositivos ou gateways de campo de vários sites diferentes por espaço de rede pública, normalmente em direção a um controle baseado em nuvem e sistema de análise de dados, uma federação desses sistemas. Em alguns casos, um gateway de nuvem pode imediatamente facilitar o acesso a dispositivos de finalidade especial de terminais como tablets ou telefones. No contexto discutido aqui, "nuvem" destina-se a fazer referência a um sistema de processamento de dados dedicado que não está associado ao mesmo site que os dispositivos anexados ou gateways de campo. Também em uma zona de nuvem, as medidas operacionais impedem o acesso físico direcionado e não são necessariamente expostas a uma infra-estrutura de "nuvem pública".  
+Um gateway de nuvem é um sistema que permite a comunicação remota de e para dispositivos ou gateways de campo de vários sites diferentes por espaço de rede pública, normalmente em direção a um controle baseado em nuvem e sistema de análise de dados, uma federação desses sistemas. Em alguns casos, um gateway de nuvem pode imediatamente facilitar o acesso a dispositivos de finalidade especial de terminais como tablets ou telefones. No contexto discutido aqui, "nuvem" destina-se a fazer referência a um sistema de processamento de dados dedicado que não está associado ao mesmo site que os dispositivos anexados ou gateways de campo. Também em uma zona de nuvem, as medidas operacionais impedem o acesso físico direcionado e não são necessariamente expostas a uma infra-estrutura de "nuvem pública".  
 
 Um gateway de nuvem pode potencialmente ser mapeado para uma sobreposição de virtualização de rede para isolar o gateway de nuvem e todos os seus dispositivos conectados ou gateways de campo de qualquer outro tráfego de rede. O próprio gateway de nuvem não é um sistema de controle de dispositivo ou um recurso de processamento ou armazenamento para dados do dispositivo; esses recursos são interface com o gateway de nuvem. A zona de gateway de nuvem inclui o próprio gateway de nuvem juntamente com todos os gateways de campo e dispositivos conectados diretamente ou indiretamente a ele. A borda da zona é uma área de superfície distinta na qual todas as partes externas se comunicam.
 
@@ -253,7 +253,7 @@ Cada dispositivo e gateway de campo têm alguma forma de armazenamento (temporá
 
 ### <a name="device-and-event-processingcloud-gateway-zone"></a>Processamento de dispositivo e evento/zona de gateway de nuvem
 
-Um gateway de nuvem é o sistema que permite a comunicação remota de e para dispositivos ou gateways de campo de vários sites diferentes por espaço de rede pública, normalmente em direção a um controle baseado em nuvem e sistema de análise de dados, uma federação desses sistemas. Em alguns casos, um gateway de nuvem pode imediatamente facilitar o acesso a dispositivos de finalidade especial de terminais como tablets ou telefones. No contexto discutido aqui, "nuvem" destina-se a fazer referência a um sistema de processamento de dados dedicado que não está associado ao mesmo site que os dispositivos anexados ou gateways de campo, e onde as medidas operacionais impedem o acesso físico direcionado, mas não necessariamente a um " nuvem pública "infraestrutura. Um gateway de nuvem pode potencialmente ser mapeado para uma sobreposição de virtualização de rede para isolar o gateway de nuvem e todos os seus dispositivos conectados ou gateways de campo de qualquer outro tráfego de rede. O próprio gateway de nuvem não é um sistema de controle de dispositivo ou um recurso de processamento ou armazenamento para dados do dispositivo; esses recursos são interface com o gateway de nuvem. A zona de gateway de nuvem inclui o próprio gateway de nuvem juntamente com todos os gateways de campo e dispositivos conectados diretamente ou indiretamente a ele.
+Um gateway de nuvem é um sistema que permite a comunicação remota de e para dispositivos ou gateways de campo de vários sites diferentes por espaço de rede pública, normalmente em direção a um controle baseado em nuvem e sistema de análise de dados, uma federação desses sistemas. Em alguns casos, um gateway de nuvem pode imediatamente facilitar o acesso a dispositivos de finalidade especial de terminais como tablets ou telefones. No contexto discutido aqui, "nuvem" destina-se a fazer referência a um sistema de processamento de dados dedicado que não está associado ao mesmo site que os dispositivos anexados ou gateways de campo, e onde as medidas operacionais impedem o acesso físico direcionado, mas não necessariamente a um " nuvem pública "infraestrutura. Um gateway de nuvem pode potencialmente ser mapeado para uma sobreposição de virtualização de rede para isolar o gateway de nuvem e todos os seus dispositivos conectados ou gateways de campo de qualquer outro tráfego de rede. O próprio gateway de nuvem não é um sistema de controle de dispositivo ou um recurso de processamento ou armazenamento para dados do dispositivo; esses recursos são interface com o gateway de nuvem. A zona de gateway de nuvem inclui o próprio gateway de nuvem juntamente com todos os gateways de campo e dispositivos conectados diretamente ou indiretamente a ele.
 
 O gateway de nuvem é principalmente uma parte personalizada do software em execução como um serviço com pontos de extremidade expostos aos quais o gateway de campo e os dispositivos se conectam. Como tal, ele deve ser projetado tendo em mente a segurança. Siga o processo [SDL](https://www.microsoft.com/sdl) para criar e criar esse serviço.
 

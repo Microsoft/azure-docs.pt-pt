@@ -10,24 +10,24 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: aa6f53901f21dcb0726454d641a4a2a66007f9e0
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 321f12fef44cae43caf53d78b2908e68f9edd0a8
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429052"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043892"
 ---
 # <a name="active-and-inactive-events"></a>Eventos ativos e inativos
 
 Quando o aplicativo chama a API de classificação, você recebe a ação que o aplicativo deve mostrar no campo rewardActionId.  A partir desse momento, o personalizador estará esperando uma chamada de recompensa com o mesmo eventId. A pontuação de recompensa será usada para treinar o modelo que será usado para futuras chamadas de classificação. Se nenhuma chamada de recompensa for recebida para o eventId, um prêmio bits será aplicado. As recompensas padrão são estabelecidas no portal do Azure.
 
-Em alguns casos, o aplicativo pode precisar chamar o diâmetro de ordem, até mesmo sabe se o resultado será usado ou disparado para o usuário. Isso pode acontecer em situações em que, por exemplo, a renderização de página de conteúdo promovido é substituída por uma campanha de marketing. Se o resultado da chamada de classificação nunca foi usado e o usuário nunca conseguiu vê-la, seria incorreto treiná-la com qualquer recompensa, zero ou de outra forma.
+Em alguns casos, o aplicativo pode precisar chamar a classificação antes mesmo de saber se o resultado será usado ou exibido para o usuário. Isso pode acontecer em situações em que, por exemplo, a renderização de página de conteúdo promovido é substituída por uma campanha de marketing. Se o resultado da chamada de classificação nunca foi usado e o usuário nunca conseguiu vê-la, seria incorreto treiná-la com qualquer recompensa, zero ou de outra forma.
 Normalmente, isso acontece quando:
 
 * Você pode estar renderizando previamente alguma interface de usuário que o usuário pode ou não conseguir ver. 
 * Seu aplicativo pode estar fazendo uma personalização preditiva na qual as chamadas de classificação são feitas com um contexto menos em tempo real e sua saída pode ou não ser usada pelo aplicativo. 
 
-Nesses casos, a maneira correta de usar o personalizador é chamar rank solicitando que o evento fique _inativo_. O personalizador não esperará um prêmio para esse evento e também não aplicará uma recompensa padrão. Letr em sua lógica de negócios, se o aplicativo usar as informações da chamada de classificação, tudo o que você precisa fazer é _Ativar_ o evento. A partir do momento em que o evento está ativo, o personalizador esperará um prêmio para o evento ou aplicará um recompensa padrão se nenhuma chamada explícita for feita na API de recompensa.
+Nesses casos, a maneira correta de usar o personalizador é chamar rank solicitando que o evento fique _inativo_. O personalizador não esperará um prêmio para esse evento e também não aplicará uma recompensa padrão. Posteriormente, em sua lógica de negócios, se o aplicativo usar as informações da chamada de classificação, tudo o que você precisará fazer é _Ativar_ o evento. A partir do momento em que o evento está ativo, o personalizador esperará um prêmio para o evento ou aplicará um recompensa padrão se nenhuma chamada explícita for feita na API de recompensa.
 
 ## <a name="get-inactive-events"></a>Obter eventos inativos
 

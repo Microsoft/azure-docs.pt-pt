@@ -13,12 +13,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 04/08/2019
-ms.openlocfilehash: a4941038288b90bcbfd61660458c564ce64add9e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 23e3a15ac26cdf0950ee31fddad2af4a3b7414c2
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958496"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025388"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução à auditoria de instância gerenciada do banco de dados SQL do Azure
 
@@ -59,7 +59,7 @@ A seção a seguir descreve a configuração de auditoria em sua instância gere
 
         ![Botão de propriedades do contêiner de BLOB](./media/sql-managed-instance-auditing/4_container_properties_button.png)
 
-     1. Copie a URL do contêiner clicando no ícone de cópia e salve a URL (por exemplo, no bloco de notas) para uso futuro. O formato da URL do contêiner deve ser`https://<StorageName>.blob.core.windows.net/<ContainerName>`
+     1. Copie a URL do contêiner clicando no ícone de cópia e salve a URL (por exemplo, no bloco de notas) para uso futuro. O formato da URL do contêiner deve ser `https://<StorageName>.blob.core.windows.net/<ContainerName>`
 
         ![URL de cópia do contêiner de BLOB](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
@@ -73,7 +73,7 @@ A seção a seguir descreve a configuração de auditoria em sua instância gere
 
         - Configure a SAS da seguinte maneira:
 
-          - **Serviços permitidos**: Blob
+          - **Serviços permitidos**: BLOB
 
           - **Data de início**: para evitar problemas relacionados a fuso horário, é recomendável usar a data de ontem
 
@@ -104,7 +104,7 @@ A seção a seguir descreve a configuração de auditoria em sua instância gere
         GO
         ```
 
-     1. Execute a seguinte instrução T-SQL para criar uma nova auditoria de servidor (escolha seu próprio nome de auditoria, use a URL do contêiner que você criou nas etapas anteriores). Se não for especificado `RETENTION_DAYS` , o padrão será 0 (retenção ilimitada):
+     1. Execute a seguinte instrução T-SQL para criar uma nova auditoria de servidor (escolha seu próprio nome de auditoria, use a URL do contêiner que você criou nas etapas anteriores). Se não for especificado, `RETENTION_DAYS` padrão será 0 (retenção ilimitada):
 
         ```SQL
         CREATE SERVER AUDIT [<your_audit_name>]
@@ -153,7 +153,7 @@ A seção a seguir descreve a configuração de auditoria em sua instância gere
 
 Para obter informações adicionais:
 
-- [As diferenças de auditoria entre bancos de dados individuais, pool elástico, s e instâncias gerenciadas no banco de dados SQL do Azure e nos dados no SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [Diferenças de auditoria entre bancos de dados individuais, pools elásticos e instâncias gerenciadas no banco de dados SQL do Azure e nos bancos de dados no SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [CRIAR AUDITORIA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTERAR AUDITORIA DO SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -202,7 +202,7 @@ Os logs de auditoria de uma instância gerenciada podem ser enviados para até m
 
 Há vários métodos que você pode usar para exibir logs de auditoria de BLOB.
 
-- Use a função `sys.fn_get_audit_file` do sistema (T-SQL) para retornar os dados do log de auditoria no formato de tabela. Para obter mais informações sobre como usar essa função, consulte a [documentação sys. fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
+- Use a função do sistema `sys.fn_get_audit_file` (T-SQL) para retornar os dados do log de auditoria no formato de tabela. Para obter mais informações sobre como usar essa função, consulte a [documentação sys. fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Você pode explorar os logs de auditoria usando uma ferramenta como o [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/). No armazenamento do Azure, os logs de auditoria são salvos como uma coleção de arquivos de blob dentro de um contêiner que foi definido para armazenar os logs de auditoria. Para obter mais detalhes sobre a hierarquia da pasta de armazenamento, convenções de nomenclatura e formato de log, consulte a [referência de formato de log de auditoria de blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
@@ -214,7 +214,7 @@ Para consumir dados de logs de auditoria do hub de eventos, você precisará con
 
 ### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Consumir e analisar logs armazenados em logs de Azure Monitor
 
-Se os logs de auditoria forem gravados nos logs de Azure Monitor, eles estarão disponíveis no espaço de trabalho Log Analytics, onde você poderá executar pesquisas avançadas nos dados de auditoria. Como ponto de partida, navegue até o espaço de trabalho log Analytics e, em seção *geral* , clique em *logs* e insira uma consulta `search "SQLSecurityAuditEvents"` simples, como: para exibir os logs de auditoria.  
+Se os logs de auditoria forem gravados nos logs de Azure Monitor, eles estarão disponíveis no espaço de trabalho Log Analytics, onde você poderá executar pesquisas avançadas nos dados de auditoria. Como ponto de partida, navegue até o espaço de trabalho Log Analytics e, em seção *geral* , clique em *logs* e insira uma consulta simples, como: `search "SQLSecurityAuditEvents"` para exibir os logs de auditoria.  
 
 Os logs de Azure Monitor fornecem informações operacionais em tempo real usando pesquisa integrada e painéis personalizados para analisar rapidamente milhões de registros em todas as suas cargas de trabalho e servidores. Para obter informações úteis adicionais sobre os comandos e o idioma de pesquisa de logs do Azure Monitor, consulte [referência de pesquisa de Azure monitor logs](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
@@ -224,19 +224,18 @@ Os logs de Azure Monitor fornecem informações operacionais em tempo real usand
 
 As principais diferenças entre a auditoria em bancos de dados no banco de dados SQL do Azure e nos dados no SQL Server são:
 
-- Com a opção de implantação de instância gerenciada no banco de dados SQL do Azure, a auditoria funciona `.xel` no nível do servidor e armazena arquivos de log no armazenamento de BLOBs do Azure.
-- Com as opções de implantação de banco de dados individual e pool elástico no banco de dados SQL do Azure, a auditoria funciona no nível do banco de dados.
+- Com a opção de implantação de instância gerenciada no banco de dados SQL do Azure, a auditoria funciona no nível do servidor e armazena `.xel` arquivos de log no armazenamento de BLOBs do Azure.
 - Em SQL Server máquinas locais/virtuais, a auditoria funciona no nível do servidor, mas armazena eventos em logs de eventos do sistema de arquivos/Windows.
 
 A auditoria de XEvent na instância gerenciada dá suporte a destinos do armazenamento de BLOBs do Azure. **Não há suporte para**logs de arquivo e do Windows.
 
-As principais diferenças na `CREATE AUDIT` sintaxe de auditoria para o armazenamento de BLOBs do Azure são:
+As principais diferenças na sintaxe `CREATE AUDIT` para a auditoria para o armazenamento de BLOBs do Azure são:
 
-- Uma nova sintaxe `TO URL` é fornecida e permite que você especifique a URL do contêiner de armazenamento de BLOBs `.xel` do Azure onde os arquivos são colocados.
-- Uma nova sintaxe `TO EXTERNAL MONITOR` é fornecida para habilitar destinos de logs de Azure monitor e de Hub par.
-- `TO FILE` **Não há suporte para** a sintaxe porque o banco de dados SQL não pode acessar compartilhamentos de arquivos do Windows.
+- Uma nova sintaxe `TO URL` é fornecida e permite que você especifique a URL do contêiner de armazenamento de BLOBs do Azure onde os arquivos de `.xel` são colocados.
+- Uma nova sintaxe `TO EXTERNAL MONITOR` é fornecida para habilitar o Hub par e Azure Monitor destinos de logs.
+- **Não há suporte para** a sintaxe `TO FILE` porque o banco de dados SQL não pode acessar compartilhamentos de arquivos do Windows.
 - **Não há suporte para**a opção de desligamento.
-- `queue_delay`**não há suporte para**0.
+- **não há suporte para**`queue_delay` de 0.
 
 ## <a name="next-steps"></a>Passos seguintes
 

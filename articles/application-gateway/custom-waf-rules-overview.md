@@ -7,12 +7,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8ae5c9b6b52ea13e3d0981664e8c920cc5b47a01
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 2e96a2a2dd5504c906b5fb84b643467a83518f21
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263556"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027570"
 ---
 # <a name="overview-custom-rules-for-web-application-firewall-v2"></a>Visão geral: regras personalizadas para o Firewall do aplicativo Web v2
 
@@ -32,6 +32,9 @@ Se você quiser usar o *ou* o para duas condições diferentes, as duas condiç�
 > O número máximo de regras personalizadas de WAF é 100. Para obter mais informações sobre os limites do gateway de aplicativo, consulte [assinatura e limites de serviço, cotas e restrições do Azure](../azure-subscription-service-limits.md#application-gateway-limits).
 
 Também há suporte para expressões regulares em regras personalizadas, assim como nos conjuntos de regras principais. Para obter exemplos dessas regras, consulte "exemplo 3" e "exemplo 5" em [criar e usar regras personalizadas de firewall do aplicativo Web](create-custom-waf-rules.md).
+
+> [!NOTE]
+> As regras personalizadas não estão disponíveis no WAF de SKU v1.
 
 ## <a name="allowing-or-blocking-traffic"></a>Permitindo ou bloqueando o tráfego
 

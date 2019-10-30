@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 90c9d9be6f5a255a4ddd4f7fae7cf410e5b1f80d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3a8cfeb237b0e5e662f8fbaef4347f4346db1787
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934959"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045123"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registrar em massa máquinas virtuais do SQL no Azure com o provedor de recursos da VM do SQL
 
@@ -225,11 +225,6 @@ Ao registrar SQL Server VMs com o provedor de recursos usando o script fornecido
 - Há uma lógica de repetição interna para superar erros transparentes. Se a máquina virtual for registrada com êxito, ela será uma operação rápida. No entanto, se o registro falhar, cada máquina virtual será repetida.  Dessa forma, você deve permitir um tempo significativo para concluir o processo de registro-embora o requisito de tempo real seja dependente do tipo e do número de erros. 
 
 ## <a name="full-script"></a>Script completo
-
-Copie o script completo e salve-o como `RegisterSqLVMs.psm1`.
-
-[!code-powershell-interactive[main](../../../../powershell_scripts/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1 "Bulk register SQL Server virtual machines")]
-
 Para o script completo no GitHub, consulte [registrar VMs do SQL em massa com AZ PowerShell](https://github.com/Azure/azure-docs-powershell-samples/blob/master/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1). 
 
 

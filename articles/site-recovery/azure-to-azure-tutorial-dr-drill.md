@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f85dd3abae8f6e4b3ccc10654e6da8363e80b3d3
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: cb234f9fa2fc5df68fb2bf4dde3a377ea15532eb
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968281"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053371"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Executar um teste de recuperação após desastre de VMs do Azure para uma região secundária do Azure
 
@@ -27,7 +27,7 @@ Este tutorial mostra como executar um teste de recuperação após desastre para
 > * Executar uma ativação pós-falha de teste para uma única VM
 
 > [!NOTE]
-> Este tutorial destina-se a orientar o utilizador através de passos para efetuar um teste de recuperação após desastre com poucos passos; caso deseje saber mais sobre os vários aspetos associados a um teste de recuperação após desastre, incluindo as considerações de rede, a automatização ou a resolução de problemas, veja os documentos em "Procedimentos" para VMs do Azure.
+> Este tutorial ajuda você a executar uma análise de recuperação de desastre com etapas mínimas; caso você queira saber mais sobre os vários aspectos associados à execução de uma análise de DR, incluindo considerações de rede, automação ou solução de problemas, consulte os documentos em "como" para as VMs do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,9 +42,10 @@ Este tutorial mostra como executar um teste de recuperação após desastre para
 
 2. Em **Ativação Pós-falha**, selecione um ponto de recuperação para utilizar na ativação pós-falha:
 
-   - **Processado mais recentemente**: faz a ativação pós-falha da VM para o ponto de recuperação mais recente processado pelo serviço do Site Recovery. O carimbo de data/hora é apresentado. Com esta opção, não é despendido tempo a processar os dados, pelo que oferece um RTO (Objetivo de Tempo de Recuperação) baixo
+    - **Mais recente**: processa todos os dados em site Recovery e fornece o RTO mais baixo (objetivo de tempo de recuperação).
+    - **Processado mais recentemente**: faz a ativação pós-falha da VM para o ponto de recuperação mais recente processado pelo Site Recovery. O carimbo de data/hora é apresentado. Com esta opção, não é despendido tempo a processar os dados, pelo que oferece um RTO (Objetivo de Tempo de Recuperação) baixo
    - **Consistente com a aplicação mais recente**: esta opção faz a ativação pós-falha de todas as VMs para o último ponto de recuperação consistente com a aplicação. O carimbo de data/hora é apresentado.
-   - **Personalizado**: selecione qualquer ponto de recuperação.
+   - **Personalizado**: failover para um ponto de recuperação específico. O personalizado só está disponível quando você faz failover de uma única VM e não para failover com um plano de recuperação.
 
 3. Selecione a rede virtual de destino à qual as VMs do Azure na região secundária serão ligadas, após a ativação pós-falha ocorrer.
 

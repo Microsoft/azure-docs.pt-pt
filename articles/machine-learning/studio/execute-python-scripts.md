@@ -1,7 +1,7 @@
 ---
 title: Executar scripts do Python Machine Learning
 titleSuffix: Azure Machine Learning Studio
-description: Saiba como usar o Python no Azure Machine Learning Studio.
+description: Saiba como usar o módulo executar script Python para usar o código Python em experimentos Machine Learning Studio (clássico) e serviços Web.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 64030cac73b6fbd750b2ed681d85642cc6ad1146
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: bfc2efca0786838d528b3019a3aff405f46ef645
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308868"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053792"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Executar scripts de machine learning em Python no Azure Machine Learning Studio
 
@@ -25,7 +25,7 @@ Este artigo descreve como você pode usar o módulo executar script Python para 
 
 ## <a name="using-the-execute-python-script-module"></a>Usando o módulo executar script Python
 
-A interface principal para Python no estúdio é por meio do módulo [Executar script Python][execute-python-script] . Ele aceita até três entradas e produz até duas saídas, semelhante ao módulo [Executar script R][execute-r-script] . O código Python é inserido na caixa de parâmetros por meio de uma função de ponto de `azureml_main`entrada especialmente nomeada chamada.
+A interface principal para Python no estúdio é por meio do módulo [Executar script Python][execute-python-script] . Ele aceita até três entradas e produz até duas saídas, semelhante ao módulo [Executar script R][execute-r-script] . O código Python é inserido na caixa de parâmetros por meio de uma função de ponto de entrada especialmente nomeada chamada `azureml_main`.
 
 ![Executar módulo de script Python](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
@@ -33,7 +33,7 @@ A interface principal para Python no estúdio é por meio do módulo [Executar s
 
 ### <a name="input-parameters"></a>Parâmetros de entrada
 
-As entradas para o módulo python são expostas como os dataframes do pandas. A `azureml_main` função aceita até dois quadros de as do pandas opcionais como parâmetros.
+As entradas para o módulo python são expostas como os dataframes do pandas. A função `azureml_main` aceita até dois quadros de molduras opcionais do pandas como parâmetros.
 
 O mapeamento entre as portas de entrada e os parâmetros de função é posicional:
 
@@ -41,13 +41,13 @@ O mapeamento entre as portas de entrada e os parâmetros de função é posicion
 - A segunda entrada (se conectada) é mapeada para o segundo parâmetro da função.
 - A terceira entrada é usada para [Importar módulos Python adicionais](#import-modules).
 
-Uma semântica mais detalhada de como as portas de entrada são mapeadas para parâmetros `azureml_main` da função são mostradas abaixo.
+Uma semântica mais detalhada de como as portas de entrada são mapeadas para parâmetros da função `azureml_main` são mostrados abaixo.
 
 ![Tabela de configurações de porta de entrada e assinatura do Python resultante](./media/execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
 ### <a name="output-return-values"></a>Valores de retorno de saída
 
-A `azureml_main` função deve retornar um único quadro de tabela pandas em uma [sequência](https://docs.python.org/2/c-api/sequence.html) do Python, como uma tupla, uma lista ou uma matriz numpy. O primeiro elemento dessa sequência é retornado para a primeira porta de saída do módulo. A segunda porta de saída do módulo é usada para [visualizações](#visualizations) e não requer um valor de retorno. Esse esquema é mostrado abaixo.
+A função `azureml_main` deve retornar um único quadro de tabela pandas em uma [sequência](https://docs.python.org/2/c-api/sequence.html) do Python, como uma tupla, uma lista ou uma matriz numpy. O primeiro elemento dessa sequência é retornado para a primeira porta de saída do módulo. A segunda porta de saída do módulo é usada para [visualizações](#visualizations) e não requer um valor de retorno. Esse esquema é mostrado abaixo.
 
 ![Mapeando portas de entrada para parâmetros e retornando o valor para a porta de saída](./media/execute-python-scripts/map-of-python-script-inputs-outputs.png)
 
@@ -63,13 +63,13 @@ Os conjuntos de valores do estúdio não são os mesmos que o Panda dataframes. 
 | Nomes de coluna que não são de cadeia de caracteres | Chamar `str` em nomes de coluna |
 | Nomes de coluna duplicados | Adicionar sufixo numérico: (1), (2), (3) e assim por diante.
 
-**Todos os quadros de dados de entrada na função Python sempre têm um índice numérico de 64 bits de 0 até o número de linhas menos 1*
+**todos os quadros de dados de entrada na função Python sempre têm um índice numérico de 64 bits de 0 até o número de linhas menos 1*
 
 ## <a id="import-modules"></a>Importando módulos de script Python existentes
 
 O back-end usado para executar o Python é baseado em [Anaconda](https://www.anaconda.com/distribution/), uma distribuição de Python científica amplamente usada. Ele vem com quase 200 dos pacotes python mais comuns usados em cargas de trabalho centradas em dados. Atualmente, o estúdio não dá suporte ao uso de sistemas de gerenciamento de pacotes como PIP ou Conda para instalar e gerenciar bibliotecas externas.  Se você achar a necessidade de incorporar bibliotecas adicionais, use o cenário a seguir como guia.
 
-Um caso de uso comum é incorporar scripts Python existentes em experimentos de estúdio. O módulo [Executar script Python][execute-python-script] aceita um arquivo ZIP contendo módulos Python na terceira porta de entrada. O arquivo é descompactado pela estrutura de execução no tempo de execução e o conteúdo é adicionado ao caminho da biblioteca do intérprete do Python. A `azureml_main` função de ponto de entrada pode então importar esses módulos diretamente. 
+Um caso de uso comum é incorporar scripts Python existentes em experimentos de estúdio. O módulo [Executar script Python][execute-python-script] aceita um arquivo ZIP contendo módulos Python na terceira porta de entrada. O arquivo é descompactado pela estrutura de execução no tempo de execução e o conteúdo é adicionado ao caminho da biblioteca do intérprete do Python. A função de ponto de entrada `azureml_main` pode então importar esses módulos diretamente. 
 
 Como exemplo, considere o arquivo Hello.py que contém uma função "Hello, World" simples.
 
@@ -95,7 +95,7 @@ Você pode acessar os dados armazenados em uma conta de armazenamento de BLOBs d
 
 1. Baixe o [pacote de armazenamento de BLOBs do Azure para Python](https://azuremlpackagesupport.blob.core.windows.net/python/azure.zip) localmente.
 1. Carregue o arquivo zip no seu espaço de trabalho do estúdio como um conjunto de uma.
-1. Crie seu objeto BlobService com`protocol='http'`
+1. Crie seu objeto BlobService com `protocol='http'`
 
 ```
 from azure.storage.blob import BlockBlobService

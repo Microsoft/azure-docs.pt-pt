@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 75b8ea5e8dcaed533eac424bb8df1d1862889490
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 7f0d846a83312e28c305100e7c8dc74cc8140d7d
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592371"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73023839"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o ponto de extremidade privado do Azure?
 
@@ -66,7 +66,7 @@ Você pode bloquear completamente suas cargas de trabalho de acessar pontos de e
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>Acesso a um recurso de link privado usando o fluxo de trabalho de aprovação 
 Você pode se conectar a um recurso de link privado usando os seguintes métodos de aprovação de conexão:
-- Aprovado **automaticamente** quando você possui ou tem permissão no recurso de link particular específico. A permissão necessária é baseada no tipo de recurso de link privado no seguinte formato: Microsoft. \<Provider >/< resource_type >/privateEndpointConnectionApproval/action
+- Aprovado **automaticamente** quando você possui ou tem permissão no recurso de link particular específico. A permissão necessária é baseada no tipo de recurso de link privado no seguinte formato: Microsoft. Provedor de\<>/< resource_type >/privateEndpointConnectionApproval/action
 - Solicitação **manual** quando você não tem a permissão necessária e deseja solicitar acesso. Um fluxo de trabalho de aprovação será iniciado. O ponto de extremidade privado e a conexão de ponto de extremidade particular subsequente serão criados em um estado "pendente". O proprietário do recurso de link privado é responsável por aprovar a conexão. Depois de aprovado, o ponto de extremidade privado é habilitado para enviar o tráfego normalmente, conforme mostrado no diagrama de fluxo de trabalho de aprovação a seguir.  
 
 ![aprovação do fluxo de trabalho](media/private-endpoint-overview/private-link-paas-workflow.png)
@@ -91,7 +91,7 @@ O adaptador de rede associado ao ponto de extremidade privado contém o conjunto
 Você pode usar as seguintes opções para definir as configurações de DNS para pontos de extremidade privados: 
 - **Use o arquivo de host (recomendado apenas para teste)** . Você pode usar o arquivo de host em uma máquina virtual para substituir o DNS.  
 - **Use uma zona DNS privada**. Você pode usar zonas DNS privadas para substituir a resolução DNS para um determinado ponto de extremidade particular. Uma zona DNS privada pode ser vinculada à sua rede virtual para resolver domínios específicos.
-- **Use seu servidor DNS personalizado**. Você pode usar seu próprio servidor DNS para substituir a resolução DNS para um determinado recurso de link privado. Se o servidor DNS estiver hospedado em uma rede virtual, você poderá criar uma regra de encaminhamento de DNS para usar uma zona DNS privada para simplificar a configuração de todos os recursos de link privado.
+- **Use seu servidor DNS personalizado**. Você pode usar seu próprio servidor DNS para substituir a resolução DNS para um determinado recurso de link privado. Se o [servidor DNS](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server) estiver hospedado em uma rede virtual, você poderá criar uma regra de encaminhamento de DNS para usar uma zona DNS privada para simplificar a configuração de todos os recursos de link privado.
  
 > [!IMPORTANT]
 > Não é recomendável substituir uma zona que esteja ativamente em uso para resolver pontos de extremidade públicos. As conexões com recursos não poderão ser resolvidas corretamente sem o encaminhamento de DNS para o DNS público. Para evitar problemas, crie um nome de domínio diferente ou siga o nome sugerido para cada serviço abaixo. 

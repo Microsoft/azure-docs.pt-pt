@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c8be547790452774992b9226ca8010532263aaff
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 8eb329ae019f125b98c475b4a77d19e9cafe23fa
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814526"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053828"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Fazer failback de uma VM do Azure entre regiões do Azure
 
@@ -46,9 +46,9 @@ Depois que as VMs são protegidas novamente, você pode fazer failback para a re
 
 2. Em **itens replicados**, selecione a VM e, em seguida, selecione **failover**.
 3. Em **failover**, selecione um ponto de recuperação para o qual fazer failover:
-    - **Mais recente (padrão)** : Processa todos os dados no serviço de Site Recovery e fornece o RPO (objetivo de ponto de recuperação) mais baixo.
-    - **Mais recente processado**: Reverte a VM para o último ponto de recuperação que foi processado pelo Site Recovery.
-    - **Personalizado**: Executa o failover para um ponto de recuperação específico. Esta opção é útil para realizar uma ativação pós-falha de teste.
+    - **Mais recente (padrão)** : processa todos os dados no serviço de site Recovery e fornece o RPO (objetivo de ponto de recuperação) mais baixo.
+    - **Mais recente processado**: reverte a VM para o último ponto de recuperação que foi processado pelo site Recovery.
+    - **Personalizado**: faz failover para um ponto de recuperação específico. Esta opção é útil para realizar uma ativação pós-falha de teste.
 4. Selecione **desligar o computador antes do início do failover** se desejar que site Recovery tente um desligamento das VMs na região de Dr antes de disparar o failover. O failover continuará mesmo se o desligamento falhar. 
 5. Siga o progresso da ativação pós-falha na página **Tarefas**.
 6. Após a conclusão do failover, valide a VM fazendo logon nela. Você pode alterar o ponto de recuperação conforme necessário.
@@ -56,6 +56,9 @@ Depois que as VMs são protegidas novamente, você pode fazer failback para a re
 8. A VM deve aparecer como failover e failback.
 
     ![VM em regiões primárias e secundárias](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
+
+> [!NOTE]
+> Para computadores que executam a extensão de Site Recovery versão 9.28. x. x, em diante, o [pacote cumulativo de atualizações 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) site Recovery limpa as máquinas na região de recuperação de desastre secundária, o failback do após é concluído e as VMs são protegidas novamente. Não é necessário excluir manualmente as VMs e NICs.
 
 ## <a name="next-steps"></a>Passos seguintes
 

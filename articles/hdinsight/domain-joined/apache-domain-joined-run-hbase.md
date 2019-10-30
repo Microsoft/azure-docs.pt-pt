@@ -1,5 +1,5 @@
 ---
-title: Tutorial – configurar o Apache HBase com o Enterprise Security Package-Azure
+title: '& Do Apache HBase Enterprise Security Package-Azure HDInsight'
 description: Tutorial-saiba como configurar políticas do Apache Ranger para HBase no Azure HDInsight com o Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: da6903aa9f51fbba00ca599805ff3213e9388dd1
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597942"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044651"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: configurar políticas do Apache HBase no HDInsight com o Enterprise Security Package
 
@@ -95,7 +95,7 @@ Você pode usar o SSH para se conectar a clusters HBase e, em seguida, usar o [s
 
 Crie uma política de Ranger para **sales_user1** e **marketing_user1**.
 
-1. Abra a **IU do Ranger Admin**. Clique em **\<ClusterName > _hbase** no **HBase**.
+1. Abra a **IU do Ranger Admin**. Clique em **\<clustername > _hbase** no **HBase**.
 
    ![IU de administração do Apache Ranger do HDInsight](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 

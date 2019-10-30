@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 30394ba7b71d7dcb4233e5dca341dda47fd9ffa7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 477f7d4824d3165357228d200dca9e556a072744
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376321"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053513"
 ---
 # <a name="create-a-private-endpoint-using-azure-cli"></a>Criar um ponto de extremidade privado usando CLI do Azure
 O ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado. Neste guia de início rápido, você aprenderá a criar uma VM em uma rede virtual, um servidor de banco de dados SQL com um ponto de extremidade privado usando CLI do Azure. Em seguida, você pode acessar a VM para e acessar com segurança o recurso de link privado (um servidor de banco de dados SQL do Azure privado neste exemplo). 
@@ -39,7 +39,7 @@ az network vnet create \
  --subnet-name mySubnet
 ```
 ## <a name="disable-subnet-private-endpoint-policies"></a>Desabilitar políticas de ponto de extremidade privado de sub-rede 
-O Azure implanta recursos em uma sub-rede em uma rede virtual, portanto, você precisa criar ou atualizar a sub-rede para desabilitar as políticas de rede de ponto de extremidade privadas. Atualize uma configuração de sub-rede chamada *mysubnet* Com [AZ Network vnet subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+O Azure implanta recursos em uma sub-rede em uma rede virtual, portanto, você precisa criar ou atualizar a sub-rede para desabilitar as políticas de rede de ponto de extremidade privadas. Atualize uma configuração de sub-rede chamada *mysubnet* com [AZ Network vnet subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -49,7 +49,7 @@ az network vnet subnet update \
  --disable-private-endpoint-network-policies true
 ```
 ## <a name="create-the-vm"></a>Crie a VM 
-Crie uma VM com AZ VM Create. Quando solicitado, forneça uma senha a ser usada como as credenciais de entrada para a VM. Este exemplo cria uma VM chamada *myVm*: 
+Crie uma VM com AZ VM Create. Quando solicitado, forneça uma senha a ser usada como as credenciais de entrada para a VM. Este exemplo cria uma VM chamada *myVm*: 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
@@ -81,7 +81,7 @@ az sql db create \
     --capacity 1 
 ```
 
-Observe que a ID de SQL Server é semelhante a @ no__t-0, você usará a ID de SQL Server na próxima etapa. 
+Observe que a ID de SQL Server é semelhante a ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/myserver.``` você usará a ID de SQL Server na próxima etapa. 
 
 ## <a name="create-the-private-endpoint"></a>Criar o ponto de extremidade privado 
 Crie um ponto de extremidade privado para o servidor do banco de dados SQL em sua rede virtual: 
@@ -148,8 +148,8 @@ Conecte-se à VM *myVm* da Internet da seguinte maneira:
 
 Nesta seção, você se conectará ao servidor do banco de dados SQL da VM usando o ponto de extremidade privado.
 
- 1. No Área de Trabalho Remota do *myVM*, abra o PowerShell.
- 2. Digite nslookup meuservidor. Database. Windows. net @ no__t-0 você receberá uma mensagem semelhante a esta: 
+ 1. No Área de Trabalho Remota do *myVM*, abra o PowerShell.
+ 2. Insira nslookup myserver.database.windows.net  você receberá uma mensagem semelhante a esta: 
 
 ```
       Server:  UnKnown 
@@ -165,7 +165,7 @@ Nesta seção, você se conectará ao servidor do banco de dados SQL da VM usand
  Senha: Insira uma senha fornecida durante a criação.
  Lembrar senha: selecione Sim.
  
- 5. Selecione **conectar**.
+ 5. Selecione **Ligar**.
  6. Procurar **bancos de dados** no menu à esquerda.
  7. Opcionalmente Criar ou consultar informações de *MyDatabase*
  8. Feche a conexão de área de trabalho remota para *myVm*.

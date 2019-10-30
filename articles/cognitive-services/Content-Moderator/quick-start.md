@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 1053541e192668a7b572d97c141c2fe8fc16ac5c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: bb4fc076d01c1108278cea0cebba958b4ea94660
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757366"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044058"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Início rápido: Experimente o Content Moderator na Web
 
@@ -68,6 +68,6 @@ Ou continue com as próximas etapas para começar a usar as APIs de moderação 
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba como usar as APIs de moderação em seu aplicativo.
-- Implemente a moderação da imagem. Use o [console de API](try-image-api.md) ou o guia de [ C# início rápido](image-moderation-quickstart-dotnet.md) para digitalizar imagens e detectar possíveis conteúdos de adulto e erótico usando marcas, pontuações de confiança e outras informações extraídas.
-- Implemente a moderação de texto. Use o [console de API](try-text-api.md) ou use o guia de [ C# início rápido](text-moderation-quickstart-dotnet.md) para digitalizar o conteúdo de texto para possíveis obscenidades, classificação de texto indesejado auxiliada por máquina (visualização) e dados pessoais.
+- Implemente a moderação da imagem. Use o [console de API](try-image-api.md) ou siga o [início rápido do SDK do .net](dotnet-sdk-quickstart.md) para digitalizar imagens e detectar possíveis conteúdos de adulto e erótico usando marcas, pontuações de confiança e outras informações extraídas.
+- Implemente a moderação de texto. Use o [console de API](try-text-api.md) ou use o [início rápido do SDK do .net](dotnet-sdk-quickstart.md) para digitalizar o conteúdo de texto para possíveis obscenidades, classificação de texto indesejado assistido por computador (visualização) e dados pessoais.
 - Implemente a moderação de vídeo. Siga o [Guia de instruções de moderação de C# vídeo para](video-moderation-api.md) para examinar vídeos e detectar possíveis conteúdos de adulto e erótico. 

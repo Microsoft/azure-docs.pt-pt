@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: b9d8abb34c6ba2b6df5b9cb3fe4069d1034ec538
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 144050bd29e8d2ec56c1347d60fd7452ea60b9cf
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882204"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053626"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
 
@@ -55,7 +55,7 @@ Para componentes de Site Recovery, damos suporte a versões N-4, em que N é a v
 
 ### <a name="update-rollup-40"></a>Pacote cumulativo de atualizações 40
 
-O [pacote cumulativo](h https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) de atualizações 40 fornece as seguintes atualizações.
+O [pacote cumulativo](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) de atualizações 40 fornece as seguintes atualizações.
 
 **Atualização** | **Detalhes**
 --- | ---
@@ -71,7 +71,7 @@ Os novos recursos para a recuperação de desastres de VM do Azure são resumido
 
 **Funcionalidade** | **Detalhes**
 --- | ---
-**Limpeza após o failback** | Após o failover para o Azure secundário e, em seguida, o failback para a região primária, Site Recovery limpa automaticamente os computadores na região secundária. Não há necessidade de excluir manualmente as VMS e NICs.
+**Limpeza após o failback** | Após o failover para o Azure secundário e, em seguida, o failback para a região primária, Site Recovery limpa automaticamente os computadores na região secundária. Não há necessidade de excluir manualmente as VMs e NICs.
 **O failover de teste retém o endereço IP** | Agora você pode reter o endereço IP da VM de origem durante uma análise de recuperação de desastre e escolher um endereço IP estático para um failover de teste.
 
 ### <a name="vmwarephysical-server-disaster-recovery"></a>Recuperação de desastre do VMware/servidor físico

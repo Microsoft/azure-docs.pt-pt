@@ -8,18 +8,18 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 09/10/2019
 ms.author: heidist
-ms.openlocfilehash: e542d4685829886084bbc8adf6831647b9a1256a
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 28d813e2f137ecf721165e9ea5af2e36efee872a
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809666"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053486"
 ---
 # <a name="quickstart-create-an-ai-enrichment-pipeline-using-cognitive-skills-in-azure-search"></a>Início rápido: criar um pipeline de enriquecimento de ia usando habilidades cognitivas no Azure Search
 
-O Azure Search integra-se com [Serviços cognitivas](https://azure.microsoft.com/services/cognitive-services/), adicionando extração de conteúdo, NLP (processamento de linguagem natural) e habilidades de processamento de imagem a um pipeline de indexação de Azure Search, tornando o conteúdo não pesquisável ou não estruturado mais pesquisável. 
+O Azure Search integra-se com [Serviços cognitivas](https://azure.microsoft.com/services/cognitive-services/), adicionando extração de conteúdo, NLP (processamento de linguagem natural) e processamento de imagens (marcação de imagem, detecção de objeto, OCR) a um pipeline de indexação de Azure Search, tornando-o não pesquisável ou conteúdo não estruturado mais pesquisável. 
 
-Muitos recursos de serviços cognitivas, como [OCR](cognitive-search-skill-ocr.md), [detecção de idioma](cognitive-search-skill-language-detection.md), reconhecimento de [entidade](cognitive-search-skill-entity-recognition.md) para citar alguns, podem ser anexados a um processo de indexação. Os algoritmos de ia de serviços cognitivas são usados para encontrar padrões, recursos e características em dados de origem, como retornar estruturas e conteúdo textual que podem ser usados em soluções de pesquisa de texto completo com base em Azure Search.
+Muitos recursos de serviços cognitivas, como [marcação de imagem](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-tagging-images), detecção de [objetos](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-object-detection), [OCR](cognitive-search-skill-ocr.md), [detecção de idioma](cognitive-search-skill-language-detection.md), reconhecimento de [entidades](cognitive-search-skill-entity-recognition.md) para citar alguns, podem ser anexados a um processo de indexação. Os algoritmos de ia de serviços cognitivas são usados para encontrar padrões, recursos e características em dados de origem, como retornar estruturas e conteúdo textual que podem ser usados em soluções de pesquisa de texto completo com base em Azure Search.
 
 Neste guia de início rápido, crie seu primeiro pipeline de enriquecimento no [portal do Azure](https://portal.azure.com) antes de escrever uma única linha de código:
 

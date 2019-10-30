@@ -1,5 +1,5 @@
 ---
-title: InvalidNetworkConfigurationErrorCode da criação do cluster no Azure HDInsight
+title: Erro InvalidNetworkConfigurationErrorCode-Azure HDInsight
 description: Vários motivos para as criações de cluster com falha com o InvalidNetworkConfigurationErrorCode no Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,18 +7,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
-ms.openlocfilehash: a6b207086325018deb63383a0775af8dfe195ac4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 5b8d031af9dbe6019d71e2a1caa3d3f25d4024ea
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091710"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044453"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Falha na criação do cluster com InvalidNetworkConfigurationErrorCode no Azure HDInsight
 
 Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao interagir com clusters do Azure HDInsight.
 
-Se você vir o código `InvalidNetworkConfigurationErrorCode` de erro com a descrição "a configuração de rede virtual não é compatível com o requisito do HDInsight", isso geralmente indica um problema com a [configuração de rede virtual](../hdinsight-plan-virtual-network-deployment.md) para o cluster. Com base no restante da descrição do erro, siga as seções abaixo para resolver o problema.
+Se você vir o código de erro `InvalidNetworkConfigurationErrorCode` com a descrição "a configuração de rede virtual não é compatível com o requisito do HDInsight", isso geralmente indica um problema com a [configuração de rede virtual](../hdinsight-plan-virtual-network-deployment.md) para o cluster. Com base no restante da descrição do erro, siga as seções abaixo para resolver o problema.
 
 ## <a name="hostname-resolution-failed"></a>"Falha na resolução do nome do host"
 
@@ -34,7 +34,7 @@ Esse erro aponta para um problema com a configuração de DNS personalizada. Os 
 
 1. Ssh na VM que faz parte do cluster e execute o comando `hostname -f`. Isso retornará o nome de domínio totalmente qualificado do host (conhecido como `<host_fqdn>` nas instruções abaixo).
 
-1. Em seguida, execute o `nslookup <host_fqdn>` comando (por exemplo `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`,). Se esse comando resolver o nome para um endereço IP, significa que o servidor DNS está funcionando corretamente. Nesse caso, gere um caso de suporte com o HDInsight e investigaremos seu problema. Em seu caso de suporte, inclua as etapas de solução de problemas que você executou. Isso nos ajudará a resolver o problema mais rapidamente.
+1. Em seguida, execute o comando `nslookup <host_fqdn>` (por exemplo, `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`). Se esse comando resolver o nome para um endereço IP, significa que o servidor DNS está funcionando corretamente. Nesse caso, gere um caso de suporte com o HDInsight e investigaremos seu problema. Em seu caso de suporte, inclua as etapas de solução de problemas que você executou. Isso nos ajudará a resolver o problema mais rapidamente.
 
 1. Se o comando acima não retornar um endereço IP, execute `nslookup <host_fqdn> 168.63.129.16` (por exemplo, `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16`). Se esse comando for capaz de resolver o IP, significa que o servidor DNS não está encaminhando a consulta para o DNS do Azure ou não é uma VM que faça parte da mesma vNet que o cluster.
 
@@ -70,12 +70,12 @@ O armazenamento do Azure e o SQL não têm endereços IP fixos, portanto, precis
 
 ---
 
-### <a name="next-steps"></a>Passos Seguintes
+### <a name="next-steps"></a>Passos seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 
 * Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com o [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
 
 * Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

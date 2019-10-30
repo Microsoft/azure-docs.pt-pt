@@ -5,7 +5,7 @@ description: Saiba como criar um balanceador de carga voltado para a Internet co
 services: load-balancer
 documentationcenter: na
 author: asudbring
-keywords: IPv6, o Balanceador de carga do azure, pilha dupla, ip público, ipv6 nativo, móvel, iot
+keywords: IPv6, Azure Load Balancer, pilha dupla, IP público, IPv6 nativo, móvel, IOT
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 12f9b8d3031d3b64e2f39f07763f7a75164aad25
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 9f2bd24955cc378deed5dbc0423488645632a958
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274974"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025795"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Introdução à criação de um balanceador de carga voltado para a Internet com IPv6 usando o PowerShell para o Gerenciador de recursos
 
@@ -28,12 +28,14 @@ ms.locfileid: "68274974"
 > * [CLI do Azure](load-balancer-ipv6-internet-cli.md)
 > * [Modelo](load-balancer-ipv6-internet-template.md)
 
+>[! Observação: alterar na prática recomendada para IPv6] Este artigo descreve um recurso IPv6 introdutório para permitir que os balanceadores de carga básicos forneçam conectividade IPv4 e IPv6.  A conectividade IPv6 mais abrangente agora está disponível com o [IPv6 para Azure VNETs](../virtual-network/ipv6-overview.md) que integra a conectividade IPv6 com suas redes virtuais e inclui recursos importantes, como regras de grupo de segurança de rede IPv6, roteamento definido pelo usuário IPv6, IPv6 básico e Balanceamento de carga padrão e muito mais.  O IPv6 para Azure VNETs é a melhor prática recomendada para aplicativos IPv6 no Azure. 
+>Consulte [IPv6 para implantação do PowerShell de VNET do Azure](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
 
 Um balanceador de carga do Azure é um balanceador de carga de Camada 4 (TCP, UDP). O balanceador de carga fornece elevada disponibilidade, ao distribuir o tráfego de entrada entre instâncias de serviço com bom estado de funcionamento nos serviços cloud ou máquinas virtuais num conjunto de balanceador de carga. O Balanceador de Carga do Azure pode também apresentar esses serviços em várias portas, vários endereços IP ou ambos.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="example-deployment-scenario"></a>Cenário de implementação de exemplo
+## <a name="example-deployment-scenario"></a>Cenário de implantação de exemplo
 
 O diagrama a seguir ilustra a solução de balanceamento de carga que está sendo implantada neste artigo.
 
@@ -42,10 +44,10 @@ O diagrama a seguir ilustra a solução de balanceamento de carga que está send
 Nesse cenário, você criará os seguintes recursos do Azure:
 
 * um Load Balancer voltado para a Internet com um IPv4 e um endereço IP público IPv6
-* Duas regras de balanceamento de carga para mapear os VIPs públicos para os pontos de extremidade privados
+* duas regras de balanceamento de carga para mapear os VIPs públicos para os pontos de extremidade privados
 * um conjunto de disponibilidade para o que contém as duas VMs
-* Duas VMs (máquinas virtuais)
-* Uma interface de rede virtual para cada VM com endereços IPv4 e IPv6 atribuídos
+* duas VMs (máquinas virtuais)
+* uma interface de rede virtual para cada VM com endereços IPv4 e IPv6 atribuídos
 
 ## <a name="deploying-the-solution-using-the-azure-powershell"></a>Implantando a solução usando o Azure PowerShell
 
@@ -79,7 +81,7 @@ Verifique se você tem a versão de produção mais recente do módulo Azure Res
     Get-AzSubscription
     ```
 
-3. Escolha qual das subscrições do Azure utilizar.
+3. Escolha qual das suas subscrições do Azure utilizar.
 
     ```azurepowershell-interactive
     Select-AzSubscription -SubscriptionId 'GUID of subscription'
@@ -100,7 +102,7 @@ Verifique se você tem a versão de produção mais recente do módulo Azure Res
     $vnet = New-AzvirtualNetwork -Name VNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
     ```
 
-2. Crie recursos de PIP (endereço IP público) do Azure para o pool de endereços IP de front-end. Certifique-se de alterar o valor `-DomainNameLabel` de antes de executar os comandos a seguir. O valor deve ser exclusivo na região do Azure.
+2. Crie recursos de PIP (endereço IP público) do Azure para o pool de endereços IP de front-end. Certifique-se de alterar o valor de `-DomainNameLabel` antes de executar os comandos a seguir. O valor deve ser exclusivo na região do Azure.
 
     ```azurepowershell-interactive
     $publicIPv4 = New-AzPublicIpAddress -Name 'pub-ipv4' -ResourceGroupName NRP-RG -Location 'West US' -AllocationMethod Static -IpAddressVersion IPv4 -DomainNameLabel lbnrpipv4
@@ -230,10 +232,4 @@ Para obter mais informações sobre como criar uma VM, consulte [criar e pré-co
     New-AzVM -ResourceGroupName NRP-RG -Location 'West US' -VM $vm2
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
 
-[Começar a configurar um balanceador de carga interno](load-balancer-get-started-ilb-arm-ps.md)
-
-[Configurar um modo de distribuição de balanceador de carga](load-balancer-distribution-mode.md)
-
-[Configurar definições de tempo limite TCP inativo para o balanceador de carga](load-balancer-tcp-idle-timeout.md)

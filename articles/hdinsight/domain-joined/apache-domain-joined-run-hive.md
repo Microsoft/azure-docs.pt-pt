@@ -1,5 +1,5 @@
 ---
-title: Configurar políticas do hive no HDInsight com o Enterprise Security Package-Azure
+title: Políticas de Apache Hive no Apache Ranger – Azure HDInsight
 description: Saiba como configurar políticas do Apache Ranger para o hive em um serviço do Azure HDInsight com o Enterprise Security Package.
 ms.service: hdinsight
 author: omidm1
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b0213fc1a96b38b615cbd8b7b6374a6716b9f840
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e49e2d103fd9c91824c8e8a1603cddddf16366e1
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918191"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044863"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar as políticas do Apache Hive no HDInsight com o Pacote de Segurança Enterprise
 Saiba como configurar políticas do Apache Ranger para Apache Hive. Neste artigo, irá criar duas políticas do Ranger para restringir o acesso a hivesampletable. O hivesampletable é fornecido com clusters do HDInsight. Após ter configurado as políticas, utilize o Excel e o controlador ODBC para estabelecer uma ligação a tabelas do Hive no HDInsight.
@@ -77,13 +77,13 @@ As instruções podem ser encontradas em [Criar origem de dados do ODBC do Hive]
  | Propriedade  |Descrição |
  | --- | --- |
  | Nome da Origem de Dados | Atribua um nome para a sua origem de dados |
- | Anfitrião | Introduza &lt;HDInsightClusterName>.azurehdinsight.net. Por exemplo, myHDICluster.azurehdinsight.net |
- | Port | Utilize **443**. (Esta porta foi alterada de 563 para 443.) |
+ | Host | Introduza &lt;HDInsightClusterName>.azurehdinsight.net. Por exemplo, myHDICluster.azurehdinsight.net |
+ | Porta | Utilize **443**. (Esta porta foi alterada de 563 para 443.) |
  | Base de Dados | Use **Predefinição**. |
  | Tipo de Servidor do Hive | Selecione **Servidor do Hive 2** |
  | Mecanismo | Selecione **Serviço do Azure HDInsight** |
  | Caminho HTTP | Deixe em branco. |
- | Nome de utilizador | Introduza hiveuser1@contoso158.onmicrosoft.com. Atualize o nome de domínio se ele for diferente. |
+ | Nome de Utilizador | Introduza hiveuser1@contoso158.onmicrosoft.com. Atualize o nome de domínio se ele for diferente. |
  | Palavra-passe | Introduza a palavra-passe para hiveuser1. |
 
 Certifique-se de que clica em **Teste**, antes de guardar a origem de dados.
@@ -101,7 +101,7 @@ Na última secção, configurou duas políticas.  O hiveuser1 tem a permissão d
 6. Selecione **hivesampletable** e, em seguida, clique em **Seguinte**.
 7. Clique em **Concluir**.
 8. Na caixa de diálogo **Importar Dados**, pode alterar ou especificar a consulta. Para o fazer, clique em **Propriedades**. Esta ação pode demorar alguns segundos.
-9. Clique no separador **Definição**. O texto do comando é:
+9. Clique na guia **definição** . O texto do comando é:
 
        SELECT * FROM "HIVE"."default"."hivesampletable"
 
@@ -128,7 +128,7 @@ Para testar a segunda política (Read-hivesampletable-devicemake), você criou n
 
     Quando estiver concluído, deverá ver duas colunas de dados importados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Para configurar um cluster HDInsight com Enterprise Security Package, consulte [Configurar clusters hdinsight com ESP](apache-domain-joined-configure.md).
 * Para gerenciar um cluster HDInsight com o ESP, consulte [gerenciar clusters hdinsight com o ESP](apache-domain-joined-manage.md).
 * Para executar consultas de Hive usando SSH em clusters HDInsight com ESP, consulte [usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

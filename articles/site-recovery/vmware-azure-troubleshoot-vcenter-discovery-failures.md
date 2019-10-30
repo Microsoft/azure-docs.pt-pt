@@ -1,18 +1,18 @@
 ---
-title: Solucionar problemas de failback para local durante a recuperação de desastre de VM VMware no Azure com Azure Site Recovery | Microsoft Docs
+title: Solucionar problemas de failback para local durante a recuperação de desastre de VM VMware no Azure com Azure Site Recovery
 description: Este artigo descreve maneiras de solucionar problemas de failback e de nova proteção durante a recuperação de desastres de VM VMware no Azure com Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.author: raynew
-ms.openlocfilehash: c27e72333618f73b67eec9b5c0c3a70239a1c0b3
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 10/29/2019
+ms.author: mayg
+ms.openlocfilehash: e9213637f45a4761af60de9dfac7add6324f6b96
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970844"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053858"
 ---
 # <a name="troubleshoot-vcenter-discovery-failures"></a>Resolver problemas de falhas de deteção do vCenter
 
@@ -20,7 +20,7 @@ Este artigo ajuda você a solucionar problemas que ocorrem devido a falhas de de
 
 ## <a name="non-numeric-values-in-the-maxsnapshots-property"></a>Valores não numéricos na propriedade maxSnapShots
 
-Nas versões anteriores à 9,20, o vCenter se desconecta quando recupera um valor não numérico para a propriedade `snapshot.maxSnapShots` da propriedade em uma VM.
+Nas versões anteriores à 9,20, o vCenter se desconecta quando recupera um valor não numérico para a propriedade `snapshot.maxSnapShots` Propriedade em uma VM.
 
 Esse problema é identificado pela ID de erro 95126.
 
@@ -46,8 +46,8 @@ Em geral, o proxy é usado para se comunicar com redes públicas; como a comunic
 
 As seguintes situações ocorrem quando esse problema é encontrado:
 
-- O servidor vCenter \<vCenter > não está acessível devido ao erro: O servidor remoto devolveu um erro: (503) servidor não disponível
-- O servidor vCenter \<vCenter > não está acessível devido ao erro: O servidor remoto devolveu um erro: Não é possível conectar-se ao servidor remoto.
+- O servidor do vCenter \<o > do vCenter não está acessível devido ao erro: o servidor remoto retornou um erro: (503) servidor não disponível
+- O servidor do vCenter \<o > do vCenter não está acessível devido ao erro: o servidor remoto retornou um erro: não é possível conectar-se ao servidor remoto.
 - Não é possível conectar-se ao servidor vCenter/ESXi.
 
 Para resolver o problema:

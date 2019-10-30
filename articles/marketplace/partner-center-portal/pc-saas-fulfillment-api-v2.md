@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: evansma
-ms.openlocfilehash: 9cded164b63bbb72e4a353e9a542c9e054c14d93
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: b1ec40485e775b7e50b5f7d82014aef77f14fb3e
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821153"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025273"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>APIs de preenchimento de SaaS, versão 2 
 
@@ -87,7 +87,7 @@ A tabela a seguir lista as definições para parâmetros comuns e entidades usad
 | `offerId`                | Um identificador de cadeia de caracteres exclusivo para cada oferta (por exemplo: "offer1").  |
 | `planId`                 | Um identificador de cadeia de caracteres exclusivo para cada plano/SKU (por exemplo: "prata"). |
 | `operationId`            | O identificador GUID de uma operação específica.  |
-|  `action`                | A ação que está sendo executada em um recurso, seja `unsubscribe`, `suspend`, `reinstate` ou `changePlan`, `changeQuantity`, `transfer`.  |
+|  `action`                | A ação que está sendo executada em um recurso, seja `Unsubscribe`, `Suspend`, `Reinstate`ou `ChangePlan`, `ChangeQuantity`, `Transfer`. |
 |   |   |
 
 Identificadores globais exclusivos ([GUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier)) são números de 128 bits (32-hexadecimal) que normalmente são gerados automaticamente. 
@@ -707,7 +707,7 @@ Erro interno do servidor.
 
 #### <a name="get-operation-status"></a>Obter status da operação
 
-Permite que o Publicador acompanhe o status da operação assíncrona disparada especificada (como `subscribe`, `unsubscribe`, `changePlan` ou `changeQuantity`).
+Permite que o Publicador acompanhe o status da operação assíncrona disparada especificada (como `Subscribe`, `Unsubscribe`, `ChangePlan`ou `ChangeQuantity`).
 
 ##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Obter<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -850,11 +850,11 @@ O Publicador deve implementar um webhook nesse serviço SaaS para notificar os u
 }
 ```
 Onde a ação pode ser uma das seguintes: 
-- `unsubscribe` (quando o recurso foi excluído)
-- `changePlan` (quando a operação do plano de alteração for concluída)
-- `changeQuantity` (quando a operação de alteração de quantidade for concluída)
-- `suspend` (quando o recurso foi suspenso)
-- `reinstate` (quando o recurso foi restabelecido após a suspensão)
+- `Unsubscribe` (quando o recurso foi excluído)
+- `ChangePlan` (quando a operação do plano de alteração for concluída)
+- `ChangeQuantity` (quando a operação de alteração de quantidade for concluída)
+- `Suspend` (quando o recurso foi suspenso)
+- `Reinstate` (quando o recurso foi restabelecido após a suspensão)
 
 Em que o status pode ser um dos seguintes: 
 - **NotStarted** <br>

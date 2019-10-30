@@ -1,7 +1,7 @@
 ---
 title: Proteger serviços Web usando SSL
 titleSuffix: Azure Machine Learning
-description: Saiba como proteger um serviço Web que é implantado por meio de Azure Machine Learning habilitando HTTPS. O HTTPS protege os dados do por clientes usando o protocolo TLS, uma substituição para SSL (camadas de soquete seguro). Os clientes também usam HTTPS para verificar a identidade do serviço Web.
+description: Saiba como habilitar o HTTPS em ordem muito segura um serviço Web que é implantado por meio de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce60806c26359ae682f5ab468e4f4265d3572c87
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 39b79e5729945a346e9cf022fb93e23da9fa7824
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034368"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053547"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Usar SSL para proteger um serviço Web por meio do Azure Machine Learning
 
@@ -36,13 +36,13 @@ O TLS e o SSL dependem de *certificados digitais*, que ajudam com a criptografia
 
 Esse é o processo geral para proteger um serviço Web:
 
-1. Obtenha um nome de domínio.
+1. Obter um nome de domínio.
 
 2. Obter um certificado digital.
 
 3. Implante ou atualize o serviço Web com SSL habilitado.
 
-4. Atualize o DNS para apontar para o serviço web.
+4. Atualize o DNS para apontar para o serviço Web.
 
 > [!IMPORTANT]
 > Se estiver implantando no AKS (serviço kubernetes do Azure), você poderá comprar seu próprio certificado ou usar um certificado fornecido pela Microsoft. Se você usar um certificado da Microsoft, não precisará obter um nome de domínio ou certificado SSL. Para obter mais informações, consulte a seção [habilitar SSL e implantar](#enable) deste artigo.
@@ -51,14 +51,14 @@ Há pequenas diferenças quando você protege os serviços da Web entre os [dest
 
 ## <a name="get-a-domain-name"></a>Obter um nome de domínio
 
-Se você ainda não possui um nome de domínio, compre um de um *registrador de nome de domínio*. O processo e o preço são diferentes entre os registradores. O registrador fornece ferramentas para gerenciar o nome de domínio. Você usa essas ferramentas para mapear um FQDN (nome de domínio totalmente qualificado) (como\.www contoso.com) para o endereço IP que hospeda o serviço Web.
+Se você ainda não possui um nome de domínio, compre um de um *registrador de nome de domínio*. O processo e o preço são diferentes entre os registradores. O registrador fornece ferramentas para gerenciar o nome de domínio. Você usa essas ferramentas para mapear um FQDN (nome de domínio totalmente qualificado) (como www\.contoso.com) para o endereço IP que hospeda o serviço Web.
 
 ## <a name="get-an-ssl-certificate"></a>Obter um certificado SSL
 
 Há várias maneiras de obter um certificado SSL (certificado digital). O mais comum é comprar um de uma *autoridade de certificação* (CA). Independentemente de onde você obtém o certificado, você precisa dos seguintes arquivos:
 
-* R **certificado**. O certificado deve conter a cadeia de certificados completa e deve ser "codificado por PEM".
-* R **chave**. A chave também deve ser codificada por PEM.
+* Um **certificado**. O certificado deve conter a cadeia de certificados completa e deve ser "codificado por PEM".
+* Uma **chave**. A chave também deve ser codificada por PEM.
 
 Ao solicitar um certificado, você deve fornecer o FQDN do endereço que planeja usar para o serviço Web (por exemplo, www\.contoso.com). O endereço que é carimbado no certificado e o endereço que os clientes usam são comparados para verificar a identidade do serviço Web. Se esses endereços não corresponderem, o cliente receberá uma mensagem de erro.
 
@@ -66,7 +66,7 @@ Ao solicitar um certificado, você deve fornecer o FQDN do endereço que planeja
 > Se a autoridade de certificação não puder fornecer o certificado e a chave como arquivos codificados por PEM, você poderá usar um utilitário como o [OpenSSL](https://www.openssl.org/) para alterar o formato.
 
 > [!WARNING]
-> Use certificados *autoassinados* somente para desenvolvimento. Não os use em ambientes de produção. Certificados autoassinados podem causar problemas no seu cliente de aplicativos. Para obter mais informações, consulte a documentação das bibliotecas de rede que seu aplicativo cliente usa.
+> Use certificados *autoassinados* somente para desenvolvimento. Não os use em ambientes de produção. Certificados autoassinados podem causar problemas em seus aplicativos cliente. Para obter mais informações, consulte a documentação das bibliotecas de rede que seu aplicativo cliente usa.
 
 ## <a id="enable"></a>Habilitar SSL e implantar
 
@@ -84,7 +84,7 @@ Ao implantar no AKS, você pode criar um novo cluster do AKS ou anexar um existe
 
 O método **Enable_ssl** pode usar um certificado que é fornecido pela Microsoft ou um certificado que você compra.
 
-  * Ao usar um certificado da Microsoft, você deve usar o parâmetro *leaf_domain_label* . Esse parâmetro gera o nome DNS para o serviço. Por exemplo, um valor "MyService" cria um nome de domínio de "MyService\<seis-Random-characters >\< . azureregion >. cloudapp. Azure. com ", em \<que azureregion > é a região que contém o serviço. Opcionalmente, você pode usar o parâmetro *overwrite_existing_domain* para substituir o *leaf_domain_label*existente.
+  * Ao usar um certificado da Microsoft, você deve usar o parâmetro *leaf_domain_label* . Esse parâmetro gera o nome DNS para o serviço. Por exemplo, um valor de "MyService" cria um nome de domínio de "MyService\<seis caracteres aleatórios >.\<azureregion >. cloudapp. Azure. com ", em que \<azureregion > é a região que contém o serviço. Opcionalmente, você pode usar o parâmetro *overwrite_existing_domain* para substituir o *leaf_domain_label*existente.
 
     Para implantar (ou reimplantar) o serviço com SSL habilitado, defina o parâmetro *ssl_enabled* como "true", onde for aplicável. Defina o parâmetro *ssl_certificate* para o valor do arquivo de *certificado* . Defina o *ssl_key* para o valor do arquivo de *chave* .
 
@@ -134,9 +134,9 @@ aci_config = AciWebservice.deploy_configuration(
 
 Para obter mais informações, consulte [AciWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-).
 
-## <a name="update-your-dns"></a>Atualizar o seu DNS
+## <a name="update-your-dns"></a>Atualizar o DNS
 
-Em seguida, tem de atualizar o DNS para apontar para o serviço web.
+Em seguida, você deve atualizar o DNS para apontar para o serviço Web.
 
 + **Para instâncias de contêiner:**
 
@@ -151,7 +151,7 @@ Em seguida, tem de atualizar o DNS para apontar para o serviço web.
 
   Atualize o DNS do endereço IP público do cluster AKS na guia **configuração** em **configurações** no painel esquerdo. (Consulte a imagem a seguir.) O endereço IP público é um tipo de recurso que é criado no grupo de recursos que contém os nós do agente AKS e outros recursos de rede.
 
-  [![Azure Machine Learning: Protegendo serviços Web com SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
+  [![Azure Machine Learning: protegendo serviços Web com SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
 
 ## <a name="update-the-ssl-certificate"></a>Atualizar o certificado SSL
 
@@ -230,7 +230,7 @@ Para obter mais informações, consulte os documentos de referência a seguir:
 
 ## <a name="disable-ssl"></a>Desabilitar SSL
 
-Para desabilitar o SSL para um modelo implantado no serviço kubernetes do `SslConfiguration` Azure `status="Disabled"`, crie um com e, em seguida, execute uma atualização:
+Para desabilitar o SSL para um modelo implantado no serviço kubernetes do Azure, crie um `SslConfiguration` com `status="Disabled"`e, em seguida, execute uma atualização:
 
 ```python
 from azureml.core.compute import AksCompute
@@ -247,6 +247,6 @@ aks_target.update(update_config)
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Aprenda a:
+Saiba como:
 + [Consumir um modelo de aprendizado de máquina implantado como um serviço Web](how-to-consume-web-service.md)
 + [Executar experimentos e inferências com segurança dentro de uma rede virtual do Azure](how-to-enable-virtual-network.md)

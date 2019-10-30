@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 10/23/2019
 ms.author: iainfou
-ms.openlocfilehash: 81d20a973454db600d8be9ce036f001dd41784e7
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 325b9e8edc997e41e48e11b3ee752bc38d7dc4a1
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71314996"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024013"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considerações de design de rede virtual e opções de configuração para Azure AD Domain Services
 
@@ -62,7 +62,7 @@ Você pode conectar cargas de trabalho de aplicativo hospedadas em outras redes 
 * Peering de rede virtual
 * VPN (rede virtual privada)
 
-### <a name="virtual-network-peering"></a>Peering de Rede Virtual
+### <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
 O emparelhamento de rede virtual é um mecanismo que conecta duas redes virtuais na mesma região por meio da rede de backbone do Azure. O emparelhamento de rede virtual global pode conectar a rede virtual entre regiões do Azure. Uma vez emparelhadas, as duas redes virtuais permitem que recursos, como VMs, se comuniquem entre si diretamente usando endereços IP privados. Usar o emparelhamento de rede virtual permite implantar um domínio gerenciado do Azure AD DS com as cargas de trabalho do aplicativo implantadas em outras redes virtuais.
 
@@ -91,8 +91,8 @@ Um domínio gerenciado do Azure AD DS cria alguns recursos de rede durante a imp
 | Recurso do Azure                          | Descrição |
 |:----------------------------------------|:---|
 | Placa de interface de rede                  | O Azure AD DS hospeda o domínio gerenciado em dois controladores de domínio (DCs) executados no Windows Server como VMs do Azure. Cada VM tem uma interface de rede virtual que se conecta à sua sub-rede de rede virtual. |
-| Endereço IP público básico dinâmico         | O Azure AD DS se comunica com o serviço de sincronização e gerenciamento usando um endereço IP público de SKU básico. Para obter mais informações sobre endereços IP públicos, consulte [tipos de endereço IP e métodos de alocação no Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
-| Balanceador de carga básico do Azure               | O Azure AD DS usa um balanceador de carga de SKU básico para NAT (conversão de endereços de rede) e balanceamento de carga (quando usado com o LDAP seguro). Para obter mais informações sobre os balanceadores de carga do Azure, consulte [o que é Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
+| Endereço IP público padrão dinâmico         | O Azure AD DS se comunica com o serviço de sincronização e gerenciamento usando um endereço IP público de SKU padrão. Para obter mais informações sobre endereços IP públicos, consulte [tipos de endereço IP e métodos de alocação no Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
+| Balanceador de carga standard do Azure               | O Azure AD DS usa um balanceador de carga SKU padrão para NAT (conversão de endereços de rede) e balanceamento de carga (quando usado com o LDAP seguro). Para obter mais informações sobre os balanceadores de carga do Azure, consulte [o que é Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
 | Regras de conversão de endereços de rede (NAT) | O Azure AD DS cria e usa três regras NAT na regra de balanceador de carga-uma para o tráfego HTTP seguro e duas regras para proteger a comunicação remota do PowerShell. |
 | Regras do balanceador de carga                     | Quando um domínio gerenciado do Azure AD DS é configurado para LDAP seguro na porta TCP 636, três regras são criadas e usadas em um balanceador de carga para distribuir o tráfego. |
 
@@ -105,12 +105,12 @@ Um [NSG (grupo de segurança de rede)](https://docs.microsoft.com/azure/virtual-
 
 As regras do grupo de segurança de rede a seguir são necessárias para que o Azure AD DS forneça serviços de autenticação e gerenciamento. Não edite ou exclua essas regras de grupo de segurança de rede para a sub-rede da rede virtual em que o domínio gerenciado do Azure AD DS está implantado.
 
-| Número da porta | Protocol | Origem                             | Destination | Action | Requerido | Objetivo |
+| Número da porta | Protocolo | Origem                             | Destino | Ação | Obrigatório | Finalidade |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Sim      | Sincronização com seu locatário do Azure AD. |
-| 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Sim      | Gerenciamento do seu domínio. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Sim      | Gerenciamento do seu domínio. |
-| 636         | TCP      | Any                                | Any         | Allow  | Não       | Habilitado somente quando você configura LDAPS seguros (LDAPs). |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Sim      | Sincronização com seu locatário do Azure AD. |
+| 3389        | TCP      | CorpNetSaw                         | Qualquer         | Permitir  | Sim      | Gerenciamento do seu domínio. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Sim      | Gerenciamento do seu domínio. |
+| 636         | TCP      | Qualquer                                | Qualquer         | Permitir  | Não       | Habilitado somente quando você configura LDAPS seguros (LDAPs). |
 
 > [!WARNING]
 > Não edite manualmente esses recursos e configurações de rede. Quando você associa um grupo de segurança de rede configurado incorretamente ou uma tabela de rotas definida pelo usuário à sub-rede na qual o Azure AD DS é implantado, você pode interromper a capacidade de serviço e gerenciar o domínio da Microsoft. A sincronização entre seu locatário do Azure AD e seu domínio gerenciado do Azure AD DS também é interrompida.
@@ -142,7 +142,7 @@ As regras do grupo de segurança de rede a seguir são necessárias para que o A
 * Usado para executar tarefas de gerenciamento usando a comunicação remota do PowerShell em seu domínio gerenciado AD DS do Azure.
 * Sem acesso a essa porta, seu domínio gerenciado AD DS do Azure não pode ser atualizado, configurado, submetido a backup ou monitorado.
 * Para os domínios gerenciados do Azure AD DS que usam uma rede virtual baseada no Resource Manager, você pode restringir o acesso de entrada a essa porta para a marca de serviço *AzureActiveDirectoryDomainServices* .
-    * Para domínios gerenciados herdados do Azure AD DS usando uma rede virtual baseada em clássico, você pode restringir o acesso de entrada a essa porta para os seguintes endereços IP de origem: *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*e *104.40.87.209*.
+    * Para domínios gerenciados herdados do Azure AD DS usando uma rede virtual baseada em clássico, você pode restringir o acesso de entrada a essa porta para os seguintes endereços IP de origem: *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223* , *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*e *104.40.87.209*.
 
 ## <a name="user-defined-routes"></a>Rotas definidas pelo utilizador
 

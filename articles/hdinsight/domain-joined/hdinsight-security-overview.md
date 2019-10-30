@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: overview
 ms.date: 09/23/2019
-ms.openlocfilehash: e1863cc54759f6cc2266073629093d4923260525
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 7fadb17476c2a071de767573994bb1120b476cdf
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240410"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053742"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Visão geral da segurança corporativa no Azure HDInsight
 
@@ -32,7 +32,7 @@ A segurança do perímetro no HDInsight é obtida por meio de [redes virtuais](.
 
 Todos os clusters implantados em uma VNET também terão um ponto de extremidade privado que é resolvido para um IP privado dentro da VNET para acesso HTTP privado aos gateways de cluster.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 
 O [Enterprise Security Package](apache-domain-joined-architecture.md) do HDInsight fornece autenticação baseada em Active Directory, suporte a vários usuários e controle de acesso baseado em função. A integração de Active Directory é obtida com o uso de [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). Com esses recursos, você pode criar um cluster HDInsight que tenha ingressado em um domínio Active Directory gerenciado. Em seguida, você pode configurar uma lista de funcionários da empresa que podem autenticar e entrar no cluster.
 
@@ -59,6 +59,10 @@ Para acessar os logs de auditoria do Apache Ranger e do Ambari, bem como os logs
 A proteção de dados é importante para atender aos requisitos de conformidade e segurança organizacional. Além de restringir o acesso a dados de funcionários não autorizados, você deve criptografá-los.
 
 Ambos os armazenamentos de dados para clusters HDInsight, armazenamento de BLOBs do Azure e Azure Data Lake Storage Gen1/Gen2, dão suporte à [criptografia transparente do servidor de dados](../../storage/common/storage-service-encryption.md) em repouso. Os clusters HDInsight seguros trabalharão diretamente com esse recurso de criptografia de dados no lado do servidor em repouso.
+
+### <a name="compliance"></a>Conformidade
+
+As ofertas de conformidade do Azure baseiam-se em vários tipos de garantia, incluindo certificações formais, atestado, validações, autorizações e avaliações produzidas por empresas de auditoria de terceiros independentes, bem como emendas contratuais, autoavaliações e documentos de orientação do cliente produzidos pela Microsoft. Para obter informações de conformidade do HDInsight, consulte a [central de confiabilidade da Microsoft](https://www.microsoft.com/trust-center) e a [visão geral da conformidade do Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
 
 ## <a name="shared-responsibility-model"></a>Modelo de responsabilidade compartilhada
 

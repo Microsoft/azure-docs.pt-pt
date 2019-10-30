@@ -8,19 +8,19 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: ea6de5f42910457efa5ca6c458d7af63faa38e18
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2392eb1f02ede13aca88419c00ea33ae38cfd8ab
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637745"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73023895"
 ---
-# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do feed de alterações do .NET: Download e notas de versão
+# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do feed de alterações do .NET: download e notas de versão
 
 > [!div class="op_single_selector"]
 >
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [Feed de alterações de .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [Feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -34,14 +34,23 @@ ms.locfileid: "68637745"
 
 |   |   |
 |---|---|
-|**Transferência de SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
+|**Download do SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Documentação da API**|[Documentação de referência da API da biblioteca do processador de feed de alterações](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Introdução**|[Introdução ao SDK do .NET do processador do feed de alterações](change-feed.md)|
-|**Estrutura de suporte atual**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Núcleo de Microsoft .NET](https://www.microsoft.com/net/download/core) |
+|**Get started**|[Introdução ao SDK do .NET do processador do feed de alterações](change-feed.md)|
+|**Estrutura com suporte atual**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Núcleo de Microsoft .NET](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Notas de versão
 
 ### <a name="v2-builds"></a>compilações v2
+
+### <a name="a-name228228"></a><a name="2.2.8"/>2.2.8
+* Aprimoramentos de estabilidade e diagnóstico:
+  * Suporte adicionado para detectar a leitura do feed de alterações demorando muito. Quando demora mais do que o valor especificado pela propriedade `ChangeFeedProcessorOptions.ChangeFeedTimeout`, as etapas a seguir são executadas:
+    * A operação para ler o feed de alterações na partição problemática foi anulada.
+    * A instância do processador do feed de alterações elimina a propriedade da concessão problemática. A concessão descartada será coletada durante a próxima etapa de aquisição de concessão que será feita pela mesma instância do processador do feed de alterações ou diferente. Dessa forma, a leitura do feed de alterações será reiniciada.
+    * Um problema é relatado no Health Monitor. O monitor integridade padrão envia todos os problemas relatados para o log de rastreamento.
+  * Adicionada uma nova propriedade pública: `ChangeFeedProcessorOptions.ChangeFeedTimeout`. O valor padrão dessa propriedade é 10 minutos.
+  * Adicionado um novo valor de enumeração público: `Monitoring.MonitoredOperation.ReadChangeFeed`. Quando o valor de `HealthMonitoringRecord.Operation` é definido como `Monitoring.MonitoredOperation.ReadChangeFeed`, ele indica que o problema de integridade está relacionado à leitura do feed de alterações.
 
 ### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
 * Melhor estratégia de balanceamento de carga para o cenário ao obter todas as concessões leva mais tempo do que o intervalo de expiração de concessão, por exemplo, devido a problemas de rede:
@@ -80,7 +89,7 @@ ms.locfileid: "68637745"
 * Melhorias de diagnóstico secundárias.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
-* Adicionada nova API, Task&lt;IReadOnlyList&lt;RemainingPartitionWork&gt; &gt; IRemainingWorkEstimator. GetEstimatedRemainingWorkPerPartitionAsync (). Isso pode ser usado para obter o trabalho estimado para cada partição.
+* Adição da nova API, tarefa&lt;IReadOnlyList&lt;RemainingPartitionWork&gt;&gt; IRemainingWorkEstimator. GetEstimatedRemainingWorkPerPartitionAsync (). Isso pode ser usado para obter o trabalho estimado para cada partição.
 * Dá suporte ao SDK do Microsoft. Azure. DocumentDB 2,0. Requer Microsoft. Azure. DocumentDB 2,0 ou posterior.
 
 ### <a name="a-name206206"></a><a name="2.0.6"/>2.0.6
@@ -90,24 +99,24 @@ ms.locfileid: "68637745"
 * Correção de uma condição de corrida que ocorre durante a divisão da partição. A condição de corrida pode levar à aquisição da concessão e à sua perda imediata durante a divisão da partição e à causa da contenção. O problema da condição de corrida é corrigido com esta versão.
 
 ### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
-* SDK DE DISPONIBILIDADE GERAL
+* SDK DE GA
 
-### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-prerelease
+### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-pré-lançamento
 * Foram corrigidos os problemas seguintes:
   * Quando a divisão de partição acontece, pode haver processamento duplicado de documentos modificados antes da divisão.
   * A API GetEstimatedRemainingWork retornou 0 quando nenhuma concessão estava presente na coleção de concessão.
 
 * As seguintes exceções se tornam públicas. As extensões que implementam IPartitionProcessor podem gerar essas exceções.
-  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.LeaseLostException. 
-  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionException. 
-  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionNotFoundException.
-  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionSplitException. 
+  * Microsoft. Azure. Documents. ChangeFeedProcessor. Exceptions. LeaseLostException. 
+  * Microsoft. Azure. Documents. ChangeFeedProcessor. Exceptions. Partitionexception. 
+  * Microsoft. Azure. Documents. ChangeFeedProcessor. Exceptions. PartitionNotFoundException.
+  * Microsoft. Azure. Documents. ChangeFeedProcessor. Exceptions. PartitionSplitException. 
 
-### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2-prerelease
+### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2-pré-lançamento
 * Alterações secundárias da API:
   * Removeu ChangeFeedProcessorOptions. IsAutoCheckpointEnabled que foi marcado como obsoleto.
 
-### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
+### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1 – pré-lançamento
 * Aprimoramentos de estabilidade:
   * Melhor manipulação da inicialização do armazenamento de concessão. Quando o repositório de concessão está vazio, apenas uma instância do processador pode inicializá-lo, os outros esperam.
   * Renovação/lançamento de concessão mais estável/eficiente. A renovação e a liberação de uma partição de concessão de uma só é independente da renovação de outras. Em v1, que foi feito sequencialmente para todas as partições.
@@ -142,7 +151,7 @@ ms.locfileid: "68637745"
 * Compatível com o [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1,21 e posteriores.
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
-* Adiciona suporte para .NET Standard 2,0. Agora, o pacote `netstandard2.0` dá `net451` suporte aos monikers do e Framework.
+* Adiciona suporte para .NET Standard 2,0. O pacote agora dá suporte a monikers `netstandard2.0` e `net451` Framework.
 * Compatível com o [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.17.0 e posteriores.
 * Compatível com o [SQL SDK do .NET Core](sql-api-sdk-dotnet-core.md) versões 1.5.1 e posteriores.
 
@@ -155,21 +164,22 @@ ms.locfileid: "68637745"
 * Compatível com o [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.13.2 e posteriores.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* SDK DE DISPONIBILIDADE GERAL
+* SDK DE GA
 * Compatível com as versões 1.14.1 e abaixo do [SDK do SQL .net](sql-api-sdk-dotnet.md) .
 
 ## <a name="release--retirement-dates"></a>Datas de lançamento & desativação
 
-A Microsoft irá fornecer, pelo menos, notificação **12 meses** antecedência extinguir um SDK para facilitar a transição para uma versão mais recente/suportadas.
+A Microsoft fornecerá uma notificação com pelo menos **12 meses** de antecedência para desativar um SDK a fim de suavizar a transição para uma versão mais recente/com suporte.
 
 Novos recursos e funcionalidades e otimizações são adicionados somente ao SDK atual, por isso é recomendável que você sempre atualize para a versão mais recente do SDK o mais cedo possível. 
 
-Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
+Qualquer solicitação para Cosmos DB usando um SDK desativado será rejeitada pelo serviço.
 
 <br/>
 
-| Versão | Data de lançamento | Data de retirada |
+| Versão | Data de lançamento | Data de aposentadoria |
 | --- | --- | --- |
+| [2.2.8](#2.2.8) |28 de outubro de 2019 |--- |
 | [2.2.7](#2.2.7) |14 de maio de 2019 |--- |
 | [2.2.6](#2.2.6) |29 de janeiro de 2019 |--- |
 | [2.2.5](#2.2.5) |13 de dezembro de 2018 |--- |
@@ -189,6 +199,6 @@ Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-Para saber mais sobre o Cosmos DB, veja [do Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) página do serviço.
+Para saber mais sobre Cosmos DB, consulte [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) página de serviço.

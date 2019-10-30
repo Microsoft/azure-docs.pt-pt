@@ -1,5 +1,5 @@
 ---
-title: Usar C# com Apache Hive e Apache Pig no Apache Hadoop no HDInsight – Azure
+title: C#, Apache Hive & Apache Pig no Apache Hadoop-Azure HDInsight
 description: Saiba como usar C# o UDF (funções definidas pelo usuário) com o Apache Hive e o Pig de streaming do Apache no Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: fa40f206447f631c78052bda085b26a56e481194
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 222b91b2efefa81186d32fee7229aa0cc4f13a63
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066909"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044598"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Usar C# funções definidas pelo usuário com Apache Hive e Apache Pig no Apache Hadoop no HDInsight
 
@@ -22,7 +22,7 @@ Saiba como usar C# o UDF (funções definidas pelo usuário) com o Apache Hive e
 > [!IMPORTANT]
 > As etapas neste documento funcionam com clusters HDInsight baseados em Linux e Windows. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, consulte [controle de versão de componente do HDInsight](../hdinsight-component-versioning.md).
 
-Tanto o hive quanto o Pig podem passar dados para aplicativos externos para processamento. Esse processo é conhecido como _streaming_. Ao usar um aplicativo .NET, os dados são passados para o aplicativo em STDIN e o aplicativo retorna os resultados em STDOUT. Para ler e gravar em stdin e stdout, você pode usar `Console.ReadLine()` e `Console.WriteLine()` de um aplicativo de console.
+Tanto o hive quanto o Pig podem passar dados para aplicativos externos para processamento. Esse processo é conhecido como _streaming_. Ao usar um aplicativo .NET, os dados são passados para o aplicativo em STDIN e o aplicativo retorna os resultados em STDOUT. Para ler e gravar em STDIN e STDOUT, você pode usar `Console.ReadLine()` e `Console.WriteLine()` de um aplicativo de console.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +42,7 @@ Tanto o hive quanto o Pig podem passar dados para aplicativos externos para proc
 
 ## <a name="net-on-hdinsight"></a>.NET no HDInsight
 
-* Clusters __HDInsight baseados em Linux__ usando [mono (https://mono-project.com) ](https://mono-project.com) para executar aplicativos .net. A versão do mono 4.2.1 está incluída no HDInsight versão 3,6.
+* Clusters __HDInsight baseados em Linux__ usando [mono (https://mono-project.com)](https://mono-project.com) para executar aplicativos .net. A versão do mono 4.2.1 está incluída no HDInsight versão 3,6.
 
     Para obter mais informações sobre a compatibilidade mono com versões .NET Framework, consulte [compatibilidade mono](https://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -50,7 +50,7 @@ Tanto o hive quanto o Pig podem passar dados para aplicativos externos para proc
 
 Para obter mais informações sobre a versão do .NET Framework e do mono incluído com versões do HDInsight, consulte [versões de componente do hdinsight](../hdinsight-component-versioning.md).
 
-## <a name="create-the-c-projects"></a>Criar projetos C\#
+## <a name="create-the-c-projects"></a>Criar os projetos do C\#
 
 ### <a name="apache-hive-udf"></a>UDF Apache Hive
 
@@ -203,9 +203,9 @@ Para obter mais informações sobre a versão do .NET Framework e do mono inclu�
     ```
 
     > [!IMPORTANT]
-    > Remova a marca `add file` de comentário da instrução que corresponde ao tipo de armazenamento padrão usado para o cluster.
+    > Remova a marca de comentário da instrução `add file` que corresponde ao tipo de armazenamento padrão usado para o cluster.
 
-    Essa consulta seleciona os `clientid`campos `devicemake`, e `devicemodel` de `hivesampletable`e passa os campos para o aplicativo HiveCSharp. exe. A consulta espera que o aplicativo retorne três campos, que são armazenados `clientid`como `phoneLabel`, e `phoneHash`. A consulta também espera localizar HiveCSharp. exe na raiz do contêiner de armazenamento padrão.
+    Essa consulta seleciona os campos `clientid`, `devicemake`e `devicemodel` de `hivesampletable`e passa os campos para o aplicativo HiveCSharp. exe. A consulta espera que o aplicativo retorne três campos, que são armazenados como `clientid`, `phoneLabel`e `phoneHash`. A consulta também espera localizar HiveCSharp. exe na raiz do contêiner de armazenamento padrão.
 
 5. Clique em **Enviar** para enviar o trabalho para o cluster HDInsight. A janela **Resumo do trabalho do hive** é aberta.
 
@@ -226,7 +226,7 @@ Para obter mais informações sobre a versão do .NET Framework e do mono inclu�
     > bin\pig
     > ```
 
-    Um `grunt>` prompt é exibido.
+    Um prompt de `grunt>` é exibido.
 
 3. Insira o seguinte para executar um trabalho do Pig que usa o aplicativo .NET Framework:
 
@@ -236,10 +236,10 @@ Para obter mais informações sobre a versão do .NET Framework e do mono inclu�
         DETAILS = STREAM LOG through streamer as (col1, col2, col3, col4, col5);
         DUMP DETAILS;
 
-    A `DEFINE` instrução cria um alias de `streamer` para os aplicativos pigudf. exe e `CACHE` o carrega do armazenamento padrão para o cluster. Posteriormente, `streamer` é usado com o `STREAM` operador para processar as linhas individuais contidas no log e retornar os dados como uma série de colunas.
+    A instrução `DEFINE` cria um alias de `streamer` para os aplicativos pigudf. exe e `CACHE` o carrega do armazenamento padrão para o cluster. Posteriormente, `streamer` é usado com o operador `STREAM` para processar as linhas individuais contidas no LOG e retornar os dados como uma série de colunas.
 
     > [!NOTE]
-    > O nome do aplicativo que é usado para streaming deve ser circundado \` pelo caractere (acento grave) quando com alias e ' (aspa simples) quando usado com `SHIP`.
+    > O nome do aplicativo que é usado para streaming deve ser circundado pelo caractere de \` (acento grave) quando com alias e ' (aspa simples) quando usado com `SHIP`.
 
 4. Depois de inserir a última linha, o trabalho deve ser iniciado. Ele retorna uma saída semelhante ao seguinte texto:
 

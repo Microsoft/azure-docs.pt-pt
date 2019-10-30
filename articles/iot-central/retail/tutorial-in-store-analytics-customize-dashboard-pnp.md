@@ -10,12 +10,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 10/03/2019
-ms.openlocfilehash: 02d9a33018f87e6dbb9c7a797c16e5484c523b11
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 81a31c0a03ef836d95a5a4f3cd4f4cd7b7e113e2
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72955103"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027353"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Tutorial: personalizar o painel do operador e gerenciar dispositivos no Azure IoT Central
 
@@ -36,14 +36,14 @@ Neste tutorial, ficará a saber como:
 
 Antes de começar este tutorial, o construtor deve concluir o primeiro tutorial para criar o aplicativo de análise de IoT Central do Azure no repositório e adicionar dispositivos:
 
-* [Criar um aplicativo de análise no repositório no Azure IOT central](./tutorial-in-store-analytics-create-app-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json) (obrigatório)
+* [Criar um aplicativo de análise no repositório no Azure IOT central](./tutorial-in-store-analytics-create-app-pnp.md) (obrigatório)
 
 ## <a name="change-the-dashboard-name"></a>Alterar o nome do painel
 Para personalizar o painel do operador, edite o painel padrão em seu aplicativo. Opcionalmente, você pode criar novos painéis adicionais. A primeira etapa para personalizar o painel em seu aplicativo é alterar o nome.
 
 1. Navegue até o site [do Azure IOT central Application Manager](https://aka.ms/iotcentral) .
 
-1. Abra o aplicativo de monitoramento de condição que você criou no tutorial [criar um aplicativo de análise na loja no Azure IOT central](./tutorial-in-store-analytics-create-app-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json) .
+1. Abra o aplicativo de monitoramento de condição que você criou no tutorial [criar um aplicativo de análise na loja no Azure IOT central](./tutorial-in-store-analytics-create-app-pnp.md) .
 
 1. Selecione **Editar** na barra de ferramentas do painel. No modo de edição, você pode personalizar a aparência, o layout e o conteúdo do painel.
 
@@ -142,7 +142,7 @@ Para reorganizar os blocos restantes:
 ## <a name="add-telemetry-tiles-to-display-conditions"></a>Adicionar blocos de telemetria a condições de exibição
 Depois de personalizar o layout do painel, você estará pronto para adicionar blocos para mostrar a telemetria. Para criar um bloco de telemetria, selecione um modelo de dispositivo e uma instância de dispositivo e selecione telemetria específica do dispositivo para exibir no bloco. O modelo **de aplicativo análise na loja – check-out** inclui vários blocos de telemetria no painel. Os quatro blocos nas duas zonas de check-out exibem a telemetria do sensor de ocupação simulado. O bloco **tráfego de pessoas** mostra contagens nas duas zonas de check-out. 
 
-Nesta seção, você adiciona mais dois blocos de telemetria para mostrar a telemetria ambiental dos sensores RuuviTag adicionados no tutorial [criar um aplicativo de análise na loja no Azure IOT central](./tutorial-in-store-analytics-create-app-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json) . 
+Nesta seção, você adiciona mais dois blocos de telemetria para mostrar a telemetria ambiental dos sensores RuuviTag adicionados no tutorial [criar um aplicativo de análise na loja no Azure IOT central](./tutorial-in-store-analytics-create-app-pnp.md) . 
 
 Para adicionar blocos para exibir dados ambientais dos sensores RuuviTag:
 
@@ -259,4 +259,4 @@ Neste tutorial, ficou a saber como:
 Agora que você personalizou o painel em seu aplicativo de análise do Azure IoT Central no repositório, aqui está a próxima etapa sugerida:
 
 > [!div class="nextstepaction"]
-> [Exportar dados e visualizar informações](./tutorial-in-store-analytics-export-data-visualize-insights-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json)
+> [Exportar dados e visualizar informações](./tutorial-in-store-analytics-export-data-visualize-insights-pnp.md)

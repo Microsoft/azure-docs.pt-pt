@@ -1,5 +1,5 @@
 ---
-title: Configurar o agendamento de aplicação de patch do sistema operacional para clusters HDInsight baseados em Linux – Azure
+title: Configurar agendamento de aplicação de patch de so para clusters do Azure HDInsight
 description: Saiba como configurar o agendamento de aplicação de patch de so para clusters HDInsight baseados em Linux.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: 06111ec35a127cf17fdcc77ff717de7a4bc7299f
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: d0a490fd3b23c96923af10db3c1f9ee9ea0dfad5
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076865"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044890"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configurar o agendamento de aplicação de patch do so para clusters HDInsight baseados em Linux 
 
@@ -39,7 +39,7 @@ O uso de um script requer as seguintes informações:
     
    O HDInsight usa esse URI para localizar e executar o script em todas as VMs no cluster. Esse script fornece opções para instalar atualizações e reiniciar a VM.
   
-- O local do script agenda-reinicializações https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh:.
+- O local do script agenda-reinicializações: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh.
     
    O HDInsight usa esse URI para localizar e executar o script em todas as VMs no cluster. Esse script reinicia a VM.
   
@@ -62,7 +62,7 @@ O uso de um script requer as seguintes informações:
 > Você deve marcar um script como persistente depois de aplicá-lo a um cluster existente. Caso contrário, todos os novos nós criados por meio de operações de dimensionamento usarão o agendamento de aplicação de patch padrão. Se você aplicar o script como parte do processo de criação do cluster, ele será persistido automaticamente.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter etapas específicas sobre como usar as ações de script, consulte as seções a seguir em [Personalizar clusters HDInsight baseados em Linux usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md):
 

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 0050e2b687b6001514d1ae80c269b1a0499efbea
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 917636c8ae339e06321c169979611f74276ca523
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757299"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044008"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Análises, fluxos de trabalho e trabalhos de moderação de conteúdo
 
@@ -75,5 +75,5 @@ Consulte o [guia da API REST](./try-review-api-job.md) para começar a usar os t
 ## <a name="next-steps"></a>Passos seguintes
 
 * Teste o [console da API de trabalho](try-review-api-job.md)e use os exemplos de código da API REST. Se você estiver familiarizado com o Visual Studio C#e também Confira o [início rápido dos trabalhos .net](moderation-jobs-quickstart-dotnet.md). 
-* Para revisões, comece com o [console de API de revisão](try-review-api-review.md)e use os exemplos de código da API REST. Em seguida, consulte o [início rápido do .net de revisões](moderation-reviews-quickstart-dotnet.md).
+* Para revisões, comece com o [console de API de revisão](try-review-api-review.md)e use os exemplos de código da API REST. Em seguida, consulte a seção de revisões do [início rápido do .net](dotnet-sdk-quickstart.md).
 * Para revisões de vídeo, use o guia de [início rápido de revisão de vídeo](video-reviews-quickstart-dotnet.md)e saiba como [Adicionar transcrições à revisão de vídeo](video-transcript-reviews-quickstart-dotnet.md).

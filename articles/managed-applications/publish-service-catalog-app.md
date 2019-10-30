@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 62d8de4f36ab110f7bd871c9de0e5d843516970c
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: f248fe125873b4ed1e930e56865e4e403bcceea6
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529008"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053829"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>Criar e publicar uma definição da aplicação gerida
 
@@ -87,7 +87,7 @@ Guarde o ficheiro mainTemplate.json.
 
 ## <a name="defining-your-create-experience-using-createuidefinitionjson"></a>Definindo sua experiência de criação usando CreateUiDefinition. JSON
 
-Como Publicador, você define sua experiência de criação usando o arquivo **createUiDefinition. JSON** que gera a interface para usuários que criam aplicativos gerenciados. Você define como os usuários fornecem entrada para cada parâmetro usando os [elementos de controle] (create-uidefinition-elements.md), incluindo menus suspensos, caixas de texto e caixas de senha.
+Como Publicador, você define sua experiência de criação usando o arquivo **createUiDefinition. JSON** que gera a interface para usuários que criam aplicativos gerenciados. Você define como os usuários fornecem entrada para cada parâmetro usando [elementos de controle](create-uidefinition-elements.md) , incluindo menus suspensos, caixas de texto e caixas de senha.
 
 Crie um arquivo chamado **createUiDefinition. JSON** (esse nome diferencia maiúsculas de minúsculas)
 

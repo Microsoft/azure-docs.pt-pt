@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: a2d13833b60076caa371a7fa8a696ab5964a28e3
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 7f62e437d80f023972327d98b4add193eb7b8dd6
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376089"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044405"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gerenciar atualizações e patches para suas VMs do Azure
 
@@ -169,7 +169,7 @@ Em **Nova implementação de atualização**, especifique as seguintes informaç
   * Se a janela de manutenção for excedida no Windows, isso geralmente ocorre devido a uma atualização service pack demorando muito para ser instalada.
 
   > [!NOTE]
-  > "Da maneira" as informações não são críticas para uma tarefa, evite que as atualizações sejam aplicadas fora de uma janela de manutenção no Ubuntu, reconfigure o pacote de atualização autônoma para desabilitar as atualizações automáticas. Para obter informações sobre como configurar o pacote, consulte [atualizações automáticas tópico no guia do servidor Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+  > Para evitar que as atualizações sejam aplicadas fora de uma janela de manutenção no Ubuntu, reconfigure o pacote de atualização autônoma para desabilitar as atualizações automáticas. Para obter informações sobre como configurar o pacote, consulte [atualizações automáticas tópico no guia do servidor Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 * **Opções de reinício**: esta definição determina como os reinícios devem ser tratados. As opções disponíveis são:
   * Reiniciar se for preciso (Predefinição)

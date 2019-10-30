@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 08/29/2019
-  ms.openlocfilehash: 916aa4a7d475fadc0822513c2b47e8fb91b3cf4c
-  ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+  ms.openlocfilehash: 6ae54a18ebb5358c7fde1a854238984ea7ec2c57
+  ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/23/2019
-  ms.locfileid: "72792610"
+  ms.lasthandoff: 10/29/2019
+  ms.locfileid: "73053706"
 highlightedContent:
   items:
   - title: Introdução à segurança do Azure
@@ -45,7 +45,7 @@ conceptualContent:
       itemType: concept
       text: Controlos de segurança para os serviços do Azure
     footerLink:
-      url: ./fundamentals/index.md
+      url: ./fundamentals/index.yml
       text: Ver mais
   - title: Programadores
     links:

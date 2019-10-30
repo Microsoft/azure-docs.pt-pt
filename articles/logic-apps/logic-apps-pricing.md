@@ -1,6 +1,6 @@
 ---
-title: Preços & cobrança – aplicativos lógicos do Azure | Microsoft Docs
-description: Saiba como os preços e as cobranças funcionam para os aplicativos lógicos do Azure
+title: Preço & modelo de cobrança – aplicativos lógicos do Azure
+description: Visão geral sobre como o modelo de cobrança e preços funciona para aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: logic-apps
@@ -9,12 +9,12 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 62b96fa8722408aed81e87cb31218140fa4f5da8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f4651e40a0f4269dc5c8a2fcd4c0e25c1e9bbb3c
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099413"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045114"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de preços para aplicativos lógicos do Azure
 
@@ -35,7 +35,7 @@ Por exemplo, as ações incluem:
 
 Os [conectores padrão](../connectors/apis-list.md#managed-connectors) são cobrados com o [preço do conector padrão](https://azure.microsoft.com/pricing/details/logic-apps). Os [conectores empresariais](../connectors/apis-list.md#managed-connectors) geralmente disponíveis são cobrados pelo [preço do conector corporativo](https://azure.microsoft.com/pricing/details/logic-apps), enquanto os conectores corporativos de visualização pública são cobrados com o [preço do conector padrão](https://azure.microsoft.com/pricing/details/logic-apps).
 
-Saiba mais sobre como a cobrança funciona [](#triggers) para gatilhos e [ações](#actions).
+Saiba mais sobre como a cobrança funciona para [gatilhos](#triggers) e [ações](#actions).
 
 <a name="fixed-pricing"></a>
 
@@ -51,15 +51,15 @@ Um [ISE ( *ambiente do serviço de integração* )](../logic-apps/connect-virtua
 
 * Uso da [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) sem custo adicional, com base em seu [SKU do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 
-  * **SKU Premium**: Uma única conta de integração de [camada Standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
+  * **SKU Premium**: uma única conta de integração de [camada Standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
 
-  * **SKU do desenvolvedor**: Uma única conta de integração de [camada gratuita](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
+  * **SKU do desenvolvedor**: uma única conta de integração de [camada gratuita](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
 
   Cada SKU do ISE é limitado a 5 contas de integração totais. Para obter um custo adicional, você pode ter mais contas de integração, com base em seu SKU do ISE:
 
-  * **SKU Premium**: Até quatro contas padrão. Nenhuma conta gratuita ou básica.
+  * **SKU Premium**: até quatro contas padrão. Nenhuma conta gratuita ou básica.
 
-  * **SKU do desenvolvedor**: Até quatro contas padrão ou até 5 contas padrão... Nenhuma conta básica.
+  * **SKU do desenvolvedor**: para até quatro contas padrão ou até 5 contas padrão totais. Nenhuma conta básica.
 
 Para obter mais informações sobre limites de conta de integração, consulte [limites e configuração de aplicativos lógicos](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Você pode aprender mais sobre [as camadas de conta de integração e seu modelo de preços](#integration-accounts) posteriormente neste tópico.
 
@@ -74,21 +74,21 @@ Para obter taxas de preços, consulte [preços dos aplicativos lógicos](https:/
 
 ## <a name="connectors"></a>Conectores
 
-Os conectores de aplicativos lógicos do Azure ajudam seu aplicativo lógico a acessar aplicativos, serviços e sistemas na nuvem ou [](#triggers)localmente, fornecendo gatilhos, [ações](#actions)ou ambos. Os conectores são classificados como Standard ou Enterprise. Para obter uma visão geral sobre esses conectores, consulte [conectores para aplicativos lógicos do Azure](../connectors/apis-list.md). Se nenhum conector predefinido estiver disponível para as APIs REST que você deseja usar em seus aplicativos lógicos, você poderá criar [conectores personalizados](https://docs.microsoft.com/connectors/custom-connectors), que são apenas wrappers em volta dessas APIs REST. Os conectores personalizados são cobrados como conectores padrão. As seções a seguir fornecem mais informações sobre como a cobrança de gatilhos e ações funcionam.
+Os conectores de aplicativos lógicos do Azure ajudam seu aplicativo lógico a acessar aplicativos, serviços e sistemas na nuvem ou localmente, fornecendo [gatilhos](#triggers), [ações](#actions)ou ambos. Os conectores são classificados como Standard ou Enterprise. Para obter uma visão geral sobre esses conectores, consulte [conectores para aplicativos lógicos do Azure](../connectors/apis-list.md). Se nenhum conector predefinido estiver disponível para as APIs REST que você deseja usar em seus aplicativos lógicos, você poderá criar [conectores personalizados](https://docs.microsoft.com/connectors/custom-connectors), que são apenas wrappers em volta dessas APIs REST. Os conectores personalizados são cobrados como conectores padrão. As seções a seguir fornecem mais informações sobre como a cobrança de gatilhos e ações funcionam.
 
 <a name="triggers"></a>
 
-## <a name="triggers"></a>Ativadores
+## <a name="triggers"></a>Acionadores
 
 Os gatilhos são ações especiais que criam uma instância de aplicativo lógico quando ocorre um evento específico. Os gatilhos atuam de maneiras diferentes, o que afeta como o aplicativo lógico é medido. Aqui estão os vários tipos de gatilhos que existem nos aplicativos lógicos do Azure:
 
-* **Gatilho**de sondagem: Esse gatilho verifica continuamente um ponto de extremidade para mensagens que atendem aos critérios para criar uma instância de aplicativo lógico e iniciar o fluxo de trabalho. Mesmo quando nenhuma instância de aplicativo lógico é criada, os aplicativos lógicos medem cada solicitação de sondagem como uma execução. Para especificar o intervalo de sondagem, configure o gatilho por meio do designer de aplicativo lógico.
+* **Gatilho de sondagem**: esse gatilho verifica continuamente um ponto de extremidade para mensagens que atendem aos critérios para criar uma instância de aplicativo lógico e iniciar o fluxo de trabalho. Mesmo quando nenhuma instância de aplicativo lógico é criada, os aplicativos lógicos medem cada solicitação de sondagem como uma execução. Para especificar o intervalo de sondagem, configure o gatilho por meio do designer de aplicativo lógico.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Gatilho**de webhook: Esse gatilho espera que um cliente envie uma solicitação para um ponto de extremidade específico. Cada solicitação enviada ao ponto de extremidade do webhook conta como uma execução de ação. Por exemplo, a solicitação e o gatilho de webhook HTTP são gatilhos de webhook.
+* **Gatilho de webhook**: esse gatilho espera que um cliente envie uma solicitação para um ponto de extremidade específico. Cada solicitação enviada ao ponto de extremidade do webhook conta como uma execução de ação. Por exemplo, a solicitação e o gatilho de webhook HTTP são gatilhos de webhook.
 
-* **Gatilho**de recorrência: Esse gatilho cria uma instância de aplicativo lógico com base no intervalo de recorrência que você configurou no gatilho. Por exemplo, você pode configurar um gatilho de recorrência que é executado a cada três dias ou em uma agenda mais complexa.
+* **Gatilho de recorrência**: esse gatilho cria uma instância de aplicativo lógico com base no intervalo de recorrência que você configurou no gatilho. Por exemplo, você pode configurar um gatilho de recorrência que é executado a cada três dias ou em uma agenda mais complexa.
 
 <a name="actions"></a>
 
@@ -119,11 +119,11 @@ Se você tiver um [ISE ( *ambiente do serviço de integração* )](../logic-apps
 
 Para escolher entre uma conta de integração gratuita, básica ou padrão, examine estas descrições de caso de uso:
 
-* **Gratuito**: Para quando você quiser experimentar cenários exploratórios, não cenários de produção
+* **Gratuito**: para quando você quiser experimentar cenários exploratórios, não cenários de produção
 
-* **Básico**: Para quando você quiser apenas a manipulação de mensagens ou para atuar como um pequeno parceiro comercial que tenha uma relação de parceiro comercial com uma entidade de negócios maior
+* **Básico**: para quando você desejar apenas a manipulação de mensagens ou para atuar como um pequeno parceiro comercial que tenha uma relação de parceiro comercial com uma entidade de negócios maior
 
-* **Padrão**: Para quando você tem relações B2B mais complexas e um número maior de entidades que você deve gerenciar
+* **Standard**: para quando você tem relações B2B mais complexas e um número maior de entidades que você deve gerenciar
 
 <a name="data-retention"></a>
 
@@ -156,7 +156,7 @@ Para ajudá-lo a monitorar o consumo de armazenamento do aplicativo lógico, voc
 
 1. No menu do aplicativo lógico, selecione **visão geral**.
 
-1. No painel direito, em **histórico**de execuções, selecione a execução que tem as entradas e saídas que você deseja verificar.
+1. No painel direito, em **histórico de execuções**, selecione a execução que tem as entradas e saídas que você deseja verificar.
 
 1. Em **execução do aplicativo lógico**, escolha **detalhes da execução**.
 
@@ -164,7 +164,7 @@ Para ajudá-lo a monitorar o consumo de armazenamento do aplicativo lógico, voc
 
 1. No painel de **ação do aplicativo lógico** , localize os tamanhos das entradas e saídas da ação, respectivamente, sob o link **entradas** e **saídas**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre os aplicativos lógicos do Azure](logic-apps-overview.md)
 * [Criar a sua primeira aplicação lógica](quickstart-create-first-logic-app-workflow.md)

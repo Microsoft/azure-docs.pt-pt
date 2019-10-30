@@ -8,14 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 543d019628e0f3c8423a71a4aa8d5b24a60e82e3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 59dae65d32f1b816e59ee883cb4529c6f1fd212c
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72956720"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73026554"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-in-iot-central"></a>Tutorial: criar um aplicativo de monitoramento de consumo de água no IoT Central
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 Este tutorial orienta você a criar um aplicativo de monitoramento de consumo de água IoT Central do Azure do modelo de aplicativo de monitoramento de consumo de água IoT Central. 
 
@@ -47,7 +49,7 @@ Para criar um novo aplicativo de monitoramento de consumo de água do Azure IoT 
 
     ![Introduza a sua conta da organização](media/tutorial-waterconsumptionmonitoring/sign-in.png)
 
-2. Clique em **Compilar** no menu de navegação à esquerda e selecione a guia **governo** . A página do governo exibe vários modelos de aplicativos do governo.
+2. Clique em **Compilar** no painel esquerdo e selecione a guia **governo** . A página do governo exibe vários modelos de aplicativos do governo.
 
    ![Criar modelos de aplicativo do governo](./media/tutorial-waterconsumptionmonitoring/iotcentral-government-tab-overview1.png)
 
@@ -241,7 +243,7 @@ Como um construtor, você pode alterar várias configurações para personalizar
 
 Se você não pretende usar este aplicativo, exclua seu aplicativo com as seguintes etapas:
 
-1. Abra a guia Administração no menu de navegação à esquerda do seu aplicativo IoT Central. 
+1. Abra a guia Administração no painel esquerdo do seu aplicativo IoT Central. 
 2. Selecione Configurações do aplicativo e clique no botão excluir na parte inferior da página. 
 
 

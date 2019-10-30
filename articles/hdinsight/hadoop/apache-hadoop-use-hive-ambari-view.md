@@ -1,5 +1,5 @@
 ---
-title: Usar exibições do Apache Ambari para trabalhar com o hive no HDInsight (Apache Hadoop) – Azure
+title: Usar o modo de exibição do Apache Ambari Hive com Apache Hadoop no Azure HDInsight
 description: Saiba como usar o modo de exibição do hive do seu navegador da Web para enviar consultas do hive. A exibição do hive faz parte da interface do usuário da Web do amAmbari fornecida com o cluster HDInsight baseado em Linux.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: da4d1ed7dec8b3b0bc61dd2959a868d03875039c
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 5063be247b2ad51dc8888f8512f523ccf2b0174c
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077013"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044817"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Usar a exibição do Ambari hive do Apache com o Apache Hadoop no HDInsight
 
@@ -30,7 +30,7 @@ Saiba como executar consultas do hive usando o modo de exibição do Ambari hive
 
 1. No [portal do Azure](https://portal.azure.com/), selecione o cluster.  Consulte [listar e mostrar clusters](../hdinsight-administer-use-portal-linux.md#showClusters) para obter instruções. O cluster é aberto em uma folha de novo Portal.
 
-2. Em **painéis do cluster**, selecione **exibições do Ambari**. Quando for solicitado a autenticar, use o nome da conta `admin`de logon do cluster (padrão) e a senha que você forneceu ao criar o cluster.
+2. Em **painéis do cluster**, selecione **exibições do Ambari**. Quando for solicitado a autenticar, use o nome da conta e a senha de logon do cluster (`admin`padrão) que você forneceu ao criar o cluster.
 
 3. Na lista de exibições, selecione __exibição do hive__.
 
@@ -61,16 +61,16 @@ Saiba como executar consultas do hive usando o modo de exibição do Ambari hive
 
     Essas instruções executam as seguintes ações:
 
-   * `DROP TABLE`: Exclui a tabela e o arquivo de dados, caso a tabela já exista.
+   * `DROP TABLE`: exclui a tabela e o arquivo de dados, caso a tabela já exista.
 
-   * `CREATE EXTERNAL TABLE`: Cria uma nova tabela "externa" no hive.
+   * `CREATE EXTERNAL TABLE`: cria uma nova tabela "externa" no hive.
      As tabelas externas armazenam apenas a definição de tabela no hive. Os dados são deixados no local original.
 
-   * `ROW FORMAT`: Mostra como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
+   * `ROW FORMAT`: mostra como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
 
-   * `STORED AS TEXTFILE LOCATION`: Mostra onde os dados são armazenados e que são armazenados como texto.
+   * `STORED AS TEXTFILE LOCATION`: mostra onde os dados são armazenados e que são armazenados como texto.
 
-   * `SELECT`: Seleciona uma contagem de todas as linhas em que a coluna T4 contém o valor [ERROR].
+   * `SELECT`: seleciona uma contagem de todas as linhas em que a coluna T4 contém o valor [ERROR].
 
    > [!IMPORTANT]  
    > Deixe a seleção de __banco de dados__ em __padrão__. Os exemplos neste documento usam o banco de dados padrão incluído com o HDInsight.
@@ -112,14 +112,14 @@ Você pode usar a guia __tabelas__ para trabalhar com tabelas em um banco de dad
 
 ![Imagem da guia tabelas Apache Hive](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
 
-## <a name="saved-queries"></a>Consultas guardadas
+## <a name="saved-queries"></a>Consultas salvas
 
 Na guia **consulta** , você pode, opcionalmente, salvar consultas. Depois de salvar uma consulta, você pode reutilizá-la na guia __consultas salvas__ .
 
 ![Guia Apache Hive exibir consultas salvas](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
-> As consultas salvas são armazenadas no armazenamento de cluster padrão. Você pode encontrar as consultas salvas no caminho `/user/<username>/hive/scripts`. Eles são armazenados como arquivos de texto `.hql` sem formatação.
+> As consultas salvas são armazenadas no armazenamento de cluster padrão. Você pode encontrar as consultas salvas no caminho `/user/<username>/hive/scripts`. Eles são armazenados como arquivos de `.hql` de texto sem formatação.
 >
 > Se você excluir o cluster, mas mantiver o armazenamento, poderá usar um utilitário como [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) ou data Lake Storage Explorer (no [portal do Azure](https://portal.azure.com)) para recuperar as consultas.
 

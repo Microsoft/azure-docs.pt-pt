@@ -8,14 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: fd6062250b288f9c1f04b7e7853e7fdd84d612c0
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 06b4fe3b716f2252f064a5b36fcde7dd7198db2d
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965834"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73026747"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutorial: criar e percorrer o modelo de aplicativo de monitoramento do medidor inteligente 
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 Este tutorial orienta você pelo processo de criação do aplicativo de monitoramento do medidor inteligente, que inclui um modelo de dispositivo de exemplo com dados simulados. Neste tutorial, ficará a saber:
 
@@ -39,8 +41,8 @@ Você pode criar esse aplicativo em três etapas simples:
 
 2. Selecione a guia **energia** e clique em **criar aplicativo** no bloco aplicativo de **monitoramento do medidor inteligente** .
 
-    > [!div class="mx-imgBorder"]
-    > ![](media/tutorial-iot-central-smart-meter/smart-meter-build.png) de aplicativo de compilação
+    [!div class="mx-imgBorder"]
+    ![](media/tutorial-iot-central-smart-meter/smart-meter-build.png) de aplicativo de compilação
     
 
 3. **Criar aplicativo** abrirá o formulário **novo aplicativo** . Preencha os detalhes solicitados, conforme mostrado na figura abaixo:
@@ -70,31 +72,31 @@ Adatum é uma empresa de energia fictícia, que monitora e gerencia medidores in
 * Acompanhar o consumo de energia total para fins de planejamento e cobrança
 * Operações de comando e controle, como reconectar medidor e atualizar versão do firmware. No modelo, os botões de comando mostram as funcionalidades possíveis e não enviam comandos reais. 
 
-> [!div class="mx-imgBorder"]
-> ![painel de monitoramento do medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png)
+[!div class="mx-imgBorder"]
+![painel de monitoramento do medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png)
 
 ### <a name="devices"></a>Dispositivos
 O aplicativo vem com um dispositivo de medidor inteligente de exemplo. Você pode ver os detalhes do dispositivo clicando na guia **dispositivos** .
 
-> [!div class="mx-imgBorder"]
-> ![dispositivos de medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-devices.png)
+[!div class="mx-imgBorder"]
+![dispositivos de medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-devices.png)
 
 Clique no link **SM0123456789** do dispositivo de exemplo para ver os detalhes do dispositivo. Você pode atualizar as propriedades graváveis do dispositivo na página **Propriedades da atualização** e visualizar os valores atualizados no painel.
 
-> [!div class="mx-imgBorder"]
-> ![Propriedades de medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png)
+[!div class="mx-imgBorder"]
+![Propriedades de medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png)
 
 ### <a name="device-template"></a>Modelo de dispositivo
 Clique na guia **modelos de dispositivo** para ver o modelo de dispositivo do medidor inteligente. O modelo tem a interface predefinida para dados, propriedade, comandos e exibições.
 
-> [!div class="mx-imgBorder"]
-> ![modelos de dispositivo do medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-device-template.png)
+[!div class="mx-imgBorder"]
+![modelos de dispositivo do medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-device-template.png)
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Se você decidir não continuar usando este aplicativo, exclua seu aplicativo com as seguintes etapas:
 
-1. No menu à esquerda, abra a guia Administração
+1. No painel esquerdo, abra a guia Administração
 2. Selecione Configurações do aplicativo e clique no botão excluir na parte inferior da página. 
 
     > [!div class="mx-imgBorder"]

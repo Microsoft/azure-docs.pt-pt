@@ -1,20 +1,20 @@
 ---
-title: Como monitorar a disponibilidade do cluster com os logs do Ambari e do Azure Monitor
+title: 'Monitoramento: Azure Monitor de logs do Apache Ambari &-Azure HDInsight'
 description: Saiba como usar os logs do Ambari e do Azure Monitor para monitorar a integridade e a disponibilidade do cluster.
 keywords: monitoramento, ambari, monitor, log Analytics, alerta, disponibilidade, integridade
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-author: tylerfox
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: tyfox
-ms.openlocfilehash: 153c28dc8a06968dc9dd3cfda021496672a094d5
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: eeaef8851035bbb8d2f39bcf9f366118545fcf0f
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076557"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044472"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Como monitorar a disponibilidade do cluster com os logs do Ambari e do Azure Monitor
 
@@ -26,7 +26,7 @@ Este documento mostra como usar essas ferramentas para monitorar o cluster e per
 
 ### <a name="dashboard"></a>Dashboard
 
-O painel do Ambari pode ser acessado clicando no link do **Ambari Home** na seção **painéis do cluster** da folha de visão geral do HDInsight em portal do Azure, conforme mostrado abaixo. Como alternativa, ele pode ser acessado digitando a seguinte URL em um navegador [\<https://\>ClusterName. azurehdinsight.net](https://clustername.azurehdinsight.net/)
+O painel do Ambari pode ser acessado clicando no link do **Ambari Home** na seção **painéis do cluster** da folha de visão geral do HDInsight em portal do Azure, conforme mostrado abaixo. Como alternativa, ele pode ser acessado digitando a seguinte URL em um navegador [https://\<clustername\>. azurehdinsight.net](https://clustername.azurehdinsight.net/)
 
 ![Exibição do portal de recursos do HDInsight](media/hdinsight-cluster-availability/portal-oms-overview1.png)
 
@@ -58,7 +58,7 @@ Para exibir uma lista de definições de alerta e seus status, clique na guia **
 
 O Ambari oferece muitos alertas predefinidos relacionados à disponibilidade, incluindo:
 
-| Nome do Alerta                        | Descrição                                                                                                                                                                           |
+| Nome do alerta                        | Descrição                                                                                                                                                                           |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Resumo de integridade do datanode           | Esse alerta de nível de serviço é disparado se houver datanodes não íntegros                                                                                                                |
 | Integridade de alta disponibilidade do NameNode | Esse alerta de nível de serviço será disparado se o NameNode ativo ou o NameNode em espera não estiverem em execução.                                                                              |
@@ -77,13 +77,13 @@ Aqui, você pode editar a descrição e, o mais importante, o intervalo de verif
 
 Neste exemplo, você pode fazer com que dois datanodes não íntegros disparem um alerta crítico e um datanode não íntegro só dispare um aviso. Clique em **salvar** quando terminar de editar.
 
-### <a name="email-notifications"></a>Notificações de e-mail
+### <a name="email-notifications"></a>Notificações por e-mail
 
 Opcionalmente, você também pode configurar notificações por email para alertas do Ambari. Para fazer isso, na guia **alertas** , clique no botão **ações** no canto superior esquerdo e, em seguida, em **gerenciar notificações.**
 
 ![Ação de gerenciar notificações do Ambari](media/hdinsight-cluster-availability/ambari-manage-notifications.png)
 
-Será aberta uma caixa de diálogo para gerenciar notificações de alerta. **+** Clique na parte inferior da caixa de diálogo e preencha os campos necessários para fornecer Ambari com detalhes do servidor de email do qual enviar emails.
+Será aberta uma caixa de diálogo para gerenciar notificações de alerta. Clique na **+** na parte inferior da caixa de diálogo e preencha os campos necessários para fornecer Ambari com detalhes do servidor de email do qual enviar emails.
 
 > [!TIP]
 > A configuração de notificações por email do Ambari pode ser uma boa maneira de receber alertas em um único lugar ao gerenciar vários clusters HDInsight.
@@ -92,7 +92,7 @@ Será aberta uma caixa de diálogo para gerenciar notificações de alerta. **+*
 
 Os logs de Azure Monitor permitem que os dados gerados por vários recursos, como clusters HDInsight, sejam coletados e agregados em um único local para alcançar uma experiência de monitoramento unificada.
 
-Como pré-requisito, você precisará de um espaço de trabalho Log Analytics para armazenar os dados coletados. Se você ainda não criou uma, você pode seguir as instruções aqui: [Crie um espaço de trabalho log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+Como pré-requisito, você precisará de um espaço de trabalho Log Analytics para armazenar os dados coletados. Se você ainda não criou uma, você pode seguir as instruções aqui: [criar um log Analytics espaço de trabalho](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
 ### <a name="enable-hdinsight-azure-monitor-logs-integration"></a>Habilitar a integração de logs de Azure Monitor do HDInsight
 
@@ -123,7 +123,7 @@ Por exemplo, execute a consulta de exemplo **taxa de disponibilidade** clicando 
 > [!NOTE] 
 > A taxa de disponibilidade é medida em um período de 24 horas, portanto, o cluster precisará ser executado por pelo menos 24 horas antes de você ver taxas de disponibilidade precisas.
 
-Você pode fixar essa tabela em um painel compartilhado clicando em **fixar** no canto superior direito. Se você não tiver nenhum Dashboard compartilhado gravável, poderá ver como criar um aqui: [Crie e compartilhe painéis no portal do Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
+Você pode fixar essa tabela em um painel compartilhado clicando em **fixar** no canto superior direito. Se você não tiver nenhum Dashboard compartilhado gravável, poderá ver como criar um aqui: [criar e compartilhar painéis no portal do Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
 
 ### <a name="azure-monitor-alerts"></a>Alertas de Azure Monitor
 
@@ -147,7 +147,7 @@ Isso abrirá a folha **Configurar lógica de sinal** .
 
 Defina a seção de **lógica de alerta** da seguinte maneira:
 
-*Com base em: Número de resultados, condição: Maior que, limite: 0.*
+*Com base em: número de resultados, condição: maior que, limite: 0.*
 
 Como essa consulta só retorna nós indisponíveis como resultados, se o número de resultados for maior que 0, o alerta deverá ser acionado.
 
@@ -192,5 +192,5 @@ Clicar em um agrupamento de severidade (ou seja **, Sev 1,** como destacado acim
 
 ![Log Analytics espaço de trabalho Sev 1 alertas](media/hdinsight-cluster-availability/portal-oms-alerts-sev1.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Disponibilidade e confiabilidade de clusters de Apache Hadoop no HDInsight](hdinsight-high-availability-linux.md)

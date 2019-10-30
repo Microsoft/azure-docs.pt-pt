@@ -12,12 +12,12 @@ ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.openlocfilehash: 6e5a8eda3891b3b356e0cbd7b6d2e22e4a70c278
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 4fc20c4b1314d953ea979192c81b2c264292d3af
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799718"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041971"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Chamar, disparar ou aninhar aplicativos lógicos usando pontos de extremidade HTTP em aplicativos lógicos do Azure
 
@@ -62,7 +62,7 @@ Para criar um ponto de extremidade HTTP, adicione um gatilho que possa receber s
     }
     ```
 
-   ![Adicionar a ação de solicitação](./media/logic-apps-http-endpoint/manualtrigger.png)
+   ![Fornecer o esquema JSON para a ação de solicitação](./media/logic-apps-http-endpoint/manual-request-trigger-schema.png)
 
    > [!TIP]
    >
@@ -95,7 +95,7 @@ Para criar um ponto de extremidade HTTP, adicione um gatilho que possa receber s
 
    Essa URL contém uma chave de assinatura de acesso compartilhado (SAS) nos parâmetros de consulta que são usados para autenticação. Você também pode obter a URL de ponto de extremidade HTTP de sua visão geral do aplicativo lógico no portal do Azure. Em **histórico de gatilho**, selecione seu gatilho:
 
-   ![Obter URL de ponto de extremidade HTTP de portal do Azure](./media/logic-apps-http-endpoint/manualtriggerurl.png)
+   ![Obter URL de ponto de extremidade HTTP de portal do Azure](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
    Ou você pode obter a URL fazendo esta chamada:
 
@@ -117,7 +117,7 @@ Por padrão, o gatilho de **solicitação** espera uma solicitação HTTP post, 
    > [!NOTE]
    > Você pode selecionar qualquer outro método HTTP ou especificar um método personalizado para seu próprio aplicativo lógico.
 
-   ![Alterar método HTTP](./media/logic-apps-http-endpoint/change-method.png)
+   ![Selecione o método HTTP a ser usado para a solicitação](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
 
 ## <a name="accept-parameters-through-your-http-endpoint-url"></a>Aceitar parâmetros por meio da URL do ponto de extremidade HTTP
 
@@ -132,7 +132,7 @@ Quando desejar que a URL do ponto de extremidade HTTP aceite parâmetros, person
 
 3. Em **caminho relativo**, especifique o caminho relativo para o parâmetro que a URL deve aceitar, por exemplo, `customers/{customerID}`.
 
-   ![Especifique o método HTTP e o caminho relativo para o parâmetro](./media/logic-apps-http-endpoint/relativeurl.png)
+   ![Especifique o método HTTP e o caminho relativo para o parâmetro](./media/logic-apps-http-endpoint/relative-path-url-value.png)
 
 4. Para usar o parâmetro, adicione uma ação de **resposta** ao seu aplicativo lógico. (Em seu gatilho, escolha **nova etapa**  > **adicionar uma ação**  > **resposta**) 
 
@@ -140,11 +140,11 @@ Quando desejar que a URL do ponto de extremidade HTTP aceite parâmetros, person
 
    Por exemplo, para retornar `Hello {customerID}`, atualize o **corpo** da resposta com `Hello {customerID token}`. A lista de conteúdo dinâmico deve aparecer e mostrar o token `customerID` para você selecionar.
 
-   ![Adicionar parâmetro ao corpo da resposta](./media/logic-apps-http-endpoint/relativeurlresponse.png)
+   ![Adicionar parâmetro ao corpo da resposta](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
 
    Seu **corpo** deve ser semelhante a este exemplo:
 
-   ![Corpo da resposta com parâmetro](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
+   ![Exemplo de corpo de resposta com parâmetro](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
 
 6. Guarde a aplicação lógica. 
 
@@ -194,7 +194,7 @@ Aqui está o esquema JSON completo:
 
 Você pode aninhar fluxos de trabalho em seu aplicativo lógico adicionando outros aplicativos lógicos que podem receber solicitações. Para incluir esses aplicativos lógicos, adicione os **aplicativos lógicos do Azure-escolha uma ação de fluxo de trabalho de aplicativos lógicos** para seu gatilho. Em seguida, você pode selecionar aplicativos lógicos qualificados.
 
-![Adicionar outro aplicativo lógico](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
+![Aninhar aplicativo lógico dentro do aplicativo lógico atual](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
 ## <a name="call-or-trigger-logic-apps-through-http-endpoints"></a>Chamar ou disparar aplicativos lógicos por meio de pontos de extremidade HTTP
 
@@ -233,7 +233,7 @@ Talvez você queira responder a determinadas solicitações que iniciam um aplic
 
 Você pode incluir mais de um cabeçalho e qualquer tipo de conteúdo no corpo da resposta. Na resposta de exemplo, o cabeçalho especifica que a resposta tem o tipo de conteúdo `application/json`. e o corpo contém `title` e `name`, com base no esquema JSON atualizado anteriormente para o gatilho de **solicitação** .
 
-![Ação de resposta HTTP](./media/logic-apps-http-endpoint/response.png)
+![Fornecer conteúdo de resposta para ação de resposta HTTP](./media/logic-apps-http-endpoint/content-for-response-action.png)
 
 As respostas têm estas propriedades:
 

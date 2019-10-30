@@ -1,6 +1,6 @@
 ---
-title: Carregar dados para ambientes de armazenamento do Azure - Team Data Science Process
-description: Mover dados de e para o Armazenamento de Blobs do Azure
+title: Carregar dados em ambientes de armazenamento do Azure-processo de ciência de dados de equipe
+description: Saiba mais sobre como ingerir dados em vários ambientes de destino nos quais os dados são armazenados e processados.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,24 +11,24 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 56c45bf6db79ded64574a44399712951e82c1c3e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 515decfafe46ad0c1b5b90743688abc26a975903
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303592"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053265"
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>Carregar dados para ambientes de armazenamento para análise
 
-O processo de ciência de dados de equipa exige que o dados ser ingeridos ou carregados para uma variedade de ambientes de armazenamento diferentes a serem processados ou analisados da forma mais adequada em cada fase do processo. Destinos de dados utilizados frequentemente para processamento incluem armazenamento de Blobs do Azure, bases de dados do SQL Azure, SQL Server em VM do Azure, o HDInsight (Hadoop) e o Azure Machine Learning. 
+O processo de ciência de dados de equipe exige que os dados sejam ingeridos ou carregados em uma variedade de diferentes ambientes de armazenamento para serem processados ou analisados da maneira mais apropriada em cada estágio do processo. Os destinos de dados geralmente usados para processamento incluem armazenamento de BLOBs do Azure, SQL Azure bancos de dados, SQL Server na VM do Azure, HDInsight (Hadoop) e Azure Machine Learning. 
 
-Os seguintes artigos descrevem como a ingestão de dados em vários ambientes de destino onde os dados são armazenados e processados.
+Os artigos a seguir descrevem como ingerir dados em vários ambientes de destino nos quais os dados são armazenados e processados.
 
-* De/para [armazenamento de Blobs do Azure](move-azure-blob.md)
-* Para [SQL Server numa VM do Azure](move-sql-server-virtual-machine.md)
-* Para [base de dados SQL do Azure](move-sql-azure.md)
-* Para [tabelas do Hive](move-hive-tables.md)
+* De/para o [armazenamento de BLOBs do Azure](move-azure-blob.md)
+* Para [SQL Server na VM do Azure](move-sql-server-virtual-machine.md)
+* Para o [banco de dados SQL do Azure](move-sql-azure.md)
+* Para [tabelas do hive](move-hive-tables.md)
 * Para [tabelas particionadas do SQL](parallel-load-sql-partitioned-tables.md)
-* De [no local do SQL Server](move-sql-azure-adf.md)
+* Do [SQL Server local](move-sql-azure-adf.md)
 
-Técnica e necessidades de negócio, bem como a localização inicial, formate e tamanho de seus dados irá determinar os ambientes de destino no qual os dados têm de ser ingeridos para atingir as metas da sua análise. Não é incomum para um cenário de transferência de dados para ser movido entre vários ambientes para alcançar a variedade de tarefas necessárias para construir um modelo preditivo. Esta sequência de tarefas pode incluir, por exemplo, exploração de dados, processamento prévio de, limpeza, amostragem de baixo e preparação de modelos.
+As necessidades técnicas e de negócios, bem como o local inicial, o formato e o tamanho de seus dados, determinarão os ambientes de destino nos quais os dados precisam ser ingeridos para atingir as metas de sua análise. Não é incomum um cenário exigir que os dados sejam movidos entre vários ambientes para alcançar a variedade de tarefas necessárias para construir um modelo de previsão. Essa sequência de tarefas pode incluir, por exemplo, exploração de dados, pré-processamento, limpeza, redução de amostragem e treinamento de modelo.

@@ -1,19 +1,19 @@
 ---
-title: Migrar as máquinas no local para o Azure com o Azure Site Recovery | Microsoft Docs
+title: Migrar computadores locais para o Azure com Azure Site Recovery
 description: Este artigo descreve como migrar as máquinas no local para o Azure, com o Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 10/29/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7534313a5862ececf4757be807e59b6df39f6430
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 5fa0f05f37164c24ba6441d0c4cb2abc59f331d7
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873356"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053055"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrar máquinas no local para o Azure
 
@@ -26,14 +26,13 @@ Este tutorial mostra como migrar VMs no local e servidores físicos para o Azure
 > [!div class="checklist"]
 > * Configurar o ambiente de origem e de destino para migração
 > * Configurar uma política de replicação
-> * Ativar replicação
+> * Ativar a replicação
 > * Executar uma migração de teste para confirmar que está tudo a funcionar conforme o previsto
 > * Executar uma ativação pós-falha única para o Azure
 
 
 > [!TIP]
-> O serviço de migrações para Azure agora está oferecendo uma visualização para uma nova experiência sem agente para migrar VMs VMware para o Azure. [Saiba mais](https://aka.ms/migrateVMs-signup).
-
+> Agora você pode migrar servidores locais para o Azure usando o serviço migrações para Azure. [Saiba mais](../migrate/migrate-services-overview.md)
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -52,9 +51,9 @@ Selecione o que pretende replicar e para onde.
 1. Clique em **Cofres dos Serviços de Recuperação** > cofre.
 2. No Menu de Recursos, clique em **Site Recovery** > **Preparar Infraestrutura** > **Objetivo de proteção**.
 3. Em **Objetivo de proteção**, selecione o que pretende migrar.
-    - **VMware**: Selecione **para o Azure** > **Sim, com o hipervisor do VMware vSphere**.
-    - **Computador físico**: Selecione **para o Azure** > **não virtualizado/outro**.
-    - **Hyper-V**: Selecione **para o Azure** > **Sim, com o Hyper-V**. Se as VMs de Hyper-V forem geridas pelo VMM, selecione **Sim**.
+    - **VMware**: selecione **Para o Azure** > **Sim, com o VMware vSphere Hypervisor**.
+    - **Computador físico**: selecione **Para o Azure** > **Não virtualizado/Outro**.
+    - **Hyper-V**: selecione **Para o Azure** > **Sim, com o Hyper-V**. Se as VMs de Hyper-V forem geridas pelo VMM, selecione **Sim**.
 
 
 ## <a name="set-up-the-source-environment"></a>Configurar o ambiente de origem
@@ -62,7 +61,7 @@ Selecione o que pretende replicar e para onde.
 **Cenário** | **Detalhes**
 --- | --- 
 VMware | Configure o [ambiente de origem](vmware-azure-set-up-source.md)e configure o servidor de [configuração](vmware-azure-deploy-configuration-server.md).
-Máquina física | [Configure](physical-azure-set-up-source.md) o ambiente de origem e o servidor de configuração.
+Computador físico | [Configure](physical-azure-set-up-source.md) o ambiente de origem e o servidor de configuração.
 Hyper-V | Configurar o [ambiente de origem](hyper-v-azure-tutorial.md#set-up-the-source-environment)<br/><br/> Configure o [ambiente de origem](hyper-v-vmm-azure-tutorial.md#set-up-the-source-environment) para o Hyper-V implantado com o System Center VMM.
 
 ## <a name="set-up-the-target-environment"></a>Configurar o ambiente de destino
@@ -81,15 +80,15 @@ Selecione e verifique os recursos de destino.
 **Cenário** | **Detalhes**
 --- | --- 
 VMware | Configure uma [política de replicação](vmware-azure-set-up-replication.md) para VMs VMware.
-Máquina física | Configure uma [política de replicação](physical-azure-disaster-recovery.md#create-a-replication-policy) para computadores físicos.
+Computador físico | Configure uma [política de replicação](physical-azure-disaster-recovery.md#create-a-replication-policy) para computadores físicos.
 Hyper-V | Configurar uma [política de replicação](hyper-v-azure-tutorial.md#set-up-a-replication-policy)<br/><br/> Configure uma [política de replicação](hyper-v-vmm-azure-tutorial.md#set-up-a-replication-policy) para o Hyper-V implantada com o System Center VMM.
 
-## <a name="enable-replication"></a>Ativar replicação
+## <a name="enable-replication"></a>Ativar a replicação
 
 **Cenário** | **Detalhes**
 --- | --- 
 VMware | [Ative a replicação](vmware-azure-enable-replication.md) para as VMs VMware.
-Máquina física | [Habilite a replicação](physical-azure-disaster-recovery.md#enable-replication) para computadores físicos.
+Computador físico | [Habilite a replicação](physical-azure-disaster-recovery.md#enable-replication) para computadores físicos.
 Hyper-V | [Ativar replicação](hyper-v-azure-tutorial.md#enable-replication)<br/><br/> [Habilite a replicação](hyper-v-vmm-azure-tutorial.md#enable-replication) para o Hyper-V implantado com o System Center VMM.
 
 
@@ -112,11 +111,11 @@ Execute a ativação pós-falha nos computadores que quer migrar.
    - Conclui o processo de migração, interrompe a replicação para a VM local e interrompe Site Recovery cobrança para a VM.
    - Esta etapa limpa os dados de replicação. Ele não exclui as VMs migradas.
 
-     ![Concluir migração](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
+     ![Concluir a migração](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 
 
 > [!WARNING]
-> **Não cancelar um failover em andamento**: A replicação da VM é interrompida antes do início do failover. Se cancelar uma ativação pós-falha que esteja em curso, a mesma para, mas a VM não será replicada outra vez.
+> **Não cancele uma ativação pós-falha em curso**: antes do início da ativação pós-falha, a replicação da VM é parada. Se cancelar uma ativação pós-falha que esteja em curso, a mesma para, mas a VM não será replicada outra vez.
 
 Em alguns cenários, a ativação pós-falha requer processamento adicional, que demora cerca de oito a dez minutos a concluir. Você pode notar tempos de failover de teste mais longos para servidores físicos, máquinas VMware Linux, VMs VMware que não têm o serviço DHCP habilitado e VMs VMware que não têm os seguintes drivers de inicialização: storvsc, VMBus, storflt, intelide, ATAPI.
 
@@ -159,7 +158,7 @@ Alguns passos podem ser automatizados como parte do processo de migração atrav
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, migrou VMs no local para VMs do Azure. Agora
+Neste tutorial, migrou VMs no local para VMs do Azure. seguida
 
 > [!div class="nextstepaction"]
 > [Configure a recuperação de desastre](azure-to-azure-replicate-after-migration.md) para uma região secundária do Azure para as VMs do Azure.

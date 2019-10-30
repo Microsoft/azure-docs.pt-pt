@@ -1,5 +1,5 @@
 ---
-title: Apache Spark dados de Apache Kafka para Azure Cosmos DB-Azure HDInsight
+title: Apache Spark & Apache Kafka com Cosmos DB-Azure HDInsight
 description: Saiba como usar Apache Spark streaming estruturado para ler dados de Apache Kafka e, em seguida, armazená-los em Azure Cosmos DB. Neste exemplo, vai transmitir dados através de um bloco de notas Jupyter do Spark no HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0d8c6929705ab29ced25a847bf7c5a72d57aa49b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: faae65c6664123bd673711674a36edc928c74278
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037279"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044896"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Use Apache Spark streaming estruturado com Apache Kafka e Azure Cosmos DB
 
@@ -69,28 +69,28 @@ Embora você possa criar uma rede virtual do Azure, os clusters Kafka e Spark ma
 
     ![Valores de implantação personalizada do HDInsight](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
 
-    * **Subscrição**: Selecione a sua subscrição do Azure.
+    * **Subscrição**: selecione a sua subscrição do Azure.
 
     * **Grupo de recursos**: Crie um grupo ou selecione um existente. Esse grupo contém o cluster HDInsight.
 
-    * **Local**: Selecione um local geograficamente perto de você.
+    * **Local**: selecione um local geograficamente perto de você.
 
-    * **Nome da conta de Cosmos DB**: Esse valor é usado como o nome da conta de Cosmos DB.
+    * **Nome da conta de Cosmos DB**: esse valor é usado como o nome da conta de Cosmos DB.
 
-    * **Nome do cluster de base**: Esse valor é usado como o nome de base para os clusters Spark e Kafka. Por exemplo, a inserção de **myhdi** cria um cluster Spark chamado __Spark-myhdi__ e um cluster Kafka chamado **Kafka-myhdi**.
+    * **Nome do cluster de base**: esse valor é usado como o nome de base para os clusters Spark e Kafka. Por exemplo, a inserção de **myhdi** cria um cluster Spark chamado __Spark-myhdi__ e um cluster Kafka chamado **Kafka-myhdi**.
 
-    * **Versão do cluster**: A versão do cluster HDInsight.
+    * **Versão do cluster**: a versão do cluster HDInsight.
 
         > [!IMPORTANT]  
         > Este exemplo é testado com o HDInsight 3,6 e pode não funcionar com outros tipos de cluster.
 
-    * **Nome de usuário de logon do cluster**: O nome de usuário do administrador para os clusters Spark e Kafka.
+    * **Nome de usuário de logon do cluster**: o nome de usuário do administrador para os clusters Spark e Kafka.
 
-    * **Senha de logon do cluster**: A senha de usuário do administrador para os clusters Spark e Kafka.
+    * **Senha de logon do cluster**: a senha de usuário do administrador para os clusters Spark e Kafka.
 
-    * **Nome de usuário SSH**: O usuário SSH a ser criado para os clusters Spark e Kafka.
+    * **Nome de usuário SSH**: o usuário SSH a ser criado para os clusters Spark e Kafka.
 
-    * **Senha ssh**: A senha para o usuário SSH para os clusters Spark e Kafka.
+    * **Senha ssh**: a senha para o usuário SSH para os clusters Spark e Kafka.
 
 3. Leia os **Termos e Condições** e selecione **Aceito os temos e as condições apresentados acima**.
 
@@ -103,7 +103,7 @@ Embora você possa criar uma rede virtual do Azure, os clusters Kafka e Spark ma
 
 O projeto usado neste documento armazena dados no Cosmos DB. Antes de executar o código, você deve primeiro criar um _banco de dados_ e uma _coleção_ em sua instância de Cosmos DB. Você também deve recuperar o ponto de extremidade do documento e a _chave_ usada para autenticar solicitações para Cosmos DB. 
 
-Uma maneira de fazer isso é usar o [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). O script a seguir criará um banco `kafkadata` de dados chamado e `kafkacollection`uma coleção chamada. Em seguida, ele retorna a chave primária.
+Uma maneira de fazer isso é usar o [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). O script a seguir criará um banco de dados chamado `kafkadata` e uma coleção chamada `kafkacollection`. Em seguida, ele retorna a chave primária.
 
 ```azurecli
 #!/bin/bash
@@ -158,7 +158,7 @@ $brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
 ```
 
 > [!NOTE]  
-> O exemplo de bash `$CLUSTERNAME` espera conter o nome do cluster Kafka.
+> O exemplo bash espera que `$CLUSTERNAME` contenha o nome do cluster Kafka.
 >
 > Este exemplo usa o utilitário [JQ](https://stedolan.github.io/jq/) para analisar dados fora do documento JSON.
 
@@ -202,7 +202,7 @@ Depois que os arquivos tiverem sido carregados, selecione a entrada __Stream-tá
 
 Na home page de [Jupyter Notebook](https://jupyter.org/) , selecione a entrada __Stream-Data-from-Kafka-to-Cosmos-DB. ipynb__ . Siga as etapas no bloco de anotações para transmitir dados do Kafka e para Azure Cosmos DB usando o streaming estruturado do Spark.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você aprendeu a usar Apache Spark streaming estruturado, consulte os documentos a seguir para saber mais sobre como trabalhar com Apache Spark, Apache Kafka e Azure Cosmos DB:
 

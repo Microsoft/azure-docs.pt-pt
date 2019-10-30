@@ -1,6 +1,6 @@
 ---
-title: Explorar os dados numa máquina virtual do SQL Server - Team Data Science Process
-description: Explorar dados e gerar recursos numa máquina virtual do SQL Server no Azure
+title: Explorar dados em um SQL Server máquina virtual-processo de ciência de dados da equipe
+description: Explore + processar dados e gerar recursos usando o Python ou o SQL em uma máquina virtual SQL Server no Azure.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,91 +11,91 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e407b26091ad559ab458f76d94e2460660ecd14f
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 877c639c35378b173b6ec9c8697725e3b3c09290
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036601"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053620"
 ---
-# <a name="heading"></a>Processamento de dados na máquina de Virtual do SQL Server no Azure
-Este documento aborda como explorar dados e gerar características para dados armazenados numa VM do SQL Server no Azure. Isso pode ser feito de preparação de dados com o SQL ou com uma linguagem de programação, como o Python.
+# <a name="heading"></a>Processar dados em SQL Server máquina virtual no Azure
+Este documento aborda como explorar dados e gerar recursos para dados armazenados em uma VM SQL Server no Azure. Isso pode ser feito por data Wrangling usando o SQL ou usando uma linguagem de programação como Python.
 
 > [!NOTE]
-> As instruções de SQL de exemplo neste documento partem do princípio de que os dados estão no SQL Server. Se não for, veja o mapa do processo de ciência dados na cloud para aprender a mover seus dados para o SQL Server.
+> As instruções SQL de exemplo neste documento pressupõem que os dados estão em SQL Server. Se não estiver, consulte o mapa do processo de ciência de dados de nuvem para saber como mover seus dados para SQL Server.
 > 
 > 
 
-## <a name="SQL"></a>Com o SQL
-Descrevemos as seguintes tarefas wrangling dados nesta secção com o SQL:
+## <a name="SQL"></a>Usando o SQL
+Descrevemos as seguintes tarefas de Wrangling de dados nesta seção usando SQL:
 
 1. [Exploração de dados](#sql-dataexploration)
-2. [Geração de funcionalidade](#sql-featuregen)
+2. [Geração de recursos](#sql-featuregen)
 
 ### <a name="sql-dataexploration"></a>Exploração de dados
-Aqui estão alguns scripts de SQL de exemplo que podem ser utilizadas para explorar os arquivos de dados no SQL Server.
+Aqui estão alguns scripts SQL de exemplo que podem ser usados para explorar armazenamentos de dados em SQL Server.
 
 > [!NOTE]
-> Para obter um exemplo prático, pode utilizar o [conjunto de dados de táxis de NYC](https://www.andresmh.com/nyctaxitrips/) e consulte IPNB intitulada [preparação de dados de NYC usando SQL Server e o IPython Notebook](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) para uma passo a passo-a-ponto.
+> Para obter um exemplo prático, você pode usar o conjunto de dados de [táxi NYC](https://www.andresmh.com/nyctaxitrips/) e consultar o IPNB intitulado [NYC data Wrangling usando o Notebook ipython e SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) para obter um passo a passo de ponta a ponta.
 > 
 > 
 
 1. Obter a contagem de observações por dia
    
     `SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)` 
-2. Obter os níveis numa coluna categórico
+2. Obter os níveis em uma coluna categórica
    
     `select  distinct <column_name> from <databasename>`
-3. Obter o número de níveis na combinação de duas colunas categóricas 
+3. Obter o número de níveis em combinação de duas colunas categóricas 
    
     `select <column_a>, <column_b>,count(*) from <tablename> group by <column_a>, <column_b>`
 4. Obter a distribuição para colunas numéricas
    
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 
-### <a name="sql-featuregen"></a>Geração de funcionalidade
-Nesta seção, descrevemos as formas de gerar recursos com o SQL:  
+### <a name="sql-featuregen"></a>Geração de recursos
+Nesta seção, descrevemos maneiras de gerar recursos usando o SQL:  
 
-1. [Geração de recursos com base de contagem](#sql-countfeature)
-2. [Discretização de funcionalidade de geração](#sql-binningfeature)
-3. [A implementar os recursos de uma única coluna](#sql-featurerollout)
+1. [Geração de recursos baseada em contagem](#sql-countfeature)
+2. [Geração de recursos compartimentalização](#sql-binningfeature)
+3. [Distribuir os recursos de uma única coluna](#sql-featurerollout)
 
 > [!NOTE]
-> Depois de gerar recursos adicionais, pode adicioná-los como colunas na tabela existente ou criar uma nova tabela com os recursos adicionais e a chave primária, que pode ser associado com a tabela original. 
+> Depois de gerar recursos adicionais, você pode adicioná-los como colunas à tabela existente ou criar uma nova tabela com os recursos adicionais e a chave primária, que podem ser unidas com a tabela original. 
 > 
 > 
 
-### <a name="sql-countfeature"></a>Geração de recursos com base de contagem
-Os exemplos seguintes demonstram as duas formas de gerar recursos de contagem. O primeiro método usa soma condicional e o segundo método utiliza a cláusula "where". Estes podem, em seguida, ser associadas com a tabela original (usando colunas de chave primária) para que a contagem de recursos em conjunto com os dados originais.
+### <a name="sql-countfeature"></a>Geração de recursos baseada em contagem
+Os exemplos a seguir demonstram duas maneiras de gerar recursos de contagem. O primeiro método usa Sum condicional e o segundo método usa a cláusula ' Where '. Em seguida, eles podem ser Unidos com a tabela original (usando colunas de chave primária) para ter recursos de contagem ao lado dos dados originais.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
 
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename> 
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2> 
 
-### <a name="sql-binningfeature"></a>Discretização de funcionalidade de geração
-O exemplo seguinte mostra como gerar recursos compartimentados por compartimentação (usando cinco discretizações), uma coluna numérica que pode ser utilizada como um recurso em vez disso:
+### <a name="sql-binningfeature"></a>Geração de recursos compartimentalização
+O exemplo a seguir mostra como gerar recursos de compartimentalizados por compartimentalização (usando cinco compartimentos) uma coluna numérica que pode ser usada como um recurso, em vez disso:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="sql-featurerollout"></a>A implementar os recursos de uma única coluna
-Nesta secção, vamos demonstrar como implementar uma única coluna numa tabela para gerar recursos adicionais. O exemplo parte do princípio de que existe uma coluna de latitude ou longitude na tabela a partir do qual está a tentar gerar recursos.
+### <a name="sql-featurerollout"></a>Distribuir os recursos de uma única coluna
+Nesta seção, demonstraremos como distribuir uma única coluna em uma tabela para gerar recursos adicionais. O exemplo supõe que haja uma coluna de latitude ou longitude na tabela da qual você está tentando gerar recursos.
 
-Eis um breve manual nos dados de localização de latitude/longitude (resourced do stackoverflow [como medir a precisão de latitude e longitude?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). Isto é útil compreender antes de featurizing o campo de localização:
+Aqui está uma breve linha de dados de localização de latitude/longitude (reoriginado de StackOverflow [como medir a precisão da latitude e longitude?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). Isso é útil para entender antes de destacar o campo de localização:
 
-* O início de sessão nos informa se estamos Norte ou sul, Leste ou oeste em todo o mundo.
-* Um centenas de diferentes de zero dígitos nos informam que estamos a utilizar longitude, latitude não!
-* As dezenas dígitos dá uma posição para cerca de 1.000 quilômetros. Ele nos dá informações úteis sobre o continente ou oceano estamos.
-* O dígito unidades (decimal um certo grau) fornece uma posição 111 quilômetros (60 milhas náuticas, cerca de 69 quilómetros). Ele pode lhe dizer aproximadamente que estado, país ou região em que você está.
-* A primeira casa decimal vale até 11.1 km: ele pode distinguir a posição de uma cidade grandes de uma cidade grandes vizinho.
-* A segunda casa decimal vale até 1.1 km: ele pode separar um village da seguinte.
-* A terceiro casa decimal, vale a pena m: até 110, poderá identificar um campo de agricultural grandes ou o campus institucional.
-* A quarta casa decimal, vale a pena m: até 11, poderá identificar um parcel da terra. É comparável da precisão típica de uma unidade GPS uncorrected com nenhuma interferência.
-* A quinta casa decimal, vale a pena m: até 1.1, que distingue árvores uns dos outros. Precisão para este nível com as unidades GPS comerciais só pode ser realizada com a correção diferencial.
-* A sexta casa decimal, vale a pena m: até 0.11, que pode utilizá-lo para disposição dos estruturas em detalhes, para a criação de cenários, a criação de estradas. Deve ser mais de bom o suficiente para movimentos de glaciers e rios de controlo. Isso pode ser conseguido ao tirar o trabalho árduo medidas com GPS, como GPS differentially corrigido.
+* O sinal nos informa se somos norte ou Sul, leste ou oeste do globo.
+* Um dígito de centenas diferente de zero indica que estamos usando a longitude, e não latitude!
+* O dígito de dezenas dá uma posição de cerca de 1.000 quilômetros. Ele nos fornece informações úteis sobre o continente ou o oceano em que estamos.
+* O dígito de unidades (um grau decimal) fornece uma posição de até 111 quilômetros (60 milhas náuticas, cerca de 69 milhas). Ele pode lhe dizer aproximadamente que estado, país ou região em que você está.
+* A primeira casa decimal vale até 11,1 km: ela pode distinguir a posição de uma grande cidade de uma grande cidade aproximada.
+* A segunda casa decimal vale até 1,1 km: ela pode separar um vila do próximo.
+* A terceira casa decimal vale até 110 m: ela pode identificar um grande campo agricultural ou um campus institucional.
+* A quarta casa decimal vale até 11 m: ela pode identificar um terreno. Ele é comparável à precisão típica de uma unidade GPS não corrigida sem interferência.
+* A quinta casa decimal vale até 1,1 m: ela distingue as árvores umas das outras. A precisão desse nível com unidades de GPS comercial só pode ser obtida com correção diferencial.
+* A sexta casa decimal vale até 0,11 m: você pode usá-la para dispor estruturas em detalhes, para criar cenários, criando estradas. Ele deve ser mais do que bom o suficiente para acompanhar os movimentos de geleiras e rios. Isso pode ser feito por meio de medidas criteriosas com GPS, como o GPS com uma diferença diferencial.
 
-As informações de localização podem ser caracterizadas como a seguir, separar região, a localização e informações de cidade. Tenha em atenção que também é possível chamar um ponto de final de REST, como disponível na API do mapas Bing [encontre uma localização pelo ponto](https://msdn.microsoft.com/library/ff701710.aspx) para obter as informações de região/distrito.
+As informações de local podem ser destacadosdas da seguinte maneira, separando a região, a localização e as informações de cidade. Observe que você também pode chamar um ponto de extremidade REST, como a API do Bing Maps, disponível em [localizar um local por ponto](https://msdn.microsoft.com/library/ff701710.aspx) para obter as informações de região/distrito.
 
     select 
         <location_columnname>
@@ -108,36 +108,36 @@ As informações de localização podem ser caracterizadas como a seguir, separa
         ,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end     
     from <tablename>
 
-Estas funcionalidades com base na localização podem servir-se ainda mais para gerar recursos adicionais de contagem, conforme descrito anteriormente. 
+Esses recursos baseados em local podem ser usados mais para gerar recursos de contagem adicionais, conforme descrito anteriormente. 
 
 > [!TIP]
-> Por meio de programação, pode inserir os registros usando a linguagem de sua escolha. Poderá ter de inserir os dados em segmentos para melhorar a eficiência de escrita (por exemplo de como fazer isso usando o pyodbc, veja [HelloWorld de um exemplo para acessar SQLServer com python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)). Outra alternativa é inserir dados no banco de dados com o [o utilitário BCP](https://msdn.microsoft.com/library/ms162802.aspx).
+> Você pode inserir os registros programaticamente usando o idioma de sua escolha. Talvez seja necessário inserir os dados em partes para melhorar a eficiência de gravação (para obter um exemplo de como fazer isso usando pyodbc, consulte [uma amostra HelloWorld para acessar o SqlServer com Python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)). Outra alternativa é inserir dados no banco de dado usando o [utilitário bcp](https://msdn.microsoft.com/library/ms162802.aspx).
 > 
 > 
 
-### <a name="sql-aml"></a>Ligar ao Azure Machine Learning
-A funcionalidade gerada recentemente pode ser adicionada como uma coluna para uma tabela existente ou armazenada numa nova tabela e associada com a tabela original para o machine learning. Os recursos podem ser gerados ou acessados se já tiverem sido criados, usando o módulo [importar dados][import-data] no Azure Machine Learning, conforme mostrado abaixo:
+### <a name="sql-aml"></a>Conectando-se ao Azure Machine Learning
+O recurso recém-gerado pode ser adicionado como uma coluna a uma tabela existente ou armazenado em uma nova tabela e Unido à tabela original para o aprendizado de máquina. Os recursos podem ser gerados ou acessados se já tiverem sido criados, usando o módulo [importar dados][import-data] no Azure Machine Learning, conforme mostrado abaixo:
 
 ![leitores do azureml][1] 
 
-## <a name="python"></a>Usando uma linguagem de programação, como o Python
-Com o Python para explorar dados e gerar recursos quando os dados estão no SQL Server é semelhante ao processamento de dados em BLOBs do Azure com Python, conforme documentado [dados de Blobs do Azure de processo no seu ambiente de ciência de dados](data-blob.md). Os dados tem de ser carregados a partir da base de dados num quadro de dados pandas e, em seguida, podem ser processados ainda mais. Iremos documentar o processo de ligar à base de dados e carregar os dados para o quadro de dados nesta secção.
+## <a name="python"></a>Usando uma linguagem de programação como Python
+Usar o Python para explorar dados e gerar recursos quando os dados estão em SQL Server é semelhante a processar dados no blob do Azure usando o Python, conforme documentado em [processar dados de blob do Azure em seu ambiente de ciência de dados](data-blob.md). Os dados precisam ser carregados a partir do banco de dados em um data frame do pandas e, em seguida, podem ser processados. Documentamos o processo de conexão com o banco de dados e o carregamento dos dados no quadro data nesta seção.
 
-O seguinte formato de cadeia de ligação pode ser utilizado para ligar a uma base de dados do SQL Server a partir de Python com pyodbc (substitua servername, dbname, nome de utilizador e palavra-passe com os seus valores específicos):
+O seguinte formato de cadeia de conexão pode ser usado para se conectar a um banco de dados SQL Server do Python usando pyodbc (substitua ServerName, dbname, username e password por seus valores específicos):
 
     #Set up the SQL Azure connection
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-O [biblioteca de Pandas](https://pandas.pydata.org/) Python fornece um conjunto avançado de estruturas de dados e ferramentas de análise de dados para manipulação de dados para a programação de Python. O código abaixo lê os resultados retornados de uma base de dados do SQL Server num quadro de dados Pandas:
+A [biblioteca pandas](https://pandas.pydata.org/) no Python fornece um rico conjunto de estruturas de dados e ferramentas de análise de dados para a manipulação de dados para a programação em Python. O código a seguir lê os resultados retornados de um banco de dados SQL Server em um quadro de dados pandas:
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 
-Agora, pode trabalhar com o quadro de dados Pandas como abordados no artigo [dados de Blobs do Azure de processo no seu ambiente de ciência de dados](data-blob.md).
+Agora você pode trabalhar com o quadro de dados pandas, conforme abordado no artigo [processar dados de blob do Azure em seu ambiente de ciência de dados](data-blob.md).
 
-## <a name="azure-data-science-in-action-example"></a>Ciência de dados do Azure no exemplo de ação
-Para obter um exemplo passo a passo-a-ponto o processo de ciência de dados do Azure com um conjunto de dados público, veja [processo de ciência de dados do Azure em ação](sql-walkthrough.md).
+## <a name="azure-data-science-in-action-example"></a>Exemplo de ciência de dados do Azure em ação
+Para obter um exemplo detalhado de ponta a ponta do processo de ciência de dados do Azure usando um conjunto de dados público, consulte [processo do Azure data Science em ação](sql-walkthrough.md).
 
 [1]: ./media/sql-server-virtual-machine/reader_db_featurizedinput.png
 

@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 10/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 190d697dca56fa51d92987f32db0146aa79881aa
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 808faaed76ff63d69feb8170eaac72021c7bd49d
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70162405"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042114"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gerenciar configurações de usuário com a autenticação multifator do Azure na nuvem
 
@@ -39,33 +39,9 @@ Como um administrador atribuiu a função de administrador de autenticação, vo
    - **Exigir o novo registro da MFA** fará com que, quando o usuário entrar na próxima vez, será solicitado a configurar um novo método de autenticação de MFA.
    - **Revogar sessões de MFA** limpa as sessões do MFA lembradas do usuário e exige que elas executem o MFA na próxima vez que ela for exigida pela política no dispositivo.
 
-## <a name="require-users-to-provide-contact-methods-again"></a>Exigir que os usuários forneçam métodos de contato novamente
-
-Essa configuração força o usuário a concluir o processo de registro novamente. Aplicativos sem navegador continuam a funcionar se o usuário tem senhas de aplicativo para eles.  Você pode excluir as senhas de aplicativo dos usuários selecionando também **excluir todas as senhas de aplicativo existentes geradas pelos usuários selecionados**.
-
-### <a name="how-to-require-users-to-provide-contact-methods-again"></a>Como exigir que os usuários forneçam métodos de contato novamente
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. À esquerda, selecione **Azure Active Directory**  > **usuários**  > **todos os usuários**.
-3. À direita, selecione **autenticação multifator** na barra de ferramentas. A página autenticação multifator é aberta.
-4. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida é exibida à direita.
-5. Selecione **gerenciar configurações do usuário**.
-6. Marque a caixa **exigir que os usuários selecionados forneçam métodos de contato novamente**.
-   ![Require que os usuários forneçam métodos de contato novamente ](./media/howto-mfa-userdevicesettings/reproofup.png)
-7. Clique em **Guardar**.
-8. Clique em **fechar**.
-
-As organizações podem concluir essas etapas com o PowerShell usando o seguinte como um guia para limpar o atributo `StrongAuthenticationMethods`:
-
-```PowerShell
-$Upn = "theuser@domain.com"
-$noMfaConfig = @()
-Set-MsolUser -UserPrincipalName $Upn -StrongAuthenticationMethods $noMfaConfig
-```
-
 ## <a name="delete-users-existing-app-passwords"></a>Excluir senhas de aplicativo de usuários existentes
 
-Essa configuração exclui todas as senhas de aplicativo que um usuário criou. Aplicativos sem navegador que estavam associados a essas senhas de aplicativo param de funcionar até que uma nova senha de aplicativo seja criada.
+Essa configuração exclui todas as senhas de aplicativo que um usuário criou. Aplicativos sem navegador que estavam associados a essas senhas de aplicativo param de funcionar até que uma nova senha de aplicativo seja criada. São necessárias permissões de administrador global para executar esta ação.
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>Como excluir senhas de aplicativo de usuários existentes
 
@@ -75,27 +51,7 @@ Essa configuração exclui todas as senhas de aplicativo que um usuário criou. 
 4. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida é exibida à direita.
 5. Selecione **gerenciar configurações do usuário**.
 6. Marque a caixa **excluir todas as senhas de aplicativo existentes geradas pelos usuários selecionados**.
-   ![Delete todas as senhas de aplicativo existentes ](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
-7. Clique em **Guardar**.
-8. Clique em **fechar**.
-
-## <a name="restore-mfa-on-all-remembered-devices-for-a-user"></a>Restaurar MFA em todos os dispositivos lembrados de um usuário
-
-Um dos recursos configuráveis da autenticação multifator do Azure é dar aos usuários a opção de marcar dispositivos como confiáveis. Para obter mais informações, consulte [definir as configurações de autenticação multifator do Azure](howto-mfa-mfasettings.md#remember-multi-factor-authentication).
-
-Os usuários podem recusar a verificação em duas etapas para um número configurável de dias em seus dispositivos regulares. Se uma conta for comprometida ou um dispositivo confiável for perdido, você precisará ser capaz de remover o status confiável e exigir a verificação em duas etapas novamente.
-
-Quando marcada, **restaure a autenticação multifator em todos os dispositivos lembrados** os usuários devem executar a verificação em duas etapas na próxima vez que entrarem, mesmo que tenham marcado seu dispositivo como confiável.
-
-### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Como restaurar o MFA em todos os dispositivos suspensos para um usuário
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. À esquerda, selecione **Azure Active Directory**  > **usuários**  > **todos os usuários**.
-3. À direita, selecione **autenticação multifator** na barra de ferramentas. A página autenticação multifator é aberta.
-4. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida é exibida à direita.
-5. Selecione **gerenciar configurações do usuário**.
-6. Marque a caixa para **restaurar a autenticação multifator em todos os dispositivos lembrados** 
-    ![Restore autenticação multifator em todos os dispositivos lembrados ](./media/howto-mfa-userdevicesettings/rememberdevices.png)
+   ![excluir todas as senhas de aplicativo existentes](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 7. Clique em **Guardar**.
 8. Clique em **fechar**.
 

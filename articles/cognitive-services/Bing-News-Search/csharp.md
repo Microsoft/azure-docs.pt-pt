@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Executar uma pesquisa de notícias C# com a API REST-pesquisa de notícias do Bing'
+title: 'Início rápido: executar uma pesquisa de C# notícias com a API REST-pesquisa de notícias do Bing'
 titleSuffix: Azure Cognitive Services
 description: Use este guia de início rápido para enviar uma solicitação para a API C#REST do pesquisa de notícias do Bing usando e receber uma resposta JSON.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 6/18/2019
+ms.date: 10/28/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: c6b050a9637046a8703dd7aaf1d5ac7f1ad1a5da
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 427cf87a8907482ae5346372c2997ce6e01084d0
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423791"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027099"
 ---
-# <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Início rápido: Pesquisar notícias usando C# o e a API REST do pesquisa de notícias do Bing
+# <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Início rápido: Pesquisar notícias usando C# e a API REST do pesquisa de notícias do Bing
 
 Use este guia de início rápido para fazer sua primeira chamada para a API de Pesquisa de Notícias do Bing e exibir a resposta JSON. Esse aplicativo C# simples envia uma consulta de pesquisa de notícias para a API e exibe a resposta. O código completo para esse exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingNewsSearchv7.cs).
 
@@ -32,7 +32,7 @@ Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Consulte também [preço de serviços cognitivas – API de pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
@@ -106,25 +106,6 @@ Crie um método com o nome `BingNewsSearch` para efetuar a chamada à API e defi
     return searchResult;
     ```
 
-3. Crie o objeto do resultado de pesquisa e extraia os cabeçalhos HTTP do Bing. Em seguida, devolva `searchResult`.
-
-    ```csharp
-    // Create the result object for return
-    var searchResult = new SearchResult()
-    {
-        jsonResult = json,
-        relevantHeaders = new Dictionary<String, String>()
-    };
-
-    // Extract Bing HTTP headers
-    foreach (String header in response.Headers)
-    {
-        if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
-            searchResult.relevantHeaders[header] = response.Headers[header];
-    }
-    return searchResult;
-    ```
-
 ## <a name="process-the-response"></a>Processar a resposta
 
 1. No método principal, chame `BingNewsSearch()` e armazene a resposta devolvida. Em seguida, anule a serialização do JSON para um objeto. Em seguida, você pode exibir os valores da resposta.
@@ -138,7 +119,7 @@ Crie um método com o nome `BingNewsSearch` para efetuar a chamada à API e defi
 
 ## <a name="json-response"></a>Resposta JSON
 
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 ```json
 {
@@ -231,7 +212,7 @@ Crie um método com o nome `BingNewsSearch` para efetuar a chamada à API e defi
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação Web de página única](tutorial-bing-news-search-single-page-app.md)

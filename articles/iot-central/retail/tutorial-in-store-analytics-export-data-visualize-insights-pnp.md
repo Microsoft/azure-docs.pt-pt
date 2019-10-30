@@ -10,12 +10,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 10/22/2019
-ms.openlocfilehash: b982956af276eaba31be52ba426562f9fc5137dd
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 057602e9a595f1cb76927810801bd87e4f124d31
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72956496"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73026384"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutorial: exportar dados do Azure IoT Central e visualizar informações no Power BI
 
@@ -33,7 +33,7 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial, precisa de:
 
-* Para concluir os dois tutoriais anteriores, [crie um aplicativo de análise no repositório no azure IOT central](./tutorial-in-store-analytics-create-app-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json) e [Personalize o painel do operador e gerencie os dispositivos na IOT central do Azure](./tutorial-in-store-analytics-customize-dashboard-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
+* Para concluir os dois tutoriais anteriores, [crie um aplicativo de análise no repositório no azure IOT central](./tutorial-in-store-analytics-create-app-pnp.md) e [Personalize o painel do operador e gerencie os dispositivos na IOT central do Azure](./tutorial-in-store-analytics-customize-dashboard-pnp.md).
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 * Uma conta do Power BI. Se você não tiver uma conta de Power BI, Inscreva-se para uma [avaliação gratuita Power bi pro](https://app.powerbi.com/signupredirect?pbi_source=web) antes de começar.
 
@@ -149,7 +149,7 @@ Agora você tem um terceiro conjunto de fluxos de transmissão que armazena valo
 
 Nessa solução, o aplicativo lógico lê a telemetria do hub de eventos, analisa os dados e, em seguida, envia-os para os Power BI conjuntos de dados de streaming que você criou.
 
-Antes de criar o aplicativo lógico, você precisa das IDs de dispositivo dos dois sensores RuuviTag conectados ao seu aplicativo IoT Central no tutorial [criar um aplicativo de análise na loja no Azure IOT central](./tutorial-in-store-analytics-create-app-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json) :
+Antes de criar o aplicativo lógico, você precisa das IDs de dispositivo dos dois sensores RuuviTag conectados ao seu aplicativo IoT Central no tutorial [criar um aplicativo de análise na loja no Azure IOT central](./tutorial-in-store-analytics-create-app-pnp.md) :
 
 1. Entre em sua **análise na loja-check-out** IOT central aplicativo.
 1. Selecione **dispositivos** no painel esquerdo. Em seguida, selecione **RuuviTag**.

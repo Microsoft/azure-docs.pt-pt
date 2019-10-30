@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: fd4eef9771ae89e330c99b398ad6d473356213f5
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: cbb4668ae87404771513ca5825482efe9206308d
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858541"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025009"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o gateway de aplicativo
 
@@ -22,7 +23,7 @@ Veja a seguir as perguntas comuns sobre Aplicativo Azure gateway.
 
 ## <a name="general"></a>Geral
 
-### <a name="what-is-application-gateway"></a>O que é o Gateway de Aplicação?
+### <a name="what-is-application-gateway"></a>O que é o Gateway da Aplicação?
 
 Aplicativo Azure Gateway fornece um ADC (controlador de entrega de aplicativos) como um serviço. Ele oferece vários recursos de balanceamento de carga de camada 7 para seus aplicativos. Esse serviço é altamente disponível, escalonável e totalmente gerenciado pelo Azure.
 
@@ -186,7 +187,7 @@ Consulte [ordem de regras de processamento](https://docs.microsoft.com/azure/app
 
 ### <a name="for-custom-probes-what-does-the-host-field-signify"></a>Para investigações personalizadas, o que o campo Host significa?
 
-O campo host especifica o nome para o qual enviar a investigação quando você configurou multissite no gateway de aplicativo. Caso contrário, use ' 127.0.0.1 '. Esse valor é diferente do nome de host da máquina virtual. Seu formato é \<Protocol\>://\<host\>:\<Port\>Path.\>\<
+O campo host especifica o nome para o qual enviar a investigação quando você configurou multissite no gateway de aplicativo. Caso contrário, use ' 127.0.0.1 '. Esse valor é diferente do nome de host da máquina virtual. Seu formato é \<protocolo\>://\<\>do host:\<porta\>\<caminho\>.
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Posso permitir o acesso do gateway de aplicativo a apenas alguns endereços IP de origem?
 
@@ -269,7 +270,7 @@ O gateway de aplicativo dá suporte a até 100 certificados SSL.
 
 ### <a name="how-many-authentication-certificates-for-backend-reencryption-does-application-gateway-support"></a>A quantos certificados de autenticação para recriptografia de back-end o gateway de aplicativo dá suporte?
 
-O gateway de aplicativo dá suporte a até 10 certificados de autenticação. O padrão é 5.
+O gateway de aplicativo dá suporte a até 100 certificados de autenticação.
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>O gateway de aplicativo integra-se nativamente com o Azure Key Vault?
 
@@ -333,15 +334,15 @@ Sim. Para obter detalhes, consulte [migrar aplicativo Azure gateway e firewall d
 
 O gateway de aplicativo fornece três logs: 
 
-* **ApplicationGatewayAccessLog**: O log de acesso contém cada solicitação enviada ao front-end do gateway de aplicativo. Os dados incluem o IP do chamador, a URL solicitada, a latência de resposta, o código de retorno e os bytes de entrada e saída. O log de acesso é coletado a cada 300 segundos. Ele contém um registro por gateway de aplicativo.
-* **ApplicationGatewayPerformanceLog**: O log de desempenho captura informações de desempenho para cada gateway de aplicativo. As informações incluem a taxa de transferência em bytes, total de solicitações atendidas, contagem de solicitações com falha e contagem de instâncias de back-end íntegras e não íntegras.
-* **ApplicationGatewayFirewallLog**: Para gateways de aplicativo que você configura com o WAF, o log do firewall contém solicitações que são registradas por meio do modo de detecção ou do modo de prevenção.
+* **ApplicationGatewayAccessLog**: o log de acesso contém cada solicitação enviada ao front-end do gateway de aplicativo. Os dados incluem o IP do chamador, a URL solicitada, a latência de resposta, o código de retorno e os bytes de entrada e saída. O log de acesso é coletado a cada 300 segundos. Ele contém um registro por gateway de aplicativo.
+* **ApplicationGatewayPerformanceLog**: o log de desempenho captura informações de desempenho para cada gateway de aplicativo. As informações incluem a taxa de transferência em bytes, total de solicitações atendidas, contagem de solicitações com falha e contagem de instâncias de back-end íntegras e não íntegras.
+* **ApplicationGatewayFirewallLog**: para gateways de aplicativo que você configura com o WAF, o log de firewall contém solicitações que são registradas por meio do modo de detecção ou do modo de prevenção.
 
 Para obter mais informações, consulte [integridade de back-end, logs de diagnóstico e métricas para o gateway de aplicativo](application-gateway-diagnostics.md).
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Como fazer saber se meus membros do pool de back-end estão íntegros?
 
-Verifique a integridade usando o cmdlet `Get-AzApplicationGatewayBackendHealth` do PowerShell ou o Portal. Para obter mais informações, consulte [diagnóstico do gateway de aplicativo](application-gateway-diagnostics.md).
+Verifique a integridade usando o cmdlet do PowerShell `Get-AzApplicationGatewayBackendHealth` ou o Portal. Para obter mais informações, consulte [diagnóstico do gateway de aplicativo](application-gateway-diagnostics.md).
 
 ### <a name="whats-the-retention-policy-for-the-diagnostic-logs"></a>Qual é a política de retenção para os logs de diagnóstico?
 
@@ -372,6 +373,6 @@ Sim. Se sua configuração corresponder ao cenário a seguir, você não verá o
 - Você tem um NSG na sub-rede do gateway de aplicativo
 - Você habilitou os logs de fluxo do NSG no NSG
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o gateway de aplicativo, consulte [o que é aplicativo Azure gateway?](overview.md).

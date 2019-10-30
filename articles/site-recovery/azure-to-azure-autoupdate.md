@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/24/2019
 ms.author: rajanaki
-ms.openlocfilehash: 79a11a58f11486f3eda0205e62e7a4a92ff070b2
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0a8f47e0eea8908fcf6aa11c694e09efef14bbf1
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933939"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053539"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do serviço de mobilidade na replicação do Azure para o Azure
 
@@ -31,7 +31,7 @@ Quando você usa Site Recovery para gerenciar atualizações, ele implanta um ru
 A agenda padrão do runbook se repete diariamente às 12:00 no fuso horário da área geográfica da VM replicada. Você também pode alterar o agendamento do runbook por meio da conta de automação.
 
 > [!NOTE]
-> A partir do pacote cumulativo de atualizações 35, você pode escolher uma conta de automação existente a ser usada para atualizações. Antes dessa atualização, Site Recovery criou essa conta por padrão. Essa opção está disponível quando você habilita a replicação para uma VM. Se você alterar a configuração, ela será aplicada a todas as VMs do Azure protegidas no mesmo cofre.
+> A partir do pacote cumulativo de atualizações 35, você pode escolher uma conta de automação existente a ser usada para atualizações. Antes dessa atualização, Site Recovery criou essa conta por padrão. Observe que você só pode selecionar essa opção quando habilitar a replicação para uma VM. Ele não está disponível para uma VM de replicação. A configuração que você selecionar será aplicada a todas as VMs do Azure protegidas no mesmo cofre.
  
 > Ativar as atualizações automáticas não exige uma reinicialização de suas VMs do Azure ou afeta a replicação em andamento.
 

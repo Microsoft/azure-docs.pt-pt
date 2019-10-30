@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dd8858786d59563542c95d43d4e480ab1c11383
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6ea0f9e07b476459824c8166781f549d788185ba
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933785"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024776"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurar a política de expiração para grupos do Office 365
 
@@ -28,7 +28,7 @@ Este artigo mostra como gerenciar o ciclo de vida dos grupos do Office 365 defin
 
 Depois de definir um grupo para expirar:
 
-- Grupos com atividades do usuário são renovados automaticamente à medida que a expiração é próxima (versão prévia)
+- Grupos com atividades do usuário são renovados automaticamente à medida que a expiração é próxima
 - Os proprietários do grupo são notificados para renovar o grupo, se o grupo não for renovado automaticamente
 - Qualquer grupo que não é renovado é excluído
 - Qualquer grupo do Office 365 excluído pode ser restaurado dentro de 30 dias por proprietários do grupo ou pelo administrador
@@ -40,7 +40,7 @@ No momento, apenas uma política de expiração pode ser configurada para todos 
 
 Para obter informações sobre como baixar e instalar os cmdlets do PowerShell do Azure AD, consulte [Azure Active Directory PowerShell for Graph 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
-## <a name="activity-based-automatic-renewal-preview"></a>Renovação automática baseada em atividade (versão prévia)
+## <a name="activity-based-automatic-renewal"></a>Renovação automática baseada em atividade
 
 Com o Azure AD Intelligence, os grupos agora são renovados automaticamente com base no uso recente. Esse recurso elimina a necessidade de ação manual por proprietários de grupo, pois ele baseia-se na atividade do usuário em grupos entre os serviços do Office 365, como Outlook, SharePoint, Teams ou Yammer. Por exemplo, se um proprietário ou um membro do grupo fizer algo como carregar um documento no SharePoint, visitar um canal de equipes ou enviar um email para o grupo no Outlook, o grupo será renovado automaticamente e o proprietário não receberá nenhuma notificação de renovação.
 

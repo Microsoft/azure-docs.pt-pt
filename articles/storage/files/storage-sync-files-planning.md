@@ -4,15 +4,15 @@ description: Saiba o que deve ser considerado ao planejar uma implantação de a
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 2/7/2019
+ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9c46181d5ab449d28c2e2e93cc583a3551f114bc
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 7dfd7e29b119b5fe98b649b2e5f5f45b422c4634
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061752"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053429"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
@@ -24,25 +24,25 @@ Este artigo descreve considerações importantes para uma implantação de Sincr
 ## <a name="azure-file-sync-terminology"></a>Terminologia Sincronização de Arquivos do Azure
 Antes de entrar nos detalhes do planejamento de uma implantação de Sincronização de Arquivos do Azure, é importante entender a terminologia.
 
-### <a name="storage-sync-service"></a>Serviço de Sincronização de Armazenamento
+### <a name="storage-sync-service"></a>Serviço de sincronização de armazenamento
 O serviço de sincronização de armazenamento é o recurso de nível superior do Azure para Sincronização de Arquivos do Azure. O recurso de serviço de sincronização de armazenamento é um par do recurso de conta de armazenamento e pode ser implantado da mesma forma em grupos de recursos do Azure. Um recurso de nível superior distinto do recurso de conta de armazenamento é necessário porque o serviço de sincronização de armazenamento pode criar relações de sincronização com várias contas de armazenamento por meio de vários grupos de sincronização. Uma assinatura pode ter vários recursos do serviço de sincronização de armazenamento implantados.
 
 ### <a name="sync-group"></a>Grupo de sincronização
 Os grupos de sincronização definem a topologia da sincronização para um conjunto de ficheiros. Os pontos finais num grupo de sincronização são mantidos em sincronia entre si. Se, por exemplo, você tiver dois conjuntos distintos de arquivos que deseja gerenciar com Sincronização de Arquivos do Azure, você criaria dois grupos de sincronização e adicionará pontos de extremidade diferentes a cada grupo de sincronização. Um serviço de sincronização de armazenamento pode hospedar quantos grupos de sincronização forem necessários.  
 
-### <a name="registered-server"></a>Servidor registado
+### <a name="registered-server"></a>Servidor registrado
 O objeto de servidor registrado representa uma relação de confiança entre seu servidor (ou cluster) e o serviço de sincronização de armazenamento. Você pode registrar quantos servidores desejar em uma instância do serviço de sincronização de armazenamento. No entanto, um servidor (ou cluster) pode ser registrado com apenas um serviço de sincronização de armazenamento por vez.
 
 ### <a name="azure-file-sync-agent"></a>Agente de Sincronização de Arquivos do Azure
 O agente do Azure File Sync é um pacote transferível que permite a sincronização do Windows Server com uma partilha de ficheiros do Azure. O agente de Sincronização de Arquivos do Azure tem três componentes principais: 
-- **FileSyncSvc.exe**: O serviço Windows em segundo plano que é responsável por monitorar alterações nos pontos de extremidade do servidor e para iniciar sessões de sincronização para o Azure.
-- **StorageSync.sys**: O filtro do sistema de arquivos Sincronização de Arquivos do Azure, que é responsável por enfileirar arquivos para arquivos do Azure (quando a disposição em camadas da nuvem está habilitada).
-- **Cmdlets de gerenciamento do PowerShell**: Cmdlets do PowerShell que você usa para interagir com o provedor de recursos do Azure Microsoft. StorageSync. Você pode encontrá-los nos seguintes locais (padrão):
+- **FileSyncSvc. exe**: o serviço Windows em segundo plano que é responsável por monitorar alterações nos pontos de extremidade do servidor e para iniciar sessões de sincronização para o Azure.
+- **StorageSync. sys**: o sincronização de arquivos do Azure filtro do sistema de arquivos, que é responsável por enfileirar arquivos para arquivos do Azure (quando a disposição em camadas da nuvem está habilitada).
+- **Cmdlets de gerenciamento do PowerShell**: cmdlets do PowerShell que você usa para interagir com o provedor de recursos do Azure Microsoft. StorageSync. Você pode encontrá-los nos seguintes locais (padrão):
     - C:\Arquivos de Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
-    - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
+    - C:\Arquivos de Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Ponto de extremidade do servidor
-Os pontos finais de servidor representam uma localização específica num servidor registado, como uma pasta num volume do servidor. Vários pontos de extremidade de servidor podem existir no mesmo volume se seus namespaces não se sobrepõem (por exemplo `F:\sync1` , `F:\sync2`e). Você pode configurar políticas de camadas de nuvem individualmente para cada ponto de extremidade do servidor. 
+Os pontos finais de servidor representam uma localização específica num servidor registado, como uma pasta num volume do servidor. Vários pontos de extremidade de servidor podem existir no mesmo volume se seus namespaces não se sobrepõem (por exemplo, `F:\sync1` e `F:\sync2`). Você pode configurar políticas de camadas de nuvem individualmente para cada ponto de extremidade do servidor. 
 
 Você pode criar um ponto de extremidade do servidor por meio de um mountpoint. Observe que montagem no ponto de extremidade do servidor são ignorados.  
 
@@ -71,7 +71,7 @@ Esta seção aborda Sincronização de Arquivos do Azure requisitos de sistema d
 ### <a name="evaluation-cmdlet"></a>Cmdlet de avaliação
 Antes de implantar Sincronização de Arquivos do Azure, você deve avaliar se ele é compatível com seu sistema usando o cmdlet de avaliação Sincronização de Arquivos do Azure. Esse cmdlet verifica possíveis problemas com o seu sistema de arquivos e conjunto de banco de arquivo, como caracteres sem suporte ou uma versão do sistema operacional sem suporte. Observe que suas verificações abordam a maioria dos recursos mencionados abaixo, mas não todos eles. Recomendamos que você leia o restante desta seção com cuidado para garantir que sua implantação seja tranqüila. 
 
-O cmdlet Evaluation pode ser instalado instalando o módulo AZ PowerShell, que pode ser instalado seguindo as instruções aqui: [Instalar e configurar Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+O cmdlet Evaluation pode ser instalado instalando o módulo AZ PowerShell, que pode ser instalado seguindo as instruções aqui: [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 #### <a name="usage"></a>Utilização  
 Você pode invocar a ferramenta de avaliação de algumas maneiras diferentes: você pode executar as verificações do sistema, o conjunto de pontos de verificação ou ambos. Para executar as verificações de sistema e de conjunto de pesquisa: 
@@ -97,13 +97,16 @@ Para exibir os resultados em CSV:
 ```
 
 ### <a name="system-requirements"></a>Requisitos de Sistema
-- Um servidor que executa o Windows Server 2012 R2, o Windows Server 2016 ou o Windows Server 2019:
+- Um servidor que executa uma das seguintes versões de sistema operacional:
 
-    | Version | SKUs com suporte | Opções de implantação com suporte |
+    | Versão | SKUs com suporte | Opções de implantação com suporte |
     |---------|----------------|------------------------------|
-    | Windows Server de 2019 | Datacenter e Standard | Completo e central |
+    | Windows Server 2019 | Datacenter e Standard | Completo e central |
     | Windows Server 2016 | Datacenter e Standard | Completo e central |
     | Windows Server 2012 R2 | Datacenter e Standard | Completo e central |
+    | Windows Server IoT 2019 para armazenamento| Datacenter e Standard | Completo e central |
+    | Windows Storage Server 2016| Datacenter e Standard | Completo e central |
+    | Windows Storage Server 2012 R2| Datacenter e Standard | Completo e central |
 
     As versões futuras do Windows Server serão adicionadas à medida que forem lançadas.
 
@@ -138,14 +141,14 @@ Para exibir os resultados em CSV:
 
 | Arquivo/pasta | Nota |
 |-|-|
-| Desktop.ini | Arquivo específico para o sistema |
-| ethumbs.db$ | Arquivo temporário para miniaturas |
-| ~$\*.\* | Arquivo temporário do Office |
-| \*.tmp | Arquivo temporário |
-| \*.laccdb | Acessar arquivo de bloqueio do BD|
+| Desktop. ini | Arquivo específico para o sistema |
+| ethumbs. DB $ | Arquivo temporário para miniaturas |
+| ~$ \*. \* | Arquivo temporário do Office |
+| \*. tmp | Arquivo temporário |
+| \*. laccdb | Acessar arquivo de bloqueio do BD|
 | 635D02A9D91C401B97884B82B3BCDAEA.* | Arquivo de sincronização interno|
-| \\Informações de volume do sistema | Pasta específica ao volume |
-| $RECYCLE.BIN| Pasta |
+| \\informações de volume do sistema | Pasta específica ao volume |
+| $RECYCLE. COMPARTIMENTO| Pasta |
 | \\SyncShareState | Pasta para sincronização |
 
 ### <a name="failover-clustering"></a>Clustering de failover
@@ -171,21 +174,21 @@ Para volumes que não têm camadas de nuvem habilitadas, o Sincronização de Ar
     - A política de espaço livre continuará a hierarquizar arquivos de acordo com o espaço livre no volume usando o calor.
     - A política de data ignorará a camada de arquivos que, de outra forma, podem ter sido elegíveis para camadas devido ao trabalho de otimização de eliminação de duplicação que acessa os arquivos.
 - Para trabalhos de otimização de eliminação de duplicação em andamento, as camadas de nuvem com a política de data serão atrasadas pela configuração [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) de eliminação de duplicação de dados, se o arquivo ainda não estiver em camadas. 
-    - Exemplo: Se a configuração de MinimumFileAgeDays for de 7 dias e a política de data de camadas de nuvem for de 30 dias, a política de data fará a camada dos arquivos após 37 dias.
-    - Nota: Quando um arquivo está em camadas por Sincronização de Arquivos do Azure, o trabalho de otimização de eliminação de duplicação ignorará o arquivo.
+    - Exemplo: se a configuração de MinimumFileAgeDays for de 7 dias e a política de data de camadas de nuvem for de 30 dias, a política de data fará a camada dos arquivos após 37 dias.
+    - Observação: quando um arquivo estiver em camadas por Sincronização de Arquivos do Azure, o trabalho de otimização de eliminação de duplicação ignorará o arquivo.
 - Se um servidor que executa o Windows Server 2012 R2 com o agente de Sincronização de Arquivos do Azure instalado for atualizado para o Windows Server 2016 ou o Windows Server 2019, as etapas a seguir deverão ser executadas para dar suporte à eliminação de duplicação de dados e à camada de nuvem no mesmo volume:  
     - Desinstale o agente de Sincronização de Arquivos do Azure para Windows Server 2012 R2 e reinicie o servidor.
     - Baixe o agente de Sincronização de Arquivos do Azure para a nova versão do sistema operacional do servidor (Windows Server 2016 ou Windows Server 2019).
     - Instale o agente de Sincronização de Arquivos do Azure e reinicie o servidor.  
     
-    Nota: As definições de configuração de Sincronização de Arquivos do Azure no servidor são mantidas quando o agente é desinstalado e reinstalado.
+    Observação: as definições de configuração do Sincronização de Arquivos do Azure no servidor são mantidas quando o agente é desinstalado e reinstalado.
 
 ### <a name="distributed-file-system-dfs"></a>Sistema de Arquivos Distribuído (DFS)
 O Sincronização de Arquivos do Azure dá suporte à interoperabilidade com namespaces DFS (DFS-N) e Replicação do DFS (DFS-R).
 
-**Namespaces DFS (DFS-N)** : O Sincronização de Arquivos do Azure tem suporte total em servidores DFS-N. Você pode instalar o agente de Sincronização de Arquivos do Azure em um ou mais membros do DFS-N para sincronizar dados entre os pontos de extremidade do servidor e o Endpoint da nuvem. Para obter mais informações, consulte [visão geral dos namespaces do DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
+**Namespaces DFS (DFS-n)** : há suporte total para sincronização de arquivos do Azure em servidores DFS-n. Você pode instalar o agente de Sincronização de Arquivos do Azure em um ou mais membros do DFS-N para sincronizar dados entre os pontos de extremidade do servidor e o Endpoint da nuvem. Para obter mais informações, consulte [visão geral dos namespaces do DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  
-**Replicação do DFS (DFS-R)** : Como o DFS-R e o Sincronização de Arquivos do Azure são soluções de replicação, na maioria dos casos, é recomendável substituir o DFS-R por Sincronização de Arquivos do Azure. No entanto, há vários cenários em que você desejaria usar o DFS-R e Sincronização de Arquivos do Azure juntos:
+**Replicação do DFS (DFS-r)** : como o DFS-r e sincronização de arquivos do Azure são soluções de replicação, na maioria dos casos, é recomendável substituir DFS-r por sincronização de arquivos do Azure. No entanto, há vários cenários em que você desejaria usar o DFS-R e Sincronização de Arquivos do Azure juntos:
 
 - Você está migrando de uma implantação do DFS-R para uma implantação Sincronização de Arquivos do Azure. Para obter mais informações, consulte [migrar uma implantação de replicação do DFS (DFS-R) para sincronização de arquivos do Azure](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
 - Nem todo servidor local que precisa de uma cópia dos dados do arquivo pode ser conectado diretamente à Internet.
@@ -238,43 +241,43 @@ Em geral, Sincronização de Arquivos do Azure deve dar suporte à interoperabil
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Outras soluções de HSM (gerenciamento de armazenamento hierárquico)
 Nenhuma outra solução HSM deve ser usada com Sincronização de Arquivos do Azure.
 
-## <a name="region-availability"></a>Disponibilidade de região
+## <a name="region-availability"></a>Disponibilidade regional
 Sincronização de Arquivos do Azure está disponível somente nas seguintes regiões:
 
 | Região | Localização do datacenter |
 |--------|---------------------|
 | Leste da Austrália | Nova Gales do Sul |
-| Sudeste da Austrália | Vitória |
+| Sudeste da Austrália | Victoria |
 | Sul do Brasil | Estado de São Paulo |
 | Canadá Central | Toronto |
 | Leste do Canadá | Cidade do Quebeque |
-| Índia Central | Pune |
-| EUA Central | Iowa |
-| Ásia Oriental | RAE de Hong Kong |
-| East US | Virginia |
-| E.U.A. Leste 2 | Virginia |
+| Centro da Índia | Pune |
+| Centro dos E.U.A. | Iowa |
+| Este Asiático | RAE de Hong Kong |
+| Este dos E.U.A. | Virgínia |
+| E.U.A. Leste 2 | Virgínia |
 | França Central | Paris |
 | Sul da França * | Marselha |
 | Coreia do Sul Central | Seul |
-| Coreia do Sul | Busan |
-| Leste do Japão | Tóquio, Saitama |
-| Oeste do Japão | Osaka |
-| EUA Centro-Norte | Illinois |
+| Sul da Coreia do Sul | Busan |
+| Este do Japão | Tóquio, Saitama |
+| Oeste do Japão | Osaca |
+| E.U.A. Centro-Norte | Illinois |
 | Europa do Norte | Irlanda |
 | Norte da África do Sul | Joanesburgo |
 | Oeste da África do Sul * | Cidade do Cabo |
-| EUA Centro-Sul | Texas |
+| E.U.A. Centro-Sul | Texas |
 | Sul da Índia | Chennai |
 | Sudeste Asiático | Singapura |
-| Reino Unido Sul | Londres |
-| Reino Unido Oeste | Cardiff |
-| Gov (US) - Arizona | Arizona |
+| Sul do Reino Unido | Londres |
+| Oeste do Reino Unido | Cardiff |
+| US Gov - Texas | Arizona |
 | Gov (US) - Texas | Texas |
-| Gov (US) - Virginia | Virginia |
+| Gov dos E.U.A. Virginia | Virgínia |
 | Europa Ocidental | Países Baixos |
-| EUA Centro-Oeste | Wyoming |
-| EUA Oeste | California |
-| EUA Oeste 2 | Washington |
+| E.U.A. Centro-Oeste | Wyoming |
+| Oeste dos E.U.A. | Califórnia |
+| E.U.A. Oeste 2 | Washington |
 
 Sincronização de Arquivos do Azure dá suporte à sincronização somente com um compartilhamento de arquivos do Azure que está na mesma região que o serviço de sincronização de armazenamento.
 
@@ -292,41 +295,41 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 |---------------------|--------------------|
 | Leste da Austrália      | Sudeste da Austrália|
 | Sudeste da Austrália | Leste da Austrália     |
-| Sul do Brasil        | EUA Centro-Sul   |
+| Sul do Brasil        | E.U.A. Centro-Sul   |
 | Canadá Central      | Leste do Canadá        |
 | Leste do Canadá         | Canadá Central     |
-| Índia Central       | Sul da Índia        |
-| EUA Central          | EUA Leste 2          |
-| Ásia Oriental           | Sudeste Asiático     |
-| East US             | EUA Oeste            |
-| EUA Leste 2           | EUA Central         |
+| Centro da Índia       | Sul da Índia        |
+| Centro dos E.U.A.          | Este dos E.U.A. 2          |
+| Este Asiático           | Sudeste Asiático     |
+| Este dos E.U.A.             | Oeste dos E.U.A.            |
+| Este dos E.U.A. 2           | Centro dos E.U.A.         |
 | França Central      | Sul de França       |
 | Sul de França        | França Central     |
-| Leste do Japão          | Oeste do Japão         |
-| Oeste do Japão          | Leste do Japão         |
-| Coreia do Sul Central       | Coreia do Sul        |
-| Coreia do Sul         | Coreia do Sul Central      |
+| Este do Japão          | Oeste do Japão         |
+| Oeste do Japão          | Este do Japão         |
+| Coreia do Sul Central       | Sul da Coreia do Sul        |
+| Sul da Coreia do Sul         | Coreia do Sul Central      |
 | Europa do Norte        | Europa Ocidental        |
-| EUA Centro-Norte    | EUA Centro-Sul   |
+| E.U.A. Centro-Norte    | E.U.A. Centro-Sul   |
 | Norte da África do Sul  | Oeste da África do Sul  |
 | Oeste da África do Sul   | Norte da África do Sul |
-| EUA Centro-Sul    | EUA Centro-Norte   |
-| Sul da Índia         | Índia Central      |
-| Sudeste Asiático      | Ásia Oriental          |
-| Reino Unido Sul            | Reino Unido Oeste            |
-| Reino Unido Oeste             | Reino Unido Sul           |
-| Gov (US) - Arizona      | Gov (US) - Texas       |
-| US Gov - Iowa         | Gov (US) - Virginia    |
-| Gov (US) - Virginia      | Gov (US) - Texas       |
+| E.U.A. Centro-Sul    | E.U.A. Centro-Norte   |
+| Sul da Índia         | Centro da Índia      |
+| Sudeste Asiático      | Este Asiático          |
+| Sul do Reino Unido            | Oeste do Reino Unido            |
+| Oeste do Reino Unido             | Sul do Reino Unido           |
+| US Gov - Texas      | Gov (US) - Texas       |
+| US Gov - Virginia         | Gov dos E.U.A. Virginia    |
+| Gov dos E.U.A. Virginia      | Gov (US) - Texas       |
 | Europa Ocidental         | Europa do Norte       |
-| EUA Centro-Oeste     | EUA Oeste 2          |
-| EUA Oeste             | East US            |
-| EUA Oeste 2           | EUA Centro-Oeste    |
+| E.U.A. Centro-Oeste     | E.U.A. Oeste 2          |
+| Oeste dos E.U.A.             | Este dos E.U.A.            |
+| E.U.A. Oeste 2           | E.U.A. Centro-Oeste    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Considerar as configurações de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
 * [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
 * [Implantar arquivos do Azure](storage-files-deployment-guide.md)

@@ -7,14 +7,16 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 825c6c926f6415e38fdb89517a995a79abb92edd
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c9eea0b78916cc3bc5994eabfd029418b634db3e
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72955341"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73026663"
 ---
 # <a name="water-consumption-monitoring-reference-architecture"></a>Arquitetura de referência de monitoramento de consumo de água 
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 As soluções de monitoramento de consumo de água podem ser criadas com o **modelo de aplicativo de IOT central do Azure** como um aplicativo de IOT inicial. Este artigo fornece diretrizes de arquitetura de referência de alto nível sobre a criação de uma solução de ponta a ponta. 
 

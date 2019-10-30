@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: yegu
-ms.openlocfilehash: 523f4a302eb1f4679eb34bc959efc895fa5408ec
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 4fee7c84b394e84369b28d2a4191d0e581f3beba
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821038"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044353"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-data-loss"></a>Solucionar problemas do cache do Azure para perda de dados Redis
 
@@ -101,7 +101,7 @@ Se você achar que a maior parte ou todas as chaves desapareceram do seu cache, 
 |---|---|
 | [Liberação de chave](#key-flushing) | As chaves foram limpas manualmente |
 | [Seleção de banco de dados incorreta](#incorrect-database-selection) | Redis está definido para usar um banco de dados não padrão |
-| [Falha na instância de Redis](#redis-instance-failure) | As chaves são removidas por comandos delete explícitos |
+| [Falha na instância de Redis](#redis-instance-failure) | O servidor Redis não está disponível |
 
 ### <a name="key-flushing"></a>Liberação de chave
 

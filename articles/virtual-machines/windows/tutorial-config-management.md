@@ -15,38 +15,42 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 96e73b228604db519beb5284ee5a8fb8dc4c4f66
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 13a9534920f936287109a451b542c81a007c3a4c
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376108"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027906"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: monitorar alterações e atualizar uma máquina virtual do Windows no Azure
 
-O Azure [controle de alterações](../../automation/change-tracking.md) permite que você identifique facilmente as alterações e [Gerenciamento de atualizações](../../automation/automation-update-management.md) permite que você gerencie atualizações do sistema operacional para suas VMs do Windows do Azure.
+Com o Azure [controle de alterações](../../automation/change-tracking.md) e [Gerenciamento de atualizações](../../automation/automation-update-management.md), você pode facilmente identificar alterações em suas máquinas virtuais do Windows no Azure e gerenciar atualizações do sistema operacional para essas VMs.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Gerir atualizações do Windows
-> * Monitorizar alterações e inventário
+> * Gerenciar atualizações do Windows.
+> * Monitore as alterações e o inventário.
 
-## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
+## <a name="open-azure-cloud-shell"></a>Abrir o Azure Cloud Shell
 
-O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta.
+Azure Cloud Shell é um shell interativo gratuito que você pode usar para executar as etapas neste artigo. Ele tem ferramentas comuns do Azure pré-instalados e configuradas para usar com sua conta do Azure.
 
-Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir qualquer bloco de código no Cloud Shell, basta selecionar **experimentar** no canto superior direito desse bloco de código.
 
-## <a name="create-virtual-machine"></a>Criar a máquina virtual
+Você também pode abrir Cloud Shell em uma guia separada do navegador acessando [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selecione **copiar** para copiar blocos de código, Cole-os na guia Cloud Shell e selecione a tecla Enter para executar o código.
 
-Para configurar a monitorização e a gestão de atualizações do Azure neste tutorial, precisa de uma VM do Windows no Azure. Primeiro, defina um nome de utilizador e palavra-passe para a VM com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+## <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
+
+Para configurar a monitorização e a gestão de atualizações do Azure neste tutorial, precisa de uma VM do Windows no Azure.
+
+Primeiro, defina um nome de utilizador e palavra-passe para a VM com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Agora, crie a VM com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). O exemplo seguinte cria uma VM com o nome *myVM* na localização *EastUS*. Se ainda não existirem, serão criados o grupo de recursos *myResourceGroupMonitorMonitor* e recursos de rede de apoio:
+Em seguida, crie a VM com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). O exemplo a seguir cria uma VM chamada `myVM` no `East US` local. Se eles ainda não existirem, o grupo de recursos `myResourceGroupMonitor` e recursos de rede de suporte serão criados:
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -60,152 +64,158 @@ Demora alguns minutos até que os recursos e a VM sejam criados.
 
 ## <a name="manage-windows-updates"></a>Gerir atualizações do Windows
 
-Gerenciamento de Atualizações permite que você gerencie atualizações e patches para suas VMs do Windows do Azure.
-Diretamente a partir da VM, pode avaliar rapidamente o estado das atualizações disponíveis, agendar a instalação de atualizações necessárias e rever os resultados de implementação para verificar se as atualizações foram aplicadas com êxito à VM.
+Gerenciamento de Atualizações ajuda a gerenciar atualizações e patches para suas VMs Windows do Azure. Diretamente da sua VM, você pode rapidamente:
+
+- Avaliar o estado das atualizações disponíveis.
+- Agendar a instalação das atualizações necessárias.
+- Examine os resultados da implantação para verificar se as atualizações foram aplicadas com êxito à VM.
 
 Para obter informações sobre preços, consulte [preços de automação para o gerenciamento de atualizações](https://azure.microsoft.com/pricing/details/automation/).
 
-### <a name="enable-update-management"></a>Ativar a Gestão de atualizações
+### <a name="enable-update-management"></a>Ativar a Gestão de Atualizações
 
-Ativar a Gestão de atualizações para a VM:
+Para habilitar Gerenciamento de Atualizações para sua VM:
 
-1. No lado esquerdo do ecrã, selecione **Máquinas virtuais**.
-2. Na lista, selecione uma VM.
-3. No ecrã da VM, na secção **Operações**, clique em **Gestão de atualizações**. É aberto o ecrã **Ativar Gestão de Atualizações**.
+1. No lado mais à esquerda da janela, selecione **máquinas virtuais**.
+1. Escolha uma VM na lista.
+1. No painel **operações** da janela VM, selecione gerenciamento de **atualizações**.
+1. A janela **habilitar gerenciamento de atualizações** é aberta.
 
-A validação é executada para determinar se a Gestão de atualizações está ativada para esta VM.
-A validação inclui a verificação da existência de uma área de trabalho do Log Analytics e da conta de Automatização ligada, e se a solução está na área de trabalho.
+A validação é feita para determinar se Gerenciamento de Atualizações está habilitada para esta VM. A validação inclui verificações de um espaço de trabalho Log Analytics, para uma conta de automação vinculada e se a solução está no espaço de trabalho.
 
-A área de trabalho do [Log Analytics](../../log-analytics/log-analytics-overview.md) serve para recolher dados gerados pelas funcionalidades e serviços, tais como a Gestão de atualizações.
-A área de trabalho fornece uma localização única para rever e analisar dados de várias origens.
-Para executar ações adicionais em VMs que necessitam de atualizações, a Automatização do Azure permite executar runbooks nas VMs, tais como transferir e aplicar atualizações.
+Você usa um espaço de trabalho [log Analytics](../../log-analytics/log-analytics-overview.md) para coletar dados gerados por recursos e serviços, como gerenciamento de atualizações. A área de trabalho fornece uma localização única para rever e analisar dados de várias origens.
 
-O processo de validação verifica ainda se a VM está aprovisionada com o Microsoft Monitoring Agent (MMA) e a função de trabalho de runbook híbrida de Automatização.
-Este agente serve para comunicar com a VM e obter informações sobre o estado de atualização.
+Para executar ações adicionais em VMs que exigem atualizações, você pode usar a automação do Azure para executar runbooks em VMs. Essas ações incluem baixar ou aplicar atualizações.
 
-Escolha o espaço de trabalho Log Analytics e a conta de automação e clique em **habilitar** para habilitar a solução. A solução demora até 15 minutos a ativar.
+O processo de validação também verifica se a VM é provisionada com o Microsoft Monitoring Agent (MMA) e Hybrid Runbook Worker de automação. Você usa o agente para se comunicar com a VM e obter informações sobre o status da atualização.
 
-Se for detetada a falta de qualquer um dos seguintes pré-requisitos durante a inclusão, estes serão adicionados automaticamente:
+Na janela **habilitar gerenciamento de atualizações** , escolha o espaço de trabalho log Analytics e a conta de automação e, em seguida, selecione **habilitar**. A solução leva até 15 minutos para ser habilitada.
+
+Qualquer um dos seguintes pré-requisitos ausentes durante a integração é adicionado automaticamente:
 
 * Área de trabalho do [Log Analytics](../../log-analytics/log-analytics-overview.md)
 * [Automatização](../../automation/automation-offering-get-started.md)
-* Uma [Função de trabalho de runbook híbrida](../../automation/automation-hybrid-runbook-worker.md) está ativada na VM
+* Um [Hybrid runbook Worker](../../automation/automation-hybrid-runbook-worker.md), que está habilitado na VM
 
-O ecrã **Gestão de Atualizações** é apresentado. Configure o local, Log Analytics o espaço de trabalho e a conta de automação para usar e clique em **habilitar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização.
+Depois que a solução for habilitada, a janela **Gerenciamento de atualizações** será aberta. Configure o local, Log Analytics o espaço de trabalho e a conta de automação a serem usados e, em seguida, selecione **habilitar**. Se essas opções aparecerem esmaecidas, outra solução de automação será habilitada para a VM e o espaço de trabalho da solução e a conta de automação deverão ser usados.
 
-![Ativar a solução de Gestão de atualizações](./media/tutorial-monitoring/manageupdates-update-enable.png)
+![Habilitar Gerenciamento de Atualizações solução](./media/tutorial-monitoring/manageupdates-update-enable.png)
 
-A ativação da solução pode demorar até 15 minutos. Durante este período, não deve fechar a janela do browser. Depois que a solução é habilitada, as informações sobre as atualizações ausentes na VM fluem para Azure Monitor logs. Pode demorar entre 30 minutos e 6 horas até que os dados fiquem disponíveis para análise.
+A solução Gerenciamento de Atualizações pode levar até 15 minutos para ser habilitada. Durante este período, não feche a janela do browser. Depois que a solução é habilitada, as informações sobre as atualizações ausentes na VM fluem para Azure Monitor logs. Pode levar de 30 minutos a 6 horas para que os dados fiquem disponíveis para análise.
 
-### <a name="view-update-assessment"></a>Ver avaliação de atualizações
+### <a name="view-an-update-assessment"></a>Ver avaliações de atualizações
 
-Depois de **Gestão de atualizações** ser ativada, o ecrã **Gestão de atualizações** aparece. Após a conclusão da avaliação de atualizações, verá uma lista de atualizações em falta no separador **Atualizações em falta**.
+Depois que Gerenciamento de Atualizações estiver habilitado, a janela **Gerenciamento de atualizações** será exibida. Após a conclusão da avaliação das atualizações, você verá uma lista de atualizações ausentes na guia **atualizações ausentes** .
 
  ![Ver o estado de atualização](./media/tutorial-monitoring/manageupdates-view-status-win.png)
 
 ### <a name="schedule-an-update-deployment"></a>Agendar uma implementação de atualizações
 
-Para instalar atualizações, agende uma implementação que siga o seu agendamento e o período de administração da versão. Pode escolher quais os tipos de atualização a incluir na implementação. Por exemplo, pode incluir atualizações de segurança ou críticas e excluir update rollups.
+Para instalar atualizações, agende uma implementação que siga o seu agendamento e o período de administração da versão. Você escolhe quais tipos de atualização deseja incluir na implantação. Por exemplo, pode incluir atualizações de segurança ou críticas e excluir update rollups.
 
-Para agendar uma nova Implementação de Atualização para a VM, clique em **Agendar a implementação da atualização** na parte superior do ecrã **Gestão de atualizações**. No ecrã **Nova implementação de atualização**, especifique as seguintes informações:
+Para agendar uma nova implantação de atualização para a VM, selecione **agendar implantação de atualização** na parte superior da janela **Gerenciamento de atualizações** . Na janela **nova implantação de atualização** , especifique as seguintes informações:
 
-Para criar uma nova implantação de atualização, selecione **agendar implantação de atualização**. A página **nova implantação de atualizações** é aberta. Insira valores para as propriedades descritas na tabela a seguir e clique em **criar**:
-
-| Propriedade | Descrição |
+| Opção | Descrição |
 | --- | --- |
-| Nome |O nome exclusivo para identificar a implementação de atualizações. |
-|Sistema Operativo| Linux ou Windows|
-| Grupos a serem atualizados |Para computadores do Azure, defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e marcas para criar um grupo dinâmico de VMs do Azure para incluir em sua implantação. </br></br>Para computadores não Azure, selecione uma pesquisa salva existente para selecionar um grupo de computadores não Azure a serem incluídos na implantação. </br></br>Para saber mais, confira [grupos dinâmicos](../../automation/automation-update-management-groups.md)|
-| Computadores para atualizar |Selecione uma pesquisa salva, um grupo importado ou escolha a máquina na lista suspensa e selecione computadores individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores em logs de Azure Monitor, consulte [grupos de computadores em logs de Azure monitor](../../azure-monitor/platform/computer-groups.md) |
-|Classificações de atualização|Selecione todas as classificações de atualização de que você precisa|
-|Incluir/excluir atualizações|Isso abre a página **incluir/excluir** . As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter mais informações sobre como a inclusão é tratada, consulte [agendar uma implantação de atualização](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment) |
-|Configurações de agendamento|Selecione a hora para iniciar e selecione uma vez ou recorrente para a recorrência|
-| Pré-scripts + pós-scripts|Selecione os scripts a serem executados antes e depois da implantação|
-| Janela de manutenção |Número de minutos definidos para atualizações. O valor não pode ser inferior a 30 minutos e não mais do que 6 horas |
-| Controle de reinicialização| Determina como as reinicializações devem ser tratadas. As opções disponíveis são:</br>Reiniciar se for preciso (Predefinição)</br>Reiniciar sempre</br>Nunca reiniciar</br>Reiniciar apenas - não irá instalar atualizações|
+| **Nome** |Insira um nome exclusivo para identificar a implantação da atualização. |
+|**Sistema operativo**| Selecione **Linux** ou **Windows**.|
+| **Grupos a serem atualizados** |Para VMs hospedadas no Azure, defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e marcas. Essa consulta cria um grupo dinâmico de VMs hospedadas no Azure para incluir em sua implantação. </br></br>Para VMs não hospedadas no Azure, selecione uma pesquisa salva existente. Com essa pesquisa, você pode selecionar um grupo dessas VMs para incluir na implantação. </br></br> Para saber mais, confira [grupos dinâmicos](../../automation/automation-update-management-groups.md).|
+| **Computadores para atualizar** |Selecione **pesquisa salva**, **grupo importado**ou **computadores**.<br/><br/>Se você selecionar **computadores**, poderá escolher computadores individuais na lista suspensa. A prontidão de cada máquina é mostrada na coluna **prontidão do agente de atualização** da tabela.</br></br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores em logs de Azure Monitor, consulte [grupos de computadores em logs de Azure monitor](../../azure-monitor/platform/computer-groups.md) |
+|**Classificações de atualização**|Escolha todas as classificações de atualização necessárias.|
+|**Incluir/excluir atualizações**|Selecione esta opção para abrir o painel **incluir/excluir** . As atualizações a serem incluídas e aquelas a serem excluídas estão em guias separadas. Para obter mais informações sobre como a inclusão é tratada, consulte [agendar uma implantação de atualização](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment). |
+|**Configurações de agendamento**|Escolha o horário de início e selecione **uma vez** ou **recorrente**.|
+| **Pré-scripts + pós-scripts**|Escolha os scripts a serem executados antes e depois da implantação.|
+| **Janela de manutenção** | Insira o número de minutos definido para atualizações. Os valores válidos variam de 30 a 360 minutos. |
+| **Controle de reinicialização**| Selecione como as reinicializações são tratadas. As seleções disponíveis são:<ul><li>**Reinicializar se necessário**</li><li>**Sempre reinicializar**</li><li>**Nunca reinicializar**</li><li>**Somente reinicialização**</li></ul>**Reinicializar se necessário** é a seleção padrão. Se você selecionar **apenas reinicializar**, as atualizações não serão instaladas.|
 
-As implantações de atualização também podem ser criadas programaticamente. Para saber como criar uma implantação de atualização com a API REST, consulte [Software Update Configurations-Create](/rest/api/automation/softwareupdateconfigurations/create). Também há um runbook de exemplo que pode ser usado para criar uma implantação semanal de atualização. Para saber mais sobre esse runbook, confira [criar uma implantação de atualização semanal para uma ou mais VMs em um grupo de recursos](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+Depois de concluir a configuração da agenda, clique em **criar** para retornar ao painel de status. A tabela **agendada** mostra a agenda de implantação que você criou.
 
-Depois de concluir a configuração do agendamento, clique no botão **Criar** e regressará ao dashboard de estado.
-Tenha em atenção que a tabela **Agendada** mostra o agendamento da implementação que criou.
+Você também pode criar implantações de atualização programaticamente. Para saber como criar uma implantação de atualização com a API REST, consulte [Software Update Configurations-Create](/rest/api/automation/softwareupdateconfigurations/create). Também há um runbook de exemplo que você pode usar para criar uma implantação semanal de atualização. Para saber mais sobre esse runbook, confira [criar uma implantação de atualização semanal para uma ou mais VMs em um grupo de recursos](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 ### <a name="view-results-of-an-update-deployment"></a>Ver resultados de uma implementação de atualização
 
-Após o início da implementação agendada, pode ver o estado dessa implementação no separador **Implementações de atualização** no ecrã **Gestão de atualizações**.
-Se estiver em execução, o respetivo estado é apresentado como **Em curso**. Depois de concluir, se for bem sucedida, muda para **Com êxito**.
-Se existir uma falha numa ou mais atualizações na implementação, o estado é **Falha parcial**.
-Clique na implementação da atualização concluída para ver o dashboard relativo a essa implementação de atualização.
+Depois que a implantação agendada for iniciada, você poderá ver o status da implantação na guia **implantações de atualizações** da janela **Gerenciamento de atualizações** .
+
+Se a implantação estiver em execução no momento, seu status será exibido como "em andamento". Após a conclusão bem-sucedida, o status será alterado para "êxito". Mas se alguma atualização na implantação falhar, o status será "parcialmente com falha".
+
+Selecione a implantação de atualização concluída para ver o painel dessa implantação.
 
 ![Dashboard de estado de Implementação de Atualização para uma implementação específica](./media/tutorial-monitoring/manageupdates-view-results.png)
 
-No mosaico **Resultados da atualização** encontra-se um resumo do número total de atualizações e os resultados de implementação da VM.
-Na tabela à direita encontra-se uma divisão detalhada de cada atualização e os resultados da instalação, que podem ter um dos seguintes valores:
+O bloco **resultados da atualização** mostra um resumo do número total de atualizações e os resultados da implantação na VM. A tabela à direita mostra uma análise detalhada de cada atualização e os resultados da instalação. Cada resultado tem um dos seguintes valores:
 
-* **Não tentado** - a atualização não foi instalada porque não havia tempo suficiente disponível com base na duração da janela de manutenção definida.
-* **Com êxito** - a atualização foi executada com êxito.
-* **Falhou** - a atualização falhou.
+* **Sem tentativa**: a atualização não está instalada. Não havia tempo suficiente disponível com base na duração da janela de manutenção definida.
+* **Com êxito**: a atualização foi executada com êxito.
+* **Falhou**: a atualização falhou.
 
-Clique em **Todos os registos** para ver todas as entradas de registo que a implementação criou.
+Selecione **Todos os registos** para ver todas as entradas de registo criadas pela implementação.
 
-Clique no mosaico **Saída** para ver o fluxo de tarefas do runbook responsável pela gestão da implementação da atualização na VM de destino.
+Selecione o bloco **saída** para ver o fluxo de trabalho do runbook responsável por gerenciar a implantação de atualização na VM de destino.
 
-Clique em **Erros** para ver informações detalhadas sobre os erros da implementação.
+Selecione **erros** para ver informações detalhadas sobre quaisquer erros de implantação.
 
 ## <a name="monitor-changes-and-inventory"></a>Monitorizar alterações e inventário
 
-Pode recolher e ver o inventário do software, dos ficheiros, dos daemons do Linux, dos Serviços do Windows e das chaves do Registo do Windows nos seus computadores. Controlar as configurações dos seus computadores pode ajudar a identificar problemas operacionais em todo o ambiente e compreender melhor o estado dos mesmos.
+Você pode coletar e exibir um inventário do software, dos arquivos, dos daemons do Linux, dos serviços do Windows e das chaves do registro do Windows em seus computadores. Controlar as configurações de seus computadores ajuda a identificar problemas operacionais em seu ambiente e compreender melhor o estado de seus computadores.
 
-### <a name="enable-change-and-inventory-management"></a>Ativar a Gestão de alterações e de inventário
+### <a name="enable-change-and-inventory-management"></a>Habilitar gerenciamento de alterações e inventário
 
-Ativar a Gestão de alterações e de inventário na VM:
+Para habilitar o gerenciamento de alterações e inventário para sua VM:
 
-1. No lado esquerdo do ecrã, selecione **Máquinas virtuais**.
-2. Na lista, selecione uma VM.
-3. No ecrã da VM, na secção **Operações**, clique em **Inventário** ou em **Controlo de alterações**. É aberto o ecrã **Ativar o Controlo de Alterações e Inventário**.
+1. No lado mais à esquerda da janela, selecione **máquinas virtuais**.
+1. Escolha uma VM na lista.
+1. Em **operações** na janela VM, selecione **inventário** ou controle de **alterações**.
+1. O painel **habilitar controle de alterações e inventário** é aberto.
 
-Configure o local, Log Analytics o espaço de trabalho e a conta de automação para usar e clique em **habilitar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização. Apesar de as soluções estarem separadas no menu, tratam-se da mesma solução. Ativar uma ativa a outra na VM.
+Configure o local, o espaço de trabalho Log Analytics e a conta de automação a serem usados e, em seguida, selecione **habilitar**. Se as opções aparecerem esmaecidas, uma solução de automação já estará habilitada para a VM. Nesse caso, o espaço de trabalho já habilitado e a conta de automação devem ser usados.
+
+Embora as soluções apareçam separadamente no menu, elas são a mesma solução. Ativar uma ativa a outra na VM.
 
 ![Ativar o Controlo de Alterações e Inventário](./media/tutorial-monitoring/manage-inventory-enable.png)
 
-Após a ativação da solução, o inventário poderá demorar algum tempo a ser recolhido na VM antes de aparecerem dados.
+Depois que a solução tiver sido habilitada, pode levar algum tempo para que o inventário seja coletado na VM antes que os dados apareçam.
 
 ### <a name="track-changes"></a>Controlar as alterações
 
-Na sua VM, selecione **Controlo de Alterações**, em **OPERAÇÕES**. Clique em **Editar Definições**. É apresentada a página **Controlo de Alterações**. Selecione o tipo de definição que pretende controlar e clique em **+Adicionar** para configurar as definições. As opções disponíveis para o Windows são:
+Em sua VM em **operações**, selecione **controle de alterações** e, em seguida, selecione **Editar configurações**. O painel de **controle de alterações** é aberto. Selecione o tipo de definição que pretende controlar e selecione **+Adicionar** para configurar as definições.
+
+As opções de configurações disponíveis para o Windows são:
 
 * Registo do Windows
 * Ficheiros do Windows
 
-Para obter informações detalhadas sobre o Controlo de Alterações, veja [Resolver problemas relacionados com alterações numa VM](../../automation/automation-tutorial-troubleshoot-changes.md)
+Para obter informações detalhadas sobre Controle de Alterações, consulte [solucionar problemas de alterações em uma VM](../../automation/automation-tutorial-troubleshoot-changes.md).
 
 ### <a name="view-inventory"></a>Ver o inventário
 
-Na sua VM, selecione **Inventário**, em **OPERAÇÕES**. No separador **Software**, existe uma tabela que lista o software que foi encontrado. Os detalhes de alto nível para cada registo de software são visíveis na tabela. Estes detalhes incluem o nome, a versão, o fabricante e a hora da última atualização do software.
+Na sua VM, selecione **Inventário**, em **OPERAÇÕES**. Na guia **software** , há uma tabela que mostra o software que foi encontrado. Os detalhes de alto nível para cada registro de software aparecem na tabela. Esses detalhes incluem o nome do software, a versão, o editor e o horário da última atualização.
 
 ![Ver o inventário](./media/tutorial-monitoring/inventory-view-results.png)
 
-### <a name="monitor-activity-logs-and-changes"></a>Monitorizar os Registos de Atividade e as alterações
+### <a name="monitor-activity-logs-and-changes"></a>Monitorar logs de atividade e alterações
 
-Na página **Controlo de alterações** da sua VM, selecione **Gerir Ligação de Registo de Atividades**. Esta tarefa abre a página **Registo de atividades do Azure**. Selecione **Ligar** para ligar o Controlo de alterações ao registo de atividades do Azure para a sua VM.
+Na janela **controle de alterações** em sua VM, selecione **gerenciar conexão do log de atividades** para abrir o painel log de **atividades do Azure** . Selecione **conectar** para conectar controle de alterações ao log de atividades do Azure para sua VM.
 
-Com esta definição ativada, navegue para a página **Descrição Geral** da sua VM e selecione **Parar** para parar a VM. Quando lhe for pedido, selecione **Sim** para parar a VM. Quando esta estiver desalocada, selecione **Iniciar** para reiniciar a sua VM.
+Depois que o Controle de Alterações estiver habilitado, vá para o painel **visão geral** da VM e selecione **parar** para interromper a VM. Quando lhe for pedido, selecione **Sim** para parar a VM. Depois que a VM for desalocada, selecione **Iniciar** para reiniciar a VM.
 
-As operações de paragem e início de uma VM registam um evento no respetivo registo de atividades. Regresse à página **Controlo de alterações**. Selecione o separador **Eventos** na parte inferior da página. Passado algum tempo, os eventos são apresentados no gráfico e na tabela. É possível selecionar cada um dos eventos para ver informações detalhadas sobre os mesmos.
+Parar e reiniciar uma VM registra um evento em seu log de atividades. Volte para o painel **controle de alterações** e selecione a guia **eventos** na parte inferior do painel. Após alguns instantes, os eventos aparecem no gráfico e na tabela. Você pode selecionar cada evento para exibir informações detalhadas para esse evento.
 
 ![Ver alterações no registo de atividades](./media/tutorial-monitoring/manage-activitylog-view-results.png)
 
-O gráfico mostra as alterações ocorridas ao longo do tempo. Após ter adicionado uma ligação do Registo de Atividades, o gráfico de linhas existente na parte superior apresenta os eventos do Registo de Atividades do Azure. Cada linha do gráfico de barras representa um tipo diferente de alteração passível de controlo. Estes tipos incluem daemons do Linux, ficheiros, chaves do Registo do Windows, software e serviços do Windows. O separador Alterações mostra os detalhes das alterações apresentadas na visualização por ordem descendente de data/hora em que a alteração ocorreu (mais recente primeiro).
+O gráfico anterior mostra as alterações que ocorreram ao longo do tempo. Depois de adicionar uma conexão do log de atividades do Azure, o grafo de linha na parte superior exibe os eventos do log de atividades do Azure.
+
+Cada linha de gráficos de barras representa um tipo de alteração rastreável diferente. Esses tipos são daemons do Linux, arquivos, chaves do registro do Windows, software e serviços do Windows. A guia **alterar** mostra os detalhes da alteração. As alterações aparecem na ordem de cada ocorrência, com a alteração mais recente mostrada primeiro.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você configurou e examinou Controle de Alterações e Gerenciamento de Atualizações para sua VM. Aprendeu a:
 
 > [!div class="checklist"]
-> * Criar um grupo de recursos e uma VM
-> * Gerir atualizações do Windows
-> * Monitorizar alterações e inventário
+> * Crie um grupo de recursos e uma VM.
+> * Gerenciar atualizações do Windows.
+> * Monitore as alterações e o inventário.
 
-Avance para o próximo tutorial para saber mais sobre como monitorar sua VM.
+Vá para o próximo tutorial para saber mais sobre como monitorar sua VM.
 
 > [!div class="nextstepaction"]
 > [Monitorizar máquinas virtuais](tutorial-monitor.md)

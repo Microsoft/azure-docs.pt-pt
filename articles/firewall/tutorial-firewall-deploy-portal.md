@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Implementar e configurar o Azure Firewall com o portal do Azure'
+title: 'Tutorial: implementar e configurar o Azure Firewall com o portal do Azure'
 description: Neste tutorial, irá aprender a implementar e configurar o Azure Firewall com o portal do Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 10/28/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0892bde09891d2edbd7f8cc8715ccc0d2f047ed4
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 9eda37f80b6ba537b4b8f9ef87cb8b03bb4129e0
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113479"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024824"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementar e configurar o Azure Firewall com o portal do Azure
+# <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: implementar e configurar o Azure Firewall com o portal do Azure
 
 Controlar o acesso de rede de saída é uma parte importante de um plano de segurança de rede geral. Por exemplo, talvez você queira limitar o acesso a sites da Web. Ou, talvez você queira limitar os endereços IP de saída e as portas que podem ser acessadas.
 
@@ -57,7 +57,7 @@ Em primeiro lugar, crie um grupo de recursos para conter os recursos necessário
 O grupo de recursos contém todos os recursos para o tutorial.
 
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-2. Na home page portal do Azure, selecione **grupos** > de recursos**Adicionar**.
+2. Na home page portal do Azure, selecione **grupos de recursos** > **Adicionar**.
 3. Em **Nome do grupo de recursos**, escreva **Test-FW-RG**.
 4. Em **Subscrição**, selecione a sua subscrição.
 5. Em **Localização do grupo de recursos**, selecione uma localização. Todos os recursos subsequentes que criar têm de estar na mesma localização.
@@ -68,7 +68,7 @@ O grupo de recursos contém todos os recursos para o tutorial.
 Esta VNet irá conter três sub-redes.
 
 > [!NOTE]
-> O tamanho da sub-rede AzureFirewallSubnet é/26. Para obter mais informações sobre o tamanho da sub-rede, consulte perguntas frequentes sobre o [Firewall do Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> O tamanho da sub-rede AzureFirewallSubnet é/26. Para obter mais informações sobre o tamanho da sub-rede, consulte [perguntas frequentes sobre o Firewall do Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 1. No home page de portal do Azure, selecione **criar um recurso**.
 2. Em **rede**, selecione **rede virtual**.
@@ -85,7 +85,7 @@ Esta VNet irá conter três sub-redes.
 
 Em seguida, crie sub-redes para o servidor de ligação e uma sub-rede para os servidores de carga de trabalho.
 
-1. Na home page portal do Azure, selecione **grupos** > **de recursos Test-FW-RG**.
+1. Na home page portal do Azure, selecione **grupos de recursos** > **Test-FW-RG**.
 2. Selecione a rede virtual **Test-FW-vn** .
 3. Selecione sub- **redes** >  **+ sub-rede**.
 4. Em **Nome**, escreva **Workload-SN**.
@@ -102,9 +102,9 @@ Agora, crie as máquinas virtuais de ligação e de carga de trabalho, e coloque
 2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter** na lista Destaques.
 3. Introduza estes valores para a máquina virtual:
 
-   |Definição  |Value  |
+   |Definição  |Valor  |
    |---------|---------|
-   |Resource group     |**Test-FW-RG**|
+   |Grupo de recursos     |**Test-FW-RG**|
    |Nome da máquina virtual     |**SRV de salto**|
    |Região     |Mesmo que o anterior|
    |Nome de usuário do administrador     |**azureuser**|
@@ -113,21 +113,21 @@ Agora, crie as máquinas virtuais de ligação e de carga de trabalho, e coloque
 4. Em **regras de porta de entrada**, para **portas de entrada públicas**, selecione **permitir portas selecionadas**.
 5. Para **selecionar portas de entrada**, selecione **RDP (3389)** .
 
-6. Aceite os outros padrões e selecione **avançar: Discos**.
-7. Aceite os padrões de disco e selecione **avançar: Rede**.
+6. Aceite os outros padrões e selecione **Avançar: discos**.
+7. Aceite os padrões de disco e selecione **Avançar: rede**.
 8. Verifique se **Test-FW-vn** está selecionado para a rede virtual e a sub-rede é **Jump-SN**.
 9. Para **IP público**, aceite o novo nome de endereço IP público padrão (SRV-Jump-IP).
-11. Aceite os outros padrões e selecione **avançar: Gerenciamento**.
-12. Selecione **desativado** para desabilitar o diagnóstico de inicialização. Aceite os outros padrões e selecione revisar **+ criar**.
+11. Aceite os outros padrões e selecione **Avançar: gerenciamento**.
+12. Selecione **desativado** para desabilitar o diagnóstico de inicialização. Aceite os outros padrões e selecione **revisar + criar**.
 13. Examine as configurações na página Resumo e, em seguida, selecione **criar**.
 
 Use as informações na tabela a seguir para configurar outra máquina virtual chamada **SRV-Work**. O resto da configuração é igual à da máquina virtual Srv-Jump.
 
-|Definição  |Value  |
+|Definição  |Valor  |
 |---------|---------|
-|Subnet|**Carga de trabalho-SN**|
-|IP Público|**Nenhum**|
-|Portas de entrada públicas|**Nenhum**|
+|Subrede|**Carga de trabalho-SN**|
+|IP público|**None**|
+|Portas de entrada públicas|**None**|
 
 ## <a name="deploy-the-firewall"></a>Implementar a firewall
 
@@ -140,11 +140,11 @@ Implemente a firewall na VNet.
 
    |Definição  |Valor  |
    |---------|---------|
-   |Subscription     |\<a sua subscrição\>|
-   |Resource group     |**Test-FW-RG** |
-   |Name     |**Test-FW01**|
-   |Location     |Selecionar a mesma localização que utilizou anteriormente|
-   |Escolher uma rede virtual     |**Usar existente**: **Test-FW-VN**|
+   |Subscrição     |\<a sua subscrição\>|
+   |Grupo de recursos     |**Test-FW-RG** |
+   |Nome     |**Test-FW01**|
+   |Localização     |Selecionar a mesma localização que utilizou anteriormente|
+   |Escolher uma rede virtual     |**Usar existente**: **Test-FW-vn**|
    |Endereço IP público     |**Crie um novo**. O endereço IP público tem de ser do tipo SKU Standard.|
 
 5. Selecione **Rever + criar**.
@@ -168,7 +168,7 @@ Na sub-rede **Workload-SN**, vai configurar a rota de saída predefinida para pa
 8. Selecione **Criar**.
 9. Selecione **Atualizar**e, em seguida, selecione a tabela **Firewall-rota** de rota.
 10. Selecione **sub-redes** e, em seguida, selecione **associar**.
-11. Selecione **rede** > virtual**Test-FW-vn**.
+11. Selecione **Rede Virtual** > **Test-FW-vn**.
 12. Para **sub-rede**, selecione **carga de trabalho-SN**. Certifique-se de selecionar somente a sub-rede **carga de trabalho-SN** para essa rota, caso contrário, o firewall não funcionará corretamente.
 
 13. Selecione **OK**.
@@ -214,8 +214,10 @@ Esta é a regra de rede que permite acesso de saída aos dois endereços IP na p
 7. Em **Protocolo**, selecione **UDP**.
 8. Em **Endereços de Origem**, escreva **10.0.2.0/24**.
 9. Em Endereço de destino, escreva **209.244.0.3,209.244.0.4**
-10. Em **Portas de Destino**, escreva **53**.
-11. Selecione **Adicionar**.
+
+   Esses são servidores DNS públicos operados pelo CenturyLink.
+1. Em **Portas de Destino**, escreva **53**.
+2. Selecione **Adicionar**.
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Alterar o endereço DNS primário e secundário para a interface de rede **Srv-Work**
 
@@ -257,4 +259,4 @@ Pode manter os recursos da firewall para o próximo tutorial. Se já não precis
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Monitorar logs de firewall do Azure](./tutorial-diagnostics.md)
+> [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)

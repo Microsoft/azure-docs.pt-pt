@@ -1,5 +1,5 @@
 ---
-title: Aprenda a usar um Apache Hadoop sandbox-Emulator-Azure HDInsight
+title: Aprenda a usar uma área restrita Apache Hadoop, emulador-Azure HDInsight
 description: 'Para começar a aprender a usar o ecossistema Apache Hadoop, você pode configurar uma área restrita do Hadoop em Hortonworks em uma máquina virtual do Azure. '
 keywords: emulador do Hadoop, área restrita do Hadoop
 ms.reviewer: jasonh
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9515f0ecae92e6350924b3856aa6cbf20e608d51
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 47ee66393e3e1678576b12a70b767f35cb3bc635
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066698"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044760"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introdução a uma área restrita do Apache Hadoop, um emulador em uma máquina virtual
 
@@ -44,14 +44,14 @@ Para baixar uma área restrita da versão mais antiga do HDP, consulte os links 
 
     ![início normal do VirtualBox Manager](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 
-1. Abra um navegador da Web e navegue até a URL exibida ( `http://127.0.0.1:8888`geralmente).
+1. Abra um navegador da Web e navegue até a URL exibida (geralmente `http://127.0.0.1:8888`).
 
 ## <a name="set-sandbox-passwords"></a>Definir senhas de área restrita
 
 1. Na etapa de **introdução** da página área restrita do Hortonworks, selecione **Exibir opções avançadas**. Use as informações desta página para fazer logon na área restrita usando SSH. Use o nome e a senha fornecidos.
 
    > [!NOTE]
-   > Se você não tiver um cliente SSH instalado, poderá usar o SSH baseado na Web fornecido pelo pela máquina virtual em **http://localhost:4200/** .
+   > Se você não tiver um cliente SSH instalado, poderá usar o SSH baseado na Web fornecido pela máquina virtual em **http://localhost:4200/** .
 
     Na primeira vez que você se conectar usando o SSH, será solicitado que você altere a senha da conta raiz. Insira uma nova senha, que você usa ao fazer logon usando SSH.
 
@@ -69,7 +69,7 @@ Para baixar uma área restrita da versão mais antiga do HDP, consulte os links 
 2. Depois que o Shell for iniciado, use o seguinte para exibir as tabelas que são fornecidas com a área restrita:
 
         show tables;
-3. Use o seguinte para recuperar 10 linhas da `sample_07` tabela:
+3. Use o seguinte para recuperar 10 linhas da tabela `sample_07`:
 
         select * from sample_07 limit 10;
 

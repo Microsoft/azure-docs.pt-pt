@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Crie seu primeiro experimento de ML: Configurar'
+title: 'Tutorial: criar seu primeiro experimento do ML: instalação'
 titleSuffix: Azure Machine Learning
-description: Nesta série de tutoriais, você conclui as etapas de ponta a ponta para começar a usar o SDK Azure Machine Learning Python em execução em notebooks Jupyter.  A parte 1 aborda a criação de um ambiente de servidor de notebook de nuvem, bem como a criação de um espaço de trabalho para gerenciar seus experimentos e modelos de Machine Learning.
+description: Neste tutorial, você começará a usar o SDK Azure Machine Learning Python em execução em notebooks Jupyter.  Na parte 1, você cria um espaço de trabalho no qual você gerenciará experimentos e modelos de ML.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/25/2019
-ms.openlocfilehash: 3bbda22689bb330acc836173162a64b840f1bbd8
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: fc26b224a2af6ab4f1f6bf5551381d4739831351
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828042"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053874"
 ---
-# <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Introdução à criação de seu primeiro experimento do ML com o SDK do Python
+# <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: introdução à criação de seu primeiro experimento do ML com o SDK do Python
 
 Neste tutorial, você concluirá as etapas de ponta a ponta para começar a usar o SDK Azure Machine Learning Python em execução em notebooks Jupyter. Este tutorial é a **parte um de uma série de tutoriais de duas partes**e aborda a configuração e instalação do ambiente Python, bem como a criação de um espaço de trabalho para gerenciar seus experimentos e modelos de aprendizado de máquina. A [**parte dois**](tutorial-1st-experiment-sdk-train.md) baseia isso para treinar vários modelos de aprendizado de máquina e apresentar o processo de gerenciamento de modelos usando o portal do Azure e o SDK.
 
@@ -30,7 +30,7 @@ Neste tutorial:
 
 Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje.
 
-## <a name="create-a-workspace"></a>Criar uma área de trabalho
+## <a name="create-a-workspace"></a>Criar áreas de trabalho
 
 Um espaço de trabalho Azure Machine Learning é um recurso fundamental na nuvem que você usa para experimentar, treinar e implantar modelos de aprendizado de máquina. Ele vincula sua assinatura do Azure e o grupo de recursos a um objeto facilmente consumido no serviço. 
 
@@ -62,7 +62,7 @@ Você conclui as seguintes etapas de configuração e execução de experimento 
 
 1. Há uma pasta exibida para cada usuário que acessa o espaço de trabalho.  Selecione a pasta para clonar a pasta do **tutorial** .
 
-## <a name="a-nameopenselect-a-vm-to-run-the-notebook"></a><a name="open">Select uma VM para executar o bloco de anotações
+## <a name="a-nameopenselect-a-vm-to-run-the-notebook"></a><a name="open">selecionar uma VM para executar o bloco de anotações
 
 1. Em **arquivos de usuário** , abra a pasta e abra a pasta **tutoriais** clonados.
 
@@ -93,10 +93,10 @@ Neste tutorial, você concluiu estas tarefas:
 * Criou um espaço de trabalho Azure Machine Learning.
 * Criou e configurou um servidor de bloco de anotações de nuvem em seu espaço de trabalho.
 
-Na **parte dois** do tutorial, você executa o código `tutorial-1st-experiment-sdk-train.ipynb` para treinar um modelo de aprendizado de máquina. 
+Na **parte dois** do tutorial, você executa o código em `tutorial-1st-experiment-sdk-train.ipynb` para treinar um modelo de aprendizado de máquina. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Treinar seu primeiro modelo](tutorial-1st-experiment-sdk-train.md)
+> [Tutorial: treinar seu primeiro modelo](tutorial-1st-experiment-sdk-train.md)
 
 > [!IMPORTANT]
 > Se você não planejar a seguinte parte 2 deste tutorial ou quaisquer outros tutoriais, deverá [interromper a VM do servidor do bloco de anotações de nuvem](tutorial-1st-experiment-sdk-train.md#clean-up-resources) quando não estiver usando-a para reduzir o custo.

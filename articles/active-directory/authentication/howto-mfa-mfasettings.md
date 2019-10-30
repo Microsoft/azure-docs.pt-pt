@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 10/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62ceff25b022866e47e6fdd488b01dd647cf550f
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: dfca7ef1dabb8c6021c9df2e3174d3e208a839b5
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808217"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042101"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Definir as configurações de autenticação multifator do Azure
 
@@ -114,6 +114,8 @@ Configure endereços de email aqui para os usuários que receberão emails de al
 
 >[!NOTE]
 >Quando as chamadas da autenticação multifator são colocadas por meio da rede telefônica pública, às vezes, elas são roteadas por uma operadora que não dá suporte à ID do chamador. Por isso, a ID do chamador não é garantida, embora o sistema de autenticação multifator sempre a envie.
+
+Na Estados Unidos, se você ainda não configurou a ID do chamador MFA, as chamadas de voz da Microsoft vêm dos seguintes números: + 1 (866) 539 4191, + 1 (855) 330 8653 e + 1 (877) 668 6536. Se você estiver usando filtros de spam, certifique-se de excluir esses números.
 
 ### <a name="custom-voice-messages"></a>Mensagens de voz personalizadas
 
@@ -387,7 +389,7 @@ Detalhes adicionais sobre o uso de métodos de autenticação podem ser encontra
 O recurso _lembrar a autenticação multifator_ para dispositivos e navegadores que são confiáveis para o usuário é um recurso gratuito para todos os usuários da autenticação multifator. Os usuários podem ignorar as verificações subsequentes por um número especificado de dias, depois de entrarem com êxito em um dispositivo usando a autenticação multifator. O recurso melhora a usabilidade ao minimizar o número de vezes que um usuário tem de executar a verificação em duas etapas no mesmo dispositivo.
 
 >[!IMPORTANT]
->Se uma conta ou dispositivo for comprometido, lembrar a autenticação multifator para dispositivos confiáveis pode afetar a segurança. Se uma conta corporativa for comprometida ou um dispositivo confiável for perdido ou roubado, você deverá [restaurar a autenticação multifator em todos os dispositivos](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
+>Se uma conta ou dispositivo for comprometido, lembrar a autenticação multifator para dispositivos confiáveis pode afetar a segurança. Se uma conta corporativa for comprometida ou um dispositivo confiável for perdido ou roubado, você deverá [revogar as sessões de MFA](howto-mfa-userdevicesettings.md).
 >
 >A ação restaurar revoga o status confiável de todos os dispositivos e o usuário precisa executar a verificação em duas etapas novamente. Você também pode instruir seus usuários a restaurar a autenticação multifator em seus próprios dispositivos com as instruções em [gerenciar suas configurações para verificação em duas etapas](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 

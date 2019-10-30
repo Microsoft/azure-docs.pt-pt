@@ -9,18 +9,15 @@ ms.date: 10/02/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: d61dc9d49053cb8a125362ac492f354fb64b79a5
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 851b5607ad5413cd1a594f788cb294ee7790e8eb
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992174"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043172"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Tutorial: reagir a eventos de armazenamento de BLOBs em IoT Edge (versão prévia)
-
-Este artigo mostra como reagir localmente aos eventos de criação de BLOB e exclusão de BLOB em IoT Edge usando a grade de eventos.
-
-Cenários comuns de eventos de armazenamento de BLOBs incluem processamento de imagem ou vídeo, indexação de pesquisa ou qualquer fluxo de trabalho orientado a arquivo. Os carregamentos de arquivos assíncronos são uma ótima opção para eventos. Quando as alterações não são frequentes, mas seu cenário requer capacidade de resposta imediata, a arquitetura baseada em eventos pode ser especialmente eficiente.
+Este artigo mostra como implantar o armazenamento de BLOBs do Azure no módulo IoT, que atuaria como um editor de grade de eventos para enviar eventos sobre a criação de BLOB e exclusão de BLOB para a grade de eventos.  
 
 Para obter uma visão geral do armazenamento de BLOBs do Azure no IoT Edge, consulte [armazenamento de BLOBs do Azure em IOT Edge](../../iot-edge/how-to-store-data-blob.md) e seus recursos.
 

@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 10/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 50617eda56c2eaec9fac315013114f173e85edbc
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
-ms.translationtype: HT
+ms.openlocfilehash: 920419bf10634e8be15e05a89d547a5a9d1430b7
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990797"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027788"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -312,7 +312,7 @@ Sim. Os encargos do ExpressRoute Premium se aplicam aos encargos e encargos do c
 
 ## <a name="expressroute-local"></a>Local do ExpressRoute
 ### <a name="what-is-expressroute-local"></a>O que é o ExpressRoute local?
-O ExpressRoute local é um SKU do circuito do ExpressRoute disponível no [ExpressRoute Direct](expressroute-erdirect-about.md). Um dos principais recursos do local é que um circuito local em um local de emparelhamento do ExpressRoute fornece acesso apenas a uma ou duas regiões do Azure no ou perto do mesmo metro. Por outro lado, um circuito padrão fornece acesso a todas as regiões do Azure em uma área geopolítica e um circuito Premium para todas as regiões do Azure globalmente. 
+O ExpressRoute local é um SKU do circuito do ExpressRoute, além do SKU Standard e do SKU Premium. Um dos principais recursos do local é que um circuito local em um local de emparelhamento do ExpressRoute fornece acesso apenas a uma ou duas regiões do Azure no ou perto do mesmo metro. Por outro lado, um circuito padrão fornece acesso a todas as regiões do Azure em uma área geopolítica e um circuito Premium para todas as regiões do Azure globalmente. 
 
 ### <a name="what-are-the-benefits-of-expressroute-local"></a>Quais são os benefícios do ExpressRoute local?
 Embora você precise pagar a transferência de dados de saída para o circuito de ExpressRoute Standard ou Premium, não pague a transferência de dados de saída separadamente para o circuito local do ExpressRoute. Em outras palavras, o preço do ExpressRoute local inclui taxas de transferência de dados. O ExpressRoute local é uma solução mais econômica se você tiver uma grande quantidade de dados a serem transferidos e você pode trazer seus dados por uma conexão privada para um local de emparelhamento do ExpressRoute perto das regiões do Azure desejadas. 
@@ -323,9 +323,6 @@ Em comparação com um circuito de ExpressRoute padrão, um circuito local tem o
 * O ExpressRoute Alcance Global não está disponível no local
 
 O ExpressRoute local também tem os mesmos limites de recursos (por exemplo, o número de VNets por circuito) que o padrão. 
-
-### <a name="how-to-configure-expressroute-local"></a>Como configurar o ExpressRoute local? 
-O ExpressRoute local está disponível somente no ExpressRoute Direct. Primeiro, você precisará configurar sua porta do ExpressRoute Direct. Depois que a porta direta for criada, você poderá criar um circuito local seguindo as instruções [aqui](expressroute-howto-erdirect.md).
 
 ### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>Onde o ExpressRoute local está disponível e a quais regiões do Azure cada local de emparelhamento está mapeado?
 O ExpressRoute local está disponível nos locais de emparelhamento onde uma ou duas regiões do Azure são fechadas. Ele não está disponível em um local de emparelhamento onde não há nenhuma região do Azure nesse estado ou província ou país. Consulte os mapeamentos exatos na [página locais](expressroute-locations-providers.md).  

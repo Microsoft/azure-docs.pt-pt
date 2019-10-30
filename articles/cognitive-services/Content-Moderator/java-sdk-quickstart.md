@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 61149392368fc34fe388709dd5867250f3542fbc
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9f31d54314c6d6bd7a7f9ae2d134c1281bfe9294
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935994"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044081"
 ---
 # <a name="quickstart-content-moderator-client-library-for-java"></a>Início rápido: biblioteca de cliente Content Moderator para Java
 
@@ -125,14 +125,14 @@ No método `main` do aplicativo, crie um objeto [ContentModeratorClient](https:/
 
 ### <a name="get-images"></a>Obter imagens
 
-Na pasta **src/main/** do seu projeto, crie uma pasta de **recursos** e navegue até ela. Em seguida, crie um novo arquivo de texto, *ImageFiles. txt*. Nesse arquivo, você adiciona as URLs de imagens para analisar&mdash;uma URL em cada linha. Você pode usar o seguinte conteúdo de exemplo:
+Na pasta **src/main/** do seu projeto, crie uma pasta de **recursos** e navegue até ela. Em seguida, crie um novo arquivo de texto, *ImageFiles. txt*. Nesse arquivo, você adiciona as URLs de imagens para analisar&mdash;uma URL em cada linha. Você pode usar as seguintes imagens de exemplo:
 
 ```
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 ```
 
-### <a name="use-helper-class"></a>Usar classe auxiliar
+### <a name="define-helper-class"></a>Definir classe auxiliar
 
 Em seguida, no arquivo *ContentModeratorQuickstart. java* , adicione a seguinte definição de classe dentro da classe **ContentModeratorQuickstart** . Essa classe interna será usada posteriormente no processo de moderação da imagem.
 
