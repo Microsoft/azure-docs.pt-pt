@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 596da9cfe0e914183bd3b2603ffa1047f1d9352b
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: f5a9f83a8f6e8d5e83f30d30da2b1c4c0f722dc3
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310015"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063043"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>O que são as identidades geridas para os recursos do Azure?
 
@@ -75,7 +75,7 @@ O diagrama seguinte mostra como é que as identidades de serviço geridas funcio
 
 4. Quando a VM tiver uma identidade, utilize as informações do principal de serviço para lhe conceder acesso aos recursos do Azure. Para chamar o Azure Resource Manager, utilize o controlo de acesso baseado em funções (RBAC) no Azure AD para atribuir a função adequada ao principal de serviço da VM. Para chamar o Key Vault, conceda ao seu código acesso ao segredo ou à chave específica no Key Vault.
 
-5. Seu código em execução na VM pode solicitar um token do ponto de extremidade do serviço de metadados da instância do Azure, acessível somente de dentro da VM:`http://169.254.169.254/metadata/identity/oauth2/token`
+5. Seu código em execução na VM pode solicitar um token do ponto de extremidade do serviço de metadados da instância do Azure, acessível somente de dentro da VM: `http://169.254.169.254/metadata/identity/oauth2/token`
     - O parâmetro do recurso especifica o serviço para o qual o token é enviado. Para autenticar no Azure Resource Manager, utilize `resource=https://management.azure.com/`.
     - O parâmetro de versão da API especifica a versão do IMDS; utilize api-version=2018-02-01 ou superior.
 
@@ -96,7 +96,7 @@ O diagrama seguinte mostra como é que as identidades de serviço geridas funcio
    > [!Note]
    > Também pode concluir este passo antes do passo 3.
 
-5. Seu código em execução na VM pode solicitar um token do ponto de extremidade de identidade do serviço de metadados da instância do Azure, acessível somente de dentro da VM:`http://169.254.169.254/metadata/identity/oauth2/token`
+5. Seu código em execução na VM pode solicitar um token do ponto de extremidade de identidade do serviço de metadados da instância do Azure, acessível somente de dentro da VM: `http://169.254.169.254/metadata/identity/oauth2/token`
     - O parâmetro do recurso especifica o serviço para o qual o token é enviado. Para autenticar no Azure Resource Manager, utilize `resource=https://management.azure.com/`.
     - O parâmetro de ID de cliente especifica a identidade para a qual o token é pedido. Este valor é necessário para eliminar ambiguidades se uma única VM tiver mais de uma identidade atribuída pelo utilizador.
     - O parâmetro da versão da API especifica a versão do Azure Instance Metadata Service. Utilize `api-version=2018-02-01` ou superior.
@@ -122,23 +122,25 @@ Saiba como utilizar uma identidade gerida com uma VM do Windows:
 
 Saiba como utilizar uma identidade gerida com uma VM do Linux:
 
+* [Acessar o registro de contêiner do Azure](../../container-registry/container-registry-authentication-managed-identity.md)
 * [Aceder ao Azure Data Lake Store](tutorial-linux-vm-access-datalake.md)
 * [Aceder ao Azure Resource Manager](tutorial-linux-vm-access-arm.md)
 * [Aceder ao Armazenamento do Azure com uma chave de acesso](tutorial-linux-vm-access-storage.md)
 * [Access Azure Storage by using shared access signatures](tutorial-linux-vm-access-storage-sas.md) (Aceder ao Armazenamento do Azure com assinaturas de acesso partilhado)
 * [Aceder a um recurso não Azure com o Azure Key Vault](tutorial-linux-vm-access-nonaad.md)
-* [Acessar o registro de contêiner do Azure](../../container-registry/container-registry-authentication-managed-identity.md)
 
 Saiba como utilizar uma identidade gerida com outros serviços do Azure:
 
-* [Serviço de Aplicações do Azure](/azure/app-service/overview-managed-identity)
-* [Funções do Azure](/azure/app-service/overview-managed-identity)
-* [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
-* [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
-* [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)
+* [App Service do Azure](/azure/app-service/overview-managed-identity)
 * [Gestão de API do Azure](../../api-management/api-management-howto-use-managed-service-identity.md)
 * [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 * [Tarefas do registro de contêiner do Azure](../../container-registry/container-registry-tasks-authentication-managed-identity.md)
+* [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)
+* [Funções do Azure](/azure/app-service/overview-managed-identity)
+* [Serviço Kubernetes do Azure](/azure/aks/use-managed-identity)
+* [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
+* [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
+
 
 ## Que serviços do Azure suportam a funcionalidade?<a name="which-azure-services-support-managed-identity"></a>
 
