@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: e60c4da08d92cce1cd5964f78e8198f6c04069ef
-  ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+  ms.openlocfilehash: a27fa47333739e688e879b936a6e3b25a4d3c749
+  ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 10/27/2019
-  ms.locfileid: "72965894"
+  ms.locfileid: "72968968"
 highlightedContent:
   items:
   - title: O que é o IoT Central?
@@ -23,7 +23,7 @@ highlightedContent:
     url: ./core/overview-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
   - title: O que são modelos de aplicação?
     itemType: concept
-    url: ./core/howto-use-app-templates-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    url: ./core/concepts-app-templates.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
   - title: Arquitetura do Azure IoT Central
     itemType: architecture
     url: ./core/concepts-architecture-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
@@ -86,7 +86,7 @@ productDirectory:
     links:
     - text: Criar soluções para o comércio com o Azure IoT Central
       url: ./retail/overview-iot-central-retail-pnp.md
-    - text: Criar uma aplicação para comércio
+    - text: Criar uma aplicação de análise na loja
       url: ./retail/tutorial-in-store-analytics-create-app-pnp.md
     - text: Criar uma aplicação de gestão de inventário inteligente
       url: ./retail/tutorial-iot-central-smart-inventory-management-pnp.md

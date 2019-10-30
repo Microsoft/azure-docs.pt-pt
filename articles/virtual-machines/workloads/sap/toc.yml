@@ -188,6 +188,8 @@
               href: high-availability-guide-suse-pacemaker.md
             - name: Pacemaker no RHEL
               href: high-availability-guide-rhel-pacemaker.md
+            - name: Conectividade de ponto final público para VMs com o Balanceador de Carga Standard do Azure em cenários de elevada disponibilidade SAP
+              href: high-availability-guide-standard-load-balancer-outbound-connections.md
         - name: Instalação de SAP
           items:
             - name: Windows com Disco Partilhado para a Instância (A)SCS

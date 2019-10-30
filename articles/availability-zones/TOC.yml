@@ -63,8 +63,7 @@
               href: '../sql-database/sql-database-high-availability.md#zone-redundant-configuration'
         - name: Armazenamento
           items:
-            - name: |
-                Armazenamento com redundância entre zonas
+            - name: Armazenamento com redundância entre zonas
               href: ../storage/common/storage-redundancy-zrs.md
         - name: Hubs de Eventos
           items:
@@ -82,6 +81,10 @@
           items:
             - name: Criar um gateway de rede virtual com redundância entre zonas
               href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+        - name: Identidade
+          items:
+            - name: Criar uma instância do Azure Active Directory Domain Services
+              href: ../active-directory-domain-services/tutorial-create-instance.md
 - name: Recuperação Após Desastre
   items:
     - name: Utilizar o Azure Site Recovery

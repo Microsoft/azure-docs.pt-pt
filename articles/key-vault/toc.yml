@@ -54,6 +54,8 @@
       href: ../azure-resource-manager/resource-manager-keyvault-parameter.md
     - name: Configurar rotação e auditoria de chave
       href: key-vault-key-rotation-log-monitoring.md
+    - name: Monitorizar os eventos do Key Vault com o Event Grid
+      href: event-grid-overview.md
 - name: Amostras
   items:
     - name: Exemplos de código
@@ -74,6 +76,8 @@
           href: key-vault-security-controls.md
     - name: Eliminar de forma recuperável
       href: key-vault-ovw-soft-delete.md
+    - name: Monitorizar os eventos do Key Vault
+      href: event-grid-overview.md
     - name: Limitação
       href: key-vault-ovw-throttling.md
     - name: Pontos Finais de Serviço de Rede Virtual
@@ -104,6 +108,8 @@
           href: managed-identity.md
         - name: Utilizar uma política de controlo de acesso
           href: key-vault-group-permissions-for-apps.md
+    - name: Encaminhar as notificações do cofre de chaves com o Event Grid
+      href: event-grid-tutorial.md
     - name: Registo do Azure Key Vault
       href: key-vault-logging.md
     - name: Acesso por trás de firewalls

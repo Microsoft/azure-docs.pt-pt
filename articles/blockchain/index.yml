@@ -11,12 +11,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 09/25/2019
-  ms.openlocfilehash: 93a1e54dd2f1c209792c688666782a9c9823214b
-  ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+  ms.openlocfilehash: 0bdf46585a05ffc286e26087dad005eb102ed6b8
+  ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/27/2019
-  ms.locfileid: "71328629"
+  ms.lasthandoff: 10/29/2019
+  ms.locfileid: "73027128"
 productDirectory:
   items:
   - title: Azure Blockchain Service
@@ -78,7 +78,7 @@ additionalContent:
     summary: Exemplos de código e ferramentas de desenvolvimento de aplicações do Blockchain.
     items:
     - title: Development Kit do Azure Blockchain para o Ethereum
-      summary: Desenvolva, implemente a depuração e faça a gestão da sua solução do Azure Blockchain Service.
+      summary: Desenvolva, implemente, depure e faça a gestão da sua solução do Azure Blockchain Service.
       url: https://marketplace.visualstudio.com/items?itemName=azblockchain.azure-blockchain
     - title: Conector de Blockchain do Ethereum
       summary: Utilize o Azure Logic Apps, Microsoft Flow e Microsoft PowerApps para realizar ações de contrato inteligente como, por exemplo, submeter transações, ler o estado do contrato e acionar fluxos relativamente a atualizações de contrato.
