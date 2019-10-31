@@ -6,19 +6,19 @@ ms.author: dacoulte
 ms.date: 10/01/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: fa683206ec1ff4d02298fd2689791601ff11f85c
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 64af398ec4829a0336294b33fef102392b9a4099
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72297792"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163871"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapeamento de recomendação da amostra Blueprint de benchmark do Microsoft Azure Foundations do CIS
 
 O artigo a seguir fornece detalhes sobre como a amostra do plano gráfico de benchmark do Azure Microsoft Azure Foundations do CIS é mapeada para as recomendações de benchmark Microsoft Azure Foundations. Para obter mais informações sobre as recomendações, consulte [CIS Microsoft Azure Foundations benchmark](https://www.cisecurity.org/benchmark/azure/).
 
 Os mapeamentos a seguir são para as recomendações de **benchmark v 1.1.0 do Microsoft Azure Foundations do CIS** . Use a navegação à direita para ir diretamente para um mapeamento de recomendação específico.
-Muitas das recomendações mapeadas são implementadas com uma iniciativa de [Azure Policy](../../../policy/overview.md) . Para examinar a iniciativa completa, abra a **política** no portal do Azure e selecione a página **definições** . Em seguida, localize e selecione as **recomendações \[Preview @ no__t-2 Audit CIS Microsoft Azure Foundations benchmark v 1.1.0 e implante extensões de VM específicas para dar suporte** à iniciativa de política interna de requisitos de auditoria.
+Muitas das recomendações mapeadas são implementadas com uma iniciativa de [Azure Policy](../../../policy/overview.md) . Para examinar a iniciativa completa, abra a **política** no portal do Azure e selecione a página **definições** . Em seguida, localize e selecione as **recomendações de\[visualização\] Audit CIS Microsoft Azure Foundations benchmark v 1.1.0 e implante extensões de VM específicas para dar suporte** à iniciativa de política interna de requisitos de auditoria.
 
 > [!IMPORTANT]
 > Cada controle abaixo é associado a uma ou mais definições de [Azure Policy](../../../policy/overview.md) . Essas políticas podem ajudá-lo a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle; no entanto, muitas vezes não há uma correspondência completa ou 1:1 entre um controle e uma ou mais políticas. Como tal, em **conformidade** com Azure Policy refere-se apenas às próprias políticas; Isso não garante que você esteja totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição de Azure Policy no momento. Portanto, a conformidade em Azure Policy é apenas uma visão parcial do seu status de conformidade geral. As associações entre controles e definições de Azure Policy para esta amostra do Blueprint de conformidade podem mudar ao longo do tempo. Para exibir o histórico de alterações, consulte o [histórico de confirmação do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/cis-azure-1.1.0/control-mapping.md).
@@ -346,7 +346,7 @@ Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.
 
 Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que o controle de acesso baseado em função seja usado para permissões gerenciadas em clusters do serviço kubernetes
 
-- \[Preview @ no__t-1: RBAC (controle de acesso baseado em função) deve ser usado em serviços Kubernetess
+- \[visualização\]: o RBAC (controle de acesso baseado em função) deve ser usado nos serviços Kubernetess
 
 ## <a name="92-ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>9,2 garantir que o aplicativo Web Redirecione todo o tráfego HTTP para HTTPS no serviço Azure App
 
@@ -362,7 +362,7 @@ Agora que você examinou o mapeamento de controle do plano de referência do CIS
 > [Plano de referência do CIS Microsoft Azure Foundations Blueprint-visão geral](./index.md)
 > [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions)
 
-Artigos adicionais sobre esquemas e como utilizá-los:
+Artigos adicionais sobre plantas e como usá-los:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

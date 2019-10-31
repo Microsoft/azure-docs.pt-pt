@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 942928a3e5da02bc44f85baab1b9795137a9433d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 73372c0b94cb12c771c0c9003441750fc380f3c9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72297097"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162926"
 ---
 # <a name="overview-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Descrição geral dos exemplos de esquema UK OFFICIAL e UK NHS
 
@@ -30,7 +30,7 @@ Analisou a descrição geral e arquitetura dos exemplos de esquema UK OFFICIAL e
 > [Esquemas UK OFFICIAL e UK NHS - Mapeamento de controlo](./control-mapping.md)
 > [Esquemas UK OFFICIAL e UK NHS - Passos de implementação](./deploy.md)
 
-Artigos adicionais sobre esquemas e como utilizá-los:
+Artigos adicionais sobre esquemas e como os utilizar:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

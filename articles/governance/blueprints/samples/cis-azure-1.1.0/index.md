@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 08/09/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 526ae799fc3071934936d177743129a6c33f59de
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 503c84339dfa32b2a7312ceca6333312b5990862
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72297769"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163843"
 ---
 # <a name="overview-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Descrição geral do exemplo de esquema CIS Microsoft Azure Foundations Benchmark
 
@@ -30,7 +30,7 @@ Em seguida, leia o seguinte artigo para saber mais sobre o mapeamento das recome
 > [!div class="nextstepaction"]
 > [Esquema CIS Microsoft Azure Foundations Benchmark - Mapeamento das recomendações](./control-mapping.md)
 
-Artigos adicionais sobre esquemas e como utilizá-los:
+Artigos adicionais sobre esquemas e como os utilizar:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

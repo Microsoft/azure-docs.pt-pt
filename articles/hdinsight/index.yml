@@ -11,12 +11,12 @@ metadata:
   author: hrasheed-msft
   ms.author: hrasheed
   ms.date: 08/30/2019
-  ms.openlocfilehash: b44020cc6476af03ad3c2e9e1956f9c1d951a0eb
-  ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+  ms.openlocfilehash: 8227f36ecaeb868f022ad036cf727fee8448da75
+  ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/14/2019
-  ms.locfileid: "72312088"
+  ms.lasthandoff: 10/30/2019
+  ms.locfileid: "73063174"
 landingContent:
 - title: Acerca do HDInsight
   linkLists:
@@ -40,6 +40,8 @@ landingContent:
       url: ./hdinsight-hadoop-use-data-lake-storage-gen2.md
   - linkListType: whats-new
     links:
+    - text: Ambari DB Personalizado
+      url: ./hdinsight-custom-ambari-db.md
     - text: 'Dimensionamento automático: dimensionar automaticamente clusters do Hadoop'
       url: ./hdinsight-autoscale-clusters.md
     - text: Monitorizar com o HDInsight

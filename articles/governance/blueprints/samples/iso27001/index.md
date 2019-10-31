@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 07/22/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: ccfd782d375de9d3a39cac20b1e48e16cc40d2f7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: fb66c971a9d5f0dfde4c46ab92bda896670d3c5d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72297384"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161436"
 ---
 # <a name="overview-of-the-iso-27001-blueprint-sample"></a>Descrição geral do exemplo de esquema ISO 27001
 
@@ -30,7 +30,7 @@ A seguir, visite os artigos seguintes para saber mais sobre o mapeamento de cont
 > [Esquema ISO 27001 - Mapeamento de controlo](./control-mapping.md)
 > [Esquema ISO 27001 - Passos de implementação](./deploy.md)
 
-Artigos adicionais sobre esquemas e como utilizá-los:
+Artigos adicionais sobre esquemas e como os utilizar:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

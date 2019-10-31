@@ -16,16 +16,16 @@ ms.date: 09/16/2019
 ms.author: twhitney
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2704a6e1af2f06b49b1d3817ad7a30bf53419ffe
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 01c45c3f90fd1c9bf457f5c4024d029bf3819813
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72963992"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149489"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: Iniciar sessão dos utilizadores e chamar a Microsoft Graph API a partir de uma aplicação Android
 
-Este guia de início rápido usa um exemplo de código para demonstrar como um aplicativo Android pode entrar em contas pessoais, corporativas ou de estudante e, em seguida, obter um token de acesso e chamar a API de Microsoft Graph.
+Este guia de início rápido usa um exemplo de código para demonstrar como um aplicativo Android pode entrar em contas pessoais, corporativas ou de estudante usando a plataforma de identidade da Microsoft e, em seguida, obter um token de acesso e chamar a API de Microsoft Graph.
 
 ![Screenshoft do aplicativo de exemplo](media/quickstart-v2-android/android-intro.svg)
 

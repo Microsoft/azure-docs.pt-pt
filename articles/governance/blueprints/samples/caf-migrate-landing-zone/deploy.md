@@ -7,12 +7,12 @@ ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 ms.custom: fasttrack-new
-ms.openlocfilehash: cb41d363b208400598c8afb06dfdb4acaeb02d2b
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 4693959a2b4f0638caea57fb97796faf62aba9a0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298018"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163560"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Implantar a estrutura de adoção Microsoft Cloud para migrações do Azure exemplo de plantas de zona de aterrissagem
 
@@ -120,7 +120,7 @@ Agora que você analisou as etapas para implantar o exemplo CAF migrar a zona de
 > [!div class="nextstepaction"]
 > [Blueprint da zona de aterrissagem de migração do CAF-visão geral](./index.md)
 
-Artigos adicionais sobre esquemas e como utilizá-los:
+Artigos adicionais sobre plantas e como usá-los:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

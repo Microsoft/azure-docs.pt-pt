@@ -18,18 +18,19 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36e354894700ec92a444f288b3e09f5d7af88329
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f93816168a95fa10639da91d72a070660157a96f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321042"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149535"
 ---
-# <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Início rápido: Compilar um aplicativo Xamarin que integre a entrada da Microsoft
+# <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Início rápido: criar um aplicativo Xamarin que integre a entrada da Microsoft
 
 A [plataforma de identidade da Microsoft](v2-overview.md) é uma evolução da plataforma de desenvolvedor do Azure Active Directory (Azure AD). Permite aos programadores criar aplicações que iniciam sessão em todas as identidades da Microsoft e obtêm tokens para chamar APIs da Microsoft, como o Microsoft Graph, ou APIs criadas pelos programadores.
 
 A [MSAL (biblioteca de autenticação da Microsoft)](msal-overview.md) permite que os desenvolvedores adquiram tokens do ponto de extremidade da plataforma Microsoft Identity para acessar APIs da Web protegidas. O Biblioteca de Autenticação do Active Directory (ADAL) integra-se com o ponto de extremidade do Azure AD para desenvolvedores (v 1.0), em que MSAL se integra com o ponto de extremidade da plataforma Microsoft Identity (v 2.0).
 
-Para novos aplicativos Xamarin Applications, recomendamos que você use a plataforma de identidade da Microsoft (v 2.0) e o MSAL para adquirir tokens e acessar APIs da Web protegidas: [Integre a identidade da Microsoft e o Microsoft Graph a um aplicativo Xamarin Forms usando o MSAL](https://github.com/azure-samples/active-directory-xamarin-native-v2#integrate-microsoft-identity-and-the-microsoft-graph-into-a-xamarin-forms-app-using-msal) (sem as etapas opcionais).
+## <a name="next-steps"></a>Passos seguintes
 
+Para novos aplicativos Xamarin, recomendamos que você use a plataforma de identidade da Microsoft (v 2.0) e o MSAL para adquirir tokens e acessar APIs da Web protegidas. Consulte [integrar a identidade da Microsoft e o Microsoft Graph em um aplicativo Xamarin Forms usando MSAL](https://github.com/azure-samples/active-directory-xamarin-native-v2#integrate-microsoft-identity-and-the-microsoft-graph-into-a-xamarin-forms-app-using-msal) (sem as etapas opcionais) para começar.

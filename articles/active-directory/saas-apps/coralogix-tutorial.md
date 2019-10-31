@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com Coralogix | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Coralogix.
+title: 'Tutorial: integração do Azure Active Directory com o Coralogix | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Coralogix.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ba79bfc1-992e-4924-b76a-8eb0dfb97724
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,99 +16,99 @@ ms.topic: tutorial
 ms.date: 1/2/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 721e0c40ec2e02dabee0681e01fea4182b906183
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8589c366c029ab51c7cd740a1b63cff7c0481a51
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67104652"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158462"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-coralogix"></a>Tutorial: Integração do Active Directory do Azure com Coralogix
+# <a name="tutorial-azure-active-directory-integration-with-coralogix"></a>Tutorial: integração do Azure Active Directory com o Coralogix
 
-Neste tutorial, saiba como integrar Coralogix com o Azure Active Directory (Azure AD).
-Integrar Coralogix no Azure AD fornece as seguintes vantagens:
+Neste tutorial, você aprenderá a integrar o Coralogix com o Azure Active Directory (Azure AD).
+A integração do Coralogix ao Azure AD oferece os seguintes benefícios:
 
-* Pode controlar no Azure AD que tenha acesso ao Coralogix.
-* Pode permitir que os utilizadores ter automaticamente sessão iniciada no Coralogix (início de sessão único) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central: portal do Azure.
+* No Azure AD, é possível controlar quem tem acesso ao Coralogix.
+* Você pode permitir que seus usuários sejam conectados automaticamente ao Coralogix (logon único) com suas contas do Azure AD.
+* Você pode gerenciar suas contas em um local central: o portal do Azure.
 
-Para obter mais informações sobre a integração de aplicações SaaS com o Azure AD, consulte [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para obter mais informações sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Coralogix, terá dos seguintes itens:
+Para configurar a integração do Azure AD ao Coralogix, você precisará dos seguintes itens:
 
-- Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
-- Um Coralogix single-sign-on ativar a subscrição. 
+- Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, poderá obter uma [avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+- Uma assinatura habilitada para logon único do Coralogix. 
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* Coralogix suporta SSO iniciado por SP.
+* O Coralogix dá suporte ao SSO iniciado por SP.
 
-## <a name="add-coralogix-from-the-gallery"></a>Adicionar Coralogix a partir da Galeria
+## <a name="add-coralogix-from-the-gallery"></a>Adicionar o Coralogix da Galeria
 
-Para configurar a integração do Coralogix com o Azure AD, primeiro adicione Coralogix partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do Coralogix ao Azure AD, primeiro adicione o Coralogix da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-Para adicionar Coralogix a partir da galeria, siga os passos seguintes:
+Para adicionar o Coralogix da galeria, execute as seguintes etapas:
 
-1. Na [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione a **Azure Active Directory** ícone.
+1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione o ícone de **Azure Active Directory** .
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Aceda a **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
+2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A folha aplicativos empresariais](common/enterprise-applications.png)
 
-3. Para adicionar uma nova aplicação, selecione o **nova aplicação** botão na parte superior da caixa de diálogo.
+3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior da caixa de diálogo.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O botão novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, introduza **Coralogix**. Selecione **Coralogix** no painel de resultados e, em seguida, selecione a **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, digite **Coralogix**. Selecione **Coralogix** no painel de resultados e, em seguida, selecione o botão **Adicionar** para adicionar o aplicativo.
 
      ![Coralogix na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Coralogix com base num utilizador de teste chamado Eduarda Almeida.
-Para início de sessão único funcione, tem de estabelecer uma ligação entre um utilizador do Azure AD e o utilizador relacionado no Coralogix.
+Nesta seção, você configurará e testará o logon único do Azure AD com o Coralogix, com base em um usuário de teste chamado Brenda Simon.
+Para que o logon único funcione, você precisa estabelecer um vínculo entre um usuário do Azure AD e o usuário relacionado no Coralogix.
 
-Para configurar e testar o Azure AD início de sessão único com Coralogix, primeiro conclua os seguintes blocos de construção:
+Para configurar e testar o logon único do Azure AD com o Coralogix, primeiro conclua os seguintes blocos de construção:
 
-1. [Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on) para permitir aos utilizadores utilizar esta funcionalidade.
-2. [Configurar Coralogix início de sessão único](#configure-coralogix-single-sign-on) para configurar as definições de início de sessão únicas no lado do aplicativo.
-3. [Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user) para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. [Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user) para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. [Criar um utilizador de teste Coralogix](#create-a-coralogix-test-user) ter um equivalente da Eduarda Almeida na Coralogix que está ligado à representação de utilizador do Azure AD.
-6. [Testar início de sessão único](#test-single-sign-on) para verificar se a configuração funciona.
+1. [Configure o logon único do Azure ad](#configure-azure-ad-single-sign-on) para habilitar seus usuários a usar esse recurso.
+2. [Configure o logon único do Coralogix](#configure-coralogix-single-sign-on) para definir as configurações de logon único no lado do aplicativo.
+3. [Crie um usuário de teste do Azure ad](#create-an-azure-ad-test-user) para testar o logon único do Azure AD com o Brenda Simon.
+4. [Atribua o usuário de teste do Azure ad](#assign-the-azure-ad-test-user) para permitir que o Brenda Simon use o logon único do Azure AD.
+5. [Crie um usuário de teste do Coralogix](#create-a-coralogix-test-user) para ter um equivalente de Brenda Simon no Coralogix que esteja vinculado à representação do usuário no Azure AD.
+6. [Teste o logon único](#test-single-sign-on) para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
 
-Para configurar o Azure AD início de sessão único com Coralogix, siga os passos seguintes:
+Para configurar o logon único do Azure AD com o Coralogix, execute as seguintes etapas:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Coralogix** página de integração de aplicações, selecione **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Coralogix** , selecione **logon único**.
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Link configurar logon único](common/select-sso.png)
 
-2. Na **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML** para ativar o início de sessão único.
+2. Na caixa de diálogo **selecionar um método de logon único** , selecione **SAML** para habilitar o logon único.
 
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na **definir a segurança de início de sessão único com o SAML** página, selecione a **editar** ícone para abrir o **configuração básica de SAML** caixa de diálogo.
+3. Na página **Configurar logon único com SAML** , selecione o ícone **Editar** para abrir a caixa de diálogo **configuração básica de SAML** .
 
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-4. Na **configuração básica de SAML** diálogo caixa, siga os passos seguintes:
+4. Na caixa de diálogo **configuração básica do SAML** , execute as seguintes etapas:
 
-    ![Coralogix domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
+    ![Informações de logon único de domínio e URLs do Coralogix](common/sp-identifier.png)
 
-    a. Na **iniciar sessão no URL** , introduza um URL com o seguinte padrão: `https://<SUBDOMAIN>.coralogix.com`
+    a. Na caixa **URL de logon** , insira uma URL com o seguinte padrão: `https://<SUBDOMAIN>.coralogix.com`
 
-    b. Na **identificador (ID de entidade)** texto, introduza um URL, tais como:
+    b. Na caixa de texto **identificador (ID da entidade)** , insira uma URL, como:
     
     `https://api.coralogix.com/saml/metadata.xml`
 
@@ -116,105 +117,105 @@ Para configurar o Azure AD início de sessão único com Coralogix, siga os pass
     `https://aws-client-prod.coralogix.com/saml/metadata.xml` 
 
     > [!NOTE]
-    > O valor do URL de início de sessão não é real. Atualize o valor com o URL de início de sessão real. Contacte os [equipa de suporte de cliente Coralogix](mailto:info@coralogix.com) para obter o valor. Também pode consultar os padrões da **configuração básica de SAML** secção no portal do Azure.
+    > O valor da URL de logon não é real. Atualize o valor com a URL de logon real. Contate a [equipe de suporte ao cliente do Coralogix](mailto:info@coralogix.com) para obter o valor. Você também pode consultar os padrões na seção **configuração básica do SAML** no portal do Azure.
 
-5. O aplicativo Coralogix espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicativo. Na **definir a segurança de início de sessão único com o SAML** página, selecione a **editar** botão para abrir o **atributos de utilizador** caixa de diálogo.
+5. O aplicativo Coralogix espera as asserções SAML em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **atributos de usuário** na página de integração de aplicativos. Na página **Configurar logon único com SAML** , selecione o botão **Editar** para abrir a caixa de diálogo **atributos de usuário** .
 
-    ![image](common/edit-attribute.png)
+    ![imagem](common/edit-attribute.png)
 
-6. Na **afirmações de utilizador** secção a **atributos de utilizador** caixa de diálogo caixa, edite as afirmações utilizando o **editar** ícone. Também pode adicionar as afirmações utilizando **Adicionar nova afirmação** para configurar o atributo de token SAML, conforme mostrado na imagem anterior. Em seguida, siga os passos seguintes:
+6. Na seção **declarações do usuário** , na caixa de diálogo **atributos de usuário** , edite as declarações usando o ícone **Editar** . Você também pode adicionar as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML, conforme mostrado na imagem anterior. Em seguida, execute as seguintes etapas:
     
-    a. Selecione o **ícone de edição** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
+    a. Selecione o **ícone Editar** para abrir a caixa de diálogo **gerenciar declarações do usuário** .
 
-    ![image](./media/coralogix-tutorial/tutorial_usermail.png) ![image](./media/coralogix-tutorial/tutorial_usermailedit.png)
+    imagem de ![](./media/coralogix-tutorial/tutorial_usermail.png) ![de imagem](./media/coralogix-tutorial/tutorial_usermailedit.png)
 
-    b. Partir do **formato de identificador de nome escolher** lista, selecione **endereço de E-Mail**.
+    b. Na lista **escolher formato do identificador de nome** , selecione **endereço de email**.
 
-    c. Partir do **atributo de origem** lista, selecione **user.mail**.
+    c. Na lista **atributo de origem** , selecione **User. mail**.
 
     d. Selecione **Guardar**.
 
-7. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, selecione **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado, de acordo com os seus requisitos. Em seguida, guarde-o no seu computador.
+7. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , selecione **baixar** para baixar o XML de metadados de **Federação** das opções fornecidas de acordo com seus requisitos. Em seguida, salve-o em seu computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![O link de download do certificado](common/metadataxml.png)
 
-8. Na **configurar Coralogix** secção, copie o URL adequado.
+8. Na seção **Configurar Coralogix** , copie as URLs apropriadas.
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+    a. URL de logon
 
     b. Identificador do Azure AD
 
-    c. URL de fim de sessão
+    c. URL de logout
 
-### <a name="configure-coralogix-single-sign-on"></a>Configurar Coralogix início de sessão único
+### <a name="configure-coralogix-single-sign-on"></a>Configurar o logon único do Coralogix
 
-Para configurar o início de sessão único no **Coralogix** lado, envie o transferido **XML de metadados de Federação** e copiados URLs a partir do portal do Azure para o [equipa de suporte de Coralogix](mailto:info@coralogix.com). Eles garantem que a ligação de SAML SSO está definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Coralogix** , envie o XML de **metadados de Federação** baixado e as URLs copiadas do portal do Azure para a [equipe de suporte do Coralogix](mailto:info@coralogix.com). Eles garantem que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![Os links "usuários e grupos" e "todos os usuários"](common/users.png)
 
-2. Na parte superior do ecrã, selecione **novo utilizador**.
+2. Na parte superior da tela, selecione **novo usuário**.
 
-    ![Novo utilizador botão](common/new-user.png)
+    ![Botão novo usuário](common/new-user.png)
 
-3. Na **utilizador** diálogo caixa, siga os passos seguintes.
+3. Na caixa de diálogo **usuário** , execute as etapas a seguir.
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    ![A caixa de diálogo usuário](common/user-properties.png)
 
-    a. Na **Name** , insira **BrittaSimon**.
+    a. No campo **nome** , insira **brendafernandes**.
   
-    b. Na **nome de utilizador** , insira "brittasimon@yourcompanydomain.extension." Por exemplo, neste caso, poderá introduzir "brittasimon@contoso.com."
+    b. No campo **nome de usuário** , digite "brittasimon@yourcompanydomain.extension". Por exemplo, nesse caso, você pode inserir "brittasimon@contoso.com".
 
-    c. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
+    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
 
     d. Selecione **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Coralogix.
+Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo acesso ao Coralogix.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **Coralogix**.
+1. Na portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **Coralogix**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+    ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Coralogix**.
+2. Na lista de aplicativos, selecione **Coralogix**.
 
-    ![A ligação de Coralogix na lista de aplicações](common/all-applications.png)
+    ![O link do Coralogix na lista de aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+3. No menu à esquerda, selecione **usuários e grupos**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![O link "usuários e grupos"](common/users-groups-blade.png)
 
-4. Selecione o **adicionar utilizador** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Selecione o botão **Adicionar usuário** . Em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
     ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores. Em seguida, clique nas **selecione** na parte inferior do ecrã.
+5. Na caixa de diálogo **usuários e grupos** , selecione **Brenda Simon** na lista de usuários. Em seguida, clique no botão **selecionar** na parte inferior da tela.
 
-6. Se estiver à espera de um valor de função na asserção de SAML, no **selecionar função** diálogo caixa, selecione a função adequada para o utilizador a partir da lista. Em seguida, clique nas **selecione** na parte inferior do ecrã.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista. Em seguida, clique no botão **selecionar** na parte inferior da tela.
 
-7. Na **adicionar atribuição** caixa de diálogo, selecione a **atribuir** botão.
+7. Na caixa de diálogo **Adicionar atribuição** , selecione o botão **atribuir** .
 
-### <a name="create-a-coralogix-test-user"></a>Criar um utilizador de teste Coralogix
+### <a name="create-a-coralogix-test-user"></a>Criar um usuário de teste do Coralogix
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Coralogix. Trabalhar com o [equipa de suporte de Coralogix](mailto:info@coralogix.com) para adicionar os utilizadores na plataforma Coralogix. Tem de criar e ativar os utilizadores antes de utilizar o início de sessão único.
+Nesta seção, você criará um usuário chamado Brenda Simon no Coralogix. Trabalhe com a [equipe de suporte do Coralogix](mailto:info@coralogix.com) para adicionar os usuários na plataforma do Coralogix. Você deve criar e ativar os usuários antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-Nesta secção, vai testar seu única início de sessão em configuração do Azure AD com o portal MyApps.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o portal do myapps.
 
-Ao selecionar o mosaico Coralogix no MyApps portal, deve ser automaticamente sessão iniciada no Coralogix. Para obter mais informações sobre o portal MyApps, consulte [o que é o portal MyApps?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o bloco do Coralogix no portal do myapps, você deverá ser conectado automaticamente ao Coralogix. Para obter mais informações sobre o portal do myapps, consulte [o que é o portal do myapps?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 

@@ -1,6 +1,6 @@
 ---
-title: Configurar o ExpressRoute Direct – Azure | Documentos da Microsoft
-description: Esta página ajuda-o a configurar o ExpressRoute Direct.
+title: Configurar o ExpressRoute direto – Azure | Microsoft Docs
+description: Esta página ajuda a configurar o ExpressRoute Direct.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 0fec7234d18659051c61fda593b1ba0fb846c220
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9dcefb2d47b6862466b64b3568e1a530a2fdb8cb
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964255"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161593"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Como configurar o ExpressRoute Direct
 
-ExpressRoute Direct dá-lhe a capacidade de ligar diretamente para a rede global da Microsoft em localizações de peering estrategicamente distribuídas em todo o mundo. Para obter mais informações, consulte [sobre o ExpressRoute direto ligar](expressroute-erdirect-about.md).
+O ExpressRoute Direct oferece a capacidade de se conectar diretamente à rede global da Microsoft em locais de emparelhamento distribuídos estrategicamente em todo o mundo. Para obter mais informações, consulte [sobre o conexão direta do ExpressRoute](expressroute-erdirect-about.md).
 
 ## <a name="resources"></a>Criar o recurso
 
-1. Inicie sessão no Azure e selecione a subscrição. O recurso direto do ExpressRoute e circuitos do ExpressRoute tem de ser na mesma subscrição.
+1. Entre no Azure e selecione a assinatura. O recurso direto do ExpressRoute e os circuitos do ExpressRoute devem estar na mesma assinatura.
 
    ```powershell
    Connect-AzAccount 
 
-   Select-AzSubscription -Subscription “<SubscriptionID or SubscriptionName>”
+   Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
-2. Liste todas as localizações onde ExpressRoute direta é suportada.
+2. Listar todos os locais em que há suporte para o ExpressRoute Direct.
   
    ```powershell
    Get-AzExpressRoutePortsLocation
@@ -61,7 +61,7 @@ ExpressRoute Direct dá-lhe a capacidade de ligar diretamente para a rede global
    Contact             : support@equinix.com
    AvailableBandwidths : []
    ```
-3. Determinar se uma localização listada acima tem largura de banda disponível
+3. Determinar se um local listado acima tem largura de banda disponível
 
    ```powershell
    Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
@@ -83,14 +83,14 @@ ExpressRoute Direct dá-lhe a capacidade de ligar diretamente para a rede global
                           }
                         ]
    ```
-4. Criar um recurso direto do ExpressRoute com base na localização selecionada acima
+4. Criar um recurso do ExpressRoute Direct com base no local escolhido acima
 
-   ExpressRoute Direct suporta QinQ e Dot1Q encapsulamento. Se for selecionado QinQ, cada circuito ExpressRoute vai ser atribuído dinamicamente uma marca de S e seja exclusivo em todo o recurso direto do ExpressRoute. Cada etiqueta-C no circuito tem de ser exclusiva no circuito, mas não em direto do ExpressRoute.  
+   O ExpressRoute Direct dá suporte ao encapsulamento QinQ e Dot1Q. Se QinQ for selecionado, cada circuito do ExpressRoute será atribuído dinamicamente a uma marca S e será exclusivo em todo o recurso do ExpressRoute Direct. Cada marca C no circuito deve ser exclusiva no circuito, mas não através do ExpressRoute Direct.  
 
-   Se for selecionado o encapsulamento Dot1Q, tem de gerir exclusividade de etiqueta-C (VLAN) em recursos de ExpressRoute Direct inteiro.  
+   Se o encapsulamento Dot1Q estiver selecionado, você deverá gerenciar a exclusividade da marca C (VLAN) em todo o recurso direto do ExpressRoute.  
 
    > [!IMPORTANT]
-   > ExpressRoute Direct só pode ser um tipo de encapsulamento. Encapsulamento não pode ser alterado após a criação direta de ExpressRoute.
+   > O ExpressRoute Direct só pode ser um tipo de encapsulamento. O encapsulamento não pode ser alterado após a criação direta do ExpressRoute.
    > 
  
    ```powershell 
@@ -98,7 +98,7 @@ ExpressRoute Direct dá-lhe a capacidade de ligar diretamente para a rede global
    ```
 
    > [!NOTE]
-   > O atributo de encapsulamento também poderia ser definido como Dot1Q. 
+   > O atributo de encapsulamento também pode ser definido como Dot1Q. 
    >
 
    **Exemplo de saída:**
@@ -150,23 +150,23 @@ ExpressRoute Direct dá-lhe a capacidade de ligar diretamente para a rede global
    Circuits                   : []
    ```
 
-## <a name="state"></a>Alterar o estado de administrador de ligações
+## <a name="state"></a>Alterar o estado do administrador de links
 
-  Este processo deve ser utilizado para conduzir um teste de camada 1, garantindo que cada ligação cruzada é corretamente corrigida em cada router principal e secundário.
-1. Obter os detalhes da direta do ExpressRoute.
+  Esse processo deve ser usado para conduzir um teste de camada 1, garantindo que cada conexão cruzada seja corrigida corretamente em cada roteador para primário e secundário.
+1. Obtenha detalhes diretos do ExpressRoute.
 
    ```powershell
    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
    ```
-2. Defina o Link para ativado. Repita este passo para definir cada ligação ativada.
+2. Defina link como habilitado. Repita essa etapa para definir cada link como habilitado.
 
-   Ligações [0] é a porta primária e Links [1] é a porta secundária.
+   Links [0] é a porta primária e os links [1] são a porta secundária.
 
    ```powershell
-   $ERDirect.Links[0].AdminState = “Enabled”
+   $ERDirect.Links[0].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
-   $ERDirect.Links[1].AdminState = “Enabled”
+   $ERDirect.Links[1].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    ```
    **Exemplo de saída:**
@@ -218,17 +218,17 @@ ExpressRoute Direct dá-lhe a capacidade de ligar diretamente para a rede global
    Circuits                   : []
    ```
 
-   Utilize o mesmo procedimento com `AdminState = “Disabled”` para ativar às portas.
+   Use o mesmo procedimento com `AdminState = "Disabled"` para desativar as portas.
 
 ## <a name="circuit"></a>Criar um circuito
 
-Por predefinição, pode criar 10 circuitos na subscrição em que é o recurso direto do ExpressRoute. Isso pode ser aumentado em suporte. É responsável por controlar aprovisionado e largura de banda utilizada. Largura de banda aprovisionada é a soma de largura de banda de todos os circuitos no recurso direto do ExpressRoute e utilizada de largura de banda é a utilização física das interfaces físicas subjacentes.
+Por padrão, você pode criar 10 circuitos na assinatura onde está o recurso direto do ExpressRoute. Isso pode ser aumentado pelo suporte. Você é responsável por controlar tanto a largura de banda provisionada quanto a utilizada. A largura de banda provisionada é a soma da largura de banda de todos os circuitos no recurso direto do ExpressRoute e a largura de banda utilizada é o uso físico das interfaces físicas subjacentes.
 
-Existem larguras de banda do circuito adicionais que podem ser utilizadas no ExpressRoute Direct apenas para suportar os cenários descritos acima. Nomeadamente: 40Gbps e 100Gbps.
+Há mais larguras de banda de circuito que podem ser utilizadas no ExpressRoute Direct apenas para dar suporte aos cenários descritos acima. São eles: 40Gbps e 100Gbps.
 
-**SkuTier** pode ser Local, Standard ou Premium.
+**SkuTier** pode ser local, Standard ou Premium.
 
-**SkuFamily** tem de ser MeteredData apenas como ilimitado não é suportado em direto do ExpressRoute.
+**SkuFamily** deve ser MeteredData somente como ilimitado não tem suporte no ExpressRoute Direct.
 
 Crie um circuito no recurso direto do ExpressRoute.
 
@@ -236,7 +236,7 @@ Crie um circuito no recurso direto do ExpressRoute.
   New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
   ```
 
-  Outras larguras de banda incluem: 5.0, 10.0 e 40.0
+  Outras larguras de banda incluem: 5,0, 10,0 e 40,0
 
   **Exemplo de saída:**
 
@@ -270,6 +270,6 @@ Crie um circuito no recurso direto do ExpressRoute.
   GatewayManagerEtag     
   ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o Direct do ExpressRoute, consulte a [descrição geral](expressroute-erdirect-about.md).
+Para obter mais informações sobre o ExpressRoute Direct, consulte a [visão geral](expressroute-erdirect-about.md).

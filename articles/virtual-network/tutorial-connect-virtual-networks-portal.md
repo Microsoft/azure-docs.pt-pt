@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: bf7b9b288a32d9f6cc2c9e0d7dba4b074c4bf878
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: cbf19d941e63429b6a5edcc6745d04834cf18621
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515708"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73164064"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: ligar redes virtuais com o peering de rede virtual, utilizando o Portal do Azure
 
@@ -54,7 +54,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     |Grupo de recursos| Selecione **Criar novo** e introduza *myResourceGroup*.|
     |Região| Selecione **E.U.A. Leste**.|
     |Nome|myVirtualNetwork1|
-    ! [Definir configurações básicas de rede virtual] (
+   
 4. Na página **endereços IP** , digite 10.0.0.0/16 para o campo **espaço de endereço** . Clique no botão **Adicionar sub-rede** abaixo e insira Subnet1 para o **nome da sub-rede** e 10.0.0.0/24 para o intervalo de endereços da **sub-rede**.
    
 5. Conclua os passos 1 a 3 novamente, com as seguintes alterações:
@@ -147,7 +147,7 @@ A criação das VMs demora alguns minutos. Não prossiga com os restantes passos
 6. Num passo posterior, o ping é utilizado para comunicar com a VM *myVm2* a partir da VM *myVm1*. O ping utiliza o protocolo ICMP (Internet Control Message Protocol), que é negado através da firewall do Windows, por predefinição. Na VM *myVm1*, ative o ICMP através da firewall do Windows, para que consiga enviar pings para esta VM a partir da *myVm2* num passo posterior, com o PowerShell:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
     
     Apesar de o ping ser utilizado para comunicar entre VMs neste tutorial, não é recomendado permitir o ICMP através da Firewall do Windows para implementações de produção.

@@ -4,15 +4,15 @@ description: Saiba como monitorar as métricas do Analysis Services Server em po
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a66089d01ed9eabdb78975eb1738b87c99fbf311
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 57bcffad2634ea556cc0dd53763011f921acc5e0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294865"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146796"
 ---
 # <a name="monitor-server-metrics"></a>Monitorizar as métricas do servidor
 
@@ -27,7 +27,7 @@ Para executar um diagnóstico mais aprofundado, controlar o desempenho e identif
 
     ![Monitorizar no portal do Azure](./media/analysis-services-monitor/aas-monitor-portal.png)
 
-2. Em **métricas disponíveis**, selecione as métricas a serem incluídas no gráfico. 
+2. Em **métrica**, selecione as métricas a serem incluídas no gráfico. 
 
     ![Gráfico de monitor](./media/analysis-services-monitor/aas-monitor-chart.png)
 

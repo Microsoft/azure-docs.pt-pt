@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 10/16/2019
 ms.author: swmachan
-ms.openlocfilehash: 24f27dfde34413d1ac98f795eddc07103d3cbf3c
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: b809171549a8f3cbbbb6ccad1553608598afa345
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515252"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161712"
 ---
 # <a name="translator-text-api-30-translate"></a>API de Tradução de Texto 3,0: traduzir
 
@@ -510,7 +510,7 @@ Se você já souber a tradução que deseja aplicar a uma palavra ou frase, pode
 A marcação a ser fornecida usa a sintaxe a seguir.
 
 ``` 
-<mstrans:dictionary translation=”translation of phrase”>phrase</mstrans:dictionary>
+<mstrans:dictionary translation="translation of phrase">phrase</mstrans:dictionary>
 ```
 
 Por exemplo, considere a frase em inglês "a palavra WordOMatic é uma entrada de dicionário". Para preservar a palavra _WordOMatic_ na tradução, envie a solicitação:
@@ -525,7 +525,7 @@ O resultado é:
 [
     {
         "translations":[
-            {"text":"Das Wort "wordomatic" ist ein Wörterbucheintrag.","to":"de"}
+            {"text":"Das Wort \"wordomatic\" ist ein Wörterbucheintrag.","to":"de"}
         ]
     }
 ]

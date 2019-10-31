@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com Deskradar | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Deskradar.
+title: 'Tutorial: integração do Azure Active Directory com o Deskradar | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Deskradar.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 5ff3e014-b79f-4a6c-bb0b-38462bea5d10
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,187 +16,187 @@ ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95451bff6074c0beb220bf3c6edb5570a5258b1a
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: dd5e3d6f8763af8c14d189321c6129876f48ab85
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310279"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158324"
 ---
-# <a name="tutorial-integrate-deskradar-with-azure-active-directory"></a>Tutorial: Integrar Deskradar com o Azure Active Directory
+# <a name="tutorial-integrate-deskradar-with-azure-active-directory"></a>Tutorial: integrar o Deskradar ao Azure Active Directory
 
-Neste tutorial, irá aprender como integrar Deskradar com o Azure Active Directory (Azure AD). Quando integrar Deskradar com o Azure AD, pode:
+Neste tutorial, você aprenderá a integrar o Deskradar com o Azure Active Directory (Azure AD). Ao integrar o Deskradar ao Azure AD, você pode:
 
-* Controlar no Azure AD que tenha acesso ao Deskradar.
-* Permita que os utilizadores ser automaticamente sessão iniciada para Deskradar com as suas contas do Azure AD.
-* Gira as suas contas num local central – portal do Azure.
+* Controle no Azure AD quem tem acesso ao Deskradar.
+* Habilite seus usuários a serem conectados automaticamente ao Deskradar com suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, terá dos seguintes itens:
+Para começar, você precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver uma subscrição, pode obter a versão de avaliação gratuita de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
-* Deskradar início de sessão único (SSO) ativado na subscrição.
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma avaliação gratuita de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Assinatura habilitada para SSO (logon único) do Deskradar.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configurar e testar o SSO do Azure AD num ambiente de teste. Suporta Deskradar **SP e IDP** iniciada SSO.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste. O Deskradar dá suporte ao **SP e** ao SSO iniciado pelo IDP.
 
-## <a name="adding-deskradar-from-the-gallery"></a>Adicionando Deskradar da Galeria
+## <a name="adding-deskradar-from-the-gallery"></a>Adicionando o Deskradar da Galeria
 
-Para configurar a integração do Deskradar com o Azure AD, terá de adicionar Deskradar a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do Deskradar ao Azure AD, você precisará adicionar o Deskradar da Galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, selecione o **do Azure Active Directory** serviço.
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar nova aplicação, selecione **nova aplicação**.
-1. Na **adicionar a partir da galeria** secção, escreva **Deskradar** na caixa de pesquisa.
-1. Selecione **Deskradar** do painel de resultados e, em seguida, adicionar a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite **Deskradar** na caixa de pesquisa.
+1. Selecione **Deskradar** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
 
-Configurar e testar o SSO do Azure AD com Deskradar com um utilizador de teste **B.Simon**. Para SSO para funcionar, tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Deskradar.
+Configure e teste o SSO do Azure AD com o Deskradar usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Deskradar.
 
-Para configurar e testar o SSO do Azure AD com Deskradar, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Deskradar, conclua os seguintes blocos de construção:
 
-1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar o Deskradar SSO](#configure-deskradar-sso)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste Deskradar](#create-deskradar-test-user)**  - para ter um equivalente da Eduarda Almeida na Deskradar que está ligado à representação de utilizador do Azure AD.
-6. **[Testar o SSO](#test-sso)**  - para verificar se a configuração funciona.
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+2. **[Configurar o SSO do Deskradar](#configure-deskradar-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
+4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
+5. **[Criar usuário de teste do Deskradar](#create-deskradar-test-user)** – para ter um equivalente de Brenda Simon no Deskradar que esteja vinculado à representação do usuário no Azure AD.
+6. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+### <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Deskradar** página de integração de aplicativo, encontrar o **gerir** secção e selecione **início de sessão único**.
-1. Sobre o **selecionar um método de início de sessão único** , selecione **SAML**.
-1. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique no ícone de edição/caneta para **configuração básica de SAML** para editar as definições.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Deskradar** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-   ![Editar a configuração SAML do básico](common/edit-urls.png)
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, execute os seguintes passos:
+1. Na seção **configuração básica do SAML** , se você quiser configurar o aplicativo no modo iniciado pelo **IDP** , execute as seguintes etapas:
 
-    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://YOURDOMAIN.deskradar.cloud`
+    a. Na caixa de texto **identificador** , digite uma URL usando o seguinte padrão: `https://YOURDOMAIN.deskradar.cloud`
 
-    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://YOURDOMAIN.deskradar.cloud/auth/sso/saml/consume`
+    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão: `https://YOURDOMAIN.deskradar.cloud/auth/sso/saml/consume`
 
-1. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://YOURDOMAIN.deskradar.cloud/auth/sso/saml/login`
+    Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://YOURDOMAIN.deskradar.cloud/auth/sso/saml/login`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de identificador, o URL de resposta e início de sessão real. Substitua **OSEUDOMÍNIO** com o domínio de instância Deskradar. Contacte [equipa de suporte de cliente Deskradar](mailto:support@deskradar.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com o identificador, a URL de resposta e a URL de logon reais. Substitua **seudomínio** pelo domínio da instância Deskradar. Contate a [equipe de suporte ao cliente do Deskradar](mailto:support@deskradar.com) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-1. Aplicação de Deskradar espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
+1. O aplicativo Deskradar espera que as asserções SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **atributos de usuário** na página de integração de aplicativos. Na página **Configurar logon único com SAML** , clique no botão **Editar** para abrir a caixa de diálogo **atributos de usuário** .
 
-    ![image](common/edit-attribute.png)
+    ![imagem](common/edit-attribute.png)
 
-1. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
+1. Na seção **declarações do usuário** , na caixa de diálogo **atributos de usuário** , configure o atributo de token SAML, conforme mostrado na imagem acima, e execute as seguintes etapas:
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ---------------| --------- |
-    | FirstName | user.givenname |
-    | LastName | user.surname |
-    | Email | user.userprincipalname |
+    | firstName | User. excertoname |
+    | lastName | User. sobrenome |
+    | E-mail | User. UserPrincipalName |
     | | |
 
-    a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
+    a. Clique em **Adicionar nova declaração** para abrir a caixa de diálogo **gerenciar declarações do usuário** .
 
-    b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
+    b. Na caixa de texto **nome** , digite o nome do atributo mostrado para essa linha.
 
-    c. Deixe o **espaço de nomes** em branco.
+    c. Deixe o **namespace** em branco.
 
-    d. Selecione a origem de dado **atributo**.
+    d. Selecione origem como **atributo**.
 
-    e. Partir do **atributo de origem** lista, digite o valor de atributo apresentado para essa linha.
+    e. Na lista **atributo de origem** , digite o valor do atributo mostrado para essa linha.
 
     f. Clique em **OK**.
 
     g. Clique em **Guardar**.
 
-1. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, encontrar **certificado (Base64)** e selecione **transferir** para transferir o certificado e guarde-o no seu computador.
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-   ![O link de download de certificado](common/certificatebase64.png)
+   ![O link de download do certificado](common/certificatebase64.png)
 
-1. Sobre o **configurar Deskradar** secção, copie o URL adequado com base nos seus requisitos.
+1. Na seção **Configurar Deskradar** , copie as URLs apropriadas com base em seu requisito.
 
-   ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+   ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="configure-deskradar-sso"></a>Configurar o Deskradar SSO
+### <a name="configure-deskradar-sso"></a>Configurar o SSO do Deskradar
 
-1. Para automatizar a configuração no Deskradar, tem de instalar **segura de aplicações meu início de sessão da extensão de browser** ao clicar em **instalar a extensão**.
+1. Para automatizar a configuração no Deskradar, você precisa instalar a **extensão do navegador de entrada seguro de meus aplicativos** clicando em **instalar a extensão**.
 
-    ![Extensão My apps](common/install-myappssecure-extension.png)
+    ![Extensão de meus aplicativos](common/install-myappssecure-extension.png)
 
-1. Depois de adicionar a extensão para o navegador, clique em **Deskradar configuração** irá direcioná-lo para o aplicativo Deskradar. A partir daí, forneça as credenciais de administrador a iniciar sessão em Deskradar. A extensão de navegador automaticamente irá configurar o aplicativo para e automatizar passos 3 a 7.
+1. Depois de adicionar a extensão ao navegador, clique em **Setup Deskradar** irá direcioná-lo para o aplicativo Deskradar. A partir daí, forneça as credenciais de administrador para entrar no Deskradar. A extensão do navegador irá configurar automaticamente o aplicativo para você e automatizar as etapas de 3-7.
 
-    ![Configuração do programa de configuração](common/setup-sso.png)
+    ![Configuração da instalação](common/setup-sso.png)
 
-1. Se desejar configurar manualmente o Deskradar, abra uma nova janela de browser e inicie sessão no site da sua empresa Deskradar como administrador e execute os seguintes passos:
+1. Se você quiser configurar o Deskradar manualmente, abra uma nova janela do navegador da Web e entre no site da empresa do Deskradar como administrador e execute as seguintes etapas:
 
-1. Open **equipe** painel ao clicar no ícone na barra lateral.
+1. Abra o painel **equipe** clicando no ícone na barra lateral.
 
-1. Mude para o **autenticação** separador.
+1. Alterne para a guia **autenticação** .
 
-1. Sobre o **SAML 2.0** separador, execute os seguintes passos:
+1. Na guia **SAML 2,0** , execute as seguintes etapas:
 
-    ![Configuração de Deskradar](./media/deskradar-tutorial/14-paste-urls.jpg)
+    ![Configuração do Deskradar](./media/deskradar-tutorial/14-paste-urls.jpg)
 
-    a. Ativar **SAML** método de autenticação.
+    a. Habilite o método de autenticação **SAML** .
 
-    b. Na **URL de SSO SAML** caixa de texto, introduza o **URL de início de sessão** valor, que copiou do portal do Azure.
+    b. Na caixa de texto **URL de SSO do SAML** , insira o valor da URL de **logon** copiado do portal do Azure.
 
-    c. Na **emissor do fornecedor de identidade** caixa de texto, introduza o **do Azure AD identificador** valor, que copiou do portal do Azure.
+    c. Na caixa de texto **emissor do provedor de identidade** , insira o valor do identificador do **Azure ad** que você copiou do portal do Azure.
 
-1. Abra o transferido **certificado (Base64)** ficheiro com um editor de texto e copie e cole-os em **certificado público** na Deskradar.
+1. Abra o arquivo de **certificado (Base64)** baixado com um editor de texto e copie e Cole seu conteúdo no campo **certificado público** em Deskradar.
 
-    ![Configuração de Deskradar](./media/deskradar-tutorial/15-paste-certificate.jpg)
+    ![Configuração do Deskradar](./media/deskradar-tutorial/15-paste-certificate.jpg)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-Nesta secção, irá criar um utilizador de teste no portal do Azure chamado B.Simon.
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-1. No painel à esquerda no portal do Azure, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
-1. Na **utilizador** propriedades, siga estes passos:
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **novo usuário** na parte superior da tela.
+1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta secção, irá ativar B.Simon utilizar o Azure início de sessão único ao conceder acesso para Deskradar.
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao Deskradar.
 
-1. No portal do Azure, selecione **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicações, selecione **Deskradar**.
-1. Na página de descrição geral da aplicação, localize a **Manage** secção e selecione **utilizadores e grupos**.
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Deskradar**.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "usuários e grupos"](common/users-groups-blade.png)
 
-1. Selecione **adicionar utilizador**, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-    ![A ligação de adicionar utilizador](common/add-assign-user.png)
+    ![O link Adicionar usuário](common/add-assign-user.png)
 
-1. Na **utilizadores e grupos** caixa de diálogo, selecione **B.Simon** a partir da lista de utilizadores, em seguida, clique nas **selecione** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na asserção de SAML, no **selecionar função** caixa de diálogo, selecione a função adequada para o utilizador a partir da lista e, em seguida, clique nas **selecione** na parte inferior do ecrã.
-1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-### <a name="create-deskradar-test-user"></a>Criar utilizador de teste Deskradar
+### <a name="create-deskradar-test-user"></a>Criar usuário de teste do Deskradar
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Deskradar. Trabalhar com [equipa de suporte de cliente Deskradar](mailto:support@deskradar.com) para adicionar os utilizadores na plataforma Deskradar. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta seção, você criará um usuário chamado Brenda Simon no Deskradar. Trabalhe com a [equipe de suporte ao cliente do Deskradar](mailto:support@deskradar.com) para adicionar os usuários na plataforma do Deskradar. Os usuários devem ser criados e ativados antes de usar o logon único.
 
-### <a name="test-sso"></a>Teste SSO
+### <a name="test-sso"></a>Testar SSO
 
-Ao selecionar o mosaico Deskradar no painel de acesso, deve ser automaticamente sessão iniciada no Deskradar para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o bloco Deskradar no painel de acesso, você deverá entrar automaticamente no Deskradar para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 

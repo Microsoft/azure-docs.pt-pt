@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/22/2019
-ms.openlocfilehash: ca0997010fef40c0927960c04588c031dd85fff8
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 10/30/2019
+ms.openlocfilehash: b27c9991fd86334c87806772cbd641dd72aad1f6
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72795281"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163967"
 ---
 # <a name="tutorial-migrate-sql-server-on-premises-windows-users-and-groups-to-azure-sql-database-managed-instance-using-t-sql-ddl-syntax"></a>Tutorial: migrar SQL Server usuários e grupos locais do Windows para a instância gerenciada do banco de dados SQL do Azure usando a sintaxe DDL T-SQL
 
@@ -41,6 +41,8 @@ Para concluir este tutorial, os seguintes pré-requisitos se aplicam:
 - Acesso a Active Directory para criar usuários/grupos.
 - Um SQL Server existente no seu ambiente local.
 - Uma instância gerenciada existente. Consulte [início rápido: criar uma instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-get-started.md).
+  - Um `sysadmin` na instância gerenciada deve ser usado para criar logons do Azure AD.
+- [Crie um administrador do Azure ad para a instância gerenciada](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 - Você pode se conectar à sua instância gerenciada em sua rede. Consulte os seguintes artigos para obter informações adicionais: 
     - [Conectar seu aplicativo à instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-connect-app.md)
     - [Início rápido: configurar uma conexão ponto a site com um Instância Gerenciada do Banco de Dados SQL do Azure local](sql-database-managed-instance-configure-p2s.md)
@@ -214,7 +216,7 @@ Siga nosso [início rápido: restaurar um banco de dados para uma instância ger
 
 Execute o comando ALTER USER para concluir o processo de migração na instância gerenciada.
 
-1. Entre em sua instância gerenciada usando a conta do administrador do SQL para a instância gerenciada. Em seguida, crie seu logon do Azure AD na instância gerenciada usando a seguinte sintaxe:
+1. Entre em sua instância gerenciada usando a conta do administrador do SQL para a instância gerenciada. Em seguida, crie seu logon do Azure AD na instância gerenciada usando a sintaxe a seguir. Para obter mais informações, consulte [tutorial: segurança de instância gerenciada no banco de dados SQL do Azure usando entidades de servidor do Azure AD (logons)](sql-database-managed-instance-aad-security-tutorial.md).
 
     ```sql
     use master 

@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
-ms.date: 10/24/2019
-ms.openlocfilehash: ba0ee29b48be259bddd898c3d1119b77f6ee5228
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 10/30/2019
+ms.openlocfilehash: 87e1995a84ae2b598b8097d4910914831a75a318
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932310"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162011"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conectar computadores sem acesso à Internet usando o gateway de Log Analytics no Azure Monitor
 
@@ -22,7 +22,7 @@ ms.locfileid: "72932310"
 
 Este artigo descreve como configurar a comunicação com a automação do Azure e Azure Monitor usando o gateway de Log Analytics quando os computadores conectados diretamente ou que são monitorados pelo Operations Manager não têm acesso à Internet. 
 
-O gateway de Log Analytics é um proxy de encaminhamento HTTP que dá suporte ao túnel HTTP usando o comando HTTP CONNECT. Esse gateway envia dados para a automação do Azure e um espaço de trabalho Log Analytics em Azure Monitor em nome dos computadores que não podem se conectar diretamente à Internet. Ele não armazena em cache os dados dos agentes, o agente manipula os dados em cache nessa situação até que a comunicação seja restaurada.
+O gateway de Log Analytics é um proxy de encaminhamento HTTP que dá suporte ao túnel HTTP usando o comando HTTP CONNECT. Esse gateway envia dados para a automação do Azure e um espaço de trabalho Log Analytics em Azure Monitor em nome dos computadores que não podem se conectar diretamente à Internet. 
 
 O gateway de Log Analytics dá suporte a:
 
@@ -33,7 +33,7 @@ O gateway de Log Analytics dá suporte a:
 
 Algumas políticas de segurança de ti não permitem a conexão com a Internet para computadores de rede. Esses computadores desconectados podem ser dispositivos de POS (ponto de venda) ou servidores que dão suporte a serviços de ti, por exemplo. Para conectar esses dispositivos à automação do Azure ou a um Log Analytics espaço de trabalho para que você possa gerenciá-los e monitorá-los, configure-os para se comunicar diretamente com o gateway de Log Analytics. O gateway de Log Analytics pode receber informações de configuração e encaminhar dados em seu nome. Se os computadores estiverem configurados com o agente de Log Analytics para se conectar diretamente a um espaço de trabalho Log Analytics, os computadores se comunicarão com o gateway de Log Analytics.  
 
-O gateway de Log Analytics transfere os dados dos agentes para o serviço diretamente. Ele não analisa nenhum dos dados em trânsito.
+O gateway de Log Analytics transfere os dados dos agentes para o serviço diretamente. Ele não analisa nenhum dos dados em trânsito e o gateway não armazena em cache os dados quando ele perde a conectividade com o serviço. Quando o gateway não puder se comunicar com o serviço, o agente continuará a ser executado e enfileirará os dados coletados no disco do computador monitorado. Quando a conexão é restaurada, o agente envia os dados armazenados em cache coletados para Azure Monitor.
 
 Quando um grupo de gerenciamento de Operations Manager é integrado ao Log Analytics, os servidores de gerenciamento podem ser configurados para se conectar ao gateway de Log Analytics para receber informações de configuração e enviar dados coletados, dependendo da solução que você habilitou .  Os agentes de Operations Manager enviam alguns dados ao servidor de gerenciamento. Por exemplo, os agentes podem enviar Operations Manager alertas, dados de avaliação de configuração, dados de espaço de instância e dados de capacidade. Outros dados de alto volume, como logs de Serviços de Informações da Internet (IIS), dados de desempenho e eventos de segurança, são enviados diretamente para o gateway de Log Analytics. 
 
@@ -167,7 +167,7 @@ A tabela a seguir realça os parâmetros com suporte na instalação do.
 Para instalar silenciosamente o gateway e configurá-lo com um endereço de proxy específico, número da porta, digite o seguinte:
 
 ```dos
-Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 LicenseAccepted=1 
+Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 LicenseAccepted=1 
 ```
 
 O uso da opção de linha de comando/qn oculta a instalação,/QB mostra a instalação durante a instalação silenciosa.  
@@ -175,7 +175,7 @@ O uso da opção de linha de comando/qn oculta a instalação,/QB mostra a insta
 Se você precisar fornecer credenciais para autenticar com o proxy, digite o seguinte:
 
 ```dos
-Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 HASAUTH=1 USERNAME=”<username>” PASSWORD=”<password>” LicenseAccepted=1 
+Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 HASAUTH=1 USERNAME="<username>" PASSWORD="<password>" LicenseAccepted=1 
 ```
 
 Após a instalação, você pode confirmar que as configurações são aceitas (exlcuding o nome de usuário e a senha) usando os seguintes cmdlets do PowerShell:

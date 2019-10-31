@@ -232,6 +232,8 @@
           href: backup-azure-restore-windows-server.md
         - name: Restaurar o Estado do Sistema Windows Server
           href: backup-azure-restore-system-state.md
+        - name: Gerir cópias de segurança dos ficheiros e pastas do Windows Server
+          href: backup-azure-manage-mars.md
     - name: Cofre dos Serviços de Recuperação
       items:
         - name: Descrição geral dos cofres dos Serviços de Recuperação

@@ -4,15 +4,15 @@ description: Um gateway local será necessário se o servidor de Analysis Servic
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8d9df32070ff252dff791650788888d1d9a6ce84
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 35ffc7f3c97ca7ab14f94c3607560ffb6ea0b399
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294947"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146860"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Conectando-se a fontes de dados locais com o gateway de dados local
 
@@ -50,7 +50,7 @@ Ao instalar o para um ambiente de Azure Analysis Services, é importante seguir 
 
 O gateway cria uma conexão de saída com o barramento de serviço do Azure. Ele se comunica nas portas de saída: TCP 443 (padrão), 5671, 5672, 9350 até 9354.  O gateway não requer portas de entrada.
 
-Talvez seja necessário colocar os endereços IP da lista de permissões em sua região de dados em seu firewall. Você pode baixar a [lista de IP do Microsoft Azure datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Essa lista é atualizada semanalmente. Os endereços IP listados na lista de IP do datacenter do Azure estão na notação CIDR. Para saber mais, consulte [Roteamento entre domínios sem classificação](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+Talvez seja necessário incluir endereços IP para sua região de dados em seu firewall. Você pode baixar a [lista de IP do Microsoft Azure datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Essa lista é atualizada semanalmente. Os endereços IP listados na lista de IP do datacenter do Azure estão na notação CIDR. Para saber mais, consulte [Roteamento entre domínios sem classificação](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 Estes são os nomes de domínio totalmente qualificados usados pelo Gateway.
 

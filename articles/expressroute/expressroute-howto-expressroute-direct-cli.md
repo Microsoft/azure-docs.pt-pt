@@ -1,6 +1,6 @@
 ---
-title: Configurar o ExpressRoute Direct - CLI do Azure | Documentos da Microsoft
-description: Este artigo ajuda-o a configurar o ExpressRoute direta com a CLI do Azure
+title: Configurar o CLI do Azure direto do ExpressRoute | Microsoft Docs
+description: Este artigo ajuda você a configurar o ExpressRoute direto usando o CLI do Azure
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,38 +8,38 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: ebfe3db43de87e67ad05ed8cb9f5812b5ded04e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a879344fddd6d12ae8a50e109dcaf4a4bb2c1b68
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965902"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161562"
 ---
-# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurar o ExpressRoute direta com a CLI do Azure
+# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurar o ExpressRoute direto usando o CLI do Azure
 
-Pode utilizar o Azure ExpressRoute direto para ligar diretamente à rede global da Microsoft em localizações de peering estrategicamente distribuídas em todo o mundo. Para obter mais informações, consulte [sobre o ExpressRoute direto ligar](expressroute-erdirect-about.md).
+Você pode usar o Azure ExpressRoute Direct para se conectar diretamente à rede global da Microsoft em locais de emparelhamento distribuídos estrategicamente em todo o mundo. Para obter mais informações, consulte [sobre o conexão direta do ExpressRoute](expressroute-erdirect-about.md).
 
 ## <a name="resources"></a>Criar o recurso
 
-1. Inicie sessão no Azure e selecione a subscrição que contém o ExpressRoute. O recurso direto do ExpressRoute e os circuitos do ExpressRoute tem de ser na mesma subscrição. Na CLI do Azure, execute os seguintes comandos:
+1. Entre no Azure e selecione a assinatura que contém o ExpressRoute. O recurso do ExpressRoute Direct e seus circuitos do ExpressRoute devem estar na mesma assinatura. No CLI do Azure, execute os seguintes comandos:
 
    ```azurecli
    az login
    ```
 
-   Verifique as subscrições da conta: 
+   Verifique as assinaturas da conta: 
 
    ```azurecli
    az account list 
    ```
 
-   Selecione a subscrição para o qual pretende criar um circuito do ExpressRoute:
+   Selecione a assinatura para a qual você deseja criar um circuito de ExpressRoute:
 
    ```azurecli
    az account set --subscription "<subscription ID>"
    ```
 
-2. Liste todas as localizações onde ExpressRoute direta é suportada:
+2. Listar todos os locais em que há suporte para o ExpressRoute Direct:
     
    ```azurecli
    az network express-route port location list
@@ -106,7 +106,7 @@ Pode utilizar o Azure ExpressRoute direto para ligar diretamente à rede global 
    }
    ]
    ```
-3. Determine se uma das localizações apresentadas no passo anterior tem largura de banda disponível:
+3. Determine se um dos locais listados na etapa anterior tem largura de banda disponível:
 
    ```azurecli
    az network express-route port location show -l "Equinix-Ashburn-DC2"
@@ -132,14 +132,14 @@ Pode utilizar o Azure ExpressRoute direto para ligar diretamente à rede global 
    "type": "Microsoft.Network/expressRoutePortsLocations"
    }
    ```
-4. Crie um recurso direto do ExpressRoute com base na localização que escolheu nos passos anteriores.
+4. Crie um recurso do ExpressRoute Direct baseado no local escolhido nas etapas anteriores.
 
-   ExpressRoute Direct suporta QinQ e Dot1Q encapsulamento. Se selecionar QinQ, cada circuito ExpressRoute é dinamicamente atribuído uma marca de S e é exclusivo em todo o recurso direto do ExpressRoute. Cada etiqueta-C no circuito tem de ser exclusiva no circuito, mas não entre o recurso direto do ExpressRoute.  
+   O ExpressRoute Direct dá suporte ao encapsulamento QinQ e Dot1Q. Se você selecionar QinQ, cada circuito do ExpressRoute será atribuído dinamicamente a uma marca S e será exclusivo em todo o recurso do ExpressRoute Direct. Cada marca C no circuito deve ser exclusiva no circuito, mas não em um recurso direto do ExpressRoute.  
 
-   Se selecionar Dot1Q encapsulamento, tem de gerir exclusividade de etiqueta-C (VLAN) nos recursos de ExpressRoute Direct inteiro.  
+   Se você selecionar o encapsulamento Dot1Q, deverá gerenciar a exclusividade da marca C (VLAN) em todo o recurso direto do ExpressRoute.  
 
    > [!IMPORTANT]
-   > ExpressRoute direta pode ser apenas um tipo de encapsulamento. Não é possível alterar o tipo de encapsulamento depois de criar o recurso direto do ExpressRoute.
+   > O ExpressRoute Direct pode ser apenas um tipo de encapsulamento. Você não pode alterar o tipo de encapsulamento depois de criar o recurso de ExpressRoute Direct.
    > 
  
    ```azurecli
@@ -147,7 +147,7 @@ Pode utilizar o Azure ExpressRoute direto para ligar diretamente à rede global 
    ```
 
    > [!NOTE]
-   > Também pode definir o **encapsulamento** para o atributo **Dot1Q**. 
+   > Você também pode definir o atributo de **encapsulamento** como **Dot1Q**. 
    >
 
    **Exemplo de saída**
@@ -204,13 +204,13 @@ Pode utilizar o Azure ExpressRoute direto para ligar diretamente à rede global 
    }  
    ```
 
-## <a name="state"></a>Alteração AdminState das hiperligações
+## <a name="state"></a>Alterar Adminstate para links
 
-Utilize este processo para conduzir um teste de camada 1. Certifique-se de que cada ligação cruzada efetuado tiver patch em cada router nas portas primárias e secundárias.
+Use este processo para conduzir um teste de camada 1. Certifique-se de que cada conexão cruzada seja corrigida corretamente em cada roteador nas portas primárias e secundárias.
 
-1. Definir ligações **ativado**. Repita este passo para definir cada ligação **ativado**.
+1. Defina os links como **habilitados**. Repita essa etapa para definir cada link como **habilitado**.
 
-   Ligações [0] é a porta primária e Links [1] é a porta secundária.
+   Links [0] é a porta primária e os links [1] são a porta secundária.
 
    ```azurecli
    az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[0].adminState="Enabled"
@@ -272,24 +272,24 @@ Utilize este processo para conduzir um teste de camada 1. Certifique-se de que c
    }
    ```
 
-   Utilize o mesmo procedimento para reduzir as portas utilizando `AdminState = “Disabled”`.
+   Use o mesmo procedimento para abaixar as portas usando `AdminState = "Disabled"`.
 
 ## <a name="circuit"></a>Criar um circuito
 
-Por predefinição, pode criar 10 circuitos na subscrição que contém o recurso direto do ExpressRoute. Support da Microsoft pode aumentar o limite predefinido. É responsável por controlar a largura de banda aprovisionada e utilizada. Largura de banda aprovisionada é a soma da largura de banda de todos os circuitos no recurso direto do ExpressRoute. Largura de banda utilizada é a utilização física das interfaces físicas subjacentes.
+Por padrão, você pode criar 10 circuitos na assinatura que contém o recurso do ExpressRoute Direct. Suporte da Microsoft pode aumentar o limite padrão. Você é responsável por controlar a largura de banda provisionada e utilizada. A largura de banda provisionada é a soma da largura de banda de todos os circuitos no recurso direto do ExpressRoute. A largura de banda utilizada é o uso físico das interfaces físicas subjacentes.
 
-Pode utilizar larguras de banda do circuito adicionais no ExpressRoute Direct apenas para suportar os cenários descritos aqui. As larguras de banda são 40 Gbps e 100 Gbps.
+Você pode usar larguras de banda de circuito adicionais no ExpressRoute Direct apenas para dar suporte aos cenários descritos aqui. As larguras de banda são 40 Gbps e 100 Gbps.
 
-**SkuTier** pode ser Local, Standard ou Premium.
+**SkuTier** pode ser local, Standard ou Premium.
 
-**SkuFamily** tem de ser MeteredData apenas como ilimitado não é suportado em direto do ExpressRoute.
+**SkuFamily** deve ser MeteredData somente como ilimitado não tem suporte no ExpressRoute Direct.
 Crie um circuito no recurso direto do ExpressRoute:
 
   ```azurecli
   az network express-route create --express-route-port "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct" -n "Contoso-Direct-ckt" -g "Contoso-Direct-rg" --sku-family MeteredData --sku-tier Standard --bandwidth 100 Gbps
   ```
 
-  Outras larguras de banda de incluem 5 Gbps, 10 Gbps e 40 Gbps.
+  Outras larguras de banda incluem 5 Gbps, 10 Gbps e 40 Gbps.
 
   **Exemplo de saída**
 
@@ -327,6 +327,6 @@ Crie um circuito no recurso direto do ExpressRoute:
   }  
   ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o Direct do ExpressRoute, consulte a [descrição geral](expressroute-erdirect-about.md).
+Para obter mais informações sobre o ExpressRoute Direct, consulte a [visão geral](expressroute-erdirect-about.md).

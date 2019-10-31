@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 10/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: ba594a2bc0f0cb50eb515a24255a3f9ad56a10a3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 05f7d022588eee0e5e97f10d6300da04c4be6270
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931880"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161952"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 Este artigo lista se um tipo de recurso do Azure dá suporte à operação de movimentação. Ele também fornece informações sobre condições especiais a serem consideradas ao mover um recurso.
@@ -941,7 +941,6 @@ Ir para um namespace do provedor de recursos:
 > | publicipprefixes | Sim | Sim |
 > | routefilters | Não | Não |
 > | routetables | Sim | Sim |
-> | securegateways | Sim | Sim |
 > | serviceendpointpolicies | Sim | Sim |
 > | trafficmanagerprofiles | Sim | Sim |
 > | virtualhubs | Não | Não |

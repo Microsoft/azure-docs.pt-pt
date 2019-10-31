@@ -11,12 +11,12 @@ manager: carmonm
 ms.topic: conceptual
 tags: connectors
 ms.date: 10/14/2019
-ms.openlocfilehash: 6c86ef26bbf7bd9dbce8aa77aef2213b14b57f5f
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 880ae4b661d247889815fc5b9ad08a759fe0aa5b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72312073"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161607"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatizar fluxos de trabalho para SQL Server ou banco de dados SQL do Azure usando aplicativos lógicos do Azure
 
@@ -68,7 +68,7 @@ Em aplicativos lógicos do Azure, cada aplicativo lógico deve começar com um [
 
 1. Defina as propriedades **Interval** e **Frequency** , que especificam com que frequência seu aplicativo lógico verifica a tabela.
 
-   Esse gatilho retorna apenas uma linha da tabela selecionada, nada mais. Para executar outras tarefas, adicione outras ações que executam as tarefas desejadas. Por exemplo, para exibir os dados nessa linha, você pode adicionar outras ações que criam um arquivo que inclui os campos da linha retornada e, em seguida, enviar alertas por email. Para saber mais sobre outras ações disponíveis para esse conector, consulte a [página de referência do conector](/connectors/sql/).
+   Esse gatilho retorna apenas uma linha da tabela selecionada, nada mais. Para executar outras tarefas, adicione outras ações que executam as tarefas desejadas. Por exemplo, para exibir os dados nessa linha, você pode adicionar outras ações que criam um arquivo que inclui os campos da linha retornada e, em seguida, enviar alertas por email. Para saber mais sobre outras ações disponíveis para esse conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/sql/).
 
 1. Quando terminar, na barra de ferramentas do designer, selecione **salvar**.
 
@@ -84,7 +84,7 @@ Em aplicativos lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview
 
 1. No gatilho ou na ação em que você deseja adicionar a ação SQL, selecione **nova etapa**.
 
-   ![Selecione "nova etapa"](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
+   ![Adicionar nova etapa ao seu aplicativo lógico](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
 
    Para adicionar uma ação entre as etapas existentes, mova o mouse sobre a seta de conexão. Selecione o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
@@ -92,13 +92,13 @@ Em aplicativos lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview
 
    Este exemplo usa a ação **obter linha** , que obtém um único registro.
 
-   ![Localizar e selecionar a ação SQL "obter linha"](./media/connectors-create-api-sqlazure/select-sql-get-row.png)
+   ![Localizar e selecionar a ação SQL "obter linha"](./media/connectors-create-api-sqlazure/find-select-sql-get-row-action.png)
 
-   Essa ação retorna apenas uma linha da tabela selecionada, nada mais. Para exibir os dados nessa linha, você pode adicionar outras ações que criam um arquivo que inclui os campos da linha retornada e armazena esse arquivo em uma conta de armazenamento em nuvem. Para saber mais sobre outras ações disponíveis para esse conector, consulte a [página de referência do conector](/connectors/sql/).
+   Essa ação retorna apenas uma linha da tabela selecionada, nada mais. Para exibir os dados nessa linha, você pode adicionar outras ações que criam um arquivo que inclui os campos da linha retornada e armazena esse arquivo em uma conta de armazenamento em nuvem. Para saber mais sobre outras ações disponíveis para esse conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/sql/).
 
 1. Se você for solicitado a criar uma conexão, [Crie sua conexão SQL agora](#create-connection). Se sua conexão existir, selecione um **nome de tabela**e insira a **ID de linha** para o registro desejado.
 
-   ![Insira o nome da tabela e a ID da linha](./media/connectors-create-api-sqlazure/table-row-id.png)
+   ![Insira o nome da tabela e a ID da linha](./media/connectors-create-api-sqlazure/specify-table-row-id-property-value.png)
 
 1. Quando terminar, na barra de ferramentas do designer, selecione **salvar**.
 
@@ -132,7 +132,7 @@ Em aplicativos lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Para obter informações técnicas sobre os gatilhos, as ações e os limites desse conector, consulte a [página de referência do conector](/connectors/sql/).
+Para obter informações técnicas sobre os gatilhos, as ações e os limites desse conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/sql/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

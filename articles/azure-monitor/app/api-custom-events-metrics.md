@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/27/2019
-ms.openlocfilehash: ca77cf6b838d2e10eab422f37ff55fbb43a2dba0
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 515d1da5333bb29237baa4bd941275f32ba754d3
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677851"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161568"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para métricas e eventos personalizados
 
@@ -614,7 +614,7 @@ Se a [amostragem](../../azure-monitor/app/sampling.md) estiver em operação, a 
 
 ## <a name="trackdependency"></a>TrackDependency
 
-Use a chamada TrackDependency para acompanhar os tempos de resposta e as taxas de sucesso de chamadas para uma parte externa do código. Os resultados aparecem nos gráficos de dependência no Portal.
+Use a chamada TrackDependency para acompanhar os tempos de resposta e as taxas de sucesso de chamadas para uma parte externa do código. Os resultados aparecem nos gráficos de dependência no Portal. O trecho de código abaixo precisa ser adicionado sempre que uma chamada de dependência é feita.
 
 *C#*
 

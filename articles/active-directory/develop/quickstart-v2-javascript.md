@@ -1,5 +1,6 @@
 ---
-title: Início rápido do JavaScript da plataforma de identidade da Microsoft-Azure
+title: Conectar usuários e obter um token de acesso em um JavaScript SPA | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como os aplicativos JavaScript podem chamar uma API que exige tokens de acesso usando a plataforma de identidade da Microsoft.
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,14 +17,14 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51ef62d84d2744b595cfb946b7720f8b2a5dcd77
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: ad79ee0fd1d421c7e869424ccb8daa595e51a970
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964059"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149419"
 ---
-# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>Início rápido: conectar usuários e adquirir um token de acesso de um aplicativo de página única JavaScript
+# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Início rápido: conectar usuários e obter um token de acesso em um JavaScript SPA
 
 Neste guia de início rápido, você usa um exemplo de código para saber como um aplicativo de página única (SPA) JavaScript pode conectar usuários de contas pessoais, contas corporativas e contas de estudante. Um SPA do JavaScript também pode obter um token de acesso para chamar a API do Microsoft Graph ou qualquer API da Web. (Veja [como o exemplo funciona](#how-the-sample-works) para uma ilustração.)
 

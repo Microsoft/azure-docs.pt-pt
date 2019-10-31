@@ -42,6 +42,8 @@
       items:
         - name: Rede global da Microsoft
           href: microsoft-global-network.md
+        - name: Testar a latência da rede de VMs
+          href: virtual-network-test-latency.md
         - name: Redes virtuais
           href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Balanceamento de carga de rede

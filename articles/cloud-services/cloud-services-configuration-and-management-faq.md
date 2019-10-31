@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 0c694ffe6ccd23803fbe16001f54b7c1611635cd
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 704d6d4a12550507a8e38be4777e5abc7b57fe74
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154727"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161764"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento para os serviços de nuvem do Azure: Perguntas frequentes (FAQs)
+# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento para os serviços de nuvem do Azure: perguntas frequentes (FAQs)
 
 Este artigo inclui perguntas frequentes sobre problemas de configuração e gerenciamento para [serviços de nuvem do Microsoft Azure](https://azure.microsoft.com/services/cloud-services). Você também pode consultar a [página tamanho da VM dos serviços de nuvem](cloud-services-sizes-specs.md) para obter informações de tamanho.
 
@@ -52,7 +52,7 @@ Este artigo inclui perguntas frequentes sobre problemas de configuração e gere
 **Permissões**
 
 - [A Microsoft interna pode engenheiros de área de trabalho remota para instâncias de serviço de nuvem sem permissão?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
-- [Não consigo a área de trabalho remota para a VM do serviço de nuvem usando o arquivo RDP. Obtenho o seguinte erro: Ocorreu um erro de autenticação (código: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
+- [Não consigo a área de trabalho remota para a VM do serviço de nuvem usando o arquivo RDP. Obtenho o seguinte erro: ocorreu um erro de autenticação (código: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
 **Dimensionamento**
 
@@ -100,7 +100,7 @@ Você pode usar os seguintes comandos do PowerShell para renovar seus certificad
     Select-AzureSubscription -Current -SubscriptionName <your subscription name>
     Get-AzurePublishSettingsFile
 
-O **Get-AzurePublishSettingsFile** criará um novo certificado de gerenciamento nos**certificados de gerenciamento** de **assinatura** > no portal do Azure. O nome do novo certificado é semelhante a "YourSubscriptionNam]-[CurrentDate]-Credentials".
+O **Get-AzurePublishSettingsFile** criará um novo certificado de gerenciamento na **assinatura** > **certificados de gerenciamento** no portal do Azure. O nome do novo certificado é semelhante a "YourSubscriptionNam]-[CurrentDate]-Credentials".
 
 ### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>Como automatizar a instalação do certificado SSL principal (. pfx) e do certificado intermediário (. p7b)?
 
@@ -114,7 +114,7 @@ Para obter mais informações, veja os artigos seguintes:
 - [Como configurar e executar tarefas de inicialização para um serviço de nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
 - [Tarefas comuns de inicialização do serviço de nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
-## <a name="monitoring-and-logging"></a>Monitorização e registos
+## <a name="monitoring-and-logging"></a>Monitorização e registo
 
 ### <a name="what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications"></a>Quais são os futuros recursos de serviço de nuvem no portal do Azure que podem ajudar a gerenciar e monitorar aplicativos?
 
@@ -148,7 +148,7 @@ Você pode habilitar o log do Windows Diagnóstico do Azure (WAD) por meio das s
 Para obter as configurações de WAD atuais de seu serviço de nuvem, você pode usar o [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) PS cmd ou pode exibi-lo por meio do portal da folha "serviços de nuvem-> extensões".
 
 
-## <a name="network-configuration"></a>Configuração de rede
+## <a name="network-configuration"></a>Configuração da rede
 
 ### <a name="how-do-i-set-the-idle-timeout-for-azure-load-balancer"></a>Como fazer definir o tempo limite de ociosidade para o Azure Load Balancer?
 Você pode especificar o tempo limite em seu arquivo de definição de serviço (csdef) como este:
@@ -169,7 +169,7 @@ Você pode especificar o tempo limite em seu arquivo de definição de serviço 
     </Endpoints>
   </WorkerRole>
 ```
-Consulte [novo: Tempo limite de ociosidade configurável](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) para Azure Load Balancer para obter mais informações.
+Consulte [novo: tempo limite de ociosidade configurável para Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) para obter mais informações.
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>Como fazer associar um endereço IP estático ao meu serviço de nuvem?
 Para configurar um endereço IP estático, você precisa criar um IP reservado. Esse IP reservado pode ser associado a um novo serviço de nuvem ou a uma implantação existente. Consulte os seguintes documentos para obter detalhes:
@@ -195,10 +195,10 @@ O Windows 10 e o Windows Server 2016 vêm com suporte para HTTP/2 no lado do cli
 5. Reinicie o servidor.
 6. Vá para o **site padrão** e, em **associações**, crie uma nova associação TLS com o certificado autoassinado recém-criado. 
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [HTTP/2 no IIS](https://blogs.iis.net/davidso/http2)
-- [Vídeo: HTTP/2 no Windows 10: Navegador, aplicativos e servidor Web](https://channel9.msdn.com/Events/Build/2015/3-88)
+- [Vídeo: HTTP/2 no Windows 10: navegador, aplicativos e servidor Web](https://channel9.msdn.com/Events/Build/2015/3-88)
          
 
 Essas etapas podem ser automatizadas por meio de uma tarefa de inicialização, de modo que sempre que uma nova instância de PaaS for criada, ela poderá fazer as alterações acima no registro do sistema. Para obter mais informações, consulte [como configurar e executar tarefas de inicialização para um serviço de nuvem](cloud-services-startup-tasks.md).
@@ -218,12 +218,12 @@ Os serviços de nuvem não dão suporte ao modelo RBAC (controle de acesso basea
 
 Consulte [entender as diferentes funções no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-## <a name="remote-desktop"></a>Ambiente de trabalho remoto
+## <a name="remote-desktop"></a>Área de trabalho remota
 
 ### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>A Microsoft interna pode engenheiros de área de trabalho remota para instâncias de serviço de nuvem sem permissão?
 A Microsoft segue um processo estrito que não permitirá que engenheiros internos para a área de trabalho remota em seu serviço de nuvem sem permissão por escrito (email ou outra comunicação por escrito) do proprietário ou de seus designs.
 
-### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Não consigo a área de trabalho remota para a VM do serviço de nuvem usando o arquivo RDP. Obtenho o seguinte erro: Ocorreu um erro de autenticação (código: 0x80004005)
+### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Não consigo a área de trabalho remota para a VM do serviço de nuvem usando o arquivo RDP. Obtenho o seguinte erro: ocorreu um erro de autenticação (código: 0x80004005)
 
 Esse erro pode ocorrer se você usar o arquivo RDP de um computador que tenha ingressado no Azure Active Directory. Para resolver este problema, siga estes passos:
 
@@ -281,7 +281,7 @@ Consulte [limites específicos do serviço](../azure-subscription-service-limits
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Por que a unidade em minha VM de serviço de nuvem mostra muito pouco espaço livre em disco?
 Esse é um comportamento esperado e não deve causar nenhum problema ao seu aplicativo. O registro em log está ativado para a unidade% approot% nas VMs de PaaS do Azure, que basicamente consome o dobro da quantidade de espaço que os arquivos normalmente ocupam. No entanto, há várias coisas a serem consideradas que, essencialmente, transforma isso em um não problema.
 
-O tamanho da unidade% approot% é calculado \<como tamanho de. cspkg + tamanho máximo do diário + uma margem de espaço livre > ou 1,5 GB, o que for maior. O tamanho da VM não tem nenhuma influência sobre esse cálculo. (O tamanho da VM só afeta o tamanho da unidade C: temporária.) 
+O tamanho da unidade% approot% é calculado como \<tamanho de. cspkg + tamanho máximo do diário + uma margem de espaço livre > ou 1,5 GB, o que for maior. O tamanho da VM não tem nenhuma influência sobre esse cálculo. (O tamanho da VM só afeta o tamanho da unidade C: temporária.) 
 
 Não há suporte para gravação na unidade% approot%. Se você estiver gravando na VM do Azure, deverá fazer isso em um recurso temporário do LocalStorage (ou outra opção, como o armazenamento de BLOBs, arquivos do Azure, etc.). Portanto, a quantidade de espaço livre na pasta% approot% não é significativa. Se você não tiver certeza de que seu aplicativo está gravando na unidade% approot%, você sempre poderá deixar que seu serviço seja executado por alguns dias e, em seguida, comparar os tamanhos "antes" e "depois". 
 
@@ -302,7 +302,7 @@ Para obter mais informações sobre cenários de implantação antimalware e com
 
 Você pode habilitar o SNI em serviços de nuvem usando um dos seguintes métodos:
 
-**Método 1: Usar o PowerShell**
+**Método 1: usar o PowerShell**
 
 A associação SNI pode ser configurada usando o cmdlet **New-webbind** do PowerShell em uma tarefa de inicialização para uma instância de função de serviço de nuvem, como a seguir:
     
@@ -310,23 +310,23 @@ A associação SNI pode ser configurada usando o cmdlet **New-webbind** do Power
     
 Conforme descrito [aqui](https://technet.microsoft.com/library/ee790567.aspx), o $SSLFlags pode ser um dos valores como o seguinte:
 
-|Value|Significado|
+|Valor|Significado|
 ------|------
 |0|Sem SNI|
-|1|SNI habilitado |
-|2 |Associação não SNI que usa o repositório de certificados central|
-|3|Associação SNI que usa o repositório de certificados central |
+|1|SNI habilitado|
+|2|Associação não SNI que usa o repositório de certificados central|
+|3|Associação SNI que usa o repositório de certificados central|
  
-**Método 2: Usar código**
+**Método 2: usar código**
 
-A associação SNI também pode ser configurada por meio de código na inicialização da função, conforme descrito nesta postagem no [blog](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
+A associação SNI também pode ser configurada por meio de código na inicialização da função, conforme descrito nesta [postagem no blog](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
 
     
     //<code snip> 
                     var serverManager = new ServerManager(); 
                     var site = serverManager.Sites[0]; 
-                    var binding = site.Bindings.Add(“:443:www.test1.com”, newCert.GetCertHash(), “My”); 
-                    binding.SetAttributeValue(“sslFlags”, 1); //enables the SNI 
+                    var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
+                    binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
                     serverManager.CommitChanges(); 
     //</code snip> 
     

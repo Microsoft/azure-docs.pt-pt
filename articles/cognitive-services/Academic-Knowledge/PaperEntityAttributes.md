@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: darrine
 ROBOTS: NOINDEX
-ms.openlocfilehash: c300a6477daa5759a68d5d11d40b1a71b46bd808
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1d16668e2c0f52c0824016c977251e64c800c54d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793829"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161726"
 ---
 # <a name="paper-entity"></a>Entidade de papel
 

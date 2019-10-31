@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: ed13735b4da4818e969c4dddff68b55af6e71a15
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 108eeb03c0ed484e40b884372018bbbef686ee62
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855431"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159851"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Diretrizes de ajuste de desempenho para Storm no HDInsight e Azure Data Lake Storage Gen2
 
@@ -21,8 +21,8 @@ Entenda os fatores que devem ser considerados ao ajustar o desempenho de uma top
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta de Azure data Lake Storage Gen2**. Para obter instruções sobre como criar uma, consulte [início rápido: Crie uma conta de armazenamento para](data-lake-storage-quickstart-create-account.md)análise.
+* **Uma subscrição do Azure**. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma conta de Azure data Lake Storage Gen2**. Para obter instruções sobre como criar uma, consulte [início rápido: criar uma conta de armazenamento para análise](data-lake-storage-quickstart-create-account.md).
 * **Cluster HDInsight do Azure** com acesso a uma conta de data Lake Storage Gen2. Consulte [usar Azure data Lake Storage Gen2 com clusters do Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Certifique-se de habilitar Área de Trabalho Remota para o cluster.
 * **Executando um cluster Storm no data Lake Storage Gen2**. Para obter mais informações, consulte [Storm no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
 * **Diretrizes de ajuste de desempenho em data Lake Storage Gen2**.  Para obter conceitos gerais de desempenho, consulte [Data Lake Storage Gen2 diretrizes de ajuste de desempenho](data-lake-storage-performance-tuning-guidance.md).   
@@ -110,10 +110,10 @@ Se você atingir os limites de largura de banda fornecidos pelo Data Lake Storag
 
 Para verificar se você está ficando limitado, habilite o log de depuração no lado do cliente:
 
-1. Em **Ambari** > **Storm** **config avançado Storm-Worker-Log4J**, altere **&lt;raiz Level = "info"&gt;** para o nível raiz = >  >   **&lt; "debug"&gt;** . Reinicie todos os nós/serviços para que a configuração entre em vigor.
-2. Monitore os logs de topologia do Storm em nós de&lt;trabalho (&gt;em&gt;/var/log/Storm/Worker-Artifacts//&lt;topologyname Port/Worker.log) para obter Data Lake Storage Gen2 exceções de limitação.
+1. No **Ambari** > **Storm** > **config** > **avançado storm-Worker-Log4J**, altere **&lt;raiz Level = "info"&gt;** para **&lt;raiz Level = "debug"&gt;** . Reinicie todos os nós/serviços para que a configuração entre em vigor.
+2. Monitore os logs de topologia do Storm em nós de trabalho (em/var/log/Storm/Worker-Artifacts/&lt;Topologianame&gt;/&lt;porta&gt;/Worker.log) para exceções de limitação de Data Lake Storage Gen2.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 O ajuste de desempenho adicional para o Storm pode ser referenciado neste [blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).
 
 Para obter um exemplo adicional a ser executado, consulte [este no GitHub](https://github.com/hdinsight/storm-performance-automation).

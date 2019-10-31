@@ -4,15 +4,15 @@ description: Saiba como codificar a atualização assíncrona usando a API REST.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: daa25ecd12cb4c3b6ba72164c36cef01001448cf
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 5fbb3f2cbc0e53ab1bc04d57b583802e26b92a60
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301161"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147363"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 

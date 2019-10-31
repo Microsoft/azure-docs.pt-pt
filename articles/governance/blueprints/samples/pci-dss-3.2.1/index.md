@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 4dbfd750d8a12e954eea981e24c4255218c4af72
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 16dcec7cefa82b63273a34212ff2b85228d6f0c5
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72297142"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163018"
 ---
 # <a name="overview-of-the-pci-dss-v321-blueprint-sample"></a>Descrição geral do exemplo de esquema PCI-DSS v3.2.1
 
@@ -33,7 +33,7 @@ Analisou a descrição geral do exemplo de esquema PCI-DSS v3.2.1. A seguir, vis
 > [Esquema PCI-DSS v3.2.1 - Mapeamento de controlo](./control-mapping.md)
 > [Esquema PCI-DSS v3.2.1 - Passos de implementação](./deploy.md)
 
-Artigos adicionais sobre esquemas e como utilizá-los:
+Artigos adicionais sobre esquemas e como os utilizar:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

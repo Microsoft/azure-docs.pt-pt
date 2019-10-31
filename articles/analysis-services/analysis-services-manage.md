@@ -4,15 +4,15 @@ description: Saiba como gerenciar um servidor de Analysis Services no Azure.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 63591da8d7661f7f3a29b321c20a2e05351c71fd
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 6846eaedc7f20f5a7597ee889193e977e86a5ed6
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298604"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146837"
 ---
 # <a name="manage-analysis-services"></a>Gerir o Analysis Services
 Depois de criar um servidor de Analysis Services no Azure, pode haver algumas tarefas de administração e gerenciamento que você precisa executar imediatamente ou ao mesmo tempo. Por exemplo, execute o processamento para os dados de atualização, controle quem pode acessar os modelos em seu servidor ou monitore a integridade do servidor. Algumas tarefas de gerenciamento só podem ser executadas no portal do Azure, outras no SQL Server Management Studio (SSMS) e algumas tarefas podem ser feitas em qualquer um.

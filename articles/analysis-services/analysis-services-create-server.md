@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 07/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e6973ee311f1d3f5ba19714695f67bd321d953b7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c104af3bcfddb4b0863f69b6571d4cd62ca9c2b8
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295050"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147110"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Início Rápido: Criar um servidor - Portal
 
@@ -45,7 +45,7 @@ Este início rápido descreve como criar um recurso de servidor do Analysis Serv
    * **Definição do Armazenamento de Cópias de Segurança**: opcional. Se já tiver uma [conta de armazenamento](../storage/common/storage-introduction.md), pode especificá-la como a predefinição para a cópia de segurança de base de dados modelo. Também pode especificar as definições da [cópia de segurança e restauro](analysis-services-backup.md) mais tarde.
    * **Expiração da chave de armazenamento**: opcional. Especifique um período de expiração da chave de armazenamento.
 
-Criar o servidor, normalmente, demora menos de um minuto. Se tiver selecionado **Adicionar ao Portal**, navegue até ao seu portal para ver o seu novo servidor. Ou navegue até **Todos os serviços** > **Analysis Services** para ver se o servidor está pronto. Os servidores dão suporte a modelos de tabela nos níveis de compatibilidade 1200 e superiores. O nível de compatibilidade do modelo é especificado em SSDT ou SSMS.
+Criar o servidor, normalmente, demora menos de um minuto. Se tiver selecionado **Adicionar ao Portal**, navegue até ao seu portal para ver o seu novo servidor. Ou navegue até **Todos os serviços** > **Analysis Services** para ver se o servidor está pronto. Os servidores dão suporte a modelos de tabela nos níveis de compatibilidade 1200 e superiores. O nível de compatibilidade do modelo é especificado no Visual Studio ou no SSMS.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

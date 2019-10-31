@@ -4,15 +4,15 @@ description: Saiba como criar um arquivo de conexão de dados do Office para se 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2018
+ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e12717b37171df55c7559bb1b05c467f332236bc
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 5aa9645ec3138ed661305e1019b3e6dadfe4d212
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294831"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146679"
 ---
 # <a name="create-an-office-data-connection-file"></a>Criar um arquivo de conexão de dados do Office
 
@@ -29,7 +29,7 @@ As informações neste artigo descrevem como você pode criar um arquivo de cone
 
 3. Em `<odc:CommandText>Model</odc:CommandText>`, altere `Model` para o nome do seu modelo ou perspectiva. 
 
-4. Salve o arquivo com uma extensão `.odc` na pasta C:\Users @ no__t-1*username*\Documents\My Data Sources.
+4. Salve o arquivo com uma extensão `.odc` para a pasta C:\Users\\*nome de usuário*\Documents\My Data Sources.
 
 5. Clique com o botão direito do mouse no arquivo e clique em **abrir no Excel**. Ou, no Excel, na faixa de opções **dados** , clique em **conexões existentes**, selecione o arquivo e clique em **abrir**.
 

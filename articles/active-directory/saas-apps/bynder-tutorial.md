@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Bynder | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o Bynder | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Bynder.
 services: active-directory
 documentationCenter: na
@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 250dbdf2-faf5-48dd-be7c-d54502ef7528
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +16,14 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fbced9c0fae41c747804c488e27a3beebf0bfa7
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 456fc2a736b3213a14e5704f89a808c120c45b33
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879647"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158674"
 ---
-# <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Tutorial: Integrar o Bynder ao Azure Active Directory
+# <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Tutorial: integrar o Bynder ao Azure Active Directory
 
 Neste tutorial, você aprenderá a integrar o Bynder com o Azure Active Directory (Azure AD). Ao integrar o Bynder ao Azure AD, você pode:
 
@@ -58,7 +59,7 @@ Para configurar a integração do Bynder ao Azure AD, você precisará adicionar
 1. Selecione **Bynder** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
 
 Configure e teste o SSO do Azure AD com o Bynder usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Bynder.
 
@@ -66,8 +67,8 @@ Para configurar e testar o SSO do Azure AD com o Bynder, conclua os seguintes bl
 
 1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
 2. **[Configurar o SSO do Bynder](#configure-bynder-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
+4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
 5. **[Criar usuário de teste do Bynder](#create-bynder-test-user)** – para ter um equivalente de Brenda Simon no Bynder que esteja vinculado à representação do usuário no Azure AD.
 6. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
@@ -83,20 +84,20 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **configuração básica do SAML** , se você quiser configurar o aplicativo no modo iniciado pelo **IDP** , insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **identificador** , digite uma URL usando o seguinte padrão:`https://<company name>.getbynder.com`
+    a. Na caixa de texto **identificador** , digite uma URL usando o seguinte padrão: `https://<company name>.getbynder.com`
 
-    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão:`https://<company name>.getbynder.com/sso/SAML/authenticate/`
+    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão: `https://<company name>.getbynder.com/sso/SAML/authenticate/`
 
 1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
-    Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:`https://<company name>.getbynder.com/login/`
+    Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<company name>.getbynder.com/login/`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o identificador, a URL de resposta e a URL de logon reais. Contate a [equipe de suporte ao cliente do Bynder](https://www.bynder.com/en/support/) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
 1. O aplicativo Bynder espera que as asserções SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **atributos de usuário** na página de integração de aplicativos. Na página **Configurar logon único com SAML** , clique no botão **Editar** para abrir a caixa de diálogo **atributos de usuário** .
 
-    ![image](common/edit-attribute.png)
+    ![imagem](common/edit-attribute.png)
 
 1. Na seção **declarações do usuário** , na caixa de diálogo **atributos de usuário** , edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML, conforme mostrado na imagem acima, e execute as seguintes etapas:
 
@@ -108,11 +109,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     1. Clique em **Guardar**.
 
-        ![image](./media/bynder-tutorial/config08.png)
+        ![imagem](./media/bynder-tutorial/config08.png)
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize **metadados XML** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![O link de download do certificado](common/metadataxml.png)
 
 1. Na seção **Configurar Bynder** , copie as URLs apropriadas com base em seu requisito.
 
@@ -120,21 +121,21 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 ### <a name="configure-bynder-sso"></a>Configurar o SSO do Bynder
 
-Para configurar o logon único no lado do **Bynder** , é necessário enviar o XML de **metadados** baixado e as URLs copiadas apropriadas de portal do Azure para a [equipe de suporte do Bynder](https://www.bynder.com/en/support/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o logon único no lado do **Bynder** , é necessário enviar o XML de **metadados** baixado e as URLs copiadas apropriadas de portal do Azure para a [equipe de suporte do Bynder](https://www.bynder.com/en/support/). Eles definem essa configuração para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
 1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Selecione **novo usuário** na parte superior da tela.
 1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao Bynder.
 
@@ -142,7 +143,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Na lista de aplicativos, selecione **Bynder**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "usuários e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
@@ -161,7 +162,7 @@ Nesta seção, um usuário chamado Brenda Simon é criado em Bynder. O Bynder d�
 
 ### <a name="test-sso"></a>Testar SSO
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
 
 Ao clicar no bloco do Bynder no painel de acesso, você deverá ser conectado automaticamente ao Bynder para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

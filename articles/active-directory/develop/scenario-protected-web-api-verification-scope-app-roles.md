@@ -1,5 +1,5 @@
 ---
-title: API Web protegida-configuração de código do aplicativo Active Directory
+title: Verificar escopos e funções de aplicativo com a API Web protegida
 titleSuffix: Microsoft identity platform
 description: Saiba como criar uma API Web protegida e configurar o código do aplicativo.
 services: active-directory
@@ -17,14 +17,14 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7044180c72f92b70e0c3a2085eca043f44da45f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 4340d92bdfe871010021edcbefcde62ab8202462
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803624"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149228"
 ---
-# <a name="protected-web-api-adding-authorization-to-your-api"></a>API Web protegida: adicionando autorização à sua API
+# <a name="protected-web-api-verify-scopes-and-app-roles"></a>API Web protegida: verificar escopos e funções de aplicativo
 
 Este artigo descreve como você pode adicionar autorização à sua API Web. Essa proteção garante que a API seja chamada apenas por:
 

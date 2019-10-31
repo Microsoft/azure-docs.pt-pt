@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 08/07/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 3bb0148a67b4f8e274ced3c183d383a14f9082b2
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 0f24cf54dbd41b84e723673e42bc44b7d5aa6ab5
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72297692"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163273"
 ---
 # <a name="overview-of-the-irs-1075-blueprint-sample"></a>Descrição geral do exemplo de esquema IRS 1075
 
@@ -28,7 +28,7 @@ Analisou a descrição geral do exemplo de esquema IRS 1075. A seguir, visite os
 > [!div class="nextstepaction"]
 > [Esquema IRS 1075 - Mapeamento de controlo](./control-mapping.md)
 
-Artigos adicionais sobre esquemas e como utilizá-los:
+Artigos adicionais sobre esquemas e como os utilizar:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

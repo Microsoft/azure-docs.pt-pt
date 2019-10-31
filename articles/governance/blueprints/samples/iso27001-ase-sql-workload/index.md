@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 066df6b0fc7516777e2edf523bef226c09c80263
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: cf2c78cddc4355f23f086c8c25dc721e545d05eb
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299138"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163446"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Descrição geral do exemplo de esquema de carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001
 
@@ -46,7 +46,7 @@ Analisou a descrição geral e a arquitetura do exemplo de esquema de carga de t
 > [Esquema de carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001 - Mapeamento de controlo](./control-mapping.md)
 > [Esquema de carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001 - Passos de implementação](./deploy.md)
 
-Artigos adicionais sobre esquemas e como utilizá-los:
+Artigos adicionais sobre esquemas e como os utilizar:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

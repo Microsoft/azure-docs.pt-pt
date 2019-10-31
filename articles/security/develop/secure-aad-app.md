@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: v-fehase
-ms.openlocfilehash: 87df7824a182e68d849fdf967f96b2974b7e0c16
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 88ef0874d760fb87700eac83c0d615be5887ddee
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71148175"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159850"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Desenvolver um aplicativo seguro para um aplicativo do Azure AD
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Este exemplo é um Azure Active Directory simples com o aplicativo Web que é vinculado a recursos de segurança para o desenvolvimento de aplicativos no Azure. O aplicativo implementa práticas recomendadas de segurança que podem ajudar a melhorar seu aplicativo e a postura de segurança da sua organização ao desenvolver aplicativos no Azure.
 
@@ -235,7 +235,7 @@ $trustedRootCert01 = New-AzApplicationGatewayTrustedRootCertificate -Name "test1
 
 #Configure the HTTP settings for the application gateway back end
 
-$poolSetting01 = New-AzApplicationGatewayBackendHttpSettings -Name “setting01” -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
+$poolSetting01 = New-AzApplicationGatewayBackendHttpSettings -Name "setting01" -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
 
 #Create a load-balancer routing rule that configures the load balancer
 
@@ -265,7 +265,7 @@ Azure App serviço permite que você crie e hospede aplicativos Web usando as li
     Write-Host "Configure a CNAME record that maps $fqdn to $webappname.azurewebsites.net"
     Read-Host "Press [Enter] key when ready ..."
 
-#### <a name="before-continuing-go-to-your-azure-domain-name-system-configuration-ui-for-your-custom-domain-and-follow-the-instructions-at-httpsakamsappservicecustomdns-to-configure-a-cname-record-for-the-hostname-www-and-point-it-your-web-apps-default-domain-name"></a>Antes de continuar, vá para a interface do usuário de configuração do sistema de nome de domínio do Azure para https://aka.ms/appservicecustomdns seu domínio personalizado e siga as instruções em para configurar um registro CNAME para o nome de host "www" e aponte para o seu padrão de domínio do aplicativo Web
+#### <a name="before-continuing-go-to-your-azure-domain-name-system-configuration-ui-for-your-custom-domain-and-follow-the-instructions-at-httpsakamsappservicecustomdns-to-configure-a-cname-record-for-the-hostname-www-and-point-it-your-web-apps-default-domain-name"></a>Antes de continuar, vá para a interface do usuário de configuração do sistema de nome de domínio do Azure para seu domínio personalizado e siga as instruções em https://aka.ms/appservicecustomdns para configurar um registro CNAME para o nome de host "www" e apontar para o seu padrão de domínio do aplicativo Web
 
 #### <a name="upgrade-app-service-plan-to-shared-tier-minimum-required-by-custom-domains"></a>Atualizar o plano do serviço de aplicativo para a camada compartilhada (mínimo exigido pelos domínios personalizados)
     Set-AzAppServicePlan -Name $webappname -ResourceGroupName $webappname -Tier Shared
@@ -320,7 +320,7 @@ Agora que você habilitou a integração de rede virtual, você pode adicionar g
 
    *Configurar o NSG*
 
-4. Nas regras de saída para o NSG do gateway, adicione uma regra que permita conexões de saída para a instância do serviço de aplicativo Criando uma regra que se destina à marca de serviço`AppService`
+4. Nas regras de saída para o NSG do gateway, adicione uma regra que permita conexões de saída à instância do serviço de aplicativo Criando uma regra que tenha como alvo a marca de serviço `AppService`
 
    ![Adicionar regras de saída para o NSG](./media/secure-web-app/nsg-outbound-allowappserviceout.png)
 
@@ -350,7 +350,7 @@ Para aplicar as configurações, vá para a guia rede do serviço de aplicativo,
 *Permitir que somente o IP do gateway acesse o serviço de aplicativo*
 
 ### <a name="azure-domain-name-system"></a>Sistema de nomes de domínio do Azure 
-O sistema de nomes de domínio do Azure ou o sistema de nome de domínio do Azure é responsável por converter (ou resolver) um site ou nome de serviço para seu endereço IP. O sistema de nomes de https://docs.microsoft.com/azure/dns/dns-overview) domínio do Azure (é um serviço de hospedagem para domínios do sistema de nomes de domínio que fornece resolução de nomes usando a infraestrutura do Azure. Ao hospedar domínios no Azure, os usuários podem gerenciar registros do sistema de nomes de domínio usando as mesmas credenciais, APIs, ferramentas e cobrança que outros serviços do Azure. O sistema de nomes de domínio do Azure também dá suporte a domínios de sistema de nome de domínio privado
+O sistema de nomes de domínio do Azure ou o sistema de nome de domínio do Azure é responsável por converter (ou resolver) um site ou nome de serviço para seu endereço IP. O sistema de nomes de domínio do Azure (https://docs.microsoft.com/azure/dns/dns-overview) é um serviço de hospedagem para domínios do sistema de nomes de domínio que fornece resolução de nomes usando a infraestrutura do Azure. Ao hospedar domínios no Azure, os usuários podem gerenciar registros do sistema de nomes de domínio usando as mesmas credenciais, APIs, ferramentas e cobrança que outros serviços do Azure. O sistema de nomes de domínio do Azure também dá suporte a domínios de sistema de nome de domínio privado
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 Azure Disk Encryption aproveita o recurso BitLocker do Windows para fornecer criptografia de volume para discos de dados. A solução se integra com Azure Key Vault para ajudar a controlar e gerenciar as chaves de criptografia de disco.
@@ -389,19 +389,19 @@ Com a central de segurança do Azure, os clientes podem aplicar e gerenciar cent
    - A central de segurança do Azure e um consultor do Azure fornecem proteção e notificações adicionais. A central de segurança do Azure também fornece um sistema de reputação.
 ### <a name="logging-and-auditing"></a>Registo e auditoria
 Os serviços do Azure registram extensivamente a atividade do sistema e do usuário, bem como a integridade do sistema:
-   - Logs de atividade: [Os logs de atividade](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações sobre as operações executadas nos recursos em uma assinatura. Os logs de atividades podem ajudar a determinar o iniciador de uma operação, a hora de ocorrência e o status.
-   - Logs de diagnóstico: Os [logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluem todos os logs emitidos por cada recurso. Esses logs incluem logs do sistema de eventos do Windows, logs de armazenamento do Azure, Key Vault logs de auditoria e acesso do gateway de aplicativo e logs de firewall. Todos os logs de diagnóstico gravam em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento. A retenção é configurável pelo usuário, até 730 dias, para atender aos requisitos de retenção específicos da organização.
+   - Logs de atividade: [os logs de atividade](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações sobre as operações executadas nos recursos em uma assinatura. Os logs de atividades podem ajudar a determinar o iniciador de uma operação, a hora de ocorrência e o status.
+   - Logs de diagnóstico: os [logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluem todos os logs emitidos por cada recurso. Esses logs incluem logs do sistema de eventos do Windows, logs de armazenamento do Azure, Key Vault logs de auditoria e acesso do gateway de aplicativo e logs de firewall. Todos os logs de diagnóstico gravam em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento. A retenção é configurável pelo usuário, até 730 dias, para atender aos requisitos de retenção específicos da organização.
 ### <a name="azure-monitor-logs"></a>Registos do Azure Monitor
    Esses logs são consolidados em [logs de Azure monitor](https://azure.microsoft.com/services/log-analytics/) para processamento, armazenamento e relatórios de Dashboard. Depois de coletados, os dados são organizados em tabelas separadas para cada tipo de dados dentro de Log Analytics espaços de trabalho, o que permite que todos os dados sejam analisados juntos, independentemente de sua fonte original. Além disso, a central de segurança do Azure integra-se aos logs de Azure Monitor, permitindo que os clientes usem consultas Kusto para acessar seus dados de eventos de segurança e combiná-los com dados de outros serviços.
 
    As soluções de [monitoramento](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) do Azure a seguir estão incluídas como parte dessa arquitetura
 
-   - [Avaliação do Active Directory](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): A solução de verificação de integridade Active Directory avalia o risco e a integridade dos ambientes de servidor em um intervalo regular e fornece uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
-   - [Integridade do agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): A solução Integridade do Agente relata Quantos agentes são implantados e sua distribuição geográfica, bem como Quantos agentes, que não respondem e o número de agentes, que estão enviando dados operacionais.
-   - [Análise do log de atividades](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): A solução Análise do Log de Atividades auxilia na análise dos logs de atividade do Azure em todas as assinaturas do Azure para um cliente.
-### <a name="azure-monitor"></a>Azure Monitor
+   - [Avaliação do Active Directory](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): a solução de verificação de integridade Active Directory avalia o risco e a integridade dos ambientes de servidor em um intervalo regular e fornece uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
+   - [Integridade do agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): a solução integridade do agente relata Quantos agentes são implantados e sua distribuição geográfica, bem como Quantos agentes, que não respondem e o número de agentes, que estão enviando dados operacionais.
+   - [Análise do log de atividades](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): a solução de análise do log de atividades auxilia na análise dos logs de atividades do Azure em todas as assinaturas do Azure para um cliente.
+### <a name="azure-monitor"></a>Monitor do Azure
    [Azure monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)ajuda os usuários a controlar o desempenho, manter a segurança e identificar tendências, permitindo que as organizações façam auditoria, criem alertas e arquivem dados, incluindo o acompanhamento de chamadas de API em seus recursos do Azure.
-### <a name="application-insights"></a>Application Insights 
+### <a name="application-insights"></a>Estatísticas das Aplicações 
    O [Application insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) é um serviço de gerenciamento de desempenho de aplicativos extensível para desenvolvedores da Web em várias plataformas. Application Insights detecta anomalias de desempenho e os clientes podem usá-lo para monitorar o aplicativo Web em tempo real. Ele inclui ferramentas de análise poderosas para ajudar os clientes a diagnosticar problemas e entender o que os usuários realmente fazem com seus aplicativos. Ele foi projetado para ajudar os clientes a melhorar continuamente o desempenho e a usabilidade.
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
@@ -412,7 +412,7 @@ Os serviços do Azure registram extensivamente a atividade do sistema e do usuá
    - Chave de acesso de armazenamento de dados
    - Cadeia de ligação
    - Nome da tabela de dados
-   - Credenciais de Utilizador
+   - Credenciais do usuário
    - As políticas de acesso avançadas são configuradas de acordo com a necessidade
    - Key Vault políticas de acesso são definidas com as permissões mínimas necessárias para chaves e segredos
    - Todas as chaves e segredos no Key Vault têm datas de expiração
@@ -443,14 +443,14 @@ Os serviços do Azure registram extensivamente a atividade do sistema e do usuá
 1.  Navegue de volta para a portal do Azure. No painel de navegação à esquerda, selecione o serviço Azure Active Directory e, em seguida, selecione Registros de aplicativo.
 2.  Na tela resultante, selecione o aplicativo WebApp-OpenIDConnect-DotNet-Code-v2.
 3.  Na guia Autenticação o na seção URIs de redirecionamento, selecione Web na caixa de combinação e adicione os seguintes URIs de redirecionamento.
-    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.nethttps://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o na seção Configurações avançadas, defina URL de logout para https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
-4.  Na guia identidade visual o, atualize a URL da Home Page para o endereço do seu serviço de aplicativo, https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net por exemplo.
+    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o na seção Configurações avançadas definir URL de logout para https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
+4.  Na guia identidade visual o, atualize a URL da Home Page para o endereço do seu serviço de aplicativo, por exemplo https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net.
         o salve a configuração.
 5.  Se seu aplicativo chamar uma API da Web, certifique-se de aplicar as alterações necessárias no projeto appSettings. JSON, para que chame a URL da API publicada em vez do localhost.
 Publicando o exemplo
     1.  Na guia Visão geral do serviço de aplicativo, baixe o perfil de publicação clicando no link obter perfil de publicação e salve-o. Outros mecanismos de implantação, como do controle do código-fonte, também podem ser usados.
     2.  Alterne para o Visual Studio e vá para o projeto WebApp-OpenIDConnect-DotNet-Code-v2. Clique com o botão direito do mouse no projeto na Gerenciador de Soluções e selecione publicar. Clique em importar perfil na barra inferior e importe o perfil de publicação que você baixou anteriormente.
-    3.  Clique em configurar e, na guia conexão, atualize a URL de destino para que ela seja um https na URL de home page, por https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net exemplo. Clique em Seguinte.
+    3.  Clique em configurar e, na guia conexão, atualize a URL de destino para que ela seja um https na URL de home page, por exemplo https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net. Clique em Seguinte.
     4.  Na guia Configurações, certifique-se de que habilitar autenticação organizacional não esteja selecionado. Clique em Guardar. Clique em publicar na tela principal.
     5.  O Visual Studio publicará o projeto e abrirá automaticamente um navegador para a URL do projeto. Se você vir a página da Web padrão do projeto, a publicação foi bem-sucedida.
 #### <a name="implement-multi-factor-authentication-for-azure-active-directory"></a>Implementar a autenticação multifator para Azure Active Directory
@@ -512,9 +512,9 @@ Para criar este espaço de trabalho
    *Pesquisar espaços de trabalho do Log Analytics*
 
    2. Na página seguinte, selecione **Adicionar** e forneça um nome, um grupo de recursos e um local para o espaço de trabalho.
-   ![Criar uma área de trabalho do Log Analytics](./media/secure-aad-app/sentinel-log-analytics-create.png)
+   ![criar um espaço de trabalho Log Analytics](./media/secure-aad-app/sentinel-log-analytics-create.png)
 
-   *Criar uma área de trabalho do Log Analytics*
+   *Criar um espaço de trabalho Log Analytics*
 
    3. Use a caixa de pesquisa para pesquisar o **Azure Sentinel**.
 
@@ -537,7 +537,7 @@ Para criar este espaço de trabalho
    Por exemplo, para conectar o gateway de aplicativo, execute estas etapas:
 
    1. Abra a folha da instância do gateway Aplicativo Azure.
-   2. Sob **monitorização**, selecione **das definições de diagnóstico**.
+   2. Em **monitoramento**, selecione **configurações de diagnóstico**.
    3. Selecione **Adicionar configuração de diagnóstico**.
 
    ![Adicionar diagnóstico do gateway de aplicativo](./media/secure-aad-app/sentinel-gateway-connector.png)

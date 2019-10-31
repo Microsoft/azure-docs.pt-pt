@@ -8,12 +8,12 @@ ms.topic: include
 ms.author: estfan
 ms.custom: include file
 ms.date: 05/15/2018
-ms.openlocfilehash: aa1001661d8fe03855e1a28b882f674bee3606b2
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: d60d7727e0674298fa6da7e7330221318da23efd
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311982"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161660"
 ---
 * Se você estiver usando o banco de dados SQL do Azure, siga as etapas em [conectar ao banco de dados SQL do Azure](#connect-azure-sql-db).
 
@@ -34,7 +34,7 @@ Quando o gatilho ou ação do SQL solicitar informações de conexão, siga esta
    * `User ID=<your-user-name>`
    * `Password=<your-password>`
 
-   ![Criar conexão de banco de dados SQL do Azure](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+   ![Criar conexão com o banco de dados SQL do Azure](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
 
 1. Quando terminar, selecione **Criar**.
 
@@ -59,7 +59,7 @@ Quando o gatilho ou ação do SQL solicitar informações de conexão, siga esta
    * `User ID=<your-user-name>`
    * `Password=<your-password>`
 
-   ![Criar SQL Server conexão](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
+   ![Criar conexão com SQL Server](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
 
 1. Se o SQL Server usar a autenticação do Windows ou básica, selecione o **tipo de autenticação**.
 

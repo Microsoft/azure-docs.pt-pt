@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c6043d9e18c364073ad1ea46e26335577e0ec3b2
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: cc47ff50aa7bb6dce58ed83f75f69fb600ad040b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512453"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146933"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -38,7 +38,7 @@ Não há <a name="databricks">suporte para o</a> Azure Databricks usando o conec
 Não há suporte para <a name="gen2">4</a> -ADLS Gen2 no momento.
 
 
-@No__t_1 do **provedor**  
+  do **provedor**  
 Modelos na memória e DirectQuery que se conectam a fontes de dados do Azure usam .NET Framework Provedor de Dados para SQL Server.
 
 ## <a name="other-data-sources"></a>Outras fontes de dados
@@ -97,12 +97,12 @@ Ao migrar um modelo de tabela de SQL Server Analysis Services local para Azure A
 
 **Para especificar um provedor**
 
-1. No SSDT > **Gerenciador de modelos de tabela** > **fontes de dados**, clique com o botão direito do mouse em uma conexão de fonte de dados e clique em **Editar fonte de dados**.
+1. No Visual Studio > o **Gerenciador de modelos de tabela** > fontes de **dados**, clique com o botão direito do mouse em uma conexão de fonte de dados e clique em **Editar fonte de dados**.
 2. Em **Editar conexão**, clique em **avançado** para abrir a janela Propriedades avançadas.
 3. Em **definir propriedades avançadas** > **provedores**, em seguida, selecione o provedor apropriado.
 
 ## <a name="impersonation"></a>Representação
-Em alguns casos, pode ser necessário especificar uma conta de representação diferente. A conta de representação pode ser especificada no Visual Studio (SSDT) ou no SSMS.
+Em alguns casos, pode ser necessário especificar uma conta de representação diferente. A conta de representação pode ser especificada no Visual Studio ou no SSMS.
 
 Para fontes de dados locais:
 
@@ -118,6 +118,6 @@ Para fontes de dados de nuvem:
 Para modelos de tabela no nível de compatibilidade 1400 e superior, o banco de dados SQL do Azure, o Azure SQL Data Warehouse, o Dynamics 365 e a lista do SharePoint dão suporte a credenciais OAuth. Azure Analysis Services gerencia a atualização de token para fontes de dados OAuth para evitar tempos limite para operações de atualização de execução longa. Para gerar tokens válidos, defina as credenciais usando o SSMS.
 
 ## <a name="next-steps"></a>Passos seguintes
-@No__t_1 [de gateway local](analysis-services-gateway.md)  
+  [de gateway local](analysis-services-gateway.md)  
 [Gerenciar seu servidor](analysis-services-manage.md)   
 

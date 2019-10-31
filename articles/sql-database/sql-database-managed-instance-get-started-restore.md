@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: ca0dcc850b2db513c8d85d43ad76bc75053c0d04
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: c07daf4cf9f355e8eccfe618262dd06b4216106e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514022"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146404"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Início rápido: restaurar um banco de dados para um Instância Gerenciada
 
@@ -35,12 +35,12 @@ Este guia de início rápido:
 - Usa recursos do guia de início rápido [criar um instância gerenciada](sql-database-managed-instance-get-started.md) .
 - Requer que o computador tenha as [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) mais recentes instaladas.
 - Requer o uso do SSMS para se conectar ao seu Instância Gerenciada. Consulte estes guias de início rápido sobre como se conectar:
+  - [Habilitar ponto de extremidade público](sql-database-managed-instance-public-endpoint-configure.md) em instância gerenciada-essa é uma abordagem recomendada para este tutorial.
   - [Ligar a uma Instância Gerida da Base de Dados SQL do Azure a partir de uma VM do Azure](sql-database-managed-instance-configure-vm.md)
   - [Configure uma conexão ponto a site com um instância gerenciada do banco de dados SQL do Azure local](sql-database-managed-instance-configure-p2s.md).
-- Requer a conta de armazenamento de BLOBs do Azure (por exemplo, Standard_LRS v2) em **IP público** protegido com a **credencial SAS** que tem permissão `rw`. Não há suporte atualmente [para IPS privados para armazenamento de blob protegido por firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security) e pontos de extremidade de serviço de armazenamento de BLOBs do Azure.
 
 > [!NOTE]
-> Para obter mais informações sobre como fazer backup e restaurar um banco de dados SQL Server usando o armazenamento de BLOBs do Azure e uma [chave de assinatura de acesso compartilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), consulte [SQL Server Backup to URL](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
+> Para obter mais informações sobre como fazer backup e restaurar um banco de dados SQL Server usando o armazenamento de BLOBs do Azure e uma [chave de assinatura de acesso compartilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), consulte [SQL Server Backup to URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
 
 ## <a name="restore-the-database-from-a-backup-file"></a>Restaurar o banco de dados de um arquivo de backup
 
@@ -86,7 +86,11 @@ No SSMS, siga estas etapas para restaurar o banco de dados de importadores mundi
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-7. Quando o restauro estiver concluído, irá vê-lo no Object Explorer.
+7. Quando a restauração for concluída, exiba o banco de dados no Pesquisador de objetos. Você pode verificar se a restauração do banco de dados foi concluída usando a exibição [Sys. dm _operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) .
+
+> [!NOTE]
+> A operação de restauração de banco de dados é assíncrona e passível. Você pode receber algum erro SQL Server Management Studio se quebras de conexão ou algum tempo limite expirar. O banco de dados SQL do Azure continuará tentando restaurar o banco de dados em segundo plano e você poderá acompanhar o progresso da restauração usando as exibições [Sys. dm _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [Sys. dm _operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) .
+> Em algumas fases do processo de restauração, você verá o identificador exclusivo em vez do nome real do banco de dados nas exibições do sistema. Saiba mais sobre as diferenças de comportamento de instrução de `RESTORE` [aqui](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement).
 
 ## <a name="next-steps"></a>Passos seguintes
 

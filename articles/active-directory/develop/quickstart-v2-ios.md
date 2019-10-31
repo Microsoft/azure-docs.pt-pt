@@ -17,16 +17,16 @@ ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a96aab3fc5dfa62039732f7860f1e96e3f60e445
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: b515a7954d82cdd377cec72fa8525fbd9691351d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964039"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149505"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Início rápido: conectar usuários e chamar a API de Microsoft Graph de um aplicativo iOS ou macOS
 
-Este guia de início rápido contém um exemplo de código que demonstra como um aplicativo iOS ou macOS nativo pode entrar em contas pessoais, corporativas e de estudante, obter um token de acesso e chamar a API de Microsoft Graph.
+Este guia de início rápido contém um exemplo de código que demonstra como um aplicativo nativo do iOS ou macOS pode usar a plataforma de identidade da Microsoft para entrar em contas pessoais, corporativas e de estudante, obter um token de acesso e chamar a API de Microsoft Graph.
 
 Este início rápido se aplica a aplicativos iOS e macOS. Algumas etapas são necessárias apenas para aplicativos iOS. Essas etapas chamam que são apenas para iOS.
 

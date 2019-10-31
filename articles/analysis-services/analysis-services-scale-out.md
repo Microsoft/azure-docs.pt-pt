@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0e6a234e8b69eb48f00687916d4a7b48d3ba1040
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: af1a0db397510014301a58aea7238b695a6c0740
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301182"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146441"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalamento horizontal do Azure Analysis Services
 
@@ -138,7 +138,7 @@ Na página Visão geral do servidor, há dois nomes de servidor. Se você ainda 
 
 Para conexões de cliente de usuário final como Power BI Desktop, Excel e aplicativos personalizados, use o **nome do servidor**. 
 
-Para SSMS, SSDT e cadeias de conexão no PowerShell, aplicativos de funções do Azure e AMO, use o **nome do servidor de gerenciamento**. O nome do servidor de gerenciamento inclui um qualificador especial `:rw` (leitura-gravação). Todas as operações de processamento ocorrem no servidor de gerenciamento (primário).
+Para SSMS, Visual Studio e cadeias de conexão no PowerShell, aplicativos de funções do Azure e AMO, use o **nome do servidor de gerenciamento**. O nome do servidor de gerenciamento inclui um qualificador especial `:rw` (leitura-gravação). Todas as operações de processamento ocorrem no servidor de gerenciamento (primário).
 
 ![Nomes de servidor](media/analysis-services-scale-out/aas-scale-out-name.png)
 

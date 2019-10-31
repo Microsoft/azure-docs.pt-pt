@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/08/2019
-ms.openlocfilehash: 63ddb329e37ea3da589e7d2eeaebabb42aa2b467
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 24a2b8a3c190ed440684ea3aa0ab35ebbf93fca0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555515"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161968"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas Diagnóstico do Azure
 Este artigo descreve as informações de solução de problemas relevantes para o uso de Diagnóstico do Azure. Para obter mais informações sobre o diagnóstico do Azure, consulte [diagnóstico do Azure visão geral](diagnostics-extension-overview.md).
@@ -30,13 +30,13 @@ A seguir estão os caminhos para alguns logs e artefatos importantes. Nós nos r
 ### <a name="azure-cloud-services"></a>Serviços Cloud do Azure
 | Artefacto | Caminho |
 | --- | --- |
-| **Arquivo de configuração Diagnóstico do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics \<version > \Config.txt |
+| **Arquivo de configuração Diagnóstico do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versão > \Config.txt |
 | **Arquivos de log** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics \<version > \ |
 | **Armazenamento local para dados de diagnóstico** | Pasta c:\resources\directory \<CloudServiceDeploymentID >. \<RoleName >. DiagnosticStore\WAD0107\Tables |
 | **Arquivo de configuração do agente de monitoramento** | Pasta c:\resources\directory \<CloudServiceDeploymentID >. \<RoleName >. DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
-| **Pacote de extensão Diagnóstico do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics \<version > |
+| **Pacote de extensão Diagnóstico do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versão > |
 | **Caminho do utilitário de coleta de log** | %SystemDrive%\Packages\GuestAgent\ |
-| **Arquivo de log do MonAgentHost** | Pasta c:\resources\directory \<CloudServiceDeploymentID >. \<RoleName >. DiagnosticStore\WAD0107\Configuration\MonAgentHost. < seq_num >. log |
+| **Arquivo de log do MonAgentHost** | Pasta c:\resources\directory\<CloudServiceDeploymentID >.\<RoleName >. DiagnosticStore\WAD0107\Configuration\MonAgentHost. < seq_num >. log |
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
 | Artefacto | Caminho |
@@ -48,7 +48,7 @@ A seguir estão os caminhos para alguns logs e artefatos importantes. Nós nos r
 | **Arquivo de status** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<version > \Status |
 | **Pacote de extensão Diagnóstico do Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<DiagnosticsVersion >|
 | **Caminho do utilitário de coleta de log** | C:\WindowsAzure\Logs\WaAppAgent.log |
-| **Arquivo de log do MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<DiagnosticsVersion > \WAD0107\Configuration\MonAgentHost. < seq_num >. log |
+| **Arquivo de log do MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MonAgentHost. < seq_num >. log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Os dados da métrica não aparecem no portal do Azure
 Diagnóstico do Azure fornece dados de métrica que podem ser exibidos no portal do Azure. Se você tiver problemas para ver os dados no portal, verifique a tabela de \* de WADMetrics na Diagnóstico do Azure conta de armazenamento para ver se os registros de métrica correspondentes estão lá.
@@ -64,14 +64,14 @@ Se não houver dados para a métrica específica, verifique **configuração de 
 - \ ASP.NET aplicativos (__total__) \Errors total/s
 - \ASP.NET\Requests na fila
 - \ASP.NET\Requests rejeitado
-- \Processor (w3wp) \% tempo do processador
+- \Processor (w3wp)\% tempo do processador
 - \Process (w3wp) \Bytes privados bytes
-- \Process (WaIISHost) \% tempo do processador
+- \Process (WaIISHost)\% tempo do processador
 - \Process (WaIISHost) \Bytes privados bytes
-- \Process (WaWorkerHost) \% tempo do processador
+- \Process (WaWorkerHost)\% tempo do processador
 - \Process (WaWorkerHost) \Bytes privados bytes
 - Falhas de \Memory\Page/s
-- \.NET a memória CLR (_global_) \% tempo no GC
+- \.a memória .NET CLR (_global_)\% tempo no GC
 - \LogicalDisk (C:) \Bytes de gravação de bytes/s
 - \LogicalDisk (C:) \Bytes de leitura de bytes/s
 - \LogicalDisk (D:) \Bytes de gravação de bytes/s
@@ -208,10 +208,10 @@ Esse código gera quatro tabelas:
 
 | Evento | Nome da tabela |
 | --- | --- |
-| Provider = "prov1" &lt;Event ID = "1"/&gt; |WADEvent + MD5 ("prov1") + "1" |
-| Provider = "prov1" &lt;Event ID = "2" eventDestination = "dest1"/&gt; |WADdest1 |
-| Provider = "prov1" &lt;DefaultEvents/&gt; |WADDefault + MD5 ("prov1") |
-| Provider = "prov2" &lt;DefaultEvents eventDestination = "dest2"/&gt; |WADdest2 |
+| Provider = "prov1" &lt;ID do evento = "1"/&gt; |WADEvent + MD5 ("prov1") + "1" |
+| Provider = "prov1" &lt;ID do evento = "2" eventDestination = "dest1"/&gt; |WADdest1 |
+| Provider = "prov1" &lt;eventos/&gt; |WADDefault + MD5 ("prov1") |
+| Provider = "prov2" &lt;eventDestination de eventos = "dest2"/&gt; |WADdest2 |
 
 ## <a name="references"></a>Referências
 
@@ -260,7 +260,7 @@ O agente de monitoramento coleta logs e artefatos como arquivos de `.tsf`. O arq
 Um novo arquivo chamado `<relevantLogFile>.csv` é criado no mesmo caminho que o arquivo de `.tsf` correspondente.
 
 >[!NOTE]
-> Você só precisa executar esse utilitário no arquivo. TSF principal (por exemplo, PerformanceCountersTable. TSF). Os arquivos que o acompanham (por exemplo, PerformanceCountersTables_ \* \*001. TSF, PerformanceCountersTables_ \* \*002. TSF e assim por diante) são processados automaticamente.
+> Você só precisa executar esse utilitário no arquivo. TSF principal (por exemplo, PerformanceCountersTable. TSF). Os arquivos que o acompanham (por exemplo, PerformanceCountersTables_\*\*001. TSF, PerformanceCountersTables_\*\*002. TSF e assim por diante) são processados automaticamente.
 
 ### <a name="more-about-missing-trace-logs"></a>Mais sobre logs de rastreamento ausentes
 

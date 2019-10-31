@@ -1,33 +1,33 @@
 ---
-title: Automatizar a publicação da oferta | O Azure Marketplace
-description: Explica como programaticamente automatizar o fluxo de trabalho de publicação de máquina virtual.
+title: Automatizar a publicação da oferta | Azure Marketplace
+description: Explica como automatizar programaticamente o fluxo de trabalho de publicação de máquina virtual.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 0a927c72a82c6aa3c79988c599ea8b840821a2b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50b785ed9456b0b112dea01a219e988b81094571
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935888"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73154651"
 ---
-<a name="automate-offer-publishing"></a>Automatizar a publicação da oferta
+<a name="automate-offer-publishing"></a>Publicação automatizada de ofertas
 =========================
 
-Também por meio de programação pode automatizar a VM a publicar o fluxo de trabalho, com as APIs no [referência da API](./cloud-partner-portal-api-overview.md) secção. Existem dois cenários distintos a serem considerados ao planear a automatização: oferecem publicação inicial e a publicação da oferta subsequentes.
+Você também pode automatizar programaticamente o fluxo de trabalho de publicação de VM, usando as APIs na seção de [referência de API](./cloud-partner-portal-api-overview.md) . Há dois cenários distintos a serem considerados durante o planejamento da automação: ofereça publicação inicial e publicação de oferta subsequente.
 
 
-<a name="offer-initial-publishing"></a>Publicação inicial da oferta
+<a name="offer-initial-publishing"></a>Oferecer publicação inicial
 -------------------------
 
-Quando publica uma oferta pela primeira vez, requer alguns passos adicionais antes de carregar para o marketplace.  Por exemplo, tem de preparar os metadados e criar um rascunho de oferta. O fluxo de trabalho de publicação inicial é mostrado no diagrama seguinte.
+Quando você publica uma oferta pela primeira vez, ela requer algumas etapas adicionais antes de carregar no Marketplace.  Por exemplo, você deve preparar os metadados e criar um rascunho de oferta. O fluxo de trabalho de publicação inicial é mostrado no diagrama a seguir.
 
-![Publicação da oferta de interações de um inicial](media/cloud-partner-portal-automate-offer-publishing/first-time-offer-publishing.png)
+![Interações de uma publicação de oferta inicial](media/cloud-partner-portal-automate-offer-publishing/first-time-offer-publishing.png)
 
-O código de exemplo seguinte demonstra essas etapas.
+O código de exemplo a seguir demonstra essas etapas.
 
 ``` csharp
   CreateOfferAndPublish()
@@ -55,7 +55,7 @@ O código de exemplo seguinte demonstra essas etapas.
   ValidateAndGoLive()    
   {
       // Confirm the version in preview slot is the version that needs to go live
-      offer = CloudPartnerPortal.Client.GetOffer(offerName, “Preview”);
+      offer = CloudPartnerPortal.Client.GetOffer(offerName, "Preview");
       if(!offer[skuName].containsVersion(VMDisk.Version))
       {
           UpdateOfferAndPublish()
@@ -74,10 +74,10 @@ O código de exemplo seguinte demonstra essas etapas.
 ```
 
 
-<a name="subsequent-offer-publishing"></a>Publicação da oferta subsequentes
+<a name="subsequent-offer-publishing"></a>Publicação de oferta subsequente
 ---------------------------
 
-Assim que a oferta de máquina virtual (VM) é integrada num pipeline de integração contínua, pode automatizar o fluxo de trabalho de publicação para ser executada sempre que é criado um novo disco rígido virtual (VHD).  Este fluxo de trabalho é ilustrado pelo código de exemplo e o diagrama seguinte.
+Depois que a oferta de VM (máquina virtual) for integrada a um pipeline de integração contínua, você poderá automatizar o fluxo de trabalho de publicação para ser executado sempre que um novo VHD (disco rígido virtual) for criado.  Esse fluxo de trabalho é ilustrado pelo diagrama e código de exemplo a seguir.
 
 ![Interações de publicações de oferta subsequentes](media/cloud-partner-portal-automate-offer-publishing/update-offer-and-publish.png)
 
@@ -127,7 +127,7 @@ Assim que a oferta de máquina virtual (VM) é integrada num pipeline de integra
     ValidateAndGoLive()
     {
         // Confirm the version in preview slot is the version that needs to go live
-        offer = CloudPartnerPortal.Client.GetOffer(offerName, “Preview”);
+        offer = CloudPartnerPortal.Client.GetOffer(offerName, "Preview");
         if(!offer[skuName].containsVersion(VMDisk.Version))
         {
             UpdateOfferAndPublish()

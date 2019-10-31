@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4f263e3b57103174f0084ab3d25430d8c47359fd
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 569a1c83562a995f15e12013c864ef4c0447d963
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707302"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161688"
 ---
 # <a name="api"></a>API
 
@@ -45,7 +45,7 @@ Insira este trecho de código no cabeçalho HTML da sua página inicial (onde um
 > A função de retorno de chamada deve ser definida antes da chamada para a API de classificação.
 
 > [!TIP]
-> Para melhorar a latência, a API de classificação é exposta via HTTP em vez de HTTPS `https://ds.microsoft.com/api/v2/<appId>/rank/*`, como no.
+> Para melhorar a latência, a API de classificação é exposta via HTTP em vez de HTTPS, como no `https://ds.microsoft.com/api/v2/<appId>/rank/*`.
 > No entanto, um ponto de extremidade HTTPS deve ser usado se a página inicial for servida por HTTPS.
 
 Quando os parâmetros não são usados, a resposta HTTP da API de classificação é uma cadeia de caracteres JSONP:
@@ -63,10 +63,10 @@ Em seguida, o browser executa essa cadeia como uma chamada para a função `call
 
 O parâmetro para a função de retorno de chamada no exemplo anterior tem o seguinte esquema:
 
-- `ranking`fornece a classificação de URLs a serem exibidas.
-- `eventId`é usado internamente por Serviço de Decisão Personalizada para corresponder a essa classificação com os cliques correspondentes.
-- `appId`permite que a função de retorno de chamada Diferencie entre vários aplicativos do Serviço de Decisão Personalizada em execução na mesma página da Web.
-- `actionSets`lista cada conjunto de ações usado na chamada à API de classificação, juntamente com o carimbo de data/hora UTC da última atualização bem-sucedida. O Serviço de Decisão Personalizada atualiza periodicamente os feeds de conjunto de ações. Por exemplo, se alguns dos conjuntos de ações não forem atuais, a função de retorno de chamada poderá precisar retornar à sua classificação padrão.
+- `ranking` fornece a classificação de URLs a serem exibidas.
+- `eventId` é usado internamente pelo Serviço de Decisão Personalizada para corresponder a essa classificação com os cliques correspondentes.
+- `appId` permite que a função de retorno de chamada Diferencie entre vários aplicativos do Serviço de Decisão Personalizada em execução na mesma página da Web.
+- `actionSets` lista cada conjunto de ações usado na chamada à API de classificação, juntamente com o carimbo de data/hora UTC da última atualização bem-sucedida. O Serviço de Decisão Personalizada atualiza periodicamente os feeds de conjunto de ações. Por exemplo, se alguns dos conjuntos de ações não forem atuais, a função de retorno de chamada poderá precisar retornar à sua classificação padrão.
 
 > [!IMPORTANT]
 > Os conjuntos de ações especificados são processados e, possivelmente, removidos, para formar a classificação padrão de artigos. Em seguida, a classificação padrão é reordenada e retornada na resposta HTTP. A classificação padrão é definida aqui:
@@ -79,16 +79,16 @@ O parâmetro para a função de retorno de chamada no exemplo anterior tem o seg
 
 A API de classificação permite esses parâmetros:
 
-- `details=1`e `details=2` insere detalhes adicionais sobre cada artigo listado em `ranking`.
-- `limit=<n>`Especifica o número máximo de artigos na classificação padrão. `n`deve estar entre `2` e `30` (ou, senão, é truncado `2` para `30`ou, respectivamente).
-- `dnt=1`desabilita os cookies do usuário.
+- `details=1` e `details=2` insere detalhes adicionais sobre cada artigo listado em `ranking`.
+- `limit=<n>` especifica o número máximo de artigos na classificação padrão. `n` deve estar entre `2` e `30` (ou, caso contrário, será truncado para `2` ou `30`, respectivamente).
+- `dnt=1` desabilita os cookies do usuário.
 
-Os parâmetros podem ser combinados no padrão, a sintaxe da cadeia de `details=2&dnt=1`caracteres de consulta, por exemplo.
+Os parâmetros podem ser combinados em uma sintaxe de cadeia de caracteres de consulta padrão, por exemplo `details=2&dnt=1`.
 
 > [!IMPORTANT]
 > A configuração padrão na Europa deve ser `dnt=1` até que o cliente concorde com a faixa do cookie. Ele também deve ser a configuração padrão para sites que se destinam a pequenos. Para obter mais informações, consulte os [termos de uso](https://www.microsoft.com/cognitive-services/en-us/legal/CognitiveServicesTerms20160804).
 
-O `details=1` elemento insere cada `guid`artigo, se for servido pela API de conjunto de ações. A resposta HTTP:
+O elemento `details=1` insere `guid`de cada artigo, se for servido pela API de conjunto de ações. A resposta HTTP:
 
 ```json
 callback({
@@ -101,12 +101,12 @@ callback({
                  {"id":"<A2>","lastRefresh":"timeStamp2"}]});
 ```
 
-O `details=2` elemento adiciona mais detalhes que serviço de decisão personalizada podem extrair do [código personalização](https://github.com/Microsoft/mwt-ds/tree/master/Crawl)de submarcações de SEO de artigos:
+O elemento `details=2` adiciona mais detalhes que Serviço de Decisão Personalizada podem extrair do [código personalização](https://github.com/Microsoft/mwt-ds/tree/master/Crawl)de submarcações de SEO de artigos:
 
-- `title`de `<meta property="og:title" content="..." />` ou `<meta property="twitter:title" content="..." />` ou`<title>...</title>`
-- `description`de `<meta property="og:description" ... />` ou `<meta property="twitter:description" content="..." />` ou`<meta property="description" content="..." />`
-- `image`De`<meta property="og:image" content="..." />`
-- `ds_id`De`<meta name=”microsoft:ds_id” content="..." />`
+- `title` de `<meta property="og:title" content="..." />` ou `<meta property="twitter:title" content="..." />` ou `<title>...</title>`
+- `description` de `<meta property="og:description" ... />` ou `<meta property="twitter:description" content="..." />` ou `<meta property="description" content="..." />`
+- `image` de `<meta property="og:image" content="..." />`
+- `ds_id` de `<meta name="microsoft:ds_id" content="..." />`
 
 A resposta HTTP:
 
@@ -121,7 +121,7 @@ callback({
                  {"id":"<A2>","lastRefresh":"timeStamp2"}]});
 ```
 
-O `<details>` elemento:
+O elemento `<details>`:
 
 ```json
 [{"guid":"123"}, {"description":"some text", "ds_id":"234", "image":"ImageUrl1", "title":"some text"}]
@@ -140,9 +140,9 @@ $.ajax({
     contentType: "application/json" })
 ```
 
-Aqui `data` está o argumento para a `callback()` função, conforme descrito anteriormente. O `data` uso do no código de tratamento de clique requer algum cuidado. Um exemplo é mostrado neste [tutorial](custom-decision-service-tutorial-news.md#use-the-apis).
+Aqui `data` é o argumento para a função `callback()`, conforme descrito anteriormente. Usar `data` no código de tratamento de clique requer algum cuidado. Um exemplo é mostrado neste [tutorial](custom-decision-service-tutorial-news.md#use-the-apis).
 
-Somente para teste, a API de recompensa pode ser chamada [](https://en.wikipedia.org/wiki/CURL)por meio da ondulação:
+Somente para teste, a API de recompensa pode ser chamada por meio da [ondulação](https://en.wikipedia.org/wiki/CURL):
 
 ```sh
 curl -v https://ds.microsoft.com/api/v2/<appId>/reward/<eventId> -X POST -d 1 -H "Content-Type: application/json"
@@ -172,20 +172,20 @@ Cada API de conjunto de ações pode ser implementada de duas maneiras: como um 
 </rss>
 ```
 
-Cada elemento de nível `<item>` superior descreve uma ação:
+Cada elemento de `<item>` de nível superior descreve uma ação:
 
-- `<link>`é obrigatório e é usado como uma ID de ação.
-- `<date>`será ignorado se for menor ou igual a 15 itens; caso contrário, é obrigatório.
+- `<link>` é obrigatório e é usada como uma ID de ação.
+- `<date>` será ignorado se for menor ou igual a 15 itens; caso contrário, é obrigatório.
   - Se houver mais de 15 itens, serão usados os 15 mais recentes.
   - Ele deve estar no formato padrão para RSS ou Atom, respectivamente:
-    - [RFC 822](https://tools.ietf.org/html/rfc822) para RSS: por exemplo,`"Fri, 28 Apr 2017 18:02:06 GMT"`
-    - [RFC 3339](https://tools.ietf.org/html/rfc3339) para Atom: por exemplo,`"2016-12-19T16:39:57-08:00"`
-- `<title>`é opcional e é usado para gerar recursos que descrevem o artigo.
-- `<guid>`é opcional e transmitido pelo sistema para a função de retorno de chamada `?details` (se o parâmetro for especificado na chamada à API de classificação).
+    - [RFC 822](https://tools.ietf.org/html/rfc822) para RSS: por exemplo, `"Fri, 28 Apr 2017 18:02:06 GMT"`
+    - [RFC 3339](https://tools.ietf.org/html/rfc3339) para Atom: por exemplo, `"2016-12-19T16:39:57-08:00"`
+- `<title>` é opcional e é usada para gerar recursos que descrevem o artigo.
+- `<guid>` é opcional e transmitida pelo sistema para a função de retorno de chamada (se o parâmetro `?details` for especificado na chamada à API de classificação).
 
-Outros elementos dentro de `<item>` um são ignorados.
+Outros elementos dentro de um `<item>` são ignorados.
 
 A versão de Feed Atom usa a mesma sintaxe e convenções XML.
 
 > [!TIP]
-> Se o seu sistema usar suas próprias IDs de artigo, elas poderão ser passadas para a função `<guid>`de retorno de chamada usando.
+> Se o seu sistema usar suas próprias IDs de artigo, elas poderão ser passadas para a função de retorno de chamada usando `<guid>`.

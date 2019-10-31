@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Cisco guarda-chuva | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e a síntese de Cisco.
+title: 'Tutorial: integração do Azure Active Directory com o Cisco adguardable | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Cisco de forma abrangente.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 675dca98-f119-4463-8350-d6a45d5601e3
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,237 +16,237 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 255af92dfecdf891568d7d57c17512bb178a51e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ee91ca53e32bfdc387dc20054493d02d506a75da
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105568"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158635"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Tutorial: Integração do Active Directory do Azure com o guarda-chuva de Cisco
+# <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Tutorial: integração de Azure Active Directory com o Cisco de proteção
 
-Neste tutorial, saiba como integrar o Cisco guarda-chuva com o Azure Active Directory (Azure AD).
-Integrar o Cisco guarda-chuva no Azure AD fornece as seguintes vantagens:
+Neste tutorial, você aprenderá a integrar o Cisco com o Azure Active Directory (Azure AD).
+A integração do Cisco de proteção ao Azure AD oferece os seguintes benefícios:
 
-* Pode controlar no Azure AD que tenha acesso ao guarda-chuva Cisco.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para síntese de Cisco (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* No Azure AD, é possível controlar quem tem acesso ao Cisco de proteção.
+* Você pode permitir que seus usuários façam logon automaticamente no Cisco de proteção (logon único) com suas contas do Azure AD.
+* Você pode gerenciar suas contas em um local central-a portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com guarda-chuva do Cisco, terá dos seguintes itens:
+Para configurar a integração do Azure AD ao Cisco, você precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Cisco guarda-chuva logon único habilitado subscrição
+* Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Assinatura habilitada para logon único do Cisco de alta proteção
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* Oferece suporte a síntese de Cisco **SP e IDP** iniciada SSO
+* O Cisco comportable dá suporte ao **SP e** ao SSO iniciado pelo IDP
 
-## <a name="adding-cisco-umbrella-from-the-gallery"></a>Adicionando Cisco guarda-chuva da Galeria
+## <a name="adding-cisco-umbrella-from-the-gallery"></a>Adicionando o Cisco de abrangência da Galeria
 
-Para configurar a integração de síntese da Cisco para o Azure AD, terá de adicionar Cisco guarda-chuva a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do Cisco de proteção ao Azure AD, você precisa adicionar o Cisco exgerition da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar Cisco guarda-chuva a partir da galeria, execute os seguintes passos:**
+**Para adicionar o Cisco de proteção contra a Galeria, execute as seguintes etapas:**
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A folha aplicativos empresariais](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. Para adicionar um novo aplicativo, clique no botão **novo aplicativo** na parte superior da caixa de diálogo.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O botão novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Cisco guarda-chuva**, selecione **Cisco guarda-chuva** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, digite **Cisco**exbase, selecione **Cisco** comparation no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Síntese de Cisco na lista de resultados](common/search-new-app.png)
+     ![O Cisco é um meio na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
 
-Nesta secção, configurar e testar o Azure AD início de sessão único com [nome da aplicação] com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado em [nome da aplicação] deve ser estabelecido.
+Nesta seção, você configurará e testará o logon único do Azure AD com o [nome do aplicativo], com base em um usuário de teste chamado **Brenda Simon**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do [nome do aplicativo].
 
-Para configurar e testar o Azure AD início de sessão único com [nome da aplicação], tem de concluir os seguintes blocos de construção:
+Para configurar e testar o logon único do Azure AD com o [nome do aplicativo], você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar Cisco guarda-chuva início de sessão único](#configure-cisco-umbrella-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste de síntese de Cisco](#create-cisco-umbrella-test-user)**  - para ter um equivalente da Eduarda Almeida na Cisco guarda-chuva que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o logon único do Azure ad](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Configurar o logon único do Cisco](#configure-cisco-umbrella-single-sign-on)** proverso-para configurar as configurações de logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
+4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
+5. **[Criar um usuário de teste do Cisco](#create-cisco-umbrella-test-user)** conjuntamente – para ter um equivalente de Brenda Simon no Cisco de abrangência que esteja vinculado à representação do usuário no Azure AD.
+6. **[Testar logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
 
-Para configurar o Azure AD início de sessão único com [nome da aplicação], execute os seguintes passos:
+Para configurar o logon único do Azure AD com o [nome do aplicativo], execute as seguintes etapas:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Cisco guarda-chuva** página de integração de aplicações, selecione **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Cisco de abrangência** , selecione **logon único**.
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Link configurar logon único](common/select-sso.png)
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-enalimentado** para habilitar o logon único.
 
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. Na página **Configurar logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **configuração básica de SAML** .
 
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, o utilizador não tem de realizar qualquer passo como a aplicação já está pré-integrada com o Azure.
+4. Na seção **configuração básica do SAML** , o usuário não precisa executar nenhuma etapa, pois o aplicativo já está previamente integrado ao Azure.
 
-    ![Cisco guarda-chuva domínio e URLs únicas início de sessão em informações](common/both-preintegrated-signon.png)
+    ![Informações de logon único de domínio e URLs do Cisco de abrangência](common/both-preintegrated-signon.png)
 
-    a. Se desejar configurar a aplicação no **SP** intiated modo, execute os seguintes passos:
+    a. Se você quiser configurar o aplicativo no modo **SP** iniciado, execute as seguintes etapas:
 
     b. Clique em **definir URLs adicionais**.
 
-    c. Na **URL de início de sessão** caixa de texto, escreva um URL: `https://login.umbrella.com/sso`
+    c. Na caixa de texto **URL de logon** , digite uma URL: `https://login.umbrella.com/sso`
 
-5. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **metadados XML**entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+5. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique em **baixar** para baixar o **XML de metadados** das opções especificadas de acordo com seu requisito e salve-o em seu computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![O link de download do certificado](common/metadataxml.png)
 
-6. Sobre o **configurar guarda-chuva do Cisco** secção, copie os URLs apropriados de acordo com seus requisitos.
+6. Na seção **Configurar o Cisco** de forma abrangente, copie as URLs apropriadas de acordo com seu requisito.
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+    a. URL de logon
 
-    b. Azure Ad Identifier
+    b. Identificador do Azure AD
 
-    c. URL de fim de sessão
+    c. URL de logout
 
-### <a name="configure-cisco-umbrella-single-sign-on"></a>Configurar Cisco guarda-chuva início de sessão único
+### <a name="configure-cisco-umbrella-single-sign-on"></a>Configurar o logon único do Cisco de abrangência
 
-1. Numa janela do browser diferente, início de sessão no site da sua empresa Cisco guarda-chuva como administrador.
+1. Em uma janela de navegador diferente, faça logon em seu site de empresa do Cisco outformativo como administrador.
 
-2. Do lado esquerdo do menu, clique em **administrador** e navegue até à **autenticação** e, em seguida, clique em **SAML**.
+2. No lado esquerdo do menu, clique em **administrador** e navegue até **autenticação** e clique em **SAML**.
 
     ![O administrador](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_admin.png)
 
-3. Escolher **outras** e clique em **PRÓXIMA**.
+3. Escolha **outro** e clique em **Avançar**.
 
-    ![A outra](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_other.png)
+    ![O outro](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_other.png)
 
-4. Sobre o **Cisco guarda-chuva metadados**, página, clique em **PRÓXIMA**.
+4. Na página **metadados de abrangência da Cisco**, clique em **Avançar**.
 
     ![Os metadados](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_metadata.png)
 
-5. Sobre o **carregar metadados** separador, se tiver configurado previamente SAML, selecione **clique aqui para alterá-los** opção e siga os passos abaixo.
+5. Na guia **carregar metadados** , se você tivesse o SAML pré-configurado, selecione **clique aqui para alterá-los** e siga as etapas abaixo.
 
-    ![A próxima](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_next.png)
+    ![O próximo](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_next.png)
 
-6. Na **opção r: Carregar ficheiro XML**, carregue o **XML de metadados de Federação** ficheiro que transferiu do portal do Azure e depois de carregar metadados a valores abaixo obter automaticamente preenchido automaticamente, em seguida, clique em **seguinte**.
+6. Na **opção A: carregar arquivo XML**, carregue o arquivo **XML de metadados de Federação** que você baixou do portal do Azure e depois de carregar os metadados, os valores abaixo são preenchidos automaticamente e, em seguida, clique em **Avançar**.
 
     ![O choosefile](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
 
-7. Sob **validar configuração de SAML** secção, clique em **configuração de SAML do seu teste**.
+7. Na seção **validar configuração do SAML** , clique em **testar sua configuração do SAML**.
 
     ![O teste](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_test.png)
 
 8. Clique em **GUARDAR**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![Os links "usuários e grupos" e "todos os usuários"](common/users.png)
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+2. Selecione **novo usuário** na parte superior da tela.
 
-    ![Novo utilizador botão](common/new-user.png)
+    ![Botão novo usuário](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. Nas propriedades do usuário, execute as etapas a seguir.
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    ![A caixa de diálogo usuário](common/user-properties.png)
 
-    a. Na **Name** campo introduza **BrittaSimon**.
+    a. No campo **nome** , insira **brendafernandes**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
+    b. No campo **nome de usuário** , digite **brendafernandes\@yourcompanydomain. Extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para síntese de Cisco.
+Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo-lhe acesso ao Cisco de proteção.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Cisco guarda-chuva**.
+1. Na portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **Cisco de proteção**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+    ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, escreva e selecione **Cisco guarda-chuva**.
+2. Na lista de aplicativos, digite e selecione **Cisco Exguardation**.
 
-    ![A ligação de síntese de Cisco na lista de aplicações](common/all-applications.png)
+    ![O link de proteção da Cisco na lista de aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+3. No menu à esquerda, selecione **usuários e grupos**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![O link "usuários e grupos"](common/users-groups-blade.png)
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
     ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. Na caixa de diálogo **usuários e grupos** , selecione **Brenda Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-### <a name="create-cisco-umbrella-test-user"></a>Criar utilizador de teste de síntese de Cisco
+### <a name="create-cisco-umbrella-test-user"></a>Criar um usuário de teste do Cisco prochuva
 
-Para ativar a utilizadores do Azure AD iniciar sessão no guarda-chuva do Cisco, tem de ser aprovisionados para síntese de Cisco.  
-No caso de síntese da Cisco, o aprovisionamento é uma tarefa manual.
+Para permitir que os usuários do Azure AD façam logon no Cisco, eles devem ser provisionados no Cisco de proteção.  
+No caso do Cisco de forma abrangente, o provisionamento é uma tarefa manual.
 
-**Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
+**Para provisionar uma conta de usuário, execute as seguintes etapas:**
 
-1. Numa janela do browser diferente, início de sessão no site da sua empresa Cisco guarda-chuva como administrador.
+1. Em uma janela de navegador diferente, faça logon em seu site de empresa do Cisco outformativo como administrador.
 
-2. Do lado esquerdo do menu, clique em **administrador** e navegue até à **contas**.
+2. No lado esquerdo do menu, clique em **administrador** e navegue até **contas**.
 
     ![A conta](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_account.png)
 
-3. Sobre o **contas** página, clique em **Add** no canto superior direito da página e execute os seguintes passos.
+3. Na página **contas** , clique em **Adicionar** no lado superior direito da página e execute as etapas a seguir.
 
-    ![O utilizador](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_createuser.png)
+    ![O usuário](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_createuser.png)
 
-    a. Na **nome próprio** , insira o firstname, como **Eduarda**.
+    a. No **primeiro campo nome** , insira o nome como **Brenda**.
 
-    b. Na **sobrenome** campo, introduza o apelido como **simon**.
+    b. No campo **sobrenome** , insira o sobrenome, como **Simon**.
 
-    c. Partir do **escolha função de administrador delegado**, selecione a sua função.
+    c. Na **função escolher administrador delegado**, selecione sua função.
   
-    d. Na **endereço de E-Mail** , insira o endereço de correio eletrónico do utilizador, como **brittasimon\@contoso.com**.
+    d. No campo **endereço de email** , insira o EmailAddress do usuário, como **brendafernandes\@contoso.com**.
 
-    e. Na **palavra-passe** campo, introduza a palavra-passe.
+    e. No campo **senha** , insira sua senha.
 
-    f. Na **Confirmar palavra-passe** campo, introduza novamente a palavra-passe.
+    f. No campo **Confirmar senha** , insira novamente sua senha.
 
     g. Clique em **criar**.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
 
-Quando clica no mosaico de síntese de Cisco no painel de acesso, deve ser automaticamente sessão iniciada no guarda-chuva de Cisco para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco Cisco no painel de acesso, você deverá ser conectado automaticamente ao conjunto de segurança da Cisco para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 

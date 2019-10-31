@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 8bdc77ba81c5a9ec47a02ef5a1ede82365314941
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 648c5ca1eb1cb1c0f1832654fc66d436b9318af3
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968857"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161882"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bancos de dados SQL Server em VMs do Azure
 
@@ -68,19 +68,19 @@ Restaure da seguinte maneira:
     - Os pontos de restauração mais antigos e mais recentes.
     - O status de backup de log das últimas 24 horas para bancos de dados que estão no modo de recuperação completa e bulk-logged e configurados para backups de log transacionais.
 
-6. Selecione **restaurar BD**.
+6. Selecione **restaurar**.
 
-    ![Selecione restaurar BD](./media/backup-azure-sql-database/restore-db-button.png)
+    ![Selecione restaurar](./media/backup-azure-sql-database/restore-db.png)
 
-7. Em **Restaurar configuração**, especifique onde os dados são restaurados:
+7. Em **Restaurar configuração**, especifique onde (ou como) restaurar os dados:
    - **Local alternativo**: restaure o banco de dados para um local alternativo e mantenha o banco de dados de origem original.
    - **Substituir BD**: restaure os dados para a mesma instância de SQL Server como a fonte original. Essa opção substitui o banco de dados original.
 
-     > [!Important]
-     > Se o banco de dados selecionado pertencer a um grupo de disponibilidade Always On, SQL Server não permitirá que o banco de dados seja substituído. Somente o **local alternativo** está disponível.
-     >
-
-     ![Menu restaurar configuração](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)
+           > [!IMPORTANT]
+           > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
+           >
+   - **Restaurar como arquivos**: em vez de restaurar como um banco de dados, restaure os arquivos de backup que podem ser recuperados como um banco de dados posteriormente em qualquer computador em que os arquivos estejam presentes usando SQL Server Management Studio.
+     ![menu de configuração de restauração](./media/backup-azure-sql-database/restore-configuration.png)
 
 ### <a name="restore-to-an-alternate-location"></a>Restaurar em um local alternativo
 
@@ -90,7 +90,7 @@ Restaure da seguinte maneira:
 4. Se aplicável, selecione **substituir se o banco de BD com o mesmo nome já existir na instância do SQL selecionada**.
 5. Selecione **OK**.
 
-    ![Fornecer valores para o menu de configuração de restauração](./media/backup-azure-sql-database/restore-configuration-menu.png)
+    ![Fornecer valores para o menu de configuração de restauração](./media/backup-azure-sql-database/restore-configuration.png)
 
 6. Em **selecionar ponto de restauração**, selecione se deseja [restaurar para um ponto específico no tempo](#restore-to-a-specific-point-in-time) ou para [restaurar para um ponto de recuperação específico](#restore-to-a-specific-restore-point).
 
@@ -107,6 +107,25 @@ Restaure da seguinte maneira:
 
     > [!NOTE]
     > A restauração pontual está disponível apenas para backups de log de bancos de dados que estão no modo de recuperação completa e bulk-logged.
+
+### <a name="restore-as-files"></a>Restaurar como arquivos
+
+Para restaurar os dados de backup como arquivos. bak, em vez de em um banco de dados, escolha **restaurar como arquivos**. Depois que os arquivos são despejados em um caminho especificado, você pode pegar esses arquivos em qualquer computador em que deseja restaurá-los como um banco de dados. Em virtude de poder mover esses arquivos para qualquer computador, agora você pode restaurar os dados entre assinaturas e regiões.
+
+1. No menu **configuração de restauração** , em **onde restaurar**, selecione **restaurar como arquivos**.
+2. Selecione o nome de SQL Server para o qual você deseja restaurar os arquivos de backup.
+3. No **caminho de destino no servidor** , insira o caminho da pasta no servidor selecionado na etapa 2. Esse é o local onde o serviço irá despejar todos os arquivos de backup necessários. Normalmente, um caminho de compartilhamento de rede, ou caminho de um compartilhamento de arquivos do Azure montado quando especificado como o caminho de destino, permite o acesso mais fácil a esses arquivos por outros computadores na mesma rede ou com o mesmo compartilhamento de arquivos do Azure montado neles.
+4. Selecione **OK**.
+
+![Selecione restaurar como arquivos](./media/backup-azure-sql-database/restore-as-files.png)
+
+5. Selecione o **ponto de restauração** correspondente ao qual todos os arquivos. bak disponíveis serão restaurados.
+
+![Selecionar um ponto de restauração](./media/backup-azure-sql-database/restore-point.png)
+
+6. Todos os arquivos de backup associados ao ponto de recuperação selecionado são despejados no caminho de destino. Você pode restaurar os arquivos como um banco de dados em qualquer computador em que estejam presentes usando SQL Server Management Studio.
+
+![Arquivos de backup restaurados no caminho de destino](./media/backup-azure-sql-database/sql-backup-files.png)
 
 ### <a name="restore-to-a-specific-point-in-time"></a>Restaurar para um ponto específico no tempo
 

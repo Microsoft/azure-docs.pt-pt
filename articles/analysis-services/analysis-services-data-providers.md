@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 89f8ffc58458ce75d1acd897f224f61bab9158b4
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 8ce5083d444aa05b59677fb46e7aa80200835412
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512766"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147090"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para conexão com o Azure Analysis Services
 
-As bibliotecas de cliente são necessárias para que aplicativos cliente e ferramentas se conectem a servidores Analysis Services. Aplicativos cliente da Microsoft como Power BI Desktop, Excel, SQL Server Management Studio (SSMS) e SQL Server Data Tools (SSDT) instalam todas as três bibliotecas de cliente e as atualizam juntamente com atualizações de aplicativos regulares. Em alguns casos, talvez seja necessário instalar versões mais recentes das bibliotecas de cliente. Aplicativos cliente personalizados também exigem que bibliotecas de cliente sejam instaladas.
+As bibliotecas de cliente são necessárias para que aplicativos cliente e ferramentas se conectem a servidores Analysis Services. Aplicativos cliente da Microsoft como Power BI Desktop, Excel, SQL Server Management Studio (SSMS) e extensão de projetos de Analysis Services para Visual Studio instalam todas as três bibliotecas de cliente e as atualizam juntamente com atualizações de aplicativos regulares. Em alguns casos, talvez seja necessário instalar versões mais recentes das bibliotecas de cliente. Aplicativos cliente personalizados também exigem que bibliotecas de cliente sejam instaladas.
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>Baixar as bibliotecas de cliente mais recentes (Windows Installer)  
 
@@ -58,7 +58,7 @@ As bibliotecas de cliente para conexões de cliente são diferentes dos provedor
 
 ### <a name="amo"></a>AMO  
 
- O AMO é uma biblioteca de cliente gerenciada usada para administração de servidor e definição de dados. Ele é instalado e usado por ferramentas e aplicativos cliente. Por exemplo, SQL Server Management Studio (SSMS) usa o AMO para se conectar ao Analysis Services. Uma conexão usando AMO normalmente é mínima, consistindo em `"data source=\<servername>"`. Depois que uma conexão é estabelecida, você usa a API para trabalhar com coleções de banco de dados e objetos principais. Tanto o SSDT quanto o SSMS usam o AMO para se conectar a uma instância de Analysis Services.  
+ O AMO é uma biblioteca de cliente gerenciada usada para administração de servidor e definição de dados. Ele é instalado e usado por ferramentas e aplicativos cliente. Por exemplo, SQL Server Management Studio (SSMS) usa o AMO para se conectar ao Analysis Services. Uma conexão usando AMO normalmente é mínima, consistindo em `"data source=\<servername>"`. Depois que uma conexão é estabelecida, você usa a API para trabalhar com coleções de banco de dados e objetos principais. O Visual Studio e o SSMS usam o AMO para se conectar a uma instância de Analysis Services.  
 
   
 ### <a name="adomd"></a>ADOMD

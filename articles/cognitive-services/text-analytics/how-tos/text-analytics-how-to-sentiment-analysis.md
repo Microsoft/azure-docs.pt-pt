@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: 359c4da22374d3bf1ccca2430ec15594408bdb50
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d516b4f71f78a5da113356a4bdf6647585292999
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931538"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161672"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Exemplo: detectar sentimentos com Análise de Texto
 
@@ -172,9 +172,9 @@ Cada resposta dos pontos de extremidade v3 inclui um campo `model-version` espec
 
 ```json
 {
-    “documents”: […]
-    “errors”: []
-    “model-version”: “2019-10-01”
+    "documents": […]
+    "errors": []
+    "model-version": "2019-10-01"
 }
 ```
 
