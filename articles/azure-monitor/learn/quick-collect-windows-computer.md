@@ -1,5 +1,5 @@
 ---
-title: Coletar dados de um computador Windows híbrido com Azure Monitor | Microsoft Docs
+title: Coletar dados de um computador Windows híbrido com Azure Monitor
 description: Neste guia de início rápido, você aprenderá a implantar o agente de Log Analytics para computadores Windows em execução fora do Azure e habilitar a coleta de dados com logs de Azure Monitor.
 services: azure-monitor
 documentationcenter: azure-monitor
@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: magoedte
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 1b8888c2c8aaedce181d19c015206323ccf2b0ba
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 26919a64313df823dddad5dcfca6de5d08dcd993
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677245"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199020"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Coletar dados de um computador Windows em um ambiente híbrido com Azure Monitor
 
@@ -99,7 +99,7 @@ As etapas a seguir instalam e configuram o agente para Log Analytics no Azure e 
 
 10. Na página **configuração concluída com êxito** , selecione **concluir**.
 
-Quando a instalação e a instalação forem concluídas, Microsoft Monitoring Agent aparecerá no painel de controle. Você pode examinar sua configuração e verificar se o agente está conectado ao espaço de trabalho Log Analytics. Quando conectado, na guia **log Analytics do Azure** , o agente exibe esta mensagem: **a Microsoft Monitoring Agent se conectou com êxito ao serviço Microsoft log Analytics.**<br><br> ![MMA ](media/quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png) de status da conexão
+Quando a instalação e a instalação forem concluídas, Microsoft Monitoring Agent aparecerá no painel de controle. Você pode examinar sua configuração e verificar se o agente está conectado ao espaço de trabalho Log Analytics. Quando conectado, na guia **log Analytics do Azure** , o agente exibe esta mensagem: **a Microsoft Monitoring Agent se conectou com êxito ao serviço Microsoft log Analytics.**<br><br> status de conexão do ![MMA](media/quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 
 ## <a name="collect-event-and-performance-data"></a>Recolher dados de eventos e de desempenho
 

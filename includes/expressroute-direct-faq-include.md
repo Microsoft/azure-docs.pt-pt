@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: include
-ms.date: 10/07/2019
+ms.date: 10/29/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 9c53aac47e965a6eba681008d6b6476142190ef8
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 1f6c65d6d8da275d6c52ac2802092dbb5e4e507d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72023088"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182262"
 ---
 ### <a name="what-is-expressroute-direct"></a>O que é o ExpressRoute Direct?
 
@@ -25,31 +25,7 @@ Os clientes precisarão trabalhar com suas operadoras locais e provedores de col
 
 ### <a name="what-locations-currently-support-expressroute-direct"></a>Quais locais atualmente dão suporte ao ExpressRoute Direct? 
 
-As portas disponíveis serão dinâmicas e estarão disponíveis pelo PowerShell para exibir a capacidade. Os locais incluem e *estão sujeitos a alterações com base na disponibilidade*:
-
-* Amesterdão
-* Amesterdão2
-* Auckland 
-* Chicago
-* Dallas
-* Dublin
-* RAE de Hong Kong
-* Londres
-* Londres2
-* Melbourne
-* New York City
-* Perth
-* Antonio de San
-* Seattle
-* Seoul
-* Silicon Valley
-* Cingapura2 
-* Sydney
-* Taipé
-* Tóquio
-* Toronto
-* Washington DC
-* Washington DC2
+Verifique a disponibilidade na [página local](../articles/expressroute/expressroute-locations-providers.md). 
 
 ### <a name="what-is-the-sla-for-expressroute-direct"></a>O que é o SLA para o ExpressRoute Direct?
 
@@ -57,7 +33,7 @@ O ExpressRoute Direct usará a mesma [classificação empresarial do expressrout
 
 ### <a name="what-scenarios-should-customers-consider-with-expressroute-direct"></a>Quais cenários os clientes devem considerar com o ExpressRoute Direct?  
 
-O ExpressRoute Direct fornece aos clientes pares de portas diretas de 100 ou 10 Gbps no backbone global da Microsoft. Os cenários que oferecerão aos clientes os melhores benefícios incluem: Ingestão maciça de dados, isolamento físico para mercados regulamentados e capacidade dedicada para cenários de intermitência, como renderização. 
+O ExpressRoute Direct fornece aos clientes pares de portas diretas de 100 ou 10 Gbps no backbone global da Microsoft. Os cenários que fornecerão aos clientes os melhores benefícios incluem: ingestão maciça de dados, isolamento físico para mercados regulamentados e capacidade dedicada para o cenário de intermitência, como renderização. 
 
 ### <a name="what-is-the-billing-model-for-expressroute-direct"></a>Qual é o modelo de cobrança do ExpressRoute Direct? 
 

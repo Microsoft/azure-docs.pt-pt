@@ -1,5 +1,5 @@
 ---
-title: Criar relatórios interativos com Azure Monitor pastas de trabalho | Microsoft Docs
+title: Criar relatórios interativos Azure Monitor para VMs com pastas de trabalho | Microsoft Docs
 description: Simplifique relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas para Azure Monitor para VMs.
 ms.service: azure-monitor
 ms.subservice: ''
@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 47e2e5d80241ac093d136b45c853d94a9dd43cbe
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: dff5027f2ff9ff244f0fa04177a04e446e98465b
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553728"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200541"
 ---
-# <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Criar relatórios interativos com Azure Monitor pastas de trabalho
+# <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Criar relatórios interativos Azure Monitor para VMs com pastas de trabalho
 
 As pastas de trabalho combinam texto, [consultas de log](../log-query/query-language.md), métricas e parâmetros em relatórios interativos sofisticados. As pastas de trabalho são editáveis por outros membros da equipe que têm acesso aos mesmos recursos do Azure.
 
@@ -105,7 +105,7 @@ Para incluir dados de outros espaços de trabalho do Log Analytics ou de um apli
 
 ### <a name="advanced-analytic-query-settings"></a>Configurações avançadas de consulta analítica
 
-Cada seção tem suas próprias configurações avançadas, que podem ser acessadas por meio das configurações ![Workbooks seção editando controles ](media/vminsights-workbooks/006-settings.png) ícone localizado à direita do botão **adicionar parâmetros** .
+Cada seção tem suas próprias configurações avançadas, que podem ser acessadas por meio da seção Configurações ![pastas de trabalho editar controles](media/vminsights-workbooks/006-settings.png) ícone localizado à direita do botão **adicionar parâmetros** .
 
 ![Controles de edição da seção Azure Monitor para VMs pastas de trabalho](media/vminsights-workbooks/007-settings-expanded.png)
 

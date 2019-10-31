@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 59372e07cb9e85e28b9762775f533bf93a5ee603
-  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.openlocfilehash: 20685ffe0e48f2d92e99f9c290eeb3f2e7d8f00b
+  ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72937564"
+  ms.lasthandoff: 10/30/2019
+  ms.locfileid: "73176180"
 landingContent:
 - title: Criar soluções de comércio
   linkLists:
@@ -60,7 +60,7 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Utilizar grupos de dispositivos
-      url: ../core/howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../core/tutorial-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
   - linkListType: how-to-guide
     links:
     - text: Faça a gestão dos seus dispositivos

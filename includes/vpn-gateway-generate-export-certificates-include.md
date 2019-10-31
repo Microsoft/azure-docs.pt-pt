@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/10/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: cf384f29bcc82c80c94e1408f535c592b8b728cb
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 89fa06dda418f328b3bc07aada49aa347e35220a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285725"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182266"
 ---
 ## <a name="rootcert"></a>Criar um certificado raiz autoassinado
 
@@ -58,7 +58,7 @@ Se você estiver criando certificados de cliente adicionais ou não estiver usan
 1. Identifique o certificado raiz autoassinado que está instalado no computador. Esse cmdlet retorna uma lista de certificados que estão instalados no seu computador.
 
    ```powershell
-   Get-ChildItem -Path “Cert:\CurrentUser\My”
+   Get-ChildItem -Path "Cert:\CurrentUser\My"
    ```
 2. Localize o nome da entidade na lista retornada e copie a impressão digital que está localizada ao lado dele para um arquivo de texto. No exemplo a seguir, há dois certificados. O nome CN é o nome do certificado raiz autoassinado do qual você deseja gerar um certificado filho. Nesse caso, ' P2SRootCert '.
 

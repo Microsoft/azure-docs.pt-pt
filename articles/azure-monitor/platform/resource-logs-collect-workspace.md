@@ -1,5 +1,5 @@
 ---
-title: Coletar logs de recursos do Azure no espaço de trabalho Log Analytics no Azure Monitor
+title: Coletar logs de recursos do Azure no espaço de trabalho Log Analytics
 description: Saiba como transmitir logs de recursos do Azure para um espaço de trabalho Log Analytics no Azure Monitor.
 author: bwren
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 2f5dba7c36ec04263f6d227d82b9fc50b82890a3
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 92de47041791c8b6c540844adb62391268b81c34
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262443"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200513"
 ---
 # <a name="collect-azure-resource-logs-in-log-analytics-workspace-in-azure-monitor"></a>Coletar logs de recursos do Azure no espaço de trabalho Log Analytics no Azure Monitor
 [Os logs de recursos](resource-logs-overview.md) no Azure fornecem dados avançados e frequentes sobre a operação interna de um recurso do Azure. Este artigo descreve a coleta de logs de recursos em um espaço de trabalho Log Analytics que permite analisá-lo com outros dados de monitoramento coletados em logs de Azure Monitor usando consultas de log poderosas e também para aproveitar outros recursos de Azure Monitor, como alertas e visualizações. 
@@ -51,13 +51,13 @@ Considere o exemplo a seguir em que as configurações de diagnóstico estão se
 
 A tabela AzureDiagnostics terá a seguinte aparência:  
 
-| ResourceProvider    | Category     | A  | B  | C  | D  | E  | S  | O  | H  | I  |
+| ResourceProvider    | Categoria     | A  | B  | C  | D  | Oriental  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| Microsoft. Service1 | AuditLogs    | x1 | Y1 | z1 |    |    |    |    |    |    |
-| Microsoft. Service1 | ErrorLogs    |    |    |    | q1 | W1 | E1 |    |    |    |
-| Microsoft. Service2 | AuditLogs    |    |    |    |    |    |    | j1 | K1 | l1 |
-| Microsoft. Service1 | ErrorLogs    |    |    |    | q2 | W2 | E2 |    |    |    |
-| Microsoft. Service2 | AuditLogs    |    |    |    |    |    |    | j3 | k3 | l3 |
+| Microsoft. Service1 | AuditLogs    | X1 | Y1 | z1 |    |    |    |    |    |    |
+| Microsoft. Service1 | ErrorLogs    |    |    |    | trimestre | W1 | E1 |    |    |    |
+| Microsoft. Service2 | AuditLogs    |    |    |    |    |    |    | j1 | K1 | L1 |
+| Microsoft. Service1 | ErrorLogs    |    |    |    | lançado | W2 | E2 |    |    |    |
+| Microsoft. Service2 | AuditLogs    |    |    |    |    |    |    | j3 | k3 | MB |
 | Microsoft. Service1 | AuditLogs    | x5 | y5 | z5 |    |    |    |    |    |    |
 | ... |
 
@@ -68,26 +68,26 @@ O exemplo acima resultaria em três tabelas sendo criadas:
  
 - Tabela *Service1AuditLogs* da seguinte maneira:
 
-    | Fornecedor de Recursos | Category | A | B | C |
+    | Provedor de recursos | Categoria | A | B | C |
     | -- | -- | -- | -- | -- |
-    | Service1 | AuditLogs | x1 | Y1 | z1 |
+    | Service1 | AuditLogs | X1 | Y1 | z1 |
     | Service1 | AuditLogs | x5 | y5 | z5 |
     | ... |
 
 - Tabela *Service1ErrorLogs* da seguinte maneira:  
 
-    | Fornecedor de Recursos | Category | D | E | S |
+    | Provedor de recursos | Categoria | D | Oriental | F |
     | -- | -- | -- | -- | -- | 
-    | Service1 | ErrorLogs |  q1 | W1 | E1 |
-    | Service1 | ErrorLogs |  q2 | W2 | E2 |
+    | Service1 | ErrorLogs |  trimestre | W1 | E1 |
+    | Service1 | ErrorLogs |  lançado | W2 | E2 |
     | ... |
 
 - Tabela *Service2AuditLogs* da seguinte maneira:  
 
-    | Fornecedor de Recursos | Category | O | H | I |
+    | Provedor de recursos | Categoria | G | H | I |
     | -- | -- | -- | -- | -- |
-    | Service2 | AuditLogs | j1 | K1 | l1|
-    | Service2 | AuditLogs | j3 | k3 | l3|
+    | Service2 | AuditLogs | j1 | K1 | L1|
+    | Service2 | AuditLogs | j3 | k3 | MB|
     | ... |
 
 

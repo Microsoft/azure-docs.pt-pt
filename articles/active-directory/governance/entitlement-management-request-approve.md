@@ -16,12 +16,12 @@ ms.date: 10/27/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bf254f06c14afa7ee32f27d6632ab33665cf31c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: 3eb7960d58723d6fdd165841baea3416d5a84348
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173453"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199785"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Aprovar ou negar solicitações de acesso no gerenciamento de direitos do Azure AD
 
@@ -35,7 +35,7 @@ A primeira etapa para aprovar ou negar solicitações de acesso é localizar e a
 
 1. Procure um email de Microsoft Azure que solicita que você aprove ou negue uma solicitação. Aqui está um exemplo de email:
 
-    ![Aprovar solicitação para acessar email de pacote](./media/entitlement-management-shared/email-approve-request.png)
+    ![Aprovar solicitação para acessar email de pacote](./media/entitlement-management-shared/approver-request-email.png)
 
 1. Clique no link **aprovar ou negar solicitação** para abrir a solicitação de acesso.
 

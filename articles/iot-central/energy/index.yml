@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 7a9ba5ef7e6fbb26314984e7e8d95beecdec0d42
-  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.openlocfilehash: a082a64ba9a36fea4345549ddd22797d1cd34b4e
+  ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72937751"
+  ms.lasthandoff: 10/30/2019
+  ms.locfileid: "73177165"
 landingContent:
 - title: Criar soluções para o setor energético
   linkLists:
@@ -50,7 +50,7 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Utilizar grupos de dispositivos
-      url: ../core/howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../core/tutorial-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
   - linkListType: how-to-guide
     links:
     - text: Faça a gestão dos seus dispositivos

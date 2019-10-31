@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a073a476043fc6570a42cc142e01f2c6f98c7741
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: b88648ce68a7359a842ec975d8633d6200b1a507
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175918"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200130"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Como usar pastas de trabalho do Azure Monitor para relatórios Azure Active Directory
 
@@ -64,7 +64,7 @@ Para usar pastas de trabalho de monitoramento, você precisa de:
 
 - [Acesso](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) ao espaço de trabalho do log Analytics
 - Funções a seguir no Azure Active Directory (se você estiver acessando Log Analytics por meio do portal do Azure Active Directory)
-    - Administrador de Segurança
+    - Administrador de segurança
     - Leitor de segurança
     - Leitor de relatórios
     - Administrador global
@@ -72,11 +72,10 @@ Para usar pastas de trabalho de monitoramento, você precisa de:
 ## <a name="roles"></a>Funções
 Você deve estar em uma das seguintes funções, bem como ter acesso ao espaço de trabalho de [log Analytics subjacente](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) para gerenciar as pastas de trabalho:
 -   Administrador global
--   Administrador de Segurança
+-   Administrador de segurança
 -   Leitor de segurança
 -   Leitor de relatórios
--   Administrador do aplicativo
-
+-   Administrador de aplicativos
 
 ## <a name="workbook-access"></a>Acesso à pasta de trabalho 
 
@@ -84,16 +83,11 @@ Para acessar pastas de trabalho:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. No painel de navegação esquerdo, selecione **Azure Active Directory**.
+1. Navegue até **Azure Active Directory** > **monitorar** **pastas de trabalho** > . 
 
-3. Na seção **monitoramento** , selecione **pastas de trabalho**. 
+1. Selecione um relatório ou modelo ou, na barra de ferramentas, selecione **abrir**. 
 
-    ![Selecionar informações](./media/howto-use-azure-monitor-workbooks/41.png)
-
-4. Selecione um relatório ou modelo ou, na barra de ferramentas, selecione **abrir**. 
-
-    ![Selecione abrir](./media/howto-use-azure-monitor-workbooks/42.png)
-
+![Localizar as pastas de trabalho do Azure Monitor no Azure AD](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
 
 ## <a name="sign-in-analysis"></a>Análise de entrada
 

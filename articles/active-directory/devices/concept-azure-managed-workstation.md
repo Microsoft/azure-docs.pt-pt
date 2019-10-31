@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00e5e4a9751a03fe961fe02fec28f41b49e5ba43
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: 2abc5434f11bf00c6872775b1336694c04972e95
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175153"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200215"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Entenda as estações de trabalho seguras e gerenciadas pelo Azure
 
@@ -91,7 +91,7 @@ Esta orientação faz referência a vários perfis de segurança e funções que
 
 * **Segurança aprimorada** – essa solução de nível de entrada protegida é válida para usuários domésticos, pequenas empresas e desenvolvedores gerais.
 
-   A estação de trabalho avançada é uma maneira baseada em políticas para aumentar a segurança do perfil de baixa segurança. Ele fornece um meio seguro para trabalhar com dados do cliente e também usar ferramentas de produtividade como email e navegação na Web. Você pode usar políticas de auditoria e o Intune para monitorar uma estação de trabalho aprimorada para o uso de perfil e o comportamento do usuário. Você implanta o perfil de estação de trabalho aprimorado com o script Windows10 (1809) e aproveita a proteção avançada contra malware usando a [ATP (proteção avançada contra ameaças)](https://docs.microsoft.com/office365/securitycompliance/office-365-atp).
+   A estação de trabalho avançada é uma maneira baseada em políticas para aumentar a segurança do perfil de baixa segurança. Ele fornece um meio seguro para trabalhar com dados do cliente e também usar ferramentas de produtividade como email e navegação na Web. Você pode usar políticas de auditoria e o Intune para monitorar uma estação de trabalho aprimorada para o uso de perfil e o comportamento do usuário. Você implanta o perfil de estação de trabalho aprimorado com o script Windows10 (1809) e aproveita a proteção avançada contra malware usando a [ATP (proteção avançada contra ameaças)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
 
 * **Alta segurança** – o meio mais eficaz de reduzir a superfície de ataque de uma estação de trabalho é remover a capacidade de autoadministrar a estação de trabalho. A remoção de direitos administrativos locais é uma etapa que melhora a segurança, mas pode afetar a produtividade se implementada incorretamente. O perfil de alta segurança se baseia no perfil de segurança aprimorado com uma alteração considerável: a remoção do administrador local. Este perfil foi projetado para usuários de perfil alto: executivos, folha de pagamento e usuários de dados confidenciais, Aprovadores para serviços e processos.
 

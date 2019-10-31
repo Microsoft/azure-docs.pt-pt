@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: de8782edcc8b9c64621f1ca67d4bb810c926afaf
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 06415db201582f3e594173e9fe891ee9fdba4b18
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973376"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200385"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usar injeção de dependência no .NET Azure Functions
 
@@ -31,15 +31,15 @@ Azure Functions dá suporte ao padrão de design de software injeção de depend
 
 Antes de poder usar a injeção de dependência, você deve instalar os seguintes pacotes NuGet:
 
-- [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
+- [Microsoft. Azure. Functions. Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
 - [Pacote Microsoft. net. Sdk. Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) versão 1.0.28 ou posterior
 
 ## <a name="register-services"></a>Registrar serviços
 
-Para registrar serviços, crie um método para configurar e adicionar componentes a uma instância `IFunctionsHostBuilder`.  O host Azure Functions cria uma instância de `IFunctionsHostBuilder` e a transmite diretamente para o seu método.
+Para registrar serviços, crie um método para configurar e adicionar componentes a uma instância de `IFunctionsHostBuilder`.  O host Azure Functions cria uma instância de `IFunctionsHostBuilder` e a transmite diretamente para o seu método.
 
-Para registrar o método, adicione o atributo de assembly `FunctionsStartup` que especifica o nome de tipo usado durante a inicialização.
+Para registrar o método, adicione o atributo `FunctionsStartup` assembly que especifica o nome de tipo usado durante a inicialização.
 
 ```csharp
 using System;
@@ -72,7 +72,7 @@ namespace MyNamespace
 
 Uma série de etapas de registro executada antes e depois que o tempo de execução processa a classe de inicialização. Portanto, tenha em mente os seguintes itens:
 
-- *A classe de inicialização destina-se apenas à instalação e ao registro.* Evite usar serviços registrados na inicialização durante o processo de inicialização. Por exemplo, não tente registrar uma mensagem em um agente que está sendo registrado durante a inicialização. Esse ponto do processo de registro é muito cedo para que os serviços estejam disponíveis para uso. Depois que o método `Configure` é executado, o tempo de execução do Functions continua registrando dependências adicionais, o que pode afetar o funcionamento dos serviços.
+- *A classe de inicialização destina-se apenas à instalação e ao registro.* Evite usar serviços registrados na inicialização durante o processo de inicialização. Por exemplo, não tente registrar uma mensagem em um agente que está sendo registrado durante a inicialização. Esse ponto do processo de registro é muito cedo para que os serviços estejam disponíveis para uso. Depois que o método de `Configure` é executado, o tempo de execução do Functions continua registrando dependências adicionais, o que pode afetar o funcionamento dos serviços.
 
 - *O contêiner de injeção de dependência só mantém tipos explicitamente registrados*. Os únicos serviços disponíveis como tipos que podem ser injetados são os que são configurados no método `Configure`. Como resultado, tipos específicos de funções como `BindingContext` e `ExecutionContext` não estão disponíveis durante a instalação ou como tipos injetados.
 
@@ -80,7 +80,7 @@ Uma série de etapas de registro executada antes e depois que o tempo de execuç
 
 A injeção de construtor é usada para disponibilizar suas dependências em uma função. O uso de injeção de construtor requer que você não use classes estáticas.
 
-O exemplo a seguir demonstra como as dependências `IMyService` e `HttpClient` são injetadas em uma função disparada por HTTP. Este exemplo usa o pacote [Microsoft. Extensions. http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) necessário para registrar um `HttpClient` na inicialização.
+O exemplo a seguir demonstra como as dependências de `IMyService` e `HttpClient` são injetadas em uma função disparada por HTTP. Este exemplo usa o pacote [Microsoft. Extensions. http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) necessário para registrar um `HttpClient` na inicialização.
 
 ```csharp
 using System;
@@ -124,19 +124,19 @@ namespace MyNamespace
 
 Azure Functions aplicativos fornecem os mesmos tempos de vida de serviço como [injeção de dependência ASP.net](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes). Para um aplicativo do functions, os tempos de vida de serviço diferentes se comportam da seguinte maneira:
 
-- **Transitório**: Os serviços transitórios são criados após cada solicitação do serviço.
-- Com **escopo**: O tempo de vida do serviço com escopo corresponde a um tempo de vida de execução de função. Os serviços com escopo são criados uma vez por execução. Solicitações posteriores para esse serviço durante a execução reutilizam a instância de serviço existente.
-- **Singleton**: O tempo de vida do serviço singleton corresponde ao tempo de vida do host e é reutilizado nas execuções de função nessa instância. Os serviços de vida útil singleton são recomendados para conexões e clientes, por exemplo `SqlConnection` ou `HttpClient` instâncias.
+- **Transitório**: os serviços transitórios são criados após cada solicitação do serviço.
+- Com **escopo**: o tempo de vida do serviço com escopo corresponde a um tempo de vida de execução da função. Os serviços com escopo são criados uma vez por execução. Solicitações posteriores para esse serviço durante a execução reutilizam a instância de serviço existente.
+- **Singleton**: o tempo de vida do serviço singleton corresponde ao tempo de vida do host e é reutilizado nas execuções de função nessa instância. Os serviços de vida útil singleton são recomendados para conexões e clientes, por exemplo `SqlConnection` ou instâncias de `HttpClient`.
 
 Exiba ou baixe uma [amostra de tempos de vida de serviço diferentes](https://aka.ms/functions/di-sample) no github.
 
 ## <a name="logging-services"></a>Serviços de log
 
-Se você precisar de seu próprio provedor de log, registre um tipo personalizado como uma instância `ILoggerProvider`. Application Insights é adicionado por Azure Functions automaticamente.
+Se você precisar de seu próprio provedor de log, registre um tipo personalizado como uma instância de `ILoggerProvider`. Application Insights é adicionado por Azure Functions automaticamente.
 
 > [!WARNING]
-> - Não adicione `AddApplicationInsightsTelemetry()` à coleção de serviços, pois ele registra os serviços que entram em conflito com os serviços fornecidos pelo ambiente.
-> - Não Registre seu próprio `TelemetryConfiguration` ou `TelemetryClient` se você estiver usando a funcionalidade interna de Application Insights.
+> - Não adicione `AddApplicationInsightsTelemetry()` à coleção de serviços, pois ela registra os serviços que entram em conflito com os serviços fornecidos pelo ambiente.
+> - Não Registre seu próprio `TelemetryConfiguration` ou `TelemetryClient` se você estiver usando a funcionalidade interna do Application Insights.
 
 ## <a name="function-app-provided-services"></a>Serviços fornecidos pelo aplicativo de funções
 
@@ -144,8 +144,8 @@ O host de função registra vários serviços. Os seguintes serviços são segur
 
 |Tipo de Serviço|Existência|Descrição|
 |--|--|--|
-|`Microsoft.Extensions.Configuration.IConfiguration`|Único|Configuração de tempo de execução|
-|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Único|Responsável por fornecer a ID da instância do host|
+|`Microsoft.Extensions.Configuration.IConfiguration`|único|Configuração de tempo de execução|
+|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|único|Responsável por fornecer a ID da instância do host|
 
 Se houver outros serviços nos quais você deseja assumir uma dependência, [crie um problema e proponha-os no GitHub](https://github.com/azure/azure-functions-host).
 
@@ -155,9 +155,9 @@ Atualmente, não há suporte para a substituição de serviços fornecidos pelo 
 
 ## <a name="working-with-options-and-settings"></a>Trabalhando com opções e configurações
 
-Os valores definidos nas [configurações do aplicativo](./functions-how-to-use-azure-function-app-settings.md#settings) estão disponíveis em uma instância `IConfiguration`, que permite que você leia os valores das configurações do aplicativo na classe de inicialização.
+Os valores definidos nas [configurações do aplicativo](./functions-how-to-use-azure-function-app-settings.md#settings) estão disponíveis em uma instância do `IConfiguration`, que permite que você leia os valores das configurações do aplicativo na classe de inicialização.
 
-Você pode extrair valores da instância `IConfiguration` para um tipo personalizado. Copiar os valores das configurações do aplicativo para um tipo personalizado torna fácil testar seus serviços, tornando esses valores injetados. As configurações lidas na instância de configuração devem ser pares de chave/valor simples.
+Você pode extrair valores da instância de `IConfiguration` para um tipo personalizado. Copiar os valores das configurações do aplicativo para um tipo personalizado torna fácil testar seus serviços, tornando esses valores injetados. As configurações lidas na instância de configuração devem ser pares de chave/valor simples.
 
 Considere a seguinte classe que inclui uma propriedade chamada consistente com uma configuração de aplicativo.
 
@@ -178,9 +178,9 @@ builder.Services.AddOptions<MyOptions>()
                                            });
 ```
 
-Chamar `Bind` copia valores que têm nomes de propriedade correspondentes da configuração na instância personalizada. A instância de opções agora está disponível no contêiner IoC para injetar em uma função.
+Chamar `Bind` copia os valores que têm nomes de propriedade correspondentes da configuração na instância personalizada. A instância de opções agora está disponível no contêiner IoC para injetar em uma função.
 
-O objeto options é injetado na função como uma instância da interface genérica `IOptions`. Use a propriedade `Value` para acessar os valores encontrados em sua configuração.
+O objeto options é injetado na função como uma instância da interface de `IOptions` genérica. Use a propriedade `Value` para acessar os valores encontrados em sua configuração.
 
 ```csharp
 using System;
@@ -192,7 +192,6 @@ public class HttpTrigger
 
     public HttpTrigger(IOptions<MyOptions> options)
     {
-        _service = service;
         _settings = options.Value;
     }
 }

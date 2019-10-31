@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b88337960eb92b8c27c0dd8cae8e545e4249ee9
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: b3d87ab57a5cf3bcd768a28f7867dac37371570b
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175735"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200355"
 ---
 # <a name="authentication-basics"></a>Noções básicas sobre autenticação
 

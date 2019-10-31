@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: c2626e459411570ba54b322e5f1bbc22f69b6a62
-  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.openlocfilehash: 8e064272dcefa681df93a741dd4b57dc614a54b7
+  ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72937632"
+  ms.lasthandoff: 10/30/2019
+  ms.locfileid: "73177127"
 landingContent:
 - title: Criar soluções para cuidados de saúde
   linkLists:
@@ -46,7 +46,7 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Utilizar grupos de dispositivos
-      url: ../core/howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../core/tutorial-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
   - linkListType: how-to-guide
     links:
     - text: Faça a gestão dos seus dispositivos

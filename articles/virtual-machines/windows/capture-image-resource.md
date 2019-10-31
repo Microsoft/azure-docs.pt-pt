@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: c133431bb2b84525a8ea875dea94cec8595733bb
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: fd2b3a8a09ce69c07cc7d4715a4aaeacf64f0817
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273869"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200650"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Criar uma imagem gerenciada de uma VM generalizada no Azure
 
@@ -56,6 +56,17 @@ Para generalizar sua VM do Windows, siga estas etapas:
 
 6. Quando o Sysprep é concluído, ele desliga a VM. Não reinicie a VM.
 
+> [!TIP]
+> **Opcional** Use o [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) para otimizar a imagem e reduzir a primeira hora de inicialização da VM.
+>
+> Para otimizar sua imagem, monte seu VHD clicando duas vezes nele no Windows Explorer e, em seguida, execute o DISM com o parâmetro `/optimize-image`.
+>
+> ```cmd
+> DISM /image:D:\ /optimize-image /boot
+> ```
+> Onde D: é o caminho do VHD montado.
+>
+> A execução de `DISM /optimize-image` deve ser a última modificação feita em seu VHD. Se você fizer alterações no VHD antes da implantação, precisará executar `DISM /optimize-image` novamente.
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Criar uma imagem gerenciada no portal 
 
@@ -87,11 +98,11 @@ Para generalizar sua VM do Windows, siga estas etapas:
 
 A criação de uma imagem diretamente da VM garante que a imagem inclua todos os discos associados à VM, incluindo o disco do sistema operacional e os discos de dados. Este exemplo mostra como criar uma imagem gerenciada de uma VM que usa discos gerenciados.
 
-Antes de começar, verifique se você tem a versão mais recente do módulo Azure PowerShell. Para localizar a versão, execute `Get-Module -ListAvailable Az` no PowerShell. Se você precisar atualizar, consulte [instalar Azure PowerShell no Windows com PowerShellGet](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, `Connect-AzAccount` execute para criar uma conexão com o Azure.
+Antes de começar, verifique se você tem a versão mais recente do módulo Azure PowerShell. Para localizar a versão, execute `Get-Module -ListAvailable Az` no PowerShell. Se você precisar atualizar, consulte [instalar Azure PowerShell no Windows com PowerShellGet](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, execute `Connect-AzAccount` para criar uma conexão com o Azure.
 
 
 > [!NOTE]
-> Se você quiser armazenar a imagem em um armazenamento com redundância de zona, precisará criá-la em uma região que ofereça suporte a [zonas](../../availability-zones/az-overview.md) de disponibilidade `-ZoneResilient` e incluir o parâmetro na configuração`New-AzImageConfig` da imagem (comando).
+> Se você quiser armazenar a imagem em um armazenamento com redundância de zona, precisará criá-la em uma região que ofereça suporte a [zonas de disponibilidade](../../availability-zones/az-overview.md) e incluir o parâmetro `-ZoneResilient` na configuração da imagem (comando`New-AzImageConfig`).
 
 Para criar uma imagem de VM, siga estas etapas:
 
@@ -207,7 +218,7 @@ Você pode criar uma imagem gerenciada de um instantâneo de uma VM generalizada
 
 ## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>Criar uma imagem de uma VM que usa uma conta de armazenamento
 
-Para criar uma imagem gerenciada de uma VM que não usa discos gerenciados, você precisa do URI do VHD do sistema operacional na conta de armazenamento, no seguinte formato: https://*mystorageaccount*. blob.Core.Windows.NET/*vhdcontainer* /  *vhdfilename. vhd*. Neste exemplo, o VHD está em *mystorageaccount*, em um contêiner chamado *vhdcontainer*, e o nome de arquivo VHD é *vhdfilename. vhd*.
+Para criar uma imagem gerenciada de uma VM que não usa discos gerenciados, você precisa do URI do VHD do sistema operacional na conta de armazenamento, no seguinte formato: https://*mystorageaccount*. blob.core.windows.net/*vhdcontainer*/*vhdfilename. vhd* . Neste exemplo, o VHD está em *mystorageaccount*, em um contêiner chamado *vhdcontainer*, e o nome de arquivo VHD é *vhdfilename. vhd*.
 
 
 1.  Crie algumas variáveis.

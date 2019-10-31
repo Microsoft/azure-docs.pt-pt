@@ -4,15 +4,15 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: ccc2b574ea054a1b0ecf32a1e59691050fb66fcf
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: f6bd574c83d309ce6d6f54fdb1c7d23cb713420d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67184199"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182265"
 ---
 ## <a name="tagging-a-virtual-machine-through-templates"></a>Marcando uma máquina virtual por meio de modelos
-Primeiro, vamos dar uma olhada na marcação por meio de modelos. [Este modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) coloca marcas nos seguintes recursos: Computação (máquina virtual), armazenamento (conta de armazenamento) e rede (endereço IP público, rede virtual e interface de rede). Este modelo é para uma VM do Windows, mas pode ser adaptado para VMs do Linux.
+Primeiro, vamos dar uma olhada na marcação por meio de modelos. [Este modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) coloca marcas nos seguintes recursos: computação (máquina virtual), armazenamento (conta de armazenamento) e rede (endereço IP público, rede virtual e interface de rede). Este modelo é para uma VM do Windows, mas pode ser adaptado para VMs do Linux.
 
 Clique no botão **implantar no Azure** no [link do modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags). Isso navegará até o [portal do Azure](https://portal.azure.com/) onde você pode implantar este modelo.
 
@@ -24,9 +24,9 @@ Este modelo inclui as seguintes marcas: *Departamento*, *aplicativo*e *criado po
 
 Como você pode ver, as marcas são definidas como pares de chave/valor, separados por dois-pontos (:). As marcas devem ser definidas neste formato:
 
-        “tags”: {
-            “Key1” : ”Value1”,
-            “Key2” : “Value2”
+        "tags": {
+            "Key1" : "Value1",
+            "Key2" : "Value2"
         }
 
 Salve o arquivo de modelo depois de terminar de editá-lo com as marcas de sua escolha.

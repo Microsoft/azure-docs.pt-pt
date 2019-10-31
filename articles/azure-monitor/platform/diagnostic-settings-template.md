@@ -1,5 +1,5 @@
 ---
-title: Criar configuração de diagnóstico no Azure usando um modelo do Resource Manager | Microsoft Docs
+title: Criar configuração de diagnóstico no Azure usando o modelo do Resource Manager
 description: Crie configurações de diagnóstico usando um modelo do Resource Manager para encaminhar logs da plataforma Azure para Azure Monitor logs, armazenamento do Azure ou hubs de eventos do Azure.
 author: bwren
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 303682a9d7b3c3fe8ba6c8dd6fe2a44741bcafce
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 0cb4cee732b1784de489d97769294c455cfd5efd
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597294"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200487"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Criar configuração de diagnóstico no Azure usando um modelo do Resource Manager
 [Os logs de plataforma](platform-logs-overview.md) no Azure fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e a plataforma do Azure da qual dependem. Este artigo fornece detalhes sobre como usar um [modelo de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para definir configurações de diagnóstico para coletar logs de plataforma para destinos diferentes. Isso permite que você inicie automaticamente a coleta de logs de plataforma quando um recurso é criado.

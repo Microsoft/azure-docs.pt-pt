@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 8b4b32e17929396c3edc8bbac5566763556ca3dc
-  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.openlocfilehash: f4cafdef283e009eb763352aa14c5f02abd46b46
+  ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72937785"
+  ms.lasthandoff: 10/30/2019
+  ms.locfileid: "73176210"
 landingContent:
 - title: Acerca do Azure IoT Central
   linkLists:
@@ -54,7 +54,7 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Utilizar grupos de dispositivos
-      url: howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: tutorial-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
   - linkListType: how-to-guide
     links:
     - text: Faça a gestão dos seus dispositivos

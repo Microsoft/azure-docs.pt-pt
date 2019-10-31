@@ -18,12 +18,12 @@ ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94e4199ff15dc63a729a601840e312afeadc8823
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: a09f782e9a4d31385868e8383b9b7be83d85d0f0
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678085"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200295"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Bibliotecas de autenticação da plataforma de identidade da Microsoft
 
@@ -38,15 +38,15 @@ Recomendamos que você use bibliotecas escritas por especialistas de domínio de
 
 O ponto de extremidade da plataforma de identidade da Microsoft funciona com dois tipos de bibliotecas:
 
-* **Bibliotecas de cliente**: Clientes e servidores nativos usam bibliotecas de cliente para adquirir tokens de acesso para chamar um recurso, como o Microsoft Graph.
-* **Bibliotecas de middleware do servidor**: Os aplicativos Web usam bibliotecas de middleware de servidor para entrada do usuário. As APIs da Web usam bibliotecas de middleware de servidor para validar tokens que são enviados por clientes nativos ou por outros servidores.
+* **Bibliotecas de cliente**: os clientes e servidores nativos usam bibliotecas de cliente para adquirir tokens de acesso para chamar um recurso, como Microsoft Graph.
+* **Bibliotecas de middleware de servidor**: os aplicativos Web usam bibliotecas de middleware de servidor para entrada do usuário. As APIs da Web usam bibliotecas de middleware de servidor para validar tokens que são enviados por clientes nativos ou por outros servidores.
 
 ## <a name="library-support"></a>Suporte à biblioteca
 
 As bibliotecas são fornecidas em duas categorias de suporte:
 
-* **Com suporte da Microsoft**: A Microsoft fornece correções para essas bibliotecas e fez a auditoria detalhada do SDL nessas bibliotecas.
-* **Compatível**: A Microsoft testou essas bibliotecas em cenários básicos e confirmou que elas funcionam com o ponto de extremidade da plataforma Microsoft Identity. A Microsoft não fornece correções para essas bibliotecas e não fez uma análise dessas bibliotecas. Problemas e solicitações de recursos devem ser direcionados para o projeto de código-fonte aberto da biblioteca.
+* **Com suporte da Microsoft: a**Microsoft fornece correções para essas bibliotecas e fez a auditoria detalhada do SDL nessas bibliotecas.
+* **Compatível**: a Microsoft testou essas bibliotecas em cenários básicos e confirmou que elas funcionam com o ponto de extremidade da plataforma de identidade da Microsoft. A Microsoft não fornece correções para essas bibliotecas e não fez uma análise dessas bibliotecas. Problemas e solicitações de recursos devem ser direcionados para o projeto de código-fonte aberto da biblioteca.
 
 Para obter uma lista de bibliotecas que funcionam com o ponto de extremidade da plataforma Microsoft Identity, consulte as seções a seguir.
 
@@ -54,14 +54,14 @@ Para obter uma lista de bibliotecas que funcionam com o ponto de extremidade da 
 
 Use bibliotecas de autenticação de cliente para adquirir um token para chamar uma API Web protegida.
 
-| Plataforma | Biblioteca | Transferência | Código fonte | Exemplo | Referência | Documento conceitual | Mapa |
+| Plataforma | Biblioteca | Transferir | Código fonte | Exemplo | Referência | Documento conceitual | Roteiro |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/README.md) |  [Aplicação de página única](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [Referência](https://htmlpreview.github.io/?https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core/docs/classes/_useragentapplication_.useragentapplication.html) | [Documentos conceituais](msal-overview.md)| [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
 |![Angular JS](media/sample-v2-code/logo_angular.png) | JS MSAL angular | [NPM](https://www.npmjs.com/package/@azure/msal-angularjs) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  |  | |
 ![Angular](media/sample-v2-code/logo_angular.png) | MSAL angular (versão prévia) | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | | | |
 | ![.NET Framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL.NET  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Aplicativo de desktop](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) | [MSAL.NET](https://docs.microsoft.com/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[Documentos conceituais](msal-overview.md) | [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
 | ![Python](media/sample-v2-code/logo_python.png) | MSAL Python (versão prévia) | [PyPI](https://pypi.org/project/msal) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [Amostras](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) | [ReadTheDocs](https://msal-python.rtfd.io/) | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki/Roadmap)
-| ![Java](media/sample-v2-code/logo_java.png) | MSAL Java (versão prévia) | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [Amostras](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) | | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
+| ![Java](media/sample-v2-code/logo_java.png) | MSAL Java (versão prévia) | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [Amostras](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) | [Referência](https://javadoc.io/doc/com.microsoft.azure/msal4j/0.6.0-preview/index.html) | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
 | iOS & macOS | MSAL iOS e macOS | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [aplicativo IOS](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc), [aplicativo MacOS](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) | [Referência](https://azuread.github.io/microsoft-authentication-library-for-objc/index.html)  | [Documentos conceituais](msal-overview.md) | |
 |![Android/Java](media/sample-v2-code/logo_Android.png) | MSAL Android | [Repositório central](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Aplicativo Android](quickstart-v2-android.md) | [JavaDocs](https://javadoc.io/doc/com.microsoft.identity.client/msal) | [Documentos conceituais](msal-overview.md) |[Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Roadmap)
 
@@ -69,7 +69,7 @@ Use bibliotecas de autenticação de cliente para adquirir um token para chamar 
 
 Use bibliotecas de middleware para ajudar a proteger aplicativos Web e APIs Web. Aplicativos Web ou APIs Web escritos com ASP.NET ou ASP.NET Core usam as bibliotecas de middleware.
 
-| Plataforma | Biblioteca | Transferência | Código-fonte | Exemplo | Referência
+| Plataforma | Biblioteca | Transferir | Código-fonte | Exemplo | Referência
 | --- | --- | --- | --- | --- | --- |
 | ![.NET](media/sample-v2-code/logo_NET.png) ![.NET Core](media/sample-v2-code/logo_NETcore.png) | Segurança do ASP.NET |[NuGet](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/) |[GitHub](https://github.com/aspnet/AspNetCore) |[Aplicativo MVC](quickstart-v2-aspnet-webapp.md) |[Referência da API do ASP.NET](https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0) |
 | ![.NET](media/sample-v2-code/logo_NET.png)| Extensões IdentityModel para .NET| |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | [Aplicativo MVC](quickstart-v2-aspnet-webapp.md) |[Referência](https://docs.microsoft.com/dotnet/api/overview/azure/activedirectory/client?view=azure-dotnet) |
@@ -94,13 +94,13 @@ Veja também [cenários por plataformas e linguagens com suporte](authentication
 
 | Plataforma | Nome da biblioteca | Versão testada | Código fonte | Exemplo |
 |:---:|:---:|:---:|:---:|:---:|
-|![JavaScript](media/sample-v2-code/logo_js.png)|[Hello.js](https://adodson.com/hello.js/) | 1\.13.5 da versão |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
+|![JavaScript](media/sample-v2-code/logo_js.png)|[Olá. js](https://adodson.com/hello.js/) | 1\.13.5 da versão |[Olá. js](https://github.com/MrSwitch/hello.js) |[AUTENTICAÇÃO](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
 | ![Java](media/sample-v2-code/logo_java.png) | [Doestando Java](https://github.com/scribejava/scribejava) | [3.2.0 da versão](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/) | |
 | ![Java](media/sample-v2-code/logo_java.png) | [Biblioteca Gluu OpenID Connect](https://github.com/GluuFederation/oxAuth) | [Versão 3.0.2](https://github.com/GluuFederation/oxAuth/releases/tag/3.0.2) | [Biblioteca Gluu OpenID Connect](https://github.com/GluuFederation/oxAuth) | |
-| ![Python](media/sample-v2-code/logo_python.png) | [Solicitações-OAuthlib](https://github.com/requests/requests-oauthlib) | [Versão 1.2.0](https://github.com/requests/requests-oauthlib/releases/tag/v1.2.0) | [Solicitações-OAuthlib](https://github.com/requests/requests-oauthlib) | |
-| ![Node.js](media/sample-v2-code/logo_nodejs.png) | [openid-client](https://github.com/panva/node-openid-client) | [2.4.5 da versão](https://github.com/panva/node-openid-client/releases/tag/v2.4.5) | [openid-client](https://github.com/panva/node-openid-client) | |
-| ![PHP](media/sample-v2-code/logo_php.png) | [O PHP League oauth2-Client](https://github.com/thephpleague/oauth2-client) | [Versão 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/) | |
-| ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth: 1.3.1<br />omniauth-oauth2: 1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
+| ![Python](media/sample-v2-code/logo_python.png) | [Solicitações-OAuthlib](https://github.com/requests/requests-oauthlib) | [1.2.0 da versão](https://github.com/requests/requests-oauthlib/releases/tag/v1.2.0) | [Solicitações-OAuthlib](https://github.com/requests/requests-oauthlib) | |
+| ![Node.js](media/sample-v2-code/logo_nodejs.png) | [OpenID-cliente](https://github.com/panva/node-openid-client) | [2.4.5 da versão](https://github.com/panva/node-openid-client/releases/tag/v2.4.5) | [OpenID-cliente](https://github.com/panva/node-openid-client) | |
+| ![PHP](media/sample-v2-code/logo_php.png) | [O PHP League oauth2-Client](https://github.com/thephpleague/oauth2-client) | [Versão 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-cliente](https://github.com/thephpleague/oauth2-client/) | |
+| ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth: 1.3.1<br />omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 | iOS, macOS, & Android  | [Reagir à autenticação de aplicativo nativo](https://github.com/FormidableLabs/react-native-app-auth) | [4.2.0 da versão](https://github.com/FormidableLabs/react-native-app-auth/releases/tag/v4.2.0) | [Reagir à autenticação de aplicativo nativo](https://github.com/FormidableLabs/react-native-app-auth) | |
 
 Para qualquer biblioteca compatível com padrões, você pode usar o ponto de extremidade da plataforma de identidade da Microsoft. É importante saber para onde ir para obter suporte:

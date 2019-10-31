@@ -1,5 +1,5 @@
 ---
-title: Coletar métricas personalizadas para uma VM Linux com o agente InfluxData Telegraf
+title: Coletar métricas personalizadas para VM Linux com o agente InfluxData Telegraf
 description: Coletar métricas personalizadas para uma VM Linux com o agente InfluxData Telegraf
 author: anirudhcavale
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: e8164a111b9ad5ebcc67c248586e2576046334b0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 05cc1dcb2a6fa4e7790fa57cd2136d21d94b8a0b
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883249"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200516"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Coletar métricas personalizadas para uma VM Linux com o agente InfluxData Telegraf
 
@@ -39,7 +39,7 @@ Criar uma nova VM do Linux:
 1. Forneça um nome de VM como **MyTelegrafVM**.  
 1. Deixe o tipo de disco como **SSD**. Em seguida, forneça um **nome de usuário**, como **azureuser**. 
 1. Para **tipo de autenticação**, selecione **senha**. Em seguida, insira uma senha que você usará posteriormente para SSH nessa VM. 
-1. Escolha **criar novo grupo de recursos**. Em seguida, forneça um nome,como MyResource. Escolha seu **local**. Em seguida, selecione **OK**. 
+1. Escolha **criar novo grupo de recursos**. Em seguida, forneça um nome, como **MyResource**. Escolha seu **local**. Em seguida, selecione **OK**. 
 
     ![Criar uma VM do Ubuntu](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 
@@ -47,7 +47,7 @@ Criar uma nova VM do Linux:
 
     ![Tamanho da máquina virtual-visão geral do agente Telegraph](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. Na página **configurações** , em > **grupo** > de segurança de rede de rede,**selecione portas de entrada públicas**, selecione **http** e **SSH (22)** . Deixe o resto das predefinições e selecione **OK**. 
+1. Na página **configurações** em **rede** > **grupo de segurança de rede** > **selecione portas de entrada públicas**, selecione **http** e **SSH (22)** . Deixe o resto das predefinições e selecione **OK**. 
 
 1. Na página de resumo, selecione **Criar** para iniciar a implementação da VM. 
 
@@ -108,7 +108,7 @@ Agora, o agente coletará as métricas de cada um dos plug-ins de entrada especi
 
 1. Abra o [Portal do Azure](https://portal.azure.com). 
 
-1. Navegue até a nova guia **Monitor** . Em seguida, selecione métricas.  
+1. Navegue até a nova guia **Monitor** . Em seguida, selecione **métricas**.  
 
      ![Monitor-métricas (visualização)](./media/collect-custom-metrics-linux-telegraf/metrics.png)
 
@@ -130,7 +130,7 @@ Além disso, neste passo a passo, você usou o agente Telegraf para emitir métr
 
 Quando eles não forem mais necessários, você poderá excluir o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para fazer isso, selecione o grupo de recursos para a máquina virtual e selecione **excluir**. Em seguida, confirme o nome do grupo de recursos a ser excluído. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
 
 

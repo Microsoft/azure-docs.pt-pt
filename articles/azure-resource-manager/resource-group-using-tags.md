@@ -4,14 +4,14 @@ description: Mostra como aplicar marcas para organizar recursos do Azure para co
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9bcbfe1bdb501cac6ff31156db5382d1174eb8ad
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: e7763889ecf69231b7a4daf31e6899b33f3e2b36
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146828"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199169"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Utilizar etiquetas para organizar os recursos do Azure
 
@@ -180,13 +180,13 @@ Ao executar um loop em uma coleção de recursos, talvez você queira mostrar o 
 az resource show --id <resource-id> --query tags
 ```
 
-Para obter os grupos de recursos que têm uma marca específica `az group list`, use:
+Para obter os grupos de recursos que têm uma marca específica, use `az group list`:
 
 ```azurecli
 az group list --tag Dept=IT
 ```
 
-Para obter todos os recursos que têm uma marca e um valor específicos, `az resource list`use:
+Para obter todos os recursos que têm uma marca e um valor específicos, use `az resource list`:
 
 ```azurecli
 az resource list --tag Dept=Finance
@@ -250,7 +250,7 @@ done
 
 ## <a name="templates"></a>Modelos
 
-Para marcar um recurso durante a implantação, adicione `tags` o elemento ao recurso que você está implantando. Forneça o nome de etiqueta e o valor.
+Para marcar um recurso durante a implantação, adicione o elemento `tags` ao recurso que você está implantando. Forneça o nome de etiqueta e o valor.
 
 ### <a name="apply-a-literal-value-to-the-tag-name"></a>Aplicar um valor literal ao nome da etiqueta
 
@@ -361,7 +361,7 @@ Para armazenar muitos valores numa única etiqueta, aplique uma cadeia JSON que 
 
 ### <a name="apply-tags-from-resource-group"></a>Aplicar marcas do grupo de recursos
 
-Para aplicar marcas de um grupo de recursos a um recurso, use a função [resourcegroup](resource-group-template-functions-resource.md#resourcegroup) . Ao obter o valor da marca, use `tags.[tag-name]` a sintaxe em vez `tags.tag-name` da sintaxe, porque alguns caracteres não são analisados corretamente na notação de ponto.
+Para aplicar marcas de um grupo de recursos a um recurso, use a função [resourcegroup](resource-group-template-functions-resource.md#resourcegroup) . Ao obter o valor da marca, use a sintaxe `tags.[tag-name]` em vez da sintaxe `tags.tag-name`, porque alguns caracteres não são analisados corretamente na notação de ponto.
 
 ```json
 {

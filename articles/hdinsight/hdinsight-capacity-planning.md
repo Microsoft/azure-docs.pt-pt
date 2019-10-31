@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 17b68de4766aa8f995a88bd583a7a84e646b9325
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 31d7299b0c14b35aad7a29c875630d8a7fa4827e
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529166"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200599"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planejamento de capacidade para clusters HDInsight
 
@@ -68,13 +68,7 @@ Cada tipo de cluster tem um conjunto de tipos de nós e cada tipo de nó tem op�
 
 Para determinar o tamanho de cluster ideal para seu aplicativo, você pode avaliar a capacidade do cluster e aumentar o tamanho conforme indicado. Por exemplo, você pode usar uma carga de trabalho simulada ou uma *consulta canário*. Com uma carga de trabalho simulada, você executa suas cargas de trabalho esperadas em diferentes clusters de tamanho, aumentando gradualmente o tamanho até que o desempenho desejado seja atingido. Uma consulta canário pode ser inserida periodicamente entre as outras consultas de produção para mostrar se o cluster tem recursos suficientes.
 
-O tamanho e o tipo da VM são determinados pelo poder de processamento da CPU, pelo tamanho da RAM e pela latência de rede:
-
-* CPU: o tamanho da VM determina o número de núcleos. Quanto mais núcleos, maior o grau de computação paralela que cada nó pode atingir. Além disso, alguns tipos de VM têm núcleos mais rápidos.
-
-* RAM: o tamanho da VM também determina a quantidade de RAM disponível na VM. Para cargas de trabalho que armazenam dados na memória para processamento, em vez de ler do disco, verifique se os nós de trabalho têm memória suficiente para se ajustarem aos dados.
-
-* Rede: para a maioria dos tipos de cluster, os dados processados pelo cluster não estão no disco local, mas sim em um serviço de armazenamento externo, como o Data Lake Storage ou o armazenamento do Azure. Considere a largura de banda da rede e a taxa de transferência entre a VM do nó e o serviço de armazenamento. A largura de banda de rede disponível para uma VM normalmente aumenta com tamanhos maiores. Para obter detalhes, consulte [visão geral de tamanhos de VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+Para obter mais informações sobre como escolher a família de VMs correta para sua carga de trabalho, consulte [selecionando o tamanho correto da VM para o cluster](hdinsight-selecting-vm-size.md).
 
 ## <a name="choose-the-cluster-scale"></a>Escolher a escala do cluster
 
@@ -104,10 +98,11 @@ Depois de determinar o tamanho, a escala e o tipo da VM do cluster de destino, v
 1. Selecione **ajuda + suporte** no lado inferior esquerdo da página.
 1. Selecione **Novo pedido de suporte**.
 1. Na página **nova solicitação de suporte** , na guia **noções básicas** , selecione as seguintes opções:
+
    - **Tipo de problema**: **limites de serviço e assinatura (cotas)**
    - **Assinatura**: a assinatura que você deseja modificar
    - **Tipo de cota**: **HDInsight**
-    
+
      ![Criar uma solicitação de suporte para aumentar a cota de núcleo do HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
 1. Selecione **Avançar: soluções > >** .

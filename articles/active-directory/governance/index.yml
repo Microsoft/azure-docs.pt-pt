@@ -12,12 +12,12 @@ metadata:
   ms.subservice: na
   ms.topic: landing-page
   services: active-directory
-  ms.openlocfilehash: 0abe0599bcaf88c2a925cb580bea601b827daba2
-  ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+  ms.openlocfilehash: 98b634b7aba20fc79e2bae15a5786aae4d1a0bd1
+  ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/16/2019
-  ms.locfileid: "72430253"
+  ms.lasthandoff: 10/30/2019
+  ms.locfileid: "73173049"
 landingContent:
 - title: Acerca do Identity Governance
   linkLists:
@@ -33,7 +33,7 @@ landingContent:
   linkLists:
   - linkListType: overview
     links:
-    - text: O que é a gestão de direitos do Azure AD? (Pré-visualização)
+    - text: O que é a gestão de direitos do Azure AD?
       url: entitlement-management-overview.md
   - linkListType: tutorial
     links:

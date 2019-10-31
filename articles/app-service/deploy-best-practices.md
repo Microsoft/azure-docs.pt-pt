@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
 ms.custom: ''
-ms.openlocfilehash: d1b6444b8512b1b55ac46370e805f8f662f5f555
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 121ea4b7e29510ef86b61350ed97ffca5d133d56
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070689"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199484"
 ---
 # <a name="deployment-best-practices"></a>Práticas recomendadas de implantação
 
@@ -28,11 +28,11 @@ Cada equipe de desenvolvimento tem requisitos exclusivos que podem tornar difíc
 
 ## <a name="deployment-components"></a>Componentes de implantação
 
-### <a name="deployment-source"></a>Origem de Implementação
+### <a name="deployment-source"></a>Origem da implantação
 
 Uma origem de implantação é o local do código do aplicativo. Para aplicativos de produção, a origem da implantação geralmente é um repositório hospedado pelo software de controle de versão, como [GitHub, BitBucket ou Azure Repos](deploy-continuous-deployment.md). Para cenários de desenvolvimento e teste, a origem da implantação pode ser [um projeto em seu computador local](deploy-local-git.md). O serviço de aplicativo também dá suporte a [pastas do onedrive e do Dropbox](deploy-content-sync.md) como fontes de implantação. Embora as pastas de nuvem possam facilitar a introdução ao serviço de aplicativo, normalmente não é recomendável usar essa fonte para aplicativos de produção de nível empresarial. 
 
-### <a name="build-pipeline"></a>Criar Pipeline
+### <a name="build-pipeline"></a>Pipeline de compilação
 
 Depois de decidir sobre uma origem de implantação, a próxima etapa é escolher um pipeline de compilação. Um pipeline de compilação lê o código-fonte da origem da implantação e executa uma série de etapas (como código de compilação, HTML minificar e JavaScript, testes em execução e componentes de empacotamento) para obter o aplicativo em um estado executável. Os comandos específicos executados pelo pipeline de compilação dependem da pilha de idiomas. Essas operações podem ser executadas em um servidor de compilação, como Azure Pipelines ou executadas localmente.
 
@@ -40,8 +40,8 @@ Depois de decidir sobre uma origem de implantação, a próxima etapa é escolhe
 
 O mecanismo de implantação é a ação usada para colocar seu aplicativo interno no diretório */Home/site/wwwroot* do seu aplicativo Web. O diretório */wwwroot* é um local de armazenamento montado compartilhado por todas as instâncias do seu aplicativo Web. Quando o mecanismo de implantação coloca seu aplicativo nesse diretório, suas instâncias recebem uma notificação para sincronizar os novos arquivos. O serviço de aplicativo dá suporte aos seguintes mecanismos de implantação:
 
-- Kudu pontos de extremidade: O [kudu](https://github.com/projectkudu/kudu/wiki) é a ferramenta de produtividade de desenvolvedor de software livre que é executada como um processo separado no serviço de aplicativo do Windows e como um segundo contêiner no serviço de aplicativo do Linux. O kudu lida com implantações contínuas e fornece pontos de extremidade HTTP para implantação, como zipdeploy.
-- FTP e WebDeploy: Usando suas [credenciais de site ou de usuário](deploy-configure-credentials.md), você pode carregar arquivos [via FTP](deploy-ftp.md) ou WebDeploy. Esses mecanismos não passam pelo kudu.  
+- Kudu pontos de extremidade: o [kudu](https://github.com/projectkudu/kudu/wiki) é a ferramenta de produtividade de desenvolvedor de software livre que é executada como um processo separado no serviço de aplicativo do Windows e como um segundo contêiner no serviço de aplicativo do Linux. O kudu lida com implantações contínuas e fornece pontos de extremidade HTTP para implantação, como zipdeploy.
+- FTP e WebDeploy: usando suas [credenciais de site ou de usuário](deploy-configure-credentials.md), você pode carregar arquivos [via FTP](deploy-ftp.md) ou WebDeploy. Esses mecanismos não passam pelo kudu.  
 
 As ferramentas de implantação, como os plug-ins Azure Pipelines, Jenkins e editor, usam um desses mecanismos de implantação.
 
@@ -53,11 +53,11 @@ Use o kudu [zipdeploy/](deploy-zip.md) API para implantar aplicativos jar e [war
 
 ### <a name="node"></a>Nó
 
-Por padrão, o kudu executa as etapas de Build para o seu aplicativo`npm install`de nó (). Se você estiver usando um serviço de compilação como o Azure DevOps, a compilação kudu será desnecessária. Para desabilitar a compilação kudu, crie uma configuração de aplicativo `SCM_DO_BUILD_DURING_DEPLOYMENT`,, com um valor `false`de.
+Por padrão, o kudu executa as etapas de Build para seu aplicativo de nó (`npm install`). Se você estiver usando um serviço de compilação como o Azure DevOps, a compilação kudu será desnecessária. Para desabilitar a compilação kudu, crie uma configuração de aplicativo, `SCM_DO_BUILD_DURING_DEPLOYMENT`, com um valor de `false`.
 
 ### <a name="net"></a>.NET 
 
-Por padrão, o kudu executa as etapas de Build para seu aplicativo .NET`dotnet build`(). Se você estiver usando um serviço de compilação como o Azure DevOps, a compilação kudu será desnecessária. Para desabilitar a compilação kudu, crie uma configuração de aplicativo `SCM_DO_BUILD_DURING_DEPLOYMENT`,, com um valor `false`de.
+Por padrão, o kudu executa as etapas de Build para seu aplicativo .net (`dotnet build`). Se você estiver usando um serviço de compilação como o Azure DevOps, a compilação kudu será desnecessária. Para desabilitar a compilação kudu, crie uma configuração de aplicativo, `SCM_DO_BUILD_DURING_DEPLOYMENT`, com um valor de `false`.
 
 ## <a name="other-deployment-considerations"></a>Outras considerações sobre implantação
 
@@ -69,7 +69,7 @@ Sempre que possível, use [Slots de implantação](deploy-staging-slots.md) ao i
 
 Azure App conteúdo do serviço é armazenado no armazenamento do Azure e é exibido de maneira durável como um compartilhamento de conteúdo. No entanto, alguns aplicativos precisam apenas de um repositório de conteúdo somente leitura de alto desempenho que podem ser executados com alta disponibilidade. Esses aplicativos podem se beneficiar do uso do [cache local](overview-local-cache.md). O cache local não é recomendado para sites de gerenciamento de conteúdo, como WordPress.
 
-Sempre use o cache local em conjunto com [slots de implantação] (Deploy-staging-Slots MD) para evitar o tempo de inatividade. Consulte [esta seção](overview-local-cache.md#best-practices-for-using-app-service-local-cache) para obter informações sobre como usar esses recursos juntos.
+Sempre use o cache local em conjunto com [Slots de implantação](deploy-staging-slots.md) para evitar o tempo de inatividade. Consulte [esta seção](overview-local-cache.md#best-practices-for-using-app-service-local-cache) para obter informações sobre como usar esses recursos juntos.
 
 ### <a name="high-cpu-or-memory"></a>Alta CPU ou memória
 

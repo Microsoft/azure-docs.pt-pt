@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b9d4b99447e7c814d737def54dce03c4acc0e5ca
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: 80a1ac3ebe5f49d6a63f47e08e0b16114d75e91f
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172975"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199213"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registrar em massa máquinas virtuais do SQL no Azure com o provedor de recursos da VM do SQL
 
@@ -37,6 +37,7 @@ Para registrar sua VM SQL Server com o provedor de recursos, você precisará do
 - Uma [assinatura do Azure](https://azure.microsoft.com/free/) que foi [registrada com o provedor de recursos](virtual-machines-windows-sql-register-with-resource-provider.md#register-subscription-with-rp) e contém máquinas virtuais SQL Server não registradas. 
 - As credenciais de cliente usadas para registrar as máquinas virtuais existem em qualquer uma das seguintes funções de RBAC: **colaborador de máquina virtual**, **colaborador**ou **proprietário**. 
 - A versão mais recente do [AZ PowerShell](/powershell/azure/new-azureps-module-az). 
+- A versão mais recente do [AZ. SqlVirtualMachine] (https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -228,6 +229,7 @@ Ao registrar SQL Server VMs com o provedor de recursos usando o script fornecido
 
 Para o script completo no GitHub, consulte [registrar VMs do SQL em massa com AZ PowerShell](https://github.com/Azure/azure-docs-powershell-samples/blob/master/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1). 
 
+Copie o script completo e salve-o como `RegisterSqLVMs.psm1`.
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1 "Bulk register SQL Server virtual machines")]
 

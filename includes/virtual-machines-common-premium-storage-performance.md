@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 961f4595d60e85677d2c7c4a1abd97736d0180ec
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 289100afe825c14ce9964f39e3f583078f51da1d
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391748"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182269"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho do aplicativo
 
@@ -140,7 +140,7 @@ Uma solicitação de e/s é uma unidade de operação de entrada/saída que seu 
 O tamanho de e/s é um dos fatores mais importantes. O tamanho de e/s é o tamanho da solicitação de operação de entrada/saída gerada pelo seu aplicativo. O tamanho de e/s tem um impacto significativo no desempenho, especialmente no IOPS e na largura de banda que o aplicativo é capaz de alcançar. A fórmula a seguir mostra a relação entre IOPS, tamanho de e/s e largura de banda/taxa de transferência.  
     ![](media/premium-storage-performance/image1.png)
 
-Alguns aplicativos permitem que você altere seu tamanho de e/s, enquanto alguns aplicativos não têm. Por exemplo, SQL Server determina o tamanho de e/s ideal e não fornece aos usuários nenhum botão para alterá-lo. Por outro lado, o Oracle fornece um parâmetro chamado [DB @ no__t-1Bloqueie @ no__t-2SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) usando o qual é possível configurar o tamanho da solicitação de e/s do banco de dados.
+Alguns aplicativos permitem que você altere seu tamanho de e/s, enquanto alguns aplicativos não têm. Por exemplo, SQL Server determina o tamanho de e/s ideal e não fornece aos usuários nenhum botão para alterá-lo. Por outro lado, o Oracle fornece um parâmetro chamado [DB\_bloco\_tamanho](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) usando o qual você pode configurar o tamanho da solicitação de e/s do banco de dados.
 
 Se você estiver usando um aplicativo, que não permite alterar o tamanho de e/s, use as diretrizes neste artigo para otimizar o KPI de desempenho que é mais relevante para seu aplicativo. Por exemplo,
 
@@ -189,15 +189,15 @@ Por exemplo, suponha que um requisito de aplicativo seja um máximo de 4.000 IOP
 *Custo da operação*  
 Em muitos casos, é possível que o custo geral da operação usando o armazenamento Premium seja menor do que o uso do armazenamento padrão.
 
-Por exemplo, considere um aplicativo que requer 16.000 IOPS. Para atingir esse desempenho, você precisará de uma VM IaaS do Azure padrão @ no__t-0D14, que pode fornecer um máximo de IOPS de 16.000 usando discos de 1 TB de armazenamento Standard de 32. Cada disco de armazenamento Standard de 1 TB pode alcançar um máximo de 500 IOPS. O custo estimado dessa VM por mês será de $1570. O custo mensal de 32 discos de armazenamento padrão será $1638. O custo mensal total estimado será de $3208.
+Por exemplo, considere um aplicativo que requer 16.000 IOPS. Para atingir esse desempenho, você precisará de uma VM de IaaS do Azure padrão\_D14, que pode fornecer um máximo de IOPS de 16.000 usando discos de 1 TB de armazenamento Standard 32. Cada disco de armazenamento Standard de 1 TB pode alcançar um máximo de 500 IOPS. O custo estimado dessa VM por mês será de $1570. O custo mensal de 32 discos de armazenamento padrão será $1638. O custo mensal total estimado será de $3208.
 
-No entanto, se você tiver hospedado o mesmo aplicativo no armazenamento Premium, será necessário um tamanho de VM menor e menos discos de armazenamento Premium, reduzindo assim o custo geral. Uma VM @ no__t-0DS13 padrão pode atender ao requisito de 16.000 IOPS usando quatro discos p30. A VM DS13 tem um máximo de IOPS de 25.600 e cada disco p30 tem um IOPS máximo de 5.000. Em geral, essa configuração pode atingir 5.000 x 4 = IOPS de 20.000. O custo estimado dessa VM por mês será de $1003. O custo mensal de quatro discos de armazenamento p30 Premium será $544.34. O custo mensal total estimado será de $1544.
+No entanto, se você tiver hospedado o mesmo aplicativo no armazenamento Premium, será necessário um tamanho de VM menor e menos discos de armazenamento Premium, reduzindo assim o custo geral. Uma VM\_DS13 padrão pode atender ao requisito 16.000 IOPS usando quatro discos p30. A VM DS13 tem um máximo de IOPS de 25.600 e cada disco p30 tem um IOPS máximo de 5.000. Em geral, essa configuração pode atingir 5.000 x 4 = IOPS de 20.000. O custo estimado dessa VM por mês será de $1003. O custo mensal de quatro discos de armazenamento p30 Premium será $544.34. O custo mensal total estimado será de $1544.
 
 A tabela a seguir resume a divisão de custo desse cenário para o armazenamento Standard e Premium.
 
 | &nbsp; | **Standard** | **Premium** |
 | --- | --- | --- |
-| **Custo da VM por mês** |$1570.58 (padrão @ no__t-0D14) |$1003.66 (padrão @ no__t-0DS13) |
+| **Custo da VM por mês** |$1570.58 (padrão\_D14) |$1003.66 (Standard\_DS13) |
 | **Custo de discos por mês** |$1638.40 (32 x 1 TB de discos) |$544.34 (4 x p30 discos) |
 | **Custo geral por mês** |$3208.98 |$1544.34 |
 
@@ -298,12 +298,12 @@ Algumas das versões exigem o mais recente Integration Services do Linux (LIS), 
 | SUSE | SLES 12 ou mais recente| 3.12.36-38.1 + | SuSE-SLES-12-Priority-v20150213 <br> SuSE-SLES-12-v20150213 |
 | SUSE | SLES 11 SP4 ou mais recente| 3.0.101-0.63.1 + | &nbsp; |
 | CoreOS | 584.0.0 + ou mais recente| 3.18.4 + | CoreOS 584.0.0 |
-| CentOS | 6,5, 6,6, 6,7, 7,0 ou mais recente| &nbsp; | [LIS4 necessário](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consulte a observação na próxima seção* |
-| CentOS | 7.1 + ou mais recente| 3.10.0-229.1.2. EL7 + | [LIS4 recomendado](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consulte a observação na próxima seção* |
+| CentOS | 6,5, 6,6, 6,7, 7,0 ou mais recente| &nbsp; | [LIS4 necessário](https://www.microsoft.com/download/details.aspx?id=51612) <br> *Consulte a observação na próxima seção* |
+| CentOS | 7.1 + ou mais recente| 3.10.0-229.1.2. EL7 + | [LIS4 recomendado](https://www.microsoft.com/download/details.aspx?id=51612) <br> *Consulte a observação na próxima seção* |
 | Red Hat Enterprise Linux (RHEL) | 6.8 +, 7.2 + ou mais recente | &nbsp; | &nbsp; |
 | Oracle | 6.0 +, 7.2 + ou mais recente | &nbsp; | UEK4 ou RHCK |
-| Oracle | 7.0-7.1 ou mais recente | &nbsp; | UEK4 ou RHCK w/[Lis 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 ou mais recente | &nbsp; | UEK4 ou RHCK w/[Lis 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 7.0-7.1 ou mais recente | &nbsp; | UEK4 ou RHCK w/[Lis 4.1 +](https://www.microsoft.com/download/details.aspx?id=51612) |
+| Oracle | 6.4-6.7 ou mais recente | &nbsp; | UEK4 ou RHCK w/[Lis 4.1 +](https://www.microsoft.com/download/details.aspx?id=51612) |
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>Drivers LIS para OpenLogic CentOS
 

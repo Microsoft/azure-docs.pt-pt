@@ -16,19 +16,19 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9efe76f15e2f07495a9d95f69b0c21d2bca4ea8
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: 5a986c2032fc41bbd34230c5b0ead745f88b000f
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180553"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199819"
 ---
 # <a name="create-workspaces-on-the-my-apps-preview-portal"></a>Criar espaços de trabalho no portal meus aplicativos (versão prévia)
 
 Os usuários podem usar o portal meus aplicativos (versão prévia) para exibir e iniciar os aplicativos baseados em nuvem aos quais eles têm acesso. Por padrão, todos os aplicativos que um usuário pode acessar são listados juntos em uma única página. Para organizar melhor essa página para seus usuários, se você tiver uma licença Azure AD Premium P1 ou P2, poderá configurar espaços de trabalho. Com um espaço de trabalho, você pode agrupar aplicativos relacionados (por exemplo, por função de trabalho, tarefa ou projeto) e exibi-los em uma guia separada. Um espaço de trabalho basicamente aplica um filtro aos aplicativos que um usuário já pode acessar, para que o usuário veja apenas os aplicativos no espaço de trabalho que foram atribuídos a eles.
 
 > [!NOTE]
-> Este artigo aborda como um administrador pode habilitar e criar espaços de trabalho. Para obter informações para o usuário final sobre como usar o portal meus aplicativos e espaços de trabalho, consulte [acessar e usar espaços de trabalho](https://docs.microsoft.com/azure/active-directory/user-help/).
+> Este artigo aborda como um administrador pode habilitar e criar espaços de trabalho. Para obter informações para o usuário final sobre como usar o portal meus aplicativos e espaços de trabalho, consulte [acessar e usar espaços de trabalho](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces).
 
 ## <a name="enable-my-apps-preview-features"></a>Habilitar recursos de visualização de meus aplicativos
 
