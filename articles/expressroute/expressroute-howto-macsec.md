@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 39cf6b2d0f6d8ea3e894e46a9294a671780225d0
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 36cd1bfebe4e5379a1c8cfc551c8e003459ebf5c
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793854"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162443"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Configurar o MACsec em portas diretas do ExpressRoute
 
@@ -108,8 +108,8 @@ Cada instância direta do ExpressRoute tem duas portas físicas. Você pode opta
 
     ```azurepowershell-interactive
     $erDirect = Get-AzExpressRoutePort -ResourceGroupName "your_resource_group" -Name "your_direct_port_name"
-    $erDirect.Links[0].AdminState = “Enabled”
-    $erDirect.Links[1].AdminState = “Enabled”
+    $erDirect.Links[0].AdminState = "Enabled"
+    $erDirect.Links[1].AdminState = "Enabled"
     Set-AzExpressRoutePort -ExpressRoutePort $erDirect
     ```
 

@@ -8,12 +8,12 @@ ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: df1263e2cc13f875819c9bb16b5eb7399368b7f5
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 4a0959c7562c3868825e26366ae08e9b87f92319
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953528"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177225"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exportar seus dados no Azure IoT Central
 
@@ -160,7 +160,7 @@ As mensagens que contêm dados do dispositivo são enviadas ao seu hub de evento
 Cada mensagem representa uma ou mais alterações em um dispositivo desde a última mensagem exportada. As informações que serão enviadas em cada mensagem incluirão:
 - `id` do dispositivo no IoT Central
 - `name` do dispositivo
-- `deviceId` do [serviço de provisionamento de dispositivos](https://aka.ms/iotcentraldocsdps)
+- `deviceId` do [serviço de provisionamento de dispositivos](/azure/iot-central/core/howto-connect-nodejs)
 - Informações do modelo do dispositivo
 - Valores de propriedade
 - Definindo valores

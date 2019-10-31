@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0184aa7bff4203f50d834f603bed5fd2af52e4c
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 051565d984196edce0404b12677cf27de9006f29
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514418"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175212"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autorizar o acesso a aplicações Web do Azure Active Directory através do fluxo de concessão de código do OAuth 2.0
 
@@ -64,7 +64,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | client_id |Necessário |A ID do aplicativo atribuída ao seu aplicativo quando você o registrou com o Azure AD. Você pode encontrá-lo no portal do Azure. Clique em **Azure Active Directory** na barra lateral serviços, clique em **registros de aplicativo**e escolha o aplicativo. |
 | response_type |Necessário |Deve incluir `code` para o fluxo do código de autorização. |
 | redirect_uri |Aconselhável |O redirect_uri do seu aplicativo, em que as respostas de autenticação podem ser enviadas e recebidas pelo seu aplicativo. Ele deve corresponder exatamente a um dos redirect_uris que você registrou no portal, exceto que ele deve ser codificado por URL. Para aplicativos móveis & nativos, você deve usar o valor padrão de `urn:ietf:wg:oauth:2.0:oob`. |
-| response_mode |Adicional |Especifica o método que deve ser usado para enviar o token resultante de volta ao seu aplicativo. Pode ser `query`, `fragment` ou `form_post`. `query` fornece o código como um parâmetro de cadeia de caracteres de consulta em seu URI de redirecionamento. Se você estiver solicitando um token de ID usando o fluxo implícito, não será possível usar `query` conforme especificado na [especificação OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Se você estiver solicitando apenas o código, poderá usar `query`, `fragment` ou `form_post`. `form_post` executa uma POSTAgem que contém o código para o URI de redirecionamento. O padrão é `query` para um fluxo de código.  |
+| response_mode |Adicional |Especifica o método que deve ser usado para enviar o token resultante de volta ao seu aplicativo. Pode ser `query`, `fragment`ou `form_post`. `query` fornece o código como um parâmetro de cadeia de caracteres de consulta em seu URI de redirecionamento. Se você estiver solicitando um token de ID usando o fluxo implícito, não será possível usar `query` conforme especificado na [especificação OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Se você estiver solicitando apenas o código, poderá usar `query`, `fragment`ou `form_post`. `form_post` executa uma POSTAgem que contém o código para o URI de redirecionamento. O padrão é `query` para um fluxo de código.  |
 | state |Aconselhável |Um valor incluído na solicitação que também é retornado na resposta do token. Um valor exclusivo gerado aleatoriamente geralmente é usado para [impedir ataques de solicitação entre sites forjado](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar informações sobre o estado do usuário no aplicativo antes que a solicitação de autenticação ocorra, como a página ou a exibição em que eles estavam. |
 | Kit | Aconselhável |O URI da ID do aplicativo da API Web de destino (recurso protegido). Para localizar o URI da ID do aplicativo, no portal do Azure, clique em **Azure Active Directory**, em **registros do aplicativo**, abra a página **configurações** do aplicativo e clique em **Propriedades**. Ele também pode ser um recurso externo como `https://graph.microsoft.com`. Isso é necessário em uma das solicitações de autorização ou token. Para garantir que menos prompts de autenticação o coloquem na solicitação de autorização para garantir que o consentimento seja recebido do usuário. |
 | scope | **aceita** | Para aplicativos v1 do Azure AD, os escopos devem ser configurados estaticamente no portal do Azure em **configurações**de aplicativos, **permissões necessárias**. |
@@ -149,7 +149,7 @@ grant_type=authorization_code
 | client_id |Necessário |A ID do aplicativo atribuída ao seu aplicativo quando você o registrou com o Azure AD. Você pode encontrá-lo na portal do Azure. A ID do aplicativo é exibida nas configurações do registro do aplicativo. |
 | grant_type |Necessário |Deve ser `authorization_code` para o fluxo do código de autorização. |
 | Auto-completar |Necessário |O `authorization_code` que você adquiriu na seção anterior |
-| redirect_uri |Necessário | Um `redirect_uri`registered no aplicativo cliente. |
+| redirect_uri |Necessário | Um `redirect_uri`registrado no aplicativo cliente. |
 | client_secret |necessário para aplicativos Web, não permitido para clientes públicos |O segredo do aplicativo que você criou no portal do Azure para seu aplicativo em **chaves**. Ele não pode ser usado em um aplicativo nativo (cliente público), porque client_secrets não pode ser armazenado de forma confiável em dispositivos. Ele é necessário para aplicativos Web e APIs Web (todos os clientes confidenciais), que têm a capacidade de armazenar o `client_secret` com segurança no lado do servidor. O client_secret deve ser codificado por URL antes de ser enviado. |
 | Kit | Aconselhável |O URI da ID do aplicativo da API Web de destino (recurso protegido). Para localizar o URI da ID do aplicativo, no portal do Azure, clique em **Azure Active Directory**, em **registros do aplicativo**, abra a página **configurações** do aplicativo e clique em **Propriedades**. Ele também pode ser um recurso externo como `https://graph.microsoft.com`. Isso é necessário em uma das solicitações de autorização ou token. Para garantir que menos prompts de autenticação o coloquem na solicitação de autorização para garantir que o consentimento seja recebido do usuário. Se estiver na solicitação de autorização e na solicitação de token, os parâmetros do recurso deverão corresponder. | 
 | code_verifier | Adicional | O mesmo code_verifier que foi usado para obter o authorization_code. Obrigatório se PKCE foi usado na solicitação de concessão de código de autorização. Para obter mais informações, consulte a [RFC do PKCE](https://tools.ietf.org/html/rfc7636)   |

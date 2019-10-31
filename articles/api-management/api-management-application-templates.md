@@ -11,26 +11,28 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: efb668971bc4a8c5a0968836aab71107aa6b88d5
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d635950c8b34986cd5824660166017317948cbd8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072659"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176919"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Modelos de aplicativo no gerenciamento de API do Azure
-O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configuram seu conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como [DotLiquid para designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de [recursos de cadeia de caracteres](api-management-template-resources.md#strings)localizados, recursos de glifos e [controles de página](api-management-page-controls.md), você tem grande flexibilidade para configurar [](api-management-template-resources.md#glyphs) o conteúdo das páginas como você vê para se ajustar usando esses modelos.  
+O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configuram seu conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como [DotLiquid para designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de [recursos de cadeia de caracteres](api-management-template-resources.md#strings)localizados, recursos de [glifos](api-management-template-resources.md#glyphs)e [controles de página](api-management-page-controls.md), você tem grande flexibilidade para configurar o conteúdo das páginas como você vê para se ajustar usando esses modelos.  
   
  Os modelos nesta seção permitem que você personalize o conteúdo das páginas do aplicativo no portal do desenvolvedor.  
   
 -   [Lista de aplicativos](#ProductList)  
   
--   [Aplicação](#Application)  
+-   [Aplicativo](#Application)  
   
 > [!NOTE]
 >  Os modelos padrão de exemplo estão incluídos na documentação a seguir, mas estão sujeitos a alterações devido a melhorias contínuas. Você pode exibir os modelos padrão ao vivo no portal do desenvolvedor navegando até os modelos individuais desejados. Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do desenvolvedor de gerenciamento de API usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
@@ -39,7 +41,7 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
  ![Página de lista de aplicativos modelos do portal do desenvolvedor](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "Página de lista de aplicativos do APIM modelos do portal do desenvolvedor")  
   
-### <a name="default-template"></a>Modelo predefinido  
+### <a name="default-template"></a>Modelo padrão  
   
 ```xml  
 <div class="row">  
@@ -72,17 +74,17 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ### <a name="controls"></a>Controlos  
- O `Product list` modelo pode usar os seguintes [controles de página](api-management-page-controls.md).  
+ O modelo de `Product list` pode usar os seguintes [controles de página](api-management-page-controls.md).  
   
--   [paging-control](api-management-page-controls.md#paging-control)  
+-   [controle de paginação](api-management-page-controls.md#paging-control)  
   
 ### <a name="data-model"></a>Modelo de dados  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|`Paging`|[](api-management-template-data-model-reference.md#Paging) Entidade de paginação.|As informações de paginação da coleção de aplicativos.|  
+|`Paging`|Entidade de [paginação](api-management-template-data-model-reference.md#Paging) .|As informações de paginação da coleção de aplicativos.|  
 |`Applications`|Coleção de entidades de [aplicativo](api-management-template-data-model-reference.md#Application) .|Os aplicativos são visíveis para o usuário atual.|  
-|`CategoryName`|Cadeia de caracteres|A categoria do aplicativo.|  
+|`CategoryName`|string|A categoria do aplicativo.|  
   
 ### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
@@ -140,7 +142,7 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
  ![Página do aplicativo modelos do portal do desenvolvedor](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "Modelos do portal do desenvolvedor da página do aplicativo APIM")  
   
-### <a name="default-template"></a>Modelo predefinido  
+### <a name="default-template"></a>Modelo padrão  
   
 ```xml  
 <h2>{{title}}</h2>  
@@ -179,7 +181,7 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ### <a name="controls"></a>Controlos  
- O `Application` modelo não permite o uso de nenhum [controle de página](api-management-page-controls.md).  
+ O modelo de `Application` não permite o uso de nenhum [controle de página](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Modelo de dados  
  Entidade de [aplicativo](api-management-template-data-model-reference.md#Application) .  
@@ -221,5 +223,5 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 }  
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do desenvolvedor de gerenciamento de API usando modelos](api-management-developer-portal-templates.md).

@@ -15,21 +15,21 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ebcfa9da8fc8760fa4c13cec1a8921c4ecef5691
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f40b479b66f2fa9a60e084fc0e29f40cef052e99
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101942"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162521"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilizar o Armazenamento Premium do Azure com o SQL Server em Máquinas Virtuais
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 O [SSDs Premium do Azure](../disks-types.md) é a próxima geração de armazenamento que fornece baixa latência e e/s de alta taxa de transferência. Ele funciona melhor para cargas de trabalho com uso intensivo de e/s de chave, como SQL Server em [máquinas virtuais](https://azure.microsoft.com/services/virtual-machines/)IaaS.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássico. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássico. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.
 
 Este artigo fornece planejamento e orientação para a migração de uma máquina virtual que executa o SQL Server para usar o armazenamento Premium. Isso inclui a infraestrutura do Azure (rede, armazenamento) e as etapas de VM do Windows convidadas. O exemplo no [Apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) mostra uma migração completa abrangente de ponta a ponta de como mover VMs maiores para tirar proveito do armazenamento SSD local aprimorado com o PowerShell.
 
@@ -43,7 +43,7 @@ Este artigo fornece planejamento e orientação para a migração de uma máquin
 
 Para obter mais informações básicas sobre SQL Server em máquinas virtuais do Azure, consulte [SQL Server em máquinas virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
 
-**Autorização** Daniel de **revisores técnicos** de sol: Luis Carlos Vargas Herring, Sanjay Mishra, Pravin MITAL, Juergen Thomas, Gonzalo Ruiz.
+**Autor:** Daniel sol **revisores técnicos:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin MITAL, Juergen Thomas, Gonzalo Ruiz.
 
 ## <a name="prerequisites-for-premium-storage"></a>Pré-requisitos para o armazenamento Premium
 
@@ -53,7 +53,7 @@ Há vários pré-requisitos para usar o armazenamento Premium.
 
 Para usar o armazenamento Premium, você precisa usar VMS (máquinas virtuais) da série DS. Se você não usou máquinas da série DS em seu serviço de nuvem antes, você deve excluir a VM existente, manter os discos anexados e, em seguida, criar um novo serviço de nuvem antes de recriar a VM como o tamanho da função DS *. Para obter mais informações sobre tamanhos de máquina virtual, consulte [tamanhos de máquina virtual e serviço de nuvem para o Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-### <a name="cloud-services"></a>Serviços em nuvem
+### <a name="cloud-services"></a>Serviços Cloud
 
 Você só pode usar VMs DS * com o armazenamento Premium quando elas são criadas em um novo serviço de nuvem. Se você estiver usando SQL Server Always On no Azure, o ouvinte Always On refere-se ao endereço IP de Load Balancer interno ou externo do Azure que está associado a um serviço de nuvem. Este artigo se concentra em como migrar e manter a disponibilidade nesse cenário.
 
@@ -68,7 +68,7 @@ Para VMs DS *, você deve configurar a rede virtual (VNET) hospedando suas VMs p
 
 ![RegionalVNET][1]
 
-Você pode gerar um tíquete de suporte da Microsoft para migrar para uma VNET regional. Em seguida, a Microsoft faz uma alteração. Para concluir a migração para VNETs regionais, altere a propriedade AffinityGroup na configuração de rede. Primeiro, exporte a configuração de rede no PowerShell e, em seguida, substitua a propriedade **AffinityGroup** no elemento **VirtualNetworkSite** por uma propriedade **Location** . Especifique `Location = XXXX` onde`XXXX` é uma região do Azure. Em seguida, importe a nova configuração.
+Você pode gerar um tíquete de suporte da Microsoft para migrar para uma VNET regional. Em seguida, a Microsoft faz uma alteração. Para concluir a migração para VNETs regionais, altere a propriedade AffinityGroup na configuração de rede. Primeiro, exporte a configuração de rede no PowerShell e, em seguida, substitua a propriedade **AffinityGroup** no elemento **VirtualNetworkSite** por uma propriedade **Location** . Especifique `Location = XXXX` em que `XXXX` é uma região do Azure. Em seguida, importe a nova configuração.
 
 Por exemplo, considerando a seguinte configuração de VNET:
 
@@ -142,7 +142,7 @@ Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 1. Anote o diskname e o LUN.
 
     ![DisknameAndLUN][2]
-1. Área de trabalho remota na VM. Em seguida, vá para **Gerenciamento** | do computador**Device Manager** | **unidades de disco**. Examine as propriedades de cada um dos "discos virtuais da Microsoft"
+1. Área de trabalho remota na VM. Em seguida, vá para **Gerenciamento do computador** | **Device Manager** | **unidades de disco**. Examine as propriedades de cada um dos "discos virtuais da Microsoft"
 
     ![VirtualDiskProperties][3]
 1. O número de LUN aqui é uma referência ao número de LUN que você especifica ao anexar o VHD à VM.
@@ -191,7 +191,7 @@ Set-AzureSubscription -SubscriptionName $mysubscription
 Select-AzureSubscription -SubscriptionName $mysubscription -Current  
 ```
 
-#### <a name="step-1-create-a-premium-storage-account"></a>Passo 1: Criar uma conta de armazenamento Premium
+#### <a name="step-1-create-a-premium-storage-account"></a>Etapa 1: criar uma conta de armazenamento Premium
 
 ```powershell
 #Create Premium Storage account, note Type
@@ -199,24 +199,24 @@ $newxiostorageaccountname = "danspremsams"
 New-AzureStorageAccount -StorageAccountName $newxiostorageaccountname -Location $location -Type "Premium_LRS"  
 ```
 
-#### <a name="step-2-create-a-new-cloud-service"></a>Passo 2: Criar um novo serviço de nuvem
+#### <a name="step-2-create-a-new-cloud-service"></a>Etapa 2: criar um novo serviço de nuvem
 
 ```powershell
 $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-3-reserve-a-cloud-service-vip-optional"></a>Passo 3: Reservar um VIP de serviço de nuvem (opcional)
+#### <a name="step-3-reserve-a-cloud-service-vip-optional"></a>Etapa 3: reservar um VIP de serviço de nuvem (opcional)
 
 ```powershell
 #check exisitng reserved VIP
 Get-AzureReservedIP
 
-$reservedVIPName = “sqlcloudVIP”
+$reservedVIPName = "sqlcloudVIP"
 New-AzureReservedIP –ReservedIPName $reservedVIPName –Label $reservedVIPName –Location $location
 ```
 
-#### <a name="step-4-create-a-vm-container"></a>Passo 4: Criar um contêiner de VM
+#### <a name="step-4-create-a-vm-container"></a>Etapa 4: criar um contêiner de VM
 
 ```powershell
 #Generate storage keys for later
@@ -230,7 +230,7 @@ $containerName = 'vhds'
 New-AzureStorageContainer -Name $containerName -Context $xioContext
 ```
 
-#### <a name="step-5-placing-os-vhd-on-standard-or-premium-storage"></a>Passo 5: Colocando o VHD do sistema operacional no armazenamento Standard ou Premium
+#### <a name="step-5-placing-os-vhd-on-standard-or-premium-storage"></a>Etapa 5: colocando o VHD do sistema operacional no armazenamento Standard ou Premium
 
 ```powershell
 #NOTE: Set up subscription and default storage account which is used to place the OS VHD in
@@ -244,7 +244,7 @@ $standardstorageaccountname = "danstdams"
 Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount  $standardstorageaccountname
 ```
 
-#### <a name="step-6-create-vm"></a>Passo 6: Criar VM
+#### <a name="step-6-create-vm"></a>Etapa 6: criar uma VM
 
 ```powershell
 #Get list of available SQL Server Images from the Azure Image Gallery.
@@ -293,7 +293,7 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmName |Get-AzureOSDisk
 
 Este cenário demonstra onde você tem imagens personalizadas existentes que residem em uma conta de armazenamento padrão. Conforme mencionado, se você quiser posicionar o VHD do sistema operacional no armazenamento Premium, precisará copiar a imagem que existe na conta de armazenamento padrão e transferi-la para um armazenamento Premium antes que ela possa ser usada. Se você tiver uma imagem local, também poderá usar esse método para copiá-la diretamente para a conta de armazenamento Premium.
 
-#### <a name="step-1-create-storage-account"></a>Passo 1: Criar conta de armazenamento
+#### <a name="step-1-create-storage-account"></a>Etapa 1: criar conta de armazenamento
 
 ```powershell
 $mysubscription = "DansSubscription"
@@ -314,7 +314,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-3-use-existing-image"></a>Passo 3: Usar imagem existente
+#### <a name="step-3-use-existing-image"></a>Etapa 3: usar a imagem existente
 
 Você pode usar uma imagem existente. Ou, você pode [tirar uma imagem de uma máquina existente](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Observe que a máquina em que a imagem não precisa ser um computador DS *. Quando você tiver a imagem, as etapas a seguir mostram como copiá-la para a conta de armazenamento Premium com o commandlet do PowerShell **Start-AzureStorageBlobCopy** .
 
@@ -330,7 +330,7 @@ $origContext = New-AzureStorageContext  –StorageAccountName $origstorageaccoun
 $destContext = New-AzureStorageContext  –StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary  
 ```
 
-#### <a name="step-4-copy-blob-between-storage-accounts"></a>Passo 4: Copiar blob entre contas de armazenamento
+#### <a name="step-4-copy-blob-between-storage-accounts"></a>Etapa 4: copiar o blob entre contas de armazenamento
 
 ```powershell
 #Get Image VHD
@@ -343,13 +343,13 @@ $blob = Start-AzureStorageBlobCopy -SrcBlob $myImageVHD -SrcContainer $container
 -Context $origContext -DestContext $destContext  
 ```
 
-#### <a name="step-5-regularly-check-copy-status"></a>Passo 5: Verificar regularmente o status da cópia:
+#### <a name="step-5-regularly-check-copy-status"></a>Etapa 5: verificar regularmente o status da cópia:
 
 ```powershell
 $blob | Get-AzureStorageBlobCopyState
 ```
 
-#### <a name="step-6-add-image-disk-to-azure-disk-repository-in-subscription"></a>Passo 6: Adicionar disco de imagem ao repositório de disco do Azure na assinatura
+#### <a name="step-6-add-image-disk-to-azure-disk-repository-in-subscription"></a>Etapa 6: adicionar disco de imagem ao repositório de disco do Azure na assinatura
 
 ```powershell
 $imageMediaLocation = $destContext.BlobEndPoint+"/"+$myImageVHD
@@ -361,7 +361,7 @@ Add-AzureVMImage -ImageName $newimageName -MediaLocation $imageMediaLocation
 > [!NOTE]
 > Você pode descobrir que, mesmo que o status relate como êxito, ainda poderá obter um erro de concessão de disco. Nesse caso, aguarde cerca de 10 minutos.
 
-#### <a name="step-7--build-the-vm"></a>Passo 7:  Criar a VM
+#### <a name="step-7--build-the-vm"></a>Etapa 7: criar a VM
 
 Aqui você está criando a VM a partir de sua imagem e anexando dois VHDs de armazenamento Premium:
 
@@ -384,7 +384,7 @@ $availabilitySet = "cloudmigAVAMS3"
 
 #Machine User Credentials
 $userName = "myadmin"
-$pass = "theM)stC0mplexP@ssw0rd!”
+$pass = "theM)stC0mplexP@ssw0rd!"
 
 
 #Create VM Config
@@ -438,7 +438,7 @@ Há duas estratégias para migrar Always On implantações que permitem algum te
 1. **Adicionar mais réplicas secundárias a um cluster de Always On existente**
 2. **Migrar para um novo cluster Always On**
 
-#### <a name="1-add-more-secondary-replicas-to-an-existing-always-on-cluster"></a>1. Adicionar mais réplicas secundárias a um cluster de Always On existente
+#### <a name="1-add-more-secondary-replicas-to-an-existing-always-on-cluster"></a>1. adicionar mais réplicas secundárias a um cluster de Always On existente
 
 Uma estratégia é adicionar mais secundários ao grupo de disponibilidade Always On. Você precisa adicioná-los em um novo serviço de nuvem e atualizar o ouvinte com o novo IP do balanceador de carga.
 
@@ -479,7 +479,7 @@ Você deve provisionar o tempo em que você pode executar o failover manual e o 
 13. Faça os novos nós parceiros de failover automático e failovers de teste.
 14. Remova os nós originais do grupo de disponibilidade.
 
-##### <a name="advantages"></a>Vantagens
+##### <a name="advantages"></a>Principais
 
 * Novos SQL Servers podem ser testados (SQL Server e aplicativo) antes de serem adicionados ao Always On.
 * Você pode alterar o tamanho da VM e personalizar o armazenamento para seus requisitos exatos. No entanto, seria benéfico manter todos os caminhos de arquivo SQL iguais.
@@ -492,7 +492,7 @@ Você deve provisionar o tempo em que você pode executar o failover manual e o 
 * Pode haver tempo de transferência de dados SQL longo durante a configuração dos secundários.
 * Há custo adicional durante a migração, enquanto você tem novos computadores em execução em paralelo.
 
-#### <a name="2-migrate-to-a-new-always-on-cluster"></a>2. Migrar para um novo cluster Always On
+#### <a name="2-migrate-to-a-new-always-on-cluster"></a>2. migrar para um novo cluster Always On
 
 Outra estratégia é criar um cluster de Always On totalmente novo com nós totalmente novos no novo serviço de nuvem e, em seguida, redirecionar os clientes para usá-lo.
 
@@ -503,7 +503,7 @@ Há um tempo de inatividade quando você transfere aplicativos e usuários para 
 * O tempo necessário para restaurar os backups de log de transações finais para bancos de dados em novos servidores.
 * O tempo necessário para atualizar os aplicativos cliente para usar o novo ouvinte de Always On.
 
-##### <a name="advantages"></a>Vantagens
+##### <a name="advantages"></a>Principais
 
 * Você pode testar o ambiente de produção real, SQL Server e alterações de Build do sistema operacional.
 * Você tem a opção de personalizar o armazenamento e reduzir potencialmente o tamanho da VM. Isso pode resultar em redução de custos.
@@ -520,10 +520,10 @@ Há um tempo de inatividade quando você transfere aplicativos e usuários para 
 
 Há duas estratégias para migrar implantações Always On para tempo de inatividade mínimo:
 
-1. **Utilizar um secundário existente: Site único**
-2. **Utilizar réplicas secundárias existentes: Multissite**
+1. **Utilizar um secundário existente: site único**
+2. **Utilizar réplicas secundárias existentes: multissite**
 
-#### <a name="1-utilize-an-existing-secondary-single-site"></a>1. Utilizar um secundário existente: Site único
+#### <a name="1-utilize-an-existing-secondary-single-site"></a>1. utilizar um secundário existente: site único
 
 Uma estratégia para tempo de inatividade mínimo é pegar um secundário de nuvem existente e removê-lo do serviço de nuvem atual. Em seguida, copie os VHDs para a nova conta de armazenamento Premium e crie a VM no novo serviço de nuvem. Em seguida, atualize o ouvinte em clustering e failover.
 
@@ -536,7 +536,7 @@ Uma estratégia para tempo de inatividade mínimo é pegar um secundário de nuv
 > [!NOTE]
 > Quando desejar que o nó adicionado adicional participe como um parceiro de failover Always On, você precisará adicionar um Ponto de Extremidade do Azure com uma referência ao conjunto de balanceamento de carga. Quando você executa o comando **Add-AzureEndpoint** para fazer isso, as conexões atuais permanecem abertas, mas não é possível estabelecer novas conexões com o ouvinte até que o balanceador de carga seja atualizado. No teste, isso foi visto para os últimos 90 120seconds, isso deve ser testado.
 
-##### <a name="advantages"></a>Vantagens
+##### <a name="advantages"></a>Principais
 
 * Nenhum custo adicional incorrido durante a migração.
 * Uma migração de um para um.
@@ -570,7 +570,7 @@ Este documento não demonstra um exemplo completo de ponta a ponta, no entanto, 
 * Se estiver usando as etapas 5II, adicione SQL1 como um possível proprietário para o recurso de endereço IP adicionado
 * Failovers de teste.
 
-#### <a name="2-utilize-existing-secondary-replicas-multi-site"></a>2. Utilizar réplicas secundárias existentes: Multilocal
+#### <a name="2-utilize-existing-secondary-replicas-multi-site"></a>2. utilizar réplicas secundárias existentes: multissite
 
 Se você tiver nós em mais de um datacenter (DC) do Azure ou se tiver um ambiente híbrido, poderá usar uma configuração de Always On nesse ambiente para minimizar o tempo de inatividade.
 
@@ -583,7 +583,7 @@ Considere o seguinte exemplo de uma configuração de Always On híbrida:
 
 ![MultiSite1][9]
 
-##### <a name="advantages"></a>Vantagens
+##### <a name="advantages"></a>Principais
 
 * Você pode utilizar a infraestrutura existente.
 * Você tem a opção de atualizar previamente o armazenamento do Azure no controlador de domínio de DR do Azure primeiro.
@@ -617,7 +617,7 @@ Este cenário pressupõe que você tenha documentado sua instalação e saiba co
 * Failovers de teste.
 * Alterne o AFP de volta para SQL1 e SQL2
 
-## <a name="appendix-migrating-a-multisite-always-on-cluster-to-premium-storage"></a>Anexo Migrando um cluster de Always On multissite para o armazenamento Premium
+## <a name="appendix-migrating-a-multisite-always-on-cluster-to-premium-storage"></a>Apêndice: migrando um cluster de Always On multissite para o armazenamento Premium
 
 O restante deste artigo fornece um exemplo detalhado de como converter um cluster de Always On multissite para o armazenamento Premium. Ele também converte o ouvinte de usar um ELB (balanceador de carga externo) para um ILB (balanceador de carga interno).
 
@@ -635,7 +635,7 @@ Neste exemplo, vamos demonstrar a mudança de um ELB para ILB. ELB estava dispon
 
 ![Appendix2][12]
 
-### <a name="pre-steps-connect-to-subscription"></a>Pré-etapas: Conectar à assinatura
+### <a name="pre-steps-connect-to-subscription"></a>Pré-etapas: conectar-se à assinatura
 
 ```powershell
 Add-AzureAccount
@@ -644,7 +644,7 @@ Add-AzureAccount
 Get-AzureSubscription
 ```
 
-#### <a name="step-1-create-new-storage-account-and-cloud-service"></a>Passo 1: Criar nova conta de armazenamento e serviço de nuvem
+#### <a name="step-1-create-new-storage-account-and-cloud-service"></a>Etapa 1: criar nova conta de armazenamento e serviço de nuvem
 
 ```powershell
 $mysubscription = "DansSubscription"
@@ -681,7 +681,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Passo 2: Aumentar as falhas permitidas em \<recursos opcionais >
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Etapa 2: aumentar as falhas permitidas em recursos \<> opcional
 
 Em determinados recursos que pertencem ao seu grupo de disponibilidade Always On, há limites de quantas falhas podem ocorrer em um período, em que o serviço de cluster tenta reiniciar o grupo de recursos. É recomendável que você aumente isso enquanto estiver percorrendo esse procedimento, já que, se você não fizer failover manualmente e disparar failovers desligando os computadores, poderá ficar próximo desse limite.
 
@@ -691,11 +691,11 @@ Seria prudente dobrar a permissão de falha, fazer isso em Gerenciador de Cluste
 
 Altere o máximo de falhas para 6.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Passo 3: O recurso de endereço IP de adição \<para o grupo de cluster opcional >
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Etapa 3: adição do recurso de endereço IP para o grupo de clusters \<opcional >
 
 Se você tiver apenas um endereço IP para o grupo de clusters e isso estiver alinhado à sub-rede na nuvem, tenha cuidado se você acidentalmente colocar offline todos os nós de cluster na nuvem nessa rede, o recurso de IP do cluster e o nome da rede do cluster não poderão ficar online. Nessa situação, ele impede atualizações em outros recursos de cluster.
 
-#### <a name="step-4-dns-configuration"></a>Passo 4: Configuração do DNS
+#### <a name="step-4-dns-configuration"></a>Etapa 4: configuração de DNS
 
 A implementação de uma transição suave depende de como o DNS está sendo utilizado e atualizado.
 Quando o Always On for instalado, ele criará um grupo de recursos de cluster do Windows, se você abrir Gerenciador de Cluster de Failover, verá que, no mínimo, ele tem três recursos, os dois aos quais o documento se refere são:
@@ -753,7 +753,7 @@ Se o seu aplicativo cliente SQL der suporte ao .NET 4,5 SqlClient, você poderá
 
 Para obter mais informações sobre as configurações anteriores, consulte [palavra-chave MultiSubnetFailover e recursos associados](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consulte também [suporte a SqlClient para alta disponibilidade e recuperação de desastre](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
 
-#### <a name="step-5-cluster-quorum-settings"></a>Passo 5: Configurações de quorum do cluster
+#### <a name="step-5-cluster-quorum-settings"></a>Etapa 5: configurações de quorum do cluster
 
 Como você vai retirar pelo menos um SQL Server por vez, você deve modificar a configuração de quorum do cluster, se estiver usando a FSW (testemunha de compartilhamento de arquivos) com dois nós, você deve definir o quorum para permitir a maioria do nó e utilizar a votação dinâmica , permitindo que um único nó permaneça em pé.
 
@@ -763,7 +763,7 @@ Set-ClusterQuorum -NodeMajority
 
 Para obter mais informações sobre como gerenciar e configurar o quorum do cluster, consulte [configurar e gerenciar o quorum em um cluster de failover do Windows Server 2012](https://technet.microsoft.com/library/jj612870.aspx).
 
-#### <a name="step-6-extract-existing-endpoints-and-acls"></a>Passo 6: Extrair pontos de extremidade e ACLs existentes
+#### <a name="step-6-extract-existing-endpoints-and-acls"></a>Etapa 6: extrair pontos de extremidade e ACLs existentes
 
 ```powershell
 #GET Endpoint info
@@ -774,13 +774,13 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureAclConf
 
 Salve este texto em um arquivo.
 
-#### <a name="step-7-change-failover-partners-and-replication-modes"></a>Passo 7: Alterar parceiros de failover e modos de replicação
+#### <a name="step-7-change-failover-partners-and-replication-modes"></a>Etapa 7: alterar os modos de replicação e parceiros de failover
 
 Se você tiver mais de dois SQL Servers, deverá alterar o failover de outro secundário em outro controlador de domínio ou local para "síncrono" e torná-lo um parceiro de failover automático (AFP), isto é, para manter a HA enquanto você estiver fazendo alterações. Você pode fazer isso por meio de TSQL de modificar por meio do SSMS:
 
 ![Appendix6][16]
 
-#### <a name="step-8-remove-secondary-vm-from-cloud-service"></a>Passo 8: Remover VM secundária do serviço de nuvem
+#### <a name="step-8-remove-secondary-vm-from-cloud-service"></a>Etapa 8: remover a VM secundária do serviço de nuvem
 
 Você deve estar planejando migrar primeiro um nó secundário da nuvem. Se esse nó for primário no momento, você deverá iniciar um failover manual.
 
@@ -799,7 +799,7 @@ Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | stop-AzureVM
 ##Building Existing Data Disk Configuration
 $file = "C:\Azure Storage Testing\mydiskconfig_$vmNameToMigrate.csv"
 $datadisks = @(Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | Get-AzureDataDisk )
-Add-Content $file “lun, vhdname, hostcaching, disklabel, diskName”
+Add-Content $file "lun, vhdname, hostcaching, disklabel, diskName"
 foreach ($disk in $datadisks)
 {
     $vhdname = $disk.MediaLink.AbsolutePath -creplace  "/vhds/"
@@ -833,7 +833,7 @@ Get-AzureVM -ServiceName $sourceSvc -Name  $vmNameToMigrate
 Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 ```
 
-#### <a name="step-9-change-disk-caching-settings-in-csv-file-and-save"></a>Passo 9: Alterar as configurações de cache de disco no arquivo CSV e salvar
+#### <a name="step-9-change-disk-caching-settings-in-csv-file-and-save"></a>Etapa 9: alterar as configurações de cache de disco no arquivo CSV e salvar
 
 Para volumes de dados, eles devem ser definidos como READONLY.
 
@@ -841,7 +841,7 @@ Para volumes TLOG, eles devem ser definidos como nenhum.
 
 ![Appendix7][17]
 
-#### <a name="step-10-copy-vhds"></a>Etapa 10: Copiar VHDS
+#### <a name="step-10-copy-vhds"></a>Etapa 10: copiar VHDS
 
 ```powershell
 #Ensure you have created the container for these:
@@ -897,7 +897,7 @@ Para obter informações para BLOBs individuais:
 Get-AzureStorageBlobCopyState -Blob "blobname.vhd" -Container $containerName -Context $xioContext
 ```
 
-#### <a name="step-11-register-os-disk"></a>Etapa 11: Registrar disco do sistema operacional
+#### <a name="step-11-register-os-disk"></a>Etapa 11: registrar o disco do sistema operacional
 
 ```powershell
 #Change storage account
@@ -914,7 +914,7 @@ $xioDiskName = $osdiskforbuild + "xio"
 Add-AzureDisk -DiskName $xioDiskName -MediaLocation  "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$osvhd"  -Label "BootDisk" -OS "Windows"
 ```
 
-#### <a name="step-12-import-secondary-into-new-cloud-service"></a>Etapa 12: Importar secundário para o novo serviço de nuvem
+#### <a name="step-12-import-secondary-into-new-cloud-service"></a>Etapa 12: importar o secundário para o novo serviço de nuvem
 
 O código a seguir também usa a opção adicionada aqui, você pode importar o computador e usar o VIP que possa ser mantido.
 
@@ -952,7 +952,7 @@ ForEach ( $attachdatadisk in $datadiskimport)
 $vmConfig  | New-AzureVM –ServiceName $destcloudsvc –Location $location -VNetName $vnet ## Optional (-ReservedIPName $reservedVIPName)
 ```
 
-#### <a name="step-13-create-ilb-on-new-cloud-svc-add-load-balanced-endpoints-and-acls"></a>Etapa 13: Criar ILB em Nova nuvem svc, adicionar pontos de extremidade com balanceamento de carga e ACLs
+#### <a name="step-13-create-ilb-on-new-cloud-svc-add-load-balanced-endpoints-and-acls"></a>Etapa 13: criar ILB em Nova nuvem svc, adicionar pontos de extremidade com balanceamento de carga e ACLs
 
 ```powershell
 #Check for existing ILB
@@ -977,7 +977,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 ```
 
-#### <a name="step-14-update-always-on"></a>Etapa 14: Atualizar Always On
+#### <a name="step-14-update-always-on"></a>Etapa 14: atualizar Always On
 
 ```powershell
 #Code to be executed on a Cluster Node
@@ -1006,15 +1006,15 @@ Agora, remova o endereço IP do serviço de nuvem antigo.
 
 ![Appendix10][20]
 
-#### <a name="step-15-dns-update-check"></a>Etapa 15: Verificação de atualização de DNS
+#### <a name="step-15-dns-update-check"></a>Etapa 15: verificação de atualização de DNS
 
 Agora você deve verificar os servidores DNS em suas redes SQL Server Client e certificar-se de que o clustering adicionou o registro de host extra para o endereço IP adicionado. Se esses servidores DNS não tiverem sido atualizados, considere forçar uma transferência de zona DNS e garantir que os clientes nessa sub-rede sejam capazes de resolver para ambos os endereços IP Always On, isso é para que você não precise esperar pela replicação automática de DNS.
 
-#### <a name="step-16-reconfigure-always-on"></a>Etapa 16: Reconfigurar Always On
+#### <a name="step-16-reconfigure-always-on"></a>Etapa 16: reconfigurar Always On
 
 Neste ponto, você aguarda o secundário que o nó foi migrado para ressincronizar totalmente com o nó local e alternar para o nó de replicação síncrona e torná-lo o AFP.  
 
-#### <a name="step-17-migrate-second-node"></a>Etapa 17: Migrar segundo nó
+#### <a name="step-17-migrate-second-node"></a>Etapa 17: migrar o segundo nó
 
 ```powershell
 $vmNameToMigrate="dansqlams1"
@@ -1032,7 +1032,7 @@ Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | stop-AzureVM
 #Building Existing Data Disk Configuration
 $file = "C:\Azure Storage Testing\mydiskconfig_$vmNameToMigrate.csv"
 $datadisks = @(Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | Get-AzureDataDisk )
-Add-Content $file “lun, vhdname, hostcaching, disklabel, diskName”
+Add-Content $file "lun, vhdname, hostcaching, disklabel, diskName"
 foreach ($disk in $datadisks)
 {
     $vhdname = $disk.MediaLink.AbsolutePath -creplace  "/vhds/"
@@ -1066,7 +1066,7 @@ Get-AzureVM -ServiceName $sourceSvc -Name  $vmNameToMigrate
 Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 ```
 
-#### <a name="step-18-change-disk-caching-settings-in-csv-file-and-save"></a>Etapa 18: Alterar as configurações de cache de disco no arquivo CSV e salvar
+#### <a name="step-18-change-disk-caching-settings-in-csv-file-and-save"></a>Etapa 18: alterar as configurações de cache de disco no arquivo CSV e salvar
 
 Para volumes de dados, as configurações de cache devem ser definidas como READONLY.
 
@@ -1074,7 +1074,7 @@ Para volumes TLOG, as configurações de cache devem ser definidas como NONE.
 
 ![Appendix11][21]
 
-#### <a name="step-19-create-new-independent-storage-account-for-secondary-node"></a>Etapa 19: Criar nova conta de armazenamento independente para o nó secundário
+#### <a name="step-19-create-new-independent-storage-account-for-secondary-node"></a>Etapa 19: criar uma nova conta de armazenamento independente para o nó secundário
 
 ```powershell
 $newxiostorageaccountnamenode2 = "danspremsams2"
@@ -1094,7 +1094,7 @@ Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount $
 Select-AzureSubscription -SubscriptionName $mysubscription -Current
 ```
 
-#### <a name="step-20-copy-vhds"></a>Etapa 20: Copiar VHDS
+#### <a name="step-20-copy-vhds"></a>Etapa 20: copiar VHDS
 
 ```powershell
 #Ensure you have created the container for these:
@@ -1155,7 +1155,7 @@ Para obter informações para BLOBs individuais:
 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
 ```
 
-#### <a name="step-21-register-os-disk"></a>Etapa 21: Registrar disco do sistema operacional
+#### <a name="step-21-register-os-disk"></a>Etapa 21: registrar o disco do sistema operacional
 
 ```powershell
 #change storage account to the new XIO storage account
@@ -1202,7 +1202,7 @@ ForEach ( $attachdatadisk in $datadiskimport)
 $vmConfig  | New-AzureVM –ServiceName $destcloudsvc –Location $location -VNetName $vnet -Verbose
 ```
 
-#### <a name="step-22-add-load-balanced-endpoints-and-acls"></a>Etapa 22: Adicionar pontos de extremidade com balanceamento de carga e ACLs
+#### <a name="step-22-add-load-balanced-endpoints-and-acls"></a>Etapa 22: adicionar pontos de extremidade de carga balanceada e ACLs
 
 ```powershell
 #Endpoints
@@ -1220,13 +1220,13 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 #https://msdn.microsoft.com/library/azure/dn495192.aspx
 ```
 
-#### <a name="step-23-test-failover"></a>Etapa 23: Ativação pós-falha de teste
+#### <a name="step-23-test-failover"></a>Etapa 23: failover de teste
 
 Aguarde até que o nó migrado seja sincronizado com o nó de Always On local. Coloque-o no modo de replicação síncrona e aguarde até que ele seja sincronizado. Em seguida, faça failover do local para o primeiro nó migrado, que é o AFP. Depois que isso funcionou, altere o último nó migrado para o AFP.
 
 Você deve testar failovers entre todos os nós e executar os testes de caos para garantir que os failovers funcionem conforme o esperado e em uma oportuno oportuna.
 
-#### <a name="step-24-put-back-cluster-quorum-settings--dns-ttl--failover-pntrs--sync-settings"></a>Etapa 24: Colocar novamente as configurações de quorum do cluster/TTL do DNS/failover impressoras/configurações de sincronização
+#### <a name="step-24-put-back-cluster-quorum-settings--dns-ttl--failover-pntrs--sync-settings"></a>Etapa 24: retorne as configurações de quorum do cluster/TTL do DNS/failover impressoras/configurações de sincronização
 
 ##### <a name="adding-ip-address-resource-on-same-subnet"></a>Adicionando recurso de endereço IP na mesma sub-rede
 

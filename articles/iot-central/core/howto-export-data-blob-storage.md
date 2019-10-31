@@ -8,12 +8,12 @@ ms.date: 09/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: efa44df378e88b870654111295c10bec06539adb
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b6a437af33e3e85b8dc07de223b6e1fd7ce6cb03
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72950525"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176246"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Exportar seus dados para o armazenamento de BLOBs do Azure
 
@@ -85,7 +85,7 @@ Agora que você tem um destino de armazenamento para o qual exportar dados, siga
 
 9. Para ativar a exportação de dados contínuas, verifique se a alternância de **exportação de dados** está **ativada**. Selecione **Guardar**.
 
-   ![Configurar exportação de dados contínuas](media/howto-export-data/export-list-blob2.png)
+   ![Configurar exportação de dados contínua](media/howto-export-data/export-list-blob2.png)
 
 10. Depois de alguns minutos, seus dados aparecerão na sua conta de armazenamento.
 
@@ -132,7 +132,7 @@ O exemplo a seguir mostra um registro em um arquivo Avro decodificado:
 Quando a exportação de dados contínuas é ativada pela primeira vez, um único instantâneo com todos os dispositivos é exportado. Cada dispositivo inclui:
 - `id` do dispositivo no IoT Central
 - `name` do dispositivo
-- `deviceId` do [serviço de provisionamento de dispositivos](https://aka.ms/iotcentraldocsdps)
+- `deviceId` do [serviço de provisionamento de dispositivos](/azure/iot-central/core/howto-connect-nodejs)
 - Informações do modelo do dispositivo
 - Valores de propriedade
 - Definindo valores

@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 7f2a8ead8195328552a138b71e304c5f5a0857e2
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
-ms.translationtype: HT
+ms.openlocfilehash: 53c71afc38e7b122a0ae1d066460b8df91132963
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064055"
+ms.locfileid: "73152257"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funcionalidades do Apache Cassandra suportadas pela API para Cassandra do Azure Cosmos DB 
 
@@ -151,7 +151,7 @@ foreach (string key in insertResult.Info.IncomingPayload)
         { 
             byte[] valueInBytes = customPayload[key]; 
             double value = Encoding.UTF8.GetString(valueInBytes); 
-            Console.WriteLine($“CustomPayload:  {key}: {value}”); 
+            Console.WriteLine($"CustomPayload:  {key}: {value}"); 
         } 
 ```
 

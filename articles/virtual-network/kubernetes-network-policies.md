@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: ff6fd45e0a68a3e93e4c62eb31a566a6dffa2344
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 5a6da7e65a9a3e962a2df37b062792fbb990d04d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494955"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159690"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Visão geral das políticas de rede kubernetes do Azure
 
@@ -51,7 +51,7 @@ A configuração de exemplo JSON abaixo cria uma nova rede virtual e sub-rede e 
   "properties": {
     "orchestratorProfile": {
       "orchestratorType": "Kubernetes",
-      “kubernetesConfig”: {
+      "kubernetesConfig": {
          "networkPolicy": "azure"
        }
     },
@@ -89,7 +89,7 @@ A configuração de exemplo JSON abaixo cria uma nova rede virtual e sub-rede e 
 ### <a name="creating-your-own-kubernetes-cluster-in-azure"></a>Criando seu próprio cluster kubernetes no Azure
 A implementação pode ser usada para fornecer políticas de rede para pods em clusters kubernetes que você mesmo implanta, sem depender de ferramentas como o ACS-Engine. Nesse caso, primeiro instale o plug-in CNI e habilite-o em todas as máquinas virtuais em um cluster. Para obter instruções detalhadas, veja [Implementar o plug-in para um cluster do Kubernetes que implementar por conta própria](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
 
-Depois que o cluster for implantado `kubectl` , execute o comando a seguir para baixar e aplicar o *daemonset* de política de rede do Azure ao cluster.
+Depois que o cluster for implantado, execute o seguinte comando de `kubectl` para baixar e aplicar o *daemonset* de política de rede do Azure ao cluster.
 
   ```
   kubectl apply -f https://raw.githubusercontent.com/Azure/acs-engine/master/parts/k8s/addons/kubernetesmasteraddons-azure-npm-daemonset.yaml
@@ -99,7 +99,7 @@ A solução também é de código-fonte aberto e o código está disponível no 
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre o [serviço kubernetes do Azure](../aks/intro-kubernetes.md).
--  Saiba mais sobre a [rede](container-networking-overview.md)de contêineres.
+-  Saiba mais sobre a [rede de contêineres](container-networking-overview.md).
 - [Implante o plug-in](deploy-container-networking.md) para clusters kubernetes ou contêineres do Docker.

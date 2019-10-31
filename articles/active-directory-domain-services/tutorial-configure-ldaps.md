@@ -7,16 +7,16 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 2eaae9093614f1512dcd75d23c98bca871bf2850
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 5422298bf782944f10b60e98b5f251d8088f36ed
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193322"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172758"
 ---
-# <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar o LDAP seguro para um domínio gerenciado Azure Active Directory Domain Services
+# <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: configurar o LDAP seguro para um domínio gerenciado Azure Active Directory Domain Services
 
 Para se comunicar com seu domínio gerenciado do Azure Active Directory Domain Services (AD DS do Azure), o protocolo LDAP é usado. Por padrão, o tráfego LDAP não é criptografado, o que é uma preocupação de segurança para muitos ambientes. Com o Azure AD DS, você pode configurar o domínio gerenciado para usar o protocolo LDAP (Lightweight Directory Access Protocol) seguro. Quando você usa o LDAP seguro, o tráfego é criptografado. LDAP Seguro também é conhecido como LDAP sobre protocolo SSL (SSL)/TLS (Transport Layer Security).
 
@@ -68,7 +68,7 @@ O certificado solicitado ou criado deve atender aos seguintes requisitos. O dom�
 * **Uso de chave** -o certificado deve ser configurado para *assinaturas digitais* e *codificação de chave*.
 * **Finalidade do certificado** -o certificado deve ser válido para autenticação do servidor SSL.
 
-Neste tutorial, vamos criar um certificado autoassinado para LDAP seguro usando o PowerShell. Abra uma janela do PowerShell como **administrador** e execute os comandos a seguir. Substitua a variável *$DnsName* pelo nome DNS usado por seu próprio domínio gerenciado, como *contoso.com*:
+Neste tutorial, vamos criar um certificado autoassinado para LDAP seguro usando o cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate] . Abra uma janela do PowerShell como **administrador** e execute os comandos a seguir. Substitua a variável *$DnsName* pelo nome DNS usado por seu próprio domínio gerenciado, como *contoso.com*:
 
 ```powershell
 # Define your own DNS name used by your Azure AD DS managed domain
@@ -102,7 +102,7 @@ Thumbprint                                Subject
 Para usar o LDAP seguro, o tráfego de rede é criptografado usando a PKI (infraestrutura de chave pública).
 
 * Uma chave **privada** é aplicada ao domínio gerenciado AD DS do Azure.
-    * Essa chave privada é usada para descriptografar o tráfego LDAP seguro. A chave privada só deve ser aplicada ao domínio gerenciado AD DS do Azure e não amplamente distribuída a computadores cliente.
+    * Essa chave privada é usada para *descriptografar* o tráfego LDAP seguro. A chave privada só deve ser aplicada ao domínio gerenciado AD DS do Azure e não amplamente distribuída a computadores cliente.
     * Um certificado que inclui a chave privada usa o *.* Formato de arquivo PFX.
 * Uma chave **pública** é aplicada aos computadores cliente.
     * Essa chave pública é usada para *criptografar* o tráfego LDAP seguro. A chave pública pode ser distribuída para computadores cliente.
@@ -142,7 +142,7 @@ Antes de poder usar o certificado digital criado na etapa anterior com seu domí
 1. Como esse certificado é usado para descriptografar dados, você deve controlar cuidadosamente o acesso. Uma senha pode ser usada para proteger o uso do certificado. Sem a senha correta, o certificado não pode ser aplicado a um serviço.
 
     Na página **segurança** , escolha a opção de **senha** para proteger o *.* Arquivo de certificado PFX. Insira e confirme uma senha e, em seguida, selecione **Avançar**. Essa senha é usada na próxima seção para habilitar o LDAP seguro para seu domínio gerenciado AD DS do Azure.
-1. Na página **arquivo a ser** exportado, especifique o nome do arquivo e o local onde você gostaria de exportar o certificado, como *C:\Users\accountname\azure-AD-DS.pfx*.
+1. Na página **arquivo a ser exportado** , especifique o nome do arquivo e o local onde você gostaria de exportar o certificado, como *C:\Users\accountname\azure-AD-DS.pfx*.
 1. Na página revisão, selecione **concluir** para exportar o certificado para um *.* Arquivo de certificado PFX. Uma caixa de diálogo de confirmação é exibida quando o certificado foi exportado com êxito.
 1. Deixe o MMC aberto para uso na seção a seguir.
 
@@ -157,7 +157,7 @@ Os computadores cliente devem confiar no emissor do certificado LDAP seguro para
 
     ![Escolha a opção para exportar o certificado no X. 509 codificado em base-64 (. CER) formato de arquivo](./media/tutorial-configure-ldaps/export-cert-to-cer-file.png)
 
-1. Na página **arquivo a ser** exportado, especifique o nome do arquivo e o local onde você gostaria de exportar o certificado, como *C:\Users\accountname\azure-AD-DS-Client.cer*.
+1. Na página **arquivo a ser exportado** , especifique o nome do arquivo e o local onde você gostaria de exportar o certificado, como *C:\Users\accountname\azure-AD-DS-Client.cer*.
 1. Na página revisão, selecione **concluir** para exportar o certificado para um *.* Arquivo de certificado cer. Uma caixa de diálogo de confirmação é exibida quando o certificado foi exportado com êxito.
 
 O *.* O arquivo de certificado cer agora pode ser distribuído para computadores cliente que precisam confiar na conexão LDAP segura para o domínio gerenciado AD DS do Azure. Vamos instalar o certificado no computador local.
@@ -176,7 +176,7 @@ O *.* O arquivo de certificado cer agora pode ser distribuído para computadores
 
 Com um certificado digital criado e exportado que inclui a chave privada e o computador cliente definido para confiar na conexão, agora habilite o LDAP seguro em seu domínio gerenciado AD DS do Azure. Para habilitar o LDAP seguro em um domínio gerenciado AD DS do Azure, execute as seguintes etapas de configuração:
 
-1. Na [portal do Azure](https://portal.azure.com), procure serviços de *domínio* na caixa **Pesquisar recursos** . Selecione **Azure AD Domain Services** no resultado da pesquisa.
+1. Na [portal do Azure](https://portal.azure.com), insira *serviços de domínio* na caixa **Pesquisar recursos** . Selecione **Azure AD Domain Services** no resultado da pesquisa.
 
     ![Pesquise e selecione seu domínio gerenciado AD DS do Azure no portal do Azure](./media/tutorial-configure-ldaps/search-for-domain-services.png)
 
@@ -207,21 +207,21 @@ Quando você habilita o acesso LDAP seguro pela Internet para seu domínio geren
 Vamos criar uma regra para permitir o acesso LDAP seguro de entrada pela porta TCP 636 de um conjunto especificado de endereços IP. Uma regra *denyall* padrão com prioridade mais baixa se aplica a todos os outros tráfegos de entrada da Internet, de modo que apenas os endereços especificados possam acessar o domínio gerenciado do Azure AD DS usando o LDAP seguro.
 
 1. No portal do Azure, selecione *grupos de recursos* na navegação do lado esquerdo.
-1. Escolha o grupo de recursos, como *MyResource*Group e, em seguida, selecione o grupo de segurança de rede, como *AADDS-contoso.com-NSG*.
+1. Escolha o grupo de recursos, como *MyResource*Group e, em seguida, selecione o grupo de segurança de rede, como *aaads-NSG*.
 1. A lista de regras de segurança de entrada e saída existentes é exibida. No lado esquerdo das janelas do grupo de segurança de rede, escolha **segurança > regras de segurança de entrada**.
 1. Selecione **Adicionar**e crie uma regra para permitir a porta TCP *636*. Para maior segurança, escolha a origem como *endereços IP* e, em seguida, especifique seu próprio endereço IP válido ou intervalo para sua organização.
 
-    | Definição                           | Value        |
+    | Definição                           | Valor        |
     |-----------------------------------|--------------|
-    | Source                            | Endereços IP |
+    | Origem                            | Endereços IP |
     | Intervalos de CIDR/endereços IP de origem | Um endereço IP válido ou um intervalo para o seu ambiente |
-    | Source port ranges                | *            |
-    | Destino                       | Any          |
+    | Intervalo de portas de origem                | *            |
+    | Destino                       | Qualquer          |
     | Intervalos de portas de destino           | 636          |
-    | Protocol                          | TCP          |
-    | Action                            | Allow        |
-    | Priority                          | 401          |
-    | Name                              | AllowLDAPS   |
+    | Protocolo                          | TCP          |
+    | Ação                            | Permitir        |
+    | Prioridade                          | 401          |
+    | Nome                              | AllowLDAPS   |
 
 1. Quando estiver pronto, selecione **Adicionar** para salvar e aplicar a regra.
 
@@ -273,9 +273,9 @@ Se você adicionou uma entrada DNS ao arquivo hosts local do seu computador para
 
 1. No computador local, abra o *bloco de notas* como administrador
 1. Navegue até e abra o arquivo *c:\WINDOWS\system32\drivers\etc.*
-1. Exclua a linha do registro que você adicionou, como`40.121.19.239    ldaps.contoso.com`
+1. Exclua a linha do registro que você adicionou, como `40.121.19.239    ldaps.contoso.com`
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
@@ -297,3 +297,4 @@ Neste tutorial, ficou a saber como:
 <!-- EXTERNAL LINKS -->
 [rsat]: /windows-server/remote/remote-server-administration-tools
 [ldap-query-basics]: /windows/desktop/ad/creating-a-query-filter
+[New-SelfSignedCertificate]: /powershell/module/pkiclient/new-selfsignedcertificate

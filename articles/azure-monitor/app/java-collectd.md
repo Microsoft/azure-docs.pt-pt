@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 6c74684ac45a040be154a1e6406c1e7a5e0dd253
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 47e5e9dd81174b79e149ba29eec725c8c17eb1a6
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817146"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176403"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>coletados: métricas de desempenho do Linux no Application Insights
 
@@ -32,7 +32,7 @@ Faça uma cópia da chave de instrumentação, que identifica o recurso.
 Em seus computadores de servidor Linux:
 
 1. Instale a versão do [Collected](https://collectd.org/) 5.4.0 ou posterior.
-2. Baixe o [plug-in de gravador coletado Application insights](https://aka.ms/aijavasdk). Observe o número de versão.
+2. Baixe o [plug-in de gravador coletado Application insights](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal). Observe o número de versão.
 3. Copie o JAR do plug-in em `/usr/share/collectd/java`.
 4. Editar `/etc/collectd/collectd.conf`:
    * Verifique se [o plug-in Java](https://collectd.org/wiki/index.php/Plugin:Java) está habilitado.

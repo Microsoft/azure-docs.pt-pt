@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 69197b9c0d2a60e1833d03a3f12802221a8307e2
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 0097d0e1d5ea7de092da14683d4bab3d673b2219
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530839"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177775"
 ---
 # <a name="azure-disk-encryption-for-virtual-machine-scale-sets"></a>Azure Disk Encryption para conjuntos de dimensionamento de máquinas virtuais
 
@@ -23,7 +23,7 @@ Azure Disk Encryption também pode ser aplicado a conjuntos de dimensionamento d
 - SO e volumes de dados em conjuntos de dimensionamento do Windows.
 - Volumes de dados em conjuntos de dimensionamento do Linux. A criptografia de disco do so não tem suporte no momento para conjuntos de dimensionamento do Linux.
 
-Você pode aprender os conceitos básicos de Azure Disk Encryption para conjuntos de dimensionamento de máquinas virtuais em apenas alguns minutos com a [criptografia de um conjunto de dimensionamento de máquinas virtuais usando o CLI do Azure](disk-encryption-cli.md) ou os [conjuntos de dimensionamento de máquinas virtuais criptografados usando os tutoriais de CLI do Azure](disk-encryption-powershell.md) .
+Você pode aprender os conceitos básicos de Azure Disk Encryption para conjuntos de dimensionamento de máquinas virtuais em apenas alguns minutos com a [criptografia de um conjunto de dimensionamento de máquinas virtuais usando o CLI do Azure](disk-encryption-cli.md) ou os [conjuntos de dimensionamento de máquinas virtuais criptografados usando o Azure PowerShell](disk-encryption-powershell.md) tutorial.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -18,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87102e3ea71695006e465d1becad0f2ece2a426b
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: e12badd84bd929bdeb7b60ad6e99d6b3169e5022
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802969"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150458"
 ---
 # <a name="logging-in-msal-applications"></a>Registrando em log em aplicativos MSAL
 
@@ -138,7 +138,7 @@ function loggerCallback(logLevel, message, containsPii) {
 
 var msalConfig = {
     auth: {
-        clientId: “<Enter your client id>”,
+        clientId: "<Enter your client id>",
     },
      system: {
              logger: new Msal.Logger(

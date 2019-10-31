@@ -1,6 +1,6 @@
 ---
-title: Ocultar ou excluir um pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia) – Azure Active Directory
-description: Saiba como ocultar ou excluir um pacote de acesso no gerenciamento de direitos Azure Active Directory (versão prévia).
+title: Ocultar ou excluir um pacote de acesso no gerenciamento de direitos do Azure AD-Azure Active Directory
+description: Saiba como ocultar ou excluir um pacote de acesso no gerenciamento de direitos Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab6f3a86d8e88ee2d7465fd32bde7b7555f1f326
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 4391cd20f3919e8def28fa3c1d5007f91b2d9f0b
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389171"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174761"
 ---
-# <a name="hide-or-delete-an-access-package-in-azure-ad-entitlement-management-preview"></a>Ocultar ou excluir um pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)
-
-> [!IMPORTANT]
-> O gerenciamento de direitos do Azure Active Directory (AD do Azure) está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="hide-or-delete-an-access-package-in-azure-ad-entitlement-management"></a>Ocultar ou excluir um pacote de acesso no gerenciamento de direitos do Azure AD
 
 Os pacotes do Access são detectáveis por padrão. Isso significa que, se uma política permitir que um usuário solicite o pacote de acesso, ele verá automaticamente o pacote de acesso listado em seu portal meu acesso. No entanto, você pode alterar a configuração **oculta** para que o pacote de acesso não esteja listado no meu portal de acesso do usuário.
 

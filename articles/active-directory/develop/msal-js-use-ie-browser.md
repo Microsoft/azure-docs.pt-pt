@@ -18,14 +18,14 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c79717b00cd9a4b5da00496bf2f1822f7f77032
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 15502217edc6f3fd723076eda78d06fcf090aa49
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802982"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150485"
 ---
-# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>Problemas conhecidos no Internet Explorer e nos navegadores do Microsoft Edge com MSAL. js
+# <a name="use-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>Usar os navegadores do Internet Explorer e do Microsoft Edge com o MSAL. js
 
 A biblioteca de autenticação da Microsoft para JavaScript (MSAL. js) é gerada para o [JavaScript ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) para que ele possa ser executado no Internet Explorer. No entanto, há algumas coisas que você precisa saber.
 

@@ -1,6 +1,6 @@
 ---
-title: Alterar funções de recurso para um pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia) – Azure Active Directory
-description: Saiba como alterar as funções de recurso para um pacote do Access existente em Azure Active Directory gerenciamento de direitos (versão prévia).
+title: Alterar funções de recurso para um pacote de acesso no gerenciamento de direitos do Azure AD-Azure Active Directory
+description: Saiba como alterar as funções de recurso para um pacote do Access existente no gerenciamento de direitos Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b719546ec598f2e99061597e99a3d4e875b12cf
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 102bbfbd1c02c93830f5c7fce89fe95d7fde54c5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429802"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174652"
 ---
-# <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>Alterar funções de recurso para um pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)
-
-> [!IMPORTANT]
-> O gerenciamento de direitos do Azure Active Directory (AD do Azure) está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar funções de recurso para um pacote de acesso no gerenciamento de direitos do Azure AD
 
 Como um Gerenciador de pacotes do Access, você pode alterar os recursos em um pacote do Access a qualquer momento sem se preocupar com o provisionamento do acesso do usuário aos novos recursos ou a remoção de seu acesso dos recursos anteriores. Este artigo descreve como alterar as funções de recurso para um pacote do Access existente.
 

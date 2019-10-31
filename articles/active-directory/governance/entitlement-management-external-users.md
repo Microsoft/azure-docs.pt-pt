@@ -1,5 +1,5 @@
 ---
-title: Controlar o acesso para usuários externos no gerenciamento de direitos do Azure AD (versão prévia)-Azure Active Directory
+title: Controlar o acesso para usuários externos no gerenciamento de direitos do Azure AD-Azure Active Directory
 description: Saiba mais sobre as configurações que você pode especificar para controlar o acesso para usuários externos no gerenciamento de direitos Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -12,23 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3794f409b2cdc11373dc330099e5ff93d65a2a1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9107471448a58dc7866fb2cd6052abf168437d2b
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934404"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174174"
 ---
-# <a name="govern-access-for-external-users-in-azure-ad-entitlement-management-preview"></a>Controlar o acesso para usuários externos no gerenciamento de direitos do Azure AD (versão prévia)
-
-> [!IMPORTANT]
-> O gerenciamento de direitos do Azure Active Directory (AD do Azure) está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Controlar o acesso para usuários externos no gerenciamento de direitos do Azure AD
 
 O gerenciamento de direitos do Azure AD utiliza o [B2B (Business-to-Business) do Azure ad](../b2b/what-is-b2b.md) para colaborar com pessoas de fora da sua organização em outro diretório. Com o Azure AD B2B, os usuários externos se autenticam em seu diretório base, mas têm uma representação em seu diretório. A representação em seu diretório permite que o usuário receba acesso aos seus recursos.
 
@@ -74,6 +69,52 @@ O diagrama e as etapas a seguir fornecem uma visão geral de como os usuários e
 
 1. Dependendo do ciclo de vida de configurações de usuários externos, quando o usuário externo não tiver mais nenhuma atribuição de pacote de acesso, o usuário externo será impedido de entrar e a conta de usuário convidado será removida do seu diretório.
 
+## <a name="settings-for-external-users"></a>Configurações para usuários externos
+
+Para garantir que as pessoas fora de sua organização possam solicitar pacotes de acesso e obter acesso aos recursos nesses pacotes de acesso, há algumas configurações que você deve verificar que devem ser configuradas corretamente.
+
+### <a name="enable-catalog-for-external-users"></a>Habilitar catálogo para usuários externos
+
+- Por padrão, quando você cria um [novo catálogo](entitlement-management-catalog-create.md), ele é habilitado para permitir que usuários externos solicitem pacotes de acesso no catálogo. Certifique-se **de que habilitado para usuários externos** esteja definido como **Sim**.
+
+    ![Editar configurações do catálogo](./media/entitlement-management-shared/catalog-edit.png)
+
+### <a name="configure-your-azure-ad-b2b-external-collaboration-settings"></a>Configurar suas configurações de colaboração externa do Azure AD B2B
+
+- Permitir que os convidados convidem outros convidados para seu diretório significa que os convites convidados podem ocorrer fora do gerenciamento de direitos. Recomendamos que a configuração de **convidados possa convidar** para **não** permitir apenas convites devidamente controlados.
+- Se você estiver usando a lista de permissões B2B, deverá ter certeza de que qualquer domínio ao qual você deseja usar o gerenciamento de direitos é adicionado à lista. Como alternativa, se você estiver usando a lista de negações de B2B, deverá certificar-se de que qualquer domínio com o qual você deseja fazer o parceiro não seja adicionado à lista.
+- Se você criar uma política de gerenciamento de direitos para **todos os usuários** (todas as organizações conectadas + quaisquer novos usuários externos), qualquer configuração de lista de permissões B2B ou de negação terá precedência. Portanto, certifique-se de incluir os domínios que você pretende incluir nessa política na sua lista de permissões se você estiver usando um, e exclua-os da sua lista de negações se estiver usando uma lista de negações.
+- Se você quiser criar uma política de gerenciamento de direitos que inclua **todos os usuários** (todas as organizações conectadas + quaisquer novos usuários externos), primeiro você deve habilitar a autenticação de senha de uso único de email para seu diretório. Para obter mais informações, consulte [autenticação de senha de uso único de email (versão prévia)](../b2b/one-time-passcode.md#opting-in-to-the-preview).
+- Para obter mais informações sobre as configurações de colaboração externa B2B do Azure AD, consulte [habilitar colaboração externa B2B e gerenciar quem pode convidar convidados](../b2b/delegate-invitations.md).
+
+    ![Configurações de colaboração externa do Azure AD](./media/entitlement-management-external-users/collaboration-settings.png)
+
+### <a name="review-your-conditional-access-policies"></a>Examinar suas políticas de acesso condicional
+
+- Certifique-se de excluir convidados de quaisquer políticas de acesso condicional que novos usuários convidados não poderão atender, pois isso os bloqueará de poder entrar no seu diretório. Por exemplo, os convidados provavelmente não têm um dispositivo registrado, não estão em um local conhecido e não querem se registrar novamente para a MFA (autenticação multifator); portanto, adicionar esses requisitos em uma política de acesso condicional bloqueará o uso de direitos gerenciamento. Para obter mais informações, consulte [o que são condições em Azure Active Directory acesso condicional?](../conditional-access/conditions.md).
+
+    ![Configurações de exclusão de política de acesso condicional do Azure AD](./media/entitlement-management-external-users/conditional-access-exclude.png)
+
+### <a name="review-your-sharepoint-online-external-sharing-settings"></a>Examinar suas configurações de compartilhamento externo do SharePoint Online
+
+- Se você quiser incluir sites do SharePoint Online em seus pacotes de acesso para usuários externos, verifique se a configuração de compartilhamento externo de nível de organização está definida como **qualquer pessoa** (os usuários não precisam de entrada) ou **convidados novos e existentes** (convidados devem assinar em ou forneça um código de verificação). Para obter mais informações, consulte [Ativar ou desativar o compartilhamento externo](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+
+- Se você quiser restringir qualquer compartilhamento externo fora do gerenciamento de direitos, poderá definir a configuração de compartilhamento externo como **convidados existentes**. Em seguida, somente os novos usuários convidados por meio do gerenciamento de direitos poderão obter acesso a esses sites. Para obter mais informações, consulte [Ativar ou desativar o compartilhamento externo](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+
+- Verifique se as configurações de nível de site habilitam o acesso de convidado (as mesmas seleções de opção conforme listado anteriormente). Para obter mais informações, consulte [Ativar ou desativar o compartilhamento externo para um site](https://docs.microsoft.com/sharepoint/change-external-sharing-site).
+
+### <a name="review-your-office-365-group-sharing-settings"></a>Examine as configurações de compartilhamento de grupo do Office 365
+
+- Se você quiser incluir grupos do Office 365 em seus pacotes de acesso para usuários externos, certifique-se de que a permissão **permitir que os usuários adicionem novos convidados à organização** esteja definida como **ativado** para permitir o acesso de convidado. Para obter mais informações, consulte [gerenciar o acesso de convidado aos grupos do Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-guest-access-to-office-365-groups).
+
+- Se você quiser que usuários externos possam acessar o site do SharePoint Online e os recursos associados a um grupo do Office 365, certifique-se de ativar o compartilhamento externo do SharePoint Online. Para obter mais informações, consulte [Ativar ou desativar o compartilhamento externo](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+
+- Para obter informações sobre como definir a política de convidado para grupos do Office 365 no nível do diretório no PowerShell, consulte [exemplo: configurar a política de convidado para grupos no nível do diretório](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
+
+### <a name="review-your-teams-sharing-settings"></a>Examine as configurações de compartilhamento de suas equipes
+
+- Se você quiser incluir equipes em seus pacotes de acesso para usuários externos, verifique se a **permissão permitir acesso de convidado no Microsoft Teams** está definida como **ativado** para permitir o acesso de convidado. Para obter mais informações, consulte [Configurar o acesso de convidado no centro de administração do Microsoft Teams](https://docs.microsoft.com/microsoftteams/set-up-guests#configure-guest-access-in-the-microsoft-teams-admin-center).
+
 ## <a name="manage-the-lifecycle-of-external-users"></a>Gerenciar o ciclo de vida de usuários externos
 
 Você pode selecionar o que acontece quando um usuário externo, que foi convidado para seu diretório por meio de uma solicitação de pacote de acesso que está sendo aprovada, não tem mais nenhuma atribuição de pacote de acesso. Isso pode acontecer se o usuário ceder todas as suas atribuições de pacote de acesso ou sua última atribuição de pacote de acesso expirar. Por padrão, quando um usuário externo não tem mais nenhuma atribuição de pacote de acesso, ele é impedido de entrar no seu diretório. Após 30 dias, sua conta de usuário convidado é removida do seu diretório.
@@ -104,20 +145,8 @@ Você pode selecionar o que acontece quando um usuário externo, que foi convida
 
 1. Clique em **Guardar**.
 
-## <a name="enable-a-catalog-for-external-users"></a>Habilitar um catálogo para usuários externos
-
-Quando você cria um [novo catálogo](entitlement-management-catalog-create.md), há uma configuração para permitir que os usuários de diretórios externos solicitem pacotes de acesso no catálogo. Se você não quiser que usuários externos tenham permissões para solicitar pacotes de acesso no catálogo, defina **habilitado para usuários externos** como **não**.
-
-**Função de pré-requisito:** Administrador global, administrador de usuário ou proprietário do catálogo
-
-![Painel novo catálogo](./media/entitlement-management-shared/new-catalog.png)
-
-Você também pode alterar essa configuração depois de criar o catálogo.
-
-![Editar configurações do catálogo](./media/entitlement-management-shared/catalog-edit.png)
-
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Adicionar uma organização conectada](entitlement-management-organization.md)
 - [Para usuários que não estão em seu diretório](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
-- [Criar e gerenciar um catálogo de recursos](entitlement-management-catalog-create.md)
+- [Resolução de problemas](entitlement-management-troubleshoot.md)

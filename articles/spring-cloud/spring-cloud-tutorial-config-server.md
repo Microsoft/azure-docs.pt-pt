@@ -7,13 +7,13 @@ ms.topic: tutorial
 ms.reviewer: jeconnoc
 ms.author: v-vasuke
 author: v-vasuke
-ms.date: 08/08/2019
-ms.openlocfilehash: 31ef82976a1c6938ae0bf591b2f8c8b1a0040466
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 10/18/2019
+ms.openlocfilehash: 3a091c22f49ec31029a1808c10e675a4d0960fb4
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72928946"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177880"
 ---
 # <a name="tutorial-set-up-a-spring-cloud-config-server-for-your-service"></a>Tutorial: configurar um servidor de configuração do Spring Cloud para seu serviço
 
@@ -52,7 +52,7 @@ Ao usar um repositório público, suas propriedades configuráveis serão mais l
 Todas as propriedades configuráveis usadas para configurar o repositório de `Git` público estão listadas abaixo.
 
 > [!NOTE]
-> Usar um hífen ("-") para separar palavras é a única Convenção de nomenclatura com suporte no momento. Por exemplo, use `default-label` não `defaultLabel`.
+> Usar um hífen ("-") para separar palavras é a única Convenção de nomenclatura com suporte no momento. Por exemplo, você pode usar `default-label`, mas não `defaultLabel`.
 
 | Propriedade        | Obrigatório | Funcionalidade                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
@@ -67,7 +67,7 @@ Todas as propriedades configuráveis usadas para configurar o repositório de `G
 Todas as propriedades configuráveis usadas para configurar o repositório `Git` particular com `Ssh` estão listadas abaixo.
 
 > [!NOTE]
-> Usar um hífen ("-") para separar palavras é a única Convenção de nomenclatura com suporte no momento. Por exemplo, use `default-label` não `defaultLabel`.
+> Usar um hífen ("-") para separar palavras é a única Convenção de nomenclatura com suporte no momento. Por exemplo, você pode usar `default-label`, mas não `defaultLabel`.
 
 | Propriedade                   | Obrigatório | Funcionalidade                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
@@ -121,10 +121,6 @@ Todas as propriedades configuráveis usadas para configurar repositórios git co
 | `repos."host-key-algorithm"`       | `no`             | O algoritmo de chave de host deve ser `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`ou `ecdsa-sha2-nistp521`. __Necessário__ somente se `host-key` existir. |
 | `repos."strict-host-key-checking"` | `no`             | Indica se o servidor de configuração não será iniciado ao aproveitar o `host-key`privado. Deve ser `true` (valor padrão) ou `false`. |
 
-### <a name="import-applicationyml-file-from-spring-cloud-config"></a>Importar arquivo de `application.yml` da configuração do Spring Cloud
-
-Você pode importar algumas configurações padrão do servidor de configuração diretamente do site de [configuração do Spring Cloud](https://spring.io/projects/spring-cloud-config) . Você pode fazer isso diretamente na portal do Azure, portanto, você não precisa executar as etapas agora para preparar os arquivos do servidor de configuração ou o repositório.
-
 ## <a name="attaching-your-config-server-repository-to-azure-spring-cloud"></a>Anexando o repositório do servidor de configuração ao Azure Spring Cloud
 
 Agora que os arquivos de configuração estão salvos em um repositório, você precisa conectar o Azure Spring Cloud a ele.
@@ -135,19 +131,60 @@ Agora que os arquivos de configuração estão salvos em um repositório, você 
 
 1. Vá para a guia **servidor de configuração** no título **configurações** no menu no lado esquerdo.
 
-### <a name="public-repository"></a>Repositório público
+![captura de tela da janela](media/spring-cloud-tutorial-config-server/portal-config-server.png)
 
-Se o repositório for público, basta clicar no botão **público** e colar a URL.
+### <a name="input-repository-information-directly-to-the-azure-portal"></a>Informações do repositório de entrada diretamente para o portal do Azure
 
-### <a name="private-repository"></a>Repositório privado
+#### <a name="default-repository"></a>Repositório padrão
 
-O Azure Spring Cloud dá suporte à autenticação SSH. Siga as instruções no portal do Azure para adicionar a chave pública ao seu repositório. Em seguida, certifique-se de incluir sua chave privada no arquivo de configuração.
+* Repositório público: na seção **repositório padrão** , Cole o URI do repositório na seção **URI** e verifique se a configuração de **autenticação** é **pública**. Em seguida, clique em **aplicar** para concluir. 
 
-Clique em **aplicar** para concluir a configuração do servidor de configuração.
+* Repositório privado: o Azure Spring Cloud dá suporte à autenticação básica baseada em token/senha e SSH.
+
+    * Autenticação básica: na seção **repositório padrão** , Cole o URI do repositório na seção **URI** e clique na **autenticação**. Selecione **básico** como seu **tipo de autenticação** e insira seu nome de usuário e senha/token para conceder acesso ao Azure Spring Cloud. Clique em **OK** e **aplique** para concluir a configuração do servidor de configuração.
+
+    ![captura de tela da janela](media/spring-cloud-tutorial-config-server/basic-auth.png)
+    
+    > [!CAUTION]
+    > Alguns servidores de repositório git, como o GitHub, usam um `personal-token` ou um `access-token` como uma senha para **autenticação básica**. Você pode usar esse tipo de token como senha no Azure Spring Cloud, pois ele nunca expirará. Mas para outros servidores de repositório git, como o BitBucket e o Azure DevOps, a `access-token` expirará em uma ou duas horas. Isso significa que a opção não é viável ao usar esses servidores de repositório com o Azure Spring Cloud.]
+
+    * SSH: na seção **repositório padrão** , Cole o URI do repositório na seção **URI** e clique na **autenticação**. Selecione **SSH** como seu **tipo de autenticação** e insira sua **chave privada**. Opcionalmente, você pode especificar a **chave do host** e o algoritmo de chave do **host**. Certifique-se de incluir sua chave pública no repositório do servidor de configuração. Clique em **OK** e **aplique** para concluir a configuração do servidor de configuração.
+
+    ![captura de tela da janela](media/spring-cloud-tutorial-config-server/ssh-auth.png)
+
+#### <a name="pattern-repository"></a>Repositório de padrões
+
+Se você quiser usar um **repositório padrão** opcional para configurar seu serviço, especifique o **URI** e a **autenticação** da mesma maneira que o **repositório padrão**. Certifique-se de incluir um **nome** para o padrão e, em seguida, clique em **aplicar** para anexá-lo à sua instância. 
+
+### <a name="enter-repository-information-into-a-yaml-file"></a>Inserir informações do repositório em um arquivo YAML
+
+Se você tiver gravado um arquivo YAML com as configurações do repositório, poderá importar o arquivo YAML diretamente do computador local para o Azure Spring Cloud. Um arquivo YAML simples para um repositório privado com autenticação básica ficaria assim:
+
+```yml
+spring:
+    cloud:
+        config:
+            server:
+                git:
+                    uri: https://github.com/azure-spring-cloud-samples/config-server-repository.git
+                    username: <username>
+                    password: <password/token>
+
+```
+
+Clique no botão **configurações de importação** e selecione o arquivo de `.yml` do diretório do projeto. Clique em **importar**, uma operação de `async` de suas **notificações** será exibida. Após 1-2 minutos, ele deve relatar êxito.
+
+![captura de tela da janela](media/spring-cloud-tutorial-config-server/local-yml-success.png)
+
+
+Você deve ver as informações do arquivo YAML exibidas no portal do Azure. Clique em **aplicar** para concluir. 
+
 
 ## <a name="delete-your-app-configuration"></a>Excluir a configuração do aplicativo
 
 Depois de salvar um arquivo de configuração, o botão **Excluir configuração de aplicativo** aparecerá na guia **configuração** . Isso apagará as configurações existentes completamente. Você deve fazer isso se desejar conectar seu servidor de configuração a outra fonte, como mudar do GitHub para o Azure DevOps.
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 3ea1b97855e5c060b6cbb6c43ce5111506bf4c20
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 99cd9fc1da009660023a246c5210e7f54bdebcfd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676918"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177418"
 ---
 # <a name="virtual-network-tap"></a>TAP de rede virtual
 
-O TAP (ponto de acesso ao terminal) da rede virtual do Azure permite transmitir continuamente o tráfego de rede da máquina virtual para uma ferramenta de análise ou coletor de pacotes de rede. O coletor ou a ferramenta de análise é fornecida por um parceiro de solução de virtualização de [rede](https://azure.microsoft.com/solutions/network-appliances/) . Para obter uma lista de soluções de parceiros que são validadas para trabalhar com o toque de rede virtual, consulte [soluções de parceiros](#virtual-network-tap-partner-solutions).
+O TAP (ponto de acesso ao terminal) da rede virtual do Azure permite transmitir continuamente o tráfego de rede da máquina virtual para uma ferramenta de análise ou coletor de pacotes de rede. O coletor ou a ferramenta de análise é fornecida por um parceiro de [solução de virtualização de rede](https://azure.microsoft.com/solutions/network-appliances/) . Para obter uma lista de soluções de parceiros que são validadas para trabalhar com o toque de rede virtual, consulte [soluções de parceiros](#virtual-network-tap-partner-solutions).
 
 > [!IMPORTANT]
-> O toque de rede virtual está atualmente em visualização em todas as regiões do Azure. Para usar o toque de rede virtual, você deve se registrar na versão prévia enviando um email para @ no__t-0 com sua ID de assinatura. Receberá um e-mail assim que a sua subscrição tiver sido inscrita. Você não poderá usar a funcionalidade até receber um email de confirmação. Essa visualização é fornecida sem um contrato de nível de serviço e não deve ser usada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Consulte os [termos de uso suplementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Para detalhes.
+> O toque de rede virtual está atualmente em visualização em todas as regiões do Azure. Para usar o toque de rede virtual, você deve se registrar na versão prévia enviando um email para <azurevnettap@microsoft.com> com sua ID de assinatura. Receberá um e-mail assim que a sua subscrição tiver sido inscrita. Você não poderá usar a funcionalidade até receber um email de confirmação. Essa visualização é fornecida sem um contrato de nível de serviço e não deve ser usada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Consulte os [termos de uso complementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
 
 ## <a name="virtual-network-tap-partner-solutions"></a>Redes virtuais toque em soluções de parceiros
 
@@ -43,7 +43,7 @@ O TAP (ponto de acesso ao terminal) da rede virtual do Azure permite transmitir 
 - [Segurança de ativação](https://awakesecurity.com/technology-partners/microsoft-azure/)
 - [Nuvem do Cisco Stealthwatch](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
 - [Darktrace](https://www.darktrace.com/en/azure/)
-- [ExtraHop Reveal(x)](https://www.extrahop.com/company/tech-partners/microsoft/)
+- [ExtraHop Reveal (x)](https://www.extrahop.com/partners/tech-partners/microsoft/)
 - [Fidelis segurança cibernética](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
 - [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [LANGuardian NetFort](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
@@ -64,11 +64,11 @@ Antes de criar um toque de rede virtual, você deve ter recebido um email de con
 
 As contas usadas para aplicar a configuração TAP em interfaces de rede devem ser atribuídas à função de [colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que recebe as ações necessárias da tabela a seguir:
 
-| Action | Name |
+| Ação | Nome |
 |---|---|
-| Microsoft.Network/virtualNetworkTaps/* | Necessário para criar, atualizar, ler e excluir um recurso de toque de rede virtual |
-| Microsoft.Network/networkInterfaces/read | Necessário para ler o recurso de interface de rede no qual o toque será configurado |
-| Microsoft.Network/tapConfigurations/* | Necessário para criar, atualizar, ler e excluir a configuração de toque em uma interface de rede |
+| Microsoft. Network/virtualNetworkTaps/* | Necessário para criar, atualizar, ler e excluir um recurso de toque de rede virtual |
+| Microsoft. Network/networkInterfaces/Read | Necessário para ler o recurso de interface de rede no qual o toque será configurado |
+| Microsoft. Network/tapConfigurations/* | Necessário para criar, atualizar, ler e excluir a configuração de toque em uma interface de rede |
 
 ## <a name="next-steps"></a>Passos seguintes
 

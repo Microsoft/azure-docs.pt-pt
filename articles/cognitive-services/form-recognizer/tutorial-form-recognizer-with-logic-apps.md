@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 10/27/2019
 ms.author: nitinme
-ms.openlocfilehash: 7e155df62d05045ceed4479643ed13a8ba6fa06d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: bf6efbdbe19be28c005e2081c99827734ef10174
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72958302"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176990"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Tutorial: usar o reconhecedor de formulário com aplicativos lógicos do Azure para analisar faturas
 
@@ -62,7 +62,7 @@ Você usa esse contêiner para carregar dados de exemplo necessários para trein
 
 Baixe os dados de exemplo disponíveis no [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Extraia os dados para uma pasta local e carregue o conteúdo da pasta **/Train** para o **formrecocontainer** que você criou anteriormente. Siga as instruções em [carregar um blob de blocos](../../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) para carregar dados em um contêiner.
 
-Copie a URL do contêiner. Isso será necessário posteriormente neste tutorial. Se você criou a conta de armazenamento e o contêiner com os mesmos nomes listados neste tutorial, a URL será *https://formrecostorage.blob.core.windows.net/formrecocontainer/* .
+Copie a URL do contêiner. Isso será necessário posteriormente neste tutorial. Se você criou a conta de armazenamento e o contêiner com os mesmos nomes listados neste tutorial, a URL será *https:\//formrecostorage.blob.Core.Windows.net/formrecocontainer/* .
 
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso de reconhecimento de formulário
 

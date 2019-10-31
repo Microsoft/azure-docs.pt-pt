@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 09/24/2019
-ms.openlocfilehash: 83c2264cd3aa3025e911db5079747930d1ae096b
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.date: 10/29/2019
+ms.openlocfilehash: 7e3dad5405289ee2d1f4ec8f7a586da70db9d56f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809454"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162254"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Habilitar a Azure Monitor para VMs (visualização) visão geral
 
@@ -37,14 +37,20 @@ Antes de começar, verifique se você entendeu as informações nas seções a s
 O Azure Monitor para VMs dá suporte a um espaço de trabalho do Log Analytics nas seguintes regiões:
 
 - E.U.A. Centro-Oeste
+- Oeste dos EUA<sup>1</sup>
 - Oeste dos EUA 2<sup>1</sup>
+- EUA Central do Sul<sup>1</sup>
 - Este dos E.U.A.
 - Leste dos EUA 2<sup>1</sup>
+- EUA Central<sup>1</sup>
+- EUA Central norte<sup>1</sup>
 - Canadá Central
 - Sul do Reino Unido
 - Europa Setentrional<sup>1</sup>
 - Europa Ocidental
+- Ásia Oriental<sup>1</sup>
 - Sudeste Asiático
+- Índia central<sup>1</sup>
 - Leste do Japão<sup>1</sup>
 - Leste da Austrália<sup>1</sup>
 - Sudeste da Austrália<sup>1</sup>
@@ -199,6 +205,9 @@ Habilite Azure Monitor para VMs usando um dos métodos descritos nesta tabela:
 ## <a name="performance-counters-enabled"></a>Contadores de desempenho habilitados 
 
 Azure Monitor para VMs configura um espaço de trabalho Log Analytics para coletar os contadores de desempenho que ele usa. As tabelas a seguir listam os objetos e contadores que são coletados a cada 60 segundos.
+
+>[!NOTE]
+>A lista a seguir de contadores de desempenho habilitados pelo Azure Monitor para VMs não o limita a habilitar contadores adicionais que você precisa coletar de VMs relatando para o espaço de trabalho. Além disso, se você desabilitar esses contadores, ele impedirá que o conjunto de gráficos de desempenho incluído no recurso de desempenho mostre a utilização de recursos de suas VMs.
 
 ### <a name="windows-performance-counters"></a>Contadores de desempenho do Windows
 

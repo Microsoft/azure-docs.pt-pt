@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abcca0d2712a462e4d2ecf9c8023d0cb0e68ad6c
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 1991a3fe844b3a8669a67e491359e1a96658c844
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576683"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151263"
 ---
-# <a name="common-conditional-access-policies"></a>Políticas de acesso condicional comum
+# <a name="common-conditional-access-policies"></a>Políticas de Acesso Condicional comuns
 
 As políticas de proteção de linha de base são ótimas, mas muitas organizações precisam de mais flexibilidade do que oferecem. Por exemplo, muitas organizações precisam da capacidade de excluir contas específicas como suas contas de acesso de emergência ou de administração de interrupções de políticas de acesso condicional que exigem autenticação multifator. Para essas organizações, as políticas comuns referenciadas neste artigo podem ser usadas.
 
@@ -35,6 +35,7 @@ Mais informações sobre contas de acesso de emergência e por que elas são imp
 
 * [Exigir MFA para administradores](howto-conditional-access-policy-admin-mfa.md)
 * [Exigir MFA para gerenciamento do Azure](howto-conditional-access-policy-azure-management.md)
+* [Exigir MFA para todos os usuários](howto-conditional-access-policy-all-users-mfa.md)
 * [Bloquear autenticação herdada](howto-conditional-access-policy-block-legacy.md)
 * [Acesso condicional com base em risco (requer Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
 * [Exigir local confiável para o registro de MFA](howto-conditional-access-policy-registration.md)

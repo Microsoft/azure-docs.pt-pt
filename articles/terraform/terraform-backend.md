@@ -6,12 +6,12 @@ author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 2e76da32e25451084d595b10698fe663c55b6a4b
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: f024fd7886ec6f192c440cca6951e3aeb66ad22d
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969528"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177821"
 ---
 # <a name="tutorial-store-terraform-state-in-azure-storage"></a>Tutorial: armazenar o estado de Terraform no armazenamento do Azure
 
@@ -70,7 +70,7 @@ Crie uma variável de ambiente chamada `ARM_ACCESS_KEY` com o valor da chave de 
 export ARM_ACCESS_KEY=<storage access key>
 ```
 
-Para proteger ainda mais a chave de acesso da conta de armazenamento do Azure, armazene-a em Azure Key Vault. A variável de ambiente pode ser definida usando um comando semelhante ao seguinte. Para obter mais informações sobre Azure Key Vault, consulte a [documentação do Azure Key Vault] [.. /key-vault/quick-create-cli.md].
+Para proteger ainda mais a chave de acesso da conta de armazenamento do Azure, armazene-a em Azure Key Vault. A variável de ambiente pode ser definida usando um comando semelhante ao seguinte. Para obter mais informações sobre Azure Key Vault, consulte a [documentação do Azure Key Vault](../key-vault/quick-create-cli.md).
 
 ```bash
 export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name myKeyVault --query value -o tsv)
@@ -110,7 +110,7 @@ Agora você pode encontrar o arquivo de estado na Azure Storage Blob.
 
 Os blobs de armazenamento do Azure são bloqueados automaticamente antes de qualquer operação que grava o estado. Esse padrão impede operações de estado simultâneas, o que pode causar corrupção. 
 
-Para obter mais informações, consulte [bloqueio de estado] [https://www.terraform.io/docs/state/locking.html ] na documentação do Terraform.
+Para obter mais informações, consulte [bloqueio de estado](https://www.terraform.io/docs/state/locking.html) na documentação do Terraform.
 
 O bloqueio pode ser visto ao examinar o blob por meio do portal do Azure ou outras ferramentas de gerenciamento do Azure.
 
@@ -120,7 +120,7 @@ O bloqueio pode ser visto ao examinar o blob por meio do portal do Azure ou outr
 
 Os dados armazenados em um blob do Azure são criptografados antes de serem persistidos. Quando necessário, o Terraform recupera o estado do back-end e o armazena na memória local. Usando esse padrão, o estado nunca é gravado em seu disco local.
 
-Para obter mais informações sobre a criptografia de armazenamento do Azure, consulte [Azure Criptografia do Serviço de Armazenamento for data em repouso] [.. /storage/common/storage-service-encryption.md].
+Para obter mais informações sobre a criptografia de armazenamento do Azure, consulte [criptografia do serviço de armazenamento do Azure para dados em repouso](../storage/common/storage-service-encryption.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

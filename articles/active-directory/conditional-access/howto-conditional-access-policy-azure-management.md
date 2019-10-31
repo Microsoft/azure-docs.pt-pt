@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd2259dc715fb54122b721ce40a715c6987947d2
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ad44cc83d65206ec1f199e57685b0dcc3cbb07a5
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170101"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151164"
 ---
 # <a name="conditional-access-require-mfa-for-azure-management"></a>Acesso condicional: exigir MFA para o gerenciamento do Azure
 
@@ -50,7 +50,7 @@ As etapas a seguir ajudarão a criar uma política de acesso condicional para ex
    1. Em **excluir**, selecione **usuários e grupos** e escolha o acesso de emergência da sua organização ou contas de vidro. 
    1. Selecione **Done** (Concluído).
 1. Em **aplicativos de nuvem ou ações** > **incluir**, **selecione selecionar aplicativos**, escolha **Gerenciamento de Microsoft Azure**e **selecione** **concluir**.
-1. Em **controles de acesso**@no__t-**1 Grant**, selecione **conceder acesso**, **exigir autenticação multifator**e selecione **selecionar**.
+1. Em **controles de acesso** > **concessão**, selecione **conceder acesso**, **exigir autenticação multifator**e selecione **selecionar**.
 1. Confirme suas configurações e defina **habilitar política** como **ativado**.
 1. Selecione **criar** para criar para habilitar a política.
 

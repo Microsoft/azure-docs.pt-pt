@@ -1,10 +1,10 @@
 ---
 title: Isolamento na nuvem pública do Azure | Microsoft Docs
-description: Saiba mais sobre os serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias de computação & serviços que podem ser escalados verticalmente e reduzidos automaticamente para atender às necessidades de seu aplicativo ou empresa.
+description: Saiba como o Azure fornece isolamento contra usuários mal-intencionados e não-mal-intencionados e oferece várias opções de isolamento para arquitetos.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -13,38 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: a3e4a598446c0b59cd678e186906abc61d3d727d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 5e6910db7765c4cb8f151401a6803e6d4d3f998e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123062"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159751"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
-##  <a name="introduction"></a>Introdução
-### <a name="overview"></a>Descrição geral
-Para ajudar os clientes atuais e potenciais do Azure a entender e utilizar os vários recursos relacionados à segurança disponíveis em e ao redor da plataforma Azure, a Microsoft desenvolveu uma série de White papers, visões gerais de segurança, práticas recomendadas e Listas.
-Os tópicos variam em termos de amplitude e profundidade e são atualizados periodicamente. Este documento faz parte da série, conforme resumido na seção abstrata a seguir.
+O Azure permite que você execute aplicativos e VMs (máquinas virtuais) na infraestrutura física compartilhada. Uma das principais motivações econômicas para a execução de aplicativos em um ambiente de nuvem é a capacidade de distribuir o custo de recursos compartilhados entre vários clientes. Essa prática de multilocação melhora a eficiência por meio da multiplexação de recursos entre diferentes clientes a baixo custo. Infelizmente, ele também apresenta o risco de compartilhar servidores físicos e outros recursos de infraestrutura para executar seus aplicativos confidenciais e VMs que podem pertencer a um usuário arbitrário e potencialmente mal-intencionado.
 
-### <a name="azure-platform"></a>Plataforma do Azure
-O Azure é uma plataforma de serviço de nuvem aberta e flexível que dá suporte à mais ampla seleção de sistemas operacionais, linguagens de programação, estruturas, ferramentas, bancos de dados e dispositivos. Pode, por exemplo:
-- Executar contêineres do Linux com a integração do Docker;
-- Crie aplicativos com JavaScript, Python, .NET, PHP, Java e node. js; e
-- Crie back-ends para dispositivos iOS, Android e Windows.
-
-O Microsoft Azure dá suporte às mesmas tecnologias que milhões de desenvolvedores e profissionais de ti já contam e confiam.
-
-Ao se basear ou migrar ativos de ti para um provedor de serviços de nuvem pública, você estará confiando na capacidade dessa organização de proteger seus aplicativos e dados com os serviços e os controles que eles fornecem para gerenciar a segurança de seus ativos baseados em nuvem.
-
-A infraestrutura do Azure foi concebida a partir da facilidade que as aplicações têm para alojar milhões de clientes em simultâneo e proporciona uma fundação fidedigna com a qual as empresas podem satisfazer as suas necessidades de segurança. Além disso, o Azure disponibiliza-lhe um vasto leque de opções de segurança configuráveis e a capacidade para controlá-las de modo a que possa personalizar a segurança e satisfazer os requisitos únicos das suas implementações. Este documento ajuda você a atender a esses requisitos.
-
-### <a name="abstract"></a>Abstrato
-
-Microsoft Azure permite executar aplicativos e VMs (máquinas virtuais) na infraestrutura física compartilhada. Uma das principais motivações econômicas para a execução de aplicativos em um ambiente de nuvem é a capacidade de distribuir o custo de recursos compartilhados entre vários clientes. Essa prática de multilocação melhora a eficiência por meio da multiplexação de recursos entre diferentes clientes a baixo custo. Infelizmente, ele também apresenta o risco de compartilhar servidores físicos e outros recursos de infraestrutura para executar seus aplicativos confidenciais e VMs que podem pertencer a um usuário arbitrário e potencialmente mal-intencionado.
-
-Este artigo descreve como Microsoft Azure fornece isolamento contra usuários mal-intencionados e não-mal-intencionados e serve como um guia para arquitetar soluções de nuvem oferecendo várias opções de isolamento para arquitetos. Este white paper concentra-se na tecnologia da plataforma Azure e nos controles de segurança voltados para o cliente e não tenta abordar SLAs, modelos de preços e considerações de práticas DevOpss.
+Este artigo descreve como o Azure fornece isolamento contra usuários mal-intencionados e não mal-intencionados e serve como um guia para arquitetar soluções de nuvem oferecendo várias opções de isolamento para arquitetos.
 
 ## <a name="tenant-level-isolation"></a>Isolamento no nível do locatário
 Um dos principais benefícios da computação em nuvem é o conceito de uma infraestrutura compartilhada e comum entre vários clientes simultaneamente, levando a economias de escala. Esse conceito é chamado de multilocação. A Microsoft trabalha continuamente para garantir que a arquitetura multilocatário do Microsoft Cloud o Azure dê suporte à segurança, confidencialidade, privacidade, integridade e padrões de disponibilidade.
@@ -245,7 +226,7 @@ A solução de criptografia de disco para Windows é baseada no [Microsoft cript
 A solução dá suporte aos seguintes cenários para VMs de IaaS quando elas estão habilitadas no Microsoft Azure:
 -   Integração com o Azure Key Vault
 
--   VMs da camada Standard: VMs IaaS de série A, D, DS, G, GS e assim por diante
+-   VMs da camada Standard: VMs IaaS da série A, D, DS, G, GS e assim por diante
 
 -   Habilitando a criptografia em VMs IaaS Windows e Linux
 
@@ -284,7 +265,7 @@ A Base de Dados SQL é um serviço de bases de dados relacionais na cloud da Mic
 
 [SQL Azure da Microsoft](../../sql-database/sql-database-single-database-get-started.md) O banco de dados é um serviço de banco de dados relacional baseado em nuvem criado em tecnologias de SQL Server. Ele fornece um serviço de banco de dados altamente disponível, escalonável e multilocatário hospedado pela Microsoft na nuvem.
 
-Do ponto de vista de um aplicativo SQL Azure fornece a seguinte hierarquia: Cada nível tem confinamento de um para muitos de níveis abaixo.
+De uma perspectiva de aplicativo SQL Azure fornece a seguinte hierarquia: cada nível tem confinamento de um para muitos de níveis abaixo.
 
 ![Modelo de aplicativo SQL Azure](./media/isolation-choices/azure-isolation-fig10.png)
 
@@ -300,7 +281,7 @@ Os bancos de dados mestre lógicos incluem:
 
 -   Logons do SQL usados para se conectar ao servidor
 
--   Regras de firewall
+-   Regras da firewall
 
 Não há garantia de que as informações relacionadas à cobrança e ao uso para bancos de dados SQL Azure do mesmo servidor lógico estejam na mesma instância física do cluster SQL Azure, em vez disso, os aplicativos devem fornecer o nome do banco de dados de destino ao se conectar.
 
@@ -350,4 +331,3 @@ O Microsoft Azure fornece vários serviços de computação baseados em nuvem qu
 - [Isolamento de armazenamento](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
 
 Microsoft Azure separa a computação baseada em VM do cliente do armazenamento. Essa separação permite que a computação e o armazenamento sejam dimensionados de forma independente, facilitando o fornecimento de multilocação e isolamento. Portanto, o armazenamento do Azure é executado em hardware separado sem conectividade de rede para a computação do Azure, exceto logicamente. Todas as solicitações são executadas por HTTP ou HTTPS com base na escolha do cliente.
-

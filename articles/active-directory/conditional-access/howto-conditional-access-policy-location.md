@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c782c8bb2807017053375b45560685acf78161e7
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 64b7add9ddb1734d763c46e93d6788ce21a2c321
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169977"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150888"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Acesso condicional: bloquear o acesso por local
 
@@ -50,7 +50,7 @@ Mais informações sobre a condição de localização no acesso condicional pod
    1. **Incluir** **locais selecionados** de seleção
    1. Selecione o local bloqueado que você criou para sua organização.
    1. Clique em **selecionar** > **concluído** > **concluído**.
-1. Em **controles de acesso**@no__t-**1 e**selecione **selecionar**.
+1. Em **controles de acesso** > **bloco**e selecione **selecionar**.
 1. Confirme suas configurações e defina **habilitar política** como **ativado**.
 1. Selecione **criar** para criar para habilitar a política.
 

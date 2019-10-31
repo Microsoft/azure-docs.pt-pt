@@ -1,6 +1,6 @@
 ---
-title: O Azure Service Fabric Cluster autónomo preparação para implantação | Documentos da Microsoft
-description: Documentação relacionada ao preparar o ambiente e a criação de configuração do cluster, para ser considerados antes de implementar um cluster que se destina a processar uma carga de trabalho de produção.
+title: Preparação da implantação de cluster autônomo do Azure Service Fabric | Microsoft Docs
+description: Documentação relacionada à preparação do ambiente e à criação da configuração do cluster, a ser considerada antes da implantação de um cluster destinado a lidar com uma carga de trabalho de produção.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -13,133 +13,132 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: dad37af030c456f9ba2cd814fa92a7811dce6aa1
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 96956e1ad935933572b1f2d31b70ef64f8b92501
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130315"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175854"
 ---
-# <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planear e preparar a implementação de cluster autónomo do Service Fabric
+# <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planejar e preparar sua implantação de Cluster Service Fabric autônomo
 
 <a id="preparemachines"></a>Execute as etapas a seguir antes de criar o cluster.
 
-## <a name="plan-your-cluster-infrastructure"></a>Planear a sua infraestrutura de cluster
-Está prestes a criar um cluster do Service Fabric em máquinas é "proprietário", para que possa decidir quais são os tipos de falhas de que pretende que o cluster para sobreviver. Por exemplo, precisar de separar linhas de energia ou ligações à Internet fornecidas a essas máquinas? Além disso, considere a segurança física destas máquinas. Onde estão as máquinas localizadas e quem precisa de acesso a eles? Depois de tomar essas decisões, logicamente pode mapear as máquinas para vários domínios de falha (consulte a próxima etapa). A planeamento para clusters de produção da infraestrutura é mais envolvida, que, para clusters de teste.
+## <a name="plan-your-cluster-infrastructure"></a>Planejar sua infraestrutura de cluster
+Você está prestes a criar um Cluster Service Fabric nos computadores que "possui", de modo que você pode decidir quais tipos de falhas deseja que o cluster sobreviver. Por exemplo, você precisa de linhas de alimentação separadas ou conexões de Internet fornecidas a esses computadores? Além disso, considere a segurança física dessas máquinas. Onde os computadores estão localizados e quem precisa acessá-los? Depois de tomar essas decisões, você pode mapear logicamente os computadores para vários domínios de falha (consulte a próxima etapa). O planejamento de infraestrutura para clusters de produção é mais envolvido do que para clusters de teste.
 
 ## <a name="determine-the-number-of-fault-domains-and-upgrade-domains"></a>Determinar o número de domínios de falha e domínios de atualização
-R [ *domínio de falha* (FD)](service-fabric-cluster-resource-manager-cluster-description.md) é uma unidade física de falha e está diretamente relacionada com a infraestrutura física nos centros de dados. Um domínio de falha consiste em componentes de hardware (computadores, comutadores, redes e muito mais) que compartilham um ponto único de falha. Embora não exista nenhum mapeamento 1:1 entre domínios de falha e racks, livremente falando, cada bastidor pode ser considerado um domínio de falha.
+Um [ *domínio de falha* (FD)](service-fabric-cluster-resource-manager-cluster-description.md) é uma unidade física de falha e está diretamente relacionada à infraestrutura física nos data centers. Um domínio de falha consiste em componentes de hardware (computadores, comutadores, redes e muito mais) que compartilham um ponto único de falha. Embora não haja nenhum mapeamento 1:1 entre os domínios de falha e os racks, de forma flexível, cada rack pode ser considerado um domínio de falha.
 
-Quando especificar domínios de falha na ClusterConfig.json, pode escolher o nome para cada FD. O Service Fabric suporta hierárquicos domínios de falha, pelo que pode refletir a topologia de infraestrutura nos mesmos.  Por exemplo, os seguintes domínios de falha são válidos:
+Ao especificar FDs em ClusterConfig. JSON, você pode escolher o nome de cada FD. O Service Fabric dá suporte a FDs hierárquicos, para que você possa refletir sua topologia de infraestrutura neles.  Por exemplo, os seguintes FDs são válidos:
 
-* "faultDomain": "fd: / Room1/Rack1/Machine1"
-* "faultDomain": "fd: / FD1"
-* "faultDomain": "fd: / Room1/Rack1/PDU1/M1"
+* "faultDomain": "FD:/Room1/Rack1/machine1"
+* "faultDomain": "FD:/FD1"
+* "faultDomain": "FD:/Room1/Rack1/PDU1/M1"
 
-Uma *domínio de atualização* (UD) é uma unidade lógica de nós. Durante atualizações de Service Fabric orquestradas (uma atualização da aplicação ou uma atualização de cluster), todos os nós num UD direcionados para baixo para efetuar a atualização, enquanto nós de outros domínios de atualização disponíveis para servir pedidos. As atualizações de firmware efetuar nos seus computadores não respeitam esses domínios de atualização, portanto, é necessário efetuá-los um máquinas cada vez.
+Um *domínio de atualização* (UD) é uma unidade lógica de nós. Durante Service Fabric atualizações orquestradas (uma atualização de aplicativo ou uma atualização de cluster), todos os nós em um UD são desativados para executar a atualização enquanto os nós em outros UDs permanecem disponíveis para atender às solicitações. As atualizações de firmware que você executa em seus computadores não obedecem a UDs, portanto, você deve fazer uma máquina por vez.
 
-A forma mais simples de pensar sobre esses conceitos é considerar os domínios de falha como a unidade de falha não planeada e domínios de atualização, como a unidade da manutenção planeada.
+A maneira mais simples de pensar sobre esses conceitos é considerar o FDs como a unidade de falha não planejada e o UDs como a unidade de manutenção planejada.
 
-Quando especificar domínios de atualização na ClusterConfig.json, pode escolher o nome para cada UD. Por exemplo, os seguintes nomes são válidos:
+Ao especificar UDs em ClusterConfig. JSON, você pode escolher o nome de cada UD. Por exemplo, os seguintes nomes são válidos:
 
 * "upgradeDomain": "UD0"
 * "upgradeDomain": "UD1A"
 * "upgradeDomain": "DomainRed"
-* "upgradeDomain": Azul
+* "upgradeDomain": "Blue"
 
-Para obter mais informações sobre domínios de falha e domínios de atualização, consulte [descrever um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
+Para obter informações mais detalhadas sobre FDs e UDs, consulte [descrevendo um cluster Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 
-Um cluster em produção deve abranger, pelo menos, três domínios de falha para que sejam suportadas num ambiente de produção, se tem controle total sobre a manutenção e a gestão de nós, ou seja, é responsável por atualizar e substituindo máquinas. Para clusters em execução em ambientes (ou seja, instâncias de VM do Amazon Web Services) em que não tem controlo total sobre as máquinas, é necessário ter um mínimo de cinco domínios de falha no seu cluster. Cada FD pode ter um ou mais nós. Este procedimento impede que problemas causados por atualizações de máquina e atualizações, que, dependendo de seu tempo, pode interferir com a execução de aplicações e serviços em clusters.
+Um cluster em produção deve abranger pelo menos três FDs para ter suporte em um ambiente de produção, se você tiver controle total sobre a manutenção e o gerenciamento dos nós, ou seja, você será responsável por atualizar e substituir computadores. Para clusters em execução em ambientes (ou seja, Amazon Web Services instâncias de VM) em que você não tem controle total sobre os computadores, você deve ter um mínimo de cinco FDs em seu cluster. Cada FD pode ter um ou mais nós. Isso é para evitar problemas causados por atualizações de computador, que dependendo do seu tempo, podem interferir na execução de aplicativos e serviços em clusters.
 
-## <a name="determine-the-initial-cluster-size"></a>Determinar o tamanho de cluster inicial
+## <a name="determine-the-initial-cluster-size"></a>Determinar o tamanho inicial do cluster
 
-Geralmente, o número de nós do cluster é determinado com base nas necessidades da sua empresa, que é, quantos serviços e contentores serão executado no cluster e quantos recursos precisa para suportar cargas de trabalho. Para clusters de produção, é recomendável ter, pelo menos, cinco nós no seu cluster, que abrange 5 domínios de falha. No entanto, conforme descrito acima, se tem controle total sobre os nós e pode abranger três domínios de falha, em seguida, três nós devem também fazer a tarefa.
+Em geral, o número de nós no cluster é determinado com base nas suas necessidades de negócios, ou seja, quantos serviços e contêineres serão executados no cluster e quantos recursos você precisa para sustentar suas cargas de trabalho. Para clusters de produção, recomendamos ter pelo menos cinco nós no cluster, abrangendo 5 FDs. No entanto, conforme descrito acima, se você tem controle total sobre seus nós e pode abranger três FDs, três nós também devem fazer o trabalho.
 
-Executar cargas de trabalho com monitorização de estado de clusters de teste devem ter três nós, ao passo que os clusters de teste apenas executar apenas uma cargas de trabalho sem monitorização de estado precisam de um nó. Ele também de salientar que, para fins de desenvolvimento, pode ter mais de um nó num determinado computador. No entanto, num ambiente de produção Service Fabric suporta apenas um nó por máquina física ou virtual.
+Os clusters de teste que executam cargas de trabalho com estado devem ter três nós, enquanto os clusters de teste somente executando cargas de trabalho sem estado precisam apenas de um nó. Também deve-se observar que, para fins de desenvolvimento, você pode ter mais de um nó em um determinado computador. No entanto, em um ambiente de produção, Service Fabric dá suporte apenas a um nó por máquina virtual ou física.
 
-## <a name="prepare-the-machines-that-will-serve-as-nodes"></a>Preparar as máquinas que irão servir como nós
+## <a name="prepare-the-machines-that-will-serve-as-nodes"></a>Preparar os computadores que funcionarão como nós
 
-Aqui estão algumas especificações recomendadas para cada máquina que pretende adicionar ao cluster:
+Aqui estão algumas especificações recomendadas para cada computador que você deseja adicionar ao cluster:
 
 * Um mínimo de 16 GB de RAM
-* Um mínimo de 40 GB de espaço em disco disponível
-* Um núcleo de 4 ou CPU superior
-* Conectividade a uma rede segura ou redes de todas as máquinas
-* SO Windows Server instalado (versões válidas: 2012 R2, 2016, 1709 ou 1803). Service Fabric versão 6.4.654.9590 e posterior também dá suporte ao servidor 2019 e 1809.
-* [.NET framework 4.5.1 ou superior](https://www.microsoft.com/download/details.aspx?id=40773), instalação completa
-* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
-* O [RemoteRegistry serviço](https://technet.microsoft.com/library/cc754820) deve ser executado em todas as máquinas
+* Um mínimo de 40 de GB de espaço em disco disponível
+* Uma CPU de 4 núcleos ou mais
+* Conectividade com uma rede ou redes seguras para todas as máquinas
+* Sistema operacional Windows Server instalado (versões válidas: 2012 R2, 2016, 1709 ou 1803). Service Fabric versão 6.4.654.9590 e posterior também dá suporte ao servidor 2019 e 1809.
+* [.NET Framework 4.5.1 ou superior](https://www.microsoft.com/download/details.aspx?id=40773), instalação completa
+* [Windows PowerShell 3,0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
+* O [serviço RemoteRegistry](https://technet.microsoft.com/library/cc754820) deve estar em execução em todos os computadores
 * Service Fabric unidade de instalação deve ser um sistema de arquivos NTFS
 
-O administrador de cluster, implementar e configurar o cluster tem de ter [privilégios de administrador](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) em cada uma das máquinas. Não pode instalar o Service Fabric num controlador de domínio.
+O administrador de cluster que está implantando e Configurando o cluster deve ter [privilégios de administrador](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) em cada uma das máquinas. Não pode instalar o Service Fabric num controlador de domínio.
 
-## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>Transferir o pacote de autónomo do Service Fabric para o Windows Server
-[Baixe o Link - pacote de autónomo do Service Fabric - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) e deszipe o pacote, para um computador de implementação que não faz parte do cluster ou para uma das máquinas que serão uma parte do seu cluster.
+## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>Baixar o pacote autônomo do Service Fabric para o Windows Server
+[Link de download-Service Fabric pacote autônomo-Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) e descompacte o pacote, seja para um computador de implantação que não faz parte do cluster ou para um dos computadores que fará parte do cluster.
 
-## <a name="modify-cluster-configuration"></a>Modificar a configuração de cluster
-Para criar um cluster autónomo tem de criar autónomo cluster ClusterConfig.json ficheiro de configuração, que descreve a especificação do cluster. Pode basear o ficheiro de configuração sobre os modelos na ligação abaixo. <br>
-[Configurações de Cluster autónomo](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
+## <a name="modify-cluster-configuration"></a>Modificar configuração de cluster
+Para criar um cluster autônomo, você precisa criar um arquivo ClusterConfig. JSON de configuração de cluster autônomo, que descreve a especificação do cluster. Você pode basear o arquivo de configuração nos modelos encontrados no link abaixo. <br>
+[Configurações de cluster autônomo](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
-Para obter detalhes sobre as secções neste ficheiro, consulte [definições de configuração para cluster autónomo do Windows](service-fabric-cluster-manifest.md).
+Para obter detalhes sobre as seções neste arquivo, consulte [definições de configuração para o cluster autônomo do Windows](service-fabric-cluster-manifest.md).
 
-Abra um dos ficheiros ClusterConfig.json do pacote que transferiu e modifique as seguintes definições:
+Abra um dos arquivos ClusterConfig. JSON do pacote que você baixou e modifique as seguintes configurações:
 
 | **Definição de configuração** | **Descrição** |
 | --- | --- |
-| **NodeTypes** |Tipos de nó permitem-lhe separar os nós do cluster em vários grupos. Um cluster tem de ter, pelo menos, um NodeType. Todos os nós de um grupo têm as seguintes características comuns: <br> **Nome** -este é o nome do tipo de nó. <br>**Portas de pontos finais** - estes são denominados vários pontos de extremidade (portas) que estão associados este tipo de nó. Pode utilizar qualquer número de porta que deseja, desde que eles não entram em conflito com qualquer coisa nesse manifesto e já não está a ser utilizada por qualquer outro aplicativo em execução na máquina/VM. <br> **As propriedades de colocação** -descrevem estas propriedades para este tipo de nó que usa como restrições de posicionamento para os serviços do sistema ou os seus serviços. Essas propriedades são pares de chave/valor definido pelo utilizador que fornecem dados extras de metadados de um nó específico. Exemplos de propriedades de nó seria se o nó tem um disco rígido ou a placa gráfica, o número de spindles no seu disco rígido, núcleos e outras propriedades físicas. <br> **As capacidades** -as capacidades de nós definem o nome e a quantidade de um recurso específico que um determinado nó tem disponível para consumo. Por exemplo, um nó pode definir que ele tem capacidade para uma métrica chamada "MemoryInMb" e que tem a 2048 MB disponível por predefinição. Estas capacidades são utilizadas no tempo de execução para garantir que os serviços que necessitem de quantidades específicas de recursos são colocados em nós que que os recursos disponíveis nos valores necessários.<br>**IsPrimary** – se tiver mais do que um NodeType definido Certifique-se de que apenas um está definido como principal com o valor *true*, que é onde o sistema dos serviços de execução. Todos os outros tipos de nó devem ser definidos como o valor *FALSO* |
-| **Nós** |Estes são os detalhes para cada um de nós que fazem parte do cluster (tipo de nó, o nome do nó, endereço IP, domínio de falha e o domínio de atualização do nó). As máquinas que pretende que o cluster seja criado na necessidade de ser listados aqui com seus endereços IP. <br> Se utilizar o mesmo endereço IP para todos os nós, em seguida, one box é criado um cluster, que pode utilizar para fins de teste. Não utilize clusters One-box para a implementação de cargas de trabalho de produção. |
+| **NodeTypes** |Os tipos de nó permitem separar os nós de cluster em vários grupos. Um cluster deve ter pelo menos um NodeType. Todos os nós em um grupo têm as seguintes características comuns: <br> **Nome** – é o nome do tipo de nó. <br>**Portas de ponto de extremidade** -são vários pontos de extremidade nomeados (portas) que estão associados a esse tipo de nó. Você pode usar qualquer número de porta que desejar, desde que eles não entrem em conflito com nada mais neste manifesto e ainda não estejam em uso por nenhum outro aplicativo em execução no computador/VM. <br> **Propriedades de posicionamento** – descrevem as propriedades desse tipo de nó que você usa como restrições de posicionamento para os serviços do sistema ou seus serviços. Essas propriedades são pares de chave/valor definidos pelo usuário que fornecem metadados extras para um determinado nó. Exemplos de propriedades de nó seriam se o nó tem um disco rígido ou uma placa gráfica, o número de eixos em sua unidade de disco rígido, núcleos e outras propriedades físicas. <br> **Capacidades** – as capacidades do nó definem o nome e a quantidade de um recurso específico que um determinado nó tem disponível para consumo. Por exemplo, um nó pode definir que ele tenha capacidade para uma métrica chamada "MemoryInMb" e que tenha 2048 MB disponíveis por padrão. Essas capacidades são usadas em tempo de execução para garantir que os serviços que exigem quantidades específicas de recursos sejam colocados nos nós que têm esses recursos disponíveis nos valores necessários.<br>**IsPrimary** -se você tiver mais de um NodeType definido, verifique se apenas um está definido como Primary com o valor *true*, que é onde os serviços do sistema são executados. Todos os outros tipos de nó devem ser definidos como o valor *false* |
+| **Nós** |Estes são os detalhes de cada um dos nós que fazem parte do cluster (tipo de nó, nome do nó, endereço IP, domínio de falha e domínio de atualização do nó). Os computadores nos quais você deseja que o cluster seja criado precisam ser listados aqui com seus endereços IP. <br> Se você usar o mesmo endereço IP para todos os nós, um cluster de uma caixa será criado, que poderá ser usado para fins de teste. Não use clusters de uma caixa para implantar cargas de trabalho de produção. |
 
-Depois que a configuração do cluster tem tido todas as definições configuradas para o ambiente, ele pode ser testado contra o ambiente de cluster (etapa 7).
+Depois que a configuração do cluster tiver todas as configurações configuradas para o ambiente, ele poderá ser testado no ambiente de cluster (etapa 7).
 
 <a id="environmentsetup"></a>
 
 ## <a name="environment-setup"></a>Configuração do ambiente
 
-Quando um administrador de cluster configura um cluster autónomo do Service Fabric, o ambiente tem de ser configurado com os seguintes critérios: <br>
-1. O utilizador criar o cluster deve ter privilégios de segurança de nível de administrador para todas as máquinas que estão listadas como nós no ficheiro de configuração de cluster.
-2. Máquina a partir do qual o cluster for criado, bem como cada máquina do nó de cluster tem de:
-   * SDK do Service Fabric ter desinstalado
-   * Ter desinstalado de runtime do Service Fabric 
-   * Ativou o serviço de Firewall do Windows (mpssvc)
-   * Ativou o serviço de registo remoto (registo remoto)
-   * Ter o ficheiro que partilha (SMB) ativado
-   * Ter as portas necessárias abertas, com base nas portas de configuração de cluster
-   * Ter as portas necessárias abertas para o Windows SMB e o serviço de registro remoto: 135, 137, 138, 139 e 445
-   * Tem conectividade de rede entre si
-3. Nenhuma das máquinas de nó de cluster deve ser um controlador de domínio.
-4. Se o cluster ser implementado um cluster seguro, valide a pré-requisitos estão colocar e estão configurados corretamente em relação a configuração de segurança necessária.
-5. Se as máquinas de cluster não estiverem acessível pela internet, defina o seguinte na configuração do cluster:
-   * Desabilitar telemetria: Em *Propriedades* , defina *"enableTelemetry": false*
-   * Desabilite a versão automática do Fabric baixando & notificações de que a versão atual do cluster está se aproximando do fim do suporte: Em *Propriedades* , defina *"fabricClusterAutoupgradeEnabled": false*
-   * Em alternativa, se o acesso à internet de rede está limitado a domínios listados em branco, os domínios abaixo são necessários para a atualização automática: go.microsoft.com download.microsoft.com
+Quando um administrador de cluster configura um Cluster Service Fabric autônomo, o ambiente precisa ser configurado com os seguintes critérios: <br>
+1. O usuário que cria o cluster deve ter privilégios de segurança no nível de administrador para todos os computadores listados como nós no arquivo de configuração de cluster.
+2. Computador do qual o cluster é criado, bem como cada máquina de nó de cluster deve:
+   * Service Fabric SDK desinstalado
+   * Ter Service Fabric tempo de execução desinstalado 
+   * Habilitar o serviço de firewall do Windows (MpsSvc)
+   * Habilitar o serviço de registro remoto (registro remoto)
+   * Ter portas necessárias abertas, com base em portas de configuração de cluster
+   * Ter as portas necessárias abertas para o serviço de registro remoto: 135, 137, 138 e 139
+   * Ter conectividade de rede entre si
+3. Nenhum dos computadores do nó de cluster deve ser um controlador de domínio.
+4. Se o cluster a ser implantado for um cluster seguro, valide os pré-requisitos de segurança necessários e configurados corretamente em relação à configuração.
+5. Se os computadores do cluster não forem acessíveis pela Internet, defina o seguinte na configuração do cluster:
+   * Desabilitar telemetria: em *Propriedades* , defina *"enableTelemetry": false*
+   * Desabilite a versão automática do Fabric baixando & notificações de que a versão atual do cluster está se aproximando do fim do suporte: em *Properties* Set *"fabricClusterAutoupgradeEnabled": false*
+   * Como alternativa, se o acesso à rede na Internet estiver limitado a domínios listados em branco, os domínios abaixo serão necessários para a atualização automática: go.microsoft.com download.microsoft.com
 
-6. Definir exclusões do antivírus do Service Fabric apropriadas:
+6. Defina as exclusões de Service Fabric antivírus apropriadas:
 
-| **Diretórios de excluído antivírus** |
+| **Diretórios excluídos antivírus** |
 | --- |
-| Programa Files\Microsoft Service Fabric |
-| FabricDataRoot (a partir de configuração de cluster) |
-| FabricLogRoot (a partir de configuração de cluster) |
+| Programas de Programas\microsoft Service Fabric |
+| FabricDataRoot (da configuração de cluster) |
+| FabricLogRoot (da configuração de cluster) |
 
-| **Antivírus excluídos processos** |
+| **Processos de antivírus excluídos** |
 | --- |
-| Fabric.exe |
-| FabricHost.exe |
-| FabricInstallerService.exe |
-| FabricSetup.exe |
-| FabricDeployer.exe |
-| ImageBuilder.exe |
-| FabricGateway.exe |
-| FabricDCA.exe |
-| FabricFAS.exe |
-| FabricUOS.exe |
-| FabricRM.exe |
-| FileStoreService.exe |
+| Fabric. exe |
+| FabricHost. exe |
+| FabricInstallerService. exe |
+| FabricSetup. exe |
+| FabricDeployer. exe |
+| ImageBuilder. exe |
+| FabricGateway. exe |
+| O fabricdca. exe |
+| FabricFAS. exe |
+| FabricUOS. exe |
+| FabricRM. exe |
+| FileStoreService. exe |
 
-## <a name="validate-environment-using-testconfiguration-script"></a>Validar o ambiente usando o script de TestConfiguration
-O script de TestConfiguration.ps1 pode ser encontrado no pacote autónomo. Ele é usado como um analisador de melhores práticas para validar a alguns dos critérios acima e deve ser utilizado como uma verificação da funcionalidade ao validar se um cluster pode ser implementado num determinado ambiente. Se houver qualquer falha, consulte a lista sob [configuração do ambiente](service-fabric-cluster-standalone-deployment-preparation.md) para resolução de problemas. 
+## <a name="validate-environment-using-testconfiguration-script"></a>Validar o ambiente usando o script TestConfiguration
+O script TestConfiguration. ps1 pode ser encontrado no pacote autônomo. Ele é usado como uma Analisador de Práticas Recomendadas para validar alguns dos critérios acima e deve ser usado como uma verificação de sanidade para validar se um cluster pode ser implantado em um determinado ambiente. Se houver alguma falha, consulte a lista em configuração do [ambiente](service-fabric-cluster-standalone-deployment-preparation.md) para solução de problemas. 
 
-Este script pode ser executado em qualquer máquina que tenha acesso de administrador para todas as máquinas que estão listadas como nós no ficheiro de configuração de cluster. A máquina que este script é executado não tem de ser parte do cluster.
+Esse script pode ser executado em qualquer computador que tenha acesso de administrador a todos os computadores listados como nós no arquivo de configuração de cluster. O computador no qual este script é executado não precisa fazer parte do cluster.
 
 ```powershell
 PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json
@@ -160,12 +159,12 @@ FabricInstallable          : True
 Passed                     : True
 ```
 
-Atualmente este módulo de testes de configuração não valida a configuração de segurança para que isso deve ser feita de forma independente.  
+Atualmente, este módulo de teste de configuração não valida a configuração de segurança para que isso tenha que ser feito de forma independente.  
 
 > [!NOTE]
-> Estamos continuamente a efetuar melhoramentos para tornar este módulo mais robusto, portanto, se houver um caso de falha ou em falta que considerar que não é atualmente capturados por TestConfiguration, faça contato por meio de nosso [canais de suporte](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).   
+> Estamos continuamente fazendo melhorias para tornar este módulo mais robusto, portanto, se houver um caso inexistente ou ausente que você acredite que não é atualmente pego pelo TestConfiguration, informe-nos nos nossos [canais de suporte](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).   
 > 
 > 
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Criar um cluster autónomo no Windows Server](service-fabric-cluster-creation-for-windows-server.md)
+## <a name="next-steps"></a>Passos seguintes
+* [Criar um cluster autônomo em execução no Windows Server](service-fabric-cluster-creation-for-windows-server.md)

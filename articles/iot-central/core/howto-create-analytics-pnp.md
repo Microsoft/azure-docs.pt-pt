@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 040874f0ba5e2766aab8aa399bcae65a6676fa53
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: bcf19956d998ace88efbd4e1c9d787f1baeef642
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951136"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177384"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>Como usar a análise para analisar dados do dispositivo
 
@@ -39,7 +39,7 @@ A interface do usuário do Analytics é composta por três componentes principai
 
 Você precisará começar escolhendo um grupo de **dispositivos**e a telemetria que deseja analisar. Depois de terminar, selecione **analisar** para começar a visualizar seus dados.
 
-- **Grupo de dispositivos:** Um [grupo de dispositivos](howto-use-device-groups-pnp.md) é um grupo definido pelo usuário de seus dispositivos. Por exemplo, todos os refrigeradores em Oakland ou todas as versões de vento 2,0.
+- **Grupo de dispositivos:** Um [grupo de dispositivos](tutorial-use-device-groups-pnp.md) é um grupo definido pelo usuário de seus dispositivos. Por exemplo, todos os refrigeradores em Oakland ou todas as versões de vento 2,0.
 
 - **Telemetria:** Selecione a telemetria que você deseja analisar e explorar. Você pode selecionar vários telemetrias para analisar juntos. O método de agregação padrão é definido como média para numérico e contagem para o tipo de dados de cadeia de caracteres, respectivamente. Os métodos de agregação com suporte para tipos de dados numéricos são média, máximo, mínimo, contagem e soma.  Os métodos de agregação com suporte para o tipo de dados String são Count.
 

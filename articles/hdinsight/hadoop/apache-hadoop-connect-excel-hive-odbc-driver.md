@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 9923817e90062bdc0e458208474c651c929f772d
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 37cb05c4bf3822c9dc21b1fa9cd0ea4a2ba6d933
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044620"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177338"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Conectar o Excel ao Apache Hadoop no Azure HDInsight com o driver ODBC do Microsoft Hive
 
@@ -33,7 +33,7 @@ Antes de começar este artigo, você deve ter os seguintes itens:
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Instalar o driver ODBC do Microsoft Hive
 
-Baixe e instale a versão [driver ODBC do Microsoft Hive](https://go.microsoft.com/fwlink/?LinkID=286698) que corresponde à versão do aplicativo em que você usará o driver ODBC.  Para este artigo, o driver é usado para o Office Excel.
+Baixe e instale a versão [driver ODBC do Microsoft Hive](https://www.microsoft.com/download/details.aspx?id=40886) que corresponde à versão do aplicativo em que você usará o driver ODBC.  Para este artigo, o driver é usado para o Office Excel.
 
 ## <a name="create-apache-hive-odbc-data-source"></a>Criar Apache Hive fonte de dados ODBC
 

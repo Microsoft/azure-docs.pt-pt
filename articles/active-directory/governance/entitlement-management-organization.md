@@ -1,5 +1,5 @@
 ---
-title: Adicionar uma organização conectada no gerenciamento de direitos do Azure AD (versão prévia)-Azure Active Directory
+title: Adicionar uma organização conectada no gerenciamento de direitos do Azure AD-Azure Active Directory
 description: Saiba como permitir que as pessoas de fora da sua organização solicitem pacotes de acesso para que você possa colaborar em projetos.
 services: active-directory
 documentationCenter: ''
@@ -16,14 +16,14 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23d45db1f62b370a2692ed932572e16c247b8903
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9a8e5dc43170af8f33ad266edfa02ac5b41ca67a
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952488"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174135"
 ---
-# <a name="add-a-connected-organization-in-azure-ad-entitlement-management-preview"></a>Adicionar uma organização conectada no gerenciamento de direitos do Azure AD (versão prévia)
+# <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Adicionar uma organização conectada no gerenciamento de direitos do Azure AD
 
 O gerenciamento de direitos do Azure AD permite que você colabore com pessoas de fora da sua organização. Se você colabora com frequência com usuários em um diretório ou domínio externo do Azure AD, você pode adicioná-los como uma organização conectada. Este artigo descreve como adicionar uma organização conectada para que você possa permitir que usuários fora da sua organização solicitem recursos em seu diretório.
 
@@ -39,13 +39,11 @@ Você pode configurar duas organizações conectadas, uma para o Instituto de de
 
 Como os usuários do diretório ou domínio do Azure AD serão autenticados depende do tipo de autenticação. Os tipos de autenticação para organizações conectadas são os seguintes:
 
-| Tipo de autenticação | Estado |
-| --- | --- |
-| Azure AD | Suportadas |
-| [Federação direta](../b2b/direct-federation.md) | Pré-visualização |
-| [Senha de uso único](../b2b/one-time-passcode.md) (domínio) | Pré-visualização |
+- Azure AD
+- [Federação direta](../b2b/direct-federation.md)
+- [Senha de uso único](../b2b/one-time-passcode.md) (domínio)
 
-## <a name="add-a-connected-organization"></a>Adicionar uma organização conectada
+## <a name="add-a-connected-organization"></a>Adicionar uma organização associada
 
 Siga estas etapas para adicionar um diretório ou domínio externo do Azure AD como uma organização conectada.
 

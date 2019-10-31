@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 705e3818aef0338d9b34da7b0320b99594573fca
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e05515c2fd118c21f891be86fae6423affab0324
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985972"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160902"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configurar suas informações de segurança (versão prévia) no prompt da página de entrada
 
@@ -124,7 +124,7 @@ Ao usar senhas de aplicativo, é importante lembrar:
 
 1. Depois de concluir as seções anteriores do assistente, selecione **Avançar** e conclua a seção **senha do aplicativo** .
 
-2. Digite o nome do aplicativo que precisa da senha, por exemplo `Outlook 2010`, e selecione **Avançar**.
+2. Digite o nome do aplicativo que precisa da senha, por exemplo `Outlook 2010`e, em seguida, selecione **Avançar**.
 
     ![Adicionar o nome da senha do aplicativo no assistente](media/security-info/app-password-app-password.png)
 
@@ -136,7 +136,7 @@ Ao usar senhas de aplicativo, é importante lembrar:
 
     ![Página senha do aplicativo, com aviso de conclusão](media/security-info/app-password-complete.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para alterar, excluir ou atualizar métodos de informações de segurança padrão, consulte:
 
@@ -148,10 +148,10 @@ Ao usar senhas de aplicativo, é importante lembrar:
 
     - [Configure as informações de segurança para usar o email](security-info-setup-email.md).
 
-    - [Configure informações de segurança para usar perguntas de segurança](security-info-setup-questions.md)predefinidas.
+    - [Configure informações de segurança para usar perguntas de segurança predefinidas](security-info-setup-questions.md).
 
 - Para obter informações sobre como entrar usando o método especificado, consulte [como entrar](user-help-sign-in.md).
 
-- Redefina sua senha se você a tiver perdido ou esquecido, no [portal](https://passwordreset.microsoftonline.com/) de redefinição de senha ou siga as etapas no artigo [redefinir sua senha corporativa ou de estudante](user-help-reset-password.md) .
+- Redefina sua senha se você a tiver perdido ou esquecido, no [portal de redefinição de senha](https://passwordreset.microsoftonline.com/) ou siga as etapas no artigo [redefinir sua senha corporativa ou de estudante](active-directory-passwords-update-your-own-password.md) .
 
 - Obtenha dicas de solução de problemas e ajuda para problemas de conexão no artigo [não é possível entrar no seu conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) .

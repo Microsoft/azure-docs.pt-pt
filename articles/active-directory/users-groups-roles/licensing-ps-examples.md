@@ -14,19 +14,19 @@ ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e6ac548a4b7599857b116e8059acc51c21fdf4e
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 8965f4872ac88601a4a77dc48ba430c2f419250f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812252"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160573"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Exemplos do PowerShell e do Graph para licenciamento baseado em grupo no Azure AD
 
 A funcionalidade completa para o licenciamento baseado em grupo está disponível por meio do [portal do Azure](https://portal.azure.com), e atualmente o suporte do PowerShell e do Microsoft Graph é limitado a operações somente leitura. No entanto, há algumas tarefas úteis que podem ser executadas usando os [cmdlets](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) e Microsoft Graph existentes do PowerShell do MSOnline. Este documento fornece exemplos do que é possível.
 
 > [!NOTE]
-> Antes de começar a executar os cmdlets, certifique-se de se conectar à sua organização primeiro `Connect-MsolService`, executando o  cmdlet.
+> Antes de começar a executar os cmdlets, certifique-se de se conectar à sua organização primeiro, executando o cmdlet `Connect-MsolService` .
 
 > [!WARNING]
 > Esse código é fornecido como um exemplo para fins de demonstração. Se você pretende usá-lo em seu ambiente, considere testá-lo primeiro em uma pequena escala ou em um locatário de teste separado. Talvez seja necessário ajustar o código para atender às necessidades específicas do seu ambiente.
@@ -59,9 +59,9 @@ Saída:
 ```
 HTTP/1.1 200 OK
 {
-  “value”: [
+  "value": [
 {
-  “assignedLicenses”: [
+  "assignedLicenses": [
      {
           "accountId":"f1b45b40-57df-41f7-9596-7f2313883635",
           "skuId":"c7df2760-2c81-4ef7-b578-5b5392b571df",
@@ -406,7 +406,7 @@ HTTP/1.1 200 OK
       "id": "e61ff361-5baf-41f0-b2fd-380a6a5e406a",
       "licenseAssignmentState":[
         {
-          "skuId": "157870f6-e050-4b3c-ad5e-0f0a377c8f4d”,
+          "skuId": "157870f6-e050-4b3c-ad5e-0f0a377c8f4d",
           "disabledPlans":[],
           "assignedByGroup": null, # assigned directly.
           "state": "Active",
@@ -415,7 +415,7 @@ HTTP/1.1 200 OK
         {
           "skuId": "1f3174e2-ee9d-49e9-b917-e8d84650f895",
           "disabledPlans":[],
-          "assignedByGroup": “e61ff361-5baf-41f0-b2fd-380a6a5e406a”, # assigned by this group.
+          "assignedByGroup": "e61ff361-5baf-41f0-b2fd-380a6a5e406a", # assigned by this group.
           "state": "Active",
           "error": "None"
         },
@@ -617,7 +617,7 @@ UserId                               OperationResult
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.
 ```
 > [!NOTE]
-> Atualize os valores das variáveis `$skuId` e `$groupId`  que está sendo direcionado para remoção de licenças diretas de acordo com seu ambiente de teste antes de executar o script acima. 
+> Atualize os valores das variáveis `$skuId` e `$groupId` que está sendo direcionado para remoção de licenças diretas de acordo com seu ambiente de teste antes de executar o script acima. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -627,6 +627,6 @@ Para saber mais sobre o conjunto de recursos para o gerenciamento de licenças p
 * [Atribuir licenças a um grupo no Azure Active Directory](licensing-groups-assign.md)
 * [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](licensing-groups-resolve-problems.md)
 * [Como migrar os utilizadores licenciados individuais para o licenciamento baseado no grupo no Azure Active Directory](licensing-groups-migrate-users.md)
-* [Como migrar os utilizadores entre licenças de produto através do licenciamento com o botão com base em grupo no Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
+* [Como migrar usuários entre licenças de produto usando o licenciamento baseado em grupo no Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
 * [Cenários adicionais de licenciamento baseado no grupo do Azure Active Directory](licensing-group-advanced.md)
-* [Exemplos do PowerShell para licenciamento com o botão com base em grupo no Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)
+* [Exemplos do PowerShell para licenciamento baseado em grupo no Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)

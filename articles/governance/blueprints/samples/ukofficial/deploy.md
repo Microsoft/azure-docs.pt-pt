@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: ea58ef49aa4d901339bf87343f0eea8eb517011d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 1898820276d1906a49a95bc513a6689fce177f7d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299030"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162929"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Implantar os exemplos do Blueprint oficial do Reino Unido e do Reino Unido NHS
 
@@ -98,8 +98,8 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |Iniciativa Blueprint para o Reino Unido ou o NHS UK|Atribuição de política |Tipos de recursos para auditar logs de diagnóstico (política: iniciativa Blueprint para o Reino Unido ou NHS do Reino Unido) |Lista de tipos de recursos para auditoria se a configuração do log de diagnóstico está habilitada.  Para obter valores aceitáveis, consulte [serviços, esquemas e categorias com suporte para logs de diagnóstico do Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
-|\[Preview @ no__t-1: implantar o agente Log Analytics para VMs Linux |Atribuição de política |Opcional: lista de imagens de VM com suporte para o SO Linux para adicionar ao escopo (política: \[Preview @ no__t-1: implantar o agente Log Analytics para VMs Linux) |Adicional O valor padrão é _None_. Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Preview @ no__t-1: implantar Log Analytics agente para VMs do Windows |Atribuição de política |Opcional: lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo (política: \[Preview @ no__t-1: implantar Log Analytics agente para VMs do Windows) |Adicional O valor padrão é _None_. Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\]de visualização de \[: implantar o agente de Log Analytics para VMs Linux |Atribuição de política |Opcional: lista de imagens de VM com suporte para SO Linux para adicionar ao escopo (política: \[visualização\]: implantar o agente de Log Analytics para VMs Linux) |Adicional O valor padrão é _None_. Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows |Atribuição de política |Opcional: lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo (política: \[visualização\]: implantar o agente de Log Analytics para VMs do Windows) |Adicional O valor padrão é _None_. Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -109,7 +109,7 @@ Agora que você analisou as etapas para implantar os exemplos do plano gráfico 
 > [Plantas NHSis do Reino Unido e do Reino Unido-visão geral](./index.md)
 > [ru Official e ru NHS Blueprints – mapeamento de controle](./control-mapping.md)
 
-Artigos adicionais sobre esquemas e como utilizá-los:
+Artigos adicionais sobre plantas e como usá-los:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

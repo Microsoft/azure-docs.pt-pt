@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40d0cd29452b5473d16851451a88c93e78ef3f36
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: MT
+ms.openlocfilehash: 8b88337960eb92b8c27c0dd8cae8e545e4249ee9
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554434"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175735"
 ---
 # <a name="authentication-basics"></a>Noções básicas sobre autenticação
 

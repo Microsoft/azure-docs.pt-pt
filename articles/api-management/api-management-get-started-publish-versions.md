@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 1be70d3eb74d3a8f0eddb1e5c22e4234987276b3
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d0c837ac376f9d496baaf1ed67d0ec80c996804a
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073695"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176829"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Publicar várias versões da sua API 
 
@@ -37,8 +37,8 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
-+ Conclua o início rápido a seguir: [Crie uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
-+ Além disso, conclua o seguinte tutorial: [Importe e publique sua primeira API](import-and-publish.md).
++ Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
++ Conclua também o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
 
 ## <a name="add-a-new-version"></a>Adicionar uma nova versão
 
@@ -94,13 +94,12 @@ Para os autores de chamadas verem a nova versão, esta tem de ser adicionada a u
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Navegar até ao portal do programador para ver a versão
 
 1. Selecione **Portal do Programador** no menu superior.
-2. Selecione **APIs**, repare que **API da Conferência de Demonstração** mostra as versões **Original** e **v1**.
-3. Selecione **v1**.
-4. Repare no **URL do pedido** da primeira operação na lista. Indica que o caminho do URL da API inclui **v1**.
+2. Selecione **APIs** e clique na **API de conferência de demonstração**.
+3. Você deverá ver uma lista suspensa com várias versões ao lado do nome da API.
+4. Selecione **v1**.
+5. Repare no **URL do pedido** da primeira operação na lista. Indica que o caminho do URL da API inclui **v1**.
 
-    ![Menu de contexto da API - adicionar versão](media/api-management-getstarted-publish-versions/developer_portal.png)
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficará a saber como:
 

@@ -1,6 +1,6 @@
 ---
-title: Tutorial-criar seu primeiro pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)-Azure Active Directory
-description: Tutorial passo a passo sobre como criar seu primeiro pacote de acesso em Azure Active Directory gerenciamento de direitos (versão prévia).
+title: Tutorial-criar seu primeiro pacote de acesso no gerenciamento de direitos do Azure AD-Azure Active Directory
+description: Tutorial passo a passo sobre como criar seu primeiro pacote de acesso em Azure Active Directory gerenciamento de direitos.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/22/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e25213305e2bf73bfe6980c0a09ffc73bd4f94ae
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: de4d4a1825149a512d7abdb192d8fb9d49e85a20
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893681"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174869"
 ---
-# <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management-preview"></a>Tutorial: criar seu primeiro pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)
-
-> [!IMPORTANT]
-> O gerenciamento de direitos do Azure Active Directory (AD do Azure) está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: criar seu primeiro pacote de acesso no gerenciamento de direitos do Azure AD
 
 O gerenciamento de acesso a todos os recursos de que os funcionários precisam, como grupos, aplicativos e sites, é uma função importante para as organizações. Você deseja conceder aos funcionários o nível certo de acesso de que eles precisam para serem produtivos e remover o acesso quando não for mais necessário.
 
@@ -49,7 +44,7 @@ Para obter uma demonstração passo a passo do processo de implantação de Azur
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar o gerenciamento de direitos do Azure AD (versão prévia), você deve ter uma das seguintes licenças:
+Para usar o gerenciamento de direitos do Azure AD, você deve ter uma das seguintes licenças:
 
 - Azure AD Premium P2
 - Licença do Enterprise Mobility + Security (EMS) e5

@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78ddda8ff67cfdfebcf19f53c307c689884baf4d
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: a2e92ca85c485f8c93fc9202b9084ec37d7506e1
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942906"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175064"
 ---
-# <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como: Gerenciar dispositivos obsoletos no Azure AD
+# <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como gerenciar dispositivos obsoletos no Azure AD
 
 Idealmente, para concluir o ciclo de vida, deverá anular o registo dos dispositivos registados quando estes já não são necessários. No entanto, devido a vários motivos, como dispositivos perdidos, roubados ou danificados ou a reinstalações do SO, é comum haver dispositivos obsoletos no seu ambiente. Enquanto administrador de TI, é provável que precise de um método para remover os dispositivos obsoletos, para que os seus recursos se possam dedicar à gestão dos dispositivos que têm, efetivamente, de ser geridos.
 
@@ -70,7 +70,7 @@ Para limpar eficazmente os dispositivos obsoletos no seu ambiente, deve definir 
 Para atualizar um dispositivo no Azure AD, precisa de uma conta com uma das seguintes funções atribuída:
 
 - Administrador Global
-- Administrador de Dispositivos de Cloud
+- Administrador de dispositivo de nuvem
 - Administrador de Serviços do Intune
 
 Na sua política de limpeza, selecione as contas que têm as funções necessárias atribuídas. 
@@ -180,6 +180,6 @@ Qualquer autenticação em que esteja a ser utilizado um dispositivo para autent
 - **Dispositivo associado ao Azure AD** - os utilizadores não podem utilizar o dispositivo para iniciarem sessão. 
 - **Dispositivos móveis** - o utilizador não pode aceder aos recursos do Azure AD, como o Office 365. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma descrição geral sobre como gerir dispositivos no portal do Azure, veja [Managing devices using the Azure portal](device-management-azure-portal.md) (Gerir dispositivos no portal do Azure)

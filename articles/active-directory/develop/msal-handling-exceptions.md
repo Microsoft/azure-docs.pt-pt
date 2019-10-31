@@ -17,12 +17,12 @@ ms.date: 09/08/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: cc5139cb4d463b88f21b0c7a2c7e0383abdb9e1f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: fe8483bd6055acb0a2c741192ec80211b9969a16
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803117"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175879"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Manipular exceções e erros do MSAL
 

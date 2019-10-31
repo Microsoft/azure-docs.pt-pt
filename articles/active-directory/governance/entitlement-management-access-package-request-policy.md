@@ -1,6 +1,6 @@
 ---
-title: Alterar as configurações de solicitação e aprovação para um pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)-Azure Active Directory
-description: Saiba como alterar as configurações de solicitação e aprovação de um pacote do Access no gerenciamento de direitos Azure Active Directory (versão prévia).
+title: Alterar as configurações de solicitação e aprovação para um pacote de acesso no gerenciamento de direitos do Azure AD-Azure Active Directory
+description: Saiba como alterar as configurações de solicitação e aprovação de um pacote do Access no gerenciamento de direitos Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b060a17d9e7f795b6aad7df0e3e6349bbbd81b3
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 649a4a50766d26f73584dae4481652c8007b2e9e
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392504"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174672"
 ---
-# <a name="change-request-and-approval-settings-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>Alterar as configurações de solicitação e aprovação para um pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)
-
-> [!IMPORTANT]
-> O gerenciamento de direitos do Azure Active Directory (AD do Azure) está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="change-request-and-approval-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar as configurações de solicitação e aprovação para um pacote de acesso no gerenciamento de direitos do Azure AD
 
 Como um Gerenciador de pacotes do Access, você pode alterar os usuários que podem solicitar um pacote do Access a qualquer momento editando a política ou adicionando uma nova política. Você também pode alterar as configurações de aprovação.
 

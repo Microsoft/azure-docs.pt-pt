@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 10/02/2019
+ms.date: 10/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1af622f4b483abec757d1392bfa4fefe91c8bc49
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 840280eecce60ac74514404497b857cd5362c9a0
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990012"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73171642"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Tutorial: configurar um ambiente de visualização de Azure Time Series Insights
 
@@ -45,7 +45,7 @@ Nesta seção, você criará três dispositivos simulados que enviam dados para 
 
 1. Vá para a [página aceleradores de soluções do Azure IOT](https://www.azureiotsolutions.com/Accelerators). A página exibe vários exemplos predefinidos. Entre usando sua conta do Azure. Em seguida, selecione **simulação de dispositivo**.
 
-   [página de aceleradores de solução do Azure IoT![](media/v2-update-provision/device-one-accelerator.png)](media/v2-update-provision/device-one-accelerator.png#lightbox)
+   [página de aceleradores de solução do Azure IoT ![](media/v2-update-provision/device-one-accelerator.png)](media/v2-update-provision/device-one-accelerator.png#lightbox)
 
    Selecione **experimentar agora**.
 
@@ -60,7 +60,7 @@ Nesta seção, você criará três dispositivos simulados que enviam dados para 
  
     Selecione **criar solução**. Pode levar até 20 minutos para que a solução conclua a implantação.
 
-    [página de solução![criar a simulação de dispositivo](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
+    [página de solução ![criar a simulação de dispositivo](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
 
 ## <a name="create-a-preview-payg-environment"></a>Criar um ambiente de PAYG de visualização
 
@@ -89,7 +89,7 @@ Esta seção descreve como criar um ambiente de visualização Azure Time Series
    
    Selecione **Avançar: origem do evento**.
 
-   [Painel de![para criar um ambiente de Time Series Insights](media/v2-update-provision/payg-two-create.png)](media/v2-update-provision/payg-two-create.png#lightbox)
+   [Painel de ![para criar um ambiente de Time Series Insights](media/v2-update-provision/payg-two-create.png)](media/v2-update-provision/payg-two-create.png#lightbox)
 
 1. Na guia **origem do evento** , defina os seguintes parâmetros:
 
@@ -143,7 +143,7 @@ Agora que você implantou seu ambiente de Time Series Insights, transmita dados 
 
 1. Você será redirecionado para a página de **simulação de dispositivo do Microsoft Azure IOT** . No canto superior direito da página, selecione **nova simulação**.
 
-    [página de simulação do Azure IoT![](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
+    [página de simulação do Azure IoT ![](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
 
 1. No painel **configuração de simulação** , defina os seguintes parâmetros:
 
@@ -161,7 +161,7 @@ Agora que você implantou seu ambiente de Time Series Insights, transmita dados 
 
     No painel simulação de dispositivo, observe as informações mostradas para **dispositivos** e **mensagens ativos por segundo**.
 
-    [painel de simulação do Azure IoT![](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
+    [painel de simulação do Azure IoT ![](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
 
 ## <a name="analyze-data"></a>Analise os dados
 
@@ -173,7 +173,7 @@ Nesta seção, você executará a análise básica nos dados de série temporal 
 
 1. No Gerenciador, selecione o nó **instâncias de série temporal** para ver todas as instâncias de visualização de Azure Time Series insights no ambiente.
 
-    [Lista de![de instâncias não pai](media/v2-update-provision/analyze-two-unparented.png)](media/v2-update-provision/analyze-two-unparented.png#lightbox)
+    [Lista de ![de instâncias não pai](media/v2-update-provision/analyze-two-unparented.png)](media/v2-update-provision/analyze-two-unparented.png#lightbox)
 
 1. Selecione a primeira instância de série temporal. Em seguida, selecione **Mostrar pressão**.
 
@@ -181,11 +181,11 @@ Nesta seção, você executará a análise básica nos dados de série temporal 
 
     Um gráfico de série temporal é exibido. Altere o **intervalo** para **15s**.
 
-    [gráfico de série temporal![](media/v2-update-provision/analyze-four-chart.png)](media/v2-update-provision/analyze-four-chart.png#lightbox)
+    [gráfico de série temporal ![](media/v2-update-provision/analyze-four-chart.png)](media/v2-update-provision/analyze-four-chart.png#lightbox)
 
 1. Repita a etapa 3 com as outras duas instâncias de série temporal. Você pode exibir todas as instâncias de série temporal, conforme mostrado neste gráfico:
 
-    [Gráfico de![para todas as séries temporais](media/v2-update-provision/analyze-five-chart.png)](media/v2-update-provision/analyze-five-chart.png#lightbox)
+    [Gráfico de ![para todas as séries temporais](media/v2-update-provision/analyze-five-chart.png)](media/v2-update-provision/analyze-five-chart.png#lightbox)
 
 1. Na caixa de opção **período** , modifique o intervalo de tempo para ver as tendências de série temporal na última hora:
 
@@ -197,7 +197,7 @@ Nesta seção, você aplica um modelo para estruturar seus dados. Para concluir 
 
 1. No Gerenciador, selecione a guia **modelo** :
 
-   [guia modelo de![no Gerenciador](media/v2-update-provision/define-one-model.png)](media/v2-update-provision/define-one-model.png#lightbox)
+   [guia modelo de ![no Gerenciador](media/v2-update-provision/define-one-model.png)](media/v2-update-provision/define-one-model.png#lightbox)
 
 1. Selecione **Adicionar** para adicionar um tipo:
 
@@ -252,7 +252,7 @@ Nesta seção, você aplica um modelo para estruturar seus dados. Para concluir 
 
 1. A próxima etapa é adicionar uma hierarquia. Em **hierarquias**, selecione **Adicionar**:
 
-    [guia hierarquias![com o botão Adicionar](media/v2-update-provision/define-seven-hierarchy.png)](media/v2-update-provision/define-seven-hierarchy.png#lightbox)
+    [guia hierarquias ![com o botão Adicionar](media/v2-update-provision/define-seven-hierarchy.png)](media/v2-update-provision/define-seven-hierarchy.png#lightbox)
 
 1. No painel **Editar hierarquia** , defina os seguintes parâmetros:
 

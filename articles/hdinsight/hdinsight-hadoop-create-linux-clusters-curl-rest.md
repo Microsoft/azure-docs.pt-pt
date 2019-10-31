@@ -1,6 +1,6 @@
 ---
-title: Criar clusters do Apache Hadoop com a API de REST do Azure - Azure
-description: Saiba como criar clusters do HDInsight ao enviar modelos Azure Resource Manager para a API de REST do Azure.
+title: Criar clusters de Apache Hadoop usando a API REST do Azure-Azure
+description: Saiba como criar clusters HDInsight enviando Azure Resource Manager modelos para a API REST do Azure.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,29 +8,29 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: d771d91feaba942b88a0ddb68f0d997fad4a981e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 963dc71097a1ac53df77f3ab9c804b53597adeb5
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059408"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152009"
 ---
-# <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Criar clusters do Apache Hadoop com a API de REST do Azure
+# <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Criar clusters Apache Hadoop usando a API REST do Azure
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Saiba como criar um cluster de HDInsight com um modelo Azure Resource Manager e a API de REST do Azure.
+Saiba como criar um cluster HDInsight usando um modelo de Azure Resource Manager e a API REST do Azure.
 
-API REST do Azure permite-lhe efetuar operações de gestão nos serviços alojados na plataforma do Azure, incluindo a criação de novos recursos, tais como clusters do HDInsight.
+A API REST do Azure permite que você execute operações de gerenciamento em serviços hospedados na plataforma do Azure, incluindo a criação de novos recursos, como clusters HDInsight.
 
 > [!NOTE]  
-> Os passos neste documentam utilização a [curl (https://curl.haxx.se/) ](https://curl.haxx.se/) utilitário para comunicar com a API de REST do Azure.
+> As etapas neste documento usam o utilitário de [rotação (https://curl.haxx.se/)](https://curl.haxx.se/) para se comunicar com a API REST do Azure.
 
 ## <a name="create-a-template"></a>Criar um modelo
 
-Modelos Azure Resource Manager são documentos JSON que descrevem um **grupo de recursos** e todos os recursos no mesmo (por exemplo, o HDInsight). Essa abordagem baseada em modelo permite-lhe definir os recursos que precisa para o HDInsight num modelo.
+Os modelos de Azure Resource Manager são documentos JSON que descrevem um **grupo de recursos** e todos os recursos nele (como o HDInsight). Essa abordagem baseada em modelo permite que você defina os recursos necessários para o HDInsight em um modelo.
 
-O documento JSON seguinte é uma fusão dos arquivos de modelo e parâmetros [ https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), que cria um cluster baseado em Linux utilizar uma palavra-passe para proteger a conta de utilizador SSH.
+O documento JSON a seguir é uma fusão dos arquivos de modelo e parâmetros de [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), que cria um cluster baseado em Linux usando uma senha para proteger a conta de usuário SSH.
 
    ```json
    {
@@ -145,7 +145,7 @@ O documento JSON seguinte é uma fusão dos arquivos de modelo e parâmetros [ h
                                "name": "headnode",
                                "targetInstanceCount": "2",
                                "hardwareProfile": {
-                                   "vmSize": "Standard_D3"
+                                   "vmSize": "{}" 
                                },
                                "osProfile": {
                                    "linuxOperatingSystemProfile": {
@@ -158,7 +158,7 @@ O documento JSON seguinte é uma fusão dos arquivos de modelo e parâmetros [ h
                                "name": "workernode",
                                "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
                                "hardwareProfile": {
-                                   "vmSize": "Standard_D3"
+                                   "vmSize": "{}"
                                },
                                "osProfile": {
                                    "linuxOperatingSystemProfile": {
@@ -205,52 +205,52 @@ O documento JSON seguinte é uma fusão dos arquivos de modelo e parâmetros [ h
    }
    ```
 
-Neste exemplo é utilizado nos passos neste documento. Substituir o exemplo *valores* no **parâmetros** secção com os valores para o seu cluster.
+Este exemplo é usado nas etapas deste documento. Substitua os *valores* de exemplo na seção de **parâmetros** pelos valores para o cluster.
 
 > [!IMPORTANT]  
-> O modelo utiliza o número predefinido de nós de trabalho (4) para um cluster do HDInsight. Se pretender mais do que 32 nós de trabalho, em seguida, tem de selecionar um tamanho de nó principal com, pelo menos, 8 núcleos e 14 GB de ram.
+> O modelo usa o número padrão de nós de trabalho (4) para um cluster HDInsight. Se você planejar mais de 32 nós de trabalho, deverá selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
 >
 > Para obter mais informações sobre tamanhos de nós e custos associados, veja os [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Inicie sessão na sua subscrição do Azure
 
-Siga os passos documentados em [introdução à CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) e ligue à sua subscrição com o `az login` comando.
+Siga as etapas documentadas em introdução [ao CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) e conecte-se à sua assinatura usando o comando `az login`.
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
 > [!NOTE]  
-> Essas etapas são uma versão resumida do *criar principal de serviço com a palavra-passe* secção a [utilização do Azure CLI para criar um principal de serviço para aceder aos recursos](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) documento. Estes passos, criar um principal de serviço que é utilizado para autenticar para a API de REST do Azure.
+> Estas etapas são uma versão resumida da seção *criar entidade de serviço com a senha* do documento [usar CLI do Azure para criar uma entidade de serviço para acessar recursos](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) . Estas etapas criam uma entidade de serviço que é usada para autenticar a API REST do Azure.
 
-1. A partir de uma linha de comandos, utilize o seguinte comando para listar as subscrições do Azure.
+1. Em uma linha de comando, use o comando a seguir para listar suas assinaturas do Azure.
 
    ```bash
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
-    Na lista, selecione a subscrição que pretende utilizar e tenha em atenção a **Subscription_ID** e __Tenant_ID__ colunas. Guarde estes valores.
+    Na lista, selecione a assinatura que você deseja usar e observe as colunas **Subscription_ID** e __Tenant_ID__ . Salve esses valores.
 
-2. Utilize o seguinte comando para criar uma aplicação no Azure Active Directory.
+2. Use o comando a seguir para criar um aplicativo no Azure Active Directory.
 
    ```bash
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
    ```
 
-    Substitua os valores para o `--display-name`, `--homepage`, e `--identifier-uris` pelos seus próprios valores. Forneça uma palavra-passe para a nova entrada de Active Directory.
+    Substitua os valores do `--display-name`, `--homepage`e `--identifier-uris` pelos seus próprios valores. Forneça uma senha para a nova entrada de Active Directory.
 
    > [!NOTE]  
-   > O `--home-page` e `--identifier-uris` valores não é necessário fazer referência a uma página da web real alojado na internet. Têm de ser URIs únicos.
+   > Os valores `--home-page` e `--identifier-uris` não precisam fazer referência a uma página da Web real hospedada na Internet. Eles devem ser URIs exclusivos.
 
-   O valor devolvido deste comando é o __ID da aplicação__ para a nova aplicação. Guarde este valor.
+   O valor retornado desse comando é a __ID do aplicativo__ para o novo aplicativo. Salve esse valor.
 
-3. Utilize o seguinte comando para criar um principal de serviço com o **ID da aplicação**.
+3. Use o comando a seguir para criar uma entidade de serviço usando a **ID do aplicativo**.
 
    ```bash
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
-     O valor devolvido deste comando é o __ID de objeto__. Guarde este valor.
+     O valor retornado desse comando é a __ID do objeto__. Salve esse valor.
 
-4. Atribuir a **proprietário** função para o principal de serviço através do **ID de objeto** valor. Utilize o **ID de subscrição** que obteve anteriormente.
+4. Atribua a função de **proprietário** à entidade de serviço usando o valor de **ID de objeto** . Use a **ID de assinatura** obtida anteriormente.
 
    ```bash
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
@@ -258,7 +258,7 @@ Siga os passos documentados em [introdução à CLI do Azure](https://docs.micro
 
 ## <a name="get-an-authentication-token"></a>Obter um token de autenticação
 
-Utilize o seguinte comando para obter um token de autenticação:
+Use o seguinte comando para recuperar um token de autenticação:
 
 ```bash
 curl -X "POST" "https://login.microsoftonline.com/$TENANTID/oauth2/token" \
@@ -270,11 +270,11 @@ curl -X "POST" "https://login.microsoftonline.com/$TENANTID/oauth2/token" \
 --data-urlencode "resource=https://management.azure.com/"
 ```
 
-Definir `$TENANTID`, `$APPID`, e `$PASSWORD` para os valores de obteve ou utilizado anteriormente.
+Defina `$TENANTID`, `$APPID`e `$PASSWORD` para os valores obtidos ou usados anteriormente.
 
-Se este pedido é efetuada com êxito, receberá uma resposta 200 série e o corpo da resposta contém um documento JSON.
+Se essa solicitação for bem-sucedida, você receberá uma resposta da série 200 e o corpo da resposta conterá um documento JSON.
 
-O documento JSON devolvido por este pedido contém um elemento chamado **access_token**. O valor de **access_token** é utilizado para pedidos de autenticação para a API REST.
+O documento JSON retornado por essa solicitação contém um elemento chamado **access_token**. O valor de **access_token** é usado para autenticar solicitações para a API REST.
 
 ```json
 {
@@ -288,12 +288,12 @@ O documento JSON devolvido por este pedido contém um elemento chamado **access_
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Utilize o seguinte para criar um grupo de recursos.
+Use o seguinte para criar um grupo de recursos.
 
-* Definir `$SUBSCRIPTIONID` à subscrição do ID de recebido ao criar o principal de serviço.
-* Definir `$ACCESSTOKEN` para o token de acesso recebido no passo anterior.
-* Substitua `DATACENTERLOCATION` com o Centro de dados que pretende criar o grupo de recursos e recursos, no. Por exemplo, "Sul E.u.a.".
-* Definir `$RESOURCEGROUPNAME` para o nome que pretende utilizar para este grupo:
+* Defina `$SUBSCRIPTIONID` para a ID de assinatura recebida ao criar a entidade de serviço.
+* Defina `$ACCESSTOKEN` para o token de acesso recebido na etapa anterior.
+* Substitua `DATACENTERLOCATION` pelo data center você deseja criar o grupo de recursos e recursos no. Por exemplo, ' South EUA Central '.
+* Defina `$RESOURCEGROUPNAME` para o nome que você deseja usar para este grupo:
 
 ```bash
 curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME?api-version=2015-01-01" \
@@ -304,13 +304,13 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 }'
 ```
 
-Se este pedido é efetuada com êxito, receberá uma resposta 200 série e o corpo da resposta contém um documento JSON que contém informações sobre o grupo. O `"provisioningState"` elemento contém um valor de `"Succeeded"`.
+Se essa solicitação for bem-sucedida, você receberá uma resposta da série 200 e o corpo da resposta conterá um documento JSON que contém informações sobre o grupo. O elemento `"provisioningState"` contém um valor de `"Succeeded"`.
 
-## <a name="create-a-deployment"></a>Criar uma implementação
+## <a name="create-a-deployment"></a>Criar uma implantação
 
-Utilize o seguinte comando para implementar o modelo para o grupo de recursos.
+Use o comando a seguir para implantar o modelo no grupo de recursos.
 
-* Definir `$DEPLOYMENTNAME` para o nome que pretende utilizar para esta implementação.
+* Defina `$DEPLOYMENTNAME` para o nome que você deseja usar para essa implantação.
 
 ```bash
 curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME/providers/microsoft.resources/deployments/$DEPLOYMENTNAME?api-version=2015-01-01" \
@@ -320,18 +320,18 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 ```
 
 > [!NOTE]  
-> Se tiver guardado o modelo para um ficheiro, pode utilizar o seguinte comando em vez de `-d "{ template and parameters}"`:
+> Se você salvou o modelo em um arquivo, poderá usar o seguinte comando em vez de `-d "{ template and parameters}"`:
 >
 > `--data-binary "@/path/to/file.json"`
 
-Se este pedido é efetuada com êxito, receberá uma resposta 200 série e o corpo da resposta contém um documento JSON que contém informações sobre a operação de implementação.
+Se essa solicitação for bem-sucedida, você receberá uma resposta da série 200 e o corpo da resposta conterá um documento JSON que contém informações sobre a operação de implantação.
 
 > [!IMPORTANT]  
-> A implementação foi submetida, mas não foi concluído. Pode demorar vários minutos, normalmente, cerca de 15, para a implementação concluir.
+> A implantação foi enviada, mas não foi concluída. Pode levar vários minutos, geralmente cerca de 15, para que a implantação seja concluída.
 
-## <a name="check-the-status-of-a-deployment"></a>Verificar o estado de uma implementação
+## <a name="check-the-status-of-a-deployment"></a>Verificar o status de uma implantação
 
-Para verificar o estado da implementação, utilize o seguinte comando:
+Para verificar o status da implantação, use o seguinte comando:
 
 ```bash
 curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME/providers/microsoft.resources/deployments/$DEPLOYMENTNAME?api-version=2015-01-01" \
@@ -339,29 +339,29 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 -H "Content-Type: application/json"
 ```
 
-Este comando devolve um documento JSON que contém informações sobre a operação de implementação. O `"provisioningState"` elemento contém o estado da implementação. Se esse elemento contém um valor de `"Succeeded"`, em seguida, a implementação foi concluída com êxito.
+Esse comando retorna um documento JSON que contém informações sobre a operação de implantação. O elemento `"provisioningState"` contém o status da implantação. Se esse elemento contiver um valor de `"Succeeded"`, a implantação foi concluída com êxito.
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
 Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que criou com êxito um cluster do HDInsight, utilize o seguinte para aprender a trabalhar com o seu cluster.
+Agora que você criou um cluster HDInsight com êxito, use o seguinte para aprender a trabalhar com o cluster.
 
-### <a name="apache-hadoop-clusters"></a>Clusters do Apache Hadoop
+### <a name="apache-hadoop-clusters"></a>Clusters Apache Hadoop
 
-* [Utilizar o Apache Hive com o HDInsight](hadoop/hdinsight-use-hive.md)
-* [Utilizar o Apache Pig com o HDInsight](hadoop/hdinsight-use-pig.md)
-* [Utilizar o MapReduce com o HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Usar o Apache Hive com o HDInsight](hadoop/hdinsight-use-hive.md)
+* [Usar o Apache Pig com o HDInsight](hadoop/hdinsight-use-pig.md)
+* [Usar o MapReduce com o HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Clusters do Apache HBase
 
 * [Introdução ao Apache HBase no HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Desenvolver aplicações de Java para o Apache HBase no HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
+* [Desenvolver aplicativos Java para o Apache HBase no HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
-### <a name="apache-storm-clusters"></a>Clusters do Apache Storm
+### <a name="apache-storm-clusters"></a>Clusters Apache Storm
 
-* [Desenvolver topologias de Java para Apache Storm no HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Utilizar componentes de Python no Apache Storm no HDInsight](storm/apache-storm-develop-python-topology.md)
-* [Implementar e monitorizar topologias Apache Storm no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
+* [Desenvolver topologias Java para Apache Storm no HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Usar componentes do Python no Apache Storm no HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Implantar e monitorar topologias com Apache Storm no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

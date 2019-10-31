@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: notification-hubs
 ms.reviewer: jowargo
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 2bb66c52e48e2e872d7f67bfdea88602ba12e5de
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: e493ac10858aa374362d25f1467ded237b30ca44
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72518593"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177413"
 ---
 # <a name="azure-notification-hubs-updates-for-ios-13"></a>Atualizações dos hubs de notificação do Azure para iOS 13
 
@@ -46,7 +46,7 @@ await hub.SendNotificationAsync(notification);
 ```csharp
 var hub = NotificationHubClient.CreateFromConnectionString(...);
 var headers = new Dictionary<string, string> {{"apns-push-type", "alert"}};
-var notification = new ApnsNotification("notification text", headers);
+var notification = new AppleNotification("notification text", headers);
 await hub.SendNotificationAsync(notification);
 ```
 
@@ -70,7 +70,7 @@ Definir esse valor como 10 não é mais permitido para notificações em segundo
 ```csharp
 var hub = NotificationHubClient.CreateFromConnectionString(...);
 var headers = new Dictionary<string, string> {{"apns-push-type", "background"}, { "apns-priority", "5" }};
-var notification = new ApnsNotification("notification text", headers);
+var notification = new AppleNotification("notification text", headers);
 await hub.SendNotificationAsync(notification);
 ```
 

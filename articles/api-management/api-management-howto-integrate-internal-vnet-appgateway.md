@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: b994f75327cb78cd422d75682ee68ea7840a87e8
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: d1ab7089ba76890488aa73d03e0fd9fc8efbe4d5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193953"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176739"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrar o gerenciamento de API em uma VNET interna com o gateway de aplicativo
 
@@ -61,10 +61,10 @@ No primeiro exemplo de configuração, todas as suas APIs são gerenciadas somen
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>O que é necessário para criar uma integração entre o gerenciamento de API e o gateway de aplicativo?
 
 * **Pool de servidores back-end:** Esse é o endereço IP virtual interno do serviço de gerenciamento de API.
-* **Configurações do pool de servidores back-end:** Cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são aplicadas a todos os servidores no pool.
+* **Definições do conjunto de servidores de back-end:** cada conjunto tem definições como a porta, o protocolo e a afinidade com base em cookies. Essas configurações são aplicadas a todos os servidores no pool.
 * **Porta de front-end:** Essa é a porta pública que é aberta no gateway de aplicativo. O tráfego que o está atingindo é redirecionado para um dos servidores back-end.
-* **Listener** O ouvinte tem uma porta de front-end, um protocolo (http ou HTTPS, esses valores diferenciam maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento de SSL).
-* **Régua** A regra associa um ouvinte a um pool de servidores back-end.
+* **Serviço de escuta:** o serviço de escuta tem uma porta de front-end, um protocolo (Http ou Https; estes valores são sensíveis às maiúsculas e minúsculas) e o nome do certificado SSL (se configurar a descarga de SSL).
+* **Regra:** A regra associa um ouvinte a um pool de servidores back-end.
 * **Investigação de integridade personalizada:** Por padrão, o gateway de aplicativo usa investigações baseadas em endereço IP para descobrir quais servidores no BackendAddressPool estão ativos. O serviço de gerenciamento de API responde apenas às solicitações com o cabeçalho de host correto, portanto, as investigações padrão falham. Uma investigação de integridade personalizada precisa ser definida para ajudar o gateway de aplicativo a determinar que o serviço está ativo e deve encaminhar solicitações.
 * **Certificados de domínio personalizados:** Para acessar o gerenciamento de API da Internet, você precisa criar um mapeamento CNAME de seu nome de host para o DNS de front-end do gateway de aplicativo. Isso garante que o cabeçalho do nome do host e o certificado enviados ao gateway de aplicativo que é encaminhado para o gerenciamento de API é um APIM que pode reconhecer como válido. Neste exemplo, usaremos dois certificados – para o back-end e para o portal do desenvolvedor.  
 
@@ -86,11 +86,11 @@ Neste guia, também vamos expor o **portal do desenvolvedor** para públicos ext
 > Se você usar o Azure AD ou autenticação de terceiros, habilite o recurso de [afinidade de sessão baseada em cookie](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) no gateway de aplicativo.
 
 > [!WARNING]
-> Para impedir que o WAF do gateway de aplicativo quebre o download da especificação do OpenAPI no portal do desenvolvedor, você precisa desabilitar `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`a regra de firewall.
+> Para impedir que o WAF do gateway de aplicativo quebre o download da especificação do OpenAPI no portal do desenvolvedor, você precisa desabilitar a regra de firewall `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Criar um grupo de recursos para o Resource Manager
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Iniciar sessão no Azure
 
@@ -100,7 +100,7 @@ Connect-AzAccount
 
 Autentique com suas credenciais.
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
 Selecione a assinatura desejada.
 
@@ -109,7 +109,7 @@ $subscriptionId = "00000000-0000-0000-0000-000000000000" # GUID of your Azure su
 Get-AzSubscription -Subscriptionid $subscriptionId | Select-AzSubscription
 ```
 
-### <a name="step-3"></a>Passo 3
+### <a name="step-3"></a>Passo 3
 
 Crie um novo grupo de recursos (ignore este passo se estiver a utilizar um grupo de recursos existente).
 
@@ -125,7 +125,7 @@ O Azure Resource Manager requer que todos os grupos de recursos especifiquem uma
 
 O exemplo a seguir mostra como criar uma rede virtual usando o Gerenciador de recursos.
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Atribua o intervalo de endereços 10.0.0.0/24 à variável de sub-rede a ser usada para o gateway de aplicativo ao criar uma rede virtual.
 
@@ -133,7 +133,7 @@ Atribua o intervalo de endereços 10.0.0.0/24 à variável de sub-rede a ser usa
 $appgatewaysubnet = New-AzVirtualNetworkSubnetConfig -Name "apim01" -AddressPrefix "10.0.0.0/24"
 ```
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
 Atribua o intervalo de endereços 10.0.1.0/24 à variável de sub-rede a ser usada para gerenciamento de API durante a criação de uma rede virtual.
 
@@ -141,7 +141,7 @@ Atribua o intervalo de endereços 10.0.1.0/24 à variável de sub-rede a ser usa
 $apimsubnet = New-AzVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefix "10.0.1.0/24"
 ```
 
-### <a name="step-3"></a>Passo 3
+### <a name="step-3"></a>Passo 3
 
 Crie uma rede virtual chamada **appgwvnet** no grupo de recursos **APIM-appGw-RG** para a região oeste dos EUA. Use o prefixo 10.0.0.0/16 com sub-redes 10.0.0.0/24 e 10.0.1.0/24.
 
@@ -162,7 +162,7 @@ $apimsubnetdata = $vnet.Subnets[1]
 
 O exemplo a seguir mostra como criar um serviço de gerenciamento de API em uma VNET configurada somente para acesso interno.
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Crie um objeto de rede virtual de gerenciamento de API usando a sub-rede $apimsubnetdata criada acima.
 
@@ -170,7 +170,7 @@ Crie um objeto de rede virtual de gerenciamento de API usando a sub-rede $apimsu
 $apimVirtualNetwork = New-AzApiManagementVirtualNetwork -SubnetResourceId $apimsubnetdata.Id
 ```
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
 Crie um serviço de gerenciamento de API dentro da rede virtual.
 
@@ -185,9 +185,9 @@ Depois que o comando acima for executado com sucesso, consulte a [configuração
 
 ## <a name="set-up-a-custom-domain-name-in-api-management"></a>Configurar um nome de domínio personalizado no gerenciamento de API
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
-Inicialize as variáveis a seguir com os detalhes dos certificados com chaves privadas para os domínios. Neste exemplo, `api.contoso.net` usaremos e `portal.contoso.net`.  
+Inicialize as variáveis a seguir com os detalhes dos certificados com chaves privadas para os domínios. Neste exemplo, usaremos `api.contoso.net` e `portal.contoso.net`.  
 
 ```powershell
 $gatewayHostname = "api.contoso.net"                 # API gateway host
@@ -202,18 +202,21 @@ $certPwd = ConvertTo-SecureString -String $gatewayCertPfxPassword -AsPlainText -
 $certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainText -Force
 ```
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
 Crie e defina os objetos de configuração do nome do host para o proxy e para o Portal.  
 
 ```powershell
 $proxyHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $gatewayHostname -HostnameType Proxy -PfxPath $gatewayCertPfxPath -PfxPassword $certPwd
-$portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType Portal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
+$portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType DeveloperPortal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
 
 $apimService.ProxyCustomHostnameConfiguration = $proxyHostnameConfig
 $apimService.PortalCustomHostnameConfiguration = $portalHostnameConfig
 Set-AzApiManagement -InputObject $apimService
 ```
+
+> [!NOTE]
+> Para configurar a conectividade herdada do portal do desenvolvedor, você precisa substituir `-HostnameType DeveloperPortal` por `-HostnameType Portal`.
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Criar um endereço IP público para a configuração de front-end
 
@@ -229,7 +232,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName $resGroupName -name "public
 
 Tem de configurar todos os itens de configuração antes de criar o gateway de aplicação. Com os seguintes passos, irá criar os itens de configuração necessários para um recurso do gateway de aplicação.
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Crie uma configuração de IP do gateway de aplicação com o nome **gatewayIP01**. Ao iniciar, o Application Gateway escolhe um endereço IP na subrede configurada e encaminha o tráfego da rede para os endereços IP no conjunto de IPs de back-end. Note que cada instância terá um endereço IP.
 
@@ -237,7 +240,7 @@ Crie uma configuração de IP do gateway de aplicação com o nome **gatewayIP01
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name "gatewayIP01" -Subnet $appgatewaysubnetdata
 ```
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
 Configure a porta de IP de front-end para o ponto de extremidade de IP público. Essa porta é a porta à qual os usuários finais se conectam.
 
@@ -245,7 +248,7 @@ Configure a porta de IP de front-end para o ponto de extremidade de IP público.
 $fp01 = New-AzApplicationGatewayFrontendPort -Name "port01"  -Port 443
 ```
 
-### <a name="step-3"></a>Passo 3
+### <a name="step-3"></a>Passo 3
 
 Configure o IP de front-end com o ponto final de IP público.
 
@@ -273,10 +276,10 @@ $portalListener = New-AzApplicationGatewayHttpListener -Name "listener02" -Proto
 
 ### <a name="step-6"></a>Passo 6
 
-Crie investigações personalizadas para o ponto de extremidade do `ContosoApi` domínio do proxy do serviço de gerenciamento de API. O caminho `/status-0123456789abcdef` é um ponto de extremidade de integridade padrão hospedado em todos os serviços de gerenciamento de API. Defina `api.contoso.net` como um nome de host de investigação personalizado para protegê-lo com o certificado SSL.
+Crie investigações personalizadas para o serviço de gerenciamento de API `ContosoApi` ponto de extremidade de domínio de proxy. O caminho `/status-0123456789abcdef` é um ponto de extremidade de integridade padrão hospedado em todos os serviços de gerenciamento de API. Defina `api.contoso.net` como um nome de host de investigação personalizado para protegê-lo com o certificado SSL.
 
 > [!NOTE]
-> O nome `contosoapi.azure-api.net` do host é o nome de host de proxy padrão `contosoapi` configurado quando um serviço chamado é criado no Azure público.
+> O nome de host `contosoapi.azure-api.net` é o nome de host de proxy padrão configurado quando um serviço chamado `contosoapi` é criado no Azure público.
 >
 
 ```powershell
@@ -350,7 +353,7 @@ $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $resGroupN
 
 Depois de o gateway ser criado, o passo seguinte consiste em configurar o front-end para a comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que pode não ser fácil de usar.
 
-O nome DNS do gateway de aplicativo deve ser usado para criar um registro CNAME que aponta o nome de host do proxy APIM `api.contoso.net` (por exemplo, nos exemplos acima) para esse nome DNS. Para configurar o registro CNAME de IP de front-end, recupere os detalhes do gateway de aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress. O uso de registros A não é recomendado, pois o VIP pode ser alterado na reinicialização do gateway.
+O nome DNS do gateway de aplicativo deve ser usado para criar um registro CNAME que aponta o nome de host do proxy APIM (por exemplo, `api.contoso.net` nos exemplos acima) para esse nome DNS. Para configurar o registro CNAME de IP de front-end, recupere os detalhes do gateway de aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress. O uso de registros A não é recomendado, pois o VIP pode ser alterado na reinicialização do gateway.
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"

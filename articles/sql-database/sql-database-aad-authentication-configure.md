@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 10/16/2019
-ms.openlocfilehash: 82409bbe2f40e42a8331cd801649b93987a923d2
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1dbccf43d03907cefb68315b6908a35735f373ce
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550699"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177644"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurar e gerenciar a autenticação de Azure Active Directory com o SQL
 
@@ -208,7 +208,7 @@ Os dois procedimentos a seguir mostram como provisionar um administrador de Azur
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. No [portal do Azure](https://portal.azure.com/), no canto superior direito, selecione sua conexão para listar uma listagem de diretórios ativos possíveis. Escolha o Active Directory correto como o Azure AD padrão. Esta etapa vincula o Active Directory associado à assinatura ao SQL Server do Azure, certificando-se de que a mesma assinatura seja usada tanto para o Azure AD quanto para o SQL Server. (O SQL Server do Azure pode hospedar o banco de dados SQL do Azure ou o Azure SQL Data Warehouse.)  ![choose-][8] do AD
+1. No [portal do Azure](https://portal.azure.com/), no canto superior direito, selecione sua conexão para listar uma listagem de diretórios ativos possíveis. Escolha o Active Directory correto como o Azure AD padrão. Esta etapa vincula o Active Directory associado à assinatura ao SQL Server do Azure, certificando-se de que a mesma assinatura seja usada tanto para o Azure AD quanto para o SQL Server. (O SQL Server do Azure pode hospedar o banco de dados SQL do Azure ou o Azure SQL Data Warehouse.) escolha ![-ad][8]
 
 2. Na faixa à esquerda, selecione **todos os serviços**e, no tipo de filtro no **SQL Server**. Selecione **SQL Servers**.
 
@@ -218,13 +218,13 @@ Os dois procedimentos a seguir mostram como provisionar um administrador de Azur
     > Nesta página, antes de selecionar **SQL Servers**, você pode selecionar a **estrela** ao lado do nome para a categoria *favorita* e adicionar **servidores SQL** à barra de navegação à esquerda.
 
 3. Na página **SQL Server** , selecione **Active Directory admin**.
-4. Na página **administrador do Active Directory** , selecione **definir administrador**.   ](./media/sql-database-aad-authentication/select-active-directory.png) do ![select Active Directory  
+4. Na página **administrador do Active Directory** , selecione **definir administrador**.  ![selecionar](./media/sql-database-aad-authentication/select-active-directory.png) do Active Directory  
 
 5. Na página **Adicionar Administrador** , procure um usuário, selecione o usuário ou grupo que será um administrador e selecione **selecionar**. (A página de administração Active Directory mostra todos os membros e grupos de sua Active Directory. Os usuários ou grupos que estão esmaecidos não podem ser selecionados porque não têm suporte como administradores do Azure AD. (Consulte a lista de administradores com suporte na seção **recursos e limitações do Azure ad** de [usar Azure Active Directory autenticação para autenticação com o banco de dados SQL ou SQL data warehouse](sql-database-aad-authentication.md).) O RBAC (controle de acesso baseado em função) aplica-se somente ao portal e não é propagado para SQL Server.
-    ](./media/sql-database-aad-authentication/select-admin.png) do ![select admin  
+    ![selecionar](./media/sql-database-aad-authentication/select-admin.png) de administração  
 
 6. Na parte superior da página do **administrador do Active Directory** , selecione **salvar**.
-    ](./media/sql-database-aad-authentication/save-admin.png) do ![save admin
+    ![salvar](./media/sql-database-aad-authentication/save-admin.png) de administrador
 
 O processo de alteração do administrador pode levar vários minutos. Em seguida, o novo administrador aparece na caixa **Active Directory admin** .
 
@@ -465,7 +465,7 @@ Para obter mais informações, consulte [SQL Server blog de segurança](https://
 
 ### <a name="sqlcmd"></a>sqlcmd
 
-As instruções a seguir, conectem-se usando a versão 13,1 do sqlcmd, que está disponível no [centro de download](https://go.microsoft.com/fwlink/?LinkID=825643).
+As instruções a seguir, conectem-se usando a versão 13,1 do sqlcmd, que está disponível no [centro de download](https://www.microsoft.com/download/details.aspx?id=53591).
 
 > [!NOTE]
 > `sqlcmd` com o comando `-G` não funciona com as identidades do sistema e requer um logon principal do usuário.

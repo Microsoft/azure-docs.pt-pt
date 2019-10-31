@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
-ms.openlocfilehash: 04771ddc633c210ce8c7b3c42a9e46cb2f1ed349
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 4ec580c3d4c30fa4d86c24defb7eaded464dea3b
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122166"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177326"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Tutorial: Apache Hive de consulta com ODBC e PowerShell
 
@@ -36,13 +36,13 @@ Antes de começar este tutorial, tem de ter os seguintes itens:
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Instalar o driver ODBC do Microsoft Hive
 
-Baixe e instale o [driver ODBC do Microsoft Hive](https://go.microsoft.com/fwlink/?LinkID=286698).
+Baixe e instale o [driver ODBC do Microsoft Hive](https://www.microsoft.com/download/details.aspx?id=40886).
 
 ## <a name="create-apache-hive-odbc-data-source"></a>Criar Apache Hive fonte de dados ODBC
 
 As etapas a seguir mostram como criar uma fonte de dados Apache Hive ODBC.
 
-1. No Windows, navegue até **Iniciar** > as**ferramentas** > administrativas do Windows**fontes de dados ODBC (32 bits)/(64 bits)** .  Uma janela **administrador de fonte de dados ODBC** é aberta.
+1. No Windows, navegue até **iniciar** > **Ferramentas administrativas do Windows** > **fontes de dados ODBC (32 bits)/(64 bits)** .  Uma janela **administrador de fonte de dados ODBC** é aberta.
 
     ![Administrador de fonte de dados ODBC](./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png "Configurar um DSN usando o administrador de fonte de dados ODBC")
 
@@ -56,13 +56,13 @@ As etapas a seguir mostram como criar uma fonte de dados Apache Hive ODBC.
    | --- | --- |
    |  Nome da Origem de Dados |Atribua um nome para a sua origem de dados |
    |  Host (s) |Introduza `CLUSTERNAME.azurehdinsight.net`. Por exemplo, `myHDICluster.azurehdinsight.net` |
-   |  Port |Utilize **443**.|
+   |  Porta |Utilize **443**.|
    |  Base de Dados |Usar **padrão**. |
    |  Mecanismo |Selecione o **serviço HDInsight do Windows Azure** |
-   |  Nome de utilizador |Insira o nome de usuário HTTP do cluster HDInsight. O nome de utilizador predefinido é **admin**. |
+   |  Nome de Utilizador |Insira o nome de usuário HTTP do cluster HDInsight. O nome de utilizador predefinido é **admin**. |
    |  Palavra-passe |Insira a senha de usuário do cluster HDInsight. Marque a caixa de seleção **salvar senha (criptografada)** .|
 
-1. Opcional: Selecione **Opções avançadas**.  
+1. Opcional: selecione **Opções avançadas**.  
 
    | Parâmetro | Descrição |
    | --- | --- |

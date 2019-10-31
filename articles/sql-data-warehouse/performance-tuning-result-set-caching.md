@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
-ms.openlocfilehash: c659db91b8ca1ad65b00124bed347b8046328d2e
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 6dd3172dd9098db0cb7ec09e812eec65f717340a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044998"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163184"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ajuste de desempenho com cache de conjunto de resultados  
 Quando o cache do conjunto de resultados estiver habilitado, o Azure SQL Data Warehouse armazenará em cache automaticamente os resultados da consulta no banco de dados do usuário para uso repetitivo.  Isso permite que as execuções de consulta subsequentes obtenham resultados diretamente do cache persistente, de modo que a recomputação não seja necessária.   O cache do conjunto de resultados melhora o desempenho da consulta e reduz o uso de recursos de computação.  Além disso, as consultas que usam resultados em cache definidos não usam nenhum slot de simultaneidade e, portanto, não contam com os limites de simultaneidade existentes. Por segurança, os usuários só poderão acessar os resultados armazenados em cache se tiverem as mesmas permissões de acesso a dados que os usuários que criam os resultados armazenados em cache.  
@@ -37,7 +37,24 @@ Quando o cache do conjunto de resultados está ativado para um banco de dados, o
 - Consultas que usam tabelas com segurança em nível de linha ou segurança em nível de coluna habilitada
 - Consultas retornando dados com tamanho de linha maior que 64 KB
 
-Consultas com grandes conjuntos de resultados (por exemplo, > 1 milhão linhas) podem sofrer um desempenho mais lento durante a primeira execução quando o cache de resultados está sendo criado.
+> [!IMPORTANT]
+> As operações para criar o cache do conjunto de resultados e recuperar dados do cache acontecem no nó de controle de uma instância de data warehouse. Quando o cache do conjunto de resultados está ativado, a execução de consultas que retornam um conjunto de resultados grande (por exemplo, > 1 milhão de linhas) pode causar alto uso da CPU no nó de controle e reduzir a resposta geral da consulta na instância.  Essas consultas são usadas normalmente durante a exploração de dados ou operações de ETL. Para evitar a sobrecarga do nó de controle e causar problemas de desempenho, os usuários devem desativar o cache do conjunto de resultados no banco de dados antes de executar esses tipos de consultas.  
+
+Execute esta consulta para o tempo gasto pelas operações de cache do conjunto de resultados para uma consulta:
+
+```sql
+SELECT step_index, operation_type, location_type, status, total_elapsed_time, command 
+FROM sys.dm_pdw_request_steps 
+WHERE request_id  = <'request_id'>; 
+```
+
+Aqui está um exemplo de saída para uma consulta executada com o cache de conjunto de resultados desabilitado.
+
+![Consulta-etapas-com-RSC-desabilitado](media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
+
+Aqui está um exemplo de saída para uma consulta executada com o cache do conjunto de resultados habilitado.
+
+![Consulta-etapas-com-habilitado para RSC](media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
 
 ## <a name="when-cached-results-are-used"></a>Quando os resultados armazenados em cache são usados
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6996b6163c1d5a2a4747093743a937dfd9eb7d4f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5aab9d8c2b7993598c602ae6b730baff06d807e1
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933124"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151623"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Concluir uma implantação de autenticação com senha
 
@@ -104,18 +104,27 @@ As chaves de segurança habilitam o acesso aos seus recursos e você deve planej
 
 Habilitar a entrada do Windows 10 usando chaves de segurança FIDO2 requer a habilitação da funcionalidade do provedor de credenciais no Windows 10. Habilite-o de uma das duas maneiras:
 
-- [Habilitar o provedor de credenciais por meio da implantação de destino do Intune](howto-authentication-passwordless-security-key.md#enable-targeted-intune-deployment)
-   - A implantação do Intune é a opção recomendada para Azure Active Directory máquinas Unidas.
-- [Habilitar o provedor de credenciais por meio do pacote de provisionamento](howto-authentication-passwordless-security-key.md#enable-credential-provider-via-provisioning-package)
+- [Habilitar provedor de credenciais com o Intune](howto-authentication-passwordless-security-key-windows.md#enable-with-intune)
+   - A implantação do Intune é a opção recomendada.
+- [Habilitar o provedor de credenciais com um pacote de provisionamento](howto-authentication-passwordless-security-key-windows.md#enable-with-a-provisioning-package)
    - Se a implantação do Intune não for possível, os administradores deverão implantar um pacote em cada computador para habilitar a funcionalidade do provedor de credenciais. A instalação do pacote pode ser executada por uma das seguintes opções:
       - Política de Grupo ou System Center Configuration Manager (SCCM)
       - Instalação local em um computador com Windows 10
+- [Habilitar provedor de credenciais com Política de Grupo](howto-authentication-passwordless-security-key-windows.md#enable-with-group-policy)
+   - Somente com suporte para dispositivos ingressados no Azure AD híbrido.
+
+#### <a name="enable-on-premises-integration"></a>Habilitar a integração local
+
+Siga as etapas no artigo [habilitar a entrada de chave de segurança sem senha para recursos locais (versão prévia)](howto-authentication-passwordless-security-key-on-premises.md) para habilitar o acesso a recursos locais.
+
+> [!IMPORTANT]
+> Essas etapas também devem ser concluídas para qualquer dispositivo ingressado no Azure AD híbrido para utilizar as chaves de segurança do FIDO2 para entrar no Windows 10.
 
 ### <a name="register-security-keys"></a>Registrar chaves de segurança
 
 Os usuários devem registrar sua chave de segurança em cada um de seus Azure Active Directory máquinas com Windows 10 Unidas.
 
-Para obter mais informações, consulte [registro de usuário e gerenciamento de chaves de segurança FIDO2](howto-authentication-passwordless-security-key.md).
+Para obter mais informações, consulte [registro de usuário e gerenciamento de chaves de segurança FIDO2](howto-authentication-passwordless-security-key.md#user-registration-and-management-of-fido2-security-keys).
 
 ### <a name="licensing-for-passwordless-authentication"></a>Licenciamento para autenticação com senha
 
@@ -257,7 +266,7 @@ Siga as etapas no artigo habilitar a [entrada sem senha com o aplicativo Microso
 ### <a name="deploy-fido2-security-key-sign-in"></a>Implantar entrada de chave de segurança FIDO2
 
 Siga as etapas no artigo habilitar a [entrada de chave de segurança sem senha para o Azure ad](howto-authentication-passwordless-security-key.md) para habilitar as chaves de segurança FIDO2 como métodos de autenticação sem senha em sua organização.
- 
+
 ### <a name="troubleshoot-phone-sign-in"></a>Solucionar problemas de entrada no telefone
 
 | Cenário | Solução |

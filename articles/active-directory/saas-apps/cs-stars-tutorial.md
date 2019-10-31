@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5704d151-afb8-40a4-b286-8bacd4f279ee
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 635d04e049b66452fa000048082aced9aa62c20a
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: e0c4cb553ee7edc92b5cb3d319631a985de476b8
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241364"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159299"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Tutorial: integração de Azure Active Directory com estrelas CS
 
@@ -148,7 +149,7 @@ O objetivo desta seção é criar um usuário de teste no portal do Azure chamad
 
     a. No campo **nome** , insira **brendafernandes**.
   
-    b. No campo **nome de usuário** **, digite brendafernandes @ no__t-2yourcompanydomain. Extension**  
+    b. No campo **nome de usuário** , digite **brendafernandes\@yourcompanydomain. Extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.

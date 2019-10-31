@@ -7,16 +7,16 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/16/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 9f2edd99c50de332890fe862e7fb5e2405e2d369
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 41e61376d12d447dd480a39ef7200db6af7cca89
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70014035"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172859"
 ---
-# <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Tutorial: Habilitar a sincronização de senha em Azure Active Directory Domain Services para ambientes híbridos
+# <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Tutorial: habilitar a sincronização de senha em Azure Active Directory Domain Services para ambientes híbridos
 
 Para ambientes híbridos, um locatário Azure Active Directory (Azure AD) pode ser configurado para sincronizar com um ambiente de Active Directory Domain Services (AD DS) local usando Azure AD Connect. Por padrão, Azure AD Connect não sincroniza os hashes de senha Kerberos e NTLM (NT LAN Manager) herdados necessários para Azure Active Directory Domain Services (Azure AD DS).
 
@@ -57,7 +57,7 @@ Azure AD Connect pode ser configurado para sincronizar os hashes de senha NTLM o
 Com Azure AD Connect instalado e configurado para sincronizar com o Azure AD, agora configure a sincronização de hash de senha herdada para NTLM e Kerberos. Um script do PowerShell é usado para definir as configurações necessárias e, em seguida, iniciar uma sincronização de senha completa para o Azure AD. Quando esse Azure AD Connect processo de sincronização de hash de senha for concluído, os usuários poderão entrar em aplicativos por meio de AD DS do Azure que usam hashes de senha NTLM ou Kerberos herdados.
 
 1. No computador com Azure AD Connect instalado, no menu Iniciar, abra o **Azure AD Connect > serviço de sincronização**.
-1. Selecione a guia conectores. As informações de conexão usadas para estabelecer a sincronização entre o ambiente de AD DS local e o Azure AD são listadas.
+1. Selecione a guia **conectores** . As informações de conexão usadas para estabelecer a sincronização entre o ambiente de AD DS local e o Azure AD são listadas.
 
     O **tipo** indica o *Windows Azure Active Directory (Microsoft)* para o conector do Azure ad ou *Active Directory Domain Services* para o conector de AD DS local. Anote os nomes de conector a serem usados no script do PowerShell na próxima etapa.
 
@@ -68,7 +68,7 @@ Com Azure AD Connect instalado e configurado para sincronizar com o Azure AD, ag
     * O conector do AD do Azure é denominado *contoso.onmicrosoft.com-AAD*
     * O conector de AD DS local é chamado de *OnPrem.contoso.com*
 
-1. Copie e cole o seguinte script do PowerShell no computador com Azure AD Connect instalado. O script dispara uma sincronização de senha completa que inclui hashes de senha herdados. Atualize as `$azureadConnector` variáveis `$adConnector` e com os nomes dos conectores da etapa anterior.
+1. Copie e cole o seguinte script do PowerShell no computador com Azure AD Connect instalado. O script dispara uma sincronização de senha completa que inclui hashes de senha herdados. Atualize as variáveis `$azureadConnector` e `$adConnector` com os nomes dos conectores da etapa anterior.
 
     Execute esse script em cada floresta do AD para sincronizar os hashes de senha NTLM e Kerberos da conta local com o Azure AD.
 
@@ -94,7 +94,7 @@ Com Azure AD Connect instalado e configurado para sincronizar com o Azure AD, ag
 
     Dependendo do tamanho do diretório em termos de número de contas e grupos, a sincronização dos hashes de senha herdados para o Azure AD pode levar algum tempo. As senhas são então sincronizadas com o domínio gerenciado AD DS do Azure depois de serem sincronizadas com o Azure AD.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu:
 

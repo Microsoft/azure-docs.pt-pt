@@ -11,20 +11,22 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/19/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: eb06c1c5db20f3216c5c8e81580e445f9c0ba804
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072604"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176801"
 ---
 # <a name="developer-portal-templates"></a>Modelos do portal do desenvolvedor
 
-O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configuram seu conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como [DotLiquid para designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de [recursos de cadeia de caracteres](api-management-template-resources.md#strings)localizados, recursos de glifos e [controles de página](api-management-page-controls.md), você tem grande flexibilidade para configurar [](api-management-template-resources.md#glyphs) o conteúdo das páginas como você vê para se ajustar usando esses modelos.  
+O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configuram seu conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como [DotLiquid para designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de [recursos de cadeia de caracteres](api-management-template-resources.md#strings)localizados, recursos de [glifos](api-management-template-resources.md#glyphs)e [controles de página](api-management-page-controls.md), você tem grande flexibilidade para configurar o conteúdo das páginas como você vê para se ajustar usando esses modelos.  
   
 Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do desenvolvedor de gerenciamento de API usando modelos](api-management-developer-portal-templates.md).  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -40,14 +42,14 @@ Para obter mais informações sobre como trabalhar com modelos, consulte [como p
         -   [JavaScript](api-management-api-templates.md#JavaScript)  
         -   [Objetivo C](api-management-api-templates.md#ObjectiveC)  
         -   [PHP](api-management-api-templates.md#PHP)  
-        -   [python](api-management-api-templates.md#Python)  
+        -   [Python](api-management-api-templates.md#Python)  
         -   [Ruby](api-management-api-templates.md#Ruby)  
 -   [Produtos](api-management-product-templates.md)  
     -   [Lista de produtos](api-management-product-templates.md#ProductList)  
     -   [Remessa](api-management-product-templates.md#Product)  
 -   [Aplicações](api-management-application-templates.md)  
     -   [Lista de aplicativos](api-management-application-templates.md#ProductList)  
-    -   [Aplicação](api-management-application-templates.md#Application)  
+    -   [Aplicativo](api-management-application-templates.md#Application)  
 -   [Problemas](api-management-issue-templates.md)  
     -   [Lista de problemas](api-management-issue-templates.md#IssueList)  
 -   [Perfil do usuário](api-management-user-profile-templates.md)  
@@ -56,7 +58,7 @@ Para obter mais informações sobre como trabalhar com modelos, consulte [como p
     -   [Aplicações](api-management-user-profile-templates.md#Applications)  
     -   [Atualizar informações da conta](api-management-user-profile-templates.md#UpdateAccountInfo)  
 -   [Páginas](api-management-page-templates.md)  
-    -   [Iniciar sessão](api-management-page-templates.md#SignIn)  
+    -   [Entrar](api-management-page-templates.md#SignIn)  
     -   [Inscreva-se](api-management-page-templates.md#SignUp)  
     -   [Página não encontrada](api-management-page-templates.md#PageNotFound)
 

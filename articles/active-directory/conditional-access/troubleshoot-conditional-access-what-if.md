@@ -11,20 +11,23 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1d463bc889385f8f157ebb9892acc7a4a8b2a2e
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 661afc08c76c6cde61b02a29a55b4a8bec932e21
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278547"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175788"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Solucionando problemas de acesso condicional usando a ferramenta de What If
 
 A [ferramenta de What If](what-if-tool.md) no acesso condicional é eficiente ao tentar entender por que uma política foi ou não foi aplicada a um usuário em uma circunstância específica ou se uma política se aplicaria em um estado conhecido.
 
-A ferramenta de What If está localizada no **portal do Azure** > **Azure Active Directory** > **What If**de**acesso** > condicional.
+A ferramenta de What If está localizada na **portal do Azure** > **Azure Active Directory** > **acesso condicional** > **What If.**
 
 ![Ferramenta de What If de acesso condicional no estado padrão](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-tool.png)
+
+> [!NOTE]
+> Atualmente, a ferramenta de What If não avalia políticas no modo somente de relatório.
 
 ## <a name="gathering-information"></a>Coletando informações
 
@@ -34,7 +37,7 @@ As informações adicionais a seguir são opcionais, mas ajudarão a restringir 
 
 * Aplicativos de nuvem ou ações
 * Endereço IP 
-* Country
+* País
 * Plataforma do dispositivo
 * Aplicativos cliente (visualização)
 * Estado do dispositivo (versão prévia) 
@@ -75,4 +78,4 @@ Esse teste pode ser expandido para incorporar outros pontos de dados para restri
 * [O que é o acesso condicional?](overview.md)
 * [O que é Azure Active Directory Identity Protection?](../identity-protection/overview-v2.md)
 * [O que é uma identidade de dispositivo?](../devices/overview.md)
-* [Como funciona: Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) (Como funciona: Multi-Factor Authentication do Azure)
+* [Como funciona: Multi-Factor Authentication do Azure](../authentication/concept-mfa-howitworks.md)

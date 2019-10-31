@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba53049d580f3f90499dc0471b9ac981f4a374f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: MT
+ms.openlocfilehash: 00e5e4a9751a03fe961fe02fec28f41b49e5ba43
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562161"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175153"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Entenda as estações de trabalho seguras e gerenciadas pelo Azure
 
@@ -85,7 +85,7 @@ Essencial para uma estação de trabalho segura é uma solução de cadeia de fo
 ## <a name="device-roles-and-profiles"></a>Perfis e funções de dispositivo
 
 Esta orientação faz referência a vários perfis de segurança e funções que podem ajudá-lo a criar soluções mais seguras para usuários, desenvolvedores e pessoal de ti. Esses perfis equilibram a usabilidade e os riscos para usuários comuns que podem se beneficiar de uma estação de trabalho avançada ou segura. As configurações fornecidas aqui são baseadas nos padrões aceitos do setor. Esta orientação mostra como proteger o Windows 10 e reduzir os riscos associados ao comprometimento do dispositivo ou do usuário. Ele faz isso usando a política e a tecnologia para ajudar a gerenciar recursos e riscos de segurança.
-![Proteger níveis de estação de trabalho](./media/concept-azure-managed-workstation/seccon-levels.png)
+![proteger os níveis de estação de trabalho](./media/concept-azure-managed-workstation/seccon-levels.png)
 
 * **Baixa segurança** – uma estação de trabalho gerenciada e padrão fornece um bom ponto de partida para a maioria dos negócios de uso doméstico e de pequena empresa. Esses dispositivos são registrados no Azure AD e gerenciados com o Intune. Esse perfil permite que os usuários executem qualquer aplicativo e naveguem por qualquer site. Uma solução antimalware como [o Microsoft defender](https://www.microsoft.com/windows/comprehensive-security) deve ser habilitada.
 

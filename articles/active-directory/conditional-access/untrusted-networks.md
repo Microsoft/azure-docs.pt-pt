@@ -1,6 +1,6 @@
 ---
-title: Como requerer a autenticação multifator (MFA) para acesso a partir de redes não fidedignas com acesso condicional do Azure Active Directory (Azure AD) | Documentos da Microsoft
-description: Saiba como configurar uma política de acesso condicional no Azure Active Directory (Azure AD) para tentativas de acesso a partir de redes não confiáveis.
+title: Como exigir a MFA (autenticação multifator) para acesso de redes não confiáveis com o acesso condicional do Azure Active Directory (Azure AD) | Microsoft Docs
+description: Saiba como configurar uma política de acesso condicional no Azure Active Directory (Azure AD) para para tentativas de acesso de redes não confiáveis.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,62 +11,62 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b75e9aa3c588f5046ec55c0d809ca74060ad9c2
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 39ec09c1ecb94a5ae189317d89cce4bc8f279b48
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509330"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175696"
 ---
-# <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Como: Exigir a MFA para acesso a partir de redes não fidedignas com acesso condicional   
+# <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Como: exigir MFA para acesso de redes não confiáveis com acesso condicional   
 
-O Azure Active Directory (Azure AD) permite início de sessão único para dispositivos, aplicações e serviços de qualquer lugar. Os utilizadores podem aceder a suas aplicações na cloud não apenas da rede da sua organização, mas também de qualquer local de Internet não fidedigno. É melhor prática comum para acesso a partir de redes não fidedignas exigir autenticação multifator (MFA).
+O Azure Active Directory (AD do Azure) habilita o logon único para dispositivos, aplicativos e serviços de qualquer lugar. Os usuários podem acessar seus aplicativos de nuvem não apenas da rede da sua organização, mas também de qualquer local de Internet não confiável. Uma prática recomendada comum para o acesso de redes não confiáveis é exigir a MFA (autenticação multifator).
 
-Este artigo dá-lhe as informações necessárias configurar uma política de acesso condicional que exige o MFA para acesso a partir de redes não fidedignas. 
+Este artigo fornece as informações necessárias para configurar uma política de acesso condicional que requer MFA para acesso de redes não confiáveis. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que está familiarizado com: 
+Este artigo pressupõe que você esteja familiarizado com: 
 
-- O [conceitos básicos](overview.md) de acesso condicional do Azure AD 
-- O [melhores práticas](best-practices.md) para configurar políticas de acesso condicional no portal do Azure
+- Os [conceitos básicos](overview.md) do acesso condicional do Azure AD 
+- As [práticas recomendadas](best-practices.md) para configurar políticas de acesso condicional no portal do Azure
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Dominar o equilíbrio entre segurança e produtividade, poderá ser suficiente para que possa apenas exigir uma palavra-passe para inícios de sessão de rede da sua organização. No entanto, para obter acesso a partir de uma localização de rede não fidedigna, há um maior risco de inícios de sessão não são realizadas por utilizadores legítimos. Para abordar esta questão, pode bloquear o acesso a partir de redes não fidedignas. Em alternativa, pode também exigir a autenticação multifator (MFA) para obter a garantia de adicional que foi efetuada uma tentativa pelo legítimo proprietário da conta. 
+Para dominar o equilíbrio entre segurança e produtividade, pode ser suficiente para que você precise apenas de uma senha para entradas da rede da sua organização. No entanto, para acesso de um local de rede não confiável, há um risco maior de que as entradas não são executadas por usuários legítimos. Para resolver essa preocupação, você pode bloquear o acesso de redes não confiáveis. Como alternativa, você também pode exigir a MFA (autenticação multifator) para obter uma garantia adicional de que uma tentativa foi feita pelo proprietário legítimo da conta. 
 
-Com acesso condicional do Azure AD, pode solucionar esse requisito com uma única política que concede acesso: 
+Com o acesso condicional do Azure AD, você pode atender a esse requisito com uma única política que concede acesso: 
 
-- Para aplicações na cloud selecionada
-- Para utilizadores e grupos selecionados  
-- Exigir autenticação multifator 
-- Quando o acesso é originado de: 
-   - Uma localização que não é fidedigna
+- Para aplicativos de nuvem selecionados
+- Para usuários e grupos selecionados  
+- Exigindo a autenticação multifator 
+- Quando o acesso é originado em: 
+   - Um local que não é confiável
 
 ## <a name="implementation"></a>Implementação
 
-O desafio desse cenário é traduzir *acesso a partir de uma localização de rede não fidedigna* numa condição de acesso condicional. Na política de acesso condicional, pode configurar o [condição de localizações](location-condition.md) cenários relacionados com a localizações de rede. A condição de localizações permite-lhe selecionar localizações com nome, o que são agrupamentos lógicos de intervalos de endereços IP, países e regiões.  
+O desafio desse cenário é converter o *acesso de um local de rede não confiável* em uma condição de acesso condicional. Em uma política de acesso condicional, você pode configurar a [condição de locais](location-condition.md) para tratar de cenários relacionados a locais de rede. A condição locais permite que você selecione locais nomeados, que são agrupamentos lógicos de intervalos de endereços IP, países e regiões.  
 
-Normalmente, a sua organização é proprietária um ou mais intervalos de endereços, por exemplo, 199.30.16.0 - 199.30.16.24.
-Pode configurar um local nomeado por:
+Normalmente, sua organização possui um ou mais intervalos de endereços, por exemplo, 199.30.16.0-199.30.16.15.
+Você pode configurar um local nomeado por:
 
-- Especificar este intervalo (199.30.16.0/24) 
-- Atribuir um nome descritivo como **rede empresarial** 
+- Especificando esse intervalo (199.30.16.0/28) 
+- Atribuindo um nome descritivo, como **rede corporativa** 
 
-Em vez de tentar definir o que todos os locais são que não são confiáveis, pode:
+Em vez de tentar definir quais locais não são confiáveis, você pode:
 
-- Incluir qualquer localização 
+- Incluir qualquer local 
 
    ![Acesso Condicional](./media/untrusted-networks/02.png)
 
-- Excluir todas as localizações fidedignas 
+- Excluir todos os locais confiáveis 
 
    ![Acesso Condicional](./media/untrusted-networks/01.png)
 
-## <a name="policy-deployment"></a>Implementação da política
+## <a name="policy-deployment"></a>Implantação de política
 
-Com a abordagem descrita neste artigo, pode configurar uma política de acesso condicional para localizações não fidedignas. Para certificar-se de que a política funciona conforme esperado, a prática recomendada é testá-lo antes de a disponibilizar para produção. O ideal é que utilize um inquilino de teste para verificar se a sua nova política funciona como pretendido. Para obter mais informações, consulte [como implementar uma nova política](best-practices.md#how-should-you-deploy-a-new-policy). 
+Com a abordagem descrita neste artigo, agora você pode configurar uma política de acesso condicional para locais não confiáveis. Para garantir que sua política funcione conforme o esperado, a melhor prática recomendada é testá-la antes de distribuí-la para produção. O ideal é usar um locatário de teste para verificar se a nova política funciona como esperado. Para obter mais informações, consulte [como implantar uma nova política](best-practices.md#how-should-you-deploy-a-new-policy). 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Se gostaria de saber mais sobre o acesso condicional, consulte o artigo [o que é o acesso condicional no Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+Se você quiser saber mais sobre o acesso condicional, consulte [o que é o acesso condicional no Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)

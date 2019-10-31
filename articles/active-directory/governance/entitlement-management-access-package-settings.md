@@ -1,6 +1,6 @@
 ---
-title: Compartilhar link para solicitar um pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia) – Azure Active Directory
-description: Saiba como compartilhar o link para solicitar um pacote de acesso em Azure Active Directory gerenciamento de direitos (versão prévia).
+title: Compartilhar link para solicitar um pacote de acesso no gerenciamento de direitos do Azure AD-Azure Active Directory
+description: Saiba como compartilhar o link para solicitar um pacote de acesso em Azure Active Directory gerenciamento de direitos.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91b98df1f93991d4781283bc38b02dc20d11268d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 94d32bf26def6832f51b4e09c697bca885162dc2
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392335"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174412"
 ---
-# <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management-preview"></a>Compartilhar link para solicitar um pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)
-
-> [!IMPORTANT]
-> O gerenciamento de direitos do Azure Active Directory (AD do Azure) está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management"></a>Compartilhar link para solicitar um pacote de acesso no gerenciamento de direitos do Azure AD
 
 A maioria dos usuários em seu diretório pode entrar no portal meu acesso e ver automaticamente uma lista de pacotes de acesso que eles podem solicitar. No entanto, para usuários externos de parceiros comerciais que ainda não estão em seu diretório, você precisará enviar um link que eles possam usar para solicitar um pacote de acesso. 
 

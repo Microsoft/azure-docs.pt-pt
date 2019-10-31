@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cf3281e00560a289fbb4adfe57083644e1a86e3
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 102371f8af45a1a51715dbfb11afc3f0f4e457d7
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125436"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150694"
 ---
-# <a name="conditional-access-risk-based-conditional-access"></a>Acesso condicional: Acesso Condicional baseado no risco
+# <a name="conditional-access-risk-based-conditional-access"></a>Acesso condicional: acesso condicional com base em risco
 
 Organizações com licenças Azure AD Premium P2 podem criar políticas de acesso condicional que incorporam Azure AD Identity Protection detecções de risco. Há três políticas padrão que podem ser habilitadas prontamente. 
 
@@ -53,7 +53,7 @@ A Microsoft trabalha com investigadores, entidades responsáveis pela aplicaçã
    1. Selecione **Done** (Concluído).
 1. Em **condições**, selecione **risco do usuário**e, em seguida, escolha **alta**.
    1. Clique em **selecionar** e em **concluído**.
-1. Em **controles** > de**acesso**, escolha **permitir acesso**e, em seguida, selecione **exigir alteração de senha**.
+1. Em **controles** > **acesso**, escolha **permitir acesso**e, em seguida, selecione **exigir alteração de senha**.
    1. Clique em **Selecionar**.
 1. Defina **aplicar política** como **ativado**.
 1. Clique em **Guardar**.
@@ -71,17 +71,17 @@ A maioria dos utilizadores tem um comportamento normal que pode ser controlado. 
    1. Selecione **Done** (Concluído).
 1. Em **condições**, selecione **risco de entrada**e, em seguida, escolha **médio e superior**.
    1. Clique em **selecionar** e em **concluído**.
-1. Em **controles** > de**acesso**, escolha **permitir acesso**e, em seguida, selecione **exigir autenticação**multifator.
+1. Em **controles** > **acesso**, escolha **permitir acesso**e, em seguida, selecione **exigir autenticação multifator**.
    1. Clique em **Selecionar**.
 1. Defina **aplicar política** como **ativado**.
 1. Clique em **Guardar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 
 [Simular comportamento de entrada usando a ferramenta de What If de acesso condicional](troubleshoot-conditional-access-what-if.md)
 
-[Como funciona: Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) (Como funciona: Multi-Factor Authentication do Azure)
+[Como funciona: Multi-Factor Authentication do Azure](../authentication/concept-mfa-howitworks.md)
 
 [O que é Azure Active Directory Identity Protection?](../identity-protection/overview.md)

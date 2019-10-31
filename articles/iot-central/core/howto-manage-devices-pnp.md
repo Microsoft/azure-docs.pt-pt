@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 01346ba518a07da1ebb606393c2834994cfb42e2
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: b5e4e27e059cdc84370bbf7dbf7c6bc651b1968e
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990354"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177348"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application-preview-features"></a>Gerenciar dispositivos em seu aplicativo de IoT Central do Azure (recursos de visualização)
 
@@ -179,6 +179,6 @@ As propriedades de nuvem são os metadados de dispositivo associados ao disposit
 Agora que você aprendeu como gerenciar dispositivos em seu aplicativo IoT Central do Azure, aqui está a próxima etapa sugerida:
 
 > [!div class="nextstepaction"]
-> [Como usar conjuntos de dispositivos](howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Como usar grupos de dispositivos](tutorial-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 <!-- Next how-tos in the sequence -->

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 24863f00dcec78471cd187b64f6931b7b95124c9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0cfcbdaee5a39a947bd89c677f49214c8c3cb98a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100624"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162857"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Backup automatizado para máquinas virtuais SQL Server 2014 (Gerenciador de recursos)
 
@@ -42,7 +42,7 @@ Para usar o backup automatizado, considere os seguintes pré-requisitos:
 
 **Versão/edição do SQL Server**:
 
-- SQL Server 2014 Standard
+- Padrão SQL Server 2014
 - SQL Server 2014 Enterprise
 
 > [!IMPORTANT]
@@ -65,7 +65,7 @@ A tabela a seguir descreve as opções que podem ser configuradas para backup au
 | **Cópia de Segurança Automatizada** | Habilitar/desabilitar (desabilitado) | Habilita ou desabilita o backup automatizado para uma VM do Azure que executa o SQL Server 2014 Standard ou Enterprise. |
 | **Período de retenção** | 1-30 dias (30 dias) | O número de dias para manter um backup. |
 | **Storage Account** | Conta de armazenamento do Azure | Uma conta de armazenamento do Azure a ser usada para armazenar arquivos de backup automatizados no armazenamento de BLOBs. Um contêiner é criado neste local para armazenar todos os arquivos de backup. A Convenção de nomenclatura do arquivo de backup inclui a data, a hora e o nome do computador. |
-| **Encriptação** | Habilitar/desabilitar (desabilitado) | Habilita ou desabilita a criptografia. Quando a criptografia está habilitada, os certificados usados para restaurar o backup estão localizados na conta de armazenamento especificada no `automaticbackup` mesmo contêiner usando a mesma convenção de nomenclatura. Se a senha for alterada, um novo certificado será gerado com essa senha, mas o certificado antigo permanecerá para restaurar os backups anteriores. |
+| **Encriptação** | Habilitar/desabilitar (desabilitado) | Habilita ou desabilita a criptografia. Quando a criptografia está habilitada, os certificados usados para restaurar o backup estão localizados na conta de armazenamento especificada no mesmo contêiner de `automaticbackup` usando a mesma convenção de nomenclatura. Se a senha for alterada, um novo certificado será gerado com essa senha, mas o certificado antigo permanecerá para restaurar os backups anteriores. |
 | **Palavra-passe** | Texto da senha | Uma senha para chaves de criptografia. Isso só será necessário se a criptografia estiver habilitada. Para restaurar um backup criptografado, você deve ter a senha correta e o certificado relacionado que foi usado no momento em que o backup foi feito. |
 
 ## <a name="configure-in-the-portal"></a>Configurar no portal
@@ -84,7 +84,7 @@ Na guia **configurações de SQL Server** , role para baixo até **backup automa
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-Para máquinas virtuais SQL Server existentes, navegue até o [recurso de máquinas virtuais do SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) e, em seguida, selecione backups. 
+Para máquinas virtuais SQL Server existentes, navegue até o [recurso de máquinas virtuais do SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) e, em seguida, selecione **backups**. 
 
 ![Backup automatizado do SQL para VMs existentes](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
 
@@ -164,7 +164,7 @@ Você pode usar o PowerShell para habilitar o backup automatizado, bem como para
 Primeiro, selecione ou crie uma conta de armazenamento para os arquivos de backup. O script a seguir selecionará uma conta de armazenamento ou a criará se ela não existir.
 
 ```powershell
-$storage_accountname = “yourstorageaccount”
+$storage_accountname = "yourstorageaccount"
 $storage_resourcegroupname = $resourcegroupname
 
 $storage = Get-AzStorageAccount -ResourceGroupName $resourcegroupname `
@@ -191,7 +191,7 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 Pode levar vários minutos para instalar e configurar o agente IaaS SQL Server.
 
 > [!NOTE]
-> Há outras configurações para **New-AzVMSqlServerAutoBackupConfig** que se aplicam somente ao SQL Server 2016 e ao backup automatizado v2. SQL Server 2014 não oferece suporte às seguintes configurações: **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**, **FullBackupStartHour**, **FullBackupWindowInHours**e **LogBackupFrequencyInMinutes**. Se você tentar definir essas configurações em uma máquina virtual SQL Server 2014, não haverá erro, mas as configurações não serão aplicadas. Se você quiser usar essas configurações em uma máquina virtual SQL Server 2016, consulte [backup automatizado v2 para máquinas virtuais do Azure SQL Server 2016](virtual-machines-windows-sql-automated-backup-v2.md).
+> Há outras configurações para **New-AzVMSqlServerAutoBackupConfig** que se aplicam somente ao SQL Server 2016 e ao backup automatizado v2. SQL Server 2014 não oferece suporte às seguintes configurações: **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**, **FullBackupStartHour**, **FullBackupWindowInHours**e  **LogBackupFrequencyInMinutes**. Se você tentar definir essas configurações em uma máquina virtual SQL Server 2014, não haverá erro, mas as configurações não serão aplicadas. Se você quiser usar essas configurações em uma máquina virtual SQL Server 2016, consulte [backup automatizado v2 para máquinas virtuais do Azure SQL Server 2016](virtual-machines-windows-sql-automated-backup-v2.md).
 
 Para habilitar a criptografia, modifique o script anterior para passar o parâmetro **enableencryption e** junto com uma senha (cadeia de caracteres segura) para o parâmetro **CertificatePassword** . O script a seguir habilita as configurações de backup automatizado no exemplo anterior e adiciona criptografia.
 
@@ -228,8 +228,8 @@ O script a seguir fornece um conjunto de variáveis que você pode personalizar 
 ```powershell
 $vmname = "yourvmname"
 $resourcegroupname = "vmresourcegroupname"
-$region = “Azure region name such as EASTUS2”
-$storage_accountname = “storageaccountname”
+$region = "Azure region name such as EASTUS2"
+$storage_accountname = "storageaccountname"
 $storage_resourcegroupname = $resourcegroupname
 $retentionperiod = 10
 
@@ -276,11 +276,11 @@ Outra opção é aproveitar o recurso interno de Database Mail para notificaçõ
 1. [Configure SQL Server Agent para usar Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
 1. Verifique se a porta SMTP é permitida por meio do firewall da VM local e do grupo de segurança de rede para a VM.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 O backup automatizado configura o backup gerenciado em VMs do Azure. Portanto, é importante [examinar a documentação do backup gerenciado no SQL Server 2014](https://msdn.microsoft.com/library/dn449497(v=sql.120).aspx).
 
-Você pode encontrar diretrizes adicionais de backup e restauração para SQL Server em VMs do Azure no seguinte artigo: [Backup e restauração para SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-backup-recovery.md).
+Você pode encontrar diretrizes adicionais de backup e restauração para SQL Server em VMs do Azure no seguinte artigo: [backup e restauração para SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-backup-recovery.md).
 
 Para obter informações sobre outras tarefas de automação disponíveis, consulte [SQL Server extensão do agente IaaS](virtual-machines-windows-sql-server-agent-extension.md).
 

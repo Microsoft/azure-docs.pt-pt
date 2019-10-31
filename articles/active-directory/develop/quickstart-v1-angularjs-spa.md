@@ -13,21 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/25/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20c62d379006382d4208e4b111202581bc75454f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: c239b88a67e1be19e3a95130839ab6fd4598fe77
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380765"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150057"
 ---
-# <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Início rápido: Criar um aplicativo de página única AngularJS para entrar e sair com Azure Active Directory
+# <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Início Rápido: Criar uma aplicação de página única AngularJS para início de sessão e fim de sessão com o Azure Active Directory
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
+
+> [!IMPORTANT]
+> A [plataforma de identidade da Microsoft](v2-overview.md) é uma evolução da plataforma de desenvolvedor do Azure Active Directory (Azure AD). Permite aos programadores criar aplicações que iniciam sessão em todas as identidades da Microsoft e obtêm tokens para chamar APIs da Microsoft, como o Microsoft Graph, ou APIs criadas pelos programadores.
+> Se você precisar habilitar a entrada para contas pessoais, além de contas corporativas e de estudante, poderá usar o *[ponto de extremidade da plataforma de identidade da Microsoft](azure-ad-endpoint-comparison.md)* .
+> Este guia de início rápido é para o ponto de extremidade do Azure AD v 1.0 mais antigo. Recomendamos que você use o ponto de extremidade v 2.0 para novos projetos. Para obter mais informações, consulte [este tutorial de spa do JavaScript](tutorial-v2-javascript-spa.md) , bem como [Este artigo](active-directory-v2-limitations.md) explicando o *ponto de extremidade da plataforma de identidade da Microsoft*.
 
 Com o Azure Active Directory (Azure AD), pode adicionar de forma simples e direta início de sessão, fim de sessão e chamadas seguras à API de OAuth às suas aplicações de página única. Permite que as suas aplicações autentiquem os utilizadores com as respetivas contas do Windows Server Active Directory e consumam qualquer API Web que o Azure AD ajuda a proteger, como as APIs do Office 365 ou a API do Azure.
 
@@ -46,9 +51,6 @@ Para criar a aplicação funcional e completa, precisa de:
 2. Instalar a ADAL e configurar a aplicação de página única.
 3. Utilizar a ADAL para ajudar a proteger as páginas na aplicação de página única.
 
-> [!NOTE]
-> Se você precisar habilitar entradas para contas pessoais, além de contas corporativas e de estudante, poderá usar o ponto de *[extremidade da plataforma de identidade da Microsoft](azure-ad-endpoint-comparison.md)* . Para obter mais informações, consulte [este tutorial de spa do JavaScript](tutorial-v2-javascript-spa.md) , bem como [Este artigo](active-directory-v2-limitations.md) explicando o *ponto de extremidade da plataforma de identidade da Microsoft*. 
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, conclua estes pré-requisitos:
@@ -56,7 +58,7 @@ Para começar, conclua estes pré-requisitos:
 * [Transfira a estrutura da aplicação](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) ou [transfira o exemplo concluído](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).
 * Tenha um inquilino do Azure AD no qual possa criar utilizadores e registar uma aplicação. Se ainda não tiver um inquilino, [saiba como obter um](quickstart-create-new-tenant.md).
 
-## <a name="step-1-register-the-directorysearcher-application"></a>Passo 1: Registrar o aplicativo DirectorySearcher
+## <a name="step-1-register-the-directorysearcher-application"></a>Passo 1: Registar a aplicação DirectorySearcher
 
 Para permitir que a aplicação autentique utilizadores e obtenha tokens, primeiro tem de registá-la no seu inquilino do Azure AD:
 
@@ -66,15 +68,15 @@ Para permitir que a aplicação autentique utilizadores e obtenha tokens, primei
 1. Clique em **registros de aplicativo**e, em seguida, selecione **novo registro**.
 1. Quando a página **registrar um aplicativo** for exibida, insira um nome para seu aplicativo.
 1. Em **tipos de conta com suporte**, selecione **contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
-1. Selecione a plataforma **da Web** na seção **URI** de redirecionamento e defina `https://localhost:44326/` o valor como (o local para o qual o Azure ad retornará Tokens).
+1. Selecione a plataforma **da Web** na seção **URI de redirecionamento** e defina o valor como `https://localhost:44326/` (o local para o qual o Azure ad retornará Tokens).
 1. Quando terminar, selecione **Registar**. Na página **visão geral** do aplicativo, anote o valor da **ID do aplicativo (cliente)** .
 1. Adal.js utiliza o fluxo implícito de OAuth para comunicar com o Azure AD. Você deve habilitar o fluxo implícito para seu aplicativo. No painel de navegação à esquerda do aplicativo registrado, selecione **autenticação**.
-1. Em **Configurações avançadas**, em **concessão implícita**, habilite as caixas de seleção tokens de **ID** e tokens de **acesso** . Tokens de ID e tokens de acesso são necessários, pois esse aplicativo precisa conectar usuários e chamar uma API.
+1. Em **Configurações avançadas**, em **concessão implícita**, habilite as caixas de seleção **tokens de ID** e **tokens de acesso** . Tokens de ID e tokens de acesso são necessários, pois esse aplicativo precisa conectar usuários e chamar uma API.
 1. Selecione **Guardar**.
 1. Conceda permissões no seu inquilino para a sua aplicação. Vá para **permissões de API**e selecione o botão **conceder consentimento do administrador** em **conceder consentimento**.
 1. Selecione **Sim** para confirmar.
 
-## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Passo 2: Instalar a ADAL e configurar o aplicativo de página única
+## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Passo 2: Instalar a ADAL e configurar a aplicação de página única
 
 Agora que já tem uma aplicação no Azure AD, pode instalar o adal.js e escrever o seu código relacionado com identidade.
 
@@ -100,7 +102,7 @@ Para que a API de Lista de Tarefas back-end da aplicação de página única ace
    * `ida:Tenant` é o domínio do inquilino do Azure AD, por exemplo, contoso.onmicrosoft.com.
    * `ida:Audience` é o ID de cliente da sua aplicação que copiou do portal.
 
-## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>Passo 3: Usar a ADAL para ajudar a proteger páginas no aplicativo de página única
+## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>Passo 3: Utilizar a ADAL para ajudar a proteger as páginas na aplicação de página única
 
 Adal.js integra-se com os fornecedores de HTTP e a rota de AngularJS, para que possa ajudar a proteger as vistas individuais na sua aplicação de página única.
 
@@ -177,7 +179,7 @@ O adal.js facilita a incorporação de funcionalidades de identidade comum na su
 
 Para sua referência, o exemplo concluído (sem os valores de configuração) está disponível no [GitHub](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora, pode avançar para cenários adicionais.
 

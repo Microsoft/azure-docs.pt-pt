@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 56bc8934db86bb03446a6d2637bd54daaf2b5fb9
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 6a3d1fb347819015887ffc4fd8089bbc1f3a70de
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254743"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176312"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Entender Azure Policy para o serviço kubernetes do Azure
 
@@ -164,7 +164,7 @@ A cada 5 minutos, o complemento chama uma verificação completa do cluster. Dep
 
 A estrutura de linguagem Azure Policy para gerenciar AKS segue as políticas existentes. O efeito _EnforceRegoPolicy_ é usado para gerenciar seus clusters AKs e usa propriedades de _detalhes_ específicas para trabalhar com Opa e gatekeeper. Para obter detalhes e exemplos, consulte o efeito [EnforceRegoPolicy](effects.md#enforceregopolicy) .
 
-Como parte da propriedade _Details. Policy_ na definição de política, Azure Policy passa o URI de uma política rego para o complemento. Rego é a linguagem que o OPA e o GateKeeper dão suporte para validar ou mutar uma solicitação para o cluster kubernetes. Ao dar suporte a um padrão existente para o gerenciamento de kubernetes, Azure Policy torna possível reutilizar as regras existentes e emparelhar com Azure Policy para uma experiência unificada de relatórios de conformidade de nuvem. Para obter mais informações, consulte [o que é rego?](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego).
+Como parte da propriedade _Details. Policy_ na definição de política, Azure Policy passa o URI de uma política rego para o complemento. Rego é a linguagem que o OPA e o GateKeeper dão suporte para validar ou mutar uma solicitação para o cluster kubernetes. Ao dar suporte a um padrão existente para o gerenciamento de kubernetes, Azure Policy torna possível reutilizar as regras existentes e emparelhar com Azure Policy para uma experiência unificada de relatórios de conformidade de nuvem. Para obter mais informações, consulte [o que é rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
 
 ## <a name="built-in-policies"></a>Políticas incorporadas
 

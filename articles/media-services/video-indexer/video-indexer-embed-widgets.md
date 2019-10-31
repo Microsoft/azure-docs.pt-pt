@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: fc0b447630b5e1ac360b1d84869cea02186672fc
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 74518fb891c5ecb25e818b9642d31e3daaf828de
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71036632"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162605"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>Inserir Video Indexer widgets em seus aplicativos
 
@@ -253,7 +253,7 @@ Por exemplo:
 
 Por padrão, Video Indexer Player tem legendas codificadas geradas automaticamente com base na transcrição do vídeo. A transcrição é extraída do vídeo com o idioma de origem que foi selecionado quando o vídeo foi carregado.
 
-Se você quiser inserir um idioma diferente, poderá adicionar `&captions=< Language | ”all” | “false” >` à URL do player de inserção. Se você quiser legendas em todas as legendas de idiomas disponíveis, use o valor `all`. Se desejar que as legendas sejam exibidas por padrão, você poderá passar `&showCaptions=true`.
+Se você quiser inserir um idioma diferente, poderá adicionar `&captions=< Language | "all" | "false" >` à URL do player de inserção. Se você quiser legendas em todas as legendas de idiomas disponíveis, use o valor `all`. Se desejar que as legendas sejam exibidas por padrão, você poderá passar `&showCaptions=true`.
 
 A URL de inserção terá a seguinte aparência: 
 

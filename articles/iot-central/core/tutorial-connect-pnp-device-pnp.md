@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: fdf4b68bfb10ff02ae4f90ee4c1668274ed30e79
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: f4bb7bd3b1cd024c71d5c1ab7329437716755f88
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72957035"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177194"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>Tutorial: usar um modelo de capacidade de dispositivo para criar um dispositivo de Plug and Play de IoT e conectá-lo ao seu aplicativo IoT Central
 
@@ -191,4 +191,4 @@ Neste tutorial, você aprendeu a conectar um dispositivo de Plug and Play IoT qu
 Para saber mais sobre o DCMs e como criar seus próprios modelos, prossiga para o guia de instruções:
 
 > [!div class="nextstepaction"]
-> [Configurar e gerenciar um modelo de dispositivo](./howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Criar um grupo de dispositivos](./tutorial-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

@@ -1,5 +1,5 @@
 ---
-title: Personalizar o estilo de página no portal de programador da Gestão de API do Azure | Microsoft Docs
+title: Personalizar o estilo de página no portal do desenvolvedor herdado do gerenciamento de API do Azure | Microsoft Docs
 description: Siga os passos neste início rápido para personalizar o estilo dos elementos no portal de programador da Gestão de API do Azure.
 services: api-management
 documentationcenter: ''
@@ -11,43 +11,41 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 047e724fe3e1c2e4738e5964326bf7719281f4af
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 779d1228393cdc88f88820d8a335cb2e32424c14
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073697"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176857"
 ---
-# <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalizar o estilo das páginas de portal do Programador
+# <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalizar o estilo das páginas do portal do desenvolvedor
 
-Existem três formas mais comuns de personalizar o portal do Programador na Gestão de API do Azure:
+Há três maneiras mais comuns de personalizar o portal do desenvolvedor no gerenciamento de API do Azure:
  
 * [Editar o conteúdo de páginas estáticas e elementos de esquema da página](api-management-modify-content-layout.md)
 * Atualizar os estilos utilizados para elementos de página em todo o portal de programador (explicado neste guia)
 * [Modificar os modelos utilizados para páginas geradas pelo portal](api-management-developer-portal-templates.md)(por exemplo, documentos de API, produtos, autenticação de utilizador)
 
-Neste tutorial, ficará a saber como:
-
-> [!div class="checklist"]
-> * Personalizar o estilo dos elementos em páginas do portal do **Programador**
-> * Ver a sua alteração
+Neste artigo, você aprenderá a personalizar o estilo de elementos em páginas do portal do **desenvolvedor** herdado e exibir suas alterações.
 
 ![personalizar estilo](./media/modify-developer-portal-style/developer_portal.png)
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
-+ Conclua o início rápido a seguir: [Crie uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
-+ Além disso, conclua o seguinte tutorial: [Importe e publique sua primeira API](import-and-publish.md).
++ Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
++ Conclua também o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
-
-## <a name="customize-the-developer-portal"></a>Personalizar o Portal do programador
+## <a name="customize-the-developer-portal"></a>Personalizar o portal do programador
 
 1. Selecione **Descrição geral**.
-2. Clique no botão **Portal do programador** na parte superior da janela **Descrição geral**. Em alternativa, pode clicar na ligação **URL do portal do programador**.
+2. Clique no botão **portal do desenvolvedor (Herdado)** na parte superior da janela **visão geral** .
 3. No canto superior esquerdo do ecrã, verá um ícone com dois pincéis. Coloque o cursor sobre este ícone para abrir o menu de personalização do portal.
 
     ![personalizar estilo](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
@@ -56,11 +54,11 @@ Neste tutorial, ficará a saber como:
     Todos os elementos que pode personalizar com **Estilos** aparecem na página
 5. Introduza "headings-color" no campo **Alterar valores de variáveis para personalizar o aspeto do portal do programador:** .
 
-    O elemento de  **cordostítuloséexibidonapágina\@** . Esta variável controla a cor do texto.
+    O elemento **\@Headers-Color** aparece na página. Esta variável controla a cor do texto.
 
     ![personalizar estilo](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Clique no campo para a  **\@variável de cor dos títulos** . 
+6. Clique no campo para a variável **\@títulos-cor** . 
     
     É aberto o menu pendente do selecionador de cores.
 7. No menu pendente do selecionador de cores, selecione uma nova cor.
@@ -73,15 +71,9 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="view-your-change"></a>Ver a sua alteração
 
-1. Navegue para o portal do Programador.
+1. Navegue até o portal do desenvolvedor.
 2. Pode ver a alteração que efetuou.
 
-## <a name="next-steps"></a>Passos Seguintes
-
-Neste tutorial, ficou a saber como:
-
-> [!div class="checklist"]
-> * Personalizar o estilo dos elementos em páginas do portal do **Programador**
-> * Ver a sua alteração
+## <a name="next-steps"></a>Passos seguintes
 
 Poderá também estar interessado em aprender [como personalizar o portal do programador de Gestão de API do Azure através de modelos](api-management-developer-portal-templates.md).

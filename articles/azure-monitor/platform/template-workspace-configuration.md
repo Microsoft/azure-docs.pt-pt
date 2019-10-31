@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 10/22/2019
-ms.openlocfilehash: fe5fe6a10d30847db3ed5b4aab703a7f431a395e
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5410d6ef11c3f95bb4f02dbd914a1aacbd068a1b
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932051"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176391"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerenciar Log Analytics espaço de trabalho usando modelos de Azure Resource Manager
 
@@ -184,7 +184,7 @@ O exemplo de modelo a seguir ilustra como:
     },
     "immediatePurgeDataOn30Days": {
       "type": "bool",
-      "defaultValue": "false",
+      "defaultValue": "[bool('false')]",
       "metadata": {
         "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
       }

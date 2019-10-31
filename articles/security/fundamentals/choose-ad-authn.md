@@ -4,17 +4,17 @@ description: Este guia ajuda CEOs, CIOs, CISOs, arquitetos de identidade, arquit
 keywords: ''
 author: martincoetzer
 ms.author: martinco
-ms.date: 04/12/2018
+ms.date: 10/30/2019
 ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 4de4da63abea1c4f6ab006ffd65a58ea0e34c015
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 524e923f005e2631e42f1d6b89b13cafdd646c2a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529391"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159707"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação certo para sua solução de identidade híbrida Azure Active Directory 
 
@@ -69,13 +69,13 @@ Detalhes sobre perguntas de decisão:
 
 1. O Azure AD pode manipular a entrada para usuários sem depender de componentes locais para verificar senhas.
 2. O Azure AD pode entregar a entrada do usuário a um provedor de autenticação confiável, como o AD FS da Microsoft.
-3. Se você precisar aplicar políticas de segurança Active Directory em nível de usuário, como conta expirada, conta desabilitada, senha expirada, conta bloqueada e horas de entrada em cada entrada de usuário, o Azure AD exigirá alguns componentes locais.
+3. Se você precisar aplicar políticas de segurança de Active Directory em nível de usuário, como conta expirada, conta desabilitada, senha expirada, conta bloqueada e horas de entrada em cada entrada de usuário, o Azure AD exigirá alguns componentes locais.
 4. Recursos de entrada não suportados nativamente pelo Azure AD:
    * Entre usando cartões inteligentes ou certificados.
    * Entre usando o servidor MFA local.
    * Entre usando a solução de autenticação de terceiros.
    * Solução de autenticação local de vários sites.
-5. Azure AD Identity Protection requer sincronização de hash de senha, independentemente do método de entrada escolhido, para fornecer ao relatório de *credenciais vazadas* . As organizações podem fazer failover para a sincronização de hash de senha se o seu método de entrada primário falhar e ele tiver sido configurado antes do evento de falha.
+5. Azure AD Identity Protection requer sincronização de hash de senha, independentemente do método de entrada escolhido, para fornecer ao relatório de *credenciais vazadas* . As organizações poderão fazer failover para a sincronização de hash de senha se o seu método de entrada primário falhar e ele tiver sido configurado antes do evento de falha.
 
 > [!NOTE]
 > Azure AD Identity Protection exigir licenças do [Azure ad Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) .
@@ -88,9 +88,9 @@ Detalhes sobre perguntas de decisão:
 
 * **Experiência do usuário**. Para melhorar a experiência de entrada dos usuários, implante o SSO contínuo com a sincronização de hash de senha. O SSO contínuo elimina avisos desnecessários quando os usuários estão conectados.
 
-* **Cenários avançados**. Se as organizações escolherem, será possível usar informações de identidades com Azure AD Identity Protection relatórios com o Azure AD Premium P2. Um exemplo é o relatório de credenciais vazadas. O Windows Hello para empresas tem [requisitos específicos ao usar a sincronização de hash de senha](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) exigir a sincronização de hash de senha para provisionar usuários com suas credenciais corporativas no domínio gerenciado.
+* **Cenários avançados**. Se as organizações escolherem, será possível usar informações de identidades com Azure AD Identity Protection relatórios com o Azure AD Premium P2. Um exemplo é o relatório de credenciais vazadas. O Windows Hello para empresas tem [requisitos específicos ao usar a sincronização de hash de senha](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) requer a sincronização de hash de senha para provisionar usuários com suas credenciais corporativas no domínio gerenciado.
 
-    As organizações que exigem a autenticação multifator com a sincronização de hash de senha devem usar a autenticação multifator do Azure AD ou [controles personalizados de acesso condicional](../../active-directory/conditional-access/controls.md#custom-controls-preview). Essas organizações não podem usar métodos de autenticação multifator locais ou de terceiros que se baseiam na Federação.
+    As organizações que exigem a autenticação multifator com a sincronização de hash de senha devem usar a autenticação multifator do Azure AD ou [controles personalizados de acesso condicional](../../active-directory/conditional-access/controls.md#custom-controls-preview). Essas organizações não podem usar métodos de autenticação multifator locais ou de terceiros que dependem da Federação.
 
 > [!NOTE]
 > O acesso condicional do Azure AD requer licenças [Azure ad Premium P1](https://azure.microsoft.com/pricing/details/active-directory/) .
@@ -178,7 +178,7 @@ Os diagramas a seguir descrevem os componentes de arquitetura de alto nível nec
 |Há um requisito de certificado SSL?|Não|Não|Sim|
 |Existe uma solução de monitoramento de integridade?|Não necessário|Status do agente fornecido pelo [centro de administração Azure Active Directory](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
 |Os usuários obtêm logon único para recursos de nuvem de dispositivos ingressados no domínio na rede da empresa?|Sim com o [SSO contínuo](../../active-directory/hybrid/how-to-connect-sso.md)|Sim com o [SSO contínuo](../../active-directory/hybrid/how-to-connect-sso.md)|Sim|
-|Quais tipos de entrada têm suporte?|UserPrincipalName + senha<br><br>Autenticação integrada do Windows usando [SSO contínuo](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID de logon alternativa](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + senha<br><br>Autenticação integrada do Windows usando [SSO contínuo](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID de logon alternativa](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + senha<br><br>sAMAccountName + senha<br><br>Autenticação integrada do Windows<br><br>[Certificado e autenticação de cartão inteligente](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[ID de logon alternativa](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
+|Quais tipos de entrada têm suporte?|UserPrincipalName + senha<br><br>Autenticação integrada do Windows usando o [SSO contínuo](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID de logon alternativa](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + senha<br><br>Autenticação integrada do Windows usando o [SSO contínuo](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID de logon alternativa](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + senha<br><br>sAMAccountName + senha<br><br>Autenticação integrada do Windows<br><br>[Certificado e autenticação de cartão inteligente](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[ID de logon alternativa](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |Há suporte para o Windows Hello para empresas?|[Modelo de confiança de chave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[Modelo de confiança de chave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Requer o nível funcional de domínio do Windows Server 2016*|[Modelo de confiança de chave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confiança de certificado](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |Quais são as opções de autenticação multifator?|[MFA do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controles personalizados com acesso condicional *](../../active-directory/conditional-access/controls.md)|[MFA do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controles personalizados com acesso condicional *](../../active-directory/conditional-access/controls.md)|[MFA do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Servidor do Azure MFA](../../active-directory/authentication/howto-mfaserver-deploy.md)<br><br>[MFA de terceiros](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Controles personalizados com acesso condicional *](../../active-directory/conditional-access/controls.md)|
 |Quais Estados de conta de usuário têm suporte?|Contas desabilitadas<br>(atraso de até 30 minutos)|Contas desabilitadas<br><br>Conta bloqueada<br><br>Conta expirada<br><br>Senha expirada<br><br>Horas de entrada|Contas desabilitadas<br><br>Conta bloqueada<br><br>Conta expirada<br><br>Senha expirada<br><br>Horas de entrada|
@@ -207,8 +207,6 @@ Use ou habilite a sincronização de hash de senha para qualquer método de aute
 
 3. **Proteção de identidade**. Uma das melhores maneiras de proteger os usuários na nuvem é Azure AD Identity Protection com o Azure AD Premium P2. A Microsoft examina continuamente a Internet em busca de listas de usuários e senhas que os atores ruins vendem e disponibilizam na Web escura. O Azure AD pode usar essas informações para verificar se qualquer um dos nomes de dados e senhas em sua organização estão comprometidos. Portanto, é essencial habilitar a sincronização de hash de senha, independentemente do método de autenticação usado, seja ela uma autenticação federada ou de passagem. As credenciais vazadas são apresentadas como um relatório. Use essas informações para bloquear ou forçar os usuários a alterarem suas senhas quando tentarem entrar com senhas vazadas.
 
-Por fim, de acordo com a [Gartner](https://info.microsoft.com/landingIAMGartnerreportregistration.html), a Microsoft tem o conjunto mais completo de funções de gerenciamento de identidade e acesso. A Microsoft manipula [450.000.000.000 solicitações de autenticação](https://www.microsoft.com/en-us/security/intelligence-report) todos os meses para fornecer acesso a milhares de aplicativos SaaS, como o Office 365, de praticamente qualquer dispositivo. 
-
 ## <a name="conclusion"></a>Conclusão
 
 Este artigo descreve várias opções de autenticação que as organizações podem configurar e implantar para dar suporte ao acesso a aplicativos de nuvem. Para atender a vários requisitos técnicos, de segurança e de negócios, as organizações podem escolher entre a sincronização de hash de senha, a autenticação de passagem e a Federação. 
@@ -221,4 +219,4 @@ No mundo atual, as ameaças estão presentes 24 horas por dia e vêm de qualquer
 
 Comece [a usar o](../../active-directory/fundamentals/get-started-azure-ad.md) Azure AD e implante a solução de autenticação correta para sua organização.
 
-Se você estiver pensando em migrar da autenticação federada para a nuvem, saiba mais sobre como [alterar o método de entrada](../../active-directory/hybrid/plan-connect-user-signin.md). Para ajudá-lo a planejar e implementar a migração, use [esses planos de implantação de projeto](https://aka.ms/deploymentplans).
+Se você estiver pensando em migrar da autenticação federada para a nuvem, saiba mais sobre como [alterar o método de entrada](../../active-directory/hybrid/plan-connect-user-signin.md). Para ajudá-lo a planejar e implementar a migração, use [esses planos de implantação de projeto](https://aka.ms/deploymentplans) ou considere o uso do novo recurso de [distribuição em etapas](../../active-directory/hybrid/how-to-connect-staged-rollout.md) para migrar usuários federados para o uso da autenticação de nuvem em uma abordagem em etapas.

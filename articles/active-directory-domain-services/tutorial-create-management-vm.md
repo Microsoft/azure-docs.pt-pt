@@ -7,16 +7,16 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: e7c3ccb553010b84a30ccdad875ea0362112d830
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 2aec10ab07b78aaacf34340b268f9b7dfbe69eb5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619097"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172321"
 ---
-# <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Criar uma VM de gerenciamento para configurar e administrar um Azure Active Directory Domain Services domínio gerenciado
+# <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: criar uma VM de gerenciamento para configurar e administrar um Azure Active Directory Domain Services domínio gerenciado
 
 O Azure Active Directory Domain Services (AD DS) fornece serviços de domínio gerenciado, como ingresso no domínio, diretiva de grupo, LDAP e autenticação Kerberos/NTLM que é totalmente compatível com o Windows Server Active Directory. Você administra esse domínio gerenciado usando o mesmo Ferramentas de Administração de Servidor Remoto (RSAT) como com um domínio de Active Directory Domain Services local. Como o Azure AD DS é um serviço gerenciado, há algumas tarefas administrativas que você não pode executar, como usar o protocolo RDP para se conectar aos controladores de domínio.
 
@@ -83,7 +83,7 @@ No tutorial anterior, uma VM do Windows Server foi criada e unida ao domínio ge
 
 Para começar, conecte-se à VM do Windows Server da seguinte maneira:
 
-1. No portal do Azure, selecione **grupos de recursos** no lado esquerdo. Escolha o grupo de recursos em que sua VM foi criada,como MyResource Group e, em seguida, selecione a VM, como *myVM*.
+1. No portal do Azure, selecione **grupos de recursos** no lado esquerdo. Escolha o grupo de recursos em que sua VM foi criada, como *MyResource*Group e, em seguida, selecione a VM, como *myVM*.
 1. Nas janelas de **visão geral** da VM, selecione **conectar**.
 
     ![Conectar-se à máquina virtual do Windows no portal do Azure](./media/tutorial-create-management-vm/connect-vm.png)
@@ -101,8 +101,8 @@ Os domínios gerenciados AD DS do Azure são gerenciados usando as mesmas ferram
 
 Para instalar as ferramentas de administração de Active Directory em uma VM ingressada no domínio, conclua as seguintes etapas:
 
-1. **Gerenciador do servidor** deve abrir por padrão quando você entra na VM. Se não estiver, no menu **Iniciar** , selecione **Gerenciador do servidor**.
-1. No painel painel da janela **Gerenciador do servidor** , selecione **adicionar funções e recursos**.
+1. Se **Gerenciador do servidor** não abrir por padrão quando você entrar na VM, selecione o menu **Iniciar** e, em seguida, escolha **Gerenciador do servidor**.
+1. No painel *painel* da janela **Gerenciador do servidor** , selecione **adicionar funções e recursos**.
 1. Na página **antes de começar** do *Assistente para adicionar funções e recursos*, selecione **Avançar**.
 1. Para o *tipo de instalação*, deixe a opção de instalação baseada em **função ou recurso** marcada e selecione **Avançar**.
 1. Na página **seleção de servidor** , escolha a VM atual no pool de servidores, como *MyVM.contoso.com*, e selecione **Avançar**.
@@ -131,13 +131,15 @@ Com as ferramentas administrativas instaladas, vejamos como usá-las para admini
 
 1. Para ver os usuários e grupos que pertencem ao domínio gerenciado AD DS do Azure, selecione o contêiner **AADDC Users** . As contas de usuário e grupos do seu locatário do Azure AD são listados neste contêiner.
 
-    Na saída de exemplo a seguir, uma conta de usuário chamada *contosoadmin* e um grupo para *Administradores do AAD DC* são mostrados neste contêiner.
+    Na saída de exemplo a seguir, uma conta de usuário chamada *contoso admin* e um grupo para *Administradores do AAD DC* são mostrados neste contêiner.
 
     ![Exibir a lista de usuários de domínio do Azure AD DS no Centro Administrativo do Active Directory](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
 1. Para ver os computadores que ingressaram no domínio gerenciado AD DS do Azure, selecione o contêiner **computadores AADDC** . Uma entrada para a máquina virtual atual, como *myVM*, é listada. As contas de computador para todos os computadores que ingressaram no domínio gerenciado AD DS do Azure são armazenadas nesse contêiner de *computadores AADDC* .
 
-Ações comuns de Centro Administrativo do Active Directory, como redefinição de uma senha de conta de usuário ou gerenciamento de associação de grupo, estão disponíveis. Você também pode usar o *módulo Active Directory para o Windows PowerShell*, instalado como parte das ferramentas administrativas, para gerenciar ações comuns em seu domínio gerenciado do AD DS do Azure.
+Ações comuns de Centro Administrativo do Active Directory, como redefinição de uma senha de conta de usuário ou gerenciamento de associação de grupo, estão disponíveis. Essas ações só funcionam para usuários e grupos criados diretamente no domínio gerenciado AD DS do Azure. As informações de identidade somente sincronizam *do* Azure ad para o Azure AD DS. Não há nenhum write-back do Azure AD DS ao Azure AD. Você não pode alterar as senhas ou a associação de grupo gerenciado para usuários sincronizados do Azure AD e fazer com que essas alterações sejam sincronizadas novamente.
+
+Você também pode usar o *módulo Active Directory para o Windows PowerShell*, instalado como parte das ferramentas administrativas, para gerenciar ações comuns em seu domínio gerenciado do AD DS do Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

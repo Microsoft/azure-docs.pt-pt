@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: 03e91e4be967e822d17144af848f51e73851b1e6
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: aac01032b06c13564475c58c89c7e572bb9a6022
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969186"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162194"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Exclusão de recursos do Azure para implantações de modo completo
 
@@ -752,7 +752,7 @@ Ir para um namespace do provedor de recursos:
 > | departamentos | Não |
 > | Dimensões | Não |
 > | enrollmentAccounts | Não |
-> | Port | Não |
+> | Exportações | Não |
 > | ExternalBillingAccounts | Não |
 > | ExternalBillingAccounts/alertas | Não |
 > | ExternalBillingAccounts/dimensões | Não |
@@ -1448,7 +1448,6 @@ Ir para um namespace do provedor de recursos:
 > | publicIPPrefixes | Sim |
 > | routeFilters | Sim |
 > | routeTables | Sim |
-> | secureGateways | Sim |
 > | serviceEndpointPolicies | Sim |
 > | trafficManagerGeographicHierarchies | Não |
 > | trafficmanagerprofiles | Sim |

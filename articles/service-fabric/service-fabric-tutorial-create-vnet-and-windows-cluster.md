@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 12e886c107249c338dc27aefcd2e1a32eba13d3e
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 28571584fbd82b245e85e2ebe5b1d282ab5ae979
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598888"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177980"
 ---
-# <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: Implantar um Cluster Service Fabric executando o Windows em uma rede virtual do Azure
+# <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: implantar um Cluster Service Fabric executando o Windows em uma rede virtual do Azure
 
 Este tutorial é a primeira parte de uma série. Você aprende a implantar um cluster de Service Fabric do Azure executando o Windows em uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) e um [grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md) usando o PowerShell e um modelo. Quando tiver terminado, você terá um cluster em execução na nuvem para o qual você pode implantar aplicativos. Para criar um cluster do Linux que usa o CLI do Azure, consulte [criar um cluster do Linux seguro no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
@@ -38,7 +38,7 @@ Neste tutorial, ficará a saber como:
 > * Configurar o serviço EventStore
 > * Configurar logs de Azure Monitor
 > * Criar um cluster do Service Fabric seguro no Azure PowerShell
-> * Proteger o cluster com um certificado X.509
+> * Proteger o cluster com um certificado x. 509
 > * Ligar ao cluster com o PowerShell
 > * Remover um cluster
 
@@ -84,45 +84,44 @@ No recurso **Microsoft.ServiceFabric/clusters**, é configurado um cluster Windo
 * Certificado protegido (configurável nos parâmetros de modelo).
 * O [proxy reverso](service-fabric-reverseproxy.md) está habilitado.
 * O [serviço DNS](service-fabric-dnsservice.md) está habilitado.
-* [Nível](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de durabilidade de bronze (configurável nos parâmetros de modelo).
+* [Nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de bronze (configurável nos parâmetros de modelo).
 * [Nível de confiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) de prata (configurável nos parâmetros de modelo).
-* Ponto de extremidade de conexão do cliente: 19000 (configurável nos parâmetros de modelo).
-* Ponto de extremidade do gateway HTTP: 19080 (configurável nos parâmetros de modelo).
+* Ponto de extremidade de conexão de cliente: 19000 (configurável nos parâmetros de modelo).
+* Ponto de extremidade do gateway HTTP: 19080 (configurável nos parâmetros do modelo).
 
-### <a name="azure-load-balancer"></a>Balanceador de Carga do Azure
+### <a name="azure-load-balancer"></a>Azure Load Balancer
 
-No recurso **Microsoft. Network/** balancers, um balanceador de carga é configurado. As investigações e as regras são configuradas para as seguintes portas:
+No recurso **Microsoft. Network/balancers** , um balanceador de carga é configurado. As investigações e as regras são configuradas para as seguintes portas:
 
-* Ponto de extremidade de conexão do cliente: 19000
-* Ponto de extremidade do gateway HTTP: 19080
+* Ponto de extremidade de conexão de cliente: 19000
+* ponto final de gateway HTTP: 19080
 * Porta do aplicativo: 80
 * Porta do aplicativo: 443
-* Service Fabric proxy reverso: 19081
+* Proxy inverso do Service Fabric: 19081
 
-Se outras portas de aplicativo forem necessárias, você precisará ajustar o recurso **Microsoft. Network/** balancers e o recurso **Microsoft. Network/networkSecurityGroups** para permitir o tráfego no.
+Se outras portas de aplicativo forem necessárias, você precisará ajustar o recurso **Microsoft. Network/balancers** e o recurso **Microsoft. Network/networkSecurityGroups** para permitir o tráfego no.
 
 ### <a name="virtual-network-subnet-and-network-security-group"></a>Rede virtual, sub-rede e o grupo de segurança de rede
 
 Os nomes da rede virtual, da sub-rede e do grupo de segurança de rede são declarados nos parâmetros do modelo. Os espaços de endereços da rede virtual e da sub-rede também são declarados nos parâmetros do modelo e configurados no recurso **Microsoft.Network/virtualNetworks**:
 
 * Espaço de endereço de rede virtual: 172.16.0.0/20
-* Espaço de endereço de sub-rede Service Fabric: 172.16.2.0/23
+* espaço de endereços de sub-rede do Service Fabric: 172.16.2.0/23
 
 As seguintes regras de tráfego de entrada estão ativadas no recurso **Microsoft.Network/networkSecurityGroups**. Pode alterar os valores das portas, alterando as variáveis no modelo.
 
 * ClientConnectionEndpoint (TCP): 19000
 * HttpGatewayEndpoint (HTTP/TCP): 19080
-* SMB: 445
 * Internodecommunication: 1025, 1026, 1027
 * Intervalo de portas efêmeras: 49152 a 65534 (precisa de um mínimo de 256 portas).
-* Portas para uso do aplicativo: 80 e 443
-* Intervalo de portas do aplicativo: 49152 a 65534 (usada para comunicação de serviço a serviço. Outras portas não são abertas no balanceador de carga).
+* Portas para utilização de aplicações: 80 e 443
+* Intervalo de portas de aplicativo: 49152 a 65534 (usado para comunicação de serviço a serviço. Outras portas não são abertas no balanceador de carga).
 * Bloquear todas as outras portas
 
-Se outras portas de aplicativo forem necessárias, você precisará ajustar o recurso **Microsoft. Network/** balancers e o recurso **Microsoft. Network/networkSecurityGroups** para permitir o tráfego no.
+Se outras portas de aplicativo forem necessárias, você precisará ajustar o recurso **Microsoft. Network/balancers** e o recurso **Microsoft. Network/networkSecurityGroups** para permitir o tráfego no.
 
 ### <a name="windows-defender"></a>Windows Defender
-Por padrão, o [programa Windows Defender antivírus](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) está instalado e funcionando no Windows Server 2016. A interface do usuário é instalada por padrão em alguns SKUs, mas não é necessária. Para cada tipo de nó/conjunto de dimensionamento de VM declarado no modelo, a extensão de antimalware de [VM do Azure](/azure/virtual-machines/extensions/iaas-antimalware-windows) é usada para excluir os diretórios e processos de Service Fabric:
+Por padrão, o [programa Windows Defender antivírus](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) está instalado e funcionando no Windows Server 2016. A interface do usuário é instalada por padrão em alguns SKUs, mas não é necessária. Para cada tipo de nó/conjunto de dimensionamento de VM declarado no modelo, a [extensão de antimalware de VM do Azure](/azure/virtual-machines/extensions/iaas-antimalware-windows) é usada para excluir os diretórios e processos de Service Fabric:
 
 ```json
 {
@@ -154,14 +153,14 @@ Por padrão, o [programa Windows Defender antivírus](/windows/security/threat-p
 
 O arquivo de parâmetros [azuredeploy. Parameters. JSON][parameters] declara muitos valores usados para implantar o cluster e os recursos associados. Veja a seguir os parâmetros a serem modificados para sua implantação:
 
-**Parâmetro** | **Valor de exemplo** | **Notas** 
+**Meter** | **Valor de exemplo** | **Notas** 
 |---|---|---|
 |adminUserName|vmadmin| O nome de utilizador administrador para as VMs do cluster. [Requisitos de nome de usuário para a VM](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
 |adminPassword|Password#1234| A palavra-passe de utilizador administrador para as VMs do cluster. [Requisitos de senha para a VM](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|
 |clusterName|mysfcluster123| O nome do cluster. Pode conter apenas letras e números. O comprimento pode ter entre 3 e 23 carateres.|
-|location|southcentralus| A localização do cluster. |
+|localização|southcentralus| A localização do cluster. |
 |certificateThumbprint|| <p>O valor deve estar vazio, se criar um certificado autoassinado ou fornecer um ficheiro de certificado.</p><p>Para utilizar um certificado existente carregado anteriormente para um cofre de chaves, preencha o valor do thumbprint SHA-1 do certificado. Por exemplo, “6190390162C988701DB5676EB81083EA608DCCF3”.</p> |
-|certificateUrlValue|| <p>O valor deve estar vazio, se criar um certificado autoassinado ou fornecer um ficheiro de certificado. </p><p>Para utilizar um certificado existente carregado anteriormente para um cofre de chaves, preencha o URL do certificado. Por exemplo, "https:\//mykeyvault.Vault.Azure.net:443/Secrets/myCertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
+|certificateUrlValue|| <p>O valor deve estar vazio, se criar um certificado autoassinado ou fornecer um ficheiro de certificado. </p><p>Para utilizar um certificado existente carregado anteriormente para um cofre de chaves, preencha o URL do certificado. Por exemplo, "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>O valor deve estar vazio, se criar um certificado autoassinado ou fornecer um ficheiro de certificado.</p><p>Para utilizar um certificado existente carregado anteriormente para um cofre de chaves, preencha o valor no cofre de origem. Por exemplo, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
 ## <a name="set-up-azure-active-directory-client-authentication"></a>Configurar Azure Active Directory autenticação de cliente
@@ -192,20 +191,20 @@ $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysf
 ```
 
 > [!NOTE]
-> Para nuvens nacionais (por exemplo, Azure governamental, Azure China, Azure Alemanha), especifique `-Location` o parâmetro.
+> Para nuvens nacionais (por exemplo, Azure governamental, Azure China, Azure Alemanha), especifique o parâmetro `-Location`.
 
-Você pode encontrar sua ID de *locatário*, ou de diretório, no [portal do Azure](https://portal.azure.com). Selecione**Propriedades** de **Azure Active Directory** > e copie o valor da **ID de diretório** .
+Você pode encontrar sua ID de *locatário*, ou de diretório, no [portal do Azure](https://portal.azure.com). Selecione **Azure Active Directory** **Propriedades** de > e copie o valor da **ID de diretório** .
 
 *ClusterName* é usado para prefixar os aplicativos do Azure ad criados pelo script. Ele não precisa corresponder exatamente ao nome do cluster real. Ele só facilita o mapeamento de artefatos do Azure AD para o Cluster Service Fabric em uso.
 
 *WebApplicationReplyUrl* é o ponto de extremidade padrão que o Azure ad retorna para os usuários depois que terminam de entrar. Defina esse ponto de extremidade como o ponto de extremidade Service Fabric Explorer para o cluster, que por padrão é:
 
-https://&lt;cluster_domain&gt;:19080/Explorer
+https://&lt;cluster_domain&gt;: 19080/Explorer
 
 Você será solicitado a entrar em uma conta que tenha privilégios administrativos para o locatário do Azure AD. Depois de entrar, o script cria os aplicativos Web e nativos para representar o Cluster Service Fabric. Nos aplicativos do locatário no [portal do Azure](https://portal.azure.com), você deverá ver duas novas entradas:
 
-   * *Cluster ClusterName*\_
-   * *ClusterName*\_Client
+   * *Clustername\_cluster*
+   * *Clustername*\_cliente
 
 O script imprime o JSON exigido pelo modelo do Resource Manager quando você cria o cluster, portanto, é uma boa ideia manter a janela do PowerShell aberta.
 
@@ -444,7 +443,7 @@ Para habilitar o serviço EventStore em seu cluster, adicione o seguinte à prop
 
 Azure Monitor logs é nossa recomendação para monitorar eventos no nível do cluster. Para configurar logs de Azure Monitor para monitorar o cluster, você precisa ter o [diagnóstico habilitado para exibir eventos no nível do cluster](#configure-diagnostics-collection-on-the-cluster).  
 
-A área de trabalho precisa de estar ligado para os dados de diagnóstico originários do seu cluster.  Esses dados de log são armazenados na conta de armazenamento *applicationDiagnosticsStorageAccountName* , nas tabelas WADServiceFabric * eventtable, WADWindowsEventLogsTable e WADETWEventTable.
+O espaço de trabalho precisa estar conectado aos dados de diagnóstico provenientes do seu cluster.  Esses dados de log são armazenados na conta de armazenamento *applicationDiagnosticsStorageAccountName* , nas tabelas WADServiceFabric * eventtable, WADWindowsEventLogsTable e WADETWEventTable.
 
 Adicione o espaço de trabalho Log Analytics do Azure e adicione a solução ao espaço de trabalho:
 
@@ -716,7 +715,7 @@ Get-ServiceFabricClusterHealth
 
 Os outros artigos nesta série de tutoriais usam o cluster que você criou. Se não passar imediatamente para o artigo seguinte, poderá [eliminar o cluster](service-fabric-cluster-delete.md) para evitar incorrer em custos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Avance para o tutorial a seguir para saber como dimensionar o cluster.
 
@@ -728,7 +727,7 @@ Avance para o tutorial a seguir para saber como dimensionar o cluster.
 > * Configurar o serviço EventStore
 > * Configurar logs de Azure Monitor
 > * Criar um cluster do Service Fabric seguro no Azure PowerShell
-> * Proteger o cluster com um certificado X.509
+> * Proteger o cluster com um certificado x. 509
 > * Ligar ao cluster com o PowerShell
 > * Remover um cluster
 

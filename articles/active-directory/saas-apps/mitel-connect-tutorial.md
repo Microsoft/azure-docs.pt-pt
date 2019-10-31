@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Mitel Connect | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Mitel ligar.
+title: 'Tutorial: integração do Azure Active Directory com o Mitel Connect | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Mitel Connect.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -8,222 +8,223 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 204f540b-09f1-452b-a52f-78143710ef76
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: e03870322df94a4c9587a3395c70925d2d2e838d
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 30a4dcbd15d8a47d99b3a61879a7e61938d3b133
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588229"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160547"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>Tutorial: Integração do Active Directory do Azure com o Connect do Mitel MiCloud
+# <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>Tutorial: integração do Azure Active Directory com o Mitel MiCloud Connect
 
-Neste tutorial, irá aprender como integrar a ligar de MiCloud Mitel de mensagens em fila com o Azure Active Directory (Azure AD). Integrar o MiCloud ligar com o Azure AD fornece as seguintes vantagens:
+Neste tutorial, você aprenderá a integrar o Mitel MiCloud a conectar-se ao Azure Active Directory (Azure AD). A integração do MiCloud Connect ao Azure AD oferece os seguintes benefícios:
 
-* Pode controlar no Azure AD que tenha acesso ao MiCloud ligar aplicações através das respetivas credenciais empresariais.
-* Pode permitir que os utilizadores na sua conta para ser automaticamente sessão iniciada para MiCloud ligar (Single Sign-On) com as suas contas do Azure AD.
+* No Azure AD, é possível controlar quem tem acesso ao MiCloud Connect apps usando suas credenciais corporativas.
+* Você pode permitir que os usuários em sua conta sejam automaticamente conectados ao MiCloud Connect (logon único) com suas contas do Azure AD.
 
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com MiCloud ligar, precisa do seguinte:
+Para configurar a integração do Azure AD ao MiCloud Connect, você precisa dos seguintes itens:
 
 * Uma subscrição do Azure
 
-  Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
-* Uma conta de ligação de MiCloud Mitel
+  Se você não tiver um ambiente do Azure AD, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/)
+* Uma conta do Mitel MiCloud Connect
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, irá configurar e testar o Azure AD início de sessão único (SSO).
+Neste tutorial, você configurará e testará o SSO (logon único) do Azure AD.
 
-* Ligar Mitel suporta **SP** iniciada SSO
+* O Mitel Connect dá suporte ao SSO iniciado pelo **SP**
 
-## <a name="adding-mitel-connect-from-the-gallery"></a>Adicionar Mitel ligar a partir da Galeria
+## <a name="adding-mitel-connect-from-the-gallery"></a>Adicionando o Mitel Connect da Galeria
 
-Para configurar a integração do Mitel ligar para o Azure AD, terá de adicionar Mitel ligar partir da Galeria à sua lista de aplicações de SaaS geridas no portal do Azure.
+Para configurar a integração do Mitel Connect ao Azure AD, você precisará adicionar o Mitel Connect da Galeria à sua lista de aplicativos SaaS gerenciados no portal do Azure.
 
-**Para adicionar a Mitel ligar a partir da galeria, siga os passos abaixo:**
+**Para adicionar o Mitel Connect por meio da galeria, execute as seguintes etapas:**
 
 1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação do lado esquerdo, clique em **Azure Active Directory**.
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Clique em **aplicações empresariais** e, em seguida, clique em **todos os aplicativos**.
+2. Clique em **aplicativos empresariais** e em **todos os aplicativos**.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A folha aplicativos empresariais](common/enterprise-applications.png)
 
-3. Clique em **nova aplicação**.
+3. Clique em **novo aplicativo**.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O botão novo aplicativo](common/add-new-app.png)
 
-4. Tipo **ligar Mitel** no campo de pesquisa, clique em **Mitel ligar** do painel de resultados e clique em **Add**.
+4. Digite **Mitel Connect** no campo de pesquisa, clique em **Mitel conectar** do painel de resultados e, em seguida, clique em **Adicionar**.
 
-     ![Mitel ligar-se na lista de resultados](common/search-new-app.png)
+     ![Mitel conectar-se na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
 
-Nesta secção, irá configurar e teste do Azure AD início de sessão único com MiCloud estabelecer ligação com base num utilizador de teste com o nome **Eduarda Almeida**. Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no MiCloud ligar deve ser estabelecido.
+Nesta seção, você configurará e testará o logon único do Azure AD com o MiCloud Connect, com base em um usuário de teste chamado **Brenda Simon**. Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do MiCloud Connect.
 
-Para configurar e testar o Azure AD início de sessão único com MiCloud Connect, terá de concluir os seguintes passos:
+Para configurar e testar o logon único do Azure AD com o MiCloud Connect, você precisa concluir as seguintes etapas:
 
-1. **[Configurar o MiCloud ligar para SSO com o Azure AD](#configure-micloud-connect-for-sso-with-azure-ad)**  - para permitir que os utilizadores para utilizar esta funcionalidade e configurar as definições de SSO no lado do aplicativo.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-4. **[Criar um utilizador de teste ligar do Mitel MiCloud](#create-a-mitel-micloud-connect-test-user)**  - para ter um equivalente da Eduarda Almeida na sua conta MiCloud ligar-se que está ligado a representação do Azure AD do utilizador.
-5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o MiCloud Connect para SSO com o Azure ad](#configure-micloud-connect-for-sso-with-azure-ad)** – para permitir que os usuários usem esse recurso e definam as configurações de SSO no lado do aplicativo.
+2. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
+3. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
+4. **[Criar um usuário de teste do Mitel MiCloud Connect](#create-a-mitel-micloud-connect-test-user)** – para ter um equivalente de Brenda Simon em sua conta do MiCloud Connect que esteja vinculada à representação do usuário no Azure AD.
+5. **[Testar logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configure-micloud-connect-for-sso-with-azure-ad"></a>Configurar MiCloud ligar para SSO com o Azure AD
+### <a name="configure-micloud-connect-for-sso-with-azure-ad"></a>Configurar o MiCloud Connect para SSO com o Azure AD
 
-Nesta secção, irá ativar o Azure AD início de sessão único para MiCloud ligar no portal do Azure e configurar a sua conta MiCloud ligar para permitir o SSO com o Azure AD.
+Nesta seção, você habilitará o logon único do Azure AD para o MiCloud Connect no portal do Azure e configurará sua conta do MiCloud Connect para permitir o SSO usando o Azure AD.
 
-Para configurar MiCloud ligar com o SSO para o Azure AD, é mais fácil abrir o portal do Azure e o portal de contas de Mitel lado a lado. Terá de copiar algumas informações no portal do Azure para o portal de contas de Mitel e alguns do portal de contas de Mitel ao portal do Azure.
+Para configurar o MiCloud Connect com o SSO para o Azure AD, é mais fácil abrir o portal do Azure e o portal da conta do Mitel lado a lado. Você precisará copiar algumas informações do portal do Azure para o portal de conta do Mitel e alguns do portal de conta do Mitel para a portal do Azure.
 
 
-1. Para abrir a página de configuração no [portal do Azure](https://portal.azure.com/), efetue o seguinte procedimento:
+1. Para abrir a página de configuração no [portal do Azure](https://portal.azure.com/), faça o seguinte:
 
-    a. Sobre o **Mitel ligar** página de integração de aplicação, clique em **início de sessão único**.
+    a. Na página de integração de aplicativos do **Mitel Connect** , clique em **logon único**.
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Link configurar logon único](common/select-sso.png)
 
-    b. Na **selecionar um método de início de sessão único** caixa de diálogo, clique em **SAML**.
+    b. Na caixa de diálogo **selecionar um método de logon único** , clique em **SAML**.
 
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
+    ![Modo de seleção de logon único](common/select-saml-option.png)
     
-    Baseado em SAML início de sessão na página é apresentada.
+    A página de logon baseada em SAML é exibida.
 
-2. Para abrir a caixa de diálogo de configuração no portal de contas de Mitel, faça o seguinte:
+2. Para abrir a caixa de diálogo de configuração no portal de conta do Mitel, faça o seguinte:
 
-    a. Sobre o **sistema telefônico** menu, clique em **funcionalidades de suplemento**.
+    a. No menu do **sistema telefônico** , clique em **recursos complementares**.
 
-    b. À direita da **início de sessão único**, clique em **ativar** ou **definições**.
+    b. À direita de **logon único**, clique em **Ativar** ou **configurações**.
     
-    É apresentada a caixa de diálogo Ligar único configurações de logon.
+    A caixa de diálogo Conectar configurações de logon único é exibida.
     
-3. Selecione o **ativar o início de sessão único** caixa de verificação.
-    ![image](./media/mitel-connect-tutorial/Mitel_Connect_Enable.png)
+3. Marque a caixa de seleção **habilitar logon único** .
+    ](./media/mitel-connect-tutorial/Mitel_Connect_Enable.png) de imagem ![
 
 
-4. No portal do Azure, clique nas **editar** ícone na **configuração básica de SAML** secção.
-    ![image](common/edit-urls.png)
+4. No portal do Azure, clique no ícone **Editar** na seção **configuração básica do SAML** .
+    ](common/edit-urls.png) de imagem ![
 
-    É apresentada a caixa de diálogo de configuração básica de SAML.
+    A caixa de diálogo configuração básica do SAML é exibida.
 
-5.  Copie o URL a partir do **Mitel identificador (ID de entidade)** campo no portal de contas de Mitel e colá-lo no **identificador (ID de entidade)** campo no portal do Azure.
+5.  Copie a URL do campo **identificador Mitel (ID da entidade)** no portal da conta do Mitel e cole-a no campo **identificador (ID da entidade)** no portal do Azure.
 
-6. Copie o URL do **URL de resposta (URL do serviço de consumidor de asserção)** campo no portal de contas de Mitel e cole-o para o **URL de resposta (URL do serviço de consumidor de asserção)** campo no portal do Azure.  
-   ![image](./media/mitel-connect-tutorial/Mitel_Azure_BasicConfig.png)
+6. Copie a URL do campo **URL de resposta (URL de serviço do consumidor de asserção)** no portal da conta do Mitel e cole-a no campo **URL de resposta (URL de serviço do consumidor de asserção)** no portal do Azure.  
+   ](./media/mitel-connect-tutorial/Mitel_Azure_BasicConfig.png) de imagem ![
 
-7. Na **iniciar sessão no URL** caixa de texto, escreva um dos seguintes URLs:
+7. Na caixa de texto **URL de logon** , digite uma das seguintes URLs:
 
-    * **https://portal.shoretelsky.com** -Para utilizar o portal de contas de Mitel como seu aplicativo de Mitel padrão
-    * **https://teamwork.shoretel.com** -Para utilizar o trabalho em equipe como seu aplicativo de Mitel padrão
+    * **https://portal.shoretelsky.com** -usar o portal de conta do Mitel como seu aplicativo Mitel padrão
+    * **https://teamwork.shoretel.com** -usar o trabalho em equipe como seu aplicativo Mitel padrão
 
-    **NOTA**: O aplicativo de Mitel padrão é a aplicação acedida quando um usuário clica no mosaico Mitel ligar-se no painel de acesso. Isso também é a aplicação acedida durante a realização de uma configuração de teste do Azure AD.
+    **Observação**: o aplicativo Mitel padrão é o aplicativo acessado quando um usuário clica no bloco do Mitel Connect no painel de acesso. Esse também é o aplicativo acessado ao fazer uma configuração de teste do Azure AD.
 
-8. Clique em **salvar** no **configuração básica de SAML** caixa de diálogo no portal do Azure.
+8. Clique em **salvar** na caixa de diálogo **configuração básica do SAML** na portal do Azure.
 
-9. No **certificado de assinatura SAML** secção sobre o **baseado em SAML início de sessão** página no portal do Azure, clique em **transferir** junto a **certificado (Base64)** para transferir os **certificado de assinatura** e guarde-o para o seu computador.
-    ![image](./media/mitel-connect-tutorial/Azure_SigningCert.png)
+9. Na seção **certificado de autenticação SAML** na página de **logon baseada em SAML** no portal do Azure, clique em **baixar** ao lado de **certificado (Base64)** para baixar o certificado de **autenticação** e salvá-lo em seu computador.
+    ](./media/mitel-connect-tutorial/Azure_SigningCert.png) de imagem ![
 
-10. Abra o ficheiro de certificado de assinatura num editor de texto, copie todos os dados no ficheiro e, em seguida, cole os dados na **certificado de assinatura** campo no portal de contas de Mitel. 
-    ![image](./media/mitel-connect-tutorial/Mitel_Connect_SigningCert.png)
+10. Abra o arquivo do certificado de autenticação em um editor de texto, copie todos os dados no arquivo e, em seguida, Cole os dados no campo **certificado de autenticação** no portal da conta do Mitel. 
+    ](./media/mitel-connect-tutorial/Mitel_Connect_SigningCert.png) de imagem ![
 
-11. No **configuração Mitel ligar** secção sobre o **baseado em SAML início de sessão** página do portal do Azure, efetue o seguinte procedimento:
+11. Na seção **Setup Mitel Connect** na página de **logon baseada em SAML** do portal do Azure, faça o seguinte:
 
-    a. Copie o URL do **URL de início de sessão** campo e cole-o para o **URL de início de sessão** campo no portal de contas de Mitel.
+    a. Copie a URL do campo **URL de logon** e cole-a no campo **URL de entrada** no portal de conta do Mitel.
 
-    b. Copie o URL do **do Azure AD identificador** campo e colá-lo no **ID de entidade** campo no portal de contas de Mitel.
-    ![image](./media/mitel-connect-tutorial/Mitel_Azure_SetupConnect.png)
+    b. Copie a URL do campo **identificador do Azure ad** e cole-a no campo **ID da entidade** no portal da conta do Mitel.
+    ](./media/mitel-connect-tutorial/Mitel_Azure_SetupConnect.png) de imagem ![
 
-12. Clique em **guardar** sobre o **ligar único configurações de logon** caixa de diálogo no portal de contas de Mitel.
+12. Clique em **salvar** na caixa de diálogo **conectar configurações de logon único** no portal de conta do Mitel.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
-Nesta secção, irá criar um utilizador de teste com o nome Eduarda Almeida no portal do Azure.
+Nesta seção, você criará um usuário de teste chamado Brenda Simon no portal do Azure.
 
-1. No portal do Azure, no painel esquerdo, clique em **do Azure Active Directory**, clique em **utilizadores**e, em seguida, clique em **todos os utilizadores**.
+1. No portal do Azure, no painel esquerdo, clique em **Azure Active Directory**, clique em **usuários**e, em seguida, clique em **todos os usuários**.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![Os links "usuários e grupos" e "todos os usuários"](common/users.png)
 
-2. Clique em **novo utilizador** na parte superior do ecrã.
+2. Clique em **novo usuário** na parte superior da tela.
 
-    ![Novo utilizador botão](common/new-user.png)
+    ![Botão novo usuário](common/new-user.png)
 
-3. Na caixa de diálogo de propriedades de utilizador, siga os passos abaixo:
+3. Na caixa de diálogo Propriedades do usuário, execute as seguintes etapas:
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    ![A caixa de diálogo usuário](common/user-properties.png)
 
-    a. Na **Name** , digite **BrittaSimon**.
+    a. No campo **nome** , digite **brendafernandes**.
   
-    b. Na **nome de utilizador** , digite brittasimon @\<yourcompanydomain\>.\< extensão\>.  
+    b. No campo **nome de usuário** , digite brendafernandes @\<yourcompanydomain\>.\>de extensão de\<.  
 Por exemplo, BrittaSimon@contoso.com.
 
-    c. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta secção, irá ativar a Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso Mitel ligar.
+Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo acesso ao Mitel Connect.
 
-1. No portal do Azure, clique em **aplicações empresariais**e, em seguida, clique em **todos os aplicativos**.
+1. No portal do Azure, clique em **aplicativos empresariais**e em **todos os aplicativos**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+    ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, clique em **Mitel ligar**.
+2. Na lista de aplicativos, clique em **Mitel conectar**.
 
-    ![A ligação Mitel ligar-se na lista de aplicações](common/all-applications.png)
+    ![O link do Mitel Connect na lista de aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+3. No menu à esquerda, clique em **usuários e grupos**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![O link "usuários e grupos"](common/users-groups-blade.png)
 
-4. Clique em **adicionar utilizador**, em seguida, clique em **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **Adicionar usuário**e em **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
     ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** no **utilizadores** lista, em seguida, clique em **selecione** na parte inferior do ecrã.
+5. Na caixa de diálogo **usuários e grupos** , selecione **Brenda Simon** na lista **usuários** e, em seguida, clique em **selecionar** na parte inferior da tela.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, selecione a função adequada para o utilizador na lista os **selecionar função** caixa de diálogo e clique em **selecione** na parte inferior do ecrã.
+6. Se você estiver esperando qualquer valor de função na declaração SAML, selecione a função apropriada para o usuário na lista na caixa de diálogo **selecionar função** e, em seguida, clique em **selecionar** na parte inferior da tela.
 
-7. Na **adicionar atribuição** caixa de diálogo, clique em **atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição** , clique em **atribuir**.
 
-### <a name="create-a-mitel-micloud-connect-test-user"></a>Criar um utilizador de teste ligar do Mitel MiCloud
+### <a name="create-a-mitel-micloud-connect-test-user"></a>Criar um usuário de teste do Mitel MiCloud Connect
 
-Nesta secção, vai criar um utilizador com o nome Eduarda Almeida na sua conta MiCloud ligar. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta seção, você criará um usuário chamado Brenda Simon em sua conta do MiCloud Connect. Os usuários devem ser criados e ativados antes de usar o logon único.
 
-Para obter detalhes sobre como adicionar utilizadores no portal de contas de Mitel, consulte a [adição de um utilizador](https://docs.shoretel.com/connectcloud/Account/Users/AddUser) artigo da Base de dados de conhecimento Mitel.
+Para obter detalhes sobre como adicionar usuários no portal de conta do Mitel, consulte o artigo [adicionando um usuário](https://docs.shoretel.com/connectcloud/Account/Users/AddUser) na base de dados de conhecimento do Mitel.
 
-Crie um utilizador na sua conta MiCloud estabelecer ligação com os seguintes detalhes:
+Crie um usuário em sua conta do MiCloud Connect com os seguintes detalhes:
 
-  * **Nome:** Britta Simon
+  * **Nome:** Brenda Simon
 
-* **Endereço de E-Mail da empresa:** `brittasimon@<yourcompanydomain>.<extension>`   
-(Exemplo: [ brittasimon@contoso.com ](mailto:brittasimon@contoso.com))
+* **Endereço de email comercial:** `brittasimon@<yourcompanydomain>.<extension>`   
+(Exemplo: [brittasimon@contoso.com](mailto:brittasimon@contoso.com))
 
-* **Nome de utilizador:** `brittasimon@<yourcompanydomain>.<extension>`  
-(Exemplo: [ brittasimon@contoso.com ](mailto:brittasimon@contoso.com); nome de utilizador normalmente é o mesmo endereço de e-mail empresarial do utilizador)
+* **Nome de usuário:** `brittasimon@<yourcompanydomain>.<extension>`  
+(Exemplo: [brittasimon@contoso.com](mailto:brittasimon@contoso.com); o nome de usuário é normalmente o mesmo que o endereço de email comercial do usuário)
 
-**NOTA:** Nome de utilizador de MiCloud ligar-se o utilizador tem de ser idêntico ao endereço de e-mail do utilizador no Azure.
+**Observação:** O nome de usuário do MiCloud Connect do usuário deve ser idêntico ao endereço de email do usuário no Azure.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Nesta secção, irá testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
 
-Quando clica no mosaico Mitel ligar-se no painel de acesso, deve ser redirecionado automaticamente para entrar para a aplicação ligar MiCloud configurado como padrão na **iniciar sessão no URL** campo. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco Mitel Connect no painel de acesso, você deverá ser redirecionado automaticamente para entrar no aplicativo MiCloud Connect que você configurou como padrão no campo URL de **logon** . Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 

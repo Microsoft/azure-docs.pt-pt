@@ -1,7 +1,7 @@
 ---
-title: Considerações sobre o Xamarin Android (biblioteca de autenticação da Microsoft para .NET)
+title: Considerações do navegador do sistema do Xamarin Android (biblioteca de autenticação da Microsoft para .NET)
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre considerações específicas ao usar o Xamarin Android com a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
+description: Saiba mais sobre considerações específicas ao usar navegadores do sistema no Xamarin Android ao usar a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
 services: active-directory
 documentationcenter: dev-center-name
 author: TylerMSFT
@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
+ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f5caad4b136c9ef2686cc4befc70e6720e27855
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: f83283cc02c60eb452d0e414c0b21843b48f343b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802743"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150354"
 ---
-# <a name="xamarin-android-specific-considerations-with-msalnet"></a>Considerações específicas do Xamarin Android com MSAL.NET
+#  <a name="xamarin-android-system-browser-considerations-with-msalnet"></a>Considerações do navegador do sistema do Xamarin Android com MSAL.NET
+
 Este artigo discute considerações específicas ao usar o navegador do sistema no Xamarin Android com a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
 
 A partir do MSAL.NET 2.4.0-Preview, o MSAL.NET dá suporte a navegadores diferentes do Chrome e não requer mais que o Chrome seja instalado no dispositivo Android para autenticação.

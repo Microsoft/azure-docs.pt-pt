@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 5b6543326fe7f44bc75545894a1d2a1d324be0e8
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 7bafcb1508cdb01c4fe27a9d02db63c4f00efd74
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73023979"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172533"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Tutorial: criar e configurar uma instância de Azure Active Directory Domain Services com opções de configuração avançadas
 

@@ -18,12 +18,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f1b79e1694d759682833bf6022dbc9cd0a0977f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: da39b8435acdd11108a945c6bac5147dc8b6ad50
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803000"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150571"
 ---
 # <a name="single-sign-on-with-msaljs"></a>Início de sessão único com MSAL.js
 
@@ -40,7 +40,7 @@ Por padrão, o MSAL. js usa `sessionStorage` que não permite que a sessão seja
 ```javascript
 const config = {
     auth: {
-        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”
+        clientId: "abcd-ef12-gh34-ikkl-ashdjhlhsdg"
     },
     cache: {
         cacheLocation: 'localStorage'
@@ -162,7 +162,7 @@ var authContext = new AuthenticationContext(config);
 // In latest MSAL.js version
 const config = {
     auth: {
-        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”
+        clientId: "abcd-ef12-gh34-ikkl-ashdjhlhsdg"
     },
     cache: {
         cacheLocation: 'localStorage'

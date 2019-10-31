@@ -9,19 +9,19 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/05/2019
 ms.author: v-vasuke
-ms.openlocfilehash: e773b997cca3fa9a1f11fec2ac449e1fc11c5364
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: ce07d43a289cf527664b120dd832cf832fb2b05e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554571"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161409"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-by-using-the-maven-plug-in"></a>Início rápido: iniciar um aplicativo de nuvem Spring do Azure usando o plug-in Maven
 
 Com o plug-in do Azure Spring Cloud Maven, você pode criar e atualizar facilmente seus aplicativos de serviço de nuvem Spring do Azure. Predefinindo uma configuração, você pode implantar aplicativos em seu serviço de nuvem do Azure Spring existente. Neste artigo, você usa um aplicativo de exemplo chamado PiggyMetrics para demonstrar esse recurso.
 
 >[!Note]
-> Antes de começar este guia de início rápido, verifique se sua assinatura do Azure tem acesso ao Azure Spring Cloud. Como serviço de visualização, convidamos você a entrar em contato conosco para que possamos adicionar sua assinatura à nossa lista de permissões. Se você quiser explorar os recursos do Azure Spring Cloud, preencha e envie o formulário de [interesse do Azure Spring Cloud (visualização particular)](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u).
+> Antes de começar este guia de início rápido, verifique se sua assinatura do Azure tem acesso ao Azure Spring Cloud. Como serviço de visualização, convidamos você a entrar em contato conosco para que possamos adicionar sua assinatura à nossa lista de permissões. Se você quiser explorar os recursos do Azure Spring Cloud, preencha e envie o formulário de [interesse do Azure Spring Cloud (visualização particular)](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u). Embora o Azure Spring Cloud esteja em versão prévia, a Microsoft oferece suporte limitado sem um SLA.  Para obter mais informações sobre o suporte durante as visualizações, consulte este [FAQ de suporte](https://azure.microsoft.com/support/faq/).
 
 >[!TIP]
 > Azure Cloud Shell é um shell interativo gratuito que você pode usar para executar os comandos neste artigo. Ele tem ferramentas comuns do Azure pré-instalados, incluindo as versões mais recentes do git, o JDK (Java Development Kit), o Maven e o CLI do Azure. Se você estiver conectado à sua assinatura do Azure, inicie o [Azure cloud Shell](https://shell.azure.com). Para obter mais informações, consulte [visão geral do Azure cloud Shell](../cloud-shell/overview.md).
@@ -31,7 +31,7 @@ Para concluir este guia de início rápido:
 1. [Instalar o Git](https://git-scm.com/).
 2. [Instale o JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable).
 3. [Instale o Maven 3,0 ou posterior](https://maven.apache.org/download.cgi).
-4. [Instale o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+4. [Instale o CLI do Azure versão 2.0.67 ou superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 5. [Inscreva-se para uma assinatura gratuita do Azure](https://azure.microsoft.com/free/).
 
 ## <a name="install-the-azure-cli-extension"></a>Instalar a extensão de CLI do Azure

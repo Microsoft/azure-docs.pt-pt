@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: e361ba4c7275a783b9211def5047a5a755f5a8b8
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: d0d87b42232a19d6bcd3c225fb4a4f8f8b459350
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882005"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177790"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizar configurações de Cluster Service Fabric
 Este artigo descreve as várias configurações de malha para o Cluster Service Fabric que você pode personalizar. Para clusters hospedados no Azure, você pode personalizar as configurações por meio do [portal do Azure](https://portal.azure.com) ou usando um modelo de Azure Resource Manager. Para obter mais informações, consulte [atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autônomos, você personaliza as configurações atualizando o arquivo *ClusterConfig. JSON* e realizando uma atualização de configuração no cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -131,14 +131,14 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |AppEtwTraceDeletionAgeInDays |Int, o padrão é 3 | Dinâmico |Número de dias após o qual excluimos arquivos ETL antigos que contêm rastreamentos de ETW do aplicativo. |
 |ApplicationLogsFormatVersion |int, o padrão é 0 | Dinâmico |Versão do formato de logs de aplicativo. Os valores com suporte são 0 e 1. A versão 1 inclui mais campos do registro de evento do ETW que a versão 0. |
 |AuditHttpRequests |Bool, o padrão é false | Dinâmico | Ativar ou desativar a auditoria HTTP. A finalidade da auditoria é ver as atividades que foram executadas no cluster; incluindo quem iniciou a solicitação. Observe que se trata de um registro em log de melhor tentativa; e a perda de rastreamento pode ocorrer. As solicitações HTTP com a autenticação "usuário" não são registradas. |
-|CaptureHttpTelemetry|Bool, o padrão é false | Dinâmico | Ativar ou desativar a telemetria HTTP. A finalidade da telemetria é para que Service Fabric seja capaz de capturar dados de telemetria para ajudar a planejar o trabalho futuro e identificar áreas problemáticas. A telemetria não registra nenhum dado pessoal ou o corpo da solicitação. A telemetria captura todas as solicitações HTTP, exceto se configuradas de outra forma. |
+|CaptureHttpTelemetry|Bool, o padrão é true | Dinâmico | Ativar ou desativar a telemetria HTTP. A finalidade da telemetria é para que Service Fabric seja capaz de capturar dados de telemetria para ajudar a planejar o trabalho futuro e identificar áreas problemáticas. A telemetria não registra nenhum dado pessoal ou o corpo da solicitação. A telemetria captura todas as solicitações HTTP, exceto se configuradas de outra forma. |
 |ClusterId |String | Dinâmico |A ID exclusiva do cluster. Isso é gerado quando o cluster é criado. |
 |ConsumerInstances |String | Dinâmico |A lista de instâncias de consumidor DCA. |
 |DiskFullSafetySpaceInMB |Int, o padrão é 1024 | Dinâmico |Espaço em disco restante em MB para proteger contra o uso do DCA. |
 |EnableCircularTraceSession |Bool, o padrão é false | Estático |Sinalizador indica se as sessões de rastreamento circular devem ser usadas. |
 |EnablePlatformEventsFileSink |Bool, o padrão é false | Estático |Habilitar/desabilitar eventos de plataforma sendo gravados no disco |
 |EnableTelemetry |Bool, o padrão é true | Dinâmico |Isso vai habilitar ou desabilitar a telemetria. |
-|FailuresOnlyHttpTelemetry | Bool, o padrão é true | Dinâmico | Se a captura de telemetria HTTP estiver habilitada; capturar apenas solicitações com falha. Isso é para ajudar a reduzir o número de eventos gerados para telemetria. |
+|FailuresOnlyHttpTelemetry | Bool, o padrão é false | Dinâmico | Se a captura de telemetria HTTP estiver habilitada; capturar apenas solicitações com falha. Isso é para ajudar a reduzir o número de eventos gerados para telemetria. |
 |HttpTelemetryCapturePercentage | int, o padrão é 50 | Dinâmico | Se a captura de telemetria HTTP estiver habilitada; capturar apenas uma porcentagem aleatória de solicitações. Isso é para ajudar a reduzir o número de eventos gerados para telemetria. |
 |MaxDiskQuotaInMB |Int, o padrão é 65536 | Dinâmico |Cota de disco em MB para arquivos de log Windows Fabric. |
 |ProducerInstances |String | Dinâmico |A lista de instâncias de produtor do DCA. |

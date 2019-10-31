@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: dd591f18ad2abb8603270f4c570c7ef311bdadae
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 811591a3340f07b08b3a954ccd475e926b73a9cf
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072570"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176769"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Utilizar revisões para efetuar alterações sem interrupções de forma segura
 Quando a API está pronta e começa a ser utilizada pelos programadores, poderá ter de fazer alterações a essa API e ao mesmo tempo não interromper os autores de chamadas da sua API. É também útil dar a conhecer aos programadores as alterações que efetuou. É possível fazê-lo na Gestão de API do Azure com **revisões**. Para obter mais informações, veja [Versões e revisões](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) e [Controlo de versões de API com a Gestão de API do Azure](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
@@ -36,8 +36,8 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
-+ Conclua o início rápido a seguir: [Crie uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
-+ Além disso, conclua o seguinte tutorial: [Importe e publique sua primeira API](import-and-publish.md).
++ Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
++ Conclua também o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
 
 ## <a name="add-a-new-revision"></a>Adicionar uma nova revisão
 
@@ -83,7 +83,7 @@ Neste tutorial, ficará a saber como:
 
 2. Abra o menu de contexto ( **...** ) para **Revisão 2**.
 3. Selecione **Tornar Atual**.
-4. Selecione **Publicar no Registo de Alterações Públicas para esta API**, se quiser publicar notas sobre esta alteração. Forneça uma descrição para a alteração que os desenvolvedores veem, por exemplo: **Testando revisões. Foi adicionada a nova operação "test".**
+4. Selecione **Publicar no Registo de Alterações Públicas para esta API**, se quiser publicar notas sobre esta alteração. Forneça uma descrição para a alteração que os desenvolvedores veem, por exemplo: **testando revisões. Adicionada nova operação de "teste".**
 5. **Revisão 2** é agora atual.
 
 ## <a name="browse-the-developer-portal-to-see-changes-and-change-log"></a>Navegar até ao portal do programador para ver as alterações e o registo de alterações
@@ -92,12 +92,10 @@ Neste tutorial, ficará a saber como:
 2. Selecione **Portal do Programador** no menu superior.
 3. Selecione **APIs** e, em seguida, selecione **Demo Conference API**.
 4. Tenha em atenção que a nova operação **test** está agora disponível.
-5. Selecione **Histórico de Alterações da API** abaixo do nome da API.
+5. Clique em **changelog** próximo ao nome da API.
 6. Tenha em atenção que a entrada do registo de alterações é apresentada nesta lista.
 
-    ![Portal do programador](media/api-management-getstarted-revise-api/developer_portal.PNG)
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

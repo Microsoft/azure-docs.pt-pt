@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: fd7a12dca92a4b84ecd3a2c9644509a1dc705c35
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5d9dc1595e3cc812ba060d958b6e981867500ae2
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727858"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161503"
 ---
-# <a name="security-frame-session-management"></a>Quadro de segurança: Gerenciamento de sessão
-| Produtos/serviços | Artigo |
+# <a name="security-frame-session-management"></a>Quadro de segurança: gerenciamento de sessão
+| Produto/serviço | Artigo |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Implementar o logoff apropriado usando métodos ADAL ao usar o Azure AD](#logout-adal)</li></ul> |
 | Dispositivo IoT | <ul><li>[Usar tempos de vida finitos para tokens SaS gerados](#finite-tokens)</li></ul> |
@@ -35,10 +35,10 @@ ms.locfileid: "68727858"
 
 ## <a id="logout-adal"></a>Implementar o logoff apropriado usando métodos ADAL ao usar o Azure AD
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure AD | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
@@ -70,10 +70,10 @@ Ele também deve destruir a sessão do usuário chamando o método Session. Aban
 
 ## <a id="finite-tokens"></a>Usar tempos de vida finitos para tokens SaS gerados
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
@@ -81,10 +81,10 @@ Ele também deve destruir a sessão do usuário chamando o método Session. Aban
 
 ## <a id="resource-tokens"></a>Usar tempos de vida mínimos de token para tokens de recurso gerados
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | BD de documentos do Azure | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
@@ -92,10 +92,10 @@ Ele também deve destruir a sessão do usuário chamando o método Session. Aban
 
 ## <a id="wsfederation-logout"></a>Implementar o logoff apropriado usando métodos WsFederation ao usar o ADFS
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | ADFS | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
@@ -141,10 +141,10 @@ Ele também deve destruir a sessão do usuário chamando o método Session. Aban
 
 ## <a id="proper-logout"></a>Implementar o logoff apropriado ao usar o servidor de identidade
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Servidor de identidade | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/A  |
 | **Referências**              | [IdentityServer3-saída federada](https://identityserver.github.io/Documentation/docsv2/advanced/federated-signout.html) |
@@ -152,10 +152,10 @@ Ele também deve destruir a sessão do usuário chamando o método Session. Aban
 
 ## <a id="https-secure-cookies"></a>Os aplicativos disponíveis em HTTPS devem usar cookies seguros
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | Ambientetype-local |
 | **Referências**              | [elemento httpCookies (esquema de configurações ASP.net)](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [Propriedade HttpCookie. Secure](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
@@ -171,14 +171,14 @@ Ele também deve destruir a sessão do usuário chamando o método Session. Aban
 ```
 A configuração é imposta mesmo que HTTP seja usado para acessar o aplicativo. Se o HTTP for usado para acessar o aplicativo, a configuração interromperá o aplicativo, pois os cookies são definidos com o atributo Secure e o navegador não os enviará de volta ao aplicativo.
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Web Forms, MVC5 |
 | **Atributos**              | Ambientetype-local |
 | **Referências**              | N/A  |
-| **Passos** | Quando o aplicativo Web é a terceira parte confiável e o IDP é um servidor ADFS, o atributo Secure do token FedAuth pode ser configurado definindo RequireSSL como true na `system.identityModel.services` seção de Web. config:|
+| **Passos** | Quando o aplicativo Web é a terceira parte confiável e o IdP é um servidor ADFS, o atributo Secure do token FedAuth pode ser configurado definindo requireSSL como true na seção `system.identityModel.services` do Web. config:|
 
 ### <a name="example"></a>Exemplo
 ```csharp
@@ -193,10 +193,10 @@ A configuração é imposta mesmo que HTTP seja usado para acessar o aplicativo.
 
 ## <a id="cookie-definition"></a>Todos os aplicativos baseados em http devem especificar http somente para definição de cookie
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/A  |
 | **Referências**              | [Atributo de cookie seguro](https://en.wikipedia.org/wiki/HTTP_cookie#Secure_cookie) |
@@ -214,10 +214,10 @@ Todos os aplicativos baseados em HTTP que usam cookies devem especificar HttpOnl
 </system.web>
 ```
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Web Forms |
 | **Atributos**              | N/A  |
 | **Referências**              | [Propriedade FormsAuthentication. RequireSSL](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
@@ -231,10 +231,10 @@ O exemplo de código a seguir define o atributo requireSSL no arquivo Web. confi
 </authentication>
 ```
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | MVC5 |
 | **Atributos**              | Ambientetype-local |
 | **Referências**              | [Configuração do Windows Identity Foundation (WIF) – parte II](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) |
@@ -256,23 +256,23 @@ A configuração a seguir mostra a configuração correta:
 
 ## <a id="csrf-asp"></a>Mitigar ataques CSRF (solicitação intersite forjada) em páginas da Web do ASP.NET
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
 | **Passos** | A solicitação entre sites forjada (CSRF ou XSRF) é um tipo de ataque no qual um invasor pode realizar ações no contexto de segurança de uma sessão estabelecida de um usuário diferente em um site da Web. O objetivo é modificar ou excluir o conteúdo, se o site de destino depender exclusivamente de cookies de sessão para autenticar a solicitação recebida. Um invasor pode explorar essa vulnerabilidade, obtendo um navegador de usuário diferente para carregar uma URL com um comando de um site vulnerável no qual o usuário já está conectado. Há várias maneiras para um invasor fazer isso, por exemplo, hospedando um site diferente que carrega um recurso do servidor vulnerável ou fazendo com que o usuário clique em um link. O ataque pode ser evitado se o servidor enviar um token adicional para o cliente, requer que o cliente inclua esse token em todas as solicitações futuras e verifique se todas as solicitações futuras incluem um token que pertença à sessão atual, como usando o ASP.NET AntiForgeryToken ou ViewState. |
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/A  |
 | **Referências**              | [Prevenção de XSRF/CSRF no ASP.NET MVC e páginas da Web](https://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
-| **Passos** | Formulários MVC CSRF e ASP.net – use o `AntiForgeryToken` método auxiliar em exibições; Coloque um `Html.AntiForgeryToken()` no formulário, por exemplo,|
+| **Passos** | Formulários MVC CSRF e ASP.NET – use o método auxiliar `AntiForgeryToken` em exibições; Coloque um `Html.AntiForgeryToken()` no formulário, por exemplo,|
 
 ### <a name="example"></a>Exemplo
 ```csharp
@@ -301,11 +301,11 @@ public ViewResult SubmitUpdate()
 ```
 Filtro de autorização que verifica se:
 * A solicitação de entrada tem um cookie chamado __RequestVerificationToken
-* A solicitação de entrada tem `Request.Form` uma entrada chamada __RequestVerificationToken
-* Esses cookies e `Request.Form` valores correspondem supondo que tudo esteja bem, a solicitação passa normalmente. Mas, caso contrário, uma falha de autorização com a mensagem "um token antifalsificação necessário não foi fornecido ou era inválido". 
+* A solicitação de entrada tem uma entrada `Request.Form` chamada __RequestVerificationToken
+* Esses valores de cookie e `Request.Form` são iguais supondo que tudo esteja bem, a solicitação passa como normal. Mas, caso contrário, uma falha de autorização com a mensagem "um token antifalsificação necessário não foi fornecido ou era inválido". 
 
 ### <a name="example"></a>Exemplo
-Anti-CSRF e AJAX: O token de formulário pode ser um problema para solicitações AJAX, porque uma solicitação AJAX pode enviar dados JSON, não dados de formulário HTML. Uma solução é enviar os tokens em um cabeçalho HTTP personalizado. O código a seguir usa sintaxe Razor para gerar os tokens e, em seguida, adiciona os tokens a uma solicitação AJAX. 
+Anti-CSRF e AJAX: o token de formulário pode ser um problema para solicitações AJAX, porque uma solicitação AJAX pode enviar dados JSON, não dados de formulário HTML. Uma solução é enviar os tokens em um cabeçalho HTTP personalizado. O código a seguir usa sintaxe Razor para gerar os tokens e, em seguida, adiciona os tokens a uma solicitação AJAX. 
 ```csharp
 <script>
     @functions{
@@ -351,10 +351,10 @@ void ValidateRequestHeader(HttpRequestMessage request)
 }
 ```
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Web Forms |
 | **Atributos**              | N/A  |
 | **Referências**              | [Aproveite os recursos internos do ASP.NET para Evitarr os ataques da Web](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
@@ -371,10 +371,10 @@ void Page_Init (object sender, EventArgs e) {
 
 ## <a id="inactivity-lifetime"></a>Configurar sessão para tempo de vida de inatividade
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/A  |
 | **Referências**              | [Propriedade HttpSessionState. Timeout](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
@@ -391,10 +391,10 @@ void Page_Init (object sender, EventArgs e) {
 
 ## <a id="threat-detection"></a>Habilitar a detecção de ameaças no SQL do Azure
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Web Forms |
 | **Atributos**              | N/A  |
 | **Referências**              | [Elemento Forms para autenticação (esquema de configurações do ASP.NET)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
@@ -406,10 +406,10 @@ void Page_Init (object sender, EventArgs e) {
 </forms>
 ```
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Web Forms, MVC5 |
 | **Atributos**              | Ambientetype-local |
 | **Referências**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
@@ -436,15 +436,15 @@ void Page_Init (object sender, EventArgs e) {
 ### <a name="example"></a>Exemplo
 Além disso, o tempo de vida do token de declaração SAML emitido pelo ADFS deve ser definido como 15 minutos, executando o seguinte comando do PowerShell no servidor ADFS:
 ```csharp
-Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProviderName @(“Active Directory”) -TokenLifetime 15 -AlwaysRequireAuthentication $true
+Set-ADFSRelyingPartyTrust -TargetName "<RelyingPartyWebApp>" -ClaimsProviderName @("Active Directory") -TokenLifetime 15 -AlwaysRequireAuthentication $true
 ```
 
 ## <a id="proper-app-logout"></a>Implementar o logoff apropriado do aplicativo
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
@@ -452,23 +452,23 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 
 ## <a id="csrf-api"></a>Mitigar ataques CSRF (solicitação intersite forjada) em APIs Web do ASP.NET
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
 | **Passos** | A solicitação entre sites forjada (CSRF ou XSRF) é um tipo de ataque no qual um invasor pode realizar ações no contexto de segurança de uma sessão estabelecida de um usuário diferente em um site da Web. O objetivo é modificar ou excluir o conteúdo, se o site de destino depender exclusivamente de cookies de sessão para autenticar a solicitação recebida. Um invasor pode explorar essa vulnerabilidade, obtendo um navegador de usuário diferente para carregar uma URL com um comando de um site vulnerável no qual o usuário já está conectado. Há várias maneiras para um invasor fazer isso, por exemplo, hospedando um site diferente que carrega um recurso do servidor vulnerável ou fazendo com que o usuário clique em um link. O ataque pode ser evitado se o servidor enviar um token adicional para o cliente, requer que o cliente inclua esse token em todas as solicitações futuras e verifique se todas as solicitações futuras incluem um token que pertença à sessão atual, como usando o ASP.NET AntiForgeryToken ou ViewState. |
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/A  |
 | **Referências**              | [Impedindo ataques CSRF (solicitação intersite forjada) no ASP.NET Web API](https://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
-| **Passos** | Anti-CSRF e AJAX: O token de formulário pode ser um problema para solicitações AJAX, porque uma solicitação AJAX pode enviar dados JSON, não dados de formulário HTML. Uma solução é enviar os tokens em um cabeçalho HTTP personalizado. O código a seguir usa sintaxe Razor para gerar os tokens e, em seguida, adiciona os tokens a uma solicitação AJAX. |
+| **Passos** | Anti-CSRF e AJAX: o token de formulário pode ser um problema para solicitações AJAX, porque uma solicitação AJAX pode enviar dados JSON, não dados de formulário HTML. Uma solução é enviar os tokens em um cabeçalho HTTP personalizado. O código a seguir usa sintaxe Razor para gerar os tokens e, em seguida, adiciona os tokens a uma solicitação AJAX. |
 
 ### <a name="example"></a>Exemplo
 ```Javascript
@@ -545,20 +545,20 @@ public ViewResult SubmitUpdate()
 ```
 Filtro de autorização que verifica se:
 * A solicitação de entrada tem um cookie chamado __RequestVerificationToken
-* A solicitação de entrada tem `Request.Form` uma entrada chamada __RequestVerificationToken
-* Esses cookies e `Request.Form` valores correspondem supondo que tudo esteja bem, a solicitação passa normalmente. Mas, caso contrário, uma falha de autorização com a mensagem "um token antifalsificação necessário não foi fornecido ou era inválido".
+* A solicitação de entrada tem uma entrada `Request.Form` chamada __RequestVerificationToken
+* Esses valores de cookie e `Request.Form` são iguais supondo que tudo esteja bem, a solicitação passa como normal. Mas, caso contrário, uma falha de autorização com a mensagem "um token antifalsificação necessário não foi fornecido ou era inválido".
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | Provedor de identidade-ADFS, provedor de identidade-Azure AD |
 | **Referências**              | [Proteger uma API Web com contas individuais e logon local no ASP.NET Web API 2,2](https://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) |
 | **Passos** | Se a API da Web for protegida usando o OAuth 2,0, ela esperará um token de portador no cabeçalho de solicitação de autorização e concederá acesso à solicitação somente se o token for válido. Diferentemente da autenticação baseada em cookie, os navegadores não anexam os tokens de portador às solicitações. O cliente solicitante precisa anexar explicitamente o token de portador no cabeçalho da solicitação. Portanto, para APIs Web ASP.NET protegidas usando OAuth 2,0, os tokens de portador são considerados uma defesa contra ataques CSRF. Observe que, se a parte MVC do aplicativo usar a autenticação de formulários (ou seja, usar cookies), os tokens antifalsificação precisarão ser usados pelo aplicativo Web MVC. |
 
 ### <a name="example"></a>Exemplo
-A API da Web deve ser informada para confiar apenas em tokens de portador e não em cookies. Isso pode ser feito pela seguinte configuração no `WebApiConfig.Register` método:
+A API da Web deve ser informada para confiar apenas em tokens de portador e não em cookies. Isso pode ser feito pela seguinte configuração no método `WebApiConfig.Register`:
 
 ```csharp
 config.SuppressDefaultHostAuthentication();

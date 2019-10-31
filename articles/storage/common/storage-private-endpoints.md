@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: b94d376ee107f9acd45dff5b96fc43722f2fe208
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 00de95f3b3e6eddd1f45be830202ba3ec8772bfd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965468"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176165"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Usando pontos de extremidade privados para o armazenamento do Azure (visualização)
 
@@ -48,7 +48,7 @@ Ao criar o ponto de extremidade privado, você deve especificar a conta de armaz
 > [!TIP]
 > Crie um ponto de extremidade privado separado para a instância secundária do serviço de armazenamento para melhor desempenho de leitura em contas RA-GRS.
 
-Para obter disponibilidade de leitura em uma [conta de armazenamento com redundância geográfica com acesso de leitura](storage-redundancy-grs.md#read-access-geo-redundant-storage), você precisa de pontos de extremidade privados separados para as instâncias primária e secundária do serviço. Você não precisa criar um ponto de extremidade privado para a instância secundária para failover. O ponto de extremidade privado se conectará automaticamente à nova instância primária após o failover.
+Para obter disponibilidade de leitura em uma [conta de armazenamento com redundância geográfica com acesso de leitura](storage-redundancy-grs.md#read-access-geo-redundant-storage), você precisa de pontos de extremidade privados separados para as instâncias primária e secundária do serviço. Você não precisa criar um ponto de extremidade privado para a instância secundária para **failover**. O ponto de extremidade privado se conectará automaticamente à nova instância primária após o failover. git 
 
 #### <a name="resources"></a>Recursos
 
@@ -91,14 +91,14 @@ Essa abordagem habilita o acesso à conta de armazenamento usando a mesma cadeia
 
 Os nomes de zona DNS recomendados para pontos de extremidade privados para serviços de armazenamento são:
 
-| Serviço de armazenamento       | Nome da zona                          |
-| :-------------------- | :--------------------------------- |
-| Serviço Blob          | privatelink.blob.core.windows.net  |
-| Sistema de arquivos Data Lake | privatelink.dfe.core.windows.net   |
-| Serviço de arquivo          | privatelink.file.core.windows.net  |
-| serviço Fila         | privatelink.queue.core.windows.net |
-| Serviço tabela         | privatelink.table.core.windows.net |
-| Sites estáticos       | privatelink.web.core.windows.net   |
+| Serviço de armazenamento        | Nome da zona                            |
+| :--------------------- | :----------------------------------- |
+| Serviço Blob           | `privatelink.blob.core.windows.net`  |
+| Ger2 de Armazenamento do Data Lake | `privatelink.dfs.core.windows.net`   |
+| Serviço de arquivo           | `privatelink.file.core.windows.net`  |
+| serviço Fila          | `privatelink.queue.core.windows.net` |
+| Serviço tabela          | `privatelink.table.core.windows.net` |
+| Sites estáticos        | `privatelink.web.core.windows.net`   |
 
 ## <a name="pricing"></a>Preços
 
@@ -119,6 +119,6 @@ Os clientes no VNets com pontos de extremidade privados existentes enfrentam res
 
 Essa restrição é um resultado das alterações de DNS feitas quando a conta a2 cria um ponto de extremidade privado.
 
-### <a name="network-security-group-rules-on-subnets-with-private-endpoints"></a>Regras de grupo de segurança de rede em sub-redes com pontos de extremidade privados
+### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regras de grupo de segurança de rede para sub-redes com pontos de extremidade privados
 
-As regras do NSG ( [grupo de segurança de rede](../../virtual-network/security-overview.md) ) não podem ser configuradas para sub-redes com pontos de extremidade privados, neste momento. Uma solução alternativa limitada para esse problema é implementar suas regras de acesso para pontos de extremidade privados nas sub-redes de origem, embora essa abordagem possa exigir uma sobrecarga de gerenciamento maior.
+No momento, não é possível configurar regras de NSG ( [grupo de segurança de rede](../../virtual-network/security-overview.md) ) para sub-redes com pontos de extremidade privados. Uma solução alternativa limitada para esse problema é implementar suas regras de acesso para pontos de extremidade privados nas sub-redes de origem, embora essa abordagem possa exigir uma sobrecarga de gerenciamento maior.

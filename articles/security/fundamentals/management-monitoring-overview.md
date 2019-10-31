@@ -13,35 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2019
+ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 9ed2d00d6f229d958e0df024c70381051840548c
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 7ad7a29a92d25556190b4cf44f4e48158a6f0952
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727007"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162742"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Visão geral de monitoramento e gerenciamento de segurança do Azure
 Este artigo fornece uma visão geral dos recursos e serviços de segurança que o Azure fornece para auxiliar no gerenciamento e monitoramento de máquinas virtuais e serviços de nuvem do Azure.
-
-## <a name="shared-responsibility"></a>Responsabilidade partilhada
-
-A segurança de seus serviços de nuvem da Microsoft é uma parceria e uma responsabilidade compartilhada entre você e a Microsoft. A Microsoft é responsável pela plataforma Azure e pela segurança física de seus data centers (usando proteções de segurança, como portas de entrada de selo bloqueadas, limites e proteções). O Azure fornece níveis fortes de segurança na nuvem na camada de software que atende às necessidades de segurança, privacidade e conformidade de seus clientes.
-
-Você possui seus dados e identidades, a responsabilidade de protegê-los, a segurança de seus recursos locais e a segurança dos componentes de nuvem sobre os quais você tem controle. A Microsoft oferece recursos e controles de segurança para ajudá-lo a proteger seus dados e aplicativos. Seu grau de responsabilidade pela segurança é baseado no tipo de serviço de nuvem.
-
-O gráfico a seguir resume o equilíbrio de responsabilidade entre a Microsoft e o cliente.
-
-![Responsabilidade partilhada](./media/management-monitoring-overview/shared-responsibility.png)
-
-Para obter mais informações sobre gerenciamento de segurança, consulte [Gerenciamento de segurança no Azure](management.md).
 
 ## <a name="role-based-access-control"></a>Controlo de Acesso Baseado em Funções
 
 O RBAC (controle de acesso baseado em função) fornece gerenciamento de acesso detalhado para recursos do Azure. Usando o RBAC, você pode conceder às pessoas apenas a quantidade de acesso de que eles precisam para executar seus trabalhos. O RBAC também pode ajudá-lo a garantir que quando as pessoas deixam a organização, elas perdem o acesso aos recursos na nuvem.
 
-Saiba mais:
+Mais informações:
 
 * [Blog da equipe Active Directory no RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Controle de acesso baseado em função do Azure](../../role-based-access-control/role-assignments-portal.md)
@@ -56,7 +44,7 @@ Também oferecemos integração profunda para os produtos de [segurança profund
 
 O Symantec Endpoint Protection (SEP) também tem suporte no Azure. Por meio da integração do portal, você pode especificar que pretende usar SEP em uma VM. O SEP pode ser instalado em uma nova VM por meio do portal do Azure, ou pode ser instalado em uma VM existente por meio do PowerShell.
 
-Saiba mais:
+Mais informações:
 
 * [Implementar Soluções Antimalware em Máquinas Virtuais do Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Microsoft antimalware para serviços de nuvem do Azure e máquinas virtuais](antimalware.md)
@@ -70,7 +58,7 @@ A autenticação multifator do Azure é um método de autenticação que requer 
 
 A autenticação multifator ajuda a proteger o acesso a dados e aplicativos enquanto atende à demanda do usuário por um processo de entrada simples. Ele fornece autenticação forte por meio de uma variedade de opções de verificação (chamada telefônica, mensagem de texto ou notificação de aplicativo móvel ou código de verificação) e tokens OATH de terceiros.
 
-Saiba mais:
+Mais informações:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 * [O que é o Multi-Factor Authentication do Azure?](/azure/active-directory/authentication/multi-factor-authentication)
@@ -86,7 +74,7 @@ Você pode usar o Azure ExpressRoute para estender suas redes locais para o Micr
 
 As conexões do ExpressRoute não passam pela Internet pública. Eles podem oferecer mais confiabilidade, velocidades mais rápidas, latências menores e maior segurança do que as conexões típicas pela Internet.
 
-Saiba mais:
+Mais informações:
 
 * [Visão geral técnica do ExpressRoute](../../expressroute/expressroute-introduction.md)
 
@@ -94,7 +82,7 @@ Saiba mais:
 
 Os gateways de VPN, também chamados de gateways de rede virtual do Azure, são usados para enviar tráfego de rede entre redes virtuais e locais. Eles também são usados para enviar tráfego entre várias redes virtuais no Azure (rede para rede). Os gateways de VPN fornecem conectividade segura entre locais entre o Azure e sua infraestrutura.
 
-Saiba mais:
+Mais informações:
 
 * [Sobre gateways de VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 * [Visão geral da segurança de rede do Azure](network-overview.md)
@@ -107,12 +95,12 @@ Esse é um risco crescente de segurança para recursos hospedados na nuvem, pois
 
 Privileged Identity Management apresenta o conceito de administrador temporário para uma função ou acesso de administrador "Just-in-time". Esse tipo de administrador é um usuário que precisa concluir um processo de ativação para essa função atribuída. O processo de ativação altera a atribuição do usuário para uma função no Azure AD de inativo para ativo, por um período de tempo especificado.
 
-Saiba mais:
+Mais informações:
 
 * [Azure AD Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
 * [Introdução ao Azure AD Privileged Identity Management](../../active-directory/privileged-identity-management/pim-getting-started.md)
 
-## <a name="identity-protection"></a>Identity Protection
+## <a name="identity-protection"></a>Proteção de Identidade
 
 Azure AD Identity Protection fornece uma exibição consolidada de atividades de entrada suspeitas e possíveis vulnerabilidades para ajudar a proteger seus negócios. A proteção de identidade detecta atividades suspeitas para usuários e identidades privilegiadas (administrador), com base em sinais como:
 
@@ -122,10 +110,10 @@ Azure AD Identity Protection fornece uma exibição consolidada de atividades de
 
 Ao fornecer notificações e correção recomendada, a proteção de identidade ajuda a reduzir os riscos em tempo real. Ele calcula a severidade de risco do usuário. Você pode configurar políticas baseadas em risco para ajudar automaticamente a proteger o acesso do aplicativo contra ameaças futuras.
 
-Saiba mais:
+Mais informações:
 
 * [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection)
-* [Canal 9: Azure AD e identidade mostram: Versão prévia da proteção de identidade](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* [Canal 9: Azure AD e identidade mostrar: versão prévia do Identity Protection](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>Centro de Segurança
 
@@ -139,7 +127,7 @@ A central de segurança ajuda a otimizar e monitorar a segurança de seus recurs
 * Monitorando o estado de suas máquinas virtuais, rede e aplicativos do Azure.
 * Fornecendo uma lista de alertas de segurança priorizados, incluindo alertas de soluções de parceiros integradas. Ele também fornece as informações de que você precisa para investigar rapidamente um ataque e recomendações sobre como corrigi-lo.
 
-Saiba mais:
+Mais informações:
 
 * [Introdução ao Centro de Segurança do Azure](../../security-center/security-center-intro.md)
 * [Melhorar sua pontuação segura na central de segurança do Azure](../../security-center/security-center-secure-score.md)
@@ -150,3 +138,7 @@ O Gráfico de Segurança Inteligente fornece proteção contra ameaças em tempo
 
 * [Gráfico de Segurança Inteligente](https://www.microsoft.com/security/intelligence)
 
+## <a name="next-steps"></a>Próximos Passos
+Saiba mais sobre o [modelo de responsabilidade compartilhada](shared-responsibility.md) e quais tarefas de segurança são tratadas pela Microsoft e quais tarefas são tratadas por você.
+
+Para obter mais informações sobre gerenciamento de segurança, consulte [Gerenciamento de segurança no Azure](management.md).

@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 6b1f226fba43428cdf5f46d41425ac534219de7f
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 6270237e2319c42ed30fc347b7ab9c1c2a008314
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619052"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177742"
 ---
-# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um Cluster Service Fabric no Azure
+# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um cluster do Service Fabric no Azure
 
-Este tutorial é a parte três de uma série e mostra como dimensionar seu cluster existente para fora e para dentro. Quando tiver terminado, saberá como dimensionar o seu cluster e como limpar quaisquer recursos restantes.  Para obter mais informações sobre como dimensionar um cluster em execução no Azure, leia o dimensionamento de [Service Fabric clusters](service-fabric-cluster-scaling.md).
+Este tutorial é a parte três de uma série e mostra como dimensionar seu cluster existente para fora e para dentro. Quando tiver terminado, saberá como dimensionar o seu cluster e como limpar quaisquer recursos restantes.  Para obter mais informações sobre como dimensionar um cluster em execução no Azure, leia o [dimensionamento de Service Fabric clusters](service-fabric-cluster-scaling.md).
 
 Neste tutorial, ficará a saber como:
 
@@ -65,10 +65,10 @@ Seus serviços têm necessidades de infraestrutura diferentes, como maior RAM ou
 Ao dimensionar um cluster do Azure, tenha em mente as seguintes diretrizes:
 
 * Um único tipo de nó de Service Fabric/conjunto de dimensionamento não pode conter mais de 100 nós/VMs.  Para dimensionar um cluster além de 100 nós, adicione outros tipos de nó.
-* Os tipos de nó primários que executam cargas de trabalho de produção devem ter um [nível][durability] de durabilidade ouro ou prata e ter sempre cinco ou mais nós.
+* Os tipos de nó primários que executam cargas de trabalho de produção devem ter um [nível de durabilidade][durability] ouro ou prata e ter sempre cinco ou mais nós.
 * Os tipos de nó não primário que executam cargas de trabalho de produção com estado sempre devem ter cinco ou mais nós.
 * Os tipos de nó não primário que executam cargas de trabalho de produção sem monitoração de estado sempre devem ter dois ou mais nós.
-* Qualquer tipo de nó de [nível][durability] de durabilidade Gold ou prata sempre deve ter cinco ou mais nós.
+* Qualquer tipo de nó de [nível de durabilidade][durability] Gold ou prata sempre deve ter cinco ou mais nós.
 * Se estiver dimensionando (removendo nós de) um tipo de nó primário, você nunca deverá diminuir o número de instâncias para menos do que o [nível de confiabilidade][reliability] requer.
 
 Para obter mais informações, leia [diretrizes de capacidade de cluster](service-fabric-cluster-capacity.md).
@@ -79,7 +79,7 @@ Depois de criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-
 
 1. No [portal do Azure](https://portal.azure.com), vá para o grupo de recursos que contém o cluster (**sfclustertutorialgroup**, se você estiver seguindo este tutorial). 
 
-2. No painel esquerdo, selecione implantações ou selecione o link em implantações. 
+2. No painel esquerdo, selecione **implantações**ou selecione o link em **implantações**. 
 
 3. Selecione a implantação bem-sucedida mais recente na lista.
 
@@ -91,11 +91,11 @@ A colocação em escala horizontal e vertical ou dimensionamento vertical altera
 
 ### <a name="update-the-template"></a>Atualizar o modelo
 
-[Exporte um modelo e arquivo de parâmetros](#export-the-template-for-the-resource-group) do grupo de recursos para a implantação mais recente.  Abra o arquivo Parameters *. JSON* .  Se você implantou o cluster usando o [modelo de exemplo][template] neste tutorial, há três tipos de nó no cluster e três parâmetros que definem o número de nós para cada tipo de nó: *nt0InstanceCount*, *nt1InstanceCount*e  *nt2InstanceCount*.  O parâmetro *nt1InstanceCount* , por exemplo, define a contagem de instâncias para o segundo tipo de nó e define o número de VMs no conjunto de dimensionamento de máquinas virtuais associado.
+[Exporte um modelo e arquivo de parâmetros](#export-the-template-for-the-resource-group) do grupo de recursos para a implantação mais recente.  Abra o arquivo *Parameters. JSON* .  Se você implantou o cluster usando o [modelo de exemplo][template] neste tutorial, há três tipos de nó no cluster e três parâmetros que definem o número de nós para cada tipo de nó: *nt0InstanceCount*, *nt1InstanceCount*e  *nt2InstanceCount*.  O parâmetro *nt1InstanceCount* , por exemplo, define a contagem de instâncias para o segundo tipo de nó e define o número de VMs no conjunto de dimensionamento de máquinas virtuais associado.
 
 Portanto, ao atualizar o valor de *nt1InstanceCount* , você altera o número de nós no segundo tipo de nó.  Lembre-se de que você não pode dimensionar um tipo de nó para mais de 100 nós.  Os tipos de nó não primário que executam cargas de trabalho de produção com estado sempre devem ter cinco ou mais nós. Os tipos de nó não primário que executam cargas de trabalho de produção sem monitoração de estado sempre devem ter dois ou mais nós.
 
-Se você estiver dimensionando, removendo nós de, um tipo de nó de [nível][durability] de durabilidade bronze, deverá [remover manualmente o estado desses nós](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Para a camada de durabilidade prata e ouro, essas etapas são feitas automaticamente pela plataforma.
+Se você estiver dimensionando, removendo nós de, um tipo de nó de [nível de durabilidade][durability] bronze, deverá [remover manualmente o estado desses nós](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Para a camada de durabilidade prata e ouro, essas etapas são feitas automaticamente pela plataforma.
 
 ### <a name="deploy-the-updated-template"></a>Implantar o modelo atualizado
 Salve as alterações nos arquivos *Template. JSON* e *Parameters. JSON* .  Para implantar o modelo atualizado, execute o seguinte comando:
@@ -110,13 +110,13 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 
 ## <a name="add-a-node-type-to-the-cluster"></a>Adicionar um tipo de nó ao cluster
 
-Cada tipo de nó definido em um Cluster Service Fabric em execução no Azure é configurado como um conjunto de dimensionamento de [máquinas virtuais separado](service-fabric-cluster-nodetypes.md). Cada tipo de nó pode ser gerenciado separadamente. Você pode dimensionar de forma independente cada tipo de nó para cima ou para baixo, ter diferentes conjuntos de portas abertas e usar métricas de capacidade diferentes. Você também pode alterar independentemente a SKU do sistema operacional em execução em cada nó do cluster, mas observe que não é possível ter uma combinação do Windows e Linux em execução no cluster de exemplo. Um conjunto de dimensionamento/tipo de nó único não pode conter mais de 100 nós.  Você pode dimensionar um cluster horizontalmente em mais de 100 nós Adicionando tipos de nó/conjuntos de dimensionamento adicionais. Você pode dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.
+Cada tipo de nó definido em um Cluster Service Fabric em execução no Azure é configurado como um [conjunto de dimensionamento de máquinas virtuais separado](service-fabric-cluster-nodetypes.md). Cada tipo de nó pode ser gerenciado separadamente. Você pode dimensionar de forma independente cada tipo de nó para cima ou para baixo, ter diferentes conjuntos de portas abertas e usar métricas de capacidade diferentes. Você também pode alterar independentemente a SKU do sistema operacional em execução em cada nó do cluster, mas observe que não é possível ter uma combinação do Windows e Linux em execução no cluster de exemplo. Um conjunto de dimensionamento/tipo de nó único não pode conter mais de 100 nós.  Você pode dimensionar um cluster horizontalmente em mais de 100 nós Adicionando tipos de nó/conjuntos de dimensionamento adicionais. Você pode dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.
 
 ### <a name="update-the-template"></a>Atualizar o modelo
 
-[Exporte um modelo e arquivo de parâmetros](#export-the-template-for-the-resource-group) do grupo de recursos para a implantação mais recente.  Abra o arquivo Parameters *. JSON* .  Se você implantou o cluster usando o [modelo de exemplo][template] neste tutorial, há três tipos de nó no cluster.  Nesta seção, você adiciona um quarto tipo de nó atualizando e implantando um modelo do Resource Manager. 
+[Exporte um modelo e arquivo de parâmetros](#export-the-template-for-the-resource-group) do grupo de recursos para a implantação mais recente.  Abra o arquivo *Parameters. JSON* .  Se você implantou o cluster usando o [modelo de exemplo][template] neste tutorial, há três tipos de nó no cluster.  Nesta seção, você adiciona um quarto tipo de nó atualizando e implantando um modelo do Resource Manager. 
 
-Além do novo tipo de nó, você também adiciona o conjunto de dimensionamento de máquinas virtuais associado (que é executado em uma sub-rede separada da rede virtual) e o grupo de segurança de rede.  Você pode optar por adicionar um endereço IP público novo ou existente e recursos do Azure Load Balancer para o novo conjunto de dimensionamento.  O novo tipo de nó tem um [nível][durability] de durabilidade de prata e tamanho de "Standard_D2_V2".
+Além do novo tipo de nó, você também adiciona o conjunto de dimensionamento de máquinas virtuais associado (que é executado em uma sub-rede separada da rede virtual) e o grupo de segurança de rede.  Você pode optar por adicionar um endereço IP público novo ou existente e recursos do Azure Load Balancer para o novo conjunto de dimensionamento.  O novo tipo de nó tem um [nível de durabilidade][durability] de prata e tamanho de "Standard_D2_V2".
 
 No arquivo *Template. JSON* , adicione os seguintes novos parâmetros:
 ```json
@@ -387,20 +387,6 @@ No arquivo *Template. JSON* , adicione novos recursos de grupo de segurança de 
     },
     "properties": {
         "securityRules": [
-            {
-                "name": "allowSvcFabSMB",
-                "properties": {
-                    "access": "Allow",
-                    "destinationAddressPrefix": "*",
-                    "destinationPortRange": "445",
-                    "direction": "Inbound",
-                    "priority": 3950,
-                    "protocol": "*",
-                    "sourceAddressPrefix": "VirtualNetwork",
-                    "sourcePortRange": "*",
-                    "description": "allow SMB traffic within the net, used by fabric to move packages around"
-                }
-            },
             {
                 "name": "allowSvcFabCluser",
                 "properties": {
@@ -820,7 +806,7 @@ Depois de criar um Cluster Service Fabric, você pode dimensionar horizontalment
 > [!WARNING]
 > O uso de Remove-AzServiceFabricNodeType para remover um tipo de nó de um cluster de produção não é recomendado para ser usado com frequência. É um comando perigoso, pois exclui o recurso do conjunto de dimensionamento de máquinas virtuais por trás do tipo de nó. 
 
-Para remover o tipo de nó, execute o cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) .  O tipo de nó deve ser um [nível][durability] de durabilidade prata ou ouro o cmdlet exclui o conjunto de dimensionamento associado ao tipo de nó e leva algum tempo para ser concluído.  Em seguida, execute o cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) em cada um dos nós a serem removidos, o que exclui o estado do nó e remove os nós do cluster. Se houver serviços nos nós, os serviços serão movidos primeiro para outro nó. Se o Gerenciador de cluster não conseguir localizar um nó para a réplica/serviço, a operação será atrasada/bloqueada.
+Para remover o tipo de nó, execute o cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) .  O tipo de nó deve ser um [nível de durabilidade][durability] prata ou ouro o cmdlet exclui o conjunto de dimensionamento associado ao tipo de nó e leva algum tempo para ser concluído.  Em seguida, execute o cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) em cada um dos nós a serem removidos, o que exclui o estado do nó e remove os nós do cluster. Se houver serviços nos nós, os serviços serão movidos primeiro para outro nó. Se o Gerenciador de cluster não conseguir localizar um nó para a réplica/serviço, a operação será atrasada/bloqueada.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
@@ -854,7 +840,7 @@ Depois de criar um cluster de Service Fabric, você pode dimensionar um tipo de 
 
 ### <a name="update-the-template"></a>Atualizar o modelo
 
-[Exporte um modelo e arquivo de parâmetros](#export-the-template-for-the-resource-group) do grupo de recursos para a implantação mais recente.  Abra o arquivo Parameters *. JSON* .  Se você implantou o cluster usando o [modelo de exemplo][template] neste tutorial, há três tipos de nó no cluster.  
+[Exporte um modelo e arquivo de parâmetros](#export-the-template-for-the-resource-group) do grupo de recursos para a implantação mais recente.  Abra o arquivo *Parameters. JSON* .  Se você implantou o cluster usando o [modelo de exemplo][template] neste tutorial, há três tipos de nó no cluster.  
 
 O tamanho das VMs no segundo tipo de nó é definido no parâmetro *vmNodeType1Size* .  Altere o valor do parâmetro *vmNodeType1Size* de Standard_D2_V2 para [Standard_D3_V2](/azure/virtual-machines/windows/sizes-general#dv2-series), que dobra os recursos de cada instância de VM.
 
@@ -871,7 +857,7 @@ Ou o seguinte comando de CLI do Azure:
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

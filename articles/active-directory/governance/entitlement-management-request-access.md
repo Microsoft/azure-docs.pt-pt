@@ -1,6 +1,6 @@
 ---
-title: Solicitar acesso a um pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia) – Azure Active Directory
-description: Saiba como usar o portal meu acesso para solicitar acesso a um pacote do Access no gerenciamento de direitos Azure Active Directory (versão prévia).
+title: Solicitar acesso a um pacote de acesso no gerenciamento de direitos do Azure AD-Azure Active Directory
+description: Saiba como usar o portal meu acesso para solicitar acesso a um pacote de acesso no gerenciamento de direitos Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e57a216efee39df0ad22712b281073a68600e0df
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: ddc0a3788075701fb4633895e7b22fff2c15f60b
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990746"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173696"
 ---
-# <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Solicitar acesso a um pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)
-
-> [!IMPORTANT]
-> O gerenciamento de direitos do Azure Active Directory (AD do Azure) está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Solicitar acesso a um pacote de acesso no gerenciamento de direitos do Azure AD
 
 Com o gerenciamento de direitos do Azure AD, um pacote de acesso permite uma configuração única de recursos e políticas que administram automaticamente o acesso para a vida útil do pacote de acesso. 
 

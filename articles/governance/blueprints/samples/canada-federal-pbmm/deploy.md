@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: e2c061b69771214a770b3b42626d28672bd9fe77
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 22806f497283c1885446eadd5f444dacf3769c12
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72297820"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163321"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Implantar os exemplos do Canadá Federal PBMM Blueprint
 
@@ -97,14 +97,14 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 
 Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|\[Preview @ no__t-1: implantar o agente Log Analytics para VMs Linux |Atribuição de política |Espaço de trabalho Log Analytics para VMs Linux |Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Preview @ no__t-1: implantar o agente Log Analytics para VMs Linux |Atribuição de política |Opcional: lista de imagens de VM que têm suporte para o sistema operacional Linux para adicionar ao escopo |Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: `[]` |
-|\[Preview @ no__t-1: implantar Log Analytics agente para VMs do Windows |Atribuição de política |Opcional: lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo |Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: `[]` |
-|\[Preview @ no__t-1: implantar Log Analytics agente para VMs do Windows |Atribuição de política |Espaço de trabalho Log Analytics para VMs do Windows |Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Preview @ no__t-1: auditar controles PBMM federais do Canadá e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria |Atribuição de política |ID do espaço de trabalho Log Analytics a qual as VMs devem ser configuradas |Essa é a ID (GUID) do espaço de trabalho Log Analytics para a qual as VMs devem ser configuradas. |
-|\[Preview @ no__t-1: auditar controles PBMM federais do Canadá e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria |Atribuição de política |Lista de tipos de recursos que devem ter logs de diagnóstico habilitados |Lista de tipos de recursos para auditar se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Azure monitor esquemas de logs de diagnóstico](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
-|\[Preview @ no__t-1: auditar controles PBMM federais do Canadá e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria |Atribuição de política |Grupo de administradores |Group. Exemplo: `Administrator; myUser1; myUser2` |
-|\[Preview @ no__t-1: auditar controles PBMM federais do Canadá e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria |Atribuição de política |Lista de usuários que devem ser incluídos no grupo de administradores de VM do Windows |Uma lista de membros separados por ponto e vírgula que deve ser incluída no grupo local Administradores. Exemplo: `Administrator; myUser1; myUser2` |
+|\]de visualização de \[: implantar o agente de Log Analytics para VMs Linux |Atribuição de política |Espaço de trabalho Log Analytics para VMs Linux |Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\]de visualização de \[: implantar o agente de Log Analytics para VMs Linux |Atribuição de política |Opcional: lista de imagens de VM que têm suporte para o sistema operacional Linux para adicionar ao escopo |Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: `[]` |
+|\]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows |Atribuição de política |Opcional: lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo |Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: `[]` |
+|\]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows |Atribuição de política |Espaço de trabalho Log Analytics para VMs do Windows |Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[\]de visualização: auditar controles PBMM federais do Canadá e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria |Atribuição de política |ID do espaço de trabalho Log Analytics a qual as VMs devem ser configuradas |Essa é a ID (GUID) do espaço de trabalho Log Analytics para a qual as VMs devem ser configuradas. |
+|\[\]de visualização: auditar controles PBMM federais do Canadá e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria |Atribuição de política |Lista de tipos de recursos que devem ter logs de diagnóstico habilitados |Lista de tipos de recursos para auditar se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Azure monitor esquemas de logs de diagnóstico](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
+|\[\]de visualização: auditar controles PBMM federais do Canadá e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria |Atribuição de política |Grupo de administradores |Group. Exemplo: `Administrator; myUser1; myUser2` |
+|\[\]de visualização: auditar controles PBMM federais do Canadá e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria |Atribuição de política |Lista de usuários que devem ser incluídos no grupo de administradores de VM do Windows |Uma lista de membros separados por ponto e vírgula que deve ser incluída no grupo local Administradores. Exemplo: `Administrator; myUser1; myUser2` |
 |Implantar a proteção avançada contra ameaças em contas de armazenamento |Atribuição de política |Efeito |As informações sobre os efeitos da política podem ser encontradas em [entender Azure Policy efeitos](../../../policy/concepts/effects.md). |
 |Implantar a auditoria em servidores SQL |Atribuição de política |O valor em dias do período de retenção (0 indica retenção ilimitada) |Dias de retenção (opcional, _180_ dias se não especificado) |
 |Implantar a auditoria em servidores SQL |Atribuição de política |Nome do grupo de recursos para a conta de armazenamento para auditoria do SQL Server |A auditoria grava eventos de banco de dados em um log de auditoria na sua conta de armazenamento do Azure (uma conta de armazenamento é criada em cada região em que um SQL Server é criado, que é compartilhado por todos os servidores nessa região). Importante-para uma operação adequada de auditoria, não exclua ou renomeie o grupo de recursos ou as contas de armazenamento. |
@@ -119,7 +119,7 @@ Agora que você analisou as etapas para implantar o exemplo de PBMM Federal do C
 > [Canadá Federal PBMM Blueprints-visão geral](./index.md)
 > [Canadá Federal PBMM Blueprints – mapeamento de controle](./control-mapping.md)
 
-Artigos adicionais sobre esquemas e como utilizá-los:
+Artigos adicionais sobre plantas e como usá-los:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

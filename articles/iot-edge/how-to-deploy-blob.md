@@ -9,12 +9,12 @@ ms.service: iot-edge
 ms.custom: seodec18
 ms.reviewer: arduppal
 manager: mchad
-ms.openlocfilehash: f1c5bb6f8a4c7705940f8659575690939c3e5433
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 603c407f93294f2c9697dcee4c3d5d829033d5d9
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964993"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176970"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Implantar o armazenamento de BLOBs do Azure no módulo IoT Edge em seu dispositivo
 
@@ -78,7 +78,7 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos s
 
    - Substitua `<your storage account name>` por um nome que você possa lembrar. Os nomes de conta devem ter entre 3 e 24 caracteres, com letras minúsculas e números. Sem espaços.
 
-   - Substitua `<your storage account key>` por uma chave Base64 de 64 bytes. Você pode gerar uma chave com ferramentas como [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Você usará essas credenciais para acessar o armazenamento de blobs de outros módulos.
+   - Substitua `<your storage account key>` por uma chave Base64 de 64 bytes. Você pode gerar uma chave com ferramentas como [GeneratePlus](https://generate.plus/en/base64). Você usará essas credenciais para acessar o armazenamento de blobs de outros módulos.
 
    - Substitua `<storage mount>` de acordo com o sistema operacional do contêiner. Forneça o nome de um [volume](https://docs.docker.com/storage/volumes/) ou o caminho absoluto para um diretório no dispositivo IOT Edge em que você deseja que o módulo de blob armazene seus dados. A montagem de armazenamento mapeia um local em seu dispositivo que você fornece a um local definido no módulo.
 
@@ -191,7 +191,7 @@ Azure IoT Edge fornece modelos no Visual Studio Code para ajudá-lo a desenvolve
 
 1. Substitua `<your storage account name>` por um nome que você possa lembrar. Os nomes de conta devem ter entre 3 e 24 caracteres, com letras minúsculas e números. Sem espaços.
 
-1. Substitua `<your storage account key>` por uma chave Base64 de 64 bytes. Você pode gerar uma chave com ferramentas como [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Você usará essas credenciais para acessar o armazenamento de blobs de outros módulos.
+1. Substitua `<your storage account key>` por uma chave Base64 de 64 bytes. Você pode gerar uma chave com ferramentas como [GeneratePlus](https://generate.plus/en/base64). Você usará essas credenciais para acessar o armazenamento de blobs de outros módulos.
 
 1. Substitua `<storage mount>` de acordo com o sistema operacional do contêiner. Forneça o nome de um [volume](https://docs.docker.com/storage/volumes/) ou o caminho absoluto para um diretório no dispositivo IOT Edge em que você deseja que o módulo de blob armazene seus dados. A montagem de armazenamento mapeia um local em seu dispositivo que você fornece a um local definido no módulo.  
 

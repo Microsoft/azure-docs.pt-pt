@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 10/30/2019
 ms.author: helohr
-ms.openlocfilehash: f4eeecccb3815ebfef9cdf79ac14f3dd3bd5e77a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b62351f1d99ef54d2416a2427264aea225afc5a8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300214"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73171633"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de área de trabalho virtual do Windows
 
@@ -71,6 +71,16 @@ deviceTRUST é um provedor de serviços de valor agregado da área de trabalho v
 deviceTRUST estende o valor da área de trabalho virtual do Windows com sua tecnologia de segurança contextual. o deviceTRUST habilita o acesso condicional para um acesso de área de trabalho virtual seguro do Windows, acesso condicional a aplicativos na área de trabalho virtual do Windows e aplica políticas condicionais de área de trabalho virtual do Windows sem nenhuma infraestrutura adicional. O uso do deviceTRUST permite um espaço de trabalho móvel e flexível que atende a todos os requisitos de segurança, conformidade e regulamentação. 
 
 - [Acesse o site do parceiro](https://devicetrust.com/wvd).
+
+## <a name="ivanti"></a>Ivanti
+
+![Logotipo do Ivanti](./media/partners/ivanti.png)
+
+O Gerenciador de espaço de trabalho do usuário Ivanti é um serviço de valor agregado da área de trabalho virtual do Windows que facilita a implantação e o gerenciamento de desktops, separando os dados do usuário da área de trabalho para portabilidade Com o Ivanti, os usuários podem entregar projetos complexos, como migrar para o Windows 10, adotar o Office 365 ou mover serviços para a nuvem mais rapidamente. 
+
+Quando usado com a área de trabalho virtual do Windows, o Gerenciador de espaço de trabalho de usuário do Ivanti fornece gerenciamento contextual simples da experiência desktop do usuário, eliminando o tempo de entrada longo e erradicando a política de grupo pesadelos. Os modelos prontos para uso do Gerenciador de espaço de trabalho do usuário Ivanti simplificam a instalação para usuários por meio de agentes e do console existente. O Gerenciador de espaço de trabalho de usuário do Ivanti fornece áreas responsivas e seguras que os usuários adoram, economizando em servidores, Gerenciando usuários com mais eficiência e reduzindo o risco de segurança do ponto de extremidade. 
+
+- [Acesse o site do parceiro](https://www.ivanti.com/products/user-workspace-manager).
 
 ## <a name="lakeside-software"></a>Lakeside software
 
@@ -133,6 +143,26 @@ Disponível como SaaS ou como uma pilha da Web em sua própria nuvem privada, a 
 
 - [Acesse o site do parceiro](https://www.printerlogic.com).
 
+## <a name="numecent"></a>Numecent
+
+![Logotipo do Numecent](./media/partners/numecent.png)
+
+O Numecent é um provedor de serviços de valor agregado da área de trabalho virtual do Windows que reduz significativamente os custos operacionais totais por meio da integração rápida e da migração de aplicativos Windows complicados ou incompatíveis em ambientes de área de trabalho virtual do Windows. O Numecent também minimiza a quantidade de configuração que os usuários precisam fazer, reduz as atualizações do aplicativo e simplifica processos complexos. Como o Numecent Cloudpaging dá suporte a mais aplicativos diretamente do que qualquer outra ferramenta de entrega de aplicativos, ele reduz o tempo e as cargas de trabalho de ti em ambientes com um conjunto diversificado de aplicativos. 
+
+Quando usado com a área de trabalho virtual do Windows, o Cloudpaging reduz ainda mais os custos ao concluir o ciclo de vida do ativo de software da implantação para atualizar, monitorar e remover aplicativos. O Cloudpaging simplifica o gerenciamento de imagens ao provisionar dinamicamente aplicativos, conforme necessário, em tempo real para implantações de área de trabalho virtual do Windows. O Cloudpaging ajuda os aplicativos a executar sem administração ou intervenção por meio das atualizações periódicas do Windows 10. O Cloudpaging também reduz o custo de licenciamento de aplicativos caros, permitindo a implantação e o uso mais eficientes desses aplicativos. 
+
+- [Acesse o site do parceiro](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/).
+
+## <a name="rdpsoft"></a>RDPSoft
+
+![Logotipo do RDPSoft](./media/partners/rdpsoft.png)
+
+O RDPSoft é um parceiro de área de trabalho virtual do Windows que fornece soluções de monitoramento, gerenciamento e relatórios poderosas e econômicas. Suas ofertas Área de Trabalho Remota Commander permitem aos profissionais de ti obter informações sobre a integridade, o desempenho, a atividade do usuário, o licenciamento e a segurança de suas implantações de área de trabalho virtual do Windows. 
+ 
+As soluções Área de Trabalho Remota Commander do RDPSoft aprimoram a administração da área de trabalho virtual do Windows. Os recursos de gerenciamento Premium simplificam a delegação de tarefas de gerenciamento de área de trabalho virtual do Windows para suporte à equipe de desk fornecendo assistência remota, sessão de usuário e gerenciamento de processos. Ao mesmo tempo, o Área de Trabalho Remota Commander Suite coleta métricas avançadas sobre desempenho e carga por usuário, atividade e auditoria do usuário, qualidade de conexão da área de trabalho virtual do Windows (latência e largura de banda), licenciamento e segurança em um SQL do Azure central instância do banco de dados para revisão. Com o RDPSoft, os amplos relatórios históricos e os painéis abrangentes são apenas um clique.
+
+- [Vá para o site do parceiro](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
+
 ## <a name="thinprint"></a>ThinPrint
 
 ![Logotipo do ThinPrint](./media/partners/thinprint.png)
@@ -143,6 +173,16 @@ A solução ezeep da ThinPrint estende o valor da área de trabalho virtual do W
 
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas).
 - [Acesse o site do parceiro](https://www.ezeep.com/wvd-printing).
+
+## <a name="tricerat"></a>Tricerat
+
+![Logotipo do triCerat](./media/partners/tricerat.png)
+
+O triCerat oferece uma solução de gerenciamento de impressão superior para área de trabalho virtual do Windows e outras plataformas de área de trabalho. O triCerat software tem funcionalidade robusta, oferecendo uma experiência melhor para usuários e administradores. Os administradores adquirem eficiência por meio de gerenciamento de driver completo, implantação simplificada de filas de impressão e gerenciamento consistente em plataformas híbridas. A experiência do usuário melhora com o tempo de entrada mais curto, filas de impressão inteligentes baseadas em usuário, dispositivo e local de rede e opções de autoatendimento para seleção rápida de impressoras. 
+
+Com o triCerat, a impressão é direta na área de trabalho virtual do Windows e além. O triCerat software permite que os Administradores conectem facilmente as impressoras locais à nuvem, estendendo o gerenciamento de impressão empresarial de ambientes tradicionais a novos e modernos espaços de trabalho.
+
+- [Acesse o site do parceiro](https://www.tricerat.com/solutions/wvd-microsoft/).
 
 ## <a name="workspot"></a>Workspot
 

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 202d608e5d994cabd3d7e2e9a0887c8aab75af31
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e5d24c35fd2fafc27f2339af5b1c92875b0138d9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72437835"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162213"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre a Cópia de Segurança do SQL Server em VMs do Azure
 
@@ -22,7 +22,7 @@ SQL Server bancos de dados são cargas de trabalho críticas que exigem um RPO (
 
 Essa solução aproveita as APIs nativas do SQL para fazer backups de seus bancos de dados SQL.
 
-* Depois de especificar o SQL Server VM que você deseja proteger e consultar os bancos de dados nele, o serviço de backup do Azure instalará uma extensão de backup de carga de trabalho na VM pelo nome @no__t extensão-0.
+* Depois de especificar o SQL Server VM que você deseja proteger e consultar os bancos de dados nele, o serviço de backup do Azure instalará uma extensão de backup de carga de trabalho na VM pelo nome `AzureBackupWindowsWorkload` extensão.
 * Essa extensão consiste em um coordenador e um plug-in do SQL. Embora o coordenador seja responsável por disparar fluxos de trabalho para várias operações, como configurar backup, backup e restauração, o plug-in é responsável pelo fluxo de dados real.
 * Para poder descobrir bancos de dados nessa VM, o backup do Azure cria a conta `NT SERVICE\AzureWLBackupPluginSvc`. Essa conta é usada para backup e restauração e requer permissões de sysadmin do SQL. A conta `NT SERVICE\AzureWLBackupPluginSvc` é uma [conta de serviço virtual](https://docs.microsoft.com/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)e, portanto, não requer nenhum gerenciamento de senha. O backup do Azure aproveita a conta `NT AUTHORITY\SYSTEM` para a descoberta/consulta de banco de dados, portanto, essa conta precisa ser um logon público no SQL. Se você não criou a VM SQL Server do Azure Marketplace, você pode receber um erro **UserErrorSQLNoSysadminMembership**. Se isso ocorrer, [siga estas instruções](#set-vm-permissions).
 * Depois de disparar configurar a proteção nos bancos de dados selecionados, o serviço de backup configura o coordenador com os agendamentos de backup e outros detalhes da política, que a extensão armazena em cache localmente na VM.
@@ -45,20 +45,10 @@ Antes de começar, verifique o seguinte:
 **Suporte** | **Detalhes**
 --- | ---
 **Implantações com suporte** | As VMs do Azure do SQL Marketplace e do não Marketplace (SQL Server instaladas manualmente) têm suporte.
-**Áreas geográficas com suporte** | Sudeste da Austrália (ASE), Austrália oriental (AE), Austrália Central (AC), Austrália Central 2 (AC) <br> Sul do Brasil (BRS)<br> Canadá central (CNC), leste do Canadá (CE)<br> Ásia Oriental do Sul (SEA), Ásia Oriental (EA) <br> Leste dos EUA (EUS), leste dos EUA 2 (EUS2), Oeste EUA Central (WCUS), oeste dos EUA (WUS); Oeste dos EUA 2 (WUS 2) EUA Central do Norte (NCUS) EUA Central (CUS) EUA Central do Sul (SCUS) <br> Índia central (INC.), sul da Índia (INS), Índia ocidental <br> Leste do Japão (JPE), oeste do Japão (JPW) <br> Coreia central (KRC), sul da Coreia (KRS) <br> Europa Setentrional (NE), Europa Ocidental <br> Sul do Reino Unido (UKS), Oeste do Reino Unido (UKW) <br> US Gov Arizona, US Gov-Virgínia, US Gov Texas, US DoD Central, US DoD Leste <br> Norte da Alemanha, Centro-oeste da Alemanha <br> Norte da Suíça, Oeste da Suíça
-**Sistemas operativos suportados** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Atualmente, não há suporte para o Linux.
-**Versões SQL Server com suporte** | SQL Server 2017, conforme detalhado [aqui](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 e SPS, conforme detalhado [aqui](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014 SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
-**Versões do .NET com suporte** | .NET Framework 4.5.2 e acima instalados na VM
-
-### <a name="support-for-sql-server-2008-and-sql-server-2008-r2"></a>Suporte para SQL Server 2008 e SQL Server 2008 R2
-
-O backup do Azure anunciou recentemente o suporte para [servidores de EOS SQL](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-2008-eos-extend-support) -SQL Server 2008 e SQL Server 2008 R2. Atualmente, a solução está em versão prévia para SQL Server de EOS e dá suporte à seguinte configuração:
-
-1. SQL Server 2008 e SQL Server 2008 R2 em execução no Windows 2008 R2 SP1
-2. .NET Framework 4.5.2 e acima precisam ser instalados na VM
-3. Não há suporte para backup para bancos de dados FCI e espelhados
-
-Os usuários não serão cobrados por esse recurso até o momento em que ele estiver disponível. Todas as outras [Considerações sobre recursos e limitações](#feature-consideration-and-limitations) também se aplicam a essas versões. Indique os [pré-requisitos](backup-sql-server-database-azure-vms.md#prerequisites) antes de configurar a proteção nos SQL servers 2008 e 2008 R2.
+**Áreas geográficas com suporte** | Sudeste da Austrália (ASE), Austrália oriental (AE), Austrália Central (AC), Austrália Central 2 (AC) <br> Sul do Brasil (BRS)<br> Canadá central (CNC), leste do Canadá (CE)<br> Ásia Oriental do Sul (SEA), Ásia Oriental (EA) <br> Leste dos EUA (EUS), leste dos EUA 2 (EUS2), Oeste EUA Central (WCUS), oeste dos EUA (WUS); Oeste dos EUA 2 (WUS 2) EUA Central do Norte (NCUS) EUA Central (CUS) EUA Central do Sul (SCUS) <br> Índia central (INC.), sul da Índia (INS), Índia ocidental <br> Leste do Japão (JPE), oeste do Japão (JPW) <br> Coreia central (KRC), sul da Coreia (KRS) <br> Europa Setentrional (NE), Europa Ocidental <br> Sul do Reino Unido (UKS), Oeste do Reino Unido (UKW) <br> US Gov Arizona, US Gov-Virgínia, US Gov Texas, US DoD Central, US DoD Leste <br> Norte da Alemanha, Centro-oeste da Alemanha <br> Norte da Suíça, Oeste da Suíça <br> França Central <br> Leste da China, Leste da China 2, Norte da China, Norte da China 2
+**Sistemas operativos suportados** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Atualmente, não há suporte para o Linux.
+**Versões SQL Server com suporte** | SQL Server 2019, SQL Server 2017, conforme detalhado na [página Pesquisar ciclo de vida do produto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 e SPS conforme detalhado na [página Pesquisar ciclo de vida do produto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express.
+**Versões do .NET com suporte** | .NET Framework 4.5.2 ou posterior instalado na VM
 
 ## <a name="feature-consideration-and-limitations"></a>Considerações e limitações de recursos
 
@@ -190,7 +180,7 @@ Adicione logons **NT AUTHORITY\SYSTEM** e **NT Service\AzureWLBackupPluginSvc** 
 
 7. Clique em OK.
 8. Repita a mesma sequência de etapas (1-7 acima) para adicionar o logon do NT Service\AzureWLBackupPluginSvc à instância do SQL Server. Se o logon já existir, verifique se ele tem a função de servidor sysadmin e, sob status, ele concede a permissão para se conectar ao mecanismo de banco de dados e fazer logon como habilitado.
-9. Depois de conceder a permissão, **redescubra os bancos** de trabalho no portal: **@no__t a** infraestrutura de backup **->** na VM do Azure:
+9. Depois de conceder a permissão, **redescubra os bancos** de trabalho no Portal: cofre **->** infraestrutura de backup **->** carga de trabalho na VM do Azure:
 
     ![Redescobrir bancos de os no portal do Azure](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 

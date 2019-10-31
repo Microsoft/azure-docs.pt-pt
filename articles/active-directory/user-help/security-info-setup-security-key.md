@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ac894db42b2b5ee2612e2e3b2906bc2bffcc4c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 47ae7de87efd787b7d3cba14a33688c4b29637e6
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717392"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160703"
 ---
 # <a name="set-up-security-info-to-use-a-security-key-preview"></a>Configurar informações de segurança para usar uma chave de segurança (versão prévia)
 
@@ -47,11 +47,11 @@ Antes de poder registrar sua chave de segurança, o seguinte deve ser verdadeiro
 
 - Você tem uma chave de segurança física aprovada por seu administrador ou sua organização. Sua chave de segurança deve ser FIDO2 e compatível com a Microsoft. Se você tiver alguma dúvida sobre sua chave de segurança e se ela for compatível, entre em contato com o suporte técnico da sua organização.
 
-## <a name="register-your-security-key"></a>Registe a sua chave de segurança
+## <a name="register-your-security-key"></a>Registrar sua chave de segurança
 
 Você deve criar sua chave de segurança e dar a ela um PIN exclusivo antes de poder entrar em sua conta corporativa ou de estudante usando a chave. Você pode ter até 10 chaves registradas com sua conta. 
 
-1. Acesse a página **meu perfil** em https://myprofile.microsoft.com e entre se você ainda não fez isso.
+1. Vá para a página **meu perfil** em https://myprofile.microsoft.com e entre se você ainda não tiver feito isso.
 
 2. Selecione **informações de segurança**, selecione **Adicionar método**e, em seguida, selecione **chave de segurança** na lista suspensa **Adicionar um método** .
 
@@ -78,7 +78,7 @@ Você deve criar sua chave de segurança e dar a ela um PIN exclusivo antes de p
 
 6. Digite seu PIN de chave de segurança exclusivo na caixa **segurança do Windows** e selecione **OK**.
 
-    Você retornará à caixa Configurando **seu novo método de entrada** .
+    Você retornará à caixa **configurando seu novo método de entrada** .
 
 7. Selecione **Seguinte**.
 
@@ -154,6 +154,6 @@ Para registrar uma chave de segurança, você deve ter pelo menos um método de 
 
 - Para obter informações mais detalhadas sobre [as chaves de segurança em conformidade com a Microsoft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 
-- Redefina sua senha se você a tiver perdido ou esquecido, no [portal](https://passwordreset.microsoftonline.com/) de redefinição de senha ou siga as etapas no artigo [redefinir sua senha corporativa ou de estudante](user-help-reset-password.md) .
+- Redefina sua senha se você a tiver perdido ou esquecido, no [portal de redefinição de senha](https://passwordreset.microsoftonline.com/) ou siga as etapas no artigo [redefinir sua senha corporativa ou de estudante](active-directory-passwords-update-your-own-password.md) .
 
 - Obtenha dicas de solução de problemas e ajuda para problemas de conexão no artigo [não é possível entrar no seu conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) .

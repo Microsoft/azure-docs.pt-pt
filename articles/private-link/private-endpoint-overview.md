@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 7f0d846a83312e28c305100e7c8dc74cc8140d7d
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: a3c25553e7abbe39c00407e8000880dc99056bcd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73023839"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172992"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o ponto de extremidade privado do Azure?
 
@@ -81,7 +81,7 @@ O proprietário do recurso de link privado pode executar as seguintes ações em
 > Somente um ponto de extremidade privado em um Estado aprovado pode enviar tráfego para um determinado recurso de link privado. 
 
 ### <a name="connecting-using-alias"></a>Conectando usando alias
-Alias é um moniker exclusivo gerado quando o proprietário do serviço cria o serviço de vínculo privado por trás de um balanceador de carga padrão. O proprietário do serviço pode compartilhar esse alias com seus consumidores offline. Os consumidores podem solicitar uma conexão com o serviço de vínculo privado usando o URI do recurso ou o alias. Se você quiser se conectar usando o alias, deverá criar um ponto de extremidade privado usando o método de aprovação de conexão manual. Para usar o método de aprovação de conexão manual, defina o parâmetro de solicitação manual como true durante o fluxo de criação do ponto de extremidade privado. Examine [New-AzPrivateEndpoint](https://docs.microsoft.com/en-us/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) e [AZ Network Private-Endpoint Create](https://docs.microsoft.com/en-us/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) para obter detalhes. 
+Alias é um moniker exclusivo gerado quando o proprietário do serviço cria o serviço de vínculo privado por trás de um balanceador de carga padrão. O proprietário do serviço pode compartilhar esse alias com seus consumidores offline. Os consumidores podem solicitar uma conexão com o serviço de vínculo privado usando o URI do recurso ou o alias. Se você quiser se conectar usando o alias, deverá criar um ponto de extremidade privado usando o método de aprovação de conexão manual. Para usar o método de aprovação de conexão manual, defina o parâmetro de solicitação manual como true durante o fluxo de criação do ponto de extremidade privado. Examine [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) e [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) para obter detalhes. 
 
 ## <a name="dns-configuration"></a>Configuração do DNS 
 Ao se conectar a um recurso de link privado usando um FQDN (nome de domínio totalmente qualificado) como parte da cadeia de conexão, é importante definir corretamente as configurações de DNS para resolver o endereço IP privado alocado. Os serviços do Azure existentes já podem ter uma configuração de DNS para usar ao se conectar por meio de um ponto de extremidade público. Isso precisa ser substituído para se conectar usando seu ponto de extremidade privado. 
@@ -91,7 +91,7 @@ O adaptador de rede associado ao ponto de extremidade privado contém o conjunto
 Você pode usar as seguintes opções para definir as configurações de DNS para pontos de extremidade privados: 
 - **Use o arquivo de host (recomendado apenas para teste)** . Você pode usar o arquivo de host em uma máquina virtual para substituir o DNS.  
 - **Use uma zona DNS privada**. Você pode usar zonas DNS privadas para substituir a resolução DNS para um determinado ponto de extremidade particular. Uma zona DNS privada pode ser vinculada à sua rede virtual para resolver domínios específicos.
-- **Use seu servidor DNS personalizado**. Você pode usar seu próprio servidor DNS para substituir a resolução DNS para um determinado recurso de link privado. Se o [servidor DNS](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server) estiver hospedado em uma rede virtual, você poderá criar uma regra de encaminhamento de DNS para usar uma zona DNS privada para simplificar a configuração de todos os recursos de link privado.
+- **Use seu servidor DNS personalizado**. Você pode usar seu próprio servidor DNS para substituir a resolução DNS para um determinado recurso de link privado. Se o [servidor DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) estiver hospedado em uma rede virtual, você poderá criar uma regra de encaminhamento de DNS para usar uma zona DNS privada para simplificar a configuração de todos os recursos de link privado.
  
 > [!IMPORTANT]
 > Não é recomendável substituir uma zona que esteja ativamente em uso para resolver pontos de extremidade públicos. As conexões com recursos não poderão ser resolvidas corretamente sem o encaminhamento de DNS para o DNS público. Para evitar problemas, crie um nome de domínio diferente ou siga o nome sugerido para cada serviço abaixo. 
@@ -122,8 +122,6 @@ A tabela a seguir inclui uma lista de limitações conhecidas ao usar pontos de 
 |Limitação |Descrição |Mitigação  |
 |---------|---------|---------|
 |As regras do NSG (grupo de segurança de rede) e as rotas definidas pelo usuário não se aplicam ao ponto de extremidade privado    |Não há suporte para NSG em pontos de extremidade privados. Embora as sub-redes que contenham o ponto de extremidade privado possam ter NSG associado a ela, as regras não serão efetivas no tráfego processado pelo ponto de extremidade privado. Você deve ter [imposição de políticas de rede desabilitada](disable-private-endpoint-network-policy.md) para implantar pontos de extremidade privados em uma sub-rede. O NSG ainda é imposto em outras cargas de trabalho hospedadas na mesma sub-rede. As rotas em qualquer sub-rede do cliente usarão um prefixo/32, alterando o comportamento de roteamento padrão requer um UDR semelhante  | Controle o tráfego usando regras de NSG para o tráfego de saída em clientes de origem. Implantar rotas individuais com o prefixo/32 para substituir rotas de ponto de extremidade particulares        |
-|Os pontos de extremidade privados não podem ser criados em sub-redes habilitadas para ponto de extremidades de serviço ou cargas de trabalho especializadas    |Pontos de extremidade privados não podem ser implantados em sub-redes habilitadas para pontos de extremidade de serviço ou sub-redes delegadas a cargas de trabalho especializadas|  Crie uma sub-rede separada para implantar os pontos de extremidade privados.        |
-|o ponto de extremidade privado só pode ser mapeado para o serviço de vínculo privado (pertencente ao cliente) na mesma região    |   Não há suporte para a conexão a um serviço de vínculo privado (seu próprio) de uma região diferente       |  Durante a visualização, você deve implantar seu serviço de vínculo privado na mesma região.        |
 |  A rede virtual emparelhada com pontos de extremidade privados só não tem suporte   |   Não há suporte para a conexão com pontos de extremidade privados em uma rede virtual emparelhada sem nenhuma outra carga de trabalho       | Implantar uma única VM na rede virtual emparelhada para habilitar a conectividade |
 |Cargas de trabalho especializadas não podem acessar pontos de extremidade privados    |   Os seguintes serviços implantados em sua rede virtual não podem acessar nenhum recurso de link privado usando pontos de extremidade privados:<br>Plano do Serviço de Aplicações</br>Instância de Contentor do Azure</br>Azure NetApp Files</br>HSM Dedicado do Azure<br>       |   Sem mitigação durante a visualização.       |
 

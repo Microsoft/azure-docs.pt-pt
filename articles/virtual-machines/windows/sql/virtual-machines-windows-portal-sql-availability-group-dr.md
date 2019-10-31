@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: f74f9ba55f3593ed31994b83bb9bda1501445e0a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9949c389ad0511c3ed5923e0451bc96e7063621f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100658"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159739"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurar um grupo de disponibilidade Always On em máquinas virtuais do Azure em regiões diferentes
 
@@ -130,7 +130,7 @@ Execute o script do PowerShell com o nome de rede do cluster, o endereço IP e a
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # The cluster name for the network in the new region (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
    $IPResourceName = "<IPResourceName>" # The cluster name for the new IP Address resource.
-   $ILBIP = “<n.n.n.n>” # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
+   $ILBIP = "<n.n.n.n>" # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
    [int]$ProbePort = <nnnnn> # The probe port you set on the ILB.
 
    Import-Module FailoverClusters
@@ -142,7 +142,7 @@ Execute o script do PowerShell com o nome de rede do cluster, o endereço IP e a
 
 A réplica no data center remoto faz parte do grupo de disponibilidade, mas está em uma sub-rede diferente. Se essa réplica se tornar a réplica primária, poderá ocorrer o tempo limite de conexão do aplicativo. Esse comportamento é o mesmo que um grupo de disponibilidade local em uma implantação de várias sub-redes. Para permitir conexões de aplicativos cliente, atualize a conexão do cliente ou configure o cache de resolução de nomes no recurso de nome de rede do cluster.
 
-Preferivelmente, atualize as cadeias de conexão `MultiSubnetFailover=Yes`do cliente para definir. Consulte [conectando-se com MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
+Preferivelmente, atualize as cadeias de conexão do cliente para definir `MultiSubnetFailover=Yes`. Consulte [conectando-se com MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
 
 Se você não puder modificar as cadeias de conexão, poderá configurar o cache de resolução de nome. Consulte [erro de tempo limite e não é possível se conectar a um ouvinte de grupo de disponibilidade SQL Server 2012 AlwaysOn em um ambiente de várias sub-redes](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 
@@ -152,7 +152,7 @@ Para testar a conectividade do ouvinte com a região remota, você pode fazer fa
 
 1. No Pesquisador de **objetos**, conecte-se à instância do SQL Server que hospeda a réplica primária.
 1. Em **grupos de disponibilidade AlwaysOn**, **grupos de disponibilidade**, clique com o botão direito do mouse no seu grupo de disponibilidade e clique em **Propriedades**.
-1. Na página **geral** , em réplicas de **disponibilidade**, defina a réplica secundária no site de recuperação de desastre para usar o modo de disponibilidade de **confirmação síncrona** e o modo de failover **automático** .
+1. Na página **geral** , em **réplicas de disponibilidade**, defina a réplica secundária no site de recuperação de desastre para usar o modo de disponibilidade de **confirmação síncrona** e o modo de failover **automático** .
 1. Se você tiver uma réplica secundária no mesmo site que a réplica primária para alta disponibilidade, defina essa réplica como **confirmação assíncrona** e **manual**.
 1. Clique em OK.
 1. No Pesquisador de **objetos**, clique com o botão direito do mouse no grupo de disponibilidade e clique em **Mostrar painel**.
@@ -164,11 +164,11 @@ Para testar a conectividade do ouvinte com a região remota, você pode fazer fa
 
 Após testar a conectividade, mova a réplica primária de volta para o data center primário e defina o modo de disponibilidade de volta para suas configurações operacionais normais. A tabela a seguir mostra as configurações operacionais normais para a arquitetura descrita neste documento:
 
-| Location | Instância do servidor | Role | Modo de disponibilidade | Modo de failover
+| Localização | Instância do servidor | Função | Modo de disponibilidade | Modo de failover
 | ----- | ----- | ----- | ----- | -----
-| data center primário | SQL-1 | Primário | Replicação | Automático
-| data center primário | SQL-2 | Secundário | Replicação | Automático
-| data center secundários ou remotos | SQL-3 | Secundário | Manipulador | Manual
+| data center primário | SQL-1 | Primária | Replicação | Automático
+| data center primário | SQL-2 | Secundária | Replicação | Automático
+| data center secundários ou remotos | SQL-3 | Secundária | Manipulador | Manual
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>Mais informações sobre failover manual forçado e planejado
@@ -178,7 +178,7 @@ Para obter mais informações, consulte os seguintes tópicos:
 - [Executar um failover manual planejado de um grupo de disponibilidade (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
 - [Executar um failover manual forçado de um grupo de disponibilidade (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
 
-## <a name="additional-links"></a>Ligações Adicionais
+## <a name="additional-links"></a>Links adicionais
 
 * [Always On grupos de disponibilidade](https://msdn.microsoft.com/library/hh510230.aspx)
 * [Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/)

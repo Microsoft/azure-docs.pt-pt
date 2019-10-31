@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o TOPdesk-Secure | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o TOPdesk-Secure | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o TOPdesk-Secure.
 services: active-directory
 documentationCenter: na
@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 8e06ee33-18f9-4c05-9168-e6b162079d88
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,21 +16,21 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcf9c8ea62610b6e4eb4ad642107df81ae712054
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 3125f5b9075a69289bd6a44d62c3d06d5e6d910d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950406"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161117"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Tutorial: Integração do Azure Active Directory com o TOPdesk-Secure
+# <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Tutorial: integração do Azure Active Directory com o TOPdesk-Secure
 
 Neste tutorial, você aprenderá a integrar o TOPdesk-Secure ao Azure Active Directory (Azure AD).
 A integração do TOPdesk-Secure ao Azure AD oferece os seguintes benefícios:
 
 * No Azure AD, é possível controlar quem tem acesso ao TOPdesk-Secure.
 * Você pode permitir que seus usuários sejam automaticamente conectados ao TOPdesk-Secure (logon único) com suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Você pode gerenciar suas contas em um local central-a portal do Azure.
 
 Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -53,37 +54,37 @@ Para configurar a integração do TOPdesk-Secure ao Azure AD, você precisará a
 
 **Para adicionar o TOPdesk-Secure da galeria, execute as seguintes etapas:**
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
 2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A folha aplicativos empresariais](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. Para adicionar um novo aplicativo, clique no botão **novo aplicativo** na parte superior da caixa de diálogo.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O botão novo aplicativo](common/add-new-app.png)
 
 4. Na caixa de pesquisa, digite **TOPdesk-Secure**, selecione **TOPdesk-Secure** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![TOPdesk-seguro na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
 
 Nesta seção, você configurará e testará o logon único do Azure AD com o TOPdesk-Secure, com base em um usuário de teste chamado **Brenda Simon**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do TOPdesk-Secure.
 
 Para configurar e testar o logon único do Azure AD com o TOPdesk-Secure, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+1. **[Configurar o logon único do Azure ad](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Configurar o logon único do TOPdesk-Secure](#configure-topdesk---secure-single-sign-on)** -para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
+4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
 5. **[Criar um usuário de teste do TOPdesk-Secure](#create-topdesk---secure-test-user)** – para ter um equivalente de Brenda Simon no TOPdesk-Secure que esteja vinculado à representação do usuário no Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+6. **[Testar logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
 Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
 
@@ -91,13 +92,13 @@ Para configurar o logon único do Azure AD com o TOPdesk-Secure, execute as segu
 
 1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **TOPdesk-Secure** , selecione **logon único**.
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Link configurar logon único](common/select-sso.png)
 
 2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-enalimentado** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. Na página **Configurar logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **configuração básica de SAML** .
 
     ![Editar configuração básica de SAML](common/edit-urls.png)
 
@@ -116,17 +117,17 @@ Para configurar o logon único do Azure AD com o TOPdesk-Secure, execute as segu
 
 5. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique em **baixar** para baixar o XML de **metadados de Federação** das opções determinadas de acordo com seu requisito e salvá-lo em seu computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![O link de download do certificado](common/metadataxml.png)
 
 6. Na seção **Configurar TOPdesk-Secure** , copie as URLs apropriadas de acordo com seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+    a. URL de logon
 
     b. Identificador do Azure AD
 
-    c. URL de fim de sessão
+    c. URL de logout
 
 ### <a name="configure-topdesk---secure-single-sign-on"></a>Configurar o logon único do TOPdesk-seguro
 
@@ -134,31 +135,31 @@ Para configurar o logon único do Azure AD com o TOPdesk-Secure, execute as segu
 
 2. No menu **TOPdesk** , clique em **configurações**.
 
-    ![](./media/topdesk-secure-tutorial/ic790598.png "Configurações") de configurações
+    ![Definições](./media/topdesk-secure-tutorial/ic790598.png "Definições")
 
 3. Clique em **configurações de logon**.
 
-    Configurações ![de logon configurações](./media/topdesk-secure-tutorial/ic790599.png "de login")
+    ![Configurações de logon](./media/topdesk-secure-tutorial/ic790599.png "Configurações de logon")
 
 4. Expanda o menu **configurações de logon** e clique em **geral**.
 
-    ![Geral](./media/topdesk-secure-tutorial/ic790600.png "")
+    ![Geral](./media/topdesk-secure-tutorial/ic790600.png "Geral")
 
 5. Na seção **seguro** da seção de configuração de **logon do SAML** , execute as seguintes etapas:
 
-    ![](./media/topdesk-secure-tutorial/ic790855.png "Configurações técnicas") de configurações técnicas
+    ![Configurações técnicas](./media/topdesk-secure-tutorial/ic790855.png "Configurações técnicas")
 
     a. Clique em **baixar** para baixar o arquivo de metadados públicos e, em seguida, salve-o localmente no seu computador.
 
     b. Abra o arquivo de metadados e localize o nó **AssertionConsumerService** .
 
-    (./media/topdesk-secure-tutorial/ic790856.png "Serviço de consumidor de asserção") do serviço do consumidor de ![asserção]
+    ![Serviço de consumidor de asserção](./media/topdesk-secure-tutorial/ic790856.png "Serviço de consumidor de asserção")
 
     c. Copie o valor **AssertionConsumerService** , Cole esse valor na caixa de texto URL de resposta na seção **domínio e URLs do TOPdesk-Secure** .
 
 6. Para criar um arquivo de certificado, execute as seguintes etapas:
 
-    ![](./media/topdesk-secure-tutorial/ic790606.png "Certificado") de certificado
+    ![Certificado](./media/topdesk-secure-tutorial/ic790606.png "Certificado")
 
     a. Abra o arquivo de metadados baixado em portal do Azure.
 
@@ -170,11 +171,11 @@ Para configurar o logon único do Azure AD com o TOPdesk-Secure, execute as segu
 
 7. Na seção **público** , clique em **Adicionar**.
 
-    ![Adicionar](./media/topdesk-secure-tutorial/ic790607.png "Adicionar")
+    ![Agrega](./media/topdesk-secure-tutorial/ic790607.png "Adicionar")
 
 8. Na página da caixa de diálogo **Assistente de configuração do SAML** , execute as seguintes etapas:
 
-    Assistente de(./media/topdesk-secure-tutorial/ic790608.png "configuração") do SAML do ![Assistente de configuração do SAML]
+    ![Assistente de configuração do SAML](./media/topdesk-secure-tutorial/ic790608.png "Assistente de configuração do SAML")
 
     a. Para carregar o arquivo de metadados baixado do portal do Azure, em **metadados de Federação**, clique em **procurar**.
 
@@ -190,32 +191,32 @@ Para configurar o logon único do Azure AD com o TOPdesk-Secure, execute as segu
 
     g. Clique em **Guardar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![Os links "usuários e grupos" e "todos os usuários"](common/users.png)
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+2. Selecione **novo usuário** na parte superior da tela.
 
     ![Botão novo usuário](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. Nas propriedades do usuário, execute as etapas a seguir.
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    ![A caixa de diálogo usuário](common/user-properties.png)
 
     a. No campo **nome** , insira **brendafernandes**.
   
-    b. No campo **nome de usuário** **, digite brendafernandes @ no__t-2yourcompanydomain. Extension**  
+    b. No campo **nome de usuário** , digite **brendafernandes\@yourcompanydomain. Extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo-lhe acesso ao TOPdesk-Secure.
 
@@ -229,13 +230,13 @@ Nesta seção, você permitirá que Brenda Simon use o logon único do Azure con
 
 3. No menu à esquerda, selecione **usuários e grupos**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![O link "usuários e grupos"](common/users-groups-blade.png)
 
 4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
     ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. Na caixa de diálogo **usuários e grupos** , selecione **Brenda Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 
 6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 
@@ -250,13 +251,13 @@ No caso do TOPdesk-Secure, o provisionamento é uma tarefa manual.
 
 1. Faça logon em seu site de empresa do **TOPdesk-Secure** como administrador.
 
-2. No menu na parte superior, clique em **TOPdesk \> novo \> arquivos de suporte \> operador**.
+2. No menu na parte superior, clique em **TOPdesk \> novo \> suporte aos arquivos \> operador**.
 
-    ![](./media/topdesk-secure-tutorial/ic790610.png "Operador") operador
+    ![Operador](./media/topdesk-secure-tutorial/ic790610.png "Operador")
 
 3. Na caixa de diálogo **novo operador** , execute as seguintes etapas:
 
-    ![Novo](./media/topdesk-secure-tutorial/ic790611.png "operador novo") operador
+    ![Novo operador](./media/topdesk-secure-tutorial/ic790611.png "Novo operador")
 
     a. Clique na guia **geral** .
 
@@ -273,13 +274,13 @@ No caso do TOPdesk-Secure, o provisionamento é uma tarefa manual.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
 
 Ao clicar no bloco TOPdesk-Secure no painel de acesso, você deverá entrar automaticamente no TOPdesk-Secure para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 

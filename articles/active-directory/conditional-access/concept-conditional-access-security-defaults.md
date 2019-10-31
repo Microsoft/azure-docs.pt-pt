@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 502fb8b49770b4933c44aa1eb447abb746943c0d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: bde1741d12cc7ef181fb60bc7eecbec1fed8cbd0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554821"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151214"
 ---
 # <a name="what-are-security-defaults"></a>O que são os padrões de segurança?
 
@@ -32,7 +32,7 @@ As seguintes configurações de segurança serão ativadas em seu locatário.
 
 ## <a name="unified-multi-factor-authentication-registration"></a>Registro de autenticação multifator unificado
 
-Todos os usuários em seu locatário devem se registrar para a MFA (autenticação multifator) na forma do serviço de autenticação multifator do Azure. Os usuários têm 14 dias para se registrarem na autenticação multifator usando o aplicativo Microsoft Authenticator. Depois que os 14 dias tiverem passado, o usuário não poderá entrar até que o registro da autenticação multifator seja concluído.
+Todos os usuários em seu locatário devem se registrar para a autenticação multifator (MFA) na forma do serviço de autenticação multifator do Azure. Os usuários têm 14 dias para se registrarem na autenticação multifator usando o aplicativo Microsoft Authenticator. Depois que os 14 dias tiverem passado, o usuário não poderá entrar até que o registro da autenticação multifator seja concluído.
 
 Entendemos que alguns usuários podem estar fora do escritório ou não entrarão durante os 14 dias imediatamente após habilitar os padrões de segurança. Para garantir que cada usuário tenha bastante tempo para se registrar na autenticação multifator, o período de 14 dias é exclusivo para cada usuário. O período de 14 dias de um usuário começa após sua primeira entrada interativa bem-sucedida depois de habilitar os padrões de segurança.
 
@@ -113,6 +113,7 @@ Aqui estão os guias passo a passo sobre como você pode usar o acesso condicion
 - [Exigir MFA para administradores](howto-conditional-access-policy-admin-mfa.md)
 - [Exigir MFA para gerenciamento do Azure](howto-conditional-access-policy-azure-management.md)
 - [Bloquear autenticação herdada](howto-conditional-access-policy-block-legacy.md)
+- [Exigir MFA para todos os usuários](howto-conditional-access-policy-all-users-mfa.md)
 
 ## <a name="enabling-security-defaults"></a>Habilitando padrões de segurança
 

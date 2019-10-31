@@ -11,18 +11,18 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 09/25/2018
-ms.openlocfilehash: 49877994e7eef89f099e19d92e26de48bd9d41f4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: efa31e72811b83c00c1b2ee4a5d1a42fc7089630
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566461"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163181"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Acelere a análise de Big Data em tempo real com o conector do Spark para o banco de dados SQL do Azure e SQL Server
 
 O conector do Spark para o banco de dados SQL do Azure e o SQL Server habilita bancos de dados SQL, incluindo o banco de dados SQL do Azure e o SQL Server, para atuar como fonte de dado de entrada ou coletor de dado de saída para trabalhos Spark. Ele permite que você utilize dados transacionais em tempo real na análise de Big Data e persiste resultados para consultas ou relatórios adhoc. Em comparação com o conector JDBC interno, esse conector fornece a capacidade de inserir dados em massa em bancos de dado SQL. Ele pode superar o desempenho de linha por linha com 10 vezes para 20xr mais rápido. O conector do Spark para o banco de dados SQL do Azure e o SQL Server também oferece suporte à autenticação do AAD. Ele permite que você se conecte com segurança ao seu banco de dados SQL do Azure de Azure Databricks usando sua conta do AAD. Ele fornece interfaces semelhantes com o conector JDBC interno. É fácil migrar seus trabalhos do Spark existentes para usar esse novo conector.
 
-## <a name="download"></a>Transferência
+## <a name="download"></a>Transferir
 Para começar, baixe o conector do Spark para o BD SQL do [repositório Azure-SQLDB-Spark](https://github.com/Azure/azure-sqldb-spark) no github.
 
 ## <a name="official-supported-versions"></a>Versões oficiais com suporte
@@ -65,7 +65,7 @@ import com.microsoft.azure.sqldb.spark.connect._
 val config = Config(Map(
   "url"            -> "mysqlserver.database.windows.net",
   "databaseName"   -> "MyDatabase",
-  "dbTable"        -> "dbo.Clients"
+  "dbTable"        -> "dbo.Clients",
   "user"           -> "username",
   "password"       -> "*********",
   "connectTimeout" -> "5", //seconds
@@ -103,7 +103,7 @@ import com.microsoft.azure.sqldb.spark.connect._
 val config = Config(Map(
   "url"          -> "mysqlserver.database.windows.net",
   "databaseName" -> "MyDatabase",
-  "dbTable"      -> "dbo.Clients"
+  "dbTable"      -> "dbo.Clients",
   "user"         -> "username",
   "password"     -> "*********"
 ))
@@ -211,7 +211,7 @@ df.bulkCopyToSqlDB(bulkCopyConfig, bulkCopyMetadata)
 //df.bulkCopyToSqlDB(bulkCopyConfig) if no metadata is specified.
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Se você ainda não fez isso, baixe o conector do Spark para o banco de dados SQL do Azure e SQL Server do [repositório GitHub Azure-SQLDB-Spark](https://github.com/Azure/azure-sqldb-spark) e explore os recursos adicionais no repositório:
 
 -   [Blocos de anotações de Azure Databricks de exemplo](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)

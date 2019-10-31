@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7dfd7e29b119b5fe98b649b2e5f5f45b422c4634
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 698702e24f1f6dfc6b94b75de77c08156832e566
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053429"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177855"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
@@ -159,11 +159,14 @@ O Windows Server failover clustering tem suporte pelo Sincronização de Arquivo
 
 ### <a name="data-deduplication"></a>Eliminação de duplicação de dados
 **Versão do agente 5.0.2.0 ou mais recente**   
-A eliminação de duplicação de dados tem suporte em volumes com camadas de nuvem habilitadas no Windows Server 2016 e no Windows Server 2019. Habilitar a eliminação de duplicação de dados em um volume com camada de nuvem habilitada permite que você armazene em cache mais arquivos localmente sem provisionar mais armazenamento. 
+A eliminação de duplicação de dados tem suporte em volumes com camadas de nuvem habilitadas no Windows Server 2016. Habilitar a eliminação de duplicação de dados em um volume com camada de nuvem habilitada permite que você armazene em cache mais arquivos localmente sem provisionar mais armazenamento. 
 
 Quando a eliminação de duplicação de dados está habilitada em um volume com disposição em camadas de nuvem habilitada, os arquivos otimizados para eliminação de duplicatas no local do ponto de extremidade do servidor serão em camadas semelhantes a um arquivo normal com base nas configurações de política de camadas de nuvem. Depois que os arquivos otimizados para eliminação de duplicação estiverem em camadas, o trabalho de coleta de lixo de eliminação de duplicatas de dados será executado automaticamente para recuperar espaço em disco removendo partes desnecessárias que não são mais referenciadas por outros arquivos no volume.
 
 Observe que a economia de volume se aplica somente ao servidor; seus dados no compartilhamento de arquivos do Azure não serão eliminação de duplicação.
+
+> [!Note]  
+> A eliminação de duplicação de dados e a camada de nuvem não têm suporte no mesmo volume no servidor 2019 devido a um bug que será corrigido em uma atualização futura.
 
 **Versões do agente do Windows Server 2012 R2 ou mais antigas**  
 Para volumes que não têm camadas de nuvem habilitadas, o Sincronização de Arquivos do Azure dá suporte à eliminação de duplicação de dados do Windows Server habilitada no volume.
@@ -274,6 +277,8 @@ Sincronização de Arquivos do Azure está disponível somente nas seguintes reg
 | US Gov - Texas | Arizona |
 | Gov (US) - Texas | Texas |
 | Gov dos E.U.A. Virginia | Virgínia |
+| Norte dos E.A.U. | Dubai |
+| EAU Central * | Abu Dhabi |
 | Europa Ocidental | Países Baixos |
 | E.U.A. Centro-Oeste | Wyoming |
 | Oeste dos E.U.A. | Califórnia |

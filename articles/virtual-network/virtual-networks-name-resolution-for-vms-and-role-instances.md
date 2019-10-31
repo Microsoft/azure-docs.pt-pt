@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 64f79b3e72a8655f8d704ffd531d9e34485832b0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ebacd386221ed12e1171034eb5d23236bd234849
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570620"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176049"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes para recursos em redes virtuais do Azure
 
@@ -28,7 +28,7 @@ Quando os recursos implementados nas redes virtuais têm de resolver os nomes de
 * [Resolução de nomes fornecida pelo Azure](#azure-provided-name-resolution)
 * [Resolução de nomes que usa seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server) (que pode encaminhar consultas para os servidores DNS fornecidos pelo Azure)
 
-O tipo de resolução de nomes que você usa depende de como seus recursos precisam se comunicar entre si. A tabela a seguir ilustra os cenários e as soluções de resolução de nomes correspondentes:
+O tipo de resolução de nomes que utiliza depende do modo como os recursos têm de comunicar entre si. A tabela a seguir ilustra os cenários e as soluções de resolução de nomes correspondentes:
 
 > [!NOTE]
 > Dependendo do seu cenário, talvez você queira usar o recurso Zonas Privadas do DNS do Azure, que está atualmente em visualização pública. Para obter mais informações, veja [Utilizar o DNS do Azure para domínios privados](../dns/private-dns-overview.md).
@@ -40,7 +40,7 @@ O tipo de resolução de nomes que você usa depende de como seus recursos preci
 | Resolução de nomes entre VMs em diferentes redes virtuais ou instâncias de função em diferentes serviços de nuvem. |Os servidores DNS [zonas privadas do DNS do Azure](../dns/private-dns-overview.md) ou gerenciados pelo cliente encaminham consultas entre redes virtuais para resolução pelo Azure (proxy DNS). Consulte [resolução de nomes usando seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Somente FQDN |
 | Resolução de nomes de um serviço de Azure App (aplicativo Web, função ou bot) usando a integração de rede virtual para instâncias de função ou VMs na mesma rede virtual. |Os servidores DNS gerenciados pelo cliente encaminham consultas entre redes virtuais para resolução pelo Azure (proxy DNS). Consulte [resolução de nomes usando seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Somente FQDN |
 | Resolução de nomes de aplicativos Web do serviço de aplicativo para VMs na mesma rede virtual. |Os servidores DNS gerenciados pelo cliente encaminham consultas entre redes virtuais para resolução pelo Azure (proxy DNS). Consulte [resolução de nomes usando seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Somente FQDN |
-| Resolução de nomes de aplicativos Web do serviço de aplicativo em uma rede virtual para VMs em uma rede virtual diferente. |Os servidores DNS gerenciados pelo cliente encaminham consultas entre redes virtuais para resolução pelo Azure (proxy DNS). Consulte resolução de nomes usando seu próprio servidor DNS. |Somente FQDN |
+| Resolução de nomes de aplicativos Web do serviço de aplicativo em uma rede virtual para VMs em uma rede virtual diferente. |Os servidores DNS gerenciados pelo cliente encaminham consultas entre redes virtuais para resolução pelo Azure (proxy DNS). Consulte [resolução de nomes usando seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Somente FQDN |
 | Resolução de nomes de computadores e serviços locais de VMs ou instâncias de função no Azure. |Servidores DNS gerenciados pelo cliente (controlador de domínio local, controlador de domínio somente leitura ou um DNS secundário sincronizado usando transferências de zona, por exemplo). Consulte [resolução de nomes usando seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Somente FQDN |
 | Resolução de nomes de host do Azure de computadores locais. |Encaminhe consultas para um servidor de proxy DNS gerenciado pelo cliente na rede virtual correspondente, o servidor proxy encaminha as consultas para a resolução do Azure. Consulte [resolução de nomes usando seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Somente FQDN |
 | DNS reverso para IPs internos. |[Resolução de nomes usando seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Não aplicável |
@@ -92,16 +92,16 @@ Há vários pacotes de cache DNS diferentes disponíveis (como dnsmasq). Veja co
   * Instale o pacote dnsmasq com `sudo apt-get install dnsmasq`.
 * **SuSE (usa netconf)** :
   * Instale o pacote dnsmasq com `sudo zypper install dnsmasq`.
-  * Habilite o serviço dnsmasq `systemctl enable dnsmasq.service`com. 
+  * Habilite o serviço dnsmasq com `systemctl enable dnsmasq.service`. 
   * Inicie o serviço dnsmasq com `systemctl start dnsmasq.service`. 
   * Edite **/etc/sysconfig/network/config**e altere *NETCONFIG_DNS_FORWARDER = ""* para *dnsmasq*.
-  * Atualize resolve. conf com `netconfig update`, para definir o cache como o solucionador DNS local.
+  * Atualize a resolução. conf com `netconfig update`para definir o cache como o resolvedor DNS local.
 * **CentOS (usa NetworkManager)** :
   * Instale o pacote dnsmasq com `sudo yum install dnsmasq`.
-  * Habilite o serviço dnsmasq `systemctl enable dnsmasq.service`com.
+  * Habilite o serviço dnsmasq com `systemctl enable dnsmasq.service`.
   * Inicie o serviço dnsmasq com `systemctl start dnsmasq.service`.
   * Adicione *domínio-nome-servidores 127.0.0.1;* a **/etc/dhclient-eth0.conf**.
-  * Reinicie o serviço de `service network restart`rede com, para definir o cache como o resolvedor de DNS local.
+  * Reinicie o serviço de rede com `service network restart`para definir o cache como o resolvedor de DNS local.
 
 > [!NOTE]
 > O pacote dnsmasq é apenas um dos muitos caches DNS disponíveis para Linux. Antes de usá-lo, verifique sua adequação para suas necessidades específicas e verifique se nenhum outro cache está instalado.
@@ -189,7 +189,7 @@ Se você precisar executar a resolução de nomes de seu aplicativo Web criado u
 * No portal do Azure, para o plano do serviço de aplicativo que hospeda o aplicativo Web, selecione **sincronizar rede** em **rede**, **integração de rede virtual**.
 
 ## <a name="specify-dns-servers"></a>Especificar servidores DNS
-Quando você estiver usando seus próprios servidores DNS, o Azure fornecerá a capacidade de especificar vários servidores DNS por rede virtual. Também é possível especificar vários servidores DNS por interface de rede (para o Azure Resource Manager), ou por serviço cloud (para o modelo de implementação clássica). Os servidores DNS especificados para uma interface de rede ou serviço de nuvem obtêm precedência sobre os servidores DNS especificados para a rede virtual.
+Quando você estiver usando seus próprios servidores DNS, o Azure fornecerá a capacidade de especificar vários servidores DNS por rede virtual. Também pode especificar vários servidores DNS por interface de rede (para o Azure Resource Manager) ou por serviço cloud (para o modelo de implementação clássico). Os servidores DNS especificados para uma interface de rede ou serviço de nuvem obtêm precedência sobre os servidores DNS especificados para a rede virtual.
 
 > [!NOTE]
 > As propriedades de conexão de rede, como IPs do servidor DNS, não devem ser editadas diretamente nas VMs. Isso ocorre porque eles podem ser apagados durante a reparo do serviço quando o adaptador de rede virtual é substituído. Isso se aplica a VMs Windows e Linux.
@@ -210,7 +210,7 @@ Ao usar o modelo de implantação clássico, você pode especificar servidores D
 >
 >
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Modelo de implantação de Azure Resource Manager:
 

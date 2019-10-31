@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29a30e466e78c3a71764b36bf8337aaeae8981f7
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 6b8402279b5c2717b1f73a28f2efc02ade5e479c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980502"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175781"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Práticas recomendadas para acesso condicional no Azure Active Directory
 
@@ -31,7 +31,7 @@ Este artigo pressupõe que você esteja familiarizado com os conceitos e a termi
 
 Quando você cria uma nova política, não há usuários, grupos, aplicativos ou controles de acesso selecionados.
 
-![Aplicações na cloud](./media/best-practices/02.png)
+![Aplicativos de nuvem](./media/best-practices/02.png)
 
 Para fazer sua política funcionar, você deve configurar:
 
@@ -59,7 +59,7 @@ Todas as políticas são impostas em duas fases:
 
 ### <a name="how-are-assignments-evaluated"></a>Como as atribuições são avaliadas?
 
-Todas as atribuiçõessão logicamente ANDeddas. Se você tiver mais de uma atribuição configurada, todas as atribuições deverão ser satisfeitas para disparar uma política.  
+Todas as atribuições são logicamente **ANDeddas**. Se você tiver mais de uma atribuição configurada, todas as atribuições deverão ser satisfeitas para disparar uma política.  
 
 Se você precisar configurar uma condição de local que se aplica a todas as conexões feitas de fora da rede da sua organização:
 

@@ -1,5 +1,5 @@
 ---
-title: Delegar governança de acesso para acessar gerenciadores de pacotes no gerenciamento de direitos do Azure AD (versão prévia) – Azure Active Directory
+title: Delegar governança de acesso para acessar gerenciadores de pacotes no gerenciamento de direitos do Azure AD-Azure Active Directory
 description: Saiba como delegar a governança de acesso dos administradores de ti para acessar gerenciadores de pacotes e gerentes de projeto para que eles possam gerenciar o acesso em si.
 services: active-directory
 documentationCenter: ''
@@ -16,19 +16,14 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7a2b6bfdb4904e11ffba3a9fe1097c7f5cfe9d6
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: efdc61b82a19cc5d370d6069e8c9dcd3ce5e8ae5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170740"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174368"
 ---
-# <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management-preview"></a>Delegar governança de acesso para acessar gerenciadores de pacotes no gerenciamento de direitos do Azure AD (versão prévia)
-
-> [!IMPORTANT]
-> O gerenciamento de direitos do Azure Active Directory (AD do Azure) está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management"></a>Delegar governança de acesso para acessar gerenciadores de pacotes no gerenciamento de direitos do Azure AD
 
 Para delegar a criação e o gerenciamento de pacotes de acesso em um catálogo, você adiciona usuários à função Gerenciador de pacotes de acesso. Os gerenciadores de pacotes do Access devem estar familiarizados com a necessidade de os usuários solicitarem acesso a recursos em um catálogo. Por exemplo, se um catálogo for usado para um projeto, um líder de projeto poderá ser um Gerenciador de pacotes de acesso para esse catálogo.  Os gerenciadores de pacotes do Access não podem adicionar recursos a um catálogo, mas podem gerenciar os pacotes e as políticas de acesso em um catálogo.  Ao delegar a um Gerenciador de pacotes do Access, essa pessoa pode ser responsável por:
 

@@ -1,6 +1,6 @@
 ---
-title: Exibir relatórios e logs no gerenciamento de direitos do Azure AD (versão prévia)-Azure Active Directory
-description: Saiba como exibir o relatório de atribuições de usuário e os logs de auditoria em Azure Active Directory gerenciamento de direitos (versão prévia).
+title: Exibir relatórios e logs no gerenciamento de direitos do Azure AD-Azure Active Directory
+description: Saiba como exibir o relatório de atribuições de usuário e os logs de auditoria em Azure Active Directory gerenciamento de direitos.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -12,49 +12,74 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2420fc25795ec74939649fb8a17ead7c8cfdd1df
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3302fc3b2513794cd66d1ebf6db2cbcdb0f713dd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032441"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173893"
 ---
-# <a name="view-reports-and-logs-in-azure-ad-entitlement-management-preview"></a>Exibir relatórios e logs no gerenciamento de direitos do Azure AD (versão prévia)
+# <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Exibir relatórios e logs no gerenciamento de direitos do Azure AD
 
-> [!IMPORTANT]
-> O gerenciamento de direitos do Azure Active Directory (AD do Azure) está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Os relatórios de gerenciamento de direitos do Azure AD e o log de auditoria do Azure AD fornecem detalhes adicionais sobre quais recursos os usuários têm acesso. Como administrador, você pode exibir os pacotes de acesso e as atribuições de recursos para um usuário e exibir logs de solicitação para fins de auditoria ou para determinar o status da solicitação de um usuário. Este artigo descreve como usar os relatórios de gerenciamento de direitos e os logs de auditoria do Azure AD.
 
-O relatório de atribuições de usuário e Azure Active Directory log de auditoria fornecem detalhes adicionais sobre os usuários em seu diretório. Como administrador, você pode exibir os recursos aos quais um usuário tem acesso e exibir os logs de solicitação para fins de auditoria ou para determinar o status da solicitação de um usuário. Este artigo descreve como usar o relatório de atribuições de usuário e os logs de auditoria do Azure AD.
-
-Assista ao vídeo a seguir para saber como usar o gerenciamento de direitos para gerenciar o acesso para usuários no Azure Active Directory:
+Assista ao vídeo a seguir para saber como exibir a quais recursos os usuários têm acesso no gerenciamento de direitos:
 
 >[!VIDEO https://www.youtube.com/embed/omtNJ7ySjS0]
 
-## <a name="view-resources-a-user-has-access-to"></a>Exibir recursos aos quais um usuário tem acesso
+## <a name="view-access-packages-for-a-user"></a>Exibir pacotes de acesso para um usuário
+
+Este relatório permite que você liste todos os pacotes de acesso que um usuário pode solicitar e os pacotes de acesso atribuídos ao usuário no momento.
+
+**Função de pré-requisito:** Administrador global ou administrador de usuários
 
 1. Clique em **Azure Active Directory** e em **governança de identidade**.
 
-1. No menu à esquerda, clique em relatório de atribuições de **usuário**.
+1. No menu à esquerda, clique em **relatórios**.
+
+1. Clique em **pacotes de acesso para um usuário**.
 
 1. Clique em **Selecionar usuários** para abrir o painel Selecionar usuários.
 
-1. Localize o usuário na lista para o qual você deseja exibir os recursos aos quais eles têm acesso.
+1. Localize o usuário na lista e, em seguida, clique em **selecionar**.
 
-1. Clique no usuário e, em seguida, clique em **selecionar**.
+    A guia **pode solicitar** exibe uma lista dos pacotes de acesso que o usuário pode solicitar. Essa lista é determinada pelas [políticas de solicitação](entitlement-management-access-package-request-policy.md#for-users-in-your-directory) definidas para os pacotes de acesso. 
 
-    É exibida uma lista de recursos aos quais o usuário tem acesso. Ele inclui o pacote, a política e as datas do Access.
+    ![Pacotes de acesso para um usuário](./media/entitlement-management-reports/access-packages-report.png)
 
-    ![Relatório de atribuições de usuário](./media/entitlement-management-reports/user-assignments-report.png)
+1. Se houver mais de uma função ou políticas de recurso para um pacote do Access, clique na entrada funções de recurso ou políticas para ver os detalhes da seleção.
+
+1. Clique na guia **atribuído** para ver uma lista dos pacotes de acesso atribuídos no momento ao usuário. Quando um pacote do Access é atribuído a um usuário, isso significa que o usuário tem acesso a todas as funções de recurso no pacote do Access.
+
+## <a name="view-resource-assignments-for-a-user"></a>Exibir atribuições de recursos para um usuário
+
+Este relatório permite que você liste os recursos atualmente atribuídos a um usuário no gerenciamento de direitos. Observe que esse relatório é para recursos gerenciados com gerenciamento de direitos. O usuário pode ter acesso a outros recursos em seu diretório fora do gerenciamento de direitos.
+
+**Função de pré-requisito:** Administrador global ou administrador de usuários
+
+1. Clique em **Azure Active Directory** e em **governança de identidade**.
+
+1. No menu à esquerda, clique em **relatórios**.
+
+1. Clique em **atribuições de recurso para um usuário**.
+
+1. Clique em **Selecionar usuários** para abrir o painel Selecionar usuários.
+
+1. Localize o usuário na lista e, em seguida, clique em **selecionar**.
+
+    Uma lista dos recursos atribuídos ao usuário no momento é exibida. A lista também mostra o pacote de acesso e a política da qual ele obteve a função de recurso, juntamente com a data de início e de término do acesso.
+    
+    Se um usuário tem acesso ao mesmo recurso em dois ou mais pacotes, você pode clicar em uma seta para ver cada pacote e política.
+
+    ![Atribuições de recursos para um usuário](./media/entitlement-management-reports/resource-assignments-report.png)
 
 ## <a name="determine-the-status-of-a-users-request"></a>Determinar o status da solicitação de um usuário
 
-Para obter detalhes adicionais sobre como um usuário solicitou e recebeu acesso a um pacote do Access, você pode usar o log de auditoria do Azure AD. Em particular, você pode usar os registros de log nas `EntitlementManagement` categorias `UserManagement` e para obter detalhes adicionais sobre as etapas de processamento para cada solicitação.  
+Para obter detalhes adicionais sobre como um usuário solicitou e recebeu acesso a um pacote do Access, você pode usar o log de auditoria do Azure AD. Em particular, você pode usar os registros de log nas categorias `EntitlementManagement` e `UserManagement` para obter detalhes adicionais sobre as etapas de processamento para cada solicitação.  
 
 1. Clique em **Azure Active Directory** e em **logs de auditoria**.
 
@@ -64,11 +89,11 @@ Para obter detalhes adicionais sobre como um usuário solicitou e recebeu acesso
 
 1. Para baixar os logs, clique em **baixar**.
 
-Quando o Azure ad recebe uma nova solicitação, ele grava um registro de auditoria, no qual a `EntitlementManagement` categoria é e a atividade `User requests access package assignment`normalmente é.  No caso de uma atribuição direta criada no portal do Azure, o campo **atividade** do registro de auditoria é `Administrator directly assigns user to access package`e o usuário que executa a atribuição é identificado pelo **ActorUserPrincipalName**.
+Quando o Azure AD recebe uma nova solicitação, ele grava um registro de auditoria, no qual a **categoria** é `EntitlementManagement` e a **atividade** normalmente é `User requests access package assignment`.  No caso de uma atribuição direta criada no portal do Azure, o campo **atividade** do registro de auditoria é `Administrator directly assigns user to access package`e o usuário que executa a atribuição é identificado pelo **ActorUserPrincipalName**.
 
 O AD do Azure gravará registros de auditoria adicionais enquanto a solicitação estiver em andamento, incluindo:
 
-| Category | Atividade | Estado do pedido |
+| Categoria | Atividade | Status da solicitação |
 | :---- | :------------ | :------------ |
 | `EntitlementManagement` | `Auto approve access package assignment request` | A solicitação não requer aprovação |
 | `UserManagement` | `Create request approval` | A solicitação requer aprovação |
@@ -76,13 +101,13 @@ O AD do Azure gravará registros de auditoria adicionais enquanto a solicitaçã
 | `EntitlementManagement` | `Approve access package assignment request` | Solicitação aprovada |
 | `EntitlementManagement` | `Ready to fulfill access package assignment request` |Solicitação aprovada ou não requer aprovação |
 
-Quando um usuário recebe acesso, o Azure ad grava um registro de auditoria para `EntitlementManagement` a categoria com **atividade** `Fulfill access package assignment`.  O usuário que recebeu o acesso é identificado pelo campo **ActorUserPrincipalName** .
+Quando um usuário recebe acesso, o Azure AD grava um registro de auditoria para a categoria de `EntitlementManagement` com a **atividade** `Fulfill access package assignment`.  O usuário que recebeu o acesso é identificado pelo campo **ActorUserPrincipalName** .
 
-Se o acesso não tiver sido atribuído, o Azure ad gravará um registro `EntitlementManagement` de auditoria para a `Deny access package assignment request`categoria com **atividade** , se a solicitação tiver sido negada por `Access package assignment request timed out (no approver action taken)`um aprovador, ou se a solicitação tiver expirado antes que um Aprovador pudesse aprovar.
+Se o acesso não tiver sido atribuído, o Azure AD gravará um registro de auditoria para a categoria de `EntitlementManagement` com a **atividade** `Deny access package assignment request`, se a solicitação tiver sido negada por um Aprovador ou `Access package assignment request timed out (no approver action taken)`, se a solicitação tiver atingido o tempo limite antes que um Aprovador possa aprovar.
 
-Quando a atribuição de pacote de acesso do usuário expira, é cancelada pelo usuário ou removida por um administrador, o Azure ad grava um registro de `EntitlementManagement` auditoria para a categoria `Remove access package assignment`com a **atividade** de.
+Quando a atribuição de pacote de acesso do usuário expira, é cancelada pelo usuário ou removida por um administrador, o Azure AD grava um registro de auditoria para a categoria de `EntitlementManagement` com a **atividade** de `Remove access package assignment`.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Solucionar problemas de gerenciamento de direitos do Azure AD](entitlement-management-troubleshoot.md)
 - [Cenários comuns](entitlement-management-scenarios.md)

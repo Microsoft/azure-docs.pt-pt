@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 0823b4b7e19bec9d8efc83dbb3996076425cb4f1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 4d970e61fc2628843ef847526dcdb4e44bf9796f
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756890"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176927"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Trabalhar com bancos de dados, contêineres e itens no Azure Cosmos DB
 
@@ -82,10 +82,10 @@ Um contêiner Cosmos do Azure tem um conjunto de propriedades definidas pelo sis
 
 | Propriedade definida pelo sistema | Gerado pelo sistema ou configurável pelo usuário | Finalidade | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | Gerado pelo sistema | Identificador exclusivo do contêiner | Sim | Não | Não | Não | Não |
-|\_etag | Gerado pelo sistema | Marca de entidade usada para controle de simultaneidade otimista | Sim | Não | Não | Não | Não |
-|\_ts | Gerado pelo sistema | Último carimbo de data/hora atualizado do contêiner | Sim | Não | Não | Não | Não |
-|\_self | Gerado pelo sistema | URI endereçável do contêiner | Sim | Não | Não | Não | Não |
+|ID de \_ | Gerado pelo sistema | Identificador exclusivo do contêiner | Sim | Não | Não | Não | Não |
+|ETag de \_ | Gerado pelo sistema | Marca de entidade usada para controle de simultaneidade otimista | Sim | Não | Não | Não | Não |
+|\_TS | Gerado pelo sistema | Último carimbo de data/hora atualizado do contêiner | Sim | Não | Não | Não | Não |
+|\_Self | Gerado pelo sistema | URI endereçável do contêiner | Sim | Não | Não | Não | Não |
 |ID | Configurável pelo usuário | Nome exclusivo definido pelo usuário do contêiner | Sim | Sim | Sim | Sim | Sim |
 |indexingPolicy | Configurável pelo usuário | Fornece a capacidade de alterar o caminho do índice, o tipo de índice e o modo de índice | Sim | Não | Não | Não | Sim |
 |TimeToLive | Configurável pelo usuário | Fornece a capacidade de excluir itens automaticamente de um contêiner após um período de tempo definido. Para obter detalhes, consulte [vida útil](time-to-live.md). | Sim | Não | Não | Não | Sim |
@@ -118,11 +118,11 @@ Cada item Cosmos do Azure tem as seguintes propriedades definidas pelo sistema. 
 
 | Propriedade definida pelo sistema | Gerado pelo sistema ou configurável pelo usuário| Finalidade | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | Gerado pelo sistema | Identificador exclusivo do item | Sim | Não | Não | Não | Não |
-|\_etag | Gerado pelo sistema | Marca de entidade usada para controle de simultaneidade otimista | Sim | Não | Não | Não | Não |
-|\_ts | Gerado pelo sistema | Carimbo de data/hora da última atualização do item | Sim | Não | Não | Não | Não |
-|\_self | Gerado pelo sistema | URI endereçável do item | Sim | Não | Não | Não | Não |
-|ID | O | Nome exclusivo definido pelo usuário em uma partição lógica. Se o usuário não especificar a ID, o sistema gerará automaticamente uma. | Sim | Sim | Sim | Sim | Sim |
+|ID de \_ | Gerado pelo sistema | Identificador exclusivo do item | Sim | Não | Não | Não | Não |
+|ETag de \_ | Gerado pelo sistema | Marca de entidade usada para controle de simultaneidade otimista | Sim | Não | Não | Não | Não |
+|\_TS | Gerado pelo sistema | Carimbo de data/hora da última atualização do item | Sim | Não | Não | Não | Não |
+|\_Self | Gerado pelo sistema | URI endereçável do item | Sim | Não | Não | Não | Não |
+|ID | O | Nome exclusivo definido pelo usuário em uma partição lógica. | Sim | Sim | Sim | Sim | Sim |
 |Propriedades arbitrárias definidas pelo usuário | Definidas pelo utilizador | Propriedades definidas pelo usuário representadas na representação nativa da API (incluindo JSON, BSON e CQL) | Sim | Sim | Sim | Sim | Sim |
 
 > [!NOTE]

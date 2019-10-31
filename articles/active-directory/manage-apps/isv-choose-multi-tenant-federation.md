@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c5975b57b6f960badf747e33deb238adf260199
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: ede458e7d4c1cb1a8d7e3f2e2c9df54d5925d6d8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967201"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175981"
 ---
 # <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Escolha o protocolo de Federação correto para seu aplicativo multilocatário
 
@@ -30,12 +30,12 @@ A tabela a seguir compara
 * Security Assertion Markup Language (SAML)
 * Especificação Web Services Federation (WSFed)
 
-| Funcionalidade| OAuth/OIDC| SAML/WSFed |
+| Capacidade| OAuth/OIDC| SAML/WSFed |
 | - |-|-|
 | Logon único baseado na Web| √| √ |
 | Logout único baseado na Web| √| √ |
-| Logon único baseado em móvel| √| √* |
-| Logout único baseado em celular| √| √* |
+| Logon único baseado em móvel| √| √ |
+| Logout único baseado em celular| √| √ |
 | Políticas de acesso condicional para aplicativos móveis| √| X |
 | Experiência de MFA direta para aplicativos móveis| √| X |
 | Microsoft Graph de acesso| √| X |
@@ -46,7 +46,7 @@ A tabela a seguir compara
 
 O OAuth 2,0 é um protocolo [padrão da indústria](https://oauth.net/2/) para autorização. OIDC (OpenID Connect) é uma camada de autenticação de identidade [padrão do setor](https://openid.net/connect/) criada com base no protocolo Oath 2,0.
 
-### <a name="benefits"></a>Benefícios
+### <a name="benefits"></a>Vantagens
 
 A Microsoft recomenda o uso do OIDC/OAuth 2,0, pois eles têm autenticação e autorização interna aos protocolos. Com o SAML, você também deve implementar a autorização.
 
@@ -60,7 +60,7 @@ Além disso, o uso desses protocolos permite que seus clientes usem políticas d
 
 Registre seu aplicativo com a identidade da Microsoft, que é um provedor OAuth 2,0. Você também pode registrar seu aplicativo baseado em OAuth 2,0 com qualquer outro provedor de identidade com o qual deseja integrar. 
 
-Para obter informações sobre como registrar seu aplicativo e implementar esses protocolos para o SSO para aplicativos Web, consulte autorizar o [acesso a aplicativos Web usando OpenID Connect e Azure Active Directory](../develop/sample-v2-code.md).  Para obter informações sobre como implementar esses protocolos para SSO em aplicativos móveis, consulte o seguinte: 
+Para obter informações sobre como registrar seu aplicativo e implementar esses protocolos para o SSO para aplicativos Web, consulte [autorizar o acesso a aplicativos Web usando OpenID Connect e Azure Active Directory](../develop/sample-v2-code.md).  Para obter informações sobre como implementar esses protocolos para SSO em aplicativos móveis, consulte o seguinte: 
 
 * [Android](../develop/quickstart-v2-android.md)
 
@@ -74,7 +74,7 @@ O Security Assertion Markup Language (SAML) geralmente é usado para aplicativos
 
 O especificação Web Services Federation (WSFed) é um [padrão do setor](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) geralmente usado para aplicativos Web desenvolvidos usando a plataforma .net.
 
-### <a name="benefits"></a>Benefícios
+### <a name="benefits"></a>Vantagens
 
 O SAML 2,0 é um padrão maduro e a maioria das plataformas de tecnologia dá suporte a bibliotecas de software livre para SAML 2,0. Você pode fornecer aos seus clientes uma interface de administração para configurar o SSO do SAML. Eles podem configurar o SSO do SAML para Microsoft Azure AD e qualquer outro provedor de identidade que ofereça suporte a SAML 2
 

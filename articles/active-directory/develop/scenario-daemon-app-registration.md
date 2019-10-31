@@ -16,18 +16,18 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fddd95564e3683aaee067f0442573c41e93376dd
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 8d0d88f72cca45280bd76ac7bb9d7a6e0a1d37fb
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264381"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175443"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>Aplicativo daemon que chama APIs Web-registro de aplicativo
 
 Para um aplicativo daemon, veja o que você precisa saber ao registrar o aplicativo.
 
-## <a name="supported-account-types"></a>Tipos de contas suportadas
+## <a name="supported-account-types"></a>Tipos de conta suportados
 
 Considerando que os aplicativos daemon fazem sentido apenas nos locatários do Azure AD, ao criar o aplicativo, você precisará escolher:
 
@@ -36,7 +36,7 @@ Considerando que os aplicativos daemon fazem sentido apenas nos locatários do A
 
 ## <a name="authentication---no-reply-uri-needed"></a>Autenticação-nenhum URI de resposta necessário
 
-No caso em que seu aplicativo cliente confidencial usa **apenas** o fluxo de credenciais do cliente, a URL de resposta não precisa ser registrada. Não é necessário para a configuração/construção do aplicativo. O fluxo de credenciais do cliente não o utiliza.
+No caso em que seu aplicativo cliente confidencial usa **apenas** o fluxo de credenciais do cliente, o URI de resposta não precisa ser registrado. Não é necessário para a configuração/construção do aplicativo. O fluxo de credenciais do cliente não o utiliza.
 
 ## <a name="api-permissions---app-permissions-and-admin-consent"></a>Permissões de API-permissões de aplicativo e consentimento de administrador
 
@@ -45,7 +45,7 @@ Um aplicativo daemon só pode solicitar permissões de aplicativo para APIs (per
 ![Permissões do aplicativo e consentimento do administrador](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
 
 > [!NOTE]
-> A API da Web que você deseja chamar precisa definir **permissões de aplicativo (funções de aplicativo)** , permissões não delegadas. Para obter detalhes sobre como expor essa API, consulte [Protected Web API: Registro do aplicativo – quando sua API Web é chamada por um aplicativo daemon](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-protected-web-api-app-registration#if-your-web-api-is-called-by-a-daemon-app)
+> A API da Web que você deseja chamar precisa definir **permissões de aplicativo (funções de aplicativo)** , permissões não delegadas. Para obter detalhes sobre como expor essa API, consulte [API Web protegida: registro de aplicativo – quando sua API Web é chamada por um aplicativo daemon](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app)
 
 Os aplicativos daemon exigem ter um administrador de locatários antes do consentimento para o aplicativo que chama a API da Web. Esse consentimento é fornecido na mesma página de **permissão de API** , por um administrador de locatários selecionando **conceder consentimento de administrador para *nossa organização***
 

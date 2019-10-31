@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/27/2019
-ms.openlocfilehash: 3767ea10d777a0ea7ad88a2ffa4793e866ffbe6c
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.date: 10/28/2019
+ms.openlocfilehash: 2da9e41323a308782dad509c628a3677ab0cd21f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091473"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162893"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Arquitetura do Apache Hadoop no HDInsight
 
@@ -24,20 +24,20 @@ O [Apache Hadoop](https://hadoop.apache.org/) inclui dois componentes principais
 
 Este artigo apresenta o YARN e como ele coordena a execução de aplicativos no HDInsight.
 
-## <a name="apache-hadoop-yarn-basics"></a>Noções básicas do YARN Apache Hadoop 
+## <a name="apache-hadoop-yarn-basics"></a>Noções básicas do YARN Apache Hadoop
 
-O YARN rege e orquestra o processamento de dados no Hadoop. O YARN tem dois serviços principais que são executados como processos em nós no cluster: 
+O YARN rege e orquestra o processamento de dados no Hadoop. O YARN tem dois serviços principais que são executados como processos em nós no cluster:
 
-* ResourceManager 
+* ResourceManager
 * NodeManager
 
-O ResourceManager concede recursos de computação de cluster a aplicativos como trabalhos MapReduce. O ResourceManager concede esses recursos como contêineres, onde cada contêiner consiste em uma alocação de núcleos de CPU e memória RAM. Se você combinar todos os recursos disponíveis em um cluster e, em seguida, distribuir os núcleos e a memória em blocos, cada bloco de recursos será um contêiner. Cada nó no cluster tem uma capacidade para um determinado número de contêineres, portanto, o cluster tem um limite fixo no número de contêineres disponíveis. A alocação de recursos em um contêiner é configurável. 
+O ResourceManager concede recursos de computação de cluster a aplicativos como trabalhos MapReduce. O ResourceManager concede esses recursos como contêineres, onde cada contêiner consiste em uma alocação de núcleos de CPU e memória RAM. Se você combinar todos os recursos disponíveis em um cluster e, em seguida, distribuir os núcleos e a memória em blocos, cada bloco de recursos será um contêiner. Cada nó no cluster tem uma capacidade para um determinado número de contêineres, portanto, o cluster tem um limite fixo no número de contêineres disponíveis. A alocação de recursos em um contêiner é configurável.
 
-Quando um aplicativo MapReduce é executado em um cluster, o ResourceManager fornece ao aplicativo os contêineres a serem executados. O ResourceManager rastreia o status dos aplicativos em execução, a capacidade de cluster disponível e controla os aplicativos à medida que eles são concluídos e libera seus recursos. 
+Quando um aplicativo MapReduce é executado em um cluster, o ResourceManager fornece ao aplicativo os contêineres a serem executados. O ResourceManager rastreia o status dos aplicativos em execução, a capacidade de cluster disponível e controla os aplicativos à medida que eles são concluídos e libera seus recursos.
 
 O ResourceManager também executa um processo de servidor Web que fornece uma interface de usuário da Web para monitorar o status dos aplicativos.
 
-Quando um usuário envia um aplicativo MapReduce para ser executado no cluster, o aplicativo é enviado para o ResourceManager. Por sua vez, o ResourceManager aloca um contêiner nos nós NodeManager disponíveis. Os nós NodeManager são onde o aplicativo é realmente executado. O primeiro contêiner alocado executa um aplicativo especial chamado de aplicativo. Esse aplicativo é responsável por adquirir recursos, na forma de contêineres subsequentes, necessários para executar o aplicativo enviado. O aplicativo de nível examina os estágios do aplicativo, como o estágio de mapa e o estágio de redução, e os fatores de quantos dados precisam ser processados. Em seguida, o aplicativo solicita (*negocia*) os recursos do ResourceManager em nome do aplicativo. O ResourceManager, por sua vez, concede recursos do NodeManagers no cluster para o aplicativo a ser usado na execução do aplicativo. 
+Quando um usuário envia um aplicativo MapReduce para ser executado no cluster, o aplicativo é enviado para o ResourceManager. Por sua vez, o ResourceManager aloca um contêiner nos nós NodeManager disponíveis. Os nós NodeManager são onde o aplicativo é realmente executado. O primeiro contêiner alocado executa um aplicativo especial chamado de aplicativo. Esse aplicativo é responsável por adquirir recursos, na forma de contêineres subsequentes, necessários para executar o aplicativo enviado. O aplicativo de nível examina os estágios do aplicativo, como o estágio de mapa e o estágio de redução, e os fatores de quantos dados precisam ser processados. Em seguida, o aplicativo solicita (*negocia*) os recursos do ResourceManager em nome do aplicativo. O ResourceManager, por sua vez, concede recursos do NodeManagers no cluster para o aplicativo a ser usado na execução do aplicativo.
 
 O NodeManagers executa as tarefas que compõem o aplicativo e, em seguida, relata seu progresso e status de volta para o aplicativo. O aplicativo, por sua vez, relata o status do aplicativo de volta para o ResourceManager. O ResourceManager retorna todos os resultados para o cliente.
 
@@ -47,7 +47,7 @@ Todos os tipos de cluster HDInsight implantam YARN. O ResourceManager é implant
 
 ![Apache YARN no Azure HDInsight](./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilizar o MapReduce no Apache Hadoop no HDInsight](hadoop/hdinsight-use-mapreduce.md)
 * [Introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Uberflip | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o Uberflip | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Uberflip.
 services: active-directory
 documentationCenter: na
@@ -8,20 +8,21 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 754b1f5b-6694-4fd6-9e1e-9fad769c64db
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 8760606c981f494b38d4eb8ac1b2cd50ceb8582c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6710344e73e3c0ea6f9b3491209689871cc14a4f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852114"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160950"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: Integração do Azure Active Directory com o Uberflip
+# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: integração do Azure Active Directory com o Uberflip
 
 Neste tutorial, você aprenderá a integrar o Uberflip com o Azure Active Directory (Azure AD).
 
@@ -70,7 +71,7 @@ Para configurar a integração do Uberflip ao Azure AD, você precisará adicion
 
    ![Uberflip na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
 
 Nesta seção, você configurará e testará o logon único do Azure AD com o Uberflip, com base em um usuário de teste chamado **B Simon**. Para que o logon único funcione, você precisa estabelecer um vínculo entre um usuário do Azure AD e um usuário relacionado no Uberflip.
 
@@ -83,7 +84,7 @@ Para configurar e testar o logon único do Azure AD com o Uberflip, você precis
 1. **[Crie um usuário de teste do Uberflip](#create-an-uberflip-test-user)** para que haja um usuário chamado b. Simon em Uberflip que esteja vinculado ao usuário do Azure AD chamado b. Simon.
 1. **[Teste o logon único](#test-single-sign-on)** para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
 Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
 
@@ -93,7 +94,7 @@ Para configurar o logon único do Azure AD com o Uberflip, execute as seguintes 
 
     ![Configurar opção de logon único](common/select-sso.png)
 
-1. No painel **selecionar um método de logon único** , selecione o modo de **SAML/WS-** enalimentado para habilitar o logon único.
+1. No painel **selecionar um método de logon único** , selecione o modo de **SAML/WS-enalimentado** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
@@ -134,11 +135,11 @@ Para configurar o logon único do Azure AD com o Uberflip, execute as seguintes 
 
 Para configurar o logon único no lado do Uberflip, é necessário enviar o XML de metadados de Federação baixado e as URLs copiadas apropriadas do portal do Azure para a [equipe de suporte do Uberflip](mailto:support@uberflip.com). A equipe do Uberflip verificará se a conexão de SSO do SAML está definida corretamente em ambos os lados.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você cria um usuário de teste chamado B. Simon no portal do Azure.
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory** > **usuários** > **todos os usuários**.
+1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**  > **usuários**  >  todos os**usuários**.
 
     ![As opções usuários e "todos os usuários"](common/users.png)
 
@@ -152,17 +153,17 @@ Nesta seção, você cria um usuário de teste chamado B. Simon no portal do Azu
 
     1. Na caixa **nome** , digite **BSimon**.
   
-    1. Na caixa **nome de usuário** , digite **BSimon\@\<yourcompanydomain >.\< > de extensão**. Por exemplo, **BSimon\@contoso.com**.
+    1. Na caixa **nome de usuário** , digite **BSimon\@\<yourcompanydomain >\<extensão >** . Por exemplo, **BSimon\@contoso.com**.
 
     1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
 
     1. Selecione **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao Uberflip.
 
-1. Na portal do Azure, selecione **aplicativos** > empresariais**todos os aplicativos** > **Uberflip**.
+1. Na portal do Azure, selecione **aplicativos empresariais** > **todos os aplicativos** > **Uberflip**.
 
     ![Painel aplicativos empresariais](common/enterprise-applications.png)
 

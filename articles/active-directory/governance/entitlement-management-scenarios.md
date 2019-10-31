@@ -1,6 +1,6 @@
 ---
-title: Cenários comuns no gerenciamento de direitos do Azure AD (versão prévia)-Azure Active Directory
-description: Conheça as etapas de alto nível que devem ser seguidas para cenários comuns no gerenciamento de direitos Azure Active Directory (versão prévia).
+title: Cenários comuns no gerenciamento de direitos do Azure AD – Azure Active Directory
+description: Conheça as etapas de alto nível que devem ser seguidas para cenários comuns no gerenciamento de direitos Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -12,116 +12,146 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/23/2019
+ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81382ebecdff6c7b146386b3ae2b0768a7c834bf
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 24d2dc82d0e81c9ac374d96387677774dc916b8c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389070"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173496"
 ---
-# <a name="common-scenarios-in-azure-ad-entitlement-management-preview"></a>Cenários comuns no gerenciamento de direitos do Azure AD (versão prévia)
+# <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Cenários comuns no gerenciamento de direitos do Azure AD
 
-> [!IMPORTANT]
-> O gerenciamento de direitos do Azure Active Directory (AD do Azure) está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Há várias maneiras de configurar o gerenciamento de direitos para sua organização. No entanto, se você estiver apenas começando, é útil entender os cenários comuns para administradores, proprietários de catálogo, gerenciadores de pacotes de acesso, Aprovadores e solicitantes.
 
-Há várias maneiras de configurar o gerenciamento de direitos para sua organização. No entanto, se você estiver apenas começando, é útil entender os cenários comuns para administradores, Aprovadores e solicitantes.
+## <a name="delegate"></a>Delegá
 
-## <a name="administrators"></a>Administradores
+### <a name="administrator-delegate-management-of-resources"></a>Administrador: delegar o gerenciamento de recursos
 
-### <a name="im-new-to-entitlement-management-and-i-want-help-with-getting-started"></a>Sou novo no gerenciamento de direitos e quero obter ajuda com a introdução
+1. [Assista ao vídeo: Delegação a partir dele para o gerente do departamento](https://www.microsoft.com/videoplayer/embed/RE3Lq00)
+1. [Delegar usuários para a função de criador de catálogo](entitlement-management-delegate-catalog.md)
 
-> [!div class="mx-tableFixed"]
-> | Passos | Exemplo |
-> | --- | --- |
-> | [Siga o tutorial para criar seu primeiro pacote de acesso](entitlement-management-access-package-first.md) | [ícone do portal ![Azure](./media/entitlement-management-scenarios/azure-portal.png)](./media/entitlement-management-scenarios/azure-portal-expanded.png#lightbox) |
+### <a name="catalog-creator-delegate-management-of-resources"></a>Criador do catálogo: delegar o gerenciamento de recursos
 
-### <a name="i-want-to-allow-users-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>Quero permitir que os usuários em meu diretório solicitem acesso a grupos, aplicativos ou sites do SharePoint
+- [Criar um novo catálogo](entitlement-management-catalog-create.md#create-a-catalog)
 
-> [!div class="mx-tableFixed"]
-> | Passos | Exemplo |
-> | --- | --- |
-> | **1.** [criar um novo pacote de acesso em um catálogo](entitlement-management-access-package-create.md#start-new-access-package) | ![Criar um pacote de acesso](./media/entitlement-management-scenarios/access-package.png) |
-> | **2.** [adicionar funções de recurso ao pacote de acesso](entitlement-management-access-package-resources.md#add-resource-roles)<ul><li>Grupos</li><li>Aplicações</li><li>Sites do SharePoint</li></ul> | ![Adicionar funções de recurso](./media/entitlement-management-scenarios/resource-roles.png) |
-> | **3.** [Adicionar uma política](entitlement-management-access-package-request-policy.md#for-users-in-your-directory)<ul><li>Para usuários em seu diretório</li><li>Exigir aprovação</li><li>Configurações do ciclo de vida</li></ul> | ![Adicionar política](./media/entitlement-management-scenarios/policy.png) |
+### <a name="catalog-owner-delegate-management-of-resources"></a>Proprietário do catálogo: delegar o gerenciamento de recursos
 
-### <a name="i-want-to-allow-users-from-my-business-partners-directory-including-users-not-yet-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>Quero permitir que os usuários do meu diretório de parceiros comerciais (incluindo os usuários que ainda não estão em meu diretório) solicitem acesso a grupos, aplicativos ou sites do SharePoint
+1. [Adicionar coproprietários ao catálogo](entitlement-management-catalog-create.md#add-additional-catalog-owners)
+1. [Adicionar recursos ao catálogo](entitlement-management-catalog-create.md#add-resources-to-a-catalog)
 
-> [!div class="mx-tableFixed"]
-> | Passos | Exemplo |
-> | --- | --- |
-> | **1.** [criar um novo pacote de acesso em um catálogo](entitlement-management-access-package-create.md#start-new-access-package) | ![Criar um pacote de acesso](./media/entitlement-management-scenarios/access-package.png) |
-> | **2.** [adicionar funções de recurso ao pacote de acesso](entitlement-management-access-package-resources.md#add-resource-roles) | ![Adicionar funções de recurso](./media/entitlement-management-scenarios/resource-roles.png) |
-> | **3.** [Adicionar uma política para usuários externos](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)<ul><li>Para usuários que não estão em seu diretório</li><li>Exigir aprovação</li><li>Configurações do ciclo de vida</li></ul> | ![Adicionar política para usuários externos](./media/entitlement-management-scenarios/policy-external.png) |
-> | **4.** [enviar o link para solicitar um pacote de acesso ao seu parceiro comercial](entitlement-management-access-package-settings.md)<ul><li>O parceiro comercial pode compartilhar o link com seus usuários</li></ul> |  |
+### <a name="catalog-owner-delegate-management-of-access-packages"></a>Proprietário do catálogo: delegar o gerenciamento de pacotes de acesso
 
-### <a name="i-want-to-change-the-groups-applications-or-sharepoint-sites-in-an-access-package"></a>Quero alterar os grupos, aplicativos ou sites do SharePoint em um pacote do Access
+1. [Assista ao vídeo: Delegação do proprietário do catálogo para acessar o Gerenciador de pacotes](https://www.microsoft.com/videoplayer/embed/RE3Lq08)
+1. [Delegar usuários a acessar a função do Gerenciador de pacotes](entitlement-management-delegate-managers.md)
 
-> [!div class="mx-tableFixed"]
-> | Passos | Exemplo |
-> | --- | --- |
-> | **1.** abrir o pacote de acesso | ![Adicionar funções de recurso](./media/entitlement-management-scenarios/resource-roles.png) |
-> | **2.** [Adicionar ou remover funções de recurso](entitlement-management-access-package-resources.md#add-resource-roles) | ![Adicionar funções de recurso](./media/entitlement-management-scenarios/resource-roles-add.png) |
+## <a name="govern-access-for-users-in-your-organization"></a>Controlar o acesso para usuários em sua organização
 
-### <a name="i-want-to-view-who-has-an-assignment-to-groups-applications-or-sharepoint-sites"></a>Quero exibir quem tem uma atribuição para grupos, aplicativos ou sites do SharePoint
+### <a name="access-package-manager-allow-employees-in-your-organization-to-request-access-to-resources"></a>Gerenciador de pacotes do Access: permitir que os funcionários em sua organização solicitem acesso aos recursos
 
-> [!div class="mx-tableFixed"]
-> | Passos | Exemplo |
-> | --- | --- |
-> | **1.** abrir um pacote de acesso | ![Adicionar funções de recurso](./media/entitlement-management-scenarios/resource-roles.png) |
-> | **2.** [exibir atribuições](entitlement-management-access-package-assignments.md#view-who-has-an-assignment)<ul><li>Exibir quais usuários têm acesso a um pacote de acesso</li><li>Exibir qual acesso do usuário expirou</li></ul> |  |
+1. [Criar um novo pacote de acesso](entitlement-management-access-package-create.md#start-new-access-package)
+1. [Adicionar grupos, equipes, aplicativos ou sites do SharePoint para acessar o pacote](entitlement-management-access-package-create.md#resource-roles)
+1. [Adicionar uma política de solicitação para permitir que os usuários em seu diretório solicitem acesso](entitlement-management-access-package-create.md#for-users-in-your-directory)
+1. [Especificar configurações de expiração](entitlement-management-access-package-create.md#lifecycle)
 
-### <a name="i-want-to-view-groups-applications-or-sharepoint-sites-a-user-has-access-to"></a>Quero exibir grupos, aplicativos ou sites do SharePoint aos quais um usuário tem acesso
+### <a name="requestor-request-access-to-resources"></a>Solicitante: solicitar acesso a recursos
 
-> [!div class="mx-tableFixed"]
-> | Passos | Exemplo |
-> | --- | --- |
-> | [Exibir relatório de atribuições de usuário](entitlement-management-reports.md)<ul><li>Exibir quando solicitados e quem aprovou</li></ul> |  |
+1. [Entrar no meu portal de acesso](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)
+1. Localizar pacote de acesso
+1. [Solicitar acesso](entitlement-management-request-access.md#request-an-access-package)
 
-## <a name="approvers"></a>Aprovadores
+### <a name="approver-approve-requests-to-resources"></a>Aprovador: aprovar solicitações para recursos
 
-### <a name="i-want-to-approve-requests-to-access-groups-applications-or-sharepoint-sites"></a>Quero aprovar solicitações para acessar grupos, aplicativos ou sites do SharePoint
+1. [Abrir solicitação no meu portal de acesso](entitlement-management-request-approve.md#open-request)
+1. [Aprovar ou negar solicitação de acesso](entitlement-management-request-approve.md#approve-or-deny-request)
 
-> [!div class="mx-tableFixed"]
-> | Passos | Exemplo |
-> | --- | --- |
-> | **1.** [abrir solicitação no meu portal de acesso](entitlement-management-request-approve.md#open-request) | [ícone do portal de acesso do ![My](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
-> | **2.** [aprovar solicitação de acesso](entitlement-management-request-approve.md#approve-or-deny-request) | ![Aprovar acesso](./media/entitlement-management-scenarios/approve-access.png) |
+### <a name="requestor-view-the-resources-you-already-have-access-to"></a>Solicitante: exiba os recursos aos quais você já tem acesso
 
-## <a name="requestors"></a>Requerentes
+1. [Entrar no meu portal de acesso](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)
+1. Exibir pacotes do Access ativos
 
-### <a name="i-want-to-view-the-groups-applications-or-sharepoint-sites-available-to-me-and-request-access"></a>Quero exibir os grupos, aplicativos ou sites do SharePoint disponíveis para mim e solicitar acesso
+## <a name="govern-access-for-users-outside-your-organization"></a>Controlar o acesso para usuários fora da sua organização
 
-> [!div class="mx-tableFixed"]
-> | Passos | Exemplo |
-> | --- | --- |
-> | **1.** [entre no meu portal de acesso](entitlement-management-request-access.md#sign-in-to-the-my-access-portal) | [ícone do portal de acesso do ![My](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
-> | **2.** localizar pacote de acesso |  |
-> | **3.** [solicitar acesso](entitlement-management-request-access.md#request-an-access-package) | ![Pedir acesso](./media/entitlement-management-scenarios/request-access.png) |
+### <a name="administrator-collaborate-with-an-external-partner-organization"></a>Administrador: colaborar com uma organização de parceiro externo
 
-### <a name="im-an-external-user-and-i-want-to-request-access-to-groups-applications-or-sharepoint-sites-with-a-direct-link"></a>Sou um usuário externo e desejo solicitar acesso a grupos, aplicativos ou sites do SharePoint com um link direto
+1. [Leia como o Access funciona para usuários externos](entitlement-management-external-users.md#how-access-works-for-external-users)
+1. [Examinar as configurações para usuários externos](entitlement-management-external-users.md#settings-for-external-users)
+1. [Adicionar uma conexão à organização externa](entitlement-management-organization.md)
 
-> [!div class="mx-tableFixed"]
-> | Passos | Exemplo |
-> | --- | --- |
-> | **1.** [localize o link do pacote de acesso que você recebeu](entitlement-management-access-package-settings.md) |  |
-> | **2.** [entre no meu portal de acesso](entitlement-management-request-access.md#sign-in-to-the-my-access-portal) | [ícone do portal de acesso do ![My](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
-> | **3.** [solicitar acesso](entitlement-management-request-access.md#request-an-access-package) | ![Solicitar acesso ao usuário externo](./media/entitlement-management-scenarios/request-access-external.png) |
+### <a name="access-package-manager-collaborate-with-an-external-partner-organization"></a>Gerenciador de pacotes do Access: colaborar com uma organização de parceiro externo
 
-### <a name="i-want-to-view-the-groups-applications-or-sharepoint-sites-i-already-have-access-to"></a>Quero exibir os grupos, aplicativos ou sites do SharePoint dos quais já tenho acesso
+1. [Criar um novo pacote de acesso](entitlement-management-access-package-create.md#start-new-access-package)
+1. [Adicionar grupos, equipes, aplicativos ou sites do SharePoint para acessar o pacote](entitlement-management-access-package-resources.md#add-resource-roles)
+1. [Adicionar uma política de solicitação para permitir que os usuários que não estão em seu diretório solicitem acesso](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
+1. [Especificar configurações de expiração](entitlement-management-access-package-create.md#lifecycle)
+1. [Copie o link para solicitar o pacote de acesso](entitlement-management-access-package-settings.md)
+1. Envie o link para o parceiro de contato do parceiro externo para compartilhar com seus usuários
 
-> [!div class="mx-tableFixed"]
-> | Passos | Exemplo |
-> | --- | --- |
-> | **1.** [entre no meu portal de acesso](entitlement-management-request-access.md#sign-in-to-the-my-access-portal) | [ícone do portal de acesso do ![My](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
-> | **2.** exibir pacotes do Access ativos |  |
+### <a name="requestor-request-access-to-resources-as-an-external-user"></a>Solicitante: solicitar acesso a recursos como um usuário externo
+
+1. Localizar o link do pacote de acesso que você recebeu do seu contato
+1. [Entrar no meu portal de acesso](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)
+1. [Solicitar acesso](entitlement-management-request-access.md#request-an-access-package)
+
+### <a name="approver-approve-requests-to-resources"></a>Aprovador: aprovar solicitações para recursos
+
+1. [Abrir solicitação no meu portal de acesso](entitlement-management-request-approve.md#open-request)
+1. [Aprovar ou negar solicitação de acesso](entitlement-management-request-approve.md#approve-or-deny-request)
+
+### <a name="requestor-view-the-resources-your-already-have-access-to"></a>Solicitante: exiba os recursos aos quais você já tem acesso
+
+1. [Entrar no meu portal de acesso](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)
+1. Exibir pacotes do Access ativos
+
+## <a name="day-to-day-management"></a>Gerenciamento de dia a dia
+
+### <a name="access-package-manager-update-the-resources-for-a-project"></a>Gerenciador de pacotes do Access: atualizar os recursos de um projeto
+
+1. [Assista ao vídeo: gerenciamento diário: as coisas foram alteradas](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
+1. Abrir o pacote de acesso
+1. [Adicionar ou remover grupos, equipes, aplicativos ou sites do SharePoint](entitlement-management-access-package-resources.md#add-resource-roles)
+
+### <a name="access-package-manager-update-the-duration-for-a-project"></a>Gerenciador de pacotes do Access: atualizar a duração de um projeto
+
+1. [Assista ao vídeo: gerenciamento diário: as coisas foram alteradas](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
+1. Abrir o pacote de acesso
+1. [Abrir as configurações do ciclo de vida](entitlement-management-access-package-lifecycle-policy.md#open-lifecycle-settings)
+1. [Atualizar as configurações de expiração](entitlement-management-access-package-lifecycle-policy.md#lifecycle)
+
+### <a name="access-package-manager-update-how-access-is-approved-for-a-project"></a>Gerenciador de pacotes do Access: atualizar como o acesso é aprovado para um projeto
+
+1. [Assista ao vídeo: gerenciamento diário: as coisas foram alteradas](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
+1. [Abrir uma política existente de configurações de solicitação e aprovação](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings)
+1. [Atualizar as configurações de aprovação](entitlement-management-access-package-request-policy.md#approval)
+
+### <a name="access-package-manager-update-the-people-for-a-project"></a>Gerenciador de pacotes do Access: atualizar as pessoas para um projeto
+
+1. [Assista ao vídeo: gerenciamento diário: as coisas foram alteradas](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
+1. [Remover usuários que não precisam mais de acesso](entitlement-management-access-package-assignments.md)
+1. [Abrir uma política existente de configurações de solicitação e aprovação](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings)
+1. [Adicionar usuários que precisam de acesso](entitlement-management-access-package-request-policy.md#for-users-in-your-directory)
+
+### <a name="access-package-manager-directly-assign-specific-users-to-an-access-package"></a>Gerenciador de pacotes do Access: atribuir usuários específicos diretamente a um pacote do Access
+
+1. [Se os usuários precisarem de configurações de ciclo de vida diferentes, adicione uma nova política ao pacote de acesso](entitlement-management-access-package-request-policy.md#add-a-new-policy-of-request-and-approval-settings)
+1. [Atribuir usuários específicos diretamente ao pacote de acesso](entitlement-management-access-package-assignments.md#directly-assign-a-user)
+
+## <a name="assignments-and-reports"></a>Atribuições e relatórios
+
+### <a name="administrator-view-who-has-assignments-to-an-access-package"></a>Administrador: Exibir quem tem atribuições a um pacote do Access
+
+1. Abrir um pacote de acesso
+1. [Exibir atribuições](entitlement-management-access-package-assignments.md#view-who-has-an-assignment)
+
+### <a name="administrator-view-resources-assigned-to-users"></a>Administrador: Exibir recursos atribuídos aos usuários
+
+1. [Exibir pacotes de acesso para um usuário](entitlement-management-reports.md#view-access-packages-for-a-user)
+1. [Exibir atribuições de recursos para um usuário](entitlement-management-reports.md#view-resource-assignments-for-a-user)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Tutorial: criar seu primeiro pacote de acesso](entitlement-management-access-package-first.md)
 - [Delegação e funções](entitlement-management-delegate.md)
+- [Solicitar notificações de processo e email](entitlement-management-process.md)

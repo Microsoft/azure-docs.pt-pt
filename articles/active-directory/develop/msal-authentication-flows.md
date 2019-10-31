@@ -18,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea47981fedf7f002dbbd94a0f10d92759d166694
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: e65c68e4f24dd95696cc53b92dd7e2b59d940b6c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803308"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175714"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
 

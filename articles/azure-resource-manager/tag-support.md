@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: eaf4ba303caa405a170322828add944487908365
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 6b64eb955476a8ab5307b7d508484c290fd7660a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968586"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162167"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group-using-tags.md). A coluna rotulada **dá suporte a marcas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna rotulada como **marca no relatório de custo** indica se esse tipo de recurso passa a marca para o relatório de custo.
@@ -749,7 +749,7 @@ Ir para um namespace do provedor de recursos:
 > | departamentos | Não | Não |
 > | Dimensões | Não | Não |
 > | enrollmentAccounts | Não | Não |
-> | Port | Não | Não |
+> | Exportações | Não | Não |
 > | ExternalBillingAccounts | Não | Não |
 > | ExternalBillingAccounts/alertas | Não | Não |
 > | ExternalBillingAccounts/dimensões | Não | Não |
@@ -1445,7 +1445,6 @@ Ir para um namespace do provedor de recursos:
 > | publicIPPrefixes | Sim | Sim |
 > | routeFilters | Sim | Sim |
 > | routeTables | Sim | Sim |
-> | secureGateways | Sim | Sim |
 > | serviceEndpointPolicies | Sim | Sim |
 > | trafficManagerGeographicHierarchies | Não | Não |
 > | trafficmanagerprofiles | Sim | Sim |
