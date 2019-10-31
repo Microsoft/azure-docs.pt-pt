@@ -29,7 +29,7 @@
     - name: Inscreva-se para a reposição de palavra-passe
       href: active-directory-passwords-reset-register.md
     - name: Repor a palavra-passe
-      href: user-help-reset-password.md
+      href: active-directory-passwords-update-your-own-password.md
 - name: Ajuda da aplicação do Microsoft Authenticator
   items:
     - name: Descrição geral
