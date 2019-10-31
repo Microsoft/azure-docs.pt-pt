@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 095c7c4bf2a0fb08c0a7fe7e0a8118e76732c9c7
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: fb6c484e234b4641a521bd876acdfeb4df562260
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961608"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063120"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Criar e instalar arquivos de configuração de cliente VPN para configurações nativas de P2S de autenticação de certificado do Azure
 
@@ -27,7 +27,7 @@ Os arquivos de configuração do cliente são específicos para a configuração
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
 >
 
-## <a name="generate"></a>Gerar ficheiros de configuração de cliente VPN
+## <a name="generate"></a>Gerar arquivos de configuração de cliente VPN
 
 Antes de começar, certifique-se de que todos os usuários conectados tenham um certificado válido instalado no dispositivo do usuário. Para obter mais informações sobre como instalar um certificado de cliente, consulte [instalar um certificado de cliente](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
@@ -94,7 +94,7 @@ Use as etapas a seguir para configurar o cliente VPN nativo no Mac para autentic
 
    O valor da **interface** é ' VPN ' e o valor do **tipo de VPN** é ' IKEv2 '. Especifique um nome para o perfil no campo **nome do serviço** e clique em **criar** para criar o perfil de conexão de cliente VPN.
 
-   ![rede](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
+   ![Rede](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
 4. Na pasta **genérica** , no arquivo **VpnSettings. xml** , copie o valor da marca **VpnServer** . Cole esse valor nos campos **endereço do servidor** e **ID remota** do perfil.
 
    ![informações do servidor](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
@@ -106,10 +106,10 @@ Use as etapas a seguir para configurar o cliente VPN nativo no Mac para autentic
    ![certificado](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 7. **Escolher uma identidade** exibe uma lista de certificados para você escolher. Selecione o certificado apropriado e clique em **continuar**.
 
-   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
+   ![identidade](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. No campo **ID local** , especifique o nome do certificado (da etapa 6). Neste exemplo, é "ikev2Client.com". Em seguida, clique no botão **aplicar** para salvar as alterações.
 
-   ![aplicar](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
+   ![usar](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 9. Na caixa de diálogo **rede** , clique em **aplicar** para salvar todas as alterações. Em seguida, clique em **conectar** para iniciar a conexão P2S com a VNet do Azure.
 
 ## <a name="linuxgui"></a>Linux (GUI strongSwan)
@@ -136,7 +136,7 @@ As instruções a seguir foram criadas no Ubuntu 18.0.4. O Ubuntu 16.0.10 não d
 2. Selecione **configurações** e, em seguida, selecione **rede**.
 
    ![editar conexões](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
-3. Clique no **+** botão para criar uma nova conexão.
+3. Clique no botão **+** para criar uma nova conexão.
 
    ![Adicionar uma conexão](./media/point-to-site-vpn-client-configuration-azure-cert/addconnection.png)
 4. Selecione **IPSec/IKEv2 (strongSwan)** no menu e clique duas vezes em. Você pode nomear sua conexão nesta etapa.
@@ -146,7 +146,7 @@ As instruções a seguir foram criadas no Ubuntu 18.0.4. O Ubuntu 16.0.10 não d
 
    ![copiar nome](./media/point-to-site-vpn-client-configuration-azure-cert/vpnserver.png)
 6. Cole esse nome no campo **endereço** da nova conexão VPN na seção **Gateway** . Em seguida, selecione o ícone de pasta no final do campo **certificado** , navegue até a pasta **genérica** e selecione o arquivo **VpnServerRoot** .
-7. Na seção **cliente** da conexão, para **autenticação**, selecione **certificado/chave privada**. Para **certificado** e **chave privada**, escolha o certificado e a chave privada que foram criados anteriormente. Em **Opções**, selecione **solicitar um endereço IP interno**. Em seguida, clique em **adicionar**.
+7. Na seção **cliente** da conexão, para **autenticação**, selecione **certificado/chave privada**. Para **certificado** e **chave privada**, escolha o certificado e a chave privada que foram criados anteriormente. Em **Opções**, selecione **solicitar um endereço IP interno**. Em seguida, clique em **Adicionar**.
 
    ![solicitar um endereço IP interno](./media/point-to-site-vpn-client-configuration-azure-cert/turnon.png)
 8. **Ative a conexão.**
@@ -169,22 +169,22 @@ Se você ainda não gerou certificados, use as seguintes etapas:
 2. Extraia o arquivo.
 3. Na pasta **genérica** , copie ou mova o VpnServerRoot. cer para/etc/IPSec.d/cacerts.
 4. Copiar ou mover CP Client. p12 para/etc/IPSec.d/Private/. Este arquivo é um certificado de cliente para o gateway de VPN do Azure.
-5. Abra o arquivo VpnSettings. xml e copie `<VpnServer>` o valor. Você usará esse valor na próxima etapa.
+5. Abra o arquivo VpnSettings. xml e copie o valor `<VpnServer>`. Você usará esse valor na próxima etapa.
 6. Ajuste os valores no exemplo abaixo e, em seguida, adicione o exemplo à configuração/etc/IPSec.conf.
   
    ```
    conn azure
-   keyexchange=ikev2
-   type=tunnel
-   leftfirewall=yes
-   left=%any
-   leftauth=eap-tls
-   leftid=%client # use the DNS alternative name prefixed with the %
-   right= Enter the VPN Server value here# Azure VPN gateway address
-   rightid=% # Enter the VPN Server value here# Azure VPN gateway FQDN with %
-   rightsubnet=0.0.0.0/0
-   leftsourceip=%config
-   auto=add
+         keyexchange=ikev2
+         type=tunnel
+         leftfirewall=yes
+         left=%any
+         leftauth=eap-tls
+         leftid=%client # use the DNS alternative name prefixed with the %
+         right= Enter the VPN Server value here# Azure VPN gateway address
+         rightid=% # Enter the VPN Server value here# Azure VPN gateway FQDN with %
+         rightsubnet=0.0.0.0/0
+         leftsourceip=%config
+         auto=add
    ```
 6. Adicione o seguinte a */etc/IPSec.Secrets*.
 
@@ -199,7 +199,7 @@ Se você ainda não gerou certificados, use as seguintes etapas:
    # ipsec up azure
    ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Retorne ao artigo para [concluir a configuração do P2S](vpn-gateway-howto-point-to-site-rm-ps.md).
 

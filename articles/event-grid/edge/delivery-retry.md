@@ -5,20 +5,20 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 0a678023b1097c4bdec70d866632da6ae4ad57bb
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 324c0e9b8dcaafacaac52b622ce9c533d82c7ff1
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992395"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73100701"
 ---
 # <a name="delivery-and-retry"></a>Entrega e tentativa
 
-A grade de eventos fornece entrega durável. Ele tenta entregar cada mensagem pelo menos uma vez para cada assinatura correspondente imediatamente. Se o ponto de extremidade de um assinante não confirmar o recebimento de um evento ou se houver uma falha, a grade de eventos tentará a entrega com base em uma **agenda de repetição** fixa e uma **política de repetição**.  Atualmente, o módulo de grade de eventos entrega um evento de cada vez ao Assinante. A carga é, no entanto, uma matriz com um único evento.
+A grade de eventos fornece entrega durável. Ele tenta entregar cada mensagem pelo menos uma vez para cada assinatura correspondente imediatamente. Se o ponto de extremidade de um assinante não confirmar o recebimento de um evento ou se houver uma falha, a grade de eventos tentará a entrega com base em uma **agenda de repetição** fixa e uma **política de repetição**.  Por padrão, o módulo de grade de eventos entrega um evento por vez ao Assinante. A carga é, no entanto, uma matriz com um único evento. Você pode fazer com que o módulo entregue mais de um evento por vez, habilitando o recurso de envio em lote de saída. Para obter detalhes sobre esse recurso, consulte [envio em lote de saída](delivery-output-batching.md).  
 
 > [!IMPORTANT]
 >Não há suporte para persistência para dados de evento. Isso significa que a reimplantação ou reinicialização do módulo de grade de eventos fará com que você perca todos os eventos que ainda não foram entregues.

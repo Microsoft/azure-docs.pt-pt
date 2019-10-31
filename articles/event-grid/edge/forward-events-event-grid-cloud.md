@@ -5,16 +5,16 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: d73f64463d3e56d7bd2e59fcb719c6320cbc6321
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 502a495bad4115daf9f0f4ffed276a307adf1fc4
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992356"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73100658"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Tutorial: encaminhar eventos para a nuvem da grade de eventos
 
@@ -102,7 +102,7 @@ Por exemplo, se você criou um tópico chamado `testegcloudtopic` no oeste dos E
    ```
 
    >[!NOTE]
-   > O **endpointUrl** especifica que a URL do tópico da grade de eventos na nuvem. O **sasKey** refere-se à chave do tópico da nuvem de grade de eventos. O valor em **topicname** será usado para carimbar todos os eventos de saída para a grade de eventos. Isso pode ser útil ao postar em um tópico de domínio da grade de eventos. Para obter mais informações sobre o tópico de domínio da grade de eventos, consulte [domínios de evento]] (.. /event-domains.md)
+   > O **endpointUrl** especifica que a URL do tópico da grade de eventos na nuvem. O **sasKey** refere-se à chave do tópico da nuvem de grade de eventos. O valor em **topicname** será usado para carimbar todos os eventos de saída para a grade de eventos. Isso pode ser útil ao postar em um tópico de domínio da grade de eventos. Para obter mais informações sobre o tópico de domínio da grade de eventos, consulte [domínios de evento](../event-domains.md)
 
     Por exemplo,
   
@@ -198,5 +198,6 @@ Para obter informações sobre como exibir eventos entregues pelo tópico de nuv
 
 Neste tutorial, você publicou um evento na borda e encaminhado para a grade de eventos na nuvem do Azure. Agora que você conhece as etapas básicas para encaminhar para a grade de eventos na nuvem:
 
+* Para solucionar problemas com o uso da grade de eventos do Azure no IoT Edge, consulte [Guia de solução de problemas](troubleshoot.md).
 * Encaminhar eventos para IoTHub seguindo este [tutorial](forward-events-iothub.md)
 * Encaminhar eventos para webhook na nuvem seguindo este [tutorial](pub-sub-events-webhook-cloud.md)

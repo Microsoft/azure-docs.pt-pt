@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: f341a3599607e527556f90626dd866418910f61e
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 3bc17830a4852aa3af1a22f53e54c86ee002150d
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052327"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73099761"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 
@@ -27,8 +27,9 @@ Este artigo mostra como você pode usar um [modelo de Azure Resource Manager](..
 As etapas básicas são as seguintes:
 
 1. Use um dos modelos abaixo como um arquivo JSON que descreve como criar o alerta.
-2. Editar e usar o arquivo de parâmetros correspondente como um JSON para personalizar o alerta
-3. Implante o modelo usando [qualquer método de implantação](../../azure-resource-manager/resource-group-template-deploy.md).
+2. Edite e use o arquivo de parâmetros correspondente como um JSON para personalizar o alerta.
+3. Para o parâmetro `metricName`, consulte as métricas disponíveis em [Azure monitor métricas com suporte](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+4. Implante o modelo usando [qualquer método de implantação](../../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>Modelo para um alerta de métrica de limite estático simples
 

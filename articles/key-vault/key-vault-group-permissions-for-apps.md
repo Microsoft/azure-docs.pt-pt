@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b472d36f17853549f2bfc773bdcb65faf0421b3f
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 9e51249bdcfa3cf506700cd3032b1ca39b773d82
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718995"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73102357"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fornecer Key Vault autenticação com uma política de controle de acesso
 
@@ -22,9 +22,9 @@ ms.locfileid: "71718995"
 
 A maneira mais simples de autenticar um aplicativo baseado em nuvem para Key Vault é com uma identidade gerenciada; consulte [usar uma identidade gerenciada do serviço de aplicativo para acessar Azure Key Vault](managed-identity.md) para obter detalhes.  Se você estiver criando um aplicativo local, fazendo o desenvolvimento ou não puder usar uma identidade gerenciada, poderá registrar uma entidade de serviço manualmente e fornecer acesso ao seu cofre de chaves usando uma política de controle de acesso.  
 
-O Key Vault dá suporte a até 1024 entradas de política de acesso, com cada entrada concedendo um conjunto distinto de permissões a uma "entidade de segurança":   Por exemplo, é assim que o aplicativo de console no [início rápido da biblioteca de cliente Azure Key Vault para .net](quick-create-net.md) acessa o cofre de chaves.
+O Key Vault dá suporte a até 1024 entradas de política de acesso, sendo que cada entrada concede um conjunto distinto de permissões a uma "entidade de segurança": por exemplo, é assim que o aplicativo de console no [início rápido da biblioteca de cliente Azure Key Vault para .net](quick-create-net.md) acessa o cofre de chaves.
 
-Para obter detalhes completos sobre Key Vault controle de acesso, consulte [Azure Key Vault segurança: Gerenciamento de identidade e acesso @ no__t-0. Para obter detalhes completos sobre [chaves, segredos e](about-keys-secrets-and-certificates.md) controle de acesso de certificados, consulte: 
+Para obter detalhes completos sobre Key Vault controle de acesso, consulte [segurança de Azure Key Vault: gerenciamento de identidade e acesso](overview-security.md#identity-and-access-management). Para obter detalhes completos sobre [chaves, segredos e](about-keys-secrets-and-certificates.md) controle de acesso de certificados, consulte: 
 
 - [Controle de acesso de chaves](about-keys-secrets-and-certificates.md#key-access-control)
 - [Controle de acesso de segredos](about-keys-secrets-and-certificates.md#secret-access-control)
@@ -46,7 +46,7 @@ Cada entrada de política de acesso do cofre de chaves concede um conjunto disti
 
 - **Um aplicativo** Se o aplicativo for baseado em nuvem, você deverá [usar uma identidade gerenciada para acessar Azure Key Vault](managed-identity.md), se possível
 - **Um grupo do Azure ad** Embora o Key Vault dê suporte apenas a entradas de política de acesso 1024, você pode adicionar vários aplicativos e usuários a um único grupo do Azure AD e, em seguida, adicionar esse grupo como uma única entrada à sua política de controle de acesso.
-- **Um usuário** Não é **recomendável**fornecer aos usuários acesso direto a um cofre de chaves. O ideal é que os usuários sejam adicionados a um grupo do Azure AD, que, por sua vez, recebe acesso ao cofre de chaves. Consulte [Azure Key Vault segurança: Gerenciamento de identidade e acesso @ no__t-0.
+- **Um usuário** Não é **recomendável**fornecer aos usuários acesso direto a um cofre de chaves. O ideal é que os usuários sejam adicionados a um grupo do Azure AD, que, por sua vez, recebe acesso ao cofre de chaves. Consulte [segurança de Azure Key Vault: gerenciamento de identidade e acesso](overview-security.md#identity-and-access-management).
 
 
 ### <a name="get-the-objectid"></a>Obter o objectID
@@ -83,7 +83,7 @@ Você pode adicionar vários aplicativos e usuários a um grupo do Azure AD e, e
 Para localizar o objectId de um grupo do Azure AD com o CLI do Azure, use o comando [AZ ad Group List](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-list) . Devido ao grande número de grupos que podem estar em sua organização, você também deve fornecer uma cadeia de caracteres de pesquisa para o parâmetro `--display-name`.
 
 ```azurecli-interactive
-az ad group list --displayname <search-string>
+az ad group list --display-name <search-string>
 ```
 O objectId será retornado no JSON:
 
@@ -223,7 +223,7 @@ Por fim, conceda ao grupo do AD permissões para seu cofre de chaves usando o co
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- segurança de Key Vault de @no__t 0Azure: Gerenciamento de identidade e acesso @ no__t-0
+- [Segurança de Azure Key Vault: gerenciamento de acesso e identidade](overview-security.md#identity-and-access-management)
 - [Fornecer autenticação de Key Vault com uma identidade gerenciada do serviço de aplicativo](managed-identity.md)
 - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
 - [Proteja seu cofre de chaves](key-vault-secure-your-key-vault.md).

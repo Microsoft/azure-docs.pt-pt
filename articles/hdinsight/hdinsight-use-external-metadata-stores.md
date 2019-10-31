@@ -7,15 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: a876269b2746a1065cee2639cfc5804aff0b3446
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.date: 10/29/2019
+ms.openlocfilehash: 33302f3760cc750bfc41386aaf17368abc15ba5d
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027709"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063293"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Usar repositórios de metadados externos no Azure HDInsight
+
+O HDInsight permite que você assuma o controle de seus dados e metadados implantando soluções de metadados de chave e bancos de dados de gerenciamento para armazenamentos externos. Este recurso está disponível no momento para [Apache Hive metastore](#custom-metastore), o [Apache Oozie metastore](#apache-oozie-metastore) e o [banco de dados Apache Ambari](#custom-ambari-db).
 
 O metastore Apache Hive no HDInsight é uma parte essencial da arquitetura de Apache Hadoop. Um metastore é o repositório de esquema central que pode ser usado por outras ferramentas de acesso Big Data, como Apache Spark, LLAP (consulta interativa), presto ou Apache Pig. O HDInsight usa um banco de dados SQL do Azure como o metastore do Hive.
 
@@ -92,6 +94,10 @@ Aqui estão algumas práticas recomendadas de metastore do Hive do HDInsight ger
 O Apache Oozie é um sistema de coordenação de fluxo de trabalho que gerencia trabalhos do Hadoop.  O Oozie dá suporte a trabalhos do Hadoop para Apache MapReduce, Pig, Hive e outros.  O Oozie usa um metastore para armazenar detalhes sobre os fluxos de trabalho atuais e concluídos. Para aumentar o desempenho ao usar o Oozie, você pode usar o banco de dados SQL do Azure como um metastore personalizado. O metastore também pode fornecer acesso a dados de trabalho do Oozie depois de excluir o cluster.
 
 Para obter instruções sobre como criar um metastore do Oozie com o banco de dados SQL do Azure, consulte [usar o Apache Oozie para fluxos de trabalho](hdinsight-use-oozie-linux-mac.md).
+
+## <a name="custom-ambari-db"></a>BD Ambari personalizado
+
+Para usar seu próprio banco de dados externo com o Apache Ambari no HDInsight, consulte [banco de dados personalizado do Apache Ambari](hdinsight-custom-ambari-db.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

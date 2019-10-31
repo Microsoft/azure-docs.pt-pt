@@ -1,7 +1,7 @@
 ---
 title: Aprendizado profundo versus aprendizado de máquina
 titleSuffix: Azure Machine Learning
-description: Saiba mais sobre aprendizado profundo versus aprendizado de máquina e como ambos os conceitos estão relacionados à inteligência artificial. O aprendizado profundo pode ser aplicado em cenários como detecção de fraudes, reconhecimento de voz e facial, análise de opiniões e previsão de séries temporais.
+description: Saiba como o aprendizado profundo está relacionado ao aprendizado de máquina e inteligência artificial. O aprendizado profundo é usado em cenários como detecção de fraudes, reconhecimento facial de voz &, análise de opiniões e previsão de séries temporais.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: 791566dc65b41bf3124e84544390d7d843e51273
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: ffc71cf8b2f60568e3c4bc63a3751bc44be66e58
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123144"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063129"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Aprendizado profundo versus aprendizado de máquina
 
@@ -22,9 +22,9 @@ Este artigo ajuda você a comparar o aprendizado profundo versus aprendizado de 
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>Aprendizado profundo, aprendizado de máquina e ia
 
-![Diagrama de relações: IA versus aprendizado de máquina versus aprendizado profundo](./media/concept-deep-learning-vs-machine-learning/ai-vs-machine-learning-vs-deep-learning.png)
+![Diagrama de relações: ia versus aprendizado de máquina versus aprendizado profundo](./media/concept-deep-learning-vs-machine-learning/ai-vs-machine-learning-vs-deep-learning.png)
 
-Considere as definições a seguir para entender o aprendizado profundo versus o Machine Learning versus AVANÇADA
+Considere as seguintes definições para entender o aprendizado profundo versus Machine Learning versus ia:
 
 - O **aprendizado profundo** é um subconjunto de aprendizado de máquina baseado em redes neurais artificiais. O _processo de aprendizado_ é _profundo_ porque a estrutura de redes neurais artificiais consiste em várias camadas de entrada, saída e ocultas. Cada camada contém unidades que transformam os dados de entrada em informações que a próxima camada pode usar para uma determinada tarefa de previsão. Graças a essa estrutura, um computador pode aprender por meio de seu próprio processamento de dados.
 

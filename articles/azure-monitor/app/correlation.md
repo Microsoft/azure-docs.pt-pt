@@ -8,16 +8,16 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: df93405940c02affa224fba2d2e6f07ce5278b15
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 4f1b8b116cf2a8411a90946dd5801dd1e541323c
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755347"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063956"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
-No mundo dos microservices, cada operação lógica requer que o trabalho seja feito em vários componentes do serviço. Cada um desses componentes pode ser monitorado separadamente pelo [aplicativo Azure insights](../../azure-monitor/app/app-insights-overview.md). O componente de aplicativo Web se comunica com o componente do provedor de autenticação para validar as credenciais do usuário e com o componente de API para obter dados para visualização. O componente de API pode consultar dados de outros serviços e usar componentes do provedor de cache para notificar o componente de cobrança sobre essa chamada. O Application Insights dá suporte à correlação de telemetria distribuída, que você usa para detectar qual componente é responsável por falhas ou degradação de desempenho.
+No mundo dos microservices, cada operação lógica requer que o trabalho seja feito em vários componentes do serviço. Cada um desses componentes pode ser monitorado separadamente pelo [aplicativo Azure insights](../../azure-monitor/app/app-insights-overview.md). O Application Insights dá suporte à correlação de telemetria distribuída, que você usa para detectar qual componente é responsável por falhas ou degradação de desempenho.
 
 Este artigo explica o modelo de dados usado pelo Application Insights para correlacionar a telemetria enviada por vários componentes. Ele aborda técnicas e protocolos de propagação de contexto. Ele também aborda a implementação de conceitos de correlação em diferentes linguagens e plataformas.
 
@@ -25,11 +25,11 @@ Este artigo explica o modelo de dados usado pelo Application Insights para corre
 
 Application Insights define um [modelo de dados](../../azure-monitor/app/data-model.md) para correlação de telemetria distribuída. Para associar a telemetria à operação lógica, cada item de telemetria tem um campo de contexto chamado `operation_Id`. Esse identificador é compartilhado por cada item de telemetria no rastreamento distribuído. Portanto, mesmo com a perda de telemetria de uma única camada, você ainda pode associar a telemetria relatada por outros componentes.
 
-Uma operação lógica distribuída normalmente consiste em um conjunto de operações menores, que são solicitações processadas por um dos componentes. Essas operações são definidas pela [telemetria de solicitação](../../azure-monitor/app/data-model-request-telemetry.md). Cada telemetria de solicitação tem seu próprio `id` que a identifica de forma exclusiva e global. E todos os itens de telemetria (como rastreamentos e exceções) associados a essa solicitação devem definir o `operation_parentId` como o valor da `id` de solicitação.
+Uma operação lógica distribuída normalmente consiste em um conjunto de operações menores, que são solicitações processadas por um dos componentes. Essas operações são definidas pela [telemetria de solicitação](../../azure-monitor/app/data-model-request-telemetry.md). Cada telemetria de solicitação tem seu próprio `id` que a identifica de forma exclusiva e global. E todos os itens de telemetria (como rastreamentos e exceções) associados a essa solicitação devem definir o `operation_parentId` como o valor da `id`de solicitação.
 
 Cada operação de saída, como uma chamada HTTP para outro componente, é representada pela [telemetria de dependência](../../azure-monitor/app/data-model-dependency-telemetry.md). A telemetria de dependência também define seu próprio `id` que é globalmente exclusivo. A telemetria de solicitação, iniciada por essa chamada de dependência, usa esse `id` como seu `operation_parentId`.
 
-Você pode criar uma exibição da operação lógica distribuída usando `operation_Id`, `operation_parentId` e `request.id` com `dependency.id`. Esses campos também definem a ordem causalidade das chamadas de telemetria.
+Você pode criar uma exibição da operação lógica distribuída usando `operation_Id`, `operation_parentId`e `request.id` com `dependency.id`. Esses campos também definem a ordem causalidade das chamadas de telemetria.
 
 Em um ambiente de microserviços, os rastreamentos de componentes podem ir para itens de armazenamento diferentes. Cada componente pode ter sua própria chave de instrumentação em Application Insights. Para obter a telemetria para a operação lógica, o Application Insights UX consulta dados de cada item de armazenamento. Quando o número de itens de armazenamento for enorme, você precisará de uma dica sobre onde procurar em seguida. O modelo de dados Application Insights define dois campos para resolver esse problema: `request.source` e `dependency.target`. O primeiro campo identifica o componente que iniciou a solicitação de dependência e o segundo identifica qual componente retornou a resposta da chamada de dependência.
 
@@ -45,7 +45,7 @@ Você pode analisar a telemetria resultante executando uma consulta:
 | project timestamp, itemType, name, id, operation_ParentId, operation_Id
 ```
 
-Nos resultados, observe que todos os itens de telemetria compartilham o `operation_Id` raiz. Quando uma chamada AJAX é feita da página, uma nova ID exclusiva (`qJSXU`) é atribuída à telemetria de dependência e a ID de pageView é usada como `operation_ParentId`. Em seguida, a solicitação do servidor usa a ID AJAX como `operation_ParentId`.
+Nos resultados, observe que todos os itens de telemetria compartilham o `operation_Id`raiz. Quando uma chamada AJAX é feita da página, uma nova ID exclusiva (`qJSXU`) é atribuída à telemetria de dependência e a ID de pageView é usada como `operation_ParentId`. Em seguida, a solicitação do servidor usa a ID AJAX como `operation_ParentId`.
 
 | ItemType   | nome                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
@@ -221,7 +221,7 @@ OpenCensus Python segue as especificações de modelo de dados `OpenTracing` des
 
 ### <a name="incoming-request-correlation"></a>Correlação de solicitação de entrada
 
-OpenCensus Python correlaciona cabeçalhos de contexto de rastreamento W3C de solicitações de entrada para as extensões que são geradas a partir das próprias solicitações. O OpenCensus fará isso automaticamente com integrações para estruturas de aplicativos Web populares, como `flask`, `django` e `pyramid`. Os cabeçalhos de contexto de rastreamento do W3C simplesmente precisam ser preenchidos com o [formato correto](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)e enviados com a solicitação. Veja abaixo um exemplo `flask` aplicativo que demonstra isso.
+OpenCensus Python correlaciona cabeçalhos de contexto de rastreamento W3C de solicitações de entrada para as extensões que são geradas a partir das próprias solicitações. O OpenCensus fará isso automaticamente com integrações para as seguintes estruturas de aplicativos Web populares: `flask`, `django` e `pyramid`. Os cabeçalhos de contexto de rastreamento do W3C simplesmente precisam ser preenchidos com o [formato correto](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) e enviados com a solicitação. Veja abaixo um exemplo `flask` aplicativo que demonstra isso.
 
 ```python
 from flask import Flask
@@ -253,7 +253,7 @@ Observando o [formato de cabeçalho de contexto de rastreamento](https://www.w3.
  `parent-id/span-id`: `00f067aa0ba902b7` 
  0: 1
 
-Se olharmos a entrada de solicitação que foi enviada para Azure Monitor, podemos ver os campos populados com as informações de cabeçalho de rastreamento.
+Se olharmos a entrada de solicitação que foi enviada para Azure Monitor, podemos ver os campos populados com as informações de cabeçalho de rastreamento. Você pode encontrar esses dados em logs (análise) no recurso Azure Monitor Application Insights.
 
 ![Captura de tela da telemetria de solicitação em logs (análise) com campos de cabeçalho de rastreamento realçados em caixa vermelha](./media/opencensus-python/0011-correlation.png)
 
@@ -290,6 +290,8 @@ Quando esse código é executado, obtemos o seguinte no console:
 2019-10-17 11:25:59,385 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 After the span
 ```
 Observe como há um spanid presente para a mensagem de log que está dentro do span, que é o mesmo spanid que pertence ao trecho nomeado `hello`.
+
+Você pode exportar os dados de log usando o `AzureLogHandler`. Pode encontrar mais informações [aqui](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#logs)
 
 ## <a name="telemetry-correlation-in-net"></a>Correlação de telemetria no .NET
 

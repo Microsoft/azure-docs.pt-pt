@@ -14,18 +14,18 @@ ms.date: 08/31/2018
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12b6cd17fac77361fa20d3b3e048e64228a2ed3d
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 2aa58c354198e648227b9b0b43d1f60546f87d32
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809018"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063065"
 ---
 # <a name="multi-factor-authentication-and-privileged-identity-management"></a>Autenticação multifator e Privileged Identity Management
 
 Recomendamos que você exija a autenticação multifator (MFA) para todos os seus administradores. Isso reduz o risco de um ataque devido a uma senha comprometida.
 
-Você pode exigir que os usuários concluam um desafio de autenticação de vários fatores ao entrarem. Você também pode exigir que os usuários concluam um desafio de autenticação de vários fatores ao ativarem uma função no PIM (Azure Active Directory do Azure AD Privileged Identity Management). Dessa forma, se o usuário não concluiu um desafio de autenticação de vários fatores quando ele entrou, ele será solicitado a fazer isso por Privileged Identity Management.
+Você pode exigir que os usuários concluam um desafio de autenticação multifator ao entrarem. Você também pode exigir que os usuários concluam um desafio de autenticação multifator quando ativam uma função no Azure Active Directory (Azure AD) Privileged Identity Management (PIM). Dessa forma, se o usuário não concluiu um desafio de autenticação multifator quando se conectasse, ele será solicitado a fazer isso por Privileged Identity Management.
 
 > [!IMPORTANT]
 > Agora, a autenticação multifator do Azure funciona apenas com contas corporativas ou de estudante, não com contas pessoais da Microsoft (geralmente uma conta pessoal que é usada para entrar nos serviços da Microsoft, como Skype, Xbox ou Outlook.com). Por isso, qualquer pessoa que usa uma conta pessoal não pode ser um administrador qualificado porque não pode usar a autenticação multifator para ativar suas funções. Se esses usuários precisarem continuar Gerenciando cargas de trabalho usando um conta Microsoft, eleve-os aos administradores permanentes por enquanto.

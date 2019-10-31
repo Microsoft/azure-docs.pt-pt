@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: martinco
-ms.openlocfilehash: 02a1c12957570f0e798c5abfd88562128ea1cf76
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 9ea9bea83de0a177fa37d9a186f8962bac1394a4
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053074"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73101412"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco etapas para proteger sua infraestrutura de identidade
 
@@ -175,21 +175,21 @@ Azure AD Identity Protection fornece dois relatórios importantes que você deve
 
 Os usuários podem ser induzidos a navegar para um site comprometido ou aplicativos que obterão acesso às informações de perfil e aos dados do usuário, como seu email. Um ator mal-intencionado pode usar as permissões consentidas recebidas para criptografar o conteúdo da caixa de correio e solicitar um resgate para obter novamente os dados da caixa de correio. [Os administradores devem revisar e auditar](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) as permissões fornecidas pelos usuários.
 
-## <a name="step-5---enable-end-user-self-help"></a>Etapa 5 – habilitar a autoajuda do usuário final
+## <a name="step-5---enable-end-user-self-service"></a>Etapa 5 – habilitar o autoatendimento do usuário final
 
-Tanto quanto possível, você desejará balancear a segurança com a produtividade. Ao longo das mesmas linhas de abordagem da sua jornada com a mentalidade de que você está definindo uma base para segurança a longo prazo, você pode remover o conflito de sua organização, capacitando seus usuários enquanto estiverem vigilantes. 
+Tanto quanto possível, você desejará balancear a segurança com a produtividade. Ao longo das mesmas linhas de abordagem da sua jornada com a mentalidade de que você está definindo uma base para segurança a longo prazo, você pode remover o conflito de sua organização, capacitando seus usuários enquanto estiverem vigilantes.
 
 ### <a name="implement-self-service-password-reset"></a>Implementar redefinição de senha de autoatendimento
 
-A [SSPR (redefinição de senha de autoatendimento)](../../active-directory/authentication/quickstart-sspr.md) do Azure oferece um meio simples para os administradores de ti permitirem que os usuários redefinam ou desbloqueiem suas senhas ou contas sem intervenção do administrador. O sistema inclui relatórios detalhados que controlam quando os utilizadores acedem ao sistema, juntamente com notificações para o alertar quanto a utilizações indevidas ou abusos. 
+A [SSPR (redefinição de senha de autoatendimento)](../../active-directory/authentication/quickstart-sspr.md) do Azure ad oferece um meio simples para os administradores de ti permitirem que os usuários redefinam ou desbloqueiem suas senhas ou contas sem a intervenção do administrador ou da assistência técnica. O sistema inclui relatórios detalhados que acompanham quando os usuários redefiniram suas senhas, juntamente com as notificações para alertá-lo sobre o uso indevido ou abuso.
 
-### <a name="implement-self-service-group-management"></a>Implementar o gerenciamento de grupo de autoatendimento
+### <a name="implement-self-service-group-and-application-access"></a>Implementar o acesso ao aplicativo e ao grupo de autoatendimento
 
-O Azure AD fornece a capacidade de gerenciar o acesso a recursos usando grupos de segurança e grupos do Office 365. Esses grupos podem ser gerenciados por proprietários de grupo em vez de administradores de ti. Conhecido como [Gerenciamento de grupo de autoatendimento](../../active-directory/users-groups-roles/groups-self-service-management.md), esse recurso permite que proprietários de grupo que não são atribuídos a uma função administrativa criem e gerenciem grupos sem depender de administradores para lidar com suas solicitações.
+O Azure AD fornece a capacidade de não administradores gerenciarem o acesso a recursos, usando grupos de segurança, grupos do Office 365, funções de aplicativo e catálogos de pacotes de acesso.  O [Gerenciamento de grupo de autoatendimento](../../active-directory/users-groups-roles/groups-self-service-management.md) permite que os proprietários do grupo gerenciem seus próprios grupos, sem a necessidade de atribuir uma função administrativa. Os usuários também podem criar e gerenciar grupos do Office 365 sem depender de administradores para lidar com suas solicitações e os grupos não utilizados expiram automaticamente.  O [Gerenciamento de direitos do Azure ad](../../active-directory/governance/entitlement-management-overview.md) permite ainda mais delegação e visibilidade, com fluxos de trabalho de solicitação de acesso abrangentes e expiração automática.  Você pode delegar a não-administradores a capacidade de configurar seus próprios pacotes de acesso para grupos, equipes, aplicativos e sites do SharePoint Online que eles possuem, com políticas personalizadas para quem é necessário para aprovar o acesso, incluindo a configuração de funcionários gerentes e patrocinadores de parceiros de negócios como aprovadores.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Implementar revisões de acesso do Azure AD
 
-Com as [revisões de acesso do Azure ad](../../active-directory/governance/access-reviews-overview.md), você pode gerenciar associações de grupo, acesso a aplicativos empresariais e atribuições de função com privilégios para garantir que você mantenha um padrão de segurança que não dê acesso aos usuários por longos períodos de tempo quando eles não necessário.
+Com as [revisões de acesso do Azure ad](../../active-directory/governance/access-reviews-overview.md), você pode gerenciar o pacote de acesso e as associações de grupo, o acesso a aplicativos empresariais e as atribuições de função com privilégios para garantir que você mantenha um padrão de segurança.  A supervisão regular dos próprios usuários, proprietários de recursos e outros revisores garante que os usuários não mantenham o acesso por longos períodos de tempo quando não precisarem mais dele.
 
 ## <a name="summary"></a>Resumo
 

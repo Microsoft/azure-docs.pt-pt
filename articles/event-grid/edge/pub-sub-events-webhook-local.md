@@ -5,16 +5,16 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: b484306504af8f83a393feb0469fff5b524948ab
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 169b0c8084259ac27b466dbfd3606e465da35d99
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992213"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73098627"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Tutorial: publicar, assinar eventos localmente
 
@@ -81,6 +81,8 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos s
 
     >[!IMPORTANT]
     > Neste tutorial, você implantará o módulo de grade de eventos com a autenticação de cliente desabilitada e permitirá assinantes HTTP. Para cargas de trabalho de produção, recomendamos que você habilite a autenticação do cliente e permita somente assinantes HTTPs. Para obter mais informações sobre como configurar o módulo de grade de eventos com segurança, consulte [segurança e autenticação](security-authentication.md).
+    > 
+    > Se você estiver usando uma VM do Azure como um dispositivo de borda, adicione uma regra de porta de entrada para permitir o tráfego de entrada na porta 4438. Para obter instruções sobre como adicionar a regra, consulte [como abrir portas para uma VM](../../virtual-machines/windows/nsg-quickstart-portal.md).
     
 
 ## <a name="deploy-azure-function-iot-edge-module"></a>Implantar o módulo IoT Edge do Azure function
@@ -257,7 +259,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
     No Windows, execute o seguinte comando:
 
     ```sh
-    iotedge logs subscriber -f
+    docker -H npipe:////./pipe/iotedge_moby_engine container logs subscriber
     ```
 
    No Linux, execute o seguinte comando:
@@ -299,6 +301,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
 ## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, você criou um tópico de grade de eventos, uma assinatura e eventos publicados. Agora que você conhece as etapas básicas, consulte os seguintes artigos: 
 
+- Para solucionar problemas com o uso da grade de eventos do Azure no IoT Edge, consulte [Guia de solução de problemas](troubleshoot.md).
 - Criar/atualizar assinatura com [filtros](advanced-filtering.md).
 - Habilitar a persistência do módulo de grade de eventos no [Linux](persist-state-linux.md) ou no [Windows](persist-state-windows.md)
 - Siga a [documentação](configure-client-auth.md) para configurar a autenticação do cliente

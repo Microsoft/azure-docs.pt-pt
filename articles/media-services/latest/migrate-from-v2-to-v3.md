@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 901542e2a69d2c7880825d76c1d69d3795713ed2
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 003cc54a07455118969a2dd497e9b963c03f68f2
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231168"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73099498"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Diretrizes de migração para mudar dos serviços de mídia v2 para v3
 
@@ -41,10 +41,10 @@ Se você tiver um serviço de vídeo desenvolvido hoje na parte superior das [AP
 * SDKs disponíveis para [.net](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [node. js](https://aka.ms/ams-v3-nodejs-ref), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [go](https://aka.ms/ams-v3-go-ref)e Ruby.
 * [CLI do Azure](https://aka.ms/ams-v3-cli-ref) integração para suporte a scripts simples.
 
-### <a name="new-features"></a>Novos recursos
+### <a name="new-features"></a>Novas funcionalidades
 
 * Para o processamento de trabalho baseado em arquivo, você pode usar uma URL HTTP (S) como a entrada.<br/>Você não precisa ter conteúdo já armazenado no Azure, nem precisa criar ativos.
-* Apresenta o conceito de [](transforms-jobs-concept.md) transformações para processamento de trabalho baseado em arquivo. Uma transformação pode ser usada para compilar configurações reutilizáveis, criar Azure Resource Manager modelos e isolar configurações de processamento entre vários clientes ou locatários.
+* Apresenta o conceito de [transformações](transforms-jobs-concept.md) para processamento de trabalho baseado em arquivo. Uma transformação pode ser usada para compilar configurações reutilizáveis, criar Azure Resource Manager modelos e isolar configurações de processamento entre vários clientes ou locatários.
 * Um ativo pode ter vários [localizadores de streaming](streaming-locators-concept.md) , cada um com diferentes configurações de criptografia dinâmica e de [empacotamento dinâmico](dynamic-packaging-overview.md) .
 * A [proteção de conteúdo](content-key-policy-concept.md) dá suporte a recursos de várias chaves.
 * Você pode transmitir eventos ao vivo que têm até 24 horas de duração ao usar os serviços de mídia para transcodificar um feed de contribuição de taxa de bits única em um fluxo de saída com várias taxas de bits.
@@ -60,7 +60,7 @@ Se você tiver um serviço de vídeo desenvolvido hoje na parte superior das [AP
 * Para ativos criados com v3, os serviços de mídia oferecem suporte apenas à [criptografia de armazenamento do lado do servidor do armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
     * Você pode usar APIs v3 com ativos criados com APIs v2 que tinham [criptografia de armazenamento](../previous/media-services-rest-storage-encryption.md) (AES 256) fornecidas pelos serviços de mídia.
     * Você não pode criar novos ativos com a criptografia de [armazenamento](../previous/media-services-rest-storage-encryption.md) do AES 256 herdada usando APIs v3.
-* As propriedades do [ativo](assets-concept.md)na v3 diferem de v2, veja [como as propriedades](assets-concept.md#map-v3-asset-properties-to-v2)são mapeadas.
+* As propriedades do [ativo](assets-concept.md)na v3 diferem de v2, veja [como as propriedades são mapeadas](assets-concept.md#map-v3-asset-properties-to-v2).
 * Os SDKs do v3 agora são dissociados do SDK de armazenamento, que oferece mais controle sobre a versão do SDK de armazenamento que você deseja usar e evita problemas de controle de versão. 
 * Nas APIs v3, todas as taxas de bits de codificação estão em bits por segundo. Isso é diferente das predefinições de Media Encoder Standard v2. Por exemplo, a taxa de bits em v2 seria especificada como 128 (Kbps), mas, em v3, seria 128000 (bits/segundo). 
 * As entidades AssetFiles, AccessPolicies e os ingestmanifests não existem em v3.
@@ -73,10 +73,11 @@ Se você tiver um serviço de vídeo desenvolvido hoje na parte superior das [AP
     * O evento ao vivo substitui o canal.<br/>A cobrança de eventos ao vivo é baseada em medidores de canal ao vivo. Para obter mais informações, consulte [cobrança](live-event-states-billing.md) e [preços](https://azure.microsoft.com/pricing/details/media-services/).
     * O Live output substitui o programa.
 * As saídas ao vivo começam na criação e param quando excluídas. Os programas funcionaram de maneira diferente nas APIs v2, eles precisavam ser iniciados após a criação.
-*  Para obter informações sobre um trabalho, você precisa saber o nome da transformação sob a qual o trabalho foi criado. 
+* Para obter informações sobre um trabalho, você precisa saber o nome da transformação sob a qual o trabalho foi criado. 
+* Em v2, os arquivos de metadados de [entrada](../previous/media-services-input-metadata-schema.md) e [saída](../previous/media-services-output-metadata-schema.md) XML são gerados como resultado de um trabalho de codificação. Em v3, o formato de metadados mudou de XML para JSON. 
 
 > [!NOTE]
-> Examine as convenções de nomenclatura que são aplicadas aos [recursos dos serviços de mídia v3](media-services-apis-overview.md#naming-conventions). Examine também os blobs de [nomenclatura](assets-concept.md#naming-blobs).
+> Examine as convenções de nomenclatura que são aplicadas aos [recursos dos serviços de mídia v3](media-services-apis-overview.md#naming-conventions). Examine também os [blobs de nomenclatura](assets-concept.md#naming-blobs).
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Lacunas de recursos em relação às APIs v2
 
@@ -104,7 +105,7 @@ A tabela a seguir mostra as diferenças de código entre V2 e V3 para cenários 
 |---|---|---|
 |Criar um ativo e carregar um arquivo |[exemplo do .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[exemplo de .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Enviar um trabalho|[exemplo do .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[exemplo de .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Mostra como primeiro criar uma transformação e, em seguida, enviar um trabalho.|
-|Publicar um ativo com criptografia AES |1. Criar ContentKeyAuthorizationPolicyOption<br/>2. Criar ContentKeyAuthorizationPolicy<br/>3. Criar AssetDeliveryPolicy<br/>4. Criar ativo e carregar conteúdo ou enviar trabalho e usar ativo de saída<br/>5. Associar o AssetDeliveryPolicy ao ativo<br/>6. Criar ContentKey<br/>7. Anexar ContentKey ao ativo<br/>8. Criar AccessPolicy<br/>9. Criar localizador<br/><br/>[exemplo do .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Criar política de chave de conteúdo<br/>2. Criar ativo<br/>3. Carregar conteúdo ou usar ativo como JobOutput<br/>4. Criar localizador de streaming<br/><br/>[exemplo de .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|Publicar um ativo com criptografia AES |1. criar ContentKeyAuthorizationPolicyOption<br/>2. criar ContentKeyAuthorizationPolicy<br/>3. criar AssetDeliveryPolicy<br/>4. criar ativo e carregar conteúdo ou enviar trabalho e usar ativo de saída<br/>5. associar o AssetDeliveryPolicy ao ativo<br/>6. criar ContentKey<br/>7. anexar ContentKey ao ativo<br/>8. criar AccessPolicy<br/>9. criar localizador<br/><br/>[exemplo do .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. criar política de chave de conteúdo<br/>2. criar ativo<br/>3. carregar conteúdo ou usar ativo como JobOutput<br/>4. criar localizador de streaming<br/><br/>[exemplo de .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
 |Obter detalhes do trabalho e gerenciar trabalhos |[Gerenciar trabalhos com v2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[Gerenciar trabalhos com v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
 
 ## <a name="known-issues"></a>Problemas conhecidos
@@ -123,7 +124,7 @@ A tabela a seguir mostra as diferenças de código entre V2 e V3 para cenários 
 
 Confira o artigo [da Comunidade dos serviços de mídia do Azure](media-services-community.md) para ver diferentes maneiras que você pode fazer perguntas, fornecer comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para ver como é fácil começar a codificar e a transmitir ficheiros de vídeo, veja [Stream files](stream-files-dotnet-quickstart.md) (Transmitir ficheiros). 
 

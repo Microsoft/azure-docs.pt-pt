@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/10/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: fab9a8a8c28f2f75e7e5af69b70229c1de74c684
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 8656bbb070e2b05a06ea22dd1634a40182b440cb
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992291"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73098677"
 ---
 ## <a name="deploy-event-grid-iot-edge-module"></a>Implantar o módulo de IoT Edge da grade de eventos
 
@@ -24,7 +24,7 @@ Há várias maneiras de implantar módulos em um dispositivo IoT Edge e todos el
 
 >[!IMPORTANT]
 > Neste tutorial, o módulo de grade de eventos será implantado com a autenticação de cliente desativada e permitirá assinantes HTTP. Para cargas de trabalho de produção, recomendamos que você habilite somente solicitações HTTPS e assinantes com autenticação de cliente habilitada. Para obter mais informações sobre como configurar o módulo de grade de eventos com segurança, consulte [segurança e autenticação](../articles/event-grid/edge/security-authentication.md).
-
+ 
 ### <a name="select-your-iot-edge-device"></a>Selecione seu dispositivo IoT Edge
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com)
@@ -67,6 +67,10 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos s
 
  1. Clicar em **Guardar**
  1. Clique em **Avançar** para continuar na seção rotas
+
+    > [!NOTE]
+    > Se você estiver usando uma VM do Azure como um dispositivo de borda, adicione uma regra de porta de entrada para permitir o tráfego de entrada na porta 4438. Para obter instruções sobre como adicionar a regra, consulte [como abrir portas para uma VM](../articles/virtual-machines/windows/nsg-quickstart-portal.md).
+
 
 ### <a name="setup-routes"></a>Rotas de instalação
 

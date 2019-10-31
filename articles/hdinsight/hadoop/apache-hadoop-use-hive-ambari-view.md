@@ -2,18 +2,18 @@
 title: Usar o modo de exibição do Apache Ambari Hive com Apache Hadoop no Azure HDInsight
 description: Saiba como usar o modo de exibição do hive do seu navegador da Web para enviar consultas do hive. A exibição do hive faz parte da interface do usuário da Web do amAmbari fornecida com o cluster HDInsight baseado em Linux.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/21/2019
-ms.author: hrasheed
-ms.openlocfilehash: 5063be247b2ad51dc8888f8512f523ccf2b0174c
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.date: 10/24/2019
+ms.openlocfilehash: 6c199a0dd75b89d9c9368e799c97a28b73758d06
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044817"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73097108"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Usar a exibição do Ambari hive do Apache com o Apache Hadoop no HDInsight
 
@@ -30,9 +30,9 @@ Saiba como executar consultas do hive usando o modo de exibição do Ambari hive
 
 1. No [portal do Azure](https://portal.azure.com/), selecione o cluster.  Consulte [listar e mostrar clusters](../hdinsight-administer-use-portal-linux.md#showClusters) para obter instruções. O cluster é aberto em uma folha de novo Portal.
 
-2. Em **painéis do cluster**, selecione **exibições do Ambari**. Quando for solicitado a autenticar, use o nome da conta e a senha de logon do cluster (`admin`padrão) que você forneceu ao criar o cluster.
+1. Em **painéis do cluster**, selecione **exibições do Ambari**. Quando for solicitado a autenticar, use o nome da conta e a senha de logon do cluster (`admin`padrão) que você forneceu ao criar o cluster. Como alternativa, navegue até `https://CLUSTERNAME.azurehdinsight.net/#/main/views` no navegador em que `CLUSTERNAME` é o nome do cluster.
 
-3. Na lista de exibições, selecione __exibição do hive__.
+1. Na lista de exibições, selecione __exibição do hive__.
 
     ![Exibição Apache Hive de seleção do Apache Ambari](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
@@ -40,7 +40,7 @@ Saiba como executar consultas do hive usando o modo de exibição do Ambari hive
 
     ![Imagem da planilha de consulta para a exibição do hive](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
 
-4. Na guia __consulta__ , Cole as seguintes instruções HiveQL na planilha:
+1. Na guia __consulta__ , Cole as seguintes instruções HiveQL na planilha:
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -54,8 +54,8 @@ Saiba como executar consultas do hive usando o modo de exibição do Ambari hive
         t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs 
-        WHERE t4 = '[ERROR]' 
+    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs
+        WHERE t4 = '[ERROR]'
         GROUP BY t4;
     ```
 
@@ -75,9 +75,9 @@ Saiba como executar consultas do hive usando o modo de exibição do Ambari hive
    > [!IMPORTANT]  
    > Deixe a seleção de __banco de dados__ em __padrão__. Os exemplos neste documento usam o banco de dados padrão incluído com o HDInsight.
 
-5. Para iniciar a consulta, selecione **executar** abaixo da planilha. O botão gira laranja e o texto é alterado para **parar**.
+1. Para iniciar a consulta, selecione **executar** abaixo da planilha. O botão gira laranja e o texto é alterado para **parar**.
 
-6. Depois que a consulta for concluída, a guia **resultados** exibirá os resultados da operação. O texto a seguir é o resultado da consulta:
+1. Depois que a consulta for concluída, a guia **resultados** exibirá os resultados da operação. O texto a seguir é o resultado da consulta:
 
         loglevel       count
         [ERROR]        3

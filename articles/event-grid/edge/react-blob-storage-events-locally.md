@@ -9,12 +9,12 @@ ms.date: 10/02/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 851b5607ad5413cd1a594f788cb294ee7790e8eb
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: a074abf494e155e0dc088d0db6af7eba0b3cf3c2
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043172"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73100245"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Tutorial: reagir a eventos de armazenamento de BLOBs em IoT Edge (versão prévia)
 Este artigo mostra como implantar o armazenamento de BLOBs do Azure no módulo IoT, que atuaria como um editor de grade de eventos para enviar eventos sobre a criação de BLOB e exclusão de BLOB para a grade de eventos.  
@@ -167,7 +167,10 @@ Esta seção mostra como implantar o módulo de armazenamento de BLOBs do Azure,
 5. Clicar em **Guardar**
 6. Clique em **Avançar** para continuar na seção rotas
 
- ### <a name="setup-routes"></a>Rotas de instalação
+    > [!NOTE]
+    > Se você estiver usando uma VM do Azure como o dispositivo de borda, adicione uma regra de porta de entrada para permitir o tráfego de entrada nas portas de host usadas neste tutorial: 4438, 5888, 8080 e 11002. Para obter instruções sobre como adicionar a regra, consulte [como abrir portas para uma VM](../../virtual-machines/windows/nsg-quickstart-portal.md).
+
+### <a name="setup-routes"></a>Rotas de instalação
 
 Mantenha as rotas padrão e selecione **Avançar** para continuar na seção revisão
 
@@ -184,7 +187,7 @@ Mantenha as rotas padrão e selecione **Avançar** para continuar na seção rev
 
    Pode levar alguns minutos para que o módulo seja iniciado no dispositivo e reportado de volta ao Hub IoT. Atualize a página para ver um status atualizado.
 
-## <a name="publish-created-and-deleted-events"></a>Publicar eventos criados e excluídos
+## <a name="publish-blobcreated-and-blobdeleted-events"></a>Publicar eventos BlobCreated e BlobDeleted
 
 1. Esse módulo cria automaticamente o tópico **MicrosoftStorage**. Verifique se ele existe
     ```sh

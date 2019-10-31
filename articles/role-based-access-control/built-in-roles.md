@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 10/22/2019
+ms.date: 10/28/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 31e19034f6a2c6f5ab52cbc34d8b3f6e0a1051bc
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: dff222788480eea882614ad29478df1dce359199
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803583"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73101280"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções internas para recursos do Azure
 
@@ -114,6 +114,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 | [Leitor de aplicativos gerenciados](#managed-applications-reader) | Permite que você leia recursos em um aplicativo gerenciado e solicite acesso JIT. |
 | [Colaborador de identidade gerenciada](#managed-identity-contributor) | Criar, ler, atualizar e excluir a identidade atribuída ao usuário |
 | [Operador de identidade gerenciada](#managed-identity-operator) | Ler e atribuir identidade atribuída ao usuário |
+| [Função de exclusão de atribuição de registro de serviços gerenciados](#managed-services-registration-assignment-delete-role) | Atribuição de registro de serviços gerenciados excluir função permite que o gerenciamento de usuários de locatários exclua a atribuição de registro atribuída ao seu locatário. |
 | [Colaborador do grupo de gerenciamento](#management-group-contributor) | Função colaborador do grupo de gerenciamento |
 | [Leitor do grupo de gerenciamento](#management-group-reader) | Função de leitor do grupo de gerenciamento |
 | [Colaborador de monitoramento](#monitoring-contributor) | Pode ler todos os dados de monitoramento e editar as configurações de monitoramento. Consulte também [introdução às funções, permissões e segurança com Azure monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
@@ -1963,6 +1964,23 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft. Resources/subscriptions/resourceGroups/Read | Obtém ou lista os grupos de recursos. |
 > | Microsoft. Resources/Implantations/* | Criar e gerenciar implantações de grupo de recursos |
 > | Microsoft. support/* | Criar e gerenciar tíquetes de suporte |
+> | **NotActions** |  |
+> | *None* |  |
+> | **Dataactions** |  |
+> | *None* |  |
+> | **NotDataActions** |  |
+> | *None* |  |
+
+## <a name="managed-services-registration-assignment-delete-role"></a>Função de exclusão de atribuição de registro de serviços gerenciados
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Atribuição de registro de serviços gerenciados excluir função permite que o gerenciamento de usuários de locatários exclua a atribuição de registro atribuída ao seu locatário. |
+> | **Id** | 91c1777a-f3dc-4fae-b103-61d183457e46 |
+> | **Ações** |  |
+> | Microsoft. Managedservices/registrationAssignments/Read | Recupera uma lista de atribuições de registro de serviços gerenciados. |
+> | Microsoft. Managedservices/registrationAssignments/Delete | Remove a atribuição de registro de serviços gerenciados. |
+> | Microsoft. Managedservices/operationStatuses/Read | Lê o status da operação para o recurso. |
 > | **NotActions** |  |
 > | *None* |  |
 > | **Dataactions** |  |

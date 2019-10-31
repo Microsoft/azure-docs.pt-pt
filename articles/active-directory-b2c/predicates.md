@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 10/28/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ecec18945b53711094307162c4aeab2e0580bd5e
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: a1f08589ae28b3e19d2a4fdb3e3862e127a810cc
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063862"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73099709"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicados e PredicateValidations
 
@@ -29,7 +29,9 @@ O diagrama a seguir mostra a relação entre os elementos:
 
 ## <a name="predicates"></a>Predicados
 
-O elemento **Predicate** define uma validação básica para verificar o valor de um tipo de declaração e `true` retorna `false`ou. A validação é feita usando um elemento de **método** especificado e um conjunto de elementos de **parâmetro** relevantes para o método. Por exemplo, um predicado pode verificar se o comprimento de um valor de declaração de cadeia de caracteres está dentro do intervalo de parâmetros mínimos e máximos especificados ou se um valor de declaração de cadeia de caracteres contém um conjunto de caracteres. O elemento **userhelptext** fornecerá uma mensagem de erro para os usuários se a verificação falhar. O valor do elemento **userhelptext** pode ser localizado usando a [personalização de idioma](localization.md).
+O elemento **Predicate** define uma validação básica para verificar o valor de um tipo de declaração e retorna `true` ou `false`. A validação é feita usando um elemento de **método** especificado e um conjunto de elementos de **parâmetro** relevantes para o método. Por exemplo, um predicado pode verificar se o comprimento de um valor de declaração de cadeia de caracteres está dentro do intervalo de parâmetros mínimos e máximos especificados ou se um valor de declaração de cadeia de caracteres contém um conjunto de caracteres. O elemento **userhelptext** fornecerá uma mensagem de erro para os usuários se a verificação falhar. O valor do elemento **userhelptext** pode ser localizado usando a [personalização de idioma](localization.md).
+
+O elemento **predicados** deve aparecer diretamente após o elemento **ClaimsSchema** dentro do elemento [BuildingBlocks](buildingblocks.md) .
 
 O elemento **predicados** contém o seguinte elemento:
 
@@ -39,16 +41,16 @@ O elemento **predicados** contém o seguinte elemento:
 
 O elemento **Predicate** contém os seguintes atributos:
 
-| Atributo | Requerido | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador que é usado para o predicado. Outros elementos podem usar esse identificador na política. |
+| Id | Sim | Um identificador que é usado para o predicado. Outros elementos podem usar esse identificador na política. |
 | Método | Sim | O tipo de método a ser usado para validação. Valores possíveis: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters**ou **IsDateRange**. O valor **IsLengthRange** verifica se o comprimento de um valor de declaração de cadeia de caracteres está dentro do intervalo de parâmetros mínimo e máximo especificados. O valor **MatchesRegex** verifica se um valor de declaração de cadeia de caracteres corresponde a uma expressão regular. O valor **IncludesCharacters** verifica se um valor de declaração de cadeia de caracteres contém um conjunto de caracteres. O valor **IsDateRange** verifica se um valor de declaração de data está entre um intervalo de parâmetros mínimo e máximo especificados. |
 
 O elemento **Predicate** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| UserHelpText | 1:1 | Uma mensagem de erro para os usuários se a verificação falhar. Essa cadeia de caracteres pode ser localizada usando a [personalização da linguagem](localization.md) |
+| Userhelptext | 1:1 | Uma mensagem de erro para os usuários se a verificação falhar. Essa cadeia de caracteres pode ser localizada usando a [personalização da linguagem](localization.md) |
 | Parâmetros | 1:1 | Os parâmetros para o tipo de método da validação da cadeia de caracteres. |
 
 O elemento **Parameters** contém os seguintes elementos:
@@ -61,9 +63,9 @@ O elemento **Parameter** contém os seguintes atributos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| ID | 1:1 | O identificador do parâmetro. |
+| Id | 1:1 | O identificador do parâmetro. |
 
-O exemplo a seguir mostra `IsLengthRange` um método com os `Minimum` parâmetros `Maximum` e que especificam o intervalo de comprimento da cadeia de caracteres:
+O exemplo a seguir mostra um método `IsLengthRange` com os parâmetros `Minimum` e `Maximum` que especificam o intervalo de comprimento da cadeia de caracteres:
 
 ```XML
 <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange">
@@ -75,7 +77,7 @@ O exemplo a seguir mostra `IsLengthRange` um método com os `Minimum` parâmetro
 </Predicate>
 ```
 
-O exemplo a seguir mostra `MatchesRegex` um método com o `RegularExpression` parâmetro que especifica uma expressão regular:
+O exemplo a seguir mostra um método `MatchesRegex` com o parâmetro `RegularExpression` que especifica uma expressão regular:
 
 ```XML
 <Predicate Id="PIN" Method="MatchesRegex">
@@ -86,7 +88,7 @@ O exemplo a seguir mostra `MatchesRegex` um método com o `RegularExpression` pa
 </Predicate>
 ```
 
-O exemplo a seguir mostra `IncludesCharacters` um método com o `CharacterSet` parâmetro que especifica o conjunto de caracteres:
+O exemplo a seguir mostra um método `IncludesCharacters` com o parâmetro `CharacterSet` que especifica o conjunto de caracteres:
 
 ```XML
 <Predicate Id="Lowercase" Method="IncludesCharacters">
@@ -97,7 +99,7 @@ O exemplo a seguir mostra `IncludesCharacters` um método com o `CharacterSet` p
 </Predicate>
 ```
 
-O exemplo a seguir mostra `IsDateRange` um método com os `Minimum` parâmetros `Maximum` e que especificam o intervalo de datas com `yyyy-MM-dd` um `Today`formato de e.
+O exemplo a seguir mostra um método `IsDateRange` com os parâmetros `Minimum` e `Maximum` que especificam o intervalo de datas com um formato de `yyyy-MM-dd` e `Today`.
 
 ```XML
 <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 1970-01-01 and today.">
@@ -111,6 +113,8 @@ O exemplo a seguir mostra `IsDateRange` um método com os `Minimum` parâmetros 
 ## <a name="predicatevalidations"></a>PredicateValidations
 
 Embora os predicados definam a validação a ser verificada em relação a um tipo de declaração, o grupo **PredicateValidations** um conjunto de predicados para formar uma validação de entrada de usuário que pode ser aplicada a um tipo de declaração. Cada elemento **PredicateValidation** contém um conjunto de elementos do grupo de **predicados** que contêm um conjunto de elementos **PredicateReference** que aponta para um **predicado**. Para passar a validação, o valor da declaração deve passar todos os testes de qualquer predicado em todo o grupo de **predicado** com seu conjunto de elementos **PredicateReference** .
+
+O elemento **PredicateValidations** deve aparecer diretamente após o elemento **predicados** dentro do elemento [BuildingBlocks](buildingblocks.md) .
 
 ```XML
 <PredicateValidations>
@@ -138,9 +142,9 @@ O elemento **PredicateValidations** contém o seguinte elemento:
 
 O elemento **PredicateValidation** contém o seguinte atributo:
 
-| Atributo | Requerido | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador que é usado para a validação de predicado. O elemento **ClaimType** pode usar esse identificador na política. |
+| Id | Sim | Um identificador que é usado para a validação de predicado. O elemento **ClaimType** pode usar esse identificador na política. |
 
 O elemento **PredicateValidation** contém o seguinte elemento:
 
@@ -156,20 +160,20 @@ O elemento **PredicateGroups** contém o seguinte elemento:
 
 O elemento de **Predicate** contém o seguinte atributo:
 
-| Atributo | Requerido | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador que é usado para o grupo de predicado.  |
+| Id | Sim | Um identificador que é usado para o grupo de predicado.  |
 
 O elemento de **Predicate** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| UserHelpText | 1:1 |  Uma descrição do predicado que pode ser útil para os usuários saber qual valor eles devem digitar. |
+| Userhelptext | 1:1 |  Uma descrição do predicado que pode ser útil para os usuários saber qual valor eles devem digitar. |
 | PredicateReferences | 1: n | Uma lista de referências de predicado. |
 
 O elemento **PredicateReferences** contém os seguintes atributos:
 
-| Atributo | Requerido | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | MatchAtLeast | Não | Especifica que o valor deve corresponder a pelo menos que muitas definições de predicado para a entrada sejam aceitas. |
 
@@ -181,23 +185,23 @@ O elemento **PredicateReferences** contém os seguintes elementos:
 
 O elemento **PredicateReference** contém os seguintes atributos:
 
-| Atributo | Requerido | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador que é usado para a validação de predicado.  |
+| Id | Sim | Um identificador que é usado para a validação de predicado.  |
 
 
 ## <a name="configure-password-complexity"></a>Configurar a complexidade da senha
 
 Com **predicados** e **PredicateValidationsInput** , você pode controlar os requisitos de complexidade para as senhas fornecidas por um usuário ao criar uma conta. Por padrão, Azure AD B2C usa senhas fortes. O Azure AD B2C também dá suporte a opções de configuração para controlar a complexidade das senhas que os clientes podem usar. Você pode definir a complexidade da senha usando estes elementos de predicado:
 
-- **IsLengthBetween8And64** usando o `IsLengthRange` método, o valida que a senha deve ter entre 8 e 64 caracteres.
-- Em **minúsculas** usando `IncludesCharacters` o método, o valida que a senha contém uma letra minúscula.
-- **Maiúsculas** usando `IncludesCharacters` o método, valida que a senha contém uma letra maiúscula.
-- **Número** que usa `IncludesCharacters` o método, valida que a senha contém um dígito.
-- **Símbolo** usando o `IncludesCharacters` método, valida que a senha contém um dos símbolos a seguir`@#$%^&*\-_+=[]{}|\:',?/~"();!`
-- **PIN** usando o `MatchesRegex` método, valida que a senha contém somente números.
-- **AllowedAADCharacters** usando o `MatchesRegex` método, o valida que a senha apenas caractere inválido foi fornecida.
-- **DisallowedWhitespace** usando o `MatchesRegex` método, o valida que a senha não começa ou termina com um caractere de espaço em branco.
+- **IsLengthBetween8And64** usando o método `IsLengthRange`, o valida que a senha deve ter entre 8 e 64 caracteres.
+- Em **letras minúsculas** usando o método `IncludesCharacters`, o valida que a senha contém uma letra minúscula.
+- **Maiúsculas** usando o método `IncludesCharacters`, valida que a senha contém uma letra maiúscula.
+- **Número** usando o método `IncludesCharacters`, valida que a senha contém um dígito.
+- **Símbolo** usando o método `IncludesCharacters`, valida que a senha contém um dos vários caracteres de símbolo.
+- O **PIN** usando o método `MatchesRegex`, valida que a senha contém apenas números.
+- **AllowedAADCharacters** usando o método `MatchesRegex`, o valida que a senha com apenas caracteres inválidos foi fornecida.
+- **DisallowedWhitespace** usando o método `MatchesRegex`, valida que a senha não começa ou termina com um caractere de espaço em branco.
 
 ```XML
 <Predicates>
@@ -233,7 +237,7 @@ Com **predicados** e **PredicateValidationsInput** , você pode controlar os req
   <Predicate Id="Symbol" Method="IncludesCharacters">
     <UserHelpText>a symbol</UserHelpText>
     <Parameters>
-      <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\:',?/`~"();!</Parameter>
+      <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\\:',.?/`~"();!</Parameter>
     </Parameters>
   </Predicate>
 
@@ -262,7 +266,7 @@ Com **predicados** e **PredicateValidationsInput** , você pode controlar os req
 Depois de definir as validações básicas, você pode combiná-las e criar um conjunto de políticas de senha que você pode usar em sua política:
 
 - **SimplePassword** valida o DisallowedWhitespace, o AllowedAADCharacters e o IsLengthBetween8And64
-- **Senha forte** valida DisallowedWhitespace, AllowedAADCharacters, IsLengthBetween8And64. O último grupo `CharacterClasses` executa um conjunto adicional de predicados `MatchAtLeast` com definido como 3. A senha do usuário deve ter entre 8 e 16 caracteres e três dos seguintes caracteres: Letras minúsculas, maiúsculas, números ou símbolos.
+- **Senha forte** valida DisallowedWhitespace, AllowedAADCharacters, IsLengthBetween8And64. O último grupo `CharacterClasses` executa um conjunto adicional de predicados com `MatchAtLeast` definido como 3. A senha do usuário deve ter entre 8 e 16 caracteres e três dos seguintes caracteres: letras minúsculas, maiúsculas, números ou símbolos.
 - **CustomPassword** valida apenas DisallowedWhitespace, AllowedAADCharacters. Portanto, o usuário pode fornecer qualquer senha com qualquer comprimento, desde que os caracteres sejam válidos.
 
 ```XML
@@ -352,7 +356,7 @@ O seguinte mostra como os elementos são organizados quando Azure AD B2C exibe a
 
 ## <a name="configure-a-date-range"></a>Configurar um intervalo de datas
 
-Com os elementos **predicados** e **PredicateValidations** , você pode controlar os valores de data mínimo e máximo de **userinputtype** usando `DateTimeDropdown`um. Para fazer isso, crie um **predicado** com o `IsDateRange` método e forneça os parâmetros mínimo e máximo.
+Com os elementos **predicados** e **PredicateValidations** , você pode controlar os valores de data mínimo e máximo de **userinputtype** usando um `DateTimeDropdown`. Para fazer isso, crie um **predicado** com o método `IsDateRange` e forneça os parâmetros mínimo e máximo.
 
 ```XML
 <Predicates>
@@ -366,7 +370,7 @@ Com os elementos **predicados** e **PredicateValidations** , você pode controla
 </Predicates>
 ```
 
-Adicione um **PredicateValidation** com uma referência ao `DateRange` predicado.
+Adicione um **PredicateValidation** com uma referência ao predicado `DateRange`.
 
 ```XML
 <PredicateValidations>
@@ -382,7 +386,7 @@ Adicione um **PredicateValidation** com uma referência ao `DateRange` predicado
 </PredicateValidations>
 ```
 
-Em seu tipo de declaração, adicione o elemento **PredicateValidationReference** e especifique o `CustomDateRange`identificador como.
+Em seu tipo de declaração, adicione o elemento **PredicateValidationReference** e especifique o identificador como `CustomDateRange`.
 
 ```XML
 <ClaimType Id="dateOfBirth">

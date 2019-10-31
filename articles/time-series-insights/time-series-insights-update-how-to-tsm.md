@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: a77cdcf332d450b2d3d9219ebfbaed2f799e7e6d
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 81c2c2af78f5f066e1b27e14fa774df04d7c5868
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991180"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063990"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modelagem de dados na visualização Azure Time Series Insights
 
@@ -56,7 +56,7 @@ Para saber mais sobre como usar a atualização, leia [Azure Time Series insight
 1. Selecione o tipo e selecione **excluir**.
 1. Se nenhuma instância estiver associada aos tipos, ela será excluída.
 
-    [botão!["excluir"](media/v2-update-how-to-tsm/portal-five.png)](media/v2-update-how-to-tsm/portal-five.png#lightbox)
+    [botão !["excluir"](media/v2-update-how-to-tsm/portal-five.png)](media/v2-update-how-to-tsm/portal-five.png#lightbox)
 
 ## <a name="hierarchies"></a>Hierarquias
 
@@ -64,15 +64,15 @@ Para saber mais sobre como usar a atualização, leia [Azure Time Series insight
 
 1. Vá para o painel seletor de modelo de série temporal e selecione **hierarquias** no menu. Recolha o painel para se concentrar nas hierarquias do modelo de série temporal.
 
-    [painel de "hierarquias"![](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
+    [painel de "hierarquias" ![](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
 
 1. Selecione **+ Adicionar**.
 
-    [botão!["Adicionar"](media/v2-update-how-to-tsm/portal-seven.png)](media/v2-update-how-to-tsm/portal-seven.png#lightbox)
+    [botão !["Adicionar"](media/v2-update-how-to-tsm/portal-seven.png)](media/v2-update-how-to-tsm/portal-seven.png#lightbox)
 
 1. Selecione **+ Adicionar nível** no painel direito.
 
-    [botão!["Adicionar nível"](media/v2-update-how-to-tsm/portal-eight.png)](media/v2-update-how-to-tsm/portal-eight.png#lightbox)
+    [botão !["Adicionar nível"](media/v2-update-how-to-tsm/portal-eight.png)](media/v2-update-how-to-tsm/portal-eight.png#lightbox)
 
 1. Insira os detalhes da hierarquia e selecione **criar**.
 
@@ -98,7 +98,7 @@ Para saber mais sobre como usar a atualização, leia [Azure Time Series insight
 1. Selecione a hierarquia e selecione **excluir**. 
 1. Se nenhuma instância estiver associada à hierarquia, ela será excluída.
 
-    [botão!["excluir"](media/v2-update-how-to-tsm/portal-twelve.png)](media/v2-update-how-to-tsm/portal-twelve.png#lightbox)
+    [botão !["excluir"](media/v2-update-how-to-tsm/portal-twelve.png)](media/v2-update-how-to-tsm/portal-twelve.png#lightbox)
 
 ## <a name="instances"></a>Instâncias
 

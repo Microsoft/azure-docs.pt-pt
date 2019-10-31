@@ -4,12 +4,12 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 10/23/2019
 ms.author: lugoldbe
-ms.openlocfilehash: 1b5887fdc7cb610381b73b5bf7f6fd6dbc86afd4
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 9aca01b24bc3351460c462c08689fdaa41e3a755
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809582"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73057289"
 ---
 ## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
 
@@ -52,13 +52,6 @@ Neste artigo, um modelo de Azure Resource Manager é usado para criar um grupo d
             "defaultValue": "[concat('storagecontainer', uniqueString(resourceGroup().id))]",
             "metadata": {
                 "description": "Name of the container in storage account to create"
-            }
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "Specifies the Azure location for all resources."
             }
         },
         "eventHubSku": {

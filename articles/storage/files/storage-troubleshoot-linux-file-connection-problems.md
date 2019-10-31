@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: cc0539462fad0a73d5fc7eb75d2078e513df4e5d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 12976e2b2dd37b640efe1823fc8d2ca7048ebcdb
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72926543"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73097367"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Solucionar problemas de arquivos do Azure no Linux
 
@@ -126,7 +126,7 @@ Algumas distribuições do Linux ainda não suportam as funcionalidades de encri
 
 ### <a name="solution"></a>Solução
 
-A funcionalidade de encriptação do SMB 3.0 para Linux foi introduzida no kernel 4.11. Esta funcionalidade permite a montagem de uma partilha de ficheiros do Azure a partir do local ou a partir de uma região diferente do Azure. Esta funcionalidade está incluída nas distribuições do Linux listadas em [Versões mínimas recomendadas com as correspondentes capacidades de montagem ( SMB versão 2.1 versus SMB versão 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30). Outras distribuições requerem o kernel 4.11 e versões posteriores.
+A funcionalidade de encriptação do SMB 3.0 para Linux foi introduzida no kernel 4.11. Esta funcionalidade permite a montagem de uma partilha de ficheiros do Azure a partir do local ou a partir de uma região diferente do Azure. Algumas distribuições do Linux podem ter alterações reportadas do kernel 4,11 para versões mais antigas do kernel do Linux que eles mantêm. Para ajudar a determinar se sua versão do Linux dá suporte a SMB 3,0 com criptografia, consulte [usar os arquivos do Azure com o Linux](storage-how-to-use-files-linux.md). 
 
 Se o cliente SMB do Linux não suportar a encriptação, monte os Ficheiros do Azure com o SMB 2.1 numa VM Linux do Azure que está no mesmo datacenter que a partilha de ficheiros. Verifique se a definição [Transferência segura necessária]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) está ativada na conta de armazenamento. 
 
@@ -281,7 +281,7 @@ Este problema de restabelecimento de ligação no kernel do Linux já foi corrig
 - [CIFS: corrigir uma possível corrupção de memória durante a reconexão](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
 - [CIFS: corrigir um possível bloqueio duplo de mutex durante a reconexão (para kernel v 4.9 e posterior)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
-No entanto, estas alterações poderão não ser ainda transportadas para todas as distribuições do Linux. Esta correção e outras correções de restabelecimento de ligação podem ser encontradas na secção [Versões mínimas recomendadas com as correspondentes capacidades de montagem (SMB versão 2.1 versus SMB versão 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30) do artigo [Utilizar os Ficheiros do Azure com o Linux](storage-how-to-use-files-linux.md). Pode obter esta correção ao atualizar para uma destas versões kernel recomendadas.
+No entanto, estas alterações poderão não ser ainda transportadas para todas as distribuições do Linux. Se você estiver usando uma distribuição do Linux popular, poderá verificar em [usar os arquivos do Azure com o Linux](storage-how-to-use-files-linux.md) para ver qual versão da sua distribuição tem as alterações de kernel necessárias.
 
 ### <a name="workaround"></a>Solução
 
