@@ -1,5 +1,5 @@
 ---
-title: Configurar Apache Kafka no HDInsight usando o Azure Resource Manager-QuickStart
+title: 'Início rápido: Apache Kafka usando o Azure Resource Manager-HDInsight'
 description: Neste guia de início rápido, você aprende a criar um cluster Apache Kafka no Azure HDInsight usando o modelo Azure Resource Manager. Também irá saber mais sobre tópicos, subscritores e consumidores do Kafka.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: deae58c30e37aa4df1dd8ca9b1b64cc79e9509ae
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: d908d210ff0448069a9abc76209c72d9b2a7595c
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123169"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242017"
 ---
-# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Início rápido: Criar Apache Kafka cluster no Azure HDInsight usando o modelo do Resource Manager
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Início rápido: criar Apache Kafka cluster no Azure HDInsight usando o modelo do Resource Manager
 
 [Apache Kafka](https://kafka.apache.org/) é uma plataforma de streaming distribuída de software livre. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição. 
 
@@ -39,12 +39,12 @@ Um cliente SSH. Para obter mais informações, consulte [conectar-se ao HDInsigh
 
 2. Para criar o cluster do Kafka, utilize os seguintes valores:
 
-    | Propriedade | Value |
+    | Propriedade | Valor |
     | --- | --- |
-    | Subscription | A sua subscrição do Azure. |
-    | Resource group | O grupo de recursos em que o cluster é criado. |
-    | Location | A região do Azure em que o cluster é criado. |
-    | Nome do Cluster | O nome do cluster do Kafka. |
+    | Subscrição | A sua subscrição do Azure. |
+    | Grupo de recursos | O grupo de recursos em que o cluster é criado. |
+    | Localização | A região do Azure em que o cluster é criado. |
+    | Nome do cluster | O nome do cluster do Kafka. |
     | Nome de Utilizador de Início de Sessão do Cluster | O nome da conta utilizado para iniciar sessão em serviços baseados em HTTPs alojados no cluster. |
     | Palavra-passe de Início de Sessão do Cluster | A palavra-passe do nome de utilizador de início de sessão. |
     | Nome de Utilizador SSH | O nome de utilizador SSH. Esta conta pode aceder ao cluster através de SSH. |
@@ -56,7 +56,7 @@ Um cliente SSH. Para obter mais informações, consulte [conectar-se ao HDInsigh
 
 ## <a name="connect-to-the-cluster"></a>Ligar ao cluster
 
-1. Para ligar ao nó principal primário do cluster do Kafka, utilize o seguinte comando. Substitua `sshuser` pelo nome de utilizador SSH. Substitua `mykafka` pelo nome do seu cluster do Kafka
+1. Para se ligar ao nó principal do cluster do Kafka, utilize o seguinte comando. Substitua `sshuser` pelo nome de utilizador SSH. Substitua `mykafka` pelo nome do seu cluster do Kafka
 
     ```bash
     ssh sshuser@mykafka-ssh.azurehdinsight.net

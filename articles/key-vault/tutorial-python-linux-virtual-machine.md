@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 48095a2d446c8f85bab9d9268e924e29fe9a9f21
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 15650de776b481d1635b58f2b8ecf2bf2921d12f
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003901"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242412"
 ---
-# <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Tutorial: Use uma VM do Linux e um aplicativo Python para armazenar segredos no Azure Key Vault
+# <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Tutorial: usar uma VM do Linux e um aplicativo Python para armazenar segredos no Azure Key Vault
 
 Azure Key Vault ajuda a proteger segredos como as chaves de API e as cadeias de conexão de banco de dados necessárias para acessar seus aplicativos, serviços e recursos de ti.
 
@@ -25,7 +25,7 @@ Neste tutorial, você configura um aplicativo Web do Azure para ler informaçõe
 > [!div class="checklist"]
 > * Criar um cofre de chaves
 > * Armazenar um segredo em seu cofre de chaves
-> * Criar uma máquina virtual do Linux
+> * Criar uma Máquina Virtual do Linux
 > * Habilitar uma [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para a máquina virtual
 > * Conceder as permissões necessárias para o aplicativo de console ler dados do cofre de chaves
 > * Recuperar um segredo do cofre de chaves
@@ -62,7 +62,7 @@ az login
 
 Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
-Crie um grupo de recursos usando o `az group create` comando no local oeste dos EUA com o código a seguir. Substitua `YourResourceGroupName` pelo nome de sua escolha.
+Crie um grupo de recursos usando o comando `az group create` no local oeste dos EUA com o código a seguir. Substitua `YourResourceGroupName` pelo nome de sua escolha.
 
 ```azurecli-interactive
 # To list locations: az account list-locations --output table
@@ -75,9 +75,9 @@ Você usa esse grupo de recursos em todo o tutorial.
 
 Em seguida, crie um cofre de chaves no grupo de recursos que você criou na etapa anterior. Forneça as seguintes informações:
 
-* Nome do cofre de chaves: O nome deve ser uma cadeia de caracteres de 3-24 e deve conter apenas 0-9, a-z, A-Z e hifens (-).
+* Nome do cofre de chaves: o nome deve ser uma cadeia de 3-24 caracteres e deve conter apenas 0-9, a-z, A-Z e hifens (-).
 * Nome do grupo de recursos.
-* Local **Oeste dos EUA**.
+* Localização: **EUA Oeste**.
 
 ```azurecli-interactive
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
@@ -95,11 +95,11 @@ Escreva os seguintes comandos para criar um segredo no cofre de chaves designado
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
 ```
 
-## <a name="create-a-linux-virtual-machine"></a>Criar uma máquina virtual do Linux
+## <a name="create-a-linux-virtual-machine"></a>Criar uma Máquina Virtual do Linux
 
-Crie uma VM usando o `az vm create` comando.
+Crie uma VM usando o comando `az vm create`.
 
-O seguinte exemplo cria uma VM com o nome **myVM** e adiciona uma conta de utilizador com o nome **azureuser**. O `--generate-ssh-keys` parâmetro gera automaticamente uma chave SSH e a coloca no local de chave padrão ( **~/.ssh**). Para criar um conjunto específico de chaves em vez disso, `--ssh-key-value` use a opção.
+O seguinte exemplo cria uma VM com o nome **myVM** e adiciona uma conta de utilizador com o nome **azureuser**. O parâmetro `--generate-ssh-keys` gera automaticamente uma chave SSH e a coloca no local de chave padrão ( **~/.ssh**). Para criar um conjunto específico de chaves em vez disso, use a opção `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \
@@ -174,20 +174,20 @@ Abra Sample.py e edite-o para conter o seguinte código:
 
 ```python
 # importing the requests library
-  import requests
-  
+import requests
+
 # Step 1: Fetch an access token from an MSI-enabled Azure resource      
-  # Note that the resource here is https://vault.azure.net for the public cloud, and api-version is 2018-02-01
-  MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net"
-  r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"})
+# Note that the resource here is https://vault.azure.net for the public cloud, and api-version is 2018-02-01
+MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net"
+r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"})
 
 # Extracting data in JSON format 
-  # This request gets an access token from Azure Active Directory by using the local MSI endpoint
-  data = r.json()
+# This request gets an access token from Azure Active Directory by using the local MSI endpoint
+data = r.json()
 
 # Step 2: Pass the access token received from the previous HTTP GET call to the key vault
-  KeyVaultURL = "https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01"
-  kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
+KeyVaultURL = "https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01"
+kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
 
 print(kvSecret.json()["value"])
 ```
@@ -209,7 +209,7 @@ Neste tutorial, você aprendeu a usar Azure Key Vault com um aplicativo Python e
 
 Exclua o grupo de recursos, a máquina virtual e todos os recursos relacionados quando você não precisar mais deles. Para fazer isso, selecione o grupo de recursos para a VM e selecione **excluir**.
 
-Exclua o cofre de chaves usando `az keyvault delete` o comando:
+Exclua o cofre de chaves usando o comando `az keyvault delete`:
 
 ```azurecli-interactive
 az keyvault delete --name
@@ -217,7 +217,7 @@ az keyvault delete --name
                    [--subscription]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [API REST do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/)

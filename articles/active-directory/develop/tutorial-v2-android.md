@@ -11,26 +11,34 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/09/2019
+ms.date: 10/10/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b29e5815ec39e850bee0707a9c92c12201c7f21e
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5417c29b62414468064338a67b188c7b7f832ac5
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934533"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242212"
 ---
-# <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Conectar usuários e chamar o Microsoft Graph de um aplicativo Android
+# <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Tutorial: conectar usuários e chamar o Microsoft Graph de um aplicativo Android
 
 > [!NOTE]
 > Este tutorial ainda não foi atualizado para funcionar com a biblioteca do MSAL para Android versão 1,0. Ele funciona com uma versão anterior, conforme configurado neste tutorial.
 
 Neste tutorial, você aprenderá a integrar um aplicativo Android com a plataforma de identidade da Microsoft. Seu aplicativo entrará em um usuário, obterá um token de acesso para chamar a API de Microsoft Graph e fará uma solicitação para a API de Microsoft Graph.  
 
-Quando você tiver concluído o guia, seu aplicativo aceitará entradas de contas pessoais da Microsoft (incluindo outlook.com, live.com e outros) e contas corporativas ou de estudante de qualquer empresa ou organização que usa Azure Active Directory.
+> [!div class="checklist"]
+> * Integre um aplicativo Android com a plataforma de identidade da Microsoft
+> * Conectar um usuário
+> * Obter um token de acesso para chamar a API de Microsoft Graph
+> * Chame a API de Microsoft Graph.  
+
+Quando você concluir este tutorial, seu aplicativo aceitará entradas de contas pessoais da Microsoft (incluindo outlook.com, live.com e outros), bem como contas corporativas ou de estudante de qualquer empresa ou organização que usa Azure Active Directory.
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="how-this-tutorial-works"></a>Como este tutorial funciona
 
@@ -56,7 +64,7 @@ Este exemplo usa a biblioteca de autenticação da Microsoft para Android (MSAL)
 
 ## <a name="create-a-project"></a>Criar um projeto
 
-Este tutorial criará um novo projeto. Se você quiser baixar o tutorial concluído, [Baixe o código](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip).
+Este tutorial criará um novo projeto. Se você quiser baixar o tutorial concluído, [Baixe o código](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip).
 
 1. Abra Android Studio e selecione **Iniciar um novo projeto de Android Studio**.
 2. Selecione **atividade básica** e selecione **Avançar**.
@@ -538,6 +546,10 @@ Depois de entrar, o aplicativo exibirá os dados retornados do ponto de extremid
 ### <a name="consent"></a>Consentimento
 
 Na primeira vez que qualquer usuário entrar em seu aplicativo, ele será solicitado pela identidade da Microsoft para consentir as permissões solicitadas.  Embora a maioria dos usuários seja capaz de consentir, alguns locatários do Azure AD desabilitaram o consentimento do usuário, o que exige que os administradores consentissem em nome de todos os usuários. Para dar suporte a esse cenário, registre os escopos do seu aplicativo no portal do Azure.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando não for mais necessário, exclua o objeto de aplicativo que você criou na etapa [registrar seu aplicativo](#register-your-application) .
 
 ## <a name="get-help"></a>Obter ajuda
 

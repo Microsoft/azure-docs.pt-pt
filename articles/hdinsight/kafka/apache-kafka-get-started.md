@@ -1,5 +1,5 @@
 ---
-title: Configurar Apache Kafka no HDInsight usando o portal do Azure-QuickStart
+title: 'Início rápido: configurar Apache Kafka no HDInsight usando portal do Azure'
 description: Neste guia de início rápido, irá saber como criar um cluster do Apache Kafka no Azure HDInsight através do portal do Azure. Também irá saber mais sobre tópicos, subscritores e consumidores do Kafka.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/01/2019
-ms.openlocfilehash: 686f4620280318fb0e642b30624a91c54280c360
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: e253d168fadd5aff46e70ba00a4021415c0ea6f7
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817956"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242049"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Início rápido: criar Apache Kafka cluster no Azure HDInsight usando portal do Azure
 

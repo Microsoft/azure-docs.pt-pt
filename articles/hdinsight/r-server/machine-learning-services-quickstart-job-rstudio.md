@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Servidor RStudio para executar R em serviços de ML – Azure HDInsight'
+title: 'Início rápido: RStudio Server & ML Services para R – Azure HDInsight'
 description: No início rápido, você executa um script R em um cluster de serviços do ML no Azure HDInsight usando o servidor RStudio.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: e2fcdeb91517b048766d59a9714346f76091a8c8
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 8a6a204ee5080e3acf99c13ecba1e1c7664d68b4
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123130"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241894"
 ---
-# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Início rápido: Executar um script do R em um cluster de serviços de ML no Azure HDInsight usando o servidor RStudio
+# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Início rápido: executar um script do R em um cluster de serviços de ML no Azure HDInsight usando o servidor RStudio
 
 Os serviços de ML no Azure HDInsight permitem que os scripts R usem Apache Spark e Apache Hadoop MapReduce para executar cálculos distribuídos. Os serviços de ML controlam como as chamadas são executadas definindo o contexto de computação. O nó de borda de um cluster fornece um local conveniente para se conectar ao cluster e executar os scripts do R. Com um nó de borda, você tem a opção de executar as funções distribuídas paralelizadas do RevoScaleR nos núcleos do servidor do nó de borda. Você também pode executá-los em todos os nós do cluster usando o mapa do Hadoop do RevoScaleR para reduzir ou Apache Spark contextos de computação.
 
@@ -27,13 +27,13 @@ Um cluster de serviços do ML no HDInsight. Consulte [criar Apache Hadoop cluste
 
 ## <a name="connect-to-rstudio-server"></a>Ligar ao RStudio Server
 
-O servidor RStudio é executado no nó de borda do cluster. Vá para a URL a seguir `CLUSTERNAME` , em que é o nome do cluster de serviços ml que você criou:
+O servidor RStudio é executado no nó de borda do cluster. Vá para a URL a seguir, em que `CLUSTERNAME` é o nome do cluster de serviços ML que você criou:
 
 ```
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
 ```
 
-Na primeira vez que você entrar, precisará autenticar duas vezes. Para o primeiro prompt de autenticação, forneça o logon de administrador do cluster e a `admin`senha, o padrão é. Para o segundo prompt de autenticação, forneça o logon e a senha do SSH `sshuser`, o padrão é. As entradas subsequentes exigem apenas as credenciais SSH.
+Na primeira vez que você entrar, precisará autenticar duas vezes. Para o primeiro prompt de autenticação, forneça o logon de administrador do cluster e a senha, o padrão é `admin`. Para o segundo prompt de autenticação, forneça o logon e a senha do SSH, o padrão é `sshuser`. As entradas subsequentes exigem apenas as credenciais SSH.
 
 Assim que estiver ligado, o ecrã deve assemelhar-se à captura de ecrã seguinte:
 

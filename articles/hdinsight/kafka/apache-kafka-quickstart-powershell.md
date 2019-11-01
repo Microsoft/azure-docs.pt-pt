@@ -1,5 +1,5 @@
 ---
-title: Configurar Apache Kafka no HDInsight usando o Azure PowerShell-QuickStart
+title: 'Início rápido: criar Apache Kafka com o Azure PowerShell-HDInsight'
 description: Neste guia de início rápido, irá aprender a criar um cluster do Apache Kafka no Azure HDInsight com o Azure PowerShell. Também irá saber mais sobre tópicos, subscritores e consumidores do Kafka.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 79224879dc0f23c7ad022134c6add087b90304b7
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 082be3630474ec5f97ab7d80a3ee1b92cdc28fd7
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123156"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242337"
 ---
-# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Início rápido: Criar Apache Kafka cluster no Azure HDInsight usando o PowerShell
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Início rápido: criar Apache Kafka cluster no Azure HDInsight usando o PowerShell
 
 [Apache Kafka](https://kafka.apache.org/) é uma plataforma de streaming distribuída de software livre. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição. 
 
-Neste guia de início rápido, irá aprender a criar um cluster do [Apache Kafka](https://kafka.apache.org) com o Azure PowerShell. Também irá saber como utilizar utilitários incluídos para enviar e receber mensagens com o Kafka.
+Neste guia de início rápido, irá aprender a criar um cluster do [Apache Kafka](https://kafka.apache.org) com o Azure PowerShell. Também vai saber como utilizar utilitários incluídos para enviar e receber mensagens com o Kafka.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -35,7 +35,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Entre em sua assinatura do Azure com o `Connect-AzAccount` cmdlet e siga as instruções na tela.
+Entre em sua assinatura do Azure com o cmdlet `Connect-AzAccount` e siga as instruções na tela.
 
 ```azurepowershell-interactive
 # Login to your Azure subscription
@@ -60,12 +60,12 @@ $location = Read-Host -Prompt "Enter the Azure region to use"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Create a storage account
 
 Enquanto o Kafka no HDInsight utiliza o Managed Disks do Azure para armazenar dados do Kafka, o cluster também utiliza o Armazenamento do Azure para armazenar informações, tais como registos. Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) para criar uma nova conta de armazenamento.
 
 > [!IMPORTANT]  
-> O tipo `BlobStorage` de conta de armazenamento só pode ser usado como armazenamento secundário para clusters HDInsight.
+> O tipo de conta de armazenamento `BlobStorage` só pode ser usado como armazenamento secundário para clusters HDInsight.
 
 ```azurepowershell-interactive
 $storageName = Read-Host -Prompt "Enter the storage account name"
@@ -139,7 +139,7 @@ Se planeia utilizar mais do que 32 nós de trabalho (seja durante a criação do
 
 ## <a name="connect-to-the-cluster"></a>Ligar ao cluster
 
-1. Para ligar ao nó principal primário do cluster do Kafka, utilize o seguinte comando. Substitua `sshuser` pelo nome de utilizador SSH. Substitua `mykafka` pelo nome do seu cluster do Kafka
+1. Para se ligar ao nó principal do cluster do Kafka, utilize o seguinte comando. Substitua `sshuser` pelo nome de utilizador SSH. Substitua `mykafka` pelo nome do seu cluster do Kafka
 
     ```bash
     ssh sshuser@mykafka-ssh.azurehdinsight.net

@@ -1,5 +1,5 @@
 ---
-title: Apache Spark lento quando o contêiner de armazenamento do Azure contém muitos arquivos – HDInsight
+title: Apache Spark lento quando o armazenamento do Azure HDInsight tiver muitos arquivos
 description: Apache Spark trabalho é executado lentamente quando o contêiner de armazenamento do Azure contém muitos arquivos no Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/21/2019
-ms.openlocfilehash: 40c5d023647d3592e44588fbc24bf2743da34373
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 82280532fa91923bd08d8ff3164dc841282c392c
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088629"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241157"
 ---
 # <a name="apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>Apache Spark execução de trabalho lentamente quando o contêiner de armazenamento do Azure contém muitos arquivos no Azure HDInsight
 
@@ -24,7 +24,7 @@ Ao executar um cluster HDInsight, o trabalho de Apache Spark que grava no contê
 
 ## <a name="cause"></a>Causa
 
-Esse é um problema conhecido do Spark. O lentidão vem das operações `ListBlob` e `GetBlobProperties` durante a execução do trabalho do Spark.
+Esse é um problema conhecido do Spark. O lentidão é proveniente das operações de `ListBlob` e `GetBlobProperties` durante a execução do trabalho do Spark.
 
 Para rastrear partições, o Spark precisa manter um `FileStatusCache` que contém informações sobre a estrutura do diretório. Usando esse cache, o Spark pode analisar os caminhos e estar atento às partições disponíveis. O benefício do acompanhamento de partições é que o Spark só toca os arquivos necessários quando você lê os dados. Para manter essas informações atualizadas, quando você grava novos dados, o Spark precisa listar todos os arquivos no diretório e atualizar esse cache.
 
@@ -34,9 +34,9 @@ No Spark 2,2, ao gravar dados com o modo de acréscimo, esse problema de desempe
 
 ## <a name="resolution"></a>Resolução
 
-Quando você cria um conjunto de dados particionado, é importante usar um esquema de particionamento que limitará o número de arquivos que o Spark tem a listar para atualizar `FileStatusCache`o.
+Quando você cria um conjunto de dados particionado, é importante usar um esquema de particionamento que limitará o número de arquivos que o Spark tem a listar para atualizar a `FileStatusCache`.
 
-Para cada enésimo micro batch em que N% 100 = = 0 (100 é apenas um exemplo), mova os dados existentes para outro diretório, que pode ser carregado pelo Spark.
+Para cada enésimo micro batch em que N %100 = = 0 (100 é apenas um exemplo), mova os dados existentes para outro diretório, que pode ser carregado pelo Spark.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -44,6 +44,6 @@ Se você não tiver visto seu problema ou não conseguir resolver o problema, vi
 
 * Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com o [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
 
 * Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

@@ -1,5 +1,5 @@
 ---
-title: Criar trabalhos de streaming do Spark altamente disponíveis no YARN – Azure HDInsight
+title: Trabalhos de streaming do Spark altamente disponíveis no YARN – Azure HDInsight
 description: Como configurar o streaming de Apache Spark para um cenário de alta disponibilidade no Azure HDInsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: e4414a64b2ee34ec16fde56dd750f2faa26b2e09
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 3e48f220035c56d34d6ca5a7347e9a4ee100e1f1
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002935"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241240"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Criar trabalhos de streaming de alta disponibilidade Apache Spark com o YARN
 
@@ -71,8 +71,8 @@ No entanto, se um **Driver** falhar, todos os executores associados falharão e 
 
 Para recuperar drivers com o ponto de verificação DStream:
 
-* Configure a reinicialização automática de driver em YARN `yarn.resourcemanager.am.max-attempts`com a definição de configuração.
-* Defina um diretório de ponto de verificação em um sistema de arquivos `streamingContext.checkpoint(hdfsDirectory)`compatível com HDFS com.
+* Configure a reinicialização automática de driver em YARN com o parâmetro de configuração `yarn.resourcemanager.am.max-attempts`.
+* Defina um diretório de ponto de verificação em um sistema de arquivos compatível com HDFS com `streamingContext.checkpoint(hdfsDirectory)`.
 * Reestruture o código-fonte para usar pontos de verificação para recuperação, por exemplo:
 
     ```scala
@@ -88,7 +88,7 @@ Para recuperar drivers com o ponto de verificação DStream:
         context.start()
     ```
 
-* Configure a recuperação de dados perdidos habilitando o log write-ahead (Wal `sparkConf.set("spark.streaming.receiver.writeAheadLog.enable","true")`) com e desabilite a replicação na memória para a `StorageLevel.MEMORY_AND_DISK_SER`entrada DStreams com.
+* Configure a recuperação de dados perdidos habilitando o log write-ahead (WAL) com `sparkConf.set("spark.streaming.receiver.writeAheadLog.enable","true")`e desabilite a replicação na memória para DStreams de entrada com `StorageLevel.MEMORY_AND_DISK_SER`.
 
 Para resumir, usando o ponto de verificação + WAL + destinatários confiáveis, você poderá fornecer a recuperação de dados "pelo menos uma vez":
 
@@ -106,7 +106,7 @@ Para resumir, usando o ponto de verificação + WAL + destinatários confiáveis
     spark.yarn.am.attemptFailuresValidityInterval=1h
     ```
 
-* O Spark e a interface do usuário de streaming do Spark têm um sistema de métricas configurável. Você também pode usar bibliotecas adicionais, como Graphite/Grafana para baixar métricas do painel, como ' número de registros processados ', ' uso da memória/GC no driver & executores ', ' atraso total ', ' utilização do cluster ' e assim por diante. Na versão de streaming estruturada 2,1 ou superior, você `StreamingQueryListener` pode usar o para coletar métricas adicionais.
+* O Spark e a interface do usuário de streaming do Spark têm um sistema de métricas configurável. Você também pode usar bibliotecas adicionais, como Graphite/Grafana para baixar métricas do painel, como ' número de registros processados ', ' uso da memória/GC no driver & executores ', ' atraso total ', ' utilização do cluster ' e assim por diante. Na versão de streaming estruturada 2,1 ou superior, você pode usar `StreamingQueryListener` para coletar métricas adicionais.
 
 * Você deve segmentar trabalhos de execução longa.  Quando um aplicativo de streaming do Spark é enviado ao cluster, a fila YARN em que o trabalho é executado deve ser definida. Você pode usar um [Agendador de capacidade yarn](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html) para enviar trabalhos de longa execução para separar filas.
 
@@ -122,5 +122,5 @@ Para resumir, usando o ponto de verificação + WAL + destinatários confiáveis
 * [Visão geral de streaming de Apache Spark](apache-spark-streaming-overview.md)
 * [Criar Apache Spark trabalhos de streaming com processamento de eventos exatamente uma vez](apache-spark-streaming-exactly-once.md)
 * [Trabalhos de streaming de Apache Spark de execução longa em YARN](https://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
-* [Streaming estruturado: Semântica tolerante a falhas](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
-* [Fluxos de discretizado: Um modelo tolerante a falhas para processamento de fluxo escalonável](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)
+* [Streaming estruturado: semântica tolerante a falhas](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
+* [Fluxos de discretizado: um modelo tolerante a falhas para processamento de fluxo escalonável](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

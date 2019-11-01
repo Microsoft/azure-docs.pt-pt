@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: 5108424c4e39c1c47710c0e25e4e22c4474e68ad
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: bd9b9edde0f4c5e3bea6e31342298f2df5a2b5fe
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941699"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241866"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>O que são os serviços do ML no Azure HDInsight
 
@@ -23,7 +23,7 @@ Os serviços de ML no HDInsight fornecem os recursos mais recentes para análise
 
 O nó de borda de um cluster fornece um local conveniente para se conectar ao cluster e executar os scripts do R. Com um nó de borda, você tem a opção de executar as funções distribuídas paralelizadas do scaler nos núcleos do servidor do nó de borda. Você também pode executá-los em todos os nós do cluster usando a redução de mapa do Hadoop do scaler ou Apache Spark contextos de computação.
 
-Os modelos ou previsões que resultam da análise podem ser baixados para uso local. Eles também podem ser operados em outro lugar no Azure, particularmente por meio do [Azure Machine Learning Studio](https://studio.azureml.net) [Web Service](../../machine-learning/studio/publish-a-machine-learning-web-service.md).
+Os modelos ou previsões que resultam da análise podem ser baixados para uso local. Eles também podem ser operados em outro lugar no Azure, particularmente por meio do [serviço web](../../machine-learning/studio/publish-a-machine-learning-web-service.md) [Azure Machine Learning Studio (clássico)](https://studio.azureml.net) .
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Introdução aos serviços de ML no HDInsight
 
@@ -43,7 +43,7 @@ Os serviços de ML no HDInsight oferecem os seguintes benefícios:
 
   As empresas que dependem de paradigmas e ambientes tradicionais investem muito tempo e esforço em direção à operacionalização. Isso resulta em custos inoportunos e atrasos, incluindo o tempo de tradução para modelos, iterações para mantê-los válidos e atuais, aprovação regulatória e gerenciamento de permissões por meio de operacionalização.
 
-  Os serviços de ML oferecem [operacionalização](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)de nível empresarial, nesse caso, depois que um modelo de aprendizado de máquina é concluído, ele leva apenas alguns cliques para gerar APIs de serviços da Web. Esses [Serviços Web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services) são hospedados em uma grade de servidor na nuvem e podem ser integrados a aplicativos de linha de negócios. A capacidade de implantar em uma grade elástica permite que você Escale diretamente com as necessidades de sua empresa, tanto para pontuação em lote quanto em tempo real. Para obter instruções, consulte operacionalize os [serviços de ml no HDInsight](r-server-operationalize.md).
+  Os serviços de ML oferecem [operacionalização](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)de nível empresarial, nesse caso, depois que um modelo de aprendizado de máquina é concluído, ele leva apenas alguns cliques para gerar APIs de serviços da Web. Esses [Serviços Web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services) são hospedados em uma grade de servidor na nuvem e podem ser integrados a aplicativos de linha de negócios. A capacidade de implantar em uma grade elástica permite que você Escale diretamente com as necessidades de sua empresa, tanto para pontuação em lote quanto em tempo real. Para obter instruções, consulte [operacionalize os serviços de ml no HDInsight](r-server-operationalize.md).
 
 <!---
 * **Deep ecosystem engagements to deliver customer success with optimal total cost of ownership**
@@ -102,7 +102,7 @@ Para pontuar no local depois de criar seu modelo, você pode serializar o modelo
 
 ### <a name="install-and-maintain-r-packages"></a>Instalar e manter pacotes de R
 
-A maioria dos pacotes de R que você usa é necessária no nó de borda, uma vez que a maioria das etapas de seus scripts R é executada lá. Para instalar pacotes R adicionais no nó de borda, você pode usar o `install.packages()` método em R.
+A maioria dos pacotes de R que você usa é necessária no nó de borda, uma vez que a maioria das etapas de seus scripts R é executada lá. Para instalar pacotes R adicionais no nó de borda, você pode usar o método `install.packages()` em R.
 
 Se você estiver usando apenas rotinas da biblioteca do scaler no cluster, normalmente não precisará instalar pacotes R adicionais nos nós de dados. No entanto, você pode precisar de pacotes adicionais para dar suporte ao uso da execução de **rxExec** ou **RxDataStep** nos nós de dados.
 
@@ -110,7 +110,7 @@ Nesses casos, os pacotes adicionais podem ser instalados com uma ação de scrip
 
 ### <a name="change-apache-hadoop-mapreduce-memory-settings"></a>Alterar Apache Hadoop configurações de memória do MapReduce
 
-Um cluster pode ser modificado para alterar a quantidade de memória disponível para os serviços de ML quando ele está executando um trabalho MapReduce. Para modificar um cluster, use a interface do usuário do Apache Ambari que está disponível por meio da folha portal do Azure para o cluster. Para obter instruções sobre como acessar a interface do usuário do amAmbari para seu cluster, consulte [gerenciar clusters HDInsight usando a interface do usuário da Web](../hdinsight-hadoop-manage-ambari.md)do amAmbari.
+Um cluster pode ser modificado para alterar a quantidade de memória disponível para os serviços de ML quando ele está executando um trabalho MapReduce. Para modificar um cluster, use a interface do usuário do Apache Ambari que está disponível por meio da folha portal do Azure para o cluster. Para obter instruções sobre como acessar a interface do usuário do amAmbari para seu cluster, consulte [gerenciar clusters HDInsight usando a interface do usuário da Web do amAmbari](../hdinsight-hadoop-manage-ambari.md).
 
 Também é possível alterar a quantidade de memória disponível para os serviços de ML usando os comutadores do Hadoop na chamada para **RxHadoopMR** da seguinte maneira:
 
@@ -138,7 +138,7 @@ Além disso, você pode acessar o console do R no nó de borda digitando **R** n
 
 Os preços associados a um cluster HDInsight de serviços ML são estruturados de forma semelhante aos preços de outros tipos de cluster HDInsight. Elas se baseiam no dimensionamento das VMs subjacentes entre os nós nome, dados e borda, com a adição de um upgrade de hora central. Para obter mais informações, consulte [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como usar os serviços de ML em clusters HDInsight, consulte os seguintes tópicos:
 

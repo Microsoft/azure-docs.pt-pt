@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar e monitorar a topologia de Apache Storm no Azure HDInsight'
+title: 'Início rápido: criar/gerenciar topologia de Apache Storm-Azure HDInsight'
 description: No início rápido, saiba como criar e monitorar uma topologia de Apache Storm no Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 06/14/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 9e48cb53b55cdc4200498a54dba31ae93ca8b31a
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 24173b553f30f652caf20b1ec7500fd9c4d2f7a0
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018594"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241218"
 ---
-# <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Início rápido: Criar e monitorar uma topologia de Apache Storm no Azure HDInsight
+# <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Início rápido: criar e monitorar uma topologia de Apache Storm no Azure HDInsight
 
 O Apache Storm é um sistema de cálculo dimensionável, tolerante a falhas, distribuído e em tempo real para o processamento de fluxos de dados. Com o Storm no Azure HDInsight, pode criar um cluster do Storm baseado na nuvem que executa a análise de macrodados em tempo real.
 
@@ -29,13 +29,13 @@ Neste guia de início rápido, você usa um exemplo do projeto do Apache [Storm-
 
 ## <a name="create-the-topology"></a>Criar a topologia
 
-1. Conecte-se ao cluster Storm. Edite o comando a seguir `CLUSTERNAME` substituindo pelo nome do cluster Storm e, em seguida, digite o comando:
+1. Conecte-se ao cluster Storm. Edite o comando a seguir, substituindo `CLUSTERNAME` pelo nome do cluster Storm e, em seguida, digite o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. O exemplo de **WordCount** está incluído em seu cluster HDInsight `/usr/hdp/current/storm-client/contrib/storm-starter/`em. A topologia gera frases aleatórias e conta quantas vezes as palavras ocorrem. Use o seguinte comando para iniciar a topologia **WordCount** no cluster:
+2. O exemplo de **WordCount** está incluído em seu cluster HDInsight em `/usr/hdp/current/storm-client/contrib/storm-starter/`. A topologia gera frases aleatórias e conta quantas vezes as palavras ocorrem. Use o seguinte comando para iniciar a topologia **WordCount** no cluster:
 
     ```bash
     storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
@@ -62,9 +62,9 @@ Siga estes passos para monitorizar a topologia através da IU do Storm:
     |Bolts|Informações básicas sobre os parafusos.|
     |Configuração de topologia|Informações detalhadas sobre a configuração de topologia.|
     |Ativar|Retoma o processamento de uma topologia desativada.|
-    |Desativar|Pausa uma topologia em execução.|
+    |Ativar|Pausa uma topologia em execução.|
     |Reequilibrar|Ajusta o paralelismo da topologia. Deve rebalancear as topologias em execução depois de ter alterado o número de nós no cluster. O rebalanceamento ajusta o paralelismo para compensar o número maior/menor de nós no cluster. Para obter mais informações, consulte [noções básicas sobre o paralelismo de uma topologia de Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).|
-    |Cancelar|Encerra uma topologia Storm após o tempo limite especificado.|
+    |Finaliza|Encerra uma topologia Storm após o tempo limite especificado.|
 
 3. Nesta página, selecione uma entrada da secção **Spouts** ou **Bolts**. São apresentadas informações sobre o componente selecionado.
 

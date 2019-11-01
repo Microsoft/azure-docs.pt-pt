@@ -1,23 +1,24 @@
 ---
-title: Erros e avisos comuns
-titleSuffix: Azure Cognitive Search
-description: Este artigo fornece informações e soluções para erros comuns e avisos que você pode encontrar durante o enriquecimento do ia no Azure Pesquisa Cognitiva.
-manager: nitinme
+title: Erros comuns e avisos-Azure Search
+description: Este artigo fornece informações e soluções para erros comuns e avisos que você pode encontrar durante a enriquecimento do ia no Azure Search.
+services: search
+manager: heidist
 author: amotley
-ms.author: abmotley
-ms.service: cognitive-search
+ms.service: search
+ms.workload: search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 08d15f20f69c0c42d8b4dd4bac72e7d9f367a957
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 09/18/2019
+ms.author: abmotley
+ms.openlocfilehash: 6455ac9dbe0933f6d46d1137e0a19dcc388d8c80
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787981"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73243050"
 ---
-# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Erros comuns e avisos do pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva
+# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-search"></a>Erros comuns e avisos do pipeline de enriquecimento de ia no Azure Search
 
-Este artigo fornece informações e soluções para erros comuns e avisos que você pode encontrar durante o enriquecimento do ia no Azure Pesquisa Cognitiva.
+Este artigo fornece informações e soluções para erros comuns e avisos que você pode encontrar durante a enriquecimento do ia no Azure Search.
 
 ## <a name="errors"></a>Erros
 A indexação é interrompida quando a contagem de erros excede [' maxFailedItems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
@@ -132,6 +133,10 @@ O documento foi lido e processado, mas devido a uma incompatibilidade na configu
 
 Em todos esses casos, consulte os [tipos de dados com suporte (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) e o [mapa de tipo de dados para indexadores no Azure Search](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) para se certificar de que você criou o esquema de índice corretamente e configurou os [mapeamentos de campo do indexador](search-indexer-field-mappings.md)apropriados. A mensagem de erro incluirá detalhes que podem ajudar a rastrear a origem da incompatibilidade.
 
+### <a name="could-not-process-document-within-indexer-max-run-time"></a>Não foi possível processar o documento dentro do tempo de execução máximo do indexador
+
+Esse erro ocorre quando o indexador não pode concluir o processamento de um único documento da fonte de dados dentro do tempo de execução permitido. O [tempo máximo de execução](search-limits-quotas-capacity.md#indexer-limits) é menor quando habilidades são usados. Quando esse erro ocorrer, se você tiver maxFailedItems definido com um valor diferente de 0, o indexador ignorará o documento em execuções futuras para que a indexação possa progredir. Se você não puder ignorar nenhum documento, ou se estiver vendo esse erro de forma consistente, considere a possibilidade de dividir documentos em documentos menores para que o progresso parcial possa ser feito dentro de uma única execução do indexador.
+
 ##  <a name="warnings"></a>:|
 Os avisos não param de indexação, mas indicam condições que podem resultar em resultados inesperados. Se você tomar uma ação ou não depende dos dados e do seu cenário.
 
@@ -160,7 +165,7 @@ Se você quiser fornecer um valor padrão no caso de entrada ausente, poderá us
 | --- | --- | --- |
 | A entrada de habilidade é do tipo errado | A entrada de habilidade necessária `X` não era do tipo esperado `String`. A entrada de habilidade necessária `X` não estava no formato esperado. | Determinadas habilidades esperam entradas de tipos específicos, por exemplo, a [habilidade de sentimentos](cognitive-search-skill-sentiment.md) espera que `text` seja uma cadeia de caracteres. Se a entrada especificar um valor que não seja de cadeia de caracteres, a habilidade não será executada e não gerará nenhuma saída. Verifique se o conjunto de dados tem valores de entrada uniformes no tipo ou use uma [habilidade de API Web personalizada](cognitive-search-custom-skill-web-api.md) para pré-processar a entrada. Se você estiver Iterando a habilidade em uma matriz, verifique o contexto de habilidade e a entrada tem `*` nas posições corretas. Geralmente, o contexto e a fonte de entrada devem terminar com `*` para matrizes. |
 | A entrada da habilidade está ausente | A entrada de habilidade necessária `X` está ausente. | Se todos os documentos obtiverem esse aviso, provavelmente haverá um erro de digitação nos caminhos de entrada e você deverá verificar a maiúsculas e minúsculas do nome da propriedade, `*` extra ou ausente no caminho, e os documentos da fonte de dados definem as entradas necessárias. |
-| A entrada do código do idioma da habilidade é inválida | @No__t_0 de entrada de habilidades tem os códigos de idioma a seguir `X,Y,Z`, pelo menos um deles é inválido. | Veja mais detalhes [abaixo](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
+| A entrada do código do idioma da habilidade é inválida | `languageCode` de entrada de habilidades tem os códigos de idioma a seguir `X,Y,Z`, pelo menos um deles é inválido. | Veja mais detalhes [abaixo](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
 
 ### <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>A entrada de habilidade ' languageCode ' tem os seguintes códigos de idioma ' X, Y, Z ', pelo menos um dos quais é inválido.
 Não há suporte para um ou mais valores passados para a entrada de `languageCode` opcional de uma habilidade de downstream. Isso pode ocorrer se você estiver passando a saída do [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) para as habilidades subsequentes e a saída consistir em mais idiomas do que o suportado nessas habilidades de downstream.

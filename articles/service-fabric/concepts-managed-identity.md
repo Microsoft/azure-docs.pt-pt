@@ -7,16 +7,16 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: edce98e6babb676ee72f1d254b929e557332dd75
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: e2f05ba28109a9b3c88d80eb218bf94014f0f082
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333126"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73243022"
 ---
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Identidade gerenciada para o aplicativo Service Fabric (versão prévia)
 
-Um desafio comum inerente à criação de aplicações na cloud passa pela gestão das credenciais que estão no seu código para a autenticação nos serviços cloud. Manter as credenciais seguras é uma tarefa importante, pois elas nunca aparecem em estações de trabalho do desenvolvedor e não são verificadas no controle do código-fonte. O recurso de identidade gerenciada para recursos do Azure no Azure Active Directory (Azure AD) resolve esse problema. O recurso fornece aos serviços do Azure uma identidade gerenciada automaticamente no Azure AD. Pode utilizar essa identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código.
+Um desafio comum inerente à criação de aplicações na cloud passa pela gestão das credenciais que estão no seu código para a autenticação nos serviços cloud. Manter as credenciais seguras é uma tarefa importante, pois elas nunca aparecem em estações de trabalho do desenvolvedor e não são verificadas no controle do código-fonte. O recurso de identidade gerenciada para recursos do Azure no Azure Active Directory (Azure AD) resolve esse problema. Oferece aos serviços do Azure uma identidade gerida automaticamente no Azure AD. Pode utilizar essa identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código.
 
 O recurso de identidade gerenciada para recursos do Azure é gratuito com o Azure AD para assinaturas do Azure. Não há nenhum custo adicional.
 
@@ -45,7 +45,7 @@ Os termos a seguir são usados em todo o conjunto de documentação de identidad
 
 ## <a name="supported-scenarios-for-service-fabric-applications"></a>Cenários com suporte para aplicativos Service Fabric
 
-As identidades gerenciadas para Service Fabric só têm suporte em clusters de Service Fabric implantados no Azure e somente para aplicativos implantados como recursos do Azure; Não é possível atribuir uma identidade a aplicativos que não são implantados como um recurso do Azure. Falando conceitualmente, o suporte para identidades gerenciadas no Cluster Service Fabric do Azure consiste em duas fases:
+As identidades gerenciadas para Service Fabric só têm suporte em clusters de Service Fabric implantados no Azure e somente para aplicativos implantados como recursos do Azure; um aplicativo que não é implantado como um recurso do Azure não pode ser atribuído a uma identidade. Falando conceitualmente, o suporte para identidades gerenciadas no Cluster Service Fabric do Azure consiste em duas fases:
 
 1. Atribuir uma ou mais identidades gerenciadas ao recurso de aplicativo; um aplicativo pode receber uma única identidade atribuída pelo sistema e/ou até 32 identidades atribuídas pelo usuário, respectivamente.
 
@@ -78,3 +78,4 @@ Os cenários a seguir não têm suporte ou não são recomendados; Observe que e
 * [Implantar um aplicativo de Service Fabric do Azure com uma identidade gerenciada atribuída pelo usuário](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Aproveite a identidade gerenciada de um aplicativo Service Fabric do código de serviço](./how-to-managed-identity-service-fabric-app-code.md)
 * [Conceder a um aplicativo de Service Fabric do Azure acesso a outros recursos do Azure](./how-to-grant-access-other-resources.md)
+* [Declarando e usando os segredos do aplicativo como KeyVaultReferences](./service-fabric-keyvault-references.md) 

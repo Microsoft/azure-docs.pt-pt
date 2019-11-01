@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 02852b325a22f274b4aa6e793b03c733c38bb9aa
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 8e6a1c3472c6b20b27cf181edbeeb96ab71eb58d
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984128"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242490"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Diretrizes para o planeamento de rede dos Azure NetApp Files
 
@@ -54,7 +54,7 @@ A tabela a seguir descreve as topologias de rede com suporte pelo Azure NetApp F
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
 |    Conectividade com o volume em uma VNet local    |    Sim    |         |
 |    Conectividade com o volume em uma VNet emparelhada (mesma região)    |    Sim    |         |
-|    Conectividade com o volume em uma VNet emparelhada (entre regiões ou emparelhamento global)    |    Não    |    Nenhum    |
+|    Conectividade com o volume em uma VNet emparelhada (entre regiões ou emparelhamento global)    |    Não    |    Nenhuma    |
 |    Conectividade com um volume por meio do gateway de ExpressRoute    |    Sim    |         |
 |    Conectividade do local para um volume em uma VNet spoke em um gateway de ExpressRoute e emparelhamento VNet com trânsito de gateway    |    Sim    |        |
 |    Conectividade do local para um volume em uma VNet do spoke em um gateway de VPN    |    Sim    |         |
@@ -95,11 +95,11 @@ O diagrama a seguir ilustra um ambiente nativo do Azure:
 
 Um cenário básico é criar ou conectar-se a um volume de Azure NetApp Files de uma VM (máquina virtual) na mesma VNet. Para a VNet 2 no diagrama acima, o volume 1 é criado em uma sub-rede delegada e pode ser montado na VM 1 na sub-rede padrão.
 
-### <a name="vnet-peering"></a>VNet peering
+### <a name="vnet-peering"></a>VNet Peering
 
 Se você tiver VNets adicionais na mesma região que precisam de acesso aos recursos uns dos outros, o VNets poderá ser conectado usando o [emparelhamento de VNet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) para habilitar a conectividade segura por meio da infraestrutura do Azure. 
 
-Considere VNet 2 e VNet 3 no diagrama acima. Se a VM 2 precisar se conectar à VM 3 ou ao volume 2, ou se a VM 3 precisar se conectar à VM 2 ou ao volume 1, você precisará habilitar o emparelhamento VNet entre VNet 2 e VNet 3. 
+Considere VNet 2 e VNet 3 no diagrama acima. Se a VM 1 precisar se conectar à VM 2 ou ao volume 2, ou se a VM 2 precisar se conectar à VM 1 ou volume 1, você precisará habilitar o emparelhamento VNet entre VNet 2 e VNet 3. 
 
 Além disso, considere um cenário em que a VNet 1 está emparelhada com VNet 2 e a VNet 2 é emparelhada com VNet 3 na mesma região. Os recursos da VNet 1 podem se conectar aos recursos na VNet 2, mas não podem se conectar aos recursos na VNet 3, a menos que VNet 1 e VNet 3 estejam emparelhados. 
 
@@ -126,6 +126,6 @@ Na topologia ilustrada acima, a rede local está conectada a uma VNet de Hub no 
 
 A VM 4 na VNet do spoke 1 não pode se conectar ao volume 3 na VNet 2 do spoke. Além disso, a VM 5 no spoke VNet2 não pode se conectar ao volume 2 na VNet 1 do spoke. Esse é o caso porque os VNets spoke não são emparelhados e o _Roteamento de trânsito não tem suporte por emparelhamento VNet_.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Delegar uma sub-rede a Azure NetApp Files](azure-netapp-files-delegate-subnet.md)

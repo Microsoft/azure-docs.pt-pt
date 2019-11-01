@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8eb329ae019f125b98c475b4a77d19e9cafe23fa
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 57f37808f3f90863079ba73f7899f142d32951d3
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053828"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242966"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Fazer failback de uma VM do Azure entre regiões do Azure
 
@@ -58,7 +58,7 @@ Depois que as VMs são protegidas novamente, você pode fazer failback para a re
     ![VM em regiões primárias e secundárias](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
 
 > [!NOTE]
-> Para computadores que executam a extensão de Site Recovery versão 9.28. x. x, em diante, o [pacote cumulativo de atualizações 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) site Recovery limpa as máquinas na região de recuperação de desastre secundária, o failback do após é concluído e as VMs são protegidas novamente. Não é necessário excluir manualmente as VMs e NICs.
+> Para computadores que executam a extensão de Site Recovery versão 9.28. x. x em diante, o [pacote cumulativo de atualizações 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) site Recovery limpa as máquinas na região de recuperação de desastre secundária, após o failback ser concluído e as VMs serem protegidas novamente. Não é necessário excluir manualmente as VMs e NICs na região secundária. Se você desabilitar completamente a replicação após o failback, Site Recovery limpará os discos na região de recuperação de desastre, além das VMs e NICs.
 
 ## <a name="next-steps"></a>Passos seguintes
 

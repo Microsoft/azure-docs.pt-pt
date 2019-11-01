@@ -8,12 +8,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0b51617966ad85037ad29f3e5005a17f66602e01
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 5c07fac0590b833aa19909849271c59d65d42ad6
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677127"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242451"
 ---
 # <a name="what-is-distributed-tracing"></a>O que é o rastreamento distribuído?
 
@@ -40,6 +40,7 @@ Os SDKs do Application Insights para .NET, .NET Core, Java, Node. js e JavaScrip
 * [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
 * [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
 * [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [Python (versão prévia)](opencensus-python.md)
 
 Com o SDK do Application Insights adequado instalado e configurado, as informações de rastreamento são coletadas automaticamente para estruturas, bibliotecas e tecnologias populares por coletores automáticos de dependências do SDK. A lista completa de tecnologias com suporte está disponível na [documentação da coleção de dependências automáticas](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
 
@@ -49,7 +50,7 @@ Com o SDK do Application Insights adequado instalado e configurado, as informaç
 
 Além dos SDKs de Application Insights, o Application Insights também dá suporte ao rastreamento distribuído por meio do [OpenCensus](https://opencensus.io/). O OpenCensus é uma distribuição única de software livre, independente de fornecedor, de bibliotecas para fornecer coleta de métricas e rastreamento distribuído para serviços. Ele também permite que a comunidade de software livre habilite o rastreamento distribuído com tecnologias populares como Redis, memcached ou MongoDB. [A Microsoft colabora em OpenCensus com vários outros parceiros de monitoramento e de nuvem](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/).
 
-Para adicionar recursos de rastreamento distribuído a um aplicativo com OpenCensus, primeiro [Instale e configure o Application insights encaminhador local](./../../azure-monitor/app/opencensus-local-forwarder.md). A partir daí, configure o OpenCensus para rotear dados de rastreamento distribuídos por meio do encaminhador local. Há suporte para [Python](./../../azure-monitor/app/opencensus-python.md) e [go](./../../azure-monitor/app/opencensus-go.md) .
+[Python (versão prévia)](opencensus-python.md) 
 
 O site do OpenCensus mantém a documentação de referência de API para [Python](https://opencensus.io/api/python/trace/usage.html) e [go](https://godoc.org/go.opencensus.io), bem como vários guias diferentes para usar o OpenCensus. 
 

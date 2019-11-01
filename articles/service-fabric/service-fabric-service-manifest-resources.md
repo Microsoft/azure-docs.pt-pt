@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: a795e01d37504dad360dc094b6b2aea2955b6a4a
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: bb3fd77df60be68408fceea683ee4b8b74d77427
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170445"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242903"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos num manifesto do serviço
 ## <a name="overview"></a>Visão geral
@@ -30,6 +30,8 @@ Quando um recurso de ponto de extremidade é definido no manifesto do serviço, 
 
 > [!WARNING] 
 > As portas estáticas de design não devem se sobrepor ao intervalo de portas de aplicativo especificado em ClusterManifest. Se você especificar uma porta estática, atribua-a fora do intervalo de portas do aplicativo, caso contrário, isso resultará em conflitos de porta. Com a versão 6.5 CU2, emitiremos um **aviso de integridade** quando detectarmos esse conflito, mas permitirá que a implantação continue em sincronia com o comportamento 6,5 enviado. No entanto, poderemos impedir a implantação do aplicativo nas próximas versões principais.
+>
+> Com a versão 7,0, emiteremos um **aviso de integridade** quando detectamos que o uso do intervalo de portas do aplicativo vai além de HostingConfig:: ApplicationPortExhaustThresholdPercentage (padrão 80%).
 >
 
 ```xml
@@ -56,7 +58,7 @@ Se houver vários pacotes de código em um único pacote de serviço, o pacote d
 Consulte [Configurando Reliable Services com estado](service-fabric-reliable-services-configuration.md) para ler mais sobre como referenciar pontos de extremidade do arquivo de configurações do pacote de configuração (Settings. xml).
 
 ## <a name="example-specifying-an-http-endpoint-for-your-service"></a>Exemplo: especificando um ponto de extremidade HTTP para seu serviço
-O manifesto de serviço a seguir define um recurso de ponto de extremidade TCP e dois recursos de ponto de extremidade HTTP no elemento &lt;Resources @ no__t-1.
+O manifesto de serviço a seguir define um recurso de ponto de extremidade TCP e dois recursos de ponto de extremidade HTTP no elemento &lt;Resources&gt;.
 
 Os pontos de extremidade HTTP são automaticamente ACL por Service Fabric.
 

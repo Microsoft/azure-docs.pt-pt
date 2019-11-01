@@ -1,6 +1,6 @@
 ---
-title: Microsoft Cognitive Toolkit com o Azure HDInsight Spark para aprendizagem profunda
-description: Saiba como um modelo de aprendizagem profunda da Microsoft Cognitive Toolkit preparado pode ser aplicado a um conjunto de dados utilizando a API de Python de Spark num cluster do Azure HDInsight Spark.
+title: Microsoft Cognitive Toolkit com Apache Spark-HDInsight do Azure
+description: Saiba como um modelo de aprendizado profundo Microsoft Cognitive Toolkit e treinado pode ser aplicado a um conjunto de informações usando a API do Python do Spark em um cluster Azure HDInsight Spark.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,102 +8,102 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: aaa690b62b44f5f21db0861d99d45734cf210db0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0f4172c7a5b287c85c0548c7fe9812305a1ee1e6
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448687"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241527"
 ---
-# <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Utilizar o Microsoft Cognitive Toolkit modelo com o cluster do Azure HDInsight Spark de aprendizagem profunda
+# <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Usar Microsoft Cognitive Toolkit modelo de aprendizado profundo com Azure HDInsight Spark cluster
 
-Neste artigo, siga os passos abaixo.
+Neste artigo, você executa as etapas a seguir.
 
-1. Executar um script personalizado para instalar [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) num cluster do Azure HDInsight Spark.
+1. Execute um script personalizado para instalar [Microsoft cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) em um cluster Azure HDInsight Spark.
 
-2. Carregar uma [bloco de notas do Jupyter](https://jupyter.org/) para o [Apache Spark](https://spark.apache.org/) cluster para ver como aplicar um modelo de aprendizagem profunda da Microsoft Cognitive Toolkit preparado para ficheiros numa conta de armazenamento de Blobs do Azure com o [ Spark Python API (PySpark)](https://spark.apache.org/docs/0.9.0/python-programming-guide.html)
+2. Carregar um [Jupyter Notebook](https://jupyter.org/) no cluster de [Apache Spark](https://spark.apache.org/) para ver como aplicar um modelo de aprendizado profundo de Microsoft cognitive Toolkit treinado a arquivos em uma conta de armazenamento de BLOBs do Azure usando a [API do Python do Spark (PySpark)](https://spark.apache.org/docs/0.9.0/python-programming-guide.html)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma subscrição do Azure**. Antes de começar este artigo, tem de ter uma subscrição do Azure. Veja o artigo [Crie hoje a sua conta do Azure gratuita](https://azure.microsoft.com/free).
+* **Uma subscrição do Azure**. Antes de começar este artigo, você deve ter uma assinatura do Azure. Veja o artigo [Crie hoje a sua conta do Azure gratuita](https://azure.microsoft.com/free).
 
-* **Cluster do Spark do HDInsight do Azure**. Neste artigo, crie um cluster do Spark 2.0. Para obter instruções, consulte [cluster de criar o Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* **Cluster Azure HDInsight Spark**. Para este artigo, crie um cluster Spark 2,0. Para obter instruções, consulte [criar Apache Spark cluster no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-## <a name="how-does-this-solution-flow"></a>Como fluxo esta solução?
+## <a name="how-does-this-solution-flow"></a>Como essa solução flui?
 
-Esta solução está dividida entre este artigo e um bloco de notas do Jupyter que carrega como parte deste artigo. Neste artigo, conclua os seguintes passos:
+Esta solução é dividida entre este artigo e um notebook Jupyter que você carrega como parte deste artigo. Neste artigo, você concluirá as seguintes etapas:
 
-* Execute uma ação de script num cluster do Spark do HDInsight para instalar o Microsoft Cognitive Toolkit e pacotes de Python.
-* Carregar o bloco de notas do Jupyter que executa a solução para o cluster do HDInsight Spark.
+* Execute uma ação de script em um cluster HDInsight Spark para instalar os pacotes Microsoft Cognitive Toolkit e Python.
+* Carregue o notebook Jupyter que executa a solução para o cluster HDInsight Spark.
 
-As seguintes etapas restantes são abordadas no bloco de notas do Jupyter.
+As etapas restantes a seguir são abordadas no notebook Jupyter.
 
-- Carregar imagens de exemplo para um conjunto de dados do Spark flexíveis distribuídas ou RDD.
-   - Módulos de carga e definir as configurações predefinidas.
-   - Transferir o conjunto de dados localmente no cluster do Spark.
-   - Converta o conjunto de dados num RDD.
-- Classificar as imagens com um modelo de conjunto de ferramentas cognitivas preparado.
-   - Transfira o modelo de conjunto de ferramentas cognitivas preparado para o cluster do Spark.
-   - Defina funções para serem utilizadas por nós de trabalho.
-   - Classificar as imagens em nós de trabalho.
+- Carregue imagens de exemplo em um conjunto de flexíveis ou RDD do Spark distribuído.
+   - Carregar módulos e definir predefinições.
+   - Baixe o conjunto de os localmente no cluster do Spark.
+   - Converta o conjunto de um RDD.
+- Pontuar as imagens usando um modelo de Cognitive Toolkit treinado.
+   - Baixe o modelo de Cognitive Toolkit treinado para o cluster Spark.
+   - Defina as funções a serem usadas por nós de trabalho.
+   - Pontuar as imagens em nós de trabalho.
    - Avalie a precisão do modelo.
 
 
-## <a name="install-microsoft-cognitive-toolkit"></a>Instalar o Microsoft Cognitive Toolkit
+## <a name="install-microsoft-cognitive-toolkit"></a>Instalar Microsoft Cognitive Toolkit
 
-Pode instalar o Microsoft Cognitive Toolkit num cluster do Spark com ação de script. Ação de script utiliza scripts personalizados para instalar os componentes no cluster que não estão disponíveis por predefinição. Pode utilizar o script personalizado do portal do Azure, com o HDInsight .NET SDK, ou com o Azure PowerShell. Também pode utilizar o script para instalar o Kit de ferramentas como parte da criação do cluster, ou depois do cluster está em execução. 
+Você pode instalar Microsoft Cognitive Toolkit em um cluster Spark usando a ação de script. A ação de script usa scripts personalizados para instalar componentes no cluster que não estão disponíveis por padrão. Você pode usar o script personalizado do portal do Azure, usando o SDK do .NET do HDInsight ou usando Azure PowerShell. Você também pode usar o script para instalar o kit de ferramentas como parte da criação do cluster ou depois que o cluster estiver em execução. 
 
-Neste artigo, vamos utilizar o portal para instalar o Kit de ferramentas, depois do cluster ter sido criado. Para outras formas de executar o script personalizado, consulte [HDInsight personalizar clusters com ação de Script](../hdinsight-hadoop-customize-cluster-linux.md).
+Neste artigo, usamos o portal para instalar o kit de ferramentas, após a criação do cluster. Para outras maneiras de executar o script personalizado, consulte [Personalizar clusters HDInsight usando a ação de script](../hdinsight-hadoop-customize-cluster-linux.md).
 
 ### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
 
-Para obter instruções sobre como utilizar o portal do Azure para executar a ação de script, consulte [HDInsight personalizar clusters com ação de Script](../hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation). Certifique-se de que fornece as entradas seguintes para instalar o Microsoft Cognitive Toolkit.
+Para obter instruções sobre como usar a portal do Azure para executar a ação de script, consulte [Personalizar clusters HDInsight usando a ação de script](../hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation). Certifique-se de fornecer as seguintes entradas para instalar o Microsoft Cognitive Toolkit.
 
 * Forneça um valor para o nome da ação de script.
 
-* Para **URI do script de Bash**, introduza `https://raw.githubusercontent.com/Azure-Samples/hdinsight-pyspark-cntk-integration/master/cntk-install.sh`.
+* Para **URI de script bash**, insira `https://raw.githubusercontent.com/Azure-Samples/hdinsight-pyspark-cntk-integration/master/cntk-install.sh`.
 
-* Certifique-se de que executa o script apenas os nós principais e de trabalho e desmarque todas as outras caixas de verificação.
+* Certifique-se de executar o script somente nos nós de cabeçalho e de trabalho e desmarque todas as outras caixas de seleção.
 
 * Clique em **Criar**.
 
-## <a name="upload-the-jupyter-notebook-to-azure-hdinsight-spark-cluster"></a>Carregar o bloco de notas do Jupyter no cluster do Azure HDInsight Spark
+## <a name="upload-the-jupyter-notebook-to-azure-hdinsight-spark-cluster"></a>Carregar o bloco de anotações Jupyter para Azure HDInsight Spark cluster
 
-Para utilizar o Microsoft Cognitive Toolkit com o cluster do Azure HDInsight Spark, deve carregar o bloco de notas do Jupyter **CNTK_model_scoring_on_Spark_walkthrough.ipynb** ao cluster do Azure HDInsight Spark. Este bloco de notas está disponível no GitHub em [ https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration ](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration).
+Para usar o Microsoft Cognitive Toolkit com o cluster Azure HDInsight Spark, você deve carregar o Jupyter Notebook **CNTK_model_scoring_on_Spark_walkthrough. ipynb** no cluster Azure HDInsight Spark. Este bloco de anotações está disponível no GitHub em [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration).
 
-1. Clonar o repositório do GitHub [ https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration ](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration). Para obter instruções clonar, consulte [clonar um repositório](https://help.github.com/articles/cloning-a-repository/).
+1. Clone o repositório GitHub [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration). Para obter instruções para clonar, consulte [clonar um repositório](https://help.github.com/articles/cloning-a-repository/).
 
-2. A partir do portal do Azure, abra o painel de cluster do Spark que já aprovisionou, clique em **Dashboard de clusters**e, em seguida, clique em **bloco de notas do Jupyter**.
+2. No portal do Azure, abra a folha do cluster Spark que você já provisionou, clique em **painel do cluster**e clique em **Notebook Jupyter**.
 
-    Também pode iniciar o bloco de notas do Jupyter ao aceder ao URL `https://<clustername>.azurehdinsight.net/jupyter/`. Substitua \<clustername > com o nome do cluster do HDInsight.
+    Você também pode iniciar o notebook Jupyter acessando a URL `https://<clustername>.azurehdinsight.net/jupyter/`. Substitua \<ClusterName > pelo nome do seu cluster HDInsight.
 
-3. No bloco de notas Jupyter, clique em **carregar** no canto superior direito canto e, em seguida, navegue para a localização onde clonou o repositório do GitHub.
+3. No notebook Jupyter, clique em **carregar** no canto superior direito e, em seguida, navegue até o local onde você clonou o repositório github.
 
-    ![Carregar o bloco de notas do Jupyter no cluster do Azure HDInsight Spark](./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "bloco de notas do Jupyter carregar para o cluster do Azure HDInsight Spark")
+    ![Carregar o bloco de anotações Jupyter para Azure HDInsight Spark cluster](./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Carregar o bloco de anotações Jupyter para Azure HDInsight Spark cluster")
 
 4. Clique em **carregar** novamente.
 
-5. Após o carregamento do bloco de notas, clique no nome do bloco de notas e, em seguida, siga as instruções no bloco de notas em si sobre como carregar o conjunto de dados e executar o artigo.
+5. Depois que o bloco de anotações for carregado, clique no nome do bloco de anotações e siga as instruções no próprio bloco de anotações sobre como carregar o conjunto de dados e executar o artigo.
 
-## <a name="see-also"></a>Consulte também
-* [Descrição geral: Apache Spark no HDInsight do Azure](apache-spark-overview.md)
+## <a name="see-also"></a>Ver também
+* [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
-* [Apache Spark com BI: Efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
-* [Análise de registos de Web site com o Apache Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
-* [Análise dados Application Insight telemetria com o Apache Spark no HDInsight](apache-spark-analyze-application-insight-logs.md)
+* [Apache Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: Use o Spark no HDInsight para analisar a temperatura de edifício usando dados HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: Use o Spark no HDInsight para prever os resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
+* [Análise de log do site usando Apache Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Análise de dados de telemetria do Application insights usando o Apache Spark no HDInsight](apache-spark-analyze-application-insight-logs.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicações
 * [Criar uma aplicação autónoma com o Scala](apache-spark-create-standalone-application.md)
-* [Executar tarefas remotamente num cluster do Apache Spark com o Apache Livy](apache-spark-livy-rest-interface.md)
+* [Executar trabalhos remotamente em um cluster Apache Spark usando o Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
 * [Utilizar o Plug-in das Ferramentas do HDInsight para o IntelliJ IDEA para criar e submeter aplicações do Spark Scala](apache-spark-intellij-tool-plugin.md)
-* [Utilizar o plug-in ferramentas do HDInsight para o IntelliJ IDEA para depurar aplicações do Apache Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Utilizar blocos de notas do Zeppelin do Apache com um cluster do Apache Spark no HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponíveis para o bloco de notas do Jupyter no cluster do Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Usar o plug-in de ferramentas do HDInsight para IntelliJ IDEA para depurar aplicativos Apache Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Usar notebooks do Apache Zeppelin com um cluster Apache Spark no HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernels disponíveis para o Jupyter Notebook no cluster Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Utilizar pacotes externos com blocos de notas do Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter no computador e ligar a um cluster do Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)
 

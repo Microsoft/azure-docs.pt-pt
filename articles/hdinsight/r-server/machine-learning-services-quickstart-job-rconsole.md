@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Executar script R em serviços de ML usando o console do R-Azure HDInsight'
+title: 'Início rápido: script R em serviços ML & console R-Azure HDInsight'
 description: No início rápido, você executa um script R em um cluster de serviços do ML no Azure HDInsight usando o console do R.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 44bc90a4c556108b4b6874a2d1297a6467413824
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: af41a7569dedc9a56f67be8ae791d7185e0c7489
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736369"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241595"
 ---
-# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>Início rápido: Executar um script do R em um cluster de serviços de ML no Azure HDInsight usando o console do R
+# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>Início rápido: executar um script do R em um cluster de serviços de ML no Azure HDInsight usando o console do R
 
 Os serviços de ML no Azure HDInsight permitem que os scripts R usem Apache Spark e Apache Hadoop MapReduce para executar cálculos distribuídos. Os serviços de ML controlam como as chamadas são executadas definindo o contexto de computação. O nó de borda de um cluster fornece um local conveniente para se conectar ao cluster e executar os scripts do R. Com um nó de borda, você tem a opção de executar as funções distribuídas paralelizadas do RevoScaleR nos núcleos do servidor do nó de borda. Você também pode executá-los em todos os nós do cluster usando o mapa do Hadoop do RevoScaleR para reduzir ou Apache Spark contextos de computação.
 
@@ -30,7 +30,7 @@ Neste guia de início rápido, você aprende a executar um script R com o consol
 
 ## <a name="connect-to-r-console"></a>Conectar-se ao console do R
 
-1. Conecte-se ao nó de borda de um cluster HDInsight dos serviços do ML usando o SSH. Edite o comando a seguir `CLUSTERNAME` substituindo pelo nome do cluster e, em seguida, digite o comando:
+1. Conecte-se ao nó de borda de um cluster HDInsight dos serviços do ML usando o SSH. Edite o comando a seguir substituindo `CLUSTERNAME` pelo nome do cluster e, em seguida, digite o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ed-ssh.azurehdinsight.net

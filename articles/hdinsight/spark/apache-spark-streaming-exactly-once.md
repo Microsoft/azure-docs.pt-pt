@@ -1,5 +1,5 @@
 ---
-title: Trabalhos de streaming do Spark com processamento de eventos exatamente uma vez – Azure HDInsight
+title: Processamento de eventos de streaming do Spark & exatamente uma vez – Azure HDInsight
 description: Como configurar Apache Spark streaming para processar um evento apenas uma vez.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,20 +8,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 908c49a46fe7993bc20bcb63a3c15758e2de5343
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 34cb3f4cdcc5bfc11bba300ff1aa04422e0fcc57
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091025"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241142"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Criar Apache Spark trabalhos de streaming com processamento de eventos exatamente uma vez
 
 Os aplicativos de processamento de fluxo assumem abordagens diferentes sobre como eles lidam com a reprocessamento de mensagens após alguma falha no sistema:
 
-* Pelo menos uma vez: Cada mensagem é garantida para ser processada, mas pode ser processada mais de uma vez.
-* No máximo uma vez: Cada mensagem pode ou não ser processada. Se uma mensagem for processada, ela será processada apenas uma vez.
-* Exatamente uma vez: Cada mensagem é garantida para ser processada apenas uma vez.
+* Pelo menos uma vez: cada mensagem é garantida para ser processada, mas pode ser processada mais de uma vez.
+* No máximo uma vez: cada mensagem pode ou não ser processada. Se uma mensagem for processada, ela será processada apenas uma vez.
+* Exatamente uma vez: cada mensagem é garantida para ser processada apenas uma vez.
 
 Este artigo mostra como configurar o streaming do Spark para obter um processamento exatamente uma vez.
 
@@ -49,7 +49,7 @@ No streaming do Spark, fontes como hubs de eventos e Kafka têm *receptores conf
 
 ### <a name="use-the-write-ahead-log"></a>Usar o log write-ahead
 
-O streaming do Spark dá suporte ao uso de um log write-ahead, onde cada evento recebido é gravado primeiro no diretório de ponto de verificação do Spark no armazenamento tolerante a falhas e, em seguida, armazenado em um RDD (conjunto de registros distribuído resiliente). No Azure, o armazenamento tolerante a falhas é o HDFS apoiado pelo armazenamento do Azure ou Azure Data Lake Storage. No aplicativo Spark streaming, o log write-ahead é habilitado para todos os receptores definindo a definição `spark.streaming.receiver.writeAheadLog.enable` de configuração como `true`. O log write-ahead fornece tolerância a falhas para falhas do driver e dos executores.
+O streaming do Spark dá suporte ao uso de um log write-ahead, onde cada evento recebido é gravado primeiro no diretório de ponto de verificação do Spark no armazenamento tolerante a falhas e, em seguida, armazenado em um RDD (conjunto de registros distribuído resiliente). No Azure, o armazenamento tolerante a falhas é o HDFS apoiado pelo armazenamento do Azure ou Azure Data Lake Storage. No aplicativo Spark streaming, o log write-ahead é habilitado para todos os receptores, definindo o parâmetro de configuração `spark.streaming.receiver.writeAheadLog.enable` como `true`. O log write-ahead fornece tolerância a falhas para falhas do driver e dos executores.
 
 Para os trabalhos que executam tarefas em relação aos dados do evento, cada RDD é por definição replicada e distribuída entre vários trabalhadores. Se uma tarefa falhar porque o trabalho que a executa falhou, a tarefa será reiniciada em outro trabalho que tenha uma réplica dos dados do evento, de modo que o evento não seja perdido.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 356f2eac06365b90052cab214d9d1ac318710730
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 70de9da44d52bd6e93377776a2dbfc1b802dd412
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389658"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241707"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar o gerenciamento de sessão de autenticação com acesso condicional
 
@@ -53,7 +53,7 @@ O padrão do Azure AD para persistência de sessão de navegador permite que os 
 O acesso condicional é um recurso Azure AD Premium e requer uma licença Premium. Se você quiser saber mais sobre o acesso condicional, consulte [o que é o acesso condicional no Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> Se você estiver usando o recurso de [tempo de vida de token configurável](../develop/active-directory-configurable-token-lifetimes.md) atualmente em visualização pública, observe que não há suporte para a criação de duas políticas diferentes para a mesma combinação de usuário ou aplicativo: uma com esse recurso e outra com o token configurável recurso de tempo de vida. A Microsoft planeja desativar o recurso de tempo de vida de token configurável em 1º de novembro e substituí-lo pelo recurso de gerenciamento de sessão de autenticação de acesso condicional.  
+> Se você estiver usando o recurso de [tempo de vida de token configurável](../develop/active-directory-configurable-token-lifetimes.md) atualmente em visualização pública, observe que não há suporte para a criação de duas políticas diferentes para a mesma combinação de usuário ou aplicativo: uma com esse recurso e outra com o token configurável recurso de tempo de vida. A Microsoft planeja desativar o recurso de tempo de vida de token configurável em 1º de maio de 2020 e substituí-lo pelo recurso de gerenciamento de sessão de autenticação de acesso condicional.  
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Política 1: controle de frequência de entrada
 
@@ -82,7 +82,7 @@ Se você tiver configurado uma frequência de entrada diferente para diferentes 
    > [!NOTE]
    > Observe que esse controle exige que você escolha "todos os aplicativos de nuvem" como uma condição. A persistência da sessão do navegador é controlada pelo token da sessão de autenticação. Todas as guias em uma sessão de navegador compartilham um único token de sessão e, portanto, todos precisam compartilhar o estado de persistência.
 
-1. Acesse os **controles de acesso**@no__t **-1 e** clique em sessão de **navegador persistente**
+1. Acesse **controles de acesso** > **sessão** e clique em **sessão de navegador persistente**
 1. Selecione um valor na lista suspensa
 1. Salvar política
 

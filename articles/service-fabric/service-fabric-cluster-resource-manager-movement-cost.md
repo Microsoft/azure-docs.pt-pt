@@ -1,6 +1,6 @@
 ---
-title: 'Gestor de recursos do Service Fabric Cluster: O custo de movimento | Documentos da Microsoft'
-description: Descrição geral do custo de movimento para serviços do Service Fabric
+title: 'Gerenciador de recursos de Cluster Service Fabric: custo de movimento | Microsoft Docs'
+description: Visão geral do custo de movimento para serviços de Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 1bd049e6f929b6c3247ca1842412d5527605e643
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 80845fca8d163a4ebe9257f19825624acef3a815
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516578"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73243007"
 ---
-# <a name="service-movement-cost"></a>Custo de movimento de serviço
-Um fator que o Gestor de recursos de Cluster do Service Fabric tem em conta quando tentar determinar o que é alterado para fazer a um cluster é o custo dessas alterações. A noção de "Custo" prol contra quanto o cluster pode ser melhorado. Custo é fatorado quando a transferência dos serviços de balanceamento de desfragmentação e outros requisitos. O objetivo é cumprir os requisitos da forma menos interrupções ou dispendiosa. 
+# <a name="service-movement-cost"></a>Custo de movimentação de serviço
+Um fator que o Service Fabric Gerenciador de recursos de cluster considera ao tentar determinar quais alterações fazer em um cluster é o custo dessas alterações. A noção de "custo" é compensada em relação ao quanto o cluster pode ser melhorado. O custo é fatorado no ao mover serviços para balanceamento, desfragmentação e outros requisitos. O objetivo é atender aos requisitos da maneira menos prejudicial ou cara. 
 
-Mover o tempo de CPU de custos de serviços e de rede de largura de banda no mínimo. Para serviços com estado, é necessário copiar o estado desses serviços, consumindo mais memória e disco. Minimizar o custo de soluções que o Gestor de recursos de Cluster do Azure Service Fabric é exibido com ajuda a garantir que os recursos do cluster não são gasto desnecessariamente. No entanto, também não deseja ignorar as soluções que iriam melhorar significativamente a alocação de recursos do cluster.
+A movimentação de serviços custa tempo de CPU e largura de banda de rede no mínimo. Para serviços com estado, é necessário copiar o estado desses serviços, consumindo memória e disco adicionais. Minimizar o custo das soluções que o Gerenciador de recursos de Cluster Service Fabric do Azure apresenta ajuda a garantir que os recursos do cluster não sejam gastos desnecessariamente. No entanto, você também não quer ignorar soluções que melhoram significativamente a alocação de recursos no cluster.
 
-O Gestor de recursos do Cluster tem duas formas dos custos de computação e limitá-los enquanto ele tenta gerir o cluster. O primeiro mecanismo é simplesmente contar cada movimento que ele faria. Se duas soluções são geradas com o mesmo equilibrar (classificação), em seguida, o Gestor de recursos de Cluster prefere um com o custo mais baixo (número total de movimentações).
+O Gerenciador de recursos de cluster tem duas maneiras de calcular os custos e limitá-los enquanto tenta gerenciar o cluster. O primeiro mecanismo está simplesmente contando cada movimento que faria. Se duas soluções forem geradas com aproximadamente o mesmo saldo (Pontuação), o Gerenciador de recursos de cluster prefere a que com o menor custo (número total de movimentações).
 
-Esta estratégia funciona bem. Mas, tal como acontece com predefinido ou cargas estáticas, é improvável em qualquer sistema complexo que move todos os é igual. Algumas são provavelmente será muito mais cara.
+Essa estratégia funciona bem. Mas, como acontece com cargas padrão ou estáticas, é improvável que todas as movimentações sejam iguais. É provável que alguns sejam muito mais caros.
 
-## <a name="setting-move-costs"></a>Custos de movimentação de definição 
-Pode especificar a predefinição mover o custo de um serviço, quando é criado:
+## <a name="setting-move-costs"></a>Definindo custos de movimentação 
+Você pode especificar o custo de movimentação padrão para um serviço quando ele é criado:
 
 PowerShell:
 
@@ -49,7 +49,7 @@ serviceDescription.DefaultMoveCost = MoveCost.Medium;
 await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
-Também pode especificar ou atualizar MoveCost dinamicamente para um serviço após o serviço de criação: 
+Você também pode especificar ou atualizar MoveCost dinamicamente para um serviço depois que o serviço tiver sido criado: 
 
 PowerShell: 
 
@@ -65,9 +65,9 @@ updateDescription.DefaultMoveCost = MoveCost.High;
 await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/ServiceName"), updateDescription);
 ```
 
-## <a name="dynamically-specifying-move-cost-on-a-per-replica-basis"></a>Especificar dinamicamente o custo de movimentação numa base por réplica
+## <a name="dynamically-specifying-move-cost-on-a-per-replica-basis"></a>Especificando dinamicamente o custo de movimentação em uma base por réplica
 
-Os trechos de código anteriores são todos os sobre como especificar MoveCost para um serviço todo ao mesmo tempo fora do próprio serviço. No entanto, mover o custo é mais útil é quando o custo de movimentação de um objeto de serviço específico altera ao longo do respetivo tempo de vida. Uma vez que os serviços têm provavelmente a melhor idéia de como dispendiosa são mover um determinado momento, há uma API para os serviços a seus próprios indivíduo mover custo durante o tempo de execução do relatório. 
+Os trechos de código anteriores são todos para especificar MoveCost para um serviço inteiro de uma só vez de fora do próprio serviço. No entanto, o custo de movimentação é mais útil quando o custo de movimentação de um objeto de serviço específico é alterado durante seu ciclo de vida. Como os próprios serviços provavelmente têm a melhor ideia de quão dispendioso eles são mover um determinado momento, há uma API para que os serviços relatem seu próprio custo individual de movimentação durante o tempo de execução. 
 
 C#:
 
@@ -76,24 +76,34 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>Impacto do custo de movimentação
-MoveCost tem quatro níveis: Zero, baixa, média e alta. MoveCosts são relativas a si, exceto para Zero. Sem custos de mover significa que o movimento é gratuito e não deve contar com a pontuação da solução. Definir a sua mudança custo para o alto faz *não* garantia de que a réplica permanece num único local.
+MoveCost tem cinco níveis: zero, baixo, médio, alto e VeryHigh. As seguintes regras se aplicam:
+
+* MoveCosts são relativos entre si, exceto para zero e VeryHigh. 
+* O custo de movimentação zero significa que a movimentação é gratuita e não deve contar com a pontuação da solução.
+* Definir o custo de movimentação como alto ou VeryHigh *não fornece uma* garantia de que a réplica *nunca* será movida.
+* As réplicas com o custo de movimentação de VeryHigh serão movidas somente se houver uma violação de restrição no cluster que não possa ser corrigida de nenhuma outra maneira (mesmo que seja necessário mover muitas outras réplicas para corrigir a violação)
+
+
 
 <center>
 
-![Custo de movimentação como um fator na seleção de réplicas para movimento][Image1]
-</center>
+![o custo de movimentação como um fator na seleção de réplicas para][Image1]
+de movimento </center>
 
-MoveCost ajuda para encontrar as soluções que fazer com que a interrupção, pelo menos, geral e são mais fácil de obter ao ainda a chegar ao saldo equivalente. Noção de um serviço de custo pode ser relativo de muitas coisas. Os fatores mais comuns no seu custo de movimentação de cálculo são:
+O MoveCost ajuda você a encontrar as soluções que causam o mínimo de interrupções e que são mais fáceis de alcançar enquanto ainda chega ao saldo equivalente. A noção de custo de um serviço pode ser relativa a muitas coisas. Os fatores mais comuns no cálculo do custo de movimentação são:
 
-- A quantidade de estado ou dados que o serviço tem de mover.
-- O custo de desativação de clientes. Mover uma réplica primária é normalmente mais dispendioso do que o custo da movimentação de uma réplica secundária.
-- O custo de interromper uma operação em andamento. Algumas operações de dados ao nível de armazenar ou operações executadas em resposta a uma chamada de cliente são dispendiosas. Depois de um certo ponto, não quer pará-los, se não precisa. Então, enquanto a operação está em curso, aumentar o custo de movimentação deste objeto de serviço para reduzir a probabilidade de que ela se move. Quando a operação estiver concluída, definir o custo ao normal.
+- A quantidade de estado ou dados que o serviço tem a ser movido.
+- O custo de desconexão de clientes. A movimentação de uma réplica primária geralmente é mais dispendiosa do que o custo da movimentação de uma réplica secundária.
+- O custo da interrupção de uma operação em andamento. Algumas operações no nível de armazenamento de dados ou operações executadas em resposta a uma chamada de cliente são dispendiosas. Após um determinado ponto, você não desejará interrompê-los se não for necessário. Assim, enquanto a operação está em andamento, você aumenta o custo de movimentação desse objeto de serviço para reduzir a probabilidade de ele se mover. Quando a operação for concluída, você definirá o custo de volta como normal.
 
-## <a name="enabling-move-cost-in-your-cluster"></a>Ativar o custo de movimentação no seu cluster
-Por ordem para a MoveCosts mais granular ser levados em consideração, MoveCost tem de estar ativada no seu cluster. Sem esta definição, o modo predefinido da contagem de movimentações é usado para calcular MoveCost e relatórios de MoveCost são ignorados.
+> [!IMPORTANT]
+> Usar o custo de movimentação do VeryHigh deve ser considerado cuidadosamente, pois ele restringe significativamente a capacidade do Gerenciador de recursos de cluster de encontrar uma solução de posicionamento globalmente ideal no cluster. As réplicas com o custo de movimentação de VeryHigh serão movidas somente se houver uma violação de restrição no cluster que não possa ser corrigida de nenhuma outra maneira (mesmo que seja necessário mover muitas outras réplicas para corrigir a violação)
+
+## <a name="enabling-move-cost-in-your-cluster"></a>Habilitando o custo de movimentação no cluster
+Para que o MoveCosts mais granular seja levado em conta, MoveCost deve ser habilitado em seu cluster. Sem essa configuração, o modo padrão de contagem de movimentações é usado para calcular MoveCost e os relatórios MoveCost são ignorados.
 
 
-ClusterManifest.xml:
+ClusterManifest. xml:
 
 ``` xml
         <Section Name="PlacementAndLoadBalancing">
@@ -101,7 +111,7 @@ ClusterManifest.xml:
         </Section>
 ```
 
-por meio de ClusterConfig.json das implementações autónomas ou Template para o Azure alojados clusters:
+via ClusterConfig. JSON para implantações autônomas ou template. JSON para clusters hospedados do Azure:
 
 ```json
 "fabricSettings": [
@@ -117,8 +127,8 @@ por meio de ClusterConfig.json das implementações autónomas ou Template para 
 ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-- Service Fabric Cluster Resource Manager utiliza as métricas para gerir o consumo e a capacidade do cluster. Para saber mais sobre métricas e como configurá-las, confira [consumo de recursos de gerenciamento e a carga no Service Fabric com a métrica](service-fabric-cluster-resource-manager-metrics.md).
-- Para saber mais sobre como o Gestor de recursos de Cluster gere e faz o balanceamento de carga no cluster, confira [balanceamento de cluster do Service Fabric](service-fabric-cluster-resource-manager-balancing.md).
+## <a name="next-steps"></a>Passos seguintes
+- Service Fabric o Gerenciador de recursos de cluster usa métricas para gerenciar o consumo e a capacidade no cluster. Para saber mais sobre as métricas e como configurá-las, confira [Gerenciando o consumo de recursos e a carga em Service Fabric com métricas](service-fabric-cluster-resource-manager-metrics.md).
+- Para saber mais sobre como o Gerenciador de recursos de cluster gerencia e equilibra a carga no cluster, confira [balanceamento do cluster de Service Fabric](service-fabric-cluster-resource-manager-balancing.md).
 
 [Image1]:./media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png
