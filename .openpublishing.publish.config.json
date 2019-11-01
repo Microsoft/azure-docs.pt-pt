@@ -58,8 +58,7 @@
     {
       "path_to_root": "_themes.pdf",
       "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
-      "branch": "master",
-      "branch_mapping": {}
+      "branch": "master"
     },
     {
       "path_to_root": "_repo.en-us",
@@ -389,6 +388,11 @@
       "url": "https://github.com/microsoft/immersive-reader-sdk",
       "branch": "master",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cosmosdb-java-v2",
+      "url": "https://github.com/Azure/azure-cosmosdb-java",
+      "branch": "master"
     }
   ],
   "branch_target_mapping": {
