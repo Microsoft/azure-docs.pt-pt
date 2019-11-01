@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 0bd078e8c920ca1ebe01767915036ca84650aadd
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: e012f595dbd12ba3f85045293420329352d30373
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72958197"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176230"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui-preview-features"></a>Faça um tour pela interface do usuário do IoT Central do Azure (recursos de visualização)
 
@@ -138,7 +138,7 @@ Para saber mais, confira o tutorial [monitorar seus dispositivos](tutorial-monit
 > [!div class="mx-imgBorder"]
 > página ![grupos de dispositivos](media/overview-iot-central-tour-pnp/device-groups-pnp.png)
 
-O grupo de dispositivos é uma coleção de dispositivos relacionados. Um *Construtor de soluções* define uma consulta para identificar os dispositivos que estão incluídos em um grupo de dispositivos. Você usa grupos de dispositivos para executar operações em massa em seu aplicativo. Para saber mais, confira o artigo [usar grupos de dispositivos no seu aplicativo IOT central do Azure](howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) .
+O grupo de dispositivos é uma coleção de dispositivos relacionados. Um *Construtor de soluções* define uma consulta para identificar os dispositivos que estão incluídos em um grupo de dispositivos. Você usa grupos de dispositivos para executar operações em massa em seu aplicativo. Para saber mais, confira o artigo [usar grupos de dispositivos no seu aplicativo IOT central do Azure](tutorial-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) .
 
 ### <a name="rules"></a>Regras
 > [!div class="mx-imgBorder"]
@@ -151,7 +151,7 @@ A página regras permite que você defina regras com base na telemetria, estado 
 > [!div class="mx-imgBorder"]
 > ](media/overview-iot-central-tour-pnp/analytics-pnp.png) página de análise de ![
 
-A análise permite que você crie exibições personalizadas sobre os dados do dispositivo para obter informações do seu aplicativo. Para obter mais informações, veja o artigo [Criar análise personalizada para a aplicação do Azure IoT Central](howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+A análise permite que você crie exibições personalizadas sobre os dados do dispositivo para obter informações do seu aplicativo. Para saber mais, confira o artigo [criar análise para seu aplicativo IOT central do Azure](howto-create-analytics-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) .
 
 ### <a name="jobs"></a>Tarefas
 

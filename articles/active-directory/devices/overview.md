@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1d7d2ad6adefb83c3c313063a9e630458ccebc5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 07c1d6e3c622a76a1e625962ad5f08d414ad8cef
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851774"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175035"
 ---
 # <a name="what-is-a-device-identity"></a>O que é uma identidade de dispositivo?
 
@@ -56,7 +56,7 @@ Para obter um dispositivo no Azure AD, você tem várias opções:
 
 Os dispositivos no Azure AD podem ser gerenciados usando ferramentas de MDM (gerenciamento de dispositivo móvel) como Microsoft Intune, System Center Configuration Manager, Política de Grupo (ingresso do Azure AD híbrido), ferramentas de MAM (gerenciamento de aplicativo móvel) ou outras ferramentas de terceiros.
 
-## <a name="resource-access"></a>Acesso aos recursos
+## <a name="resource-access"></a>Acesso a recursos
 
 O registro e a junção dão aos seus usuários logon contínuo (SSO) a recursos de nuvem e administradores a capacidade de aplicar políticas de acesso condicional a esses recursos. 
 
@@ -66,7 +66,7 @@ Os dispositivos que são ingressados no Azure AD ou híbridos do Azure AD podem 
 
 - Os **dispositivos registrados no Azure ad** utilizam uma conta gerenciada pelo usuário final, essa conta é uma conta Microsoft ou outra credencial gerenciada localmente protegida por uma ou mais das seguintes opções.
    - Palavra-passe
-   - PIN
+   - AFIXA
    - Padrão
    - Windows Hello
 - Os dispositivos ingressados no Azure ad **ingressados ou** não são usados por uma conta institucional no Azure ad protegidos com um ou mais dos itens a seguir.
@@ -88,10 +88,10 @@ Com o gerenciamento de identidade do dispositivo no Azure AD, você pode:
 
 [!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre os [dispositivos registrados no Azure ad](concept-azure-ad-register.md)
 - Saiba mais sobre os [dispositivos adicionados ao Azure ad](concept-azure-ad-join.md)
 - Saiba mais sobre os [dispositivos ingressados no Azure ad híbrido](concept-azure-ad-join-hybrid.md)
-- Para obter uma visão geral de como gerenciar identidades de dispositivo no portal do Azure, consulte Gerenciando identidades de [dispositivo usando o portal do Azure](device-management-azure-portal.md).
+- Para obter uma visão geral de como gerenciar identidades de dispositivo no portal do Azure, consulte [Gerenciando identidades de dispositivo usando o portal do Azure](device-management-azure-portal.md).
 - Para saber mais sobre o acesso condicional baseado em dispositivo, confira [configurar Azure Active Directory políticas de acesso condicional com base no dispositivo](../conditional-access/require-managed-devices.md).
