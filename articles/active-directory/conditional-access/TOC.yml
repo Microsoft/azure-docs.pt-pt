@@ -31,6 +31,8 @@
       href: location-condition.md
     - name: Controlos
       href: controls.md
+    - name: Modo só de relatório
+      href: concept-conditional-access-report-only.md
     - name: Dependências do serviço
       href: service-dependencies.md
     - name: Ferramenta e-se
@@ -76,6 +78,8 @@
       href: untrusted-networks.md
     - name: Pedir os termos de utilização
       href: terms-of-use.md
+    - name: Configurar o modo só de relatório
+      href: howto-conditional-access-report-only.md
     - name: Frequência de início de sessão e controlos de persistência do browser
       href: howto-conditional-access-session-lifetime.md
     - name: Migrar políticas clássicas

@@ -1,4 +1,4 @@
-- name: Serviço Azure Machine Learning
+- name: Azure Machine Learning
   href: service/overview-what-is-azure-ml.md
 - name: Azure Machine Learning Studio
   href: studio/index.yml

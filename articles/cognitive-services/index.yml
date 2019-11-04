@@ -11,12 +11,12 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.date: 09/16/2019
-  ms.openlocfilehash: 2d310832d8d1f1aca2823ffd3be9c4636d60f4fa
-  ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+  ms.openlocfilehash: f360150a06bd7cf0d41ebb193ab91823ea815dfc
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/15/2019
-  ms.locfileid: "72374991"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73466224"
 highlightedContent:
   items:
   - title: O que são os Serviços Cognitivos?
@@ -81,7 +81,7 @@ conceptualContent:
   - title: Voz
     summary: Converta voz em texto e texto em voz natural. Traduza de um idioma para outro e ative o reconhecimento e a verificação de orador.
     links:
-    - url: ./speech-service/index.yml
+    - url: ./speech-service/index.md
       itemType: overview
       text: Serviços de Voz
     - url: ./speaker-recognition/home.md
