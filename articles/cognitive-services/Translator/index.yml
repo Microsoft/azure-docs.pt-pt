@@ -12,14 +12,14 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: translator-text
   ms.topic: landing-page
-  ms.date: 09/05/2019
+  ms.date: 10/14/2019
   ms.author: erhopf
-  ms.openlocfilehash: 7bbe487ff6ed545f40cccc5abb041f54ea5f319d
-  ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+  ms.openlocfilehash: 4436c2bf11b94e3f7151bae475bbc240bc9cd33a
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/29/2019
-  ms.locfileid: "71672564"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73466246"
 landingContent:
 - title: Tradutor
   linkLists:
@@ -37,6 +37,10 @@ landingContent:
       url: translator-text-how-to-signup.md
     - text: FAQ
       url: https://www.microsoft.com/translator/faq.aspx
+  - linkListType: concept
+    links:
+    - text: Contentores do Docker
+      url: how-to-install-containers.md
 - title: API de Texto do Tradutor
   linkLists:
   - linkListType: quickstart

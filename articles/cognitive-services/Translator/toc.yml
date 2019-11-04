@@ -46,6 +46,12 @@
           href: prevent-translation.md
         - name: Utilizar a funcionalidade de dicionário dinâmico
           href: dynamic-dictionary.md
+        - name: Utilizar contentores
+          items:
+            - name: Instalar e executar contentores
+              href: how-to-install-containers.md
+            - name: Configurar contentores
+              href: translator-text-container-config.md
         - name: Traduzir por trás de firewalls
           href: firewalls.md
     - name: Amostras

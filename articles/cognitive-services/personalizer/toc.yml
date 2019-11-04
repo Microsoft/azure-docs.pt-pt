@@ -65,7 +65,7 @@
   items:
     - name: Criar e configurar o Personalizador
       href: how-to-settings.md
-      displayName: 'azure, portal, settings, evaluation, offline, policy, export, model'
+      displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
     - name: Analisar
       items:
         - name: Avaliação offline
