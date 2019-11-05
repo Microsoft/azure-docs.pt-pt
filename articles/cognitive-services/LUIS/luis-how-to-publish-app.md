@@ -1,7 +1,7 @@
 ---
 title: Publicar aplicativo-LUIS
 titleSuffix: Azure Cognitive Services
-description: Quando terminar de criar e testar a sua aplicação LUIS Active Directory, torná-lo disponível para a aplicação de cliente, publicá-la para o ponto final.
+description: Quando você terminar de criar e testar seu aplicativo LUIS ativo, disponibilize-o para o aplicativo cliente publicando-o no ponto de extremidade.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,24 +9,26 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: f92776072038c5684e9334d2dda1690ebb7bcaa8
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 0d3a413249cb9058e4098f2836131494670a1727
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70257789"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491335"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicar seu aplicativo ativo e treinado em um ponto de extremidade de preparo ou de produção
 
-Quando terminar de criar e testar a sua aplicação LUIS Active Directory, torná-lo disponível para a aplicação de cliente, publicá-la para o ponto final. 
+Quando você terminar de criar e testar seu aplicativo LUIS ativo, disponibilize-o para o aplicativo cliente publicando-o no ponto de extremidade. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <a name="publish-your-trained-app-to-an-http-endpoint"></a>
 
 ## <a name="publishing"></a>Publicação
 
-1. Para publicar para o ponto final, selecione **publicar** na parte superior, com o botão direito painel. 
+1. Para publicar no ponto de extremidade, selecione **publicar** na parte superior, painel direito. 
 
     ![Botão publicar na parte superior, barra de navegação direita](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
 
@@ -47,10 +49,10 @@ Usando os dois slots de publicação, isso permite que você tenha duas versões
 
 O aplicativo é publicado em todas as regiões associadas aos recursos de ponto de extremidade de previsão LUIS adicionados no portal do LUIS. 
 
-Por exemplo, para um aplicativo criado em [www.Luis.ai](https://www.luis.ai), se você criar um recurso de Luis em duas regiões , westuse lesteus, e adicioná-los ao aplicativo como recursos, o aplicativo será publicado em ambas as regiões. Para obter mais informações sobre as regiões de LUIS, consulte [regiões](luis-reference-regions.md).
+Por exemplo, para um aplicativo criado em [www.Luis.ai](https://www.luis.ai), se você criar um recurso de Luis em duas regiões, **westus** e **lesteus**, e adicioná-los ao aplicativo como recursos, o aplicativo será publicado em ambas as regiões. Para obter mais informações sobre regiões LUIS, consulte [regiões](luis-reference-regions.md).
 
 
-## <a name="configuring-publish-settings"></a>Configurar definições de publicação
+## <a name="configuring-publish-settings"></a>Definindo configurações de publicação
 
 Depois de selecionar o slot, defina as configurações de publicação para:
 
@@ -62,23 +64,23 @@ Depois de publicar, essas configurações estarão disponíveis para análise na
 
 ### <a name="when-your-app-is-published"></a>Quando seu aplicativo é publicado
 
-Quando a aplicação é publicada com êxito, é apresentada uma notificação de êxito verde na parte superior do navegador. A barra de notificação verde também inclui uma ligação para os pontos de extremidade. 
+Quando seu aplicativo for publicado com êxito, uma notificação de êxito verde aparecerá na parte superior do navegador. A barra de notificação verde também inclui um link para os pontos de extremidade. 
 
 ![Publicando janela pop-up com o link para o ponto de extremidade](./media/luis-how-to-publish-app/publish-success.png)
 
-Se precisar do URL de ponto de extremidade, selecione a ligação. Você também pode acessar as URLs do ponto de extremidade selecionando **gerenciar** no menu superior e, em seguida, selecione **recursos do Azure** no menu à esquerda. 
+Se você precisar da URL do ponto de extremidade, selecione o link. Você também pode acessar as URLs do ponto de extremidade selecionando **gerenciar** no menu superior e, em seguida, selecione **recursos do Azure** no menu à esquerda. 
 
 ## <a name="sentiment-analysis"></a>Análise de sentimentos
 
 <a name="enable-sentiment-analysis"></a>
 
-Análise de sentimentos permite o LUIS integrar com o [análise de texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para fornecer análise de expressão de sentimentos e a chave. 
+A análise de sentimentos permite que o LUIS se integre com [análise de texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para fornecer opiniões e análise de frases-chave. 
 
-Não é necessário fornecer uma chave de análise de texto e não sem custos de faturação para este serviço para a sua conta do Azure. 
+Você não precisa fornecer uma chave de Análise de Texto e não há cobrança para esse serviço em sua conta do Azure. 
 
-Dados de sentimento são uma pontuação entre 1 e 0 indicando o positivo (mais de perto como 1) nem negativa (mais próximo de 0) sentimentos dos dados. O rótulo de sentimentos `positive`de `neutral`, e `negative` é por cultura com suporte. Atualmente, apenas o inglês dá suporte a rótulos de sentimentos. 
+Os dados de sentimentos são uma pontuação entre 1 e 0 que indica a diferenciação positiva (mais de 1) ou negativa (mais de 0) dos dados. O rótulo de sentimentos de `positive`, `neutral`e `negative` é por cultura com suporte. Atualmente, apenas o inglês dá suporte a rótulos de sentimentos. 
 
-Para obter mais informações sobre a resposta do ponto final JSON com a análise de sentimentos, consulte [análise de sentimentos](luis-concept-data-extraction.md#sentiment-analysis)
+Para obter mais informações sobre a resposta de ponto de extremidade JSON com análise de sentimentos, consulte [análise de sentimentos](luis-concept-data-extraction.md#sentiment-analysis)
 
 ## <a name="spelling-correction"></a>Correção ortográfica
 
@@ -88,8 +90,8 @@ As correções de ortografia são feitas antes da previsão de expressão do usu
 
 A desobstrução de fala é o processo de usar o envio do modelo LUIS para os serviços de fala antes da conversão de texto em fala. Isso permite que o serviço de fala forneça a conversão de fala com mais precisão para seu modelo. Isso permite o bot Speech e solicitações LUIS e respostas em uma chamada fazendo uma chamada de fala e voltando uma resposta LUIS. Ele fornece menos latência geral.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Ver [gerir chaves](./luis-how-to-azure-subscription.md) adicionar chaves de subscrição do Azure chave para LUIS e como definir a verificação ortográfica do Bing da chave em inclua todas as intenções nos resultados.
-* Ver [treinar e testar a aplicação](luis-interactive-test.md) para obter instruções sobre como testar a aplicação publicada na consola de teste.
+* Consulte [gerenciar chaves](./luis-how-to-azure-subscription.md) para adicionar chaves à chave de assinatura do Azure para Luis e como definir a chave de verificação ortográfica do Bing e incluir todas as intenções nos resultados.
+* Consulte [treinar e testar seu aplicativo](luis-interactive-test.md) para obter instruções sobre como testar seu aplicativo publicado no console de teste.
 

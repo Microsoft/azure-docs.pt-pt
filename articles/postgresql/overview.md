@@ -7,15 +7,15 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 05/06/2019
-ms.openlocfilehash: 5194cf51fd7f1debeba76edb48e8377919ae448a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 9d4389ed2c0cc5d7b632380fba691ae2e9a6b257
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177957"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466745"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>O que é a Base de Dados do Azure para PostgreSQL?
-O banco de dados do Azure para PostgreSQL é um serviço de banco de dados relacional no Microsoft Cloud criado para desenvolvedores. Ele se baseia na versão da Comunidade do mecanismo de banco de dados [PostgreSQL](https://www.postgresql.org/) de software livre e está disponível em duas opções de implantação: servidor único e hiperescala (Citus) (visualização).
+O banco de dados do Azure para PostgreSQL é um serviço de banco de dados relacional no Microsoft Cloud criado para desenvolvedores. Ele se baseia na versão da Comunidade do mecanismo de banco de dados [PostgreSQL](https://www.postgresql.org/) de software livre e está disponível em duas opções de implantação: servidor único e hiperescala (Citus).
 
 ## <a name="azure-database-for-postgresql---single-server"></a>Banco de dados do Azure para PostgreSQL-servidor único
 A opção de implantação de servidor único fornece:
@@ -32,7 +32,7 @@ Todas estas funcionalidades não exigem praticamente qualquer ação de administ
 
 A opção de implantação de servidor único oferece três tipos de preço: básico, Uso Geral e otimizado para memória. Cada escalão oferece capacidades de recursos diferentes para suportar as suas cargas de trabalho de base de dados. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Consulte [tipos de preço](concepts-pricing-tiers.md) para obter detalhes.
 
-## <a name="azure-database-for-postgresql---hyperscale-citus-preview"></a>Banco de dados do Azure para PostgreSQL-hiperescala (Citus) (visualização)
+## <a name="azure-database-for-postgresql---hyperscale-citus"></a>Banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 A opção de hiperescala (Citus) dimensiona horizontalmente as consultas em vários computadores usando a fragmentação. Seu mecanismo de consulta paralelize consultas SQL de entrada entre esses servidores para obter respostas mais rápidas em grandes conjuntos de altos. Ele serve para aplicativos que exigem maior escala e desempenho, geralmente as cargas de trabalho que estão se aproximando-ou já excedem--100 GB de dados.
 
 A opção de implantação de hiperescala (Citus) fornece:
@@ -43,9 +43,7 @@ A opção de implantação de hiperescala (Citus) fornece:
 
 Os aplicativos criados para PostgreSQL podem executar consultas distribuídas em Citus (hiperescala) com [bibliotecas de conexões](./concepts-connection-libraries.md) padrão e alterações mínimas.
 
-Observe que o Citus (hiperescala) está em visualização pública e, como tal, ainda não oferece um SLA.
-
-## <a name="data-security"></a>Segurança dos dados
+## <a name="data-security"></a>Segurança de dados
 O banco de dados do Azure para PostgreSQL mantém a tradição da segurança dos serviços do Azure Database Services. Ele tem recursos que limitam o acesso, protegem dados em repouso e em movimento e ajudam a monitorar a atividade. Visite o [Centro de Fidedignidade do Azure](https://azure.microsoft.com/overview/trusted-cloud/) para obter informações sobre a segurança da plataforma do Azure.
 
 O serviço banco de dados do Azure para PostgreSQL usa o módulo de criptografia FIPS 140-2 validado para criptografia de armazenamento de dados em repouso. Os dados, incluindo backups, são criptografados no disco com a exceção de arquivos temporários criados durante a execução de consultas. O serviço usa a codificação AES de 256 bits incluída na criptografia de armazenamento do Azure e as chaves são gerenciadas pelo sistema. A encriptação de armazenamento está sempre ativada e não pode ser desativada. Por padrão, o serviço banco de dados do Azure para PostgreSQL requer conexões seguras para dados em movimento em toda a rede e entre o banco de dados e o aplicativo cliente.
@@ -59,5 +57,5 @@ Além disso, considere estes pontos de contato conforme apropriado:
 
 ## <a name="next-steps"></a>Passos seguintes
 - Consulte a [página de preços](https://azure.microsoft.com/pricing/details/postgresql/) para ver as comparações de preços e as calculadoras.
-- Comece criando seu primeiro banco de dados do Azure para PostgreSQL [Single Server](./quickstart-create-server-database-portal.md) ou [Citus (visualização)](./quickstart-create-hyperscale-portal.md)
+- Comece criando seu primeiro banco de dados do Azure para PostgreSQL [Single Server](./quickstart-create-server-database-portal.md) ou [Citus (hiperescala)](./quickstart-create-hyperscale-portal.md)
 - Criar a sua primeira aplicação em Python, PHP, Ruby, C\#, Java, Node.js: [Bibliotecas de ligação](./concepts-connection-libraries.md)

@@ -1,7 +1,7 @@
 ---
 title: 'Dados de junção: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo ingressar dados de ingresso no serviço de Azure Machine Learning para mesclar DataSets.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo unir dados de junção em Azure Machine Learning para mesclar conjuntos de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: ec9de6975931219ae45543833421234c4d71e6af
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 587490284b2886764c137a01e0eb4b3c9c755d41
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693099"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495084"
 ---
 # <a name="join-data"></a>Associar dados
 
-Este artigo descreve como usar o módulo de **dados de junção** na interface visual do serviço de Azure Machine Learning para mesclar dois DataSets usando uma operação de junção de estilo de banco de dados.  
+Este artigo descreve como usar o módulo **unir dados** no designer de Azure Machine Learning (versão prévia) para mesclar dois DataSets usando uma operação de junção de estilo de banco de dados.  
 
 ## <a name="how-to-configure-join-data"></a>Como configurar dados de junção
 
@@ -64,8 +64,8 @@ Para executar uma junção em dois conjuntos de valores, eles devem estar relaci
 
 1. Execute o pipeline ou selecione o módulo ingressar dados e selecionou a **execução selecionada** para executar a junção.
 
-1. Para exibir os resultados, clique com o botão direito do mouse no conjunto de dados  > **resultados da** **junção**  > **Visualizar**.
+1. Para exibir os resultados, clique com o botão direito do mouse no conjunto de dados > **resultados da** **junção** > **Visualizar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

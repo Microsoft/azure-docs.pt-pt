@@ -1,7 +1,7 @@
 ---
 title: Configurações de contêiner do Docker-LUIS
 titleSuffix: Azure Cognitive Services
-description: O ambiente de tempo de execução de contentores do LUIS é configurado usando o `docker run` argumentos de comando. LUIS tem várias definições necessárias, juntamente com algumas configurações opcionais.
+description: O ambiente de tempo de execução de contêiner do LUIS é configurado usando os argumentos do comando `docker run`. O LUIS tem várias configurações necessárias, juntamente com algumas configurações opcionais.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -9,125 +9,120 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 9760475886ecb0f20d9f0f3981eab8246643da21
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 163fe24c941f779a2160ee5ef50f9d4dfcea1022
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101986"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486736"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurar contêineres do Docker Reconhecimento vocal 
 
-O ambiente de tempo de execução de contêiner **reconhecimento vocal** (Luis) `docker run` é configurado usando os argumentos de comando. LUIS tem várias definições necessárias, juntamente com algumas configurações opcionais. Várias [exemplos](#example-docker-run-commands) do comando estão disponíveis. As definições específicas do contentor são a entrada [definições de montagem](#mount-settings) e as definições de faturas. 
+O ambiente de tempo de execução de contêiner **reconhecimento vocal** (Luis) é configurado usando os argumentos de comando `docker run`. O LUIS tem várias configurações necessárias, juntamente com algumas configurações opcionais. Vários [exemplos](#example-docker-run-commands) do comando estão disponíveis. As configurações específicas do contêiner são as configurações de [montagem](#mount-settings) de entrada e as configurações de cobrança. 
 
 ## <a name="configuration-settings"></a>Definições de configuração
 
-Este contentor tem as seguintes definições de configuração:
+Esse contêiner tem as seguintes definições de configuração:
 
 |Necessário|Definição|Objetivo|
 |--|--|--|
-|Sim|[ApiKey](#apikey-setting)|Utilizado para controlar informações de faturação.|
-|Não|[ApplicationInsights](#applicationinsights-setting)|Permite que adicione [do Azure Application Insights](https://docs.microsoft.com/azure/application-insights) suporte de telemetria ao seu contentor.|
-|Sim|[Billing](#billing-setting)|Especifica o URI do ponto de extremidade do recurso de serviço no Azure.|
-|Sim|[EULA](#eula-setting)| Indica que aceite a licença para o contentor.|
-|Não|[Fluentd](#fluentd-settings)|Escrever o registo e, opcionalmente, dados de métrica para um servidor de Fluentd.|
+|Sim|[ApiKey](#apikey-setting)|Usado para rastrear informações de cobrança.|
+|Não|[ApplicationInsights](#applicationinsights-setting)|Permite que você adicione suporte à telemetria do [insights aplicativo Azure](https://docs.microsoft.com/azure/application-insights) ao seu contêiner.|
+|Sim|[Faturação](#billing-setting)|Especifica o URI do ponto de extremidade do recurso de serviço no Azure.|
+|Sim|[EULA](#eula-setting)| Indica que você aceitou a licença para o contêiner.|
+|Não|[Fluentd](#fluentd-settings)|Grave log e, opcionalmente, dados de métrica para um servidor Fluentd.|
 |Não|[Proxy http](#http-proxy-credentials-settings)|Configure um proxy HTTP para fazer solicitações de saída.|
-|Não|[Logging](#logging-settings)|Fornece suporte de registo do ASP.NET Core para o seu contentor. |
-|Sim|[Mounts](#mount-settings)|Ler e escrever dados do computador anfitrião para o contentor e do contentor para o computador anfitrião.|
+|Não|[Logout](#logging-settings)|Fornece suporte ao log de ASP.NET Core para seu contêiner. |
+|Sim|[Monta](#mount-settings)|Ler e gravar dados do computador host para o contêiner e do contêiner de volta para o computador host.|
 
 > [!IMPORTANT]
-> O [ `ApiKey` ](#apikey-setting), [ `Billing` ](#billing-setting), e [ `Eula` ](#eula-setting) definições são utilizadas em conjunto, e tem de indicar valores válidos para todas as três-los; caso contrário não inicia o contentor. Para obter mais informações sobre como utilizar estas definições de configuração para criar uma instância de um contentor, consulte [faturação](luis-container-howto.md#billing).
+> As configurações [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting)e [`Eula`](#eula-setting) são usadas juntas, e você deve fornecer valores válidos para todos os três; caso contrário, o contêiner não será iniciado. Para obter mais informações sobre como usar essas definições de configuração para criar uma instância de um contêiner, consulte [cobrança](luis-container-howto.md#billing).
 
-## <a name="apikey-setting"></a>ApiKey definição
+## <a name="apikey-setting"></a>Configuração de ApiKey
 
-O `ApiKey` definição especifica a chave de recurso do Azure utilizada para controlar informações de faturação para o contentor. Você deve especificar um valor para o ApiKey e o valor deve ser uma chave válida para o recurso de _Serviços cognitivas_ especificado [`Billing`](#billing-setting) para a definição de configuração.
+A configuração de `ApiKey` especifica a chave de recurso do Azure usada para rastrear informações de cobrança para o contêiner. Você deve especificar um valor para o ApiKey e o valor deve ser uma chave válida para o recurso de _Serviços cognitivas_ especificado para a configuração de [`Billing`](#billing-setting) .
 
 Essa configuração pode ser encontrada nos seguintes locais:
 
-* Portal do Azure: **Serviços cognitivas** Gerenciamento de recursos, em **chaves**
-* Portal do LUIS: Página **configurações de ponto de extremidade e chaves** . 
+* Portal do Azure: gerenciamento de recursos de **Serviços cognitivas** , em **chaves**
+* Portal do LUIS: página **de configurações de ponto de extremidade e chaves** . 
 
-Não utilize a chave de arranque ou a chave de criação. 
+Não use a chave inicial ou a chave de criação. 
 
-## <a name="applicationinsights-setting"></a>Definição do Application Insights
+## <a name="applicationinsights-setting"></a>Configuração de ApplicationInsights
 
 [!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
-## <a name="billing-setting"></a>Definição de faturação
+## <a name="billing-setting"></a>Configuração de cobrança
 
-A `Billing` configuração especifica o URI do ponto de extremidade do recurso de _Serviços cognitivas_ no Azure usado para medir as informações de cobrança do contêiner. Você deve especificar um valor para essa definição de configuração e o valor deve ser um URI de ponto de extremidade válido para um recurso de _Serviços cognitivas_ no Azure. O contêiner relata o uso de cada 10 a 15 minutos.
+A configuração de `Billing` especifica o URI do ponto de extremidade do recurso de _Serviços cognitivas_ no Azure usado para medir as informações de cobrança do contêiner. Você deve especificar um valor para essa definição de configuração e o valor deve ser um URI de ponto de extremidade válido para um recurso de _Serviços cognitivas_ no Azure. O contêiner relata o uso de cada 10 a 15 minutos.
 
 Essa configuração pode ser encontrada nos seguintes locais:
 
-* Portal do Azure: **Serviços cognitivas** Visão geral, rotulada`Endpoint`
-* Portal do LUIS: Página **configurações de ponto de extremidade e chaves** , como parte do URI do ponto de extremidade.
+* Portal do Azure: visão geral **dos serviços cognitivas** , rotulados `Endpoint`
+* Portal do LUIS: página de **configurações de ponto de extremidade e chaves** , como parte do URI do ponto de extremidade.
 
-Lembre-se de `luis/v2.0` incluir o roteamento na URL, conforme mostrado na tabela a seguir:
+| Necessário | Nome | Data type | Descrição |
+|----------|------|-----------|-------------|
+| Sim      | `Billing` | string | URI do ponto de extremidade de cobrança. |
 
-
-|Requerido| Nome | Tipo de dados | Descrição |
-|--|------|-----------|-------------|
-|Sim| `Billing` | Cadeia | URI do ponto final de faturação<br><br>Exemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
-
-## <a name="eula-setting"></a>EULA definição
+## <a name="eula-setting"></a>Configuração do EULA
 
 [!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
-## <a name="fluentd-settings"></a>Definições de Fluentd
+## <a name="fluentd-settings"></a>Configurações fluentes
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>Configurações de credenciais de proxy http
+## <a name="http-proxy-credentials-settings"></a>Configurações de credenciais de proxy HTTP
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
-## <a name="logging-settings"></a>Definições de registo
+## <a name="logging-settings"></a>Configurações de log
  
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
-## <a name="mount-settings"></a>Definições de montagem
+## <a name="mount-settings"></a>Configurações de montagem
 
-Monta o enlace de utilização para ler e escrever dados de e para o contentor. Pode especificar uma montagem de entrada ou saída de montagem, especificando o `--mount` opção da [docker run](https://docs.docker.com/engine/reference/commandline/run/) comando. 
+Use montagens de associação para ler e gravar dados de e para o contêiner. Você pode especificar uma montagem de entrada ou de saída especificando a opção de `--mount` no comando de [execução do Docker](https://docs.docker.com/engine/reference/commandline/run/) . 
 
-O contentor de LUIS não usa a entrada ou saída monta para armazenar dados de serviço ou de treinamento. 
+O contêiner LUIS não usa montagens de entrada ou de saída para armazenar dados de treinamento ou de serviço. 
 
-A sintaxe exata da localização de montagem do anfitrião varia consoante o sistema operativo anfitrião. Além disso, o [computador anfitrião](luis-container-howto.md#the-host-computer)da localização de montagem não estar acessível devido a um conflito entre as permissões usadas pela conta de serviço do docker e o anfitrião montar permissões de localização. 
+A sintaxe exata do local de montagem do host varia dependendo do sistema operacional do host. Além disso, o local de montagem do [computador host](luis-container-howto.md#the-host-computer)pode não estar acessível devido a um conflito entre as permissões usadas pela conta de serviço do Docker e as permissões de local de montagem do host. 
 
-A tabela seguinte descreve as definições suportadas.
+A tabela a seguir descreve as configurações com suporte.
 
-|Necessário| Nome | Tipo de dados | Descrição |
+|Necessário| Nome | Data type | Descrição |
 |-------|------|-----------|-------------|
-|Sim| `Input` | Cadeia | O destino da montagem de entrada. O valor predefinido é `/input`. Esta é a localização dos ficheiros de pacote do LUIS. <br><br>Exemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Não| `Output` | Cadeia | O destino de montagem de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de consulta do LUIS e registos de contentor. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Sim| `Input` | String | O destino da montagem de entrada. O valor padrão é `/input`. Esse é o local dos arquivos de pacote LUIS. <br><br>Exemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Não| `Output` | String | O destino da montagem de saída. O valor padrão é `/output`. Esse é o local dos logs. Isso inclui logs de consulta do LUIS e logs de contêiner. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="example-docker-run-commands"></a>Executar comandos de docker de exemplo
+## <a name="example-docker-run-commands"></a>Comandos de execução do Docker de exemplo
 
-Os exemplos seguintes utilizam as definições de configuração para ilustrar como escrever e usar `docker run` comandos.  Quando em execução, o contentor continua a ser executada até [parar](luis-container-howto.md#stop-the-container) -lo.
+Os exemplos a seguir usam as definições de configuração para ilustrar como gravar e usar comandos de `docker run`.  Uma vez em execução, o contêiner continua a ser executado até que você o [interrompa](luis-container-howto.md#stop-the-container) .
 
-* Esses exemplos usam o diretório fora da `C:` unidade para evitar conflitos de permissão no Windows. Se precisar de utilizar um diretório específico como a entrada de diretório, poderá ter de conceder o docker permissão de serviço. 
-* Não altere a ordem dos argumentos, a menos que está bastante familiarizada com contentores do docker.
-* Se você estiver usando um sistema operacional diferente, use o console/terminal correto, a sintaxe de pasta para montagens e o caractere de continuação de linha para o seu sistema. Esses exemplos pressupõem um console do Windows com um caractere `^`de continuação de linha. Como o contêiner é um sistema operacional Linux, a montagem de destino usa uma sintaxe de pasta em estilo Linux.
-
-Lembre-se de `luis/v2.0` incluir o roteamento na URL, conforme mostrado na tabela a seguir.
+* Esses exemplos usam o diretório fora da unidade de `C:` para evitar conflitos de permissão no Windows. Se você precisar usar um diretório específico como o diretório de entrada, talvez seja necessário conceder a permissão de serviço do Docker. 
+* Não altere a ordem dos argumentos, a menos que você esteja muito familiarizado com contêineres do Docker.
+* Se você estiver usando um sistema operacional diferente, use o console/terminal correto, a sintaxe de pasta para montagens e o caractere de continuação de linha para o seu sistema. Esses exemplos pressupõem um console do Windows com um caractere de continuação de linha `^`. Como o contêiner é um sistema operacional Linux, a montagem de destino usa uma sintaxe de pasta em estilo Linux.
 
 Substitua {_argument_name_} pelos seus próprios valores:
 
-| Marcador de posição | Valor | Formato ou de exemplo |
+| Marcador de posição | Valor | Formato ou exemplo |
 |-------------|-------|---|
-| **{API_KEY}** | A chave do ponto de `LUIS` extremidade do recurso na `LUIS` página de chaves do Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | O valor do ponto de extremidade de cobrança está `LUIS` disponível na página Visão geral do Azure.| Consulte [coletando parâmetros necessários](luis-container-howto.md#gathering-required-parameters) para obter exemplos explícitos. |
+| **{API_KEY}** | A chave do ponto de extremidade do recurso `LUIS` na página chaves do `LUIS` do Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | O valor do ponto de extremidade de cobrança está disponível na página Visão geral do `LUIS` do Azure.| Consulte [coletando parâmetros necessários](luis-container-howto.md#gathering-required-parameters) para obter exemplos explícitos. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor. Para obter mais informações, consulte [faturação](luis-container-howto.md#billing).
-> O valor ApiKey é a **chave** da página chaves e pontos de extremidade no portal do Luis e também está disponível na página chaves de `Cognitive Services` recurso do Azure. 
+> As opções `Eula`, `Billing`e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado. Para obter mais informações, consulte [cobrança](luis-container-howto.md#billing).
+> O valor ApiKey é a **chave** da página chaves e pontos de extremidade no portal do Luis e também está disponível na página chaves de recurso do `Cognitive Services` do Azure. 
 
 ### <a name="basic-example"></a>Exemplo básico
 
-O exemplo seguinte tem os argumentos de menor número possíveis de executar o contentor:
+O exemplo a seguir tem os menores argumentos possíveis para executar o contêiner:
 
 ```console
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 ^
@@ -139,9 +134,9 @@ Billing={ENDPOINT_URL} ^
 ApiKey={API_KEY}
 ```
 
-### <a name="applicationinsights-example"></a>Exemplo do Application Insights
+### <a name="applicationinsights-example"></a>Exemplo de ApplicationInsights
 
-O exemplo seguinte define o argumento do Application Insights para enviar telemetria para o Application Insights, enquanto o contentor está em execução:
+O exemplo a seguir define o argumento ApplicationInsights para enviar telemetria para Application Insights enquanto o contêiner está em execução:
 
 ```console
 docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 ^
@@ -156,7 +151,7 @@ InstrumentationKey={INSTRUMENTATION_KEY}
 
 ### <a name="logging-example"></a>Exemplo de log 
 
-O comando a seguir define o nível de registo `Logging:Console:LogLevel`, para configurar o nível de registo para [ `Information` ](https://msdn.microsoft.com). 
+O comando a seguir define o nível de log, `Logging:Console:LogLevel`, para configurar o nível de log para [`Information`](https://msdn.microsoft.com). 
 
 ```console
 docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 ^
@@ -169,8 +164,8 @@ ApiKey={API_KEY} ^
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Revisão [como instalar e executar contentores](luis-container-howto.md)
+* Examine [como instalar e executar contêineres](luis-container-howto.md)
 * Consulte [solução de problemas](troubleshooting.md) para resolver problemas relacionados à funcionalidade do Luis.
 * Usar mais [contêineres de serviços cognitivas](../cognitive-services-container-support.md)

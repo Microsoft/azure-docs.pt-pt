@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 29f1fc2a6fd23ef3a770f58fd78d5067672136dd
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 28b1c3622ca449b0ce539937369fe43bd1d508ee
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326285"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468958"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Entrar usando um aplicativo Android no Azure Active Directory B2C
 
@@ -38,7 +38,9 @@ Em seguida, registre um aplicativo em seu locatário de Azure AD B2C. Isso dá a
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-Registre a **ID do aplicativo** para uso em uma etapa posterior. Em seguida, selecione o aplicativo na lista e registre o **URI de redirecionamento personalizado**, também para uso em uma etapa posterior. Por exemplo, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+Registre a **ID do aplicativo (cliente)** para uso em uma etapa posterior.
+
+Registre também seu URI de redirecionamento personalizado para uso em uma etapa posterior. Por exemplo, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 ## <a name="create-your-user-flows"></a>Criar seus fluxos de usuário
 
@@ -67,9 +69,9 @@ O exemplo é uma modificação do exemplo fornecido pelo [APPAUTH](https://openi
 Você pode configurar a comunicação com Azure AD B2C especificando o URI de descoberta ou especificando o ponto de extremidade de autorização e URIs de ponto de extremidade de token. Em ambos os casos, você precisará das seguintes informações:
 
 * ID do locatário (por exemplo, contoso.onmicrosoft.com)
-* Nome do fluxo do usuário (por exemplo, B2C @ no__t-01 @ no__t-1SignUpIn)
+* Nome do fluxo do usuário (por exemplo, B2C\_1\_inscrição)
 
-Se você optar por descobrir automaticamente a autorização e URIs de ponto de extremidade de token, será necessário buscar informações do URI de descoberta. O URI de descoberta pode ser gerado substituindo o locatário @ no__t-0ID e a política @ no__t-1Name na seguinte URL:
+Se você optar por descobrir automaticamente a autorização e URIs de ponto de extremidade de token, será necessário buscar informações do URI de descoberta. O URI de descoberta pode ser gerado substituindo a ID de\_do locatário e o nome da\_de política na seguinte URL:
 
 ```java
 String mDiscoveryURI = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
@@ -96,7 +98,7 @@ AuthorizationServiceConfiguration.fetchFromIssuer(
   });
 ```
 
-Em vez de usar a descoberta para obter os URIs de ponto de extremidade de autorização e de token, você também pode especificá-los explicitamente substituindo o locatário @ no__t-0ID e a política @ no__t-1Name na URL abaixo:
+Em vez de usar a descoberta para obter os URIs de ponto de extremidade de autorização e de token, você também pode especificá-los explicitamente substituindo a ID de\_do locatário e o nome da\_de política na URL abaixo:
 
 ```java
 String mAuthEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";
@@ -113,7 +115,7 @@ AuthorizationServiceConfiguration config =
 // perform the auth request...
 ```
 
-### <a name="authorizing"></a>A Autorizar
+### <a name="authorizing"></a>Autorizando
 
 Depois de configurar ou recuperar uma configuração de serviço de autorização, uma solicitação de autorização pode ser construída. Para criar a solicitação, você precisará das seguintes informações:
 

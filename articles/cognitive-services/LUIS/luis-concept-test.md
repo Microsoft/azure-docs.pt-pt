@@ -1,7 +1,7 @@
 ---
-title: Teste a sua aplicação LUIS
+title: Testar seu aplicativo LUIS
 titleSuffix: Azure Cognitive Services
-description: O teste é o processo de fornecimento de expressões de exemplo para LUIS e obter uma resposta de LUIS reconhecidas intenções e entidades.
+description: O teste é o processo de fornecer declarações de exemplo para LUIS e obter uma resposta de tentativas e entidades reconhecidas por LUIS.
 author: diberry
 manager: nitinme
 services: cognitive-services
@@ -9,55 +9,53 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: 775b50c4735115dde8ae936c4d06b087d58683b1
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 25b360f90a0920aad2ea5e68cda31a68be5d37a9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619776"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486684"
 ---
-# <a name="testing-example-utterances-in-luis"></a>Teste de expressões de exemplo no LUIS
+# <a name="testing-example-utterances-in-luis"></a>Testando exemplo declarações em LUIS
 
-O teste é o processo de fornecimento de expressões de exemplo para LUIS e obter uma resposta de LUIS reconhecidas intenções e entidades. 
+O teste é o processo de fornecer declarações de exemplo para LUIS e obter uma resposta de tentativas e entidades reconhecidas por LUIS. 
 
-Pode [testar](luis-interactive-test.md) LUIS interativamente, uma expressão de cada vez, ou fornecer um [batch](luis-concept-batch-test.md) de expressões. Com os testes, comparar o atual [Active Directory](luis-concept-version.md#active-version) modelos para o modelo publicado. 
+Você pode testar LUIS interativamente, um expressão por vez ou fornecer um de declarações. Durante o teste, você pode comparar a resposta de previsão do modelo ativo atual com a resposta de previsão do modelo publicado. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
 <a name="E-(exponent)-notation"></a>
 
 ## <a name="what-is-a-score-in-testing"></a>O que é uma pontuação no teste?
-Ver [pontuação de predição](luis-concept-prediction-score.md) conceitos para saber mais sobre as pontuações de predição.
+Consulte conceitos de [Pontuação de previsão](luis-concept-prediction-score.md) para saber mais sobre as pontuações de previsão.
 
 ## <a name="interactive-testing"></a>Testes interativos
-Teste interativo é feita a partir da **teste** painel do Web site. Pode inserir uma expressão para ver como intenções e entidades são identificadas e classificadas. Se o LUIS não é prever as intenções e entidades conforme o esperado numa expressão no painel de teste, copie-o para o **intenção** página como uma expressão de novo. Em seguida, as partes dessa expressão de etiqueta e treinar o LUIS. 
+O teste interativo é feito no painel de **teste** do portal do Luis. Você pode inserir um expressão para ver como as intenções e as entidades são identificadas e pontuadas. Se LUIS não estiver prevendo as intenções e entidades esperadas em um expressão no painel de teste, copie-as para a página de **intenção** como um novo expressão. Em seguida, rotule as partes do expressão para entidades e treine o LUIS. 
 
 ## <a name="batch-testing"></a>Testes em lote
-Ver [testes de batch](luis-concept-batch-test.md) se estiver a testar mais do que uma expressão de cada vez.
+Consulte [teste em lotes](luis-concept-batch-test.md) se você estiver testando mais de um expressão de cada vez.
 
-## <a name="endpoint-testing"></a>Teste de ponto final
-Pode testar através da [ponto final](luis-glossary.md#endpoint) com um máximo de duas versões da sua aplicação. Com a sua versão principal ou em direto da sua aplicação definida como o **produção** ponto final, adicionar uma segunda versão para o **teste** ponto final. Esta abordagem dá-lhe três versões de uma expressão: o modelo atual no painel de teste do [LUIS](luis-reference-regions.md) Web site e as versões de dois em dois pontos de extremidade diferentes. 
+## <a name="endpoint-testing"></a>Teste de ponto de extremidade
+Você pode testar usando o [ponto de extremidade](luis-glossary.md#endpoint) com um máximo de duas versões de seu aplicativo. Com sua versão principal ou dinâmica do seu aplicativo definido como o ponto de extremidade de **produção** , adicione uma segunda versão ao ponto de extremidade de **preparo** . Essa abordagem oferece três versões de um expressão: o modelo atual no painel de teste do site [Luis](luis-reference-regions.md) e as duas versões nos dois pontos de extremidade diferentes. 
 
-Todos os ponto final teste contagens para sua quota de utilização. 
+Todos os testes de ponto de extremidade contam para sua cota de uso. 
 
-## <a name="do-not-log-tests"></a>Não sessão testes
-Se o teste com um ponto final e não pretender que a expressão com sessão iniciada, não se esqueça de utilizar o `logging=false` configuração de cadeia de caracteres de consulta.
+## <a name="do-not-log-tests"></a>Não registrar testes
+Se você testar em relação a um ponto de extremidade e não quiser que o expressão seja registrado, lembre-se de usar a configuração de cadeia de caracteres de consulta `logging=false`.
 
-## <a name="where-to-find-utterances"></a>Onde encontrar expressões com
-LUIS armazena expressões com tudo com sessão iniciadas no log de consulta, disponível para download no [LUIS](luis-reference-regions.md) site **Apps** página de lista, bem como o LUIS [APIs de criação](https://go.microsoft.com/fwlink/?linkid=2092087). 
+## <a name="where-to-find-utterances"></a>Onde encontrar declarações
+O LUIS armazena todos os declarações registrados no log de consultas, disponível para download no portal do LUIS na página de lista de **aplicativos** , bem como as [APIs de criação](https://go.microsoft.com/fwlink/?linkid=2092087)do Luis. 
 
-Qualquer expressões com os LUIS não tem certeza de que estão listados na **[rever expressões de ponto final](luis-how-to-review-endpoint-utterances.md)** página do [LUIS](luis-reference-regions.md) Web site. 
+Qualquer LUIS declarações não tem certeza de estar listado na página **[examinar ponto de extremidade declarações](luis-how-to-review-endpoint-utterances.md)** do site do [Luis](luis-reference-regions.md) . 
 
-![Rever pronunciações de ponto final](./media/luis-concept-test/review-endpoint-utterances.png)
- 
-## <a name="remember-to-train"></a>Não se esqueça de treinar
-Lembre-se [treinar](luis-how-to-train.md) LUIS depois de efetuar alterações ao modelo. Alterações à aplicação LUIS não são vistas nos testes até que a aplicação é preparada. 
+## <a name="remember-to-train"></a>Lembre-se de treinar
+Lembre-se de [treinar](luis-how-to-train.md) o Luis depois de fazer alterações no modelo. As alterações no aplicativo LUIS não são vistas no teste até que o aplicativo seja treinado. 
 
 ## <a name="best-practices"></a>Melhores práticas
-Saiba mais [melhores práticas](luis-concept-best-practices.md).
+Conheça [as práticas recomendadas](luis-concept-best-practices.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [teste](luis-interactive-test.md) seus discursos.
+* Saiba mais sobre como [testar](luis-interactive-test.md) seu declarações.

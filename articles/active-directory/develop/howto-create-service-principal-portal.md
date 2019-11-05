@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d60c1a01f3a4ca3a191ddb322def7d86a316c58f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 03ae780f86512ac401fcb7f6936e8f74cb595ca7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803326"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473860"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos
 
@@ -51,7 +51,7 @@ Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma 
 
 Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissões são herdadas para níveis inferiores de escopo. Por exemplo, adicionar um aplicativo à função leitor para um grupo de recursos significa que ele pode ler o grupo de recursos e todos os recursos que ele contém.
 
-1. Navegue até o nível de escopo ao qual você deseja atribuir o aplicativo. Por exemplo, para atribuir uma função no escopo da assinatura, selecione **todos os serviços** e **assinaturas**.
+1. Na portal do Azure, selecione o nível de escopo ao qual você deseja atribuir o aplicativo. Por exemplo, para atribuir uma função no escopo da assinatura, procure e selecione **assinaturas**, ou selecione **assinaturas** na **Home** Page.
 
    ![Por exemplo, atribua uma função no escopo da assinatura](./media/howto-create-service-principal-portal/select-subscription.png)
 
@@ -147,7 +147,7 @@ Se a configuração de registros do aplicativo for definida como **não**, somen
 
 ### <a name="check-azure-subscription-permissions"></a>Verificar as permissões de assinatura do Azure
 
-Em sua assinatura do Azure, sua conta deve ter acesso `Microsoft.Authorization/*/Write` para atribuir um aplicativo do AD a uma função. Esta ação é concedida através das funções [Proprietário](../../role-based-access-control/built-in-roles.md#owner) ou [Administrador de Acesso dos Utilizadores](../../role-based-access-control/built-in-roles.md#user-access-administrator). Se sua conta for atribuída à função **colaborador** , você não terá a permissão adequada. Você recebe um erro ao tentar atribuir a entidade de serviço a uma função.
+Em sua assinatura do Azure, sua conta deve ter `Microsoft.Authorization/*/Write` acesso para atribuir um aplicativo do AD a uma função. Esta ação é concedida através das funções [Proprietário](../../role-based-access-control/built-in-roles.md#owner) ou [Administrador de Acesso dos Utilizadores](../../role-based-access-control/built-in-roles.md#user-access-administrator). Se sua conta for atribuída à função **colaborador** , você não terá a permissão adequada. Você recebe um erro ao tentar atribuir a entidade de serviço a uma função.
 
 Para verificar suas permissões de assinatura:
 

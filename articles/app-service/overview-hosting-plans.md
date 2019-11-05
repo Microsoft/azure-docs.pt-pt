@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3118be297caabbd4b829344e42361fa6b7602aad
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 78440185b4a26bccc8ffb0258416a19aa929af6b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066736"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470250"
 ---
 # <a name="azure-app-service-plan-overview"></a>Visão geral do plano de serviço Azure App
 
@@ -35,9 +35,9 @@ Quando você cria um plano do serviço de aplicativo em uma determinada região 
 
 O _tipo de preço_ de um plano do serviço de aplicativo determina quais recursos do serviço de aplicativo você obtém e quanto você paga para o plano. Há algumas categorias de tipos de preço:
 
-- **Computação compartilhada**: **Livres** ecompartilhadas, as duas camadas de base, executam um aplicativo na mesma VM do Azure que outros aplicativos do serviço de aplicativo, incluindo aplicativos de outros clientes. Essas camadas alocam cotas de CPU para cada aplicativo que é executado nos recursos compartilhados, e os recursos não podem ser expandidos.
-- **Computação dedicada**: As camadas **Basic**, **Standard**, **Premium**e **PremiumV2** executam aplicativos em VMs do Azure dedicadas. Somente os aplicativos no mesmo plano do serviço de aplicativo compartilham os mesmos recursos de computação. Quanto maior a camada, mais instâncias de VM estarão disponíveis para você para expansão.
-- **Isolado**: Essa camada executa VMs do Azure dedicadas em redes virtuais do Azure dedicadas. Ele fornece isolamento de rede na parte superior do isolamento de computação para seus aplicativos. Ele fornece os recursos máximos de expansão.
+- **Computação compartilhada**: **gratuita** e **compartilhada**, as duas camadas de base, o executa um aplicativo na mesma VM do Azure que outros aplicativos do serviço de aplicativo, incluindo aplicativos de outros clientes. Essas camadas alocam cotas de CPU para cada aplicativo que é executado nos recursos compartilhados, e os recursos não podem ser expandidos.
+- **Computação dedicada**: as camadas **Basic**, **Standard**, **Premium**e **PremiumV2** executam aplicativos em VMs do Azure dedicadas. Somente os aplicativos no mesmo plano do serviço de aplicativo compartilham os mesmos recursos de computação. Quanto maior a camada, mais instâncias de VM estarão disponíveis para você para expansão.
+- **Isolado**: essa camada executa VMs do Azure dedicadas em redes virtuais do Azure dedicadas. Ele fornece isolamento de rede na parte superior do isolamento de computação para seus aplicativos. Ele fornece os recursos máximos de expansão.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -95,7 +95,7 @@ Você não é cobrado pelo uso dos recursos do serviço de aplicativo que estão
 
 Seu plano do serviço de aplicativo pode ser escalado verticalmente e horizontalmente a qualquer momento. É tão simples quanto alterar o tipo de preço do plano. Você pode escolher um tipo de preço mais baixo primeiro e escalar verticalmente mais tarde quando precisar de mais recursos do serviço de aplicativo.
 
-Por exemplo, você pode começar a testar seu aplicativo Web em um plano do serviço de aplicativo **gratuito** e não pagar nada. Quando você quiser adicionar seu [nome DNS personalizado](app-service-web-tutorial-custom-domain.md) ao aplicativo Web, basta dimensionar seu plano até a camada **compartilhada** . Posteriormente, quando você quiser adicionar um [certificado SSL personalizado](app-service-web-tutorial-custom-ssl.md), dimensione seu plano até a camada **básica** . Quando você quiser ter [ambientes de preparo](deploy-staging-slots.md), escale verticalmente para a camada **Standard** . Quando você precisar de mais núcleos, memória ou armazenamento, escale verticalmente para um tamanho maior de VM na mesma camada.
+Por exemplo, você pode começar a testar seu aplicativo Web em um plano do serviço de aplicativo **gratuito** e não pagar nada. Quando você quiser adicionar seu [nome DNS personalizado](app-service-web-tutorial-custom-domain.md) ao aplicativo Web, basta dimensionar seu plano até a camada **compartilhada** . Posteriormente, quando você quiser [criar uma associação SSL](configure-ssl-bindings.md), dimensione seu plano até a camada **básica** . Quando você quiser ter [ambientes de preparo](deploy-staging-slots.md), escale verticalmente para a camada **Standard** . Quando você precisar de mais núcleos, memória ou armazenamento, escale verticalmente para um tamanho maior de VM na mesma camada.
 
 O mesmo funciona no inverso. Quando você achar que não precisa mais dos recursos ou recursos de uma camada superior, poderá reduzir verticalmente para uma camada inferior, o que poupa dinheiro.
 

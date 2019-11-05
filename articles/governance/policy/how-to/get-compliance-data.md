@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 47258f27f44b6a21c5da72e4631591e695024400
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: bd65fcf6ebff931fbb408ca8337a37d355221dfe
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053270"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480246"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obter dados de conformidade de recursos do Azure
 
@@ -90,9 +90,9 @@ A tabela a seguir mostra como os diferentes efeitos de política funcionam com a
 | Estado do recurso | Efeito | Avaliação de política | Estado de conformidade |
 | --- | --- | --- | --- |
 | Existe | Negar, Auditar, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | Verdadeiro | Incompatível |
-| Existe | Negar, Auditar, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | Falso | Em conformidade |
+| Existe | Negar, Auditar, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | Falso | Compatível |
 | Novo | Audit, AuditIfNotExist\* | Verdadeiro | Incompatível |
-| Novo | Audit, AuditIfNotExist\* | Falso | Em conformidade |
+| Novo | Audit, AuditIfNotExist\* | Falso | Compatível |
 
 \* Os efeitos de Append, DeployIfNotExist e AuditIfNotExist requerem que a declaração IF seja TRUE.
 Os efeitos também necessitam que a condição de existência seja FALSE para estarem em não conformidade. Quando for TRUE, a condição IF aciona a avaliação da condição de existência dos recursos relacionados.
@@ -131,9 +131,16 @@ Como uma política ou iniciativa pode ser atribuída a escopos diferentes, a tab
 A lista de recursos na guia **conformidade de recursos** mostra o status de avaliação dos recursos existentes para a atribuição atual. A guia usa como padrão **não conformidade**, mas pode ser filtrada.
 Os eventos (acréscimo, auditoria, negação, implantação) disparados pela solicitação para criar um recurso são mostrados na guia **eventos** .
 
+> [!NOTE]
+> Para uma política de mecanismo AKS, o recurso mostrado é o grupo de recursos.
+
 ![Exemplo de eventos de conformidade de Azure Policy](../media/getting-compliance-data/compliance-events.png)
 
-Clique com o botão direito do mouse na linha do evento para o qual você gostaria de reunir mais detalhes e selecione **Mostrar logs de atividade**. A página log de atividades é aberta e filtrada previamente para a pesquisa mostrando os detalhes da atribuição e os eventos. O log de atividades fornece contexto adicional e informações sobre esses eventos.
+Para recursos do [modo provedor de recursos](../concepts/definition-structure.md#resource-provider-modes) , na guia **conformidade de recursos** , selecionar o recurso ou clicar com o botão direito do mouse na linha e selecionar **Exibir detalhes de conformidade** abre os detalhes de conformidade do componente. Esta página também oferece guias para ver as políticas que são atribuídas a esse recurso, eventos, eventos de componente e histórico de alterações.
+
+![Exemplo de detalhes de conformidade do componente de Azure Policy](../media/getting-compliance-data/compliance-components.png)
+
+De volta à página de conformidade do recurso, clique com o botão direito do mouse na linha do evento para o qual você gostaria de reunir mais detalhes e selecione **Mostrar logs de atividade**. A página log de atividades é aberta e filtrada previamente para a pesquisa mostrando os detalhes da atribuição e os eventos. O log de atividades fornece contexto adicional e informações sobre esses eventos.
 
 ![Exemplo de log de atividades de conformidade Azure Policy](../media/getting-compliance-data/compliance-activitylog.png)
 

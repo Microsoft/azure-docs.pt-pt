@@ -1,25 +1,25 @@
 ---
 author: IEvangelist
 ms.author: dapine
-ms.date: 06/25/2019
+ms.date: 10/02/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: 46376477aae9f94c1c8f6e1dd6bc718d213cc373
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7ccbc6c06419d22add7c52829069bb858cb35cf7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67712568"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73484098"
 ---
-O contentor tem as seguintes definições de configuração:
+O contêiner tem as seguintes definições de configuração:
 
 |Necessário|Definição|Objetivo|
 |--|--|--|
-|Sim|[ApiKey](#apikey-configuration-setting)|Faixas de informações de faturação.|
-|Não|[ApplicationInsights](#applicationinsights-setting)|Permite a adição [do Azure Application Insights](https://docs.microsoft.com/azure/application-insights) suporte de telemetria ao seu contentor.|
-|Sim|[Billing](#billing-configuration-setting)|Especifica o ponto final do URI do recurso de serviço no Azure.|
-|Sim|[EULA](#eula-setting)| Indica que aceite a licença para o contentor.|
-|Não|[Fluentd](#fluentd-settings)|Registo de escritas e, opcionalmente, dados de métrica para um servidor de Fluentd.|
-|Não|Proxy de HTTP|Configura um proxy HTTP para fazer pedidos de saída.|
-|Não|[Logging](#logging-settings)|Fornece suporte de registo do ASP.NET Core para o seu contentor. |
-|Não|[Mounts](#mount-settings)|Lê e escreve dados do computador anfitrião para o contentor e para o contentor de volta para o computador anfitrião.|
+|Sim|[ApiKey](#apikey-configuration-setting)|Rastreia informações de cobrança.|
+|Não|[ApplicationInsights](#applicationinsights-setting)|Permite adicionar suporte à telemetria do [insights aplicativo Azure](https://docs.microsoft.com/azure/application-insights) ao seu contêiner.|
+|Sim|[Faturação](#billing-configuration-setting)|Especifica o URI do ponto de extremidade do recurso de serviço no Azure.|
+|Sim|[EULA](#eula-setting)| Indica que você aceitou a licença para o contêiner.|
+|Não|[Fluentd](#fluentd-settings)|Grava o log e, opcionalmente, os dados de métrica para um servidor Fluentd.|
+|Não|Proxy HTTP|Configura um proxy HTTP para fazer solicitações de saída.|
+|Não|[Logout](#logging-settings)|Fornece suporte ao log de ASP.NET Core para seu contêiner. |
+|Não|[Monta](#mount-settings)|Lê e grava dados do computador host para o contêiner e do contêiner de volta para o computador host.|

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a9ab828daa009f7204abb1c64291d937a1f0dba2
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1f134ac360b6c5bd04c0e141da52b6dad950e208
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784939"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466811"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exemplo: criar uma habilidade personalizada usando o API de Pesquisa de Entidade do Bing
 
@@ -33,9 +33,9 @@ Embora este exemplo use uma função do Azure para hospedar uma API da Web, ele 
 
 ### <a name="create-a-function-app"></a>Criar uma aplicação de função
 
-1. No Visual Studio, selecione **novo** **projeto** de  >  no menu arquivo.
+1. No Visual Studio, selecione **novo** **projeto** de > no menu arquivo.
 
-1. Na caixa de diálogo novo projeto, selecione **instalado**, expanda  **C# Visual**  > **nuvem**, selecione **Azure Functions**, digite um nome para o projeto e selecione **OK**. O nome do aplicativo de funções deve ser válido C# como um namespace, portanto, não use sublinhados, hifens ou quaisquer outros caracteres não alfanuméricos.
+1. Na caixa de diálogo novo projeto, selecione **instalado**, expanda  **C# Visual** > **nuvem**, selecione **Azure Functions**, digite um nome para o projeto e selecione **OK**. O nome do aplicativo de funções deve ser válido C# como um namespace, portanto, não use sublinhados, hifens ou quaisquer outros caracteres não alfanuméricos.
 
 1. Selecione **Azure Functions v2 (.NET Core)** . Você também pode fazer isso com a versão 1, mas o código escrito abaixo é baseado no modelo v2.
 
@@ -313,7 +313,7 @@ namespace SampleSkills
 
 Certifique-se de inserir seu próprio valor de *chave* na constante de `key` com base na chave que você obteve ao se inscrever na API de pesquisa de entidade do Bing.
 
-Este exemplo inclui todo o código necessário em um único arquivo para sua conveniência. Você pode encontrar uma versão um pouco mais estruturada dessa mesma habilidade, bem como outros exemplos de habilidades personalizadas no [repositório de habilidades de energia](https://aka.ms/entity-search-power-skill).
+Este exemplo inclui todo o código necessário em um único arquivo para sua conveniência. Você pode encontrar uma versão um pouco mais estruturada dessa mesma habilidade no [repositório de habilidades de energia](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
 
 É claro que você pode renomear o arquivo de `Function1.cs` para `BingEntitySearch.cs`.
 
@@ -375,7 +375,7 @@ Você deverá ver uma resposta semelhante ao exemplo a seguir:
 
 Quando estiver satisfeito com o comportamento da função, você poderá publicá-lo.
 
-1. No **Explorador de Soluções**, clique com o botão direito do rato no projeto e selecione **Publicar**. Escolha **criar novo**  > **publicar**.
+1. No **Explorador de Soluções**, clique com o botão direito do rato no projeto e selecione **Publicar**. Escolha **criar novo** > **publicar**.
 
 1. Se você ainda não conectou o Visual Studio à sua conta do Azure, selecione **Adicionar uma conta....**
 
@@ -476,10 +476,10 @@ Aqui, estamos contando com a habilidade de reconhecimento de [entidade](cognitiv
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Parabéns! Você criou seu primeiro aprimorado personalizado. Agora você pode seguir o mesmo padrão para adicionar sua própria funcionalidade personalizada. 
+Parabéns! Você criou sua primeira habilidade personalizada. Agora você pode seguir o mesmo padrão para adicionar sua própria funcionalidade personalizada. Clique nos links a seguir para saber mais.
 
-+ [Habilidades de energia: um repositório de habilidades personalizadas](https://aka.ms/powerskills)
-+ [Adicionar uma habilidade personalizada a um pipeline de pesquisa cognitiva](cognitive-search-custom-skill-interface.md)
++ [Habilidades de energia: um repositório de habilidades personalizadas](https://github.com/Azure-Samples/azure-search-power-skills)
++ [Adicionar uma habilidade personalizada a um pipeline de enriquecimento de ia](cognitive-search-custom-skill-interface.md)
 + [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
 + [Criar conconhecimento (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Como mapear campos aprimorados](cognitive-search-output-field-mapping.md)

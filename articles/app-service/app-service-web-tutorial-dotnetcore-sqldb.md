@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9a4d4f84626eafdfbc5cc21eef1968a9ed64fcad
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a52a842bbd8ba9d8b22cdcf6792ec7e45a06e964
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "71055609"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471139"
 ---
-# <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Tutorial: Criar um ASP.NET Core e um aplicativo de banco de dados SQL no serviço Azure App
+# <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Tutorial: criar um aplicativo de banco de dados ASP.NET Core e SQL no serviço Azure App
 
 > [!NOTE]
 > Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implantar o serviço de aplicativo no _Linux_, consulte [criar um aplicativo .NET Core e banco de dados SQL no serviço de Azure app no Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
@@ -180,7 +180,7 @@ Para definir cadeias de ligação para a sua aplicação do Azure, utilize o com
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection="<connection_string>" --connection-string-type SQLServer
 ```
 
-No ASP.NET Core, você pode usar essa cadeia de conexão nomeada`MyDbConnection`() usando o padrão padrão, como qualquer cadeia de conexão especificada em *appSettings. JSON*. Nesse caso, `MyDbConnection` também é definido em seu *appSettings. JSON*. Durante a execução no serviço de aplicativo, a cadeia de conexão definida no serviço de aplicativo tem precedência sobre a cadeia de conexão definida no *appSettings. JSON*. O código usa o valor *appSettings. JSON* durante o desenvolvimento local e o mesmo código usa o valor do serviço de aplicativo quando implantado.
+No ASP.NET Core, você pode usar essa cadeia de conexão nomeada (`MyDbConnection`) usando o padrão padrão, como qualquer cadeia de conexão especificada em *appSettings. JSON*. Nesse caso, `MyDbConnection` também é definido em seu *appSettings. JSON*. Durante a execução no serviço de aplicativo, a cadeia de conexão definida no serviço de aplicativo tem precedência sobre a cadeia de conexão definida no *appSettings. JSON*. O código usa o valor *appSettings. JSON* durante o desenvolvimento local e o mesmo código usa o valor do serviço de aplicativo quando implantado.
 
 Para ver como a cadeia de conexão é referenciada em seu código, consulte [conectar-se ao banco de dados SQL em produção](#connect-to-sql-database-in-production).
 
@@ -188,7 +188,7 @@ Para ver como a cadeia de conexão é referenciada em seu código, consulte [con
 
 Em seguida, configure a definição da aplicação `ASPNETCORE_ENVIRONMENT` como _Produção_. Essa configuração permite que você saiba se está executando o no Azure, porque você usa o SQLite para seu ambiente de desenvolvimento local e o banco de dados SQL para seu ambiente do Azure.
 
-O exemplo a seguir define uma `ASPNETCORE_ENVIRONMENT` configuração de aplicativo em seu aplicativo do Azure. Substitua o marcador de posição *\<app_name>* .
+O exemplo a seguir define uma configuração de aplicativo `ASPNETCORE_ENVIRONMENT` em seu aplicativo do Azure. Substitua o marcador de posição *\<app_name>* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
@@ -222,7 +222,7 @@ services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate
 
 Se esse código detectar que está sendo executado em produção (que indica o ambiente do Azure), ele usará a cadeia de conexão que você configurou para se conectar ao banco de dados SQL.
 
-A `Database.Migrate()` chamada ajuda você quando ela é executada no Azure, pois cria automaticamente os bancos de dados de que seu aplicativo .NET Core precisa, com base em sua configuração de migração. 
+A chamada `Database.Migrate()` ajuda quando é executada no Azure, pois cria automaticamente os bancos de dados de que seu aplicativo .NET Core precisa, com base em sua configuração de migração. 
 
 > [!IMPORTANT]
 > Para aplicativos de produção que precisam ser expandidos, siga as práticas recomendadas em [aplicando migrações em produção](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production).
@@ -382,16 +382,16 @@ Enquanto o aplicativo ASP.NET Core é executado no serviço Azure App, você pod
 O projeto de exemplo já segue as diretrizes em [log de ASP.NET Core no Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider) com duas alterações de configuração:
 
 - Inclui uma referência a `Microsoft.Extensions.Logging.AzureAppServices` em *DotNetCoreSqlDb. csproj*.
-- Chamadas `loggerFactory.AddAzureWebAppDiagnostics()` em *Program.cs*.
+- Chama `loggerFactory.AddAzureWebAppDiagnostics()` em *Program.cs*.
 
-Para definir o [nível de log](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) ASP.NET Core no serviço de `Information` aplicativo como do nível `Error`padrão, use [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) o comando no Cloud Shell.
+Para definir o [nível de log](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) ASP.NET Core no serviço de aplicativo para `Information` do `Error`de nível padrão, use o comando [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) na Cloud Shell.
 
 ```azurecli-interactive
 az webapp log config --name <app_name> --resource-group myResourceGroup --application-logging true --level information
 ```
 
 > [!NOTE]
-> O nível de log do projeto já está definido `Information` como in *appSettings. JSON*.
+> O nível de log do projeto já está definido como `Information` em *appSettings. JSON*.
 > 
 
 Para iniciar a transmissão em fluxo do registo, utilize o comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) no Cloud Shell.
@@ -402,19 +402,21 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 Depois que o streaming de log for iniciado, atualize o aplicativo do Azure no navegador para obter algum tráfego da Web. Verá então os registos da consola direcionados para o terminal. Se não vir os registos da consola imediatamente, volte a consultar dentro de 30 segundos.
 
-Para interromper o streaming de log a qualquer momento `Ctrl`, digite. + `C`
+Para interromper o streaming de log a qualquer momento, digite `Ctrl`+`C`.
 
 Para obter mais informações sobre como personalizar os logs de ASP.NET Core, consulte [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 
 ## <a name="manage-your-azure-app"></a>Gerenciar seu aplicativo do Azure
 
-Vá para a [portal do Azure](https://portal.azure.com) para ver o aplicativo que você criou.
+Para ver o aplicativo que você criou, na [portal do Azure](https://portal.azure.com), procure e selecione **serviços de aplicativos**.
 
-No menu à esquerda, clique em **serviços de aplicativos**e, em seguida, clique no nome do seu aplicativo do Azure.
+![Selecione serviços de aplicativos no portal do Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/app-services.png)
+
+Na página **serviços de aplicativos** , selecione o nome do seu aplicativo do Azure.
 
 ![Navegação do portal para a aplicação do Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
 
-Por padrão, o portal mostra a página de **visão geral** do aplicativo. Esta página proporciona-lhe uma vista do desempenho da aplicação. Aqui, também pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar. Os separadores no lado esquerdo da página mostram as várias páginas de configuração que pode abrir.
+Por padrão, o portal mostra a página de **visão geral** do aplicativo. Esta página proporciona-lhe uma vista do desempenho da aplicação. Aqui, também pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar. O lado esquerdo da página mostra as diferentes páginas de configuração que você pode abrir.
 
 ![Página Serviço de Aplicações no portal do Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/web-app-blade.png)
 

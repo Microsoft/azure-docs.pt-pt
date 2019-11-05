@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6987c6f1191b0dfc7b78b14e77a5d6a0ab369f57
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: e46bc9e4fbb2b573338b8be43c38e658ebde05a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782610"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468020"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurar a recuperação de desastre para VMs do Azure
 
@@ -43,7 +43,7 @@ Para concluir este tutorial:
 Crie o cofre em qualquer região, exceto na região de origem.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) > **Serviços de Recuperação**.
-2. Clique em **criar um recurso** > **ferramentas** > de gerenciamento**backup e site Recovery**.
+2. No menu portal do Azure ou na **Home** Page do, selecione **criar um recurso**. Em seguida, selecione **ferramentas de gerenciamento** > **backup e site Recovery**.
 3. Em **Nome**, especifique um nome amigável para identificar o cofre. Se tiver mais do que uma subscrição, selecione a que for adequada.
 4. Crie um grupo de recursos ou selecione um existente. Selecione uma região do Azure. Para verificar as regiões suportadas, veja a disponibilidade geográfica em [Detalhes dos Preços do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 5. Para aceder rapidamente ao cofre a partir do dashboard, clique em **Afixar ao dashboard** e clique em **Criar**.
@@ -175,8 +175,8 @@ O Site Recovery cria as predefinições e a política de replicação para a reg
 Se a VM de origem tiver o ADE (Azure Disk Encryption) habilitado, examine as configurações.
 
 1. Verifique as configurações:
-    - **Cofres da chave de criptografia de disco**: Por padrão, Site Recovery cria um novo cofre de chaves nas chaves de criptografia de disco da VM de origem, com um sufixo "ASR". Se o cofre de chaves já existir, ele será reutilizado.
-    - **Cofres da chave de criptografia de chave**: Por padrão, Site Recovery cria um novo cofre de chaves na região de destino. O nome tem um sufixo "ASR" e é baseado nas chaves de criptografia de chave de VM de origem. Se o cofre de chaves criado pelo Site Recovery já existir, ele será reutilizado.
+    - **Cofres de chaves de criptografia de disco**: por padrão, site Recovery cria um novo cofre de chaves nas chaves de criptografia de disco de VM de origem, com um sufixo "ASR". Se o cofre de chaves já existir, ele será reutilizado.
+    - **Cofres de chave de criptografia de chave**: por padrão, site Recovery cria um novo cofre de chaves na região de destino. O nome tem um sufixo "ASR" e é baseado nas chaves de criptografia de chave de VM de origem. Se o cofre de chaves criado pelo Site Recovery já existir, ele será reutilizado.
 
 2. Clique em **Personalizar** para selecionar cofres de chaves personalizados.
 
@@ -188,7 +188,7 @@ Se a VM de origem tiver o ADE (Azure Disk Encryption) habilitado, examine as con
 
 1. Em **Definições**, clique em **Atualizar** para obter o estado mais recente.
 2. Acompanhe o progresso e o status da seguinte maneira:
-    - Acompanhe o progresso do trabalho **habilitar proteção** em **configurações** > **trabalhos** > **site Recovery trabalhos**.
+    - Acompanhe o progresso do trabalho **habilitar proteção** em **configurações** > **trabalhos** > **trabalhos de site Recovery**.
     - Em **Definições** > **Itens Replicados**, pode ver o estado das VMs e o progresso da replicação inicial. Clique na VM para desagregar as respetivas definições.
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 7/5/2019
+ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 2de879d271ab001e62725424ea72e0604176efb4
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 1c858432a3382e6dbc8e479aab11b18dc5eebfe4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516870"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499099"
 ---
 # <a name="deploy-the-computer-vision-container-to-azure-container-instances"></a>Implantar o contêiner de Pesquisa Visual Computacional em instâncias de contêiner do Azure
 

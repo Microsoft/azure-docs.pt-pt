@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2019
+ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 91f07b8da2cbc9beaa24730f2ec9f2ddb4639f37
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
-ms.translationtype: MT
+ms.openlocfilehash: e6e4c0018f11e216afd5a8c295fc336036885e68
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302538"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468936"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: perguntas frequentes (FAQ)
 
@@ -35,9 +35,9 @@ Azure AD B2C não pode ser usado para autenticar usuários para Microsoft Office
 
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>O que são contas locais no Azure AD B2C? Como eles são diferentes das contas corporativas ou de estudante no Azure AD?
 
-Em um locatário do Azure AD, os usuários que pertencem ao locatário entram com um endereço de email do formulário `<xyz>@<tenant domain>`. O `<tenant domain>` é um dos domínios verificados no locatário ou no domínio `<...>.onmicrosoft.com` inicial. Esse tipo de conta é uma conta corporativa ou de estudante.
+Em um locatário do Azure AD, os usuários que pertencem à entrada do locatário com um endereço de email do formulário `<xyz>@<tenant domain>`. O `<tenant domain>` é um dos domínios verificados no locatário ou no domínio de `<...>.onmicrosoft.com` inicial. Esse tipo de conta é uma conta corporativa ou de estudante.
 
-Em um locatário Azure AD B2C, a maioria dos aplicativos deseja que o usuário entre com qualquer endereço de email arbitrário (por exemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com). Esse tipo de conta é uma conta local. Também há suporte para nomes de usuário arbitrários como contas locais (por exemplo, Joe, Bob, Sarah ou Jim). Você pode escolher um desses dois tipos de conta local ao configurar provedores de identidade para Azure AD B2C no portal do Azure. No locatário do Azure AD B2C, selecione **provedores de identidade**, selecione **conta local**e, em seguida, selecione **nome de usuário**.
+Em um locatário Azure AD B2C, a maioria dos aplicativos deseja que o usuário entre com qualquer endereço de email arbitrário (por exemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.comou jim@live.com). Esse tipo de conta é uma conta local. Também há suporte para nomes de usuário arbitrários como contas locais (por exemplo, Joe, Bob, Sarah ou Jim). Você pode escolher um desses dois tipos de conta local ao configurar provedores de identidade para Azure AD B2C no portal do Azure. No locatário do Azure AD B2C, selecione **provedores de identidade**, selecione **conta local**e, em seguida, selecione **nome de usuário**.
 
 As contas de usuário para aplicativos sempre devem ser criadas por meio de um fluxo de usuário de inscrição, um fluxo de usuário de inscrição ou de entrada ou usando o API do Graph do Azure AD. As contas de usuário criadas no portal do Azure são usadas somente para administrar o locatário.
 
@@ -126,19 +126,24 @@ Sim, consulte [personalização de idioma](active-directory-b2c-reference-langua
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>Posso usar minhas próprias URLs em minhas páginas de inscrição e de entrada que são servidas pelo Azure AD B2C? Por exemplo, posso alterar a URL de contoso.b2clogin.com para login.contoso.com?
 
-Atualmente não é possível. Esse recurso está em nosso roteiro. Verificar seu domínio na guia **domínios** no portal do Azure não atinge essa meta. No entanto, com o b2clogin.com, oferecemos um [domínio de nível superior neutro](b2clogin.md)e, portanto, a aparência externa pode ser implementada sem a menção da Microsoft.
+Atualmente não. Esse recurso está em nosso roteiro. Verificar seu domínio na guia **domínios** no portal do Azure não atinge essa meta. No entanto, com o b2clogin.com, oferecemos um [domínio de nível superior neutro](b2clogin.md)e, portanto, a aparência externa pode ser implementada sem a menção da Microsoft.
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Como fazer excluir meu locatário Azure AD B2C?
 
-Siga estas etapas para excluir seu locatário de Azure AD B2C:
+Siga estas etapas para excluir seu locatário Azure AD B2C.
 
+Você pode usar a experiência de **aplicativos** atual ou nossa nova experiência unificada de **registros de aplicativo (versão prévia)** . [Saiba mais sobre a experiência de visualização](http://aka.ms/b2cappregintro).
+
+#### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
+
+1. Entre no [portal do Azure](https://portal.azure.com/) como o administrador da *assinatura*. Use a mesma conta corporativa ou de estudante ou a mesma conta Microsoft que você usou para se inscrever no Azure.
+1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
+1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
 1. Exclua todos os **fluxos de usuário (políticas)** no locatário Azure ad B2C.
 1. Exclua todos os **aplicativos** que você registrou em seu locatário Azure ad B2C.
-1. Em seguida, entre no [portal do Azure](https://portal.azure.com/) como o administrador da assinatura. Use a mesma conta corporativa ou de estudante ou a mesma conta Microsoft que você usou para se inscrever no Azure.
-1. Alterne para o locatário de Azure AD B2C que você deseja excluir.
 1. Selecione **Azure Active Directory** no menu à esquerda.
 1. Em **Gerir**, selecione **Utilizadores**.
-1. Selecione cada usuário por vez (exclua o usuário administrador de assinatura no qual você está conectado no momento). Selecione **excluir** na parte inferior da página e selecione **Sim** quando solicitado.
+1. Selecione cada usuário por vez (exclua o usuário *administrador de assinatura* no qual você está conectado no momento). Selecione **excluir** na parte inferior da página e selecione **Sim** quando solicitado.
 1. Em **gerenciar**, selecione **Registros de aplicativo** (ou **registros de aplicativo (Herdado)** ).
 1. Selecione **Exibir todos os aplicativos**
 1. Selecione o aplicativo chamado **B2C-Extensions-app**, selecione **excluir**e, em seguida, selecione **Sim** quando solicitado.
@@ -149,6 +154,28 @@ Siga estas etapas para excluir seu locatário de Azure AD B2C:
 1. Saia do portal do Azure e, em seguida, entre novamente para atualizar seu acesso.
 1. Selecione **Azure Active Directory** no menu à esquerda.
 1. Na página **visão geral** , selecione **excluir diretório**. Siga as instruções na tela para concluir o processo.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
+
+1. Entre no [portal do Azure](https://portal.azure.com/) como o administrador da *assinatura*. Use a mesma conta corporativa ou de estudante ou a mesma conta Microsoft que você usou para se inscrever no Azure.
+1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
+1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
+1. Exclua todos os **fluxos de usuário (políticas)** no locatário Azure ad B2C.
+1. Selecione **registros de aplicativo (versão prévia)** e, em seguida, selecione a guia **todos os aplicativos** .
+1. Exclua todos os aplicativos que você registrou.
+1. Exclua o **B2C-Extensions-app**.
+1. Em **Gerir**, selecione **Utilizadores**.
+1. Selecione cada usuário por vez (exclua o usuário *administrador de assinatura* no qual você está conectado no momento). Selecione **excluir** na parte inferior da página e selecione **Sim** quando solicitado.
+1. Selecione **Azure Active Directory** no menu à esquerda.
+1. Em **gerenciar**, selecione **configurações do usuário**.
+1. Se houver, em **conexões de conta do LinkedIn**, selecione **não**e, em seguida, selecione **salvar**.
+1. Em **gerenciar**, selecione **Propriedades**
+1. Em **Gerenciamento de acesso para recursos do Azure**, selecione **Sim**e, em seguida, selecione **salvar**.
+1. Saia do portal do Azure e, em seguida, entre novamente para atualizar seu acesso.
+1. Selecione **Azure Active Directory** no menu à esquerda.
+1. Na página **visão geral** , selecione **excluir diretório**. Siga as instruções na tela para concluir o processo.
+
+* * *
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>Posso obter Azure AD B2C como parte do Enterprise Mobility Suite?
 

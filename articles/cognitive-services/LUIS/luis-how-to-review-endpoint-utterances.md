@@ -9,88 +9,89 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: c617e4aa62ce2ff468545bef0b2ebe2c4d0e4f03
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: d5652857f2f35e392d3f512001044fd06bc0a0c9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382364"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499077"
 ---
 # <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Como examinar o ponto de extremidade declarações no LUIS portal for active Learning
 
 O [aprendizado ativo](luis-concept-review-endpoint-utterances.md) captura consultas de ponto de extremidade e seleciona o ponto de extremidade do usuário declarações que não tem certeza de. Revise essas declarações para selecionar as entidades de intenção e marca para essas declarações de leitura do mundo. Aceite essas alterações em seu exemplo declarações, em seguida, treine e publique. LUIS, em seguida, identifica declarações com mais precisão.
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="enable-active-learning"></a>Habilitar o aprendizado ativo
 
-Para habilitar o aprendizado ativo, faça log de consultas de usuário. Isso é feito definindo a [consulta de ponto](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) de extremidade `log=true` com o parâmetro e o valor de QueryString.
+Para habilitar o aprendizado ativo, faça log de consultas de usuário. Isso é feito definindo a [consulta de ponto de extremidade](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) com o `log=true` parâmetro e valor de QueryString.
 
 ## <a name="disable-active-learning"></a>Desabilitar o aprendizado ativo
 
-Para desabilitar o aprendizado ativo, não faça log de consultas de usuário. Isso é feito definindo a [consulta de ponto](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) de extremidade `log=false` com o parâmetro e o valor de QueryString.
+Para desabilitar o aprendizado ativo, não faça log de consultas de usuário. Isso é feito definindo a [consulta de ponto de extremidade](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) com o `log=false` parâmetro e valor de QueryString.
 
-## <a name="filter-utterances"></a>Expressões de filtro
+## <a name="filter-utterances"></a>Filtrar declarações
 
-1. Abra a sua aplicação (por exemplo, TravelAgent) ao selecionar o respetivo nome na **as minhas aplicações** página, em seguida, selecione **criar** na barra superior.
+1. Abra seu aplicativo (por exemplo, TravelAgent) selecionando seu nome na página **meus aplicativos** e, em seguida, selecione **criar** na barra superior.
 
-1. Sob o **melhorar o desempenho da aplicação**, selecione **rever expressões de ponto final**.
+1. Em **melhorar o desempenho do aplicativo**, selecione **examinar ponto de extremidade declarações**.
 
-1. Na **rever expressões de ponto final** página, selecione no **lista de filtros de intenção ou entidade** caixa de texto. Esta lista pendente inclui todas as intenções sob **INTENÇÕES** e todas as entidades sob **entidades**.
+1. Na página **revisar declarações do ponto de extremidade** , selecione na caixa de texto **lista de filtros por intenção ou entidade** . Essa lista suspensa inclui todas as intenções em **tentativas** e todas as entidades em **entidades**.
 
-    ![Filtro de expressões](./media/label-suggested-utterances/filter.png)
+    ![Filtro de declarações](./media/label-suggested-utterances/filter.png)
 
-1. Na lista pendente, selecione uma categoria (intenções ou entidades) e reveja as expressões.
+1. Selecione uma categoria (intenções ou entidades) na lista suspensa e examine o declarações.
 
-    ![Expressões com intenção](./media/label-suggested-utterances/intent-utterances.png)
+    ![Declarações intenção](./media/label-suggested-utterances/intent-utterances.png)
 
-## <a name="label-entities"></a>Entidades de etiqueta
-LUIS substitui tokens de entidade (palavras) com os nomes de entidades realçados em azul. Se uma expressão tem sem etiqueta entidades, da etiqueta-los na expressão. 
+## <a name="label-entities"></a>Rotular entidades
+LUIS substitui os tokens de entidade (palavras) por nomes de entidade realçados em azul. Se um expressão tiver entidades sem rótulo, etiquete-as no expressão. 
 
-1. Selecione o word(s) na expressão. 
+1. Selecione uma das palavras no expressão. 
 
-1. Selecione uma entidade a partir da lista.
+1. Selecione uma entidade na lista.
 
-    ![Etiqueta de entidade](./media/label-suggested-utterances/label-entity.png)
+    ![Entidade de rótulo](./media/label-suggested-utterances/label-entity.png)
 
-## <a name="align-single-utterance"></a>Alinhar expressão única
+## <a name="align-single-utterance"></a>Alinhar expressão único
 
-Cada ocorrência de pronunciação tem uma intenção sugerida zobrazené a **alinhadas com a intenção** coluna. 
+Cada expressão tem uma intenção sugerida exibida na coluna de **intenção alinhada** . 
 
-1. Se concordar com essa sugestão, selecione a marca de verificação.
+1. Se você concordar com essa sugestão, selecione na marca de seleção.
 
     ![Manter a intenção alinhada](./media/label-suggested-utterances/align-intent-check.png)
 
-1. Se discordar com a sugestão, selecione a intenção correta da lista pendente intenção alinhada, em seguida, selecione na marca de verificação para a direita da intenção alinhada. 
+1. Se você discordar da sugestão, selecione a intenção correta na lista suspensa intenção alinhada e selecione na marca de seleção à direita da intenção alinhada. 
 
-    ![Alinhar intenção](./media/label-suggested-utterances/align-intent.png)
+    ![Intenção de alinhamento](./media/label-suggested-utterances/align-intent.png)
 
-1. Depois de selecionar a marca de verificação, a expressão é removido da lista. 
+1. Depois de selecionar na marca de seleção, o expressão é removido da lista. 
 
-## <a name="align-several-utterances"></a>Alinhar expressões com vários
+## <a name="align-several-utterances"></a>Alinhar várias declarações
 
-Alinhar expressões com vários, marque a caixa à esquerda das expressões, em seguida, selecione sobre o **adicionar selecionado** botão. 
+Para alinhar vários declarações, marque a caixa à esquerda de declarações e, em seguida, selecione no botão **Adicionar selecionado** . 
 
 ![Alinhar vários](./media/label-suggested-utterances/add-selected.png)
 
-## <a name="verify-aligned-intent"></a>Certifique-se a intenção alinhada
+## <a name="verify-aligned-intent"></a>Verificar intenção alinhada
 
-Pode verificar a expressão foi alinhado com a intenção correta ao aceder a **intenções** página, selecione o nome de intenção e rever as expressões. A expressão da **rever expressões de ponto final** está na lista.
+Você pode verificar se o expressão foi alinhado com a intenção correta acessando a página de **tentativas** , selecionando o nome da intenção e revisando o declarações. O expressão do **ponto de extremidade de revisão declarações** está na lista.
 
-## <a name="delete-utterance"></a>Eliminar expressão
+## <a name="delete-utterance"></a>Excluir expressão
 
-Cada expressão pode ser eliminado da lista de revisão. Depois de eliminado, não aparecerá na lista novamente. Isso vale mesmo que o usuário insere a expressão mesmo do ponto final. 
+Cada expressão pode ser excluído da lista de revisão. Depois de excluído, ele não será exibido na lista novamente. Isso é verdadeiro mesmo que o usuário insira o mesmo expressão do ponto de extremidade. 
 
-Se tiver a certeza se deve excluir a expressão, mova-o para a intenção, nenhuma ou criar uma intenção de novo, como "diversos" e mova a expressão para esse propósito. 
+Se você não tiver certeza se deve excluir o expressão, mova-o para a intenção nenhum ou crie uma nova intenção, como "Miscelânea", e mova o expressão para essa intenção. 
 
-## <a name="delete-several-utterances"></a>Eliminar várias expressões
+## <a name="delete-several-utterances"></a>Excluir várias declarações
 
-Para eliminar várias expressões, selecione cada item e selecione do contentor de caixote do lixo à direita dos **adicionar selecionado** botão.
+Para excluir vários declarações, selecione cada item e selecione na lixeira à direita do botão **Adicionar selecionado** .
 
-![Eliminar vários](./media/label-suggested-utterances/delete-several.png)
+![Excluir vários](./media/label-suggested-utterances/delete-several.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para testar como o desempenho aumenta depois coloca expressões sugeridas com uma etiqueta, pode aceder à consola de teste, selecionando **testar** no painel superior. Para obter instruções sobre como testar a sua aplicação utilizando a consola de teste, consulte [treinar e testar a aplicação](luis-interactive-test.md).
+Para testar como o desempenho melhora depois de você rotular declarações sugeridos, você pode acessar o console de teste selecionando **testar** no painel superior. Para obter instruções sobre como testar seu aplicativo usando o console de teste, consulte [treinar e testar seu aplicativo](luis-interactive-test.md).

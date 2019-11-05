@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: 906beabe527db41f41793a7fb1f76aef27487cdd
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 379629cfe3c742bd247e02cdf7a891afab08107f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044963"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496189"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>FAQ de hiperescala do banco de dados SQL do Azure
 
@@ -39,19 +39,19 @@ A camada de serviço de hiperescala está disponível somente para bancos de dad
 
 As camadas de serviço baseadas em vCore são diferenciadas com base na disponibilidade do banco de dados e no tipo de armazenamento, desempenho e tamanho máximo, conforme descrito na tabela a seguir.
 
-| | Tipo de recurso | Fins Gerais |  Hiperescala | Crítico para a Empresa |
+| | Tipo de recurso | Fins Gerais |  Hyperscale | Crítico para a Empresa |
 |:---:|:---:|:---:|:---:|:---:|
-| **Melhor para** |Tudo|Oferece opções de armazenamento e computação balanceadas com enfoque no orçamento.|A maioria das cargas de trabalho de negócios. Dimensionamento automático de tamanho de armazenamento de até 100 TB, dimensionamento rápido vertical e horizontal de computação, restauração rápida de banco de dados.|Aplicativos OLTP com alta taxa de transação e baixa latência de e/s. Oferece maior resiliência a falhas e failovers rápidos usando várias réplicas atualizadas de forma síncrona.|
-|  **Tipo de recurso** ||Banco de dados individual/pool elástico/instância gerenciada | Base de dados única | Banco de dados individual/pool elástico/instância gerenciada |
+| **Melhor para** |Todos|Oferece opções de armazenamento e computação balanceadas com enfoque no orçamento.|A maioria das cargas de trabalho de negócios. Dimensionamento automático de tamanho de armazenamento de até 100 TB, dimensionamento rápido vertical e horizontal de computação, restauração rápida de banco de dados.|Aplicativos OLTP com alta taxa de transação e baixa latência de e/s. Oferece maior resiliência a falhas e failovers rápidos usando várias réplicas atualizadas de forma síncrona.|
+|  **Tipo de recurso** ||Banco de dados individual/pool elástico/instância gerenciada | Base de dados individual | Banco de dados individual/pool elástico/instância gerenciada |
 | **Tamanho da computação**|Banco de dados individual/pool elástico * | 1 a 80 vCores | 1 a 80 vCores * | 1 a 80 vCores |
 | |Instância gerida | 8, 16, 24, 32, 40, 64, 80 vCores | N/A | 8, 16, 24, 32, 40, 64, 80 vCores |
-| **Tipo de armazenamento** | Tudo |Armazenamento remoto Premium (por instância) | Armazenamento desacoplado com cache de SSD local (por instância) | Armazenamento SSD local extremamente rápido (por instância) |
+| **Tipo de armazenamento** | Todos |Armazenamento remoto Premium (por instância) | Armazenamento desacoplado com cache de SSD local (por instância) | Armazenamento SSD local extremamente rápido (por instância) |
 | **Tamanho do armazenamento** | Banco de dados individual/pool elástico *| 5 GB – 4 TB | Até 100 TB | 5 GB – 4 TB |
 | | Instância gerida  | 32 GB A 8 TB | N/A | 32 GB A 4 TB |
-| **IOPS** | Base de dados única | 500 IOPS por vCore com 7000 IOPS máximo | O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPS efetivo dependerá da carga de trabalho. | 5000 IOPS com IOPS máximo de 200.000|
+| **IOPS** | Base de dados individual | 500 IOPS por vCore com 7000 IOPS máximo | O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPS efetivo dependerá da carga de trabalho. | 5000 IOPS com IOPS máximo de 200.000|
 | | Instância gerida | Depende do tamanho do arquivo | N/A | 1375 IOPS/vCore |
-|**Disponibilidade**|Tudo|1 réplica, sem escala de leitura, sem cache local | Várias réplicas, até 4 expansão de leitura, cache local parcial | 3 réplicas, 1 expansão de leitura, HA com redundância de zona, armazenamento local completo |
-|**Únicos**|Tudo|RA-GRS, 7-35 dias de retenção (7 dias por padrão)| RA-GRS, 7 dias de retenção, PITR (tempo constante de recuperação pontual) | RA-GRS, 7-35 dias de retenção (7 dias por padrão) |
+|**Disponibilidade**|Todos|1 réplica, sem escala de leitura, sem cache local | Várias réplicas, até 4 expansão de leitura, cache local parcial | 3 réplicas, 1 expansão de leitura, HA com redundância de zona, armazenamento local completo |
+|**Únicos**|Todos|RA-GRS, 7-35 dias de retenção (7 dias por padrão)| RA-GRS, 7 dias de retenção, PITR (tempo constante de recuperação pontual) | RA-GRS, 7-35 dias de retenção (7 dias por padrão) |
 
 \* pools elásticos não têm suporte na camada de serviço de hiperescala
 
@@ -127,7 +127,7 @@ Não no momento, no entanto, você pode dimensionar a computação e o número d
 
 ### <a name="can-i-provision-a-compute-replica-with-extra-ram-for-my-memory-intensive-workload"></a>Posso provisionar uma réplica de computação com RAM extra para minha carga de trabalho com uso intensivo de memória
 
-Não. Para obter mais RAM, você precisa atualizar para um tamanho de computação mais alto. Para obter mais informações, consulte [armazenamento de hiperescala e tamanhos de computação](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute).
+Não. Para obter mais RAM, você precisa atualizar para um tamanho de computação mais alto. Para obter mais informações, consulte [armazenamento de hiperescala e tamanhos de computação](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5).
 
 ### <a name="can-i-provision-multiple-compute-replicas-of-different-sizes"></a>Posso provisionar várias réplicas de computação de tamanhos diferentes
 
@@ -157,7 +157,7 @@ O log de transações com hiperescala é praticamente infinito. Você não preci
 
 ### <a name="does-my-tempdb-scale-as-my-database-grows"></a>O meu `tempdb` escala conforme o meu banco de dados cresce
 
-O banco de dados do `tempdb` está localizado no armazenamento SSD local e é configurado com base no tamanho de computação que você provisiona. Seu `tempdb` é otimizado para fornecer benefícios máximos de desempenho. o tamanho do `tempdb` não é configurável e é gerenciado para você.
+O banco de dados `tempdb` está localizado no armazenamento SSD local e é configurado com base no tamanho de computação que você provisiona. Seu `tempdb` é otimizado para fornecer benefícios máximos de desempenho. o tamanho do `tempdb` não é configurável e é gerenciado para você.
 
 ### <a name="does-my-database-size-automatically-grow-or-do-i-have-to-manage-the-size-of-data-files"></a>O tamanho do meu banco de dados aumenta automaticamente ou preciso gerenciar o tamanho dos arquivos
 

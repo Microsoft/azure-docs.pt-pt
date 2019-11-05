@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 0fdc58ba54c63ba7dd6b74f56aa91e9c2b3c0936
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 370b5005f27fbfe6ee8fc96d6dd7e467a581ec67
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562829"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464605"
 ---
 # <a name="create-a-custom-voice"></a>Criar uma voz personalizada
 
@@ -46,7 +46,7 @@ A tabela a seguir mostra os Estados de processamento para conjuntos de tabelas i
 
 | Estado | Significado |
 | ----- | ------- |
-| A processar | Seu conjunto de seus foi recebido e está sendo processado. |
+| Em processamento | Seu conjunto de seus foi recebido e está sendo processado. |
 | Bem-sucedido | Seu conjunto de um foi validado e agora pode ser usado para criar um modelo de voz. |
 | Com Falhas | O conjunto de dados falhou durante o processamento devido a vários motivos, por exemplo, erros de arquivo, problemas de dados ou problemas de rede. |
 
@@ -78,17 +78,17 @@ Depois que o conjunto de seus conjuntos de um for validado, você poderá usá-l
     > Nomes de áudio duplicados serão removidos do treinamento. Verifique se os conjuntos de valores selecionados não contêm os mesmos nomes de áudio em vários arquivos. zip.
 
     > [!TIP]
-    > O uso dos conjuntos de valores do mesmo palestrante é necessário para os resultados de qualidade. Quando os conjuntos de valores que você enviou para treinamento contêm um número total de menos de 6.000 declarações distintos, você treinará seu modelo de voz por meio da técnica de síntese paramétricas estatística. No caso em que os dados de treinamento excedem um número total de 6.000 declarações distintos, você iniciará um processo de treinamento com a técnica de síntese de concatenação. Normalmente, a tecnologia de concatenação pode resultar em resultados de voz mais naturais e de maior fidelidade. [Entre em contato com a equipe de voz personalizada](mailto:speechsupport@microsoft.com) se desejar treinar um modelo com a tecnologia de TTS do neural mais recente que pode produzir uma voz digital equivalente às [vozes neurais](language-support.md#neural-voices)disponíveis publicamente.
+    > O uso dos conjuntos de valores do mesmo palestrante é necessário para os resultados de qualidade. Quando os conjuntos de valores que você enviou para treinamento contêm um número total de menos de 6.000 declarações distintos, você treinará seu modelo de voz por meio da técnica de síntese paramétricas estatística. No caso em que os dados de treinamento excedem um número total de 6.000 declarações distintos, você iniciará um processo de treinamento com a técnica de síntese de concatenação. Normalmente, a tecnologia de concatenação pode resultar em resultados de voz mais naturais e de maior fidelidade. [Entre em contato com a equipe de voz personalizada](https://go.microsoft.com/fwlink/?linkid=2108737) se desejar treinar um modelo com a tecnologia de TTS do neural mais recente que pode produzir uma voz digital equivalente às [vozes neurais](language-support.md#neural-voices)disponíveis publicamente.
 
 5.  Clique em **treinar** para começar a criar seu modelo de voz.
 
-A tabela de treinamento exibe uma nova entrada que corresponde a esse modelo recém-criado. A tabela também exibe o status: Processamento, com êxito, com falha.
+A tabela de treinamento exibe uma nova entrada que corresponde a esse modelo recém-criado. A tabela também exibe o status: processamento, com êxito, com falha.
 
 O status mostrado reflete o processo de conversão do conjunto de seus conjuntos de um modelo de voz, como mostrado aqui.
 
 | Estado | Significado |
 | ----- | ------- |
-| A processar | Seu modelo de voz está sendo criado. |
+| Em processamento | Seu modelo de voz está sendo criado. |
 | Bem-sucedido | Seu modelo de voz foi criado e pode ser implantado. |
 | Com Falhas | O seu modelo de voz falhou no treinamento devido a vários motivos, por exemplo, problemas de dados ou problemas de rede não vistos. |
 
@@ -99,6 +99,8 @@ O tempo de treinamento varia dependendo do volume de dados de áudio processados
 
 > [!NOTE]
 > O número máximo de modelos de voz com permissão para ser treinado por assinatura é de 10 modelos para usuários de assinatura gratuita (F0) e 100 para usuários de assinatura padrão (S0).
+
+Se você estiver usando o recurso de treinamento de voz neural, poderá optar por treinar um modelo otimizado para cenários de streaming em tempo real ou um modelo neural de HD otimizado para a [síntese de áudio de longo e](long-audio-api.md)assíncrono.  
 
 ## <a name="test-your-voice-model"></a>Testar seu modelo de voz
 
@@ -141,7 +143,8 @@ O teste online do ponto de extremidade também está disponível por meio do por
 
 O ponto de extremidade personalizado é funcionalmente idêntico ao ponto de extremidade padrão usado para solicitações de conversão de texto em fala. Consulte [API REST](rest-text-to-speech.md) para obter mais informações.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Orienta Registre seus exemplos de voz](record-custom-voice-samples.md)
+* [Guia: Registre suas amostras de voz](record-custom-voice-samples.md)
 * [Referência de texto para Speech API](rest-text-to-speech.md)
+* [API de áudio longo](long-audio-api.md)

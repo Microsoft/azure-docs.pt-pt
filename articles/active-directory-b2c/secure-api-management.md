@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c5fb79fc3aa3297068f93b631d11e967c9345f4c
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
-ms.translationtype: MT
+ms.openlocfilehash: 531f6d86d57be550d0a1147e131d93ae6e298406
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71717153"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474749"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Proteger uma API de gerenciamento de API do Azure com Azure AD B2C
 
@@ -35,11 +35,25 @@ Você precisa dos seguintes recursos em vigor antes de continuar com as etapas n
 
 Quando você protege uma API no gerenciamento de API do Azure com Azure AD B2C, você precisa de vários valores para a [política de entrada](../api-management/api-management-howto-policies.md) que você cria em APIM. Primeiro, registre a ID do aplicativo de um aplicativo que você criou anteriormente em seu locatário Azure AD B2C. Se você estiver usando o aplicativo criado nos pré-requisitos, use a ID do aplicativo para *webbapp1*.
 
-1. Navegue até seu locatário do Azure AD B2C no [portal do Azure](https://portal.azure.com).
-1. Em **gerenciar**, selecione **aplicativos**.
-1. Registre o valor na **ID do aplicativo** para *webapp1* ou outro aplicativo que você criou anteriormente.
+Você pode usar a experiência de **aplicativos** atual ou nossa nova experiência unificada de **registros de aplicativo (versão prévia)** para obter a ID do aplicativo. [Saiba mais sobre a experiência de visualização](http://aka.ms/b2cappregintro).
 
-  ![Local da ID do aplicativo do aplicativo B2C no portal do Azure](media/secure-apim-with-b2c-token/portal-02-app-id.png)
+#### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
+
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
+1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
+1. Em **gerenciar**, selecione **aplicativos**.
+1. Registre o valor na coluna **ID do aplicativo** para *webapp1* ou outro aplicativo que você criou anteriormente.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
+
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
+1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
+1. Selecione **registros de aplicativo (versão prévia)** e, em seguida, selecione a guia **aplicativos pertencentes** .
+1. Registre o valor na coluna **ID do aplicativo (cliente)** para *webapp1* ou outro aplicativo que você criou anteriormente.
+
+* * *
 
 ## <a name="get-token-issuer-endpoint"></a>Obter ponto de extremidade do emissor do token
 
@@ -74,8 +88,8 @@ Agora você está pronto para adicionar a política de entrada no gerenciamento 
 1. Selecione **APIs**.
 1. Selecione a API que você deseja proteger com Azure AD B2C.
 1. Selecione o separador **Design**.
-1. Em **processamento de entrada**, selecione **\< @ no__t-3 @ no__t-4** para abrir o editor de código de política.
-1. Coloque a seguinte marca `<validate-jwt>` dentro da política de `<inbound>`.
+1. Em **processamento de entrada**, selecione **\</\>** para abrir o editor de código de política.
+1. Coloque a marca de `<validate-jwt>` a seguir dentro da política de `<inbound>`.
 
     1. Atualize o valor `url` no elemento `<openid-config>` com a URL de configuração conhecida de sua política.
     1. Atualize o elemento `<audience>` com a ID do aplicativo que você criou anteriormente em seu locatário B2C (por exemplo, *webapp1*).
@@ -131,8 +145,8 @@ Um aplicativo cliente (neste caso, o postmaster) que chama uma API publicada dev
 
 1. Navegue até a instância do serviço de gerenciamento de API do Azure no [portal do Azure](https://portal.azure.com).
 1. Selecione **Subscrições**.
-1. Selecione as reticências para **Product: Unlimited @ no__t-0 e selecione **Mostrar/ocultar chaves**.
-1. Registre a **chave primária** do produto. Você usa essa chave para o cabeçalho `Ocp-Apim-Subscription-Key` em sua solicitação HTTP no postmaster.
+1. Selecione as reticências do **produto: ilimitado**e selecione **Mostrar/ocultar chaves**.
+1. Registre a **chave primária** do produto. Use essa chave para o cabeçalho de `Ocp-Apim-Subscription-Key` em sua solicitação HTTP no postmaster.
 
 ![Página chave de assinatura com as chaves mostrar/ocultar selecionadas em portal do Azure](media/secure-apim-with-b2c-token/portal-04-api-subscription-key.png)
 
@@ -140,13 +154,13 @@ Um aplicativo cliente (neste caso, o postmaster) que chama uma API publicada dev
 
 Com o token de acesso e a chave de assinatura APIM registrada, agora você está pronto para testar se você configurou corretamente o acesso seguro à API.
 
-1. Crie uma nova solicitação `GET` no [postmaster](https://www.getpostman.com/). Para a URL de solicitação, especifique o ponto de extremidade da lista de alto-falantes da API que você publicou como um dos pré-requisitos. Por exemplo:
+1. Crie uma nova solicitação de `GET` no [postmaster](https://www.getpostman.com/). Para a URL de solicitação, especifique o ponto de extremidade da lista de alto-falantes da API que você publicou como um dos pré-requisitos. Por exemplo:
 
     `https://contosoapim.azure-api.net/conference/speakers`
 
 1. Em seguida, adicione os seguintes cabeçalhos:
 
-    | Chave | Value |
+    | Chave | Valor |
     | --- | ----- |
     | `Authorization` | Valor de token codificado que você registrou anteriormente, prefixado com `Bearer ` (inclua o espaço após "portador") |
     | `Ocp-Apim-Subscription-Key` | Chave de assinatura do APIM que você registrou anteriormente |
@@ -184,13 +198,13 @@ Com o token de acesso e a chave de assinatura APIM registrada, agora você está
 
 ### <a name="test-an-insecure-api-call"></a>Testar uma chamada à API não segura
 
-Agora que você fez uma solicitação bem-sucedida, teste o caso de falha para garantir que as chamadas para sua API com um token *inválido* sejam rejeitadas conforme o esperado. Uma maneira de executar o teste é adicionar ou alterar alguns caracteres no valor do token e, em seguida, executar a mesma solicitação `GET` como antes.
+Agora que você fez uma solicitação bem-sucedida, teste o caso de falha para garantir que as chamadas para sua API com um token *inválido* sejam rejeitadas conforme o esperado. Uma maneira de executar o teste é adicionar ou alterar alguns caracteres no valor do token e, em seguida, executar a mesma `GET` solicitação como antes.
 
 1. Adicione vários caracteres ao valor do token para simular um token inválido. Por exemplo, adicione "INVALID" ao valor do token:
 
     ![Seção de cabeçalhos da interface do usuário do postmaster mostrando o inválido adicionado ao token](media/secure-apim-with-b2c-token/postman-02-invalid-token.png)
 
-1. Selecione o botão **Enviar** para executar a solicitação. Com um token inválido, o resultado esperado é um código de status não autorizado `401`:
+1. Selecione o botão **Enviar** para executar a solicitação. Com um token inválido, o resultado esperado é um código de status `401` não autorizado:
 
     ```JSON
     {
@@ -199,7 +213,7 @@ Agora que você fez uma solicitação bem-sucedida, teste o caso de falha para g
     }
     ```
 
-Se você vir o código de status `401`, verificou que somente os chamadores com um token de acesso válido emitido pelo Azure AD B2C podem fazer solicitações bem-sucedidas para a API de gerenciamento de API do Azure.
+Se você vir o código de status `401`, verificou que somente os chamadores com um token de acesso válido emitido pelo Azure AD B2C podem fazer solicitações bem-sucedidas para sua API de gerenciamento de API do Azure.
 
 ## <a name="support-multiple-applications-and-issuers"></a>Suporte a vários aplicativos e emissores
 

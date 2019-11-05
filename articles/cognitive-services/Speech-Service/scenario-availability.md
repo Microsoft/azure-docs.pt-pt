@@ -1,21 +1,21 @@
 ---
 title: Disponibilidade do cenário-serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Referência para as regiões do serviço de voz.
+description: Referência para regiões do serviço de fala.
 services: cognitive-services
 author: chrisbasoglu
 manager: xdh
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 11/05/2019
 ms.author: cbasoglu
-ms.openlocfilehash: af5bb7126af65a755cb1d58788d39cb8bdcbbb3b
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 6ec31df7cef8391728eae7845f64f55bb1c6466a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959031"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491340"
 ---
 # <a name="scenario-availability"></a>Disponibilidade do cenário
 
@@ -31,13 +31,13 @@ O SDK do serviço de fala apresenta muitos cenários em uma ampla variedade de l
   - Swift
   - Objective-C
   - A API REST de TTS pode ser usada em todas as outras situações.
-- **Ativar palavra (palavra-chave spotter/KWS)**
+- **KWS (palavra-chave parando)**
   - C++/Windows & Linux
   - C#/Windows & Linux
   - Python/Windows & Linux
   - Java/Windows & Linux & Android (SDK de dispositivos de fala)
-  - A funcionalidade wake Word (keyword spotter/KWS) pode funcionar com qualquer tipo de microfone, o suporte oficial de KWS, no entanto, está limitado atualmente às matrizes de microfone encontradas no hardware do Azure Kinect DK ou no SDK de dispositivos de fala
-- **Assistente virtual de voz-primeiro**
+  - A funcionalidade de KWS (palavra-chave) pode funcionar com qualquer tipo de microfone, o suporte oficial do KWS, no entanto, está limitado atualmente às matrizes de microfone encontradas no hardware do Azure Kinect DK ou no SDK dos dispositivos de fala
+- **Assistentes de voz**
   - C++/Windows & Linux & macOS
   - C#/Windows
   - Java/Windows & Linux & macOS & Android (SDK de dispositivos de fala)

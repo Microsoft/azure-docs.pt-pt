@@ -1,5 +1,5 @@
 ---
-title: Configurar a restrição de tráfego de rede de saída para clusters do Azure HDInsight
+title: Configurar a restrição de tráfego de rede de saída-Azure HDInsight
 description: Saiba como configurar a restrição de tráfego de rede de saída para clusters do Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 56e745a4f4e4bfbe82da00b46b7a5c0a58e3785e
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: MT
+ms.openlocfilehash: df691102b565824d6cb6a86f19e6fce3822d8ba8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789798"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498130"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configurar o tráfego de rede de saída para clusters do Azure HDInsight usando o firewall (versão prévia)
 
@@ -46,7 +46,7 @@ Um resumo das etapas para bloquear a saída do HDInsight existente com o Firewal
 
 Crie uma coleção de regras de aplicativo que permita que o cluster envie e receba comunicações importantes.
 
-Selecione o novo firewall **Test-FW01** no portal do Azure. Clique em **regras** em **configurações**  >  coleção de**regras de aplicativo**  > **Adicionar coleção de regras de aplicativo**.
+Selecione o novo firewall **Test-FW01** no portal do Azure. Clique em **regras** em **configurações** > coleção de **regras de aplicativo** > **Adicionar coleção de regras de aplicativo**.
 
 ![Título: Adicionar coleção de regras de aplicativo](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
@@ -75,7 +75,7 @@ Na tela **Adicionar coleção de regras de aplicativo** , conclua as seguintes e
 Crie as regras de rede para configurar corretamente o cluster HDInsight.
 
 1. Selecione o novo firewall **Test-FW01** no portal do Azure.
-1. Clique em **regras** em **configurações**  >  coleção de**regras de rede**  > **Adicionar coleção de regras de rede**.
+1. Clique em **regras** em **configurações** > coleção de **regras de rede** > **Adicionar coleção de regras de rede**.
 1. Na tela **Adicionar coleção de regras de rede** , insira um **nome**, uma **prioridade**e clique em **permitir** no menu suspenso **ação** .
 1. Crie as seguintes regras na seção **endereços IP** :
 
@@ -115,12 +115,12 @@ Por exemplo, para configurar a tabela de rotas para um cluster criado na região
 
 | Nome da rota | Prefixo de endereço | Tipo de salto seguinte | Endereço do próximo salto |
 |---|---|---|---|
-| 168.61.49.99 | 168.61.49.99/32 | Internet | N/D |
-| 23.99.5.239 | 23.99.5.239/32 | Internet | N/D |
-| 168.61.48.131 | 168.61.48.131/32 | Internet | N/D |
-| 138.91.141.162 | 138.91.141.162/32 | Internet | N/D |
-| 13.67.223.215 | 13.67.223.215/32 | Internet | N/D |
-| 40.86.83.253 | 40.86.83.253/32 | Internet | N/D |
+| 168.61.49.99 | 168.61.49.99/32 | Internet | ND |
+| 23.99.5.239 | 23.99.5.239/32 | Internet | ND |
+| 168.61.48.131 | 168.61.48.131/32 | Internet | ND |
+| 138.91.141.162 | 138.91.141.162/32 | Internet | ND |
+| 13.67.223.215 | 13.67.223.215/32 | Internet | ND |
+| 40.86.83.253 | 40.86.83.253/32 | Internet | ND |
 | 0.0.0.0 | 0.0.0.0/0 | Aplicação virtual | 10.1.1.4 |
 
 Conclua a configuração da tabela de rotas:
@@ -183,10 +183,10 @@ As instruções anteriores ajudam você a configurar o Firewall do Azure para re
 
 | **Extremidade** | **Detalhes** |
 |---|---|
-| \*:123 | Verificação do relógio de NTP. O tráfego é verificado em vários pontos de extremidade na porta 123 |
+| \*: 123 | Verificação do relógio de NTP. O tráfego é verificado em vários pontos de extremidade na porta 123 |
 | IPs publicados [aqui](hdinsight-management-ip-addresses.md) | Estes são serviços do HDInsight |
 | Os IPs privados do AAD-DS para clusters ESP |
-| \*:16800 para ativação do Windows KMS |
+| \*: 16800 para ativação do Windows KMS |
 | \*12000 para Log Analytics |
 
 #### <a name="fqdn-httphttps-dependencies"></a>Dependências de HTTP/HTTPS FQDN

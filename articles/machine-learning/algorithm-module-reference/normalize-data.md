@@ -1,24 +1,24 @@
 ---
 title: 'Normalizar dados: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo Normalize data no serviço Azure Machine Learning para transformar um conjunto de dados por meio da *normalização*...
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo Normalize data no Azure Machine Learning para transformar um conjunto de dados por meio da *normalização*.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: c77ebbe8569ffd221fadb5b98a54fc26d0d70893
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: bdf2fa700b96c6110143a4557985ac1a30ed9096
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692703"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466053"
 ---
 # <a name="normalize-data-module"></a>Módulo normalizar dados
 
-Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para transformar um conjunto de um DataSet por meio de *normalização*.
 
@@ -109,4 +109,4 @@ O módulo **normalizar dados** gera duas saídas:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 277333cbca5a31fdc08ae943d2ff61c35d2c9310
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 992cface653bf3fe52afc7efa3f17573fcf91399
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802355"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469642"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutorial: usar referências de Key Vault em um aplicativo ASP.NET Core
 
@@ -82,7 +82,7 @@ Para adicionar um segredo ao cofre, você precisa executar apenas algumas etapas
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Adicionar uma referência de Key Vault à configuração do aplicativo
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **todos os recursos**e, em seguida, selecione a instância do repositório de configuração de aplicativo que você criou no guia de início rápido.
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Selecione **todos os recursos**e, em seguida, selecione a instância do repositório de configuração de aplicativo que você criou no guia de início rápido.
 
 1. Selecione **Configuration Explorer**.
 
@@ -123,7 +123,7 @@ Para adicionar um segredo ao cofre, você precisa executar apenas algumas etapas
     az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
     ```
 
-1. Nos comandos a seguir, adicione segredos no lugar de *clientId* e *clientSecret* ao Gerenciador de segredos. Os comandos devem ser executados no mesmo diretório que o arquivo *. csproj* .
+1. Adicione segredos para *clientId* e *clientSecret* ao Gerenciador de segredos, a ferramenta para armazenar dados confidenciais que você adicionou ao arquivo *. csproj* no [início rápido: criar um aplicativo ASP.NET Core com Azure app configuração](./quickstart-aspnet-core-app.md). Esses comandos devem ser executados no mesmo diretório que o arquivo *. csproj* .
 
     ```
     dotnet user-secrets set ConnectionStrings:KeyVaultClientId <clientId-of-your-service-principal>
@@ -142,7 +142,7 @@ Para adicionar um segredo ao cofre, você precisa executar apenas algumas etapas
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-1. Atualize o método de `CreateWebHostBuilder` para usar a configuração de aplicativo chamando o método `config.AddAzureAppConfiguration`. Inclua a opção `UseAzureKeyVault` para passar uma nova referência de `KeyVaultClient` para seu Key Vault.
+1. Atualize o método `CreateWebHostBuilder` para usar a configuração de aplicativo chamando o método `config.AddAzureAppConfiguration`. Inclua a opção `UseAzureKeyVault` para passar uma nova referência de `KeyVaultClient` para seu Key Vault.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

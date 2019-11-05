@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 92844f0fe3a851802836015a1340983eb4633ed2
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 5288c3025e523e767082f4ab7cfbb08805a74eaf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900556"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500096"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitetura de conectividade no banco de dados do Azure para PostgreSQL
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para PostgreSQL e também como o tráfego é direcionado para a instância do banco de dados do Azure para PostgreSQL de clientes dentro e fora do Azure.
@@ -46,15 +46,18 @@ A tabela a seguir lista os IPs primários e secundários do gateway do banco de 
 | Índia Central | 104.211.96.159 | |
 | Índia do Sul | 104.211.224.146 | |
 | Oeste da Índia | 104.211.160.80 | |
-| Leste do Japão | 191.237.240.43 | 13.78.61.196 |
+| Este do Japão | 191.237.240.43 | 13.78.61.196 |
 | Oeste do Japão | 191.238.68.11 | 104.214.148.156 |
 | Coreia do Sul Central | 52.231.32.42 | |
 | Coreia do Sul | 52.231.200.86 |  |
-| EUA Centro-Norte | 23.98.55.75 | 23.96.178.199 |
+| E.U.A. Centro-Norte | 23.98.55.75 | 23.96.178.199 |
 | Europa do Norte | 191.235.193.75 | 40.113.93.91 |
 | EUA Centro-Sul | 23.98.162.75 | 13.66.62.124 |
 | Sudeste Asiático | 23.100.117.95 | 104.43.15.0 |
-| Reino Unido Sul | 51.140.184.11 | |
+| Norte da África do Sul | 102.133.152.0 | |
+| Oeste da África do Sul | 102.133.24.0 | |
+| Norte dos E.A.U. | 65.52.248.0 | |
+| Sul do Reino Unido | 51.140.184.11 | |
 | Reino Unido Oeste | 51.141.8.11| |
 | Europa Ocidental | 191.237.232.75 | 40.68.37.158 |
 | Oeste dos EUA 1 | 23.99.34.75 | 104.42.238.205 |
@@ -62,9 +65,9 @@ A tabela a seguir lista os IPs primários e secundários do gateway do banco de 
 ||||
 
 > [!NOTE]
-> *Leste dos EUA 2* também é um endereço IP terciário `52.167.104.0`de.
+> O *leste dos EUA 2* também tem um endereço IP terciário de `52.167.104.0`.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Criar e gerir a base de dados do Azure para as regras de firewall de PostgreSQL no portal do Azure](./howto-manage-firewall-using-portal.md)
-* [Criar e gerir a base de dados do Azure PostgreSQL das regras de firewall ao utilizar a CLI do Azure](./howto-manage-firewall-using-cli.md)
+* [Criar e gerenciar regras de firewall do banco de dados do Azure para PostgreSQL usando o portal do Azure](./howto-manage-firewall-using-portal.md)
+* [Criar e gerenciar regras de firewall do banco de dados do Azure para PostgreSQL usando o CLI do Azure](./howto-manage-firewall-using-cli.md)

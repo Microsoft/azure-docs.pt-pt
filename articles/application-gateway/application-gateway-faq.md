@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d0cb5becd8375c393031892efb0b6c54786eeb8f
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 63c3f2080a74142f3f9a68852092cbc527c4483b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242235"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470065"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o gateway de aplicativo
 
@@ -23,7 +23,7 @@ Veja a seguir as perguntas comuns sobre Aplicativo Azure gateway.
 
 ## <a name="general"></a>Geral
 
-### <a name="what-is-application-gateway"></a>O que é o Gateway da Aplicação?
+### <a name="what-is-application-gateway"></a>O que é o Gateway de Aplicação?
 
 Aplicativo Azure Gateway fornece um ADC (controlador de entrega de aplicativos) como um serviço. Ele oferece vários recursos de balanceamento de carga de camada 7 para seus aplicativos. Esse serviço é altamente disponível, escalonável e totalmente gerenciado pelo Azure.
 
@@ -327,6 +327,19 @@ Sim. Pode ativar a proteção contra DDoS na rede virtual na qual o gateway de a
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Há alguma orientação disponível para migrar da SKU v1 para a SKU v2?
 
 Sim. Para obter detalhes, consulte [migrar aplicativo Azure gateway e firewall do aplicativo Web da v1 para a v2](migrate-v1-v2.md).
+
+## <a name="configuration---ingress-controller-for-aks"></a>Configuração-controlador de entrada para AKS
+
+### <a name="what-is-an-ingress-controller"></a>O que é um controlador de entrada?
+
+Kubernetes permite a criação de `deployment` e `service` recurso para expor um grupo de pods internamente no cluster. Para expor o mesmo serviço externamente, um recurso de [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) é definido, o que fornece balanceamento de carga, término de SSL e hospedagem virtual baseada em nome.
+Para atender a esse recurso de `Ingress`, é necessário um controlador de entrada que escuta quaisquer alterações em `Ingress` recursos e configure as políticas do balanceador de carga.
+
+O controlador de entrada do gateway de aplicativo permite que [aplicativo Azure gateway](https://azure.microsoft.com/services/application-gateway/) seja usado como a entrada para um [serviço kubernetes do Azure](https://azure.microsoft.com/services/kubernetes-service/) também conhecido como um cluster AKs.
+
+### <a name="can-a-single-ingress-controller-instance-manage-multiple-application-gateways"></a>Uma única instância do controlador de entrada pode gerenciar vários gateways de aplicativo?
+
+Atualmente, uma instância do controlador de entrada só pode ser associada a um gateway de aplicativo.
 
 ## <a name="diagnostics-and-logging"></a>Diagnóstico e registos
 

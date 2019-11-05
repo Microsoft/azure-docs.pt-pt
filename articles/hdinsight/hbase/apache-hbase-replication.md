@@ -1,5 +1,5 @@
 ---
-title: Configurar a replicação de cluster HBase em redes virtuais do Azure – Azure HDInsight
+title: Replicação de cluster HBase em redes virtuais – Azure HDInsight
 description: Saiba como configurar a replicação do HBase de uma versão do HDInsight para outra para balanceamento de carga, alta disponibilidade, migração e atualizações sem tempo de inatividade e recuperação de desastres.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 34b9993482d1036570805af7caba29361b231426
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 18c7a06e656cbd5c16151381a76ec7725eb2785e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077189"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468424"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster do Apache HBase em redes virtuais do Azure
 
@@ -66,12 +66,12 @@ Alguns dos valores embutidos em código no modelo:
 
 **VNet 1**
 
-| Propriedade | Value |
+| Propriedade | Valor |
 |----------|-------|
-| Location | EUA Oeste |
-| Nome da VNet | &lt;ClusterNamePrevix>-vnet1 |
+| Localização | Oeste dos E.U.A. |
+| Nome da VNet | &lt;ClusterNamePrevix >-vnet1 |
 | Prefixo de espaço de endereço | 10.1.0.0/16 |
-| Nome de sub-rede | sub-rede 1 |
+| Nome da sub-rede | sub-rede 1 |
 | Prefixo de sub-rede | 10.1.0.0/24 |
 | Nome da sub-rede (gateway) | GatewaySubnet (não pode ser alterado) |
 | Prefixo de sub-rede (gateway) | 10.1.255.0/27 |
@@ -83,12 +83,12 @@ Alguns dos valores embutidos em código no modelo:
 
 **VNet 2**
 
-| Propriedade | Value |
+| Propriedade | Valor |
 |----------|-------|
-| Location | East US |
-| Nome da VNet | &lt;ClusterNamePrevix>-vnet2 |
+| Localização | EUA Leste |
+| Nome da VNet | &lt;ClusterNamePrevix >-vnet2 |
 | Prefixo de espaço de endereço | 10.2.0.0/16 |
-| Nome de sub-rede | sub-rede 1 |
+| Nome da sub-rede | sub-rede 1 |
 | Prefixo de sub-rede | 10.2.0.0/24 |
 | Nome da sub-rede (gateway) | GatewaySubnet (não pode ser alterado) |
 | Prefixo de sub-rede (gateway) | 10.2.255.0/27 |
@@ -121,12 +121,12 @@ Para instalar o BIND, use o seguinte procedimento:
     Substitua `sshuser` pela conta de usuário SSH que você especificou ao criar a máquina virtual DNS.
 
     > [!NOTE]  
-    > Há várias maneiras de obter o `ssh` utilitário. No Linux, UNIX e macOS, ele é fornecido como parte do sistema operacional. Se você estiver usando o Windows, considere uma das seguintes opções:
+    > Há várias maneiras de obter o utilitário `ssh`. No Linux, UNIX e macOS, ele é fornecido como parte do sistema operacional. Se você estiver usando o Windows, considere uma das seguintes opções:
     >
     > * [Azure Cloud Shell](../../cloud-shell/quickstart.md)
     > * [Bash no Ubuntu no Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
-    > * [Git https://git-scm.com/)](https://git-scm.com/)
-    > * [OpenSSH https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
+    > * [Git (https://git-scm.com/)](https://git-scm.com/)
+    > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
 
 2. Para instalar o BIND, use os seguintes comandos da sessão SSH:
 
@@ -135,7 +135,7 @@ Para instalar o BIND, use o seguinte procedimento:
     sudo apt-get install bind9 -y
     ```
 
-3. Configure o BIND para encaminhar solicitações de resolução de nomes para o servidor DNS local. Para fazer isso, use o seguinte texto como o conteúdo do `/etc/bind/named.conf.options` arquivo:
+3. Configure o BIND para encaminhar solicitações de resolução de nomes para o servidor DNS local. Para fazer isso, use o seguinte texto como o conteúdo do arquivo de `/etc/bind/named.conf.options`:
 
     ```
     acl goodclients {
@@ -162,7 +162,7 @@ Para instalar o BIND, use o seguinte procedimento:
     ```
     
     > [!IMPORTANT]  
-    > Substitua os valores na `goodclients` seção pelo intervalo de endereços IP das duas redes virtuais. Esta seção define os endereços dos quais esse servidor DNS aceita solicitações.
+    > Substitua os valores na seção `goodclients` pelo intervalo de endereços IP das duas redes virtuais. Esta seção define os endereços dos quais esse servidor DNS aceita solicitações.
 
     Para editar esse arquivo, use o seguinte comando:
 
@@ -182,11 +182,11 @@ Para instalar o BIND, use o seguinte procedimento:
 
         vnet1DNS.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
 
-    O `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` texto é o __sufixo DNS__ para esta rede virtual. Guarde este valor, porque vai ser utilizado mais tarde.
+    O texto de `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` é o __sufixo DNS__ para essa rede virtual. Guarde este valor, porque vai ser utilizado mais tarde.
 
     Você também deve descobrir o sufixo DNS do outro servidor DNS. Você precisará dela na próxima etapa.
 
-5. Para configurar o BIND para resolver nomes DNS para recursos na rede virtual, use o seguinte texto como o conteúdo do `/etc/bind/named.conf.local` arquivo:
+5. Para configurar o BIND para resolver nomes DNS para recursos na rede virtual, use o seguinte texto como o conteúdo do arquivo de `/etc/bind/named.conf.local`:
 
     ```
     // Replace the following with the DNS suffix for your virtual network
@@ -221,7 +221,7 @@ Para instalar o BIND, use o seguinte procedimento:
     ```
 
     > [!IMPORTANT]  
-    > Substitua `vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` pelo FQDN (nome de domínio totalmente qualificado) da máquina virtual do DNS na outra rede.
+    > Substitua `vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` pelo FQDN (nome de domínio totalmente qualificado) da máquina virtual DNS na outra rede.
     >
     > Substitua `10.2.0.4` pelo __endereço IP interno__ do seu servidor DNS personalizado na outra rede virtual.
 
@@ -261,11 +261,11 @@ Crie um cluster do [Apache HBase](https://hbase.apache.org/) em cada uma das dua
 
 - **Nome do grupo de recursos**: Use o mesmo nome de grupo de recursos que você criou as redes virtuais.
 - **Tipo de cluster**: HBase
-- **Versão**: HBase 1.1.2 (HDI 3.6)
+- **Versão**: HBase 1.1.2 (HDI 3,6)
 - **Local**: Use o mesmo local que a rede virtual.  Por padrão, vnet1 é *oeste dos EUA*e Vnet2 é *leste dos EUA*.
 - **Armazenamento**: Crie uma nova conta de armazenamento para o cluster.
-- **Rede virtual** (em configurações avançadas no Portal): Selecione vnet1 que você criou no último procedimento.
-- **Sub-rede**: O nome padrão usado no modelo é **subnet1**.
+- **Rede virtual** (de configurações avançadas no Portal): selecione vnet1 que você criou no último procedimento.
+- **Sub-rede**: o nome padrão usado no modelo é **subnet1**.
 
 Para garantir que o ambiente esteja configurado corretamente, você deve ser capaz de executar ping no FQDN do cabeçalho entre os dois clusters.
 
@@ -273,24 +273,24 @@ Para garantir que o ambiente esteja configurado corretamente, você deve ser cap
 
 Ao replicar um cluster, você deve especificar as tabelas que deseja replicar. Nesta seção, você carrega alguns dados no cluster de origem. Na próxima seção, você habilitará a replicação entre os dois clusters.
 
-Para criar uma tabela de **contatos** e inserir alguns dados na tabela, siga as instruções em [tutorial do Apache HBase: Comece a usar o Apache HBase no](apache-hbase-tutorial-get-started-linux.md)HDInsight.
+Para criar uma tabela de **contatos** e inserir alguns dados na tabela, siga as instruções em [tutorial do Apache HBase: introdução ao uso do Apache HBase no HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
-## <a name="enable-replication"></a>Ativar replicação
+## <a name="enable-replication"></a>Ativar a replicação
 
 As etapas a seguir descrevem como chamar o script de ação de script do portal do Azure. Para obter informações sobre como executar uma ação de script usando Azure PowerShell e a CLI clássica do Azure, consulte [Personalizar clusters HDInsight usando a ação de script](../hdinsight-hadoop-customize-cluster-linux.md).
 
 **Para habilitar a replicação do HBase no portal do Azure**
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 2. Abra o cluster HBase de origem.
 3. No menu do cluster, selecione **ações de script**.
 4. Na parte superior da página, selecione **Enviar novo**.
 5. Selecione ou insira as seguintes informações:
 
-   1. **Nome**: Digite **habilitar replicação**.
-   2. **URL do script bash**: Insira **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
+   1. **Nome**: insira **habilitar replicação**.
+   2. **URL do script bash**: insira **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
    3. **Cabeçalho**: Verifique se isso está selecionado. Desmarque os outros tipos de nó.
-   4. **Parâmetros**: Os parâmetros de exemplo a seguir habilitam a replicação para todas as tabelas existentes e, em seguida, copiam todos os dados do cluster de origem para o cluster de destino:
+   4. **Parâmetros**: os seguintes parâmetros de exemplo habilitam a replicação para todas as tabelas existentes e, em seguida, copiam todos os dados do cluster de origem para o cluster de destino:
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
@@ -301,7 +301,7 @@ As etapas a seguir descrevem como chamar o script de ação de script do portal 
 
 Argumentos necessários:
 
-|Name|Descrição|
+|Nome|Descrição|
 |----|-----------|
 |-s,--src-cluster | Especifica o nome DNS do cluster HBase de origem. Por exemplo:-s hbsrccluster,--src-cluster = hbsrccluster |
 |-d,--DST-cluster | Especifica o nome DNS do cluster HBase de destino (réplica). Por exemplo:-s dsthbcluster,--src-cluster = dsthbcluster |
@@ -310,17 +310,17 @@ Argumentos necessários:
 
 Argumentos opcionais:
 
-|Name|Descrição|
+|Nome|Descrição|
 |----|-----------|
 |-Su,--src-ambari-usuário | Especifica o nome de usuário administrador para Ambari no cluster HBase de origem. O valor padrão é **admin**. |
 |-du,--DST-ambari-User | Especifica o nome de usuário administrador para Ambari no cluster HBase de destino. O valor padrão é **admin**. |
 |-t,--tabela-lista | Especifica as tabelas a serem replicadas. Por exemplo:--Table-List = "Table1; Table2; Table3". Se você não especificar tabelas, todas as tabelas HBase existentes serão replicadas.|
 |-m,--máquina | Especifica o nó de cabeçalho onde a ação de script é executada. O valor é **hn0** ou **hn1** e deve ser escolhido com base no nó de cabeçalho ativo. Use esta opção quando estiver executando o script $0 como uma ação de script no portal do HDInsight ou Azure PowerShell.|
-|-cp, -copydata | Habilita a migração de dados existentes nas tabelas em que a replicação está habilitada. |
+|-CP,-CopyData | Habilita a migração de dados existentes nas tabelas em que a replicação está habilitada. |
 |-rpm,-replicate-Phoenix-meta | Habilita a replicação em tabelas do sistema Phoenix. <br><br>*Use essa opção com cuidado.* Recomendamos que você recrie tabelas Phoenix em clusters de réplicas antes de usar esse script. |
 |-h,--ajuda | Exibe informações de uso. |
 
-A `print_usage()` seção do [script](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh) tem uma explicação detalhada dos parâmetros.
+A seção `print_usage()` do [script](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh) tem uma explicação detalhada dos parâmetros.
 
 Depois que a ação de script for implantada com êxito, você poderá usar o SSH para se conectar ao cluster HBase de destino e, em seguida, verificar se os dados foram replicados.
 
@@ -356,14 +356,14 @@ Você pode seguir o mesmo procedimento descrito em habilitar a [replicação](#e
 
     -m hn1 -t <table1:start_timestamp:end_timestamp;table2:start_timestamp:end_timestamp;...> -p <replication_peer> [-everythingTillNow]
 
-A `print_usage()` seção do [script](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh) tem uma descrição detalhada dos parâmetros.
+A seção `print_usage()` do [script](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh) tem uma descrição detalhada dos parâmetros.
 
 ### <a name="scenarios"></a>Cenários
 
 - **Copiar tabelas específicas (Test1, test2 e test3) para todas as linhas editadas até agora (carimbo de data/hora atual)** :
 
         -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
-  Or
+  or
 
         -m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
 
@@ -379,7 +379,7 @@ Para desabilitar a replicação, use outro script de ação de script do [GitHub
 
     -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">  
 
-A `print_usage()` seção do [script](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh) tem uma explicação detalhada dos parâmetros.
+A seção `print_usage()` do [script](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh) tem uma explicação detalhada dos parâmetros.
 
 ### <a name="scenarios"></a>Cenários
 
@@ -394,7 +394,7 @@ A `print_usage()` seção do [script](https://raw.githubusercontent.com/Azure/hb
 
         -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu a configurar a replicação do Apache HBase em uma rede virtual ou entre duas redes virtuais. Para saber mais sobre o HDInsight e o Apache HBase, consulte estes artigos:
 

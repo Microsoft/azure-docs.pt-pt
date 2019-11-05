@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b18e1b755b4e1339bf00380d8228fc28e355d3e1
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 577a76b628e40b7651345698a46cba255b16a828
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802510"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464557"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Fala Personalizada
 
@@ -25,9 +25,9 @@ Se você estiver testando para ver quão precisas o reconhecimento de fala da Mi
 
 Esta tabela lista os tipos de dados aceitos, quando cada tipo de dados deve ser usado e a quantidade recomendada. Nem todos os tipos de dados são necessários para criar um modelo. Os requisitos de dados irão variar dependendo se você estiver criando um teste ou treinando um modelo.
 
-| Tipo de dados | Uso de testes | Quantidade | Usado para treinamento | Quantidade |
+| Data type | Uso de testes | Quantidade | Usado para treinamento | Quantidade |
 |-----------|-----------------|----------|-------------------|----------|
-| [Áudio](#audio-data-for-testing) | Sim<br>Usado para inspeção visual | mais de 5 arquivos de áudio | Não | N/a |
+| [Sonoro](#audio-data-for-testing) | Sim<br>Usado para inspeção visual | mais de 5 arquivos de áudio | Não | N/a |
 | [Áudio + transcrições com rótulo humano](#audio--human-labeled-transcript-data-for-testingtraining) | Sim<br>Usado para avaliar a precisão | 0,5-5 horas de áudio | Sim | 1 a 1.000 horas de áudio |
 | [Texto relacionado](#related-text-data-for-training) | Não | N/a | Sim | 1-200 MB de texto relacionado |
 
@@ -52,15 +52,15 @@ Os dados de áudio são ideais para testar a precisão do modelo de fala-para-te
 
 Use esta tabela para garantir que os arquivos de áudio estejam formatados corretamente para uso com Fala Personalizada:
 
-| Propriedade | Value |
+| Propriedade | Valor |
 |----------|-------|
 | Formato de arquivo | RIFF (WAV) |
-| Taxa da amostragem | 8\.000 Hz ou 16.000 Hz |
+| Taxa de amostra | 8\.000 Hz ou 16.000 Hz |
 | Canais | 1 (mono) |
-| Comprimento máximo por áudio | Duas horas |
+| Comprimento máximo por áudio | 2 horas |
 | Formato de exemplo | PCM, 16 bits |
 | Formato de arquivo morto | .zip |
-| Tamanho máximo do arquivo morto | 2 GB |
+| Tamanho máximo do arquivo morto | 2GB |
 
 Se o seu áudio não atender a essas propriedades ou se você quiser verificar se ele faz isso, sugerimos baixar o [Sox](http://sox.sourceforge.net) para verificar ou converter o áudio. Abaixo estão alguns exemplos de como cada uma dessas atividades pode ser feita por meio da linha de comando:
 
@@ -73,15 +73,15 @@ Se o seu áudio não atender a essas propriedades ou se você quiser verificar s
 
 Para medir a precisão da precisão de fala para texto da Microsoft ao processar seus arquivos de áudio, você deve fornecer transcrições com rótulo humano (palavra por palavra) para comparação. Embora a transcrição com rótulo humano sempre seja demorada, é necessário avaliar a precisão e treinar o modelo para seus casos de uso. Tenha em mente que os aprimoramentos no reconhecimento serão tão bons quanto os dados fornecidos. Por esse motivo, é importante que apenas transcrições de alta qualidade sejam carregadas.  
 
-| Propriedade | Value |
+| Propriedade | Valor |
 |----------|-------|
 | Formato de arquivo | RIFF (WAV) |
-| Taxa da amostragem | 8\.000 Hz ou 16.000 Hz |
+| Taxa de amostra | 8\.000 Hz ou 16.000 Hz |
 | Canais | 1 (mono) |
 | Comprimento máximo por áudio | 60 s |
 | Formato de exemplo | PCM, 16 bits |
 | Formato de arquivo morto | .zip |
-| Tamanho máximo do zip | 2 GB |
+| Tamanho máximo do zip | 2GB |
 
 Para resolver problemas como exclusão ou substituição de palavras, uma quantidade significativa de dados é necessária para melhorar o reconhecimento. Em geral, é recomendável fornecer transcrições de palavra por palavra por aproximadamente 10 a 1.000 horas de áudio. As transcrições para todos os ficheiros WAV devem estar contidas num único ficheiro de texto simples. Cada linha do ficheiro de transcrição deve ter o nome de um dos ficheiros de áudio, seguido da transcrição correspondente. O nome de ficheiro e a transcrição devem estar separados por uma tabulação (\t).
 
@@ -94,7 +94,7 @@ Para resolver problemas como exclusão ou substituição de palavras, uma quanti
 > [!NOTE]
 > A transcrição deve ser codificada como UTF-8 byte order mark (BOM).
 
-As transcrições são normalizadas para texto, de modo a que o sistema as possa processar. No entanto, existem algumas normalizações importantes que devem ser feitas pelo utilizador _antes_ de carregar os dados para o Serviço de Voz Personalizada. Para o idioma apropriado a ser usado ao preparar suas transcrições, consulte [como criar uma transcrição rotulada por pessoas](how-to-custom-speech-human-labeled-transcriptions.md)
+As transcrições são normalizadas para texto, de modo a que o sistema as possa processar. No entanto, há algumas normalizações importantes que devem ser feitas pelo usuário _antes_ de carregar os dados no Speech Studio. Para o idioma apropriado a ser usado ao preparar suas transcrições, consulte [como criar uma transcrição rotulada por pessoas](how-to-custom-speech-human-labeled-transcriptions.md)
 
 Depois de coletar os arquivos de áudio e as transcrições correspondentes, eles devem ser empacotados como um único arquivo. zip antes de carregar para o [portal de fala personalizada](https://speech.microsoft.com/customspeech). Este é um conjunto de exemplo com três arquivos de áudio e um arquivo de transcrição com rótulo humano:
 
@@ -104,7 +104,7 @@ Depois de coletar os arquivos de áudio e as transcrições correspondentes, ele
 
 Se você tiver nomes de produtos ou recursos que sejam exclusivos e quiser ter certeza de que eles são reconhecidos corretamente, é importante incluir dados de texto relacionados para treinamento. Dois tipos de dados de texto relacionados podem ser fornecidos para melhorar o reconhecimento:
 
-| Tipo de dados | Como esses dados aprimoram o reconhecimento |
+| Data type | Como esses dados aprimoram o reconhecimento |
 |-----------|------------------------------------|
 | Declarações e/ou frases | Eles podem melhorar a precisão ao reconhecer nomes de produtos ou vocabulário específico do setor dentro do contexto de uma frase. |
 | Pronúncias | Eles podem melhorar a pronúncia de termos, acrônimos ou outras palavras incomuns, com pronúncias indefinidas. |
@@ -148,10 +148,10 @@ O formulário falado é a seqüência fonética escrita. Ele pode ser composto p
 
 A pronúncia personalizada está disponível em inglês (en-US) e alemão (de-DE). Esta tabela mostra os caracteres com suporte por idioma:
 
-| Idioma | Região | Carateres |
+| Idioma | Região | Personagens |
 |----------|--------|------------|
-| Português | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
-| Alemão | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| Português | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, p, r, s, t, u, v, w, x, y, z |
+| Alemão | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, p, r, s, t, u, v, w, x, y, z |
 
 Use esta tabela para garantir que o arquivo de dados relacionado para pronúncias esteja formatado corretamente. Os arquivos de pronúncia são pequenos e não devem exceder alguns KBs.
 
@@ -161,7 +161,7 @@ Use esta tabela para garantir que o arquivo de dados relacionado para pronúncia
 | número de pronúncias por linha | 1 |
 | Tamanho máximo do ficheiro | 1 MB (1 KB para camada gratuita) |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Inspecione seus dados](how-to-custom-speech-inspect-data.md)
 * [Avalie seus dados](how-to-custom-speech-evaluate-data.md)

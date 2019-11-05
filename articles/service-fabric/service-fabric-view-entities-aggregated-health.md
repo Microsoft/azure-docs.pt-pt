@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 1721f10f8950577080a89ba58a3eb4dd3a25c188
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: c4a312654fb54660a229c334071d33a5d6bc172f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249190"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496361"
 ---
 # <a name="view-service-fabric-health-reports"></a>Exibir Service Fabric relatórios de integridade
 O Azure Service Fabric introduz um [modelo de integridade](service-fabric-health-introduction.md) com entidades de integridade nas quais os componentes do sistema e os Watchdogs podem relatar condições locais que estão monitorando. O [repositório de integridade](service-fabric-health-introduction.md#health-store) agrega todos os dados de integridade para determinar se as entidades estão íntegras.
@@ -32,7 +32,7 @@ Service Fabric fornece várias maneiras de obter a integridade agregada das enti
 * Consultas de integridade (por meio do PowerShell, API ou REST)
 * Consultas gerais que retornam uma lista de entidades que têm integridade como uma das propriedades (por meio do PowerShell, da API ou do REST)
 
-Para demonstrar essas opções, vamos usar um cluster local com cinco nós e o [aplicativo Fabric:/WordCount](https://aka.ms/servicefabric-wordcountapp). O aplicativo **Fabric:/WordCount** contém dois serviços padrão, um serviço com estado do `WordCountServiceType`tipo e um serviço sem estado do `WordCountWebServiceType`tipo. Alterei o `ApplicationManifest.xml` para exigir sete réplicas de destino para o serviço com estado e uma partição. Como há apenas cinco nós no cluster, os componentes do sistema relatam um aviso na partição do serviço, pois ele está abaixo da contagem de destino.
+Para demonstrar essas opções, vamos usar um cluster local com cinco nós e o [aplicativo Fabric:/WordCount](https://github.com/Azure-Samples/service-fabric-wordcount/raw/master/WordCountV1.sfpkg). O aplicativo **Fabric:/WordCount** contém dois serviços padrão, um serviço com estado do tipo `WordCountServiceType`e um serviço sem estado do tipo `WordCountWebServiceType`. Alterei o `ApplicationManifest.xml` para exigir sete réplicas de destino para o serviço com estado e uma partição. Como há apenas cinco nós no cluster, os componentes do sistema relatam um aviso na partição do serviço, pois ele está abaixo da contagem de destino.
 
 ```xml
 <Service Name="WordCountService">
@@ -45,8 +45,8 @@ Para demonstrar essas opções, vamos usar um cluster local com cinco nós e o [
 ## <a name="health-in-service-fabric-explorer"></a>Integridade no Service Fabric Explorer
 Service Fabric Explorer fornece uma exibição visual do cluster. Na imagem abaixo, você pode ver que:
 
-* O aplicativo **Fabric:/WordCount** é vermelho (em caso de erro) porque ele tem um evento de  erro relatado por mywatchdog para a **disponibilidade**da propriedade.
-* Um de seus serviços, **Fabric:/WordCount/WordCountService** é amarelo (em aviso). O serviço está configurado com sete réplicas e o cluster tem cinco nós, portanto, duas réplicas não podem ser colocadas. Embora não seja mostrado aqui, a partição de serviço é amarela devido a um relatório do sistema `System.FM` de dizer `Partition is below target replica or instance count`que. A partição amarela dispara o serviço amarelo.
+* O aplicativo **Fabric:/WordCount** é vermelho (em caso de erro) porque ele tem um evento de erro relatado por **mywatchdog** para a **disponibilidade**da propriedade.
+* Um de seus serviços, **Fabric:/WordCount/WordCountService** é amarelo (em aviso). O serviço está configurado com sete réplicas e o cluster tem cinco nós, portanto, duas réplicas não podem ser colocadas. Embora não seja mostrado aqui, a partição de serviço é amarela devido a um relatório do sistema de `System.FM` dizendo que `Partition is below target replica or instance count`. A partição amarela dispara o serviço amarelo.
 * O cluster é vermelho devido ao aplicativo vermelho.
 
 A avaliação usa políticas padrão do manifesto do cluster e do manifesto do aplicativo. Eles são políticas estritas e não toleram nenhuma falha.
@@ -96,7 +96,7 @@ Retorna a integridade da entidade de cluster e contém os Estados de integridade
 * Adicional Filtre para incluir malha:/estatísticas de integridade do sistema nas estatísticas de integridade. Aplicável somente quando as estatísticas de integridade não são excluídas. Por padrão, as estatísticas de integridade incluem apenas estatísticas para aplicativos de usuário e não para o aplicativo do sistema.
 
 ### <a name="api"></a>API
-Para obter a integridade do cluster, `FabricClient` crie um e chame o método [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) em seu **healthmanager**.
+Para obter a integridade do cluster, crie um `FabricClient` e chame o método [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) em seu **healthmanager**.
 
 A chamada a seguir obtém a integridade do cluster:
 
@@ -244,7 +244,7 @@ Retorna a integridade de uma entidade de nó e contém os eventos de integridade
 * Adicional Filtros de eventos que especificam quais entradas são interessantes e devem ser retornados no resultado (por exemplo, somente erros ou avisos e erros). Todos os eventos são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
 
 ### <a name="api"></a>API
-Para obter a integridade do nó por meio da API `FabricClient` , crie um e chame o método [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) em seu healthmanager.
+Para obter a integridade do nó por meio da API, crie um `FabricClient` e chame o método [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) em seu healthmanager.
 
 O código a seguir obtém a integridade do nó para o nome do nó especificado:
 
@@ -314,7 +314,7 @@ Retorna a integridade de uma entidade de aplicativo. Ele contém os Estados de i
 * Adicional Filtre para excluir as estatísticas de integridade. Se não for especificado, as estatísticas de integridade incluirão a contagem Ok, de aviso e de erro para todos os filhos do aplicativo: serviços, partições, réplicas, aplicativos implantados e pacotes de serviço implantados.
 
 ### <a name="api"></a>API
-Para obter a integridade do aplicativo, `FabricClient` crie um e chame o método [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) em seu healthmanager.
+Para obter a integridade do aplicativo, crie um `FabricClient` e chame o método [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) em seu healthmanager.
 
 O código a seguir obtém a integridade do aplicativo para o nome do aplicativo especificado (URI):
 
@@ -460,7 +460,7 @@ Retorna a integridade de uma entidade de serviço. Ele contém os Estados de int
 * Adicional Filtre para excluir as estatísticas de integridade. Se não for especificado, as estatísticas de integridade mostrarão a contagem Ok, de aviso e de erro para todas as partições e réplicas do serviço.
 
 ### <a name="api"></a>API
-Para obter a integridade do serviço por meio da API `FabricClient` , crie um e chame o método [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) em seu healthmanager.
+Para obter a integridade do serviço por meio da API, crie um `FabricClient` e chame o método [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) em seu healthmanager.
 
 O exemplo a seguir obtém a integridade de um serviço com o nome do serviço especificado (URI):
 
@@ -532,7 +532,7 @@ Retorna a integridade de uma entidade de partição. Ele contém os Estados de i
 * Adicional Filtre para excluir as estatísticas de integridade. Se não for especificado, as estatísticas de integridade mostrarão quantas réplicas estão em OK, aviso e Estados de erro.
 
 ### <a name="api"></a>API
-Para obter a integridade da partição por meio da API `FabricClient` , crie um e chame o método [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) em seu healthmanager. Para especificar parâmetros opcionais, crie [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
+Para obter a integridade da partição por meio da API, crie um `FabricClient` e chame o método [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) em seu healthmanager. Para especificar parâmetros opcionais, crie [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
 
 ```csharp
 PartitionHealth partitionHealth = await fabricClient.HealthManager.GetPartitionHealthAsync(partitionId);
@@ -623,7 +623,7 @@ Retorna a integridade de uma réplica de serviço com estado ou de uma instânci
 * Adicional Filtros de eventos que especificam quais entradas são interessantes e devem ser retornados no resultado (por exemplo, somente erros ou avisos e erros). Todos os eventos são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
 
 ### <a name="api"></a>API
-Para obter a integridade da réplica por meio da API, `FabricClient` crie um e chame o método [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) em seu healthmanager. Para especificar parâmetros avançados, use [ReplicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription).
+Para obter a integridade da réplica por meio da API, crie um `FabricClient` e chame o método [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) em seu healthmanager. Para especificar parâmetros avançados, use [ReplicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription).
 
 ```csharp
 ReplicaHealth replicaHealth = await fabricClient.HealthManager.GetReplicaHealthAsync(partitionId, replicaId);
@@ -667,7 +667,7 @@ Retorna a integridade de um aplicativo implantado em uma entidade de nó. Ele co
 * Adicional Filtre para excluir as estatísticas de integridade. Se não for especificado, as estatísticas de integridade mostrarão o número de pacotes de serviço implantados nos Estados de integridade Ok, aviso e erro.
 
 ### <a name="api"></a>API
-Para obter a integridade de um aplicativo implantado em um nó por meio da API `FabricClient` , crie um e chame o método [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) em seu healthmanager. Para especificar parâmetros opcionais, use [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
+Para obter a integridade de um aplicativo implantado em um nó por meio da API, crie um `FabricClient` e chame o método [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) em seu healthmanager. Para especificar parâmetros opcionais, use [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
 
 ```csharp
 DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedApplicationHealthAsync(
@@ -725,7 +725,7 @@ Retorna a integridade de uma entidade de pacote de serviço implantada. Entrada:
 * Adicional Filtros de eventos que especificam quais entradas são interessantes e devem ser retornados no resultado (por exemplo, somente erros ou avisos e erros). Todos os eventos são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
 
 ### <a name="api"></a>API
-Para obter a integridade de um pacote de serviço implantado por meio da `FabricClient` API, crie um e chame o método [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) em seu healthmanager. Para especificar parâmetros opcionais, use [DeployedServicePackageHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
+Para obter a integridade de um pacote de serviço implantado por meio da API, crie um `FabricClient` e chame o método [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) em seu healthmanager. Para especificar parâmetros opcionais, use [DeployedServicePackageHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
 
 ```csharp
 DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeployedServicePackageHealthAsync(
@@ -820,7 +820,7 @@ O resultado da parte inclui os filhos que respeitam os filtros.
 Atualmente, a consulta de bloco não retorna avaliações não íntegras ou eventos de entidade. Essas informações extras podem ser obtidas usando a consulta de integridade de cluster existente.
 
 ### <a name="api"></a>API
-Para obter a parte da integridade do cluster `FabricClient` , crie um e chame o método [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) em seu **healthmanager**. Você pode passar [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) para descrever as políticas de integridade e os filtros avançados.
+Para obter a parte da integridade do cluster, crie um `FabricClient` e chame o método [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) em seu **healthmanager**. Você pode passar [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) para descrever as políticas de integridade e os filtros avançados.
 
 O código a seguir obtém a parte da integridade do cluster com filtros avançados.
 
@@ -1030,30 +1030,30 @@ Se as consultas gerais retornarem um estado de integridade desconhecido para uma
 
 As consultas que contêm **HealthState** para entidades são:
 
-* Lista de nós: Retorna os nós de lista no cluster (paginado).
-  * API [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
+* Lista de nós: retorna os nós de lista no cluster (paginado).
+  * API: [FabricClient. QueryClient. GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
   * PowerShell: Get-ServiceFabricNode
-* Lista de aplicativos: Retorna a lista de aplicativos no cluster (paginável).
-  * API [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
+* Lista de aplicativos: retorna a lista de aplicativos no cluster (paginável).
+  * API: [FabricClient. QueryClient. GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
   * PowerShell: Get-ServiceFabricApplication
-* Lista de serviços: Retorna a lista de serviços em um aplicativo (paginado).
-  * API [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
+* Lista de serviços: retorna a lista de serviços em um aplicativo (paginado).
+  * API: [FabricClient. QueryClient. GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
   * PowerShell: Get-ServiceFabricService
-* Lista de partições: Retorna a lista de partições em um serviço (paginado).
-  * API [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
+* Lista de partições: retorna a lista de partições em um serviço (paginado).
+  * API: [FabricClient. QueryClient. GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
   * PowerShell: Get-ServiceFabricPartition
-* Lista de réplicas: Retorna a lista de réplicas em uma partição (paginada).
-  * API [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
+* Lista de réplicas: retorna a lista de réplicas em uma partição (paginada).
+  * API: [FabricClient. QueryClient. GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
   * PowerShell: Get-ServiceFabricReplica
-* Lista de aplicativos implantados: Retorna a lista de aplicativos implantados em um nó.
-  * API [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
+* Lista de aplicativos implantados: retorna a lista de aplicativos implantados em um nó.
+  * API: [FabricClient. QueryClient. GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
-* Lista de pacotes de serviço implantados: Retorna a lista de pacotes de serviço em um aplicativo implantado.
-  * API [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
+* Lista de pacotes de serviço implantados: retorna a lista de pacotes de serviço em um aplicativo implantado.
+  * API: [FabricClient. QueryClient. GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Algumas das consultas retornam resultados paginados. O retorno dessas consultas é uma lista derivada de [\<PagedList T >](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Se os resultados não se ajustarem a uma mensagem, apenas uma página será retornada e um ContinuationToken que controla onde a enumeração foi interrompida. Continue a chamar a mesma consulta e passe o token de continuação da consulta anterior para obter os próximos resultados.
+> Algumas das consultas retornam resultados paginados. O retorno dessas consultas é uma lista derivada de [PagedList\<t >](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Se os resultados não se ajustarem a uma mensagem, apenas uma página será retornada e um ContinuationToken que controla onde a enumeração foi interrompida. Continue a chamar a mesma consulta e passe o token de continuação da consulta anterior para obter os próximos resultados.
 
 ### <a name="examples"></a>Exemplos
 O código a seguir obtém os aplicativos não íntegros no cluster:

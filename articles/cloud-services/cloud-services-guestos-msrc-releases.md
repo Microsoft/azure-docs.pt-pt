@@ -10,43 +10,40 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/15/2019
+ms.date: 11/1/2019
 ms.author: raiye
-ms.openlocfilehash: b4150858986f204723dc258b23daf22de5d39842
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e1d27563d2181a8e094e00295f9506d88e694513
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430161"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500256"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Response Center) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao sistema operacional convidado que você está usando. As atualizações sempre são postergadas para a [família][family-explain] específica em que foram introduzidas.
 
 ## <a name="october-2019-guest-os"></a>SO convidado de outubro de 2019
 
->[!NOTE]
->O sistema operacional convidado de outubro está sendo lançado no momento para VMs de serviço de nuvem configuradas para atualizações automáticas. Quando a distribuição for concluída, essa versão será disponibilizada para atualizações manuais por meio dos arquivos de configuração e portal do Azure. Os patches a seguir estão incluídos no sistema operacional convidado de outubro. Esta lista está sujeita a alterações.
-
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 19-10   |  [4520003]  |  Segurança do Windows   |  2,91  |  8 de outubro de 2019  |
-|  Rel 19-10   |  [4519985]  |  Segurança do Windows   |  3,78  |  8 de outubro de 2019  |
-|  Rel 19-10   |  [4519990]  |  Segurança do Windows   |  4,71  |  8 de outubro de 2019  |
-|  Rel 19-10   |  [4519998]  |  Atualização cumulativa mais recente   |  5,36  |  8 de outubro de 2019  |
-|  Rel 19-10   |  [4519338]  |  Atualização cumulativa mais recente   |  6,12  |  8 de outubro de 2019  |
-|  Rel 19-10   |  [4519974]  |  Internet Explorer   |  2,91, 3,78, 4,71  |  8 de outubro de 2019  |
-|  Rel 19-10   |  [4516065]  |  Não segurança   |  2,91  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4516655]  |  SSU   |  2,91  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4516055]  |  Não segurança   |  3,78  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4512939]  |  SSU   |  3,78  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4514370]  |  .NET Framework 3,5   |  3,78  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4514368]  |  4\.5.2 do .NET Framework   |  3,78  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4516067]  |  Não segurança   |  4,71  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4512938]  |  SSU   |  4,71  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4514371]  |  .NET Framework 3,5   |  4,71  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4514367]  |  4\.5.2 do .NET Framework   |  4,71  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4512574]  |  SSU   |  5,36  |  10 de setembro de 2019  |
-|  Rel 19-10   |  [4512577]  |  SSU   |  6,12  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4520003]  |  Segurança do Windows   |  [2,91]  |  8 de outubro de 2019  |
+|  Rel 19-10   |  [4519985]  |  Segurança do Windows   |  [3,78]  |  8 de outubro de 2019  |
+|  Rel 19-10   |  [4519990]  |  Segurança do Windows   |  [4,71]  |  8 de outubro de 2019  |
+|  Rel 19-10   |  [4519998]  |  Atualização cumulativa mais recente   |  [5,36]  |  8 de outubro de 2019  |
+|  Rel 19-10   |  [4519338]  |  Atualização cumulativa mais recente   |  [6,12]  |  8 de outubro de 2019  |
+|  Rel 19-10   |  [4519974]  |  Internet Explorer   |  [2,91], [3,78], [4,71]  |  8 de outubro de 2019  |
+|  Rel 19-10   |  [4516065]  |  Não segurança   |  [2,91]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4516655]  |  SSU   |  [2,91]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4516055]  |  Não segurança   |  [3,78]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4512939]  |  SSU   |  [3,78]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4514370]  |  .NET Framework 3,5   |  [3,78]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4514368]  |  4\.5.2 do .NET Framework   |  [3,78]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4516067]  |  Não segurança   |  [4,71]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4512938]  |  SSU   |  [4,71]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4514371]  |  .NET Framework 3,5   |  [4,71]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4514367]  |  4\.5.2 do .NET Framework   |  [4,71]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4512574]  |  SSU   |  [5,36]  |  10 de setembro de 2019  |
+|  Rel 19-10   |  [4512577]  |  SSU   |  [6,12]  |  10 de setembro de 2019  |
 
 [4520003]: https://support.microsoft.com/kb/4520003
 [4519985]: https://support.microsoft.com/kb/4519985
@@ -67,11 +64,16 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 [4512574]: https://support.microsoft.com/kb/4512574
 [4512577]: https://support.microsoft.com/kb/4512577
 
+[6,12]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5,36]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4,71]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3,78]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2,91]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="september-2019-guest-os"></a>SO convidado de setembro de 2019
 
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 |  Rel 19-09   |  [4516046]  |  Internet Explorer   |  [2,90], [3,77], [4,70]  |  10 de setembro de 2019  |
 |  Rel 19-09   |  [4516115]  |  Flash   |  [2,90], [3,77], [4,70], [5,35], [6,11]  |  10 de setembro de 2019  |
@@ -113,7 +115,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 
 ## <a name="august-2019-guest-os"></a>SO convidado de agosto de 2019
 
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 |  Rel 19-08   |  [4512482]  |  Segurança do Windows   |  [3,76]  |  13 de agosto de 2019  |
 |  Rel 19-08   |  [4494175]  |  Atualização de microcódigo   |  [5,34]  |  18 de junho de 2019  |
@@ -170,7 +172,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 
 ## <a name="july-2019-guest-os"></a>SO convidado de julho de 2019
 
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 |  Rel 19-07   |  [4507434]  |  Internet Explorer   |  2,88, 3,75, 4,68  |  9 de julho de 2019  |
 |  Rel 19-07   |  [4506966]  |  Segurança do .NET 4.5.2   |  2,88  |  9 de julho de 2019  |
@@ -214,7 +216,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 
 ## <a name="june-2019-guest-os"></a>SO convidado de junho de 2019
 
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 |  Rel 19-06   |  [4503327]  |  Segurança do Windows 10   |  6.8  |  11 de junho de 2019  |
 |  Rel 19-06   |  [4503267]  |  Segurança do Windows 10   |  5,32  |  11 de junho de 2019  |
@@ -264,7 +266,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 
 ## <a name="may-2019-guest-os"></a>Sistema operacional convidado 2019 de maio
 
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 |  Rel 19-05   |  [4498206]  |  ROLLUP do IE de maio   |  2,86, 3,73, 4,66  |  14 de maio de 2019  |
 |  Rel 19-05   |  [4505050]  |  ROLLUP do IE de maio   |  2,86, 3,73, 4,66  |  18 de maio de 2019  |
@@ -311,7 +313,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 
 ## <a name="april-2019-guest-os"></a>SO convidado de abril de 2019
 
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 19-04 | [4493509] | Segurança do Windows 10 | 6.6 | 9 de abril de 2019 |
 | Rel 19-04 | [4493470] | Segurança do Windows 10 | 5,30 | 9 de abril de 2019 |
@@ -341,7 +343,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 
 ## <a name="march-2019-guest-os"></a>SO convidado de março de 2019
 
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 19-03 | [4489873] | Internet Explorer | 2,84, 3,71, 4,64 | 12 de março de 2019 |
 | Rel 19-03 | [4489907] | Flash | 3,71, 4,64, 5,29, 6,5 | 12 de março de 2019 |
@@ -383,7 +385,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 
 ## <a name="february-2019-guest-os"></a>SO convidado de fevereiro de 2019
 
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 19-02 | [4486474] | Internet Explorer | 2,83, 3,70, 4,63 | 12 de fevereiro de 2019 |
 | Rel 19-02 | [4487038] | Flash | 3,70, 4,63, 5,28, 6,4 | 12 de fevereiro de 2019 |
@@ -435,7 +437,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 
 ## <a name="january-2019-guest-os"></a>SO convidado de janeiro de 2019
 
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 19-01 | [4480116] | Segurança do Windows 10 | 6.3 | 8 de janeiro de 2019 |
 | Rel 19-01 | [4480961] | Segurança do Windows 10 | 5,27 | 8 de janeiro de 2019 |
@@ -487,7 +489,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 
 ## <a name="december-2018-guest-os"></a>SO convidado de dezembro de 2018
 
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 18-12 | [4471321] | Segurança do Windows 10 | 5,26 | 11 de dezembro de 2018 |
 | Rel 18-12 | [4471328] | Segurança do Windows   | 2,81 | 11 de dezembro de 2018 |
@@ -525,7 +527,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 
 ## <a name="november-2018-guest-os"></a>SO convidado de novembro de 2018
 
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 18-11 | [4466536] | Internet Explorer | 2,80, 3,67, 4,60 | 13 de novembro de 2018 |
 | Rel 18-11 | [4467694] | Flash | 3,67, 4,60, 5,25 | 13 de novembro de 2018 |
@@ -557,7 +559,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 
 ## <a name="october-2018-guest-os"></a>SO convidado de outubro de 2018
 
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 18-10 | [4462917] | Segurança do Windows 10 | 5,24 | 9 de outubro de 2018 |
 | Rel 18-10 | [4462915] | Segurança do Windows | 2,79 | 9 de outubro de 2018 |
@@ -594,7 +596,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 [4457036]: https://support.microsoft.com/kb/4457036
 
 ## <a name="september-2018-guest-os"></a>SO convidado de setembro de 2018
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 18-09 | [4457131] | Segurança do Windows 10 | 5,23 | 11 de setembro de 2018 |
 | Rel 18-09 | [4457145] | Somente segurança do Windows | 2,78 | 11 de setembro de 2018 |
@@ -616,7 +618,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | N/A | [4344147] | ROLLUP de não segurança do .NET 4x de agosto | 4,58 | 14 de agosto de 2018 |
 
 ## <a name="august-2018-guest-os"></a>SO convidado de agosto de 2018
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 18-08 | [4343887] | Segurança do Windows 10 | 5,22 | 14 de agosto de 2018 |
 | Rel 18-08 | [4343899] | Somente segurança do Windows | 2,77 | 14 de agosto de 2018 |
@@ -639,7 +641,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | N/A | [4338415] |ROLLUP do .NET 4x sem segurança de julho |3,64 | 10 de julho de 2018 |
 
 ## <a name="july-2018-guest-os"></a>SO convidado de julho de 2018
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 18-07 | [4338814] |Segurança do Windows 10 |5,21 |10 de julho de 2018 |
 | Rel 18-07 | [4338823] |Somente segurança do Windows |2,76 |10 de julho de 2018 |
@@ -659,7 +661,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | N/A | [4284815] |ROLLUP não relacionado à segurança de junho |4,56 |12 de junho de 2018 |
 
 ## <a name="june-2018-guest-os"></a>SO convidado de junho de 2018
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 18-06 | [4284880] |Segurança do Windows 10 |5,20 |12 de junho de 2018 |
 | Rel 18-06 | [4284867] |Somente segurança do Windows |2,75 |12 de junho de 2018 |
@@ -684,7 +686,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | N/A | [4132216] |SSU de maio |5,20 |8 de maio de 2018 |
 
 ## <a name="may-2018-guest-os"></a>Sistema operacional convidado 2018 de maio
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 18-05 | [4103721], [4103727], [4103723] |Segurança do Windows 10 |5,19 |8 de maio de 2018 |
 | Rel 18-05 | [4103712] |Somente segurança do Windows |2,74 |8 de maio de 2018 |
@@ -704,7 +706,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 
 
 ## <a name="april-2018-guest-os"></a>SO convidado de abril de 2018
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 18-04 | [4093119] |Segurança do Windows 10 |5,18 |10 de abril de 2018 |
 | Rel 18-04 | [4093108] |Somente segurança do Windows |2,73 |10 de abril de 2018 |
@@ -718,7 +720,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | N/A | [4088876] |ROLLUP não relacionado à segurança de março |4,53 |13 de março de 2018 |
 
 ## <a name="march-2018-guest-os"></a>SO convidado de março de 2018
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 18-03 | [4088787], [4088776] |Segurança do Windows 10 |5,17 |13 de março de 2018 |
 | Rel 18-03 | [4088878], [4088880], [4088879] |Somente segurança do Windows |2,72, 3,59, 4,52 |13 de março de 2018 |
@@ -731,7 +733,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 
 
 ## <a name="february-2018-guest-os"></a>SO convidado de fevereiro de 2018
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 18-02 | [4074590], [4074588] |Segurança do Windows 10 |5,16 |13 de fevereiro de 2018 |
 | Rel 18-02 | [4074587], [4074589], [4074597] |Somente segurança do Windows |2,71, 3,58, 4,51 |13 de fevereiro de 2018 |
@@ -745,7 +747,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | N/A | [4054177], [4054170] |ROLLUP .NET de janeiro |4,51 |4 de janeiro de 2018 |
 
 ## <a name="january-2018-guest-os"></a>SO convidado de janeiro de 2018
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 18-01 | [4056898], [4056897], [4056899] |Somente segurança do Windows |2,70, 3,57, 4,50 |3 de janeiro de 2018 |
 | Rel 18-01 | [4056890], [4056892] |Somente segurança do Windows |5,15 |3 de janeiro de 2018 |
@@ -757,7 +759,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 
 
 ## <a name="december-2017-guest-os"></a>SO convidado de dezembro de 2017
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 17-12 | [4053579], [4054517] |Atualizações de segurança do Windows 10 |4,49, 5,14 |12 de dezembro de 2017 |
 | Rel 17-12 | [4054521], [4054522], [4054523] |Somente segurança do Windows |2,69, 3,56, 4,49 |12 de dezembro de 2017 |
@@ -769,7 +771,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | N/A | [4049068] |Atualização de fuso horário de dezembro |2,69, 3,56, 4,49 |12 de dezembro de 2017 |
 
 ## <a name="november-2017-guest-os"></a>SO convidado de novembro de 2017
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 17-11 | [4048953] |Atualizações do Windows 10 |5,13 |14 de novembro de 2017 |
 | Rel 17-11 | [4048960], [4048962], [4048961] |Somente segurança do Windows |2,68, 3,55, 4,48 |14 de novembro de 2017 |
@@ -783,7 +785,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | N/A | [3191564] |Atualização para o Windows Management Framework 5,1  |4,48 |14 de novembro de 2017 |
 
 ## <a name="october-2017-guest-os"></a>SO convidado de outubro de 2017
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 17-10 | [4041691] |Atualizações do Windows 10 |5,12 |10 de outubro de 2017 |
 | Rel 17-10 | [4041678], [4041679], [4041687] |Somente segurança do Windows |2,67, 3,54, 4,47 |10 de outubro de 2017 |
@@ -797,7 +799,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | N/A | [4040981] |ROLLUP de não segurança do .NET de setembro |4,47 |12 de setembro de 2017 |
 
 ## <a name="september-2017-guest-os"></a>SO convidado de setembro de 2017
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 17-09 | [4038782] |Atualizações do Windows 10 |5.11 |12 de setembro de 2017 |
 | Rel 17-09 | [4038779], [4038786], [4038793] |Somente segurança do Windows |2,66, 3,53, 4,46 |12 de setembro de 2017 |
@@ -809,7 +811,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | N/A | [4034681] |ROLLUP não relacionado à segurança de agosto |4,46 |8 de agosto de 2017 |
 
 ## <a name="august-2017-guest-os"></a>SO convidado de agosto de 2017
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 17-07 | [4034658] |Atualizações do Windows 10 |5.10 |8 de agosto de 2017 |
 | Rel 17-07 | [4034679] |Somente segurança do Windows |2,65 |8 de agosto de 2017 |
@@ -823,7 +825,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 17-07 | [4025336] |ROLLUP sem segurança de julho |4,45 |11 de julho de 2017 |
 
 ## <a name="july-2017-guest-os"></a>SO convidado de julho de 2017
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 17-07 | [4025339] |Atualizações do Windows 10 |5.9 |11 de julho de 2017 |
 | Rel 17-07 | [4025337] |Somente segurança do Windows |2,64 |11 de julho de 2017 |
@@ -837,7 +839,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | N/A | [4022726] |ROLLUP não relacionado à segurança de junho |4,44 |13 de junho de 2017 |
 
 ## <a name="june-2017-guest-os"></a>SO convidado de junho de 2017
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 17-06 | [4019472] |Aprimoramentos de qualidade do sistema operacional WS 2016 |5.8 |9 de maio de 2017 |
 | Rel 17-06 | [4022722] |Somente segurança do Windows |2,63 |13 de junho de 2017 |
@@ -865,7 +867,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | N/A | [4014512] |ROLLUP de não segurança do .NET de maio |4,43 |9 de maio de 2017 |
 
 ## <a name="may-2017-guest-os"></a>Sistema operacional convidado 2017 de maio
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 17-05 | [4019472] |Aprimoramentos de qualidade do sistema operacional WS 2016 |5.7 | 9 de maio de 2017 |
 | Rel 17-05 | [4019263] |Somente segurança do Windows |2,62 | 9 de maio de 2017 |
@@ -893,7 +895,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | N/A | [4013418] |Atualização da pilha de manutenção |5.7 | 14 de março de 2017 |
 
 ## <a name="april-2017-guest-os"></a>SO convidado de abril de 2017
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 17-04 |  [4015217]  |Aprimoramentos de qualidade do sistema operacional WS 2016 | 5,6 | 11 de abril de 2017 |
 | Rel 17-04 |  [4015546]  |Somente segurança do Windows |2,61 | 11 de abril de 2017 |
@@ -913,7 +915,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 17-04 |  [4012216]  |ROLLUP de qualidade mensal de segurança de março de 2017 para Windows 8.1 e Windows Server 2012 R2 |4,41 | 11 de abril de 2017 |
 
 ## <a name="march-2017-guest-os"></a>SO convidado de março de 2017
-| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 17-03 |  [4013429] |Melhorias e correções | 5,5 | 14 de março de 2017 |
 | Rel 17-03 |  [4012212] |Atualização de qualidade apenas de segurança de março de 2017 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2,60 |14 de março de 2017 |
@@ -1206,7 +1208,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | MS15-075 |[3072633] |Vulnerabilidades no OLE podem permitir a elevação de privilégio |4,22, 3,29, 2,41 |14 de julho de 2015 |
 | MS15-076 |[3067505] |Vulnerabilidade na chamada de procedimento remoto do Windows pode permitir a elevação de privilégio |4,22, 3,29, 2,41 |14 de julho de 2015 |
 | MS15-077 |[3077657] |Vulnerabilidade no driver de fonte ATM pode permitir a elevação de privilégio |4,22, 3,29, 2,41 |14 de julho de 2015 |
-| N/D |[3057154] |Atualização para restringir o uso da criptografia DES |4,22, 3,29, 2,41 |14 de julho de 2015 |
+| ND |[3057154] |Atualização para restringir o uso da criptografia DES |4,22, 3,29, 2,41 |14 de julho de 2015 |
 
 ## <a name="june-2015-guest-os"></a>SO convidado de junho de 2015
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -1239,7 +1241,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | MS15-040 |[3045711] |Vulnerabilidade no ADFS pode permitir a divulgação de informações |4,20, 3,27, 2,39 |17 de abril de 2015 |
 | MS15-041 |[3048010] |Vulnerabilidade no .NET Framework pode permitir a divulgação de informações |4,20, 3,27, 2,39 |17 de abril de 2015 |
 | MS15-042 |[3047234] |Vulnerabilidade no Windows Hyper-V pode permitir negação de serviço |4,20, 3,27, 2,39 |17 de abril de 2015 |
-| N/D |[3045755] |Atualizar para melhorar a autenticação do PKU2U |4,20, 3,27, 2,39 |17 de abril de 2015 |
+| ND |[3045755] |Atualizar para melhorar a autenticação do PKU2U |4,20, 3,27, 2,39 |17 de abril de 2015 |
 
 ## <a name="april-2015-guest-os"></a>SO convidado de abril de 2015
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |

@@ -1,5 +1,5 @@
 ---
-title: Usar vários clusters HDInsight com uma conta de Azure Data Lake Storage
+title: Vários clusters HDInsight & uma conta de Azure Data Lake Storage
 description: Saiba como usar mais de um cluster HDInsight com uma única conta de Data Lake Storage
 keywords: armazenamento do hdinsight, HDFS, dados estruturados, dados não estruturados, data Lake Store
 author: hrasheed-msft
@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 776d8f31a5353604ff1c887bdfa214d07b2bfb48
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: ba0c26d87f2161af514c9430eae5c9949ef92b15
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70733191"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498181"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Usar vários clusters HDInsight com uma conta de Azure Data Lake Storage
 
 A partir do HDInsight versão 3,5, você pode criar clusters HDInsight com contas de Azure Data Lake Storage como o sistema de arquivos padrão.
-O Data Lake Storage dá suporte ao armazenamento ilimitado que o torna ideal não apenas para hospedar grandes quantidades de dados; Mas também para hospedar vários clusters HDInsight que compartilham uma única conta de Data Lake Storage. Para obter instruções sobre como criar um cluster HDInsight com data Lake Storage como armazenamento, consulte [início rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+O Data Lake Storage dá suporte ao armazenamento ilimitado que o torna ideal não apenas para hospedar grandes quantidades de dados; Mas também para hospedar vários clusters HDInsight que compartilham uma única conta de Data Lake Storage. Para obter instruções sobre como criar um cluster HDInsight com Data Lake Storage como armazenamento, consulte [início rápido: configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 Este artigo fornece recomendações para o administrador de Data Lake Storage para configurar uma conta de Data Lake Storage única e compartilhada que pode ser usada em vários clusters HDInsight **ativos** . Essas recomendações se aplicam para hospedar vários clusters de Apache Hadoop seguros e não seguros em uma conta de Data Lake Storage compartilhada.
 
@@ -36,9 +36,9 @@ Para permitir que essa estrutura de pastas seja efetivamente usada por clusters 
 
 |Pasta  |Permissões  |Utilizador proprietário  |Grupo proprietário  | Usuário nomeado | Permissões de usuário nomeado | Grupo nomeado | Permissões de grupo nomeado |
 |---------|---------|---------|---------|---------|---------|---------|---------|
-|/ | rwxr-x--x  |ADM |ADM  |Principal de serviço |--x  |FINGRP   |r-x         |
-|/clusters | rwxr-x--x |ADM |ADM |Principal de serviço |--x  |FINGRP |r-x         |
-|/clusters/finance | rwxr-x--t |ADM |FINGRP  |Principal de serviço |rwx  |-  |-     |
+|/ | rwxr-x--x  |ADM |ADM  |Entidade de serviço |--x  |FINGRP   |r-x         |
+|/clusters | rwxr-x--x |ADM |ADM |Entidade de serviço |--x  |FINGRP |r-x         |
+|/clusters/Finance | rwxr-x--t |ADM |FINGRP  |Entidade de serviço |rwx  |-  |-     |
 
 Na tabela,
 
@@ -57,7 +57,7 @@ Alguns pontos importantes a serem considerados.
 
     |Pasta  |Permissões  |Utilizador proprietário  |Grupo proprietário  | Usuário nomeado | Permissões de usuário nomeado | Grupo nomeado | Permissões de grupo nomeado |
     |---------|---------|---------|---------|---------|---------|---------|---------|
-    |/clusters/finanace/ fincluster01 | rwxr-x---  |Principal de Serviço |FINGRP  |- |-  |-   |-  | 
+    |/clusters/finanace/ fincluster01 | ----x rwxr  |Principal de Serviço |FINGRP  |- |-  |-   |-  | 
    
 
 
@@ -88,9 +88,9 @@ Essas configurações são conhecidas por afetar um caso de uso específico do H
 Conforme mencionado no YARN JIRA vinculado anteriormente, ao localizar recursos públicos, o localizador valida que todos os recursos solicitados são realmente públicos, verificando suas permissões no sistema de arquivos remoto. Qualquer LocalResource que não atenda a essa condição será rejeitado para localização. A verificação de permissões, inclui acesso de leitura ao arquivo para "outros". Esse cenário não funciona pronto para uso ao hospedar clusters HDInsight em Azure Data Lake, já que Azure Data Lake nega todo o acesso a "outros" no nível da pasta raiz.
 
 #### <a name="workaround"></a>Solução
-Defina as permissões de leitura-execução para **outros** por meio da hierarquia, por **/** exemplo, em, **/clusters** e **/clusters/Finance** , conforme mostrado na tabela acima.
+Defina as permissões de leitura-execução para **outros** por meio da hierarquia, por exemplo, em **/** , **/clusters** e **/clusters/Finance** , conforme mostrado na tabela acima.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consultar também
 
-* [Quickstart: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* [Início rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)

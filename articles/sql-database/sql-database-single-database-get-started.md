@@ -11,14 +11,14 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
 ms.date: 09/09/2019
-ms.openlocfilehash: 831ebbd3f85ffa9b78ac3e97a6ec68a8c41bceb5
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 0035495d9dd3b82b65aa3b4a7b1d918c73288df8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845290"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496165"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Início rápido: Criar um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure, o PowerShell e o CLI do Azure
+# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Início rápido: criar um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure, o PowerShell e o CLI do Azure
 
 Criar um [banco de dados individual](sql-database-single-database.md) é a opção de implantação mais rápida e mais simples para criar um banco de dados no banco de dados SQL do Azure. Este guia de início rápido mostra como criar e consultar um banco de dados individual usando o portal do Azure.
 
@@ -28,7 +28,7 @@ Para todas as etapas neste guia de início rápido, entre no [portal do Azure](h
 
 ## <a name="create-a-single-database"></a>Criar um banco de dados individual
 
-Um banco de dados individual pode ser criado na camada de computação provisionada ou sem servidor (visualização).
+Um banco de dados individual pode ser criado na camada de computação provisionada ou sem servidor.
 
 - Um único banco de dados na camada de computação provisionada é previamente alocado uma quantidade fixa de recursos de computação, incluindo CPU e memória, usando um dos dois [modelos de compra](sql-database-purchase-models.md).
 - Um único banco de dados na camada de computação sem servidor tem uma variedade de recursos de computação, incluindo CPU e memória que são dimensionados automaticamente e só estão disponíveis nos [modelos de compra baseados em vCore](sql-database-service-tiers-vcore.md).

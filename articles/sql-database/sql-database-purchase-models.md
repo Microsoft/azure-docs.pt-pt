@@ -11,25 +11,25 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: 98d257c28ab5ff2cf902c0b8205ac8918ccf4d45
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ab291ab60a5e72b5c61552bc54c10e303c1df1a9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567015"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492497"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Escolha entre os modelos vCore e compra de DTU
 
 O banco de dados SQL do Azure permite que você compre facilmente um mecanismo de banco de dados PaaS (plataforma como serviço) totalmente gerenciado que atenda às suas necessidades de desempenho e custo. Dependendo do modelo de implantação escolhido para o banco de dados SQL do Azure, você pode selecionar o modelo de compra que funciona para você:
 
-- [Modelo de compra baseado no núcleo virtual (vCore)](sql-database-service-tiers-vcore.md) (recomendado). Esse modelo de compra fornece uma opção entre uma camada de computação provisionada e uma camada de computação sem servidor (visualização). Com a camada de computação provisionada, você escolhe a quantidade exata de recursos de computação que são sempre provisionados para sua carga de trabalho. Com a camada de computação sem servidor, você especifica o dimensionamento automático dos recursos de computação em um intervalo de computação configurável. Com essa camada de computação, você também pode pausar automaticamente e retomar o banco de dados com base na atividade de carga de trabalho. O preço unitário vCore por unidade de tempo é inferior na camada de computação provisionada do que está na camada de computação sem servidor.
+- [Modelo de compra baseado no núcleo virtual (vCore)](sql-database-service-tiers-vcore.md) (recomendado). Esse modelo de compra fornece uma opção entre uma camada de computação provisionada e uma camada de computação sem servidor. Com a camada de computação provisionada, você escolhe a quantidade exata de recursos de computação que são sempre provisionados para sua carga de trabalho. Com a camada de computação sem servidor, você especifica o dimensionamento automático dos recursos de computação em um intervalo de computação configurável. Com essa camada de computação, você também pode pausar automaticamente e retomar o banco de dados com base na atividade de carga de trabalho. O preço unitário vCore por unidade de tempo é inferior na camada de computação provisionada do que está na camada de computação sem servidor.
 - [Modelo de compra baseado em DTU (unidade de transação de banco de dados)](sql-database-service-tiers-dtu.md). Esse modelo de compra fornece computação agrupada e pacotes de armazenamento balanceados para cargas de trabalho comuns.
 
 Modelos de compra diferentes estão disponíveis para diferentes modelos de implantação de banco de dados SQL do Azure:
 
 - As opções de implantação de [banco de dados individual](sql-database-single-databases-manage.md) e [pool elástico](sql-database-elastic-pool.md) no [banco de dados SQL do Azure](sql-database-technical-overview.md) oferecem o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e o modelo de [compra baseado em vCore](sql-database-service-tiers-vcore.md).
 - A opção de implantação de [instância gerenciada](sql-database-managed-instance.md) no banco de dados SQL do Azure oferece apenas o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
-- A [camada de serviço](sql-database-service-tier-hyperscale.md) de hiperescala está disponível para bancos de dados individuais que estão usando o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
+- A [camada de serviço de hiperescala](sql-database-service-tier-hyperscale.md) está disponível para bancos de dados individuais que estão usando o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
 A tabela e o gráfico a seguir comparam e contrastam os modelos de compra baseados em vCore e em DTU:
 
@@ -53,7 +53,7 @@ O custo do armazenamento de backup é o mesmo para a camada de serviço comercia
 
 ### <a name="serverless-compute-costs"></a>Custos de computação sem servidor
 
-Para obter uma descrição de como a capacidade de computação é definida e os custos são calculados para a camada de computação sem servidor, consulte [banco de dados SQL sem servidor (versão prévia)](sql-database-serverless.md).
+Para obter uma descrição de como a capacidade de computação é definida e os custos são calculados para a camada de computação sem servidor, consulte [banco de dados SQL sem servidor](sql-database-serverless.md).
 
 ## <a name="storage-costs"></a>Custos de armazenamento
 
@@ -67,7 +67,7 @@ Para obter mais informações sobre preços de armazenamento, consulte a página
 
 Um vCore (núcleo virtual) representa uma CPU lógica e oferece a opção de escolher entre gerações de hardware e as características físicas do hardware (por exemplo, o número de núcleos, a memória e o tamanho do armazenamento). O modelo de compra baseado em vCore oferece flexibilidade, controle, transparência de consumo de recursos individuais e uma maneira simples de traduzir os requisitos de carga de trabalho local para a nuvem. Esse modelo permite que você escolha recursos de computação, memória e armazenamento com base nas suas necessidades de carga de trabalho.
 
-No modelo de compra baseado em vCore, você pode escolher entre as camadas de serviço de [finalidade geral](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) e de [negócio crítico](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) para [bancos de dados individuais](sql-database-single-database-scale.md), [pools elásticos](sql-database-elastic-pool.md)e [instâncias gerenciadas](sql-database-managed-instance.md). Para bancos de dados individuais, você também pode escolher a [camada de serviço](sql-database-service-tier-hyperscale.md)de hiperescala.
+No modelo de compra baseado em vCore, você pode escolher entre as camadas de serviço de [finalidade geral](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) e de [negócio crítico](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) para [bancos de dados individuais](sql-database-single-database-scale.md), [pools elásticos](sql-database-elastic-pool.md)e [instâncias gerenciadas](sql-database-managed-instance.md). Para bancos de dados individuais, você também pode escolher a [camada de serviço de hiperescala](sql-database-service-tier-hyperscale.md).
 
 O modelo de compra baseado em vCore permite que você escolha independentemente os recursos de computação e armazenamento, correspondam ao desempenho local e otimize o preço. No modelo de compra baseado em vCore, você paga por:
 
@@ -90,7 +90,7 @@ Para converter do modelo de compra baseado em DTU para o modelo de compra basead
 
 Uma DTU (unidade de transação de banco de dados) representa uma medida combinada de CPU, memória, leituras e gravações. O modelo de compra baseado em DTU oferece um conjunto de pacotes pré-configurados de recursos de computação e armazenamento incluído para gerar diferentes níveis de desempenho do aplicativo. Se você preferir a simplicidade de um pacote pré-configurado e de pagamentos fixos a cada mês, o modelo baseado em DTU poderá ser mais adequado para suas necessidades.
 
-No modelo de compra baseado em DTU, você pode escolher entre as camadas de serviço Basic, Standard e Premium para bancos de [dados individuais](sql-database-single-database-scale.md) e pools [elásticos](sql-database-elastic-pool.md). O modelo de compra baseado em DTU não está disponível para [instâncias gerenciadas](sql-database-managed-instance.md).
+No modelo de compra baseado em DTU, você pode escolher entre as camadas de serviço Basic, Standard e Premium para bancos de [dados individuais](sql-database-single-database-scale.md) e [pools elásticos](sql-database-elastic-pool.md). O modelo de compra baseado em DTU não está disponível para [instâncias gerenciadas](sql-database-managed-instance.md).
 
 ### <a name="database-transaction-units-dtus"></a>Unidades de transação de banco de dados (DTUs)
 
@@ -141,7 +141,7 @@ Não. Você não precisa colocar o aplicativo offline. As novas camadas de servi
 
 Sim, você pode facilmente converter seu banco de dados para qualquer objetivo de desempenho com suporte usando o portal do Azure, o PowerShell, o CLI do Azure, o T-SQL ou a API REST. Consulte [gerenciar bancos de dados individuais](sql-database-single-database-scale.md) e [Gerenciar Pools elásticos](sql-database-elastic-pool.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre o modelo de compra baseado em vCore, consulte [modelo de compra baseado em VCORE](sql-database-service-tiers-vcore.md).
 - Para obter mais informações sobre o modelo de compra baseado em DTU, consulte [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md).

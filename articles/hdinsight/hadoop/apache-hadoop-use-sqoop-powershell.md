@@ -1,6 +1,6 @@
 ---
-title: Executar tarefas de Apache Sqoop com o PowerShell e Azure HDInsight
-description: Saiba como utilizar o Azure PowerShell a partir de uma estação de trabalho para executar o Apache Sqoop import e export entre um cluster do Apache Hadoop e uma base de dados SQL do Azure.
+title: Executar trabalhos do Apache Sqoop usando o PowerShell e o Azure HDInsight
+description: Saiba como usar Azure PowerShell de uma estação de trabalho para executar a importação e exportação do Apache Sqoop entre um cluster Apache Hadoop e um banco de dados SQL do Azure.
 ms.reviewer: jasonh
 author: hrasheed-msft
 ms.service: hdinsight
@@ -8,29 +8,31 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: hrasheed
-ms.openlocfilehash: f178d07666eda3552c18f581a926305e76ecb697
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6cb3e91bed4f16cf1e30c535b5ed667fc690dd53
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450135"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499281"
 ---
-# <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>Executar tarefas de Apache Sqoop com o Azure PowerShell para o Apache Hadoop no HDInsight
+# <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>Executar trabalhos do Apache Sqoop usando Azure PowerShell para Apache Hadoop no HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Saiba como utilizar o Azure PowerShell para executar tarefas do Apache Sqoop no Azure HDInsight para importar e exportar dados entre um cluster do HDInsight e uma base de dados SQL do Azure ou a base de dados do SQL Server. Neste exemplo exporta dados a partir `/tutorials/usesqoop/data/sample.log` da conta do storage predefinida e, em seguida, importa-o para uma tabela chamada `log4jlogs` numa base de dados do SQL Server. Este artigo é uma continuação de [utilizar o Apache Sqoop com o Hadoop no HDInsight](./hdinsight-use-sqoop.md).
+Saiba como usar Azure PowerShell para executar trabalhos do Apache Sqoop no Azure HDInsight para importar e exportar dados entre um cluster HDInsight e um banco de dados SQL do Azure ou SQL Server Este exemplo exporta dados de `/tutorials/usesqoop/data/sample.log` da conta de armazenamento padrão e, em seguida, importa-os para uma tabela chamada `log4jlogs` em um banco de dados SQL Server. Este artigo é uma continuação do [uso do Apache Sqoop com Hadoop no HDInsight](./hdinsight-use-sqoop.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar este artigo, tem de ter os seguintes itens:
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-* Uma estação de trabalho com o Azure PowerShell [módulo AZ](https://docs.microsoft.com/powershell/azure/overview) instalado.
+Antes de começar este artigo, você deve ter os seguintes itens:
 
-* Conclusão da [configurar o ambiente de teste](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) partir [utilização Apache Sqoop com o Hadoop no HDInsight](./hdinsight-use-sqoop.md).
+* Uma estação de trabalho com Azure PowerShell [módulo AZ](https://docs.microsoft.com/powershell/azure/overview) instalado.
+
+* Conclusão da [configuração do ambiente de teste](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) de [usar o Apache Sqoop com o Hadoop no HDInsight](./hdinsight-use-sqoop.md).
 
 
-## <a name="run-apache-sqoop-by-using-powershell"></a>Execute o Apache Sqoop com o PowerShell
-O seguinte script do PowerShell previamente processa o arquivo de origem e, em seguida, exporta-o para uma base de dados SQL do Azure para a tabela `log4jlogs`. Substitua `CLUSTERNAME`, `CLUSTERPASSWORD`, e `SQLPASSWORD` com os valores utilizada a partir do pré-requisito.
+## <a name="run-apache-sqoop-by-using-powershell"></a>Executar o Apache Sqoop usando o PowerShell
+O seguinte script do PowerShell processa previamente o arquivo de origem e, em seguida, exporta-o para um banco de dados SQL do Azure para a tabela `log4jlogs`. Substitua `CLUSTERNAME`, `CLUSTERPASSWORD`e `SQLPASSWORD` pelos valores que você usou do pré-requisito.
 
 ```powershell 
 <#------ BEGIN USER INPUT ------#>
@@ -170,16 +172,16 @@ Get-AzHDInsightJobOutput `
 ```
 
 ## <a name="limitations"></a>Limitações
-HDInsight baseado em Linux apresenta as seguintes limitações:
+O HDInsight baseado em Linux apresenta as seguintes limitações:
 
-* Exportação em massa: O conector de Sqoop que é utilizado para exportar dados para o Microsoft SQL Server ou SQL Database do Azure não suporta atualmente inserções em massa.
+* Exportação em massa: o conector do Sqoop que é usado para exportar dados para Microsoft SQL Server ou para o Azure SQL Database atualmente não dá suporte a inserções em massa.
 
-* Processamento em lote: Ao utilizar o `-batch` mudar quando ele executa inserções, Sqoop realiza várias inserções em vez das operações de inserção de criação de batches. 
+* Envio em lote: usando a opção `-batch` quando ele executa inserções, o Sqoop executa várias inserções em vez de realizar o envio em lote das operações de inserção. 
 
-## <a name="next-steps"></a>Passos Seguintes
-Agora que aprendeu a utilizar o Sqoop. Para saber mais, consulte:
+## <a name="next-steps"></a>Passos seguintes
+Agora você aprendeu a usar o Sqoop. Para saber mais, consulte:
 
-* [Utilizar o Apache Oozie com o HDInsight](../hdinsight-use-oozie-linux-mac.md): Utilize o Sqoop ação num fluxo de trabalho do Oozie.
-* [Carregar dados para o HDInsight](../hdinsight-upload-data.md): Encontre outros métodos para carregar dados para o armazenamento do HDInsight ou de Blobs do Azure.
+* [Usar o Apache Oozie com o HDInsight](../hdinsight-use-oozie-linux-mac.md): Use a ação Sqoop em um fluxo de trabalho Oozie.
+* [Carregar dados no hdinsight](../hdinsight-upload-data.md): Encontre outros métodos para carregar dados no hdinsight ou no armazenamento de BLOBs do Azure.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

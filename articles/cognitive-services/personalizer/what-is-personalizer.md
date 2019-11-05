@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 09/19/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 8a0b0dde50de1806762076025e4f74f19388f81b
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 6b55ce851bb12e37aed37039889aa8e69223a286
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989600"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467187"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
@@ -25,6 +25,8 @@ O personalizador do Azure é um serviço de API baseado em nuvem que permite que
 * Não é necessário limpar e rotular dados antes de usar o personalizador.
 * Forneça comentários para o personalizador quando for conveniente para você. 
 * Exibir análise em tempo real. 
+
+Veja uma demonstração de [como o personalizador funciona](https://personalizercontentdemo.azurewebsites.net/)
 
 ## <a name="how-does-personalizer-work"></a>Como funciona o personalizador?
 

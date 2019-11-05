@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 0964dac6b4f381e2ec52bd9ec078741d0ee85712
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: dd100e2390cdd2731df498379e376bde4cf2b87d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802194"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498703"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Matriz de suporte para avaliar e migrar o Hyper-V
 
@@ -35,26 +35,7 @@ A tabela resume os cenários com suporte para VMs do Hyper-V.
 --- | ---
 Permissões do Azure | Você precisa de permissões de colaborador ou de proprietário na assinatura para criar um projeto de migrações para Azure.
 VMs Hyper-V | Avalie até 35.000 VMs do Hyper-V em um único projeto. Você pode ter vários projetos em uma assinatura do Azure. Um projeto pode incluir VMs do VMware e VMs do Hyper-V, até os limites de avaliação.
-Gráfico | Você pode criar projetos de migrações para Azure em uma série de geografias. Embora seja possível criar projetos em geografias específicos, você pode avaliar ou migrar computadores para outros locais de destino. A geografia do projeto é usada somente para armazenar os metadados descobertos.
-
-  **Geografia** | **Local de armazenamento de metadados**
-  --- | ---
-  Azure Government | Gov dos E.U.A. Virginia
-  Ásia-Pacífico | Ásia Oriental ou sudeste asiático
-  Austrália | Leste da Austrália ou sudeste da Austrália
-  Brasil | Sul do Brasil
-  Canadá | Canadá central ou leste do Canadá
-  Europa | Europa Setentrional ou Europa Ocidental
-  França | França Central
-  Índia | Índia central ou sul da Índia
-  Japão |  Leste do Japão ou oeste do Japão
-  Coreia | Coreia central ou sul da Coreia
-  Reino Unido | Sul do Reino Unido ou Oeste do Reino Unido
-  Estados Unidos | EUA Central ou oeste dos EUA 2
-
-
- > [!NOTE]
- > No momento, o suporte para Azure governamental está disponível apenas para a [versão mais antiga](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) das migrações para Azure.
+Gráfico | [Examine](migrate-support-matrix.md#supported-geographies) as geografias com suporte.
 
 
 ## <a name="assessment-hyper-v-host-requirements"></a>Avaliação – requisitos de host do Hyper-V
@@ -104,7 +85,7 @@ Para avaliar as VMs, o dispositivo de migrações para Azure precisa de conectiv
 **URL** | **Detalhes**  
 --- | ---
 *.portal.azure.com | Navegação para a portal do Azure
-\*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Inicie sessão na sua subscrição do Azure
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Inicie sessão na sua subscrição do Azure
 *.microsoftonline.com <br/> *. microsoftonline-p.com | Criação de aplicativos de Azure Active Directory para comunicações de dispositivo para serviço.
 management.azure.com | Criação de aplicativos de Azure Active Directory para comunicações de dispositivo para serviço.
 dc.services.visualstudio.com | Início de sessão e monitorização

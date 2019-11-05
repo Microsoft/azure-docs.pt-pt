@@ -1,5 +1,5 @@
 ---
-title: Migrar clusters de Apache Hadoop locais para o Azure HDInsight-infraestrutura
+title: 'Infraestrutura: Apache Hadoop locais para o Azure HDInsight'
 description: Aprenda práticas recomendadas de infraestrutura para migrar clusters Hadoop locais para o Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: e35917a7eb7b2e38fcc2689f6fe838ec6529428a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: adc0e5f5eef41dcb1f826ffbf0cfe91a937fac01
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087456"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499218"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrar clusters de Apache Hadoop locais para o Azure HDInsight-práticas recomendadas de infraestrutura
 
@@ -42,7 +42,7 @@ Você também pode usar a interface do usuário do Apache Ambari ou a API REST d
 
 Aplicativos ou componentes que estavam disponíveis em clusters locais, mas que não fazem parte dos clusters HDInsight, podem ser adicionados em um nó de borda ou em uma VM na mesma VNet que o cluster HDInsight. Um aplicativo Hadoop de terceiros que não está disponível no Azure HDInsight pode ser instalado usando a opção "aplicativos" no cluster HDInsight. Os aplicativos personalizados do Hadoop podem ser instalados no cluster HDInsight usando "ações de script". A tabela a seguir lista alguns dos aplicativos comuns e suas opções de integração do HDInsight:
 
-|**Aplicação**|**Integrar**
+|**Aplicativo**|**Integrar**
 |---|---|
 |Ar|Nó de borda IaaS ou HDInsight
 |Alluxio|IaaS  
@@ -81,11 +81,11 @@ O script pode ser persistido ou executado uma vez. Os scripts persistentes são 
 
 O HDInsight fornece scripts pré-gravados para instalar os seguintes componentes em clusters HDInsight:
 
-- Adicionar uma conta de Armazenamento do Azure
-- Instalar Hue
-- Instalar prontamente
-- Instalar Solr
-- Instalar Giraph
+- Adicionar uma conta de armazenamento do Azure
+- Instalar o Hue
+- Instalar o presto
+- Instalar o Solr
+- Instalar o O giraph
 - Pré-carregar bibliotecas do hive
 - Instalar ou atualizar o Mono
 
@@ -102,7 +102,7 @@ Para obter mais informações, veja os artigos seguintes:
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>Personalizar configurações do HDInsight usando a inicialização
 
-Alterações nas configurações nos arquivos de configuração, como, `core-site.xml` `hive-site.xml` e `oozie-env.xml` podem ser feitas usando a inicialização. O script a seguir é um exemplo que usa o cmdlet [AZ Module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) do PowerShell [New-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster):
+Alterações nas configurações dos arquivos de configuração, como `core-site.xml`, `hive-site.xml` e `oozie-env.xml` podem ser feitas usando a inicialização. O script a seguir é um exemplo que usa o cmdlet [AZ Module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) do PowerShell [New-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster):
 
 ```powershell
 # hive-site.xml configuration
@@ -137,7 +137,7 @@ Um nó de borda vazio é uma máquina virtual Linux com as mesmas ferramentas de
 - Testando aplicativos cliente
 - hospedando aplicativos cliente
 
-Os nós de borda podem ser criados e excluídos por meio do portal do Azure e podem ser usados durante ou após a criação do cluster. Depois que o nó de borda tiver sido criado, você poderá se conectar ao nó de borda usando SSH e executar ferramentas de cliente para acessar o cluster Hadoop no HDInsight. O ponto de extremidade SSH do `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22`nó de borda é.
+Os nós de borda podem ser criados e excluídos por meio do portal do Azure e podem ser usados durante ou após a criação do cluster. Depois que o nó de borda tiver sido criado, você poderá se conectar ao nó de borda usando SSH e executar ferramentas de cliente para acessar o cluster Hadoop no HDInsight. O ponto de extremidade SSH do nó de borda é `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22`.
 
 
 Para obter mais informações, consulte o artigo [usar nós de borda vazios em clusters de Apache Hadoop no HDInsight](../hdinsight-apps-use-edge-node.md).
@@ -168,7 +168,7 @@ O HDInsight pode ser adicionado a uma rede virtual do Azure nova ou existente. S
 Para obter mais informações, veja os artigos seguintes:
 
 - [Redes virtuais do Azure-visão geral](../../virtual-network/virtual-networks-overview.md)
-- [Expandir o Azure HDInsight utilizando uma rede Virtual do Azure](../hdinsight-plan-virtual-network-deployment.md)
+- [Expandir o Azure HDInsight com uma Rede Virtual do Azure](../hdinsight-plan-virtual-network-deployment.md)
 
 ## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Conectar-se com segurança aos serviços do Azure com pontos de extremidade de serviço de rede virtual do Azure
 
@@ -189,7 +189,7 @@ O HDInsight pode ser conectado à rede local usando redes virtuais do Azure e um
 
 Para obter mais informações, consulte o artigo [conectar o HDInsight à sua rede local](../connect-on-premises-network.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia o próximo artigo desta série:
 

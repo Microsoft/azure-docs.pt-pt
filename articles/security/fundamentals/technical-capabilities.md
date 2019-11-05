@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: ac9a62a810a957c67d9c24063d01eff822c8294f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: dbc17cff2347cd86db3296f4aa2de76ef0f75460
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129303"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468070"
 ---
-# <a name="azure-security-technical-capabilities"></a>Recursos técnicos de segurança do Azure
+# <a name="azure-security-technical-capabilities"></a>Capacidades técnicas da segurança do Azure
 Este artigo fornece uma introdução aos serviços de segurança no Azure que ajudam a proteger seus dados, recursos e aplicativos na nuvem e atender às necessidades de segurança de sua empresa.
 
 ## <a name="azure-platform"></a>Plataforma Azure
@@ -97,7 +97,7 @@ Não apenas os usuários não precisam gerenciar vários conjuntos de nomes de u
 
 #### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-A autenticação multifator do [Azure (MFA)](../../active-directory/authentication/multi-factor-authentication.md) é um método de autenticação que requer o uso de mais de um método de verificação e adiciona uma segunda camada crítica de segurança a entradas e transações do usuário. O [MFA ajuda a proteger](../../active-directory/authentication/concept-mfa-howitworks.md) o acesso a dados e aplicativos enquanto atende à demanda do usuário por um processo de entrada simples. Ele fornece autenticação forte por meio de uma variedade de opções de verificação: chamada telefônica, mensagem de texto ou notificação de aplicativo móvel ou código de verificação e tokens OAuth de terceiros.
+A [autenticação multifator do Azure (MFA)](../../active-directory/authentication/multi-factor-authentication.md) é um método de autenticação que requer o uso de mais de um método de verificação e adiciona uma segunda camada crítica de segurança a entradas e transações do usuário. O [MFA ajuda a proteger](../../active-directory/authentication/concept-mfa-howitworks.md) o acesso a dados e aplicativos enquanto atende à demanda do usuário por um processo de entrada simples. Ele fornece autenticação forte por meio de uma variedade de opções de verificação: chamada telefônica, mensagem de texto ou notificação de aplicativo móvel ou código de verificação e tokens OAuth de terceiros.
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Monitoramento de segurança, alertas e relatórios baseados em Machine Learning
 
@@ -169,9 +169,9 @@ Ao utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a qu
 
 Uma das chaves para a proteção de dados na nuvem é a conta dos possíveis Estados nos quais os dados podem ocorrer e quais controles estão disponíveis para esse estado. Para as práticas recomendadas de segurança de dados e criptografia do Azure, as recomendações estão relacionadas aos Estados de dados a seguir.
 
-- Em repouso: Isso inclui todos os objetos de armazenamento de informações, contêineres e tipos que existem estaticamente na mídia física, seja ele um disco magnético ou óptico.
+- Em repouso: isso inclui todos os objetos de armazenamento de informações, contêineres e tipos que existem estaticamente na mídia física, seja em disco magnético ou óptico.
 
-- Em trânsito: Quando os dados estão sendo transferidos entre componentes, locais ou programas, como pela rede, em um barramento de serviço (do local para a nuvem e vice-versa, incluindo conexões híbridas, como o ExpressRoute) ou durante um processo de entrada/saída, é pensa em como estando em movimento.
+- Em trânsito: quando os dados estão sendo transferidos entre componentes, locais ou programas, como pela rede, em um barramento de serviço (do local para a nuvem e vice-versa, incluindo conexões híbridas, como ExpressRoute), ou durante um processo de entrada/saída , é considerado como estando em movimento.
 
 ### <a name="encryption-at-rest"></a>Encriptação inativa
 
@@ -206,9 +206,9 @@ Considere quais lojas você está usando para armazenar dados. Por exemplo:
 
 Para cada loja que você usar, aproveite o suporte de criptografia em repouso existente.
 
-- Armazenamento do Azure: Consulte [criptografia do serviço de armazenamento do Azure para dados em repouso](../../storage/common/storage-service-encryption.md),
+- Armazenamento do Azure: Confira [criptografia do serviço de armazenamento do Azure para dados em repouso](../../storage/common/storage-service-encryption.md),
 
-- SQL Azure: Consulte [Transparent Data Encryption (TDE), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
+- SQL Azure: consulte [Transparent Data Encryption (TDE), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
 
 - Armazenamento de disco local & VM ([Azure Disk Encryption](../azure-security-disk-encryption-overview.md))
 
@@ -281,7 +281,7 @@ As organizações que são fracas na [classificação de dados](https://download
 ## <a name="secure-your-application"></a>Proteger seu aplicativo
 Embora o Azure seja responsável por proteger a infraestrutura e a plataforma em que seu aplicativo é executado, é sua responsabilidade proteger seu próprio aplicativo. Em outras palavras, você precisa desenvolver, implantar e gerenciar o código e o conteúdo do aplicativo de maneira segura. Sem isso, o código do aplicativo ou o conteúdo ainda pode estar vulnerável a ameaças.
 
-### <a name="web-application-firewall"></a>Firewall de aplicações Web
+### <a name="web-application-firewall"></a>Firewall de aplicação Web
 O [WAF (firewall do aplicativo Web)](../../application-gateway/waf-overview.md) é um recurso do [Gateway de aplicativo](../../application-gateway/overview.md) que fornece proteção centralizada de seus aplicativos Web contra explorações e vulnerabilidades comuns.
 
 A firewall de aplicações Web baseia-se nas regras dos [conjuntos de regras de núcleo OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 ou 2.2.9. Cada vez mais, as aplicações Web são alvo de ataques maliciosos que exploram vulnerabilidades conhecidas comuns. Destas vulnerabilidades, são frequentes os ataques de injeção de SQL, scripting entre sites, entre muitas outras. Impedir este tipo de ataques ao código das aplicações constitui um desafio e exige uma manutenção, correção e monitorização rigorosas em várias camadas da topologia da aplicação. Uma firewall de aplicações Web centralizada ajuda a simplificar em muito a gestão da segurança e confere aos administradores de aplicações uma maior garantia de proteção contra as ameaças ou intrusões. Uma solução WAF também pode reagir mais rapidamente a uma ameaça de segurança ao corrigir uma vulnerabilidade conhecida numa localização central, em vez de proteger cada uma das aplicações Web individualmente. Os gateways de aplicações existentes podem ser facilmente convertidos num gateway de aplicação com firewall de aplicações Web ativada.
@@ -309,7 +309,7 @@ O Azure também fornece vários recursos fáceis de usar para ajudar a proteger 
 
 - [Configurar a autenticação Azure Active Directory para seu aplicativo](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
-- [Proteger o tráfego para seu aplicativo habilitando a segurança da camada de transporte (TLS/SSL)-HTTPS](../../app-service/app-service-web-tutorial-custom-ssl.md)
+- [Proteger o tráfego para seu aplicativo habilitando a segurança da camada de transporte (TLS/SSL)-HTTPS](../../app-service/configure-ssl-bindings.md)
 
   - [Forçar todo o tráfego de entrada pela conexão HTTPS](http://microsoftazurewebsitescheatsheet.info/)
 
@@ -348,7 +348,7 @@ O [túnel forçado](https://www.petri.com/azure-forced-tunneling) é um mecanism
 
 O Azure dá suporte à conectividade de link WAN dedicada à sua rede local e a uma rede virtual do Azure com o [ExpressRoute](../../expressroute/expressroute-introduction.md). O link entre o Azure e seu site usa uma conexão dedicada que não passa pela Internet pública. Se o aplicativo do Azure estiver sendo executado em vários datacenters, você poderá usar o [Gerenciador de tráfego do Azure](../../traffic-manager/traffic-manager-overview.md) para rotear solicitações de usuários de forma inteligente entre instâncias do aplicativo. Você também pode rotear o tráfego para os serviços que não estão em execução no Azure se eles estiverem acessíveis pela Internet.
 
-## <a name="virtual-machine-security"></a>Segurança de máquinas virtuais
+## <a name="virtual-machine-security"></a>Segurança da máquina virtual
 
 As [máquinas virtuais do Azure](../../virtual-machines/index.yml) permitem implantar uma ampla variedade de soluções de computação de maneira ágil. Com suporte do Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP e Serviços BizTalk do Azure, pode implementar qualquer carga de trabalho, qualquer linguagem, em praticamente qualquer sistema operativo.
 
@@ -360,7 +360,7 @@ O [backup do Azure](../../backup/backup-overview.md) é uma solução escalonáv
 
 [Azure site Recovery](../../site-recovery/site-recovery-overview.md) ajuda a orquestrar a replicação, o failover e a recuperação de cargas de trabalho e aplicativos para que fiquem disponíveis em um local secundário se o seu local principal ficar inativo.
 
-## <a name="ensure-compliance-cloud-services-due-diligence-checklist"></a>Garantir a conformidade: Lista de verificação de auditoria detalhada dos serviços de nuvem
+## <a name="ensure-compliance-cloud-services-due-diligence-checklist"></a>Garantir a conformidade: lista de verificação de auditoria detalhada dos serviços de nuvem
 
 A Microsoft desenvolveu [a lista de verificação de auditoria detalhada dos serviços de nuvem](https://aka.ms/cloudchecklist.download) para ajudar as organizações a exercerem uma auditoria detalhada, pois consideram uma mudança para a nuvem. Ele fornece uma estrutura para uma organização de qualquer tamanho e tipo — empresas privadas e organizações de setor público, incluindo o governo em todos os níveis e sem fins lucrativos — para identificar seus próprios objetivos de desempenho, serviço, gerenciamento de dados e governança e requirement. Isso permite que eles comparem as ofertas de diferentes provedores de serviço de nuvem, criando, por fim, a base de um contrato de serviço de nuvem.
 
@@ -388,7 +388,7 @@ A [segurança operacional do Azure](operational-security.md) refere-se aos servi
 
 A segurança operacional do Azure é criada em uma estrutura que incorpora o conhecimento obtido por meio de vários recursos que são exclusivos à Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Centre e conscientização profunda do panorama de ameaças do segurança cibernética.
 
-### <a name="microsoft-azure-monitor"></a>Monitor do Microsoft Azure
+### <a name="microsoft-azure-monitor"></a>Monitor de Microsoft Azure
 
 [Azure monitor](../../azure-monitor/index.yml) é a solução de gerenciamento de ti para a nuvem híbrida. Usado sozinho ou para estender sua implantação existente do System Center, Azure Monitor logs oferece a você o máximo de flexibilidade e controle para o gerenciamento baseado em nuvem de sua infraestrutura.
 
@@ -410,7 +410,7 @@ O [Centro de Segurança do Azure](../../security-center/security-center-intro.md
 
 O Centro de Segurança analisa o estado de segurança dos seus recursos Azure para identificar potenciais vulnerabilidades de segurança. Uma lista de recomendações orienta-o no processo de configuração de controlos necessários.
 
-Os exemplos incluem:
+Alguns exemplos:
 
 - Aprovisionamento de antimalware para ajudar a identificar e remover o software malicioso
 
@@ -438,13 +438,13 @@ O Centro de Segurança recolhe, analisa e integra automaticamente os dados de re
 
 Os aplicativos de nuvem são complexos com muitas partes móveis. O monitoramento fornece dados para garantir que seu aplicativo permaneça em funcionamento em um estado íntegro. Ele também ajuda a afastarr problemas em potencial ou a solucionar problemas anteriores.
 
-![Azure monitor](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png) além disso, você pode usar os dados de monitoramento para obter informações aprofundadas sobre seu aplicativo. Esse conhecimento pode ajudá-lo a melhorar o desempenho ou a manutenção do aplicativo, ou automatizar ações que, caso contrário, exigirão intervenção manual.
+![Azure Monitor](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png) além disso, você pode usar dados de monitoramento para obter informações detalhadas sobre seu aplicativo. Esse conhecimento pode ajudá-lo a melhorar o desempenho ou a manutenção do aplicativo, ou automatizar ações que, caso contrário, exigirão intervenção manual.
 
 A auditoria da segurança de rede é vital para detectar vulnerabilidades de rede e garantir a conformidade com a segurança de ti e o modelo de governança regulatória. Com a exibição de grupo de segurança, você pode recuperar o grupo de segurança de rede e as regras de segurança configuradas, bem como as regras de segurança em vigor. Com a lista de regras aplicadas, você pode determinar as portas que estão abertas e a vulnerabilidade da rede SS.
 
 ### <a name="network-watcher"></a>Observador de rede
 
-O observador de [rede](../../network-watcher/network-watcher-monitoring-overview.md) é um serviço regional que permite monitorar e diagnosticar condições em um nível de rede em, para e do Azure. As ferramentas de diagnóstico e visualização de rede disponíveis com o observador de rede ajudam você a entender, diagnosticar e obter informações sobre sua rede no Azure. Esse serviço inclui captura de pacote, próximo salto, verificação de fluxo de IP, exibição de grupo de segurança, logs de fluxo de NSG. O monitoramento em nível de cenário fornece uma exibição de ponta a ponta dos recursos de rede em contraste com o monitoramento de recursos de rede individual.
+O [observador de rede](../../network-watcher/network-watcher-monitoring-overview.md) é um serviço regional que permite monitorar e diagnosticar condições em um nível de rede em, para e do Azure. As ferramentas de diagnóstico e visualização de rede disponíveis com o observador de rede ajudam você a entender, diagnosticar e obter informações sobre sua rede no Azure. Esse serviço inclui captura de pacote, próximo salto, verificação de fluxo de IP, exibição de grupo de segurança, logs de fluxo de NSG. O monitoramento em nível de cenário fornece uma exibição de ponta a ponta dos recursos de rede em contraste com o monitoramento de recursos de rede individual.
 
 ### <a name="storage-analytics"></a>Análise de armazenamento
 
@@ -474,9 +474,9 @@ Monitoriza:
 
 - **Registos de rastreio de diagnóstico** da sua aplicação - para que possa correlacionar eventos de rastreio a pedidos.
 
-- Os **eventos personalizados e** as métricas que você escreve no código do cliente ou do servidor, para acompanhar eventos de negócios, como itens vendidos ou jogos ganhos.
+- Os **eventos personalizados e as métricas** que você escreve no código do cliente ou do servidor, para acompanhar eventos de negócios, como itens vendidos ou jogos ganhos.
 
-Normalmente, a infraestrutura da sua aplicação é composta por vários componentes, como uma máquina virtual, uma conta de armazenamento e uma rede virtual, ou uma aplicação Web, uma base de dados, um servidor de base de dados e serviços de terceiros. Não vê estes componentes como entidades separadas. Em vez disso, vê-os como partes relacionadas e interdependentes de uma única entidade. Deve implementá-los, geri-los e monitorizá-los como um grupo. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) permite que você trabalhe com os recursos em sua solução como um grupo.
+Normalmente, a infraestrutura da sua aplicação é composta por vários componentes, como uma máquina virtual, uma conta do Storage e uma rede virtual, ou uma aplicação Web, uma base de dados, um servidor de base de dados e serviços de terceiros. Não vê estes componentes como entidades separadas. Em vez disso, vê-os como partes relacionadas e interdependentes de uma única entidade. Deve implementá-los, geri-los e monitorizá-los como um grupo. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) permite que você trabalhe com os recursos em sua solução como um grupo.
 
 Pode implementar, atualizar ou eliminar todos os recursos da sua solução numa operação única e coordenada. Utiliza um modelo para a implementação e esse modelo pode funcionar para ambientes diferentes, como de teste e produção. O Resource Manager fornece funcionalidades de segurança, auditoria e etiquetagem para o ajudar a gerir os recursos após a implementação.
 

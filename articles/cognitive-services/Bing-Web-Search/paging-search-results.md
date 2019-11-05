@@ -9,14 +9,14 @@ ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/31/2019
 ms.author: aahi
-ms.openlocfilehash: 9fc05ab42c75bac1f8e192dd4fe20bb142881479
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: ea883bb294a8769b3c9be1e0eafc2e3e7c811b48
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176897"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481728"
 ---
 # <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Como paginar os resultados da APIs de Pesquisa do Bing
 
@@ -41,15 +41,15 @@ Para paginar os resultados disponíveis, use os parâmetros de consulta `count` 
 
 > [!NOTE]
 >
-> * A paginação com as APIs de vídeo, imagem e notícias do Bing aplica-se somente às pesquisas gerais de vídeo (`/video/search`), notícias (`/news/search`) e imagem (`/image/search`). Não há suporte para paginação por meio de tópicos e categorias de tendências.  
+> * A paginação com as APIs de vídeo, imagem e notícias do Bing aplica-se somente a pesquisas gerais de vídeo (`/video/search`), notícias (`/news/search`) e imagem (`/image/search`). Não há suporte para paginação por meio de tópicos e categorias de tendências.  
 > * O campo `TotalEstimatedMatches` é uma estimativa do número total de resultados da pesquisa para a consulta atual. Quando você define os parâmetros `count` e `offset`, essa estimativa pode ser alterada.
 
 | Parâmetro | Descrição                                                                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `count`   | Especifica o número de resultados a serem retornados na resposta. Observe que o valor padrão de `count` e o número máximo de resultados que você pode solicitar variam de acordo com a API. Você pode encontrar esses valores na documentação de referência em [próximas etapas](#next-steps). |
-| `offset`  | Especifica o número de resultados a serem ignorados. O `offset` é baseado em zero e deve ser menor que (`totalEstimatedMatches` @ no__t-2 @ no__t-3).                                           |
+| `count`   | Especifica o número de resultados a serem retornados na resposta. Observe que o valor padrão de `count`e o número máximo de resultados que você pode solicitar variam de acordo com a API. Você pode encontrar esses valores na documentação de referência em [próximas etapas](#next-steps). |
+| `offset`  | Especifica o número de resultados a serem ignorados. O `offset` é baseado em zero e deve ser menor que (`totalEstimatedMatches` - `count`).                                           |
 
-Por exemplo, se você quiser exibir 15 resultados por página, defina `count` como 15 e `offset` como 0 para obter a primeira página de resultados. Para cada chamada de API subsequente, você incrementaria `offset` por 15. O exemplo a seguir solicita 15 páginas da Web começando no deslocamento 45.
+Por exemplo, se você quiser exibir 15 resultados por página, defina `count` como 15 e `offset` como 0 para obter a primeira página de resultados. Para cada chamada de API subsequente, você incrementaria `offset` 15. O exemplo a seguir solicita 15 páginas da Web começando no deslocamento 45.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&count=15&offset=45&mkt=en-us HTTP/1.1  
@@ -57,7 +57,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-Se você usar o valor padrão `count`, só precisará especificar o parâmetro de consulta `offset` em suas chamadas à API.  
+Se usar o valor de `count` padrão, você só precisará especificar o parâmetro de consulta `offset` em suas chamadas à API.  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&offset=45&mkt=en-us HTTP/1.1  
@@ -65,8 +65,10 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
+Ao usar as APIs de imagem e vídeo do Bing, você pode usar o valor `nextOffset` para evitar resultados de pesquisa duplicados. Obtenha o valor do `Images` ou `Videos` objetos de resposta e use-o em suas solicitações com o parâmetro `offset`.  
+
 > [!NOTE]
-> O API de Pesquisa na Web do Bing retorna resultados da pesquisa que podem incluir páginas da Web, imagens, vídeos e notícias. Ao percorrer os resultados da pesquisa da API de Pesquisa na Web do Bing, você está paginando apenas as [páginas da Web](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage)e não outros tipos de resposta, como imagens ou notícias. Os resultados da pesquisa em objetos `WebPage` podem incluir resultados que também apareçam em outros tipos de resposta.
+> O API de Pesquisa na Web do Bing retorna resultados da pesquisa que podem incluir páginas da Web, imagens, vídeos e notícias. Ao percorrer os resultados da pesquisa da API de Pesquisa na Web do Bing, você está paginando apenas as [páginas da Web](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage)e não outros tipos de resposta, como imagens ou notícias. Os resultados da pesquisa em `WebPage` objetos podem incluir resultados que também apareçam em outros tipos de resposta.
 >
 > Se você usar o parâmetro de consulta `responseFilter` sem especificar nenhum valor de filtro, não use os parâmetros `count` e `offset`. 
 

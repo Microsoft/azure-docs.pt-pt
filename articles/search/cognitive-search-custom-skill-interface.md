@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f86c34dcc1276b8677e3e60514661a6d0b974005
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e0b54ca89511063e1a76753793846deaf8e8b9b4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787554"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466786"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Como adicionar uma habilidade personalizada a um pipeline de enriquecimento de Pesquisa Cognitiva do Azure
 
@@ -154,8 +154,10 @@ Quando você cria um aprimorador de API Web, pode descrever os cabeçalhos e os 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-+ [Habilidades de energia: um repositório de habilidades personalizadas](https://aka.ms/powerskills)
-+ [Exemplo: criando uma habilidade personalizada para pesquisa cognitiva](cognitive-search-create-custom-skill-example.md)
+Este artigo abordou os requisitos de interface necessários para integrar uma habilidade personalizada em um contratador de habilidades. Clique nos links a seguir para saber mais sobre habilidades personalizadas e composição do contratador de habilidades.
+
++ [Habilidades de energia: um repositório de habilidades personalizadas](https://github.com/Azure-Samples/azure-search-power-skills)
++ [Exemplo: criando uma habilidade personalizada para o enriquecimento de ia](cognitive-search-create-custom-skill-example.md)
 + [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
 + [Criar conconhecimento (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Como mapear campos aprimorados](cognitive-search-output-field-mapping.md)

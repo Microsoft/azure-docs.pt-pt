@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/31/2019
 ms.author: helohr
-ms.openlocfilehash: 561dad566d7f1caaf609c8013fa075062e4471ea
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
-ms.translationtype: MT
+ms.openlocfilehash: 1d7f08dbaa9b91cd2dbac28daf5c17ea85d09985
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676751"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482218"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Ligar ao cliente de Ambiente de Trabalho do Windows
 
@@ -25,11 +25,11 @@ Você pode acessar os recursos da área de trabalho virtual do Windows em dispos
 
 ## <a name="install-the-windows-desktop-client"></a>Instalar o cliente de área de trabalho do Windows
 
-Estes são os clientes que você pode baixar atualmente:
+Escolha o cliente que corresponde à sua versão do Windows:
 
 - [Windows de 64 bits](https://go.microsoft.com/fwlink/?linkid=2068602)
-
-Atualizaremos essa lista à medida que o cliente se tornar disponível para mais versões do Windows.
+- [Visualização de bits do Windows 32](https://go.microsoft.com/fwlink/?linkid=2098960)
+- [Visualização do Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2098961)
 
 Você pode instalar o cliente do para o usuário atual, que não requer direitos de administrador, ou o administrador pode instalar e configurar o cliente para que todos os usuários no dispositivo possam acessá-lo.
 

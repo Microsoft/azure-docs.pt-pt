@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 5/31/2019
 ms.author: mlearned
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 0e09d541cb84ef7857e4d68f776b92f845488771
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 89bb7014ddb04b63a83dc8c5b520bcf500bdc707
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329879"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472713"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Início rápido: implantar um cluster do AKS (serviço kubernetes do Azure) usando o portal do Azure
 
@@ -31,27 +31,29 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
-No canto superior esquerdo da portal do Azure, selecione **+ criar um recurso** > **contêineres** >  **serviço kubernetes**.
-
 Para criar um cluster do AKS, execute os passos seguintes:
 
-1. Na página **noções básicas** , configure as seguintes opções:
-   - *DETALHES DO PROJETO*: selecione uma subscrição do Azure e selecione ou crie um grupo de recursos do Azure, como *myResourceGroup*. Introduza um **nome para o cluster do Kubernetes**, como *myAKSCluster*.
-   - *DETALHES DO CLUSTER*: selecione uma região, a versão do Kubernetes e o prefixo do nome DNS do cluster do AKS.
-   - **Pool de nós primário**: selecione um tamanho de VM para os nós AKs. O tamanho da VM **não pode** ser alterado após a implementação de um cluster de AKS. 
-       - Selecione o número de nós a implementar no cluster. Neste início rápido, defina **Contagem de nós** como *1*. O número de nós **pode** ser ajustado após a implementação do cluster.
+1. No menu portal do Azure ou na **Home** Page do, selecione **criar um recurso**.
+
+2. Selecione **contêineres** >  **serviço kubernetes**.
+
+3. Na página **noções básicas** , configure as seguintes opções:
+    - **Detalhes do projeto**: selecione uma **assinatura**do Azure e, em seguida, selecione ou crie um **grupo de recursos**do Azure, como *MyResource*Group.
+    - **Detalhes do cluster**: Insira um **nome de cluster kubernetes**, como *myAKSCluster*. Selecione uma **região**, uma **versão kubernetes**e um **prefixo de nome DNS** para o cluster AKs.
+    - **Pool de nós primário**: selecione um **tamanho de nó** de VM para os nós AKs. O tamanho da VM *não pode* ser alterado depois que um cluster AKs foi implantado. 
+            -Selecione o número de nós a serem implantados no cluster. Neste início rápido, defina **Contagem de nós** como *1*. O número de nós *pode* ser ajustado após a implementação do cluster.
     
-     ![Criar cluster do AKS - indique informações básicas](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
+    ![Criar cluster do AKS - indique informações básicas](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-     Selecione **Avançar: dimensionar** ao concluir.
+    Selecione **Avançar: dimensionar** ao concluir.
 
-2. Na página **escala** , mantenha as opções padrão. Na parte inferior da tela, clique em **Avançar: autenticação**.
-> [!CAUTION]
-> A criação de novas entidades de serviço do AAD pode levar vários minutos para ser propagada e disponibilizada, fazendo com que a entidade de serviço não encontrou erros e falhas de validação no portal do Azure. Se você tiver obtido isso, visite [aqui](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) para obter mitigações.
+4. Na página **escala** , mantenha as opções padrão. Na parte inferior da tela, clique em **Avançar: autenticação**.
+    > [!CAUTION]
+    > A criação de novas entidades de serviço do AAD pode levar vários minutos para ser propagada e disponibilizada, fazendo com que a entidade de serviço não encontrou erros e falhas de validação no portal do Azure. Se você tiver obtido isso, visite [aqui](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) para obter mitigações.
 
-3. Na página **autenticação** , configure as seguintes opções:
-   - Crie uma nova entidade de serviço deixando o campo de **entidade de serviço** com a **entidade de serviço padrão (novo)** . Ou você pode escolher *Configurar a entidade de serviço* para usar uma existente. Se você usar um existente, será necessário fornecer a ID e o segredo do cliente SPN.
-   - Ative a opção para os controlos de acesso baseado em funções (RBAC) do Kubernetes. Isso fornecerá um controle mais refinado sobre o acesso aos recursos kubernetes implantados em seu cluster AKS.
+5. Na página **autenticação** , configure as seguintes opções:
+    - Crie uma nova entidade de serviço deixando o campo de **entidade de serviço** com a **entidade de serviço padrão (novo)** . Ou você pode escolher *Configurar a entidade de serviço* para usar uma existente. Se você usar um existente, será necessário fornecer a ID e o segredo do cliente SPN.
+    - Ative a opção para os controlos de acesso baseado em funções (RBAC) do Kubernetes. Isso fornecerá um controle mais refinado sobre o acesso aos recursos kubernetes implantados em seu cluster AKS.
 
 Por padrão, a rede *básica* é usada e Azure monitor para contêineres está habilitado. Clique em **revisar + criar** e em **criar** quando a validação for concluída.
 
@@ -93,7 +95,7 @@ Um arquivo de manifesto kubernetes define um estado desejado para o cluster, com
 > [!TIP]
 > Neste início rápido, crie e implemente manualmente os seus manifestos de aplicação para o cluster do AKS. Em cenários mais reais, você pode usar [Azure dev Spaces][azure-dev-spaces] para iterar e depurar rapidamente seu código diretamente no cluster AKs. Pode utilizar o Dev Spaces em várias plataformas do SO e ambientes de desenvolvimento, e trabalhar em conjunto com outras pessoas na sua equipa.
 
-No Cloud Shell, use `nano` ou `vi` para criar um arquivo chamado `azure-vote.yaml` e copiar na seguinte definição de YAML:
+No Cloud Shell, use `nano` ou `vi` para criar um arquivo chamado `azure-vote.yaml` e copie na seguinte definição de YAML:
 
 ```yaml
 apiVersion: apps/v1
@@ -212,7 +214,7 @@ NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-Quando o endereço *IP externo* for alterado de *pendente* para um endereço IP público real, use `CTRL-C` para interromper o processo de inspeção `kubectl`. A saída de exemplo a seguir mostra um endereço IP público válido atribuído ao serviço:
+Quando o endereço *IP externo* for alterado de *pendente* para um endereço IP público real, use `CTRL-C` para interromper o `kubectl` processo de inspeção. A saída de exemplo a seguir mostra um endereço IP público válido atribuído ao serviço:
 
 ```
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m

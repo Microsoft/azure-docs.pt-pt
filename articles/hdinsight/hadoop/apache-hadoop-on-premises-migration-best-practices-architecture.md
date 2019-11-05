@@ -1,5 +1,5 @@
 ---
-title: Migrar clusters de Apache Hadoop locais para o Azure HDInsight-Architecture
+title: 'Arquitetura: Apache Hadoop local para o Azure HDInsight'
 description: Aprenda as práticas recomendadas de arquitetura para migrar clusters Hadoop locais para o Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4243100d74515576463a6812e31625ddc0ca1f48
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 4ef3cded9aba7bd95ecc48e1feadf6c55acd7bdc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735886"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499257"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrar clusters de Apache Hadoop locais para o Azure HDInsight-práticas recomendadas de arquitetura
 
@@ -32,13 +32,13 @@ Os clusters do Azure HDInsight são projetados para um tipo específico de uso d
 |IoT/streaming|Kafka, Storm, Spark|
 |Processamento transacional NoSQL|HBase|
 |Consultas interativas e mais rápidas com cache na memória|Interactive Query|
-|Ciência de dados|Serviços de ML, Spark|
+|Ciência de Dados|Serviços de ML, Spark|
 
 A tabela a seguir mostra os diferentes métodos que podem ser usados para criar um cluster HDInsight.
 
-|**Ferramenta**|**Baseado em navegador**|**Linha de comando**|**REST API**|**SDK**|
+|**Ferramenta**|**Baseado em navegador**|**Linha de comando**|**API REST**|**SDK**|
 |---|---|---|---|---|
-|[Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
+|[Portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
 |[Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
 |[CLI do Azure (ver 1,0)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
@@ -109,7 +109,7 @@ Algumas práticas recomendadas do HDInsight metastore do Hive são as seguintes:
 
 ## <a name="best-practices-for-different-workloads"></a>Práticas recomendadas para cargas de trabalho diferentes
 
-- Considere usar o cluster LLAP para consultas interativas do hive com tempo de resposta aprimorado [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) é um novo recurso do hive 2,0 que permite o cache em memória de consultas. O LLAP torna as consultas de Hive muito mais rápidas, até [26x mais rápidas do que o hive 1. x em alguns casos](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
+- Considere usar o cluster LLAP para consultas interativas do hive com tempo de resposta melhorado [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) é um novo recurso do hive 2,0 que permite o cache em memória de consultas. O LLAP torna as consultas de Hive muito mais rápidas, até [26x mais rápidas do que o hive 1. x em alguns casos](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
 - Considere o uso de trabalhos do Spark em vez de trabalhos do hive.
 - Considere a substituição de consultas baseadas em Impala por consultas LLAP.
 - Considere a possibilidade de substituir trabalhos MapReduce por trabalhos do Spark.
@@ -120,7 +120,7 @@ Algumas práticas recomendadas do HDInsight metastore do Hive são as seguintes:
 - Considere o uso do Ranger RBAC em tabelas e auditoria do hive.
 - Considere o uso de CosmosDB no lugar do MongoDB ou do Cassandra.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia o próximo artigo desta série:
 

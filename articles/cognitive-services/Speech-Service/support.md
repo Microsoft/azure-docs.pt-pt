@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 26d66868ab4c003dbd962e0c94009bc38bb36345
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f8793975d920e24924fca7c2ae366f70972e6ab7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558829"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468629"
 ---
 # <a name="support-and-help-options"></a>Opções de suporte e ajuda
 
@@ -55,7 +55,7 @@ Onde *{seus termos de pesquisa}* são suas palavras-chave de pesquisa.
 
 Os clientes do Azure podem criar e gerenciar solicitações de suporte no portal do Azure.
 
-* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [portal do Azure para o governo do Estados Unidos](https://portal.azure.us)
 
 ## <a name="post-a-question-to-stack-overflow"></a>Poste uma pergunta para Stack Overflow
@@ -64,14 +64,14 @@ Stack Overflow é o canal preferido para perguntas relacionadas ao desenvolvimen
 
 Se você não encontrar uma resposta para o problema por meio de pesquisa, envie uma nova pergunta para Stack Overflow. Use uma das seguintes marcas ao formular a pergunta:
 
-|Componente/área  |Tags  |
+|Componente/área  |Etiquetas  |
 |---------|---------|
-|Reconhecimento de Voz |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
-|Síntese de fala |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|Tradução de Voz |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|Intenção de fala |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|SDK de fala geral |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
-| Assistentes virtuais da primeira voz (visualização) | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
+|Reconhecimento de Voz |[[Microsoft-cognitiva + Speech-to-Text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
+|Síntese de fala |[[Microsoft-cognitiva + conversão de texto em fala]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
+|Tradução de Voz |[[Microsoft-cognitiva + Tradução]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
+|Intenção de fala |[[Microsoft-cognitiva + Luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
+|SDK de fala geral |[[Microsoft-cognitiva + Microsoft-Speech-API]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+|Assistentes de voz | [[Microsoft-cognitiva + virtual-Assistant + botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
 
 > [!TIP]
 > As postagens a seguir de Stack Overflow contêm dicas sobre como formar perguntas e adicionar código-fonte. Seguir essas diretrizes pode ajudar a aumentar as chances de que os membros da Comunidade avaliem e respondam rapidamente à sua pergunta:  

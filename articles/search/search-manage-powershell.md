@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: efc61f7dc8e9d2caa53c4cbd7d932af9e1a206d1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: fdb558267d823657f6a735d8b96efde33cdb8383
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793545"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466528"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Gerenciar o serviço de Pesquisa Cognitiva do Azure com o PowerShell
 > [!div class="op_single_selector"]
@@ -22,7 +22,7 @@ ms.locfileid: "72793545"
 > * [PowerShell](search-manage-powershell.md)
 > * [API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
-> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
+> * > de [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0) 
 
 Você pode executar os cmdlets e scripts do PowerShell no Windows, Linux ou no [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para criar e configurar o pesquisa cognitiva do Azure. O módulo **AZ. Search** estende Azure PowerShell] com paridade total para as [APIs REST do gerenciamento de pesquisa cognitiva do Azure](https://docs.microsoft.com/rest/api/searchmanagement). Com Azure PowerShell e **AZ. Search**, você pode executar as seguintes tarefas:
 
@@ -40,7 +40,7 @@ Embora não haja comandos dedicados do PowerShell para o gerenciamento de conte�
 
 Outras tarefas sem suporte por meio do PowerShell ou de qualquer outra API (somente de Portal) incluem:
 + [Anexe um recurso de serviços cognitivas](cognitive-search-attach-cognitive-services.md) para [indexação aprimorada de ia](cognitive-search-concept-intro.md). Um serviço cognitiva é anexado a um contratador, não a uma assinatura ou serviço.
-+ [Soluções de monitoramento de complemento](search-monitor-usage.md#add-on-monitoring-solutions) para monitoramento Azure Search.
++ [Soluções de monitoramento de complemento](search-monitor-usage.md#add-on-monitoring-solutions) para monitorar pesquisa cognitiva do Azure.
 
 <a name="check-versions-and-load"></a>
 
@@ -197,7 +197,7 @@ Tags
 
 [**New-AzSearchAdminKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) é usado para sobrepor chaves de [API](search-security-api-keys.md)de administração. Duas chaves de administração são criadas com cada serviço para acesso autenticado. As chaves são necessárias em cada solicitação. Ambas as chaves de administração são funcionalmente equivalentes, concedendo acesso de gravação total a um serviço de pesquisa com a capacidade de recuperar qualquer informação ou criar e excluir qualquer objeto. Existem duas chaves para que você possa usar uma enquanto substitui a outra. 
 
-Você só pode gerar um de cada vez, especificado como a chave `primary` ou `secondary`. Para o serviço ininterrupto, lembre-se de atualizar todo o código do cliente para usar uma chave secundária ao reverter a chave primária. Evite alterar as chaves enquanto as operações estiverem em trânsito.
+Você só pode gerar um de cada vez, especificado como a chave de `primary` ou `secondary`. Para o serviço ininterrupto, lembre-se de atualizar todo o código do cliente para usar uma chave secundária ao reverter a chave primária. Evite alterar as chaves enquanto as operações estiverem em trânsito.
 
 Como você deve esperar, se você regenerar chaves sem Atualizar o código do cliente, as solicitações que usam a chave antiga falharão. A regeneração de todas as novas chaves não o bloqueia permanentemente de seu serviço e você ainda pode acessar o serviço por meio do Portal. Depois de regenerar chaves primárias e secundárias, você pode atualizar o código do cliente para usar as novas chaves e as operações serão retomadas de acordo.
 

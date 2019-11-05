@@ -1,97 +1,112 @@
 ---
-title: O Azure SQL Data Warehouse - arquitetura MPP | Documentos da Microsoft
-description: Saiba como o Azure SQL Data Warehouse combina processamento paralelo em massa (MPP) com o armazenamento do Azure para alcançar a escalabilidade e de elevado desempenho.
+title: Arquitetura do Azure Synapse Analytics (anteriormente conhecido como SQL DW) | Microsoft Docs
+description: Saiba como o Azure Synapse Analytics (anteriormente conhecido como SQL DW) combina o processamento paralelo maciço (MPP) com o armazenamento do Azure para obter alto desempenho e escalabilidade.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 04/17/2018
+ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 25dc469c9f50dee7d088fccd214020791ff73def
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b463b0806d39ba20ae714c8785e5c0d227ce481b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515801"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466393"
 ---
-# <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>O Azure SQL Data Warehouse - paralelo em grande escala (MPP) arquitetura de processamento
-Saiba como o Azure SQL Data Warehouse combina processamento paralelo em massa (MPP) com o armazenamento do Azure para alcançar a escalabilidade e de elevado desempenho. 
+# <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Arquitetura do Azure Synapse Analytics (anteriormente conhecido como SQL DW) 
+
+O Azure Synapse é um serviço de análise ilimitado que reúne conjunto de dados corporativos e análise de Big Data. Ele oferece a você a liberdade de consultar dados sobre seus termos, usando recursos sem servidor sob demanda ou provisionados, em escala. O Azure Synapse traz esses dois mundos junto com uma experiência unificada para ingerir, preparar, gerenciar e fornecer dados para necessidades imediatas de BI e aprendizado de máquina.
+
+ O Azure Synapse tem quatro componentes:
+- Análise de SQL: concluir análise baseada em T-SQL 
+    - Pool do SQL (pague por DWU provisionado) – geralmente disponível
+    - SQL sob demanda (pagamento por TB processado) – (versão prévia)
+- Spark: Apache Spark profundamente integrados (versão prévia) 
+- Integração de dados: integração de dados híbridas (versão prévia)
+- Studio: experiência do usuário unificada.  (Pré-visualização)
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
-## <a name="mpp-architecture-components"></a>Componentes de arquitetura MPP
-O SQL Data Warehouse tira partido de um aumento horizontal de arquitetura para distribuir o processamento de computacional de dados em vários nós. A unidade de escala é uma abstração da potência de computação que é conhecida como um [unidade do armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md). SQL Data Warehouse separa a computação do armazenamento que permite dimensionar computação independentemente dos dados no seu sistema.
+## <a name="sql-analytics-mpp-architecture-components"></a>Componentes da arquitetura do SQL Analytics MPP
 
-![Arquitetura do SQL Data Warehouse](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
+A [análise de SQL](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse) aproveita uma arquitetura de expansão para distribuir o processamento computacional de dados em vários nós. A unidade de escala é uma abstração da potência de computação que é conhecida como uma [unidade de data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). A computação é separada do armazenamento, o que permite que você dimensione a computação independentemente dos dados em seu sistema.
 
-SQL Data Warehouse utiliza uma arquitetura baseada no nó. Os aplicativos se conectar e emitir comandos T-SQL para um nó de controlo, o que é o único ponto de entrada para o armazém de dados. O nó de controlo é executado o mecanismo de MPP otimiza consultas para processamento paralelo e, em seguida, transmite operações em nós de computação para trabalhar em paralelo. Os nós de computação armazenam todos os dados de utilizador no armazenamento do Azure e executam as consultas paralelas. O serviço de movimento de dados (DMS) é um serviço interno ao nível do sistema que move os dados em todos os nós conforme necessário para executar consultas em paralelo e retornar resultados precisos. 
+![Arquitetura de análise de SQL](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-Com armazenamento e computação desacoplados, o SQL Data Warehouse pode:
+O SQL Analytics usa uma arquitetura baseada em nó. Os aplicativos conectam e emitem comandos T-SQL para um nó de controle, que é o único ponto de entrada para a análise de SQL. O nó de controle executa o mecanismo MPP que otimiza as consultas para processamento paralelo e, em seguida, passa as operações para nós de computação para realizar seu trabalho em paralelo. 
 
-* Independentemente tamanho poder de computação, independentemente de suas necessidades de armazenamento.
-* Aumentar ou diminuir o poder de computação sem mover dados.
-* Colocar em pausa a capacidade de computação, mantendo os dados intactos, pelo que paga apenas armazenamento.
+Os nós de computação armazenam todos os dados do usuário no armazenamento do Azure e executam as consultas paralelas. O serviço de movimentação de dados (DMS) é um serviço interno de nível de sistema que move dados entre os nós conforme necessário para executar consultas em paralelo e retornar resultados precisos. 
+
+Com o armazenamento e a computação separados, ao usar a análise do SQL, é possível:
+
+* Capacidade de computação de tamanho independente, independentemente de suas necessidades de armazenamento.
+* Aumente ou reduza a potência de computação em um pool do SQL (data warehouse), sem mover os dados.
+* Pause a capacidade de computação deixando os dados intactos, para que você pague apenas pelo armazenamento.
 * Retomar a capacidade de computação durante as horas de funcionamento.
 
 ### <a name="azure-storage"></a>Storage do Azure
-SQL Data Warehouse utiliza o armazenamento do Azure para manter os dados de usuário protegidos.  Uma vez que os seus dados são armazenados e gerenciados pelo armazenamento do Azure, o SQL Data Warehouse cobra em separado para o consumo de armazenamento. Os dados em si são em partição horizontal em **distribuições** para otimizar o desempenho do sistema. Pode escolher qual padrão de fragmentação a utilizar para distribuir os dados ao definir a tabela. SQL Data Warehouse suporta estes padrões de fragmentação:
+
+A análise de SQL aproveita o armazenamento do Azure para manter os dados do usuário seguros.  Como os dados são armazenados e gerenciados pelo armazenamento do Azure, há um encargo separado para o consumo de armazenamento. Os dados em si são fragmentados em **distribuições** para otimizar o desempenho do sistema. Você pode escolher qual padrão de fragmentação usar para distribuir os dados ao definir a tabela. Esses padrões de fragmentação têm suporte:
 
 * Hash
 * Round Robin
 * Replicar
 
-### <a name="control-node"></a>Nó de controlo
+### <a name="control-node"></a>Nó de controle
 
-O nó de controlo é o cérebro do armazém de dados. É o front-end que interage com todas as ligações e aplicações. O motor do MPP é executado no nó de controlo para otimizar e coordenar as consultas paralelas. Quando submete uma consulta T-SQL ao SQL Data Warehouse, o nó de controlo transforma-a em consultas que são executadas em relação a cada distribuição em paralelo.
+O nó de controle é o cérebro da arquitetura. É o front-end que interage com todas as ligações e aplicações. O mecanismo MPP é executado no nó de controle para otimizar e coordenar consultas paralelas. Quando você envia uma consulta T-SQL para a análise do SQL, o nó de controle a transforma em consultas executadas em cada distribuição em paralelo.
 
 ### <a name="compute-nodes"></a>Nós de computação
 
-Os nós de computação fornecem a capacidade computacional. Mapa de distribuições para nós de computação para processamento. Como paga para obter mais recursos de computação, o SQL Data Warehouse mapeia novamente as distribuições para os nós de computação disponíveis. O número de intervalos de nós de 1 a 60 de computação e é determinado pelo nível de serviço para o armazém de dados.
+Os nós de computação fornecem a potência computacional. As distribuições são mapeadas para nós de computação para processamento. À medida que você paga mais recursos de computação, a análise do SQL mapeia novamente as distribuições para os nós de computação disponíveis. O número de nós de computação varia de 1 a 60 e é determinado pelo nível de serviço para análise de SQL.
 
-Cada nó de computação tem um ID de nó que está visível nas vistas de sistema. Pode ver o ID de nó de computação para a coluna de node_id nas vistas de sistema cujos nomes comecem com sys.pdw_nodes procurar. Para obter uma lista uma destas vistas de sistema, consulte [vistas de sistema MPP](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7).
+Cada nó de computação tem uma ID de nó visível nas exibições do sistema. Você pode ver a ID do nó de computação procurando a coluna node_id nas exibições do sistema cujos nomes começam com sys. PDW _nodes. Para obter uma lista dessas exibições do sistema, consulte [exibições do sistema MPP](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7).
 
-### <a name="data-movement-service"></a>Serviço de movimento de dados
-Serviço de movimento de dados (DMS) é a tecnologia de transporte de dados que coordena o movimento de dados entre os nós de computação. Algumas consultas requerem movimento de dados para garantir que as consultas paralelas devolvem resultados precisos. Quando for necessário o movimento de dados, o DMS garante que os dados corretos obtém para o local correto. 
+### <a name="data-movement-service"></a>Serviço de movimentação de dados
+O serviço de movimentação de dados (DMS) é a tecnologia de transporte de dados que coordena a movimentação de dados entre os nós de computação. Algumas consultas exigem a movimentação de dados para garantir que as consultas paralelas retornem resultados precisos. Quando a movimentação de dados é necessária, DMS garante que os dados corretos cheguem ao local certo. 
 
 ## <a name="distributions"></a>Distribuições
 
-Uma distribuição é a unidade básica de armazenamento e processamento para paralelo consulta funcionando em dados distribuídos. Quando o SQL Data Warehouse executa uma consulta, o trabalho é dividido em 60 consultas mais pequenas que são executadas em paralelo. Cada uma das consultas mais pequenas 60 é executado em um das distribuições de dados. Cada nó de computação gere um ou mais de 60 distribuições. Um armazém de dados com recursos de computação máximo tem uma distribuição por nó de computação. Um armazém de dados com recursos de computação mínimo tem todas as distribuições no nó de computação.  
+Uma distribuição é a unidade básica de armazenamento e processamento para consultas paralelas que são executadas em dados distribuídos. Quando o SQL Analytics executa uma consulta, o trabalho é dividido em 60 consultas menores que são executadas em paralelo. 
 
-## <a name="hash-distributed-tables"></a>Tabelas distribuídas de hash
-Uma tabela distribuída por hash pode entregar o mais elevado desempenho de consulta para associações e agregações em tabelas grandes. 
+Cada uma das 60 consultas menores é executada em uma das distribuições de dados. Cada nó de computação gerencia uma ou mais das distribuições 60. Um pool SQL com recursos de computação máximo tem uma distribuição por nó de computação. Um pool SQL com recursos de computação mínimos tem todas as distribuições em um nó de computação.  
 
-Dividir os dados numa tabela distribuída por hash, o SQL Data Warehouse utiliza uma função de hash para determinística atribuir cada linha a uma distribuição. Na definição da tabela, uma das colunas é designada como a coluna de distribuição. A função de hash usa os valores da coluna de distribuição para atribuir a cada linha a uma distribuição.
+## <a name="hash-distributed-tables"></a>Tabelas distribuídas por hash
+Uma tabela distribuída por hash pode fornecer o melhor desempenho de consulta para junções e agregações em tabelas grandes. 
 
-O diagrama seguinte ilustra como um inteiro (tabela não distribuído) é armazenado como uma tabela distribuída por hash. 
+Para fragmentar dados em uma tabela distribuída por hash, a análise do SQL usa uma função de hash para atribuir de forma determinística cada linha a uma distribuição. Na definição de tabela, uma das colunas é designada como a coluna de distribuição. A função de hash usa os valores na coluna de distribuição para atribuir cada linha a uma distribuição.
 
-![Tabela de Distributed](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "tabela distribuídas")  
+O diagrama a seguir ilustra como uma tabela completa (não distribuída) é armazenada como uma tabelas distribuídas por hash. 
+
+![Tabela distribuída](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Tabela distribuída")  
 
 * Cada linha pertence a uma distribuição.  
-* Um algoritmo de hash determinística atribui cada linha a uma distribuição.  
-* O número de linhas de tabela por distribuição varia conforme exibido nos diferentes tamanhos de tabelas.
+* Um algoritmo de hash determinístico atribui cada linha a uma distribuição.  
+* O número de linhas de tabela por distribuição varia conforme mostrado pelos diferentes tamanhos de tabelas.
 
-Existem considerações de desempenho para a seleção de uma coluna de distribuição, como distinctness, distorção de dados e os tipos de consultas que são executadas no sistema.
+Há considerações de desempenho para a seleção de uma coluna de distribuição, como distinção, distorção de dados e os tipos de consultas executadas no sistema.
 
-## <a name="round-robin-distributed-tables"></a>Tabelas distribuídas de round robin
-Uma tabela round robin é a tabela mais simples para criar e oferece um desempenho rápido quando utilizado como uma tabela de teste para cargas.
+## <a name="round-robin-distributed-tables"></a>Tabelas distribuídas Round Robin
+Uma tabela Round Robin é a tabela mais simples de criar e fornecer desempenho rápido quando usada como uma tabela de preparo para cargas.
 
-Uma tabela distribuída round robin distribui uniformemente os dados por uma tabela, mas sem qualquer otimização adicional. Uma distribuição primeiro é escolhida aleatoriamente e, em seguida, em que buffers de linhas são atribuídos em seqüência para distribuições. É rápido carregar dados para uma tabela round robin, mas o desempenho da consulta, muitas vezes, pode ser melhor com tabelas distribuídas com hash. Necessitam de junções em tabelas round robin reshuffling dados e isto demora mais tempo.
+Uma tabela distribuída por Round Robin distribui os dados uniformemente na tabela, mas sem nenhuma otimização adicional. Uma distribuição é escolhida primeiro aleatoriamente e, em seguida, os buffers de linhas são atribuídos às distribuições sequencialmente. É rápido carregar dados em uma tabela Round Robin, mas o desempenho da consulta geralmente pode ser melhor com tabelas distribuídas por hash. Junções em tabelas Round Robin exigem dados embaralhando e isso leva mais tempo.
 
 
 ## <a name="replicated-tables"></a>Tabelas replicadas
-Tabelas replicadas fornece o desempenho de consulta mais rápido para tabelas pequenas.
+Uma tabela replicada fornece o desempenho de consulta mais rápido para tabelas pequenas.
 
-Uma tabela que é replicada armazena em cache uma cópia completa da tabela em cada nó de computação. Conseqüentemente, a replicação de uma tabela remove a necessidade de transferir dados entre nós de computação antes de uma associação ou agregação. Tabelas replicadas são melhor utilizadas com tabelas pequenas. É necessário armazenamento adicional e existe overhead adicional que é incorrido durante a escrita de dados que tornam impraticável a tabelas grandes.  
+Uma tabela replicada armazena em cache uma cópia completa da tabela em cada nó de computação. Consequentemente, a replicação de uma tabela elimina a necessidade de transferir dados entre nós de computação antes de uma junção ou agregação. As tabelas replicadas são melhor utilizadas com tabelas pequenas. O armazenamento extra é necessário e há sobrecarga adicional incorrida ao gravar dados que tornam as tabelas grandes impraticável.  
 
-O diagrama seguinte mostra uma tabela replicada. Para o SQL Data Warehouse, a tabela replicada é colocado em cache no primeiro de distribuição em cada nó de computação.  
+O diagrama a seguir mostra uma tabela replicada que é armazenada em cache na primeira distribuição em cada nó de computação.  
 
-![Tabela de replicado](media/sql-data-warehouse-distributed-data/replicated-table.png "replicado tabela") 
+![Tabela replicada](media/sql-data-warehouse-distributed-data/replicated-table.png "Tabela replicada") 
 
-## <a name="next-steps"></a>Passos Seguintes
-Agora que já sabe um pouco sobre o SQL Data Warehouse, saiba como [criar um SQL Data Warehouse][create a SQL Data Warehouse] e [carregar dados de exemplo][load sample data] rapidamente. Se não estiver familiarizado com o Azure, poderá achar útil o [Glossário do Azure][Azure glossary] quando se deparar com terminologia nova. Em alternativa, veja alguns destes outros Recursos do SQL Data Warehouse.  
+## <a name="next-steps"></a>Passos seguintes
+Agora que você já sabe um pouco sobre o Azure Synapse, saiba como [criar rapidamente um pool do SQL][create a SQL pool] e [carregar dados de exemplo][load sample data]. Se não estiver familiarizado com o Azure, poderá achar útil o [Glossário do Azure][Azure glossary] à medida que encontra terminologia nova. Ou então, veja alguns desses outros recursos do Azure Synapse.  
 
 * [Histórias de sucesso de clientes]
 * [Blogues]
@@ -109,9 +124,9 @@ Agora que já sabe um pouco sobre o SQL Data Warehouse, saiba como [criar um SQL
 <!--Article references-->
 [Criar pedido de suporte]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [load sample data]: ./sql-data-warehouse-load-sample-databases.md
-[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[create a SQL pool]: ./sql-data-warehouse-get-started-provision.md
 [Migration documentation]: ./sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
+[Azure Synapse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
 [Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
 [Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
 [Azure glossary]: ../azure-glossary-cloud-terminology.md
@@ -127,6 +142,6 @@ Agora que já sabe um pouco sobre o SQL Data Warehouse, saiba como [criar um SQL
 [Fórum do Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[SLA for SQL Data Warehouse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
+[SLA for Azure Synapse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
 [Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/

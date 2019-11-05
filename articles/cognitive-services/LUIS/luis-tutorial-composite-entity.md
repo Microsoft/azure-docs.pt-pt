@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Tutorial de entidade composta-LUIS'
+title: 'Tutorial: tutorial de entidade composta-LUIS'
 titleSuffix: Azure Cognitive Services
-description: Adicione uma entidade composta para reunir dados extraídos de vários tipos com uma única entidade contentora. Ao agrupar os dados, a aplicação cliente pode, facilmente, extrair dados relacionados em diferentes tipos de dados.
+description: Adicione uma entidade composta para agrupar dados extraídos de vários tipos em uma única entidade contentora. Ao agrupar os dados, o aplicativo cliente pode extrair facilmente os dados relacionados em diferentes tipos de dados.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,27 +9,29 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: f20661a74397487e141e69681f207418db8ac386
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: adb8941fd60a955a44a04717958c5203b721639a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70388036"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498979"
 ---
-# <a name="tutorial-group-and-extract-related-data"></a>Tutorial: Agrupar e extrair dados relacionados
-Neste tutorial, adicione uma entidade composta para reunir dados extraídos de vários tipos com uma única entidade contentora. Ao agrupar os dados, a aplicação cliente pode, facilmente, extrair dados relacionados em diferentes tipos de dados.
+# <a name="tutorial-group-and-extract-related-data"></a>Tutorial: agrupar e extrair dados relacionados
+Neste tutorial, adicione uma entidade composta para agrupar dados extraídos de vários tipos em uma única entidade contentora. Ao agrupar os dados, o aplicativo cliente pode extrair facilmente os dados relacionados em diferentes tipos de dados.
 
-O objetivo da entidade composto consiste em Agrupar entidades relacionadas numa entidade da categoria principal. As informações existem como entidades separadas antes da criação de uma composição. 
+A finalidade da entidade composta é agrupar entidades relacionadas em uma entidade de categoria pai. As informações existem como entidades separadas antes de uma composição ser criada. 
 
-A entidade composta é uma boa opção para este tipo de dados, porque os dados:
+A entidade composta é uma boa opção para esse tipo de dados porque os dados:
 
 * Estão relacionados entre si. 
-* Utilize uma variedade de tipos de entidade.
+* Use uma variedade de tipos de entidade.
 * Têm de ser agrupadas e processadas pela aplicação cliente como uma unidade de informações.
 
-**Neste tutorial, vai aprender a:**
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
+**Neste tutorial, ficará a saber como:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -50,7 +52,7 @@ A entidade composta é uma boa opção para este tipo de dados, porque os dados:
 
 3. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `composite`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
 
-## <a name="composite-entity"></a>entidade composta
+## <a name="composite-entity"></a>Entidade composta
 
 Nesse aplicativo, o nome do departamento é definido na entidade lista de **departamentos** e inclui sinônimos. 
 
@@ -85,25 +87,25 @@ O LUIS oferece várias entidades pré-concebidas para extração de dados comuns
 
 1. Selecione **TransferEmployeeToDepartment** na lista de tentativas.
 
-1. No expressão `place John Jackson in engineering`, selecione a entidade PersonName, `John Jackson`, em seguida, selecione **encapsule na entidade composta** na lista de menus pop-up para o seguinte expressão. 
+1. No `place John Jackson in engineering`expressão, selecione a entidade PersonName, `John Jackson`, em seguida, selecione **encapsule na entidade composta** na lista de menus pop-up para o seguinte expressão. 
 
     ![Captura de tela da seleção de encapsular composição na caixa de diálogo suspensa](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
-1. Em seguida, selecione imediatamente a última entidade `engineering` na expressão. Uma barra de verde é desenhada sob as palavras selecionadas que indica uma entidade composta. No menu de pop-up, introduza o nome composto `TransferEmployeeInfo` , em seguida, selecione introduzir. 
+1. Em seguida, selecione imediatamente a última entidade, `engineering` no expressão. Uma barra verde é desenhada sob as palavras selecionadas indicando uma entidade composta. No menu pop-up, insira o nome composto `TransferEmployeeInfo`, em seguida, selecione Enter. 
 
     ![Captura de tela da inserção do nome composto na caixa de diálogo suspensa](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
-1. Em **que tipo de entidade você deseja criar?** , todos os campos necessários estão na lista: `personName` e. `Department` Selecione **Done** (Concluído). Observe que a entidade predefinida, PersonName, foi adicionada à entidade composta. Se poderia ter uma entidade pré-criados aparecem entre o início e a terminar em tokens de uma entidade composta, a entidade composta tem de conter essas entidades criados previamente. Se a entidades pré-concebidas não estão incluídas, a entidade composta não está prevista corretamente, mas é de cada elemento individual.
+1. Em **que tipo de entidade você deseja criar?** , todos os campos necessários estão na lista: `personName` e `Department`. Selecione **Done** (Concluído). Observe que a entidade predefinida, PersonName, foi adicionada à entidade composta. Se você puder ter uma entidade predefinida exibida entre os tokens inicial e final de uma entidade composta, a entidade composta deverá conter essas entidades predefinidas. Se as entidades predefinidas não forem incluídas, a entidade composta não será prevista corretamente, mas cada elemento individual será.
 
     ![Captura de tela da inserção do nome composto na caixa de diálogo suspensa](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 
-## <a name="label-example-utterances-with-composite-entity"></a>Expressões com de exemplo de etiqueta com a entidade composta
+## <a name="label-example-utterances-with-composite-entity"></a>Exemplo de rótulo declarações com a entidade composta
 
-1. Em cada ocorrência de pronunciação de exemplo, selecione a entidade de mais à esquerda que deve estar na composição. Em seguida, selecione **encapsular na entidade composta**.
+1. Em cada exemplo de expressão, selecione a entidade mais à esquerda que deve estar na composição. Em seguida, selecione **encapsular na entidade composta**.
 
 1. Selecione a última palavra na entidade composta e, em seguida, selecione **TransferEmployeeInfo** no menu pop-up. 
 
-1. Certifique-se de que todas as expressões na intenção são rotuladas com a entidade composta. 
+1. Verifique se todos os declarações na intenção estão rotulados com a entidade composta. 
 
 ## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Treinar o aplicativo para que as alterações na intenção possam ser testadas 
 
@@ -117,9 +119,9 @@ O LUIS oferece várias entidades pré-concebidas para extração de dados comuns
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Vá para o final do URL no endereço e introduza `Move Jill Jones to DevOps`. O último parâmetro de cadeia de consulta é `q`, a consulta de expressão. 
+2. Vá para o final do URL no endereço e introduza `Move Jill Jones to DevOps`. O último parâmetro QueryString é `q`, a consulta expressão. 
 
-    Uma vez que este teste é verificar que a composição é extraída corretamente, um teste ou pode incluir uma expressão de exemplo existente ou uma expressão de novo. É um bom teste incluir todas as entidades de subordinado na entidade composta.
+    Como esse teste é para verificar se o composto foi extraído corretamente, um teste pode incluir um expressão de exemplo existente ou um novo expressão. Um bom teste é incluir todas as entidades filho na entidade composta.
 
     ```json
     {
@@ -183,7 +185,7 @@ O LUIS oferece várias entidades pré-concebidas para extração de dados comuns
     }
     ```
 
-   Esta expressão devolve uma matriz de entidades compostos. Cada entidade é dado um tipo e valor. Para localizar mais de precisão de cada entidade subordinada, utilize a combinação de tipo e o valor do item de matriz compostos para localizar o item correspondente da matriz de entidades.  
+   Esse expressão retorna uma matriz de entidades compostas. Cada entidade recebe um tipo e um valor. Para obter mais precisão para cada entidade filho, use a combinação de tipo e valor do item da matriz composta para localizar o item correspondente na matriz de entidades.  
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -198,9 +200,9 @@ O LUIS oferece várias entidades pré-concebidas para extração de dados comuns
 * [Como testar no portal do LUIS](luis-interactive-test.md)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, criado uma entidade composta para encapsular entidades existentes. Isso permite que a aplicação de cliente localizar um grupo de dados relacionados em diferentes tipos de dados para continuar a conversa. Uma aplicação de cliente para esta aplicação de recursos humanos pode pedir que dia e hora a movimentação tem de começar e terminar. Ele também pode perguntar sobre outra logística da mudança, como um telefone físico. 
+Este tutorial criou uma entidade composta para encapsular entidades existentes. Isso permite que o aplicativo cliente encontre um grupo de dados relacionados em tipos diferentes para continuar a conversa. Um aplicativo cliente para este aplicativo de recursos humanos pode perguntar o dia e a hora em que a movimentação precisa começar e terminar. Ele também pode perguntar sobre outra logística da mudança, como um telefone físico. 
 
 > [!div class="nextstepaction"] 
-> [Saiba como adicionar uma entidade com uma lista de frase](luis-quickstart-primary-and-secondary-data.md)  
+> [Saiba como adicionar uma entidade simples com uma lista de frases](luis-quickstart-primary-and-secondary-data.md)  

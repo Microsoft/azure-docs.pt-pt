@@ -12,64 +12,92 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 10/13/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1bfa59e92ce2cde45b448174260396f4e93a6282
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 122adf07b64f8c59008a716263b237072d752955
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240143"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498723"
 ---
-# <a name="connect-your-check-point-appliance"></a>Conectar seu dispositivo de verificação de ponto
+# <a name="connect-check-point-to-azure-sentinel"></a>Conectar ponto de verificação ao Azure Sentinel
 
 
 
-Você pode conectar o Azure Sentinel a qualquer dispositivo de verificação de ponto salvando os arquivos de log como syslog CEF. A integração com o Azure Sentinel permite que você execute facilmente análises e consultas nos dados do arquivo de log do Check Point. Para obter mais informações sobre como o Azure Sentinel ingeri dados de CEF, consulte [conectar dispositivos CEF](connect-common-event-format.md).
+Este artigo explica como conectar seu dispositivo do Check Point ao Azure Sentinel. O conector de dados do Check Point permite que você conecte facilmente seus logs do ponto de verificação com o Azure Sentinel, exiba painéis, crie alertas personalizados e melhore a investigação. O uso do Check Point no Azure Sentinel fornecerá mais informações sobre o uso da Internet da sua organização e aprimorará seus recursos de operação de segurança. 
 
-> [!NOTE]
-> Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando o Azure Sentinel.
 
-## <a name="step-1-connect-your-check-point-appliance-using-an-agent"></a>Passo 1: Conectar seu dispositivo de verificação de ponto usando um agente
+## <a name="how-it-works"></a>Como funciona
 
-Para conectar seu dispositivo do Check Point ao Azure Sentinel, você precisa implantar um agente em um computador dedicado (VM ou local) para dar suporte à comunicação entre o dispositivo e o Azure Sentinel. 
+Você precisa implantar um agente em um computador Linux dedicado (VM ou local) para dar suporte à comunicação entre o ponto de verificação e o Azure Sentinel. O diagrama a seguir descreve a configuração no caso de uma VM do Linux no Azure.
 
-Como alternativa, você pode implantar o agente manualmente em uma VM do Azure existente, em uma VM em outra nuvem ou em um computador local.
+ ![CEF no Azure](./media/connect-cef/cef-syslog-azure.png)
 
-> [!NOTE]
-> Certifique-se de configurar a segurança da máquina de acordo com a política de segurança da sua organização. Por exemplo, você pode configurar sua rede para se alinhar com sua política de segurança de rede corporativa e alterar as portas e protocolos no daemon para se alinhar com seus requisitos. 
+Como alternativa, essa configuração existirá se você usar uma VM em outra nuvem ou em um computador local. 
 
-Para ver um diagrama de rede de ambas as opções, consulte [conectar fontes de dados](connect-data-sources.md).
+ ![CEF local](./media/connect-cef/cef-syslog-onprem.png)
 
-### <a name="deploy-the-agent"></a>Implantar o agente
+
+## <a name="security-considerations"></a>Considerações de segurança
+
+Certifique-se de configurar a segurança da máquina de acordo com a política de segurança da sua organização. Por exemplo, você pode configurar sua rede para se alinhar com sua política de segurança de rede corporativa e alterar as portas e protocolos no daemon para se alinhar com seus requisitos. Você pode usar as seguintes instruções para melhorar sua configuração de segurança de computador:  [VM segura no Azure](../virtual-machines/linux/security-policy.md), [práticas recomendadas para segurança de rede](../security/fundamentals/network-best-practices.md).
+
+Para usar a comunicação TLS entre a solução de segurança e a máquina de syslog, você precisará configurar o daemon de syslog (rsyslog ou syslog-ng) para se comunicar em TLS: [criptografando o tráfego de syslog com TLS-rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [criptografando mensagens de log com TLS – syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
+
+ 
+## <a name="prerequisites"></a>Pré-requisitos
+Verifique se o computador Linux que você usa como proxy está executando um dos seguintes sistemas operacionais:
+
+- 64 bits
+  - CentOS 6 e 7
+  - Amazon Linux 2017, 9
+  - Oracle Linux 6 e 7
+  - Red Hat Enterprise Linux Server 6 e 7
+  - Debian GNU/Linux 8 e 9
+  - Ubuntu Linux 14, 4 LTS, 16, 4 LTS e 18, 4 LTS
+  - SUSE Linux Enterprise Server 12
+- 32 bits
+   - CentOS 6
+   - Oracle Linux 6
+   - Red Hat Enterprise Linux Server 6
+   - Debian GNU/Linux 8 e 9
+   - Ubuntu Linux 14, 4 LTS e 16, 4 LTS
+ 
+ - Versões do daemon
+   - Syslog-ng: 2,1-3.22.1
+   - Rsyslog: V8
+  
+ - RFCs do syslog com suporte
+   - Syslog RFC 3164
+   - Syslog RFC 5424
+ 
+Verifique se o computador também atende aos seguintes requisitos: 
+- Permissões
+    - Você deve ter permissões elevadas (sudo) em seu computador. 
+- Requisitos de software
+    - Verifique se você tem o Python em execução no seu computador
+## <a name="step-1-deploy-the-agent"></a>ETAPA 1: implantar o agente
+
+Nesta etapa, você precisa selecionar o computador Linux que atuará como um proxy entre o Azure Sentinel e sua solução de segurança. Você precisará executar um script no computador proxy que:
+- Instala o agente de Log Analytics e o configura conforme necessário para escutar mensagens de syslog na porta 514 sobre TCP e enviar as mensagens CEF para seu espaço de trabalho do Azure Sentinel.
+- Configura o daemon do syslog para encaminhar mensagens CEF para o agente de Log Analytics usando a porta 25226.
+- Define o agente de syslog para coletar os dados e enviá-los com segurança para Log Analytics, onde são analisados e aprimorados.
+ 
+ 
 1. No portal do Azure Sentinel, clique em **conectores de dados** e selecione **ponto de verificação** e **abra a página conector**. 
 
-1. Em **baixar e instalar o agente de syslog**, selecione o tipo de computador, o Azure ou o local. 
-1. Na tela **máquinas virtuais** que é aberta, selecione o computador que você deseja usar e clique em **conectar**.
-1. Se você escolher **baixar e instalar o agente para máquinas virtuais Linux do Azure**, selecione o computador e clique em **conectar**. Se você escolheu **baixar e instalar o agente para máquinas virtuais Linux que não são do Azure**, na tela **agente direto** , execute o script em **baixar e integrar agente para Linux**.
- 
-1. Na tela do conector, em **configurar e encaminhar syslog**, defina se o daemon do syslog é **rsyslog. d** ou **syslog-ng**. 
-1. Copie esses comandos e execute-os em seu dispositivo:
-     - Se você selecionou rsyslog. d:
-            
-       1. Instrua o daemon do syslog a escutar no recurso local_4 e no "Check Point" e enviar as mensagens do syslog para o agente do Azure Sentinel usando a porta 25226. `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Check Point\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
-           
-       2. Baixe e instale o [arquivo de configuração security_events](https://aka.ms/asi-syslog-config-file-linux) que configura o agente syslog para escutar na porta 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"`Onde {0} deve ser substituído pelo GUID do espaço de trabalho.
-           
-       1. Reiniciar o daemon do syslog`sudo service rsyslog restart`
-             
-    - Se você selecionou syslog-ng:
+1. Em **instalar e configurar o agente de syslog**, selecione o tipo de computador, o Azure, outra nuvem ou local. 
+   > [!NOTE]
+   > Como o script na próxima etapa instala o agente de Log Analytics e conecta o computador ao seu espaço de trabalho do Azure Sentinel, verifique se este computador não está conectado a nenhum outro espaço de trabalho.
+1. Você deve ter permissões elevadas (sudo) em seu computador. Verifique se você tem o Python em seu computador usando o seguinte comando: `python –version`
 
-         1. Instrua o daemon do syslog a escutar no recurso local_4 e no "Check Point" e enviar as mensagens do syslog para o agente do Azure Sentinel usando a porta 25226. `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Check Point\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
-         2. Baixe e instale o [arquivo de configuração security_events](https://aka.ms/asi-syslog-config-file-linux) que configura o agente syslog para escutar na porta 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"`Onde {0} deve ser substituído pelo GUID do espaço de trabalho.
-
-        3. Reiniciar o daemon do syslog`sudo service syslog-ng restart`
-2. Reinicie o agente de syslog usando este comando:`sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
-1. Confirme se não há erros no log do agente executando este comando:`tail /var/opt/microsoft/omsagent/log/omsagent.log`
-
+1. Execute o script a seguir no computador proxy.
+   `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+1. Enquanto o script estiver em execução, verifique se você não recebe mensagens de erro ou de aviso.
 
  
-## <a name="step-2-forward-check-point-logs-to-the-syslog-agent"></a>Passo 2: Encaminhar logs de ponto de verificação para o agente de syslog
+## <a name="step-2-forward-check-point-logs-to-the-syslog-agent"></a>ETAPA 2: encaminhar logs de ponto de verificação para o agente de syslog
 
 Configure seu dispositivo de verificação de ponto para encaminhar mensagens de syslog no formato CEF para seu espaço de trabalho do Azure por meio do agente de syslog.
 
@@ -80,59 +108,14 @@ Configure seu dispositivo de verificação de ponto para encaminhar mensagens de
      - Defina o formato como **CEF**.
 3. Se você estiver usando a versão R 77.30 ou R 80.10, role até **instalações** e siga as instruções para instalar um exportador de log para sua versão.
  
-## <a name="step-3-validate-connectivity"></a>Passo 3: Validar conectividade
+## <a name="step-3-validate-connectivity"></a>ETAPA 3: validar a conectividade
 
-Pode levar até 20 minutos até que os logs comecem a aparecer na Log Analytics. 
+1. Abra Log Analytics para garantir que os logs sejam recebidos usando o esquema CommonSecurityLog.<br> Pode levar até 20 minutos até que os logs comecem a aparecer na Log Analytics. 
 
-1. Certifique-se de usar a instalação correta. O recurso deve ser o mesmo em seu dispositivo e no Azure Sentinel. Você pode verificar qual arquivo de recurso está usando no Azure Sentinel e modificá-lo no arquivo `security-config-omsagent.conf`. 
-
-2. Verifique se os logs estão chegando à porta certa no agente de syslog. Execute este comando no computador do agente de syslog: `tcpdump -A -ni any  port 514 -vv`Esse comando mostra os logs que o transmite do dispositivo para o computador syslog. Verifique se os logs estão sendo recebidos do dispositivo de origem na porta correta e no recurso certo.
-
-3. Certifique-se de que os logs enviados estão em conformidade com a [RFC 3164](https://tools.ietf.org/html/rfc3164).
-
-4. No computador que executa o agente de syslog, verifique se essas portas 514, 25226 estão abertas e ouvindo, usando o `netstat -a -n:`comando. Para obter mais informações sobre como usar esse comando, consulte [netstat (8)-página do manual do Linux](https://linux.die.net/man/8/netstat). Se ele estiver escutando corretamente, você verá:
-
-   ![Portas do Azure Sentinel](./media/connect-cef/ports.png) 
-
-5. Verifique se o daemon está definido para escutar na porta 514, na qual você está enviando os logs.
-    - Para rsyslog:<br>Certifique-se de que `/etc/rsyslog.conf` o arquivo inclui essa configuração:
-
-           # provides UDP syslog reception
-           module(load="imudp")
-           input(type="imudp" port="514")
-        
-           # provides TCP syslog reception
-           module(load="imtcp")
-           input(type="imtcp" port="514")
-
-      Para obter mais informações, [consulte imudp: Módulo](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imudp.html#imudp-udp-syslog-input-module) de entrada do syslog [UDP e imtcp: Módulo de entrada do syslog TCP](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#imtcp-tcp-syslog-input-module)
-
-   - Para syslog-ng:<br>Certifique-se de que `/etc/syslog-ng/syslog-ng.conf` o arquivo inclui essa configuração:
-
-           # source s_network {
-            network( transport(UDP) port(514));
-             };
-    Para obter mais informações, consulte [syslog-ng Open Source Edition 3,16-guia de administração](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455).
-
-1. Verifique se há comunicação entre o daemon do syslog e o agente. Execute este comando no computador do agente de syslog: `tcpdump -A -ni any  port 25226 -vv`Esse comando mostra os logs que o transmite do dispositivo para o computador syslog. Verifique se os logs também estão sendo recebidos no agente.
-
-6. Se ambos os comandos forneceram resultados bem-sucedidos, verifique Log Analytics para ver se os logs estão chegando. Todos os eventos transmitidos por meio desses dispositivos aparecem em formato bruto no `CommonSecurityLog` log Analytics em tipo.
-
-7. Para verificar se há erros ou se os logs não chegam, examine `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`. Se houver erros de incompatibilidade de formato de log, vá `/etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` para e examine o arquivo `security_events.conf`e verifique se os logs correspondem ao formato Regex que você vê neste arquivo.
-
-8. Verifique se o tamanho padrão da mensagem syslog é limitado a 2048 bytes (2 KB). Se os logs forem muito longos, atualize o security_events. conf usando este comando:`message_length_limit 4096`
-
-4. Certifique-se de executar estes comandos:
-  
-   - Se você usar o syslog-ng, execute estes comandos (Observe que ele reinicia o agente de syslog):
-
-         sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Check Point\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"
-        Reinicie o daemon do syslog:`sudo service syslog-ng restart`
-
-   - Se você usar rsyslog, execute estes comandos (Observe que ele reinicia o agente de syslog): 
-
-         sudo bash -c "printf 'local4.debug @127.0.0.1:25226\n\n:msg, contains, "Check Point" @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"
-     Reinicie o daemon do syslog:`sudo service rsyslog restart`
+1. Antes de executar o script, recomendamos que você envie mensagens de sua solução de segurança para certificar-se de que elas estão sendo encaminhadas para o computador proxy de syslog configurado. 
+1. Você deve ter permissões elevadas (sudo) em seu computador. Verifique se você tem o Python em seu computador usando o seguinte comando: `python –version`
+1. Execute o script a seguir para verificar a conectividade entre o agente, o Azure Sentinel e sua solução de segurança. Ele verifica se o encaminhamento do daemon está configurado corretamente, escuta as portas corretas e se nada está bloqueando a comunicação entre o daemon e o agente de Log Analytics. O script também envia as mensagens de simulação ' TestCommonEventFormat ' para verificar a conectividade de ponta a ponta. <br>
+ `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]`
 
 
 

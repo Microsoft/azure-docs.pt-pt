@@ -5,58 +5,48 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 06/17/2019
+ms.date: 10/15/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 29ab9b3c33aae6005510c34b207c7f87714149e5
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 4f49220da5d996615c9f8ef7cad2b6c6793866b7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67608314"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466267"
 ---
-### <a name="preview"></a>Como participar na pré-visualização pública
-
-Tem de carregar para participar na pré-visualização pública. Utilize os passos em [este artigo](../articles/bastion/bastion-create-host-portal.md) para criar um novo recurso de Bastion do Azure. Atualmente, quando aceder e utilizar este serviço, tem de utilizar o [portal do Azure - pré-visualização](https://aka.ms/BastionHost) em vez do portal do Azure normal.
-
-### <a name="regions"></a>Que regiões estão disponíveis durante a pré-visualização?
-
-Pode implementar e utilizar o Bastion regiões através de pré-visualização de recursos em qualquer uma da [portal do Azure - ligação de pré-visualização](https://aka.ms/BastionHost).
+### <a name="regions"></a>Quais regiões estão disponíveis?
 
 [!INCLUDE [region](bastion-regions-include.md)]
 
-### <a name="portal"></a>Não consigo encontrar o recurso de Bastion no portal do Azure. O que devo fazer?
+### <a name="publicip"></a>Preciso de um IP público em minha máquina virtual?
 
-Certifique-se de que está a utilizar o [portal do Azure - ligação de pré-visualização](https://aka.ms/BastionHost), não o portal do Azure normal.
+Você não precisa de um IP público na máquina virtual do Azure ao qual está se conectando com o serviço de bastiões do Azure. O serviço de bastiões abrirá a sessão/conexão RDP/SSH para sua máquina virtual por meio do IP privado de sua máquina virtual, dentro de sua rede virtual.
 
-### <a name="publicip"></a>É necessário um IP público na minha máquina virtual?
+### <a name="rdpssh"></a>Preciso de um cliente RDP ou SSH?
 
-Não é necessário um IP público na máquina Virtual do Azure que estiver a estabelecer ligação com o serviço de Bastion do Azure. O serviço de Bastion abrirá o RDP/SSH sessão/ligação à máquina virtual através de IP privado da sua máquina virtual, na sua rede virtual.
+Não precisa de um cliente RDP ou SSH para permitir o acesso RDP/SSH à sua máquina virtual do Azure no portal do Azure. Use o [portal do Azure](https://portal.azure.com) para permitir que você obtenha acesso RDP/SSH à sua máquina virtual diretamente no navegador.
 
-### <a name="rdpssh"></a>É necessário um cliente RDP ou SSH?
-
-Não precisa de um cliente RDP ou SSH para permitir o acesso RDP/SSH à sua máquina virtual do Azure no portal do Azure. Utilize o [portal do Azure - ligação de pré-visualização](https://aka.ms/BastionHost) para acessar o vôo de pré-visualização do portal. Isto irá permitir-lhe obter acesso RDP/SSH à sua máquina virtual diretamente no browser.
-
-### <a name="agent"></a>É necessário um agente em execução na máquina virtual do Azure?
+### <a name="agent"></a>Preciso de um agente em execução na máquina virtual do Azure?
 
 Não tem de instalar um agente ou qualquer software no browser ou na sua máquina virtual do Azure. O serviço Bastion não utiliza agentes nem requer software adicional para RDP/SSH.
 
-### <a name="browsers"></a>Que browsers são suportados?
+### <a name="browsers"></a>Quais navegadores têm suporte?
 
-Durante a pré-visualização pública, utilize o browser Microsoft Edge ou o Google Chrome no Windows. Para Apple Mac, utilize o browser Google Chrome. O Microsoft Edge Chromium também é suportado no Windows e Mac, respetivamente.
+Use o navegador Microsoft Edge ou o Google Chrome no Windows. Para Apple Mac, utilize o browser Google Chrome. O Microsoft Edge Chromium também é suportado no Windows e Mac, respetivamente.
 
-### <a name="roles"></a>São quaisquer funções necessárias para aceder a uma máquina virtual?
+### <a name="roles"></a>As funções são necessárias para acessar uma máquina virtual?
 
-Para estabelecer uma ligação, as seguintes funções são necessárias:
+Para estabelecer uma conexão, as seguintes funções são necessárias:
 
 * Função de leitor na máquina virtual
-* Função de leitor na NIC com o IP privado da máquina virtual
-* Função de leitor do recurso de Bastion do Azure
+* Função de leitor na NIC com IP privado da máquina virtual
+* Função de leitor no recurso de bastiões do Azure
 
-### <a name="previewbill"></a>Preços - me será faturado por participar na pré-visualização?
+### <a name="pricingpage"></a>Qual é o preço?
 
-Só serão cobradas parcialmente durante a pré-visualização pública. No entanto, não existe nenhum SLA anexado à sua implementação. Para obter mais informações, veja a [página de preços](https://aka.ms/BastionHostPricing).
+Para obter mais informações, veja a [página de preços](https://aka.ms/BastionHostPricing).
 
-### <a name="previewbill"></a>Por que motivo recebo "a sua sessão expirou" erro de mensagens antes de inicia a sessão de Bastion?
+### <a name="session"></a>Por que obtenho a mensagem de erro "sua sessão expirou" antes do início da sessão de bastiões?
 
-Uma sessão deve ser iniciada apenas a partir do portal do Azure. Inicie sessão no portal do Azure e iniciar a sessão novamente. Se for para o URL diretamente a partir de outra sessão de browser ou separador, este erro é esperado. Ajuda a garantir que a sua sessão é mais segura e que a sessão pode ser acedida apenas por meio do portal do Azure.
+Uma sessão deve ser iniciada somente do portal do Azure. Entre no portal do Azure e inicie a sessão novamente. Se você for para a URL diretamente de outra sessão ou guia do navegador, esse erro será esperado. Ele ajuda a garantir que sua sessão seja mais segura e que a sessão possa ser acessada somente por meio do portal do Azure.

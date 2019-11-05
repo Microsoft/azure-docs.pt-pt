@@ -1,6 +1,6 @@
 ---
-title: Transformar dados com o Azure Data Factory | Documentos da Microsoft
-description: Saiba como transformar dados ou processar os dados no Azure Data Factory com o Hadoop, o Machine Learning ou o Azure Data Lake Analytics.
+title: Transformar dados usando Azure Data Factory | Microsoft Docs
+description: Saiba como transformar dados ou processar dados em Azure Data Factory usando o Hadoop, Machine Learning ou Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,85 +11,97 @@ ms.date: 07/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 2c674f77ef0f779c9764771e2e0ae7a4aea47548
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aa344915b8d5b4ff6e874f64d44ce3f665cd7a5a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622112"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464338"
 ---
-# <a name="transform-data-in-azure-data-factory"></a>Transformar dados no Azure Data Factory
+# <a name="transform-data-in-azure-data-factory"></a>Transformar dados em Azure Data Factory
 > [!div class="op_single_selector"]
 > * [Hive](transform-data-using-hadoop-hive.md)  
 > * [Pig](transform-data-using-hadoop-pig.md)  
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
-> * [HDInsight de transmissão em fluxo](transform-data-using-hadoop-streaming.md)
+> * [Streaming do HDInsight](transform-data-using-hadoop-streaming.md)
 > * [HDInsight Spark](transform-data-using-spark.md)
 > * [Machine Learning](transform-data-using-machine-learning.md) 
 > * [Procedimento Armazenado](transform-data-using-stored-procedure.md)
 > * [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md)
-> * [O bloco de notas do Databricks](transform-data-databricks-notebook.md)
-> * [Jar do Databricks](transform-data-databricks-jar.md)
-> * [Python do Databricks](transform-data-databricks-python.md)
-> * [.NET personalizado](transform-data-using-dotnet-custom-activity.md)
+> * [Bloco de anotações do databricks](transform-data-databricks-notebook.md)
+> * [Jar do databricks](transform-data-databricks-jar.md)
+> * [Python do databricks](transform-data-databricks-python.md)
+> * [Personalizado do .NET](transform-data-using-dotnet-custom-activity.md)
 
 ## <a name="overview"></a>Descrição geral
-Este artigo explica as atividades de transformação de dados no Azure Data Factory, que pode utilizar para transformar e processa os dados não processados em predições e informações. Uma atividade de transformação seja executado num ambiente de computação, como o Azure HDInsight cluster ou um Azure Batch. Fornece links para artigos com informações detalhadas sobre cada atividade de transformação.
+Este artigo explica as atividades de transformação de dados no Azure Data Factory que você pode usar para transformar e processar seus dados brutos em previsões e ideias. Uma atividade de transformação é executada em um ambiente de computação, como o cluster do Azure HDInsight ou um lote do Azure. Ele fornece links para artigos com informações detalhadas sobre cada atividade de transformação.
 
-O Data Factory suporta as seguintes atividades de transformação de dados que podem ser adicionadas ao [pipelines](concepts-pipelines-activities.md) seja individualmente ou encadeadas com outra atividade.
+O Data Factory dá suporte às seguintes atividades de transformação de dados que podem ser adicionadas aos [pipelines](concepts-pipelines-activities.md) individualmente ou encadeadas com outra atividade.
 
-## <a name="hdinsight-hive-activity"></a>Atividade do Hive do HDInsight
-A atividade do HDInsight Hive no pipeline do Data Factory executa consultas do Hive por conta própria ou cluster do HDInsight baseado em Windows/Linux por demanda. Ver [atividade do Hive](transform-data-using-hadoop-hive.md) artigo para obter detalhes sobre esta atividade. 
+## <a name="transform-natively-in-azure-data-factory-with-data-flows"></a>Transformar nativamente em Azure Data Factory com fluxos de dados
 
-## <a name="hdinsight-pig-activity"></a>Atividade Pig do HDInsight
-A atividade Pig do HDInsight no pipeline do Data Factory executa consultas de Pig por conta própria ou cluster do HDInsight baseado em Windows/Linux por demanda. Ver [Pig atividade](transform-data-using-hadoop-pig.md) artigo para obter detalhes sobre esta atividade. 
+### <a name="mapping-data-flows"></a>Fluxos de dados de mapeamento
 
-## <a name="hdinsight-mapreduce-activity"></a>Atividade MapReduce do HDInsight
-A atividade de MapReduce do HDInsight no pipeline do Data Factory executa programas MapReduce por conta própria ou cluster do HDInsight baseado em Windows/Linux por demanda. Ver [atividade MapReduce](transform-data-using-hadoop-map-reduce.md) artigo para obter detalhes sobre esta atividade.
+O mapeamento de fluxos de dados são transformações de dados visualmente projetadas em Azure Data Factory. Os fluxos de dados permitem que os engenheiros de dados desenvolvam a lógica de transformação de dados gráficos sem escrever código. Os fluxos de dados resultantes são executados como atividades dentro de Azure Data Factory pipelines que usam clusters Spark expandidos. As atividades de fluxo de dados podem ser operadas por meio de recursos de agendamento, controle, fluxo e monitoramento existentes de Data Factory. Para obter mais informações, consulte [mapeando fluxos de dados](concepts-data-flow-overview.md).
 
-## <a name="hdinsight-streaming-activity"></a>Atividade Streaming do HDInsight
-A atividade Streaming do HDInsight no pipeline do Data Factory executa programas de transmissão em fluxo do Hadoop de mensagens em fila por conta própria ou cluster do HDInsight baseado em Windows/Linux por demanda. Ver [atividade Streaming do HDInsight](transform-data-using-hadoop-streaming.md) para obter detalhes sobre esta atividade.
+### <a name="wrangling-data-flows"></a>Fluxos de dados Wrangling
 
-## <a name="hdinsight-spark-activity"></a>Atividade do Spark do HDInsight
-A atividade do Spark do HDInsight no pipeline do Data Factory executa programas do Spark no seu próprio cluster do HDInsight. Para obter detalhes, consulte [programas do Spark de invocar do Azure Data Factory](transform-data-using-spark.md). 
+Os fluxos de dados do Wrangling no Azure Data Factory permitem que você faça uma preparação de dados sem código em escala de nuvem iterativamente. Os fluxos de dados do Wrangling integram-se ao [Power Query online](https://docs.microsoft.com/power-query/) e fazem Power Query funções M disponíveis para os dados Wrangling em escala de nuvem por meio da execução do Spark. Para obter mais informações, consulte [fluxos de dados do Wrangling](wrangling-data-flow-overview.md).
 
-## <a name="machine-learning-activities"></a>Atividades do Machine Learning
-O Azure Data Factory permite-lhe facilmente criar pipelines que utilizem um serviço de web publicado do Azure Machine Learning para Análise Preditiva. Utilizar o [atividade de execução de lotes](transform-data-using-machine-learning.md) num pipeline do Azure Data Factory, pode invocar um serviço web do Machine Learning para fazer previsões sobre os dados no batch.
+## <a name="external-transformations"></a>Transformações externas
 
-Ao longo do tempo, os modelos preditivos da classificação experimentações do Machine Learning necessário reestruturar utilizando conjuntos de dados de entrada novo. Depois de terminar com reparametrização, pretende atualizar o serviço web de pontuação com o modelo de Machine Learning retrained. Pode utilizar o [atividade de recursos de atualização](update-machine-learning-models.md) para atualizar o serviço web com o modelo treinado recentemente.  
+### <a name="hdinsight-hive-activity"></a>Atividade do hive do HDInsight
+A atividade do hive do HDInsight em um pipeline Data Factory executa consultas de Hive em seu próprio cluster do HDInsight baseado em Windows/Linux sob demanda. Consulte o artigo [atividade do hive](transform-data-using-hadoop-hive.md) para obter detalhes sobre essa atividade. 
 
-Ver [atividades de utilização Machine Learning](transform-data-using-machine-learning.md) para obter detalhes sobre estas atividades de Machine Learning. 
+### <a name="hdinsight-pig-activity"></a>Atividade de Pig do HDInsight
+A atividade Pig do HDInsight em um pipeline Data Factory executa consultas Pig em seu próprio cluster do HDInsight baseado em Windows/Linux sob demanda. Consulte o artigo [atividade de Pig](transform-data-using-hadoop-pig.md) para obter detalhes sobre essa atividade. 
 
-## <a name="stored-procedure-activity"></a>Atividade de procedimento armazenado
-Pode utilizar a atividade Stored Procedure do SQL Server num pipeline do Data Factory para invocar um procedimento armazenado em um dos arquivos de dados seguintes: SQL Database do Azure, Azure SQL Data Warehouse, base de dados do SQL Server na sua empresa ou uma VM do Azure. Ver [atividade de procedimento armazenado](transform-data-using-stored-procedure.md) artigo para obter detalhes.  
+### <a name="hdinsight-mapreduce-activity"></a>Atividade de MapReduce do HDInsight
+A atividade de MapReduce do HDInsight em um pipeline de Data Factory executa programas MapReduce em seu próprio cluster do HDInsight baseado em Windows/Linux sob demanda. Consulte o artigo [atividade do MapReduce](transform-data-using-hadoop-map-reduce.md) para obter detalhes sobre essa atividade.
 
-## <a name="data-lake-analytics-u-sql-activity"></a>Atividade do Data Lake Analytics U-SQL
-Atividade do Data Lake Analytics U-SQL executa um script de U-SQL num cluster do Azure Data Lake Analytics. Ver [atividade de U-SQL de análise de dados](transform-data-using-data-lake-analytics.md) artigo para obter detalhes. 
+### <a name="hdinsight-streaming-activity"></a>Atividade de streaming do HDInsight
+A atividade de streaming do HDInsight em um pipeline Data Factory executa programas de streaming do Hadoop em seu próprio cluster do HDInsight baseado em Windows/Linux sob demanda. Consulte a [atividade de streaming do HDInsight](transform-data-using-hadoop-streaming.md) para obter detalhes sobre essa atividade.
 
-## <a name="databricks-notebook-activity"></a>Atividade Databricks Notebook
+### <a name="hdinsight-spark-activity"></a>Atividade do HDInsight Spark
+A atividade do HDInsight Spark em um pipeline Data Factory executa programas do Spark em seu próprio cluster HDInsight. Para obter detalhes, consulte [invocar programas Spark de Azure data Factory](transform-data-using-spark.md). 
 
-A atividade do Azure Databricks Notebook no pipeline do Data Factory executa um Databricks notebook na sua área de trabalho do Azure Databricks. O Azure Databricks é uma plataforma gerida para a execução do Apache Spark. Ver [transformar dados ao executar um Databricks notebook](transform-data-databricks-notebook.md).
+### <a name="machine-learning-activities"></a>Atividades de Machine Learning
+Azure Data Factory permite que você crie facilmente pipelines que usam um serviço Web publicado Azure Machine Learning para análise preditiva. Usando a [atividade de execução em lote](transform-data-using-machine-learning.md) em um pipeline Azure data Factory, você pode invocar um serviço Web Machine Learning para fazer previsões sobre os dados no lote.
 
-## <a name="databricks-jar-activity"></a>Atividade do Databricks Jar
+Com o passar do tempo, os modelos de previsão no Machine Learning a Pontuação dos experimentos precisam ser retreinados usando novos conjuntos de dados de entrada. Depois de concluir o retreinamento, você deseja atualizar o serviço Web de pontuação com o modelo de Machine Learning retreinado. Você pode usar a [atividade atualizar recurso](update-machine-learning-models.md) para atualizar o serviço Web com o modelo treinado recentemente.  
 
-O Azure Databricks Jar atividade no pipeline do Data Factory é executado um Jar do Spark no seu cluster do Azure Databricks. O Azure Databricks é uma plataforma gerida para a execução do Apache Spark. Ver [transformar dados através da execução de uma atividade de Jar no Azure Databricks](transform-data-databricks-jar.md).
+Consulte [usar Machine Learning atividades](transform-data-using-machine-learning.md) para obter detalhes sobre essas Machine Learning atividades. 
 
-## <a name="databricks-python-activity"></a>Atividade do Databricks Python
+### <a name="stored-procedure-activity"></a>Atividade de procedimento armazenado
+Você pode usar a SQL Server atividade de procedimento armazenado em um pipeline de Data Factory para invocar um procedimento armazenado em um dos seguintes repositórios de dados: banco de dados SQL do Azure, Azure SQL Data Warehouse, banco de SQL Server em sua empresa ou uma VM do Azure. Consulte o artigo [atividade de procedimento armazenado](transform-data-using-stored-procedure.md) para obter detalhes.  
 
-A atividade de Python do Azure Databricks no pipeline do Data Factory executa um ficheiro de Python no seu cluster do Azure Databricks. O Azure Databricks é uma plataforma gerida para a execução do Apache Spark. Ver [transformar dados através da execução de uma atividade de Python no Azure Databricks](transform-data-databricks-python.md).
+### <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics atividade U-SQL
+Data Lake Analytics atividade U-SQL executa um script U-SQL em um cluster Azure Data Lake Analytics. Consulte o artigo [atividade do U-SQL da análise de dados](transform-data-using-data-lake-analytics.md) para obter detalhes. 
 
-## <a name="custom-activity"></a>Atividade personalizada
-Se precisar de transformar os dados de uma forma que não é suportado pelo Data Factory, pode criar uma atividade personalizada com a sua própria lógica de processamento de dados e utilize a atividade no pipeline. Pode configurar a atividade .NET personalizada a ser realizada usando um serviço do Azure Batch ou um cluster do HDInsight do Azure. Ver [utilizar atividades personalizadas](transform-data-using-dotnet-custom-activity.md) artigo para obter detalhes. 
+### <a name="databricks-notebook-activity"></a>Atividade do databricks Notebook
+
+A atividade de Azure Databricks notebook em um pipeline de Data Factory executa um notebook do databricks em seu espaço de trabalho do Azure Databricks. Azure Databricks é uma plataforma gerenciada para executar o Apache Spark. Consulte [transformar dados executando um notebook do databricks](transform-data-databricks-notebook.md).
+
+### <a name="databricks-jar-activity"></a>Atividade de jar do databricks
+
+A atividade de Azure Databricks jar em um pipeline de Data Factory executa um jar do Spark em seu cluster de Azure Databricks. Azure Databricks é uma plataforma gerenciada para executar o Apache Spark. Consulte [transformar dados executando uma atividade jar em Azure Databricks](transform-data-databricks-jar.md).
+
+### <a name="databricks-python-activity"></a>Atividade de Python do databricks
+
+A atividade Azure Databricks Python em um pipeline Data Factory executa um arquivo Python em seu cluster de Azure Databricks. Azure Databricks é uma plataforma gerenciada para executar o Apache Spark. Consulte [transformar dados executando uma atividade do Python no Azure Databricks](transform-data-databricks-python.md).
+
+### <a name="custom-activity"></a>Atividade personalizada
+Se você precisar transformar dados de uma maneira que não seja suportada pelo Data Factory, poderá criar uma atividade personalizada com sua própria lógica de processamento de dados e usar a atividade no pipeline. Você pode configurar a atividade personalizada do .NET para ser executada usando um serviço de lote do Azure ou um cluster do Azure HDInsight. Consulte o artigo [usar atividades personalizadas](transform-data-using-dotnet-custom-activity.md) para obter detalhes. 
 
 Pode criar uma atividade personalizada para executar scripts R no seu cluster do HDInsight com R instalado. Veja [Run R Script using Azure Data Factory (Executar Script R com o Azure Data Factory)](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). 
 
-## <a name="compute-environments"></a>Ambientes de computação
-Criar um serviço ligado para o ambiente de computação e, em seguida, utilizar o serviço ligado ao definir uma atividade de transformação. Existem dois tipos de ambientes de computação suportados pelo Data Factory. 
+### <a name="compute-environments"></a>Ambientes de computação
+Você cria um serviço vinculado para o ambiente de computação e, em seguida, usa o serviço vinculado ao definir uma atividade de transformação. Há dois tipos de ambientes de computação com suporte pelo Data Factory. 
 
-- **Sob demanda**:  Neste caso, o ambiente de computação totalmente gerido pela fábrica de dados. Ele é criado automaticamente pelo serviço Data Factory antes de uma tarefa é submetida para processar dados e removida quando a tarefa estiver concluída. Pode configurar e controlar as definições do granulares do ambiente de computação a pedido para execução da tarefa, gerenciamento de cluster e ações de inicialização. 
-- **Traga a sua própria**: Neste caso, pode registrar seu próprio ambiente de computação (por exemplo o cluster de HDInsight) como um serviço ligado no Data Factory. O ambiente de computação é gerenciado por si e o serviço Data Factory utiliza para executar as atividades. 
+- **Sob demanda**: nesse caso, o ambiente de computação é totalmente gerenciado pelo data Factory. Ele é criado automaticamente pelo serviço de Data Factory antes de um trabalho ser enviado para processar dados e removido quando o trabalho for concluído. Você pode configurar e controlar as configurações granulares do ambiente de computação sob demanda para execução de trabalho, gerenciamento de cluster e ações de inicialização. 
+- **Traga seu próprio**: nesse caso, você pode registrar seu próprio ambiente de computação (por exemplo, o cluster HDInsight) como um serviço vinculado no data Factory. O ambiente de computação é gerenciado por você e o serviço de Data Factory o utiliza para executar as atividades. 
 
-Ver [serviços ligados de computação](compute-linked-services.md) artigo para saber mais sobre os serviços de computação suportados pelo Data Factory. 
+Consulte o artigo [Serviços vinculados de computação](compute-linked-services.md) para saber mais sobre os serviços de computação com suporte pelo data Factory. 
 
-## <a name="next-steps"></a>Passos Seguintes
-Veja o tutorial seguinte para obter um exemplo da utilização de uma atividade de transformação: [Tutorial: transformar dados com o Spark](tutorial-transform-data-spark-powershell.md)
+## <a name="next-steps"></a>Passos seguintes
+Consulte o tutorial a seguir para obter um exemplo de como usar uma atividade de transformação: [tutorial: transformar dados usando o Spark](tutorial-transform-data-spark-powershell.md)

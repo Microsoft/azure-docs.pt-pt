@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.openlocfilehash: 146aaa8b1b69c29e22f39d48883f604098b8e348
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 1d684957939c5cb83aae05962c1694f7a8d8da23
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718407"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498244"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gerenciar clusters HDInsight usando a API REST do Apache Ambari
 
@@ -37,9 +37,9 @@ O [Apache Ambari](https://ambari.apache.org) simplifica o gerenciamento e o moni
 
 ## <a name="base-uri-for-ambari-rest-api"></a>URI de base para API REST do Ambari
 
- A Uniform Resource Identifier de base (URI) para a API REST do Ambari no HDInsight é `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, em que `CLUSTERNAME` é o nome do cluster.  Os nomes de cluster nos URIs diferenciam **maiúsculas de minúsculas**.  Embora o nome do cluster na parte do FQDN (nome de domínio totalmente qualificado) do URI`CLUSTERNAME.azurehdinsight.net`() não diferencia maiúsculas de minúsculas, outras ocorrências no URI diferenciam maiúsculas de minúsculas.
+ A Uniform Resource Identifier de base (URI) para a API REST do Ambari no HDInsight é `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, em que `CLUSTERNAME` é o nome do cluster.  Os nomes de cluster nos URIs diferenciam **maiúsculas de minúsculas**.  Embora o nome do cluster na parte do FQDN (nome de domínio totalmente qualificado) do URI (`CLUSTERNAME.azurehdinsight.net`) não diferencia maiúsculas de minúsculas, outras ocorrências no URI diferenciam maiúsculas de minúsculas.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 Conectar-se ao Ambari no HDInsight requer HTTPS. Use o nome da conta de administrador (o padrão é **admin**) e a senha que você forneceu durante a criação do cluster.
 
@@ -50,8 +50,8 @@ Para Enterprise Security Package clusters, em vez de `admin`, use um nome de usu
 ### <a name="setup-preserve-credentials"></a>Instalação (preservar credenciais)
 Preserve suas credenciais para evitar reinseri-las para cada exemplo.  O nome do cluster será preservado em uma etapa separada.
 
-**UM. Bash @ no__t-0  
-Edite o script a seguir `PASSWORD` substituindo pela sua senha real.  Em seguida, digite o comando.
+**A. bash**  
+Edite o script abaixo, substituindo `PASSWORD` pela sua senha real.  Em seguida, digite o comando.
 
 ```bash
 export password='PASSWORD'
@@ -66,7 +66,7 @@ $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 ### <a name="identify-correctly-cased-cluster-name"></a>Identificar o nome do cluster em maiúscula corretamente
 A capitalização real do nome do cluster pode ser diferente do esperado, dependendo de como o cluster foi criado.  As etapas aqui mostrarão o capital real e, em seguida, o armazenará em uma variável para todos os exemplos subsequentes.
 
-Edite os scripts abaixo para `CLUSTERNAME` substituir pelo nome do cluster. Em seguida, digite o comando. (O nome do cluster para o FQDN não diferencia maiúsculas de minúsculas.)
+Edite os scripts abaixo para substituir `CLUSTERNAME` pelo nome do cluster. Em seguida, digite o comando. (O nome do cluster para o FQDN não diferencia maiúsculas de minúsculas.)
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -85,7 +85,7 @@ $clusterName
 
 ### <a name="parsing-json-data"></a>Analisando dados JSON
 
-O exemplo a seguir usa [JQ](https://stedolan.github.io/jq/) ou [ConvertFrom-JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) para analisar o documento de resposta JSON e exibir apenas as informações `health_report` dos resultados.
+O exemplo a seguir usa [JQ](https://stedolan.github.io/jq/) ou [ConvertFrom-JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) para analisar o documento de resposta JSON e exibir apenas as informações de `health_report` dos resultados.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" \
@@ -212,7 +212,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
 O valor de retorno é semelhante a um dos seguintes exemplos:
 
-* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net`-esse valor indica que o cluster está usando uma conta de armazenamento do Azure para armazenamento padrão. O valor `ACCOUNTNAME` é o nome da conta de armazenamento. A parte `CONTAINER` é o nome do contêiner de blob na conta de armazenamento. O contêiner é a raiz do armazenamento compatível com HDFS para o cluster.
+* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net`-esse valor indica que o cluster está usando uma conta de armazenamento do Azure para armazenamento padrão. O valor de `ACCOUNTNAME` é o nome da conta de armazenamento. A parte `CONTAINER` é o nome do contêiner de blob na conta de armazenamento. O contêiner é a raiz do armazenamento compatível com HDFS para o cluster.
 
 * `abfs://CONTAINER@ACCOUNTNAME.dfs.core.windows.net`-esse valor indica que o cluster está usando Azure Data Lake Storage Gen2 para armazenamento padrão. Os valores `ACCOUNTNAME` e `CONTAINER` têm os mesmos significados para o armazenamento do Azure mencionado anteriormente.
 
@@ -308,14 +308,14 @@ Este exemplo retorna um documento JSON que contém a configuração atual para o
    * Substitua `livy2-conf` pelo componente desejado.
    * Substitua `INITIAL` pelo valor real recuperado para `tag` de [obter todas as configurações](#get-all-configurations).
 
-     **UM. Bash @ no__t-0  
+     **A. bash**  
      ```bash
      curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL" \
      | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
      ```
 
      **B. PowerShell**  
-     O script do PowerShell usa [JQ](https://stedolan.github.io/jq/).  Edite `C:\HD\jq\jq-win64` abaixo para refletir seu caminho real e a versão de [JQ](https://stedolan.github.io/jq/).
+     O script do PowerShell usa [JQ](https://stedolan.github.io/jq/).  Edite `C:\HD\jq\jq-win64` abaixo para refletir o caminho real e a versão do [JQ](https://stedolan.github.io/jq/).
 
      ```powershell
      $epoch = Get-Date -Year 1970 -Month 1 -Day 1 -Hour 0 -Minute 0 -Second 0
@@ -332,9 +332,9 @@ Este exemplo retorna um documento JSON que contém a configuração atual para o
 
    * Cria um documento raiz para a nova configuração desejada.
 
-   * Obtém o conteúdo da matriz `.items[]` e a adiciona sob o elemento **desired_config** .
+   * Obtém o conteúdo da matriz de `.items[]` e a adiciona sob o elemento **desired_config** .
 
-   * Exclui os elementos `href`, `version` e `Config`, pois esses elementos não são necessários para enviar uma nova configuração.
+   * Exclui os elementos `href`, `version`e `Config`, pois esses elementos não são necessários para enviar uma nova configuração.
 
    * Adiciona um elemento `tag` com um valor de `version#################`. A parte numérica é baseada na data atual. Cada configuração deve ter uma marca exclusiva.
 
@@ -358,7 +358,7 @@ Este exemplo retorna um documento JSON que contém a configuração atual para o
      }
      ```
 
-2. Edite `newconfig.json`.  
+2. Editar `newconfig.json`.  
    Abra o documento `newconfig.json` e modifique/adicione valores no objeto `properties`. O exemplo a seguir altera o valor de `"livy.server.csrf_protection.enabled"` de `"true"` para `"false"`.
 
         "livy.server.csrf_protection.enabled": "false",
@@ -453,10 +453,10 @@ Neste ponto, se você examinar a interface do usuário da Web do amAmbari, o ser
     ```
 
     > [!IMPORTANT]  
-    > O valor `href` retornado por esse URI está usando o endereço IP interno do nó do cluster. Para usá-lo de fora do cluster, substitua a parte `10.0.0.18:8080` pelo FQDN do cluster.  
+    > O valor de `href` retornado por esse URI está usando o endereço IP interno do nó do cluster. Para usá-lo de fora do cluster, substitua a parte `10.0.0.18:8080` pelo FQDN do cluster.  
 
 4. Verificar solicitação.  
-    Edite o comando a seguir substituindo `29` pelo valor real de `id` retornado da etapa anterior.  Os comandos a seguir recuperam o status da solicitação:
+    Edite o comando a seguir, substituindo `29` pelo valor real para `id` retornado da etapa anterior.  Os comandos a seguir recuperam o status da solicitação:
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \

@@ -8,25 +8,25 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 08/14/2019
-ms.openlocfilehash: 1da2afc6c0dfa0571d6e7ccbf358bb574aa736c5
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/04/2019
+ms.openlocfilehash: d49a84f26453a6a7b2ff6d7f419fbc53ad8b98ba
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71830151"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476023"
 ---
-1. Entre no [portal do Azure](https://portal.azure.com/) usando as credenciais para a assinatura do Azure que você usa. 
+1. Entre no [portal do Azure](https://portal.azure.com/) usando as credenciais para sua assinatura do Azure.
 
 1. No canto superior esquerdo da portal do Azure, selecione **+ criar um recurso**.
 
       ![Criar um novo recurso](media/aml-create-in-portal/portal-create-resource.png)
 
-1. Use a barra de pesquisa para localizar **Machine Learning espaço de trabalho de serviço**.
+1. Use a barra de pesquisa para localizar **Machine Learning**.
 
-1. Selecione **Machine Learning espaço de trabalho de serviço**.
+1. Selecione **Machine Learning**.
 
-1. No painel **Machine Learning espaço de trabalho do serviço** , selecione **criar** para começar.
+1. No painel **Machine Learning** , selecione **criar** para começar.
 
 1. Forneça as seguintes informações para configurar seu novo espaço de trabalho:
 
@@ -36,8 +36,9 @@ ms.locfileid: "71830151"
    Subscrição |Selecione a subscrição do Azure que pretende utilizar.
    Grupo de recursos | Use um grupo de recursos existente em sua assinatura ou insira um nome para criar um novo grupo de recursos. Um grupo de recursos contém recursos relacionados para uma solução do Azure. Neste exemplo, usamos **docs-AML**. 
    Localização | Selecione o local mais próximo de seus usuários e os recursos de dados para criar seu espaço de trabalho.
+   Edição do espaço de trabalho | Selecione **básico** como o tipo de espaço de trabalho para este tutorial. O tipo de espaço de trabalho (básico & Enterprise) determina os recursos aos quais você terá acesso e preços. Tudo neste tutorial pode ser executado com um espaço de trabalho básico ou empresarial.
 
-1. Depois de concluir a configuração do espaço de trabalho, selecione **criar**. 
+1. Depois de concluir a configuração do espaço de trabalho, selecione **revisar + criar**. 
 
    > [!Warning] 
    > Pode levar vários minutos para criar seu espaço de trabalho na nuvem.

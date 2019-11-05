@@ -1,7 +1,7 @@
 ---
 title: Entidades predefinidas da dimensão – LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informações de entidade pré-criados na compreensão de idiomas (LUIS) de dimensão.
+description: Este artigo contém informações de entidade predefinidas da dimensão no Reconhecimento vocal (LUIS).
 services: cognitive-services
 ms.custom: seodec18
 author: diberry
@@ -9,126 +9,91 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 15ba8ad4d3bcf00024a0c7b14b004de08d37621a
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 6699b1617ccd1fef9a507e71fdd73a02b0e98bea
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677653"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465030"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Entidade predefinida de dimensão para um aplicativo LUIS
-A entidade de dimensão pré-criados detecta vários tipos de dimensões, independentemente da cultura de aplicação do LUIS. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém as dimensões para os objetivos do aplicativo. Entidade de dimensão é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
+A entidade de dimensão predefinida detecta vários tipos de dimensões, independentemente da cultura do aplicativo LUIS. Como essa entidade já está treinada, você não precisa adicionar o exemplo declarações que contém dimensões às tentativas do aplicativo. A entidade de dimensão tem suporte em [muitas culturas](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-dimension"></a>Tipos de dimensão
 
-A dimensão é gerenciada do repositório GitHub de [texto de reconhecedores](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml)
+A dimensão é gerenciada do repositório GitHub de [texto de reconhecedores](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) .
 
+## <a name="resolution-for-dimension-entity"></a>Resolução para entidade de dimensão
 
-## <a name="resolution-for-dimension-entity"></a>Resolução de entidades de dimensão
+Os seguintes objetos de entidade são retornados para a consulta:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
+`10 1/2 miles of cable`
 
-O exemplo seguinte mostra a resolução do **builtin.dimension** entidade.
-
-```json
-{
-  "query": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
-  "topScoringIntent": {
-    "intent": "None",
-    "score": 0.762141049
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.762141049
-    }
-  ],
-  "entities": [
-    {
-      "entity": "10 1/2 miles",
-      "type": "builtin.dimension",
-      "startIndex": 19,
-      "endIndex": 30,
-      "resolution": {
-        "unit": "Mile",
-        "value": "10.5"
-      }
-    }
-  ]
-}
-```
-
-
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
+#### <a name="v3-responsetabv3"></a>[Resposta v3](#tab/V3)
 
 O JSON a seguir é com o parâmetro `verbose` definido como `false`:
 
 ```json
-{
-    "query": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
-    "prediction": {
-        "normalizedQuery": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.400049
-            }
-        },
-        "entities": {
-            "dimension": [
-                {
-                    "number": 10.5,
-                    "unit": "Mile"
-                }
-            ]
+"entities": {
+    "dimension": [
+        {
+            "number": 10.5,
+            "units": "Mile"
         }
-    }
+    ]
 }
 ```
-
+#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3, resposta detalhada](#tab/V3-verbose)
 O JSON a seguir é com o parâmetro `verbose` definido como `true`:
 
 ```json
-{
-    "query": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
-    "prediction": {
-        "normalizedQuery": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.400049
-            }
-        },
-        "entities": {
-            "dimension": [
-                {
-                    "number": 10.5,
-                    "unit": "Mile"
-                }
-            ],
-            "$instance": {
-                "dimension": [
-                    {
-                        "type": "builtin.dimension",
-                        "text": "10 1/2 miles",
-                        "startIndex": 19,
-                        "length": 12,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
+"entities": {
+    "dimension": [
+        {
+            "number": 10.5,
+            "units": "Mile"
+        }
+    ],
+    "$instance": {
+        "dimension": [
+            {
+                "type": "builtin.dimension",
+                "text": "10 1/2 miles",
+                "startIndex": 0,
+                "length": 12,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
                 ]
             }
-        }
+        ]
     }
 }
 ```
 
+#### <a name="v2-responsetabv2"></a>[Resposta v2](#tab/V2)
+
+O exemplo a seguir mostra a resolução da entidade **Builtin. Dimension** .
+
+```json
+{
+    "entity": "10 1/2 miles",
+    "type": "builtin.dimension",
+    "startIndex": 0,
+    "endIndex": 11,
+    "resolution": {
+    "unit": "Mile",
+    "value": "10.5"
+    }
+}
+```
 * * * 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
 
-Saiba mais sobre o [e-mail](luis-reference-prebuilt-email.md), [número](luis-reference-prebuilt-number.md), e [ordinal](luis-reference-prebuilt-ordinal.md) entidades. 
+Saiba mais sobre o [email](luis-reference-prebuilt-email.md), [número](luis-reference-prebuilt-number.md)e entidades [ordinais](luis-reference-prebuilt-ordinal.md) . 

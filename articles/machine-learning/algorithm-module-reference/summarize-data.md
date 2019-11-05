@@ -1,5 +1,5 @@
 ---
-title: Resumir dados
+title: Resumir Dados
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo resumir dados no serviço Azure Machine Learning para gerar um relatório de estatísticas descritivas básico para as colunas em um conjunto de dados.
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 54d7235ef56a94c9c0e7b780c53cbd9791bf4f53
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 503eb533b83cbeedcc16b73a9c1dbe821a4d4d94
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694717"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492575"
 ---
-# <a name="summarize-data"></a>Resumir dados
+# <a name="summarize-data"></a>Resumir Dados
 
-Este artigo descreve um módulo de Azure Machine Learning interface visual.
+Este artigo descreve um módulo do designer de Azure Machine Learning (versão prévia).
 
 Use o módulo resumir dados para criar um conjunto de medidas estatísticas padrão que descrevem cada coluna na tabela de entrada.
 
@@ -32,7 +32,7 @@ O módulo calcula as pontuações importantes para cada coluna e retorna uma lin
 
 ## <a name="how-to-configure-summarize-data"></a>Como configurar dados de resumo  
 
-1. Adicione o módulo **resumir dados** ao seu pipeline. Você pode encontrar esse módulo na categoria **funções estatísticas** na interface visual.
+1. Adicione o módulo **resumir dados** ao seu pipeline. Você pode encontrar esse módulo na categoria **funções estatísticas** no designer.
 
 1. Conecte o conjunto de um para o qual você deseja gerar um relatório.
 

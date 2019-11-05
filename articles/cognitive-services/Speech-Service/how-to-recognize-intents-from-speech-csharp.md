@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Reconheça as intenções da fala usando o SDK de fala paraC#'
+title: 'Tutorial: Reconhecer intenções de voz com o SDK de Voz para C#'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, vai aprender a reconhecer intenção de voz com o SDK Voz para C#.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: wolfma
-ms.openlocfilehash: cf5bf3dfd7b6a408179bb267156433168e562a8e
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 7f42d5914a2ec7f479a8b3d1df1b8672f318036b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326837"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464621"
 ---
-# <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutorial: Reconheça as intenções da fala usando o SDK de fala paraC#
+# <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutorial: Reconhecer intenções de voz com o SDK de Voz para C#
 
 O SDK de [fala](speech-sdk.md) dos serviços cognitivas integra-se ao [Luis (serviço de reconhecimento vocal)](https://www.luis.ai/home) para fornecer **reconhecimento de intenção**. Uma intenção é algo que o utilizador quer fazer, seja reservar um voo, ver tempo ou fazer uma chamada. O utilizador pode utilizar qualquer termo que pareça natural. Usando o Machine Learning, o LUIS mapeia solicitações de usuário para as tentativas que você definiu.
 
@@ -45,11 +45,12 @@ Verifique se você tem os seguintes itens antes de iniciar este tutorial:
 
 O LUIS integra-se com os serviços de fala para reconhecer tentativas de fala. Você não precisa de uma assinatura de serviços de fala, apenas LUIS.
 
-O LUIS utiliza dois tipos de chaves:
+O LUIS usa três tipos de chaves:
 
 |Tipo de chave|Objetivo|
 |--------|-------|
-|Criação de conteúdos|Permite criar e modificar aplicativos LUIS de forma programática|
+|Criação|Permite criar e modificar aplicativos LUIS de forma programática|
+|Inicial|Permite testar seu aplicativo LUIS usando somente texto|
 |Ponto Final |Autoriza o acesso a um determinado aplicativo LUIS|
 
 Para este tutorial, você precisa do tipo de chave do ponto de extremidade. O tutorial usa o aplicativo de exemplo Home Automation LUIS, que você pode criar seguindo o guia de início rápido [usar aplicativo de automação inicial predefinido](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) . Se você criou um aplicativo LUIS por conta própria, poderá usá-lo em vez disso.
@@ -89,7 +90,7 @@ Em seguida, você adiciona o código ao projeto.
 
    [!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
 
-1. Dentro do método `Main()` fornecido, adicione o seguinte código:
+1. Dentro do método de `Main()` fornecido, adicione o seguinte código:
 
    ```csharp
    RecognizeIntentAsync().Wait();
@@ -136,7 +137,7 @@ Agora, utilize `LanguageUnderstandingModel.FromAppId()` para importar o modelo d
 
 Para adicionar tentativas, você deve fornecer três argumentos: o modelo LUIS (que foi criado e nomeado `model`), o nome da intenção e uma ID de tentativa. A diferença entre o ID e o nome da intenção é a seguinte.
 
-|`AddIntent()` @ no__t-1argument|Objetivo|
+|`AddIntent()`&nbsp;argumento|Objetivo|
 |--------|-------|
 |intentName|O nome da intenção, conforme definido na aplicação LUIS. Esse valor deve corresponder exatamente ao nome da intenção LUIS.|
 |intentID|Um ID que o SDK de Voz atribui a uma intenção reconhecida. Esse valor pode ser o que você desejar; Ele não precisa corresponder ao nome da intenção, conforme definido no aplicativo LUIS. Se o mesmo código processar várias intenções, pode, por exemplo, utilizar o mesmo ID para essas intenções.|
@@ -175,7 +176,7 @@ Por predefinição, o LUIS reconhece intenções em inglês dos E.U.A. (`en-us`)
 
 ## <a name="continuous-recognition-from-a-file"></a>Reconhecimento contínuo a partir de um ficheiro
 
-O código seguinte ilustra duas capacidades extra do reconhecimento de intenções quando é utilizado o SDK Voz. O primeiro, já referido antes, é o reconhecimento contínuo, no qual o reconhecedor emite eventos quando há resultados disponíveis. Esses eventos podem, depois, ser processados pelos processadores de eventos que fornecer. Com o reconhecimento contínuo, você chama o método `StartContinuousRecognitionAsync()` do reconhecedor para iniciar o reconhecimento em vez de `RecognizeOnceAsync()`.
+O código seguinte ilustra duas capacidades extra do reconhecimento de intenções quando é utilizado o SDK Voz. O primeiro, já referido antes, é o reconhecimento contínuo, no qual o reconhecedor emite eventos quando há resultados disponíveis. Esses eventos podem, depois, ser processados pelos processadores de eventos que fornecer. Com o reconhecimento contínuo, você chama o método de `StartContinuousRecognitionAsync()` do reconhecedor para iniciar o reconhecimento em vez de `RecognizeOnceAsync()`.
 
 A outra capacidade é ler o áudio que contém a voz que vai ser processada a partir de um ficheiro WAV. A implementação envolve a criação de uma configuração de áudio que pode ser usada ao criar o reconhecedor de intenção. O ficheiro só pode ter um canal (mono) com uma taxa de amostragem de 16 kHz.
 
@@ -195,4 +196,4 @@ Procure o código deste artigo na pasta **Samples/Csharp/sharedcontent/console**
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [How to recognize speech](quickstart-csharp-dotnetcore-windows.md) (Como reconhecer voz)
+> [How to recognize speech](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore) (Como reconhecer voz)

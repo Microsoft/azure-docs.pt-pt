@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 78a0dafeedc9aac4db69903b9f1193574cbd39c7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6f2b5eb96eeb1c4b7d07219d5fe54a8a0ca9e28a
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934574"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73413001"
 ---
 ## <a name="for-users-in-your-directory"></a>Para usuários em seu diretório
 
@@ -105,19 +105,19 @@ Siga estas etapas para especificar as configurações de aprovação para os usu
 
 1. Para exigir aprovação para solicitações dos usuários selecionados, defina a opção **exigir aprovação** para **Sim**. Para que as solicitações sejam aprovadas automaticamente, defina a alternância para **não**.
 
-    ![Pacotes de acesso-solicitações-configurações de aprovação](./media/active-directory-entitlement-management-request-policy/approval.png)
-
 1. Para exigir que os usuários forneçam uma justificativa para solicitar o pacote de acesso, defina a alternância de **justificação exigir solicitante** como **Sim**.
 
-1. Determine se a solicitação exigirá uma aprovação única ou de vários estágios. Defina o **número de estágios** de alternância para **1** para um único estágio.
+    ![Pacotes de acesso-solicitações-configurações de aprovação](./media/active-directory-entitlement-management-request-policy/approval.png)
+
+### <a name="single-stage-approval"></a>Aprovação de estágio único
 
 1. Para Aprovadores, selecione **gerente como Aprovador** ou **escolha aprovadores específicos**.
 
-    O gerente é determinado pelo atributo **Manager** no perfil do usuário do Azure AD. Para obter mais informações, consulte [Adicionar ou atualizar as informações de perfil de um usuário usando Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
-
-    ![Azure Active Directory atributo User Profile-Manager](./media/active-directory-entitlement-management-request-policy/profile-manager.png)
+    ![Pacotes de acesso-solicitações-configurações de estágio único](./media/active-directory-entitlement-management-request-policy/approval-single-stage.png)
 
 1. Se você selecionou gerente como Aprovador, clique em **Adicionar fallback** para selecionar um ou mais usuários ou grupos em seu diretório para ser um Aprovador de fallback no caso de gerenciamento de direitos não conseguir localizar o Gerenciador.
+
+    O gerente é determinado pelo atributo **Manager** no perfil do usuário do Azure AD. Para obter mais informações, consulte [Adicionar ou atualizar as informações de perfil de um usuário usando Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
 1. Se você selecionou escolher aprovadores específicos, clique em **Adicionar aprovadores** para selecionar um ou mais usuários ou grupos em seu diretório para serem aprovadores.
 
@@ -125,9 +125,34 @@ Siga estas etapas para especificar as configurações de aprovação para os usu
 
     Se uma solicitação não for aprovada nesse período de tempo, ela será negada automaticamente. O usuário precisará enviar outra solicitação para o pacote de acesso.
 
-1. Para exigir que os usuários forneçam uma justificativa para solicitar o pacote de acesso, defina **exigir justificação** como **Sim**.
+1. Para exigir que os usuários forneçam uma justificativa para solicitar o pacote de acesso, defina a **justificação exigir aprovador** como **Sim**.
 
     Uma justificativa é visível para outros Aprovadores e o solicitante.
+
+### <a name="alternate-approvers"></a>Aprovadores alternativos
+
+Além de especificar os aprovadores primários que podem aprovar solicitações, você pode especificar aprovadores alternativos. Isso ajudará a garantir que as solicitações sejam aprovadas ou negadas antes de expirarem (tempo limite).
+
+Ao especificar aprovadores alternativos, caso os aprovadores primários não tenham sido capazes de aprovar ou negar a solicitação, a solicitação pendente é encaminhada para os aprovadores alternativos, de acordo com o agendamento de encaminhamento especificado durante a configuração da política. Eles recebem um email para aprovar ou negar a solicitação pendente.
+
+Depois que a solicitação é encaminhada para os aprovadores alternativos, os aprovadores primários ainda podem aprovar ou negar a solicitação. Os aprovadores alternativos usam o mesmo site meu acesso, como os aprovadores primários, para aprovar ou negar a solicitação pendente.
+
+Podemos listar pessoas ou grupos de pessoas para serem os aprovadores primários e aprovadores alternativos. Certifique-se de listar diferentes conjuntos de pessoas para serem os aprovadores primários e os aprovadores alternativos.
+Por exemplo, se você tiver listado Alice e Bob como Aprovador primário (s), liste Carol e Dave como aprovadores alternativos. Use as etapas a seguir para adicionar aprovadores alternativos a um pacote do Access:
+
+1. Clique em **Mostrar configurações avançadas de solicitação**.
+
+    ![Pacotes de acesso-política-Mostrar configurações avançadas de solicitação](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
+
+1. Definir **se nenhuma ação foi executada, avançar para aprovadores alternativos?** alterne para **Sim**.
+
+1. Clique em **Adicionar aprovadores alternativos** e selecione os aprovadores alternativos na lista.
+
+    ![Pacote de acesso-política-adicionar aprovadores alternativos](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+
+1. Na caixa **Avançar para aprovadores alternativos após a quantidade de dias** , coloque o número de dias que os aprovadores precisam aprovar ou negar uma solicitação. Se nenhum aprovador tiver aprovado ou negado a solicitação antes da duração da solicitação, a solicitação expirará (tempo limite) e o usuário precisará enviar outra solicitação para o pacote de acesso. 
+
+    As solicitações só podem ser encaminhadas a aprovadores alternativos por dia após a duração da solicitação atingir a metade da vida útil. Neste exemplo, a duração da solicitação é de 14 dias. Isso significa que a duração da solicitação atinge a metade da vida no dia 7. Portanto, a solicitação pode ser encaminhada não antes do dia 8. Além disso, as solicitações não podem ser encaminhadas para o aprovador alternativo no último dia da duração da solicitação. Portanto, no exemplo, a última solicitação pode ser encaminhada é o dia 13.
 
 ## <a name="enable-requests"></a>Habilitar solicitações
 

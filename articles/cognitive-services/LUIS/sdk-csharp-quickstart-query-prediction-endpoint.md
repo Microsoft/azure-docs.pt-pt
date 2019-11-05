@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: C#Ponto de extremidade de previsão de consulta do SDK-LUIS'
+title: 'Início rápido C# : ponto de extremidade de previsão de consulta do SDK-Luis'
 titleSuffix: Azure Cognitive Services
 description: Use o C# SDK para enviar um usuário expressão para Luis e receber uma previsão.
 author: diberry
@@ -10,14 +10,14 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 4d7c02d8cf37f155af1fd9c0d5de7fa8ec948c4b
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: d7cf46add464a089f15a5bd15a20cea7d17eed37
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703113"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488682"
 ---
-# <a name="quickstart-query-v2-prediction-endpoint-with-c-net-sdk"></a>Início rápido: Ponto de extremidade de previsão v2 C# de consulta com o SDK do .net
+# <a name="quickstart-query-v2-prediction-endpoint-with-c-net-sdk"></a>Início rápido: consulta de ponto de extremidade C# de previsão V2 com SDK do .net
 
 Use o SDK do .NET, encontrado no [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/), para enviar um usuário expressão para reconhecimento vocal (Luis) e receber uma previsão da intenção do usuário. 
 
@@ -39,7 +39,7 @@ Procurando mais documentação?
 
 ## <a name="get-cognitive-services-or-language-understanding-key"></a>Obter serviços cognitivas ou chave de Reconhecimento vocal
 
-Para usar o aplicativo público para a automação inicial, você precisa de uma chave válida para previsões de ponto de extremidade. Você pode usar uma chave de serviços cognitivas (criada abaixo com o CLI do Azure), que é válido para muitos serviços cognitivas ou uma chave `Language Understanding`. 
+Para usar o aplicativo público para a automação inicial, você precisa de uma chave válida para previsões de ponto de extremidade. Você pode usar uma chave de serviços cognitivas (criada abaixo com o CLI do Azure), que é válido para muitos serviços cognitivas ou uma chave de `Language Understanding`. 
 
 Use o seguinte [comando CLI do Azure para criar uma chave de serviço cognitiva](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create):
 
@@ -65,7 +65,7 @@ Crie um projeto de console do .NET Core no Visual Studio Community 2017.
 ## <a name="add-sdk-with-nuget"></a>Adicionar SDK com NuGet
 
 1. No **Gerenciador de soluções**, selecione o projeto no modo de exibição de árvore chamado **QueryPrediction**e clique com o botão direito do mouse em. No menu, selecione **gerenciar pacotes NuGet...** .
-1. Selecione **procurar** e, em seguida, insira `Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime`. Quando as informações do pacote forem exibidas, selecione **instalar** para instalar o pacote no projeto. 
+1. Selecione **procurar** e insira `Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime`. Quando as informações do pacote forem exibidas, selecione **instalar** para instalar o pacote no projeto. 
 1. Adicione as seguintes instruções _using_ à parte superior de **Program.cs**. Não remova a instrução _using_ existente para `System`. 
 
 ```csharp
@@ -77,7 +77,7 @@ using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime.Models;
 
 ## <a name="create-a-new-method-for-the-prediction"></a>Criar um novo método para a previsão
 
-Crie um novo método, `GetPrediction` para enviar a consulta para o ponto de extremidade de previsão de consulta. O método criará e configurará todos os objetos necessários e, em seguida, retornará um `Task` com os resultados de previsão de [`LuisResult`](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-dotnet) . 
+Crie um novo método, `GetPrediction` para enviar a consulta ao ponto de extremidade de previsão de consulta. O método criará e configurará todos os objetos necessários e, em seguida, retornará um `Task` com os resultados da previsão de [`LuisResult`](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-python) . 
 
 ```csharp
 static async  Task<LuisResult> GetPrediction() {
@@ -99,7 +99,7 @@ var credentials = new ApiKeyServiceClientCredentials(endpointPredictionkey);
 
 ## <a name="create-language-understanding-client"></a>Criar Reconhecimento vocal cliente
 
-No método `GetPrediction`, após o código anterior, adicione o código a seguir para usar as novas credenciais, criando um objeto [de cliente `LUISRuntimeClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient.-ctor?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_LUIS_Runtime_LUISRuntimeClient__ctor_Microsoft_Rest_ServiceClientCredentials_System_Net_Http_DelegatingHandler___) . 
+No método `GetPrediction`, após o código anterior, adicione o seguinte código para usar as novas credenciais, criando um objeto de cliente [`LUISRuntimeClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient.-ctor?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_LUIS_Runtime_LUISRuntimeClient__ctor_Microsoft_Rest_ServiceClientCredentials_System_Net_Http_DelegatingHandler___) . 
 
 Substitua `<REPLACE-WITH-YOUR-KEY-REGION>` pela região da sua chave, como `westus`. A região de chave está no [portal do Azure](https://portal.azure.com) na página Visão geral desse recurso.
 
@@ -184,4 +184,4 @@ HomeAutomation.Room:'bedroom' begins at position 12 and ends at position 18
 Saiba mais sobre o [SDK do .net](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) e a [documentação de referência do .net](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet). 
 
 > [!div class="nextstepaction"] 
-> [Tutorial: Compilar o aplicativo LUIS para determinar as intenções do usuário @ no__t-0 
+> [Tutorial: compilar o aplicativo LUIS para determinar as intenções do usuário](luis-quickstart-intents-only.md) 

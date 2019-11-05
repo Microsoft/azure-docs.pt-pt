@@ -1,46 +1,48 @@
 ---
 title: Adicionar tentativas-LUIS
 titleSuffix: Azure Cognitive Services
-description: Adicione intenções à sua aplicação LUIS para identificar os grupos de perguntas ou comandos que têm as mesmo intenções.
+description: Adicione tentativas ao seu aplicativo LUIS para identificar grupos de perguntas ou comandos que têm as mesmas intenções.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: eb90a902b8f7fe8b37b81c2825cbdfc25ef5dc0d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 1f2f001489552203f0157dd24356341eb3184c81
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932898"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467557"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adicionar tentativas para determinar a intenção do usuário de declarações
 
-Adicione [intenções](luis-concept-intent.md) à sua aplicação LUIS para identificar os grupos de perguntas ou comandos que têm a mesma intenção. 
+Adicione [intenções](luis-concept-intent.md) ao seu aplicativo Luis para identificar grupos de perguntas ou comandos que têm a mesma intenção. 
 
-Objetivos são geridos a partir da barra de navegação superior **crie** secção, em seguida, a partir do painel esquerdo **intenções**. 
+As intenções são gerenciadas na seção de **Build** da barra de navegação superior e, em seguida, das **tentativas**do painel esquerdo. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="add-intent"></a>Adicionar intenções
 
 1. Na página **Intents** (Intenções), selecione **Create new intent** (Criar nova intenção).
 
-1. Na **criar novo intenção** caixa de diálogo, introduza o nome da intenção, `GetEmployeeInformation`e clique em **feito**.
+1. Na caixa de diálogo **criar nova tentativa** , insira o nome da intenção, `GetEmployeeInformation`e clique em **concluído**.
 
-    ![Adicionar intenções](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
+    ![Adicionar intenção](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-## <a name="add-an-example-utterance"></a>Adicionar uma expressão de exemplo
+## <a name="add-an-example-utterance"></a>Adicionar um exemplo de expressão
 
-Expressões com de exemplo são exemplos de texto de perguntas de utilizador ou de comandos. Ensinar a compreensão de idiomas (LUIS), terá de adicionar expressões de exemplo para um objetivo.
+Exemplo declarações são exemplos de texto de perguntas ou comandos do usuário. Para ensinar Reconhecimento vocal (LUIS), você precisa adicionar o declarações de exemplo a uma intenção.
 
-1. Sobre o **GetEmployeeInformation** detalhes da intenção página, introduza uma expressão relevante que se espera de seus usuários, como `Does John Smith work in Seattle?` na caixa de texto abaixo do nome intenção e, em seguida, prima Enter.
+1. Na página detalhes da tentativa de **GetEmployeeInformation** , insira um expressão relevante que você espera de seus usuários, como `Does John Smith work in Seattle?` na caixa de texto abaixo do nome da intenção e pressione Enter.
  
-    ![Página de detalhes de captura de ecrã de objetivos, com a expressão realçado](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
+    ![Captura de tela da página de detalhes de tentativas, com expressão realçado](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
 
-    LUIS converte todas as expressões de com em minúsculas e adiciona os espaços em torno de tokens, como hífens.
+    LUIS converte todas as declarações para minúsculas e adiciona espaços em volta de tokens como hifens.
 
 <a name="#intent-prediction-discrepancy-errors"></a>
 
@@ -64,47 +66,47 @@ Para saber como corrigir erros de previsão de intenção, use o [painel de resu
 
 ## <a name="add-a-custom-entity"></a>Adicionar uma entidade personalizada
 
-Depois de uma expressão é adicionado a uma intenção, pode selecionar o texto da dentro da expressão para criar uma entidade personalizada. Uma entidade personalizada é uma forma de texto da etiqueta de extração, juntamente com a intenção correta. 
+Depois que um expressão é adicionado a uma intenção, você pode selecionar o texto de dentro do expressão para criar uma entidade personalizada. Uma entidade personalizada é uma maneira de marcar o texto para extração, juntamente com a intenção correta. 
 
 Consulte [Adicionar entidade ao expressão](luis-how-to-add-example-utterances.md) para saber mais.
 
-## <a name="entity-prediction-discrepancy-errors"></a>Erros de discrepância de predição de entidade 
+## <a name="entity-prediction-discrepancy-errors"></a>Erros de discrepância de previsão de entidade 
 
-A entidade está sublinhada em vermelho para indicar uma [discrepância de predição de entidade](luis-how-to-add-example-utterances.md#entity-status-predictions). Uma vez que esta é a primeira ocorrência de uma entidade, não há suficiente exemplos para LUIS ter uma confiança elevada que este texto é marcado com a entidade correta. Essa discrepância é removida quando a aplicação é preparada. 
+A entidade é sublinhada em vermelho para indicar uma [discrepância de previsão de entidade](luis-how-to-add-example-utterances.md#entity-status-predictions). Como esta é a primeira ocorrência de uma entidade, não há exemplos suficientes para LUIS ter uma alta confiança de que esse texto é marcado com a entidade correta. Essa discrepância é removida quando o aplicativo é treinado. 
 
-![Página de detalhes de captura de ecrã de objetivos, nome de entidade personalizada realçado em azul](./media/luis-how-to-add-intents/create-custom-entity-name-blue-highlight.png) 
+![Captura de tela da página de detalhes de tentativas, nome de entidade personalizado realçado em azul](./media/luis-how-to-add-intents/create-custom-entity-name-blue-highlight.png) 
 
 O texto é realçado em azul, indicando uma entidade.  
 
-## <a name="add-a-prebuilt-entity"></a>Adicionar uma entidade pré-criados
+## <a name="add-a-prebuilt-entity"></a>Adicionar uma entidade predefinida
 
-Para obter informações, consulte [criados previamente entidade](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
+Para obter informações, consulte [entidade predefinida](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
 ## <a name="using-the-contextual-toolbar"></a>Usando a barra de ferramentas contextual
 
 Quando um ou mais exemplos de declarações são selecionados na lista, marcando a caixa à esquerda de um expressão, a barra de ferramentas acima da lista expressão permite que você execute as seguintes ações:
 
-* Reatribuir intenção: mover utterance(s) em intenção diferente
-* Eliminar utterance(s)
-* Filtros de entidade: Mostrar apenas as expressões que contém entidades filtradas
-* Mostrar tudo / apenas erros: Mostrar expressões com erros de predição ou mostrar todas as expressões de com
-* Vista de entidades/Tokens: Mostrar a exibição de entidades com nomes de entidade ou mostrar o texto não processado de expressão
-* Lupa: procure expressões com contendo texto específico
+* Reatribuir intenção: mover expressão (s) para outra intenção
+* Excluir expressão (s)
+* Filtros de entidade: mostrar somente declarações contendo entidades filtradas
+* Mostrar somente todos/erros: mostrar declarações com erros de previsão ou mostrar todos os declarações
+* Exibição de entidades/tokens: mostrar exibição de entidades com nomes de entidade ou mostrar texto bruto de expressão
+* Lupa: pesquisar declarações contendo texto específico
 
-## <a name="working-with-an-individual-utterance"></a>Trabalhar com uma expressão individual
+## <a name="working-with-an-individual-utterance"></a>Trabalhando com um expressão individual
 
-As seguintes ações podem ser executadas numa expressão individual no menu de reticências à direita da expressão:
+As ações a seguir podem ser executadas em um expressão individual no menu de reticências à direita do expressão:
 
-* Editar: alterar o texto da expressão
-* Eliminação: remova a expressão a intenção. Se pretender continuar a expressão, um método melhor é para movê-lo para o **None** intenção. 
-* Adicionar um padrão: Um padrão permite que você faça um expressão comum e marque o texto substituível e o texto ignorável, reduzindo assim a necessidade de mais declarações na intenção. 
+* Editar: alterar o texto do expressão
+* Excluir: Remova o expressão da intenção. Se você ainda quiser o expressão, um método melhor é movê-lo para a intenção **None** . 
+* Adicionar um padrão: um padrão permite que você faça um expressão comum e marque texto substituível e texto ignorável, reduzindo assim a necessidade de mais declarações na intenção. 
 
-O **rotulado intenção** coluna permite-lhe alterar o objetivo da expressão.
+A coluna de **intenção rotulada** permite que você altere a intenção do expressão.
 
-## <a name="train-your-app-after-changing-model-with-intents"></a>Preparar a sua aplicação depois de alterar o modelo com objetivos
+## <a name="train-your-app-after-changing-model-with-intents"></a>Treinar seu aplicativo depois de alterar o modelo com tentativas
 
-Depois de adicionar, editar ou remover intenções, [treinar](luis-how-to-train.md) e [publicar](luis-how-to-publish-app.md) seu aplicativo para que as suas alterações são aplicadas às consultas de ponto final. 
+Depois de adicionar, editar ou remover tentativas, [treine](luis-how-to-train.md) e [publique](luis-how-to-publish-app.md) seu aplicativo para que suas alterações sejam aplicadas às consultas de ponto de extremidade. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre como adicionar [expressões de exemplo](luis-how-to-add-example-utterances.md) com entidades. 
+Saiba mais sobre como adicionar [declarações de exemplo](luis-how-to-add-example-utterances.md) com entidades. 

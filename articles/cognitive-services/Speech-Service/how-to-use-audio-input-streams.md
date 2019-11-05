@@ -1,7 +1,7 @@
 ---
-title: Conceitos de fluxo de entrada de áudio do SDK de voz
+title: Conceitos de fluxo de entrada de áudio do SDK de fala
 titleSuffix: Azure Cognitive Services
-description: Uma visão geral dos recursos do fluxo de entrada do SDK de voz áudio API.
+description: Uma visão geral dos recursos da API de fluxo de entrada de áudio do SDK de fala.
 services: cognitive-services
 author: fmegen
 manager: nitinme
@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 06b69da7f7435ce8a1e32150b7abe161ebdf527c
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e00feed416eb3e06b703a2ef4fe040f0c815716e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606506"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464295"
 ---
-# <a name="about-the-speech-sdk-audio-input-stream-api"></a>API do stream sobre a entrada de áudio do SDK de voz
+# <a name="about-the-speech-sdk-audio-input-stream-api"></a>Sobre a API de fluxo de entrada de áudio do SDK de fala
 
-O SDK de voz **Stream de entrada de áudio** API fornece uma maneira para transmitir fluxos de áudio para os reconhecedores tenham em vez de utilizar o microfone ou o ficheiro de entrada de APIs.
+A API de **fluxo de entrada de áudio** do SDK de fala fornece uma maneira de transmitir fluxos de áudio para os reconhecedores em vez de usar o microfone ou as APIs de arquivo de entrada.
 
-Os seguintes passos são necessários quando utilizar o áudio de entrada fluxos:
+As etapas a seguir são necessárias ao usar fluxos de entrada de áudio:
 
-- Identifica o formato do fluxo de áudio. O formato tem de suportar o SDK de voz e o serviço de voz. Atualmente, é suportada apenas a seguinte configuração:
+- Identifique o formato do fluxo de áudio. O formato deve ser suportado pelo SDK de fala e pelo serviço de fala. Atualmente, há suporte apenas para a seguinte configuração:
 
-  Exemplos de áudio no formato PCM, um canal, 16000 exemplos por segundo, 32000 bytes por segundo, dois blocos alinham (incluindo o preenchimento de um exemplo de 16 bits), de 16 bits por amostra.
+  Amostras de áudio no formato PCM, um canal, 16000 amostras por segundo, 32000 bytes por segundo, dois blocos de bloco (16 bits, incluindo preenchimento de um exemplo), 16 bits por amostra.
 
-  O código correspondente no SDK para criar o formato de áudio tem esta aparência:
+  O código correspondente no SDK para criar o formato de áudio é semelhante ao seguinte:
 
   ```
   byte channels = 1;
@@ -36,9 +36,9 @@ Os seguintes passos são necessários quando utilizar o áudio de entrada fluxos
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 
-- Certifique-se de que seu código pode fornecer os dados de áudio não processados, de acordo com essas especificações. Se os dados de origem de áudio não corresponderem os formatos suportados, o áudio tem de ser transcodificados no formato necessário.
+- Verifique se seu código pode fornecer os dados BRUTOs de áudio de acordo com essas especificações. Se os dados da fonte de áudio não corresponderem aos formatos com suporte, o áudio deverá ser transcodificado no formato necessário.
 
-- Criar sua própria classe de fluxo de entrada de áudio derivada de `PullAudioInputStreamCallback`. Implementar o `Read()` e `Close()` membros. A assinatura de função exata é dependente de idioma, mas o código será semelhante ao seguinte exemplo de código:
+- Crie sua própria classe de fluxo de entrada de áudio derivada de `PullAudioInputStreamCallback`. Implemente os membros `Read()` e `Close()`. A assinatura de função exata depende do idioma, mas o código será semelhante a este exemplo de código:
 
   ```
    public class ContosoAudioStream : PullAudioInputStreamCallback {
@@ -59,7 +59,7 @@ Os seguintes passos são necessários quando utilizar o áudio de entrada fluxos
    };
   ```
 
-- Crie uma configuração de áudio com base na sua áudio stream de entrada e de formato. Transmita sua configuração de voz regular e a configuração de entrada de áudio quando cria o reconhecedor. Por exemplo:
+- Crie uma configuração de áudio com base no seu formato de áudio e no fluxo de entrada. Passe a configuração de fala regular e a configuração de entrada de áudio ao criar o reconhecedor. Por exemplo:
 
   ```
   var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);
@@ -73,7 +73,7 @@ Os seguintes passos são necessários quando utilizar o áudio de entrada fluxos
   var text = result.GetText();
   ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como a reconhecer a conversão de voz em c#](quickstart-csharp-dotnet-windows.md)
+* [Veja como reconhecer a fala noC#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

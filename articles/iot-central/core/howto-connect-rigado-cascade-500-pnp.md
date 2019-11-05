@@ -10,12 +10,12 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 10/19/2019
-ms.openlocfilehash: 8727de7b13b6ac036e714ac5aca7ae017200097c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b07ce135d9efec6ecad369b6333d0a3bf2c3aab1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951227"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468241"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo de gateway rigado Cascade 500 em cascata ao seu aplicativo IoT Central do Azure
 
@@ -32,7 +32,7 @@ A Cascade 500 é previamente certificada para o PnP (Azure IoT Plug and Play), p
 Para percorrer este guia de instruções, você precisa dos seguintes recursos:
 
 * Um dispositivo rigado Cascade 500 em cascata. Para obter mais informações, visite [rigado](https://www.rigado.com/).
-* Um aplicativo IoT Central do Azure criado a partir de um dos modelos de aplicativo de visualização. Para obter mais informações, consulte [criar um novo aplicativo](https://docs.microsoft.com/azure/iot-central/quick-deploy-iot-central-pnp?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+* Um aplicativo IoT Central do Azure criado a partir de um dos modelos de aplicativo de visualização. Para obter mais informações, consulte [criar um novo aplicativo](https://docs.microsoft.com/azure/iot-central/core/quick-deploy-iot-central-pnp?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## <a name="add-a-device-template"></a>Adicionar um modelo de dispositivo
 

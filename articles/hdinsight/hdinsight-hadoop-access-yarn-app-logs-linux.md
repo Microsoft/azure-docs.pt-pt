@@ -1,5 +1,5 @@
 ---
-title: Acessar Apache Hadoop logs de aplicativo do YARN no HDInsight baseado em Linux – Azure
+title: Acessar Apache Hadoop logs de aplicativo do YARN-Azure HDInsight
 description: Saiba como acessar os logs de aplicativo do YARN em um cluster HDInsight baseado em Linux (Apache Hadoop) usando a linha de comando e um navegador da Web.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.openlocfilehash: 6eb24e85d1d7ffa4f3377d4c2fe8b168303c15f0
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 263456769ab391cbc0588eed1a714a1ea5788154
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091514"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494891"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Acessar Apache Hadoop logs de aplicativo do YARN no HDInsight baseado em Linux
 
@@ -40,7 +40,7 @@ Os logs de aplicativo (e os logs de contêiner associados) são críticos na dep
 
     /app-logs/<user>/logs/<applicationId>
 
-No caminho, `user` é o nome do usuário que iniciou o aplicativo. O `applicationId` é o identificador exclusivo atribuído a um aplicativo pelo yarn RM.
+No caminho, `user` é o nome do usuário que iniciou o aplicativo. O `applicationId` é o identificador exclusivo atribuído a um aplicativo pelo YARN RM.
 
 Os logs agregados não são diretamente legíveis, pois são gravados em um formato de [TFile][T-file], [binário][binary-format] indexado pelo contêiner. Use os logs ResourceManager do YARN ou as ferramentas da CLI para exibir esses logs como texto sem formatação para aplicativos ou contêineres de interesse.
 
@@ -53,7 +53,7 @@ Você pode exibir esses logs como texto sem formatação executando um dos segui
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 
-Especifique o &lt;ApplicationId >, &lt;usuário-quem-iniciou-The-Application >, &lt;idcontêiner > e &lt;> informações de endereço de nó de trabalho ao executar esses comandos.
+Especifique o &lt;applicationId >, &lt;usuário-quem-iniciou-o-aplicativo >, &lt;ContainerId > e &lt;informações de > de endereço do nó de trabalho ao executar esses comandos.
 
 ## <a name="yarn-resourcemanager-ui"></a>Interface do usuário do ResourceManager YARN
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 2647a8c33bf777cb2d97dcfe89799097ad719ac3
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 61b929756cbc4cf13103faa67a667128eaffeec8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077032"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498171"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planejar uma rede virtual para o Azure HDInsight
 
@@ -136,7 +136,7 @@ Para habilitar a resolução de nomes entre a rede virtual e os recursos em rede
 
 2. Configure a rede virtual para usar o servidor DNS personalizado.
 
-3. Localize o sufixo DNS atribuído do Azure para sua rede virtual. Esse valor é semelhante a `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. Para obter informações sobre como localizar o sufixo DNS, [consulte o exemplo: Seção DNS](hdinsight-create-virtual-network.md#example-dns) personalizada.
+3. Localize o sufixo DNS atribuído do Azure para sua rede virtual. Esse valor é semelhante a `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. Para obter informações sobre como localizar o sufixo DNS, consulte a seção [exemplo: DNS personalizado](hdinsight-create-virtual-network.md#example-dns) .
 
 4. Configure o encaminhamento entre os servidores DNS. A configuração depende do tipo de rede remota.
 
@@ -148,7 +148,7 @@ Para habilitar a resolução de nomes entre a rede virtual e os recursos em rede
 
          * Encaminhe todas as outras solicitações para o servidor DNS local. O DNS local trata todas as outras solicitações de resolução de nomes, até mesmo solicitações de recursos da Internet, como Microsoft.com.
 
-     * __DNS local__: Encaminhe solicitações para o sufixo DNS da rede virtual para o servidor DNS personalizado. Em seguida, o servidor DNS personalizado encaminha para o resolvedor recursivo do Azure.
+     * __DNS local__: encaminhar solicitações para o sufixo DNS da rede virtual para o servidor DNS personalizado. Em seguida, o servidor DNS personalizado encaminha para o resolvedor recursivo do Azure.
 
        Essa configuração roteia solicitações de nomes de domínio totalmente qualificados que contêm o sufixo DNS da rede virtual para o servidor DNS personalizado. Todas as outras solicitações (mesmo para endereços públicos da Internet) são tratadas pelo servidor DNS local.
 
@@ -162,13 +162,13 @@ Para habilitar a resolução de nomes entre a rede virtual e os recursos em rede
 
        O servidor DNS para cada rede encaminha as solicitações para a outra, com base no sufixo DNS. Outras solicitações são resolvidas usando o resolvedor recursivo do Azure.
 
-     Para obter um exemplo de cada configuração, consulte [o exemplo: Seção DNS](hdinsight-create-virtual-network.md#example-dns) personalizada.
+     Para obter um exemplo de cada configuração, consulte a seção [exemplo: DNS personalizado](hdinsight-create-virtual-network.md#example-dns) .
 
 Para obter mais informações, consulte o documento [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) .
 
 ## <a name="directly-connect-to-apache-hadoop-services"></a>Conectar-se diretamente a serviços Apache Hadoops
 
-Você pode se conectar ao cluster em `https://CLUSTERNAME.azurehdinsight.net`. Esse endereço usa um IP público, que pode não estar acessível se você tiver usado NSGs para restringir o tráfego de entrada da Internet. Além disso, ao implantar o cluster em uma VNet, você pode acessá-lo usando `https://CLUSTERNAME-int.azurehdinsight.net`o ponto de extremidade privado. Esse ponto de extremidade é resolvido para um IP privado dentro da VNet para acesso ao cluster.
+Você pode se conectar ao cluster em `https://CLUSTERNAME.azurehdinsight.net`. Esse endereço usa um IP público, que pode não estar acessível se você tiver usado NSGs para restringir o tráfego de entrada da Internet. Além disso, ao implantar o cluster em uma VNet, você pode acessá-lo usando o ponto de extremidade privado `https://CLUSTERNAME-int.azurehdinsight.net`. Esse ponto de extremidade é resolvido para um IP privado dentro da VNet para acesso ao cluster.
 
 Para se conectar ao Apache Ambari e a outras páginas da Web por meio da rede virtual, use as seguintes etapas:
 
@@ -194,7 +194,7 @@ Para se conectar ao Apache Ambari e a outras páginas da Web por meio da rede vi
     az network nic list --resource-group RESOURCEGROUP --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-    Na lista de nós retornada, localize o FQDN para os nós de cabeçalho e use os FQDNs para se conectar ao Ambari e a outros serviços Web. Por exemplo, use `http://<headnode-fqdn>:8080` para acessar o Ambari.
+    Na lista de nós retornada, localize o FQDN para os nós de cabeçalho e use os FQDNs para se conectar ao Ambari e a outros serviços Web. Por exemplo, use `http://<headnode-fqdn>:8080` para acessar Ambari.
 
     > [!IMPORTANT]  
     > Alguns serviços hospedados nos nós de cabeçalho estão ativos apenas em um nó por vez. Se você tentar acessar um serviço em um nó de cabeçalho e ele retornar um erro 404, alterne para o outro nó de cabeçalho.
@@ -207,9 +207,9 @@ Para se conectar ao Apache Ambari e a outras páginas da Web por meio da rede vi
 
 O tráfego de rede em redes virtuais do Azure pode ser controlado usando os seguintes métodos:
 
-* **Grupos de segurança de rede** (NSG) permite filtrar o tráfego de entrada e de saída para a rede. Para obter mais informações, consulte o documento [filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/security-overview.md) .
+* Os NSG ( **grupos de segurança de rede** ) permitem filtrar o tráfego de entrada e de saída para a rede. Para obter mais informações, consulte o documento [filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/security-overview.md) .
 
-* **Dispositivos de rede virtual** (NVA) pode ser usado somente com tráfego de saída. NVAs replicar a funcionalidade de dispositivos como firewalls e roteadores. Para obter mais informações, consulte o documento [dispositivos de rede](https://azure.microsoft.com/solutions/network-appliances) .
+* NVA (soluções de **virtualização de rede** ) podem ser usadas somente com tráfego de saída. NVAs replicar a funcionalidade de dispositivos como firewalls e roteadores. Para obter mais informações, consulte o documento [dispositivos de rede](https://azure.microsoft.com/solutions/network-appliances) .
 
 Como um serviço gerenciado, o HDInsight requer acesso irrestrito aos serviços de integridade e gerenciamento do HDInsight para o tráfego de entrada e saída da VNET. Ao usar o NSGs, você deve garantir que esses serviços ainda possam se comunicar com o cluster HDInsight.
 
@@ -249,7 +249,11 @@ Para obter uma lista de portas para serviços específicos, consulte o documento
 
 Para obter mais informações sobre regras de firewall para dispositivos virtuais, consulte o documento [cenário de dispositivo virtual](../virtual-network/virtual-network-scenario-udr-gw-nva.md) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="load-balancing"></a>Balanceamento de carga
+
+Quando você cria um cluster HDInsight, um balanceador de carga também é criado. O tipo desse balanceador de carga está no [nível de SKU básico](../load-balancer/load-balancer-overview.md#skus) que tem determinadas restrições. Uma dessas restrições é que, se você tiver duas redes virtuais em regiões diferentes, não poderá se conectar aos balanceadores de carga básicos. Consulte [perguntas frequentes sobre redes virtuais: restrições em emparelhamento vnet global](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers), para obter mais informações.
+
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter exemplos de código e exemplos de criação de redes virtuais do Azure, consulte [criar redes virtuais para clusters do Azure HDInsight](hdinsight-create-virtual-network.md).
 * Para obter um exemplo de ponta a ponta de como configurar o HDInsight para se conectar a uma rede local, consulte [conectar o hdinsight a uma rede local](./connect-on-premises-network.md).

@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: raynew
-ms.openlocfilehash: a07e83c805fc422c861f6c644a59da0b42bb8072
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: e235116ab77159a0e2e9c66ad09cdb86ce6da1e9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71007715"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466938"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Práticas recomendadas para a criação de avaliações
 
-As migrações para [Azure](migrate-overview.md) fornecem um hub de ferramentas que ajudam a descobrir, avaliar e migrar aplicativos, infraestrutura e cargas de trabalho para Microsoft Azure. O Hub inclui ferramentas de migração do Azure e ofertas de fornecedores independentes de software (ISV) de terceiros.
+As [migrações para Azure](migrate-overview.md) fornecem um hub de ferramentas que ajudam a descobrir, avaliar e migrar aplicativos, infraestrutura e cargas de trabalho para Microsoft Azure. O Hub inclui ferramentas de migração do Azure e ofertas de fornecedores independentes de software (ISV) de terceiros.
 
 Este artigo resume as práticas recomendadas ao criar avaliações usando a ferramenta de avaliação do servidor de migrações para Azure.
 
@@ -41,13 +41,19 @@ Por exemplo, se você tiver uma VM local com quatro núcleos a 20% de utilizaç�
 
 ## <a name="best-practices-for-creating-assessments"></a>Práticas recomendadas para a criação de avaliações
 
-O dispositivo de migrações para Azure cria perfis continuamente no seu ambiente local e envia metadados e dados de desempenho para o Azure. Siga estas práticas recomendadas para criar avaliações:
+O dispositivo de migrações para Azure cria perfis continuamente no seu ambiente local e envia metadados e dados de desempenho para o Azure. Siga estas práticas recomendadas para avaliações de servidores descobertos usando um dispositivo:
 
-- **Criar como são avaliações**: Você pode criar avaliações no estado em que se encontram imediatamente quando as máquinas aparecem no portal de migrações para Azure.
-- **Criar avaliação baseada em desempenho**: Depois de configurar a descoberta, recomendamos que você aguarde pelo menos um dia antes de executar uma avaliação baseada em desempenho:
+- **Criar como são avaliações**: você pode criar avaliações no estado em que se encontram imediatamente quando os computadores aparecerem no portal de migrações para Azure.
+- **Criar avaliação baseada em desempenho**: depois de configurar a descoberta, recomendamos que você aguarde pelo menos um dia antes de executar uma avaliação baseada em desempenho:
     - Coletar dados de desempenho leva tempo. Aguardar pelo menos um dia garante que haja pontos de dados de desempenho suficientes antes de executar a avaliação.
     - Quando você estiver executando avaliações baseadas em desempenho, certifique-se de criar o perfil de seu ambiente para a duração da avaliação. Por exemplo, se você criar uma avaliação com uma duração de desempenho definida como uma semana, precisará aguardar pelo menos uma semana depois de iniciar a descoberta, para que todos os pontos de dados sejam coletados. Caso contrário, a avaliação não obterá uma classificação de cinco estrelas.
-- **Recalcular avaliações**: Como as avaliações são instantâneos de ponto no tempo, elas não são atualizadas automaticamente com os dados mais recentes. Para atualizar uma avaliação com os dados mais recentes, você precisa recalculá-lo.
+- **Recalcular avaliações**: como as avaliações são instantâneos de ponto no tempo, elas não são atualizadas automaticamente com os dados mais recentes. Para atualizar uma avaliação com os dados mais recentes, você precisa recalculá-lo.
+
+Siga estas práticas recomendadas para avaliações de servidores importados para migrações para Azure via. Arquivo CSV:
+
+- **Criar como são avaliações**: você pode criar avaliações no estado em que se encontram imediatamente quando os computadores aparecerem no portal de migrações para Azure.
+- **Criar avaliação baseada em desempenho**: isso ajuda a obter uma estimativa de custo melhor, especialmente se você tiver a capacidade de servidor provisionada no local. No entanto, a precisão da avaliação baseada em desempenho depende dos dados de desempenho especificados por você para os servidores. 
+- **Recalcular avaliações**: como as avaliações são instantâneos de ponto no tempo, elas não são atualizadas automaticamente com os dados mais recentes. Para atualizar uma avaliação com os dados importados mais recentes, você precisa recalculá-lo.
 
 ## <a name="best-practices-for-confidence-ratings"></a>Práticas recomendadas para classificações de confiança
 
@@ -90,7 +96,7 @@ Uma avaliação pode não ter todos os pontos de dados por vários motivos:
 - Algumas VMs foram criadas após a deteção numa Avaliação do Servidor ter sido iniciada. Por exemplo, se estiver a criar uma avaliação para o histórico de desempenho do último mês, mas poucas VMs tiverem sido criadas no ambiente há apenas uma semana. Neste caso, os dados de desempenho das novas VMs não vão estar disponíveis durante todo este período e a classificação de confiança seria baixa.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba](concepts-assessment-calculation.md) como as avaliações são calculadas.
 - [Saiba](how-to-modify-assessment.md) como personalizar uma avaliação.

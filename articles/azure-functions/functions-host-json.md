@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 2a61a2ba74ccdaa69b26cae65dd4f74a7b837ccf
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
-ms.translationtype: MT
+ms.openlocfilehash: 96c346db74c1e6c43c3501b657621d09e019309c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72927452"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469212"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>referência de host. JSON para Azure Functions 2. x  
 
@@ -71,6 +71,9 @@ Os arquivos *host. JSON* de exemplo a seguir têm todas as opções possíveis e
             }
         }
     },
+    "managedDependency": {
+        "enabled": true
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -78,10 +81,7 @@ Os arquivos *host. JSON* de exemplo a seguir têm todas as opções possíveis e
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ],
-    "managedDependency": {
-        "enabled": true
-    }
+    "watchDirectories": [ "Shared", "Test" ]
 }
 ```
 
@@ -176,7 +176,7 @@ Definições de configuração do [Monitor de integridade do host](https://githu
 |---------|---------|---------| 
 |Habilitado|true|Especifica se o recurso está habilitado. | 
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de integridade de segundo plano periódicas. | 
-|healthCheckWindow|2 minutos|Uma janela de tempo deslizante usada em conjunto com a configuração `healthCheckThreshold`.| 
+|healthCheckWindow|2 minutos|Uma janela de tempo deslizante usada em conjunto com a configuração de `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Número máximo de vezes que a verificação de integridade pode falhar antes que uma reciclagem de host seja iniciada.| 
 |comlimite|0,80|O limite no qual um contador de desempenho será considerado não íntegro.| 
 
@@ -222,7 +222,7 @@ Controla os comportamentos de log do aplicativo de funções, incluindo Applicat
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
-|filelogmode|debugOnly|Define o nível de registro em log de arquivo habilitado.  As opções são `never`, `always`, `debugOnly`. |
+|filelogmode|debugOnly|Define o nível de registro em log de arquivo habilitado.  As opções são `never`, `always``debugOnly`. |
 |logLevel|n/d|Objeto que define a filtragem de categoria de log para funções no aplicativo. A versão 2. x segue o layout de ASP.NET Core para filtragem de categorias de log. Isso permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [filtragem de log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
 |consola|n/d| A configuração de log do [console](#console) . |
 |applicationInsights|n/d| A configuração [applicationInsights](#applicationinsights) . |
@@ -246,6 +246,18 @@ Essa configuração é um filho de [registro em log](#logging). Ele controla o l
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
 |isEnabled|false|Habilita ou desabilita o log do console.| 
+
+## <a name="manageddependency"></a>managedDependency
+
+A dependência gerenciada é um recurso que atualmente só tem suporte com funções baseadas no PowerShell. Ele permite que as dependências sejam gerenciadas automaticamente pelo serviço. Quando a propriedade `enabled` é definida como `true`, o arquivo de `requirements.psd1` é processado. As dependências são atualizadas quando qualquer versão secundária é lançada. Para obter mais informações, consulte [dependência gerenciada](functions-reference-powershell.md#dependency-management) no artigo do PowerShell.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
+}
+```
 
 ## <a name="queues"></a>filas
 
@@ -285,7 +297,7 @@ Definições de configuração para comportamento de bloqueio singleton. Para ob
 
 ## <a name="version"></a>versão
 
-A cadeia de caracteres de versão `"version": "2.0"` é necessária para um aplicativo de funções destinado ao tempo de execução v2.
+A cadeia de caracteres de versão `"version": "2.0"` é necessária para um aplicativo de funções que tem como destino o tempo de execução v2.
 
 ## <a name="watchdirectories"></a>watchDirectories
 
@@ -294,18 +306,6 @@ Um conjunto de [diretórios de código compartilhado](functions-reference-csharp
 ```json
 {
     "watchDirectories": [ "Shared" ]
-}
-```
-
-## <a name="manageddependency"></a>managedDependency
-
-A dependência gerenciada é um recurso de visualização que atualmente só tem suporte com funções baseadas no PowerShell. Ele permite que as dependências sejam gerenciadas automaticamente pelo serviço. Quando a propriedade Enabled é definida como true, o arquivo [requirements. psd1](functions-reference-powershell.md#dependency-management) será processado. As dependências serão atualizadas quando qualquer versão secundária for lançada.
-
-```json
-{
-    "managedDependency": {
-        "enabled": true
-    }
 }
 ```
 

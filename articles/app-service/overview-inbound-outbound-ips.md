@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: de98f972a43f3845d2a01b928d90283732ef4843
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 26033192ee841262345b0fc7f6aec76872379070
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329783"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470175"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Endereços IP de entrada e saída no serviço Azure App
 
@@ -32,7 +32,7 @@ Independentemente do número de instâncias escaladas horizontalmente, cada apli
 
 - Exclua um aplicativo e recrie-o em um grupo de recursos diferente.
 - Exclua o último aplicativo em um grupo de recursos _e_ uma combinação de região e recrie-o.
-- Exclua uma associação SSL existente, como durante a renovação do certificado (consulte [renovar certificados](app-service-web-tutorial-custom-ssl.md#renew-certificates)).
+- Exclua uma associação SSL existente, como durante a renovação do certificado (consulte [renovar certificado](configure-ssl-certificate.md#renew-certificate)).
 
 ## <a name="find-the-inbound-ip"></a>Localizar o IP de entrada
 
@@ -44,7 +44,7 @@ nslookup <app-name>.azurewebsites.net
 
 ## <a name="get-a-static-inbound-ip"></a>Obter um IP de entrada estático
 
-Às vezes, você pode querer um endereço IP estático dedicado para seu aplicativo. Para obter um endereço IP de entrada estático, você precisa configurar uma [Associação SSL com base em IP](app-service-web-tutorial-custom-ssl.md#secure-a-custom-domain). Se você não precisar realmente da funcionalidade SSL para proteger seu aplicativo, você pode até mesmo carregar um certificado autoassinado para essa associação. Em uma associação SSL com base em IP, o certificado é associado ao próprio endereço IP, portanto, o serviço de aplicativo provisiona um endereço IP estático para que ele aconteça. 
+Às vezes, você pode querer um endereço IP estático dedicado para seu aplicativo. Para obter um endereço IP de entrada estático, você precisa configurar uma [Associação SSL com base em IP](configure-ssl-bindings.md#secure-a-custom-domain). Se você não precisar realmente da funcionalidade SSL para proteger seu aplicativo, você pode até mesmo carregar um certificado autoassinado para essa associação. Em uma associação SSL com base em IP, o certificado é associado ao próprio endereço IP, portanto, o serviço de aplicativo provisiona um endereço IP estático para que ele aconteça. 
 
 ## <a name="when-outbound-ips-change"></a>Quando os IPs de saída forem alterados
 

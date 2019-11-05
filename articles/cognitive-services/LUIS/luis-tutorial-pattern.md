@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Padrões-LUIS'
+title: 'Tutorial: padrões-LUIS'
 titleSuffix: Azure Cognitive Services
 description: Utilize padrões para aumentar a predição de intenções e entidades ao mesmo tempo que fornece menos expressões de exemplo. O padrão é fornecido por meio de um exemplo de expressão de modelo, que inclui a sintaxe para identificar entidades e texto ignorável.
 services: cognitive-services
@@ -9,20 +9,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 69f853b77e3fbab149dbf163ed5cccb08578aa4e
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 4e4f1787db86378eaeff9df196cc061c42d0ab1e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390346"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498998"
 ---
-# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Tutorial: Adicionar formatos de expressão de modelo de padrão comuns
+# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Tutorial: adicionar formatos de expressão de modelo de padrão comuns
 
 Neste tutorial, vai utilizar padrões para aumentar a predição de intenções e entidades ao mesmo tempo que fornece menos expressões de exemplo. O padrão é fornecido por meio de um exemplo de expressão de modelo, que inclui a sintaxe para identificar entidades e texto ignorável. Um padrão é uma combinação de correspondência de expressões e aprendizagem automática.  O exemplo de expressão de modelo, juntamente com as expressões de intenção, dá ao LUIS uma melhor compreensão de quais as expressões que se ajustam à intenção. 
 
-**Neste tutorial, vai aprender a:**
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
+**Neste tutorial, ficará a saber como:**
 
 > [!div class="checklist"]
 > * Importar aplicativo de exemplo 
@@ -69,13 +71,13 @@ Utilize os passos seguintes:
     |A quem reporta diretamente Jill Jones?|
     |Quem é o supervisor de Jill Jones?|
 
-    [![Captura de ecrã do LUIS a adicionar expressões novas à intenção](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Captura de ecrã do LUIS a adicionar expressões novas à intenção")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
+    [![Captura de tela de LUIS adicionando novo declarações à intenção](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Captura de tela de LUIS adicionando novo declarações à intenção")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
 
     Não se preocupe se a entidade keyPhrase tiver o nome nas expressões da intenção em vez de na entidade Employee. Ambas são previstas corretamente no painel de Teste e no ponto final. 
 
 5. Selecione **Intenções** no painel de navegação esquerdo.
 
-6. Selecione **Create new intent** (Criar nova intenção). 
+6. Selecione **Criar nova intenção**. 
 
 7. Introduza `OrgChart-Reports` na caixa de diálogo de pop-up e, em seguida, selecione **Concluído**.
 
@@ -377,11 +379,11 @@ Exemplo de modelo declarações que permitem essas informações opcionais:
 A utilização da sintaxe opcional dos parênteses retos, `[]`, faz com que este texto opcional seja fácil de adicionar à expressão de modelo e possa ser aninhado até ao segundo nível, `[[]]`, e incluir entidades ou texto.
 
 
-**Pergunta Por que todas `w` as letras, a primeira letra de cada modelo expressão, minúsculas? Não devia ser opcional utilizar maiúsculas ou minúsculas?** A expressão submetida para o ponto final de consulta, pela aplicação cliente, é convertida em minúsculas. A expressão do modelo pode estar em maiúsculas ou minúsculas e a expressão do ponto final também. A comparação é feita sempre após a conversão em minúsculas.
+**Pergunta: por que todas as letras de `w`, a primeira letra de cada modelo expressão, minúsculas? Eles não devem ser, opcionalmente, maiúsculos ou minúsculos?** A expressão submetida para o ponto final de consulta, pela aplicação cliente, é convertida em minúsculas. A expressão do modelo pode estar em maiúsculas ou minúsculas e a expressão do ponto final também. A comparação é feita sempre após a conversão em minúsculas.
 
-**Pergunta Por que não há parte de um número predefinido do modelo expressão se 3 de março for `3` previsto como `March 3`número e data?** A expressão do modelo está a utilizar contextualmente uma data, quer literalmente como em `March 3` ou de forma abstrata como `in a month`. Uma data pode conter um número, mas um número pode não ser necessariamente visto como uma data. Utilize sempre a entidade que melhor representa o tipo que quer que seja devolvido nos resultados JSON da predição.  
+**Pergunta: Porque é que o número pré-criado não faz parte da expressão do modelo se 3 de março é previsto como número `3` e como data `March 3`?** A expressão do modelo está a utilizar contextualmente uma data, quer literalmente como em `March 3` ou de forma abstrata como `in a month`. Uma data pode conter um número, mas um número pode não ser necessariamente visto como uma data. Utilize sempre a entidade que melhor representa o tipo que quer que seja devolvido nos resultados JSON da predição.  
 
-**Pergunta E sobre declarações com `Who will {Employee}['s] manager be on March 3?`frases nobaixadas, como.** Tempos verbais gramaticamente diferentes como estes, em que o `will` e o `be` estão separados, têm de ser uma nova expressão de modelo. A expressão de modelo existente não vai fazer a correspondência. Embora a intenção da expressão não tenha sido alterada, o posicionamento das palavras na expressão foi alterada. Esta alteração afeta a predição no LUIS. Você pode [Agrupar e ou](#use-the-or-operator-and-groups) o verbo-dezenases para combinar esses declarações. 
+**Pergunta: E as expressões mal formuladas, como `Who will {Employee}['s] manager be on March 3?`.** Tempos verbais gramaticamente diferentes como estes, em que o `will` e o `be` estão separados, têm de ser uma nova expressão de modelo. A expressão de modelo existente não vai fazer a correspondência. Embora a intenção da expressão não tenha sido alterada, o posicionamento das palavras na expressão foi alterada. Esta alteração afeta a predição no LUIS. Você pode [Agrupar e ou](#use-the-or-operator-and-groups) o verbo-dezenases para combinar esses declarações. 
 
 **Lembre-se: as entidades são encontradas em primeiro lugar e, em seguida, é feita a correspondência do padrão.**
 
@@ -424,9 +426,9 @@ Todas estas expressões encontraram as entidades dentro. Por isso, correspondem 
 
 ## <a name="use-the-or-operator-and-groups"></a>Usar o operador OR e grupos
 
-Várias das declarações de modelo anteriores são muito próximas. Use o **grupo** `()` e **ou** `|` a sintaxe para reduzir o modelo declarações. 
+Várias das declarações de modelo anteriores são muito próximas. Use o `()` de **grupo** e **ou** a sintaxe `|` para reduzir o modelo declarações. 
 
-Os dois padrões a seguir podem ser combinados em um único padrão usando `()` o grupo `|` e a sintaxe.
+Os dois padrões a seguir podem ser combinados em um único padrão usando a `()` de grupo e ou a sintaxe de `|`.
 
 |Intenção|Expressões de exemplo com texto opcional e entidades pré-criadas|
 |--|--|
@@ -437,7 +439,7 @@ O novo modelo expressão será:
 
 `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`. 
 
-Isso usa um **grupo** em volta do verbo necessário conjugação e o `in` opcional `on` e com um **ou** um pipe entre eles. 
+Isso usa um **grupo** em volta do verbo necessário conjugação e o `in` opcional e `on` com um pipe **ou** entre eles. 
 
 1. Na página **padrões** , selecione o filtro do **gerente de organograma** . Restrinja a lista procurando `manager`. 
 
@@ -465,13 +467,13 @@ Isso usa um **grupo** em volta do verbo necessário conjugação e o `in` opcion
 
 ## <a name="use-the-utterance-beginning-and-ending-anchors"></a>Usar as âncoras inicial e final do expressão
 
-A sintaxe de padrão fornece a sintaxe de âncora expressão inicial e final de `^`um cursor,. As âncoras expressão inicial e final podem ser usadas juntas para direcionar expressão muito específicos e, possivelmente, literais, ou usadas separadamente para as intenções de destino. 
+A sintaxe de padrão fornece a sintaxe de âncora expressão inicial e final de um cursor, `^`. As âncoras expressão inicial e final podem ser usadas juntas para direcionar expressão muito específicos e, possivelmente, literais, ou usadas separadamente para as intenções de destino. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este tutorial adiciona duas intenções para expressões cuja predição era difícil de fazer com uma precisão elevada, sem ter muitas expressões de exemplo. A adição de padrões às mesmas permitiu que o LUIS fizesse uma predição mais eficaz da intenção, com uma classificação significativamente superior. A marcação de entidades e de texto ignorável permitiu que o LUIS aplicasse o padrão a uma maior variedade de expressões.
 

@@ -6,21 +6,21 @@ manager: nitinme
 author: lisaleib
 ms.author: v-lilei
 ms.service: cognitive-search
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cfa85e61059e27cd39a9701a835a725e16e5bc0a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: MT
+ms.openlocfilehash: 9ba11b69a51a5bc563764a7e75189bed67cb2ac6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789982"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485002"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Exibir uma loja de conhecimento com Gerenciador de Armazenamento
 
 > [!Note]
-> A loja de conhecimento está em versão prévia e não deve ser usada na produção. A [API REST do Azure pesquisa cognitiva versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Não há suporte para o SDK do .NET no momento.
+> A loja de conhecimento está em versão prévia e não deve ser usada na produção. O portal e a [pesquisa REST API versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Não há suporte para o SDK do .NET no momento.
 >
-Neste artigo, você aprenderá a se conectar e explorar uma loja de conhecimento usando Gerenciador de Armazenamento no portal do Azure. Para criar a amostra da loja de conhecimento usada neste passo a passos, consulte [criar uma loja de conhecimento em portal do Azure](knowledge-store-create-portal.md).
+Neste artigo, você aprenderá, por exemplo, como se conectar e explorar uma loja de conhecimento usando Gerenciador de Armazenamento no portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,7 +30,7 @@ Neste artigo, você aprenderá a se conectar e explorar uma loja de conhecimento
 
 ## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>Exibir, editar e consultar uma loja de conhecimento em Gerenciador de Armazenamento
 
-1. Na portal do Azure, abra a conta de armazenamento que você usou para criar a loja de conhecimento.
+1. Na portal do Azure, [abra a conta de armazenamento](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) que você usou para criar a loja de conhecimento.
 
 1. No painel de navegação esquerdo da conta de armazenamento, clique em **Gerenciador de armazenamento**.
 
@@ -58,12 +58,8 @@ Se você estiver usando um serviço gratuito, lembre-se de que você está limit
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber como conectar essa loja de conhecimento a Power BI, consulte o artigo a seguir.
+Conecte essa loja de conhecimento para Power BI para análise mais profunda ou avance com código, usando a API REST e o postmaster para criar um repositório de conhecimento diferente.
 
 > [!div class="nextstepaction"]
-> [Ligar com o Power BI](knowledge-store-connect-power-bi.md)
-
-Para saber como criar uma loja de conhecimento usando as APIs REST e o postmaster, consulte o artigo a seguir.  
-
-> [!div class="nextstepaction"]
-> [Criar um repositório de conhecimento em repouso](knowledge-store-howto.md)
+> [Conectar-se com Power BI](knowledge-store-connect-power-bi.md)
+> [criar uma loja de conhecimento em repouso](knowledge-store-howto.md)

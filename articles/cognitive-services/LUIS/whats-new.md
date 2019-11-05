@@ -9,20 +9,39 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 3a32499a85b1cd782c808166c516be7ad9c78913
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 0788df1c05d70c01d4de7f7a6ba62a476252f75a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813278"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498938"
 ---
 # <a name="whats-new-in-language-understanding"></a>O que há de novo no Reconhecimento vocal
 
-Saiba o que há de novo no serviço. Esses itens podem ser notas de versão, vídeos, Postagens de blog e outros tipos de informações. Marque esta página para manter-se atualizada com o serviço.  
+Saiba o que há de novo no serviço. Esses itens incluem notas de versão, vídeos, Postagens de blog e outros tipos de informações. Marque esta página para manter-se atualizada com o serviço.  
 
 ## <a name="release-notes"></a>Notas de versão 
+
+### <a name="november-4-2019---ignite"></a>4 de novembro de 2019-Ignite
+
+* Produtividade do desenvolvedor aprimorada
+    * Disponibilidade geral do nosso [ponto de extremidade de previsão v3](luis-migration-api-v3.md). 
+    * Capacidade de importar e exportar aplicativos com o formato. Lu ([LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)). Isso abre o caminho para um processo de CI/CD eficaz. 
+* Expansão de idioma
+    * [Árabe e híndi](luis-language-support.md) em visualização pública.
+* Modelos de compilação
+    * Os [domínios predefinidos](luis-reference-prebuilt-domains.md) agora estão disponíveis para o público geral (GA)
+    * [Entidades predefinidas](luis-reference-prebuilt-entities.md#japanese-entity-support) japonesas-idade, moeda, número, porcentagem não são compatíveis com v3.
+    * [Entidades predefinidas](luis-reference-prebuilt-entities.md#italian-entity-support) em italiano-idade, moeda, dimensão, número, resolução percentual alterada de v2.
+* Aprimore a experiência do usuário no [portal Preview.Luis.ai](https://preview.luis.ai) – experiência de rotulação remodelada para habilitar a criação e a depuração de modelos complexos.
+* Recursos de reconhecimento de idioma avançado- [criando modelos de linguagem sofisticados](luis-concept-entity-types.md) com menos esforço. 
+* Definir recursos de aprendizado de máquina no nível de modelo e habilitar modelos a serem usados como sinais para outro modelo, como usar entidades como recursos para intenções e outras entidades.
+* Novos [limites](luis-boundaries.md) expandidos-máximos superiores para listas de frases e total de frases, novo modelo como limites de recursos
+* Extraia informações de texto no formato de estrutura de hierarquia profunda, tornando os aplicativos de conversa mais poderosos.
+
+    ![imagem de entidade aprendida por computador](./media/whats-new/deep-entity-extraction-example.png)
 
 ### <a name="september-3-2019"></a>3 de setembro de 2019
 
@@ -61,7 +80,7 @@ Os seguintes recursos foram lançados na conferência Build 2019:
 
 [Estrutura de bot](https://blog.botframework.com/)
 
-## <a name="videos"></a>Os meus vídeos
+## <a name="videos"></a>Vídeos
 
 ### <a name="2019-build-videos"></a>vídeos de Build 2019
 

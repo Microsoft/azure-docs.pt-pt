@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: d12b952d298b41c8d06f0fcac141a45749de9051
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: d3d4777d54e3ef6b20ab0ac0f0890da958411297
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71799945"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468673"
 ---
 # <a name="what-is-text-to-speech"></a>O que é conversão de texto em fala?
 
 Conversão de texto em fala dos serviços de fala do Azure é um serviço que permite que seus aplicativos, ferramentas ou dispositivos convertam texto em fala sintetizada semelhante à humana. Escolha entre as vozes padrão e neural ou crie sua própria voz personalizada exclusiva para seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades, e 5 vozes neurais estão disponíveis em 4 idiomas e localidades. Para obter uma lista completa, consulte [idiomas com suporte](language-support.md#text-to-speech).
 
-A tecnologia de conversão de texto em fala permite que os criadores de conteúdo interajam com seus usuários de maneiras diferentes. A conversão de texto em fala pode melhorar a acessibilidade, fornecendo aos usuários uma opção para interagir com o conteúdo forma audível. Se o usuário tem um deficiência visual, uma deficiência de aprendizado ou requer informações de navegação enquanto conduz, a conversão de texto em fala pode melhorar uma experiência existente. Conversão de texto em fala também é um complemento valioso para bots de voz e assistentes virtuais.
+A tecnologia de conversão de texto em fala permite que os criadores de conteúdo interajam com seus usuários de maneiras diferentes. A conversão de texto em fala pode melhorar a acessibilidade, fornecendo aos usuários uma opção para interagir com o conteúdo forma audível. Se o usuário tem um deficiência visual, uma deficiência de aprendizado ou requer informações de navegação enquanto conduz, a conversão de texto em fala pode melhorar uma experiência existente. Conversão de texto em fala também é um complemento valioso para bots de voz e assistentes de voz.
 
 
 Ao aproveitar a linguagem de marcação de síntese de fala (SSML), uma linguagem de marcação baseada em XML, os desenvolvedores que usam o serviço de conversão de texto em fala podem especificar como o texto de entrada é convertido em fala sintetizada. Com a SSML, você pode ajustar a densidade, a pronúncia, a taxa de fala, o volume e muito mais. Para obter mais informações, consulte [SSML](#speech-synthesis-markup-language-ssml).
@@ -34,7 +34,7 @@ As vozes padrão são criadas usando as técnicas de síntese paramétricas esta
 
 As vozes neurais usam redes neurais profundas para superar os limites de sistemas de conversão de texto em fala tradicionais na correspondência dos padrões de estresse e intonation na linguagem falada e no sintetizamento das unidades de fala em uma voz de computador. A conversão de texto em fala padrão prosody em análise linguística separada e etapas de previsão acústica que são governadas por modelos independentes, o que pode resultar em síntese de voz muffled. Nosso recurso neural Prosody a previsão e a síntese de voz simultaneamente, o que resulta em uma voz mais fluida e de som natural.
 
-As vozes neurais podem ser usadas para fazer interações com chatbots e assistentes virtuais mais naturais e envolventes, converter textos digitais, como livros eletrônicos, em Audiobooks e aprimorar os sistemas de navegação no carro. Com a Prosody natural humana e a clara Articulation de palavras, as vozes neurais reduzem significativamente a escuta de fadiga quando você interage com sistemas de ia.
+As vozes neurais podem ser usadas para fazer interações com os assistentes de voz e chatbots mais naturais e envolventes, converter textos digitais, como livros eletrônicos, em Audiobooks e aprimorar os sistemas de navegação no carro. Com a Prosody natural humana e a clara Articulation de palavras, as vozes neurais reduzem significativamente a escuta de fadiga quando você interage com sistemas de ia.
 
 As vozes neurais dão suporte a diferentes estilos, como neutral e cheerful. Por exemplo, a voz Jessa (en-US) pode falar cheerfully, que é otimizado para uma conversa boa e feliz. Você pode ajustar a saída de voz, como Tom, densidade e velocidade usando a [linguagem de marcação de síntese de fala](speech-synthesis-markup.md). Para obter uma lista completa de vozes disponíveis, consulte [idiomas com suporte](language-support.md#text-to-speech).
 
@@ -71,13 +71,13 @@ Esta tabela lista os principais recursos para conversão de texto em fala:
 | Caso de utilização | SDK | REST |
 |----------|-----|------|
 | Converter texto em fala. | Sim | Sim |
-| Carregar conjuntos de valores para adaptação de voz. | Não | Sim @ no__t-0 |
-| Crie e gerencie modelos de fonte de voz. | Não | Sim @ no__t-0 |
-| Crie e gerencie implantações de fontes de voz. | Não | Sim @ no__t-0 |
-| Criar e gerenciar testes de fonte de voz. | Não | Sim @ no__t-0 |
-| Gerenciar assinaturas. | Não | Sim @ no__t-0 |
+| Carregar conjuntos de valores para adaptação de voz. | Não | Sim\* |
+| Crie e gerencie modelos de fonte de voz. | Não | Sim\* |
+| Crie e gerencie implantações de fontes de voz. | Não | Sim\* |
+| Criar e gerenciar testes de fonte de voz. | Não | Sim\* |
+| Gerenciar assinaturas. | Não | Sim\* |
 
-os serviços \* *These estão disponíveis usando o ponto de extremidade cris.ai. Consulte [referência do Swagger](https://westus.cris.ai/swagger/ui/index). Essas APIs de treinamento e gerenciamento de voz personalizadas implementam a limitação que limita as solicitações a 25 por 5 segundos, enquanto a própria API de síntese de fala implementa a limitação que permite 200 solicitações por segundo como a mais alta. Quando a limitação ocorrer, você será notificado por meio de cabeçalhos de mensagem.*
+\* *esses serviços estão disponíveis usando o ponto de extremidade Cris.ai. Consulte [referência do Swagger](https://westus.cris.ai/swagger/ui/index). Essas APIs de treinamento e gerenciamento de voz personalizadas implementam a limitação que limita as solicitações a 25 por 5 segundos, enquanto a própria API de síntese de fala implementa a limitação que permite 200 solicitações por segundo como a mais alta. Quando a limitação ocorrer, você será notificado por meio de cabeçalhos de mensagem.*
 
 ## <a name="get-started-with-text-to-speech"></a>Introdução ao texto para fala
 
@@ -87,25 +87,25 @@ Oferecemos guias de início rápido projetados para que você execute códigos e
 
 | Início rápido (SDK) | Plataforma | Referência da API |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-text-to-speech-dotnetcore.md) | Windows | [Navegador](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Navegador](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](quickstart-text-to-speech-csharp-uwp.md) | Windows | [Navegador](https://aka.ms/csspeech/csharpref) |
-| [C#, Unity](quickstart-text-to-speech-csharp-unity.md) | Windows, Android | [Navegador](https://aka.ms/csspeech/csharpref) |
-| [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Navegador](https://aka.ms/csspeech/cppref) |
-| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Navegador](https://aka.ms/csspeech/cppref) |
-| [Java](quickstart-text-to-speech-java-jre.md) | Windows, Linux, macOS | [Navegador](https://aka.ms/csspeech/javaref) |
-| [Java](quickstart-text-to-speech-java-android.md) | Android | [Navegador](https://aka.ms/csspeech/javaref) |
-| [Objective-C](quickstart-text-to-speech-objectivec-macos.md) | macOS | [Navegador](https://aka.ms/csspeech/objectivecref) |
-| [Objective-C](quickstart-text-to-speech-objectivec-ios.md) | iOS | [Navegador](https://aka.ms/csspeech/objectivecref) |
-| [Swift](quickstart-text-to-speech-swift-macos.md) | macOS | [Navegador](https://aka.ms/csspeech/objectivecref) |
-| [Swift](quickstart-text-to-speech-swift-ios.md) | iOS | [Navegador](https://aka.ms/csspeech/objectivecref) |
-| [Python](quickstart-text-to-speech-python.md) | Janela, Linux, macOS | [Navegador](https://aka.ms/csspeech/pythonref) |
+| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Navegador](https://aka.ms/csspeech/csharpref) |
+| [C#.NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Navegador](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Navegador](https://aka.ms/csspeech/csharpref) |
+| [C#, Unity](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=unity) | Windows, Android | [Navegador](https://aka.ms/csspeech/csharpref) |
+| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Navegador](https://aka.ms/csspeech/cppref) |
+| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-cpp&tabs=linux) | Linux | [Navegador](https://aka.ms/csspeech/cppref) |
+| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Navegador](https://aka.ms/csspeech/javaref) |
+| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=android) | Android | [Navegador](https://aka.ms/csspeech/javaref) |
+| [Objective-C](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/objectivec-macos.md) | macOS | [Navegador](https://aka.ms/csspeech/objectivecref) |
+| [Objective-C](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/objectivec-ios.md) | iOS | [Navegador](https://aka.ms/csspeech/objectivecref) |
+| [Swift](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/swift-macos.md) | macOS | [Navegador](https://aka.ms/csspeech/objectivecref) |
+| [Swift](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/swift-ios.md) | iOS | [Navegador](https://aka.ms/csspeech/objectivecref) |
+| [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python) | Janela, Linux, macOS | [Navegador](https://aka.ms/csspeech/pythonref) |
 
 ### <a name="rest-quickstarts"></a>Guias de início rápido do REST
 
 | Início rápido (REST) | Plataforma | Referência da API |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Navegador](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp) | Windows, macOS, Linux | [Navegador](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Node.js](quickstart-nodejs-text-to-speech.md) | Windows, macOS, Linux | [Navegador](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Python](quickstart-python-text-to-speech.md) | Windows, macOS, Linux | [Navegador](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 
@@ -120,11 +120,11 @@ O código de exemplo para conversão de texto em fala está disponível no GitHu
 
 * [SDK de Voz](speech-sdk-reference.md)
 * [SDK de dispositivos de fala](speech-devices-sdk.md)
-* [API REST: Conversão de fala em texto](rest-speech-to-text.md)
-* [API REST: Conversão de texto em fala](rest-text-to-speech.md)
-* [API REST: Transcrição e personalização do lote](https://westus.cris.ai/swagger/ui/index)
+* [API REST: conversão de fala em texto](rest-speech-to-text.md)
+* [API REST: conversão de texto em fala](rest-text-to-speech.md)
+* [API REST: transcrição e personalização do lote](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Obtenha uma assinatura gratuita dos serviços de fala](get-started.md)
-* [Criar tipos de voz personalizada](how-to-customize-voice-font.md)
+* [Criar fontes de voz personalizadas](how-to-customize-voice-font.md)

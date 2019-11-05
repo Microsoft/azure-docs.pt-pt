@@ -14,12 +14,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 91f0c059d22fb921aeb0c65f7d4eba95debd530d
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 75632d4fcdbf27f70b1b84f08f7295212dbac6a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097738"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471089"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configurar um aplicativo Java do Windows para o serviço Azure App
 
@@ -33,7 +33,7 @@ Você pode usar o [plug-in do Maven para Azure app serviço](/java/api/overview/
 
 Caso contrário, o método de implantação dependerá do tipo de arquivo morto:
 
-- Para implantar arquivos. War no Tomcat, use o `/api/wardeploy/` ponto de extremidade para postar o arquivo morto. Para obter mais informações sobre essa API, consulte [esta documentação](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
+- Para implantar arquivos. War no Tomcat, use o ponto de extremidade `/api/wardeploy/` para postar o arquivo morto. Para obter mais informações sobre essa API, consulte [esta documentação](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
 
 Não implante seu. War usando FTP. A ferramenta de FTP foi projetada para carregar scripts de inicialização, dependências ou outros arquivos de tempo de execução. Não é a opção ideal para a implantação de aplicativos Web.
 
@@ -53,7 +53,7 @@ Para obter mais informações, consulte [Stream logs in Cloud Shell](troubleshoo
 
 ### <a name="app-logging"></a>Log de aplicativo
 
-Habilite o [log do aplicativo](troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enable-application-logging-windows) por meio do portal do Azure ou [CLI do Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar o serviço de aplicativo para gravar a saída do console padrão do aplicativo e os fluxos de erro do console padrão no sistema de arquivos local ou no armazenamento de BLOBs do Azure. O registro em log na instância do sistema de arquivos do serviço de aplicativo local é desabilitado 12 horas após sua configuração. Se você precisar de mais retenção, configure o aplicativo para gravar a saída em um contêiner de armazenamento de BLOBs. Seus logs de aplicativo Java e Tomcat podem ser encontrados no diretório */LogFiles/Application/*
+Habilite o [log do aplicativo](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) por meio do portal do Azure ou [CLI do Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar o serviço de aplicativo para gravar a saída do console padrão do aplicativo e os fluxos de erro do console padrão no sistema de arquivos local ou no armazenamento de BLOBs do Azure. O registro em log na instância do sistema de arquivos do serviço de aplicativo local é desabilitado 12 horas após sua configuração. Se você precisar de mais retenção, configure o aplicativo para gravar a saída em um contêiner de armazenamento de BLOBs. Seus logs de aplicativo Java e Tomcat podem ser encontrados no diretório */LogFiles/Application/*
 
 Se seu aplicativo usar [Logback](https://logback.qos.ch/) ou [Log4J](https://logging.apache.org/log4j) para rastreamento, você poderá encaminhar esses rastreamentos para revisão no aplicativo Azure insights usando as instruções de configuração do log Framework em [explorar logs de rastreamento de Java no Application insights ](/azure/application-insights/app-insights-java-trace-logs).
 
@@ -62,17 +62,17 @@ Se seu aplicativo usar [Logback](https://logback.qos.ch/) ou [Log4J](https://log
 
 O serviço de Azure App dá suporte ao ajuste e à personalização prontos para uso por meio do portal do Azure e da CLI. Examine os seguintes artigos para configuração de aplicativo Web não específica para Java:
 
-- [Definir configurações de aplicativo](configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)
-- [Configurar um domínio personalizado](app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Habilitar SSL](app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Adicionar uma CDN](../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Definir configurações de aplicativo](configure-common.md#configure-app-settings)
+- [Configurar um domínio personalizado](app-service-web-tutorial-custom-domain.md)
+- [Configurar associações SSL](configure-ssl-bindings.md)
+- [Adicionar uma CDN](../cdn/cdn-add-to-web-app.md)
 - [Configurar o site kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
 
 ### <a name="set-java-runtime-options"></a>Definir opções de tempo de execução Java
 
-Para definir a memória alocada ou outras opções de tempo de execução da JVM `JAVA_OPTS` , crie uma [configuração de aplicativo](configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) chamada com as opções. O serviço de aplicativo passa essa configuração como uma variável de ambiente para o tempo de execução Java quando ele é iniciado.
+Para definir a memória alocada ou outras opções de tempo de execução da JVM, crie uma [configuração de aplicativo](configure-common.md#configure-app-settings) chamada `JAVA_OPTS` com as opções. O serviço de aplicativo passa essa configuração como uma variável de ambiente para o tempo de execução Java quando ele é iniciado.
 
-Na portal do Azure, em **configurações do aplicativo** para o aplicativo Web, crie uma nova configuração de aplicativo `JAVA_OPTS` denominada que inclua as `-Xms512m -Xmx1204m`configurações adicionais, como.
+Na portal do Azure, em **configurações do aplicativo** para o aplicativo Web, crie uma nova configuração de aplicativo chamada `JAVA_OPTS` que inclui as configurações adicionais, como `-Xms512m -Xmx1204m`.
 
 Para definir a configuração do aplicativo do plug-in do Maven, adicione marcas de configuração/valor na seção plug-in do Azure. O exemplo a seguir define um tamanho de heap de Java mínimo e máximo específico:
 
@@ -87,9 +87,9 @@ Para definir a configuração do aplicativo do plug-in do Maven, adicione marcas
 
 Os desenvolvedores que executam um único aplicativo com um slot de implantação em seu plano do serviço de aplicativo podem usar as seguintes opções:
 
-- Instâncias B1 e S1:`-Xms1024m -Xmx1024m`
-- Instâncias B2 e S2:`-Xms3072m -Xmx3072m`
-- Instâncias B3 e S3:`-Xms6144m -Xmx6144m`
+- Instâncias B1 e S1: `-Xms1024m -Xmx1024m`
+- Instâncias B2 e S2: `-Xms3072m -Xmx3072m`
+- Instâncias B3 e S3: `-Xms6144m -Xmx6144m`
 
 Ao ajustar as configurações de heap de aplicativo, examine os detalhes do plano do serviço de aplicativo e leve em conta vários aplicativos e o slot de implantação precisa encontrar a alocação ideal de memória.
 
@@ -112,7 +112,7 @@ az webapp start --name <app-name> --resource-group <resource-group-name>
 
 ### <a name="set-default-character-encoding"></a>Definir codificação de caractere padrão
 
-Na portal do Azure, em **configurações do aplicativo** para o aplicativo Web, crie uma nova configuração de aplicativo `JAVA_OPTS` chamada com `-Dfile.encoding=UTF-8`valor.
+Na portal do Azure, em **configurações do aplicativo** para o aplicativo Web, crie uma nova configuração de aplicativo chamada `JAVA_OPTS` com o valor `-Dfile.encoding=UTF-8`.
 
 Como alternativa, você pode definir a configuração do aplicativo usando o plug-in Maven do serviço de aplicativo. Adicione o nome da configuração e as marcas de valor na configuração do plug-in:
 
@@ -129,23 +129,23 @@ Como alternativa, você pode definir a configuração do aplicativo usando o plu
 
 Para melhorar o desempenho de aplicativos Tomcat, você pode compilar seus arquivos JSP antes de implantar no serviço de aplicativo. Você pode usar o [plug-in do Maven](https://sling.apache.org/components/jspc-maven-plugin/plugin-info.html) fornecido pelo Apache sling ou usando esse [arquivo de compilação Ant](https://tomcat.apache.org/tomcat-9.0-doc/jasper-howto.html#Web_Application_Compilation).
 
-## <a name="secure-applications"></a>Aplicações seguras
+## <a name="secure-applications"></a>Proteger aplicativos
 
 Aplicativos Java em execução no serviço de aplicativo têm o mesmo conjunto de [práticas recomendadas de segurança](/azure/security/security-paas-applications-using-app-services) que outros aplicativos.
 
 ### <a name="authenticate-users-easy-auth"></a>Autenticar usuários (fácil autenticação)
 
-Configure a autenticação de aplicativo no portal do Azure com a opção **autenticação e autorização** . A partir daí, você pode habilitar a autenticação usando Azure Active Directory ou logons sociais, como Facebook, Google ou GitHub. Portal do Azure configuração só funciona ao configurar um único provedor de autenticação. Para obter mais informações, consulte [configurar seu aplicativo do serviço de aplicativo para usar Azure Active Directory logon](configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) e os artigos relacionados para outros provedores de identidade. Se você precisar habilitar vários provedores de entrada, siga as instruções no artigo personalizar a [autenticação do serviço de aplicativo](app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) .
+Configure a autenticação de aplicativo no portal do Azure com a opção **autenticação e autorização** . A partir daí, você pode habilitar a autenticação usando Azure Active Directory ou logons sociais, como Facebook, Google ou GitHub. Portal do Azure configuração só funciona ao configurar um único provedor de autenticação. Para obter mais informações, consulte [configurar seu aplicativo do serviço de aplicativo para usar Azure Active Directory logon](configure-authentication-provider-aad.md) e os artigos relacionados para outros provedores de identidade. Se você precisar habilitar vários provedores de entrada, siga as instruções no artigo personalizar a [autenticação do serviço de aplicativo](app-service-authentication-how-to.md) .
 
 #### <a name="tomcat-and-wildfly"></a>Tomcat e Wildfly
 
-Seu aplicativo Tomcat ou Wildfly pode acessar as declarações do usuário diretamente do servlet, convertendo o objeto principal em um objeto Map. O objeto MAP mapeará cada tipo de declaração para uma coleção de declarações para esse tipo. No código a seguir, `request` é uma instância do `HttpServletRequest`.
+Seu aplicativo Tomcat ou Wildfly pode acessar as declarações do usuário diretamente do servlet, convertendo o objeto principal em um objeto Map. O objeto MAP mapeará cada tipo de declaração para uma coleção de declarações para esse tipo. No código abaixo, `request` é uma instância de `HttpServletRequest`.
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
 ```
 
-Agora você pode inspecionar `Map` o objeto para qualquer declaração específica. Por exemplo, o trecho de código a seguir itera em todos os tipos de declaração e imprime o conteúdo de cada coleção.
+Agora você pode inspecionar o objeto `Map` para qualquer declaração específica. Por exemplo, o trecho de código a seguir itera em todos os tipos de declaração e imprime o conteúdo de cada coleção.
 
 ```java
 for (Object key : map.keySet()) {
@@ -159,7 +159,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-Para desconectar os usuários, use `/.auth/ext/logout` o caminho. Para executar outras ações, consulte a documentação sobre o [uso de autenticação e autorização do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to). Também há documentação oficial na [interface HttpServletRequest](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) do Tomcat e seus métodos. Os seguintes métodos servlets também são alimentados com base na configuração do serviço de aplicativo:
+Para desconectar os usuários, use o caminho `/.auth/ext/logout`. Para executar outras ações, consulte a documentação sobre o [uso de autenticação e autorização do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to). Também há documentação oficial na [interface HttpServletRequest](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) do Tomcat e seus métodos. Os seguintes métodos servlets também são alimentados com base na configuração do serviço de aplicativo:
 
 ```java
 public boolean isSecure()
@@ -169,11 +169,11 @@ public String getScheme()
 public int getServerPort()
 ```
 
-Para desabilitar esse recurso, crie uma configuração de aplicativo `WEBSITE_AUTH_SKIP_PRINCIPAL` chamada com um valor `1`de. Para desabilitar todos os filtros de servlet adicionados pelo serviço de aplicativo, crie `WEBSITE_SKIP_FILTERS` uma configuração chamada com `1`um valor de.
+Para desabilitar esse recurso, crie uma configuração de aplicativo chamada `WEBSITE_AUTH_SKIP_PRINCIPAL` com um valor de `1`. Para desabilitar todos os filtros de servlet adicionados pelo serviço de aplicativo, crie uma configuração chamada `WEBSITE_SKIP_FILTERS` com um valor de `1`.
 
 ### <a name="configure-tlsssl"></a>Configurar TLS/SSL
 
-Siga as instruções em [associar um certificado SSL personalizado existente](app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para carregar um certificado SSL existente e associá-lo ao nome de domínio do seu aplicativo. Por padrão, seu aplicativo ainda permitirá conexões HTTP – siga as etapas específicas no tutorial para impor SSL e TLS.
+Siga as instruções em [proteger um nome DNS personalizado com uma associação SSL no serviço Azure app](configure-ssl-bindings.md) para carregar um certificado SSL existente e associá-lo ao nome de domínio do seu aplicativo. Por padrão, seu aplicativo ainda permitirá conexões HTTP – siga as etapas específicas no tutorial para impor SSL e TLS.
 
 ### <a name="use-keyvault-references"></a>Usar referências do keyvault
 
@@ -181,7 +181,7 @@ O [Azure keyvault](../key-vault/key-vault-overview.md) fornece gerenciamento de 
 
 Primeiro, siga as instruções para [conceder acesso ao aplicativo para Key Vault](app-service-key-vault-references.md#granting-your-app-access-to-key-vault) e [fazer uma referência de keyvault para seu segredo em uma configuração de aplicativo](app-service-key-vault-references.md#reference-syntax). Você pode validar que a referência seja resolvida para o segredo imprimindo a variável de ambiente ao acessar remotamente o terminal do serviço de aplicativo.
 
-Para injetar esses segredos em seu arquivo de configuração Spring ou Tomcat, use a sintaxe de`${MY_ENV_VAR}`injeção de variável de ambiente (). Para arquivos de configuração do Spring, consulte esta documentação sobre [configurações externas](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
+Para injetar esses segredos em seu arquivo de configuração Spring ou Tomcat, use a sintaxe de injeção de variável de ambiente (`${MY_ENV_VAR}`). Para arquivos de configuração do Spring, consulte esta documentação sobre [configurações externas](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
 
 ## <a name="configure-apm-platforms"></a>Configurar plataformas APM
@@ -197,8 +197,8 @@ Esta seção mostra como conectar aplicativos Java implantados no serviço de Az
 5. Carregue os arquivos do novo agente Java Relic desempacotados em um diretório em */Home/site/wwwroot/APM*. Os arquivos do seu agente devem estar no */Home/site/wwwroot/APM/newrelic*.
 6. Modifique o arquivo YAML em */Home/site/wwwroot/APM/newrelic/newrelic.yml* e substitua o valor da licença de espaço reservado por sua própria chave de licença.
 7. Na portal do Azure, navegue até seu aplicativo no serviço de aplicativo e crie uma nova configuração de aplicativo.
-    - Se seu aplicativo estiver usando **Java se**, crie uma variável de ambiente `JAVA_OPTS` chamada com o `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`valor.
-    - Se você estiver usando o **tomcat**, crie uma variável de `CATALINA_OPTS` ambiente chamada com `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`o valor.
+    - Se seu aplicativo estiver usando **Java se**, crie uma variável de ambiente chamada `JAVA_OPTS` com o valor `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
+    - Se você estiver usando o **tomcat**, crie uma variável de ambiente chamada `CATALINA_OPTS` com o valor `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
 
 ### <a name="configure-appdynamics"></a>Configurar o AppDynamics
 
@@ -207,10 +207,10 @@ Esta seção mostra como conectar aplicativos Java implantados no serviço de Az
 3. Use o [console do kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) para criar um novo diretório */Home/site/wwwroot/APM*.
 4. Carregue os arquivos do agente Java em um diretório em */Home/site/wwwroot/APM*. Os arquivos do seu agente devem estar no */Home/site/wwwroot/APM/AppDynamics*.
 5. Na portal do Azure, navegue até seu aplicativo no serviço de aplicativo e crie uma nova configuração de aplicativo.
-    - Se você estiver usando **Java se**, crie uma variável de ambiente `JAVA_OPTS` chamada com o `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` valor `<app-name>` em que é o nome do serviço de aplicativo.
-    - Se você estiver usando o **tomcat**, crie uma variável de `CATALINA_OPTS` ambiente chamada com o `<app-name>` valor `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` em que é o nome do serviço de aplicativo.
+    - Se você estiver usando **Java se**, crie uma variável de ambiente chamada `JAVA_OPTS` com o valor `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` em que `<app-name>` é o nome do serviço de aplicativo.
+    - Se você estiver usando o **tomcat**, crie uma variável de ambiente chamada `CATALINA_OPTS` com o valor `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` em que `<app-name>` é o nome do serviço de aplicativo.
 
->  Se você já tiver uma variável de ambiente `JAVA_OPTS` para `CATALINA_OPTS`ou, acrescente `-javaagent:/...` a opção ao final do valor atual.
+>  Se você já tiver uma variável de ambiente para `JAVA_OPTS` ou `CATALINA_OPTS`, acrescente a opção `-javaagent:/...` ao final do valor atual.
 
 ## <a name="data-sources"></a>Origens de dados
 
@@ -221,10 +221,10 @@ Essas instruções se aplicam a todas as conexões de banco de dados. Você prec
 | Base de Dados   | Nome da classe do driver                             | JDBC Driver                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [Transferência](https://jdbc.postgresql.org/download.html)                                    |
-| MySQL      | `com.mysql.jdbc.Driver`                        | [Baixar](https://dev.mysql.com/downloads/connector/j/) (Selecione "plataforma independente") |
+| MySQL      | `com.mysql.jdbc.Driver`                        | [Baixar](https://dev.mysql.com/downloads/connector/j/) (selecione "plataforma independente") |
 | SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Transferência](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
 
-Para configurar o Tomcat para usar Java Database Connectivity (JDBC) ou a API de persistência Java (JPA), primeiro `CATALINA_OPTS` Personalize a variável de ambiente que é lida pelo Tomcat na inicialização. Defina esses valores por meio de uma configuração de aplicativo no [plug-in Maven do serviço de aplicativo](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
+Para configurar o Tomcat para usar Java Database Connectivity (JDBC) ou a API de persistência Java (JPA), primeiro Personalize a variável de ambiente `CATALINA_OPTS` que é lida no pelo Tomcat na inicialização. Defina esses valores por meio de uma configuração de aplicativo no [plug-in Maven do serviço de aplicativo](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 
 ```xml
 <appSettings>
@@ -235,7 +235,7 @@ Para configurar o Tomcat para usar Java Database Connectivity (JDBC) ou a API de
 </appSettings>
 ```
 
-Ou defina as variáveis de ambiente na página**configurações do aplicativo** de **configuração** > no portal do Azure.
+Ou defina as variáveis de ambiente na página **configurações do aplicativo** > de **configuração** no portal do Azure.
 
 Em seguida, determine se a fonte de dados deve estar disponível para um aplicativo ou para todos os aplicativos em execução no servlet Tomcat.
 
@@ -243,7 +243,7 @@ Em seguida, determine se a fonte de dados deve estar disponível para um aplicat
 
 1. Crie um arquivo *Context. xml* no diretório *meta-inf/* do seu projeto. Crie o diretório *meta-inf/* se ele não existir.
 
-2. Em *Context. xml*, adicione um `Context` elemento para vincular a fonte de dados a um endereço JNDI. Substitua o `driverClassName` espaço reservado pelo nome da classe do driver da tabela acima.
+2. Em *Context. xml*, adicione um elemento `Context` para vincular a fonte de dados a um endereço JNDI. Substitua o espaço reservado `driverClassName` pelo nome da classe do driver da tabela acima.
 
     ```xml
     <Context>
@@ -285,16 +285,16 @@ Por fim, colocaremos os JARs do driver no classpath do Tomcat e reiniciaremos o 
 
 3. Conecte-se à porta de túnel local com seu cliente SFTP e carregue os arquivos na pasta */Home/Tomcat/lib*
 
-Como alternativa, você pode usar um cliente FTP para carregar o driver JDBC. Siga estas [instruções para obter suas credenciais de FTP](deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+Como alternativa, você pode usar um cliente FTP para carregar o driver JDBC. Siga estas [instruções para obter suas credenciais de FTP](deploy-configure-credentials.md).
 
 ## <a name="configuring-tomcat"></a>Configurando o Tomcat
 
-Para editar os arquivos `server.xml` de configuração ou do Tomcat, primeiro anote a sua versão principal do Tomcat no Portal.
+Para editar `server.xml` do Tomcat ou outros arquivos de configuração, primeiro anote a sua versão principal do Tomcat no Portal.
 
-1. Localize o diretório base do Tomcat para sua versão executando o `env` comando. Procure a variável de ambiente que começa com `AZURE_TOMCAT`e corresponde à sua versão principal. Por exemplo, `AZURE_TOMCAT85_HOME` aponta para o diretório Tomcat para Tomcat 8,5.
-1. Depois de identificar o diretório base do Tomcat para sua versão, copie o diretório de configuração `D:\home`para. Por exemplo, se `AZURE_TOMCAT85_HOME` tiver um valor de `D:\Program Files (x86)\apache-tomcat-8.5.37`, o novo caminho do diretório copiado seria `D:\home\apache-tomcat-8.5.37`.
+1. Localize o diretório base do Tomcat para sua versão executando o comando `env`. Procure a variável de ambiente que começa com `AZURE_TOMCAT`e corresponde à sua versão principal. Por exemplo, `AZURE_TOMCAT85_HOME` aponta para o diretório Tomcat para Tomcat 8,5.
+1. Depois de identificar o diretório base do Tomcat para sua versão, copie o diretório de configuração para `D:\home`. Por exemplo, se `AZURE_TOMCAT85_HOME` tiver um valor de `D:\Program Files (x86)\apache-tomcat-8.5.37`, o novo caminho do diretório copiado será `D:\home\apache-tomcat-8.5.37`.
 
-Por fim, reinicie o serviço de aplicativo. Suas implantações devem ir `D:\home\site\wwwroot\webapps` para assim como antes.
+Por fim, reinicie o serviço de aplicativo. Suas implantações devem ir para `D:\home\site\wwwroot\webapps` assim como antes.
 
 ## <a name="java-runtime-statement-of-support"></a>Declaração de suporte do Java Runtime
 
@@ -322,7 +322,7 @@ Os desenvolvedores podem baixar a edição de produção do azul Zulu Enterprise
 
 O suporte ao produto para o [azul Zulu com suporte do Azure](https://www.azul.com/downloads/azure-only/zulu/) está disponível por meio da Microsoft ao desenvolver para o azure ou [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) com um [plano de suporte qualificado do Azure](https://azure.microsoft.com/support/plans/).
 
-### <a name="runtime-support"></a>Suporte de tempo de execução
+### <a name="runtime-support"></a>Suporte a tempo de execução
 
 Os desenvolvedores podem [abrir um problema](/azure/azure-supportability/how-to-create-azure-support-request) com o azul Zulu JDKs por meio do suporte do Azure se eles tiverem um [plano de suporte qualificado](https://azure.microsoft.com/support/plans/).
 

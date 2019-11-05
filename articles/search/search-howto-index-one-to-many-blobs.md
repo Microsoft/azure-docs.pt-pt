@@ -1,20 +1,20 @@
 ---
 title: Indexar um blob em muitos documentos de índice de pesquisa do indexador de blob do Azure para pesquisa de texto completo
-description: Rastreie BLOBs do Azure para conteúdo de texto usando o indexador de blob Azure Search. Cada blob pode produzir um ou mais documentos de índice de Azure Search.
-ms.date: 05/02/2019
-author: arv100kri
+titleSuffix: Azure Cognitive Search
+description: Rastreie BLOBs do Azure para conteúdo de texto usando o indexador de blob do Azure cognitivos Search. Cada blob pode produzir um ou mais documentos de índice de pesquisa.
 manager: nitinme
+author: arv100kri
 ms.author: arjagann
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.openlocfilehash: d58be681c6a3e609712f9b0206de69f01d6a35f6
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.date: 11/04/2019
+ms.openlocfilehash: 863d38f6ea0f071a1c1a6678d025ec5b37a306dc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177997"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466420"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexando BLOBs para produzir vários documentos de pesquisa
 Por padrão, um indexador de blob tratará o conteúdo de um blob como um único documento de pesquisa. Determinados valores de **parsingMode** dão suporte a cenários em que um blob individual pode resultar em vários documentos de pesquisa. Os diferentes tipos de **parsingMode** que permitem que um indexador Extraia mais de um documento de pesquisa de um blob são:
@@ -23,11 +23,11 @@ Por padrão, um indexador de blob tratará o conteúdo de um blob como um único
 + `jsonLines`
 
 ## <a name="one-to-many-document-key"></a>Chave de documento de um para muitos
-Cada documento que aparece em um índice de Azure Search é identificado exclusivamente por uma chave de documento. 
+Cada documento que aparece em um índice de Pesquisa Cognitiva do Azure é identificado exclusivamente por uma chave de documento. 
 
-Quando nenhum modo de análise for especificado, e se não houver mapeamento explícito para o campo de chave no índice Azure Search o [mapeará](search-indexer-field-mappings.md) automaticamente a propriedade `metadata_storage_path` como a chave. Esse mapeamento garante que cada blob apareça como um documento de pesquisa distinto.
+Quando nenhum modo de análise for especificado, e se não houver mapeamento explícito para o campo de chave no índice, o Azure Pesquisa Cognitiva [mapeará](search-indexer-field-mappings.md) automaticamente a propriedade `metadata_storage_path` como a chave. Esse mapeamento garante que cada blob apareça como um documento de pesquisa distinto.
 
-Ao usar qualquer um dos modos de análise listados acima, um blob é mapeado para "muitos" documentos de pesquisa, tornando uma chave de documento exclusivamente baseada em metadados de blob inadequados. Para superar essa restrição, Azure Search é capaz de gerar uma chave de documento "um para muitos" para cada entidade individual extraída de um blob. Essa propriedade é denominada `AzureSearch_DocumentKey` e é adicionada a cada entidade individual extraída do blob. É garantido que o valor dessa propriedade seja exclusivo para cada entidade individual _entre os BLOBs_ e as entidades aparecerão como documentos de pesquisa separados.
+Ao usar qualquer um dos modos de análise listados acima, um blob é mapeado para "muitos" documentos de pesquisa, tornando uma chave de documento exclusivamente baseada em metadados de blob inadequados. Para superar essa restrição, o Azure Pesquisa Cognitiva é capaz de gerar uma chave de documento "um para muitos" para cada entidade individual extraída de um blob. Essa propriedade é denominada `AzureSearch_DocumentKey` e é adicionada a cada entidade individual extraída do blob. É garantido que o valor dessa propriedade seja exclusivo para cada entidade individual _entre os BLOBs_ e as entidades aparecerão como documentos de pesquisa separados.
 
 Por padrão, quando nenhum mapeamento de campo explícito para o campo de índice de chave é especificado, o `AzureSearch_DocumentKey` é mapeado para ele, usando a função de mapeamento de campo `base64Encode`.
 
@@ -58,7 +58,7 @@ Quando você cria um indexador e define o **parsingMode** como `jsonLines`-sem e
         "mappingFunction": { "name" : "base64Encode" }
     }
 
-Essa configuração fará com que o índice de Azure Search que contém as seguintes informações (ID codificada em base64 diminuiu para fins de brevidade)
+Essa configuração resultará no índice de Pesquisa Cognitiva do Azure que contém as seguintes informações (ID codificada em base64 reduzida para fins de brevidade)
 
 | ID | temperatura | pressure | carimbo de data/hora |
 |----|-------------|----------|-----------|
@@ -102,5 +102,5 @@ Se você quiser configurar um mapeamento de campo explícito, certifique-se de q
 Se você ainda não estiver familiarizado com a estrutura básica e o fluxo de trabalho da indexação de BLOBs, examine a [indexação do armazenamento de BLOBs do Azure com Azure Search](search-howto-index-json-blobs.md) primeiro. Para obter mais informações sobre os modos de análise para diferentes tipos de conteúdo de BLOB, examine os artigos a seguir.
 
 > [!div class="nextstepaction"]
-> [Indexando BLOBs CSV](search-howto-index-csv-blobs.md) 
+> [Indexando BLOBs CSV](search-howto-index-csv-blobs.md)
 > [indexando BLOBs JSON](search-howto-index-json-blobs.md)

@@ -3,15 +3,15 @@ title: Entender como os efeitos funcionam
 description: As definições de Azure Policy têm vários efeitos que determinam como a conformidade é gerenciada e relatada.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/17/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 4f657cd8c804a597220a7e74d1fce0401c4cd9ae
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: c448ab889ad263f4f8b6c9a59048551ca761d69a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176331"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464045"
 ---
 # <a name="understand-azure-policy-effects"></a>Entender Azure Policy efeitos
 
@@ -25,6 +25,7 @@ Atualmente, há suporte para esses efeitos em uma definição de política:
 - [Negar](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Desativado](#disabled)
+- [EnforceOPAConstraint](#enforceopaconstraint) (visualização)
 - [EnforceRegoPolicy](#enforceregopolicy) (visualização)
 - [Alterar](#modify)
 
@@ -39,7 +40,7 @@ As solicitações para criar ou atualizar um recurso por meio de Azure Resource 
 
 Depois que o provedor de recursos retornar um código de êxito, **AuditIfNotExists** e **DeployIfNotExists** serão avaliados para determinar se a ação ou o log de conformidade adicional é necessário.
 
-No momento, não há nenhuma ordem de avaliação para o efeito de **EnforceRegoPolicy** .
+No momento, não há nenhuma ordem de avaliação para os efeitos **EnforceOPAConstraint** ou **EnforceRegoPolicy** .
 
 ## <a name="disabled"></a>Desativado
 
@@ -99,7 +100,7 @@ Exemplo 2: par de **campo/valor** único usando um [alias](definition-structure.
 
 ## <a name="modify"></a>Modificar
 
-Modify é usado para adicionar, atualizar ou remover marcas em um recurso durante a criação ou atualização. Um exemplo comum é A atualização de marcas em recursos como costCenter. Uma política de modificação deve ter sempre `mode` definida como _indexada_ , a menos que o recurso de destino seja um grupo de recursos. Os recursos não compatíveis existentes podem ser corrigidos com uma [tarefa de correção](../how-to/remediate-resources.md). Uma única regra de modificação pode ter qualquer quantidade de operações.
+Modify é usado para adicionar, atualizar ou remover marcas em um recurso durante a criação ou atualização. Um exemplo comum é A atualização de marcas em recursos como costCenter. Uma política de modificação sempre deve ter `mode` definido como _indexado_ , a menos que o recurso de destino seja um grupo de recursos. Os recursos não compatíveis existentes podem ser corrigidos com uma [tarefa de correção](../how-to/remediate-resources.md). Uma única regra de modificação pode ter qualquer quantidade de operações.
 
 > [!IMPORTANT]
 > No momento, Modify é usado apenas com marcas. Se você estiver gerenciando marcas, é recomendável usar modificar em vez de acrescentar como modificar fornece tipos de operação adicionais e a capacidade de corrigir recursos existentes. No entanto, o acréscimo é recomendado se você não conseguir criar uma identidade gerenciada.
@@ -132,9 +133,9 @@ A propriedade **Details** do efeito modificar tem todas as subpropriedades que d
 
 A matriz de propriedades de **operações** torna possível alterar várias marcas de diferentes maneiras de uma única definição de política. Cada operação é composta de propriedades de **operação**, **campo**e **valor** . A operação determina o que a tarefa de correção faz nas marcas, o campo determina qual marca é alterada e o valor define a nova configuração para essa marca. O exemplo a seguir faz as seguintes alterações de marca:
 
-- Define a marca `environment` como "Test", mesmo que ela já exista com um valor diferente.
+- Define a marca de `environment` como "Test", mesmo que ela já exista com um valor diferente.
 - Remove a marca `TempResource`.
-- Define a marca `Dept` para o parâmetro de política _deptname_ configurado na atribuição de política.
+- Define a marca de `Dept` como o parâmetro de política _deptname_ configurado na atribuição de política.
 
 ```json
 "details": {
@@ -168,7 +169,7 @@ A propriedade **Operation** tem as seguintes opções:
 
 ### <a name="modify-examples"></a>Modificar exemplos
 
-Exemplo 1: adicionar a marca `environment` e substituir as marcas `environment` existentes por "teste":
+Exemplo 1: adicionar a marca de `environment` e substituir as marcas de `environment` existentes por "Test":
 
 ```json
 "then": {
@@ -188,7 +189,7 @@ Exemplo 1: adicionar a marca `environment` e substituir as marcas `environment` 
 }
 ```
 
-Exemplo 2: Remova a marca `env` e adicione a marca `environment` ou substitua as marcas `environment` existentes por um valor com parâmetros:
+Exemplo 2: Remova a marca de `env` e adicione a marca de `environment` ou substitua as marcas de `environment` existentes por um valor com parâmetros:
 
 ```json
 "then": {
@@ -431,12 +432,68 @@ Exemplo: avalia SQL Server bancos de dados para determinar se o transparentDataE
 }
 ```
 
-## <a name="enforceregopolicy"></a>EnforceRegoPolicy
+## <a name="enforceopaconstraint"></a>EnforceOPAConstraint
 
-Esse efeito é usado com um *modo* de definição de política de `Microsoft.ContainerService.Data`. Ele é usado para passar regras de controle de admissão definidas com [rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) para abrir o OPA ( [agente de política](https://www.openpolicyagent.org/) ) no [serviço kubernetes do Azure](../../../aks/intro-kubernetes.md).
+Esse efeito é usado com um *modo* de definição de política de `Microsoft.Kubernetes.Data`. Ele é usado para passar regras de controle de admissão do gatekeeper v3 definidas com a [estrutura de restrição Opa](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) para abrir o OPA ( [agente de política](https://www.openpolicyagent.org/) ) para clusters kubernetes autogerenciados no Azure.
 
 > [!NOTE]
-> [Azure Policy para kubernetes](rego-for-aks.md) está em visualização pública e só dá suporte a definições de políticas internas.
+> [Azure Policy para o mecanismo AKs](aks-engine.md) está em visualização pública e só dá suporte a definições de políticas internas.
+
+### <a name="enforceopaconstraint-evaluation"></a>Avaliação do EnforceOPAConstraint
+
+O controlador de admissão do agente de política aberto avalia qualquer nova solicitação no cluster em tempo real.
+A cada 5 minutos, uma verificação completa do cluster é concluída e os resultados relatados para Azure Policy.
+
+### <a name="enforceopaconstraint-properties"></a>Propriedades de EnforceOPAConstraint
+
+A propriedade **Details** do efeito EnforceOPAConstraint tem as subpropriedades que descrevem a regra de controle de admissão do gatekeeper v3.
+
+- **constrainttemplate** [obrigatório]
+  - O modelo de restrição CustomResourceDefinition (CRD) que define novas restrições. O modelo define a lógica Rego, o esquema de restrição e os parâmetros de restrição que são passados por meio de **valores** de Azure Policy.
+- **restrição** [obrigatório]
+  - A implementação de CRD do modelo de restrição. Usa parâmetros passados por meio de **valores** como `{{ .Values.<valuename> }}`. No exemplo a seguir, seria `{{ .Values.cpuLimit }}` e `{{ .Values.memoryLimit }}`.
+- **valores** [opcional]
+  - Define quaisquer parâmetros e valores a serem passados para a restrição. Cada valor deve existir no modelo de restrição CRD.
+
+### <a name="enforceregopolicy-example"></a>Exemplo de EnforceRegoPolicy
+
+Exemplo: regra de controle de admissão do gatekeeper V3 para definir limites de recursos de memória e CPU do contêiner no mecanismo de AKS.
+
+```json
+"if": {
+    "allOf": [
+        {
+            "field": "type",
+            "in": [
+                "Microsoft.ContainerService/managedClusters",
+                "AKS Engine"
+            ]
+        },
+        {
+            "field": "location",
+            "equals": "westus2"
+        }
+    ]
+},
+"then": {
+    "effect": "enforceOPAConstraint",
+    "details": {
+        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-resource-limits/template.yaml",
+        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-resource-limits/constraint.yaml",
+        "values": {
+            "cpuLimit": "[parameters('cpuLimit')]",
+            "memoryLimit": "[parameters('memoryLimit')]"
+        }
+    }
+}
+```
+
+## <a name="enforceregopolicy"></a>EnforceRegoPolicy
+
+Esse efeito é usado com um *modo* de definição de política de `Microsoft.ContainerService.Data`. Ele é usado para passar as regras de controle de admissão do gatekeeper v2 definidas com [rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) para abrir o OPA ( [agente de política](https://www.openpolicyagent.org/) ) no [serviço kubernetes do Azure](../../../aks/intro-kubernetes.md).
+
+> [!NOTE]
+> [Azure Policy para AKs](rego-for-aks.md) está em visualização limitada e só dá suporte a definições de políticas internas
 
 ### <a name="enforceregopolicy-evaluation"></a>Avaliação do EnforceRegoPolicy
 
@@ -445,7 +502,7 @@ A cada 5 minutos, uma verificação completa do cluster é concluída e os resul
 
 ### <a name="enforceregopolicy-properties"></a>Propriedades de EnforceRegoPolicy
 
-A propriedade **Details** do efeito EnforceRegoPolicy tem as subpropriedades que descrevem a regra de controle de admissão rego.
+A propriedade **Details** do efeito EnforceRegoPolicy tem as subpropriedades que descrevem a regra de controle de admissão do gatekeeper v2.
 
 - **PolicyId** [obrigatório]
   - Um nome exclusivo passado como um parâmetro para a regra de controle de admissão rego.
@@ -456,7 +513,7 @@ A propriedade **Details** do efeito EnforceRegoPolicy tem as subpropriedades que
 
 ### <a name="enforceregopolicy-example"></a>Exemplo de EnforceRegoPolicy
 
-Exemplo: rego regra de controle de admissão para permitir apenas as imagens de contêiner especificadas em AKS.
+Exemplo: regra de controle de admissão do gatekeeper v2 para permitir apenas as imagens de contêiner especificadas em AKS.
 
 ```json
 "if": {

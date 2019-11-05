@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Implantar e configurar o Firewall do Azure em uma rede híbrida usando o portal do Azure'
+title: 'Tutorial: implantar e configurar o Firewall do Azure em uma rede híbrida usando o portal do Azure'
 description: Neste tutorial, você aprenderá a implantar e configurar o Firewall do Azure usando o portal do Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 09/17/2019
+ms.date: 11/02/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 50f1d0bca958ef4504394cad1d771459cc8be27d
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 4a4fd2f89bc662f394b59aa6295c3a909cb8552b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018981"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468460"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure em uma rede híbrida usando o portal do Azure
+# <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: implantar e configurar o Firewall do Azure em uma rede híbrida usando o portal do Azure
 
 Quando você conecta sua rede local a uma rede virtual do Azure para criar uma rede híbrida, a capacidade de controlar o acesso aos recursos de rede do Azure é uma parte importante de um plano de segurança geral.
 
@@ -72,7 +72,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Primeiro, crie o grupo de recursos para conter os recursos para este tutorial:
 
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-2. Na home page portal do Azure, selecione **grupos** > de recursos**Adicionar**.
+2. Na home page portal do Azure, selecione **grupos de recursos** > **Adicionar**.
 3. Para **nome do grupo de recursos**, digite **FW-Hybrid-Test**.
 4. Em **Subscrição**, selecione a sua subscrição.
 5. Para **região**, selecione **leste dos EUA**. Todos os recursos que você criar posteriormente deverão estar no mesmo local.
@@ -107,14 +107,6 @@ Agora, crie a VNet:
 9. Em **Sub-rede**, para **Nome**, escreva **SN-Workload**.
 10. Para **intervalo de endereços**, digite **10.6.0.0/24**.
 11. Aceite as outras configurações padrão e, em seguida, selecione **criar**.
-
-Agora, crie uma segunda sub-rede para o gateway.
-
-1. Na página **VNet-spoke** , selecione **sub-redes**.
-2. Selecione **+ sub-rede**.
-3. Para **nome**, digite **GatewaySubnet**.
-4. Para o **intervalo de endereços (bloco CIDR)** , digite **10.6.1.0/24**.
-5. Selecione **OK**.
 
 ## <a name="create-the-on-premises-virtual-network"></a>Criar a rede virtual local
 
@@ -159,12 +151,12 @@ Agora, implante o firewall na rede virtual do hub de firewall.
 
    |Definição  |Valor  |
    |---------|---------|
-   |Subscription     |\<a sua subscrição\>|
-   |Resource group     |**FW-híbrido-teste** |
-   |Name     |**AzFW01**|
-   |Location     |Selecionar a mesma localização que utilizou anteriormente|
+   |Subscrição     |\<a sua subscrição\>|
+   |Grupo de recursos     |**FW-híbrido-teste** |
+   |Nome     |**AzFW01**|
+   |Localização     |Selecionar a mesma localização que utilizou anteriormente|
    |Escolher uma rede virtual     |**Usar existente**:<br> **Hub VNet**|
-   |Endereço IP público     |Criar novo: <br>Nome - **FW-Pip**. |
+   |Endereço IP público     |Criar novo: <br>**Nome** - **FW-Pip**. |
 
 5. Selecione **Rever + criar**.
 6. Examine o resumo e, em seguida, selecione **criar** para criar o firewall.
@@ -341,7 +333,7 @@ Agora, crie a rota padrão da sub-rede do spoke.
 2. Depois que a tabela de rotas for criada, selecione-a para abrir a página tabela de rotas.
 3. Selecione **rotas** na coluna esquerda.
 4. Selecione **Adicionar**.
-5. Para o nome da rota, digite **tospoke**.
+5. Para o nome da rota, digite **ToHub**.
 6. Para o prefixo de endereço, digite **0.0.0.0/0**.
 7. Para tipo do próximo salto, selecione **dispositivo virtual**.
 8. Para endereço do próximo salto, digite o endereço IP privado do firewall que você anotou anteriormente.
@@ -373,7 +365,7 @@ Crie uma máquina virtual na rede virtual do spoke, executando o IIS, sem endere
     - **Nome de usuário**: *azureuser*.
     - **Senha**: *Azure123456!*
 4. Selecione **Avançar: discos**.
-5. Aceite os padrões e selecione **avançar: Rede**.
+5. Aceite os padrões e selecione **Avançar: rede**.
 6. Selecione **VNet-spoke** para a rede virtual e a sub-rede é **SN-Workload**.
 7. Para **IP público**, selecione **nenhum**.
 8. Para **portas de entrada públicas**, selecione **permitir portas selecionadas**e, em seguida, selecione **http (80)** e **RDP (3389)**
@@ -384,7 +376,7 @@ Crie uma máquina virtual na rede virtual do spoke, executando o IIS, sem endere
 ### <a name="install-iis"></a>Instalar o IIS
 
 1. No portal do Azure, abra o Cloud Shell e verifique se ele está definido como **PowerShell**.
-2. Execute o comando seguinte para instalar o IIS na máquina virtual:
+2. Execute o seguinte comando para instalar o IIS na máquina virtual e altere o local, se necessário:
 
    ```azurepowershell-interactive
    Set-AzVMExtension `
@@ -406,7 +398,7 @@ Essa é uma máquina virtual que você usa para se conectar usando Área de Trab
 2. Em **popular**, selecione **Windows Server 2016 datacenter**.
 3. Introduza estes valores para a máquina virtual:
     - **Grupo de recursos** -selecione existente e, em seguida, selecione **FW-híbrido-teste**.
-    - **Nome da máquina virtual** *VM-local.*  - 
+    - **Nome da máquina Virtual** - *VM-local*.
     - **Região** -mesma região que você está acostumado anteriormente.
     - **Nome de usuário**: *azureuser*.
     - **Senha**: *Azure123456!* .
@@ -420,15 +412,15 @@ Essa é uma máquina virtual que você usa para se conectar usando Área de Trab
 
 ## <a name="test-the-firewall"></a>Testar a firewall
 
-1. Primeiro, obtenha e anote o endereço IP privado para a máquina virtual **VM-spoke-01** .
+1. Primeiro, anote o endereço IP privado para a máquina virtual **VM-spoke-01** .
 
 2. No portal do Azure, ligue à máquina virtual **VM-Onprem**.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-3. Abra um navegador da Web em **VM-local**e navegue até http://\<VM-spoke-01 IP\>privado.
+3. Abra um navegador da Web em **VM-local**e navegue até http://\<VM-spoke-01 IP privado\>.
 
-   Você deve ver a página da Web **VM-spoke-01** : ![Página da Web VM-spoke-01](media/tutorial-hybrid-portal/VM-Spoke-01-web.png)
+   Você deve ver a página da Web **VM-spoke-01** : ![a página da Web VM-spoke-01](media/tutorial-hybrid-portal/VM-Spoke-01-web.png)
 
 4. Na máquina virtual **VM-local** , abra uma área de trabalho remota para **VM-spoke-01** no endereço IP privado.
 
@@ -454,9 +446,9 @@ Feche quaisquer ambientes de trabalho remotos existentes antes de testar as regr
 
 Pode manter os recursos da firewall para o próximo tutorial. Se já não precisar dos mesmos, elimine o grupo de recursos **FW-Hybrid-Test** para eliminar todos os recursos relacionados com a firewall.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, pode monitorizar os registos do Azure Firewall.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Monitorar logs de firewall do Azure](./tutorial-diagnostics.md)
+> [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)

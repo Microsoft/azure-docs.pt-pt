@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d23d16d1315eeaf224a5291641ab088212fcdc77
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: b06cae5bcb07831ba79b805802a7851c2b6ad2b3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70146959"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468005"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Configurar a recuperação após desastre para uma região secundária do Azure de uma VM do Azure        
 
@@ -32,11 +32,11 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="enable-replication-for-the-azure-vm"></a>Ativar a replicação para a VM do Azure
 
-1. No portal do Azure, clique em **Máquinas virtuais** e selecione a VM que pretende replicar.
-2. Nas **Operações**, clique em **Recuperação após desastre**.
+1. No menu portal do Azure, selecione **máquinas virtuais**ou pesquise e selecione *máquinas virtuais* em qualquer página. Selecione a VM que você deseja replicar.
+2. Em **Operações**, selecione **Recuperação após desastre**.
 3. Em **Configurar recuperação após desastre** > **Região de destino**, selecione a região de destino para a qual irá replicar.
 4. Para este Início Rápido, aceite as outras predefinições.
-5. Clique em **Ativar replicação**. Esta ação inicia uma tarefa para ativar a replicação para a VM.
+5. Selecione **revisar + iniciar replicação**. Em seguida, selecione **Iniciar replicação** para iniciar um trabalho para habilitar a replicação para a VM.
 
     ![ativar replicação](media/azure-to-azure-quickstart/enable-replication1.png)
 
@@ -44,8 +44,10 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 Após a tarefa de replicação ser concluída, pode ver o estado da replicação, modificar a replicação e testar a implementação.
 
-1. Nas **Operações**, clique em **Recuperação após desastre**.
-2. Pode verificar o estado de funcionamento da replicação, os pontos de recuperação que foram criados e as regiões de origem e destino num mapa.
+1. No menu portal do Azure, selecione **máquinas virtuais**ou pesquise e selecione *máquinas virtuais* em qualquer página. Selecione a VM que você deseja verificar.
+2. Em **Operações**, selecione **Recuperação após desastre**.
+
+   Pode verificar o estado de funcionamento da replicação, os pontos de recuperação que foram criados e as regiões de origem e destino num mapa.
 
    ![Estado de replicação](media/azure-to-azure-quickstart/replication-status.png)
 
@@ -58,12 +60,12 @@ A VM na região primária para de replicar quando desativa a replicação na mes
 
 Parar a replicação da seguinte maneira
 
-1. Selecione a VM.
-2. Na **Recuperação após desastre**, clique em **Desativar Replicação**.
+1. No menu portal do Azure, selecione **máquinas virtuais**ou pesquise e selecione *máquinas virtuais* em qualquer página. Selecione a VM que você deseja modificar.
+2. Em **recuperação de desastre**, selecione **desabilitar replicação**.
 
    ![Desativar a replicação](media/azure-to-azure-quickstart/disable2-replication.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, replicou uma única VM numa região secundária. Agora, tente replicar várias VMs do Azure usando um plano de recuperação.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 950818d08cb654bad969deaede24231cab9bcbe2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 102f3e131b20534dc2f192b6485a3fdc95070315
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098561"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470255"
 ---
 # <a name="app-service-networking-features"></a>Recursos de rede do serviço de aplicativo
 
@@ -45,8 +45,8 @@ Para qualquer caso de uso específico, pode haver algumas maneiras de resolver o
  
 | Casos de uso de entrada | Funcionalidade |
 |---------------------|-------------------|
-| Dar suporte às necessidades de SSL baseado em IP para seu aplicativo | endereço atribuído ao aplicativo |
-| Não compartilhado, endereço de entrada dedicado para seu aplicativo | endereço atribuído ao aplicativo |
+| Dar suporte às necessidades de SSL baseado em IP para seu aplicativo | Endereço atribuído ao aplicativo |
+| Não compartilhado, endereço de entrada dedicado para seu aplicativo | Endereço atribuído ao aplicativo |
 | Restringir o acesso ao seu aplicativo de um conjunto de endereços bem definidos | Restrições de acesso |
 | Expor meu aplicativo em IPs privados em minha VNet | ASE ILB </br> Gateway de aplicativo com pontos de extremidade de serviço |
 | Restringir o acesso ao meu aplicativo de recursos em uma VNet | Pontos Finais de Serviço </br> ASE ILB |
@@ -108,7 +108,7 @@ Se você quiser bloquear o acesso ao seu aplicativo para que ele só possa ser a
 
 Os pontos de extremidade de serviço permitem bloquear o acesso de **entrada** ao seu aplicativo, de modo que o endereço de origem deve vir de um conjunto de sub-redes que você selecionar. Esse recurso funciona em conjunto com as restrições de acesso de IP. Os pontos de extremidade de serviço são definidos na mesma experiência de usuário que as restrições de acesso de IP. Você pode criar uma lista de permissão/negação de regras de acesso que inclui endereços públicos, bem como sub-redes em seu VNets. Esse recurso dá suporte a cenários como:
 
-![pontos de extremidade de serviço](media/networking-features/service-endpoints.png)
+![Pontos de extremidade de serviço](media/networking-features/service-endpoints.png)
 
 * Configurando um gateway de aplicativo com seu aplicativo para bloquear o tráfego de entrada para seu aplicativo
 * Restrição de acesso ao seu aplicativo aos recursos em sua VNet. Isso pode incluir VMs, ASEs ou até mesmo outros aplicativos que usam a integração de VNet 
@@ -222,7 +222,7 @@ Um aplicativo de várias camadas é um aplicativo em que os aplicativos de back-
 Você pode fazer com que vários aplicativos de front-end usem o mesmo aplicativo de API usando a integração VNet de outros aplicativos front-end e pontos de extremidade de serviço do aplicativo de API com suas sub-redes.  
 
 <!--Links-->
-[appassignedaddress]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl
+[appassignedaddress]: https://docs.microsoft.com/azure/app-service/configure-ssl-certificate
 [iprestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
 [serviceendpoints]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
 [hybridconn]: https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections

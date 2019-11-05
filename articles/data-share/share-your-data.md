@@ -1,19 +1,19 @@
 ---
-title: 'Tutorial: Compartilhar fora da sua organização-visualização do compartilhamento de dados do Azure'
-description: Tutorial – compartilhar dados com clientes e parceiros usando a visualização do compartilhamento de dados do Azure
+title: 'Tutorial: compartilhar fora de sua organização-compartilhamento de dados do Azure'
+description: Tutorial – compartilhar dados com clientes e parceiros usando o compartilhamento de dados do Azure
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: f7df46a6a6f149ef0228fda8c967469a25dc3d50
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 4ef9256404b0d0d4d6379e4f5a76c0d41a38c7cd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327423"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499307"
 ---
-# <a name="tutorial-share-your-data-using-azure-data-share-preview"></a>Tutorial: Compartilhar seus dados usando a visualização do compartilhamento de dados do Azure
+# <a name="tutorial-share-data-using-azure-data-share"></a>Tutorial: compartilhar dados usando o compartilhamento de dados do Azure  
 
 Neste tutorial, você aprenderá a configurar um novo compartilhamento de dados do Azure e a começar a compartilhar seus dados com clientes e parceiros fora da sua organização do Azure. 
 
@@ -27,14 +27,33 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* Uma conta de armazenamento do Azure: Se você ainda não tiver uma, poderá criar uma [conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Assinatura do Azure: se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* O endereço de email de logon do Azure do destinatário (usando seu alias de email não funcionará).
+
+### <a name="share-from-a-storage-account"></a>Compartilhar de uma conta de armazenamento:
+
+* Uma conta de armazenamento do Azure: se você ainda não tiver uma, poderá criar uma [conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
 * Permissão para adicionar a atribuição de função à conta de armazenamento, que está presente na permissão *Microsoft. Authorization/role atribuitions/Write* . Essa permissão existe na função proprietário. 
-* Seu endereço de email de logon do Azure de destinatários (usando seu alias de email não funcionará).
+
+### <a name="share-from-a-sql-based-source"></a>Compartilhar de uma fonte baseada em SQL:
+
+* Um banco de dados SQL do Azure ou o Azure SQL Data Warehouse com tabelas e exibições que você deseja compartilhar.
+* Permissão para o compartilhamento de dados acessar o data warehouse. Isso pode ser feito por meio das seguintes etapas: 
+    1. Defina-se como o administrador do Azure Active Directory para o servidor.
+    1. Conecte-se ao banco de dados SQL do Azure/data warehouse usando Azure Active Directory.
+    1. Use o editor de consultas (versão prévia) para executar o script a seguir para adicionar o MSI de compartilhamento de dados como um db_owner. Você deve se conectar usando Active Directory e não SQL Server autenticação. 
+    
+```sql
+    create user <share_acct_name> from external provider;     
+    exec sp_addrolemember db_owner, <share_acct_name>; 
+```                   
+Observe que o *< share_acc_name >* é o nome da sua conta de compartilhamento de dados. Se você ainda não criou uma conta de compartilhamento de dados, poderá voltar para esse pré-requisito posteriormente.  
+
+* IP do cliente SQL Server acesso ao firewall: isso pode ser feito por meio das seguintes etapas: 1. Navegue até *firewalls e redes virtuais* 1. Clique no **botão de alternância para** permitir o acesso aos serviços do Azure. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-data-share-account"></a>Criar uma conta de compartilhamento de dados
 
@@ -44,16 +63,16 @@ Crie um recurso de compartilhamento de dados do Azure em um grupo de recursos do
 
 1. Pesquise por *compartilhamento de dados*.
 
-1. Selecione compartilhamento de dados (versão prévia) e selecione **criar**.
+1. Selecione compartilhamento de dados e selecione **criar**.
 
 1. Preencha os detalhes básicos do recurso de compartilhamento de dados do Azure com as informações a seguir. 
 
      **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | Name | *datashareacount* | Especifique um nome para sua conta de compartilhamento de dados. |
-    | Subscription | A sua subscrição | Selecione a assinatura do Azure que você deseja usar para sua conta de compartilhamento de dados.|
-    | Resource group | *test-resource-group* | Use um grupo de recursos existente ou crie um novo grupo de recursos. |
-    | Location | *Leste dos EUA 2* | Selecione uma região para sua conta de compartilhamento de dados.
+    | Nome | *datashareacount* | Especifique um nome para sua conta de compartilhamento de dados. |
+    | Subscrição | A sua subscrição | Selecione a assinatura do Azure que você deseja usar para sua conta de compartilhamento de dados.|
+    | Grupo de recursos | *test-resource-group* | Use um grupo de recursos existente ou crie um novo grupo de recursos. |
+    | Localização | *Leste dos EUA 2* | Selecione uma região para sua conta de compartilhamento de dados.
     | | |
 
 1. Selecione **criar** para provisionar sua conta de compartilhamento de dados. O provisionamento de uma nova conta de compartilhamento de dados normalmente leva cerca de 2 minutos ou menos. 
@@ -64,7 +83,7 @@ Crie um recurso de compartilhamento de dados do Azure em um grupo de recursos do
 
 1. Navegue até a página Visão geral do compartilhamento de dados.
 
-    ![Compartilhe seus]dados(./media/share-receive-data.png "compartilhando seus dados") 
+    ![Compartilhar seus dados](./media/share-receive-data.png "Partilhar os seus dados") 
 
 1. Selecione **começar a compartilhar seus dados**.
 
@@ -78,25 +97,25 @@ Crie um recurso de compartilhamento de dados do Azure em um grupo de recursos do
 
 1. Para adicionar conjuntos de dados ao seu compartilhamento de dado, selecione **Add DataSets**. 
 
-    Conjuntos de(./media/datasets.png "os conjuntos de") ![valores]
+    ![Conjuntos de dados](./media/datasets.png "Conjuntos de dados")
 
 1. Selecione o tipo de conjunto de texto que você deseja adicionar. 
 
-    ![Adddatasets](./media/add-datasets.png "Adicionar conjuntos") de os    
+    ![Adddatasets](./media/add-datasets.png "Adicionar conjuntos de os")    
 
 1. Navegue até o objeto que você deseja compartilhar e selecione ' Adicionar conjuntos de os '. 
 
-    ![SelectDatasets](./media/select-datasets.png "Selecionar conjuntos") de os    
+    ![SelectDatasets](./media/select-datasets.png "Selecionar conjuntos de os")    
 
 1. Na guia destinatários, insira os endereços de email do consumidor de dados selecionando ' + Adicionar destinatário '. 
 
-    ![](./media/add-recipient.png "Adicionar destinatários de Complementos") 
+    ![Hiperdestinatários](./media/add-recipient.png "Adicionar destinatários") 
 
 1. Selecione **continuar**
 
 1. Se você quiser que seu consumidor de dados possa obter atualizações incrementais de seus dados, habilite o agendamento do instantâneo. 
 
-    ![EnableSnapshots](./media/enable-snapshots.png "habilitar instantâneos") 
+    ![EnableSnapshots](./media/enable-snapshots.png "Habilitar instantâneos") 
 
 1. Selecione uma hora de início e um intervalo de recorrência. 
 

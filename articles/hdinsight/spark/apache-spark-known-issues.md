@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 76b4f721135c6e34eebdc20268a76e84d86b0637
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 2c153d818136c5d8804dae72004dfaf17fd1bf7a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575679"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494527"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemas conhecidos do cluster Apache Spark no HDInsight
 
@@ -32,7 +32,7 @@ Use o procedimento a seguir para contornar o problema:
 
         yarn application –list
 
-    Os nomes de trabalho padrão serão Livy se os trabalhos tiverem sido iniciados com uma sessão interativa Livy sem nomes explícitos especificados. Para a sessão Livy iniciada pelo [Jupyter Notebook](https://jupyter.org/), o nome do trabalho `remotesparkmagics_*`começa com.
+    Os nomes de trabalho padrão serão Livy se os trabalhos tiverem sido iniciados com uma sessão interativa Livy sem nomes explícitos especificados. Para a sessão Livy iniciada pelo [Jupyter Notebook](https://jupyter.org/), o nome do trabalho começa com `remotesparkmagics_*`.
 
 3. Execute o comando a seguir para eliminar esses trabalhos.
 
@@ -81,17 +81,17 @@ Não use caracteres não ASCII em nomes de Jupyter do bloco de anotações. Se v
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Erro ao carregar blocos de anotações de tamanhos maiores
 
-Poderá ver um erro **`Error loading notebook`** quando carrega os blocos de notas que são maiores de tamanho.  
+Você poderá ver um erro **`Error loading notebook`** ao carregar blocos de anotações que tenham tamanho maior.  
 
 **Atenuação**
 
-Se você receber esse erro, isso não significará que seus dados estão corrompidos ou perdidos.  Seus blocos de anotações ainda estão no disco `/var/lib/jupyter`e você pode fazer ssh no cluster para acessá-los. Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Se você receber esse erro, isso não significará que seus dados estão corrompidos ou perdidos.  Seus blocos de anotações ainda estão em disco no `/var/lib/jupyter`e você pode fazer SSH no cluster para acessá-los. Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Depois de se conectar ao cluster usando o SSH, você poderá copiar seus blocos de anotações do cluster para o computador local (usando o SCP ou WinSCP) como um backup para evitar a perda de dados importantes no bloco de anotações. Em seguida, você pode realizar o túnel SSH em seu cabeçalho na porta 8001 para acessar o Jupyter sem passar pelo Gateway.  A partir daí, você pode limpar a saída do bloco de anotações e salvá-lo novamente para minimizar o tamanho do bloco de anotações.
 
 Para evitar que esse erro ocorra no futuro, você deve seguir algumas práticas recomendadas:
 
-* É importante manter o tamanho do notebook pequeno. Qualquer saída de seus trabalhos do Spark que é enviada de volta para Jupyter é mantida no bloco de anotações.  Trata-se de uma prática recomendada com Jupyter em geral para `.collect()` evitar a execução em grandes RDD ou quadros de molduras; em vez disso, se você quiser inspecionar o conteúdo de `.take()` um `.sample()` RDD, considere executar ou para que a saída não fique muito grande.
+* É importante manter o tamanho do notebook pequeno. Qualquer saída de seus trabalhos do Spark que é enviada de volta para Jupyter é mantida no bloco de anotações.  É uma prática recomendada com Jupyter em geral para evitar a execução de `.collect()` em grandes RDDs ou quadros de molduras; em vez disso, se você quiser inspecionar o conteúdo de um RDD, considere a execução de `.take()` ou `.sample()` para que sua saída não fique muito grande.
 * Além disso, quando você salva um bloco de anotações, limpe todas as células de saída para reduzir o tamanho.
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>A inicialização inicial do notebook demora mais do que o esperado
@@ -115,15 +115,15 @@ Quando o cluster Spark está sem recursos, os kernels Spark e PySpark no noteboo
 
 2. Reinicie o bloco de anotações que você estava tentando iniciar. Recursos suficientes devem estar disponíveis para que você crie uma sessão agora.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consultar também
 
-* [Sobre Apache Spark no Azure HDInsight](apache-spark-overview.md)
+* [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
 
-* [Apache Spark com BI: Executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: Usar o Spark no HDInsight para analisar a temperatura de edifício usando dados de HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark com Machine Learning: Usar o Spark no HDInsight para prever os resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: Use o Spark no HDInsight para analisar a temperatura de edifício usando dados HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: Use o Spark no HDInsight para prever os resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
 * [Análise de log do site usando Apache Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicações

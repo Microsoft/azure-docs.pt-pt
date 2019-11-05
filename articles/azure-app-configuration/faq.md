@@ -1,67 +1,75 @@
 ---
-title: Configuração de aplicações do Azure FAQ | Documentos da Microsoft
-description: Perguntas mais frequentes sobre a configuração de aplicações do Azure
+title: Perguntas frequentes sobre configuração do Azure App | Microsoft Docs
+description: Perguntas frequentes sobre a configuração de Azure App
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
+author: lisaguthrie
 manager: maiye
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: e321c0b473b110597b5b87a6e67666737116daa2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dbfb6a1c4c53b1bd255560e688d3dc0cf3835a3a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393353"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469626"
 ---
-# <a name="azure-app-configuration-faq"></a>Configuração de aplicações do Azure FAQ
+# <a name="azure-app-configuration-faq"></a>Perguntas frequentes sobre configuração do Azure App
 
-Este artigo aborda perguntas mais frequentes sobre a configuração de aplicações do Azure.
+Este artigo aborda as perguntas frequentes sobre a configuração do Azure App.
 
 ## <a name="how-is-app-configuration-different-from-azure-key-vault"></a>De que forma é que o App Configuration é diferente do Azure Key Vault?
 
-Configuração de aplicações foi concebida para um conjunto diferente de casos de utilização: ajuda os desenvolvedores a gerir as definições da aplicação e controlar a disponibilidade de funcionalidades. Pretende simplificar muitas das tarefas do trabalho com dados de configuração complexa.
+A configuração do aplicativo foi projetada para um conjunto distinto de casos de uso: ela ajuda os desenvolvedores a gerenciar configurações de aplicativos e controlar a disponibilidade de recursos. Ele visa simplificar muitas das tarefas de trabalhar com dados de configuração complexos.
 
-Suporta a configuração de aplicações:
+A configuração do aplicativo dá suporte a:
 
-- Espaços de nomes hierárquicos
-- Etiquetagem
-- Consultas extensas
-- Obtenção de batch
-- Operações de gestão especializadas
-- Uma interface de utilizador de gestão de recursos
+- Namespaces hierárquicos
+- rotulagem
+- Consultas extensivas
+- Recuperação em lote
+- Operações de gerenciamento especializadas
+- Uma interface do usuário de gerenciamento de recursos
 
-Configuração de aplicações é complementar ao Cofre de chaves e os dois devem ser utilizados lado a lado na maioria das implementações de aplicações.
+A configuração do aplicativo é complementar à Key Vault e as duas devem ser usadas lado a lado na maioria das implantações de aplicativo.
 
-## <a name="should-i-store-secrets-in-app-configuration"></a>Posso armazenar segredos na configuração de aplicações?
+## <a name="should-i-store-secrets-in-app-configuration"></a>Devo armazenar segredos na configuração do aplicativo?
 
-Embora a configuração de aplicações fornece segurança robusta, Key Vault ainda é o melhor local para armazenar segredos da aplicação. Key Vault fornece encriptação ao nível do hardware, as políticas de acesso granular e operações de gestão, como a rotação de certificados.
+Embora a configuração de aplicativo forneça segurança protegida, Key Vault ainda é o melhor lugar para armazenar os segredos do aplicativo. O Key Vault fornece criptografia no nível de hardware, políticas de acesso granulares e operações de gerenciamento, como a rotação de certificado.
 
-## <a name="does-app-configuration-encrypt-my-data"></a>Configuração de aplicação encripta os meus dados?
+## <a name="does-app-configuration-encrypt-my-data"></a>A configuração do aplicativo criptografa meus dados?
 
-Sim. Configuração de aplicação encripta todos os valores da chave contém e, esta encripta a comunicação de rede. Nomes de chaves são utilizados como índices para recuperar dados de configuração e não estão encriptados.
+Sim. A configuração de aplicativo criptografa todos os valores de chave que ele contém e criptografa a comunicação de rede. Os nomes de chave são usados como índices para recuperar dados de configuração e não são criptografados.
 
-## <a name="how-should-i-store-configurations-for-multiple-environments-test-staging-production-and-so-on"></a>Como posso armazenar a configurações para vários ambientes (teste, transição, produção e assim por diante)?
+## <a name="are-there-any-size-limitations-on-keys-and-values-stored-in-app-configuration"></a>Há alguma limitação de tamanho em chaves e valores armazenados na configuração do aplicativo?
 
-Atualmente pode controlar quem tem acesso à configuração de aplicações num nível por loja. Utilize um armazenamento separado para cada ambiente de que necessita de permissões diferentes. Esta abordagem dá-lhe o melhor isolamento de segurança.
+Há um limite de 10 KB para um único item de chave-valor.
 
-## <a name="what-are-the-recommended-ways-to-use-app-configuration"></a>Quais são as formas recomendadas para utilizar a configuração de aplicações?
+## <a name="how-should-i-store-configurations-for-multiple-environments-test-staging-production-and-so-on"></a>Como devo armazenar configurações para vários ambientes (teste, preparo, produção e assim por diante)?
 
-Ver [melhores práticas](./howto-best-practices.md).
+No momento, você pode controlar quem tem acesso à configuração do aplicativo em um nível por loja. Use um armazenamento separado para cada ambiente que exija permissões diferentes. Essa abordagem oferece o melhor isolamento de segurança.
 
-## <a name="how-much-does-app-configuration-cost"></a>Quanto custa a configuração de aplicações?
+## <a name="what-are-the-recommended-ways-to-use-app-configuration"></a>Quais são as maneiras recomendadas de usar a configuração de aplicativo?
 
-O serviço é gratuito para utilizar durante a pré-visualização pública.
+Consulte [práticas recomendadas](./howto-best-practices.md).
 
-## <a name="how-can-i-report-an-issue-or-give-a-suggestion"></a>Como posso comunicar um problema ou dar uma sugestão?
+## <a name="how-much-does-app-configuration-cost"></a>Quanto custa a configuração do aplicativo?
 
-Pode contactar-nos diretamente na [GitHub](https://github.com/Azure/AppConfiguration/issues).
+O serviço é gratuito para uso durante a visualização pública.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="how-can-i-receive-announcements-on-new-releases-and-other-information-related-to-app-configuration"></a>Como posso receber comunicados sobre novas versões e outras informações relacionadas à configuração do aplicativo?
 
-* [Sobre a configuração de aplicações do Azure](./overview.md)
+Assine nosso [repositório de comunicados do GitHub](https://github.com/Azure/AppConfiguration-Announcements).
+
+## <a name="how-can-i-report-an-issue-or-give-a-suggestion"></a>Como posso relatar um problema ou dar uma sugestão?
+
+Você pode contatá-los diretamente no [GitHub](https://github.com/Azure/AppConfiguration/issues).
+
+## <a name="next-steps"></a>Passos seguintes
+
+* [Sobre a configuração de Azure App](./overview.md)

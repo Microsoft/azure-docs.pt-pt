@@ -1,5 +1,5 @@
 ---
-title: Extração de dados interna, linguagem natural, processamento de imagens
+title: Habilidades internas para extração de dados, linguagem natural, processamento de imagens durante a indexação.
 titleSuffix: Azure Cognitive Search
 description: Extração de dados, linguagem natural, habilidades cognitivas de processamento de imagens adicionam semântica e estrutura ao conteúdo bruto em um pipeline de Pesquisa Cognitiva do Azure.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 435635018dc25ed2af0aec3d542c0388af8ab885
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2f03752c5fda366fc16b681d71ba68486527a30f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792087"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466808"
 ---
 # <a name="built-in-cognitive-skills-for-content-enrichment-azure-cognitive-search"></a>Habilidades cognitivas internas para o enriquecimento de conteúdo (Pesquisa Cognitiva do Azure)
 
@@ -25,7 +25,7 @@ Neste artigo, você aprenderá sobre as habilidades cognitivas fornecidas com o 
 > A execução de habilidades internas é cobrada pelo [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. O preço de extração de imagem é descrito na [página de preços do Azure pesquisa cognitiva](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
-## <a name="built-in-skills"></a>Habilidades internas
+## <a name="built-in-skills"></a>Competências incorporadas
 
 Várias habilidades são flexíveis no que elas consomem ou produzem. Em geral, a maioria das habilidades baseia-se em modelos pré-treinados, o que significa que você não pode treinar o modelo usando seus próprios dados de treinamento. A tabela a seguir enumera e descreve as habilidades fornecidas pela Microsoft. 
 
@@ -41,13 +41,14 @@ Várias habilidades são flexíveis no que elas consomem ou produzem. Em geral, 
 | [Microsoft. Skills. Vision. ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | Essa habilidade usa um algoritmo de detecção de imagem para identificar o conteúdo de uma imagem e gerar uma descrição de texto. |
 | [Microsoft. Skills. Vision. OcrSkill](cognitive-search-skill-ocr.md) | Reconhecimento óptico de caracteres. |
 | [Microsoft. Skills. util. ConditionalSkill](cognitive-search-skill-conditional.md) | Permite filtrar, atribuir um valor padrão e mesclar dados com base em uma condição.|
+| [Microsoft. Skills. util. DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) | Extrai o conteúdo de um arquivo dentro do pipeline de enriquecimento. |
 | [Microsoft. Skills. util. ShaperSkill](cognitive-search-skill-shaper.md) | Mapeia a saída para um tipo complexo (um tipo de dados de várias partes, que pode ser usado para um nome completo, um endereço de várias linhas ou uma combinação de Last Name e um identificador pessoal.) |
 | [Microsoft. Skills. Custom. WebApiSkill](cognitive-search-custom-skill-web-api.md) | Permite a extensibilidade de um pipeline de enriquecimento de ia fazendo uma chamada HTTP para uma API Web personalizada |
 
 
 Para obter orientação sobre como criar uma [habilidade personalizada](cognitive-search-custom-skill-web-api.md), consulte [como definir uma interface personalizada](cognitive-search-custom-skill-interface.md) e um [exemplo: criando uma habilidade personalizada para enriquecimento de ia](cognitive-search-create-custom-skill-example.md).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consultar também
 
 + [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
 + [Definição de interface de habilidades personalizadas](cognitive-search-custom-skill-interface.md)

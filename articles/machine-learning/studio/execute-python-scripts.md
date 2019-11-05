@@ -1,6 +1,6 @@
 ---
 title: Executar scripts do Python Machine Learning
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: Saiba como usar o módulo executar script Python para usar o código Python em experimentos Machine Learning Studio (clássico) e serviços Web.
 services: machine-learning
 ms.service: machine-learning
@@ -10,22 +10,22 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: bfc2efca0786838d528b3019a3aff405f46ef645
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 1be367191ab042611f45d1f773df0d499400c500
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053792"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493006"
 ---
-# <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Executar scripts de machine learning em Python no Azure Machine Learning Studio
+# <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Executar scripts do Python Machine Learning no Azure Machine Learning Studio (clássico)
 
 O Python é uma ferramenta valiosa na conjunto de ferramentas de muitos cientistas de dados. Ele é usado em todos os estágios de fluxos de trabalho de aprendizado de máquina típicos, incluindo exploração de dados, extração de recursos, treinamento e validação de modelo e implantação.
 
-Este artigo descreve como você pode usar o módulo executar script Python para usar o código Python em seu Azure Machine Learning Studio experimentos e serviços Web.
+Este artigo descreve como você pode usar o módulo executar script Python para usar o código Python em seus experimentos Azure Machine Learning Studio (clássico) e serviços Web.
 
 ## <a name="using-the-execute-python-script-module"></a>Usando o módulo executar script Python
 
-A interface principal para Python no estúdio é por meio do módulo [Executar script Python][execute-python-script] . Ele aceita até três entradas e produz até duas saídas, semelhante ao módulo [Executar script R][execute-r-script] . O código Python é inserido na caixa de parâmetros por meio de uma função de ponto de entrada especialmente nomeada chamada `azureml_main`.
+A interface principal para Python no Studio (clássico) é por meio do módulo [Executar script Python][execute-python-script] . Ele aceita até três entradas e produz até duas saídas, semelhante ao módulo [Executar script R][execute-r-script] . O código Python é inserido na caixa de parâmetros por meio de uma função de ponto de entrada especialmente nomeada chamada `azureml_main`.
 
 ![Executar módulo de script Python](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
@@ -53,7 +53,7 @@ A função `azureml_main` deve retornar um único quadro de tabela pandas em uma
 
 ## <a name="translation-of-input-and-output-data-types"></a>Tradução de tipos de dados de entrada e saída
 
-Os conjuntos de valores do estúdio não são os mesmos que o Panda dataframes. Como resultado, os conjuntos de dados de entrada no estúdio são convertidos em um dataframe do pandas e os dataframes de saída são convertidos de volta em conjuntos de dados do estúdio. Durante esse processo de conversão, as seguintes traduções também são executadas:
+Os conjuntos de valores do estúdio não são os mesmos que o Panda dataframes. Como resultado, os conjuntos de dados de entrada na versão clássica do estúdio são convertidos em pandas dataframe, e os dataframes de saída são convertidos de volta para conjuntos de dados Studio (clássicos). Durante esse processo de conversão, as seguintes traduções também são executadas:
 
  **Tipo de dados do Python** | **Procedimento de tradução do estúdio** |
 | --- | --- |
@@ -67,9 +67,9 @@ Os conjuntos de valores do estúdio não são os mesmos que o Panda dataframes. 
 
 ## <a id="import-modules"></a>Importando módulos de script Python existentes
 
-O back-end usado para executar o Python é baseado em [Anaconda](https://www.anaconda.com/distribution/), uma distribuição de Python científica amplamente usada. Ele vem com quase 200 dos pacotes python mais comuns usados em cargas de trabalho centradas em dados. Atualmente, o estúdio não dá suporte ao uso de sistemas de gerenciamento de pacotes como PIP ou Conda para instalar e gerenciar bibliotecas externas.  Se você achar a necessidade de incorporar bibliotecas adicionais, use o cenário a seguir como guia.
+O back-end usado para executar o Python é baseado em [Anaconda](https://www.anaconda.com/distribution/), uma distribuição de Python científica amplamente usada. Ele vem com quase 200 dos pacotes python mais comuns usados em cargas de trabalho centradas em dados. A versão clássica do Studio atualmente não dá suporte ao uso de sistemas de gerenciamento de pacotes como PIP ou Conda para instalar e gerenciar bibliotecas externas.  Se você achar a necessidade de incorporar bibliotecas adicionais, use o cenário a seguir como guia.
 
-Um caso de uso comum é incorporar scripts Python existentes em experimentos de estúdio. O módulo [Executar script Python][execute-python-script] aceita um arquivo ZIP contendo módulos Python na terceira porta de entrada. O arquivo é descompactado pela estrutura de execução no tempo de execução e o conteúdo é adicionado ao caminho da biblioteca do intérprete do Python. A função de ponto de entrada `azureml_main` pode então importar esses módulos diretamente. 
+Um caso de uso comum é incorporar scripts Python existentes à versão clássica do Studio experimentos. O módulo [Executar script Python][execute-python-script] aceita um arquivo ZIP contendo módulos Python na terceira porta de entrada. O arquivo é descompactado pela estrutura de execução no tempo de execução e o conteúdo é adicionado ao caminho da biblioteca do intérprete do Python. A função de ponto de entrada `azureml_main` pode então importar esses módulos diretamente. 
 
 Como exemplo, considere o arquivo Hello.py que contém uma função "Hello, World" simples.
 
@@ -79,7 +79,7 @@ Em seguida, criamos um arquivo Hello. zip que contém Hello.py:
 
 ![Arquivo zip que contém o código Python definido pelo usuário](./media/execute-python-scripts/figure5.png)
 
-Carregue o arquivo zip como um conjunto de um DataSet no estúdio. Em seguida, crie e execute um experimento que use o código Python no arquivo Hello. zip anexando-o à terceira porta de entrada do módulo **Executar script Python** , conforme mostrado na imagem a seguir.
+Carregue o arquivo zip como um conjunto de uma versão clássica do estúdio. Em seguida, crie e execute um experimento que use o código Python no arquivo Hello. zip anexando-o à terceira porta de entrada do módulo **Executar script Python** , conforme mostrado na imagem a seguir.
 
 ![Teste de exemplo com Hello. zip como uma entrada para um módulo executar script Python](./media/execute-python-scripts/figure6a.png)
 
@@ -94,7 +94,7 @@ A saída do módulo mostra que o arquivo zip foi desempacotado e que a função 
 Você pode acessar os dados armazenados em uma conta de armazenamento de BLOBs do Azure usando estas etapas:
 
 1. Baixe o [pacote de armazenamento de BLOBs do Azure para Python](https://azuremlpackagesupport.blob.core.windows.net/python/azure.zip) localmente.
-1. Carregue o arquivo zip no seu espaço de trabalho do estúdio como um conjunto de uma.
+1. Carregue o arquivo zip no seu espaço de trabalho do estúdio (clássico) como um conjunto de um.
 1. Crie seu objeto BlobService com `protocol='http'`
 
 ```
@@ -141,11 +141,11 @@ Esse processo é ilustrado nas imagens a seguir que criam uma matriz de gráfico
 
 ![Visualizando plotagens para um experimento de exemplo usando código Python](./media/execute-python-scripts/figure-v2-9b.png)
 
-É possível retornar várias figuras salvando-as em imagens diferentes. O tempo de execução do estúdio pega todas as imagens e as concatena para visualização.
+É possível retornar várias figuras salvando-as em imagens diferentes. A versão clássica do tempo de execução do estúdio pega todas as imagens e as concatena para visualização.
 
 ## <a name="advanced-examples"></a>Exemplos avançados
 
-O ambiente Anaconda instalado no estúdio contém pacotes comuns, como NumPy, SciPy e scikits-learn. Esses pacotes podem ser usados efetivamente para processamento de dados em um pipeline de Machine Learning.
+O ambiente Anaconda instalado na versão clássica do estúdio contém pacotes comuns, como NumPy, SciPy e scikits-learn. Esses pacotes podem ser usados efetivamente para processamento de dados em um pipeline de Machine Learning.
 
 Por exemplo, o experimento e o script a seguir ilustram o uso de aprendizes do Ensemble no scikits-Learn para calcular pontuações de importância de recursos para um conjunto de informações. As pontuações podem ser usadas para executar a seleção de recursos supervisionados antes de serem alimentadas em outro modelo.
 
@@ -153,7 +153,7 @@ Aqui está a função Python usada para calcular as pontuações de importância
 
 ![Função para classificar recursos por pontuações](./media/execute-python-scripts/figure8.png)
 
-Em seguida, o experimento a seguir computa e retorna as pontuações de importância dos recursos no conjunto de Pima "diabetes Índico" no Azure Machine Learning Studio:
+Em seguida, o experimento a seguir computa e retorna as pontuações de importância dos recursos no conjunto de Pima "diabetes Índico" na versão clássica do Azure Machine Learning Studio:
 
 ![Teste para classificar recursos no conjunto de Pima Índico diabetes usando Python](./media/execute-python-scripts/figure9a.png)
 
@@ -173,7 +173,7 @@ O módulo python atualmente não dá suporte a recursos de IDE, como IntelliSens
 
 ### <a name="single-data-frame-output"></a>Saída de quadro de dados único
 
-O ponto de entrada do Python só é permitido para retornar um único quadro de dados como saída. Atualmente, não é possível retornar objetos Python arbitrários, como modelos treinados diretamente para o tempo de execução do estúdio. Como [executar o script R][execute-r-script], que tem a mesma limitação, é possível, em muitos casos, pickle objetos em uma matriz de bytes e, em seguida, retorná-los dentro de um quadro de dados.
+O ponto de entrada do Python só é permitido para retornar um único quadro de dados como saída. No momento, não é possível retornar objetos Python arbitrários, como modelos treinados diretamente para o tempo de execução do estúdio (clássico). Como [executar o script R][execute-r-script], que tem a mesma limitação, é possível, em muitos casos, pickle objetos em uma matriz de bytes e, em seguida, retorná-los dentro de um quadro de dados.
 
 ### <a name="inability-to-customize-python-installation"></a>Incapacidade de personalizar a instalação do Python
 

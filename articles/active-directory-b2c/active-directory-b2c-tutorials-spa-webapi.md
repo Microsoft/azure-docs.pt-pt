@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9ac95896e67338437325e8290a96b8e42b2fa3a7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 30e7059605ef86e6afd86251db0e416c9143a9ec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374239"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475126"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Tutorial: conceder acesso a uma API Web do ASP.NET Core de um aplicativo de página única usando Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Os escopos fornecem uma maneira de controlar o acesso a recursos protegidos. Sã
 
 [!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-Registre o **valor de escopo completo** para o escopo `demo.read` para usar em uma etapa posterior ao configurar o aplicativo de página única. O valor de escopo completo é semelhante a `https://yourtenant.onmicrosoft.com/api/demo.read`.
+Registre o valor em **escopos** para o escopo de `demo.read` a ser usado em uma etapa posterior ao configurar o aplicativo de página única. O valor de escopo completo é semelhante a `https://contosob2c.onmicrosoft.com/api/demo.read`.
 
 ## <a name="grant-permissions"></a>Conceder permissões
 
@@ -71,7 +71,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 ### <a name="configure-the-web-api"></a>Configurar a API Web
 
 1. Abra o arquivo <em>B2C-WebApi/**appSettings. JSON**</em>  no Visual Studio ou Visual Studio Code.
-1. Modifique o bloco `AzureAdB2C` para refletir o nome do locatário, a ID do aplicativo da API Web, o nome da sua política de inscrição/entrada e os escopos que você definiu anteriormente. O bloco deve ser semelhante ao exemplo a seguir (com valores apropriados `Tenant` e `ClientId`):
+1. Modifique o bloco de `AzureAdB2C` para refletir o nome do locatário, a ID do aplicativo da API da Web, o nome da sua política de inscrição/entrada e os escopos definidos anteriormente. O bloco deve ser semelhante ao exemplo a seguir (com os valores de `Tenant` e `ClientId` apropriados):
 
     ```json
     "AzureAdB2C": {
@@ -96,7 +96,7 @@ Para permitir que o aplicativo de página única chame a API Web do ASP.NET Core
         services.AddCors();
     ```
 
-1. Também dentro do método `ConfigureServices()`, defina o valor de `jwtOptions.Authority` para o URI do emissor do token a seguir.
+1. Além disso, dentro do método `ConfigureServices()`, defina o valor de `jwtOptions.Authority` para o URI do emissor do token a seguir.
 
     Substitua `<your-tenant-name>` pelo nome do seu locatário B2C.
 
@@ -113,7 +113,7 @@ Para permitir que o aplicativo de página única chame a API Web do ASP.NET Core
             builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
-1. (Somente Visual Studio) Em **Propriedades** no Gerenciador de soluções, abra o arquivo *launchSettings. JSON* e localize o bloco `iisExpress`.
+1. (Somente Visual Studio) Em **Propriedades** no Gerenciador de soluções, abra o arquivo *launchSettings. JSON* e localize o bloco de `iisExpress`.
 1. (Somente Visual Studio) Atualize o valor `applicationURL` com o número da porta especificado quando você registrou o aplicativo *webapi1* em uma etapa anterior. Por exemplo:
 
     ```json
@@ -133,8 +133,8 @@ Para alterar as configurações no SPA:
 
 1. Abra o arquivo *index. html* no projeto [Active-Directory-B2C-JavaScript-MSAL-singlepageapp][github-js-spa] que você baixou ou clonou no tutorial anterior.
 1. Configure o exemplo com o URI para a *demonstração.* escopo de leitura que você criou anteriormente e a URL da API Web.
-    1. Na definição de `appConfig`, substitua o valor de `b2cScopes` pelo URI completo do escopo (o **valor de escopo completo** que você registrou anteriormente).
-    1. Altere o valor de `webApi` para o valor de `applicationURL` especificado na seção anterior.
+    1. Na definição de `appConfig`, substitua o valor de `b2cScopes` pelo URI completo do escopo (o valor de **escopo** que você registrou anteriormente).
+    1. Altere o valor de `webApi` para o URI de redirecionamento que você adicionou quando registrou o aplicativo de API Web em uma etapa anterior.
 
     A definição de `appConfig` deve ser semelhante ao seguinte bloco de código (com o nome do locatário no lugar de `<your-tenant-name>`):
 
@@ -156,15 +156,15 @@ Embora os dois aplicativos sejam executados localmente neste tutorial, eles usam
 
 No Visual Studio, pressione **F5** para compilar e depurar a solução *B2C-webAPI. sln* . Quando o projeto é iniciado, uma página da Web é exibida no navegador padrão anunciando que a API Web está disponível para solicitações.
 
-Se você preferir usar a CLI `dotnet` em vez do Visual Studio:
+Se você preferir usar a CLI do `dotnet` em vez do Visual Studio:
 
 1. Abra uma janela de console e altere para o diretório que contém o arquivo *\*. csproj* . Por exemplo:
 
     `cd active-directory-b2c-dotnetcore-webapi/B2C-WebApi`
 
-1. Compile e execute a API Web executando `dotnet run`.
+1. Crie e execute a API da Web executando `dotnet run`.
 
-    Quando a API estiver em execução, você deverá ver uma saída semelhante à seguinte (para o tutorial, você pode ignorar com segurança todos os avisos `NETSDK1059`):
+    Quando a API estiver em execução, você deverá ver uma saída semelhante à seguinte (para o tutorial, você pode ignorar com segurança quaisquer `NETSDK1059` avisos):
 
     ```console
     $ dotnet run
@@ -194,7 +194,7 @@ Se você preferir usar a CLI `dotnet` em vez do Visual Studio:
     ```
 
 1. Navegue até `http://localhost:6420` em seu navegador para exibir o aplicativo.
-1. Entre usando o endereço de email e a senha usados no [tutorial anterior](active-directory-b2c-tutorials-spa.md). Após o logon bem-sucedido, você deverá ver a mensagem `User 'Your Username' logged-in`.
+1. Entre usando o endereço de email e a senha usados no [tutorial anterior](active-directory-b2c-tutorials-spa.md). Após o logon bem-sucedido, você deverá ver a mensagem de `User 'Your Username' logged-in`.
 1. Selecione o botão **chamar API da Web** . O SPA Obtém uma concessão de autorização de Azure AD B2C e, em seguida, acessa a API Web protegida para exibir o conteúdo de sua página de índice:
 
     ```Output

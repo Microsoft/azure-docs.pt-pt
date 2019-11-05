@@ -1,7 +1,7 @@
 ---
 title: Extrair recursos de N-Gram de referência de módulo de texto
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo extrair N-Gram no serviço de Azure Machine Learning para personalizarr dados de texto.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo extrair N-Gram no Azure Machine Learning para personalizarr dados de texto.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: 0803627b8d2e9fb3db2c7c96d7dd74e9b275f5d8
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 71c1afd294b880f68849b283ea1a4b058d744801
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170994"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497853"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Extrair recursos de N-Gram de referência de módulo de texto
 
-Este artigo descreve um módulo da interface visual (visualização) para o serviço Azure Machine Learning. Use o módulo extrair recursos N-Gram de texto para *Personalizar* dados de texto não estruturados. 
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia). Use o módulo extrair recursos N-Gram de texto para *Personalizar* dados de texto não estruturados. 
 
 ## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>Configuração dos recursos de extrair N-Gram do módulo de texto
 
@@ -32,7 +32,7 @@ O módulo dá suporte aos seguintes cenários para usar um dicionário de n-Gram
 
 ### <a name="create-a-new-n-gram-dictionary"></a>Criar um novo dicionário de n-Gram
 
-1.  Adicione os recursos extrair N-Gram do módulo de texto ao seu experimento e conecte o conjunto de módulos que contém o texto que você deseja processar.
+1.  Adicione os recursos extrair N-Gram do módulo de texto ao seu pipeline e conecte o conjunto de módulos que contém o texto que você deseja processar.
 
 1.  Use **coluna de texto** para escolher uma coluna de tipo de cadeia de caracteres que contém o texto que você deseja extrair. Como os resultados são detalhados, você pode processar apenas uma única coluna de cada vez.
 
@@ -44,15 +44,15 @@ O módulo dá suporte aos seguintes cenários para usar um dicionário de n-Gram
 
 1. **Função de peso** especifica como criar o vetor de recurso de documento e como extrair o vocabulário de documentos.
 
-    * **Peso binário**: Atribui um valor de presença binária para os n-grams extraídos. O valor de cada n-Gram é 1 quando ele existe no documento; caso contrário, 0.
+    * **Peso binário**: atribui um valor de presença binária para os n-grams extraídos. O valor de cada n-Gram é 1 quando ele existe no documento; caso contrário, 0.
 
-    * **Peso de TF**: Atribui uma pontuação de frequência de termo (TF) para os n-grams extraídos. O valor de cada n-Gram é sua frequência de ocorrência no documento.
+    * **TF Weight**: atribui uma pontuação de frequência de termo (TF) para os n-grams extraídos. O valor de cada n-Gram é sua frequência de ocorrência no documento.
 
-    * **Peso IDF**: Atribui uma pontuação de IDF (frequência de documento inversa) para os n-grams extraídos. O valor de cada n-Gram é o log do tamanho de Corpus dividido por sua frequência de ocorrência no Corpus inteiro.
+    * **Peso IDF**: atribui uma pontuação de IDF (frequência de documento inversa) para os n-gramas extraídos. O valor de cada n-Gram é o log do tamanho de Corpus dividido por sua frequência de ocorrência no Corpus inteiro.
     
       `IDF = log of corpus_size / document_frequency`
  
-    *  **TF – peso IDF**: Atribui uma pontuação de termo frequência/frequência de documento inversa (TF/IDF) para os n-grams extraídos. O valor de cada n-Gram é sua pontuação de TF multiplicada por sua pontuação de IDF.
+    *  **TF-IDF Weight**: atribui uma pontuação de termo de frequência/documento inverso (TF/IDF) para os n-grams extraídos. O valor de cada n-Gram é sua pontuação de TF multiplicada por sua pontuação de IDF.
 
 1. Defina o **comprimento mínimo da palavra** como o número mínimo de letras que podem ser usadas em qualquer *palavra única* em um n-Gram.
 
@@ -73,11 +73,11 @@ O módulo dá suporte aos seguintes cenários para usar um dicionário de n-Gram
 
 1. Selecione a opção **normalizar vetores de recurso de n-Gram** para normalizar os vetores de recurso. Se essa opção estiver habilitada, cada vetor de recurso de n-Gram será dividido por sua norma de L2.
 
-1. Execute a experimentação.
+1. Executar o pipeline.
 
 ### <a name="use-an-existing-n-gram-dictionary"></a>Usar um dicionário de n-Gram existente
 
-1.  Adicione os recursos extrair N-Gram do módulo de texto ao seu experimento e conecte o conjunto de módulos que contém o texto que você deseja processar à porta do **conjunto** de recursos.
+1.  Adicione os recursos extrair N-Gram do módulo de texto ao seu pipeline e conecte o conjunto de módulos que contém o texto que você deseja processar à porta do **conjunto** de recursos.
 
 1.  Use a **coluna texto** para selecionar a coluna de texto que contém o texto que você deseja personalizar. Por padrão, o módulo seleciona todas as colunas do tipo **cadeia de caracteres**. Para obter melhores resultados, processe uma única coluna de cada vez.
 
@@ -92,7 +92,7 @@ O módulo dá suporte aos seguintes cenários para usar um dicionário de n-Gram
 
 1.  Para todas as outras opções, consulte as descrições de propriedade na [seção anterior](#create-a-new-n-gram-dictionary).
 
-1.  Execute a experimentação.
+1.  Executar o pipeline.
 
 ### <a name="score-or-publish-a-model-that-uses-n-grams"></a>Pontuar ou publicar um modelo que usa n-grams
 
@@ -102,7 +102,7 @@ O módulo dá suporte aos seguintes cenários para usar um dicionário de n-Gram
 
 1.  No fluxo de trabalho de pontuação, modifique os recursos de extrair N-Gram do módulo de texto e defina o parâmetro **modo de vocabulário** como **ReadOnly**. Deixe todas as outras as mesmas.
 
-1.  Para publicar o experimento, salve o **vocabulário de resultado** como um conjunto de uma.
+1.  Para publicar o pipeline, salve o **vocabulário de resultado** como um conjunto de uma.
 
 1.  Conecte o conjunto de texto salvo ao módulo extrair os recursos do N-Gram do Text no grafo de pontuação.
 
@@ -110,20 +110,20 @@ O módulo dá suporte aos seguintes cenários para usar um dicionário de n-Gram
 
 O módulo extrair recursos N-Gram do texto cria dois tipos de saída: 
 
-* **Conjunto de resultados de resultado**: Essa saída é um resumo do texto analisado combinado com os n-gramas que foram extraídos. As colunas que você não selecionou na opção **coluna de texto** são passadas para a saída. Para cada coluna de texto que você analisa, o módulo gera estas colunas:
+* **Conjunto de resultados**: essa saída é um resumo do texto analisado combinado com os n-gramas que foram extraídos. As colunas que você não selecionou na opção **coluna de texto** são passadas para a saída. Para cada coluna de texto que você analisa, o módulo gera estas colunas:
 
-  * **Matriz de ocorrências de n-Gram**: O módulo gera uma coluna para cada n-Gram encontrado no total de Corpus e adiciona uma pontuação em cada coluna para indicar o peso do n-grama para essa linha. 
+  * **Matriz de ocorrências de n-Gram**: o módulo gera uma coluna para cada n-Gram encontrado no total de Corpus e adiciona uma pontuação em cada coluna para indicar o peso do n-grama para essa linha. 
 
-* **Vocabulário de resultado**: O vocabulário contém o dicionário de n-Gram real, junto com as pontuações de frequência de termos que são geradas como parte da análise. Você pode salvar o conjunto de informações para reutilização com um conjunto diferente de entradas ou para uma atualização posterior. Você também pode reutilizar o vocabulário para modelagem e pontuação.
+* **Vocabulário de resultado**: o vocabulário contém o dicionário de n-Gram real, junto com as pontuações de frequência de termos que são geradas como parte da análise. Você pode salvar o conjunto de informações para reutilização com um conjunto diferente de entradas ou para uma atualização posterior. Você também pode reutilizar o vocabulário para modelagem e pontuação.
 
 ### <a name="result-vocabulary"></a>Vocabulário de resultado
 
 O vocabulário contém o dicionário de n-Gram com as pontuações de frequência de termos que são geradas como parte da análise. As pontuações de DF e IDF são geradas independentemente de outras opções.
 
-+ **ID**: Um identificador gerado para cada n-Gram exclusivo.
-+ **NGram**: O n-Gram. Espaços ou outros separadores de palavras são substituídos pelo caractere de sublinhado.
-+ **DF**: A pontuação de frequência do termo para o n-Gram no Corpus original.
-+ **IDF**: A pontuação de frequência de documento inversa para o n-grama no Corpus original.
++ **ID**: um identificador gerado para cada n-Gram exclusivo.
++ **NGram**: o n-Gram. Espaços ou outros separadores de palavras são substituídos pelo caractere de sublinhado.
++ **DF**: a pontuação de frequência do termo para o n-Gram no Corpus original.
++ **IDF**: a pontuação de frequência de documento inversa para o n-Gram no Corpus original.
 
 Você pode atualizar manualmente esse conjunto de um, mas pode introduzir erros. Por exemplo:
 
@@ -137,4 +137,4 @@ Você pode atualizar manualmente esse conjunto de um, mas pode introduzir erros.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para o serviço de Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning.

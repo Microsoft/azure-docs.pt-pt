@@ -1,6 +1,6 @@
 ---
-title: Banco de dados do Azure para PostgreSQL – início rápido de hiperescala (Citus) (versão prévia)
-description: Início rápido para criar e consultar tabelas distribuídas no banco de dados do Azure para PostgreSQL Citus (visualização).
+title: Banco de dados do Azure para PostgreSQL – início rápido do Citus (hiperescala)
+description: Início rápido para criar e consultar tabelas distribuídas no banco de dados do Azure para PostgreSQL Citus (hiperescala).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,16 +8,16 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: fe981167249e24a43a8cb14c51c9b7c1eb081225
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 6b5bfbf16e76cbf90a5536332d8e3bf1035f983a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70164022"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500079"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Início rápido: criar um banco de dados do Azure para PostgreSQL-hiperescala (Citus) (visualização) no portal do Azure
+# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Início rápido: criar um banco de dados do Azure para PostgreSQL-Citus (hiperescala) no portal do Azure
 
-A Base de Dados do Azure para o PostgreSQL é um serviço gerido com o qual pode executar, gerir e dimensionar as bases de dados de elevada disponibilidade do PostgreSQL na cloud. Este guia de início rápido mostra como criar um grupo de servidores de banco de dados do Azure para PostgreSQL (Citus) (visualização) usando o portal do Azure. Você explorará dados distribuídos: fragmentando tabelas entre nós, ingerindo dados de exemplo e executando consultas que são executadas em vários nós.
+A Base de Dados do Azure para o PostgreSQL é um serviço gerido com o qual pode executar, gerir e dimensionar as bases de dados de elevada disponibilidade do PostgreSQL na cloud. Este guia de início rápido mostra como criar um grupo de servidores do banco de dados do Azure para PostgreSQL-Citus (hiperescala) usando o portal do Azure. Você explorará dados distribuídos: fragmentando tabelas entre nós, ingerindo dados de exemplo e executando consultas que são executadas em vários nós.
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
@@ -113,7 +113,7 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Até agora, as consultas envolveram o GitHub \_events exclusivamente, mas podemos combinar essas informações com o GitHub \_users. Como nós Fragmentamos os usuários e os eventos no mesmo identificador (`user_id`), as linhas de ambas as tabelas com IDs de usuário correspondentes serão [colocalizadas](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) nos mesmos nós de banco de dados e poderão ser facilmente Unidas.
+Até agora, as consultas envolveram o GitHub\_eventos exclusivamente, mas podemos combinar essas informações com os usuários do GitHub\_. Como nós Fragmentamos os usuários e os eventos no mesmo identificador (`user_id`), as linhas de ambas as tabelas com IDs de usuário correspondentes serão [colocalizadas](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) nos mesmos nós de banco de dados e poderão ser facilmente Unidas.
 
 Se entrarmos em `user_id`, a hiperescala poderá enviar por push a execução de junção para dentro de fragmentos para execução em paralelo em nós de trabalho. Por exemplo, vamos encontrar os usuários que criaram o maior número de repositórios:
 

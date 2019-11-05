@@ -19,12 +19,12 @@ ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73869773597d372affbf02e6a256642c8c1ce8f4
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 23cdf7887d6d0812a9e991580e2095b603a4b4df
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809303"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473954"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Tempos de vida de token configuráveis no Azure Active Directory (versão prévia)
 
@@ -71,6 +71,9 @@ Clientes confidenciais são aplicativos que podem armazenar com segurança uma s
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Tempos de vida de token com tokens de atualização de cliente público
 
 Os clientes públicos não podem armazenar com segurança uma senha de cliente (segredo). Por exemplo, um aplicativo iOS/Android não pode ofuscar um segredo do proprietário do recurso, portanto, é considerado um cliente público. Você pode definir políticas em recursos para impedir que tokens de atualização de clientes públicos com mais de um período especificado obtenham um novo par de tokens de acesso/atualização. (Para fazer isso, use a propriedade tempo máximo inativo do token de atualização (`MaxInactiveTime`).) Você também pode usar políticas para definir um período além do qual os tokens de atualização não são mais aceitos. (Para fazer isso, use a propriedade idade máxima do token de atualização.) Você pode ajustar o tempo de vida de um token de atualização para controlar quando e com que frequência o usuário precisa reinserir as credenciais, em vez de ser reautenticado silenciosamente, ao usar um aplicativo cliente público.
+
+> [!NOTE]
+> A propriedade idade máxima é o período de tempo que um único token pode ser usado. 
 
 ### <a name="id-tokens"></a>Tokens de ID
 Tokens de ID são passados para sites e clientes nativos. Os tokens de ID contêm informações de perfil sobre um usuário. Um token de ID é associado a uma combinação específica de usuário e cliente. Os tokens de ID são considerados válidos até sua expiração. Normalmente, um aplicativo Web corresponde ao tempo de vida da sessão de um usuário no aplicativo para o tempo de vida do token de ID emitido para o usuário. Você pode ajustar o tempo de vida de um token de ID para controlar a frequência com que o aplicativo Web expira a sessão do aplicativo e com que frequência ele requer que o usuário seja reautenticado com o Azure AD (silenciosa ou interativamente).
@@ -121,7 +124,7 @@ Para obter mais informações sobre a relação entre objetos de aplicativo e ob
 
 A validade de um token é avaliada no momento em que o token é usado. A política com a prioridade mais alta no aplicativo que está sendo acessado entra em vigor.
 
-Todos os TimeSpans usados aqui são formatados de C# acordo com o objeto [TimeSpan](/dotnet/api/system.timespan) -D. hh: mm: SS.  Portanto, 80 dias e 30 minutos seriam `80.00:30:00`.  O D à esquerda pode ser Descartado se for zero, portanto, 90 minutos seria `00:90:00`.  
+Todos os TimeSpans usados aqui são formatados de C# acordo com o objeto [TimeSpan](/dotnet/api/system.timespan) -D. hh: mm: SS.  Portanto, 80 dias e 30 minutos seriam `80.00:30:00`.  O D à esquerda pode ser Descartado se for zero, então 90 minutos seria `00:90:00`.  
 
 > [!NOTE]
 > Aqui está um cenário de exemplo.
@@ -364,7 +367,7 @@ Neste exemplo, você cria algumas políticas para saber como o sistema de priori
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
         ```
 
-3. Defina o sinalizador de `IsOrganizationDefault` como false:
+3. Defina o sinalizador `IsOrganizationDefault` como false:
 
     ```powershell
     Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false

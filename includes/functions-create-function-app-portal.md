@@ -8,22 +8,18 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3204387a8e0920d2a7196edbad229bf811a9ba0a
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: cd118def8b9caf97f26aaa5ad5dc1f6fb015316d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72958726"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469328"
 ---
-1. Abrir o portal do Azure de [https://portal.azure.com](https://portal.azure.com)
+1. No menu portal do Azure, selecione **criar um recurso**.
 
-1. Selecione o botão **criar um recurso**
+    ![Adicionar recurso usando o menu portal do Azure](./media/functions-create-function-app-portal/create-function-app-resource.png)
 
-    ![Criar recurso](./media/functions-create-function-app-portal/function-app-create-resource.png)
-
-1. Selecione > de **computação** **aplicativo de funções**.
-
-    ![Criar uma aplicação de função no portal do Azure](./media/functions-create-function-app-portal/function-app-create-start.png)
+1. Na página **novo** , selecione **computação** > **aplicativo de funções**.
 
 1. Utilize as definições da aplicação Function App, conforme especificado na tabela abaixo da imagem.
 

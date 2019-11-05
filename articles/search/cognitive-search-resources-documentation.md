@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 5fb1050fed2ab7318ad5b4ecafec7a96a9324575
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: cf0332909e053a0875d41a00d15f196b193ba15e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792061"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466710"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Recursos de documentação para enriquecimento de ia no Azure Pesquisa Cognitiva
 
@@ -22,8 +22,8 @@ O enriquecimento de AI é um recurso da indexação de Pesquisa Cognitiva do Azu
 Os artigos a seguir são a documentação completa para o enriquecimento do ia.
 
 ## <a name="getting-started"></a>Introdução
-+ [Introdução ao enriquecimento de ia no Azure Pesquisa Cognitiva](cognitive-search-concept-intro.md)
-+ [Início rápido: Experimente a enriquecimento do ia no portal](cognitive-search-quickstart-blob.md)
++ [Introdução ao ia no Azure Pesquisa Cognitiva](cognitive-search-concept-intro.md)
++ [Início rápido: criar um conconhecimento de cognitiva no portal do Azure](cognitive-search-quickstart-blob.md)
 + [Tutorial: indexação aprimorada com o ia](cognitive-search-tutorial-blob.md)
 + [Exemplo: criando uma habilidade personalizada para o enriquecimento de ia](cognitive-search-create-custom-skill-example.md)
 
@@ -49,6 +49,7 @@ Os artigos a seguir são a documentação completa para o enriquecimento do ia.
   + [Microsoft. Skills. Vision. ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
   + [Microsoft. Skills. Vision. OcrSkill](cognitive-search-skill-ocr.md)
   + [Microsoft. Skills. util. ConditionalSkill](cognitive-search-skill-conditional.md)
+  + [Microsoft. Skills. util. DocumentExtractionSkill](cognitive-search-skill-document-extraction.md)
   + [Microsoft. Skills. util. ShaperSkill](cognitive-search-skill-shaper.md)
 
 + Competências personalizadas
@@ -61,7 +62,7 @@ Os artigos a seguir são a documentação completa para o enriquecimento do ia.
   + [Criar Qualificable (API-Version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
   + [Criar indexador (API-Version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consultar também
 
 + [API REST do Azure Pesquisa Cognitiva](https://docs.microsoft.com/rest/api/searchservice/)
 + [Indexadores no Azure Pesquisa Cognitiva](search-indexer-overview.md)

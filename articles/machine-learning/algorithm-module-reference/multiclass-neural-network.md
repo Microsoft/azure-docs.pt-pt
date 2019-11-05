@@ -1,24 +1,24 @@
 ---
 title: 'Rede neural multiclasse: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo rede neural multiclasse no serviço de Azure Machine Learning para criar um modelo de rede neural que pode ser usado para prever um destino com vários valores.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo rede neural multiclasse no Azure Machine Learning para criar um modelo de rede neural que possa ser usado para prever um destino com vários valores.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 3322f2be3c5c6f819adbc9d83ee9eb6b6577f707
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: b49ff44e898a78d865278df087aca75e4f8e50ca
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692715"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466043"
 ---
 # <a name="multiclass-neural-network-module"></a>Módulo de rede neural multiclasse
 
-Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para criar um modelo de rede neural que possa ser usado para prever um destino que tenha vários valores. 
 
@@ -40,7 +40,7 @@ Para computar a saída da rede para uma entrada específica, um valor é calcula
 
 ## <a name="configure-multiclass-neural-network"></a>Configurar rede neural multiclasse
 
-1. Adicione o módulo **rede neural multiclasse** ao seu pipeline na interface. Você pode encontrar esse módulo em **Machine Learning**, **inicializar**, na categoria **classificação** .
+1. Adicione o módulo **rede neural multiclasse** ao seu pipeline no designer. Você pode encontrar esse módulo em **Machine Learning**, **inicializar**, na categoria **classificação** .
 
 2. **Criar modo de instrutor**: Use esta opção para especificar como deseja que o modelo seja treinado:
 
@@ -93,4 +93,4 @@ Após a conclusão do treinamento:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

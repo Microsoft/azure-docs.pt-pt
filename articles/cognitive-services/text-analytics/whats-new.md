@@ -8,18 +8,34 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 11/04/2019
 ms.author: aahi
-ms.openlocfilehash: 79a573f6338d0ea3a7c3c0e772f120c34c09b05c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 44ef6fb118be4d1110a693faded6c57bc8b4e2fd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931513"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499962"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
 O API de Análise de Texto é atualizado em uma base contínua. Para se manter atualizado com os recentes desenvolvimentos, este artigo fornece informações sobre novas versões e recursos.
+
+## <a name="named-entity-recognition-v3-public-preview---october-2019"></a>Visualização pública de reconhecimento de entidade nomeada v3 – outubro de 2019
+
+A próxima versão do NER (reconhecimento de entidade nomeada) agora está disponível para visualização pública e fornece detecção expandida e categorização de entidades encontradas no texto. Fornece:
+
+* Reconhecimento dos seguintes novos tipos de entidade:
+    * Número de telefone
+    * Endereço IP
+
+* Um novo ponto de extremidade para reconhecer tipos de entidade de informações pessoais (somente em inglês)
+* Separe pontos de extremidade para reconhecimento de entidade e vinculação de entidade.
+
+A vinculação de entidades dá suporte a inglês e espanhol. O suporte ao idioma NER varia de acordo com o tipo de entidade. Para obter mais informações, consulte o link abaixo. 
+
+> [!div class="nextstepaction"]
+> [Saiba mais sobre o reconhecimento de entidade nomeada v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview)
 
 ## <a name="sentiment-analysis-v3-public-preview---october-2019"></a>Visualização pública do Análise de Sentimento v3-outubro de 2019
 
@@ -32,7 +48,6 @@ Ele dá suporte a Inglês (`en`), japonês (`ja`), chinês simplificado (`zh-Han
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o Análise de Sentimento v3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-v3-public-preview)
-
 
 ## <a name="next-steps"></a>Próximos Passos
 

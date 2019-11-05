@@ -1,5 +1,5 @@
 ---
-title: Ferramentas de Data Lake para Visual Studio com Hortonworks sandbox – Azure HDInsight
+title: Ferramentas de Data Lake para Visual Studio & Hortonworks-Azure HDInsight
 description: Saiba como usar as ferramentas de Azure Data Lake para o Visual Studio com a Hortonworks sandbox em execução em uma VM local. Com essas ferramentas, você pode criar e executar trabalhos do hive e do Pig na área restrita e exibir a saída e o histórico do trabalho.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 1edab776ec93f057ebf7e37ac887747f86a27db9
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: e128aaf6e1726b7a1341fefc6df3cdafd3beb880
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098779"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500159"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Usar as ferramentas de Azure Data Lake para Visual Studio com a área restrita Hortonworks
 
@@ -33,7 +33,7 @@ O uso da área restrita do Hortonworks permite que você trabalhe com o Hadoop l
 
 ## <a name="configure-passwords-for-the-sandbox"></a>Configurar senhas para a área restrita
 
-Verifique se a área restrita Hortonworks está em execução. Em seguida, siga as etapas no documento introdução ao [Hortonworks sandbox](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords) . Essas etapas configuram a senha para `root` a conta SSH e a conta `admin` do Apache Ambari. Essas senhas são usadas quando você se conecta à área restrita do Visual Studio.
+Verifique se a área restrita Hortonworks está em execução. Em seguida, siga as etapas no documento introdução ao [Hortonworks sandbox](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords) . Essas etapas configuram a senha para a conta de `root` SSH e a conta de `admin` do Apache Ambari. Essas senhas são usadas quando você se conecta à área restrita do Visual Studio.
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>Conectar as ferramentas à área restrita
 
@@ -49,7 +49,7 @@ Verifique se a área restrita Hortonworks está em execução. Em seguida, siga 
 
     Selecione **Seguinte** para continuar.
 
-4. Use o campo **senha** para inserir a senha que você configurou `root` para a conta. Deixe os outros campos no valor padrão.
+4. Use o campo **senha** para inserir a senha que você configurou para a conta de `root`. Deixe os outros campos no valor padrão.
 
     ![Captura de tela da caixa de diálogo com a caixa de texto senha raiz realçada](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password1.png)
 
@@ -63,7 +63,7 @@ Verifique se a área restrita Hortonworks está em execução. Em seguida, siga 
     > O processo de atualização usa Ambari para modificar a configuração da área restrita do Hortonworks para o que é esperado pelas ferramentas de Data Lake para o Visual Studio.
 
 6. Após a conclusão da validação, selecione **concluir** para concluir a configuração.
-    ![Captura de tela da caixa de diálogo com o botão Concluir realçado](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect-dialog.png)
+    ![captura de tela da caixa de diálogo com o botão Concluir realçado](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect-dialog.png)
 
      >[!NOTE]  
      > Dependendo da velocidade do ambiente de desenvolvimento e da quantidade de memória alocada para a máquina virtual, pode levar vários minutos para configurar e validar os serviços.
@@ -197,7 +197,7 @@ Em seguida, você pode criar a tabela usando um formulário. Na parte inferior d
 
 ![Captura de tela do formulário usado para criar uma tabela](./media/hdinsight-hadoop-emulator-visual-studio/create-table-form-box.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Aprendendo a ropes da área restrita do Hortonworks](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Tutorial de Apache Hadoop-introdução ao HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

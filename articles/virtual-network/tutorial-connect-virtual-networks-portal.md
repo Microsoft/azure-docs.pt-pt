@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: cbf19d941e63429b6a5edcc6745d04834cf18621
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b32f3762f2546a4d4956bf38c914173657e9d3da
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164064"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499885"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: ligar redes virtuais com o peering de rede virtual, utilizando o Portal do Azure
 
@@ -44,7 +44,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-virtual-networks"></a>Criar redes virtuais
 
-1. Selecione **+ Criar um recurso** no canto superior esquerdo do Portal do Azure.
+1. No menu portal do Azure ou na **Home** Page do, selecione **criar um recurso**.
 2. Selecione **Redes** e, em seguida, selecione **Rede virtual**.
 3. Na página **noções básicas** , insira ou selecione as informações a seguir e aceite os padrões para as configurações restantes:
 
@@ -54,7 +54,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     |Grupo de recursos| Selecione **Criar novo** e introduza *myResourceGroup*.|
     |Região| Selecione **E.U.A. Leste**.|
     |Nome|myVirtualNetwork1|
-   
+
 4. Na página **endereços IP** , digite 10.0.0.0/16 para o campo **espaço de endereço** . Clique no botão **Adicionar sub-rede** abaixo e insira Subnet1 para o **nome da sub-rede** e 10.0.0.0/24 para o intervalo de endereços da **sub-rede**.
    
 5. Conclua os passos 1 a 3 novamente, com as seguintes alterações:
@@ -64,12 +64,12 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     |Nome|myVirtualNetwork2|
     |Espaço de endereços|10.1.0.0/16|
     |Grupo de recursos| Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**.|
-    |Intervalo de endereços da sub-rede|10.1.0.0/24|
+    |Intervalo de Endereços da Sub-rede|10.1.0.0/24|
 
 ## <a name="peer-virtual-networks"></a>Colocar redes virtuais em modo de peering
 
 1. Na caixa Pesquisar na parte superior do Portal do Azure, comece a escrever *MyVirtualNetwork1*. Quando a **myVirtualNetwork1** aparecer nos resultados da pesquisa, selecione-a.
-2. Selecione **Peerings**, em **DEFINIÇÕES** e, em seguida, selecione **+ Adicionar**, conforme mostrado na imagem seguinte:
+2. Selecione **emparelhamentos**, em **configurações**e, em seguida, selecione **Adicionar**, conforme mostrado na figura a seguir:
 
     ![Criar peering](./media/tutorial-connect-virtual-networks-portal/create-peering.png)
 
@@ -96,7 +96,7 @@ Crie uma VM em cada rede virtual, para que possa comunicar entre as mesmas num p
 
 ### <a name="create-the-first-vm"></a>Criar a primeira VM
 
-1. Selecione **+ Criar um recurso** no canto superior esquerdo do Portal do Azure.
+1. No menu portal do Azure ou na **Home** Page do, selecione **criar um recurso**.
 2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. Pode selecionar um sistema operativo diferente, mas os restantes passos partem do princípio de que selecionou **Windows Server 2016 Datacenter**. 
 3. Introduza ou selecione as seguintes informações em **Informações Básicas**, aceite as predefinições das restantes definições e, em seguida, selecione **Criar**:
 

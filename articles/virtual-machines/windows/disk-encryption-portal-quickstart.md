@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: bde0c483eacec7fb8e076530bba594eb33a32a12
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 2590b9851b654990795f111e76f6cc5ea6c96723
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553450"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491951"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Início rápido: criar e criptografar uma máquina virtual do Windows com o portal do Azure
 
@@ -21,7 +21,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-key-vault"></a>Criar um cofre de chaves
 
@@ -49,19 +49,19 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Na parte inferior da tela políticas de acesso, clique em "revisar + criar".
 1. Após a revisão, clique em "criar".
 
-## <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
+## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
 1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
 
 1. Na nova página, em popular, selecione **Windows Server 2016 datacenter**.
 1. Na guia **noções básicas** , em **detalhes do projeto**, verifique se a assinatura correta está selecionada.
-1. Para **grupo de recursos**, selecione o grupo de recursos que você criou ao tornar o cofre de chaves acima (por exemplo, **MyResource**Group)
-1. Para **nome da máquina virtual** , insira *MyVM*e escolha 
+1. Para **grupo de recursos**, selecione o grupo de recursos que você criou ao tornar o cofre de chaves acima (por exemplo, **MyResource**Group).
+1. Para **nome da máquina virtual**, insira *MyVM*.
 1. Para **região**, selecione a mesma região que você usou ao tornar o cofre de chaves acima (por exemplo, **leste dos EUA**).
 1. Verifique se o **tamanho** é *Standard D2s v3*.
 1. Em **conta de administrador**, selecione **senha**. Insira um nome de usuário e uma senha.
-    ](../media/disk-encryption/portal-qs-windows-vm-creation.png) da tela de criação de ![ResourceGroup
-1. Selecione a guia "gerenciamento" e verifique se você tem uma conta de armazenamento de diagnóstico. Se você não tiver contas de armazenamento, selecione "criar nova", dê um nome à sua nova conta e selecione "OK" ![ResourceGroup tela de criação ](../media/disk-encryption/portal-qs-vm-creation-storage.png)
+    ![tela de criação de resourcegroup](../media/disk-encryption/portal-qs-windows-vm-creation.png)
+1. Selecione a guia "gerenciamento" e verifique se você tem uma conta de armazenamento de diagnóstico. Se você não tiver contas de armazenamento, selecione "criar nova", dê um nome à sua nova conta e selecione "OK" ![tela de criação de resourcegroup](../media/disk-encryption/portal-qs-vm-creation-storage.png)
 1. Clique em "revisar + criar".
 1. Na página **Criar uma máquina virtual**, pode ver os detalhes sobre a VM que está prestes a criar. Quando estiver pronto, selecione **Criar**.
 

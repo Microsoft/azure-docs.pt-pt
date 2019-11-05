@@ -1,32 +1,32 @@
 ---
-title: Dimensionar um cluster do Azure Kubernetes Service (AKS)
-description: Saiba como dimensionar o número de nós num cluster do Azure Kubernetes Service (AKS).
+title: Dimensionar um cluster do AKS (serviço kubernetes do Azure)
+description: Saiba como dimensionar o número de nós em um cluster do AKS (serviço kubernetes do Azure).
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 9cc06df5d2a66ede18af52c13201c731c12e2049
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 719f45aeeb5c7aa7e9b5e597ed461808c9d2b005
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614493"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472597"
 ---
-# <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>Dimensionar a contagem de nós num cluster do Azure Kubernetes Service (AKS)
+# <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>Dimensionar a contagem de nós em um cluster do serviço de kubernetes do Azure (AKS)
 
-Se o recurso tem de alterar seus aplicativos, pode dimensionar manualmente um cluster do AKS para executar um número diferente de nós. Quando reduzir verticalmente, os nós são cuidadosamente [isolados e drenados][kubernetes-drain] para minimizar a interrupção de aplicações em execução. Ao aumentar verticalmente as, AKS aguarda até que nós são marcados `Ready` pelo cluster de Kubernetes, antes de pods são agendadas nos mesmos.
+Se as necessidades de recursos de seus aplicativos forem alteradas, você poderá dimensionar manualmente um cluster AKS para executar um número diferente de nós. Ao reduzir verticalmente, os nós são cuidadosamente [isoladosdos e drenados][kubernetes-drain] para minimizar a interrupção na execução de aplicativos. Quando você escala verticalmente, o AKS aguarda até que os nós sejam marcados `Ready` pelo cluster kubernetes antes de os pods serem agendados neles.
 
 ## <a name="scale-the-cluster-nodes"></a>Dimensionar nós de cluster
 
-Primeiro, obtenha o *name* do seu conjunto de nó com o [show do az aks][az-aks-show] comando. O exemplo seguinte obtém o nome do conjunto de nó para o cluster com o nome *myAKSCluster* no *myResourceGroup* grupo de recursos:
+Primeiro, obtenha o *nome* do pool de nós usando o comando [AZ AKs show][az-aks-show] . O exemplo a seguir obtém o nome do pool de nós para o cluster chamado *myAKSCluster* no grupo de recursos *MyResource* Group:
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPoolProfiles
 ```
 
-O resultado de exemplo seguinte mostra que o *name* é *nodepool1*:
+A saída de exemplo a seguir mostra que o *nome* é *nodepool1*:
 
 ```console
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPoolProfiles
@@ -44,13 +44,13 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query agent
 ]
 ```
 
-Utilize o [dimensionamento do az aks][az-aks-scale] comando para dimensionar os nós de cluster. O exemplo seguinte dimensiona um cluster com o nome *myAKSCluster* para um único nó. Fornecer seu próprio *– nodepool-name* do comando anterior, tal como *nodepool1*:
+Use o comando [AZ AKs Scale][az-aks-scale] para dimensionar os nós de cluster. O exemplo a seguir dimensiona um cluster chamado *myAKSCluster* para um único nó. Forneça seu próprio *--nodepool* do comando anterior, como *nodepool1*:
 
 ```azurecli-interactive
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1 --nodepool-name <your node pool name>
 ```
 
-O resultado de exemplo seguinte mostra o cluster foi dimensionada com êxito para um nó, como mostra a *agentPoolProfiles* secção:
+A saída de exemplo a seguir mostra que o cluster foi dimensionado com êxito para um nó, conforme mostrado na seção *agentPoolProfiles* :
 
 ```json
 {
@@ -74,7 +74,7 @@ O resultado de exemplo seguinte mostra o cluster foi dimensionada com êxito par
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, dimensionados manualmente um cluster do AKS para aumentar ou diminuir o número de nós. Também pode utilizar o [dimensionamento automático de clusters][cluster-autoscaler] (atualmente em pré-visualização no AKS) para dimensionar automaticamente o seu cluster.
+Neste artigo, você dimensionou manualmente um cluster AKS para aumentar ou diminuir o número de nós. Você também pode usar o [dimensionamento][cluster-autoscaler] automático do cluster para dimensionar automaticamente o cluster.
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/

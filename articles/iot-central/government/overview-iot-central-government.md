@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 02918df348414058d176246da5c2d0f14df7b405
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: a862a221f9fe2db5448473bddcca2a9932716e0e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026653"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464074"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Criando soluções governamentais com o Azure IoT Central
 
@@ -79,5 +79,5 @@ Introdução ao tutorial de [aplicativo de gerenciamento de resíduos conectado]
 * Saiba mais sobre os [conceitos de monitoramento de qualidade da água](./concepts-waterqualitymonitoring-architecture.md)
 * Saiba mais sobre os [conceitos de monitoramento de consumo de água](./concepts-waterconsumptionmonitoring-architecture.md)
 * Saiba mais sobre os [conceitos de gerenciamento de resíduos conectados](./concepts-connectedwastemanagement-architecture.md)  
-* Saiba mais sobre IoT Central, consulte [IOT central visão geral](https://docs.microsoft.com/azure/iot-central/overview-iot-central)
+* Saiba mais sobre IoT Central, consulte [IOT central visão geral](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
  

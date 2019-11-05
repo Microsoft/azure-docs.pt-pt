@@ -1,7 +1,7 @@
 ---
 title: 'Pré-processar texto: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo de texto de pré-processamento no serviço de Azure Machine Learning para limpar e simplificar o texto.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo de texto de pré-processamento em Azure Machine Learning para limpar e simplificar o texto.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: 2213d26e6d3b2b6a7aca9d65e74a4499ff0da6c1
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9bf81b4e4c305c864592c32a8737d1a5eeb18651
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692690"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497685"
 ---
 # <a name="preprocess-text"></a>Pré-processar Texto
 
-Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use o módulo de **texto pré-processar** para limpar e simplificar o texto. Ele dá suporte a essas operações comuns de processamento de texto:
 
@@ -33,7 +33,7 @@ O módulo de **texto de pré-processamento** atualmente só dá suporte ao ingl�
 
 ## <a name="configure-text-preprocessing"></a>Configurar o pré-processamento de texto  
 
-1.  Adicione o módulo de **texto pré-processar** ao seu experimento no serviço Azure Machine Learning. Você pode encontrar esse módulo em **análise de texto**.
+1.  Adicione o módulo de **texto de pré-processamento** ao seu pipeline no Azure Machine Learning. Você pode encontrar esse módulo em **análise de texto**.
 
 1. Conecte um conjunto de um DataSet que tenha pelo menos uma coluna contendo texto.
 
@@ -71,7 +71,7 @@ O módulo de **texto de pré-processamento** atualmente só dá suporte ao ingl�
     * **Remover caracteres duplicados**: Selecione esta opção para remover caracteres extras em qualquer sequência que se repita para mais de duas vezes. Por exemplo, uma sequência como "AAAAA" seria reduzida para "AA".
     
     * **Remover endereços de email**: Selecione esta opção para remover qualquer sequência do formato `<string>@<string>`.  
-    * **Remover URLs**: Selecione esta opção para remover qualquer sequência que inclua os seguintes prefixos de URL: `http`, `https`, `ftp` `www`
+    * **Remover URLs**: Selecione esta opção para remover qualquer sequência que inclua os seguintes prefixos de URL: `http`, `https`, `ftp``www`
     
 1. **Expandir contratações de verbo**: essa opção se aplica somente a idiomas que usam contratações de verbo; Atualmente, somente em inglês. 
 
@@ -79,12 +79,12 @@ O módulo de **texto de pré-processamento** atualmente só dá suporte ao ingl�
 
 1. **Normalizar barras invertidas para barras**: Selecione esta opção para mapear todas as instâncias de `\\` para `/`.
 
-1. **Dividir tokens em caracteres especiais**: Selecione esta opção se desejar quebrar palavras em caracteres como `&`, `-` e assim por diante. Essa opção também pode reduzir os caracteres especiais quando ele se repetir mais de duas vezes. 
+1. **Dividir tokens em caracteres especiais**: Selecione esta opção se desejar quebrar palavras em caracteres como `&`, `-`e assim por diante. Essa opção também pode reduzir os caracteres especiais quando ele se repetir mais de duas vezes. 
 
-    Por exemplo, a cadeia de caracteres `MS---WORD` seria separada em três tokens, `MS`, `-` e `WORD`.
+    Por exemplo, a cadeia de caracteres `MS---WORD` seria separada em três tokens, `MS`, `-`e `WORD`.
 
-1. Execute a experimentação.
+1. Executar o pipeline.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

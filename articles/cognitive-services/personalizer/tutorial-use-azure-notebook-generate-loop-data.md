@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
-ms.date: 10/04/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 7c0dc40ee2d748b1f48c3254a3e3a6e197069c08
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6bc306551d158d4b996002de0bb5ab991a0bcbd9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515164"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467238"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Tutorial: usar o personalizador no bloco de anotações do Azure
 
@@ -81,7 +81,7 @@ Descrições de arquivo:
 
 ## <a name="configure-personalizer-resource"></a>Configurar recurso personalizador
 
-Na portal do Azure, configure o [recurso personalizado](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) com a frequência do **modelo de atualização** definido como 15 segundos e um **tempo de espera de recompensa** de 15 segundos. Essas configurações são encontradas na página **[configurações](how-to-settings.md#configure-service-settings-in-the-azure-portal)** . 
+Na portal do Azure, configure o [recurso personalizado](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) com a frequência do **modelo de atualização** definido como 15 segundos e um **tempo de espera de recompensa** de 15 segundos. Esses valores são encontrados na página de **[configuração](how-to-settings.md#configure-service-settings-in-the-azure-portal)** . 
 
 |Definição|Valor|
 |--|--|
@@ -170,7 +170,7 @@ def get_last_updated(currentModifiedDate):
 
 Valide o estado do serviço com essas duas chamadas REST.
 
-Essas células não têm nenhuma saída. A função faz a saída das configurações de serviço quando chamado.
+Essas células não têm nenhuma saída. A função faz a saída dos valores de serviço quando chamado.
 
 ```python
 def get_service_settings():
@@ -574,11 +574,11 @@ Este gráfico mostra o sucesso do modelo para a política de aprendizado padrão
 ![Este gráfico mostra o sucesso da política de aprendizado atual durante o teste.](./media/tutorial-azure-notebook/azure-notebook-chart-results.png)
 
 
-O destino ideal que, ao final do teste, o loop é a média de uma taxa de sucesso que está perto de 100% menos a exploração. A configuração padrão de exploração é de 20%. 
+O destino ideal que, ao final do teste, o loop é a média de uma taxa de sucesso que está perto de 100% menos a exploração. O valor padrão de exploração é de 20%. 
 
 `100-20=80`
 
-Essa configuração de exploração é encontrada no portal do Azure, para o recurso personalizador, na página **configurações** . 
+Esse valor de exploração é encontrado no portal do Azure, para o recurso personalizado, na página **configuração** . 
 
 Para encontrar uma melhor política de aprendizado, com base em seus dados para a API de classificação, execute uma [avaliação offline](how-to-offline-evaluation.md) no portal para o loop personalizador.
 
@@ -587,7 +587,7 @@ Para encontrar uma melhor política de aprendizado, com base em seus dados para 
 1. Na portal do Azure, abra a página **avaliações** do recurso personalizador.
 1. Selecione **criar avaliação**.
 1. Insira os dados necessários do nome de avaliação e o intervalo de datas para a avaliação do loop. O intervalo de datas deve incluir apenas os dias nos quais você está se concentrando para sua avaliação. 
-    ![In o portal do Azure, abra a página de avaliações do recurso personalizador. Selecione criar avaliação. Insira o nome da avaliação e o intervalo de datas. ](./media/tutorial-azure-notebook/create-offline-evaluation.png)
+    ![na portal do Azure, abra a página de avaliações do recurso personalizador. Selecione criar avaliação. Insira o nome da avaliação e o intervalo de datas.](./media/tutorial-azure-notebook/create-offline-evaluation.png)
 
     A finalidade de executar essa avaliação offline é determinar se há uma melhor política de aprendizado para os recursos e as ações usadas neste loop. Para descobrir essa melhor política de aprendizado, verifique se a **política de otimização** está ativada.
 
@@ -598,7 +598,7 @@ Para encontrar uma melhor política de aprendizado, com base em seus dados para 
 
 ## <a name="change-update-model-frequency-to-5-minutes"></a>Alterar a frequência do modelo de atualização para 5 minutos
 
-1. No portal do Azure, ainda no recurso personalizador, selecione a página **configurações** . 
+1. No portal do Azure, ainda no recurso personalizador, selecione a página **configuração** . 
 1. Altere a **frequência de atualização do modelo** e **recompensa o tempo de espera** para 5 minutos e selecione **salvar**.
 
 Saiba mais sobre o [tempo de espera de recompensa](concept-rewards.md#reward-wait-time) e a [frequência de atualização do modelo](how-to-settings.md#model-update-frequency).

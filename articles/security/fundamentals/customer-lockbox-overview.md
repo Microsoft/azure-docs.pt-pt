@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: cabailey
 manager: barbkess
-ms.date: 06/20/2019
-ms.openlocfilehash: 7ca5c890b1f3161923cd808c5ecec0ccf0165d64
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.date: 11/04/2019
+ms.openlocfilehash: 7c0409d48876a0f830366381c2a46821c4aa03a0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727518"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466417"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Sistema de Proteção de Dados do Cliente para Microsoft Azure
 
@@ -47,7 +47,7 @@ As etapas a seguir descrevem um fluxo de trabalho típico para uma solicitação
 
 6. Quando a solicitação requer acesso direto aos dados do cliente, uma solicitação de Sistema de Proteção de Dados do Cliente é iniciada. Por exemplo, acesso à área de trabalho remota à máquina virtual de um cliente.
     
-    A solicitação está agora em um estado notificado do **cliente** , aguardando a aprovação do cliente antes de conceder acesso.
+    A solicitação está agora em um estado **notificado do cliente** , aguardando a aprovação do cliente antes de conceder acesso.
 
 7. Na organização do cliente, o usuário que tem a [função proprietário](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) para a assinatura do Azure recebe um email da Microsoft para notificá-los sobre a solicitação de acesso pendente. Para solicitações de Sistema de Proteção de Dados do Cliente, essa pessoa é o aprovador designado.
     
@@ -74,8 +74,8 @@ As etapas a seguir descrevem um fluxo de trabalho típico para uma solicitação
     ![Sistema de Proteção de Dados do Cliente do Azure – selecione aprovar ou negar](./media/customer-lockbox-overview/customer-lockbox-approval.png)
     
     Como resultado da seleção:
-    - **Aprovar**:  O acesso é concedido ao engenheiro da Microsoft. O acesso é concedido por um período padrão de oito horas.
-    - **Negar**: A solicitação de acesso elevado pelo engenheiro da Microsoft é rejeitada e nenhuma ação adicional é executada.
+    - **Aprovar**: o acesso é concedido ao engenheiro da Microsoft. O acesso é concedido por um período padrão de oito horas.
+    - **Deny**: a solicitação de acesso elevado pelo engenheiro da Microsoft é rejeitada e nenhuma ação adicional é executada.
 
 Para fins de auditoria, as ações executadas nesse fluxo de trabalho são registradas [sistema de proteção de dados do cliente logs de solicitação](#auditing-logs).
 
@@ -87,11 +87,11 @@ Os logs de Sistema de Proteção de Dados do Cliente são armazenados nos logs d
 - **Aprovar solicitação de lockbox**
 - **Expiração da solicitação de lockbox**
 
-Por exemplo:
+Em forma de exemplo:
 
 ![Logs de atividades de Sistema de Proteção de Dados do Cliente do Azure](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
 
-## <a name="supported-services-and-scenarios"></a>Serviços e cenários com suporte
+## <a name="supported-services-and-scenarios-in-general-availability"></a>Serviços e cenários com suporte em disponibilidade geral
 
 Os seguintes serviços e cenários estão atualmente em disponibilidade geral para Sistema de Proteção de Dados do Cliente.
 
@@ -109,6 +109,23 @@ O Sistema de Proteção de Dados do Cliente está habilitado no momento para sol
 
 Para cenários que envolvem acesso à área de trabalho remota, você pode usar logs de eventos do Windows para examinar as ações executadas pelo engenheiro da Microsoft. Considere usar a central de segurança do Azure para coletar seus logs de eventos e copiar os dados para o espaço de trabalho para análise. Para obter mais informações, consulte [coleta de dados na central de segurança do Azure](../../security-center/security-center-enable-data-collection.md).
 
+## <a name="supported-services-and-scenarios-in-preview"></a>Serviços e cenários com suporte na visualização
+
+Os serviços a seguir agora estão atualmente em visualização para Sistema de Proteção de Dados do Cliente:
+
+- Armazenamento do Azure 
+
+- BD SQL do Azure 
+
+- Azure Data Explorer 
+
+- Máquinas virtuais (agora também abrangendo o acesso a despejos de memória e discos gerenciados) 
+
+- Transferências de assinatura do Azure
+
+Para habilitar Sistema de Proteção de Dados do Cliente para essas ofertas de visualização para sua organização, Inscreva-se para [sistema de proteção de dados do cliente para visualização pública do Azure](https://aka.ms/customerlockbox/insiderprogram).
+
+
 ## <a name="exclusions"></a>Exclusões
 
 Sistema de Proteção de Dados do Cliente solicitações não são disparadas nos seguintes cenários de suporte de engenharia:
@@ -117,7 +134,7 @@ Sistema de Proteção de Dados do Cliente solicitações não são disparadas no
 
 - Um engenheiro da Microsoft acessa a plataforma do Azure como parte da solução de problemas e, inadvertidamente, tem acesso aos dados do cliente. Por exemplo, a equipe de rede do Azure executa a solução de problemas que resulta em uma captura de pacote em um dispositivo de rede. No entanto, se o cliente criptografou os dados enquanto estava em trânsito, o engenheiro não poderá ler os dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Sistema de Proteção de Dados do Cliente está automaticamente disponível para todos os clientes que têm um [plano de suporte do Azure](https://azure.microsoft.com/support/plans/) com um nível mínimo de **desenvolvedor**.
 

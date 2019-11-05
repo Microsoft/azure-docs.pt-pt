@@ -11,14 +11,15 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: fda6c72504a75d600931185e224bb46db03e23ed
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e9d262380a8e0769b1191673a7e00eed770f7ab2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374298"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497078"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo de Azure Machine Learning implantado como um serviço Web
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Implantar um modelo de Azure Machine Learning como um serviço Web cria uma API REST. Você pode enviar dados para essa API e receber a previsão retornada pelo modelo. Neste documento, aprenda a criar clientes para o serviço Web usando C#o, o go, o Java e o Python.
 
@@ -64,7 +65,7 @@ Há três maneiras de recuperar essas informações para serviços Web implantad
     print(services[0].swagger_uri)
     ```
 
-* Se você souber o nome do serviço implantado, poderá criar uma nova instância do `Webservice` e fornecer o espaço de trabalho e o nome do serviço como parâmetros. O novo objeto contém informações sobre o serviço implantado.
+* Se você souber o nome do serviço implantado, poderá criar uma nova instância do `Webservice`e fornecer o espaço de trabalho e o nome do serviço como parâmetros. O novo objeto contém informações sobre o serviço implantado.
 
     ```python
     service = Webservice(workspace=ws, name='myservice')
@@ -81,7 +82,7 @@ O Azure Machine Learning fornece duas maneiras de controlar o acesso aos serviç
 |Chave|Desabilitado por padrão| Habilitado por padrão|
 |Certificado de| Não Disponível| Desabilitado por padrão |
 
-Ao enviar uma solicitação para um serviço protegido com uma chave ou token, use o cabeçalho de __autorização__ para passar a chave ou o token. A chave ou o token deve ser formatado como `Bearer <key-or-token>`, em que `<key-or-token>` é a chave ou o valor do token.
+Ao enviar uma solicitação para um serviço protegido com uma chave ou token, use o cabeçalho de __autorização__ para passar a chave ou o token. A chave ou o token deve ser formatado como `Bearer <key-or-token>`, em que `<key-or-token>` é o valor da chave ou do token.
 
 #### <a name="authentication-with-keys"></a>Autenticação com chaves
 
@@ -119,7 +120,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Você precisará solicitar um novo token após o tempo `refresh_by` do token. 
+> Você precisará solicitar um novo token após o tempo de `refresh_by` do token. 
 
 ## <a name="request-data"></a>Solicitar dados
 

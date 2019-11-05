@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 11/02/2018
 ms.author: tomfitz
 ms.openlocfilehash: 9d1aa53ede323c2bb536c74eeaaba9fd28b01712
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127247"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73549305"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-azure-cli"></a>Subscrever eventos para uma subscrição do Azure com a CLI do Azure
 

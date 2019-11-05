@@ -1,6 +1,6 @@
 ---
-title: Preparar e implementar um modelo - Machine Learning no Azure IoT Edge | Documentos da Microsoft
-description: Preparar um modelo de aprendizagem automática com o Azure Machine Learning e, em seguida, a empacotar o modelo como uma imagem de contentor que pode ser implementado como um módulo do Azure IoT Edge.
+title: Treinar e implantar um Machine Learning de modelo em Azure IoT Edge | Microsoft Docs
+description: Treine um modelo de aprendizado de máquina usando Azure Machine Learning e, em seguida, empacote o modelo como uma imagem de contêiner que pode ser implantada como um módulo Azure IoT Edge.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,121 +8,121 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: acf0b1984eb3e68858be6ed68731612448e672f4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6e1ee1fda658ef0884975e4055891f705c4f5058
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67432695"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493985"
 ---
-# <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: Preparar e implementar um modelo do Azure Machine Learning
+# <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: treinar e implantar um modelo de Azure Machine Learning
 
 > [!NOTE]
-> Este artigo faz parte de uma série de para um tutorial sobre como utilizar o Azure Machine Learning do IoT Edge. Se o ter chegado neste artigo diretamente, é recomendável que começa com o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série para obter melhores resultados.
+> Este artigo faz parte de uma série de um tutorial sobre como usar Azure Machine Learning em IoT Edge. Se você chegou a este artigo diretamente, incentivamos você a começar com o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série para obter os melhores resultados.
 
-Neste artigo, utilizamos blocos de notas do Azure pela primeira vez para formar um modelo de machine learning com o Azure Machine Learning e, em seguida, a empacotar esse modelo como uma imagem de contentor que pode ser implementado como um módulo do Azure IoT Edge. Os blocos de notas do Azure tire partido de um trabalho de serviço do Azure Machine Learning, que é um bloco fundamental usado para testar, preparar e implementar modelos de aprendizagem automática.
+Neste artigo, usamos Azure Notebooks primeiro para treinar um modelo de aprendizado de máquina usando Azure Machine Learning e, em seguida, empacotar esse modelo como uma imagem de contêiner que pode ser implantada como um módulo Azure IoT Edge. O Azure Notebooks aproveitar um espaço de trabalho Azure Machine Learning, que é um bloco básico usado para experimentar, treinar e implantar modelos de aprendizado de máquina.
 
-As atividades nessa parte do tutorial são divididas em dois blocos de notas.
+As atividades nesta parte do tutorial são divididas em dois blocos de anotações.
 
-* **01-turbofan\_regression.ipynb:** Este bloco de notas explica os passos para formar e publicar um modelo com o Azure Machine Learning. De forma ampla, os passos envolvidos são:
+* **01-turbofan\_regressão. ipynb:** Este bloco de anotações percorre as etapas para treinar e publicar um modelo usando Azure Machine Learning. Em grande medida, as etapas envolvidas são:
 
-  1. Transferir, preparar e explorar os dados de treinamento
-  2. Utilize a área de trabalho do serviço para criar e executar uma experimentação do machine learning
-  3. Avaliar os resultados de modelo de experimentação
-  4. Publicar o melhor modelo para a área de trabalho do serviço
+  1. Baixe, prepare e explore os dados de treinamento
+  2. Usar o espaço de trabalho de serviço para criar e executar uma experiência de aprendizado de máquina
+  3. Avaliar os resultados do modelo a partir do experimento
+  4. Publicar o melhor modelo no espaço de trabalho de serviço
 
-* **02-turbofan\_deploy\_model.ipynb:** Este bloco de notas usa o modelo criado no bloco de notas anterior e utiliza-o para criar uma imagem de contentor pronta para ser implementada para um dispositivo Azure IoT Edge.
+* **02-turbofan\_implantar\_Model. ipynb:** Este bloco de anotações usa o modelo criado no bloco de anotações anterior e o usa para criar uma imagem de contêiner pronta para ser implantada em um dispositivo Azure IoT Edge.
 
-  1. Criar um script de classificação para o modelo
+  1. Criar um script de Pontuação para o modelo
   2. Criar e publicar a imagem
-  3. Implementar a imagem como um serviço web na instância de contentor do Azure
-  4. Utilizar o serviço da web para validar o modelo e o trabalho de imagem, conforme o esperado
+  3. Implantar a imagem como um serviço Web na instância de contêiner do Azure
+  4. Usar o serviço Web para validar o modelo e a imagem funcionam conforme o esperado
 
-Os passos neste artigo podem ser, normalmente realizados por cientistas de dados.
+As etapas neste artigo podem ser normalmente executadas por cientistas de dados.
 
-## <a name="set-up-azure-notebooks"></a>Configurar blocos de notas do Azure
+## <a name="set-up-azure-notebooks"></a>Configurar Azure Notebooks
 
-Podemos usar blocos de notas do Azure para alojar os dois blocos de notas do Jupyter e ficheiros de suporte. Aqui criamos e configurar um projeto de blocos de notas do Azure. Se não tiver utilizado o Jupyter e/ou blocos de notas do Azure, aqui estão alguns documentos de introdução:
+Usamos Azure Notebooks para hospedar os dois notebooks Jupyter e arquivos de suporte. Aqui, criamos e configuramos um projeto Azure Notebooks. Se você não usou Jupyter e/ou Azure Notebooks, aqui estão alguns documentos introdutórios:
 
-* **Início rápido:** [Criar e partilhar um bloco de notas](../notebooks/quickstart-create-share-jupyter-notebook.md)
-* **Tutorial:** [Criar e executar um bloco de notas do Jupyter com Python](../notebooks/tutorial-create-run-jupyter-notebook.md)
+* **Início rápido:** [criar e compartilhar um bloco de anotações](../notebooks/quickstart-create-share-jupyter-notebook.md)
+* **Tutorial:** [criar e executar um notebook Jupyter com Python](../notebooks/tutorial-create-run-jupyter-notebook.md)
 
-Como com a máquina virtual de desenvolvedor antes, a utilização de blocos de notas do Azure assegura um ambiente consistente para o exercício.
+Assim como a máquina virtual do desenvolvedor antes, o uso de blocos de anotações do Azure garante um ambiente consistente para o exercício.
 
 > [!NOTE]
-> Uma vez configurado, o serviço de blocos de notas do Azure pode ser acedido em qualquer máquina. Durante a configuração, deve utilizar a máquina virtual de desenvolvimento, que tem todos os ficheiros que irá precisar.
+> Uma vez configurado, o serviço de Azure Notebooks pode ser acessado em qualquer computador. Durante a instalação, você deve usar a máquina virtual de desenvolvimento, que tem todos os arquivos que serão necessários.
 
-### <a name="create-an-azure-notebooks-account"></a>Criar uma conta de blocos de notas do Azure
+### <a name="create-an-azure-notebooks-account"></a>Criar uma conta de Azure Notebooks
 
-Contas de bloco de notas do Azure são independentes entre subscrições do Azure. Para utilizar blocos de notas do Azure, terá de criar uma conta.
+As contas do bloco de anotações do Azure são independentes das assinaturas do Azure. Para usar Azure Notebooks, você precisa criar uma conta.
 
-1. Navegue para [blocos de notas do Azure](https://notebooks.azure.com).
+1. Navegue até [blocos de anotações do Azure](https://notebooks.azure.com).
 
-2. Clique em **sessão** no canto superior, à direita da página.
+2. Clique em **entrar** no canto superior direito da página.
 
-3. Inicie sessão com o seu trabalho ou a conta escolar (Azure Active Directory) ou a sua conta pessoal (Account Microsoft).
+3. Entre com sua conta corporativa ou de estudante (Azure Active Directory) ou sua conta pessoal (conta da Microsoft).
 
-4. Se não tiver utilizado a blocos de notas do Azure antes, será solicitado a conceder acesso para a aplicação de blocos de notas do Azure.
+4. Se você não tiver usado Azure Notebooks antes, será solicitado a conceder acesso para o aplicativo Azure Notebooks.
 
-5. Crie um ID de utilizador para blocos de notas do Azure.
+5. Crie uma ID de usuário para Azure Notebooks.
 
-### <a name="upload-jupyter-notebooks-files"></a>Carregar ficheiros de blocos de notas do Jupyter
+### <a name="upload-jupyter-notebooks-files"></a>Carregar arquivos do Jupyter notebooks
 
-Neste passo, vamos criar um novo projeto de blocos de notas do Azure e carregar ficheiros para o mesmo. Especificamente, os ficheiros que vamos carregar são:
+Nesta etapa, criamos um novo projeto Azure Notebooks e carregamos arquivos nele. Especificamente, os arquivos que carregamos são:
 
-* **01-turbofan\_regression.ipynb**: Ficheiro de bloco de notas do Jupyter que explica o processo de transferência de dados gerados pelo agente de dispositivo da conta de armazenamento do Azure; explorar e preparar os dados para treinar o classificador; preparar o modelo; teste os dados usando o conjunto de dados de teste encontradas no teste\_FD003.txt ficheiro; e, finalmente a guardar o classificador de modelo na área de trabalho de serviço de Machine Learning.
+* **01-turbofan\_regressão. ipynb**: arquivo de notebook Jupyter que percorre o processo de download dos dados gerados pelo equipamento de dispositivo da conta de armazenamento do Azure; explorando e preparando os dados para treinar o classificador; treinando o modelo; testando os dados usando o conjunto de dado de teste encontrado no teste\_arquivo FD003. txt; e, por fim, salvar o modelo do classificador no espaço de trabalho Machine Learning serviço.
 
-* **02-turbofan\_deploy\_model.ipynb:** Notas do Jupyter que o orienta ao longo do processo de usar o modelo de classificador guardado na área de trabalho de serviço de Machine Learning para produzir uma imagem de contentor. Depois da imagem é criada, as movimentações de bloco de notas pelo processo de implantação da imagem como um serviço web para que pode validar está a funcionar como esperado. A imagem validada será implementada em nosso dispositivo do Edge no [criar e implementar módulos personalizados do IoT Edge](tutorial-machine-learning-edge-06-custom-modules.md) parte deste tutorial.
+* **02-turbofan\_implantar\_Model. ipynb:** Jupyter notebook, que orienta você pelo processo de usar o modelo de classificação salvo no espaço de trabalho do serviço Machine Learning para produzir uma imagem de contêiner. Depois que a imagem for criada, o notebook o guiará pelo processo de implantação da imagem como um serviço Web para que você possa validá-la se está funcionando conforme o esperado. A imagem validada será implantada em nosso dispositivo de IoT Edge na parte [criar e implantar módulos de IOT Edge personalizados](tutorial-machine-learning-edge-06-custom-modules.md) deste tutorial.
 
-* **Test\_FD003.txt:** Este ficheiro contém os dados que irá utilizar como nosso teste definido quando a validar nossas classificador treinado. Optamos por usar os dados de teste conforme fornecido para o concurso original como nosso teste definido para manter a simplicidade do exemplo.
+* **Teste\_FD003. txt:** Esse arquivo contém os dados que usaremos como nosso conjunto de testes ao validar nosso classificador treinado. Optamos por usar os dados de teste fornecidos para o concurso original como nosso conjunto de teste para simplificar o exemplo.
 
-* **RUL\_FD003.txt:** Este ficheiro contém a RUL para o último ciclo de cada dispositivo no teste\_FD003.txt ficheiro. Consulte a **Readme. txt** e o **Modeling.pdf de propagação de danos** ficheiros na unidade c:\\origem\\IoTEdgeAndMlSample\\dados\\Turbofan para um explicação detalhada dos dados.
+* **RUL\_FD003. txt:** Esse arquivo contém o RUL para o último ciclo de cada dispositivo no teste\_arquivo FD003. txt. Consulte os arquivos **README. txt** e **. pdf de propagação de danos** na fonte C:\\\\IoTEdgeAndMlSample\\data\\turbofan para obter uma explicação detalhada dos dados.
 
-* **Utils.py:** Contém um conjunto de funções de utilitário de Python para trabalhar com dados. O primeiro bloco de anotações contém uma explicação detalhada das funções.
+* **Utils.py:** Contém um conjunto de funções de utilitário Python para trabalhar com dados. O primeiro bloco de anotações contém uma explicação detalhada das funções.
 
-* **README.md:** Leia-me que descreve a utilização dos blocos de notas.
+* **README.MD:** Leiame que descreve o uso dos notebooks.
 
-Criar um novo projeto e carregue os ficheiros para o bloco de notas.
+Crie um novo projeto e carregue os arquivos para o bloco de anotações.
 
-1. Selecione **meus projetos** da barra de menus superior.
+1. Selecione **meus projetos** na barra de menus superior.
 
-1. Selecione **+ novo projeto**. Forneça um nome e um ID. Não é necessário para o projeto para ser público ou ter um ficheiro Leia-me.
+1. Selecione **+ novo projeto**. Forneça um nome e uma ID. Não é necessário que o projeto seja público ou tenha um Leiame.
 
-1. Selecione **carregue** e escolha **de computador**.
+1. Selecione **carregar** e escolha **do computador**.
 
-1. Selecione **escolher ficheiros**.
+1. Selecione **escolher arquivos**.
 
-1. Navegue para **C:\source\IoTEdgeAndMlSample\AzureNotebooks**. Selecione todos os ficheiros e clique em **aberto**.
+1. Navegue até **C:\source\IoTEdgeAndMlSample\AzureNotebooks**. Selecione todos os arquivos e clique em **abrir**.
 
-1. Selecione **carregue** para começar a carregar e, em seguida, selecione **feito** uma vez concluído o processo.
+1. Selecione **carregar** para começar a carregar e, em seguida, selecione **concluído** depois que o processo for concluído.
 
-## <a name="run-azure-notebooks"></a>Execute blocos de notas do Azure
+## <a name="run-azure-notebooks"></a>Executar Azure Notebooks
 
-Agora que o projeto estiver criado, execute o **01 turbofan\_regression.ipynb** bloco de notas.
+Agora que o projeto foi criado, execute **01-turbofan\_regressão. ipynb** notebook.
 
-1. Na página de projeto turbofan, selecione **01 turbofan\_regression.ipynb**.
+1. Na página do projeto turbofan, selecione **01-turbofan\_regressão. ipynb**.
 
-    ![Selecione o primeiro bloco de notas para executar](media/tutorial-machine-learning-edge-04-train-model/select-turbofan-regression-notebook.png)
+    ![Selecione o primeiro bloco de anotações a ser executado](media/tutorial-machine-learning-edge-04-train-model/select-turbofan-regression-notebook.png)
 
-2. Se lhe for pedido, escolha o Kernel do Python 3.6 na caixa de diálogo e selecione **Kernel definir**.
+2. Se solicitado, escolha o kernel Python 3,6 na caixa de diálogo e selecione **definir kernel**.
 
-3. Se o bloco de notas é listado como **não fidedigno**, clique nas **não fidedigno** widget no canto superior direito do bloco de notas. Quando a caixa de diálogo é exibido, selecione **confiar**.
+3. Se o bloco de anotações estiver listado como **não confiável**, clique no widget **não confiável** no canto superior direito do bloco de anotações. Quando a caixa de diálogo aparecer, selecione **confiar**.
 
-4. Siga as instruções no bloco de notas.
+4. Siga as instruções no bloco de anotações.
 
     * `Ctrl + Enter` executa uma célula.
     * `Shift + Enter` executa uma célula e navega para a próxima célula.
-    * Quando uma célula está em execução, ele tem um asterisco entre parênteses Retos, como **[\*]** . Quando estiver concluída, o asterisco será substituído por um número e saída relevante pode ser apresentados abaixo. Uma vez que as células dependem muitas vezes, o trabalho das, pode executar somente uma célula de cada vez.
+    * Quando uma célula está em execução, ela tem um asterisco entre colchetes, como **[\*]** . Quando for concluído, o asterisco será substituído por um número e uma saída relevante poderá ser exibida abaixo. Como as células geralmente se baseiam no trabalho dos anteriores, apenas uma célula pode ser executada por vez.
 
-5. Quando terminar de executar o **01 turbofan\_regression.ipynb** bloco de notas, retorno para a página do projeto.
+5. Quando terminar de executar a execução do **turbofan\_regressão. ipynb** do notebook, retorne à página do projeto.
 
-6. Open **02-turbofan\_implementar\_model.ipynb** e repita os passos nesta secção para executar o segundo bloco de notas.
+6. Abra **02-turbofan\_implantar\_Model. ipynb** e repita as etapas nesta seção para executar o segundo bloco de anotações.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, nós usamos dois blocos de notas Jupyter em execução em blocos de notas do Azure para utilizar os dados dos dispositivos turbofan para treinar um classificador de vida útil (RUL) restantes, para guardar o classificador de como um modelo, para criar uma imagem de contentor e para implementar e testar a imagem como um se web rvice.
+Neste artigo, usamos dois blocos de anotações do Jupyter em execução no Azure Notebooks para usar os dados dos dispositivos turbofan para treinar um classificador restante da vida útil (RUL), para salvar o classificador como um modelo, para criar uma imagem de contêiner e para implantar e testar a imagem como uma Web se rvice.
 
-Avance para o artigo seguinte para criar um dispositivo IoT Edge.
+Continue no próximo artigo para criar um dispositivo IoT Edge.
 
 > [!div class="nextstepaction"]
 > [Configurar um dispositivo IoT Edge](tutorial-machine-learning-edge-05-configure-edge-device.md)

@@ -1,21 +1,21 @@
 ---
-title: Terminologia da visualização do compartilhamento de dados do Azure
-description: Saiba mais sobre os termos comuns usados para descrever os recursos usados na visualização do compartilhamento de dados do Azure (provedor de dados, consumidor de dados, compartilhamento de dados, assinatura de compartilhamento, instantâneo, convite, destinatário.)
+title: Terminologia do Azure Data Share
+description: Saiba mais sobre os termos comuns usados para descrever os recursos usados no compartilhamento de dados do Azure (provedor de dados, consumidor de dados, compartilhamento de dados, assinatura de compartilhamento, instantâneo, convite, destinatário.)
+ms.service: data-share
 author: joannapea
 ms.author: joanpo
-ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: dd3235b7d87d8e02f44a440741b90f675263d147
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 33532380d8f98df44029eeea998130d1da5fdafd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166280"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468551"
 ---
-# <a name="azure-data-share-preview-concepts"></a>Conceitos da visualização do compartilhamento de dados do Azure 
+# <a name="azure-data-share-concepts"></a>Conceitos de compartilhamento de dados do Azure 
 
-A visualização do compartilhamento de dados do Azure apresenta uma nova terminologia relacionada ao compartilhamento de dados. Este artigo explica alguns termos usados com frequência que você pode ver em todo o serviço. 
+O compartilhamento de dados do Azure apresenta uma nova terminologia relacionada ao compartilhamento de dados. Este artigo explica alguns termos usados com frequência que você pode ver em todo o serviço. 
 
 ## <a name="data-provider"></a>Provedor de dados
 
@@ -47,7 +47,7 @@ Um provedor de dados pode habilitar uma configuração de instantâneo para um c
 
 Se um provedor de dados habilitar essa configuração, um intervalo de recorrência poderá ser selecionado. O intervalo de recorrência pode ser por hora ou por dia. 
 
-Um consumidor de dados tem a opção de aceitar esse agendamento de instantâneo para receber atualizações incrementais, que incluem todos os dados que foram alterados desde a primeira geração de um novo instantâneo. 
+Um consumidor de dados tem a opção de aceitar esse agendamento de instantâneo para receber atualizações incrementais, que inclui todos os dados que foram alterados desde a primeira geração de um novo instantâneo. 
 
 ## <a name="invitation"></a>Convite
 
@@ -64,4 +64,3 @@ Um destinatário é alguém que recebe um convite para um compartilhamento de da
 ## <a name="next-steps"></a>Passos seguintes
 
 Para saber como começar a compartilhar dados, continue no tutorial [compartilhar seus dados](share-your-data.md) .
-

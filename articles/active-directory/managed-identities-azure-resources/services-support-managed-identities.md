@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f4a5ae01376358ca78cd804cc853489ca007217
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 0731510977c01b08d9aa557246dce3bd92b2f826
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264237"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473225"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que dão suporte a identidades gerenciadas para recursos do Azure
 
@@ -32,12 +32,12 @@ Os seguintes serviços do Azure dão suporte a identidades gerenciadas para recu
 
 | Tipo de identidade gerenciada | Todos disponíveis de forma geral<br>Regiões globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistema atribuído | Disponível | Pré-visualização | Pré-visualização | Pré-visualização | 
-| Utilizador atribuído | Disponível | Pré-visualização | Pré-visualização | Pré-visualização |
+| Atribuído pelo sistema | Disponível | Pré-visualização | Pré-visualização | Pré-visualização | 
+| Atribuído pelo usuário | Disponível | Pré-visualização | Pré-visualização | Pré-visualização |
 
 Consulte a lista a seguir para configurar a identidade gerenciada para máquinas virtuais do Azure (em regiões onde disponível):
 
-- [Azure portal](qs-configure-portal-windows-vm.md)
+- [Portal do Azure](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](qs-configure-cli-windows-vm.md)
 - [Modelos de Azure Resource Manager](qs-configure-template-windows-vm.md)
@@ -47,12 +47,12 @@ Consulte a lista a seguir para configurar a identidade gerenciada para máquinas
 
 |Tipo de identidade gerenciada | Todos disponíveis de forma geral<br>Regiões globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistema atribuído | Disponível | Pré-visualização | Pré-visualização | Pré-visualização |
-| Utilizador atribuído | Disponível | Pré-visualização | Pré-visualização | Pré-visualização |
+| Atribuído pelo sistema | Disponível | Pré-visualização | Pré-visualização | Pré-visualização |
+| Atribuído pelo usuário | Disponível | Pré-visualização | Pré-visualização | Pré-visualização |
 
 Consulte a lista a seguir para configurar a identidade gerenciada para conjuntos de dimensionamento de máquinas virtuais do Azure (em regiões onde disponível):
 
-- [Azure portal](qs-configure-portal-windows-vm.md)
+- [Portal do Azure](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](qs-configure-cli-windows-vm.md)
 - [Modelos de Azure Resource Manager](qs-configure-template-windows-vm.md)
@@ -62,12 +62,12 @@ Consulte a lista a seguir para configurar a identidade gerenciada para conjuntos
 
 | Tipo de identidade gerenciada | Todos disponíveis de forma geral<br>Regiões globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistema atribuído | Disponível | Disponível | Disponível | Disponível |
-| Utilizador atribuído | Disponível | Indisponível | Indisponível | Indisponível |
+| Atribuído pelo sistema | Disponível | Disponível | Disponível | Disponível |
+| Atribuído pelo usuário | Disponível | Não disponível | Não disponível | Não disponível |
 
 Consulte a lista a seguir para configurar a identidade gerenciada para o serviço de Azure App (em regiões onde estiver disponível):
 
-- [Azure portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [Portal do Azure](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [CLI do Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Modelo do Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
@@ -76,8 +76,8 @@ Consulte a lista a seguir para configurar a identidade gerenciada para o serviç
 
 |Tipo de identidade gerenciada | Todos disponíveis de forma geral<br>Regiões globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistema atribuído | Disponível | Disponível | Indisponível | Indisponível |
-| Utilizador atribuído | Disponível | Disponível | Indisponível | Indisponível |
+| Atribuído pelo sistema | Disponível | Disponível | Não disponível | Não disponível |
+| Atribuído pelo usuário | Disponível | Disponível | Não disponível | Não disponível |
 
 Consulte a lista a seguir para usar uma identidade gerenciada com [plantas do Azure](../../governance/blueprints/overview.md):
 
@@ -88,12 +88,12 @@ Consulte a lista a seguir para usar uma identidade gerenciada com [plantas do Az
 
 Tipo de identidade gerenciada |Todos disponíveis de forma geral<br>Regiões globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistema atribuído | Disponível | Disponível | Disponível | Disponível |
-| Utilizador atribuído | Disponível | Indisponível | Indisponível | Indisponível |
+| Atribuído pelo sistema | Disponível | Disponível | Disponível | Disponível |
+| Atribuído pelo usuário | Disponível | Não disponível | Não disponível | Não disponível |
 
 Consulte a lista a seguir para configurar a identidade gerenciada para Azure Functions (em regiões onde estiver disponível):
 
-- [Azure portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [Portal do Azure](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [CLI do Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Modelo do Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
@@ -102,24 +102,24 @@ Consulte a lista a seguir para configurar a identidade gerenciada para Azure Fun
 
 Tipo de identidade gerenciada | Todos disponíveis de forma geral<br>Regiões globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistema atribuído | Pré-visualização | Pré-visualização | Indisponível | Pré-visualização |
-| Utilizador atribuído | Indisponível | Indisponível | Indisponível | Indisponível |
+| Atribuído pelo sistema | Pré-visualização | Pré-visualização | Não disponível | Pré-visualização |
+| Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
 
 Consulte a lista a seguir para configurar a identidade gerenciada para aplicativos lógicos do Azure (em regiões onde disponível):
 
-- [Azure portal](/azure/logic-apps/create-managed-service-identity#azure-portal)
+- [Portal do Azure](/azure/logic-apps/create-managed-service-identity#azure-portal-system-logic-app)
 - [Modelo do Azure Resource Manager](/azure/app-service/overview-managed-identity)
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
 
 Tipo de identidade gerenciada | Todos disponíveis de forma geral<br>Regiões globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistema atribuído | Disponível | Indisponível | Indisponível | Indisponível |
-| Utilizador atribuído | Indisponível | Indisponível | Indisponível | Indisponível |
+| Atribuído pelo sistema | Disponível | Não disponível | Não disponível | Não disponível |
+| Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
 
 Consulte a lista a seguir para configurar a identidade gerenciada para Azure Data Factory v2 (em regiões onde disponível):
 
-- [Azure portal](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
+- [Portal do Azure](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
 - [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
@@ -128,8 +128,8 @@ Consulte a lista a seguir para configurar a identidade gerenciada para Azure Dat
 
 Tipo de identidade gerenciada | Todos disponíveis de forma geral<br>Regiões globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistema atribuído | Disponível | Disponível | Indisponível | Indisponível |
-| Utilizador atribuído | Indisponível | Indisponível | Indisponível | Indisponível |
+| Atribuído pelo sistema | Disponível | Disponível | Não disponível | Não disponível |
+| Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
 
 Consulte a lista a seguir para configurar a identidade gerenciada para o gerenciamento de API do Azure (em regiões onde disponível):
 
@@ -139,8 +139,8 @@ Consulte a lista a seguir para configurar a identidade gerenciada para o gerenci
 
 Tipo de identidade gerenciada | Todos disponíveis de forma geral<br>Regiões globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistema atribuído | Linux: Pré-visualização<br>Windows: Indisponível | Indisponível | Indisponível | Indisponível |
-| Utilizador atribuído | Linux: Pré-visualização<br>Windows: Indisponível | Indisponível | Indisponível | Indisponível |
+| Atribuído pelo sistema | Linux: versão prévia<br>Windows: não disponível | Não disponível | Não disponível | Não disponível |
+| Atribuído pelo usuário | Linux: versão prévia<br>Windows: não disponível | Não disponível | Não disponível | Não disponível |
 
 Consulte a lista a seguir para configurar a identidade gerenciada para instâncias de contêiner do Azure (em regiões onde disponível):
 
@@ -152,8 +152,8 @@ Consulte a lista a seguir para configurar a identidade gerenciada para instânci
 
 Tipo de identidade gerenciada | Todos disponíveis de forma geral<br>Regiões globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistema atribuído | Disponível | Indisponível | Indisponível | Indisponível |
-| Utilizador atribuído | Pré-visualização | Indisponível | Indisponível | Indisponível |
+| Atribuído pelo sistema | Disponível | Não disponível | Não disponível | Não disponível |
+| Atribuído pelo usuário | Pré-visualização | Não disponível | Não disponível | Não disponível |
 
 Consulte a lista a seguir para configurar a identidade gerenciada para tarefas do registro de contêiner do Azure (em regiões onde disponível):
 
@@ -163,7 +163,7 @@ Consulte a lista a seguir para configurar a identidade gerenciada para tarefas d
 
 Os serviços a seguir dão suporte à autenticação do Azure AD e foram testados com os serviços de cliente que usam identidades gerenciadas para recursos do Azure.
 
-### <a name="azure-resource-manager"></a>Azure Resource Manager
+### <a name="azure-resource-manager"></a>Gestor de Recursos do Azure
 
 Consulte a lista a seguir para configurar o acesso ao Azure Resource Manager:
 
@@ -172,7 +172,7 @@ Consulte a lista a seguir para configurar o acesso ao Azure Resource Manager:
 - [Atribuir acesso via CLI do Azure](howto-assign-access-CLI.md)
 - [Atribuir acesso via modelo de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md)
 
-| Nuvem | ID de recurso | State |
+| Nuvem | ID do Recurso | Estado |
 |--------|------------|--------|
 | Global do Azure | `https://management.azure.com/`| Disponível |
 | Azure Government | `https://management.usgovcloudapi.net/` | Disponível |
@@ -181,7 +181,7 @@ Consulte a lista a seguir para configurar o acesso ao Azure Resource Manager:
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
 
-| Nuvem | ID de recurso | State |
+| Nuvem | ID do Recurso | Estado |
 |--------|------------|--------|
 | Global do Azure | `https://vault.azure.net`| Disponível |
 | Azure Government | `https://vault.usgovcloudapi.net` | Disponível |
@@ -190,7 +190,7 @@ Consulte a lista a seguir para configurar o acesso ao Azure Resource Manager:
 
 ### <a name="azure-data-lake"></a>Azure Data Lake 
 
-| Nuvem | ID de recurso | State |
+| Nuvem | ID do Recurso | Estado |
 |--------|------------|--------|
 | Global do Azure | `https://datalake.azure.net/` | Disponível |
 | Azure Government |  | Não Disponível |
@@ -199,7 +199,7 @@ Consulte a lista a seguir para configurar o acesso ao Azure Resource Manager:
 
 ### <a name="azure-sql"></a>SQL do Azure 
 
-| Nuvem | ID de recurso | State |
+| Nuvem | ID do Recurso | Estado |
 |--------|------------|--------|
 | Global do Azure | `https://database.windows.net/` | Disponível |
 | Azure Government | `https://database.usgovcloudapi.net/` | Disponível |
@@ -208,16 +208,16 @@ Consulte a lista a seguir para configurar o acesso ao Azure Resource Manager:
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
 
-| Nuvem | ID de recurso | State |
+| Nuvem | ID do Recurso | Estado |
 |--------|------------|--------|
 | Global do Azure | `https://eventhubs.azure.net` | Disponível |
 | Azure Government |  | Não Disponível |
 | Azure Alemanha |   | Não Disponível |
 | Azure China 21Vianet |  | Não Disponível |
 
-### <a name="azure-service-bus"></a>Service Bus do Azure
+### <a name="azure-service-bus"></a>Azure Service Bus
 
-| Nuvem | ID de recurso | State |
+| Nuvem | ID do Recurso | Estado |
 |--------|------------|--------|
 | Global do Azure | `https://servicebus.azure.net`  | Disponível |
 | Azure Government |  | Disponível |
@@ -234,7 +234,7 @@ Consulte a lista a seguir para configurar o acesso ao Azure Resource Manager:
 
 ### <a name="azure-storage-blobs-and-queues"></a>BLOBs e filas do armazenamento do Azure
 
-| Nuvem | ID de recurso | State |
+| Nuvem | ID do Recurso | Estado |
 |--------|------------|--------|
 | Global do Azure | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Disponível |
 | Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | Disponível |
@@ -252,7 +252,7 @@ Consulte a lista a seguir para configurar o acesso ao Azure Resource Manager:
 
 ### <a name="azure-analysis-services"></a>Azure Analysis Services
 
-| Nuvem | ID de recurso | State |
+| Nuvem | ID do Recurso | Estado |
 |--------|------------|--------|
 | Global do Azure | `https://*.asazure.windows.net` | Disponível |
 | Azure Government | `https://*.asazure.usgovcloudapi.net` | Disponível |

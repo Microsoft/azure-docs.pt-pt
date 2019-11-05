@@ -8,26 +8,26 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: gwallace
-ms.openlocfilehash: 9e7b7526f13fa6b9ae648c4ddb4004a627d85154
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: cc5b142558a21d1364254e555f3cf8f64bba0e58
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359747"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469012"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configurando o SSL para um aplicativo no Azure
 
 A encriptação Secure Socket Layer (SSL) é o método mais utilizado para proteger dados enviados através da Internet. Esta tarefa comum debate como especificar um ponto final HTTPS para uma função Web e como carregar um certificado SSL para proteger a sua aplicação.
 
 > [!NOTE]
-> Os procedimentos nesta tarefa se aplicam aos serviços de nuvem do Azure; para serviços de aplicativos, consulte [isto](../app-service/app-service-web-tutorial-custom-ssl.md).
+> Os procedimentos nesta tarefa se aplicam aos serviços de nuvem do Azure; para serviços de aplicativos, consulte [isto](../app-service/configure-ssl-bindings.md).
 >
 
 Essa tarefa usa uma implantação de produção. Informações sobre como usar uma implantação de preparo são fornecidas no final deste tópico.
 
 Leia [isso](cloud-services-how-to-create-deploy-portal.md) primeiro se você ainda não tiver criado um serviço de nuvem.
 
-## <a name="step-1-get-an-ssl-certificate"></a>Passo 1: Obter um certificado SSL
+## <a name="step-1-get-an-ssl-certificate"></a>Etapa 1: obter um certificado SSL
 Para configurar o SSL para um aplicativo, primeiro você precisa obter um certificado SSL assinado por uma autoridade de certificação (CA), um terceiro confiável que emite certificados para essa finalidade. Se você ainda não tiver um, precisará obter um de uma empresa que vende certificados SSL.
 
 O certificado deve atender aos seguintes requisitos para certificados SSL no Azure:
@@ -43,10 +43,10 @@ Em seguida, você deve incluir informações sobre o certificado em sua definiç
 
 <a name="modify"> </a>
 
-## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Passo 2: Modificar os arquivos de configuração e definição de serviço
+## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Etapa 2: modificar os arquivos de configuração e definição de serviço
 Seu aplicativo deve ser configurado para usar o certificado e um ponto de extremidade HTTPS deve ser adicionado. Como resultado, os arquivos de definição de serviço e configuração de serviço precisam ser atualizados.
 
-1. No ambiente de desenvolvimento, abra o arquivo de definição de serviço (CSDEF), adicione uma seção **certificados** na seção WebRole e inclua as seguintes informações sobre o certificado (e os certificados intermediários):
+1. No ambiente de desenvolvimento, abra o arquivo de definição de serviço (CSDEF), adicione uma seção **certificados** na seção **WebRole** e inclua as seguintes informações sobre o certificado (e os certificados intermediários):
 
    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -74,7 +74,7 @@ Seu aplicativo deve ser configurado para usar o certificado e um ponto de extrem
 
    A seção **certificados** define o nome do nosso certificado, sua localização e o nome da loja onde ele está localizado.
 
-   As permissões`permissionLevel` (atributo) podem ser definidas como um dos seguintes valores:
+   As permissões (atributo`permissionLevel`) podem ser definidas como um dos seguintes valores:
 
    | Valor de permissão | Descrição |
    | --- | --- |
@@ -132,7 +132,7 @@ Seu aplicativo deve ser configurado para usar o certificado e um ponto de extrem
 
 Agora que os arquivos de definição de serviço e configuração de serviço foram atualizados, empacote a implantação para carregar no Azure. Se você estiver usando **CSPack**, não use o sinalizador **/generateConfigurationFile** , pois isso substituirá as informações de certificado que você acabou de inserir.
 
-## <a name="step-3-upload-a-certificate"></a>Passo 3: Carregar um certificado
+## <a name="step-3-upload-a-certificate"></a>Etapa 3: carregar um certificado
 Conectar-se ao portal do Azure e...
 
 1. Na seção **todos os recursos** do portal, selecione seu serviço de nuvem.
@@ -149,7 +149,7 @@ Conectar-se ao portal do Azure e...
 
 4. Forneça o **arquivo**, a **senha**e clique em **carregar** na parte inferior da área de entrada de dados.
 
-## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Passo 4: Conectar-se à instância de função usando HTTPS
+## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Etapa 4: conectar-se à instância de função usando HTTPS
 Agora que sua implantação está em execução no Azure, você pode se conectar a ela usando HTTPS.
 
 1. Clique na **URL do site** para abrir o navegador da Web.
@@ -166,7 +166,7 @@ Agora que sua implantação está em execução no Azure, você pode se conectar
    ![Visualização do site](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
    > [!TIP]
-   > Se você quiser usar SSL para uma implantação de preparo em vez de uma implantação de produção, primeiro será necessário determinar a URL usada para a implantação de preparo. Depois que o serviço de nuvem tiver sido implantado, a URL para o ambiente de preparo será determinada pelo GUID da **ID de implantação** neste formato:`https://deployment-id.cloudapp.net/`  
+   > Se você quiser usar SSL para uma implantação de preparo em vez de uma implantação de produção, primeiro será necessário determinar a URL usada para a implantação de preparo. Depois que o serviço de nuvem tiver sido implantado, a URL para o ambiente de preparo será determinada pelo GUID da **ID de implantação** neste formato: `https://deployment-id.cloudapp.net/`  
    >
    > Crie um certificado com o nome comum (CN) igual à URL baseada em GUID (por exemplo, **328187776e774ceda8fc57609d404462.cloudapp.net**). Use o portal para adicionar o certificado ao serviço de nuvem em etapas. Em seguida, adicione as informações do certificado aos seus arquivos CSDEF e CSCFG, reempacote seu aplicativo e atualize sua implantação em etapas para usar o novo pacote.
    >

@@ -1,7 +1,7 @@
 ---
 title: Suporte a idiomas-LUIS
 titleSuffix: Azure Cognitive Services
-description: LUIS tem uma variedade de funcionalidades no serviço. Nem todas as funcionalidades são em paridade de linguagem mesmo. Certifique-se de que os recursos de que interesse são suportados na cultura do idioma que estiver a filtrar. Uma aplicação do LUIS é específica da cultura e não pode ser alterada depois de definida.
+description: O LUIS tem uma variedade de recursos dentro do serviço. Nem todos os recursos estão na mesma paridade de linguagem. Verifique se os recursos dos quais você está interessado têm suporte na cultura de idioma para a qual você está se concentrando. Um aplicativo LUIS é específico da cultura e não pode ser alterado após ser definido.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,87 +9,80 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/16/2019
 ms.author: diberry
-ms.openlocfilehash: bd1e665114fff4d5b7b0b2dca267207bdeebab56
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 383cade6e8bb5f66aa240564912056ec345a1ee6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949555"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500207"
 ---
-# <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para LUIS
+# <a name="language-and-region-support-for-luis"></a>Suporte a idiomas e regiões para LUIS
 
-LUIS tem uma variedade de funcionalidades no serviço. Nem todas as funcionalidades são em paridade de linguagem mesmo. Certifique-se de que os recursos de que interesse são suportados na cultura do idioma que estiver a filtrar. Uma aplicação do LUIS é específica da cultura e não pode ser alterada depois de definida.
+O LUIS tem uma variedade de recursos dentro do serviço. Nem todos os recursos estão na mesma paridade de linguagem. Verifique se os recursos dos quais você está interessado têm suporte na cultura de idioma para a qual você está se concentrando. Um aplicativo LUIS é específico da cultura e não pode ser alterado após ser definido.
 
-## <a name="multi-language-luis-apps"></a>Aplicações de vários idiomas LUIS
+## <a name="multi-language-luis-apps"></a>Aplicativos LUIS de vários idiomas
 
-Se precisar de uma aplicação de cliente do LUIS de vários idioma, como um chatbot, tem algumas opções. Se o LUIS suportar todos os idiomas, vai desenvolver uma aplicação LUIS para cada idioma. Cada aplicação LUIS tem um ID de aplicação exclusivo e o registo do ponto final. Se tiver de fornecer a linguagem de compreensão de um idioma não suporta o LUIS, pode utilizar [API do Microsoft Translator](../Translator/translator-info-overview.md) para traduzir a expressão num idioma suportado, submeta a expressão para o ponto de extremidade do LUIS e receber o pontuações resultantes.
+Se você precisar de um aplicativo cliente LUIS em vários idiomas, como um chatbot, terá algumas opções. Se o LUIS der suporte a todos os idiomas, você desenvolverá um aplicativo LUIS para cada idioma. Cada aplicativo LUIS tem uma ID de aplicativo exclusiva e um log de ponto de extremidade. Se você precisar fornecer uma compreensão de linguagem para um idioma LUIS não suporta, você pode usar a [API do Microsoft Translator](../Translator/translator-info-overview.md) para converter o expressão em um idioma com suporte, enviar o expressão para o ponto de extremidade do Luis e receber as pontuações resultantes.
 
-## <a name="languages-supported"></a>Idiomas suportados
+## <a name="languages-supported"></a>Idiomas com suporte
 
-LUIS compreende expressões com nos seguintes idiomas:
+LUIS compreende declarações nos seguintes idiomas:
 
-| Idioma |Região  |  Domínio pré-criado | Entidade pré-criados | Recomendações da lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimentos e<br>Palavras-chave)|
+| Idioma |Região  |  Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimentos e<br>Palavras-chave|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês americano |`en-US` | ✔ | ✔  |✔|✔|
-| *[Chinês](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| Neerlandês |`nl-NL` |✔|  -   |-|✔|
+| *[chinês](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
+| Holandês |`nl-NL` |✔|  -   |-|✔|
 | Francês (França) |`fr-FR` |✔| ✔ |✔ |✔|
 | Francês (Canadá) |`fr-CA` |-|   -   |-|✔|
 | Alemão |`de-DE` |✔| ✔ |✔ |✔|
 | Hindi | `hi-IN`|-|-|-|-|
 | Italiano |`it-IT` |✔| ✔ |✔|✔|
-| *[Japonês](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Apenas expressões-chave|
-| Coreano |`ko-KR` |✔|   -   |-|Apenas expressões-chave|
-| Português (Brasil) |`pt-BR` |✔| ✔ |✔ |nem todas as culturas secundárias|
+| *[japonês](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Somente frase-chave|
+| Coreano |`ko-KR` |✔|   -   |-|Somente frase-chave|
+| Português (Brasil) |`pt-BR` |✔| ✔ |✔ |Nem todas as subculturas|
 | Espanhol (Espanha) |`es-ES` |✔| ✔ |✔|✔|
 | Espanhol (México)|`es-MX` |-|  -   |✔|✔|
 | Turco | `tr-TR` |✔|-|-|Somente sentimentos|
 
+O suporte ao idioma varia para [entidades predefinidas](luis-reference-prebuilt-entities.md) e [domínios predefinidos](luis-reference-prebuilt-domains.md).
 
-Suporte de idiomas varia para [entidades pré-concebidas](luis-reference-prebuilt-entities.md) e [domínios pré-concebidos](luis-reference-prebuilt-domains.md).
+[!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]
 
-### <a name="chinese-support-notes"></a>\* Notas de suporte chinês
+### <a name="japanese-support-notes"></a>\* Notas de suporte em Japonês
 
- - Na `zh-cn` cultura, LUIS espera que o caractere do chinês simplificado, em vez do conjunto de caracteres tradicional.
- - Os nomes de objetivos, entidades, funcionalidades e as expressões regulares podem ser em chinês ou numeral carateres.
- - Consulte a [referência de domínios pré-criados](luis-reference-prebuilt-domains.md) para obter informações sobre quais domínios pré-criados têm suporte na cultura `zh-cn`.
-<!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
-
-### <a name="japanese-support-notes"></a>\* Notas de suporte japonês
-
- - Como o LUIS não fornece análise sintática e não saberá a diferença entre Keigo e japonês informal, tem de incorporar os diferentes níveis de formalidade como exemplos de treinamento para as suas aplicações.
+ - Como o LUIS não fornece análise sintática e não entenderá a diferença entre Keigo e informais em Japonês, você precisa incorporar os diferentes níveis de formalização como exemplos de treinamento para seus aplicativos.
      - でございます não é o mesmo que です.
      - です não é o mesmo que だ.
 
-### <a name="text-analytics-support-notes"></a>\* * Notas de suporte de análise de texto
-Análise de texto inclui keyPhrase pré-criados de análise de sentimentos e entidades. Português apenas é suportado para subcultures: `pt-PT` e `pt-BR`. Todas as outras culturas são suportadas ao nível da cultura principal. Saiba mais sobre a análise de texto [idiomas suportados](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages).
+[!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
 
-### <a name="speech-api-supported-languages"></a>Idiomas suportado de API de voz
-Consulte Voz [idiomas suportados](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode) para idiomas de modo de ditado de voz.
+### <a name="speech-api-supported-languages"></a>Speech API idiomas com suporte
+Consulte [idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode) de fala para idiomas do modo de ditado de fala.
 
-### <a name="bing-spell-check-supported-languages"></a>Verificação ortográfica do Bing suportado idiomas
-Ver a verificação ortográfica do Bing [idiomas suportados](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) para obter uma lista de idiomas suportados e o estado.
+### <a name="bing-spell-check-supported-languages"></a>Verificação Ortográfica do Bing idiomas com suporte
+Consulte Verificação Ortográfica do Bing [idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) para obter uma lista de idiomas e status com suporte.
 
-## <a name="rare-or-foreign-words-in-an-application"></a>Palavras raro ou externas num aplicativo
-Na `en-us` cultura, LUIS aprende a distinguir palavras mais em inglês, incluindo gíria. Na `zh-cn` cultura, LUIS aprende a distinguir a maioria dos caracteres do chinês. Se utilizar uma palavra raro no `en-us` ou caráter no `zh-cn`, e verá que o LUIS parece não é possível distinguir essa palavra ou caráter, que pode adicionar essa palavra ou de caracteres para um [recurso lista frase](luis-how-to-add-features.md). Por exemplo, palavras fora a cultura da aplicação – ou seja, palavras estrangeiras – devem ser adicionadas a um recurso de lista de frase. 
+## <a name="rare-or-foreign-words-in-an-application"></a>Palavras raras ou estrangeiras em um aplicativo
+Na cultura de `en-us`, o LUIS aprende a distinguir a maioria das palavras em inglês, incluindo gírias. Na cultura `zh-cn`, o LUIS aprende a distinguir a maioria dos caracteres chineses. Se você usar uma palavra rara em `en-us` ou caractere no `zh-cn`, e perceber que LUIS parece não conseguir distinguir essa palavra ou caractere, você pode adicionar essa palavra ou caractere a um [recurso de lista de frases](luis-how-to-add-features.md). Por exemplo, palavras fora da cultura do aplicativo, ou seja, palavras estrangeiras, devem ser adicionadas a um recurso de lista de frases. 
 
 <!--This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.-->
 
-### <a name="hybrid-languages"></a>Idiomas híbrida
-Idiomas híbrida combinam palavras de dois culturas, como inglês e chinês. Essas linguagens não são suportadas no LUIS, como uma aplicação se baseia numa cultura única.
+### <a name="hybrid-languages"></a>Idiomas híbridos
+Os idiomas híbridos combinam palavras de duas culturas, como Inglês e chinês. Não há suporte para esses idiomas no LUIS porque um aplicativo é baseado em uma única cultura.
 
-## <a name="tokenization"></a>Atomização
-Para fazer o machine learning, o LUIS divide uma expressão em [tokens](luis-glossary.md#token) com base na cultura.
+## <a name="tokenization"></a>Tokens
+Para executar o Machine Learning, o LUIS quebra um expressão em [tokens](luis-glossary.md#token) com base na cultura.
 
-|Idioma|  cada espaço ou caráter especial | nível de caractere|palavras compostas|[entidade com token devolvida](luis-concept-data-extraction.md#tokenized-entity-returned)
+|Idioma|  cada espaço ou caractere especial | nível de caractere|palavras compostas|[entidade indexada retornada](luis-concept-data-extraction.md#tokenized-entity-returned)
 |--|:--:|:--:|:--:|:--:|
 |Chinês||✔||✔|
-|Neerlandês|||✔|✔|
+|Holandês|||✔|✔|
 |Inglês (en-us)|✔ ||||
 |Francês (fr-FR)|✔||||
-|Francês (fr-AC)|✔||||
+|Francês (fr-CA)|✔||||
 |Alemão|||✔|✔|
 | Hindi |✔|-|-|-|-|
 |Italiano|✔||||
@@ -103,10 +96,10 @@ Para fazer o machine learning, o LUIS divide uma expressão em [tokens](luis-glo
 
 As seguintes culturas têm versões de criador personalizadas:
 
-|Cultura|Version|Objetivo|
+|Cultura|Versão|Objetivo|
 |--|--|--|
-|Alemão<br>`de-de`|1.0.0|Cria tokens palavras dividindo-as usando um criador baseado em Machine Learning que tenta dividir palavras compostas em seus componentes únicos.<br>Se um usuário inserir `Ich fahre einen krankenwagen` como um expressão, ele será ativado para `Ich fahre einen kranken wagen`. Permitir a marcação de `kranken` e `wagen` independentemente de entidades diferentes.|
-|Alemão<br>`de-de`|1.0.2|Cria tokens palavras dividindo-as em espaços.<br> se um usuário inserir `Ich fahre einen krankenwagen` como um expressão, ele permanecerá um único token. Assim, `krankenwagen` é marcado como uma única entidade. |
+|Alemão<br>`de-de`|1.0.0|Cria tokens palavras dividindo-as usando um criador baseado em Machine Learning que tenta dividir palavras compostas em seus componentes únicos.<br>Se um usuário inserir `Ich fahre einen krankenwagen` como um expressão, ele será ativado para `Ich fahre einen kranken wagen`. Permitir a marcação de `kranken` e `wagen` de forma independente como entidades diferentes.|
+|Alemão<br>`de-de`|1.0.2|Cria tokens palavras dividindo-as em espaços.<br> se um usuário inserir `Ich fahre einen krankenwagen` como um expressão, ele permanecerá como um único token. Portanto `krankenwagen` é marcado como uma única entidade. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migrando entre versões do criador
 <!--

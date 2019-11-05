@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 4d736556147797bcd007bdab1b5328deeadea712
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 2f24f5cacb8b6e115d7fe91c6ef0a7a333676ae1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827354"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472849"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre o AKS (serviço kubernetes do Azure)
 
@@ -33,7 +33,7 @@ Sim, você pode implantar um cluster AKS em uma rede virtual existente usando o 
 
 ## <a name="can-i-limit-who-has-access-to-the-kubernetes-api-server"></a>Posso limitar quem tem acesso ao servidor de API do kubernetes?
 
-Sim, você pode limitar o acesso ao servidor de API kubernetes usando [intervalos de IP autorizados do servidor de API][api-server-authorized-ip-ranges], que está atualmente em versão prévia.
+Sim, você pode limitar o acesso ao servidor de API kubernetes usando [intervalos de IP autorizados do servidor de API][api-server-authorized-ip-ranges].
 
 ## <a name="can-i-make-the-kubernetes-api-server-accessible-only-within-my-virtual-network"></a>Posso tornar o servidor de API kubernetes acessível somente dentro da minha rede virtual?
 
@@ -41,7 +41,7 @@ Não neste momento, mas isso está planejado. Você pode acompanhar o progresso 
 
 ## <a name="can-i-have-different-vm-sizes-in-a-single-cluster"></a>Posso ter diferentes tamanhos de VM em um único cluster?
 
-Sim, você pode usar diferentes tamanhos de máquina virtual em seu cluster AKS criando [vários pools de nós][multi-node-pools], que estão atualmente em visualização.
+Sim, você pode usar diferentes tamanhos de máquina virtual em seu cluster AKS criando [vários pools de nós][multi-node-pools].
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>As atualizações de segurança são aplicadas aos nós do agente do AKS?
 
@@ -49,7 +49,7 @@ O Azure aplica automaticamente patches de segurança aos nós do Linux em seu cl
 
 - Manualmente, por meio do portal do Azure ou do CLI do Azure.
 - Atualizando o cluster AKS. O cluster atualiza os [nós Cordon e dreno][cordon-drain] automaticamente e, em seguida, coloca um novo nó online com a imagem mais recente do Ubuntu e uma nova versão do patch ou uma versão secundária do kubernetes. Para obter mais informações, consulte [atualizar um cluster AKs][aks-upgrade].
-- Usando o [Kured](https://github.com/weaveworks/kured), um daemon de reinicialização de código aberto para kubernetes. Kured é executado como [](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) um daemonset e monitora cada nó para a presença de um arquivo que indica que uma reinicialização é necessária. No cluster, as reinicializações do sistema operacional são gerenciadas pelo mesmo [processo de Cordon e drenagem][cordon-drain] como uma atualização de cluster.
+- Usando o [Kured](https://github.com/weaveworks/kured), um daemon de reinicialização de código aberto para kubernetes. Kured é executado como um [daemonset](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) e monitora cada nó para a presença de um arquivo que indica que uma reinicialização é necessária. No cluster, as reinicializações do sistema operacional são gerenciadas pelo mesmo [processo de Cordon e drenagem][cordon-drain] como uma atualização de cluster.
 
 Para obter mais informações sobre como usar o kured, consulte [aplicar segurança e atualizações de kernel a nós no AKs][node-updates-kured].
 
@@ -118,20 +118,20 @@ O suporte do Windows Server para pool de nós inclui algumas limitações que fa
 
 Em um SLA (contrato de nível de serviço), o provedor concorda em reembolsar o cliente pelo custo do serviço se o nível de serviço publicado não for atendido. Como o AKS é gratuito, nenhum custo está disponível para reembolsar, portanto, o AKS não tem SLA formal. No entanto, o AKS busca manter a disponibilidade de pelo menos 99,5 por cento para o servidor de API do kubernetes.
 
-É importante reconhecer a distinção entre a disponibilidade do serviço AKS, que se refere ao tempo de atividade do plano de controle kubernetes e à disponibilidade de sua carga de trabalho específica que está sendo executada em máquinas virtuais do Azure. Embora o plano de controle possa ficar indisponível se o plano de controle não estiver pronto, suas cargas de trabalho de cluster em execução nas VMs do Azure ainda poderão funcionar. Dadas as VMs do Azure são recursos pagos que são apoiados por um SLA financeiro. Leia [aqui para obter mais detalhes](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/) sobre o SLA de VM do Azure e como aumentar essa disponibilidade com recursos como [zonas de disponibilidade][availability-zones].
+É importante reconhecer a distinção entre a disponibilidade do serviço AKS, que se refere ao tempo de atividade do plano de controle kubernetes e à disponibilidade de sua carga de trabalho específica que está sendo executada em máquinas virtuais do Azure. Embora o plano de controle possa ficar indisponível se o plano de controle não estiver pronto, suas cargas de trabalho de cluster em execução nas VMs do Azure ainda poderão funcionar. Dadas as VMs do Azure são recursos pagos que são apoiados por um SLA financeiro. Leia [aqui para obter mais detalhes](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) sobre o SLA de VM do Azure e como aumentar essa disponibilidade com recursos como [zonas de disponibilidade][availability-zones].
 
 ## <a name="why-cant-i-set-maxpods-below-30"></a>Por que não posso definir maxPods abaixo de 30?
 
-No AKs, você pode definir o `maxPods` valor ao criar o cluster usando os modelos CLI do Azure e Azure Resource Manager. No entanto, Kubenet e CNI do Azure exigem um *valor mínimo* (validado no momento da criação):
+No AKS, você pode definir o valor de `maxPods` ao criar o cluster usando os modelos CLI do Azure e Azure Resource Manager. No entanto, Kubenet e CNI do Azure exigem um *valor mínimo* (validado no momento da criação):
 
 | Redes | Mínimo | Máximo |
 | -- | :--: | :--: |
-| Azure CNI | 30 | 250 |
+| CNI do Azure | 30 | 250 |
 | Kubenet | 30 | 110 |
 
-Como o AKS é um serviço gerenciado, implantamos e gerenciamos Complementos e pods como parte do cluster. No passado, os usuários podiam definir um `maxPods` valor menor do que o valor que o pods gerenciado exigia executar (por exemplo, 30). O AKS agora calcula o número mínimo de pods usando esta fórmula: ((maxPods ou (maxPods * vm_count)) > mínimo de pods de complemento gerenciado.
+Como o AKS é um serviço gerenciado, implantamos e gerenciamos Complementos e pods como parte do cluster. No passado, os usuários podiam definir um valor `maxPods` menor do que o valor que o pods gerenciado exigia executar (por exemplo, 30). O AKS agora calcula o número mínimo de pods usando esta fórmula: ((maxPods ou (maxPods * vm_count)) > mínimo de pods de complemento gerenciado.
 
-Os usuários não podem substituir `maxPods` a validação mínima.
+Os usuários não podem substituir a validação de `maxPods` mínima.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Posso aplicar descontos de reserva do Azure aos meus nós de agente do AKS?
 
@@ -139,7 +139,7 @@ Os nós de agente AKS são cobrados como máquinas virtuais padrão do Azure. po
 
 ## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>Posso mover/migrar meu cluster entre locatários do Azure?
 
-O `az aks update-credentials` comando pode ser usado para mover um cluster AKs entre locatários do Azure. Siga as instruções em [escolher para atualizar ou criar uma entidade de serviço](https://docs.microsoft.com/azure/aks/update-credentials) e, em seguida, [atualize o cluster AKs com novas credenciais](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-credentials).
+O comando `az aks update-credentials` pode ser usado para mover um cluster AKS entre locatários do Azure. Siga as instruções em [escolher para atualizar ou criar uma entidade de serviço](https://docs.microsoft.com/azure/aks/update-credentials) e, em seguida, [atualize o cluster AKs com novas credenciais](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-credentials).
 
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>Posso mover/migrar meu cluster entre assinaturas?
 
@@ -167,11 +167,11 @@ Normalmente, isso é causado por usuários que têm um ou mais NSGs (grupos de s
 
 ## <a name="i-ran-an-upgrade-but-now-my-pods-are-in-crash-loops-and-readiness-probes-fail"></a>Eu executei uma atualização, mas agora meus pods estão em loops de falha, e as investigações de prontidão falham?
 
-Confirme se sua entidade de serviço não expirou.  Consulte: [Entidade de serviço AKs](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) e [credenciais de atualização AKs](https://docs.microsoft.com/azure/aks/update-credentials).
+Confirme se sua entidade de serviço não expirou.  Consulte: [entidade de serviço AKs](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) e [credenciais de atualização do AKS](https://docs.microsoft.com/azure/aks/update-credentials).
 
 ## <a name="my-cluster-was-working-but-suddenly-can-not-provision-loadbalancers-mount-pvcs-etc"></a>Meu cluster estava funcionando, mas repentinamente não pode provisionar balanceadores de carga, PVCs de montagem, etc.? 
 
-Confirme se sua entidade de serviço não expirou.  Consulte: [Entidade de serviço AKs](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) e [credenciais de atualização AKs](https://docs.microsoft.com/azure/aks/update-credentials).
+Confirme se sua entidade de serviço não expirou.  Consulte: [entidade de serviço AKs](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) e [credenciais de atualização do AKS](https://docs.microsoft.com/azure/aks/update-credentials).
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>Posso usar as APIs do conjunto de dimensionamento de máquinas virtuais para dimensionar manualmente?
 

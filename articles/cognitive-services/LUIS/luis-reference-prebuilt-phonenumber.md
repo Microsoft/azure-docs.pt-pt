@@ -1,7 +1,7 @@
 ---
 title: Entidades predefinidas de número de telefone – LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informações de entidade pré-criados numéricas na compreensão de idiomas (LUIS) do telefone.
+description: Este artigo contém informações de entidade predefinidas de número de telefone em Reconhecimento vocal (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,39 +11,69 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 9e237b09bd2b0ecc3e91e10697f6c025f73057da
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 1cc7469bf6b29ed864fac3955dc8770aa879f84d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677438"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499533"
 ---
 # <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Entidade de número de telefone predefinida para um aplicativo LUIS
-O `phonenumber` entidade extrai uma variedade de números de telefone, incluindo o indicativo de país. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo para a aplicação. O `phonenumber` entidade é suportada no `en-us` apenas a cultura. 
+A entidade `phonenumber` extrai uma variedade de números de telefone, incluindo o código do país. Como essa entidade já está treinada, você não precisa adicionar o exemplo declarações ao aplicativo. A entidade `phonenumber` tem suporte apenas na cultura `en-us`. 
 
 ## <a name="types-of-a-phone-number"></a>Tipos de um número de telefone
 `Phonenumber` é gerenciado no repositório GitHub de [texto de reconhecedores](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml)
 
 ## <a name="resolution-for-this-prebuilt-entity"></a>Resolução para esta entidade predefinida
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
+Os seguintes objetos de entidade são retornados para a consulta:
 
-O exemplo seguinte mostra a resolução do **builtin.phonenumber** entidade.
+`my mobile is 1 (800) 642-7676`
+
+#### <a name="v3-responsetabv3"></a>[Resposta v3](#tab/V3)
+
+O JSON a seguir é com o parâmetro `verbose` definido como `false`:
 
 ```json
-{
-  "query": "my mobile is 1 (800) 642-7676",
-  "topScoringIntent": {
-    "intent": "None",
-    "score": 0.8448457
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.8448457
+"entities": {
+    "phonenumber": [
+        "1 (800) 642-7676"
+    ]
+}
+```
+#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3, resposta detalhada](#tab/V3-verbose)
+O JSON a seguir é com o parâmetro `verbose` definido como `true`:
+
+```json
+"entities": {
+    "phonenumber": [
+        "1 (800) 642-7676"
+    ],
+    "$instance": {
+
+        "phonenumber": [
+            {
+                "type": "builtin.phonenumber",
+                "text": "1 (800) 642-7676",
+                "startIndex": 13,
+                "length": 16,
+                "score": 1.0,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
     }
-  ],
-  "entities": [
+}
+```
+#### <a name="v2-responsetabv2"></a>[Resposta v2](#tab/V2)
+
+O exemplo a seguir mostra a resolução da entidade **Builtin. PhoneNumber** .
+
+```json
+"entities": [
     {
         "entity": "1 (800) 642-7676",
         "type": "builtin.phonenumber",
@@ -54,73 +84,12 @@ O exemplo seguinte mostra a resolução do **builtin.phonenumber** entidade.
             "value": "1 (800) 642-7676"
         }
     }
-  ]
-}
+]
 ```
-
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
-
-O JSON a seguir é com o parâmetro `verbose` definido como `false`:
-
-```json
-{
-    "query": "my mobile is 1 (800) 642-7676",
-    "prediction": {
-        "normalizedQuery": "my mobile is 1 (800) 642-7676",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.592748761
-            }
-        },
-        "entities": {
-            "phonenumber": [
-                "1 (800) 642-7676"
-            ]
-        }
-    }
-}
-```
-
-O JSON a seguir é com o parâmetro `verbose` definido como `true`:
-
-```json
-{
-    "query": "my mobile is 1 (800) 642-7676",
-    "prediction": {
-        "normalizedQuery": "my mobile is 1 (800) 642-7676",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.592748761
-            }
-        },
-        "entities": {
-            "phonenumber": [
-                "1 (800) 642-7676"
-            ],
-            "$instance": {
-                "phonenumber": [
-                    {
-                        "type": "builtin.phonenumber",
-                        "text": "1 (800) 642-7676",
-                        "startIndex": 13,
-                        "length": 16,
-                        "score": 1,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
-                ]
-            }
-        }
-    }
-}
-```
-
 * * * 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
 
-Saiba mais sobre o [percentagem](luis-reference-prebuilt-percentage.md), [número](luis-reference-prebuilt-number.md), e [temperatura](luis-reference-prebuilt-temperature.md) entidades. 
+Saiba mais sobre as entidades [percentual](luis-reference-prebuilt-percentage.md), [número](luis-reference-prebuilt-number.md)e [temperatura](luis-reference-prebuilt-temperature.md) . 

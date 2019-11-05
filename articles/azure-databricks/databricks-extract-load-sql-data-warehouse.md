@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: c2d7d7d97dce974ad8d72cc98f9ec6d3d554fb6d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: MT
+ms.openlocfilehash: 39f71e109b0d9d7b3b0375c0ec2c4d1e4a657994
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72783989"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469519"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: extrair, transformar e carregar dados usando Azure Databricks
 
@@ -65,7 +65,7 @@ Conclua estas tarefas antes de iniciar este tutorial:
 
    * Ao executar as etapas na seção [obter valores para entrar no](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artigo, Cole a ID do locatário, a ID do aplicativo e os valores de senha em um arquivo de texto. Você precisará delas em breve.
 
-* Inicie sessão no [portal do Azure](https://portal.azure.com/).
+* Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="gather-the-information-that-you-need"></a>Reúna as informações de que você precisa
 
@@ -89,9 +89,15 @@ Certifique-se de concluir os pré-requisitos deste tutorial.
 
 Nesta seção, você cria um serviço de Azure Databricks usando o portal do Azure.
 
-1. No Portal do Azure, selecione **Criar um recurso** > **Análise** > **Azure Databricks**.
+1. No menu portal do Azure, selecione **criar um recurso**.
 
-    ![Databricks no portal do Azure](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png "Databricks no portal do Azure")
+    ![Criar um recurso em portal do Azure](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png)
+
+    Em seguida, selecione **análise** > **Azure Databricks**.
+
+    ![Criar Azure Databricks em portal do Azure](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-resource-create.png)
+
+
 
 2. Em **Azure Databricks Service**, forneça os seguintes valores para criar um serviço databricks:
 
@@ -182,9 +188,9 @@ Nesta seção, você cria um bloco de anotações no espaço de trabalho Azure D
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
    ```
 
-6. Nesse bloco de código, substitua os valores de espaço reservado `<app-id>`, `<password>`, `<tenant-id>` e `<storage-account-name>` nesse bloco de código pelos valores que você coletou ao concluir os pré-requisitos deste tutorial. Substitua o valor de espaço reservado `<file-system-name>` por qualquer nome que você deseja dar ao sistema de arquivos.
+6. Nesse bloco de código, substitua os valores de espaço reservado `<app-id>`, `<password>`, `<tenant-id>`e `<storage-account-name>` nesse bloco de código pelos valores que você coletou ao concluir os pré-requisitos deste tutorial. Substitua o valor de espaço reservado `<file-system-name>` por qualquer nome que você deseja dar ao sistema de arquivos.
 
-   * O `<app-id>` e o `<password>` são do aplicativo que você registrou com o Active Directory como parte da criação de uma entidade de serviço.
+   * O `<app-id>`e `<password>` são do aplicativo que você registrou com o Active Directory como parte da criação de uma entidade de serviço.
 
    * O `<tenant-id>` é de sua assinatura.
 

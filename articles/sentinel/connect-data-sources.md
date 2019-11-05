@@ -13,20 +13,16 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 11/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: d4605ad448916d788fd0a7089835a9ad3828697e
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 4b21d6aa95a38df402cf7a2640467c7a060a7f49
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980411"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496393"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados
-
-
-
-
 
 Para o Azure Sentinel integrado, primeiro você precisa se conectar às suas fontes de dados. O Azure Sentinel vem com vários conectores para soluções da Microsoft, disponíveis prontos para uso e fornecimento de integração em tempo real, incluindo soluções de proteção contra ameaças da Microsoft e fontes de Microsoft 365, incluindo o Office 365, o Azure AD, o Azure ATP e o Microsoft Cloud App Security e muito mais. Além disso, há conectores internos para o ecossistema de segurança mais amplo para soluções que não são da Microsoft. Você também pode usar o formato de evento comum, syslog ou REST-API para conectar suas fontes de dados com o Azure Sentinel também.  
 
@@ -59,18 +55,24 @@ Os seguintes métodos de conexão de dados têm suporte do Azure Sentinel:
     - [Eventos de segurança do Windows](connect-windows-security-events.md) 
     - [Firewall do Windows](connect-windows-firewall.md)
 
-- **Soluções externas via API**: Algumas fontes de dados são conectadas usando APIs que são fornecidas pela fonte de dados conectada. Normalmente, a maioria das tecnologias de segurança fornece um conjunto de APIs por meio dos quais os logs de eventos podem ser recuperados. As APIs se conectam ao Azure Sentinel e coletam tipos de dados específicos e as enviam para o Azure Log Analytics. Os dispositivos conectados via API incluem:
+- **Soluções externas via API**: algumas fontes de dados são conectadas usando APIs que são fornecidas pela fonte de dados conectada. Normalmente, a maioria das tecnologias de segurança fornece um conjunto de APIs por meio dos quais os logs de eventos podem ser recuperados. As APIs se conectam ao Azure Sentinel e coletam tipos de dados específicos e as enviam para o Azure Log Analytics. Os dispositivos conectados via API incluem:
     - [Barracuda](connect-barracuda.md)
     - [Symantec](connect-symantec.md)
-- **Soluções externas por meio do agente**: O Azure Sentinel pode ser conectado a todas as outras fontes de dados que podem executar o streaming de log em tempo real usando o protocolo syslog, por meio de um agente. <br>A maioria dos dispositivos usa o protocolo syslog para enviar mensagens de evento que incluem o próprio log e os dados sobre o log. O formato dos logs varia, mas a maioria dos dispositivos oferece suporte ao padrão de formato de evento comum (CEF). <br>O agente do Azure Sentinel, que se baseia no agente de Log Analytics, converte os logs formatados por CEF em um formato que pode ser ingerido pelo Log Analytics. Dependendo do tipo de dispositivo, o agente é instalado diretamente no dispositivo ou em um servidor Linux dedicado. O agente para Linux recebe eventos do daemon do syslog sobre UDP, mas, se um computador Linux for esperado para coletar um alto volume de eventos de syslog, eles serão enviados por TCP do daemon do syslog para o agente e daí para Log Analytics.
+    - [Citrix Analytics (segurança)](connect-citrix-analytics.md)
+
+- **Soluções externas por meio do agente**: o Azure Sentinel pode ser conectado a todas as outras fontes de dados que podem executar o streaming de log em tempo real usando o protocolo syslog, por meio de um agente. <br>A maioria dos dispositivos usa o protocolo syslog para enviar mensagens de evento que incluem o próprio log e os dados sobre o log. O formato dos logs varia, mas a maioria dos dispositivos oferece suporte à formatação baseada em formato de evento comum (CEF) para logs de dados. <br>O agente do Azure Sentinel, que se baseia no agente de Log Analytics, converte os logs formatados por CEF em um formato que pode ser ingerido pelo Log Analytics. Dependendo do tipo de dispositivo, o agente é instalado diretamente no dispositivo ou em um servidor Linux dedicado. O agente para Linux recebe eventos do daemon do syslog sobre UDP, mas, se um computador Linux for esperado para coletar um alto volume de eventos de syslog, eles serão enviados por TCP do daemon do syslog para o agente e daí para Log Analytics.
     - Firewalls, proxies e pontos de extremidade:
         - [F5](connect-f5.md)
-        - [Check Point](connect-checkpoint.md)
+        - [Ponto de verificação](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [Fortinet](connect-fortinet.md)
         - [Palo Alto](connect-paloalto.md)
         - [Outros dispositivos CEF](connect-common-event-format.md)
         - [Outros dispositivos de syslog](connect-syslog.md)
+        - [Firewall CloudGen Barracuda](connect-barracuda-cloudgen-firewall.md)
+        - [ExtraHop Reveal (x)](connect-extrahop.md)
+        - [Uma proteção de identidade](connect-one-identity.md)
+        - [Trend Micro Deep Security](connect-trend-micro.md)
     - Soluções DLP
     - [Provedores de inteligência contra ameaças](connect-threat-intelligence.md)
     - [Computadores DNS](connect-dns.md) -agente instalado diretamente no computador DNS

@@ -1,7 +1,7 @@
 ---
 title: Perguntas comuns-perguntas frequentes
 titleSuffix: Microsoft Genomics
-description: Respostas a perguntas comuns que os clientes perguntam sobre Microsoft Genomics.
+description: Obtenha respostas para perguntas comuns relacionadas ao uso do serviço de Microsoft Genomics, incluindo informações técnicas, SLA e cobrança.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: 80a656ee687b71fcaf09a02d70d0a5a4300186bc
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 4a2b66f95467e7f6cb99f632548351f827e259c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249236"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476427"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: perguntas comuns
 
@@ -33,10 +33,10 @@ Microsoft Genomics Bills com base no número de gigabases processados por fluxo 
 
 
 ## <a name="where-can-i-find-a-list-of-all-possible-commands-and-arguments-for-the-msgen-client"></a>Onde posso encontrar uma lista de todos os comandos e argumentos possíveis para o cliente `msgen`?
-Você pode obter uma lista completa de comandos e argumentos disponíveis executando `msgen help`. Se nenhum argumento adicional for fornecido, ele mostrará uma lista de seções de ajuda disponíveis, uma para cada `submit`, `list`, `cancel` e `status`. Para obter ajuda para um comando específico, digite `msgen help command`; por exemplo, `msgen help submit` lista todas as opções de envio.
+Você pode obter uma lista completa de comandos e argumentos disponíveis executando `msgen help`. Se nenhum argumento adicional for fornecido, ele mostrará uma lista de seções de ajuda disponíveis, uma para cada `submit`, `list`, `cancel`e `status`. Para obter ajuda para um comando específico, digite `msgen help command`; por exemplo, `msgen help submit` lista todas as opções de envio.
 
 ## <a name="what-are-the-most-commonly-used-commands-for-the-msgen-client"></a>Quais são os comandos mais comumente usados para o cliente `msgen`?
-Os comandos usados com mais frequência são argumentos para o cliente `msgen` incluem: 
+Os comandos usados com mais frequência são argumentos para o `msgen` cliente incluem: 
 
  |**Comando**          |  **Descrição do campo** |
  |:--------------------|:-------------         |

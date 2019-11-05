@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Análise de sentimentos-LUIS'
+title: 'Tutorial: análise de sentimentos-LUIS'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, crie um aplicativo que demonstra como obter um sentimentos positivo, negativo e neutro do declarações. O sentimento é determinado a partir da expressão inteira.
 services: cognitive-services
@@ -9,20 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: ed403e3d761b32c6837eb8e72edef3f3e6380217
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 07afd197e514adb0f2fc65c11e9fec552aa05b99
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307577"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492663"
 ---
-# <a name="tutorial--get-sentiment-of-utterance"></a>Tutorial:  Obtenha sentimentos de expressão
+# <a name="tutorial--get-sentiment-of-utterance"></a>Tutorial: obter sentimentos de expressão
 
 Neste tutorial, crie um aplicativo que demonstra como determinar as opiniões positivas, negativas e neutras do declarações. O sentimento é determinado a partir da expressão inteira.
 
-**Neste tutorial, vai aprender a:**
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
+**Neste tutorial, ficará a saber como:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -72,7 +74,7 @@ Adicione uma nova intenção para capturar os comentários dos colaboradores mem
 
 1. Selecione **Intents** (Intenções) no painel esquerdo.
 
-1. Selecione **Create new intent** (Criar nova intenção).
+1. Selecione **Criar nova intenção**.
 
 1. Nomeie a nova intenção `EmployeeFeedback`.
 
@@ -93,7 +95,7 @@ Adicione uma nova intenção para capturar os comentários dos colaboradores mem
 
     Selecione as **Opções de exibição**, selecione **Mostrar valores de entidade** para ver os nomes.
 
-    [![Captura de tela do aplicativo LUIS com o declarações de exemplo na intenção de EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
+    [![captura de tela do aplicativo LUIS com o declarações de exemplo na intenção de EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar declarações de exemplo à intenção None 
 
@@ -109,7 +111,7 @@ Adicione uma nova intenção para capturar os comentários dos colaboradores mem
 
 1. Selecione **usar análise de sentimentos para determinar se o expressão de um usuário é positivo, negativo ou neutro.** para habilitar essa configuração. 
 
-    ![Ativar análise de sentimentos como a configuração de publicação](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
+    ![Ativar Análise de Sentimento como configuração de publicação](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
 ## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicar o aplicativo para que o modelo treinado seja passível de consulta do ponto de extremidade
 
@@ -159,7 +161,7 @@ Adicione uma nova intenção para capturar os comentários dos colaboradores mem
 
     O sentimentAnalysis é positivo com uma pontuação de 86%. 
 
-    Tente outro expressão removendo o valor de `q` na barra de endereços do navegador: `William Jones did a terrible job presenting his ideas.`A pontuação de sentimentos indica um sentimentos negativo retornando uma pontuação `0.18597582`baixa.
+    Tente outro expressão removendo o valor de `q` na barra de endereços do navegador: `William Jones did a terrible job presenting his ideas.` a pontuação de sentimentos indica um incômodo negativo retornando uma pontuação baixa `0.18597582`.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -173,7 +175,7 @@ Adicione uma nova intenção para capturar os comentários dos colaboradores mem
 * [Como testar no portal do LUIS](luis-interactive-test.md)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, adicione a análise de sentimentos como uma definição de publicação para extrair valores de sentimentos da expressão como um todo.
 
 > [!div class="nextstepaction"] 

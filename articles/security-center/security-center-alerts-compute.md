@@ -1,6 +1,6 @@
 ---
-title: Detecção de ameaças para computação nativa de nuvem na central de segurança do Azure | Microsoft Docs
-description: Este tópico apresenta os alertas de computação nativos de nuvem disponíveis na central de segurança do Azure.
+title: Detecção de ameaças para computação nativa em nuvem na central de segurança do Azure | Microsoft Docs
+description: Este artigo apresenta os alertas de computação nativos de nuvem disponíveis na central de segurança do Azure.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,29 +11,32 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: c3fcbadf93ff72f7d2a1dca3b25ace81c9d4f1ae
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: f6fba7bc8e8b7d040805f0be62d436caebf638af
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202624"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520912"
 ---
-# <a name="threat-detection-for-cloud-native-compute-in-azure-security-center"></a>Detecção de ameaças para computação nativa de nuvem na central de segurança do Azure
+# <a name="threat-detection-for-cloud-native-computing-in-azure-security-center"></a>Detecção de ameaças para computação nativa em nuvem na central de segurança do Azure
 
-Como um provedor de nuvem, a central de segurança do Azure usa a visibilidade exclusiva que ele tem para analisar logs internos e identificar a metodologia de ataque em vários destinos. Este tópico apresenta os alertas disponíveis para os seguintes serviços do Azure:
+Como uma solução nativa, a central de segurança do Azure tem visibilidade exclusiva dos logs internos para a identificação da metodologia de ataque em vários destinos. Este artigo apresenta os alertas disponíveis para os seguintes serviços do Azure:
 
 * [Serviço de Aplicações do Azure](#app-services)
-* [Serviço de contêiner do Azure](#azure-containers) 
+* [Contêineres do Azure](#azure-containers) 
+
+> [!NOTE]
+> Esses serviços não estão disponíveis no momento nas regiões do Azure governamental e do soberanas Cloud.
 
 ## Serviço de Azure App<a name="app-services"></a>
 
-A central de segurança usa a escala da nuvem para identificar os ataques que visam os aplicativos em execução no serviço de aplicativo. Os aplicativos Web são comuns em redes modernas e os invasores investigam a localização e a exploração de vulnerabilidades. Antes de ser roteado para ambientes específicos, as solicitações para aplicativos em execução no Azure passam por vários gateways, onde são inspecionados e registrados. Esses dados são usados para identificar explorações e invasores e para aprender novos padrões que serão usados posteriormente.
+A central de segurança usa a escala da nuvem para identificar os ataques que visam os aplicativos em execução no serviço de aplicativo. Os invasores investigam aplicativos Web para encontrar e explorar pontos fracos. Antes de ser roteado para ambientes específicos, as solicitações para aplicativos em execução no Azure passam por vários gateways, onde são inspecionados e registrados. Esses dados são usados para identificar explorações e invasores e para aprender novos padrões que serão usados posteriormente.
 
-Usando a visibilidade que o Azure tem como um provedor de nuvem, a central de segurança analisa os logs internos do serviço de aplicativo para identificar a metodologia de ataque em vários destinos. Por exemplo, a metodologia inclui verificação generalizada e ataques distribuídos. Esse tipo de ataque normalmente vem de um pequeno subconjunto de IPs e exibe padrões de rastreamento para pontos de extremidade semelhantes em vários hosts. Os ataques estão procurando uma página ou um plug-in vulnerável e não podem ser identificados no ponto de vista de um único host.
+Usando a visibilidade que o Azure tem como um provedor de nuvem, a central de segurança analisa os logs internos do serviço de aplicativo para identificar a metodologia de ataque em vários destinos. Por exemplo, a metodologia inclui verificação generalizada e ataques distribuídos. Esse tipo de ataque normalmente vem de um pequeno subconjunto de IPs e mostra padrões de rastreamento para pontos de extremidade semelhantes em vários hosts. Os ataques estão procurando uma página ou um plug-in vulnerável e não podem ser identificados no ponto de vista de um único host.
 
-A central de segurança também tem acesso às áreas restritas e VMs subjacentes. Junto com a análise forense de memória, a infra-estrutura pode contar a história, desde um novo ataque que está circulando de forma a comprometimento nas máquinas dos clientes. Portanto, a central de segurança pode detectar ataques contra aplicativos Web longos depois de serem explorados.
+A central de segurança também tem acesso às áreas restritas e VMs subjacentes. Junto com a análise forense de memória, a infra-estrutura pode contar a história, desde um novo ataque que está circulando de forma a comprometimento nas máquinas dos clientes. Portanto, mesmo que a central de segurança seja implantada depois que um aplicativo Web for explorado, ele poderá detectar ataques contínuos.
 
 > [!div class="mx-tableFixed"]
 
@@ -50,11 +53,21 @@ A central de segurança também tem acesso às áreas restritas e VMs subjacente
 |**Execução do processo da pasta temporária**|A análise de processos do serviço de aplicativo detectou uma execução de um processo da pasta temporária do aplicativo. Embora esse comportamento possa ser legítimo, em aplicativos Web esse comportamento pode indicar atividades mal-intencionadas.|
 |**Tentativa de executar o comando de alto privilégio detectado**|A análise dos processos do serviço de aplicativo detectou uma tentativa de executar um comando que requer privilégios altos. O comando foi executado no contexto do aplicativo Web. Embora esse comportamento possa ser legítimo, em aplicativos Web esse comportamento pode indicar atividades mal-intencionadas.|
 
-> [!NOTE]
-> A detecção de ameaças da central de segurança para o serviço de aplicativo não está disponível atualmente nas regiões do Azure governamental e do soberanas Cloud.
+## Contêineres do Azure<a name="azure-containers"></a>
 
-## Serviço de contêiner do Azure<a name="azure-containers"></a>
+A central de segurança fornece detecção de ameaças em tempo real para seus ambientes em contêineres e gera alertas para atividades suspeitas. Pode utilizar estas informações para remediar rapidamente problemas de segurança e aumentar a segurança dos contentores.
 
-A central de segurança fornece detecção de ameaças em tempo real para seus contêineres em computadores Linux com base na estrutura auditada. Os alertas identificam várias atividades suspeitas do Docker, como a criação de um contêiner privilegiado em um host, uma indicação de um servidor Secure Shell (SSH) em execução dentro de um contêiner do Docker ou o uso de crypto mineradores. 
+Detectamos ameaças em diferentes níveis: 
 
-Pode utilizar estas informações para remediar rapidamente problemas de segurança e aumentar a segurança dos contentores. Além das detecções do Linux, a central de segurança também oferece análises mais específicas para implantações de contêineres.
+* **Nível de host** – agente da central de segurança (disponível na camada Standard, consulte [preços](security-center-pricing.md) para obter detalhes) monitora as atividades suspeitas no Linux. O agente dispara alertas para atividades suspeitas provenientes do nó ou de um contêiner em execução nele. Exemplos dessas atividades incluem a detecção e a conexão de Shell da Web com endereços IP suspeitos conhecidos. </br>
+Para obter uma visão mais profunda da segurança do seu ambiente em contêiner, o agente monitora a análise específica do contêiner. Ele disparará alertas para eventos como criação de contêiner privilegiado, acesso suspeito a servidores de API e servidores Secure Shell (SSH) em execução dentro de um contêiner do Docker.
+
+    >[!NOTE]
+    > Se você optar por não instalar os agentes em seus hosts, receberá apenas um subconjunto dos benefícios e alertas de detecção de ameaças. Você ainda receberá alertas relacionados à análise de rede e comunicações com servidores mal-intencionados.
+
+* Para o **nível de cluster AKs**, há monitoramento de detecção de ameaças com base na análise de logs de auditoria do kubernetes. Para habilitar esse monitoramento **sem agente** , adicione a opção kubernetes à sua assinatura na página de **configurações de & de preços** (consulte [preços](security-center-pricing.md)). Para gerar alertas nesse nível, a central de segurança monitora seus serviços gerenciados AKS usando os logs recuperados pelo AKS. Exemplos de eventos neste nível incluem painéis kubernetes expostos, criação de funções com alto privilégio e montagens confidenciais. 
+
+    >[!NOTE]
+    > A central de segurança gera alertas de detecção para ações e implantações do serviço kubernetes do Azure que ocorrem após a opção kubernetes ser habilitada nas configurações de assinatura. 
+
+Além disso, nossa equipe global de pesquisadores de segurança monitora constantemente o panorama de ameaças. Eles adicionam alertas e vulnerabilidades específicos do contêiner à medida que são descobertos.

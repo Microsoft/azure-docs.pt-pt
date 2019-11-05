@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Obter intenção com APIs REST – LUIS'
+title: 'Início rápido: obter a intenção com as APIs REST-LUIS'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido da API REST, use um aplicativo LUIS público disponível para determinar a intenção de um usuário de texto de conversação.
 services: cognitive-services
@@ -9,19 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/27/2019
+ms.date: 10/17/2019
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: f3eceed1c4ab06d9b7a1959bceda4122f0412b35
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 3a8badb74bb8919876f3c0670d785f44fbcbb397
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703157"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499589"
 ---
-# <a name="quickstart-get-intent-with-rest-apis"></a>Início rápido: Obter intenção com APIs REST
+# <a name="quickstart-get-intent-with-rest-apis"></a>Início rápido: obter a intenção com as APIs REST
 
-[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+Neste guia de introdução, irá aprender a utilizar uma aplicação LUIS pública disponível para determinar a intenção de um utilizador a partir do texto de uma conversação. Envie a intenção do utilizador como texto para o ponto final de predição HTTP da aplicação pública. No ponto final, o LUIS aplica o modelo da aplicação pública para analisar o significado do texto de linguagem natural e assim determinar a intenção geral e extrair os dados relevantes para o domínio de requerente da aplicação. 
+
+Este guia de início rápido utiliza a API REST de ponto final. Para obter mais informações, veja a [documentação de APIs de ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78).
+
+Para este artigo, precisa de uma conta gratuita do [LUIS](https://www.luis.ai). 
 
 <a name="create-luis-subscription-key"></a>
 

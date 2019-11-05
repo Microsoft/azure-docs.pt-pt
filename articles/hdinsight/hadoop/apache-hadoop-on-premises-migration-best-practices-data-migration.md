@@ -1,5 +1,5 @@
 ---
-title: Migrar clusters de Apache Hadoop locais para o Azure HDInsight-migração de dados
+title: 'Migração de dados: Apache Hadoop local para o Azure HDInsight'
 description: Conheça as práticas recomendadas de migração de dados para migrar clusters Hadoop locais para o Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 567edca422237c71f0d69c862a17fbc0d2a72795
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 30f7ae2eeb928e3f8dc71baed20d9c9b2129d1f9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735918"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494986"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrar clusters de Apache Hadoop locais para o Azure HDInsight-práticas recomendadas de migração de dados
 
@@ -25,7 +25,7 @@ Há duas opções principais para migrar dados do local para o ambiente do Azure
 
 1.  Transferir dados pela rede com TLS
     1. Na Internet – você pode transferir dados para o armazenamento do Azure por meio de uma conexão de Internet regular usando qualquer uma das várias ferramentas, como: Gerenciador de Armazenamento do Azure, AzCopy, Azure PowerShell e CLI do Azure.  Consulte [movendo dados de e para o armazenamento do Azure](../../storage/common/storage-moving-data.md) para obter mais informações.
-    2. O Express Route-ExpressRoute é um serviço do Azure que permite criar conexões privadas entre os data centers da Microsoft e a infraestrutura que está no local ou em uma instalação de colocalização. As ligações ExpressRoute não entram na Internet pública e oferecem maior segurança, fiabilidade e velocidade com latências mais baixas que as ligações normais pela Internet. Para obter mais informações, consulte [criar e modificar um circuito do ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
+    2. O Express Route-ExpressRoute é um serviço do Azure que permite criar conexões privadas entre os data centers da Microsoft e a infraestrutura que está no local ou em uma instalação de colocalização. As conexões do ExpressRoute não passam pela Internet pública e oferecem maior segurança, confiabilidade e velocidades com latências menores do que conexões típicas pela Internet. Para obter mais informações, consulte [criar e modificar um circuito do ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
     1. Data Box transferência de dados online – Data Box Edge e Gateway do Data Box são produtos de transferência de dados online que atuam como gateways de armazenamento de rede para gerenciar dados entre seu site e o Azure. O Data Box Edge, um dispositivo de rede no local, transfere dados de e para o Azure e utiliza computação edge ativada por inteligência artificial (AI) para processar dados. O Data Box Gateway é uma aplicação virtual com capacidades de gateway de armazenamento. Para obter mais informações, consulte [a documentação do Azure data Box – transferência online](https://docs.microsoft.com/azure/databox-online/).
 1.  Enviando dados offline
     1. Data Box transferência de dados offline-Data Box, Disco do Data Box e dispositivos Data Box Heavy ajudam a transferir grandes quantidades de dados para o Azure quando a rede não é uma opção. Estes dispositivos de transferência de dados offline são enviados entre a organização e o centro de dados do Azure. Utilizam encriptação AES para ajudar a proteger os dados em trânsito e são submetidos a um processo de limpeza pós-carregamento para eliminar dados do dispositivo. Para obter mais informações sobre o Data Box dispositivos de transferência offline, consulte [Azure data Box Documentação-transferência offline](https://docs.microsoft.com/azure/databox/). Para obter mais informações sobre a migração de clusters Hadoop, consulte [usar Azure data box para migrar de um repositório HDFS local para o armazenamento do Azure](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
@@ -35,8 +35,8 @@ A tabela a seguir tem uma duração de transferência de dados aproximada com ba
 |**Qtd de dados**|**Largura de banda da rede**||||
 |---|---|---|---|---|
 || **45 Mbps (T3)**|**100 Mbps**|**1 Gbps**|**10 Gbps**|
-|1 TB|2 dias|1 dia| Duas horas|14 minutos|
-|10 TB|22 dias|10 dias|1 dia|Duas horas|
+|1 TB|2 dias|1 dia| 2 horas|14 minutos|
+|10 TB|22 dias|10 dias|1 dia|2 horas|
 |35 TB|76 dias|34 dias|3 dias|8 horas|
 |80 TB|173 dias|78 dias|8 dias|19 horas|
 |100 TB|216 dias|97 dias|10 dias|1 dia|
@@ -58,7 +58,7 @@ DistCp é um projeto do Apache que usa um trabalho de mapa do MapReduce para tra
 O DistCp tenta criar tarefas de mapa para que cada uma delas Copie aproximadamente o mesmo número de bytes. Por padrão, os trabalhos do DistCp usam 20 Mapeadores. O uso de mais Mapeadores para Distcp (com o parâmetro ' M' na linha de comando) aumenta o paralelismo durante o processo de transferência de dados e diminui o tamanho da transferência de dados. No entanto, há duas coisas a considerar ao aumentar o número de Mapeadores:
 
 1. A granularidade mais baixa do DistCp é um único arquivo. A especificação de um número de Mapeadores mais do que o número de arquivos de origem não ajuda e perderá os recursos de cluster disponíveis.
-1. Considere a memória yarn disponível no cluster para determinar o número de Mapeadores. Cada tarefa de mapa é iniciada como um contêiner yarn. Supondo que nenhuma outra carga de trabalho pesada esteja em execução no cluster, o número de Mapeadores pode ser determinado pela seguinte fórmula: m = (número de nós \* de trabalho yarn memória para cada nó de trabalho)/tamanho de contêiner yarn. No entanto, se outros aplicativos estiverem usando memória, escolha usar apenas uma parte da memória YARN para trabalhos do DistCp.
+1. Considere a memória yarn disponível no cluster para determinar o número de Mapeadores. Cada tarefa de mapa é iniciada como um contêiner yarn. Supondo que nenhuma outra carga de trabalho pesada esteja em execução no cluster, o número de Mapeadores pode ser determinado pela seguinte fórmula: m = (número de nós de trabalho \* memória YARN para cada nó de trabalho)/tamanho de contêiner YARN. No entanto, se outros aplicativos estiverem usando memória, escolha usar apenas uma parte da memória YARN para trabalhos do DistCp.
 
 ### <a name="use-more-than-one-distcp-job"></a>Usar mais de um trabalho do DistCp
 
@@ -70,15 +70,15 @@ Se houver um pequeno número de arquivos grandes, considere dividi-los em partes
 
 ### <a name="use-the-strategy-command-line-parameter"></a>Usar o parâmetro de linha de comando ' Strategy '
 
-Considere o `strategy = dynamic` uso do parâmetro na linha de comando. O valor padrão do `strategy` parâmetro é `uniform size`, nesse caso, cada mapa copia aproximadamente o mesmo número de bytes. Quando esse parâmetro é alterado para `dynamic`, o arquivo de listagem é dividido em vários "arquivos de parte". O número de arquivos de parte é um múltiplo do número de mapas. Cada tarefa de mapa é atribuída a um dos arquivos de parte. Depois que todos os caminhos em um bloco são processados, a parte atual é excluída e uma nova parte é adquirida. O processo continua até que não haja mais partes disponíveis. Essa abordagem "dinâmica" permite que tarefas de mapa mais rápidas consumam mais caminhos do que os mais lentos, acelerando, assim, o trabalho de DistCp geral.
+Considere o uso do parâmetro `strategy = dynamic` na linha de comando. O valor padrão do parâmetro `strategy` é `uniform size`; nesse caso, cada mapa copia aproximadamente o mesmo número de bytes. Quando esse parâmetro é alterado para `dynamic`, o arquivo de listagem é dividido em vários "arquivos de parte". O número de arquivos de parte é um múltiplo do número de mapas. Cada tarefa de mapa é atribuída a um dos arquivos de parte. Depois que todos os caminhos em um bloco são processados, a parte atual é excluída e uma nova parte é adquirida. O processo continua até que não haja mais partes disponíveis. Essa abordagem "dinâmica" permite que tarefas de mapa mais rápidas consumam mais caminhos do que os mais lentos, acelerando, assim, o trabalho de DistCp geral.
 
 ### <a name="increase-the-number-of-threads"></a>Aumentar o número de threads
 
-Veja se o aumento `-numListstatusThreads` do parâmetro melhora o desempenho. Esse parâmetro controla o número de threads a serem usados para criar a listagem de arquivos e 40 é o valor máximo.
+Veja se o aumento do parâmetro `-numListstatusThreads` melhora o desempenho. Esse parâmetro controla o número de threads a serem usados para criar a listagem de arquivos e 40 é o valor máximo.
 
 ### <a name="use-the-output-committer-algorithm"></a>Usar o algoritmo confirmador de saída
 
-Veja se a passagem do `-Dmapreduce.fileoutputcommitter.algorithm.version=2` parâmetro melhora o desempenho do DistCp. Esse algoritmo de confirmação de saída tem otimizações relacionadas à gravação de arquivos de saída no destino. O comando a seguir é um exemplo que mostra o uso de parâmetros diferentes:
+Veja se a passagem do parâmetro `-Dmapreduce.fileoutputcommitter.algorithm.version=2` melhora o desempenho do DistCp. Esse algoritmo de confirmação de saída tem otimizações relacionadas à gravação de arquivos de saída no destino. O comando a seguir é um exemplo que mostra o uso de parâmetros diferentes:
 
 ```bash
 hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatusThreads 30 -m 100 -strategy dynamic hdfs://nn1:8020/foo/bar wasb://<container_name>@<storage_account_name>.blob.core.windows.net/foo/
@@ -112,7 +112,7 @@ O metastore do hive pode ser migrado usando os scripts ou usando a replicação 
 - Transforme caminhos específicos baseados em HDFS no local para WASB/ADLS usando uma ferramenta como XSLT.
 - Importe as políticas para o Ranger em execução no HDInsight.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia o próximo artigo desta série:
 

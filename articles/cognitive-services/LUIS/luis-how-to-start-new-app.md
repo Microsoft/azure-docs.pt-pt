@@ -1,7 +1,7 @@
 ---
 title: Criar um novo aplicativo-LUIS
 titleSuffix: Azure Cognitive Services
-description: Criar e gerir as suas aplicações na página de Web de compreensão de idiomas (LUIS).
+description: Crie e gerencie seus aplicativos na página da Web Reconhecimento vocal (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,31 +9,33 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 5939886f68a877c4cfad752fe93c4f0eca8f80cf
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 227efcdbcb7d8e776dd77b38c5d1dedd54d71b6b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258515"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500289"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Criar um novo aplicativo LUIS no portal do LUIS
-Existem duas formas para criar uma aplicação do LUIS. Pode criar uma aplicação LUIS no [LUIS](https://www.luis.ai) portal, ou por meio do LUIS criação [APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
+Há algumas maneiras de criar um aplicativo LUIS. Você pode criar um aplicativo LUIS no portal do [Luis](https://www.luis.ai) ou por meio das [APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)de criação do Luis.
 
-## <a name="using-the-luis-portal"></a>Com o portal de LUIS
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
-Pode criar uma nova aplicação no portal do LUIS de várias formas:
+## <a name="using-the-luis-portal"></a>Usando o portal do LUIS
 
-* Começar com uma aplicação vazia e crie objetivos, expressões e entidades.
-* Comece com uma aplicação vazia e adicione um [domínio pré-criado](luis-how-to-use-prebuilt-domains.md).
-* Importe uma aplicação do LUIS de um ficheiro JSON que já contém intenções, expressões e entidades.
+Você pode criar um novo aplicativo no portal do LUIS de várias maneiras:
 
-## <a name="using-the-authoring-apis"></a>Com as APIs de criação
-Pode criar uma nova aplicação com as APIs de criação de duas formas:
+* Comece com um aplicativo vazio e crie intenções, declarações e entidades.
+* Comece com um aplicativo vazio e adicione um [domínio predefinido](luis-how-to-use-prebuilt-domains.md).
+* Importe um aplicativo LUIS de um arquivo JSON que já contenha intenções, declarações e entidades.
 
-* [Iniciar](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) com uma aplicação vazia e crie objetivos, expressões e entidades.
-* [Iniciar](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/59104e515aca2f0b48c76be5) com um domínio pré-criado.  
+## <a name="using-the-authoring-apis"></a>Usando as APIs de criação
+Você pode criar um novo aplicativo com as APIs de criação de duas maneiras:
+
+* [Comece](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) com um aplicativo vazio e crie intenções, declarações e entidades.
+* [Comece](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/59104e515aca2f0b48c76be5) com um domínio predefinido.  
 
 
 <a name="export-app"></a>
@@ -43,18 +45,18 @@ Pode criar uma nova aplicação com as APIs de criação de duas formas:
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
-## <a name="create-new-app-in-luis"></a>Criar nova aplicação LUIS
+## <a name="create-new-app-in-luis"></a>Criar novo aplicativo no LUIS
 
-1. No **as minhas aplicações** página, selecione **criar nova aplicação**.
+1. Na página **meus aplicativos** , selecione **+ criar**.
 
     ![Lista de aplicações LUIS](./media/luis-create-new-app/apps-list.png)
 
 
-2. Na caixa de diálogo, nome de seu aplicativo "TravelAgent".
+2. Na caixa de diálogo, nomeie o aplicativo como "TravelAgent".
 
-    ![Criar nova caixa de diálogo da aplicação](./media/luis-create-new-app/create-app.png)
+    ![Caixa de diálogo Criar novo aplicativo](./media/luis-create-new-app/create-app.png)
 
-3. Escolha sua cultura de aplicação (para aplicação de TravelAgent, selecione inglês) e, em seguida, selecione **feito**. 
+3. Escolha a cultura do aplicativo (para o aplicativo TravelAgent, escolha inglês) e, em seguida, selecione **concluído**. 
 
     > [!NOTE]
     > A cultura não pode ser alterada assim que a aplicação for criada. 
@@ -84,12 +86,12 @@ Os erros possíveis são:
 
     Se você estiver interessado em exportar um modelo treinado mas ainda não publicado para usar com o contêiner LUIS, vá para a página **versões** e exporte a partir daí. 
 
-## <a name="delete-app"></a>Eliminar aplicação
+## <a name="delete-app"></a>Excluir aplicativo
 
 1. Na página **meus aplicativos** , selecione os três pontos (...) no final da linha do aplicativo.
 1. Selecione **excluir** no menu.
 1. Selecione **OK** na janela de confirmação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Sua primeira tarefa na aplicação é [adicionar intenções](luis-how-to-add-intents.md).
+Sua primeira tarefa no aplicativo é [Adicionar tentativas](luis-how-to-add-intents.md).

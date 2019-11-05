@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Prever intenções-LUIS'
+title: 'Tutorial: prever intenções-LUIS'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, crie um aplicativo personalizado que prevê a intenção de um usuário. Esta aplicação é o tipo mais simples de aplicação LUIS, porque não extrai vários elementos de dados do texto da expressão, como endereços de e-mail ou datas.
 services: cognitive-services
@@ -11,18 +11,20 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 7139876f64841a877e688ec6faf03597c527d1f2
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 83ecf0767f2b21065c698421e3ad8f07f31d5b16
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375828"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465280"
 ---
-# <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Tutorial: Compilar o aplicativo LUIS para determinar as intenções do usuário
+# <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Tutorial: compilar o aplicativo LUIS para determinar as intenções do usuário
 
 Neste tutorial, irá criar uma aplicação personalizada de Recursos Humanos (RH) que prevê a intenção de um utilizador com base na expressão (texto). 
 
-**Neste tutorial, vai aprender a:**
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
+**Neste tutorial, ficará a saber como:**
 
 > [!div class="checklist"]
 > * Criar uma nova aplicação 
@@ -47,9 +49,9 @@ Esta aplicação tem algumas intenções.
 
 |Intenção|Objetivo|
 |--|--|
-|ApplyForJob|Determine se o usuário está se aplicando a um trabalho.|
-|GetJobInformation|Determine se o usuário está procurando informações sobre trabalhos em geral ou um trabalho específico.|
-|Nenhum|Determine se o usuário está solicitando algo que o aplicativo não deve responder. Essa tentativa se fornecida como parte da criação do aplicativo e não pode ser excluída. |
+|`ApplyForJob`|Determine se o usuário está se aplicando a um trabalho.|
+|`GetJobInformation`|Determine se o usuário está procurando informações sobre trabalhos em geral ou um trabalho específico.|
+|`None`|Determine se o usuário está solicitando algo que o aplicativo não deve responder. Essa tentativa se fornecida como parte da criação do aplicativo e não pode ser excluída. |
 
 ## <a name="create-a-new-app"></a>Criar uma nova aplicação
 
@@ -57,9 +59,9 @@ Esta aplicação tem algumas intenções.
 
 ## <a name="create-intent-for-job-information"></a>Criar intenção para informações do trabalho
 
-1. Selecione **Create new intent** (Criar nova intenção). Introduza o nome da nova intenção `GetJobInformation`. Essa intenção é prevista quando um usuário deseja informações sobre trabalhos abertos na empresa. 
+1. Selecione **Criar nova intenção**. Introduza o nome da nova intenção `GetJobInformation`. Essa intenção é prevista quando um usuário deseja informações sobre trabalhos abertos na empresa. 
 
-    ![Captura de ecrã de compreensão de idiomas (LUIS) nova intenção caixa de diálogo](media/luis-quickstart-intents-only/create-intent.png "captura de ecrã de compreensão de idiomas (LUIS) intenção caixa de diálogo Novo")
+    ![Captura de tela da caixa de diálogo Nova tentativa de Reconhecimento vocal (LUIS)](media/luis-quickstart-intents-only/create-intent.png "Captura de tela da caixa de diálogo Nova tentativa de Reconhecimento vocal (LUIS)")
 
 1. Selecione **Done** (Concluído).
 
@@ -67,24 +69,24 @@ Esta aplicação tem algumas intenções.
 
     | Expressões de exemplo|
     |--|
-    |Novos empregos publicados hoje?|
-    |Existem novas vagas no escritório de Seattle?|
-    |Há algum trabalho remoto ou trabalhos de telecomutação abertos para engenheiros?|
-    |Existe algum trabalho em bases de dados?|
-    |Estou procurando uma situação de cotrabalho no escritório de tampa.|
-    |Há um estágio no escritório de San Francisco?|
-    |Há algum trabalho em tempo de parte para as pessoas na faculdade?|
-    |Procuro um novo emprego com responsabilidades em contabilidade|
-    |Procurando um trabalho na cidade de Nova York para os alto-falantes bilíngües.|
-    |Procurando uma nova situação com responsabilidades em contabilidade.|
-    |Novos empregos?|
-    |Mostre-me todos os trabalhos para engenheiros que foram adicionados nos últimos dois dias.|
-    |Lançamentos de trabalho de hoje?|
-    |Quais posições de contabilidade estão abertas no escritório de Londres?|
-    |Que vagas estão disponíveis para Engenheiros Sénior?|
-    |Onde posso encontrar as listas de empregos|
+    |`Any new jobs posted today?`|
+    |`Are there any new positions in the Seattle office?`|
+    |`Are there any remote worker or telecommute jobs open for engineers?`|
+    |`Is there any work with databases?`|
+    |`I'm looking for a co-working situation in the tampa office.`|
+    |`Is there an internship in the san francisco office?`|
+    |`Is there any part-time work for people in college?`|
+    |`Looking for a new situation with responsibilities in accounting`|
+    |`Looking for a job in new york city for bilingual speakers.`|
+    |`Looking for a new situation with responsibilities in accounting.`|
+    |`New jobs?`|
+    |`Show me all the jobs for engineers that were added in the last 2 days.`|
+    |`Today's job postings?`|
+    |`What accounting positions are open in the london office?`|
+    |`What positions are available for Senior Engineers?`|
+    |`Where is the job listings`|
 
-    [![Captura de ecrã da introdução de expressões com novos para MyStore intenção](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "captura de ecrã da introdução de expressões com novos para MyStore intenção")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
+    [![Captura de tela de inserção de novo declarações para a tentativa de MyStore](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Captura de tela de inserção de novo declarações para a tentativa de MyStore")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
     Ao fornecer o _exemplo declarações_, você está treinando Luis sobre quais tipos de declarações devem ser previstos para essa intenção. 
 
@@ -129,7 +131,7 @@ Esta aplicação tem algumas intenções.
     }
     ```
 
-    O `verbose=true` parâmetro QueryString significa incluir **todas as tentativas** nos resultados da consulta do aplicativo. A matriz de entidades está vazia porque esta aplicação não tem entidades atualmente. 
+    O parâmetro `verbose=true` QueryString significa incluir **todas as tentativas** nos resultados da consulta do aplicativo. A matriz de entidades está vazia porque esta aplicação não tem entidades atualmente. 
 
     O resultado JSON identifica a intenção com a melhor classificação como a propriedade **`topScoringIntent`** . Todas as classificações estão compreendidas entre 1 e 0, estando a melhor classificação próxima de 1. 
 
@@ -149,29 +151,22 @@ Retorne ao portal do LUIS e crie uma nova intenção para determinar se o usuár
 
     | Expressões de exemplo|
     |--|
-    |Preencher a candidatura para o emprego 123456|
-    |Eis o meu CV para a vaga 654234|
-    |Aqui está meu currículo para a postagem do recepcionista em tempo parcial.|
-    |Estou aplicando o trabalho de arte com essa documentação.|
-    |Estou aplicando para o estágio da faculdade de verão em pesquisa e desenvolvimento em San Diego|
-    |Estou solicitando que eu envie meu currículo para a posição temporária na lanchonete.|
-    |Estou enviando meu currículo para a nova equipe de Autocar no Columbus, Ah|
-    |Quero candidatar-me ao novo trabalho de contabilidade|
-    |O trabalho 456789 contabilidade estágio papelada está aqui|
-    |Emprego 567890 e a minha documentação|
-    |Meus documentos para o estágio de contabilidade Tulsa são anexados.|
-    |Minha papelada para a posição de entrega de férias|
-    |Envie meu currículo para o novo trabalho de contabilidade em Seattle|
-    |Submeter currículo para a vaga de engenharia|
-    |Este é o meu CV. para o post 234123 em tampa.|
+    |`Fill out application for Job 123456`|
+    |`Here is my c.v. for position 654234`|
+    |`Here is my resume for the part-time receptionist post.`|
+    |`I'm applying for the art desk job with this paperwork.`|
+    |`I'm applying for the summer college internship in Research and Development in San Diego`|
+    |`I'm requesting to submit my resume to the temporary position in the cafeteria.`|
+    |`I'm submitting my resume for the new Autocar team in Columbus, OH`|
+    |`I want to apply for the new accounting job`|
+    |`Job 456789 accounting internship paperwork is here`|
+    |`Job 567890 and my paperwork`|
+    |`My papers for the tulsa accounting internship are attached.`|
+    |`My paperwork for the holiday delivery position`|
+    |`Please send my resume for the new accounting job in seattle`|
+    |`Submit resume for engineering position`|
+    |`This is my c.v. for post 234123 in Tampa.`|
 
-<!--
-
-    [![Screenshot of entering new utterances for ApplyForJob intent](media/luis-quickstart-intents-only/utterance-applyforjob.png "Screenshot of entering new utterances for ApplyForJob intent")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
-
-    The labeled intent is outlined in red because LUIS is currently uncertain the intent is correct. Training the app tells LUIS the utterances are on the correct intent. 
-
--->
 
 ## <a name="train-again"></a>Preparar novamente
 
@@ -231,7 +226,7 @@ Depois de devolver a resposta JSON, o LUIS conclui este pedido. O LUIS não forn
 * [Bot do Azure](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este tutorial criou a aplicação Recursos Humanos (RH), criou duas intenções, adicionou expressões de exemplo a cada intenção, adicionou expressões de exemplo à intenção None, preparou, publicou e testou no ponto final. Estes são os passos básicos de criação de um modelo do LUIS. 
 

@@ -1,7 +1,7 @@
 ---
-title: Voltar a preparar e implementar um serviço web
-titleSuffix: Azure Machine Learning Studio
-description: Saiba como atualizar um serviço web para utilizar um recentemente treinado modelo machine learning no Azure Machine Learning Studio.
+title: Readaptação e implantação de um serviço Web
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Saiba como atualizar um serviço Web para usar um modelo de aprendizado de máquina treinado recentemente no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,99 +10,99 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: a3f441a0dd7f7b9f402390e853bd1c28f282f653
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55b054ffe55430ea106c72cdd91fdfba3a457cf5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245100"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482991"
 ---
-# <a name="retrain-and-deploy-a-machine-learning-model"></a>Voltar a preparar e implementar um modelo de machine learning
+# <a name="retrain-and-deploy-a-machine-learning-model"></a>Readaptação e implantação de um modelo de aprendizado de máquina
 
-Reparametrização é uma forma de garantir a se manter modelos de aprendizagem automática com base nos dados mais relevantes disponíveis e precisas. Este artigo mostra como voltar a preparar e implementar um modelo de machine learning como um novo serviço web no Studio. Se estiver procurando readaptar um serviço web clássico, [exibir este artigo de procedimento.](retrain-classic-web-service.md)
+O novo treinamento é uma maneira de garantir que os modelos de aprendizado de máquina permaneçam precisos e com base nos dados mais relevantes disponíveis. Este artigo mostra como treinar novamente e implantar um modelo de aprendizado de máquina como um novo serviço Web no Studio (clássico). Se você estiver procurando treinar novamente um serviço Web clássico, [Veja este artigo de instruções.](retrain-classic-web-service.md)
 
-Este artigo pressupõe que já tem um serviço web preditivo implementado. Se ainda não tiver um serviço web preditivo, [Saiba como implementar um serviço da web de Studio aqui.](publish-a-machine-learning-web-service.md)
+Este artigo pressupõe que você já tenha um serviço Web de previsão implantado. Se você ainda não tiver um serviço Web de previsão, [saiba como implantar um serviço Web Studio (clássico) aqui.](publish-a-machine-learning-web-service.md)
 
-Executar os seguintes passos para voltar a preparar e implementar um novo serviço web machine learning:
+Você seguirá estas etapas para treinar novamente e implantar um novo serviço Web do Machine Learning:
 
-1. Implementar um **reparametrização do serviço web**
-1. Preparar um novo modelo com sua **reparametrização do serviço web**
-1. Atualizar os já existentes **experimentação preditiva** para usar o novo modelo
+1. Implantar um **serviço Web** de novo treinamento
+1. Treinar um novo modelo usando o **serviço Web** de novo treinamento
+1. Atualize seu **experimento de previsão** existente para usar o novo modelo
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="deploy-the-retraining-web-service"></a>Implementar o serviço web reparametrização
+## <a name="deploy-the-retraining-web-service"></a>Implantar o serviço Web de novo treinamento
 
-Um serviço da web reparametrização permite-lhe voltar a preparar o modelo com um novo conjunto de parâmetros, como novos dados e guarde-o para utilizar mais tarde. Quando liga um **saída de serviço Web** para um **Train Model**, a experimentação de preparação produz um novo modelo que pode utilizar.
+Um serviço Web de novo treinamento permite que você retreine seu modelo com um novo conjunto de parâmetros, como novos dados, e salve-o para mais tarde. Quando você conecta uma **saída do serviço Web** a um **modelo**de treinamento, o teste de treinamento gera um novo modelo para você usar.
 
-Utilize os seguintes passos para implementar um serviço da web reparametrização:
+Use as etapas a seguir para implantar um serviço Web de novo treinamento:
 
-1. Ligar um **entrada de serviço da Web** módulo para a sua entrada de dados. Normalmente, desejar garantir que os seus dados de entrada são processados da mesma forma como os dados de treinamento original.
-1. Ligar um **saída de serviço Web** módulo à saída do seu **Train Model**.
-1. Se tiver uma **Evaluate Model** módulo, pode ligar um **saída de serviço da Web** módulo para enviar os resultados de avaliação
-1. Execute a sua experimentação.
+1. Conecte um módulo de **entrada do serviço Web** à sua entrada de dados. Normalmente, você deseja garantir que os dados de entrada sejam processados da mesma maneira que os dados de treinamento originais.
+1. Conecte um módulo de **saída do serviço Web** à saída do seu **modelo de treinamento**.
+1. Se você tiver um módulo **modelo de avaliação** , poderá conectar um módulo saída do **serviço Web** para gerar os resultados da avaliação
+1. Execute seu experimento.
 
-    Depois de executar a experimentação, o fluxo de trabalho resultante deve ser semelhante à imagem seguinte:
+    Depois de executar o experimento, o fluxo de trabalho resultante deve ser semelhante à imagem a seguir:
 
     ![Fluxo de trabalho resultante](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE04.png)
 
-    Agora, implementar a experimentação de preparação como um serviço web reparametrização que produz um modelo preparado e resultados de avaliação do modelo.
+    Agora, você implanta o teste de treinamento como um serviço Web de novo treinamento que gera um modelo treinado e os resultados de avaliação do modelo.
 
-1. Na parte inferior da tela de experimentação, clique em **no serviço Web**
-1. Selecione **implementar serviço da Web [novo]** . O portal de serviços da Web do Azure Machine Learning abre-se para o **implementar serviço Web** página.
-1. Escreva um nome para o seu serviço web e escolha um plano de pagamento.
+1. Na parte inferior da tela do experimento, clique em **configurar serviço Web**
+1. Selecione **implantar serviço Web [novo]** . O portal de serviços Web do Azure Machine Learning é aberto na página **implantar serviço Web** .
+1. Digite um nome para o serviço Web e escolha um plano de pagamento.
 1. Selecione **Implementar**.
 
-## <a name="retrain-the-model"></a>Voltar a preparar o modelo
+## <a name="retrain-the-model"></a>Treinar novamente o modelo
 
-Neste exemplo, estamos a utilizar c# para criar o aplicativo de reparametrização. Também pode utilizar o código de exemplo do Python ou R para realizar esta tarefa.
+Para este exemplo, estamos usando C# para criar o aplicativo de novo treinamento. Você também pode usar o código de exemplo do Python ou do R para realizar essa tarefa.
 
-Utilize os seguintes passos para chamar as APIs de reparametrização:
+Use as etapas a seguir para chamar as APIs de novo treinamento:
 
-1. Criar um C# consola de aplicação no Visual Studio: **Novos** > **projeto** > **Visual C#**   >  **ambiente de trabalho clássico do Windows**  >   **Aplicação da consola (.NET Framework)** .
-1. Inicie sessão no portal de serviços Web Machine Learning.
-1. Clique no serviço de web que está trabalhando com.
+1. Criar um C# aplicativo de console no Visual Studio: **novo** > **projeto** > **Visual C#**  > **Desktop clássico do Windows** > **aplicativo de console (.NET Framework)** .
+1. Entre no portal de serviços Web do Machine Learning.
+1. Clique no serviço Web com o qual você está trabalhando.
 1. Clique em **consumir**.
-1. Na parte inferior a **Consume** página, além do **código de exemplo** secção, clique em **Batch**.
-1. Copie o código de exemplo em C# para execução de lotes e colá-lo no ficheiro Program.cs. Certifique-se de que o espaço de nomes permanece intacto.
+1. Na parte inferior da página **consumir** , na seção **código de exemplo** , clique em **lote**.
+1. Copie o código C# de exemplo para a execução em lotes e cole-o no arquivo Program.cs. Certifique-se de que o namespace permaneça intacto.
 
-Adicione o pacote de NuGet Microsoft.AspNet.WebApi.Client, conforme especificado nos comentários. Para adicionar a referência ao Microsoft.WindowsAzure.Storage.dll, poderá ter de instalar o [biblioteca de clientes para serviços de armazenamento do Azure](https://www.nuget.org/packages/WindowsAzure.Storage).
+Adicione o pacote NuGet Microsoft. AspNet. WebApi. Client, conforme especificado nos comentários. Para adicionar a referência a Microsoft. WindowsAzure. Storage. dll, talvez seja necessário instalar a [biblioteca de cliente para os serviços de armazenamento do Azure](https://www.nuget.org/packages/WindowsAzure.Storage).
 
-A captura de ecrã a seguir mostra a **Consume** página no portal do Azure Machine Learning Web Services.
+A captura de tela a seguir mostra a página **consumir** no portal de serviços Web Azure Machine Learning.
 
-![Consumir de página](media/retrain-machine-learning/machine-learning-retrain-models-consume-page.png)
+![Página de consumo](media/retrain-machine-learning/machine-learning-retrain-models-consume-page.png)
 
-### <a name="update-the-apikey-declaration"></a>Atualizar a declaração de apikey
+### <a name="update-the-apikey-declaration"></a>Atualizar a declaração apiKey
 
-Localize a **apikey** declaração:
+Localize a Declaração **apiKey** :
 
     const string apiKey = "abc123"; // Replace this with the API key for the web service
 
-No **informações básicas de consumo** secção a **Consume** página, localize a chave primária e copie-o para o **apikey** declaração.
+Na seção **informações básicas de consumo** da página **consumir** , localize a chave primária e copie-a para a Declaração **apiKey** .
 
-### <a name="update-the-azure-storage-information"></a>Atualizar as informações de armazenamento do Azure
+### <a name="update-the-azure-storage-information"></a>Atualizar as informações do armazenamento do Azure
 
-O código de exemplo BES carrega um ficheiro de uma unidade local (por exemplo, "C:\temp\CensusInput.csv") ao armazenamento do Azure, processa-os e grava os resultados de volta ao armazenamento do Azure.
+O código de exemplo BES carrega um arquivo de uma unidade local (por exemplo, "C:\temp\CensusInput.csv") para o armazenamento do Azure, processa-o e grava os resultados de volta no armazenamento do Azure.
 
 1. Iniciar sessão no portal do Azure
-1. Na coluna de navegação esquerda, clique em **mais serviços**, procure **contas de armazenamento**e selecioná-lo.
-1. Na lista de contas de armazenamento, selecione um para armazenar o modelo retrained.
-1. Na coluna de navegação esquerda, clique em **chaves de acesso**.
-1. Copie e guarde o **chave de acesso primária**.
-1. Na coluna de navegação esquerda, clique em **Blobs**.
-1. Selecione um contentor existente, ou criar um novo e guarde o nome.
+1. Na coluna de navegação à esquerda, clique em **mais serviços**, procure **contas de armazenamento**e selecione-o.
+1. Na lista de contas de armazenamento, selecione uma para armazenar o modelo retreinado.
+1. Na coluna de navegação à esquerda, clique em **chaves de acesso**.
+1. Copie e salve a **chave de acesso primária**.
+1. Na coluna de navegação à esquerda, clique em **BLOBs**.
+1. Selecione um contêiner existente ou crie um novo e salve o nome.
 
-Localize a *StorageAccountName*, *StorageAccountKey*, e *StorageContainerName* declarações e atualize os valores que guardou a partir do portal.
+Localize as declarações *StorageAccountName*, *StorageAccountKey*e *StorageContainerName* e atualize os valores que você salvou do Portal.
 
     const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
     const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key
     const string StorageContainerName = "mycontainer"; // Replace this with your Azure Storage container name
 
-Também tem de garantir que o ficheiro de entrada está disponível na localização que especificou no código.
+Você também deve garantir que o arquivo de entrada esteja disponível no local que você especificar no código.
 
-### <a name="specify-the-output-location"></a>Especifique a localização de saída
+### <a name="specify-the-output-location"></a>Especificar o local de saída
 
-Quando especificar a localização de saída no Payload do pedido, a extensão do ficheiro que é especificada na *RelativeLocation* deve ser especificado como `ilearner`.
+Quando você especifica o local de saída na carga de solicitação, a extensão do arquivo especificado em *RelativeLocation* deve ser especificada como `ilearner`.
 
     Outputs = new Dictionary<string, AzureBlobDataReference>() {
         {
@@ -114,33 +114,33 @@ Quando especificar a localização de saída no Payload do pedido, a extensão d
             }
         },
 
-Eis um exemplo de saída reparametrização:
+Aqui está um exemplo de saída de novo treinamento:
 
-![Saída de reparametrização](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE06.png)
+![Saída de novo treinamento](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE06.png)
 
-### <a name="evaluate-the-retraining-results"></a>Avaliar os resultados de reparametrização
+### <a name="evaluate-the-retraining-results"></a>Avaliar os resultados de novos treinamentos
 
-Quando executar o aplicativo, a saída inclui o URL e o token de assinaturas de acesso partilhado que são necessárias para acessar os resultados da avaliação.
+Quando você executa o aplicativo, a saída inclui a URL e o token de assinaturas de acesso compartilhado que são necessários para acessar os resultados da avaliação.
 
-Pode ver os resultados de desempenho do modelo retrained ao combinar a *BaseLocation*, *RelativeLocation*, e *SasBlobToken* nos resultados da saída para *output2* e colar o URL completo na barra de endereço do browser.
+Você pode ver os resultados de desempenho do modelo retreinado combinando *BaseLocation*, *RelativeLocation*e *SasBlobToken* dos resultados de saída para *output2* e colando a URL completa na barra de endereços do navegador.
 
-Examine os resultados para determinar se o modelo treinado recentemente tem um desempenho melhor do que a já existente.
+Examine os resultados para determinar se o modelo treinado recentemente tem um desempenho melhor do que o existente.
 
-Guardar a *BaseLocation*, *RelativeLocation*, e *SasBlobToken* nos resultados da saída.
+Salve *BaseLocation*, *RelativeLocation*e *SasBlobToken* dos resultados da saída.
 
-## <a name="update-the-predictive-experiment"></a>Atualizar a experimentação preditiva
+## <a name="update-the-predictive-experiment"></a>Atualizar o experimento de previsão
 
-### <a name="sign-in-to-azure-resource-manager"></a>Inicie sessão para o Azure Resource Manager
+### <a name="sign-in-to-azure-resource-manager"></a>Entrar no Azure Resource Manager
 
-Primeiro, inicie sessão sua conta do Azure a partir de ambiente do PowerShell, utilizando o [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+Primeiro, entre em sua conta do Azure de dentro do ambiente do PowerShell usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) .
 
-### <a name="get-the-web-service-definition-object"></a>Obter o objeto de definição de serviço da Web
+### <a name="get-the-web-service-definition-object"></a>Obter o objeto de definição de serviço Web
 
-Em seguida, obtém o objeto de definição de serviço Web chamando o [Get-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservice) cmdlet.
+Em seguida, obtenha o objeto de definição de serviço Web chamando o cmdlet [Get-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservice) .
 
     $wsd = Get-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
-Para determinar o nome do grupo de recursos de um serviço web existente, execute o cmdlet Get-AzMlWebService sem quaisquer parâmetros para apresentar os serviços web na sua subscrição. Localize o serviço web e, em seguida, examinar sua ID de serviço web. O nome do grupo de recursos é o quarto elemento no ID, logo a seguir a *resourceGroups* elemento. No exemplo a seguir, o nome do grupo de recursos é a predefinição-MachineLearning-SouthCentralUS.
+Para determinar o nome do grupo de recursos de um serviço Web existente, execute o cmdlet Get-AzMlWebService sem parâmetros para exibir os serviços Web em sua assinatura. Localize o serviço Web e, em seguida, examine sua ID de serviço Web. O nome do grupo de recursos é o quarto elemento na ID, logo após o elemento *resourceGroups* . No exemplo a seguir, o nome do grupo de recursos é default-MachineLearning-SouthCentralUS.
 
     Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph
     Id : /subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
@@ -149,19 +149,19 @@ Para determinar o nome do grupo de recursos de um serviço web existente, execut
     Type : Microsoft.MachineLearning/webServices
     Tags : {}
 
-Em alternativa, para determinar o nome do grupo de recursos de um serviço web existente, inicie sessão no portal do Azure Machine Learning Web Services. Selecione o serviço web. O nome do grupo de recursos é o elemento quinto do URL do serviço web, logo a seguir a *resourceGroups* elemento. No exemplo a seguir, o nome do grupo de recursos é a predefinição-MachineLearning-SouthCentralUS.
+Como alternativa, para determinar o nome do grupo de recursos de um serviço Web existente, entre no Azure Machine Learning Portal de serviços Web. Selecione o serviço Web. O nome do grupo de recursos é o quinto elemento da URL do serviço Web, logo após o elemento *resourceGroups* . No exemplo a seguir, o nome do grupo de recursos é default-MachineLearning-SouthCentralUS.
 
     https://services.azureml.net/subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
 
-### <a name="export-the-web-service-definition-object-as-json"></a>Exportar o objeto de definição de serviço da Web como JSON
+### <a name="export-the-web-service-definition-object-as-json"></a>Exportar o objeto de definição de serviço Web como JSON
 
-Para modificar a definição do modelo preparado para utilizar o modelo treinado recentemente, primeiro tem de utilizar o [Export-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) cmdlet para os exportar para um ficheiro de formato JSON.
+Para modificar a definição do modelo treinado para usar o modelo treinado recentemente, você deve primeiro usar o cmdlet [Export-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) para exportá-lo para um arquivo de formato JSON.
 
     Export-AzMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
-### <a name="update-the-reference-to-the-ilearner-blob"></a>Atualizar a referência para o blob de ilearner
+### <a name="update-the-reference-to-the-ilearner-blob"></a>Atualizar a referência para o blob ilearner
 
-No ativos, localize o [modelo preparado], atualize o *uri* valor no *locationInfo* nó com o URI do ilearner blob. O URI é gerado ao combinar a *BaseLocation* e o *RelativeLocation* da saída do BES reparametrização chamada.
+Nos ativos, localize o [modelo treinado], atualize o valor do *URI* no nó *LOCATIONINFO* com o URI do blob ilearner. O URI é gerado pela combinação de *BaseLocation* e *RelativeLocation* da saída da chamada de retreinamento BES.
 
      "asset3": {
         "name": "Retrain Sample [trained model]",
@@ -176,21 +176,21 @@ No ativos, localize o [modelo preparado], atualize o *uri* valor no *locationInf
         }
       },
 
-### <a name="import-the-json-into-a-web-service-definition-object"></a>Importe o JSON para um objeto de definição de serviço da Web
+### <a name="import-the-json-into-a-web-service-definition-object"></a>Importar o JSON para um objeto de definição de serviço Web
 
-Utilizar o [Import-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/import-azmlwebservice) cmdlet para converter o ficheiro JSON modificado novamente para um objeto de definição de serviço da Web que pode utilizar para atualizar a experimentação predicative.
+Use o cmdlet [Import-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/import-azmlwebservice) para converter o arquivo JSON modificado de volta em um objeto de definição de serviço Web que você pode usar para atualizar o experimento do predicativo.
 
     $wsd = Import-AzMlWebService -InputFile "C:\temp\mlservice_export.json"
 
-### <a name="update-the-web-service"></a>Atualizar o serviço web
+### <a name="update-the-web-service"></a>Atualizar o serviço Web
 
-Por último, utilize o [AzMlWebService atualização](https://docs.microsoft.com/powershell/module/az.machinelearning/update-azmlwebservice) cmdlet para atualizar a experimentação preditiva.
+Por fim, use o cmdlet [Update-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/update-azmlwebservice) para atualizar o experimento de previsão.
 
     Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre como gerir os serviços web ou mantenha um registo de várias execuções de experimentações, veja os artigos seguintes:
+Para saber mais sobre como gerenciar serviços Web ou controlar várias execuções de experimentos, consulte os seguintes artigos:
 
-* [Explorar o portal de serviços da Web](manage-new-webservice.md)
-* [Gerir iterações de experimentação](manage-experiment-iterations.md)
+* [Explore o portal de serviços Web](manage-new-webservice.md)
+* [Gerenciar iterações de experimento](manage-experiment-iterations.md)

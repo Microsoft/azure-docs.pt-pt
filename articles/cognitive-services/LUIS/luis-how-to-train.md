@@ -1,7 +1,7 @@
 ---
 title: Treinar aplicativo-LUIS
 titleSuffix: Azure Cognitive Services
-description: Treinamento é o processo de ensinar a sua versão de aplicação de compreensão de idiomas (LUIS) para aprimorar sua compreensão de linguagem natural. Treine a sua aplicação LUIS após as atualizações para o modelo de como adicionar, editar, etiquetagem ou a eliminação de entidades, intenções ou expressões com.
+description: O treinamento é o processo de ensinar sua versão do aplicativo Reconhecimento vocal (LUIS) para melhorar seu entendimento em linguagem natural. Treine seu aplicativo LUIS após as atualizações para o modelo, como adicionar, editar, rotular ou excluir entidades, intenções ou declarações.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,40 +9,39 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: b3841c9d60cf275e423024fc66c15582f95c0a10
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 259ea23c05f0c0a138ad54b6efd11aad2061cf7a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932759"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500221"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Treinar sua versão ativa do aplicativo LUIS 
 
-Treinamento é o processo de ensinar a sua aplicação de compreensão de idiomas (LUIS) para aprimorar sua compreensão de linguagem natural. Treine a sua aplicação LUIS após as atualizações para o modelo de como adicionar, editar, etiquetagem ou a eliminação de entidades, intenções ou expressões com. 
+O treinamento é o processo de ensinar seu aplicativo de Reconhecimento vocal (LUIS) para melhorar seu conhecimento em linguagem natural. Treine seu aplicativo LUIS após as atualizações para o modelo, como adicionar, editar, rotular ou excluir entidades, intenções ou declarações. 
 
-<!--
-When you train a LUIS app by example, LUIS generalizes from the examples you have labeled, and it learns to recognize the relevant intents and entities. This teaches LUIS to improve classification accuracy in the future. -->
+O treinamento e o [teste](luis-concept-test.md) de um aplicativo é um processo iterativo. Depois de treinar seu aplicativo LUIS, você o testará com o declarações de exemplo para ver se as intenções e as entidades são reconhecidas corretamente. Se não estiverem, faça atualizações no aplicativo LUIS, treine e teste novamente. 
 
-Treinamento e [teste](luis-concept-test.md) uma aplicação é um processo iterativo. Depois de preparar a aplicação do LUIS, testá-la com expressões de exemplo para ver se as intenções e entidades são reconhecidas corretamente. Se não estiverem, fazer atualizações para a aplicação LUIS, formação e teste novamente. 
+O treinamento é aplicado à versão ativa no portal do LUIS. 
 
-Treinamento é aplicado para a versão do Active Directory no portal do LUIS. 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
-## <a name="how-to-train-interactively"></a>Como dar formação interativamente
+## <a name="how-to-train-interactively"></a>Como treinar de forma interativa
 
-Para iniciar o processo interativo no [portal de LUIS](https://www.luis.ai), primeiro tem de preparar a sua aplicação LUIS, pelo menos, uma vez. Certifique-se que cada intenção tem, pelo menos, uma expressão antes de treinamento.
+Para iniciar o processo iterativo no [portal do Luis](https://www.luis.ai), primeiro você precisa treinar seu aplicativo Luis pelo menos uma vez. Certifique-se de que todas as intenções tenham pelo menos um expressão antes do treinamento.
 
-1. Aceder à sua aplicação, selecionando o respetivo nome na **as minhas aplicações** página. 
+1. Acesse seu aplicativo selecionando seu nome na página **meus aplicativos** . 
 
-2. Na sua aplicação, selecione **Train** no painel superior. 
+2. Em seu aplicativo, selecione **treinar** no painel superior. 
 
-3. Quando o treinamento estiver concluído, uma barra de notificação de verde é apresentada na parte superior do navegador.
+3. Quando o treinamento for concluído, uma barra de notificação verde aparecerá na parte superior do navegador.
 
 <!-- The following note refers to what might cause the error message "Training failed: FewLabels for model: <ModelName>" -->
 
 >[!NOTE]
->Se tiver uma ou mais objetivos na sua aplicação que não contêm as expressões de exemplo, não é possível preparar a sua aplicação. Adicione expressões para todos os seus objetivos. Para obter mais informações, consulte [adicionar expressões de exemplo](luis-how-to-add-example-utterances.md).
+>Se você tiver uma ou mais intenções em seu aplicativo que não contêm o exemplo declarações, não será possível treinar seu aplicativo. Adicione declarações para todas as suas intenções. Para obter mais informações, consulte [Adicionar exemplo declarações](luis-how-to-add-example-utterances.md).
 
 ## <a name="training-date-and-time"></a>Data e hora de treinamento
 
@@ -50,19 +49,36 @@ A data e a hora de treinamento são GMT + 2.
 
 ## <a name="train-with-all-data"></a>Treinar com todos os dados
 
-Treinamento utiliza uma pequena porcentagem de amostragem negativa. Se pretender utilizar todos os dados em vez da amostragem negativa pequena, utilize o [versão configurações API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) com o `UseAllTrainingData` defina como verdadeiro para Desative esta funcionalidade. 
+O treinamento usa uma pequena porcentagem de amostragem negativa. 
+
+Se você quiser usar todos os dados em vez da pequena amostragem negativa, use a [API](#version-settings-api-use-of-usealltrainingdata).
+
+<!--
+
+ or the [LUIS portal setting](#luis-portal-setting-to-use-all-training-data)
+
+### LUIS portal setting to use all training data
+
+!!!IGNITE
+
+
+-->
+
+### <a name="version-settings-api-use-of-usealltrainingdata"></a>Configurações de versão uso da API de UseAllTrainingData
+
+Use a [API de configurações de versão](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) com o `UseAllTrainingData` definido como true para desativar esse recurso. 
 
 ## <a name="unnecessary-training"></a>Treinamento desnecessário
 
-Não é necessário preparar após todas as alterações. Treinamento deve ser feito depois de um grupo de alterações são aplicadas ao modelo e a próxima etapa que deseja fazer é testar ou publicar. Se não é necessário testar ou publicar, treinamento não é necessário. 
+Você não precisa treinar após cada alteração única. O treinamento deve ser feito depois que um grupo de alterações é aplicado ao modelo e a próxima etapa que você deseja fazer é testar ou publicar. Se você não precisar testar ou publicar, o treinamento não será necessário. 
 
 ## <a name="training-with-the-rest-apis"></a>Treinamento com as APIs REST
 
-Treinamento no portal do LUIS é um passo único de prima a **Train** botão. Treinamento com as APIs REST é um processo de dois passos. A primeira é [pedir treinamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) com HTTP POST. Em seguida, solicitar a [estado de treinamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) com HTTP Get. 
+O treinamento no portal do LUIS é uma única etapa de pressionar o botão **treinar** . O treinamento com as APIs REST é um processo de duas etapas. A primeira é [solicitar treinamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) com http post. Em seguida, solicite o [status de treinamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) com http Get. 
 
-Para saber quando o treinamento estiver concluído, terá de consultar o estado até que todos os modelos são treinados com êxito. 
+Para saber quando o treinamento está concluído, você precisa sondar o status até que todos os modelos sejam treinados com êxito. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Identifique expressões sugeridas com os LUIS](luis-how-to-review-endpoint-utterances.md) 
-* [Utilizar as funcionalidades para melhorar o desempenho da sua aplicação LUIS](luis-how-to-add-features.md) 
+* [Rótulo sugerido declarações com LUIS](luis-how-to-review-endpoint-utterances.md) 
+* [Use os recursos para melhorar o desempenho do aplicativo LUIS](luis-how-to-add-features.md) 

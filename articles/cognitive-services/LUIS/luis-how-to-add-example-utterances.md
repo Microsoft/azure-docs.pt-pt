@@ -1,7 +1,7 @@
 ---
 title: Adicionar exemplo declarações-LUIS
 titleSuffix: Azure Cognitive Services
-description: Expressões com de exemplo são exemplos de texto de perguntas de utilizador ou de comandos. Ensinar a compreensão de idiomas (LUIS), terá de adicionar expressões de exemplo para um objetivo.
+description: Exemplo declarações são exemplos de texto de perguntas ou comandos do usuário. Para ensinar Reconhecimento vocal (LUIS), você precisa adicionar o declarações de exemplo a uma intenção.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,28 +9,31 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 1e170b86f573112cc5bc8dddd6f080921ef29d2d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ed6321963422cf17c858f43593092f8ffa4a1119
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932941"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467742"
 ---
-# <a name="add-an-entity-to-example-utterances"></a>Adicionar uma entidade a expressões de exemplo 
+# <a name="add-an-entity-to-example-utterances"></a>Adicionar uma entidade ao exemplo declarações 
 
-Expressões com de exemplo são exemplos de texto de perguntas de utilizador ou de comandos. Ensinar a compreensão de idiomas (LUIS), precisa adicionar [expressões de exemplo](luis-concept-utterance.md) para um [intenção](luis-concept-intent.md).
+Exemplo declarações são exemplos de texto de perguntas ou comandos do usuário. Para ensinar Reconhecimento vocal (LUIS), você precisa adicionar o [declarações de exemplo](luis-concept-utterance.md) a uma [intenção](luis-concept-intent.md).
 
-Normalmente, você adiciona um exemplo expressão a uma intenção primeiro e, em seguida, cria entidades e o rótulo declarações na página de **tentativas** . Se o primeiro, em vez disso, seria criar entidades, veja [adicionar entidades](luis-how-to-add-entities.md).
 
-## <a name="marking-entities-in-example-utterances"></a>Marcar entidades em expressões de exemplo
+Normalmente, você adiciona um exemplo expressão a uma intenção primeiro e, em seguida, cria entidades e o rótulo declarações na página de **tentativas** . Se você preferir criar entidades primeiro, consulte [adicionar entidades](luis-how-to-add-entities.md).
 
-Quando seleciona texto da expressão de exemplo para marcar para uma entidade, é apresentado um menu de pop-up no local. Use esse menu para criar ou selecionar uma entidade. 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
-Determinados tipos de entidade, como entidades previamente concebidas e entidades de expressão regular, não podem ser marcados na expressão de exemplo, uma vez estão etiquetadas automaticamente. 
+## <a name="marking-entities-in-example-utterances"></a>Marcando entidades no exemplo declarações
 
-## <a name="add-a-simple-entity"></a>Adicione uma entidade
+Quando você seleciona o texto no exemplo expressão para marcar uma entidade, um menu pop-up no local é exibido. Use esse menu para criar ou selecionar uma entidade. 
+
+Determinados tipos de entidade, como entidades predefinidas e entidades de expressão regular, não podem ser marcados no exemplo expressão porque são marcados automaticamente. 
+
+## <a name="add-a-simple-entity"></a>Adicionar uma entidade simples
 
 No procedimento a seguir, você cria e marca uma entidade personalizada dentro do seguinte expressão na página de **tentativas** :
 
@@ -38,56 +41,56 @@ No procedimento a seguir, você cria e marca uma entidade personalizada dentro d
 Are there any SQL server jobs?
 ```
 
-1. Selecione `SQL server` na expressão que identifique-la como uma entidade. Na caixa de lista pendente de entidade que aparece, pode selecionar uma entidade existente ou adicionar uma nova entidade. Para adicionar uma nova entidade, digite seu nome `Job` na caixa de texto e, em seguida, selecione **criar nova entidade**.
+1. Selecione `SQL server` no expressão para rotulá-lo como uma entidade simples. Na caixa suspensa entidade que aparece, você pode selecionar uma entidade existente ou adicionar uma nova entidade. Para adicionar uma nova entidade, digite seu nome `Job` na caixa de texto e, em seguida, selecione **criar nova entidade**.
 
-    ![Captura de ecrã da introdução do nome da entidade](./media/luis-how-to-add-example-utterances/create-simple-entity.png)
+    ![Captura de tela da inserção do nome da entidade](./media/luis-how-to-add-example-utterances/create-simple-entity.png)
 
     > [!NOTE]
-    > Quando selecionar as palavras a marca como entidades:
-    > * Para uma única palavra, basta selecioná-lo. 
+    > Ao selecionar palavras para marcar como entidades:
+    > * Para uma única palavra, basta selecioná-la. 
     > * Para um conjunto de duas ou mais palavras, selecione a primeira palavra e, em seguida, a palavra final.
 
-1. Na **o tipo de entidade que pretende criar?** caixa pop-up, verifique o nome da entidade e selecione o **simples** tipo de entidade e, em seguida, selecione **feito**.
+1. Na caixa pop-up **que tipo de entidade você deseja criar?** , verifique o nome da entidade e selecione o tipo de entidade **simples** e, em seguida, selecione **concluído**.
 
-    R [lista de frase](luis-concept-feature.md) é frequentemente utilizada para impulsionar o sinal de uma entidade.
+    Uma [lista de frases](luis-concept-feature.md) é normalmente usada para impulsionar o sinal de uma entidade simples.
 
 ## <a name="add-a-list-entity"></a>Adicionar uma entidade de lista
 
 As entidades de lista representam um conjunto de correspondências exatas de texto de palavras relacionadas em seu sistema. 
 
-Para obter lista de departamento da empresa, pode ter normalizados valores: `Accounting` e `Human Resources`. Cada nome normalizado tem sinónimos. Para um departamento, estes sinónimos podem incluir qualquer acrônimos de departamento, números ou gíria. Não precisa saber todos os valores quando criar a entidade. Pode adicionar mais depois de rever as expressões de utilizador real com sinónimos.
+Para a lista de departamentos de uma empresa, você pode ter valores normalizados: `Accounting` e `Human Resources`. Cada nome normalizado tem sinônimos. Para um departamento, esses sinônimos podem incluir quaisquer acrônimos de departamento, números ou gírias. Você não precisa saber todos os valores ao criar a entidade. Você pode adicionar mais depois de revisar declarações de usuário reais com sinônimos.
 
 1. Em um exemplo de expressão na página de **tentativas** , selecione a palavra ou frase desejada na nova lista. Quando a lista suspensa entidade for exibida, insira o nome para a nova entidade na caixa de texto superior e, em seguida, selecione **criar nova entidade**.   
 
-1. Na **o tipo de entidade que pretende criar?** caixa pop-up, o nome da entidade e selecione **lista** como o tipo. Adicionar sinónimos deste item de lista, em seguida, selecione **feito**. 
+1. Na caixa pop-up **que tipo de entidade você deseja criar?** , nomeie a entidade e selecione **lista** como o tipo. Adicione sinônimos deste item de lista e, em seguida, selecione **concluído**. 
 
-    ![Captura de ecrã da introdução de sinónimos de entidade de lista](./media/luis-how-to-add-example-utterances/hr-create-list-2.png)
+    ![Captura de tela da inserção de sinônimos de entidade de lista](./media/luis-how-to-add-example-utterances/hr-create-list-2.png)
 
-    Pode adicionar mais itens de lista ou mais de item de sinónimos ao etiquetagem outras expressões ou ao editar a entidade a partir da **entidades** na navegação à esquerda. [Editar](luis-how-to-add-entities.md#add-list-entities) as entidades dá-lhe as opções da introdução itens adicionais com correspondente sinónimos ou importando uma lista. 
+    Você pode adicionar mais itens de lista ou sinônimos de item rotulando outros declarações ou editando a entidade das **entidades** no painel de navegação esquerdo. [Editar](luis-how-to-add-entities.md#add-list-entities) as entidades oferece as opções de inserção de itens adicionais com sinônimos correspondentes ou importação de uma lista. 
 
 ## <a name="add-a-composite-entity"></a>Adicionar uma entidade composta
 
 As entidades compostas são criadas a partir de **entidades** existentes para formar uma entidade pai. 
 
-Supondo que expressão `Does John Smith work in Seattle?`,, um expressão composto possa retornar informações de entidade do nome `John Smith`do funcionário e o `Seattle` local em uma entidade composta. As entidades filho já devem existir no aplicativo e ser marcadas no exemplo expressão antes de criar a entidade composta.
+Supondo que expressão, `Does John Smith work in Seattle?`, um expressão composto possa retornar informações de entidade do nome do funcionário `John Smith`e o local `Seattle` em uma entidade composta. As entidades filho já devem existir no aplicativo e ser marcadas no exemplo expressão antes de criar a entidade composta.
 
 1. Para encapsular as entidades filho em uma entidade composta, selecione a **primeira** entidade rotulada (mais à esquerda) no expressão para a entidade composta. Uma lista suspensa é exibida para mostrar as opções para essa seleção.
 
 1. Selecione **encapsular em entidade composta** na lista suspensa. 
 
-1. Selecione a última palavra da entidade composta (mais à direita). Observe que uma linha verde segue a entidade composta. Este é o indicador visual de uma entidade composta e deve estar sob todas as palavras na entidade composta da entidade filho mais à esquerda para a entidade filho mais à direita.
+1. Selecione a última palavra da entidade composta (a mais à direita). Observe que uma linha verde segue a entidade composta. Este é o indicador visual de uma entidade composta e deve estar sob todas as palavras na entidade composta da entidade filho mais à esquerda para a entidade filho mais à direita.
 
-1. Introduza o nome da entidade composta na lista pendente.
+1. Insira o nome da entidade composta na lista suspensa.
 
-    Quando encapsula as entidades corretamente, uma linha verde está sob a frase inteira.
+    Quando você encapsula as entidades corretamente, uma linha verde está abaixo da frase inteira.
 
-1. Validar os detalhes da entidade compostos no **o tipo de entidade que pretende criar?** pop-up caixa em seguida, selecione **feito**.
+1. Valide os detalhes da entidade composta na caixa pop-up **que tipo de entidade você deseja criar?** e, em seguida, selecione **concluído**.
 
-    ![Detalhes de captura de ecrã da entidade pop-up](./media/luis-how-to-add-example-utterances/hr-create-composite-3.png)
+    ![Captura de tela do pop-up detalhes da entidade](./media/luis-how-to-add-example-utterances/hr-create-composite-3.png)
 
-1. Apresenta a entidade composta com ambos os destaques azuis para entidades individuais e um sublinhado verde para a entidade inteira composto. 
+1. A entidade composta é exibida com os dois destaques azuis para entidades individuais e um sublinhado verde para toda a entidade composta. 
 
-    ![Página de detalhes de captura de ecrã de objetivos, com a entidade composta](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
+    ![Captura de tela da página de detalhes de tentativas, com a entidade composta](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
 
 ## <a name="add-entitys-role-to-utterance"></a>Adicionar função da entidade ao expressão
 
@@ -95,67 +98,67 @@ Uma função é um subtipo nomeado de uma entidade, determinado pelo contexto do
 
 Saiba [como marcar um expressão com funções de entidade](tutorial-entity-roles.md) de um tutorial prático. 
 
-## <a name="entity-status-predictions"></a>Previsões de estado de entidade
+## <a name="entity-status-predictions"></a>Previsões de status de entidade
 
-Ao introduzir uma expressão de novo no portal do LUIS, a expressão pode ter erros de predição de entidade. O erro de predição é uma diferença entre como assinalada como uma entidade em comparação com como LUIS fez uma previsão a entidade. 
+Quando você insere um novo expressão no portal do LUIS, o expressão pode ter erros de previsão de entidade. O erro de previsão é uma diferença entre como uma entidade é rotulada em comparação com o modo como LUIS prevê a entidade. 
 
-Essa diferença visualmente é representada no portal do LUIS com um sublinhado em vermelho na expressão. O sublinhado em vermelho poderão aparecer entre parênteses Retos de entidade ou fora de parênteses Retos. 
+Essa diferença é representada visualmente no portal do LUIS com um sublinhado vermelho no expressão. O sublinhado vermelho pode aparecer em colchetes de entidade ou fora dos colchetes. 
 
-![Discrepância de predição de estado de captura de ecrã da entidade](./media/luis-how-to-add-example-utterances/entity-prediction-error.png)
+![Captura de tela de discrepância de previsão de status de entidade](./media/luis-how-to-add-example-utterances/entity-prediction-error.png)
 
-Selecione as palavras que são sublinhadas em vermelho na expressão. 
+Selecione as palavras que são sublinhadas em vermelho no expressão. 
 
-Apresenta a caixa de entidade a **estado de entidade** com uma marca de exclamação vermelha se existe uma discrepância de predição. Para ver o estado de entidade com informações sobre a diferença entre entidades com nome e previstas, selecione **estado de entidade** , em seguida, selecione o item para a direita.
+A caixa entidade exibe o **status da entidade** com um ponto de exclamação vermelho se houver uma discrepância de previsão. Para ver o status da entidade com informações sobre a diferença entre entidades rotuladas e previstas, selecione **status da entidade** e, em seguida, selecione o item à direita.
 
 ![Captura de tela da seleção de status da entidade](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
 
-A linha de vermelho pode aparecer em qualquer um dos seguintes horas:
+A linha vermelha pode aparecer em qualquer um dos seguintes horários:
 
-   * Quando uma expressão é introduzido, mas antes da entidade tem o nome
-   * Quando é aplicada a etiqueta de entidade
-   * Quando a etiqueta de entidade é removida
-   * Quando mais do que uma etiqueta de entidade é prevista para esse texto 
+   * Quando um expressão é inserido, mas antes de a entidade ser rotulada
+   * Quando o rótulo da entidade é aplicado
+   * Quando o rótulo da entidade é removido
+   * Quando mais de um rótulo de entidade é previsto para esse texto 
 
-As seguintes soluções de ajudar a resolver as discrepâncias de predição de entidade:
+As soluções a seguir ajudam a resolver a discrepância da previsão de entidade:
 
-|Entidade|Indicador visual|predição|Solução|
+|Entidade|Indicador visual|Previsão|Solução|
 |--|--|--|--|
-|Expressão introduzido, entidade não é rotulado como ainda.|sublinhado em vermelho|Predição está correta.|A entidade com o valor previsto da etiqueta.|
-|Texto sem etiqueta|sublinhado em vermelho|Previsão incorreta|As expressões atuais através desta entidade incorreta tem de ser revisto em todas as intenções. As expressões atuais tem mistaught LUIS que este texto é a entidade prevista.
-|Corretamente etiquetado texto|entidade azul, realce o sublinhado em vermelho|Previsão incorreta|Forneça mais expressões com a entidade etiquetada corretamente numa variedade de locais e utilizações. As expressões atuais são não é suficiente para ensinar LUIS que se trata a entidade é ou aparecem as entidades semelhantes no mesmo contexto. Entidade semelhante deve ser combinada numa única entidade então LUIS não é confuso. Outra solução é adicionar uma lista de frase para aumentar a significância das palavras. |
-|Incorretamente etiquetado texto|entidade azul, realce o sublinhado em vermelho|Previsão correta| Forneça mais expressões com a entidade etiquetada corretamente numa variedade de locais e utilizações. 
+|Expressão inserida, a entidade não está rotulada ainda.|sublinhado vermelho|A previsão está correta.|Rotule a entidade com o valor previsto.|
+|Texto sem rótulo|sublinhado vermelho|Previsão incorreta|O declarações atual que usa essa entidade incorreta precisa ser examinado em todas as intenções. O declarações atual já foi ensinado LUIS que esse texto é a entidade prevista.
+|Texto rotulado corretamente|realce de entidade azul, sublinhado vermelho|Previsão incorreta|Forneça mais declarações com a entidade rotulada corretamente em uma variedade de locais e usos. O declarações atual não é suficiente para ensinar LUIS de que essa é a entidade ou entidades semelhantes aparecem no mesmo contexto. Uma entidade semelhante deve ser combinada em uma única entidade, de modo que LUIS não seja confuso. Outra solução é adicionar uma lista de frases para impulsionar o significado das palavras. |
+|Texto rotulado incorretamente|realce de entidade azul, sublinhado vermelho|Corrigir previsão| Forneça mais declarações com a entidade rotulada corretamente em uma variedade de locais e usos. 
 
 ## <a name="other-actions"></a>Outras ações
 
-Pode executar ações em expressões de exemplo como um grupo selecionado ou como um item individual. Grupos de expressões de exemplo selecionado alterar o menu contextual acima da lista. Itens únicas podem utilizar o menu contextual acima da lista e o botão de reticências contextual individual no final de cada linha da expressão. 
+Você pode executar ações no exemplo declarações como um grupo selecionado ou como um item individual. Grupos de exemplos de exemplo selecionados declarações alteram o menu contextual acima da lista. Itens únicos podem usar o menu contextual acima da lista e as reticências contextuais individuais no final de cada linha expressão. 
 
-### <a name="remove-entity-labels-from-utterances"></a>Remover etiquetas de entidade de expressões
+### <a name="remove-entity-labels-from-utterances"></a>Remover rótulos de entidade do declarações
 
-Você pode remover rótulos de entidade aprendidas por computador de um expressão na página de tentativas. Se a entidade não ficou a saber de máquina, não pode ser removido de uma expressão. Se precisar de remover a expressão a uma entidade não aprendidas máquina, terá de eliminar a entidade de todo o aplicativo. 
+Você pode remover rótulos de entidade aprendidas por computador de um expressão na página de tentativas. Se a entidade não for aprendida por máquina, ela não poderá ser removida de um expressão. Se precisar remover uma entidade não aprendida por computador do expressão, você precisará excluir a entidade de todo o aplicativo. 
 
-Para remover uma etiqueta de entidade aprendidas de máquina de uma expressão, selecione a entidade a expressão. Em seguida, selecione **remover etiqueta** na caixa de lista pendente de entidade é apresentada.
+Para remover um rótulo de entidade aprendida por computador de um expressão, selecione a entidade no expressão. Em seguida, selecione **remover rótulo** na caixa suspensa entidade que aparece.
 
 ### <a name="add-a-prebuilt-entity-label"></a>Adicionar um rótulo de entidade predefinida
 
-Quando adiciona as entidades previamente concebidas para a sua aplicação LUIS, não precisa de expressões de etiqueta com estas entidades. Para saber mais sobre entidades previamente concebidas e como adicioná-las, veja [adicionar entidades](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
+Ao adicionar as entidades predefinidas ao seu aplicativo LUIS, você não precisa marcar declarações com essas entidades. Para saber mais sobre entidades predefinidas e como adicioná-las, consulte [adicionar entidades](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
 ### <a name="add-a-regular-expression-entity-label"></a>Adicionar um rótulo de entidade de expressão regular
 
-Se adicionar as entidades de expressão regular para a sua aplicação LUIS, não precisa de expressões de etiqueta com estas entidades. Para saber mais sobre entidades de expressão regular e como adicioná-las, veja [adicionar entidades](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts).
+Se você adicionar as entidades de expressão regular ao seu aplicativo LUIS, não precisará marcar declarações com essas entidades. Para saber mais sobre entidades de expressão regular e como adicioná-las, confira [adicionar entidades](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts).
 
 
-### <a name="create-a-pattern-from-an-utterance"></a>Criar um padrão a partir de uma expressão
+### <a name="create-a-pattern-from-an-utterance"></a>Criar um padrão de um expressão
 
-Ver [adicionar padrão de expressão existente na página de intenção ou a entidade](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
+Consulte [Adicionar padrão de expressão existentes na página de intenção ou entidade](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
 
 ### <a name="add-a-patternany-entity"></a>Adicionar um padrão. qualquer entidade
 
-Se adicionar as entidades de pattern.any à sua aplicação LUIS, não é possível Etiquetar expressões com estas entidades. Apenas são válidas em padrões. Para saber mais sobre entidades pattern.any e como adicioná-las, veja [adicionar entidades](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities).
+Se você adicionar o padrão. quaisquer entidades ao seu aplicativo LUIS, não será possível rotular declarações com essas entidades. Eles são válidos apenas em padrões. Para saber mais sobre o padrão. quaisquer entidades e como adicioná-las, consulte [adicionar entidades](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities).
 
-## <a name="train-your-app-after-changing-model-with-utterances"></a>Preparar a sua aplicação depois de alterar o modelo com expressões com
+## <a name="train-your-app-after-changing-model-with-utterances"></a>Treinar seu aplicativo depois de alterar o modelo com declarações
 
-Depois de adicionar, editar ou remover expressões, [treinar](luis-how-to-train.md) e [publicar](luis-how-to-publish-app.md) as suas alterações afetar a consultas de ponto final na sua aplicação. 
+Depois de adicionar, editar ou remover o declarações, [treine](luis-how-to-train.md) e [publique](luis-how-to-publish-app.md) seu aplicativo para que suas alterações afetem as consultas de ponto de extremidade. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

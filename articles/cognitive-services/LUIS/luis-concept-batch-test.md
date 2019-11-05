@@ -1,7 +1,7 @@
 ---
 title: Teste em lote-LUIS
 titleSuffix: Azure Cognitive Services
-description: Use o teste de batch para trabalhar continuamente na sua aplicação para refiná-la e melhorar a compreensão de idiomas.
+description: Use testes em lotes para trabalhar continuamente em seu aplicativo para refiná-lo e melhorar a compreensão da linguagem.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,22 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: b962fc32cdcde0509cfa60d105022bb208633ae3
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e9ad7c52af20762633c710b39a64fbebf0cf6213
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639296"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487739"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Teste de lote com 1000 declarações no portal do LUIS
 
-Teste de batch valida sua [Active Directory](luis-concept-version.md#active-version) modelo preparado para medir a exatidão da previsão. Um teste em lote ajuda a exibir a precisão de cada tentativa e entidade em seu modelo treinado atual, exibindo os resultados com um gráfico. Reveja os resultados de teste de batch para tomar as medidas adequadas para melhorar a precisão, por exemplo, adicionar mais expressões de exemplo para um objetivo se a sua aplicação falhar com frequência identificar a intenção correta.
+O teste em lotes valida sua versão treinada ativa para medir sua precisão de previsão. Um teste em lote ajuda a exibir a precisão de cada tentativa e entidade em sua versão ativa, exibindo os resultados com um gráfico. Examine os resultados do teste em lotes para tomar as medidas apropriadas para melhorar a precisão, como adicionar mais exemplos de declarações a uma intenção se seu aplicativo freqüentemente falhar ao identificar a intenção correta ou rotular entidades dentro do expressão.
 
-## <a name="group-data-for-batch-test"></a>Dados de grupo para teste de batch
+## <a name="group-data-for-batch-test"></a>Agrupar dados para teste em lote
 
-É importante que a expressão utilizada para fins de teste do batch estiver familiarizado com o LUIS. Se você tiver um conjunto de dados de declarações, divida o declarações em três conjuntos: exemplo declarações adicionado a uma intenção, declarações recebido do ponto de extremidade publicado e declarações usado para testar o lote LUIS depois de ser treinado. 
+É importante que o declarações usado para testes em lotes seja novo no LUIS. Se você tiver um conjunto de dados de declarações, divida o declarações em três conjuntos: exemplo declarações adicionado a uma intenção, declarações recebido do ponto de extremidade publicado e declarações usado para testar o lote LUIS depois de ser treinado. 
 
 ## <a name="a-data-set-of-utterances"></a>Um conjunto de dados de declarações
 
@@ -32,25 +32,25 @@ Envie um arquivo em lotes de declarações, conhecido como um *conjunto de dados
 
 |**Regras**|
 |--|
-|\* Nenhuma expressões com duplicado|
-|expressões de 1000 ou menos|
+|\* Sem declarações duplicados|
+|1000 declarações ou menos|
 
-\* Duplicatas são consideradas correspondências de cadeia exacta, não as correspondências são indexadas pela primeira vez. 
+\* Duplicatas são consideradas correspondências exatas de cadeia de caracteres, não correspondências que são indexadas primeiro. 
 
-## <a name="entities-allowed-in-batch-tests"></a>Entidades permitidas em testes de batch
+## <a name="entities-allowed-in-batch-tests"></a>Entidades permitidas em testes de lote
 
-Todas as entidades personalizadas no modelo de aparecem no filtro de entidades de teste de batch mesmo se não existirem não existem entidades correspondentes nos dados de ficheiro batch.
+Todas as entidades personalizadas no modelo aparecem no filtro de entidades de teste em lote, mesmo que não haja entidades correspondentes nos dados do arquivo em lotes.
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="example-batch-file"></a>
 
-## <a name="batch-file-format"></a>Formato de ficheiro de batch
+## <a name="batch-file-format"></a>Formato de arquivo em lotes
 
-O arquivo em lotes consiste em expressões. Cada expressão tem de ter uma previsão de intenção esperada, juntamente com quaisquer [entidades aprendidas por máquina](luis-concept-entity-types.md#types-of-entities) espera ser detetado. 
+O arquivo em lotes consiste em declarações. Cada expressão deve ter uma previsão de intenção esperada junto com as [entidades aprendidas por computador](luis-concept-entity-types.md#types-of-entities) que você espera que sejam detectadas. 
 
 ## <a name="batch-syntax-template-for-intents-with-entities"></a>Modelo de sintaxe de lote para tentativas com entidades
 
-Utilize o modelo seguinte para iniciar seu arquivo em lotes:
+Use o modelo a seguir para iniciar o arquivo em lotes:
 
 ```JSON
 [
@@ -74,7 +74,7 @@ Utilize o modelo seguinte para iniciar seu arquivo em lotes:
 ]
 ```
 
-O ficheiro batch utiliza o **startPos** e **endPos** propriedades observar de início e no fim de uma entidade. Os valores não são baseado em zero e devem começar ou terminar num espaço. Isso é diferente dos registos de consulta, o que utilizar propriedades startIndex e endIndex. 
+O arquivo em lotes usa as propriedades **startPos** e **endPos** para anotar o início e o fim de uma entidade. Os valores são baseados em zero e não devem começar ou terminar com um espaço. Isso é diferente dos logs de consulta, que usam as propriedades startIndex e EndIndex. 
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
@@ -92,46 +92,46 @@ Use o modelo a seguir para iniciar o arquivo em lotes sem entidades:
 ]
 ```
 
-Se você não quiser testar entidades, inclua a `entities` Propriedade e defina o valor como uma matriz vazia,. `[]`
+Se você não quiser testar entidades, inclua a propriedade `entities` e defina o valor como uma matriz vazia, `[]`.
 
 
-## <a name="common-errors-importing-a-batch"></a>Importação de um lote de erros comuns
+## <a name="common-errors-importing-a-batch"></a>Erros comuns ao importar um lote
 
-Erros comuns incluem: 
+Os erros comuns incluem: 
 
-> * Expressões com mais de 1000
-> * Um objeto JSON de expressão que não tem uma propriedade de entidades. A propriedade pode ser uma matriz vazia.
-> * Word(s) rotulado como em várias entidades
-> * Etiqueta de entidade inicial ou final num espaço.
+> * Mais de 1.000 declarações
+> * Um objeto JSON expressão que não tem uma propriedade Entities. A propriedade pode ser uma matriz vazia.
+> * Palavras rotuladas em várias entidades
+> * Rótulo de entidade iniciando ou terminando em um espaço.
 
-## <a name="batch-test-state"></a>Estado do teste de batch
+## <a name="batch-test-state"></a>Estado do teste de lote
 
-LUIS rastreia o estado do último teste de cada conjunto de dados. Isto inclui a data de tamanho (número de expressões no lote), a última execução e o último resultado (número de expressões com prevista com êxito).
+LUIS rastreia o estado do último teste de cada conjunto de dados. Isso inclui o tamanho (número de declarações no lote), a data da última execução e o último resultado (número de declarações previstos com êxito).
 
 <a name="sections-of-the-results-chart"></a>
 
-## <a name="batch-test-results"></a>Resultados do teste de batch
+## <a name="batch-test-results"></a>Resultados de teste em lotes
 
-O resultado de teste do batch é um gráfico de dispersão, conhecido como uma matriz de erro. Este gráfico é uma comparação de 4 vias de expressões no arquivo em lotes e intenção prevista do modelo atual e entidades. 
+O resultado do teste de lote é um grafo de dispersão, conhecido como matriz de erros. Esse grafo é uma comparação de 4 vias do declarações no arquivo em lotes e as entidades e a intenção prevista do modelo atual. 
 
-Pontos de dados na **falsos positivos** e **falsos negativos** secções indicam erros, que devem ser investigados. Se todos os pontos de dados estiverem nas seções **verdadeiro positivo** e **verdadeiro negativo** , a precisão do aplicativo será perfeita nesse conjunto de dados.
+Os pontos de dados nas seções **falso positivo** e **falso negativo** indicam erros, que devem ser investigados. Se todos os pontos de dados estiverem nas seções **verdadeiro positivo** e **verdadeiro negativo** , a precisão do aplicativo será perfeita nesse conjunto de dados.
 
-![Quatro seções de gráfico](./media/luis-concept-batch-test/chart-sections.png)
+![Quatro seções do gráfico](./media/luis-concept-batch-test/chart-sections.png)
 
-Este gráfico ajuda a localizar as expressões que prevê o LUIS incorretamente com base no seu treinamento atual. Os resultados são exibidos por região do gráfico. Selecione os pontos individuais no gráfico para consultar as informações de expressão ou selecione o nome da região para rever os resultados de expressão nessa região.
+Este gráfico ajuda você a encontrar declarações que o LUIS prevê incorretamente com base em seu treinamento atual. Os resultados são exibidos por região do gráfico. Selecione pontos individuais no grafo para revisar as informações de expressão ou selecione o nome da região para examinar os resultados de expressão nessa região.
 
 ![Testes em lote](./media/luis-concept-batch-test/batch-testing.png)
 
 ## <a name="errors-in-the-results"></a>Erros nos resultados
 
-Erros no teste de batch indicam intenções que não estão previstas conforme indicado no ficheiro batch. Erros são indicados nas duas secções vermelhas do gráfico. 
+Erros no teste em lote indicam tentativas que não são previstas como observados no arquivo em lotes. Os erros são indicados nas duas seções vermelhas do gráfico. 
 
-A secção positiva falso indica que uma expressão correspondido uma intenção ou a entidade que não deve ter. O negativo falso indica que uma expressão não correspondeu a um objetivo ou a entidade que deve ter. 
+A seção falso positivo indica que um expressão corresponde a uma intenção ou entidade quando não deveria. O falso negativo indica que um expressão não correspondeu a uma intenção ou entidade quando deveria. 
 
-## <a name="fixing-batch-errors"></a>Corrigir erros de batch
+## <a name="fixing-batch-errors"></a>Corrigindo erros de lote
 
-Se houver erros no teste de lote, pode seja adicionar expressões mais numa intenção, e/ou expressões com mais com a entidade para o ajudar a tornar o discrimination entre objetivos de LUIS da etiqueta. Se tiver adicionado expressões e rotulado como get-los e ainda os erros de predição no teste do batch, considere adicionar uma [lista de frase](luis-concept-feature.md) funcionalidade com o vocabulário específicas de domínio para o ajudar a LUIS aprende mais depressa. 
+Se houver erros no teste do lote, você poderá adicionar mais declarações a uma intenção, e/ou rotular mais declarações com a entidade para ajudar a LUIS a fazer a discriminação entre as intenções. Se você adicionou declarações e os rotulau e ainda receber erros de previsão no teste do lote, considere adicionar um recurso de [lista de frases](luis-concept-feature.md) com o vocabulário específico do domínio para ajudar a Luis a aprender mais rapidamente. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como [um lote de teste](luis-how-to-batch-test.md)
+* Saiba como [testar um lote](luis-how-to-batch-test.md)

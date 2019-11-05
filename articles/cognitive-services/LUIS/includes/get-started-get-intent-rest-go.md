@@ -6,14 +6,14 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/27/2019
+ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: b36e967e960ec6a2b39409ea7be5f3f98f69b9c8
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 04e7f582920c4b328de39bda3d37e886e26f8bae
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838517"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499669"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -21,66 +21,149 @@ ms.locfileid: "71838517"
 * [Visual Studio Code](https://code.visualstudio.com/)
 * ID da aplicação pública: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
-
 ## <a name="get-luis-key"></a>Obter chave LUIS
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
 
 ## <a name="get-intent-programmatically"></a>Obter a intenção através de programação
 
-Pode utilizar o Go para aceder aos mesmos resultados que viu na janela do browser no passo anterior. 
+Use Go para consultar o ponto de extremidade de previsão obter [API](https://aka.ms/luis-apim-v3-prediction) para obter o resultado da previsão.
 
-1. Crie um novo ficheiro com o nome `endpoint.go`. Adicione o seguinte código:
+1. Crie um novo ficheiro com o nome `predict.go`. Adicione o seguinte código:
     
-   [!code-go[Go code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/go/endpoint.go?range=36-98)]
-
-2. Numa linha de comandos, no mesmo diretório onde criou o ficheiro, introduza `go build endpoint.go` para compilar o ficheiro Go. A linha de comandos não devolve informações para uma compilação bem-sucedida.
-
-3. Execute a aplicação Go a partir da linha de comandos ao introduzir o seguinte texto na linha de comandos: 
-
-    ```CMD
-    go run endpoint.go -appID df67dcdb-c37d-46af-88e1-8b97951ca1c2 -endpointKey <add-your-key> -region westus
+    ```go
+    package main
+    
+    /* Do dependencies */
+    import (
+        "fmt"
+        "net/http"
+        "net/url"
+        "io/ioutil"
+        "log"
+    )
+    func main() {
+        
+        // public app
+        var appID = "df67dcdb-c37d-46af-88e1-8b97951ca1c2"
+        
+        // utterance for public app
+        var utterance = "turn on all lights"
+        
+        // YOUR-KEY - your starter or prediction key
+        var endpointKey = "YOUR-KEY"
+        
+        // YOUR-ENDPOINT - example is westus2.api.cognitive.microsoft.com
+        var endpoint = "YOUR-ENDPOINT"
+    
+        endpointPrediction(appID, endpointKey, endpoint, utterance)
+    }
+    func endpointPrediction(appID string, endpointKey string, endpoint string, utterance string) {
+    
+        var endpointUrl = fmt.Sprintf("https://%s/luis/prediction/v3.0/apps/%s/slots/production/predict?subscription-key=%s&verbose=true&show-all-intents=true&query=%s", endpoint, appID, endpointKey, url.QueryEscape(utterance))
+        
+        response, err := http.Get(endpointUrl)
+    
+        if err!=nil {
+            // handle error
+            fmt.Println("error from Get")
+            log.Fatal(err)
+        }
+        
+        response2, err2 := ioutil.ReadAll(response.Body)
+    
+        if err2!=nil {
+            // handle error
+            fmt.Println("error from ReadAll")
+            log.Fatal(err2)
+        }
+    
+        fmt.Println("response")
+        fmt.Println(string(response2))
+    }
     ```
-    
-    Substitua `<add-your-key>` pelo valor da sua chave.  
+
+1. Substitua os seguintes valores:
+
+    * `YOUR-KEY` com sua chave inicial
+    * `YOUR-ENDPOINT` com seu ponto de extremidade, por exemplo, `westus2.api.cognitive.microsoft.com`
+
+1. Com um prompt de comando no mesmo diretório em que você criou o arquivo, digite o seguinte comando para compilar o arquivo Go:
+
+    ```console
+    go build predict.go
+    ```  
+
+1. Execute a aplicação Go a partir da linha de comandos ao introduzir o seguinte texto na linha de comandos: 
+
+    ```console
+    go run predict.go
+    ```
     
     A resposta da linha de comandos é: 
     
-    ```CMD
+    ```console
     appID has value df67dcdb-c37d-46af-88e1-8b97951ca1c2
-    endpointKey has value xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-    region has value westus
-    utterance has value turn on the bedroom light
+    endpointKey has value a7b206911f714e71a1ddae36928a61cc
+    endpoint has value westus2.api.cognitive.microsoft.com
+    utterance has value turn on all lights
     response
+    {"query":"turn on all lights","prediction":{"topIntent":"HomeAutomation.TurnOn","intents":{"HomeAutomation.TurnOn":{"score":0.5375382},"None":{"score":0.08687421},"HomeAutomation.TurnOff":{"score":0.0207554}},"entities":{"HomeAutomation.Operation":["on"],"$instance":{"HomeAutomation.Operation":[{"type":"HomeAutomation.Operation","text":"on","startIndex":5,"length":2,"score":0.724984169,"modelTypeId":-1,"modelType":"Unknown","recognitionSources":["model"]}]}}}}
+    ```
+
+    JSON formatado para facilitar a leitura:
+
+    ```json
     {
-        "query": "turn on the bedroom light",
-        "topScoringIntent": {
-            "intent": "HomeAutomation.TurnOn",
-            "score": 0.809439957
-        },
-        "entities": [
-            {
-            "entity": "bedroom",
-            "type": "HomeAutomation.Room",
-            "startIndex": 12,
-            "endIndex": 18,
-            "score": 0.8065475
+        "query": "turn on all lights",
+        "prediction": {
+            "topIntent": "HomeAutomation.TurnOn",
+            "intents": {
+                "HomeAutomation.TurnOn": {
+                    "score": 0.5375382
+                },
+                "None": {
+                    "score": 0.08687421
+                },
+                "HomeAutomation.TurnOff": {
+                    "score": 0.0207554
+                }
+            },
+            "entities": {
+                "HomeAutomation.Operation": [
+                    "on"
+                ],
+                "$instance": {
+                    "HomeAutomation.Operation": [
+                        {
+                            "type": "HomeAutomation.Operation",
+                            "text": "on",
+                            "startIndex": 5,
+                            "length": 2,
+                            "score": 0.724984169,
+                            "modelTypeId": -1,
+                            "modelType": "Unknown",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
             }
-        ]
+        }
     }
     ```
 
 
 ## <a name="luis-keys"></a>Chaves LUIS
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando terminar este guia de introdução, feche o projeto do Visual Studio e remova o diretório do projeto do sistema de ficheiros. 
+Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Adicionar declarações e treinar com go](../luis-get-started-go-add-utterance.md)
+> [Adicionar declarações e treinar](../luis-get-started-go-add-utterance.md)

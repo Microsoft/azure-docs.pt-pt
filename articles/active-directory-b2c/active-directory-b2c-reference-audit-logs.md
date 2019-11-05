@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/14/2019
+ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bf9b6a3ad40d46b628bfcdb3fa3e32b2419360c9
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: bf87b1709c355faf6f06ff2d23b2c819f88750cd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802116"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475203"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acessando Azure AD B2C logs de auditoria
 
@@ -37,8 +37,8 @@ A categoria **B2C** nos logs de auditoria contém os seguintes tipos de atividad
 |Diretório |Atividades relacionadas aos atributos de diretório recuperados quando um administrador entra usando o portal do Azure. |
 |Aplicação | Operações CRUD (criar, ler, atualizar e excluir) em aplicativos B2C. |
 |Chave |Operações CRUD em chaves armazenadas em um contêiner de chave B2C. |
-|Resource |Operações CRUD em recursos do B2C. Por exemplo, políticas e provedores de identidade.
-|Authentication |Validação de credenciais de usuário e emissão de tokens.|
+|Recurso |Operações CRUD em recursos do B2C. Por exemplo, políticas e provedores de identidade.
+|Autenticação |Validação de credenciais de usuário e emissão de tokens.|
 
 Para as atividades CRUD do objeto de usuário, consulte a categoria **principal do diretório** .
 
@@ -52,13 +52,13 @@ O painel detalhes da atividade contém as seguintes informações relevantes:
 
 |Section|Campo|Descrição|
 |-------|-----|-----------|
-| Atividade | Name | Qual atividade ocorreu. Por exemplo, *emita um id_token para o aplicativo*, que conclui a entrada do usuário real. |
-| Iniciado por (ator) | ObjectId | A **ID de objeto** do aplicativo B2C ao qual o usuário está se conectando. Esse identificador não é visível no portal do Azure, mas pode ser acessado por meio da API do Microsoft Graph. |
-| Iniciado por (ator) | Spn | A **ID do aplicativo** B2C para o qual o usuário está entrando. |
-| Destino (s) | ObjectId | A **ID de objeto** do usuário que está entrando. |
-| Detalhes Adicionais | TenantId | A **ID do locatário** do locatário do Azure ad B2C. |
-| Detalhes Adicionais | `PolicyId` | A **ID de política** do fluxo do usuário (política) que está sendo usada para conectar o usuário. |
-| Detalhes Adicionais | ApplicationId | A **ID do aplicativo** B2C para o qual o usuário está entrando. |
+| Atividade | Nome | Qual atividade ocorreu. Por exemplo, *emita um id_token para o aplicativo*, que conclui a entrada do usuário real. |
+| Iniciado por (ator) | objectId | A **ID de objeto** do aplicativo B2C ao qual o usuário está se conectando. Esse identificador não é visível no portal do Azure, mas pode ser acessado por meio da API do Microsoft Graph. |
+| Iniciado por (ator) | SPNs | A **ID do aplicativo** B2C para o qual o usuário está entrando. |
+| Destino (s) | objectId | A **ID de objeto** do usuário que está entrando. |
+| Detalhes Adicionais | tenantId | A **ID do locatário** do locatário do Azure ad B2C. |
+| Detalhes Adicionais | policyId | A **ID de política** do fluxo do usuário (política) que está sendo usada para conectar o usuário. |
+| Detalhes Adicionais | applicationId | A **ID do aplicativo** B2C para o qual o usuário está entrando. |
 
 ## <a name="view-audit-logs-in-the-azure-portal"></a>Exibir logs de auditoria no portal do Azure
 
@@ -89,8 +89,7 @@ Os logs de auditoria são publicados no mesmo pipeline que outras atividades par
 
 Para permitir o acesso baseado em script ou aplicativo à API de relatórios do Azure AD, você precisa de um aplicativo Azure Active Directory registrado em seu locatário Azure AD B2C com as seguintes permissões de API:
 
-* Microsoft Graph
-  * Aplicação: Ler todos os dados de registo de auditoria
+* Microsoft Graph permissões de aplicativo > > AuditLog. Read. All
 
 Você pode habilitar essas permissões em um registro de aplicativo Azure Active Directory existente em seu locatário B2C ou criar um novo especificamente para uso com a automação do log de auditoria.
 
@@ -102,6 +101,8 @@ Siga estas etapas para registrar um aplicativo, conceda a ele as permissões de 
 
 ### <a name="assign-api-access-permissions"></a>Atribuir permissões de acesso à API
 
+#### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
+
 1. Na página Visão geral do **aplicativo registrado** , selecione **configurações**.
 1. Em **acesso à API**, selecione **permissões necessárias**.
 1. Selecione **Adicionar**e, em seguida, **Selecione uma API**.
@@ -109,6 +110,22 @@ Siga estas etapas para registrar um aplicativo, conceda a ele as permissões de 
 1. Em **permissões do aplicativo**, selecione **ler todos os dados do log de auditoria**.
 1. Selecione o botão **selecionar** e, em seguida, selecione **concluído**.
 1. Selecione **conceder permissões**e, em seguida, selecione **Sim**.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
+
+1. Em **gerenciar**, selecione **permissões de API**.
+1. Em **permissões configuradas**, selecione **Adicionar uma permissão**.
+1. Selecione a guia **APIs da Microsoft** .
+1. Selecione **Microsoft Graph**.
+1. Selecione **permissões de aplicativo**.
+1. Expanda **auditlog** e marque a caixa de seleção **auditlog. Read. All** .
+1. Selecione **adicionar permissões**. Conforme indicado, aguarde alguns minutos antes de prosseguir para a próxima etapa.
+1. Selecione **conceder consentimento de administrador para (seu nome de locatário)** .
+1. Selecione sua conta conectada no momento se ela tiver sido atribuída à função de *administrador global* ou entre com uma conta em seu locatário de Azure ad B2C que tenha sido atribuído à função de *administrador global* .
+1. Selecione **Aceitar**.
+1. Selecione **Atualizar**e, em seguida, verifique se "concedido para..." aparece em **status** para a permissão *AuditLog. Read. All* . Pode levar alguns minutos para que as permissões se propaguem.
+
+* * *
 
 ### <a name="create-client-secret"></a>Criar segredo do cliente
 
@@ -118,7 +135,7 @@ Agora você tem um aplicativo com o acesso necessário à API, uma ID do aplicat
 
 ### <a name="access-the-api"></a>Acessar a API
 
-Para baixar Azure ad B2C eventos do log de auditoria por meio da API, filtre os `B2C` logs na categoria. Para filtrar por categoria, use o `filter` parâmetro de cadeia de caracteres de consulta ao chamar o ponto de extremidade da API de relatórios do Azure AD.
+Para baixar Azure AD B2C eventos do log de auditoria por meio da API, filtre os logs na categoria `B2C`. Para filtrar por categoria, use o parâmetro de cadeia de caracteres de consulta `filter` ao chamar o ponto de extremidade da API de relatórios do Azure AD.
 
 ```HTTP
 https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByService eq 'B2C' and activityDateTime gt 2019-09-10T02:28:17Z
@@ -128,15 +145,15 @@ https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByServi
 
 O script do PowerShell a seguir mostra um exemplo de como consultar a API de relatórios do Azure AD. Depois de consultar a API, ela imprime os eventos registrados para a saída padrão e grava a saída JSON em um arquivo.
 
-Você pode experimentar esse script na [Azure cloud Shell](../cloud-shell/overview.md). Certifique-se de atualizá-lo com a ID do aplicativo, a chave e o nome do seu locatário de Azure AD B2C.
+Você pode experimentar esse script na [Azure cloud Shell](../cloud-shell/overview.md). Certifique-se de atualizá-lo com a ID do aplicativo, o segredo do cliente e o nome do seu locatário de Azure AD B2C.
 
 ```powershell
 # This script requires the registration of a Web Application in Azure Active Directory:
 # https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api
 
 # Constants
-$ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a GUID (registered by Global Admin)
-$ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client secret/key
+$ClientID       = "your-client-application-id-here"       # Insert your application's client ID, a GUID (registered by Global Admin)
+$ClientSecret   = "your-client-application-secret-here"   # Insert your application's client secret
 $tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # Insert your Azure AD B2C tenant; for example, contoso.onmicrosoft.com
 $loginURL       = "https://login.microsoftonline.com"
 $resource       = "https://graph.microsoft.com"           # Microsoft Graph API resource URI

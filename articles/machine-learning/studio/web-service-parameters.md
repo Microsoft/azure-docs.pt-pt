@@ -1,8 +1,7 @@
 ---
-title: Web parâmetros de serviço - Azure Machine Learning Studio | Documentos da Microsoft
-description: Como utilizar parâmetros do serviço Web Azure Machine Learning para modificar o comportamento do seu modelo quando o serviço web é acessado.
+title: Parâmetros do serviço Web-Azure Machine Learning Studio (clássico) | Microsoft Docs
+description: Como usar Azure Machine Learning parâmetros de serviço Web para modificar o comportamento do seu modelo quando o serviço Web é acessado.
 services: machine-learning
-documentationcenter: ''
 author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
@@ -11,73 +10,71 @@ ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
 ms.subservice: studio
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.openlocfilehash: a236043d5622e5a2e1ffd572c887fb5ffac2174a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 62c6488cfcb30c969c388343c766c482cff7e03b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60345452"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466986"
 ---
-# <a name="use-azure-machine-learning-studio-web-service-parameters"></a>Utilizar parâmetros do serviço web Azure Machine Learning Studio
-Um serviço web Azure Machine Learning é criado ao publicar uma experimentação que contém módulos com parâmetros configuráveis. Em alguns casos, talvez queira alterar o comportamento de módulo, enquanto o serviço web está em execução. *Parâmetros de serviço da Web* permitem-lhe executar esta tarefa. 
+# <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Usar parâmetros de serviço Web Azure Machine Learning Studio (clássico)
+Um serviço Web Azure Machine Learning é criado por meio da publicação de um experimento que contém módulos com parâmetros configuráveis. Em alguns casos, talvez você queira alterar o comportamento do módulo enquanto o serviço Web está em execução. Os *parâmetros do serviço Web* permitem que você execute essa tarefa. 
 
-Um exemplo comum é a configuração do [importar dados] [ reader] módulo para que o utilizador do serviço web publicado pode especificar uma origem de dados diferente quando o serviço web é acessado. Ou configurar o [exportar dados] [ writer] módulo, de modo a que pode ser especificado um destino diferente. Alguns exemplos incluem a alterar o número de bits para o [Hashing de funcionalidade] [ feature-hashing] módulo ou o número de pretendido funcionalidades para o [seleção de funcionalidades com base no filtro] [ filter-based-feature-selection] módulo. 
+Um exemplo comum é a configuração do módulo [importar dados][reader] para que o usuário do serviço Web publicado possa especificar uma fonte de dados diferente quando o serviço Web é acessado. Ou configurar o módulo [exportar dados][writer] para que um destino diferente possa ser especificado. Alguns outros exemplos incluem a alteração do número de bits para o módulo [hash de recurso][feature-hashing] ou o número de recursos desejados para o módulo [seleção de recursos baseada em filtro][filter-based-feature-selection] . 
 
-Pode definir parâmetros do serviço Web e associá-las com um ou mais parâmetros do módulo na sua experimentação e pode especificar se são necessárias ou opcionais. O utilizador do serviço web, em seguida, pode fornecer valores para estes parâmetros quando eles chamam o serviço web. 
+Você pode definir parâmetros de serviço Web e associá-los a um ou mais parâmetros de módulo em seu experimento, e pode especificar se eles são obrigatórios ou opcionais. O usuário do serviço Web pode fornecer valores para esses parâmetros ao chamar o serviço Web. 
 
 
 
-## <a name="how-to-set-and-use-web-service-parameters"></a>Como configurar e utilizar parâmetros do serviço Web
-Definir um parâmetro de serviço da Web ao clicar no ícone junto ao parâmetro para um módulo e selecionando "Definir como parâmetro de serviço web". Isso cria um novo parâmetro de serviço da Web e liga-o para esse parâmetro de módulo. Em seguida, quando o serviço da web é acedido, o utilizador pode especificar um valor para o parâmetro de serviço da Web e é aplicada para o parâmetro de módulo.
+## <a name="how-to-set-and-use-web-service-parameters"></a>Como definir e usar parâmetros de serviço Web
+Você define um parâmetro de serviço Web clicando no ícone ao lado do parâmetro de um módulo e selecionando "definir como parâmetro de serviço Web". Isso cria um novo parâmetro de serviço Web e o conecta a esse parâmetro de módulo. Em seguida, quando o serviço Web é acessado, o usuário pode especificar um valor para o parâmetro do serviço Web e é aplicado ao parâmetro do módulo.
 
-Depois de definir um parâmetro de serviço da Web, está disponível para qualquer outro parâmetro do módulo na experimentação. Se definir um parâmetro de serviço da Web associado a um parâmetro para um módulo, pode utilizar esse mesmo parâmetro de serviço da Web para qualquer outro módulo, desde que o parâmetro espera que o mesmo tipo de valor. Por exemplo, se o parâmetro de serviço da Web é um valor numérico, em seguida, ele pode apenas ser usado para os parâmetros do módulo que esperam um valor numérico. Quando o utilizador define um valor para o parâmetro de serviço da Web, será aplicada a todos os parâmetros do módulo.
+Depois de definir um parâmetro de serviço Web, ele estará disponível para qualquer outro parâmetro de módulo no experimento. Se você definir um parâmetro de serviço Web associado a um parâmetro para um módulo, poderá usar esse mesmo parâmetro de serviço Web para qualquer outro módulo, contanto que o parâmetro Espere o mesmo tipo de valor. Por exemplo, se o parâmetro de serviço Web for um valor numérico, ele só poderá ser usado para parâmetros de módulo que esperam um valor numérico. Quando o usuário define um valor para o parâmetro de serviço Web, ele será aplicado a todos os parâmetros de módulo associados.
 
-Pode decidir se pretende fornecer um valor predefinido para o parâmetro de serviço da Web. Se o fizer, o parâmetro é opcional para o utilizador do serviço web. Se não fornecer um valor predefinido, em seguida, é pedido ao utilizador para introduzir um valor quando o serviço web é acessado.
+Você pode decidir se deseja fornecer um valor padrão para o parâmetro de serviço Web. Se você fizer isso, o parâmetro será opcional para o usuário do serviço Web. Se você não fornecer um valor padrão, o usuário será solicitado a inserir um valor quando o serviço Web for acessado.
 
-A documentação da API para o serviço web inclui informações para o utilizador de serviço da web sobre como especificar o parâmetro de serviço Web por meio de programação, ao acessar o serviço web.
+A documentação da API para o serviço Web inclui informações para o usuário do serviço Web sobre como especificar o parâmetro do serviço Web programaticamente ao acessar o serviço Web.
 
 > [!NOTE]
-> A documentação da API para um serviço web clássico é fornecida através da **página de ajuda da API** link no web service **DASHBOARD** no Machine Learning Studio. A documentação da API para um novo serviço web é fornecida através da [serviços da Web do Azure Machine Learning](https://services.azureml.net/Quickstart) portal no **Consume** e **API do Swagger** páginas para a web serviço.
+> A documentação da API para um serviço Web clássico é fornecida por meio do link da **página de ajuda da API** no **painel** do serviço Web no Machine Learning Studio (clássico). A documentação da API para um novo serviço Web é fornecida por meio do portal de [serviços da web Azure Machine Learning](https://services.azureml.net/Quickstart) nas páginas de API **consume** e **Swagger** para seu serviço Web.
 > 
 > 
 
 ## <a name="example"></a>Exemplo
-Por exemplo, vamos supor que temos uma experimentação com um [exportar dados] [ writer] módulo envia informações para o armazenamento de Blobs do Azure. Vamos definir um parâmetro de serviço da Web com o nome "Caminho do Blob" que permite ao usuário de serviço da web alterar o caminho para o armazenamento de BLOBs, quando o serviço for acedido.
+Por exemplo, vamos supor que tenhamos um experimento com um módulo [exportar dados][writer] que envia informações para o armazenamento de BLOBs do Azure. Vamos definir um parâmetro de serviço Web chamado "caminho do blob" que permite ao usuário do serviço Web alterar o caminho para o armazenamento de BLOBs quando o serviço é acessado.
 
-1. No Machine Learning Studio, clique nas [exportar dados] [ writer] módulo para selecioná-lo. Suas propriedades são apresentadas no painel de propriedades para a direita da tela de experimentação.
+1. Na versão clássica do Machine Learning Studio, clique no módulo [exportar dados][writer] para selecioná-lo. Suas propriedades são mostradas no painel Propriedades à direita da tela do experimento.
 2. Especifique o tipo de armazenamento:
    
-   * Sob **especifique o destino dos dados**, selecione "Armazenamento de Blobs do Azure".
-   * Sob **especifique o tipo de autenticação**, selecione "Conta".
-   * Introduza as informações de conta para o armazenamento de Blobs do Azure. 
+   * Em **especificar destino de dados**, selecione "armazenamento de BLOBs do Azure".
+   * Em **especificar tipo de autenticação**, selecione "conta".
+   * Insira as informações da conta para o armazenamento de BLOBs do Azure. 
 
-3. Clique no ícone à direita dos **caminho para o parâmetro de contentor a partir de BLOBs**. Isso fica assim:
+3. Clique no ícone à direita do **caminho para o blob que começa com o parâmetro de contêiner**. Ele tem a seguinte aparência:
    
-   ![Ícone de parâmetro de serviço da Web](./media/web-service-parameters/icon.png)
+   ![Ícone de parâmetro de serviço Web](./media/web-service-parameters/icon.png)
    
-   Selecione "Definir como parâmetro de serviço web".
+   Selecione "definir como parâmetro de serviço Web".
    
-   Uma entrada é adicionada sob **parâmetros do serviço Web** na parte inferior do painel de propriedades com o nome "Caminho para o início com o contentor de BLOBs". Este é o parâmetro de serviço Web que já está associado a este [exportar dados] [ writer] parâmetro do módulo.
-4. Para mudar o nome do parâmetro de serviço da Web, clique no nome, introduza "Caminho do Blob" e prima a **Enter** chave. 
-5. Para fornecer um valor predefinido para o parâmetro de serviço da Web, clique no ícone à direita do nome, selecione "Fornecer o valor predefinido", introduza um valor (por exemplo, "container1/output1.csv") e prima a **Enter** chave.
+   Uma entrada é adicionada em **parâmetros de serviço Web** na parte inferior do painel Propriedades com o nome "caminho para o blob começando com o contêiner". Esse é o parâmetro de serviço Web que agora está associado a esse parâmetro de módulo [exportar dados][writer] .
+4. Para renomear o parâmetro do serviço Web, clique no nome, insira "caminho do blob" e pressione a tecla **Enter** . 
+5. Para fornecer um valor padrão para o parâmetro de serviço Web, clique no ícone à direita do nome, selecione "fornecer valor padrão", insira um valor (por exemplo, "Container1/Saída1. csv") e pressione a tecla **Enter** .
    
-   ![Parâmetro de serviço da Web](./media/web-service-parameters/parameter.png)
+   ![Parâmetro de serviço Web](./media/web-service-parameters/parameter.png)
 6. Clique em **Executar**. 
-7. Clique em **implementar serviço Web** e selecione **implementar o serviço Web [clássica]** ou **implementar o Web Service [novo]** para implementar o serviço web.
+7. Clique em **implantar serviço Web** e selecione **implantar serviço Web [clássico]** ou **implantar serviço Web [novo]** para implantar o serviço Web.
 
 > [!NOTE] 
-> Para implementar um novo serviço web tem de ter permissões suficientes na subscrição para a qual estiver a implementar o serviço web. Para obter mais informações, consulte [gerir um serviço Web através do portal do Azure Machine Learning Web Services](manage-new-webservice.md). 
+> Para implantar um novo serviço Web, você deve ter permissões suficientes na assinatura na qual você está implantando o serviço Web. Para obter mais informações, consulte [gerenciar um serviço Web usando o Azure Machine Learning Portal de serviços Web](manage-new-webservice.md). 
 
-O utilizador do serviço web agora pode especificar um novo destino para o [exportar dados] [ writer] módulo ao acessar o serviço web.
+O usuário do serviço Web agora pode especificar um novo destino para o módulo [exportar dados][writer] ao acessar o serviço Web.
 
 ## <a name="more-information"></a>Mais informações
-Para obter um exemplo mais detalhado, consulte a [parâmetros do serviço Web](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) entrada no [blogue de Machine Learning](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
+Para obter um exemplo mais detalhado, consulte a entrada [parâmetros de serviço Web](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) no [blog Machine Learning](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
-Para obter mais informações sobre como acessar um serviço web do Machine Learning, consulte [como consumir um serviço Web do Azure Machine Learning](consume-web-services.md).
+Para obter mais informações sobre como acessar um serviço Web Machine Learning, consulte [como consumir um serviço web Azure Machine Learning](consume-web-services.md).
 
 <!-- Module References -->
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/

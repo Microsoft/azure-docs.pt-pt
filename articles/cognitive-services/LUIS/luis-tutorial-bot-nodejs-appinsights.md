@@ -9,17 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: f488cfaf1e55edd8ae0d2bfd177553deb2677f8b
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: b0bc4a93df7db7145accf2b485c45256f53c324d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387913"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498958"
 ---
 # <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-nodejs"></a>Tutorial: Adicionar resultados de LUIS a Application Insights de um bot no node. js
-Este tutorial adiciona informações de bot e Reconhecimento vocal para [Application insights](https://azure.microsoft.com/services/application-insights/) armazenamento de dados de telemetria. Depois de ter esses dados, você pode consultá-los com a linguagem Kusto ou Power BI para analisar, agregar e relatar tentativas e entidades de expressão em tempo real. Isto ajuda a análise é determinar se deve utilizar para adicionar ou editar as intenções e entidades da sua aplicação LUIS.
+Este tutorial adiciona informações de bot e Reconhecimento vocal para [Application insights](https://azure.microsoft.com/services/application-insights/) armazenamento de dados de telemetria. Depois de ter esses dados, você pode consultá-los com a linguagem Kusto ou Power BI para analisar, agregar e relatar tentativas e entidades de expressão em tempo real. Essa análise ajuda a determinar se você deve adicionar ou editar as intenções e entidades do seu aplicativo LUIS.
+
+[!INCLUDE [Waiting for Bot refresh](./includes/wait-bot-upgrade.md)]
 
 Neste tutorial, ficará a saber como:
 
@@ -37,7 +39,7 @@ Neste tutorial, ficará a saber como:
 Todo o código deste tutorial está disponível no [repositório Azure-samples reconhecimento vocal GitHub](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/v4/luis-nodejs-bot-johnsmith-src-telemetry). 
 
 ## <a name="add-application-insights-to-web-app-bot-project"></a>Adicionar Application Insights ao projeto de bot do aplicativo Web
-Atualmente, o serviço do Application Insights, usado este bot de funções, recolhe telemetria do Estado geral para o bot. Ele não coleta informações de LUIS. 
+Atualmente, o serviço de Application Insights, usado neste bot de aplicativo Web, coleta a telemetria de estado geral para o bot. Ele não coleta informações de LUIS. 
 
 Para capturar as informações do LUIS, o bot do aplicativo Web precisa do pacote **[Application insights](https://www.npmjs.com/package/applicationinsights)** NPM instalado e configurado.  
 
@@ -51,7 +53,7 @@ Para capturar as informações do LUIS, o bot do aplicativo Web precisa do pacot
     
 
 
-## <a name="capture-and-send-luis-query-results-to-application-insights"></a>Capturar e enviar os resultados da consulta de LUIS para o Application Insights
+## <a name="capture-and-send-luis-query-results-to-application-insights"></a>Capturar e enviar resultados da consulta LUIS para Application Insights
 
 1. No VSCode, crie um novo arquivo **appInsightsLog. js** e adicione o seguinte código:
 
@@ -177,10 +179,10 @@ Para capturar as informações do LUIS, o bot do aplicativo Web precisa do pacot
 
 Para adicionar dados ao Application insights, você precisa da chave de instrumentação.
 
-1. Em um navegador, na [portal do Azure](https://portal.azure.com), localize o recurso de **Application insights** do bot. Seu nome terá a maior parte do nome do bot e, em seguida, os caracteres aleatórios no final do nome `luis-nodejs-bot-johnsmithxqowom`, como. 
+1. Em um navegador, na [portal do Azure](https://portal.azure.com), localize o recurso de **Application insights** do bot. Seu nome terá a maior parte do nome do bot e, em seguida, os caracteres aleatórios no final do nome, como `luis-nodejs-bot-johnsmithxqowom`. 
 1. No recurso Application Insights, na página **visão geral** , copie a **chave de instrumentação**.
 1. No VSCode, abra o arquivo **. env** na raiz do projeto de bot. Esse arquivo contém todas as suas variáveis de ambiente.  
-1. Adicione uma nova variável, `MicrosoftApplicationInsightsInstrumentationKey` com o valor de sua chave de instrumentação. Não coloque o valor entre aspas. 
+1. Adicione uma nova variável, `MicrosoftApplicationInsightsInstrumentationKey` com o valor da sua chave de instrumentação. Não coloque o valor entre aspas. 
 
 ## <a name="start-the-bot"></a>Iniciar o bot
 
@@ -194,9 +196,9 @@ Para adicionar dados ao Application insights, você precisa da chave de instrume
 
 1. Faça uma pergunta ao bot. Esta [etapa](luis-nodejs-tutorial-bf-v4.md#ask-bot-a-question-for-the-book-flight-intent) é fornecida no tutorial anterior.
 
-## <a name="view-luis-entries-in-application-insights"></a>Vista LUIS entradas no Application Insights
+## <a name="view-luis-entries-in-application-insights"></a>Exibir entradas de LUIS no Application Insights
 
-Abrir o Application Insights para ver as entradas de LUIS. Pode levar alguns minutos para que os dados apareçam em Application Insights.
+Abra Application Insights para ver as entradas LUIS. Pode levar alguns minutos para que os dados apareçam em Application Insights.
 
 1. No [portal do Azure](https://portal.azure.com), abra o recurso de Application insights do bot. 
 1. Quando o recurso for aberto, selecione **Pesquisar** e pesquise todos os dados nos últimos **30 minutos** com o tipo de evento **rastreamento**. Selecione o rastreamento chamado **Luis**. 
@@ -204,11 +206,11 @@ Abrir o Application Insights para ver as entradas de LUIS. Pode levar alguns min
 
     ![Examine as propriedades personalizadas do LUIS armazenadas no Application Insights](./media/luis-tutorial-appinsights/application-insights-luis-trace-custom-properties-nodejs.png)
 
-## <a name="query-application-insights-for-intent-score-and-utterance"></a>Application Insights para intenção, a pontuação e a expressão de consulta
+## <a name="query-application-insights-for-intent-score-and-utterance"></a>Application Insights de consulta para intenção, pontuação e expressão
 Application Insights dá a você o poder de consultar os dados com o idioma [Kusto](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#what-language-do-log-queries-use) , bem como exportá-los para [Power bi](https://powerbi.microsoft.com). 
 
-1. Selecione **log (análise)** . É aberta uma janela nova com uma janela de consulta na parte superior e uma janela da tabela de dados abaixo dele. Se tiver utilizado a bases de dados antes, esse esquema é familiar. A consulta representa os dados filtrados anteriormente. A coluna **CustomDimensions** tem as informações de bot e Luis.
-1. Para extrair a principal intenção, a pontuação e a expressão, adicione o seguinte logo acima da última linha (a `|top...` linha) na janela de consulta:
+1. Selecione **log (análise)** . Uma nova janela é aberta com uma janela de consulta na parte superior e uma janela de tabela de dados abaixo dessa. Se você já usou bancos de dados antes, essa organização é familiar. A consulta representa os dados filtrados anteriormente. A coluna **CustomDimensions** tem as informações de bot e Luis.
+1. Para extrair a principal intenção, a pontuação e a expressão, adicione o seguinte logo acima da última linha (a linha de `|top...`) na janela de consulta:
 
     ```kusto
     | extend topIntent = tostring(customDimensions.LUIS_luisResponse_luisResult_topScoringIntent_intent)
@@ -216,15 +218,15 @@ Application Insights dá a você o poder de consultar os dados com o idioma [Kus
     | extend utterance = tostring(customDimensions.LUIS_luisResponse_text)
     ```
 
-1. Execute a consulta. As novas colunas de expressão, pontuação e topIntent estão disponíveis. Selecione a coluna topIntent para classificar.
+1. Execute a consulta. As novas colunas de topIntent, Score e expressão estão disponíveis. Selecione a coluna topIntent para classificar.
 
 Saiba mais sobre a [linguagem de consulta Kusto](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) ou [exporte os dados para Power bi](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Outras informações que pretende adicionar aos dados do application insights incluem o ID da aplicação, ID de versão, data da última alteração modelo, data da última train, a última data de publicação. Esses valores podem ser recuperados da URL do ponto de extremidade (ID do aplicativo e ID da versão) ou de uma chamada à API de criação e, em seguida, definidos nas configurações de bot do aplicativo Web e extraídos de lá.  
+Outras informações que você talvez queira adicionar aos dados do Application insights incluem ID do aplicativo, ID da versão, data da última alteração de modelo, última data de treinamento, última data de publicação. Esses valores podem ser recuperados da URL do ponto de extremidade (ID do aplicativo e ID da versão) ou de uma chamada à API de criação e, em seguida, definidos nas configurações de bot do aplicativo Web e extraídos de lá.  
 
-Se estiver a utilizar a mesma subscrição do ponto final para a mais do que uma aplicação do LUIS, também deve incluir o ID de subscrição e uma propriedade que diz que é uma chave partilhada. 
+Se você estiver usando a mesma assinatura de ponto de extremidade para mais de um aplicativo LUIS, também deverá incluir a ID da assinatura e uma propriedade informando que ela é uma chave compartilhada. 
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre expressões de exemplo](luis-how-to-add-example-utterances.md)
+> [Saiba mais sobre o exemplo declarações](luis-how-to-add-example-utterances.md)

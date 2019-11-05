@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: consultar o Apache HBase no Azure HDInsight-Apache Phoenix'
+title: 'Início rápido: Apache HBase & Apache Phoenix-Azure HDInsight'
 description: Neste guia de início rápido, você aprende a usar o Apache Phoenix no HDInsight. Além disso, saiba como instalar e configurar o sqlline em seu computador para se conectar a um cluster HBase no HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 20af6d32d03ae5d4fe37b1a37198ef1f2c50ec95
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: a6896eaad86c5e361c50cd81257131ee75a8d6a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72312202"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467034"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-apache-phoenix"></a>Início rápido: consultar o Apache HBase no Azure HDInsight com Apache Phoenix
 
@@ -47,13 +47,13 @@ Uma parte da saída será semelhante a:
       }
 ```
 
-Anote o valor de `host_name` para uso posterior.
+Anote o valor para `host_name` para uso posterior.
 
 ## <a name="create-a-table-and-manipulate-data"></a>Criar uma tabela e manipular dados
 
 Você pode usar o SSH para se conectar a clusters HBase e, em seguida, usar Apache Phoenix para criar tabelas HBase, inserir dados e consultar dados.
 
-1. Use o comando `ssh` para se conectar ao cluster HBase. Edite o comando a seguir substituindo `CLUSTERNAME` pelo nome do cluster e, em seguida, digite o comando:
+1. Use `ssh` comando para se conectar ao cluster HBase. Edite o comando a seguir, substituindo `CLUSTERNAME` pelo nome do cluster e, em seguida, digite o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -65,7 +65,7 @@ Você pode usar o SSH para se conectar a clusters HBase e, em seguida, usar Apac
     cd /usr/hdp/current/phoenix-client/bin
     ```
 
-3. Inicie o [sqlline](http://sqlline.sourceforge.net/). Edite o comando a seguir substituindo `ZOOKEEPER` pelo nó ZooKeeper identificado anteriormente e, em seguida, digite o comando:
+3. Inicie o [sqlline](http://sqlline.sourceforge.net/). Edite o comando a seguir, substituindo `ZOOKEEPER` pelo nó ZooKeeper identificado anteriormente e, em seguida, digite o comando:
 
     ```bash
     ./sqlline.py ZOOKEEPER:2181:/hbase-unsecure

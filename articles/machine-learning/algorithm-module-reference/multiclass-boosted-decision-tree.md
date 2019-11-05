@@ -1,7 +1,7 @@
 ---
 title: 'Árvore de decisão aumentada multiclasse: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo árvore de decisão aumentada multiclasse no serviço Azure Machine Learning para criar um classificador usando dados rotulados.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo árvore de decisão aumentada multiclasse no Azure Machine Learning para criar um classificador usando dados rotulados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 08/22/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 09d2a637099bae414400f49bb89efc5b6652f150
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: b53e504e98cab34fdc50ee8715ec162c910dd40d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692826"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465992"
 ---
 # <a name="multiclass-boosted-decision-tree"></a>Árvore de Decisões Elevada Multiclasse
 
-Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para criar um modelo de aprendizado de máquina baseado no algoritmo árvores de decisão aumentada.
 
@@ -61,4 +61,4 @@ Você pode treinar esse tipo de modelo usando o [modelo de treinamento](././trai
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 7fe84dd30099377af09b8100f5e5e7246a0d6328
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a070a7da48af8abe138900dd0221bace2149aa20
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162405"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469286"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Criar uma função no Azure que é acionada por um temporizador
 
@@ -42,13 +42,13 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 ## <a name="create-a-timer-triggered-function"></a>Criar uma função acionada por temporizador
 
-1. Expanda a aplicação de funções e clique no botão **+** , junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, avance para o passo três.
+1. Expanda a aplicação de funções e clique no botão **+** , junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, vá para a etapa 3.
 
    ![Início rápido das funções no portal do Azure](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 
 2. Escolha **Mais modelos** e **Terminar e ver os modelos**.
 
-    ![Início Rápido das funções, escolher mais modelos](./media/functions-create-scheduled-function/add-first-function.png)
+    ![Início rápido das funções, escolher mais modelos](./media/functions-create-scheduled-function/add-first-function.png)
 
 3. No campo de pesquisa, digite `timer` e configure o novo gatilho com as configurações, conforme especificado na tabela abaixo da imagem.
 

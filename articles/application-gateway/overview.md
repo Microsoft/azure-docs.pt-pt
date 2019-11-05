@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 725b284fa58296aea310f618c000e77d9a0fb4c9
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
-ms.translationtype: MT
+ms.openlocfilehash: b30b96e6ae931e0df41b60e16f04127e82a068ad
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146630"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469757"
 ---
 # <a name="what-is-azure-application-gateway"></a>O que é o Gateway de Aplicação do Azure?
 
@@ -45,13 +45,20 @@ Um gateway de aplicativo ou implantações WAF sob Standard_v2 ou WAF_v2 SKU pod
 
 O VIP do gateway de aplicativo no SKU Standard_v2 ou WAF_v2 dá suporte exclusivamente ao tipo de VIP estático. Isso garante que o VIP associado ao gateway de aplicativo não seja alterado mesmo durante o tempo de vida do gateway de aplicativo.
 
-## <a name="web-application-firewall"></a>Firewall de aplicações Web
+## <a name="web-application-firewall"></a>Firewall de aplicação Web
 
 Firewall de aplicações Web (WAF) é uma funcionalidade de Gateway de Aplicação que fornece proteção centralizada das suas aplicações Web a partir de exploits e vulnerabilidades comuns. O WAF é baseado em regras dos [conjuntos de regras principais do OWASP (projeto de segurança de aplicativo Web aberto)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,1 (somente WAF_v2), 3,0 e 2.2.9. 
 
 Cada vez mais, as aplicações Web são alvo de ataques maliciosos que exploram vulnerabilidades conhecidas comuns. Destas vulnerabilidades, são frequentes os ataques de injeção de SQL, scripting entre sites, entre muitas outras. Impedir este tipo de ataques ao código das aplicações constitui um desafio e exige uma manutenção, correção e monitorização rigorosas em muitas camadas da topologia da aplicação. Uma firewall de aplicações Web centralizada ajuda a simplificar em muito a gestão da segurança e confere aos administradores de aplicações uma maior garantia de proteção contra as ameaças ou intrusões. Uma solução WAF também pode reagir mais rapidamente a uma ameaça de segurança ao corrigir uma vulnerabilidade conhecida numa localização central, em vez de proteger cada uma das aplicações Web individualmente. Os gateways de aplicações existentes podem ser facilmente convertidos num gateway de aplicação com firewall de aplicações Web ativada.
 
 Para obter mais informações, consulte [Firewall do aplicativo Web (WAF) no gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/waf-overview).
+
+## <a name="ingress-controller-for-aks"></a>Controlador de entrada para AKS
+O AGIC (controlador de entrada do gateway de aplicativo) permite que você use o gateway de aplicativo como entrada para um cluster do [AKs (serviço de kubernetes do Azure)](https://azure.microsoft.com/services/kubernetes-service/) . 
+
+O controlador de entrada é executado como um pod dentro do cluster AKS e consome [recursos de entrada do kubernetes](https://kubernetes.io/docs/concepts/services-networking/ingress/) e os converte em uma configuração de gateway de aplicativo que permite ao gateway balancear a carga do tráfego para o pods kubernetes. O controlador de entrada só dá suporte ao SKU do gateway de aplicativo v2. 
+
+Para obter mais informações, consulte [controlador de entrada do gateway de aplicativo (AGIC)](ingress-controller-overview.md).
 
 ## <a name="url-based-routing"></a>Encaminhamento com base no URL
 
@@ -97,19 +104,13 @@ Os protocolos WebSocket e HTTP/2 ativam a comunicação duplex completa entre um
 
 Para obter mais informações, consulte [suporte a WebSocket](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) e [suporte a http/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support).
 
-## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Pré-visualização do controlador do Entradas do Azure Kubernetes Service (AKS) 
-
-O controlador de Entradas do Gateway de Aplicação é executado como um pod dentro do cluster do AKS e permite que o Gateway de Aplicação atue como entrada para um cluster do AKS. Isso tem suporte apenas com o gateway de aplicativo v2.
-
-Para obter mais informações, consulte [Controlador de Entradas do Gateway de Aplicação do Azure](https://azure.github.io/application-gateway-kubernetes-ingress/).
-
 ## <a name="connection-draining"></a>Drenagem de ligação
 
 A drenagem de ligação ajuda a conseguir uma remoção correta de membros do conjunto de back-end durante as atualizações de serviço planeadas. Esta definição é ativada através da definição de http de back-end e pode ser aplicada a todos os membros de um conjunto de back-end durante a criação da regra. Uma vez habilitado, o gateway de aplicativo garante que todas as instâncias de cancelamento de registro de um pool de back-end não recebam nenhuma nova solicitação, permitindo que as solicitações existentes sejam concluídas dentro de um limite de tempo configurado. Isso se aplica a ambas as instâncias de back-end que são explicitamente removidas do pool de back-end por uma chamada à API e instâncias de back-end que são relatadas como não íntegras, conforme determinado pelas investigações de integridade.
 
 Para obter mais informações, consulte a seção descarga de conexão da [visão geral de configuração do gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/configuration-overview#connection-draining).
 
-## <a name="custom-error-pages"></a>Páginas de erros personalizados
+## <a name="custom-error-pages"></a>Páginas de erros personalizadas
 
 O Gateway de Aplicação permite-lhe criar páginas de erro personalizadas, em vez de apresentar as páginas de erro predefinidas. Pode utilizar a sua própria imagem e esquema corporativos através de uma página de erro personalizada.
 
@@ -131,7 +132,7 @@ Para obter mais informações, consulte [reescrever cabeçalhos HTTP](rewrite-ht
 
 O SKU do Application Gateway Standard_v2 e WAF_v2 pode ser configurado para implantações de tamanho automático ou fixo. Essas SKUs não oferecem tamanhos de instância diferentes. Para obter mais informações sobre o desempenho e os preços de v2, consulte [autoescala v2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing).
 
-O SKU do gateway de aplicativo Standard e WAF é atualmente oferecido em três tamanhos: **Pequeno**, **médio**e **grande**. Os tamanhos de instâncias pequenas destinam-se a cenários de testes e desenvolvimento.
+O SKU do gateway de aplicativo Standard e WAF é atualmente oferecido em três tamanhos: **pequeno**, **médio**e **grande**. Os tamanhos de instâncias pequenas destinam-se a cenários de testes e desenvolvimento.
 
 Para obter uma lista completa dos limites do gateway de aplicação, veja [limites do serviço Gateway de Aplicação](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
@@ -140,7 +141,7 @@ A tabela a seguir mostra uma taxa de transferência de desempenho médio para ca
 | Tamanho médio da resposta da página de back-end | Pequeno | Médio | Grande |
 | --- | --- | --- | --- |
 | 6 KB |7.5 Mbps |13 Mbps |50 Mbps |
-| 100 KB |35 Mbps |100 Mbps |200 Mbps |
+| 100 KB |35 Mbps |100 Mbps |200 Mbps |
 
 > [!NOTE]
 > Estes valores são valores aproximados para um débito de gateway de aplicação. O débito real depende de vários detalhes de ambiente, como o tamanho médio da página, a localização das instâncias de back-end e o tempo de processamento para servir uma página. Para números de desempenho exatos, deve executar o seus próprios testes. Estes valores são fornecidos apenas para a capacidade orientação de planeamento.
@@ -149,6 +150,6 @@ A tabela a seguir mostra uma taxa de transferência de desempenho médio para ca
 
 Consoante os seus requisitos e o ambiente, pode criar um Gateway de Aplicação de teste com o portal do Azure, o Azure PowerShell ou a CLI do Azure:
 
-- [Quickstart: Tráfego direto da Web com Aplicativo Azure gateway-portal do Azure](quick-create-portal.md)
-- [Quickstart: Tráfego direto da Web com Aplicativo Azure gateway-Azure PowerShell](quick-create-powershell.md)
-- [Quickstart: Tráfego direto da Web com Aplicativo Azure gateway-CLI do Azure](quick-create-cli.md)
+- [Início rápido: tráfego direto da Web com Aplicativo Azure gateway-portal do Azure](quick-create-portal.md)
+- [Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - Azure PowerShell](quick-create-powershell.md)
+- [Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - CLI do Azure](quick-create-cli.md)

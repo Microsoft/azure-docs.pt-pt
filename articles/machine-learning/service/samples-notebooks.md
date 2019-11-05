@@ -1,5 +1,5 @@
 ---
-title: Blocos de notas Jupyter do exemplo
+title: Exemplo de notebooks Jupyter
 titleSuffix: Azure Machine Learning
 description: Encontre e use os notebooks Jupyter de exemplo para explorar o Azure Machine Learning Python para SDK.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: sample
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.date: 07/31/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd93e4e621a4fd474283f788e2cf67b305a1be3d
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
-ms.translationtype: MT
+ms.openlocfilehash: 145ab994bbd2ac2445947968ccdeadbb730eb76a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997067"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476095"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Explorar Azure Machine Learning com notebooks Jupyter
 
@@ -24,7 +24,7 @@ O [repositório do exemplo Azure Machine Learning notebooks](https://github.com/
 
 Este artigo mostra como acessar o repositório nos seguintes ambientes:
 
-- [VM Azure Machine Learning Notebook](#notebookvm)
+- [Azure Machine Learning instância de computação](#notebookvm)
 - [Traga seu próprio servidor de notebook](#byo)
 - [Máquina Virtual de Ciência de Dados](#dsvm)
 
@@ -32,9 +32,9 @@ Este artigo mostra como acessar o repositório nos seguintes ambientes:
 > Depois de clonar o repositório, você encontrará os notebooks do tutorial na pasta **tutoriais** e nos notebooks específicos do recurso na pasta **como usar-azureml** .
 
 <a name="notebookvm"></a>
-## <a name="get-samples-on-azure-machine-learning-notebook-vm"></a>Obter exemplos na VM do Azure Machine Learning Notebook
+## <a name="get-samples-on-azure-machine-learning-compute-instance"></a>Obter exemplos em Azure Machine Learning instância de computação
 
-A maneira mais fácil de começar a usar os exemplos é concluir o [tutorial: Ambiente de instalação e](tutorial-1st-experiment-sdk-setup.md)espaço de trabalho. Depois de concluído, você terá um servidor de notebook dedicado pré-carregado com o SDK e o repositório de exemplo. Não é necessário nenhum download ou instalação.
+A maneira mais fácil de começar a usar os exemplos é concluir o [tutorial: configuração de ambiente e espaço de trabalho](tutorial-1st-experiment-sdk-setup.md). Depois de concluído, você terá um servidor de notebook dedicado pré-carregado com o SDK e o repositório de exemplo. Não é necessário nenhum download ou instalação.
 
 <a name="byo"></a>
 
@@ -57,6 +57,6 @@ O Máquina Virtual de Ciência de Dados (DSVM) é uma imagem de VM personalizada
 
 Explore os [notebooks de exemplo](https://aka.ms/aml-notebooks) para descobrir o que Azure Machine Learning pode fazer ou Experimente estes tutoriais:
 
-- [Preparar e implementar um modelo de classificação de imagem com MNIST](tutorial-train-models-with-aml.md)
+- [Treinar e implantar um modelo de classificação de imagem com MNIST](tutorial-train-models-with-aml.md)
 
-- [Preparar dados e utilizar automatizada de machine learning para preparar um modelo de regressão com o conjunto de dados de táxis NYC](tutorial-auto-train-models.md)
+- [Preparar dados e usar o aprendizado de máquina automatizado para treinar um modelo de regressão com o conjunto de dados de táxi de NYC](tutorial-auto-train-models.md)

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5f11173c7b7f7396a8cf5cda4b9c8975cd7bb38e
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 172003b13807720df2431a3610947b36d8303fed
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679798"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470359"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS ativo para Azure App serviço
 
@@ -48,15 +48,15 @@ Quando você finalmente migrar o nome DNS personalizado do site antigo para o ap
 
 ### <a name="create-domain-verification-record"></a>Criar registro de verificação de domínio
 
-Para verificar a propriedade do domínio, adicione um registro TXT. O registro TXT mapeia de _awverify. &lt;subdomain >_ para _&lt;appname >. azurewebsites. net_. 
+Para verificar a propriedade do domínio, adicione um registro TXT. O registro TXT é mapeado de _> de subdomínio awverify.&lt;_ para _&lt;AppName >. azurewebsites. net_. 
 
 O registro TXT necessário depende do registro DNS que você deseja migrar. Para obter exemplos, consulte a tabela a seguir (`@` normalmente representa o domínio raiz):
 
 | Exemplo de registro DNS | Host TXT | Valor TXT |
 | - | - | - |
-| \@ (raiz) | _awverify_ | _&lt;appname >. azurewebsites. net_ |
-| www (sub) | _awverify. www_ | _&lt;appname >. azurewebsites. net_ |
-| \* (curinga) | _awverify. \*_ | _&lt;appname >. azurewebsites. net_ |
+| \@ (raiz) | _awverify_ | _&lt;AppName >. azurewebsites. net_ |
+| www (sub) | _awverify. www_ | _&lt;AppName >. azurewebsites. net_ |
+| \* (curinga) | _awverify.\*_ | _&lt;AppName >. azurewebsites. net_ |
 
 Na página de registros DNS, observe o tipo de registro do nome DNS que você deseja migrar. O serviço de aplicativo dá suporte A mapeamentos de CNAME e registros A.
 
@@ -119,11 +119,11 @@ De volta à página de registros DNS do seu provedor de domínio, selecione o re
 
 Para o `contoso.com` exemplo de domínio raiz, remapeie o registro a ou CNAME como os exemplos na tabela a seguir: 
 
-| Exemplo de FQDN | Tipo de registo | Host | Valor |
+| Exemplo de FQDN | Tipo de registo | Anfitrião | Valor |
 | - | - | - | - |
 | contoso.com (raiz) | A | `@` | Endereço IP de [Copiar o endereço IP da aplicação](#info) |
-| www \.contoso. com (sub) | CNAME | `www` | _&lt;appname >. azurewebsites. net_ |
-| \*. contoso.com (curinga) | CNAME | _\*_ | _&lt;appname >. azurewebsites. net_ |
+| www\.contoso.com (sub) | CNAME | `www` | _&lt;AppName >. azurewebsites. net_ |
+| \*. contoso.com (curinga) | CNAME | _\*_ | _&lt;AppName >. azurewebsites. net_ |
 
 Salve suas configurações.
 
@@ -140,4 +140,4 @@ Você pode encontrar a unidade de implantação para seu aplicativo examinando o
 Saiba como associar um certificado SSL personalizado ao serviço de aplicativo.
 
 > [!div class="nextstepaction"]
-> [Bind an existing custom SSL certificate to Azure App Service](app-service-web-tutorial-custom-ssl.md) (Vincular um certificado SSL personalizado já existente ao Serviço de Aplicações do Azure)
+> [Associar um certificado SSL ao serviço Azure App](configure-ssl-bindings.md)

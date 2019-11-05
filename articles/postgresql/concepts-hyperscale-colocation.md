@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 533958221898b620500b7363f3710f75f155934a
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 4a5ebf810771efe49ee40e272d1fa4683140eda1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998052"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482755"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Colocação de tabela no banco de dados do Azure para PostgreSQL – Citus (hiperescala)
 
@@ -20,7 +20,7 @@ A colocalização significa armazenar informações relacionadas nos mesmos nós
 
 ## <a name="data-colocation-for-hash-distributed-tables"></a>Colocação de dados para tabelas distribuídas por hash
 
-No banco de dados do Azure para PostgreSQL – visualização de hiperescala (Citus), uma linha é armazenada em um fragmento se o hash do valor na coluna de distribuição cair dentro do intervalo de hash do fragmento. Os fragmentos com o mesmo intervalo de hash sempre são colocados no mesmo nó. Linhas com valores de coluna de distribuição iguais sempre estão no mesmo nó entre tabelas.
+No banco de dados do Azure para PostgreSQL – Citus (hiperescala), uma linha é armazenada em um fragmento se o hash do valor na coluna de distribuição estiver dentro do intervalo de hash do fragmento. Os fragmentos com o mesmo intervalo de hash sempre são colocados no mesmo nó. Linhas com valores de coluna de distribuição iguais sempre estão no mesmo nó entre tabelas.
 
 ![Fragmentos](media/concepts-hyperscale-colocation/colocation-shards.png)
 
@@ -68,7 +68,7 @@ Desde que o [conjunto de trabalho](https://en.wikipedia.org/wiki/Working_set) pa
 
 As consultas de servidor único começam a diminuir a velocidade conforme o número de locatários e os dados armazenados para cada locatário crescem. O conjunto de trabalho para de se ajustar na memória e a CPU se torna um afunilamento.
 
-Nesse caso, podemos fragmentar os dados em vários nós usando o Citus (hiperescala). A primeira e mais importante opção que precisamos fazer quando decidimos fragmentar é a coluna de distribuição. Vamos começar com uma opção simples de usar `event_id` para a tabela de eventos e `page_id` para a `page` tabela:
+Nesse caso, podemos fragmentar os dados em vários nós usando o Citus (hiperescala). A primeira e mais importante opção que precisamos fazer quando decidimos fragmentar é a coluna de distribuição. Vamos começar com uma opção simples de usar `event_id` para a tabela de eventos e `page_id` para a tabela `page`:
 
 ```sql
 -- naively use event_id and page_id as distribution columns
@@ -109,7 +109,7 @@ Os dados são dispersos, portanto, as consultas podem ser paralelizadas. Só é 
 
 ### <a name="distribute-tables-by-tenant"></a>Distribuir tabelas por locatário
 
-Em hiperescala (Citus), as linhas com o mesmo valor de coluna de distribuição têm a garantia de estar no mesmo nó. A partir de então, podemos criar nossas tabelas `tenant_id` com como a coluna de distribuição.
+Em hiperescala (Citus), as linhas com o mesmo valor de coluna de distribuição têm a garantia de estar no mesmo nó. A partir de então, podemos criar nossas tabelas com `tenant_id` como a coluna de distribuição.
 
 ```sql
 -- co-locate tables by using a common distribution column

@@ -11,26 +11,26 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/26/2019
-ms.openlocfilehash: 5fccf1ffc76c824c81f8b8b826f90bf8314ff1e3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f23ef5506027a5de9f4189a11636d323679707f3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883348"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488491"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glossário de termos do banco de dados SQL do Azure
 
 |Contexto|Termo|Mais informações|
 |:---|:---|:---|
 |Nome do serviço do Azure|Banco de dados SQL do Azure ou banco de dados SQL|[O serviço do banco de dados SQL do Azure](sql-database-technical-overview.md)|
-|Camada de computação|Sem servidor (visualização)|[Camada de computação sem servidor](sql-database-serverless.md)
-||Aprovisionado|[Camada de computação sem servidor](sql-database-serverless.md)
+|Camada de computação|Sem servidor |[Camada de computação sem servidor](sql-database-serverless.md)
+||Aprovisionada|[Camada de computação sem servidor](sql-database-serverless.md)
 |Opções de implementação |Base de dados individual|[Bases de dados individuais](sql-database-single-database.md)|
 ||Conjunto elástico|[Pool elástico](sql-database-elastic-pool.md)|
 ||Instância gerida|[Instância gerenciada](sql-database-managed-instance.md)|
-|Objetos do servidor|Servidor de banco de dados SQL ou servidor de banco de dados|[Servidor de banco de dados](sql-database-servers.md)|
+|Objetos de servidor|Servidor de banco de dados SQL ou servidor de banco de dados|[Servidor de banco de dados](sql-database-servers.md)|
 ||Servidor de instância gerenciada do banco de dados SQL, servidor de instância gerenciada ou servidor de instância|[Instância gerenciada](sql-database-managed-instance.md)|
-Objetos de base de dados|Base de dados SQL do Azure|Qualquer banco de dados no banco de dados SQL do Azure|
+Objetos de banco de dados|Base de dados SQL do Azure|Qualquer banco de dados no banco de dados SQL do Azure|
 ||Base de dados individual|Um banco de dados criado usando a opção de implantação de banco de dados único|
 ||Banco de dados em pool|Um banco de dados criado dentro ou movido para um pool elástico|
 ||Banco de dados de instância|Um banco de dados criado em uma instância gerenciada|
@@ -44,7 +44,7 @@ Objetos de base de dados|Base de dados SQL do Azure|Qualquer banco de dados no b
 |[Comprar modelos e recursos](sql-database-purchase-models.md)|Modelo de compra baseado em DTU|[Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md)|
 ||Modelo de compra baseado em vCore|[modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md)|
 ||vCore|Um núcleo fornecido ao sistema operacional convidado pelo hipervisor.|
-||Escalão do serviço|Um nível de serviço em um modelo de compra|
+||Camada de serviços|Um nível de serviço em um modelo de compra|
 ||Tamanho da computação|A quantidade de recursos de computação para um único banco de dados, pool elástico ou instância gerenciada dentro de uma camada de serviço|
 ||Quantidade de armazenamento|A quantidade de armazenamento disponível para um único banco de dados, pool elástico ou instância gerenciada|
 ||Geração de computação|A geração do processador dentro de uma camada de serviço|

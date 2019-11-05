@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: bf2441d5c0947ec94cbee247bdc4634ff9e53bfd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 768e354281aeb5e2143ddb0e190b0f27bf4f4e24
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070299"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470704"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Definições de configuração personalizadas para ambientes do serviço de aplicativo
 ## <a name="overview"></a>Descrição geral
@@ -27,7 +27,7 @@ Como os ambientes do serviço de aplicativo (ASEs) são isolados para um único 
 
 Se você não tiver um Ambiente do Serviço de Aplicativo, consulte [como criar um ambiente do serviço de aplicativo](app-service-web-how-to-create-an-app-service-environment.md).
 
-Você pode armazenar Ambiente do Serviço de Aplicativo personalizações usando uma matriz no novo atributo **clusterSettings** . Esse atributo é encontrado no dicionário "Properties" da entidade de Azure Resource Manager de hostingenvironments.
+Você pode armazenar Ambiente do Serviço de Aplicativo personalizações usando uma matriz no novo atributo **clusterSettings** . Esse atributo é encontrado no dicionário "Properties" da entidade de Azure Resource Manager de *hostingenvironments* .
 
 O seguinte trecho de modelo abreviado do Resource Manager mostra o atributo **clusterSettings** :
 
@@ -54,7 +54,7 @@ O atributo **clusterSettings** pode ser incluído em um modelo do Resource Manag
 ## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Usar Azure Resource Explorer para atualizar um Ambiente do Serviço de Aplicativo
 Como alternativa, você pode atualizar o Ambiente do Serviço de Aplicativo usando [Azure Resource Explorer](https://resources.azure.com).  
 
-1. No Gerenciador de recursos, vá para o nó do ambiente do serviço de aplicativo (**assinaturas** > **resourceGroups** > **provedores** > **Microsoft. Web**  >   **hostingEnvironments**). Em seguida, clique no Ambiente do Serviço de Aplicativo específico que você deseja atualizar.
+1. No Gerenciador de recursos, vá para o nó da Ambiente do Serviço de Aplicativo (**assinaturas** > **provedores** de > de **resourceGroups** > **Microsoft. Web** > **hostingenvironments**). Em seguida, clique no Ambiente do Serviço de Aplicativo específico que você deseja atualizar.
 2. No painel direito, clique em **leitura/gravação** na barra de ferramentas superior para permitir a edição interativa no Gerenciador de recursos.  
 3. Clique no botão de **edição** azul para tornar o modelo do Resource Manager editável.
 4. Role até a parte inferior do painel direito. O atributo **clusterSettings** está na parte inferior, em que você pode inserir ou atualizar seu valor.
@@ -66,7 +66,7 @@ Por exemplo, se um Ambiente do Serviço de Aplicativo tiver quatro front-ends, l
 
 ## <a name="disable-tls-10-and-tls-11"></a>Desabilitar TLS 1,0 e TLS 1,1
 
-Se você quiser gerenciar as configurações de TLS em um aplicativo pela base do aplicativo, poderá usar as diretrizes fornecidas com a documentação [impor configurações de TLS](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl#enforce-tls-versions) . 
+Se você quiser gerenciar as configurações de TLS em um aplicativo pela base do aplicativo, poderá usar as diretrizes fornecidas com a documentação [impor configurações de TLS](../configure-ssl-bindings.md#enforce-tls-versions) . 
 
 Se você quiser desabilitar todos os tráfegos TLS 1,0 e TLS 1,1 de entrada para todos os aplicativos em um ASE, poderá definir a seguinte entrada **clusterSettings** :
 

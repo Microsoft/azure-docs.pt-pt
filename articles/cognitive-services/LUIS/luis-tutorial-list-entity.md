@@ -1,7 +1,7 @@
 ---
 title: Entidades de correspondência de texto extact-LUIS
 titleSuffix: Azure Cognitive Services
-description: Saiba como adicionar uma entidade de lista para o ajudar a variações de etiqueta de LUIS de uma palavra ou frase.
+description: Saiba como adicionar uma entidade de lista para ajudar as variações de rótulo LUIS de uma palavra ou frase.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,101 +10,103 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: a722ce39a679fa13e1fe849c46b44f786ea5ee42
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: f3c99856eaffc454754618a1eac34630b985a77e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390274"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499482"
 ---
-# <a name="use-a-list-entity-to-increase-entity-detection"></a>Utilize uma entidade de lista para aumentar a deteção de entidade 
-Este artigo demonstra o uso de uma [entidade List](luis-concept-entity-types.md) para aumentar a detecção de entidades. Não é necessário ser rotulada como são uma correspondência exata dos termos de entidades de lista.  
+# <a name="use-a-list-entity-to-increase-entity-detection"></a>Usar uma entidade de lista para aumentar a detecção de entidades 
+Este artigo demonstra o uso de uma [entidade List](luis-concept-entity-types.md) para aumentar a detecção de entidades. As entidades de lista não precisam ser rotuladas, pois são uma correspondência exata dos termos.  
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma entidade de lista 
-> * Adicionar valores normalizados e sinónimos
-> * Validar a identificação de entidade melhorada
+> * Adicionar valores normalizados e sinônimos
+> * Validar identificação de entidade aprimorada
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
-> * Mais recente [node. js](https://nodejs.org)
-> * [Aplicação do LUIS HomeAutomation](luis-get-started-create-app.md). Se não tiver a aplicação de home page de automatização criada, criar uma nova aplicação e adicionar o domínio pré-criado **HomeAutomation**. Prepare e publique a aplicação. 
-> * [AuthoringKey](luis-concept-keys.md#authoring-key), [EndpointKey](luis-concept-keys.md#endpoint-key) (se a consultar o número de vezes), ID de aplicação, ID de versão, e [região](luis-reference-regions.md) para a aplicação do LUIS.
+> * [Node. js](https://nodejs.org) mais recente
+> * [Aplicativo HOMEAUTOMATION Luis](luis-get-started-create-app.md). Se você não tiver o aplicativo de automação inicial criado, crie um novo aplicativo e adicione o **HomeAutomation**de domínio predefinido. Prepare e publique a aplicação. 
+> * [AuthoringKey](luis-concept-keys.md#authoring-key), [EndpointKey](luis-concept-keys.md#endpoint-key) (se consulta muitas vezes), ID do aplicativo, ID da versão e [região](luis-reference-regions.md) para o aplicativo Luis.
 
 > [!Tip]
-> Se ainda não tiver uma subscrição, pode se registrar para uma [conta gratuita](https://azure.microsoft.com/free/).
+> Se você ainda não tiver uma assinatura, poderá registrar-se para uma [conta gratuita](https://azure.microsoft.com/free/).
 
 Todo o código deste artigo está disponível no [repositório GitHub Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
 
-## <a name="use-homeautomation-app"></a>Utilizar a aplicação HomeAutomation
-O HomeAutomation aplicação dá-controle de dispositivos, como as luzes, sistemas de entretenimento e ambiente controla como aquecer e refrigeração. Estes sistemas de ter vários nomes diferentes que podem incluir os nomes, nicknames, acrônimos e gíria do fabricante. 
+## <a name="use-homeautomation-app"></a>Usar o aplicativo HomeAutomation
+O aplicativo HomeAutomation oferece controle de dispositivos como luzes, sistemas de entretenimento e controles de ambiente, como aquecimento e resfriamento. Esses sistemas têm vários nomes diferentes que podem incluir nomes de fabricantes, apelidos, acrônimos e gírias. 
 
-Um sistema que tenha muitos nomes em diferentes culturas e a demografia é o termóstato. Um termóstato pode controlar o resfriamento e aquecer sistemas para uma casa ou de criação.
+Um sistema que tem muitos nomes entre diferentes culturas e dados demográficos é o termostato. Um termostato pode controlar sistemas de refrigeração e aquecimento para uma casa ou prédio.
 
-O ideal é que as seguintes expressões devem resolver para a entidade pré-criados **HomeAutomation.Device**:
+Idealmente, o declarações a seguir deve ser resolvido para a entidade predefinida **HomeAutomation. Device**:
 
-|#|Expressão|entidade identificada|pontuação|
+|#|expressão|entidade identificada|placar|
 |--|--|--|--|
-|1|Ativar a ac|HomeAutomation.Device - "CA"|0.8748562|
-|2|Ativar cópia de segurança do calor|HomeAutomation.Device - "térmico"|0.784990132|
-|3|torná-lo mais frio|||
+|1|ligar o AC|HomeAutomation. Device-"AC"|0,8748562|
+|2|ativar o calor|HomeAutomation. Device-"calor"|0,784990132|
+|3|Torne-o mais frio|||
 
-As duas primeiras expressões mapeiam para diferentes dispositivos. A terceira expressão, "torná-lo mais frio", não mapeiam para um dispositivo, mas em vez disso, solicita um resultado. LUIS não sabe o que significa que o termo "mais frio", o termóstato é o dispositivo pedido. Idealmente, LUIS deve resolver todas essas expressões com para o mesmo dispositivo. 
+Os dois primeiros declarações são mapeados para dispositivos diferentes. O terceiro expressão, "torná-lo mais frio", não é mapeado para um dispositivo, mas, em vez disso, solicita um resultado. LUIS não sabe que o termo "Cold" significa que o termostato é o dispositivo solicitado. O ideal é que o LUIS resolva todos esses declarações para o mesmo dispositivo. 
 
-## <a name="use-a-list-entity"></a>Utilizar uma entidade de lista
-A entidade de HomeAutomation.Device é ótima para um pequeno número de dispositivos ou com algumas variações dos nomes. Para um edifício de escritórios ou campus, os nomes de dispositivo ultrapassar a utilidade da entidade HomeAutomation.Device. 
+## <a name="use-a-list-entity"></a>Usar uma entidade de lista
+A entidade HomeAutomation. Device é ótima para um pequeno número de dispositivos ou com poucas variações dos nomes. Para um prédio ou campus de um escritório, os nomes dos dispositivos crescem além da utilidade da entidade HomeAutomation. Device. 
 
-R **listar entidade** é uma boa escolha para este cenário porque o conjunto de termos de um dispositivo num prédio ou do campus é um conjunto conhecido, mesmo se for um conjunto enorme. Ao utilizar uma entidade de lista, LUIS pode receber qualquer valor possíveis no conjunto para o termóstato e resolvê-lo para apenas o dispositivo "termóstato". 
+Uma **entidade de lista** é uma boa opção para esse cenário porque o conjunto de termos para um dispositivo em um prédio ou campus é um conjunto conhecido, mesmo que seja um grande conjunto. Usando uma entidade de lista, LUIS pode receber qualquer valor possível no conjunto para o termostato e resolvê-lo apenas para o único dispositivo "termostato". 
 
 Este artigo vai criar uma lista de entidades com o termostato. Os nomes alternativos para um termostato neste artigo são: 
 
-|nomes alternativos para termóstato|
+|nomes alternativos para termostato|
 |--|
-| AC |
-| : a/c|
-| -c|
-|heater|
-|acesso frequente|
-|muita|
+| alterna |
+| a/c|
+| a-c|
+|aquecedor|
+|pontos|
+|mais quente|
+|Frio|
 |frio|
-|mais frio|
 
-Se for necessário determinar uma nova alternativa muitas vezes, LUIS, então, um [lista de frase](luis-concept-feature.md#how-to-use-phrase-lists) é uma resposta melhor.
+Se o LUIS precisar determinar uma nova alternativa com frequência, uma [lista de frases](luis-concept-feature.md#how-to-use-phrase-lists) será uma resposta melhor.
 
 ## <a name="create-a-list-entity"></a>Criar uma entidade de lista
-Crie um ficheiro de node. js e copie o seguinte código para o mesmo. Altere os valores de authoringKey, appId, versionId e região.
+Crie um arquivo node. js e copie o código a seguir nele. Altere os valores de authoringKey, appId, versionID e Region.
 
    [!code-javascript[Create DevicesList List Entity](~/samples-luis/documentation-samples/tutorial-list-entity/add-entity-list.js "Create DevicesList List Entity")]
 
-Utilize o seguinte comando para instalar as dependências NPM e executar o código para criar a entidade de lista:
+Use o seguinte comando para instalar as dependências de NPM e executar o código para criar a entidade de lista:
 
 ```console
 npm install && node add-entity-list.js
 ```
 
-O resultado da execução é o ID da entidade de lista:
+A saída da execução é a ID da entidade de lista:
 
 ```console
 026e92b3-4834-484f-8608-6114a83b03a6
 ```
 
 ## <a name="train-the-model"></a>Dar formação sobre o modelo
-Preparar o LUIS para que a nova lista afetar os resultados da consulta. O treinamento é um processo de duas partes de treinamento, a, em seguida, verificar o estado se o treinamento é feito. Uma aplicação com o número de modelos pode demorar alguns momentos para preparar. O seguinte código prepara a aplicação, em seguida, aguarda até que o treinamento é efetuada com êxito. O código usa uma estratégia de espera e repetição para evitar o 429 "demasiados pedidos" erro. 
+Treine o LUIS para que a nova lista afete os resultados da consulta. O treinamento é um processo de duas partes de treinamento e, em seguida, verificando o status se o treinamento for feito. Um aplicativo com muitos modelos pode levar alguns minutos para treinar. O código a seguir treina o aplicativo e aguarda até que o treinamento seja bem-sucedido. O código usa uma estratégia de espera e repetição para evitar o erro de 429 "muitas solicitações". 
 
-Crie um ficheiro de node. js e copie o seguinte código para o mesmo. Altere os valores de authoringKey, appId, versionId e região.
+Crie um arquivo node. js e copie o código a seguir nele. Altere os valores de authoringKey, appId, versionID e Region.
 
    [!code-javascript[Train LUIS](~/samples-luis/documentation-samples/tutorial-list-entity/train.js "Train LUIS")]
 
-Utilize o seguinte comando para executar o código para preparar a aplicação:
+Use o seguinte comando para executar o código para treinar o aplicativo:
 
 ```console
 node train.js
 ```
 
-O resultado da execução é o estado de cada iteração de treinamento dos modelos de LUIS. A execução seguinte necessários apenas uma verificação de treinamento:
+A saída da execução é o status de cada iteração do treinamento dos modelos LUIS. A execução a seguir exigiu apenas uma verificação de treinamento:
 
 ```console
 1 trained = true
@@ -122,20 +124,20 @@ O resultado da execução é o estado de cada iteração de treinamento dos mode
     details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } } ]
 
 ```
-## <a name="publish-the-model"></a>Publique o modelo
-Publica para que a entidade de lista está disponível a partir do ponto final.
+## <a name="publish-the-model"></a>Publicar o modelo
+Publicar para que a entidade de lista esteja disponível no ponto de extremidade.
 
-Crie um ficheiro de node. js e copie o seguinte código para o mesmo. Altere os valores de endpointKey appId e região. Pode usar sua authoringKey se não planear chamar este ficheiro além do seu limite de quota.
+Crie um arquivo node. js e copie o código a seguir nele. Altere os valores de endpointKey, appId e Region. Você pode usar o authoringKey se não planeja chamar esse arquivo além do limite de cota.
 
    [!code-javascript[Publish LUIS](~/samples-luis/documentation-samples/tutorial-list-entity/publish.js "Publish LUIS")]
 
-Utilize o seguinte comando para executar o código para consultar a aplicação:
+Use o seguinte comando para executar o código para consultar o aplicativo:
 
 ```console
 node publish.js
 ```
 
-O resultado seguinte inclui o url de ponto de extremidade para quaisquer consultas. Resultados JSON reais incluiria o appID real. 
+A saída a seguir inclui a URL do ponto de extremidade para qualquer consulta. Os resultados reais de JSON incluiriam a appID real. 
 
 ```json
 { 
@@ -149,20 +151,20 @@ O resultado seguinte inclui o url de ponto de extremidade para quaisquer consult
 }
 ```
 
-## <a name="query-the-app"></a>Consulta a aplicação 
-Consulte a aplicação a partir do ponto final para provar que a entidade de lista ajuda a determinar o tipo de dispositivo do LUIS.
+## <a name="query-the-app"></a>Consultar o aplicativo 
+Consulte o aplicativo do ponto de extremidade para provar que a entidade de lista ajuda a LUIS a determinar o tipo de dispositivo.
 
-Crie um ficheiro de node. js e copie o seguinte código para o mesmo. Altere os valores de endpointKey appId e região. Pode usar sua authoringKey se não planear chamar este ficheiro além do seu limite de quota.
+Crie um arquivo node. js e copie o código a seguir nele. Altere os valores de endpointKey, appId e Region. Você pode usar o authoringKey se não planeja chamar esse arquivo além do limite de cota.
 
    [!code-javascript[Query LUIS](~/samples-luis/documentation-samples/tutorial-list-entity/query.js "Query LUIS")]
 
-Utilize o seguinte comando para executar o código e a aplicação de consulta:
+Use o seguinte comando para executar o código e consultar o aplicativo:
 
 ```console
 node train.js
 ```
 
-O resultado é que os resultados da consulta. Uma vez que o código adicionado a **verboso** par nome/valor para a cadeia de consulta, a saída inclui todas as intenções e suas classificações:
+A saída são os resultados da consulta. Como o código adicionou o par nome/valor **detalhado** à cadeia de caracteres de consulta, a saída inclui todas as intenções e suas pontuações:
 
 ```json
 {
@@ -208,16 +210,16 @@ O resultado é que os resultados da consulta. Uma vez que o código adicionado a
 }
 ```
 
-O dispositivo específico de **termóstato** é identificado com uma consulta orientadas a resultados de "ativar cópia de segurança do calor". Uma vez que a entidade de HomeAutomation.Device original é ainda na aplicação, pode ver os resultados também. 
+O dispositivo específico do **termostato** é identificado com uma consulta orientada a resultados de "ativar o calor". Como a entidade HomeAutomation. Device original ainda está no aplicativo, você também pode ver seus resultados. 
 
-Experimente as outras duas expressões com ver que também são devolvidos como um termóstato. 
+Experimente os outros dois declarações para ver que eles também são retornados como um termostato. 
 
-|#|Expressão|entidade|tipo|valor|
+|#|expressão|Entidade|tipo|valor|
 |--|--|--|--|--|
-|1|Ativar a ac| AC | DevicesList | termóstato|
-|2|Ativar cópia de segurança do calor|térmico| DevicesList |termóstato|
-|3|torná-lo mais frio|mais frio|DevicesList|termóstato|
+|1|ligar o AC| alterna | Dispositivos | Termostato|
+|2|ativar o calor|mapa| Dispositivos |Termostato|
+|3|Torne-o mais frio|frio|Dispositivos|Termostato|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Pode criar outra entidade de lista para expandir as localizações de dispositivos para salas, pisos ou edifícios. 
+Você pode criar outra entidade de lista para expandir os locais do dispositivo para salas, andares ou edifícios. 

@@ -3,15 +3,15 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como a definição de política de recursos é usada pelo Azure Policy para estabelecer convenções para recursos em sua organização, descrevendo quando a política é imposta e qual efeito tomar.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: fe0f16fd4c07eac92ab3c1ae2c6f78b0bd1595eb
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: d415075bda4ff58d4a3a633fe820f22d8a157459
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053505"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464025"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -81,12 +81,17 @@ Recomendamos que você defina o **modo** como `all` na maioria dos casos. Todas 
 
 `indexed` deve ser usado ao criar políticas que impõem marcas ou locais. Embora não seja necessário, ele impede que os recursos que não dão suporte a marcas e locais sejam mostrados como não compatíveis nos resultados de conformidade. A exceção são os **grupos de recursos**. As políticas que impõem locais ou marcas em um grupo de recursos devem definir o **modo** como `all` e, especificamente, direcionar o tipo de `Microsoft.Resources/subscriptions/resourceGroups`. Para obter um exemplo, consulte [impor marcas de grupo de recursos](../samples/enforce-tag-rg.md). Para obter uma lista de recursos que dão suporte a marcas, consulte [suporte a marcas para recursos do Azure](../../../azure-resource-manager/tag-support.md).
 
-### <a name="resource-provider-modes"></a>Modos de provedor de recursos
+### <a name="a-nameresource-provider-modes-resource-provider-modes-preview"></a><a name="resource-provider-modes" />modos de provedor de recursos (versão prévia)
 
-O único modo de provedor de recursos com suporte no momento é `Microsoft.ContainerService.Data` para gerenciar regras do controlador de admissão no [serviço kubernetes do Azure](../../../aks/intro-kubernetes.md).
+Atualmente, há suporte para os seguintes modos de provedor de recursos durante a versão prévia:
+
+- `Microsoft.ContainerService.Data` para gerenciar regras do controlador de admissão no [serviço kubernetes do Azure](../../../aks/intro-kubernetes.md). As políticas que usam esse modo de provedor de recursos **devem** usar o efeito [EnforceRegoPolicy](./effects.md#enforceregopolicy) .
+- `Microsoft.Kubernetes.Data` para gerenciar clusters kubernetes do mecanismo AKS gerenciados automaticamente no Azure.
+  As políticas que usam esse modo de provedor de recursos **devem** usar o efeito [EnforceOPAConstraint](./effects.md#enforceopaconstraint) .
+- `Microsoft.KeyVault.Data` para gerenciar cofres e certificados no [Azure Key Vault](../../../key-vault/key-vault-overview.md).
 
 > [!NOTE]
-> [Azure Policy para kubernetes](rego-for-aks.md) está em visualização pública e só dá suporte a definições de políticas internas.
+> Os modos de provedor de recursos só dão suporte a definições de políticas internas e não oferecem suporte a iniciativas durante a visualização.
 
 ## <a name="parameters"></a>Parâmetros
 
@@ -134,7 +139,7 @@ Por exemplo, você pode definir uma definição de política para limitar os loc
 
 ### <a name="using-a-parameter-value"></a>Usando um valor de parâmetro
 
-Na regra de política, você referencia parâmetros com a seguinte `parameters` sintaxe de função de valor de implantação:
+Na regra de política, você referencia parâmetros com a seguinte sintaxe de função `parameters`:
 
 ```json
 {
@@ -272,7 +277,7 @@ Os campos a seguir têm suporte:
 - `tags['''<tagName>''']`
   - Essa sintaxe de colchetes dá suporte a nomes de marca que têm apóstrofos na saída, com apóstrofos duplos.
   - Em que **'\<tagName\>'** é o nome da marca para validar a condição.
-  - Exemplo: `tags['''My.Apostrophe.Tag''']` em que **'\<tagName\>'** é o nome da marca.
+  - Exemplo: `tags['''My.Apostrophe.Tag''']` onde **' My. apóstrofo. tag '** é o nome da marca.
 - aliases de propriedade-para obter uma lista, consulte [aliases](#aliases).
 
 > [!NOTE]
@@ -282,7 +287,7 @@ Os campos a seguir têm suporte:
 
 Um valor de parâmetro pode ser passado para um campo de marca. A passagem de um parâmetro para um campo de marca aumenta a flexibilidade da definição de política durante a atribuição de política.
 
-No exemplo a seguir, `concat` é usado para criar uma pesquisa de campo de marcas para a marca chamada o valor do parâmetro **TagName** . Se essa marca não existir, o efeito de **acréscimo** será usado para adicionar a marca usando o valor da mesma marca nomeada definida no grupo de recursos pai de recursos auditados usando a função de pesquisa `resourcegroup()`.
+No exemplo a seguir, `concat` é usado para criar uma pesquisa de campo de marcas para a marca chamada o valor do parâmetro **TagName** . Se essa marca não existir, o efeito **Modificar** será usado para adicionar a marca usando o valor da mesma marca nomeada definida no grupo de recursos pai de recursos auditados usando a função de pesquisa `resourcegroup()`.
 
 ```json
 {
@@ -291,11 +296,17 @@ No exemplo a seguir, `concat` é usado para criar uma pesquisa de campo de marca
         "exists": "false"
     },
     "then": {
-        "effect": "append",
-        "details": [{
-            "field": "[concat('tags[', parameters('tagName'), ']')]",
-            "value": "[resourcegroup().tags[parameters('tagName')]]"
-        }]
+        "effect": "modify",
+        "details": {
+            "operations": [{
+                "operation": "add",
+                "field": "[concat('tags[', parameters('tagName'), ']')]",
+                "value": "[resourcegroup().tags[parameters('tagName')]]"
+            }],
+            "roleDefinitionIds": [
+                "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+            ]
+        }
     }
 }
 ```
@@ -390,42 +401,15 @@ Com a regra de política revisada, `if()` verifica o comprimento do **nome** ant
 
 O Azure Policy dá suporte aos seguintes tipos de efeito:
 
-- **Deny**: gera um evento no log de atividades e falha na solicitação
-- **Auditoria**: gera um evento de aviso no log de atividades, mas não falha na solicitação
 - **Append**: Adiciona o conjunto definido de campos à solicitação
-- **AuditIfNotExists**: habilita a auditoria se um recurso não existir
-- **DeployIfNotExists**: implanta um recurso se ele ainda não existir
+- **Auditoria**: gera um evento de aviso no log de atividades, mas não falha na solicitação
+- **AuditIfNotExists**: gera um evento de aviso no log de atividades se um recurso relacionado não existir
+- **Deny**: gera um evento no log de atividades e falha na solicitação
+- **DeployIfNotExists**: implanta um recurso relacionado se ele ainda não existir
 - **Desabilitado**: não avalia os recursos de conformidade com a regra de política
-- **EnforceRegoPolicy**: configura o controlador de admissão do agente de política aberto no serviço kubernetes do Azure (versão prévia)
+- **EnforceOPAConstraint** (visualização): configura o controlador de admissão do agente de política aberto com o gatekeeper V3 para clusters kubernetes autogerenciados no Azure (versão prévia)
+- **EnforceRegoPolicy** (versão prévia): configura o controlador de admissão do agente de política aberto com o gatekeeper V2 no serviço kubernetes do Azure
 - **Modificar**: adiciona, atualiza ou remove as marcas definidas de um recurso
-
-Para **acrescentar**, você deve fornecer os seguintes detalhes:
-
-```json
-"effect": "append",
-"details": [{
-    "field": "field name",
-    "value": "value of the field"
-}]
-```
-
-O valor pode ser uma cadeia de caracteres ou um objeto de formato JSON.
-
-**AuditIfNotExists** e **DeployIfNotExists** avaliam a existência de um recurso relacionado e aplicam uma regra. Se o recurso não corresponder à regra, o efeito será implementado. Por exemplo, você pode exigir que um observador de rede seja implantado para todas as redes virtuais. Para obter mais informações, consulte o exemplo [auditar se a extensão não existe](../samples/audit-ext-not-exist.md) .
-
-O efeito **DeployIfNotExists** requer a propriedade **roleDefinitionId** na parte de **detalhes** da regra de política. Para obter mais informações, consulte [correção – configurar definição de política](../how-to/remediate-resources.md#configure-policy-definition).
-
-```json
-"details": {
-    ...
-    "roleDefinitionIds": [
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
-        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
-    ]
-}
-```
-
-Da mesma forma, **Modify** requer a propriedade **roleDefinitionId** na parte de **detalhes** da regra de política para a [tarefa de correção](../how-to/remediate-resources.md). **Modify** também requer uma matriz de **operações** para definir as ações a serem executadas nas marcas de recursos.
 
 Para obter detalhes completos sobre cada efeito, ordem de avaliação, propriedades e exemplos, consulte [noções básicas sobre efeitos de Azure Policy](effects.md).
 

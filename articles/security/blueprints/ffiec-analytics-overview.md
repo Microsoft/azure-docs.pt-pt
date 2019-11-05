@@ -8,16 +8,16 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
-ms.openlocfilehash: 35c696e47c0a01c2cdb4d91db5a654208f2196e2
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9dd24a962ddece4ae7841effea7fc36bba1b727b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71257272"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496451"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-ffiec-financial-services"></a>Blueprint de Segurança e Conformidade do Azure: análise para serviços financeiros da FFIEC
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Este Blueprint de Segurança e Conformidade do Azure fornece diretrizes para a implantação de uma arquitetura de análise de dados no Azure adequada para a coleta, o armazenamento e a recuperação de dados financeiros regulamentados pelo Conselho de exame da instituição financeira Federal (FFIEC).
 
@@ -29,7 +29,7 @@ A obtenção de conformidade com o FFIEC exige que auditores qualificados certif
 
 Este Blueprint de Segurança e Conformidade do Azure fornece uma plataforma de análise na qual os clientes podem criar suas próprias ferramentas de análise. A arquitetura de referência descreve um caso de uso genérico em que os clientes de entrada são dados por meio de importações de dados em massa pelo administrador do SQL/data ou por meio de atualizações de dados operacionais por meio de um usuário operacional. Os dois fluxos de trabalho incorporam Azure Functions para importar dados para o banco de dado SQL do Azure. Azure Functions deve ser configurado pelo cliente por meio da portal do Azure para lidar com as tarefas de importação exclusivas dos requisitos de análise de cada cliente.
 
-O Azure oferece uma variedade de relatórios e serviços de análise para os clientes. Essa solução incorpora serviços de Azure Machine Learning em conjunto com o banco de dados SQL do Azure para navegar rapidamente por meio de resultados e fornecer resultado mais rápido por meio da modelagem mais inteligente. Azure Machine Learning aumenta as velocidades de consulta por meio da descoberta de novas relações entre conjuntos de os. Depois que os dados tiverem sido treinados por meio de várias funções estatísticas, até 7 pools de consulta adicionais (8 total incluindo o servidor do cliente) podem ser sincronizados com os mesmos modelos de tabela para espalhar cargas de trabalho de consulta e reduzir os tempos de resposta.
+O Azure oferece uma variedade de relatórios e serviços de análise para os clientes. Essa solução incorpora Azure Machine Learning em conjunto com o banco de dados SQL do Azure para navegar rapidamente por data e fornecer resultados mais rápidos por meio da modelagem mais inteligente. Azure Machine Learning aumenta as velocidades de consulta por meio da descoberta de novas relações entre conjuntos de os. Depois que os dados tiverem sido treinados por meio de várias funções estatísticas, até 7 pools de consulta adicionais (8 total incluindo o servidor do cliente) podem ser sincronizados com os mesmos modelos de tabela para espalhar cargas de trabalho de consulta e reduzir os tempos de resposta.
 
 Para análise e relatórios aprimorados, os bancos de dados SQL do Azure podem ser configurados com índices columnstore. Tanto o Azure Machine Learning quanto os bancos de dados SQL do Azure podem ser escalados ou reduzidos verticalmente ou desligados completamente em resposta ao uso do cliente. Todo o tráfego do SQL é criptografado com SSL por meio da inclusão de certificados autoassinados. Como prática recomendada, o Azure recomenda o uso de uma autoridade de certificação confiável para aumentar a segurança.
 
@@ -45,7 +45,7 @@ O banco de dados SQL do Azure é normalmente gerenciado por meio do SQL Server M
 
 Essa solução usa os seguintes serviços do Azure. Os detalhes da arquitetura de implantação estão na seção [arquitetura de implantação](#deployment-architecture) .
 
-- Estatísticas das Aplicações
+- Application Insights
 - Azure Active Directory
 - Catálogo de Dados do Azure
 - Azure Disk Encryption
@@ -71,7 +71,7 @@ A seção a seguir detalha os elementos de implantação e implementação.
 
 **Azure Functions**: o [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) é um serviço de computação sem servidor que permite que os usuários executem o código sob demanda independentemente de precisar provisionar ou gerenciar explicitamente a infraestrutura. Utilize as Funções do Azure para executar um script ou fragmento de código em resposta a uma variedade de eventos.
 
-**Azure Machine Learning serviço**: [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) é uma técnica de ciência de dados que permite que os computadores usem dados existentes para prever comportamentos, resultados e tendências futuros.
+**Azure Machine Learning**: [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) é uma técnica de ciência de dados que permite que os computadores usem dados existentes para prever comportamentos, resultados e tendências futuros.
 
 **Catálogo de dados do Azure**: o [Catálogo de dados](../../data-catalog/overview.md) torna as fontes de dados facilmente detectáveis e compreensíveis pelos usuários que gerenciam os dados. As fontes de dados comuns podem ser registradas, marcadas e pesquisadas para dados financeiros. Os dados permanecem em seu local existente, mas uma cópia de seus metadados é adicionada ao catálogo de dados, juntamente com uma referência ao local da fonte de dados. Os metadados também são indexados para tornar cada origem de dados facilmente detetável através da pesquisa e compreensível para os utilizadores que a detetarem.
 
@@ -127,7 +127,7 @@ As tecnologias a seguir fornecem recursos para gerenciar o acesso aos dados no a
 
 ### <a name="security"></a>Segurança
 
-**Gerenciamento de segredos**: a solução usa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para o gerenciamento de chaves e segredos. O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. Os recursos de Azure Key Vault a seguir ajudam os clientes a proteger e acessar esses dados:
+**Gerenciamento de segredos**: a solução usa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para o gerenciamento de chaves e segredos. O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em nuvem e pelos serviços. Os recursos de Azure Key Vault a seguir ajudam os clientes a proteger e acessar esses dados:
 
 - As políticas de acesso avançadas são configuradas de acordo com a necessidade.
 - Key Vault políticas de acesso são definidas com as permissões mínimas necessárias para chaves e segredos.
@@ -182,7 +182,7 @@ O [Blueprint de segurança e conformidade do Azure – a matriz de implementaç�
 
 Um túnel VPN seguro ou o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) precisa ser configurado para estabelecer com segurança uma conexão com os recursos implantados como parte dessa arquitetura de referência de análise de dados. Ao configurar adequadamente uma VPN ou ExpressRoute, os clientes podem adicionar uma camada de proteção para os dados em trânsito.
 
-Ao implementar um túnel VPN seguro com o Azure, uma conexão privada virtual entre uma rede local e uma rede virtual do Azure pode ser criada. Essa conexão ocorre pela Internet e permite que os clientes &quot;tunnelm com segurança &quot; informações dentro de um link criptografado entre&#39;a rede do cliente e o Azure. A VPN site a site é uma tecnologia segura e madura, que foi implantada por empresas de todos os tamanhos por décadas. O [modo de encapsulamento IPSec](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) é usado nessa opção como um mecanismo de criptografia.
+Ao implementar um túnel VPN seguro com o Azure, uma conexão privada virtual entre uma rede local e uma rede virtual do Azure pode ser criada. Essa conexão ocorre pela Internet e permite que os clientes &quot;túnel com segurança&quot; informações dentro de um link criptografado entre a&#39;rede do cliente e o Azure. A VPN site a site é uma tecnologia segura e madura, que foi implantada por empresas de todos os tamanhos por décadas. O [modo de encapsulamento IPSec](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) é usado nessa opção como um mecanismo de criptografia.
 
 Como o tráfego dentro do túnel VPN atravessa a Internet com uma VPN site a site, a Microsoft oferece outra opção de conexão ainda mais segura. O Azure ExpressRoute é um link WAN dedicado entre o Azure e um local ou um provedor de hospedagem do Exchange. Como as conexões do ExpressRoute não passam pela Internet, essas conexões oferecem mais confiabilidade, velocidades mais rápidas, latências menores e mais segurança do que as conexões típicas pela Internet. Além disso, como essa é uma conexão direta do&#39;provedor de telecomunicação do cliente, os dados não viajam pela Internet e, portanto, não são expostos a ele.
 

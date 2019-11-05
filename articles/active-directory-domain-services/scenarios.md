@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 6f81bc2ccf11cbcc3621dc1149879864c88cf0cf
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 489f4a527a5afaf1bab5e2065137a5011d45baa6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980507"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474450"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Casos de uso comuns e cenários para Azure Active Directory Domain Services
 
-O Azure Active Directory Domain Services (AD DS do Azure) fornece serviços de domínio gerenciados, como ingresso no domínio, diretiva de grupo, LDAP e autenticação Kerberos/NTLM. O Azure AD DS integra-se ao seu locatário existente do Azure AD, o que possibilita que os usuários entrem usando suas credenciais existentes. Você usa esses serviços de domínio sem a necessidade de implantar, gerenciar e aplicar patch nos controladores de domínio na nuvem, o que fornece um aumento mais suave dos recursos locais para o Azure.
+O Azure Active Directory Domain Services (AD DS do Azure) fornece serviços de domínio gerenciados, como ingresso no domínio, diretiva de grupo, LDAP (Lightweight Directory Access Protocol) e autenticação Kerberos/NTLM. O Azure AD DS integra-se ao seu locatário existente do Azure AD, o que possibilita que os usuários entrem usando suas credenciais existentes. Você usa esses serviços de domínio sem a necessidade de implantar, gerenciar e aplicar patch nos controladores de domínio na nuvem, o que fornece um aumento mais suave dos recursos locais para o Azure.
 
 Este artigo descreve alguns cenários de negócios comuns em que o Azure AD DS fornece valor e atende a essas necessidades.
 
@@ -28,11 +28,11 @@ Este artigo descreve alguns cenários de negócios comuns em que o Azure AD DS f
 
 Para permitir que você use um único conjunto de credenciais do AD, as VMs (máquinas virtuais) do Azure podem ser unidas a um domínio gerenciado do Azure AD DS. Essa abordagem reduz os problemas de gerenciamento de credenciais, como a manutenção de contas de administrador local em cada VM ou a contas e senhas separadas entre ambientes.
 
-As VMs que ingressaram em um domínio gerenciado do Azure AD DS também podem ser gerenciadas e protegidas usando Política de Grupo. As linhas de base de segurança necessárias podem ser aplicadas às VMs para bloqueá-las de acordo com as diretrizes de segurança corporativa. Por exemplo, você pode usar recursos de gerenciamento de política de grupo para restringir os tipos de aplicativos que podem ser iniciados na VM.
+As VMs que ingressaram em um domínio gerenciado do Azure AD DS também podem ser gerenciadas e protegidas usando a política de grupo. As linhas de base de segurança necessárias podem ser aplicadas às VMs para bloqueá-las de acordo com as diretrizes de segurança corporativa. Por exemplo, você pode usar recursos de gerenciamento de política de grupo para restringir os tipos de aplicativos que podem ser iniciados na VM.
 
 ![Administração simplificada de máquinas virtuais do Azure](./media/active-directory-domain-services-scenarios/streamlined-vm-administration.png)
 
-Vejamos um cenário de exemplo comum. Como servidores e outras infra-estruturas atingem o fim da vida útil, a contoso deseja mover os aplicativos atualmente hospedados localmente para a nuvem. Seu padrão de ti atual exige que os servidores que hospedam aplicativos corporativos devem ser ingressados no domínio e gerenciados usando a diretiva de grupo. O administrador de ti da Contoso prefere o ingresso no domínio de VMs implantadas no Azure para facilitar a administração, pois os usuários podem entrar usando suas credenciais corporativas. Quando ingressado no domínio, as VMs também podem ser configuradas para atender às linhas de base de segurança necessárias usando Política de Grupo. A contoso prefere não implantar, monitorar e gerenciar seus próprios controladores de domínio no Azure.
+Vejamos um cenário de exemplo comum. Como servidores e outras infra-estruturas atingem o fim da vida útil, a contoso deseja mover os aplicativos atualmente hospedados localmente para a nuvem. Seu padrão de ti atual exige que os servidores que hospedam aplicativos corporativos devem ser ingressados no domínio e gerenciados usando a diretiva de grupo. O administrador de ti da Contoso prefere o ingresso no domínio de VMs implantadas no Azure para facilitar a administração, pois os usuários podem entrar usando suas credenciais corporativas. Quando ingressado no domínio, as VMs também podem ser configuradas para atender às linhas de base de segurança necessárias usando objetos de política de grupo (GPOs). A contoso prefere não implantar, monitorar e gerenciar seus próprios controladores de domínio no Azure.
 
 O Azure AD DS é uma ótima opção para esse caso de uso. Um domínio gerenciado do Azure AD DS permite que você ingresse em VMs de domínio, use um único conjunto de credenciais e aplique a política de grupo. Como um domínio gerenciado, você não precisa configurar e manter os controladores de domínio por conta própria.
 
@@ -48,7 +48,7 @@ As seguintes considerações de implantação se aplicam a este exemplo de caso 
 
 Como um cenário de exemplo, a contoso tem um aplicativo local que foi adquirido de um ISV há muitos anos. O aplicativo está atualmente no modo de manutenção pelo ISV e solicitar alterações ao aplicativo é extremamente caro. Esse aplicativo tem um front-end baseado na Web que coleta as credenciais do usuário usando um formulário da Web e autentica os usuários executando uma associação LDAP ao ambiente de AD DS local.
 
-![Enlace de LDAP](./media/active-directory-domain-services-scenarios/ldap-bind.png)
+![Associação LDAP](./media/active-directory-domain-services-scenarios/ldap-bind.png)
 
 A contoso gostaria de migrar esse aplicativo para o Azure. O aplicativo deve continuar funcionando no estado em que se encontra, sem necessidade de alterações. Além disso, os usuários devem ser capazes de autenticar usando suas credenciais corporativas existentes e sem treinamento adicional. Ele deve ser transparente para os usuários finais onde o aplicativo está em execução.
 
@@ -63,7 +63,7 @@ As seguintes considerações de implantação se aplicam a este exemplo de caso 
 
 ## <a name="lift-and-shift-on-premises-applications-that-use-ldap-read-to-access-the-directory"></a>Aplicativos locais de comparação de precisão e deslocamento que usam LDAP leitura para acessar o diretório
 
-Como o cenário de exemplo anterior, vamos supor que a contoso tenha um aplicativo de linha de negócios (LOB) local que foi desenvolvido há quase uma década. Este aplicativo tem reconhecimento de diretório e foi projetado para usar o protocolo LDAP para ler informações/atributos sobre os usuários de AD DS. O aplicativo não modifica atributos ou, de outra forma, grava no diretório.
+Como o cenário de exemplo anterior, vamos supor que a contoso tenha um aplicativo de linha de negócios (LOB) local que foi desenvolvido há quase uma década. Este aplicativo tem reconhecimento de diretório e foi projetado para usar LDAP para ler informações/atributos sobre os usuários de AD DS. O aplicativo não modifica atributos ou, de outra forma, grava no diretório.
 
 A contoso deseja migrar esse aplicativo para o Azure e desativar o hardware local de envelhecimento que hospeda esse aplicativo no momento. O aplicativo não pode ser reescrito para usar APIs de diretório modernas, como o API do Graph do Azure AD baseado em REST. Uma opção de comparação de precisão e deslocamento é desejada onde o aplicativo pode ser migrado para ser executado na nuvem, sem modificar o código ou reescrever o aplicativo.
 
@@ -99,11 +99,11 @@ Você pode usar o Azure AD DS para fornecer serviços de domínio gerenciado par
 
 ## <a name="domain-joined-hdinsight-clusters-preview"></a>Clusters HDInsight ingressados no domínio (visualização)
 
-Você pode configurar um cluster do Azure HDInsight que tenha ingressado em um domínio gerenciado AD DS do Azure com o Apache Ranger habilitado. Esta funcionalidade encontra-se em pré-visualização. Você pode criar e aplicar políticas de Hive por meio do Apache Ranger e permitir que usuários, como cientistas de dados, se conectem ao hive usando ferramentas baseadas em ODBC como Excel ou tableau. Continuamos a trabalhar para adicionar outras cargas de trabalho, como HBase, Spark e Storm ao HDInsight ingressado no domínio.
+Você pode configurar um cluster do Azure HDInsight que tenha ingressado em um domínio gerenciado AD DS do Azure com o Apache Ranger habilitado. Você pode criar e aplicar políticas de Hive por meio do Apache Ranger e permitir que usuários, como cientistas de dados, se conectem ao hive usando ferramentas baseadas em ODBC como Excel ou tableau. Continuamos a trabalhar para adicionar outras cargas de trabalho, como HBase, Spark e Storm ao HDInsight ingressado no domínio.
 
 Para obter mais informações sobre esse cenário de implantação, consulte [como configurar clusters HDInsight ingressados no domínio][hdinsight]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar, [criar e configurar uma instância de Azure Active Directory Domain Services][tutorial-create-instance]
 

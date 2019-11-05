@@ -1,5 +1,5 @@
 ---
-title: Aplicar transformação SQL
+title: Aplicar Transformação SQL
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo aplicar transformação de SQL no serviço de Azure Machine Learning para executar uma consulta do SQLite em conjuntos de dados de entrada para transformá-los.
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 8eede9d1fbee7d8b70f6b6924b9767b4d3f4e0bf
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 62c61d589324fe8364fe4630b3cf2cc64e1860b1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694639"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493913"
 ---
-# <a name="apply-sql-transformation"></a>Aplicar transformação SQL
+# <a name="apply-sql-transformation"></a>Aplicar Transformação SQL
 
-Este artigo descreve um módulo de Azure Machine Learning interface visual.
+Este artigo descreve um módulo do designer de Azure Machine Learning (versão prévia).
 
 Usando o módulo aplicar transformação SQL, você pode:
   
@@ -33,7 +33,7 @@ Usando o módulo aplicar transformação SQL, você pode:
 
 ## <a name="how-to-configure-apply-sql-transformation"></a>Como configurar aplicar transformação SQL  
 
-O módulo pode levar até três conjuntos de valores como entradas. Ao fazer referência aos conjuntos de dados conectados a cada porta de entrada, você deve usar os nomes `t1`, `t2` e `t3`. O número da tabela indica o índice da porta de entrada.  
+O módulo pode levar até três conjuntos de valores como entradas. Ao fazer referência aos conjuntos de dados conectados a cada porta de entrada, você deve usar os nomes `t1`, `t2`e `t3`. O número da tabela indica o índice da porta de entrada.  
   
 O parâmetro restante é uma consulta SQL, que usa a sintaxe do SQLite. Ao digitar várias linhas na caixa de texto **script SQL** , use um ponto-e-vírgula para encerrar cada instrução. Caso contrário, as quebras de linha são convertidas em espaços.  
 
@@ -55,9 +55,9 @@ Embora o SQLite dê suporte a grande parte do padrão ANSI SQL, ele não inclui 
   
 - `LEFT OUTER JOIN` é implementado, mas não `RIGHT OUTER JOIN` ou `FULL OUTER JOIN`.  
 
-- Você pode usar instruções `RENAME TABLE` e `ADD COLUMN` com o comando `ALTER TABLE`, mas não há suporte para outras cláusulas, incluindo `DROP COLUMN`, `ALTER COLUMN` e `ADD CONSTRAINT`.  
+- Você pode usar instruções `RENAME TABLE` e `ADD COLUMN` com o comando `ALTER TABLE`, mas não há suporte para outras cláusulas, incluindo `DROP COLUMN`, `ALTER COLUMN`e `ADD CONSTRAINT`.  
   
-- Você pode criar uma exibição no SQLite, mas depois que as exibições forem somente leitura. Não é possível executar uma instrução `DELETE`, `INSERT` ou `UPDATE` em uma exibição. No entanto, você pode criar um gatilho que é acionado em uma tentativa de `DELETE`, `INSERT` ou `UPDATE` em uma exibição e executar outras operações no corpo do gatilho.  
+- Você pode criar uma exibição no SQLite, mas depois que as exibições forem somente leitura. Não é possível executar uma instrução `DELETE`, `INSERT`ou `UPDATE` em uma exibição. No entanto, você pode criar um gatilho que é acionado em uma tentativa de `DELETE`, `INSERT`ou `UPDATE` em uma exibição e executar outras operações no corpo do gatilho.  
   
 
 Além da lista de funções não suportadas fornecida no site do SQLite oficial, o seguinte wiki fornece uma lista de outros recursos sem suporte: [SQLite-SQL sem suporte](http://www2.sqlite.org/cvstrac/wiki?p=UnsupportedSql)  

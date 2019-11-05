@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 8b4b5553605042499a9a8f3343ac4e6678e7006f
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a954118cd0697213674bb9981f0d94100488fb38
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640433"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464499"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Preparar dados para criar uma voz personalizada
 
@@ -31,11 +31,11 @@ Em alguns casos, talvez você não tenha o conjunto de tempo pronto e desejará 
 
 Esta tabela lista os tipos de dados e como cada um é usado para criar um modelo de voz de conversão de texto em fala personalizado.
 
-| Tipo de dados | Descrição | Quando utilizar | Serviço adicional necessário | Quantidade para treinar um modelo | Localidade (s) |
+| Data type | Descrição | Quando utilizar | Serviço adicional necessário | Quantidade para treinar um modelo | Localidade (s) |
 | --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
-| **Declarações individuais + transcrição correspondente** | Uma coleção (. zip) de arquivos de áudio (. wav) como declarações individuais. Cada arquivo de áudio deve ter 15 segundos ou menos de comprimento, emparelhado com uma transcrição formatada (. txt). | Gravações profissionais com transcrições de correspondência | Pronto para treinamento. | Nenhum requisito rígido para en-US e zh-CN. Mais de 2.000 declarações diferentes para outras localidades. | Todas as localidades de voz personalizadas |
-| **Áudio longo + transcrição (beta)** | Uma coleção (. zip) de arquivos de áudio longos e não segmentados (mais de 20 segundos), emparelhados com uma transcrição (. txt) que contém todas as palavras faladas. | Você tem arquivos de áudio e transcrições correspondentes, mas eles não são segmentados em declarações. | Segmentação (usando a transcrição do lote).<br>Transformação formato de áudio, quando necessário. | Nenhum requisito rígido para en-US e zh-CN. | `en-US` e `zh-CN` |
-| **Somente áudio (beta)** | Uma coleção (. zip) de arquivos de áudio sem transcrição. | Você tem apenas arquivos de áudio disponíveis, sem transcrições. | Segmentação + geração de transcrição (usando a transcrição do lote).<br>Transformação formato de áudio, quando necessário.| Nenhum requisito rígido para `en-US` o `zh-CN`e o. | `en-US` e `zh-CN` |
+| **Declarações individuais + transcrição correspondente** | Uma coleção (. zip) de arquivos de áudio (. wav) como declarações individuais. Cada arquivo de áudio deve ter 15 segundos ou menos de comprimento, emparelhado com uma transcrição formatada (. txt). | Gravações profissionais com transcrições de correspondência | Pronto para treinamento. | Nenhum requisito rígido para en-US e zh-CN. Mais de 2.000 declarações diferentes para outras localidades. | [Todas as localidades de voz personalizadas](language-support.md#customization) |
+| **Áudio longo + transcrição (beta)** | Uma coleção (. zip) de arquivos de áudio longos e não segmentados (mais de 20 segundos), emparelhados com uma transcrição (. txt) que contém todas as palavras faladas. | Você tem arquivos de áudio e transcrições correspondentes, mas eles não são segmentados em declarações. | Segmentação (usando a transcrição do lote).<br>Transformação formato de áudio, quando necessário. | Nenhum requisito rígido  | [Todas as localidades de voz personalizadas](language-support.md#customization) |
+| **Somente áudio (beta)** | Uma coleção (. zip) de arquivos de áudio sem transcrição. | Você tem apenas arquivos de áudio disponíveis, sem transcrições. | Segmentação + geração de transcrição (usando a transcrição do lote).<br>Transformação formato de áudio, quando necessário.| Nenhum requisito rígido | [Todas as localidades de voz personalizadas](language-support.md#customization) |
 
 Os arquivos devem ser agrupados por tipo em um conjunto de um e carregados como um arquivo zip. Cada conjunto de dados só pode conter um único tipo de dado.
 
@@ -57,7 +57,7 @@ Cada arquivo de áudio deve conter um único expressão (uma única frase ou uma
 
 Siga estas diretrizes ao preparar o áudio.
 
-| Propriedade | Value |
+| Propriedade | Valor |
 | -------- | ----- |
 | Formato de arquivo | RIFF (. wav), agrupado em um arquivo. zip |
 | Taxa de amostragem | Pelo menos 16.000 Hz |
@@ -65,7 +65,7 @@ Siga estas diretrizes ao preparar o áudio.
 | Nome de ficheiro | Numeric, com extensão. wav. Nenhum nome de arquivo duplicado é permitido. |
 | Comprimento do áudio | Menos de 15 segundos |
 | Formato de arquivo morto | .zip |
-| Tamanho máximo do arquivo morto | 200 MB |
+| Tamanho máximo do arquivo morto | 2048 MB |
 
 > [!NOTE]
 > arquivos. wav com uma taxa de amostragem inferior a 16.000 Hz serão rejeitados. Se um arquivo. zip contiver arquivos. wav com taxas de amostra diferentes, somente aqueles iguais ou maiores que 16.000 Hz serão importados. Atualmente, o portal importa arquivos. zip de até 200 MB. No entanto, vários arquivos mortos podem ser carregados.
@@ -74,12 +74,12 @@ Siga estas diretrizes ao preparar o áudio.
 
 O arquivo de transcrição é um arquivo de texto sem formatação. Use estas diretrizes para preparar suas transcrições.
 
-| Propriedade | Value |
+| Propriedade | Valor |
 | -------- | ----- |
 | Formato de arquivo | Texto sem formatação (. txt) |
 | Formato de codificação | ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE ou UTF-16-is. Para as codificações zh-CN, ANSI/ASCII e UTF-8 não têm suporte. |
 | N.º de expressões por linha | **Um** -cada linha do arquivo de transcrição deve conter o nome de um dos arquivos de áudio, seguido pela transcrição correspondente. O nome de ficheiro e a transcrição devem estar separados por uma tabulação (\t). |
-| Tamanho máximo do ficheiro | 50 MB |
+| Tamanho máximo do ficheiro | 2048 MB |
 
 Abaixo está um exemplo de como as transcrições são organizadas expressão por expressão em um arquivo. txt:
 
@@ -104,29 +104,29 @@ Em alguns casos, talvez você não tenha um áudio segmentado disponível. Forne
 
 Siga estas diretrizes ao preparar o áudio para segmentação.
 
-| Propriedade | Value |
+| Propriedade | Valor |
 | -------- | ----- |
 | Formato de arquivo | RIFF (. wav) com uma taxa de amostragem de pelo menos 16 kHz-16 bits em PCM ou. mp3 com uma taxa de bits de pelo menos 256 KBps, agrupados em um arquivo. zip |
-| Nome de ficheiro | Somente caracteres ASCII. Os caracteres Unicode no nome falharão (por exemplo, os caracteres chineses ou símbolos como "–"). Nenhum nome duplicado é permitido. |
+| Nome de ficheiro | Caracteres ASCII e Unicode com suporte. Nenhum nome duplicado é permitido. |
 | Comprimento do áudio | Mais de 20 segundos |
 | Formato de arquivo morto | .zip |
-| Tamanho máximo do arquivo morto | 200 MB |
+| Tamanho máximo do arquivo morto | 2048 MB |
 
-Todos os arquivos de áudio devem ser agrupados em um arquivo zip. É OK colocar arquivos. wav e arquivos. mp3 em um zip de áudio, mas nenhuma subpasta é permitida no arquivo zip. Por exemplo, você pode carregar um arquivo ZIP contendo um arquivo de áudio chamado ' kingstory. wav ', 45-Second-Long e outro chamado ' queenstory. mp3 ', 200-Second-Long, sem nenhuma subpasta. Todos os arquivos. mp3 serão transformados no formato. wav após o processamento.
+Todos os arquivos de áudio devem ser agrupados em um arquivo zip. É OK colocar arquivos. wav e arquivos. mp3 em um zip de áudio. Por exemplo, você pode carregar um arquivo ZIP contendo um arquivo de áudio chamado ' kingstory. wav ', 45-Second-Long e outro áudio chamado ' queenstory. mp3 ', 200-Second-Long. Todos os arquivos. mp3 serão transformados no formato. wav após o processamento.
 
 ### <a name="transcripts"></a>Transcrições
 
 Transcrições devem estar preparados para as especificações listadas nesta tabela. Cada arquivo de áudio deve ser correspondido com uma transcrição.
 
-| Propriedade | Value |
+| Propriedade | Valor |
 | -------- | ----- |
 | Formato de arquivo | Texto sem formatação (. txt), agrupado em um. zip |
 | Nome de ficheiro | Usar o mesmo nome que o arquivo de áudio correspondente |
 | Formato de codificação | UTF-8-somente BOM |
 | N.º de expressões por linha | Sem limite |
-| Tamanho máximo do ficheiro | 50 MB |
+| Tamanho máximo do ficheiro | 2048 MB |
 
-Todos os arquivos de transcrições nesse tipo de dados devem ser agrupados em um arquivo zip. Nenhuma subpasta é permitida no arquivo zip. Por exemplo, você carregou um arquivo ZIP contendo um arquivo de áudio chamado ' kingstory. wav ', 45 segundos de comprimento e outro chamado ' queenstory. mp3 ', 200 segundos de comprimento. Será necessário carregar outro arquivo ZIP contendo duas transcrições, uma denominada ' kingstory. txt ', a outra ' queenstory. txt '. Em cada arquivo de texto sem formatação, você fornecerá a transcrição correta completa para o áudio correspondente.
+Todos os arquivos de transcrições nesse tipo de dados devem ser agrupados em um arquivo zip. Por exemplo, você carregou um arquivo ZIP contendo um arquivo de áudio chamado ' kingstory. wav ', 45 segundos de comprimento e outro chamado ' queenstory. mp3 ', 200 segundos de comprimento. Será necessário carregar outro arquivo ZIP contendo duas transcrições, uma denominada ' kingstory. txt ', a outra ' queenstory. txt '. Em cada arquivo de texto sem formatação, você fornecerá a transcrição correta completa para o áudio correspondente.
 
 Depois que o conjunto de acordo for carregado com êxito, iremos ajudá-lo a segmentar o arquivo de áudio no declarações com base na transcrição fornecida. Você pode verificar o declarações segmentado e as transcrições correspondentes baixando o conjunto de um. As IDs exclusivas serão atribuídas ao declarações segmentado automaticamente. É importante garantir que as transcrições fornecidas sejam 100% precisas. Os erros nas transcrições podem reduzir a precisão durante a segmentação de áudio e apresentar ainda mais perda de qualidade na fase de treinamento que vem depois.
 
@@ -139,17 +139,17 @@ Siga estas diretrizes ao preparar o áudio.
 > [!NOTE]
 > O serviço de segmentação de áudio longo aproveitará o recurso de transcrição do lote de conversão de fala em texto, que dá suporte apenas a usuários de assinatura padrão (S0).
 
-| Propriedade | Value |
+| Propriedade | Valor |
 | -------- | ----- |
 | Formato de arquivo | RIFF (. wav) com uma taxa de amostragem de pelo menos 16 kHz-16 bits em PCM ou. mp3 com uma taxa de bits de pelo menos 256 KBps, agrupados em um arquivo. zip |
-| Nome de ficheiro | Somente caracteres ASCII. Os caracteres Unicode no nome falharão (por exemplo, os caracteres chineses ou símbolos como "–"). Nenhum nome duplicado é permitido. |
+| Nome de ficheiro | Caracteres ASCII e Unicode com suporte. Nenhum nome duplicado é permitido. |
 | Comprimento do áudio | Mais de 20 segundos |
 | Formato de arquivo morto | .zip |
-| Tamanho máximo do arquivo morto | 200 MB |
+| Tamanho máximo do arquivo morto | 2048 MB |
 
-Todos os arquivos de áudio devem ser agrupados em um arquivo zip. Nenhuma subpasta é permitida no arquivo zip. Depois que o conjunto de seus conjuntos de um for carregado com êxito, ajudaremos você a segmentar o arquivo de áudio no declarações com base em nosso serviço de transcrição do lote de fala. As IDs exclusivas serão atribuídas ao declarações segmentado automaticamente. As transcrições correspondentes serão geradas por meio do reconhecimento de fala. Todos os arquivos. mp3 serão transformados no formato. wav após o processamento. Você pode verificar o declarações segmentado e as transcrições correspondentes baixando o conjunto de um.
+Todos os arquivos de áudio devem ser agrupados em um arquivo zip. Depois que o conjunto de seus conjuntos de um for carregado com êxito, ajudaremos você a segmentar o arquivo de áudio no declarações com base em nosso serviço de transcrição do lote de fala. As IDs exclusivas serão atribuídas ao declarações segmentado automaticamente. As transcrições correspondentes serão geradas por meio do reconhecimento de fala. Todos os arquivos. mp3 serão transformados no formato. wav após o processamento. Você pode verificar o declarações segmentado e as transcrições correspondentes baixando o conjunto de um.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma voz personalizada](how-to-custom-voice-create-voice.md)
-- [Orienta Registre seus exemplos de voz](record-custom-voice-samples.md)
+- [Guia: Registre suas amostras de voz](record-custom-voice-samples.md)

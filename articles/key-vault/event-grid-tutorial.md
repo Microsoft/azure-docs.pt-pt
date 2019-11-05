@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 56490ede89a5859ef73d9110b46ea55fd9b96d54
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 3b24da4d988554da240baba2984df44ff4744aaf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033556"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464099"
 ---
 # <a name="how-to-receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Como: receber e responder a notificações do Key Vault com a grade de eventos do Azure (versão prévia)
 
@@ -31,7 +31,7 @@ Este guia mostrará como receber notificações de Key Vault por meio da grade d
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste guia, você assinará eventos para o cofre de chaves e eventos de rota para a automação do Azure. Quando um dos segredos no cofre de chaves está prestes a expirar, a grade de eventos é notificada sobre a alteração de status e faz um HTTP POST para o ponto de extremidade. Um gancho da Web dispara uma execução de automação do Azure do script do PowerShell.
 
-![imagem](media/image1.png)
+![image](media/image1.png)
 
 ## <a name="create-an-azure-automation-account"></a>Crie uma conta de Automatização do Azure
 
@@ -120,7 +120,7 @@ Agora, crie um webhook para disparar seu runbook recém-criado.
 
 Crie uma assinatura de grade de eventos por meio do [portal do Azure](https://portal.azure.com).
 
-1.  Abra o portal do Azure usando o seguinte link: https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true
+1.  Abra o portal do Azure usando o seguinte link: https://portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true
 
 1.  Vá para o cofre de chaves e selecione a guia "eventos". Se você não conseguir ver a guia eventos, certifique-se de estar usando a [versão de visualização do portal](https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
 
@@ -194,7 +194,7 @@ Parabéns! Se você seguiu todas as etapas acima, agora você está pronto para 
 
 Se você estiver usando um sistema baseado em sondagem para procurar alterações de status de segredos em seus cofres de chaves, migre para o usando esse recurso de notificação. Você também pode substituir o script de teste em seu runbook por código para renovar programaticamente seus segredos quando eles estiverem prestes a expirar.
 
-Mais informações:
+Saiba mais:
 
 - [Visão geral de Azure Key Vault](key-vault-overview.md)
 - [Visão geral da grade de eventos do Azure](../event-grid/overview.md)
