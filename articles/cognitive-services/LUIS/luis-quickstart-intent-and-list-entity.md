@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Correspondência exata de texto-LUIS'
+title: 'Tutorial: correspondência de texto exata-LUIS'
 titleSuffix: Azure Cognitive Services
 description: Obtenha dados que correspondam a uma lista de itens predefinida. Cada item na lista pode ter sinónimos também com correspondência exata
 services: cognitive-services
@@ -9,24 +9,26 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 25882f2aaa5d32dfb594d5f8fdb9cdc46f2ad958
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9531e86e63fa8d944aa216fddd0c8215b73038a9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307602"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492713"
 ---
-# <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Tutorial: Obter dados de correspondência de texto exatos de um expressão
+# <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Tutorial: obter dados de correspondência de texto exatos de um expressão
 
 Neste tutorial, entenda como obter dados de entidade que correspondem a uma lista predefinida de itens. 
 
-**Neste tutorial, vai aprender a:**
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
+**Neste tutorial, ficará a saber como:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Criar aplicação
+> * Criar aplicativo
 > * Adicionar intenções
 > * Adicionar entidade de lista 
 > * Preparar 
@@ -57,7 +59,7 @@ Uma entidade de lista é uma boa opção para este tipo de dados quando:
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Selecione **Create new intent** (Criar nova intenção). 
+2. Selecione **Criar nova intenção**. 
 
 3. Introduza `TransferEmployeeToDepartment` na caixa de diálogo de pop-up e, em seguida, selecione **Concluído**. 
 
@@ -94,7 +96,7 @@ O nome principal, _canônico_, para cada item é o nome do departamento. Exemplo
 |Operações de desenvolvimento|Devops<br>4949|
 |Engenharia|dação<br>motor<br>4567|
 |Finanças|Fin<br>2020|
-|Tecnologia da informação|it<br>2323|
+|Tecnologia da informação|TI<br>2323|
 |Vendas internas|isale<br>invenda<br>1414|
 |Pesquisa e desenvolvimento|R & D<br>1234|
 
@@ -104,7 +106,7 @@ O nome principal, _canônico_, para cada item é o nome do departamento. Exemplo
 
 1. Na caixa de diálogo pop-up de entidade, introduza `Department` para o nome da entidade e **Lista** para o tipo de entidade. Selecione **Done** (Concluído).  
 
-    [![Captura de ecrã da criação de caixa de diálogo de pop-up entidade novo](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "captura de ecrã da criação de caixa de diálogo de pop-up entidade novo")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
+    [![Captura de tela de criando caixa de diálogo pop-up de nova entidade](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "Captura de tela de criando caixa de diálogo pop-up de nova entidade")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
 
 1. Na página entidade do departamento, insira `Accounting` como o novo valor.
 
@@ -175,7 +177,7 @@ O nome principal, _canônico_, para cada item é o nome do departamento. Exemplo
 * [Como testar no portal do LUIS](luis-interactive-test.md)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, criou uma nova intenção, adicionou expressões de exemplo e criou uma entidade de lista para extrair correspondências de texto exatas a partir de expressões. Depois de preparar e publicar a aplicação, uma consulta ao ponto final identifica a intenção e devolve os dados extraídos.
 
 Continue com este aplicativo, [adicionando uma entidade composta](luis-tutorial-composite-entity.md).

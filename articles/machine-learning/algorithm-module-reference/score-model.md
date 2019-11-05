@@ -1,24 +1,24 @@
 ---
 title: 'Modelo de Pontuação: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo modelo de pontuação no serviço Azure Machine Learning para gerar previsões usando um modelo de classificação ou regressão treinado.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo modelo de pontuação em Azure Machine Learning para gerar previsões usando um modelo de classificação ou regressão treinado.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: f046b41d02ac392d003a9ecd15f25b43e5449cd0
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: e7ab953a7ac0907244ebaab70b3b86cbe6f0f4d9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692679"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497644"
 ---
 # <a name="score-model-module"></a>Módulo do modelo de pontuação
 
-Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para gerar previsões usando um modelo de classificação ou regressão treinado.
 
@@ -50,7 +50,6 @@ A pontuação, ou o valor previsto, pode estar em vários formatos diferentes, d
 
 Um uso comum de pontuação é retornar a saída como parte de um serviço Web de previsão. Para obter mais informações, consulte este tutorial sobre como criar um serviço Web baseado em um pipeline no Azure Machine Learning:
 
-
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

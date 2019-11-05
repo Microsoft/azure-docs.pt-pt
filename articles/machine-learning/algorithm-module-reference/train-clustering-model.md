@@ -1,7 +1,7 @@
 ---
 title: 'Treinar modelo de clustering: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo treinar modelo de clustering no serviço de Azure Machine Learning para treinar modelos de clustering.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo treinar modelo de clustering em Azure Machine Learning para treinar modelos de clustering.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: fc6d889fb9be40c98e1a2a0de6fddb29939f3b5d
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 1b26fc251aeb527041b1e648f19f9dd67f7701b7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693653"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490384"
 ---
 # <a name="train-clustering-model"></a>Preparar Modelo de Clustering
 
-Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para treinar um modelo de clustering.
 
@@ -28,8 +28,8 @@ O módulo usa um modelo de clustering não treinado que você já configurou usa
 > Um modelo de clustering não foi possível ser treinado usando o módulo [treinar modelo](train-model.md) , que é o módulo genérico para treinar modelos de aprendizado de máquina. Isso ocorre porque o [modelo de treinamento](train-model.md) funciona apenas com algoritmos de aprendizado supervisionados. K-means e outros algoritmos de clustering permitem aprendizado não supervisionado, o que significa que o algoritmo pode aprender com dados não rotulados.  
   
 ## <a name="how-to-use-train-clustering-model"></a>Como usar o modelo treinar clustering  
-  
-1.  Adicione o módulo **treinar modelo de clustering** ao seu pipeline no estúdio. Você pode encontrar o módulo em **módulos Machine Learning**, na categoria **treinar** .  
+
+1.  Adicione o módulo **treinar modelo de clustering** ao seu pipeline no designer. Você pode encontrar o módulo em **módulos Machine Learning**, na categoria **treinar** .  
   
 2. Adicione o módulo de [clustering K-](k-means-clustering.md) means ou outro módulo personalizado que cria um modelo de clustering compatível e defina os parâmetros do modelo de clustering.  
     
@@ -60,4 +60,4 @@ Após a conclusão do treinamento:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

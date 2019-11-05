@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 40a2443419fab5d0a89d704312d880e344597b8b
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
-ms.translationtype: MT
+ms.openlocfilehash: db6e47b39b7ebe35a6c0fef42af53f91e96c363f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053905"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496201"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
 
 O banco de dados SQL do Azure é baseado em SQL Server Mecanismo de Banco de Dados arquitetura ajustada para o ambiente de nuvem a fim de garantir 99,99% de disponibilidade mesmo nos casos de falhas de infraestrutura. Há três modelos de arquitetura que são usados no banco de dados SQL do Azure:
 - Uso Geral/Standard 
--  Hiperescala
+-  Hyperscale
 -  Comercialmente Crítico/Premium
 
 A camada de serviço de hiperescala no banco de dados SQL do Azure é a mais nova camada de serviço no modelo de compra baseado em vCore. Essa camada de serviço é um nível de desempenho de computação e armazenamento altamente escalonável que aproveita a arquitetura do Azure para escalar horizontalmente os recursos de armazenamento e computação para um banco de dados SQL do Azure, muito além dos limites disponíveis para os Uso Geral e os negócios Camadas de serviço críticas.
@@ -47,7 +47,7 @@ A camada de serviço de hiperescala remove muitos dos limites práticos tradicio
 
 Além disso, o tempo necessário para criar backups de banco de dados ou para escalar ou reduzir verticalmente não está mais vinculado ao volume de data no banco de dado. Os bancos de dados de hiperescala podem ser submetidos a backup virtualmente de forma instantânea. Você também pode dimensionar um banco de dados em dezenas de terabytes para cima ou para baixo em minutos. Esse recurso libera você de preocupações sobre como se encaixar em suas opções de configuração iniciais.
 
-Para obter mais informações sobre os tamanhos de computação para a camada de serviço de hiperescala, consulte [características da camada de serviço](sql-database-service-tiers-vcore.md#service-tier-characteristics).
+Para obter mais informações sobre os tamanhos de computação para a camada de serviço de hiperescala, consulte [características da camada de serviço](sql-database-service-tiers-vcore.md#service-tiers).
 
 ## <a name="who-should-consider-the-hyperscale-service-tier"></a>Quem deve considerar a camada de serviço de hiperescala
 
@@ -170,27 +170,27 @@ No momento, a camada de hiperescala do banco de dados SQL do Azure está dispon�
 - Sudeste da Austrália
 - Sul do Brasil
 - Canadá Central
-- Centro dos E.U.A.
+- EUA Central
 - Leste da China 2
 - Norte da China 2
-- Este Asiático
-- Este dos E.U.A.
+- Ásia Oriental
+- EUA Leste
 - Leste dos EUA 2
 - França Central
 - Este do Japão
 - Oeste do Japão
 - Coreia do Sul Central
-- Sul da Coreia do Sul
+- Coreia do Sul
 - E.U.A. Centro-Norte
 - Europa do Norte
 - Norte da África do Sul
-- E.U.A. Centro-Sul
+- EUA Centro-Sul
 - Sudeste Asiático
 - Sul do Reino Unido
-- Oeste do Reino Unido
+- Reino Unido Oeste
 - Europa Ocidental
 - Oeste dos E.U.A.
-- E.U.A. Oeste 2
+- EUA Oeste 2
 
 Se desejar criar um banco de dados de hiperescala em uma região que não esteja listada como com suporte, você poderá enviar uma solicitação de integração via portal do Azure. Estamos trabalhando para expandir a lista de regiões com suporte; portanto, verifique novamente a lista de regiões mais recente.
 

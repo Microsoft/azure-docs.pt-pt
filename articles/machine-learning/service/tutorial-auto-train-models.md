@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial do modelo de regressão: ML Automatizado'
+title: 'Tutorial do modelo de regressão: ML automatizado'
 titleSuffix: Azure Machine Learning
 description: Saiba como gerar um modelo de aprendizado de máquina usando o aprendizado de máquina automatizado. Azure Machine Learning pode executar o pré-processamento de dados, a seleção de algoritmos e a seleção de hiperparâmetro de forma automatizada para você. Em seguida, o modelo final é implantado com Azure Machine Learning.
 services: machine-learning
@@ -9,15 +9,16 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 08/21/2019
-ms.openlocfilehash: f08f2f07137e518925ee4dbe9b128e100be870c9
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: a7bd735a808532ed0e61cf42dca2d7a797092487
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003978"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493690"
 ---
-# <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Usar o Machine Learning automatizado para prever as tarifas de táxi
+# <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: usar o Machine Learning automatizado para prever as tarifas de táxi
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste tutorial, você usa o aprendizado de máquina automatizado no Azure Machine Learning para criar um modelo de regressão para prever preços de Tarifa de táxi de NYC. Esse processo aceita dados de treinamento e definições de configuração e itera automaticamente por meio de combinações de métodos diferentes de normalização/padronização de recursos, modelos e configurações de hiperparâmetro para chegar ao melhor modelo.
 
@@ -41,7 +42,7 @@ Este tutorial também está disponível no [GitHub](https://github.com/Azure/Mac
 
 ## <a name="download-and-prepare-data"></a>Baixar e preparar dados
 
-Importe os pacotes necessários. O pacote Open DataSets contém uma classe que representa cada fonte de`NycTlcGreen` dados (por exemplo) para filtrar facilmente os parâmetros de data antes do download.
+Importe os pacotes necessários. O pacote Open DataSets contém uma classe que representa cada fonte de dados (`NycTlcGreen`, por exemplo) para filtrar facilmente os parâmetros de data antes do download.
 
 ```python
 from azureml.opendatasets import NycTlcGreen
@@ -50,9 +51,9 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 ```
 
-Comece criando um dataframe para manter os dados de táxi. Ao trabalhar em um ambiente não Spark, os conjuntos de dados abertos só permitem baixar um mês de data por vez com determinadas classes a serem `MemoryError` evitadas com grandes DataSets.
+Comece criando um dataframe para manter os dados de táxi. Ao trabalhar em um ambiente não Spark, os conjuntos de dados abertos só permitem o download de um mês de dado por vez, com determinadas classes para evitar `MemoryError` com grandes conjuntos.
 
-Para baixar dados de táxi, busque iterativamente um mês por vez e antes de acrescentá-lo aos `green_taxi_df` registros 2.000 de amostra aleatória de cada mês para evitar o inflamento do dataframe. Em seguida, visualize os dados.
+Para baixar dados de táxi, busque iterativamente um mês por vez e antes de acrescentá-lo a `green_taxi_df` os registros 2.000 de amostra aleatória de cada mês para evitar o inflamento do dataframe. Em seguida, visualize os dados.
 
 
 ```python
@@ -69,7 +70,7 @@ green_taxi_df.head(10)
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th: só de-de-type {vertical-align: intermédia;}
+<style scoped>. dataframe tbody TR th: somente de tipo {vertical-align: Middle;}
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -89,14 +90,14 @@ green_taxi_df.head(10)
       <th>passengerCount</th>
       <th>tripDistance</th>
       <th>puLocationId</th>
-      <th>doLocationId</th>
+      <th>dolocationid</th>
       <th>pickupLongitude</th>
       <th>pickupLatitude</th>
       <th>dropoffLongitude</th>
       <th>...</th>
       <th>pagamentotype</th>
       <th>fareAmount</th>
-      <th>extra</th>
+      <th>Especiais</th>
       <th>mtaTax</th>
       <th>improvementSurcharge</th>
       <th>tipAmount</th>
@@ -129,7 +130,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>16,30</td>
-      <td>1,00</td>
+      <td>1, 0</td>
     </tr>
     <tr>
       <th>1129817</th>
@@ -145,15 +146,15 @@ green_taxi_df.head(10)
       <td>-73,96</td>
       <td>...</td>
       <td>2</td>
-      <td>4.50</td>
-      <td>1,00</td>
+      <td>4,50</td>
+      <td>1, 0</td>
       <td>0,50</td>
       <td>0,3</td>
       <td>0, 0</td>
       <td>0, 0</td>
       <td>Nan</td>
       <td>6,30</td>
-      <td>1,00</td>
+      <td>1, 0</td>
     </tr>
     <tr>
       <th>1278620</th>
@@ -177,7 +178,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>4,80</td>
-      <td>1,00</td>
+      <td>1, 0</td>
     </tr>
     <tr>
       <th>348430</th>
@@ -201,7 +202,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>13,80</td>
-      <td>1,00</td>
+      <td>1, 0</td>
     </tr>
     <tr>
       <th>1269627</th>
@@ -224,8 +225,8 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>0, 0</td>
       <td>Nan</td>
-      <td>5,00</td>
-      <td>1,00</td>
+      <td>5, 0</td>
+      <td>1, 0</td>
     </tr>
     <tr>
       <th>811755</th>
@@ -249,7 +250,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>7,80</td>
-      <td>1,00</td>
+      <td>1, 0</td>
     </tr>
     <tr>
       <th>737281</th>
@@ -273,7 +274,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>6,80</td>
-      <td>1,00</td>
+      <td>1, 0</td>
     </tr>
     <tr>
       <th>113951</th>
@@ -297,7 +298,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>13,80</td>
-      <td>1,00</td>
+      <td>1, 0</td>
     </tr>
     <tr>
       <th>150436</th>
@@ -321,7 +322,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>9,55</td>
-      <td>1,00</td>
+      <td>1, 0</td>
     </tr>
     <tr>
       <th>432136</th>
@@ -337,7 +338,7 @@ green_taxi_df.head(10)
       <td>-73,94</td>
       <td>...</td>
       <td>2</td>
-      <td>5,00</td>
+      <td>5, 0</td>
       <td>0,50</td>
       <td>0,50</td>
       <td>0,3</td>
@@ -345,7 +346,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>6,30</td>
-      <td>1,00</td>
+      <td>1, 0</td>
     </tr>
   </tbody>
 </table>
@@ -353,7 +354,7 @@ green_taxi_df.head(10)
 </div>
 
 
-Agora que os dados iniciais estão carregados, defina uma função para criar vários recursos baseados em tempo do campo de retirada DateTime. Isso criará novos campos para o número do mês, o dia do mês, o dia da semana e a hora do dia e permitirá que o modelo seja fatorado em sazonalidade com base no tempo. Use a `apply()` função no dataframe para aplicar iterativamente a `build_time_features()` função a cada linha nos dados de táxi.
+Agora que os dados iniciais estão carregados, defina uma função para criar vários recursos baseados em tempo do campo de retirada DateTime. Isso criará novos campos para o número do mês, o dia do mês, o dia da semana e a hora do dia e permitirá que o modelo seja fatorado em sazonalidade com base no tempo. Use a função `apply()` no dataframe para aplicar iterativamente a função `build_time_features()` a cada linha nos dados de táxi.
 
 ```python
 def build_time_features(vector):
@@ -370,7 +371,7 @@ green_taxi_df.head(10)
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th: só de-de-type {vertical-align: intermédia;}
+<style scoped>. dataframe tbody TR th: somente de tipo {vertical-align: Middle;}
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -390,7 +391,7 @@ green_taxi_df.head(10)
       <th>passengerCount</th>
       <th>tripDistance</th>
       <th>puLocationId</th>
-      <th>doLocationId</th>
+      <th>dolocationid</th>
       <th>pickupLongitude</th>
       <th>pickupLatitude</th>
       <th>dropoffLongitude</th>
@@ -426,7 +427,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>16,30</td>
-      <td>1,00</td>
+      <td>1, 0</td>
       <td>1</td>
       <td>11</td>
       <td>6</td>
@@ -450,7 +451,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>6,30</td>
-      <td>1,00</td>
+      <td>1, 0</td>
       <td>1</td>
       <td>20</td>
       <td>1</td>
@@ -474,7 +475,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>4,80</td>
-      <td>1,00</td>
+      <td>1, 0</td>
       <td>1</td>
       <td>1</td>
       <td>3</td>
@@ -498,7 +499,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>13,80</td>
-      <td>1,00</td>
+      <td>1, 0</td>
       <td>1</td>
       <td>17</td>
       <td>5</td>
@@ -521,8 +522,8 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>0, 0</td>
       <td>Nan</td>
-      <td>5,00</td>
-      <td>1,00</td>
+      <td>5, 0</td>
+      <td>1, 0</td>
       <td>1</td>
       <td>1</td>
       <td>3</td>
@@ -546,7 +547,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>7,80</td>
-      <td>1,00</td>
+      <td>1, 0</td>
       <td>1</td>
       <td>4</td>
       <td>6</td>
@@ -570,7 +571,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>6,80</td>
-      <td>1,00</td>
+      <td>1, 0</td>
       <td>1</td>
       <td>3</td>
       <td>5</td>
@@ -594,7 +595,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>13,80</td>
-      <td>1,00</td>
+      <td>1, 0</td>
       <td>1</td>
       <td>9</td>
       <td>4</td>
@@ -618,7 +619,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>9,55</td>
-      <td>1,00</td>
+      <td>1, 0</td>
       <td>1</td>
       <td>11</td>
       <td>6</td>
@@ -642,7 +643,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>6,30</td>
-      <td>1,00</td>
+      <td>1, 0</td>
       <td>1</td>
       <td>22</td>
       <td>3</td>
@@ -668,14 +669,14 @@ green_taxi_df.head(5)
 
 ### <a name="cleanse-data"></a>Limpar dados
 
-Execute a `describe()` função no novo dataframe para ver as estatísticas de Resumo de cada campo.
+Execute a função `describe()` no novo dataframe para ver as estatísticas de Resumo de cada campo.
 
 ```python
 green_taxi_df.describe()
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th: só de-de-type {vertical-align: intermédia;}
+<style scoped>. dataframe tbody TR th: somente de tipo {vertical-align: Middle;}
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -720,7 +721,7 @@ green_taxi_df.describe()
       <td>48000, 0</td>
     </tr>
     <tr>
-      <th>média</th>
+      <th>Significa</th>
       <td>1,78</td>
       <td>1,37</td>
       <td>2,87</td>
@@ -736,22 +737,22 @@ green_taxi_df.describe()
     </tr>
     <tr>
       <th>padrão</th>
-      <td>0.41</td>
+      <td>0,41</td>
       <td>1, 4</td>
       <td>2,93</td>
       <td>2,76</td>
       <td>1,52</td>
-      <td>2.61</td>
+      <td>2,61</td>
       <td>1,44</td>
       <td>12, 8</td>
-      <td>3.45</td>
+      <td>3,45</td>
       <td>8,45</td>
       <td>1,95</td>
       <td>6,83</td>
     </tr>
     <tr>
-      <th>mín.</th>
-      <td>1,00</td>
+      <th>min.</th>
+      <td>1, 0</td>
       <td>0, 0</td>
       <td>0, 0</td>
       <td>-74,66</td>
@@ -759,22 +760,22 @@ green_taxi_df.describe()
       <td>-74,66</td>
       <td>0, 0</td>
       <td>-300, 0</td>
-      <td>1,00</td>
-      <td>1,00</td>
+      <td>1, 0</td>
+      <td>1, 0</td>
       <td>0, 0</td>
       <td>0, 0</td>
     </tr>
     <tr>
       <th>25%</th>
       <td>2, 0</td>
-      <td>1,00</td>
+      <td>1, 0</td>
       <td>1, 6</td>
       <td>-73,96</td>
       <td>40,70</td>
       <td>-73,97</td>
       <td>40,70</td>
       <td>7,80</td>
-      <td>3.75</td>
+      <td>3,75</td>
       <td>8,00</td>
       <td>2, 0</td>
       <td>9, 0</td>
@@ -782,7 +783,7 @@ green_taxi_df.describe()
     <tr>
       <th>50%</th>
       <td>2, 0</td>
-      <td>1,00</td>
+      <td>1, 0</td>
       <td>1,90</td>
       <td>-73,94</td>
       <td>40,75</td>
@@ -791,13 +792,13 @@ green_taxi_df.describe()
       <td>11,30</td>
       <td>6,50</td>
       <td>15, 0</td>
-      <td>Digite 3,00</td>
+      <td>3, 0</td>
       <td>15, 0</td>
     </tr>
     <tr>
       <th>75%</th>
       <td>2, 0</td>
-      <td>1,00</td>
+      <td>1, 0</td>
       <td>3,60</td>
       <td>-73,92</td>
       <td>40,80</td>
@@ -806,11 +807,11 @@ green_taxi_df.describe()
       <td>17,80</td>
       <td>9,25</td>
       <td>22, 0</td>
-      <td>5,00</td>
+      <td>5, 0</td>
       <td>19, 0</td>
     </tr>
     <tr>
-      <th>máx.</th>
+      <th>maximizar</th>
       <td>2, 0</td>
       <td>9, 0</td>
       <td>97,57</td>
@@ -831,9 +832,9 @@ green_taxi_df.describe()
 
 Nas estatísticas de resumo, você verá que há vários campos que têm exceções ou valores que reduzirão a precisão do modelo. Primeiro filtre os campos lat/long para dentro dos limites da área Manhattan. Isso filtrará viagens ou viagens de táxi mais longos que são exceções em relação à sua relação com outros recursos.
 
-Além disso, `tripDistance` filtre o campo para que seja maior que zero, mas menos de 31 milhas (a distância Haversine entre os dois pares lat/long). Isso elimina grandes viagens de exceção que têm custo inconsistente de viagens.
+Além disso, filtre o campo `tripDistance` para que seja maior que zero, mas menos de 31 milhas (a distância Haversine entre os dois pares lat/long). Isso elimina grandes viagens de exceção que têm custo inconsistente de viagens.
 
-Por fim, o `totalAmount` campo tem valores negativos para as tarifas de táxi, que não fazem sentido no contexto de nosso modelo, e o `passengerCount` campo tem dados inválidos com os valores mínimos zero.
+Por fim, o campo `totalAmount` tem valores negativos para as tarifas de táxi, que não fazem sentido no contexto de nosso modelo, e o campo `passengerCount` tem dados inválidos com os valores mínimos zero.
 
 Filtre essas anomalias usando funções de consulta e, em seguida, remova as últimas colunas desnecessárias para treinamento.
 
@@ -857,7 +858,7 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>Configurar a área de trabalho
 
-Crie um objeto de área de trabalho a partir da área de trabalho existente. Um [espaço de trabalho](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) é uma classe que aceita suas informações de assinatura e recursos do Azure. Ele também cria um recurso de nuvem para monitorar e rastrear suas execuções de modelo. `Workspace.from_config()`lê o arquivo **config. JSON** e carrega os detalhes de autenticação em um objeto `ws`chamado. `ws` é utilizado em todo o restante código neste tutorial.
+Crie um objeto de área de trabalho a partir da área de trabalho existente. Um [espaço de trabalho](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) é uma classe que aceita suas informações de assinatura e recursos do Azure. Ele também cria um recurso de nuvem para monitorar e rastrear suas execuções de modelo. `Workspace.from_config()` lê o arquivo **config. JSON** e carrega os detalhes de autenticação em um objeto chamado `ws`. `ws` é utilizado em todo o restante código neste tutorial.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -866,9 +867,9 @@ ws = Workspace.from_config()
 
 ## <a name="split-the-data-into-train-and-test-sets"></a>Dividir os dados em conjuntos de treinamento e teste
 
-Divida os dados em conjuntos de treinamento e teste usando a `train_test_split` função `scikit-learn` na biblioteca. Essa função separa os dados no conjunto de dados x (**recursos**) para treinamento de modelo e o conjunto de dados y (**valores a prever**) para teste.
+Divida os dados em conjuntos de treinamento e teste usando a função `train_test_split` na biblioteca `scikit-learn`. Essa função separa os dados no conjunto de dados x (**recursos**) para treinamento de modelo e o conjunto de dados y (**valores a prever**) para teste.
 
-O `test_size` parâmetro determina a percentagem de dados para alocar ao teste. O `random_state` parâmetro define uma semente para o gerador aleatório, de forma que suas divisões de treinamento de treino sejam determinísticas.
+O parâmetro `test_size` determina a porcentagem de dados a serem alocados para teste. O parâmetro `random_state` define uma semente para o gerador aleatório, de forma que suas divisões de treinamento de treino sejam determinísticas.
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -883,7 +884,7 @@ A finalidade desta etapa é ter pontos de dados para testar o modelo concluído 
 
 Em outras palavras, um modelo bem treinado deve ser capaz de fazer previsões com precisão dos dados que ele ainda não viu. Agora você tem dados preparados para treinar automaticamente um modelo de aprendizado de máquina.
 
-## <a name="automatically-train-a-model"></a>Preparar automaticamente um modelo
+## <a name="automatically-train-a-model"></a>Treinar automaticamente um modelo
 
 Para treinar um modelo automaticamente, execute as seguintes etapas:
 1. Defina as configurações para a execução do experimento. Anexe seus dados de treinamento à configuração e modifique as configurações que controlam o processo de treinamento.
@@ -891,15 +892,16 @@ Para treinar um modelo automaticamente, execute as seguintes etapas:
 
 ### <a name="define-training-settings"></a>Definir configurações de treinamento
 
-Defina o parâmetro experimento e as configurações de modelo para treinamento. Ver a lista completa dos [definições](how-to-configure-auto-train.md). O envio do experimento com essas configurações padrão levará aproximadamente 5-10 min, mas se você quiser um tempo de execução menor, reduza `iterations` o parâmetro.
+Defina o parâmetro experimento e as configurações de modelo para treinamento. Exiba a lista completa de [configurações](how-to-configure-auto-train.md). O envio do experimento com essas configurações padrão levará aproximadamente 5-20 min, mas se você quiser um tempo de execução menor, reduza o parâmetro `experiment_timeout_minutes`.
 
 |Propriedade| Valor neste tutorial |Descrição|
 |----|----|---|
 |**iteration_timeout_minutes**|2|Limite de tempo em minutos para cada iteração. Reduza esse valor para diminuir o tempo de execução total.|
-|**iterations**|20|Número de iterações. Em cada iteração, um novo modelo de aprendizado de máquina é treinado com seus dados. Esse é o valor principal que afeta o tempo de execução total.|
+|**experiment_timeout_minutes**|20|Quantidade máxima de tempo em minutos que todas as iterações combinadas podem levar antes que o experimento seja encerrado.|
+|**enable_early_stopping**|Verdadeiro|Sinalizador para enble encerramento antecipado se a pontuação não estiver melhorando em curto prazo.|
 |**primary_metric**| spearman_correlation | Métrica que pretende otimizar. O modelo de melhor ajuste será escolhido com base nessa métrica.|
-|**preprocess**| True | Usando **true**, o experimento pode pré-processar os dados de entrada (manipulando dados ausentes, convertendo texto em numérico, etc.)|
-|**Verbosidade**| logging.INFO | Controla o nível de registo.|
+|**personalização**| Automático | Usando **auto**, o experimento pode pré-processar os dados de entrada (manipulando dados ausentes, convertendo texto em numérico, etc.)|
+|**detalhamento**| logging.INFO | Controla o nível de registro em log.|
 |**n_cross_validations**|5|Número de divisões de validação cruzada a serem executadas quando os dados de validação não forem especificados.|
 
 ```python
@@ -907,15 +909,16 @@ import logging
 
 automl_settings = {
     "iteration_timeout_minutes": 2,
-    "iterations": 20,
+    "experiment_timeout_minutes": 20,
+    "enable_early_stopping": True,
     "primary_metric": 'spearman_correlation',
-    "preprocess": True,
+    "featurization": 'auto',
     "verbosity": logging.INFO,
     "n_cross_validations": 5
 }
 ```
 
-Use as configurações de treinamento definidas como `**kwargs` um parâmetro para `AutoMLConfig` um objeto. Além disso, especifique os dados de treinamento e o tipo de modelo, `regression` que é nesse caso.
+Use as configurações de treinamento definidas como um parâmetro `**kwargs` para um objeto `AutoMLConfig`. Além disso, especifique os dados de treinamento e o tipo de modelo, que é `regression` nesse caso.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -930,7 +933,7 @@ automl_config = AutoMLConfig(task='regression',
 > [!NOTE]
 > As etapas de pré-processamento automatizado do Machine Learning (normalização de recursos, manipulação de dados ausentes, conversão de texto em numeric, etc.) tornam-se parte do modelo subjacente. Ao usar o modelo para previsões, as mesmas etapas de pré-processamento aplicadas durante o treinamento são aplicadas aos dados de entrada automaticamente.
 
-### <a name="train-the-automatic-regression-model"></a>Preparar o modelo de regressão automática
+### <a name="train-the-automatic-regression-model"></a>Treinar o modelo de regressão automática
 
 Crie um objeto de experimento em seu espaço de trabalho. Um experimento atua como um contêiner para suas execuções individuais. Passe o objeto `automl_config` definido para o experimento e defina a saída como `True` para exibir o andamento durante a execução.
 
@@ -990,12 +993,12 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 
-![Jupyter de execução do](./media/tutorial-auto-train-models/automl-dash-output.png)
-widget detalhes![Jupyter do widget](./media/tutorial-auto-train-models/automl-chart-output.png)
+![detalhes de execução do widget do Jupyter](./media/tutorial-auto-train-models/automl-dash-output.png)
+![diagrama de Jupyter do widget](./media/tutorial-auto-train-models/automl-chart-output.png)
 
-### <a name="retrieve-the-best-model"></a>Obter o melhor modelo
+### <a name="retrieve-the-best-model"></a>Recuperar o melhor modelo
 
-Selecione o melhor modelo de suas iterações. A `get_output` função retorna a melhor execução e o modelo ajustado para a última invocação de ajuste. Usando as sobrecargas no `get_output`, você pode recuperar o melhor modelo de execução e ajustada para qualquer métrica registrada ou uma iteração específica.
+Selecione o melhor modelo de suas iterações. A função `get_output` retorna a melhor execução e o modelo ajustado para a última invocação de ajuste. Usando as sobrecargas em `get_output`, você pode recuperar o melhor modelo de execução e ajustada para qualquer métrica registrada ou uma iteração específica.
 
 ```python
 best_run, fitted_model = local_run.get_output()
@@ -1003,16 +1006,16 @@ print(best_run)
 print(fitted_model)
 ```
 
-### <a name="test-the-best-model-accuracy"></a>A maior precisão do modelo de teste
+### <a name="test-the-best-model-accuracy"></a>Testar a melhor precisão do modelo
 
-Use o melhor modelo para executar previsões no conjunto de dados de teste para prever tarifas de táxi. A função `predict` usa o melhor modelo e prevê os valores de y, **custo de viagem**, do `x_test` conjunto de dados. Imprimir os primeiros 10 prevista valores a partir de custos `y_predict`.
+Use o melhor modelo para executar previsões no conjunto de dados de teste para prever tarifas de táxi. A função `predict` usa o melhor modelo e prevê os valores de y, **custo de viagem**, do conjunto de dados de `x_test`. Imprima os 10 primeiros valores de custo previstos de `y_predict`.
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-Calcule o `root mean squared error` dos resultados. Converta `y_test` o dataframe em uma lista para comparar com os valores previstos. A função `mean_squared_error` usa duas matrizes de valores e calcula o erro de quadrado médio entre eles. Pegar a raiz quadrada do resultado resulta em um erro nas mesmas unidades que a variável y, **custo**. Indica aproximadamente até onde as previsões de Tarifa de táxi são provenientes das tarifas reais.
+Calcule a `root mean squared error` dos resultados. Converta o `y_test` dataframe em uma lista para comparar com os valores previstos. A função `mean_squared_error` usa duas matrizes de valores e calcula o erro de quadrado médio entre elas. Pegar a raiz quadrada do resultado resulta em um erro nas mesmas unidades que a variável y, **custo**. Indica aproximadamente até onde as previsões de Tarifa de táxi são provenientes das tarifas reais.
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -1023,7 +1026,7 @@ rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
 ```
 
-Execute o código a seguir para calcular o erro de porcentagem absoluta média (mape) usando `y_actual` os `y_predict` conjuntos de dados completo e. Essa métrica calcula uma diferença absoluta entre cada valor previsto e real e soma todas as diferenças. Em seguida, ele expressa essa soma como uma porcentagem do total dos valores reais.
+Execute o código a seguir para calcular o erro de porcentagem absoluta média (MAPE) usando os conjuntos de dados Full `y_actual` e `y_predict`. Essa métrica calcula uma diferença absoluta entre cada valor previsto e real e soma todas as diferenças. Em seguida, ele expressa essa soma como uma porcentagem do total dos valores reais.
 
 ```python
 sum_actuals = sum_errors = 0
@@ -1053,20 +1056,15 @@ print(1 - mean_abs_percent_error)
 
 Das duas métricas de precisão da previsão, você vê que o modelo é muito bom na previsão de passagens de táxi dos recursos do conjunto de dados, normalmente dentro de +-$4 e aproximadamente 15% de erro.
 
-A processo de desenvolvimento do modelo de aprendizagem tradicional é altamente com muitos recursos e requer investimento de dados de conhecimento e a hora de domínio significativo para executar e comparar os resultados de dezenas de modelos. Usar o Machine Learning automatizado é uma ótima maneira de testar rapidamente vários modelos diferentes para seu cenário.
+O processo de desenvolvimento do modelo de aprendizado de máquina tradicional é altamente intensivo de recursos e requer um investimento significativo de conhecimento e tempo de domínio para executar e comparar os resultados de dezenas de modelos. Usar o Machine Learning automatizado é uma ótima maneira de testar rapidamente vários modelos diferentes para seu cenário.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Não conclua esta seção se você planeja executar outros tutoriais de Azure Machine Learning.
 
-### <a name="stop-the-notebook-vm"></a>Parar a VM do notebook
+### <a name="stop-the-compute-instance"></a>Parar a instância de computação
 
-Se você usou um servidor de bloco de anotações de nuvem, pare a VM quando não a estiver usando para reduzir o custo.
-
-1. Em seu espaço de trabalho, selecione **máquinas virtuais do notebook**.
-1. Na lista, selecione a VM.
-1. Selecione **parar**.
-1. Quando você estiver pronto para usar o servidor novamente, selecione **Iniciar**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### <a name="delete-everything"></a>Excluir tudo
 
@@ -1079,7 +1077,7 @@ Se você não planeja usar os recursos que criou, exclua-os, para não incorrer 
 
 Você também pode manter o grupo de recursos, mas excluir um único espaço de trabalho. Exiba as propriedades do espaço de trabalho e selecione **excluir**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial de aprendizado de máquina automatizado, você fez as seguintes tarefas:
 
@@ -1088,4 +1086,4 @@ Neste tutorial de aprendizado de máquina automatizado, você fez as seguintes t
 > * Treinado com o uso de um modelo de regressão automatizado localmente com parâmetros personalizados.
 > * Resultados de treinamento explorados e revisados.
 
-[Implementar o seu modelo](tutorial-deploy-models-with-aml.md) com o Azure Machine Learning.
+[Implante seu modelo](tutorial-deploy-models-with-aml.md) com Azure Machine Learning.

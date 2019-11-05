@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial de classificação de imagem: Implementar modelos'
+title: 'Tutorial de classificação de imagem: implantar modelos'
 titleSuffix: Azure Machine Learning
 description: Este tutorial mostra como usar Azure Machine Learning para implantar um modelo de classificação de imagem com scikit-Learn em um notebook Jupyter do Python. Este tutorial é o segundo de uma série de duas partes.
 services: machine-learning
@@ -10,14 +10,15 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 988f91d9ab644df4ecb375114abf4245440cbf13
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: ae657daca86c979495ca14d9df845e2a7a769e0a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162531"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476142"
 ---
-# <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implantar um modelo de classificação de imagem em instâncias de contêiner do Azure
+# <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: implantar um modelo de classificação de imagem em instâncias de contêiner do Azure
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Este tutorial é a **segunda parte de uma série composta por duas partes**. No [tutorial anterior](tutorial-train-models-with-aml.md), preparou os modelos de machine learning e registou um modelo na sua área de trabalho na cloud.  
 
@@ -32,16 +33,22 @@ Nesta parte do tutorial, você usa Azure Machine Learning para as seguintes tare
 > * Implante o modelo em instâncias de contêiner.
 > * Teste o modelo implantado.
 
-As instâncias de contêiner são uma ótima solução para testar e compreender o fluxo de trabalho. Dimensionável para implementações de produção, considere utilizar o Azure Kubernetes Service. Para obter mais informações, consulte [como implantar e onde](how-to-deploy-and-where.md).
+As instâncias de contêiner são uma ótima solução para testar e compreender o fluxo de trabalho. Para implantações de produção escalonáveis, considere o uso do serviço kubernetes do Azure. Para obter mais informações, consulte [como implantar e onde](how-to-deploy-and-where.md).
 
 >[!NOTE]
 > O código deste artigo foi testado com Azure Machine Learning SDK versão 1.0.41.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar o bloco de anotações, primeiro conclua o [treinamento do modelo no tutorial (parte 1): Treinar um modelo](tutorial-train-models-with-aml.md)de classificação de imagem.   Em seguida, abra o bloco de anotações **tutoriais/img-Classification-part2-Deploy. ipynb** usando o mesmo servidor de bloco de anotações.
+Para executar o bloco de anotações, primeiro conclua o treinamento do modelo no [tutorial (parte 1): treinar um modelo de classificação de imagem](tutorial-train-models-with-aml.md).   Em seguida, abra o notebook **img-Classification-parte 2-Deploy. ipynb** na pasta **tutoriais** clonados.
 
-Este tutorial também está disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se você quiser usá-lo em seu próprio [ambiente local](how-to-configure-environment.md#local).  Verifique se você instalou `matplotlib` o e `scikit-learn` o em seu ambiente. 
+Este tutorial também está disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se você quiser usá-lo em seu próprio [ambiente local](how-to-configure-environment.md#local).  Verifique se você instalou `matplotlib` e `scikit-learn` em seu ambiente. 
+
+> [!Important]
+> O restante deste artigo contém o mesmo conteúdo que você vê no bloco de anotações.  
+>
+> Alterne para o notebook Jupyter agora se você quiser ler ao executar o código.
+> Para executar uma única célula de código em um bloco de anotações, clique na célula de código e pressione **Shift + Enter**. Ou então, execute o bloco de anotações inteiro escolhendo **executar tudo** na barra de ferramentas superior.
 
 ## <a name="start"></a>Configurar o ambiente
 
@@ -220,7 +227,7 @@ def run(raw_data):
 
 ### <a name="create-environment-file"></a>Criar o ficheiro de ambiente
 
-Em seguida, crie um arquivo de ambiente, chamado **MyENV. yml**, que especifica todas as dependências de pacote do script. Esse arquivo é usado para garantir que todas essas dependências sejam instaladas na imagem do Docker. Esse modelo precisa `scikit-learn` de `azureml-sdk`e:
+Em seguida, crie um arquivo de ambiente, chamado **MyENV. yml**, que especifica todas as dependências de pacote do script. Esse arquivo é usado para garantir que todas essas dependências sejam instaladas na imagem do Docker. Esse modelo precisa de `scikit-learn` e `azureml-sdk`:
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies 
@@ -231,7 +238,7 @@ myenv.add_conda_package("scikit-learn")
 with open("myenv.yml", "w") as f:
     f.write(myenv.serialize_to_string())
 ```
-Examine o conteúdo do `myenv.yml` arquivo:
+Examine o conteúdo do arquivo de `myenv.yml`:
 
 ```python
 with open("myenv.yml", "r") as f:
@@ -258,8 +265,8 @@ O tempo estimado para concluir a implantação é de **cerca de sete a oito minu
 Configure a imagem e implemente. O código abaixo realiza estes passos:
 
 1. Crie uma imagem usando estes arquivos:
-   * O arquivo de Pontuação `score.py`,.
-   * O arquivo de ambiente `myenv.yml`,.
+   * O arquivo de pontuação, `score.py`.
+   * O arquivo de ambiente, `myenv.yml`.
    * O arquivo de modelo.
 1. Registre a imagem no espaço de trabalho. 
 1. Envie a imagem para o contêiner de instâncias de contêiner.

@@ -8,27 +8,30 @@ ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 7852eda849dfb05343829875ba5a66fa47970e7e
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: MT
+ms.openlocfilehash: 03f28cb40708b7ec77a0a342b5ec1b6faeaa8e3b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790073"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485145"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Conectar uma loja de conhecimento com Power BI
 
 > [!Note]
-> A loja de conhecimento está em versão prévia e não deve ser usada na produção. A [API REST do Azure pesquisa cognitiva versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Não há suporte para o SDK do .NET no momento.
+> A loja de conhecimento está em versão prévia e não deve ser usada na produção. O portal e a [pesquisa REST API versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Não há suporte para o SDK do .NET no momento.
 >
-Neste artigo, você aprenderá a se conectar e explorar uma loja de conhecimento usando Power Query no aplicativo Power BI Desktop. Para criar a amostra da loja de conhecimento usada neste passo a passos, consulte [criar uma loja de conhecimento em portal do Azure](knowledge-store-create-portal.md).
+
+Neste artigo, saiba como se conectar e explorar uma loja de conhecimento usando Power Query no aplicativo Power BI Desktop. Você pode começar mais rápido com modelos ou criar um painel personalizado do zero.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Siga as etapas em [criar uma loja de conhecimento no portal do Azure](knowledge-store-create-portal.md) para criar o exemplo de armazenamento de conhecimento usado neste passo a passos. Você também precisará do nome da conta de armazenamento do Azure que usou para criar a loja de conhecimento, junto com sua chave de acesso do portal do Azure.
-
 + [Instalar Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 
-## <a name="connect-with-power-bi"></a>Ligar com o Power BI
++ Você precisará de uma loja de conhecimento, com uma projeção no armazenamento de tabelas do Azure. Você também precisará do nome da conta de armazenamento do Azure usada para criar o repositório de conhecimento, junto com sua chave de acesso do portal do Azure.
+
+Se você quiser trabalhar com um exemplo de armazenamento de conhecimento, siga as instruções para [criar uma loja de conhecimento](knowledge-store-create-portal.md).
+
+## <a name="create-a-custom-report"></a>Criar um relatório personalizado
 
 1. Inicie o Power BI Desktop e clique em **obter dados**.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/27/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 0a2bf306ccfa3a4a4fc80d0d55493f284185bba9
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 26793c91c85ba4cc33a07358ab8ff318becb325f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648467"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490689"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,15 +42,17 @@ Neste início rápido, vai utilizar uma conta de armazenamento do Azure para fin
 Você precisará do nome da sua conta de armazenamento do Azure para este guia de início rápido. O procedimento a seguir fornece as etapas para obter o nome da sua conta de armazenamento: 
 
 1. Em um navegador da Web, vá para a [portal do Azure](https://portal.azure.com) e entre usando seu nome de usuário e senha do Azure.
-2. Selecione **todos os serviços** > **contas de armazenamento**de**armazenamento** > .
+2. No menu portal do Azure, selecione **todos os serviços**e, em seguida, selecione **armazenamento** > **contas de armazenamento**. Você também pode pesquisar e selecionar *contas de armazenamento* em qualquer página.
 3. Na página **contas de armazenamento** , filtre sua conta de armazenamento (se necessário) e, em seguida, selecione sua conta de armazenamento. 
+
+Você também pode pesquisar e selecionar *contas de armazenamento* em qualquer página.
 
 #### <a name="create-a-blob-container"></a>Criar um contentor de blobs
 Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no armazenamento de Blobs do Azure.
 
-1. Na página conta de armazenamento, selecione**BLOBs**de **visão geral** > .
-2. Na barra de  *\<ferramentas nome da conta >*  - página**BLOBs** , selecione **contêiner**.
-3. Na caixa de diálogo **Novo contentor**, introduza **adftutorial** para o nome e selecione **OK**. A página  *\<nome da conta >*  - **BLOBs** é atualizada para incluir **adftutorial** na lista de contêineres.
+1. Na página conta de armazenamento, selecione **visão geral** > **BLOBs**.
+2. Na barra de ferramentas da página *\<nome da conta >*  - **BLOBs** , selecione **contêiner**.
+3. Na caixa de diálogo **Novo contentor**, introduza **adftutorial** para o nome e selecione **OK**. O *nome da conta de\<>* página - **BLOBs** é atualizado para incluir **adftutorial** na lista de contêineres.
 
    ![Lista de contêineres](media/data-factory-quickstart-prerequisites/list-of-containers.png)
 
@@ -64,7 +66,12 @@ Jane, Doe
 
 Salve o arquivo na pasta **C:\ADFv2QuickStartPSH** (Se a pasta ainda não existir, crie-a.) Em seguida, retorne ao portal do Azure e siga estas etapas:
 
-1. Na página  *\<nome da conta >*  - **BLOBs** onde você parou, selecione **adftutorial** na lista atualizada de contêineres. (Se você fechou a janela ou passou para outra página, entre na [portal do Azure](https://portal.azure.com) novamente, selecione >  **todos os serviços** > **contas de armazenamento**de armazenamento, selecione sua conta de armazenamento e, em seguida, selecione **BLOBs** **adftutorial.** )  > 
+1. Na página *\<nome da conta >*  - **BLOBs** em que você parou, selecione **adftutorial** na lista atualizada de contêineres.
+
+   1. Se você fechou a janela ou entrou em outra página, entre na [portal do Azure](https://portal.azure.com) novamente.
+   1. No menu portal do Azure, selecione **todos os serviços**e, em seguida, selecione **armazenamento** > **contas de armazenamento**. Você também pode pesquisar e selecionar *contas de armazenamento* em qualquer página.
+   1. Selecione sua conta de armazenamento e, em seguida, selecione **blobs** > **adftutorial**.
+
 2. Na barra de ferramentas da página de contêiner do **adftutorial** , selecione **carregar**.
 3. Na página **carregar blob** , selecione a caixa **arquivos** e, em seguida, navegue até e selecione o arquivo **EMP. txt** .
 4. Expanda o título **avançado** . A página agora é exibida como mostrado:

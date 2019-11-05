@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/26/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: ee647668e8b5826706e8d9bb8a82acaf53fd3d8c
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: f7667ce99ceaa713332ad9419ffab9d57aa0f075
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515201"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494466"
 ---
 # <a name="quickstart-personalizer-client-library-for-nodejs"></a>Início rápido: biblioteca de cliente do personalizador para node. js
 
@@ -26,7 +26,7 @@ Introdução à biblioteca de cliente do personalizador para node. js. Siga esta
  * Classifique uma lista de ações para personalização.
  * Relatório de Pontuação de recompensa indicando o sucesso da ação de classificação mais alta.
 
-[Amostras](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js) [de  |  do NPM (](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) [código-fonte](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer)  |  pacote)
+[Amostras](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js) [de | do NPM (](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) [código-fonte](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | pacote)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,7 +39,7 @@ Introdução à biblioteca de cliente do personalizador para node. js. Siga esta
 Há várias etapas para usar este guia de início rápido:
 
 * No portal do Azure, criar um recurso personalizador
-* Na portal do Azure, para o recurso personalizador, na página **configurações** , altere a frequência de atualização do modelo
+* Na portal do Azure, para o recurso personalizador, na página **configuração** , altere a frequência de atualização do modelo
 * Em um editor de código, crie um arquivo de código e edite o arquivo de código
 * Na linha de comando ou terminal, instale o SDK da linha de comando
 * Na linha de comando ou no terminal, execute o arquivo de código
@@ -90,7 +90,7 @@ npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 
 ## <a name="change-the-model-update-frequency"></a>Alterar a frequência de atualização do modelo
 
-No portal do Azure, no recurso personalizado na página **configurações** , altere a frequência de atualização do **modelo** para 10 segundos. Isso treinará o serviço rapidamente, permitindo que você veja como as principais ações são alteradas para cada iteração.
+No portal do Azure, no recurso personalizado na página **configuração** , altere a frequência de atualização do **modelo** para 10 segundos. Isso treinará o serviço rapidamente, permitindo que você veja como as principais ações são alteradas para cada iteração.
 
 ![Alterar a frequência de atualização do modelo](./media/settings/configure-model-update-frequency-settings.png)
 

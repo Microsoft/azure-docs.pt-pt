@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: a343601ec126549926cfd4035d901862c0a585a8
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: e075091461949639fc36ffb9feab69ac5399ae61
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673099"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491984"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>ZRS (armazenamento com redundância de zona) para criar aplicativos de armazenamento do Azure altamente disponíveis
 
@@ -32,16 +32,17 @@ Para contas v2 de uso geral, o ZRS está geralmente disponível nas seguintes re
 - Europa Ocidental
 - Norte da Europa
 - França Central
-- Leste do Japão
-- Reino Unido Sul
-- Centro dos E.U.A.
-- Leste dos E.U.A.
-- E.U.A Leste 2
-- Oeste dos E.U.A 2
+- Este do Japão
+- Sul do Reino Unido
+- Centro dos EUA
+- E.U.A Leste
+- Este dos EUA 2
+- EUA Oeste 2
 
 Para contas de armazenamento de File, o ZRS está geralmente disponível nas seguintes regiões:
 
 - Europa Ocidental
+- E.U.A Leste
 
 A Microsoft continua a habilitar o ZRS em regiões adicionais do Azure. Verifique a página [atualizações de serviço do Azure](https://azure.microsoft.com/updates/) regularmente para obter informações sobre novas regiões.
 
@@ -56,7 +57,7 @@ Seus dados ainda estarão acessíveis para operações de leitura e gravação, 
 
 Quando uma zona não estiver disponível, o Azure assumirá as atualizações de rede, como a reapontação de DNS. Essas atualizações podem afetar seu aplicativo se você estiver acessando seus dados antes que as atualizações sejam concluídas.
 
-O ZRS pode não proteger seus dados contra um desastre regional em que várias zonas são permanentemente afetadas. Em vez disso, o ZRS oferece resiliência para seus dados se ficar temporariamente indisponível. Para proteção contra desastres regionais, a Microsoft recomenda o uso do GRS (armazenamento com redundância geográfica). Para obter mais informações sobre grs, [consulte armazenamento com redundância geográfica (GRS): Replicação entre regiões para o armazenamento](storage-redundancy-grs.md)do Azure.
+O ZRS pode não proteger seus dados contra um desastre regional em que várias zonas são permanentemente afetadas. Em vez disso, o ZRS oferece resiliência para seus dados se ficar temporariamente indisponível. Para proteção contra desastres regionais, a Microsoft recomenda o uso do GRS (armazenamento com redundância geográfica). Para obter mais informações sobre GRS, consulte [armazenamento com redundância geográfica (GRS): replicação entre regiões para o armazenamento do Azure](storage-redundancy-grs.md).
 
 ## <a name="converting-to-zrs-replication"></a>Convertendo para replicação ZRS
 
@@ -90,7 +91,7 @@ Tenha em mente as seguintes restrições na migração ao vivo:
 - Sua conta deve conter dados.
 - Você só pode migrar dados dentro da mesma região. Se desejar migrar seus dados para uma conta do ZRS localizada em uma região diferente da conta de origem, você deverá executar uma migração manual.
 - Somente os tipos de conta de armazenamento Standard dão suporte à migração dinâmica. As contas de armazenamento Premium devem ser migradas manualmente.
-- Não há suporte para a migração dinâmica de ZRS para LRS, GRS ou RA-GRS. Será necessário mover os dados manualmente para uma conta de armazenamento nova ou existente.
+- Não há suporte para a migração dinâmica de ZRS para LRS, GRS ou RA-GRS. Terá de mover os dados manualmente para uma conta de armazenamento nova ou existente.
 - Os discos gerenciados estão disponíveis somente para LRS e não podem ser migrados para o ZRS. Você pode armazenar instantâneos e imagens para SSD Standard Managed Disks no armazenamento HDD Standard e [escolher entre as opções LRS e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Para integração com conjuntos de disponibilidade, consulte [introdução aos Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
 - Contas LRS ou GRS com dados de arquivo morto não podem ser migradas para ZRS.
 
@@ -99,11 +100,11 @@ Você pode solicitar a migração dinâmica por meio do [portal de suporte do Az
 2. Conclua os **conceitos básicos** com base nas informações da sua conta. Na seção **serviço** , selecione **Gerenciamento de conta de armazenamento** e o recurso que você deseja converter em ZRS. 
 3. Selecione **Seguinte**. 
 4. Especifique os valores a seguir na seção **problema** : 
-    - **Gravidade**: Deixe o valor padrão como está.
-    - **Tipo de problema**: Selecione **migração de dados**.
-    - **Categoria**: Selecione **migrar para ZRS**.
-    - **Título**: Digite um título descritivo, por exemplo, **migração de conta do ZRS**.
-    - **Detalhes**: Digite detalhes adicionais na caixa de **detalhes** , por exemplo, eu gostaria de migrar para ZRS de [lRS, grs] na região \_ @ no__t-2. 
+    - **Severidade**: Deixe o valor padrão como está.
+    - **Tipo de problema**: selecione **migração de dados**.
+    - **Categoria**: selecione **migrar para ZRS**.
+    - **Título**: digite um título descritivo, por exemplo, **migração de conta do ZRS**.
+    - **Detalhes**: digite detalhes adicionais na caixa de **detalhes** , por exemplo, eu gostaria de migrar para ZRS de [lRS, grs] na região do \_\_. 
 5. Selecione **Seguinte**.
 6. Verifique se as informações de contato estão corretas na folha **informações de contato** .
 7. Selecione **Criar**.
@@ -136,7 +137,7 @@ Antes de enviar uma solicitação de migração ao vivo para ZRS, verifique se s
 
 Se desejar migrar seus dados para uma conta do ZRS localizada em uma região diferente da região da conta de origem, você deverá executar uma migração manual.
 
-## <a name="zrs-classic-a-legacy-option-for-block-blobs-redundancy"></a>ZRS clássico: Uma opção herdada para redundância de blobs de blocos
+## <a name="zrs-classic-a-legacy-option-for-block-blobs-redundancy"></a>ZRS clássico: uma opção herdada para redundância de blobs de blocos
 > [!NOTE]
 > A Microsoft substituirá e migrará contas clássicas do ZRS em 31 de março de 2021. Mais detalhes serão fornecidos aos clientes ZRS clássicos antes da reprovação. 
 >
@@ -146,7 +147,7 @@ O ZRS Classic replica dados de forma assíncrona em data centers em uma ou duas 
 
 O ZRS clássico está disponível somente para **blobs de blocos** nas contas de armazenamento de uso geral V1 (GPv1). Para obter mais informações sobre as contas de armazenamento, veja [Visão geral da conta de armazenamento do Azure](storage-account-overview.md).
 
-Para migrar manualmente os dados da conta do ZRS para ou de uma conta LRS, ZRS Classic, GRS ou RA-GRS, use uma das seguintes ferramentas: AzCopy, Gerenciador de Armazenamento do Azure, Azure PowerShell ou CLI do Azure. Você também pode criar sua própria solução de migração com uma das bibliotecas de cliente de armazenamento do Azure.
+Para migrar manualmente os dados da conta do ZRS para ou de uma conta LRS, ZRS clássica, GRS ou RA-GRS, use uma das seguintes ferramentas: AzCopy, Gerenciador de Armazenamento do Azure, Azure PowerShell ou CLI do Azure. Você também pode criar sua própria solução de migração com uma das bibliotecas de cliente de armazenamento do Azure.
 
 Você também pode atualizar suas contas ZRS clássicas para ZRS no portal ou usando Azure PowerShell ou CLI do Azure nas regiões em que ZRS está disponível. Para atualizar para o ZRS no portal do Azure, navegue até a seção de **configuração** da conta e escolha **Atualizar**:
 
@@ -162,7 +163,7 @@ Para atualizar para o ZRS usando a CLI, chame o seguinte comando:
 az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consultar também
 - [Replicação do Armazenamento do Azure](storage-redundancy.md)
-- [LRS (armazenamento com redundância local): Redundância de dados de baixo custo para o armazenamento do Azure](storage-redundancy-lrs.md)
-- [Armazenamento com redundância geográfica (GRS): Replicação entre regiões para o armazenamento do Azure](storage-redundancy-grs.md)
+- [LRS (armazenamento com redundância local): redundância de dados de baixo custo para o armazenamento do Azure](storage-redundancy-lrs.md)
+- [Armazenamento com redundância geográfica (GRS): replicação entre regiões para o armazenamento do Azure](storage-redundancy-grs.md)

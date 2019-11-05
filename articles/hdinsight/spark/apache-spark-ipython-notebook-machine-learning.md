@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar um aplicativo Spark Machine Learning no Azure HDInsight'
+title: 'Tutorial: Compilar aplicativo Spark Machine Learning-Azure HDInsight'
 description: Tutorial – instruções passo a passo sobre como criar Apache Spark aplicativo de Machine Learning em clusters do HDInsight Spark usando o Jupyter notebook.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.openlocfilehash: e77414da964d548b64250bbf98f86bee1529f2ab
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 6e46d7403e251bccd69467cfcdaa1d5073b4e454
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327025"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494555"
 ---
-# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Tutorial: Criar um aplicativo de Machine Learning Apache Spark no Azure HDInsight
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Tutorial: criar um aplicativo de Machine Learning Apache Spark no Azure HDInsight
 
 Neste tutorial, você aprenderá a usar o [Jupyter Notebook](https://jupyter.org/) para criar um aplicativo de machine learning de [Apache Spark](https://spark.apache.org/) para o Azure HDInsight.
 
@@ -35,7 +35,7 @@ Neste tutorial, ficará a saber como:
 
 O aplicativo usa os dados **HVAC. csv** de exemplo que estão disponíveis em todos os clusters por padrão. O arquivo está localizado em `\HdiSamples\HdiSamples\SensorSampleData\hvac`. Os dados mostram a temperatura pretendida e a temperatura real de alguns edifícios que têm sistemas HVAC instalados. A coluna **System** (Sistema) representa o ID do sistema e a coluna **SystemAge** (Idade do sistema) representa há quanto anos o sistema HVAC foi implementado nesse edifício. Com estes dados, pode prever se um edifício vai estar mais quente ou frio com base na temperatura pretendida, num determinado ID de sistema e na idade do sistema.
 
-![Instantâneo dos dados utilizados para o exemplo de machine learning do Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Instantâneo dos dados utilizados para o exemplo de machine learning do Spark")
+![Instantâneo dos dados usados para o exemplo de aprendizado de máquina do Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Instantâneo dos dados usados para o exemplo de aprendizado de máquina do Spark")
 
 ## <a name="develop-a-spark-machine-learning-application-using-spark-mllib"></a>Desenvolver uma aplicação de machine learning do Spark com a MLlib do Spark
 
@@ -141,7 +141,7 @@ Nesta aplicação, vai utilizar um [pipeline de ML](https://spark.apache.org/doc
 
     Compare o resultado com o ficheiro CSV não processado. Por exemplo, a primeira linha do ficheiro CSV tem estes dados:
 
-    ![Instantâneo dos dados de saída do exemplo de machine learning do Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Instantâneo dos dados de saída do exemplo de machine learning do Spark")
+    ![Instantâneo de dados de saída para exemplo de aprendizado de máquina Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Instantâneo de dados de saída para exemplo de aprendizado de máquina Spark")
 
     Repare como a temperatura real é inferior à pretendida, o que sugere que o edifício está frio. Por conseguinte, na saída da preparação, o valor de **label** (etiqueta) na primeira linha é **0.0**, o que significa que o edifício não está quente.
 
@@ -192,7 +192,7 @@ Os clusters do Apache Spark no HDInsight incluem bibliotecas de Anaconda. També
 
 Se você não pretende usar este aplicativo, exclua o cluster que você criou com as seguintes etapas:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Na caixa de **pesquisa** na parte superior, digite **HDInsight**.
 
@@ -202,7 +202,7 @@ Se você não pretende usar este aplicativo, exclua o cluster que você criou co
 
 1. Selecione **Eliminar**. Selecione **Sim**.
 
-![Portal do Azure excluir um cluster hdinsight](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "excluir cluster hdinsight")
+![portal do Azure excluir um cluster HDInsight](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Excluir cluster HDInsight")
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,6 +1,6 @@
 ---
-title: Regras de Firewall de barramento de serviço do Azure | Documentos da Microsoft
-description: Como utilizar as regras de Firewall para permitir ligações a partir de endereços IP específicos para o Azure Service Bus.
+title: Regras de firewall do barramento de serviço do Azure | Microsoft Docs
+description: Como usar regras de firewall para permitir conexões de endereços IP específicos para o barramento de serviço do Azure.
 services: service-bus
 documentationcenter: ''
 author: axisc
@@ -11,68 +11,67 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 540435e3e018ae77477030ae8b9f727d71782121
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45415af479c9581ee04b97af4fb5297d09c5769d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704576"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496340"
 ---
-# <a name="use-firewall-rules"></a>Utilize regras de Firewall
+# <a name="use-firewall-rules"></a>Usar regras de firewall
 
-Para cenários nos quais o Azure Service Bus só é acessível a partir de certos sites bem conhecidos, as regras de Firewall permitem-lhe configurar regras para aceitar o tráfego proveniente de endereços de IPv4 específicos. Por exemplo, estes endereços podem ser de um gateway empresarial do NAT.
+Para cenários nos quais o barramento de serviço do Azure só é acessível de determinados sites conhecidos, as regras de firewall permitem que você configure regras para aceitar o tráfego originado de endereços IPv4 específicos. Por exemplo, esses endereços podem ser aqueles de um gateway de NAT corporativo.
 
 ## <a name="when-to-use"></a>Quando utilizar
 
-Se estiver à procura para a configuração do Service Bus, de modo que ele deve receber o tráfego apenas a partir de um especificado intervalo de endereços IP e rejeitar tudo o resto, em seguida, pode tirar partido de uma *Firewall* para bloquear os pontos finais do Service Bus a partir de outros endereços IP. Por exemplo, estiver a utilizar o Service Bus com [Azure Express Route] [ express-route] criar ligações privadas para a sua infraestrutura no local. 
+Se você estiver procurando configurar o barramento de serviço de modo que ele deva receber tráfego somente de um intervalo especificado de endereços IP e rejeitar tudo o mais, você pode aproveitar um *Firewall* para bloquear pontos de extremidade do barramento de serviço de outros endereços IP. Por exemplo, você está usando o barramento de serviço com o [Azure Express Route][express-route] para criar conexões privadas com sua infraestrutura local. 
 
-## <a name="how-filter-rules-are-applied"></a>Como são aplicadas as regras de filtro
+## <a name="how-filter-rules-are-applied"></a>Como as regras de filtro são aplicadas
 
-As regras de filtro IP são aplicadas ao nível do espaço de nomes do Service Bus. Por conseguinte, as regras são aplicadas a todas as ligações de clientes usando qualquer protocolo suportado.
+As regras de filtro IP são aplicadas no nível de namespace do barramento de serviço. Portanto, as regras se aplicam a todas as conexões de clientes usando qualquer protocolo com suporte.
 
-Qualquer tentativa de ligação de um endereço IP que não corresponde a uma regra IP permitida no espaço de nomes é rejeitado como o Service Bus não autorizado. A resposta não menciona a regra IP.
+Qualquer tentativa de conexão de um endereço IP que não corresponda a uma regra de IP permitida no namespace do barramento de serviço é rejeitada como não autorizada. A resposta não menciona a regra de IP.
 
-## <a name="default-setting"></a>Definição predefinida
+## <a name="default-setting"></a>Configuração padrão
 
-Por predefinição, o **filtro IP** grelha no portal do Service Bus está vazia. Essa configuração padrão significa que o seu espaço de nomes aceita ligações de qualquer endereço IP. Essa configuração padrão é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0.
+Por padrão, a grade de **filtro IP** no portal para o barramento de serviço está vazia. Essa configuração padrão significa que o namespace aceita conexões com qualquer endereço IP. Essa configuração padrão é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0.
 
 ## <a name="ip-filter-rule-evaluation"></a>Avaliação da regra de filtro IP
 
-Regras do filtro de IP serão aplicadas por ordem e a primeira regra que corresponde ao endereço IP determina a ação de aceitar ou rejeitar.
+As regras de filtro IP são aplicadas em ordem e a primeira regra que corresponde ao endereço IP determina a ação aceitar ou rejeitar.
 
 >[!WARNING]
-> Implementar as regras de Firewall pode impedir que outros serviços do Azure a interagir com o Service Bus.
+> A implementação de regras de firewall pode impedir que outros serviços do Azure interajam com o barramento de serviço.
 >
-> Confiável a serviços da Microsoft não são suportados quando filtragem de IP (regras de Firewall) são implementados e será disponibilizada em breve.
+> Os serviços confiáveis da Microsoft não têm suporte quando a filtragem de IP (regras de firewall) são implementadas e será disponibilizada em breve.
 >
-> Cenários comuns do Azure que não funcionam com a filtragem de IP (tenha em atenção que a lista está **não** exaustiva)-
+> Cenários comuns do Azure que não funcionam com a filtragem de IP (Observe que a lista **não** é exaustiva) –
 > - Azure Monitor
 > - Azure Stream Analytics
-> - Integração com o Azure Event Grid
-> - Encaminha o Hub IoT do Azure
-> - O Azure IoT Device Explorer
-> - Azure Data Explorer
+> - Integração com a grade de eventos do Azure
+> - Rotas do Hub IoT do Azure
+> - Device Explorer de IoT do Azure
 >
-> O abaixo Microsoft serviços são necessários para estar numa rede virtual
+> Os serviços da Microsoft a seguir devem estar em uma rede virtual
 > - Serviço de Aplicações do Azure
 > - Funções do Azure
 
-### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Criar uma regra de rede e de firewall virtual com modelos Azure Resource Manager
+### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Criando uma regra de firewall e rede virtual com modelos de Azure Resource Manager
 
 > [!IMPORTANT]
-> Firewalls e redes virtuais são suportados apenas na **premium** escalão do Service Bus.
+> Só há suporte para firewalls e redes virtuais na camada **Premium** do barramento de serviço.
 
-O modelo do Resource Manager seguinte permite adicionar uma regra de rede virtual para um espaço de nomes do barramento de serviço existente.
+O modelo do Resource Manager a seguir permite adicionar uma regra de rede virtual a um namespace do barramento de serviço existente.
 
 Parâmetros do modelo:
 
-- **ipMask** é um único endereço IPv4 ou um bloco de endereços IP na notação CIDR. Por exemplo, no CIDR notação 70.37.104.0/24 representa os 256 endereços IPv4 de 70.37.104.0 para 70.37.104.255, com o que indica o número de bits de prefixo significativo para o intervalo de 24.
+- **ipMask** é um único endereço IPv4 ou um bloco de endereços IP na notação CIDR. Por exemplo, na notação CIDR 70.37.104.0/24 representa os endereços IPv4 256 de 70.37.104.0 para 70.37.104.255, com 24 indicando o número de bits de prefixo significativos para o intervalo.
 
 > [!NOTE]
-> Embora não haja nenhuma regra de negação possível, o modelo Azure Resource Manager, tem a ação padrão definida como **"Permitir"** que não restringem as ligações.
-> Ao fazer as regras de rede Virtual ou Firewalls, devemos alterar o ***"defaultAction"***
+> Embora não haja nenhuma regra de negação possível, o modelo de Azure Resource Manager tem a ação padrão definida como **"permitir"** , que não restringe as conexões.
+> Ao tornar as regras de rede virtual ou firewalls, devemos alterar o ***"DefaultAction"***
 > 
-> from
+> De
 > ```json
 > "defaultAction": "Allow"
 > ```
@@ -143,13 +142,13 @@ Parâmetros do modelo:
   }
 ```
 
-Para implementar o modelo, siga as instruções para [do Azure Resource Manager][lnk-deploy].
+Para implantar o modelo, siga as instruções para [Azure Resource Manager][lnk-deploy].
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter acesso omezující ao Service Bus para redes virtuais do Azure, consulte a seguinte hiperligação:
+Para restringir o acesso ao barramento de serviço para redes virtuais do Azure, consulte o seguinte link:
 
-- [Pontos finais de serviço de rede virtual para o Service Bus][lnk-vnet]
+- [Pontos de extremidade de serviço de rede virtual para o barramento de serviço][lnk-vnet]
 
 <!-- Links -->
 

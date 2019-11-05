@@ -1,5 +1,5 @@
 ---
-title: Servidor de histórico do Spark estendido para depurar aplicativos Spark – Azure HDInsight
+title: Servidor de histórico do Spark estendido para depurar aplicativos – Azure HDInsight
 description: Use o servidor de histórico do Spark estendido para depurar e diagnosticar aplicativos Spark – Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 9398745cb240e7b7dff45ff5d6d9cdf064239bfd
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 1320764687f3eb2f033ca70703a9bcb16ab616ea
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130358"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494740"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Usar o servidor de histórico de Apache Spark estendido para depurar e diagnosticar Apache Spark aplicativos
 
@@ -28,11 +28,11 @@ Apache Spark servidor de histórico é a interface do usuário da Web para aplic
 1. No [portal do Azure](https://portal.azure.com/), abra o cluster Spark. Para obter mais informações, consulte [listar e mostrar clusters](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. Em **links rápidos**, clique em **painel do cluster**e clique em servidor de **histórico do Spark**. Quando solicitado, insira as credenciais de administrador para o cluster Spark.
 
-    ![portal de inicialização do Spark servidor de histórico](./media/apache-azure-spark-history-server/launch-history-server.png "Servidor de histórico do Spark")
+    ![Portal de inicialização do Spark servidor de histórico](./media/apache-azure-spark-history-server/launch-history-server.png "Servidor de histórico do Spark")
 
 ### <a name="open-the-spark-history-server-web-ui-by-url"></a>Abrir a interface do usuário da Web do servidor de histórico do Spark por URL
 
-Abra o servidor de histórico do Spark navegando até a URL a `<ClusterName>` seguir, substitua pelo nome do cluster Spark do cliente.
+Abra o servidor de histórico do Spark navegando até a URL a seguir, substitua `<ClusterName>` pelo nome do cluster Spark do cliente.
 
    ```
    https://<ClusterName>.azurehdinsight.net/sparkhistory
@@ -106,16 +106,16 @@ Selecione ID do trabalho e, em seguida, clique em **grafo** no menu ferramenta p
 
 + Reproduza o trabalho clicando no botão de **reprodução** e pare a qualquer momento clicando no botão parar. A tarefa é exibida em cores para mostrar o status diferente ao reproduzir:
 
-  + Verde para bem-sucedido: O trabalho foi concluído com êxito.
-  + Laranja para tentativa: Instâncias de tarefas que falharam, mas não afetam o resultado final do trabalho. Essas tarefas tinham instâncias duplicadas ou repetidas que podem ter sucesso mais tarde.
-  + Azul para execução: A tarefa está em execução.
-  + Branco para espera ou ignorado: A tarefa está aguardando para ser executada ou o estágio foi ignorado.
-  + Vermelho para falha: Falha na tarefa.
+  + Verde para êxito: o trabalho foi concluído com êxito.
+  + Laranja para repetidas: instâncias de tarefas que falharam, mas não afetam o resultado final do trabalho. Essas tarefas tinham instâncias duplicadas ou repetidas que podem ter sucesso mais tarde.
+  + Azul para execução: a tarefa está em execução.
+  + Branco para espera ou ignorado: a tarefa está aguardando para ser executada ou o estágio foi ignorado.
+  + Vermelho para falha: falha na tarefa.
 
     ![Exemplo de cor do grafo de aplicativo e trabalho do Spark, executando](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
 
     O estágio ignorado é exibido em branco.
-    ![Exemplo de cor do grafo de aplicativo e trabalho do Spark, ignorar](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
+    ![amostra de cor do grafo de aplicativo e trabalho do Spark, ignorar](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
 
     ![Exemplo de cor de grafo de trabalho e aplicativo Spark, com falha](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
 
@@ -137,7 +137,7 @@ Selecione ID do trabalho e, em seguida, clique em **grafo** no menu ferramenta p
     ![Ícone de distorção do grafo de trabalho e aplicativo Spark](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + O nó do gráfico de trabalho exibirá as seguintes informações de cada estágio:
-  + ID.
+  + Sessão.
   + Nome ou descrição.
   + Número da tarefa total.
   + Leitura de dados: a soma do tamanho de entrada e o tamanho de leitura em ordem aleatória.
@@ -168,7 +168,7 @@ Selecione ID do trabalho e clique em **diagnóstico** no menu ferramenta para ob
 
 Clique na guia **distorção de dados** , as tarefas distorcidas correspondentes são exibidas com base nos parâmetros especificados.
 
-+ **Especificar parâmetros** – a primeira seção exibe os parâmetros que são usados para detectar a distorção de dados. A regra interna é: A leitura dos dados da tarefa é maior que 3 vezes a média de dados da tarefa lida e a leitura dos dados da tarefa é maior do que 10 MB. Se você quiser definir sua própria regra para tarefas distorcidas, você poderá escolher seus parâmetros, a seção do **estágio distorcido**e a **inclinação do caractere de distorção** será atualizada de acordo.
++ **Especificar parâmetros** – a primeira seção exibe os parâmetros que são usados para detectar a distorção de dados. A regra interna é: a leitura de dados da tarefa é maior que 3 vezes a média de dados da tarefa lida e a leitura dos dados da tarefa é maior que 10 MB. Se você quiser definir sua própria regra para tarefas distorcidas, você poderá escolher seus parâmetros, a seção do **estágio distorcido**e a **inclinação do caractere de distorção** será atualizada de acordo.
 
 + **Estágio distorcido** – a segunda seção exibe os estágios que têm tarefas distorcidas que atendem aos critérios especificados acima. Se houver mais de uma tarefa distorcida em um estágio, a tabela de estágio distorcido exibirá apenas a tarefa mais distorcida (por exemplo, os maiores dados para distorção de dados).
 
@@ -202,7 +202,7 @@ O grafo de uso do executor visualiza a alocação real do executor do trabalho d
 
 ## <a name="faq"></a>FAQ
 
-### <a name="1-revert-to-community-version"></a>1. Reverter para a versão da Comunidade
+### <a name="1-revert-to-community-version"></a>1. reverter para a versão da Comunidade
 
 Para reverter para a versão da Comunidade, execute as seguintes etapas:
 
@@ -224,7 +224,7 @@ Para reverter para a versão da Comunidade, execute as seguintes etapas:
     ![Reinicialização do histórico de Spark2 do Apache Ambari](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
 9. Atualize a interface do usuário da Web do servidor de histórico do Spark, ela será revertida para a versão da Comunidade.
 
-### <a name="2-upload-history-server-event"></a>2. Carregar evento do servidor de histórico
+### <a name="2-upload-history-server-event"></a>2. carregar evento do servidor de histórico
 
 Se você encontrar um erro do servidor de histórico, siga as etapas para fornecer o evento:
 
@@ -240,11 +240,11 @@ Se você encontrar um erro do servidor de histórico, siga as etapas para fornec
 
     ![exemplo de problema de arquivo do Apache Spark](./media/apache-azure-spark-history-server/apache-spark-file-issue.png)
 
-### <a name="3-upgrade-jar-file-for-hotfix-scenario"></a>3. Atualizar arquivo JAR para o cenário de hotfix
+### <a name="3-upgrade-jar-file-for-hotfix-scenario"></a>3. atualizar o arquivo JAR para o cenário de hotfix
 
 Se você quiser atualizar com o hotfix, use o script abaixo, que atualizará Spark-Enhancement. jar *.
 
-**upgrade_spark_enhancement.sh**:
+**upgrade_spark_enhancement. sh**:
 
    ```bash
     #!/usr/bin/env bash

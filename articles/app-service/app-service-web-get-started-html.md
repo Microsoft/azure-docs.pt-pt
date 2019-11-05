@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ac0fe7a77496a0dae8606e4599bcb262a191196c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 12c034e6521a1afd25e2390502faec39461bf5b5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067313"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471524"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Criar uma aplicação Web HTML estática no Azure
 
@@ -89,7 +89,7 @@ Anote o valor `resourceGroup`. Vai precisar dele na secção [limpar recursos](#
 
 ## <a name="browse-to-the-app"></a>Navegar para a aplicação
 
-Em um navegador, vá para a URL do aplicativo `http://<app_name>.azurewebsites.net`:.
+Em um navegador, vá para a URL do aplicativo: `http://<app_name>.azurewebsites.net`.
 
 A página está a ser executada como uma aplicação Web do Serviço de Aplicações do Azure.
 
@@ -117,9 +117,11 @@ Depois de concluída a implementação, volte para a janela do browser aberta qu
 
 ## <a name="manage-your-new-azure-app"></a>Gerenciar seu novo aplicativo do Azure
 
-Aceda ao <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerir a aplicação Web que criou.
+Para gerenciar o aplicativo Web que você criou, na [portal do Azure](https://portal.azure.com), procure e selecione **serviços de aplicativos**. 
 
-No menu à esquerda, clique em **serviços de aplicativos**e, em seguida, clique no nome do seu aplicativo do Azure.
+![Selecione serviços de aplicativos no portal do Azure](./media/app-service-web-get-started-html/portal0.png)
+
+Na página **serviços de aplicativos** , selecione o nome do seu aplicativo do Azure.
 
 ![Navegação do portal para a aplicação do Azure](./media/app-service-web-get-started-html/portal1.png)
 
@@ -139,7 +141,7 @@ az group delete --name appsvc_rg_Windows_westeurope
 
 Este comando pode demorar alguns minutos a ser executado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Mapear domínio personalizado](app-service-web-tutorial-custom-domain.md)

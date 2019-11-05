@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar um novo aplicativo no portal do LUIS'
+title: 'Início rápido: criar um novo aplicativo no portal do LUIS'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, você cria um novo aplicativo no portal do LUIS. Crie as partes básicas de um aplicativo, intenções e entidades. Teste o aplicativo fornecendo um expressão de usuário de exemplo no painel de teste interativo para obter a intenção prevista. Criar um aplicativo é gratuito; Ele não requer uma assinatura do Azure.
 services: cognitive-services
@@ -10,14 +10,17 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: ff666437790a1e32dde83f9e3be90b4c62637181
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
-ms.translationtype: MT
+ms.openlocfilehash: 6888c53122e649d6a0e91f8ece30101f051c08e8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307734"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488831"
 ---
-# <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Início rápido: Criar um novo aplicativo no portal do LUIS
+# <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Início rápido: criar um novo aplicativo no portal do LUIS
+
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 Neste guia de início rápido, você cria um novo aplicativo no [portal do Luis](https://www.luis.ai). Primeiro, você cria as partes básicas de um aplicativo, **intenções**e **entidades**. Em seguida, você testa o aplicativo fornecendo um expressão de usuário de exemplo no painel de teste interativo para obter a intenção prevista.
 
@@ -27,17 +30,17 @@ A criação de um aplicativo é gratuita e não requer uma assinatura do Azure. 
 
 ## <a name="create-an-app"></a>Criar uma aplicação
 
-1. Selecione **criar novo aplicativo** na barra de ferramentas de contexto.
+1. Selecione **+ criar** na barra de ferramentas de contexto.
 
-   [![Criar novo aplicativo no portal do LUIS](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
+   [![criar um novo aplicativo no portal do LUIS](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
 
 1. Na janela pop-up, configure o aplicativo com as seguintes configurações e, em seguida, selecione **concluído**.
 
-   |Nome da definição| Value | Objetivo|
+   |Nome da definição| Valor | Objetivo|
    |--|--|--|
-   |Name|`myEnglishApp`|Nome do aplicativo LUIS exclusivo<br>obrigatório|
-   |Cultura|**Inglês**|Idioma do declarações dos usuários, **en-US**<br>obrigatório|
-   |Descrição|`App made with LUIS Portal`|Descrição do aplicativo<br>opcional|
+   |Nome|`myEnglishApp`|Nome do aplicativo LUIS exclusivo<br>Necessário|
+   |Cultura|**Inglês**|Idioma do declarações dos usuários, **en-US**<br>Necessário|
+   |Descrição|`App made with LUIS Portal`|Descrição do aplicativo<br>Adicional|
    | | | |
 
    ![Inserir novas configurações de aplicativo](./media/get-started-portal-build-app/create-new-app-settings.png)
@@ -58,23 +61,23 @@ As duas _intenções_ diferentes do aplicativo se alinham com as seguintes tenta
 
 Para criar tentativas, conclua as seguintes etapas:
 
-1. Depois que o aplicativo for criado, você estará na página de **tentativas** da seção de **compilação** . Selecione **Create new intent** (Criar nova intenção).
+1. Depois que o aplicativo for criado, você estará na página de **tentativas** da seção de **compilação** . Selecione **Criar nova intenção**.
 
-   [![Selecione o botão Criar nova tentativa](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
+   [![selecionar Criar novo botão de tentativa](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
-1. Insira o nome da intenção `FindForm`, e, em seguida, selecione **concluído**.
+1. Insira o nome da intenção, `FindForm`e, em seguida, selecione **concluído**.
 
    ![Insira o nome da intenção de FindForm](./media/get-started-portal-build-app/create-new-intent-dialog.png)
 
-## <a name="add-an-example-utterance"></a>Adicionar uma expressão de exemplo
+## <a name="add-an-example-utterance"></a>Adicionar um exemplo de expressão
 
 Você adiciona o exemplo declarações depois de criar tentativas. O exemplo declarações é um texto que um usuário insere em um bot de chat ou outro aplicativo cliente. Eles mapeiam a intenção do texto do usuário para uma intenção LUIS.
 
-Para a `FindForm` intenção deste aplicativo de exemplo, o exemplo declarações incluirá o número do formulário. O aplicativo cliente precisa do número do formulário para atender à solicitação do usuário, portanto, é importante incluí-lo no expressão.
+Para a intenção de `FindForm` do aplicativo de exemplo, o exemplo declarações incluirá o número do formulário. O aplicativo cliente precisa do número do formulário para atender à solicitação do usuário, portanto, é importante incluí-lo no expressão.
 
-[![Insira o exemplo declarações para a intenção de FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
+[![Insira o exemplo declarações para a intenção FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
 
-Adicione os 15 exemplos de declarações a seguir `FindForm` à intenção.
+Adicione os 15 exemplos de declarações a seguir à tentativa de `FindForm`.
 
 |#|Expressões de exemplo|
 |--|--|
@@ -112,7 +115,7 @@ Para retornar o número do formulário na resposta de previsão de tempo de exec
 
 1. Selecione **criar nova entidade** na página **entidades** .
 
-1. Insira o nome `Human Resources Form Number`, selecione o tipo de entidade **Regex** e insira a expressão regular, `hrf-[0-9]{6}`. Essa entrada corresponde aos caracteres literais `hrf-`, e permite exatamente 6 dígitos.
+1. Insira o nome `Human Resources Form Number`, selecione o tipo de entidade **Regex** e insira a expressão regular `hrf-[0-9]{6}`. Essa entrada corresponde aos caracteres literais, `hrf-`e permite exatamente 6 dígitos.
 
    ![Inserir informações de entidade para a entidade expressão regular](./media/get-started-portal-build-app/create-regular-expression-entity.png)
 
@@ -146,7 +149,7 @@ No menu no canto superior direito, selecione **treinar** para aplicar as altera�
 
    A entidade é marcada onde aparece no exemplo declarações. Se você quiser ver o texto original em vez do nome da entidade, alterne a **exibição de entidades** na barra de ferramentas.
 
-   [![Todos os declarações de exemplo marcados com entidades](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
+   [![todos os declarações de exemplo marcados com entidades](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
 
 ## <a name="test-your-new-app-with-the-interactive-test-pane"></a>Testar seu novo aplicativo com o painel de teste interativo
 
@@ -166,9 +169,9 @@ Use o painel de **teste** interativo no portal do Luis para validar que a entida
 
 Quando você terminar este início rápido e não estiver passando para o próximo início rápido, selecione **meus aplicativos** no menu de navegação superior. Em seguida, marque a caixa de seleção da esquerda do aplicativo na lista e selecione **excluir** na barra de ferramentas de contexto acima da lista.
 
-[![Excluir aplicativo da minha lista de aplicativos](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
+[![excluir aplicativo da minha lista de aplicativos](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [2. Implantar um aplicativo](get-started-portal-deploy-app.md)
+> [2. implantar um aplicativo](get-started-portal-deploy-app.md)

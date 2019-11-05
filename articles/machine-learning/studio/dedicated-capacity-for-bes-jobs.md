@@ -1,59 +1,59 @@
 ---
-title: Tarefas de serviço do Azure Batch
-titleSuffix: Azure Machine Learning Studio
-description: Descrição geral dos serviços do Azure Batch para trabalhos de Machine Learning Studio. Processamento de conjunto do batch permite-lhe criar conjuntos de onde pode submeter tarefas de lote.
+title: Trabalhos do serviço de lote do Azure
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Visão geral dos serviços do lote do Azure para trabalhos Machine Learning Studio (clássico). O processamento do pool do lote permite que você crie pools nos quais você pode enviar trabalhos em lotes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 24efa3caba3918a38c09b1c921c600b117dedbc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1de7ad10a54c34595f69a543843097cee1377067
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751167"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493035"
 ---
-# <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Serviço do Azure Batch para tarefas do Azure Machine Learning Studio
+# <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Serviço do lote do Azure para trabalhos Azure Machine Learning Studio (clássico)
 
-Processamento do Machine Learning Batch Pool fornece dimensionamento gerida pelo cliente para o serviço de execução de lote do Azure Machine Learning. O processamento de batch de clássico para aprendizagem ocorre num ambiente multi-inquilino, o que limita o número de tarefas simultâneas pode enviar e tarefas são colocados em fila numa base first-in-first-out. Essa incerteza significa que não é possível prever com precisão quando a tarefa será executada.
+O processamento do pool do lote Machine Learning fornece escala gerenciada pelo cliente para o serviço de execução do Azure Machine Learning Batch. O processamento em lotes clássico para o aprendizado de máquina ocorre em um ambiente multilocatário, que limita o número de trabalhos simultâneos que você pode enviar e que os trabalhos são enfileirados em uma base primeiro a entrar, primeiro a sair. Essa incerteza significa que você não pode prever com precisão quando seu trabalho será executado.
 
-Processamento de conjunto do batch permite-lhe criar conjuntos de onde pode submeter tarefas de lote. Controla o tamanho do conjunto e, para que conjunto da tarefa é submetida. Seu trabalho BES é executado no seu próprio espaço de processamento de fornecer o desempenho do processamento previsível e a capacidade de criar agrupamentos de recursos que correspondem a carga de processamento que submeter.
+O processamento do pool do lote permite que você crie pools nos quais você pode enviar trabalhos em lotes. Você controla o tamanho do pool e para qual pool o trabalho é enviado. Seu trabalho BES é executado em seu próprio espaço de processamento, fornecendo desempenho de processamento previsível e a capacidade de criar pools de recursos que correspondam à carga de processamento que você envia.
 
 > [!NOTE]
-> Tem de ter um novo Gerenciador de recursos com base em Machine Learning web service para criar um conjunto. Depois de criado, pode executar serviço da web, os dois novos do Resource Manager clássico e com base no conjunto para qualquer BES.
+> Você deve ter um novo Gerenciador de recursos baseado Machine Learning serviço Web para criar um pool. Depois de criado, você pode executar qualquer serviço Web BES, o novo Resource Manager baseado e o clássico, no pool.
 
-## <a name="how-to-use-batch-pool-processing"></a>Como utilizar o processamento do conjunto do Batch
+## <a name="how-to-use-batch-pool-processing"></a>Como usar o processamento de pool do lote
 
-Configuração de processamento de conjunto do Batch não está atualmente disponível através do portal do Azure. Para utilizar o processamento do conjunto do Batch, tem de:
+A configuração do processamento do pool do lote não está disponível no momento por meio do portal do Azure. Para usar o processamento do pool do lote, você deve:
 
--   Chamar o CSS para criar uma conta do conjunto de Batch e obter um URL de serviço do conjunto e uma chave de autorização
--   Criar um serviço da web baseados no Resource Manager novo e o plano de faturação
+-   Chamar CSS para criar uma conta de pool do lote e obter uma URL de serviço do pool e uma chave de autorização
+-   Criar um novo serviço Web baseado no Resource Manager e um plano de cobrança
 
-Para criar a sua conta, chamar o serviço de cliente da Microsoft e suporte (CSS) e fornecer sua ID de subscrição. CSS irá trabalhar para determinar a capacidade adequada para o seu cenário. CSS, em seguida, configura a sua conta com o número máximo de conjuntos que pode criar e o número máximo de máquinas virtuais (VMs) que podem ser colocados em cada agrupamento. Assim que a sua conta está configurada, são fornecidos o URL do serviço de agrupamento e uma chave de autorização.
+Para criar sua conta, ligue para o serviço de suporte e atendimento ao cliente da Microsoft (CSS) e forneça sua ID de assinatura. O CSS funcionará com você para determinar a capacidade apropriada para seu cenário. Em seguida, o CSS configura sua conta com o número máximo de pools que você pode criar e o número máximo de VMs (máquinas virtuais) que você pode inserir em cada pool. Quando sua conta estiver configurada, você receberá a URL do serviço do pool e uma chave de autorização.
 
-Depois de criar a sua conta, utilize a chave de URL do serviço de agrupamento e a autorização para efetuar operações de gestão de agrupamento no seu conjunto de Batch.
+Depois que sua conta for criada, use a URL do serviço do pool e a chave de autorização para executar operações de gerenciamento de pool em seu pool do lote.
 
-![Arquitetura de serviço do batch pool.](./media/dedicated-capacity-for-bes-jobs/pool-architecture.png)
+![Arquitetura do serviço do pool do lote.](./media/dedicated-capacity-for-bes-jobs/pool-architecture.png)
 
-Criar conjuntos ao chamar a operação Criar conjunto acerca do URL de serviço do conjunto CSS fornecido a. Quando cria um conjunto, especifique o número de VMs e o URL do swagger de um Gerenciador de recursos novo com base em serviço web Machine Learning. Esse web service é fornecido para estabelecer a associação de faturação. O serviço do conjunto do Batch utiliza o swagger para associar o agrupamento de um plano de faturação. Pode executar qualquer BES serviço da web, os dois novos do Resource Manager clássico e com base no conjunto.
+Crie pools chamando a operação criar pool na URL do serviço de pool que o CSS forneceu a você. Quando você cria um pool, especifique o número de VMs e a URL do Swagger. JSON de um novo Gerenciador de recursos com base Machine Learning serviço Web. Este serviço Web é fornecido para estabelecer a associação de cobrança. O serviço de pool do lote usa o Swagger. JSON para associar o pool a um plano de cobrança. Você pode executar qualquer serviço Web BES, o novo Resource Manager baseado e o clássico, no pool.
 
-Pode usar qualquer serviço da web baseados no Resource Manager novas, mas lembre-se de que a faturação para as tarefas são cobradas conforme o plano de faturação associado a esse serviço. Pode querer criar um serviço web e um novo plano de faturação especificamente para executar tarefas de conjunto do Batch.
+Você pode usar qualquer serviço Web baseado no novo Resource Manager, mas lembre-se de que a cobrança dos trabalhos é cobrada em relação ao plano de cobrança associado a esse serviço. Talvez você queira criar um serviço Web e um novo plano de cobrança especificamente para executar trabalhos de pool do lote.
 
-Para obter mais informações sobre a criação de serviços da web, consulte [implementar um serviço web do Azure Machine Learning](publish-a-machine-learning-web-service.md).
+Para obter mais informações sobre como criar serviços Web, consulte [implantar um serviço web Azure Machine Learning](publish-a-machine-learning-web-service.md).
 
-Depois de criar um conjunto, submeter a tarefa de BES utilizando o URL de pedidos de lote para o serviço web. Pode optar por enviá-lo a um conjunto de ou para processamento em lotes clássico. Para submeter uma tarefa de processamento de conjunto do Batch, adicione o seguinte parâmetro ao corpo de pedido de submissão da tarefa:
+Depois de criar um pool, você envia o trabalho BES usando a URL de solicitações em lote para o serviço Web. Você pode optar por enviá-lo para um pool ou para o processamento em lotes clássico. Para enviar um trabalho para o processamento do pool do lote, adicione o seguinte parâmetro ao corpo da solicitação de envio do trabalho:
 
-"AzureBatchPoolId": "&lt;ID do agrupamento&gt;"
+"AzureBatchPoolId": "&lt;ID do pool&gt;"
 
-Se não adicionar o parâmetro, a tarefa é executada no ambiente do processo de lote clássico. Se o conjunto tiver recursos disponíveis, a tarefa começa imediatamente a executar. Se o conjunto não tem recursos gratuitos, seu trabalho é colocada na fila até que um recurso esteja disponível.
+Se você não adicionar o parâmetro, o trabalho será executado no ambiente de processo em lote clássico. Se o pool tiver recursos disponíveis, o trabalho começará a ser executado imediatamente. Se o pool não tiver recursos livres, seu trabalho será colocado na fila até que um recurso esteja disponível.
 
-Se achar que regularmente atingir a capacidade dos conjuntos e precisar de capacidade aumentada, pode chamar o CSS e trabalhar com um representante para aumentar as suas quotas.
+Se você achar que está acessando regularmente a capacidade de seus pools e precisa de maior capacidade, você pode chamar o CSS e trabalhar com um representante para aumentar suas cotas.
 
-Pedido de exemplo:
+Exemplo de solicitação:
 
 https://ussouthcentral.services.azureml.net/subscriptions/80c77c7674ba4c8c82294c3b2957990c/services/9fe659022c9747e3b9b7b923c3830623/jobs?api-version=2.0
 
@@ -96,19 +96,19 @@ https://ussouthcentral.services.azureml.net/subscriptions/80c77c7674ba4c8c82294c
 }
 ```
 
-## <a name="considerations-when-using-batch-pool-processing"></a>Considerações ao utilizar o processamento do conjunto do Batch
+## <a name="considerations-when-using-batch-pool-processing"></a>Considerações ao usar o processamento do pool do lote
 
-Processamento de conjunto do batch é um serviço de cobrar sempre ativa e que requer a associá-lo a um plano de faturação baseados no Resource Manager. É-lhe cobrada apenas para o número de horas de computação que do conjunto estiver em execução; independentemente do número de tarefas são executadas durante esse conjunto de tempo. Se criar um conjunto, é-lhe cobrada as horas de computação de cada máquina virtual no conjunto até que o conjunto ser eliminado, mesmo se não existem tarefas de lote estão em execução no conjunto. A faturação para as máquinas virtuais é iniciado quando tiver terminado de aprovisionamento e termina quando eles tem sido eliminados. Pode usar qualquer um dos planos encontrados no [página de preços do Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
+O processamento do pool do lote é um serviço Faturável sempre ativa e requer que você o associe a um plano de cobrança baseado no Resource Manager. Você será cobrado apenas pelo número de horas de computação em execução no pool; independentemente do número de trabalhos executados durante esse pool de tempo. Se você criar um pool, será cobrado pelas horas de computação de cada máquina virtual no pool até que o pool seja excluído, mesmo que nenhum trabalho em lotes esteja em execução no pool. A cobrança pelas máquinas virtuais é iniciada quando o provisionamento é concluído e para quando elas são excluídas. Você pode usar qualquer um dos planos encontrados na [página de preços do Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
 
-Exemplo de faturação:
+Exemplo de cobrança:
 
-Se criar um conjunto do Batch com 2 máquinas virtuais e eliminá-la após 24 horas o seu plano de faturação é debitado 48 horas de computação; independentemente de quantas tarefas foram executados durante esse período.
+Se você criar um pool do lote com duas máquinas virtuais e excluí-la após 24 horas, o plano de cobrança será debitado 48 horas de computação; independentemente de quantos trabalhos foram executados durante esse período.
 
-Se cria um conjunto do Batch com 4 máquinas virtuais e eliminá-la após 12 horas, seu plano de faturação também é debitado 48 horas de computação.
+Se você criar um pool do lote com 4 máquinas virtuais e excluí-la após 12 horas, seu plano de cobrança também será debitado em 48 horas de computação.
 
-Recomendamos que consultar o estado da tarefa para determinar quando conclusão das tarefas. Quando tem concluído a todas as suas tarefas em execução, chame a operação de redimensionamento de conjunto para definir o número de máquinas virtuais no conjunto a zero. Se for curta nos recursos de agrupamento e terá de criar um novo conjunto, por exemplo, para efetuar a cobrança em relação a um plano de faturação, pode eliminar o conjunto em vez disso, quando terminar de todas as suas tarefas em execução.
+Recomendamos que você monitore o status do trabalho para determinar quando os trabalhos são concluídos. Quando todos os trabalhos terminarem de ser executados, chame a operação redimensionar pool para definir o número de máquinas virtuais no pool como zero. Se você tiver recursos de pool curtos e precisar criar um novo pool, por exemplo, para cobrar em um plano de cobrança diferente, você poderá excluir o pool em vez de concluir a execução de todos os trabalhos.
 
 
-| **Utilizar conjunto do Batch quando a processar**    | **Utilizar o batch clássico processamento quando**  |
+| **Use o processamento do pool do lote quando**    | **Use o processamento em lote clássico quando**  |
 |---|---|
-|Tem de executar um grande número de tarefas<br>Ou<br/>Precisa saber que as tarefas serão executadas imediatamente<br/>Ou<br/>Precisa de débito garantido. Por exemplo, terá de executar um número de tarefas num determinado intervalo de tempo e quer aumentar horizontalmente os recursos de computação para satisfazer as necessidades.    | Estiver a executar apenas algumas tarefas<br/>E<br/> Não precisa de trabalhos para execução imediatamente |
+|Você precisa executar um grande número de trabalhos<br>Ou<br/>Você precisa saber que seus trabalhos serão executados imediatamente<br/>Ou<br/>Você precisa de taxa de transferência garantida. Por exemplo, você precisa executar vários trabalhos em um determinado intervalo de tempo e deseja escalar horizontalmente seus recursos de computação para atender às suas necessidades.    | Você está executando apenas alguns trabalhos<br/>e<br/> Você não precisa que os trabalhos sejam executados imediatamente |

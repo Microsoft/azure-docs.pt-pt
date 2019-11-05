@@ -12,14 +12,14 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62cbe68bcf191c7ee6fc906bc8ba8ea66e3efb31
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 2cd0cc6b2343a84287bd2ffdfd9df8d832f17fc8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233888"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474166"
 ---
-# <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir ou bloquear convites para utilizadores B2B de organizações específicos
+# <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir ou bloquear convites para usuários B2B de organizações específicas
 
 Você pode usar uma lista de permissões ou uma lista de negações para permitir ou bloquear convites para usuários B2B de organizações específicas. Por exemplo, se você quiser bloquear domínios de endereço de email pessoal, poderá configurar uma lista de negações que contém domínios como Gmail.com e Outlook.com. Ou, se sua empresa tiver uma parceria com outras empresas, como Contoso.com, Fabrikam.com e Litware.com, e você quiser restringir convites apenas para essas organizações, poderá adicionar Contoso.com, Fabrikam.com e Litware.com à sua lista de permissões.
   
@@ -41,15 +41,15 @@ Esse é o cenário mais típico, em que sua organização deseja trabalhar com q
 
 Para adicionar uma lista de negações:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **Azure Active Directory** > **configurações de usuário** **dos usuários** > .
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+2. Selecione **Azure Active Directory** > **usuários** > **configurações do usuário**.
 3. Em **usuários externos**, selecione **gerenciar configurações de colaboração externas**.
 4. Em **restrições de colaboração**, selecione **negar convites para os domínios especificados**.
 5. Em **domínios de destino**, insira o nome de um dos domínios que você deseja bloquear. Para vários domínios, insira cada domínio em uma nova linha. Por exemplo:
 
    ![Mostra a opção Deny com domínios adicionados](./media/allow-deny-list/DenyListSettings.png)
  
-6. Quando tiver terminado, clique em **guardar**.
+6. Quando terminar, clique em **salvar**.
 
 Depois de definir a política, se você tentar convidar um usuário de um domínio bloqueado, receberá uma mensagem informando que o domínio do usuário está bloqueado no momento pela sua política de convite.
  
@@ -62,15 +62,15 @@ Se você quiser usar uma lista de permissões, certifique-se de que você gaste 
 
 Para adicionar uma lista de permissões:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **Azure Active Directory** > **configurações de usuário** **dos usuários** > .
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+2. Selecione **Azure Active Directory** > **usuários** > **configurações do usuário**.
 3. Em **usuários externos**, selecione **gerenciar configurações de colaboração externas**.
 4. Em **restrições de colaboração**, selecione **permitir convites somente para os domínios especificados (mais restritivo)** .
 5. Em **domínios de destino**, insira o nome de um dos domínios que você deseja permitir. Para vários domínios, insira cada domínio em uma nova linha. Por exemplo:
 
    ![Mostra a opção Allow com domínios adicionados](./media/allow-deny-list/AllowListSettings.png)
  
-6. Quando tiver terminado, clique em **guardar**.
+6. Quando terminar, clique em **salvar**.
 
 Depois de definir a política, se você tentar convidar um usuário de um domínio que não está na lista de permissões, você receberá uma mensagem informando que o domínio do usuário está bloqueado no momento pela sua política de convite.
 
@@ -81,6 +81,9 @@ Se você alternar de uma política para a outra, isso descartará a configuraç�
 ## <a name="set-the-allow-or-deny-list-policy-using-powershell"></a>Definir a política de lista de permissões ou negações usando o PowerShell
 
 ### <a name="prerequisite"></a>Pré-requisito
+
+> [!Note]
+> O módulo AzureADPreview não é um módulo totalmente suportado, pois está em versão prévia. 
 
 Para definir a lista de permissão ou negação usando o PowerShell, você deve instalar a versão de visualização do módulo Azure Active Directory para o Windows PowerShell. Especificamente, instale o módulo AzureADPreview versão 2.0.0.98 ou posterior.
 
@@ -155,7 +158,7 @@ Para remover a política, use o cmdlet [Remove-AzureADPolicy](https://docs.micro
 Remove-AzureADPolicy -Id $currentpolicy.Id 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral do Azure AD B2B, consulte [o que é a colaboração B2B do Azure ad?](what-is-b2b.md)
 - Para obter informações sobre acesso condicional e colaboração B2B, consulte [acesso condicional para usuários de colaboração B2B](conditional-access.md).

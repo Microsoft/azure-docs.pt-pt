@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c34f59c3e9f679adf8ae410f648cb7de6dba6447
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: daaced0aae595e839f2b2476562fc5caffb63640
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430049"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473940"
 ---
 #  <a name="adopting-azure-ad-conditional-access"></a>Adotando o acesso condicional do Azure AD
 
@@ -104,10 +104,10 @@ Consulte os seguintes cursos de acesso condicional e muito mais em [pluralsight.
 * O ' Reilly- [implementando o Azure Solutions-Second Edition.](https://www.oreilly.com/library/view/implementing-azure-solutions/9781789343045/b7ead3db-eb1c-4ace-897e-86ee25ea86be.xhtml)
    * "Comece a executar com os serviços do Azure e saiba como implementá-los em sua organização. O acesso condicional do Azure AD é abordado no capítulo [Implantando e sincronizando Azure Active Directory](https://learning.oreilly.com/library/view/implementing-azure-solutions/9781789343045/02ca8bba-08cf-4691-a7d0-1b96e286e7ea.xhtml). "
 
-* Wiley [serviços de infraestrutura de Microsoft Azure de mestre](https://www.wiley.com/Mastering+Microsoft+Azure+Infrastructure+Services-p-9781119003298)
+* [Serviços de infraestrutura Wiley-Microsoft Azure para arquitetos: Projetando soluções de nuvem](https://www.wiley.com/Microsoft+Azure+Infrastructure+Services+for+Architects%3A+Designing+Cloud+Solutions-p-9781119596547)
    * "Aqui está tudo o que você precisa para entender, avaliar, implantar e manter ambientes que utilizam Microsoft Azure".
 
-## <a name="white-papers"></a>Documentos técnicos
+## <a name="white-papers"></a>Documentação técnica
 
 * Publicado em 18 de dezembro de 2018, [crie uma estratégia de gerenciamento de controle de acesso resiliente com Azure Active Directory](../authentication/concept-resilient-controls.md)
    * Este documento fornece orientação sobre estratégias que uma organização pode adotar para fornecer resiliência para reduzir o risco de bloqueio durante interrupções imprevistas.

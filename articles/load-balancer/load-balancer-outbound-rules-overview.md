@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: fd43e9c71db9ae553b24e6cd774495ee8cc5b621
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: d1874d610feb041545e1675ad5b40a1b5e753b67
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242341"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497982"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer regras de saída
 
@@ -86,7 +86,7 @@ Use o seguinte parâmetro para alocar 10.000 portas SNAT por VM (configuração 
 
 Cada endereço IP público de todos os front-ends de uma regra de saída contribui para até 64.000 portas efêmeras para uso como portas SNAT.  Load Balancer aloca portas SNAT em múltiplos de 8. Se você fornecer um valor não divisível por 8, a operação de configuração será rejeitada.  Se você tentar alocar mais portas SNAT do que as disponíveis com base no número de endereços IP públicos, a operação de configuração será rejeitada.  Por exemplo, se você alocar 10.000 portas por VM e 7 VMs em um pool de back-end compartilharão um único endereço IP público, a configuração será rejeitada (7 x 10.000 portas SNAT > 64.000 portas SNAT).  Você pode adicionar mais endereços IP públicos ao front-end da regra de saída para habilitar o cenário.
 
-Você pode reverter para a [alocação de porta SNAT automática com base no tamanho do pool de back-end](load-balancer-outbound-connections.md#preallocatedports) , especificando 0 para número de portas. Nesse caso, as primeiras 50 instâncias de VM receberão 1024 portas, 51-100 as instâncias de VM terão 512 e assim por diante, de acordo com a tabela. Ter mais de um front-end com um IP público associado à regra de saída não aumenta o número de portas alocadas para cada instância de VM.
+Você pode reverter para a [alocação de porta SNAT automática com base no tamanho do pool de back-end](load-balancer-outbound-connections.md#preallocatedports) , especificando 0 para número de portas. Nesse caso, as primeiras 50 instâncias de VM receberão 1024 portas, 51-100 as instâncias de VM terão 512 e assim por diante, de acordo com a tabela.
 
 ### <a name="idletimeout"></a>Controlar tempo limite de ociosidade do fluxo de saída
 

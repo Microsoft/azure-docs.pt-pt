@@ -1,25 +1,25 @@
 ---
-title: Analisadores para processamento linguístico e de texto – Azure Search
+title: Analisadores para processamento linguístico e de texto
+titleSuffix: Azure Cognitive Search
 description: Atribua analisadores a campos de texto pesquisáveis em um índice para substituir o Lucene padrão standard por alternativas personalizadas, predefinidas ou específicas de idioma.
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
-ms.author: heidist
-manager: nitinme
 author: HeidiSteen
-ms.openlocfilehash: 85ebc75a22a4b27803df758d3f411a46a6206eb7
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+manager: nitinme
+ms.author: heidist
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 32ac91df042eb29c39cc54b738dbb96aff3104f3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72987627"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496507"
 ---
-# <a name="analyzers-for-text-processing-in-azure-search"></a>Analisadores para processamento de texto no Azure Search
+# <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analisadores para processamento de texto no Azure Pesquisa Cognitiva
 
 Um *analisador* é um componente do [mecanismo de pesquisa de texto completo](search-lucene-query-architecture.md) responsável pelo processamento de texto em cadeias de caracteres de consulta e documentos indexados. Analisadores diferentes manipulam texto de maneiras diferentes, dependendo do cenário. Os analisadores de linguagem processam o texto usando regras linguísticas para melhorar a qualidade da pesquisa, enquanto outros analisadores executam tarefas mais básicas, como a conversão de caracteres em letras minúsculas, por exemplo. 
 
-Os analisadores de idioma são usados com mais frequência e há um analisador de idioma padrão atribuído a cada campo pesquisável em um índice de Azure Search. As seguintes transformações de idioma são típicas durante a análise de texto:
+Os analisadores de idioma são usados com mais frequência e há um analisador de idioma padrão atribuído a cada campo pesquisável em um índice de Pesquisa Cognitiva do Azure. As seguintes transformações de idioma são típicas durante a análise de texto:
 
 + Palavras não essenciais (palavras irrelevantes) e pontuação são removidas.
 + Frases e palavras hifenizadas são divididas em partes de componentes.
@@ -30,19 +30,19 @@ Os analisadores de linguagem convertem uma entrada de texto em formulários prim
 
 ## <a name="default-analyzer"></a>Analisador padrão  
 
-Azure Search usa o [analisador padrão Apache Lucene (Lucene padrão)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) como o padrão, que quebra o texto em elementos seguindo as regras de ["segmentação de texto Unicode"](https://unicode.org/reports/tr29/) . Além disso, o analisador padrão converte todos os caracteres em sua forma de minúsculas. Os documentos indexados e os termos de pesquisa passam pela análise durante a indexação e o processamento de consultas.  
+O Azure Pesquisa Cognitiva usa o [analisador padrão do Apache Lucene (Lucene padrão)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) como o padrão, que quebra o texto em elementos seguindo as regras de ["segmentação de texto Unicode"](https://unicode.org/reports/tr29/) . Além disso, o analisador padrão converte todos os caracteres em sua forma de minúsculas. Os documentos indexados e os termos de pesquisa passam pela análise durante a indexação e o processamento de consultas.  
 
 Ele é usado automaticamente em todos os campos pesquisáveis. Você pode substituir o padrão em uma base Field-by-Field. Analisadores alternativos podem ser um [analisador de linguagem](index-add-language-analyzers.md), um [analisador personalizado](index-add-custom-analyzers.md)ou um analisador predefinido da [lista de analisadores disponíveis](index-add-custom-analyzers.md#AnalyzerTable).
 
 
 ## <a name="types-of-analyzers"></a>Tipos de analisadores
 
-A lista a seguir descreve quais analisadores estão disponíveis no Azure Search.
+A lista a seguir descreve quais analisadores estão disponíveis no Azure Pesquisa Cognitiva.
 
 | Categoria | Descrição |
 |----------|-------------|
 | [Analisador Lucene Standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Predefinição. Nenhuma especificação ou configuração é necessária. Esse analisador de uso geral funciona bem para a maioria dos idiomas e cenários.|
-| Analisadores predefinidos | Oferecido como um produto concluído, destinado a ser usado no estado em que se encontra. <br/>Há dois tipos: especializado e linguagem. O que os torna "predefinidos" é que você os referencia por nome, sem nenhuma configuração ou personalização. <br/><br/>[Analisadores especializados (independentes de idioma)](index-add-custom-analyzers.md#AnalyzerTable) são usados quando as entradas de texto exigem processamento especializado ou mínimo de processamento. Analisadores predefinidos que não são de idioma incluem **Asciifolding**, **palavra-chave**, **padrão**, **simples**, **parar**, **espaço em branco**.<br/><br/>[Analisadores de linguagem](index-add-language-analyzers.md) são usados quando você precisa de suporte linguístico avançado para idiomas individuais. O Azure Search dá suporte a analisadores de linguagem 35 Lucene e a 50 analisadores de processamento de idioma natural da Microsoft. |
+| Analisadores predefinidos | Oferecido como um produto concluído, destinado a ser usado no estado em que se encontra. <br/>Há dois tipos: especializado e linguagem. O que os torna "predefinidos" é que você os referencia por nome, sem nenhuma configuração ou personalização. <br/><br/>[Analisadores especializados (independentes de idioma)](index-add-custom-analyzers.md#AnalyzerTable) são usados quando as entradas de texto exigem processamento especializado ou mínimo de processamento. Analisadores predefinidos que não são de idioma incluem **Asciifolding**, **palavra-chave**, **padrão**, **simples**, **parar**, **espaço em branco**.<br/><br/>[Analisadores de linguagem](index-add-language-analyzers.md) são usados quando você precisa de suporte linguístico avançado para idiomas individuais. O Azure Pesquisa Cognitiva dá suporte a analisadores de linguagem 35 Lucene e a 50 analisadores de processamento de idioma natural da Microsoft. |
 |[Analisadores personalizados](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Refere-se a uma configuração definida pelo usuário de uma combinação de elementos existentes, consistindo em um criador (obrigatório) e filtros opcionais (Char ou token).|
 
 Alguns analisadores predefinidos, como **Pattern** ou **Stop**, dão suporte a um conjunto limitado de opções de configuração. Para definir essas opções, você cria efetivamente um analisador personalizado, que consiste no analisador predefinido e em uma das opções alternativas documentadas na [referência do analisador predefinido](index-add-custom-analyzers.md#AnalyzerTable). Assim como ocorre com qualquer configuração personalizada, forneça uma nova configuração com um nome, como *myPatternAnalyzer* para distingui-la do analisador de padrão Lucene.
@@ -80,7 +80,7 @@ Esta seção oferece conselhos sobre como trabalhar com analisadores.
 
 ### <a name="one-analyzer-for-read-write-unless-you-have-specific-requirements"></a>Um analisador para leitura/gravação, a menos que você tenha requisitos específicos
 
-Azure Search permite especificar diferentes analisadores para indexação e pesquisa por meio de parâmetros de campo **indexAnalyzer** e **searchAnalyzer** adicionais. Se não for especificado, o analisador definido com a propriedade **Analyzer** será usado para indexação e pesquisa. Se `analyzer` não for especificado, o analisador padrão Lucene padrão será usado.
+O Pesquisa Cognitiva do Azure permite que você especifique diferentes analisadores para indexação e pesquisa por meio de parâmetros de campo **indexAnalyzer** e **searchAnalyzer** adicionais. Se não for especificado, o analisador definido com a propriedade **Analyzer** será usado para indexação e pesquisa. Se `analyzer` não for especificado, o analisador padrão Lucene padrão será usado.
 
 Uma regra geral é usar o mesmo analisador para indexação e consulta, a menos que requisitos específicos ditem o contrário. Certifique-se de testar exaustivamente. Quando o processamento de texto é diferente no tempo de pesquisa e indexação, você corre o risco de incompatibilidade entre termos de consulta e termos indexados quando as configurações do analisador de pesquisa e indexação não estiverem alinhadas.
 
@@ -286,7 +286,7 @@ Qualquer analisador usado como está, sem configuração, é especificado em uma
 
 Este exemplo atribui os analisadores em inglês e francês da Microsoft aos campos de descrição. É um trecho extraído de uma definição maior do índice de hotéis, criando usando a classe Hotel no arquivo hotels.cs do exemplo [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) .
 
-O Call [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), especificando o tipo [analyzername](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) , fornecendo um analisador de texto com suporte no Azure Search.
+O Call [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), especificando o tipo [analyzername](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) , fornecendo um analisador de texto com suporte no Azure pesquisa cognitiva.
 
 ```csharp
     public partial class Hotel
@@ -336,7 +336,7 @@ Crie um objeto [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-+ Examine nossa explicação abrangente de [como funciona a pesquisa de texto completo em Azure Search](search-lucene-query-architecture.md). Este artigo usa exemplos para explicar os comportamentos que podem parecer um contador intuitivo na superfície.
++ Examine nossa explicação abrangente sobre [como funciona a pesquisa de texto completo no Azure pesquisa cognitiva](search-lucene-query-architecture.md). Este artigo usa exemplos para explicar os comportamentos que podem parecer um contador intuitivo na superfície.
 
 + Tente sintaxe de consulta adicional na seção de exemplo [Pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) ou na [sintaxe de consulta simples](query-simple-syntax.md) no Gerenciador de pesquisa no Portal.
 
@@ -344,7 +344,7 @@ Crie um objeto [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.
 
 + [Configure analisadores personalizados](index-add-custom-analyzers.md) para o processamento mínimo ou processamento especializado em campos individuais.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consultar também
 
  [Pesquisar API REST de documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

@@ -1,5 +1,5 @@
 ---
-title: Mapear o nome DNS existente personalizado - serviço de aplicações do Azure | Documentos da Microsoft
+title: Mapear o nome DNS personalizado existente-serviço de Azure App | Microsoft Docs
 description: Saiba como adicionar um nome de domínio DNS personalizado já existente a uma aplicação Web, ao back-end de uma aplicação móvel ou a uma aplicação API no Serviço de Aplicações do Azure.
 keywords: serviço de aplicações, serviço de aplicações do azure, mapeamento de domínios, domínio existente, nome de anfitrião
 services: app-service\web
@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bbb064c358eba2dd64ba9ae86540a30cb56adb66
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 52394eb150a4206b7fb31cdf4b801762511e1a8c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595019"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471362"
 ---
-# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapear um nome DNS existente personalizado para o serviço de aplicações do Azure
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: mapear um nome DNS personalizado existente para o serviço Azure App
 
-O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este tutorial mostra-lhe como mapear um nome DNS existente personalizado para o serviço de aplicações do Azure.
+O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este tutorial mostra como mapear um nome DNS personalizado existente para Azure App serviço.
 
 ![Navegação do portal para a aplicação do Azure](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
@@ -52,7 +52,7 @@ Para concluir este tutorial:
 
 ## <a name="prepare-the-app"></a>Preparar a aplicação
 
-Para mapear um nome DNS personalizado para uma aplicação web, a aplicação web [plano do App Service](https://azure.microsoft.com/pricing/details/app-service/) tem de ser um escalão pago (**partilhado**, **básica**, **padrão**, **Premium** ou **consumo** para as funções do Azure). Neste passo, vai confirmar que a aplicação do Serviço de Aplicações está no escalão de preço suportado.
+Para mapear um nome DNS personalizado para um aplicativo Web, o plano do [serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/) do aplicativo Web deve ser uma camada paga (**compartilhada**, **básica**, **Standard**, **Premium** ou **consumo** para Azure Functions). Neste passo, vai confirmar que a aplicação do Serviço de Aplicações está no escalão de preço suportado.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -60,9 +60,13 @@ Para mapear um nome DNS personalizado para uma aplicação web, a aplicação we
 
 Abra ao [portal do Azure](https://portal.azure.com) e inicie sessão com a sua conta do Azure.
 
-### <a name="navigate-to-the-app-in-the-azure-portal"></a>Navegar para a aplicação no portal do Azure
+### <a name="select-the-app-in-the-azure-portal"></a>Selecione o aplicativo no portal do Azure
 
-No menu à esquerda, selecione **Serviços de Aplicações** e selecione o nome da aplicação Web.
+Pesquise e selecione **serviços de aplicativos**.
+
+![Selecionar serviços de aplicativos](./media/app-service-web-tutorial-custom-domain/app-services.png)
+
+Na página **serviços de aplicativos** , selecione o nome do seu aplicativo do Azure.
 
 ![Navegação do portal para a aplicação do Azure](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
@@ -119,7 +123,7 @@ No exemplo do tutorial, vai adicionar um registo CNAME ao subdomínio `www` (por
 
 #### <a name="create-the-cname-record"></a>Criar o registo CNAME
 
-Adicione um registo CNAME para mapear um subdomínio para o nome de domínio predefinido da aplicação (`<app_name>.azurewebsites.net`, onde `<app_name>` é o nome da sua aplicação).
+Adicione um registro CNAME para mapear um subdomínio para o nome de domínio padrão do aplicativo (`<app_name>.azurewebsites.net`, em que `<app_name>` é o nome do seu aplicativo).
 
 No exemplo do domínio `www.contoso.com`, adicione um registo CNAME que mapeie o nome `www` para `<app_name>.azurewebsites.net`.
 
@@ -135,7 +139,7 @@ No painel de navegação esquerdo da página da aplicação no portal do Azure, 
 
 N página **Domínios personalizados** da aplicação, adicione o nome DNS personalizado completamente qualificado (`www.contoso.com`) à lista.
 
-Selecione o **+** ícone junto a **Adicionar domínio personalizado**.
+Selecione o ícone de **+** ao lado de **Adicionar domínio personalizado**.
 
 ![Adicionar nome de anfitrião](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
@@ -143,20 +147,20 @@ Escreva o nome de domínio completamente qualificado ao qual adicionou um regist
 
 Selecione **Validar**.
 
-O **Adicionar domínio personalizado** página é mostrada.
+A página **Adicionar domínio personalizado** é mostrada.
 
-Certifique-se de que **tipo de registo de nome de anfitrião** está definida como **CNAME (www\.example.com ou qualquer subdomínio)** .
+Verifique se **tipo de registro de nome de host** está definido como **CNAME (www\.example.com ou qualquer subdomínio)** .
 
 Selecione **Adicionar domínio personalizado**.
 
 ![Adicionar o nome DNS à aplicação](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-Poderá demorar algum tempo para o novo domínio personalizado sejam refletidas da aplicação **domínios personalizados** página. Experimente atualizar o browser para atualizar os dados.
+Pode levar algum tempo para que o novo domínio personalizado seja refletido na página **domínios personalizados** do aplicativo. Experimente atualizar o browser para atualizar os dados.
 
 ![Registo CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> R **não proteger** etiqueta para o seu domínio personalizado significa que ainda não está vinculado a um certificado SSL e irá receber qualquer pedido HTTPS a partir de um browser ao seu domínio personalizado e erro ou aviso, consoante o browser. Para adicionar um enlace SSL, consulte [vincular um certificado SSL personalizado já existente para o serviço de aplicações do Azure](app-service-web-tutorial-custom-ssl.md).
+> Um rótulo **não seguro** para seu domínio personalizado significa que ele ainda não está associado a um certificado SSL, e qualquer solicitação HTTPS de um navegador para seu domínio personalizado receberá um erro ou aviso, dependendo do navegador. Para adicionar uma associação SSL, consulte [proteger um nome DNS personalizado com uma associação SSL no serviço Azure app](configure-ssl-bindings.md).
 
 Se tiver perdido um passo ou escrito algo mal em algum momento acima, verá um erro de verificação na parte inferior da página.
 
@@ -191,19 +195,19 @@ Na página **Domínios personalizados**, copie o endereço IP da aplicação.
 Para mapear um registo A para uma aplicação, o Serviço de Aplicações requer **dois** registos DNS:
 
 - Um registo **A**, para mapear o endereço IP da aplicação.
-- R **TXT** registo para mapear para o nome de domínio predefinido da aplicação `<app_name>.azurewebsites.net`. O Serviço de Aplicações utiliza este registo apenas no momento da configuração, para verificar que é o proprietário do domínio personalizado. Após a validação e configuração do domínio personalizado no Serviço de Aplicações, pode eliminar este registo TXT.
+- Um registro **txt** para mapear para o nome de domínio padrão do aplicativo `<app_name>.azurewebsites.net`. O Serviço de Aplicações utiliza este registo apenas no momento da configuração, para verificar que é o proprietário do domínio personalizado. Após a validação e configuração do domínio personalizado no Serviço de Aplicações, pode eliminar este registo TXT.
 
 No exemplo do domínio `contoso.com`, crie os registos A e TXT de acordo com a tabela seguinte (`@` representa, normalmente, o domínio de raiz).
 
-| Tipo de registo | Host | Value |
+| Tipo de registo | Anfitrião | Valor |
 | - | - | - |
 | A | `@` | Endereço IP de [Copiar o endereço IP da aplicação](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
 
 > [!NOTE]
-> Para adicionar um subdomínio (como `www.contoso.com`) através de um registo em vez de um recomendada [registo CNAME](#map-a-cname-record), a um registo e o registo TXT deverá ser semelhante a tabela a seguir em vez disso:
+> Para adicionar um subdomínio (como `www.contoso.com`) usando um registro A em vez de um [registro CNAME](#map-a-cname-record)recomendado, o registro a e o registro txt devem ser semelhantes à seguinte tabela:
 >
-> | Tipo de registo | Host | Value |
+> | Tipo de registo | Anfitrião | Valor |
 > | - | - | - |
 > | A | `www` | Endereço IP de [Copiar o endereço IP da aplicação](#info) |
 > | TXT | `www` | `<app_name>.azurewebsites.net` |
@@ -219,7 +223,7 @@ Quando os registos estiverem adicionados, a página de registos DNS terá um asp
 
 Novamente na página **Domínios personalizados** da aplicação, no portal do Azure, adicione o nome DNS personalizado completamente qualificado (por exemplo, `contoso.com`) à lista.
 
-Selecione o **+** ícone junto a **Adicionar domínio personalizado**.
+Selecione o ícone de **+** ao lado de **Adicionar domínio personalizado**.
 
 ![Adicionar nome de anfitrião](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
@@ -227,20 +231,20 @@ Escreva o nome de domínio completamente qualificado para o qual configurou o re
 
 Selecione **Validar**.
 
-O **Adicionar domínio personalizado** página é mostrada.
+A página **Adicionar domínio personalizado** é mostrada.
 
-Confirme que o **Tipo de registo de nome de anfitrião** está definido como **Registo A (example.com)** .
+Confirme que o **Tipo de registo de nome de anfitrião** está definido como **Registo A (www.example.com)** .
 
 Selecione **Adicionar domínio personalizado**.
 
 ![Adicionar o nome DNS à aplicação](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
-Poderá demorar algum tempo para o novo domínio personalizado sejam refletidas da aplicação **domínios personalizados** página. Experimente atualizar o browser para atualizar os dados.
+Pode levar algum tempo para que o novo domínio personalizado seja refletido na página **domínios personalizados** do aplicativo. Experimente atualizar o browser para atualizar os dados.
 
 ![Registo A adicionado](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> R **não proteger** etiqueta para o seu domínio personalizado significa que ainda não está vinculado a um certificado SSL e irá receber qualquer pedido HTTPS a partir de um browser ao seu domínio personalizado e erro ou aviso, consoante o browser. Para adicionar um enlace SSL, consulte [vincular um certificado SSL personalizado já existente para o serviço de aplicações do Azure](app-service-web-tutorial-custom-ssl.md).
+> Um rótulo **não seguro** para seu domínio personalizado significa que ele ainda não está associado a um certificado SSL, e qualquer solicitação HTTPS de um navegador para seu domínio personalizado receberá um erro ou aviso, dependendo do navegador. Para adicionar uma associação SSL, consulte [proteger um nome DNS personalizado com uma associação SSL no serviço Azure app](configure-ssl-bindings.md).
 
 Se tiver perdido um passo ou escrito algo mal em algum momento acima, verá um erro de verificação na parte inferior da página.
 
@@ -258,7 +262,7 @@ No exemplo do tutorial, vai mapear um [nome DNS com carateres universais](https:
 
 #### <a name="create-the-cname-record"></a>Criar o registo CNAME
 
-Adicione um registo CNAME para mapear um nome com carateres universais para o nome de domínio predefinido da aplicação (`<app_name>.azurewebsites.net`).
+Adicione um registro CNAME para mapear um nome de curinga para o nome de domínio padrão do aplicativo (`<app_name>.azurewebsites.net`).
 
 No domínio de exemplo `*.contoso.com`, o registo CNAME vai mapear o nome `*` para `<app_name>.azurewebsites.net`.
 
@@ -274,28 +278,28 @@ No painel de navegação esquerdo da página da aplicação no portal do Azure, 
 
 ![Menu de domínio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Selecione o **+** ícone junto a **Adicionar domínio personalizado**.
+Selecione o ícone de **+** ao lado de **Adicionar domínio personalizado**.
 
 ![Adicionar nome de anfitrião](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 Escreva um nome de domínio completamente qualificado que corresponda ao domínio de caráter universal (por exemplo, `sub1.contoso.com`) e, em seguida, selecione **Validar**.
 
-O **Adicionar domínio personalizado** botão é ativado.
+O botão **Adicionar domínio personalizado** é ativado.
 
-Certifique-se de que **tipo de registo de nome de anfitrião** está definida como **registo CNAME (www\.example.com ou qualquer subdomínio)** .
+Verifique se o **tipo de registro hostname** está definido como **registro CNAME (www\.example.com ou qualquer subdomínio)** .
 
 Selecione **Adicionar domínio personalizado**.
 
 ![Adicionar o nome DNS à aplicação](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
-Poderá demorar algum tempo para o novo domínio personalizado sejam refletidas da aplicação **domínios personalizados** página. Experimente atualizar o browser para atualizar os dados.
+Pode levar algum tempo para que o novo domínio personalizado seja refletido na página **domínios personalizados** do aplicativo. Experimente atualizar o browser para atualizar os dados.
 
-Selecione o **+** ícone novamente para adicionar outro domínio personalizado que corresponda ao domínio de caráter universal. Por exemplo, adicione `sub2.contoso.com`.
+Selecione o ícone de **+** novamente para adicionar outro domínio personalizado que corresponda ao domínio curinga. Por exemplo, adicione `sub2.contoso.com`.
 
 ![Registo CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> R **nota Secure** etiqueta para o seu domínio personalizado significa que ainda não está vinculado a um certificado SSL e irá receber qualquer pedido HTTPS a partir de um browser ao seu domínio personalizado e erro ou aviso, consoante o browser. Para adicionar um enlace SSL, consulte [vincular um certificado SSL personalizado já existente para o serviço de aplicações do Azure](app-service-web-tutorial-custom-ssl.md).
+> Um rótulo **seguro de observação** para seu domínio personalizado significa que ele ainda não está associado a um certificado SSL, e qualquer solicitação HTTPS de um navegador para seu domínio personalizado receberá um erro ou aviso, dependendo do navegador. Para adicionar uma associação SSL, consulte [proteger um nome DNS personalizado com uma associação SSL no serviço Azure app](configure-ssl-bindings.md).
 
 ## <a name="test-in-browser"></a>Testar no browser
 
@@ -326,7 +330,7 @@ Na parte inferior da página, o diretório de raiz virtual `/` aponta para `site
 
 ![Personalizar o diretório virtual](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Uma vez concluída a operação, a aplicação deverá devolver a página correta no caminho da raiz (por exemplo, http://contoso.com) ).
+Uma vez concluída a operação, a aplicação deverá devolver a página correta no caminho da raiz (por exemplo, http://contoso.com)).
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 
@@ -360,7 +364,7 @@ Set-AzWebApp `
 
 Para obter mais informações, veja [Assign a custom domain to a web app](scripts/powershell-configure-custom-domain.md) (Atribuir um domínio personalizado a uma aplicação Web).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
@@ -374,4 +378,4 @@ Neste tutorial, ficou a saber como:
 Avance para o tutorial seguinte para aprender a vincular um certificado SSL personalizado a uma aplicação Web.
 
 > [!div class="nextstepaction"]
-> [Bind an existing custom SSL certificate to Azure App Service](app-service-web-tutorial-custom-ssl.md) (Vincular um certificado SSL personalizado já existente ao Serviço de Aplicações do Azure)
+> [Proteger um nome DNS personalizado com uma associação SSL no serviço Azure App](configure-ssl-bindings.md)

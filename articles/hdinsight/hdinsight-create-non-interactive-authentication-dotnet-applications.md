@@ -1,5 +1,5 @@
 ---
-title: Criar aplicações de .NET de autenticação não interativa no Azure HDInsight
+title: Aplicativo .NET de autenticação não interativa-Azure HDInsight
 description: Saiba como criar aplicativos Microsoft .NET de autenticação não interativa no Azure HDInsight.
 ms.reviewer: jasonh
 author: hrasheed-msft
@@ -8,42 +8,42 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9eb83c0c42bb1ba3de1aa81ab3d5f339f4d40233
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0781d9fd58e079517b3f3dc8fba06fb448a8fa19
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433671"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494926"
 ---
-# <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Criar uma aplicação do HDInsight de .NET de autenticação não interativa
-Pode executar a aplicação do Microsoft .NET do Azure HDInsight sob a identidade da aplicação (não interativa) ou sob a identidade do utilizador com sessão iniciada a aplicação (interativa). Este artigo mostra-lhe como criar uma aplicação .NET para ligar ao Azure e gerir o HDInsight de autenticação não interativa. Para obter um exemplo de uma aplicação interativa, veja [ligue-se ao Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
+# <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Criar um aplicativo .NET HDInsight de autenticação não interativa
+Você pode executar o aplicativo Microsoft .NET Azure HDInsight na própria identidade do aplicativo (não interativo) ou sob a identidade do usuário conectado do aplicativo (interativo). Este artigo mostra como criar um aplicativo .NET de autenticação não interativa para se conectar ao Azure e gerenciar o HDInsight. Para obter uma amostra de um aplicativo interativo, consulte [conectar-se ao Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
 
-Desde a sua aplicação .NET não interativa, terá de:
+Em seu aplicativo .NET não interativo, você precisa de:
 
-* O ID de inquilino da subscrição do Azure (também chamado de um *ID de diretório*). Ver [obter ID de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
-* O ID de cliente de aplicação do Azure Active Directory (Azure AD). Ver [criar uma aplicação do Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) e [obter um ID de aplicação](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
-* Chave secreta da aplicação do Azure AD. Ver [chave de autenticação da aplicação de Get](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* Sua ID de locatário de assinatura do Azure (também chamada de *ID de diretório*). Consulte [obter ID do locatário](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* A ID do cliente do aplicativo Azure Active Directory (Azure AD). Consulte [criar um aplicativo Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) e [obter uma ID do aplicativo](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* A chave secreta do aplicativo do Azure AD. Consulte [obter chave de autenticação de aplicativo](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Um cluster do HDInsight. Consulte a [tutorial de introdução](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
+* Cluster HDInsight An. Consulte o [tutorial de introdução](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
-## <a name="assign-a-role-to-the-azure-ad-application"></a>Atribuir uma função de aplicação do Azure AD
-Atribuir a aplicação do Azure AD uma [função](../role-based-access-control/built-in-roles.md), para conceder permissão para efetuar ações. Pode definir o âmbito no nível da subscrição, no grupo de recursos ou ao recurso. As permissões são herdadas para níveis inferiores de âmbito. (Por exemplo, adicionar uma aplicação à função do leitor para um grupo de recursos significa que o aplicativo pode ler o grupo de recursos e todos os recursos no mesmo.) Neste artigo, é possível definir o âmbito ao nível do grupo de recursos. Para obter mais informações, consulte [utilize atribuições de funções para gerir o acesso aos recursos da sua subscrição do Azure](../role-based-access-control/role-assignments-portal.md).
+## <a name="assign-a-role-to-the-azure-ad-application"></a>Atribuir uma função ao aplicativo do Azure AD
+Atribua um aplicativo do Azure AD a uma [função](../role-based-access-control/built-in-roles.md), para conceder a ele permissões para executar ações. Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissões são herdadas para níveis inferiores de escopo. (Por exemplo, adicionar um aplicativo à função leitor para um grupo de recursos significa que o aplicativo pode ler o grupo de recursos e todos os recursos nele.) Neste artigo, você define o escopo no nível do grupo de recursos. Para obter mais informações, consulte [usar atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md).
 
-**Para adicionar a função de proprietário para a aplicação do Azure AD**
+**Para adicionar a função de proprietário ao aplicativo do Azure AD**
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 2. No menu à esquerda, selecione **Grupos de recursos**.
-3. Selecione o grupo de recursos que tem o cluster de HDInsight no qual irá executar sua consulta do Hive neste artigo. Se tiver um grande número de grupos de recursos, pode utilizar o filtro para encontrar aquele que pretende.
-4. No menu de grupo de recursos, selecione **controlo de acesso (IAM)** .
-5. Selecione o **atribuições de funções** guia para ver as atribuições de função atual.
-6. Na parte superior da página, selecione **adicionar atribuição de função**.
-7. Siga as instruções para adicionar a função de proprietário para a sua aplicação do Azure AD. Depois de adicionar a função com êxito, o aplicativo está listado em função de proprietário. 
+3. Selecione o grupo de recursos que tem o cluster HDInsight no qual você executará a consulta do hive posteriormente neste artigo. Se você tiver um grande número de grupos de recursos, poderá usar o filtro para encontrar o que desejar.
+4. No menu do grupo de recursos, selecione **controle de acesso (iam)** .
+5. Selecione a guia **atribuições de função** para ver as atribuições de função atuais.
+6. Na parte superior da página, selecione **Adicionar atribuição de função**.
+7. Siga as instruções para adicionar a função de proprietário ao seu aplicativo do Azure AD. Depois de adicionar a função com êxito, o aplicativo será listado na função proprietário. 
 
-## <a name="develop-an-hdinsight-client-application"></a>Desenvolver uma aplicação de cliente do HDInsight
+## <a name="develop-an-hdinsight-client-application"></a>Desenvolver um aplicativo cliente do HDInsight
 
 1. Crie uma aplicação de consola C#.
-2. Adicione as seguintes [NuGet](https://www.nuget.org/) pacotes:
+2. Adicione os seguintes pacotes [NuGet](https://www.nuget.org/) :
 
         Install-Package Microsoft.Azure.Common.Authentication -Pre
         Install-Package Microsoft.Azure.Management.HDInsight -Pre
@@ -118,7 +118,7 @@ Atribuir a aplicação do Azure AD uma [função](../role-based-access-control/b
     ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Criar um Azure Active Directory principal de aplicações e serviço no portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md).
-* Saiba como [autenticar um principal de serviço com o Azure Resource Manager](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
-* Saiba mais sobre [controlo de acesso baseado em função do Azure (RBAC)](../role-based-access-control/role-assignments-portal.md).
+## <a name="next-steps"></a>Passos seguintes
+* [Crie um aplicativo Azure Active Directory e uma entidade de serviço no portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md).
+* Saiba como [autenticar uma entidade de serviço com o Azure Resource Manager](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+* Saiba mais sobre o [RBAC (controle de acesso baseado em função) do Azure](../role-based-access-control/role-assignments-portal.md).

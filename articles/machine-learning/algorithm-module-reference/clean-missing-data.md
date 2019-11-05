@@ -1,24 +1,24 @@
 ---
 title: 'Limpar dados ausentes: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo limpar dados ausentes no serviço de Azure Machine Learning para remover, substituir ou inferir valores ausentes.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo limpar dados ausentes no Azure Machine Learning para remover, substituir ou inferir valores ausentes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 7167d53cce2c44f754f438753acda008e53bb2b3
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: fef8cb0c29eac4b26b93abee54faa4fe1078678d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693204"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493810"
 ---
 # <a name="clean-missing-data-module"></a>Limpar módulo de dados ausentes
 
-Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para remover, substituir ou inferir valores ausentes. 
 
@@ -133,8 +133,8 @@ Se você precisar repetir as operações de limpeza com frequência, recomendamo
   
 2.  Adicione o DataSet que você deseja limpar e conecte o conjunto de dados à porta de entrada à direita.  
   
-3.  Expanda o grupo **transformações** no painel esquerdo da interface. Localize a transformação salva e arraste-a para o pipeline.  
-  
+3.  Expanda o grupo **transformações** no painel esquerdo do designer. Localize a transformação salva e arraste-a para o pipeline.  
+
 4.  Conecte a transformação salva à porta de entrada à esquerda de [aplicar transformação](./apply-transformation.md). 
 
     Ao aplicar uma transformação salva, não é possível selecionar as colunas às quais a transformação é aplicada. Isso ocorre porque a transformação já foi definida e se aplica automaticamente às colunas especificadas na operação original.
@@ -145,4 +145,4 @@ Se você precisar repetir as operações de limpeza com frequência, recomendamo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

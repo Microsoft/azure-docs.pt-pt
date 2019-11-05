@@ -1,24 +1,25 @@
 ---
-title: Referência rápida para o Azure SQL Data Warehouse | Microsoft Docs
-description: Encontre ligações e melhores práticas para criar rapidamente as suas soluções do Azure SQL Data Warehouse.
+title: Roteiro para o Azure Synapse Analytics (anteriormente conhecido como SQL DW) | Microsoft Docs
+description: Encontre links e práticas recomendadas para criar rapidamente suas soluções do Azure Synapse Analytics (anteriormente conhecido como SQL DW).
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 08/23/2019
+ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1bbb0148e6f4be2afc777960afcda9c727328206
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: be5e8952ddfc6cb831b87f880bc281d6ceb2ba3d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195057"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492266"
 ---
-# <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Referência rápida do Azure SQL Data Warehouse
-Esta referência rápida disponibiliza sugestões e melhores práticas úteis para criar as suas soluções do Azure SQL Data Warehouse. Antes de começar, saiba mais sobre cada passo detalhadamente em [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Padrões e Antipadrões de Cargas de Trabalho do Azure SQL Data Warehouse), que explica do que se trata e não se trata o SQL Data Warehouse.
+# <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Roteiro para o Azure Synapse Analytics (anteriormente conhecido como SQL DW)
+
+Esta folha de consulta fornece dicas úteis e práticas recomendadas para a criação de soluções de Synapse do Azure. 
 
 O gráfico seguinte mostra o processo de estruturação de um armazém de dados:
 
@@ -35,7 +36,7 @@ Saber os tipos de operações antecipadamente ajuda-o a otimizar o design das ta
 
 ## <a name="data-migration"></a>Migração de dados
 
-Primeiro, carregue seus dados no [Azure data Lake Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) ou no armazenamento de BLOBs do Azure. Em seguida, utilize o PolyBase para carregar os dados para o SQL Data Warehouse numa tabela de teste. Utilize a seguinte configuração:
+Primeiro, carregue seus dados no [Azure data Lake Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) ou no armazenamento de BLOBs do Azure. Em seguida, use o polybase para carregar seus dados em tabelas de preparo. Utilize a seguinte configuração:
 
 | Design | Recomendação |
 |:--- |:--- |
@@ -50,7 +51,7 @@ Saiba mais sobre a [migração de dados], o [carregamento de dados] e o [process
 
 Utilize as seguintes estratégias, consoante as propriedades da tabela:
 
-| Type | Excelente opção para...| Tenha atenção se...|
+| Tipo | Excelente opção para...| Tenha atenção se...|
 |:--- |:--- |:--- |
 | Replicada | • Tabelas de pequenas dimensões num esquema em estrela com menos de 2 GB de armazenamento após compressão (compressão ~5x) |• Muitas transações de escrita na tabela (como inserir, upsert, eliminar, atualizar)<br></br>• Altera o aprovisionamento de Unidades do Data Warehouse (DWU) frequentemente<br></br>• Utiliza apenas 2 a 3 colunas, mas a tabela tem muitas colunas<br></br>•  Indexa uma tabela replicada |
 | Round Robin (predefinição) | • Tabela temporária/de teste<br></br> • Sem chave de associação óbvia ou coluna boa candidata |•   O desempenho é lento devido ao movimento de dados |
@@ -70,7 +71,7 @@ Saiba mais sobre as [tabelas replicadas] e as [tabelas distribuídas].
 
 A indexação é útil para ler as tabelas rapidamente. Com base nas suas necessidades, pode utilizar um conjunto único de tecnologias:
 
-| Type | Excelente opção para... | Tenha atenção se...|
+| Tipo | Excelente opção para... | Tenha atenção se...|
 |:--- |:--- |:--- |
 | Área dinâmica para dados | • Tabela de teste/temporária<br></br>• Tabelas pequenas com pesquisas pequenas |• Qualquer pesquisa procura na tabela inteira |
 | Índice em cluster | • Tabelas com até 100 milhões de linhas<br></br>• Tabelas grandes (mais de 100 milhões de linhas) com apenas 1 a 2 colunas muito utilizadas |•  Utilizado em tabelas replicadas<br></br>•    Tem consultas complexas que envolvem várias operações de associação e Agrupar Por<br></br>•  Faz atualizações nas colunas indexadas: requer memória |
@@ -98,28 +99,28 @@ Saiba mais sobre as [partições].
 
 Se pretender carregar os seus dados de forma incremental, comece por garantir que aloca mais classes de recursos ao carregamento.  Isso é particularmente importante ao carregar em tabelas com índices columnstore clusterizados.  Consulte [classes de recurso](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) para obter mais detalhes.  
 
-Recomendamos utilizar o PolyBase e o ADF V2 para automatizar os seus pipelines de ELT no SQL Data Warehouse.
+É recomendável usar o polybase e o ADF v2 para automatizar seus pipelines ELT em seu data warehouse.
 
 Para um grande lote de atualizações em seus dados históricos, considere usar um [CTAS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) para gravar os dados que você deseja manter em uma tabela em vez de usar INSERT, Update e Delete.
 
 ## <a name="maintain-statistics"></a>Manter as estatísticas
- Enquanto as estatísticas automáticas não estiverem em disponibilidade geral, a manutenção de estatísticas no SQL Data Warehouse tem de ser feita manualmente. É importante atualizar as estatísticas à medida que ocorrem alterações *significativas* nos seus dados. As atualizações ajudam a otimizar os planos de consultas. Se achar que manter todas as estatísticas demora muito tempo, seja mais seletivo quanto às colunas que as têm. 
+ Até que as estatísticas automáticas estejam geralmente disponíveis, a manutenção manual de estatísticas é necessária. É importante atualizar as estatísticas à medida que ocorrem alterações *significativas* nos seus dados. As atualizações ajudam a otimizar os planos de consultas. Se achar que manter todas as estatísticas demora muito tempo, seja mais seletivo quanto às colunas que as têm. 
 
 Também pode definir a frequência das atualizações. Por exemplo, poderá querer atualizar as colunas de data, onde podem ser adicionados novos valores diariamente. Vai beneficiar mais com estatísticas em colunas envolvidas em associações, colunas utilizadas na cláusula WHERE e colunas que se encontram em GROUP BY.
 
 Saiba mais sobre as [estatísticas].
 
 ## <a name="resource-class"></a>Classe de recursos
-O SQL Data Warehouse utiliza grupos de recursos como uma forma de alocar memória para consultas. Se precisar de mais memória para melhorar a velocidade das consultas ou do carregamento, deve alocar mais classes de recursos. Como contrapartida, a utilização de classes de recursos maiores afeta a simultaneidade. É preciso ter este facto em conta antes de mudar todos os utilizadores para uma classe de recursos grande.
+Os grupos de recursos são usados como uma maneira de alocar memória para consultas. Se precisar de mais memória para melhorar a velocidade das consultas ou do carregamento, deve alocar mais classes de recursos. Como contrapartida, a utilização de classes de recursos maiores afeta a simultaneidade. É preciso ter este facto em conta antes de mudar todos os utilizadores para uma classe de recursos grande.
 
 Se reparar em que as consultas demoram demasiado tempo, confirme se os utilizadores não são executados em classes de recursos grandes. Estas classes consomem muitos blocos de simultaneidade e podem fazer com que outras consultas sejam colocadas em fila.
 
-Por fim, ao utilizar o Gen2 do SQL Data Warehouse, cada classe de recursos obtém 2,5 vezes mais memória do que no Gen1.
+Por fim, usando Gen2 do [pool SQL](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse), cada classe de recurso recebe 2,5 vezes mais memória que Gen1.
 
 Saiba mais como trabalhar com [classes de recursos e a simultaneidade].
 
 ## <a name="lower-your-cost"></a>Reduza os custos
-Uma das principais funcionalidades do SQL Data Warehouse é a capacidade de [gerir os recursos de computação](sql-data-warehouse-manage-compute-overview.md). Pode pôr o armazém de dados em pausa quando não está a utilizá-lo, o que para a faturação dos recursos de computação. Pode dimensionar os recursos para satisfazer as suas necessidades em termos de desempenho. Par pôr em pausa, utilize o [portal do Azure](pause-and-resume-compute-portal.md) ou o [PowerShell](pause-and-resume-compute-powershell.md). Para dimensionar, utilize o [portal do Azure](quickstart-scale-compute-portal.md), o [Powershell](quickstart-scale-compute-powershell.md), o [T-SQL](quickstart-scale-compute-tsql.md) ou uma [API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+Um recurso importante do Azure Synapse é a capacidade de [gerenciar recursos de computação](sql-data-warehouse-manage-compute-overview.md). Você pode pausar o pool do SQL quando não o estiver usando, o que interrompe a cobrança dos recursos de computação. Pode dimensionar os recursos para satisfazer as suas necessidades em termos de desempenho. Par pôr em pausa, utilize o [portal do Azure](pause-and-resume-compute-portal.md) ou o [PowerShell](pause-and-resume-compute-powershell.md). Para dimensionar, utilize o [portal do Azure](quickstart-scale-compute-portal.md), o [Powershell](quickstart-scale-compute-powershell.md), o [T-SQL](quickstart-scale-compute-tsql.md) ou uma [API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Agora, dimensione automaticamente sempre que quiser com as Funções do Azure:
 
@@ -131,9 +132,9 @@ Agora, dimensione automaticamente sempre que quiser com as Funções do Azure:
 
 Recomendamos olhar para a Base de Dados SQL e o Azure Analysis Services numa arquitetura hub-and-spoke. Esta solução pode proporcionar isolamento de cargas de trabalho entre diferentes grupos de utilizadores e utilizar, ao mesmo tempo, funcionalidades avançadas de segurança da Base de Dados SQL e do Azure Analysis Services. Também é uma forma de dar simultaneidade ilimitada aos seus utilizadores.
 
-Saiba mais sobre as [arquiteturas típicas que tiram partido do SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
+Saiba mais sobre as [arquiteturas típicas que tiram proveito do Azure Synapse](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
 
-Implemente com um clique os seus raios nas bases de dados SQL a partir do SQL Data Warehouse:
+Implante em um clique seus spokes em bancos de dados SQL do pool SQL:
 
 <a href="https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwSpokeDbTemplate%2Fazuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>

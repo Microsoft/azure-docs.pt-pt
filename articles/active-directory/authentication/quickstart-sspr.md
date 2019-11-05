@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a863c8fe81a08f00385cb267bf360994918fe82
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 9adf083f8e4c8c269b895dac87b4e4613ec1b023
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212118"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474367"
 ---
-# <a name="quickstart-self-service-password-reset"></a>Início rápido: Reposição personalizada de palavra-passe
+# <a name="quickstart-self-service-password-reset"></a>Início Rápido: Reposição personalizada de palavra-passe
 
 Neste início rápido, vai percorrer a configuração da reposição personalizada de palavra-passe (SSPR) como uma forma simples de os administradores de TI permitirem aos utilizadores repor as palavras-passe ou desbloquear as contas.
 
@@ -26,31 +26,31 @@ Neste início rápido, vai percorrer a configuração da reposição personaliza
 
 * Um inquilino do Azure AD em funcionamento com, pelo menos, uma licença de avaliação ativada.
 * Uma conta com privilégios de Administrador Global.
-* Um usuário de teste que não seja administrador com uma senha que você sabe, se precisar criar um usuário, consulte [o artigo início rápido: Adicione novos usuários a Azure Active Directory](../add-users-azure-active-directory.md).
+* Um utilizador de teste não administrador com uma palavra-passe que conheça. Se precisar de criar um utilizador, veja o artigo [Início Rápido: Adicionar novos utilizadores ao Azure Active Directory](../add-users-azure-active-directory.md).
 * Um grupo piloto para testar do qual o utilizador de teste não administrador seja membro. Se precisar de criar um grupo, veja o artigo [Criar um grupo e adicionar membros no Azure Active Directory](../active-directory-groups-create-azure-portal.md).
 
 ## <a name="enable-self-service-password-reset"></a>Ativar a reposição de palavras-passe self-service
 
 [Exibir este processo como um vídeo no YouTube](https://youtu.be/Pa0eyqjEjvQ)
 
-1. No seu inquilino existente do Azure AD, no **portal do Azure**, em **Azure Active Directory**, selecione **Reposição de palavra-passe**.
+1. No seu locatário existente do Azure AD, no menu portal do Azure ou na **Home** Page, selecione **Azure Active Directory**. Em seguida, selecione **redefinição de senha**.
 
 2. Na página **Propriedades**, na opção **Reposição Personalizada de Palavra-passe Ativada**, selecione **Selecionado**.
     * Em **Grupo**, selecione o grupo piloto criado como parte da secção de pré-requisitos deste artigo.
     * Clique em **Guardar**.
 
 3. Na página **Métodos de autenticação**, selecione o seguinte:
-   * Número de métodos necessários para redefinir: **1**
+   * Número de métodos necessários para a reposição: **1**
    * Métodos disponíveis para os utilizadores:
-      * **e-mail**
+      * **E-mail**
       * **Código do aplicativo móvel (visualização)**
    * Clique em **Guardar**.
 
      ![Escolhendo métodos de autenticação para SSPR][Authentication]
 
 4. Na página **Registo**, selecione as seguintes opções:
-   * Exigir que os usuários se registrem ao entrarem: **Sim**
-   * Defina o número de dias antes que os usuários sejam solicitados a reconfirmar suas informações de autenticação: **365**
+   * Exigir que os utilizadores se registem quando iniciam sessão: **Sim**
+   * Definir o número de dias antes de ser pedido aos utilizadores que voltem a confirmar as informações de autenticação: **365**
 
 ## <a name="test-self-service-password-reset"></a>Testar a reposição personalizada de palavra-passe
 
@@ -65,7 +65,7 @@ Agora, vamos testar a configuração SSPR com um utilizador de teste. Desde que 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-É fácil desativar a reposição de palavras-passe self-service. Abra seu locatário do Azure AD e vá para **Propriedades** > **redefinição de senha**e selecione **nenhum** na **redefinição de senha de autoatendimento habilitada**.
+É fácil desativar a reposição de palavras-passe self-service. Abra seu locatário do Azure AD e vá para **propriedades** > **redefinição de senha**e selecione **nenhum** na **redefinição de senha de autoatendimento habilitada**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

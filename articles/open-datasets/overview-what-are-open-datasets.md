@@ -1,22 +1,22 @@
 ---
 title: O que são conjuntos de valores abertos? Conjuntos de coletados públicos
-titleSuffix: Azure Open Datasets (preview)
-description: Saiba mais sobre os conjuntos de valores abertos do Azure (visualização), conjuntos de informações do domínio público que estão prontos para uso nas soluções de aprendizado de máquina e análise. DataSets incluem dados públicos como clima, censo, feriados e local para ajudá-lo a enriquecer soluções preditivas.
+titleSuffix: Azure Open Datasets
+description: Saiba mais sobre os conjuntos de datas abertos do Azure, conjuntos de datas organizados do domínio público, como clima, censo, feriados e local para enriquecer soluções preditivas.
 ms.service: open-datasets
 ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 0c4bf3143bbf1ceb2f2f3c4a22477daa03690a0e
-ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: b8633bd91abc1f336870158f54d75829ed5cf6a0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70213588"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496594"
 ---
-# <a name="what-are-azure-open-datasets-preview-and-how-can-you-use-them"></a>O que são conjuntos de valores abertos do Azure (versão prévia) e como você pode usá-los?
+# <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>O que são conjuntos de valores abertos do Azure e como você pode usá-los?
 
-Os conjuntos de itens [abertos do Azure](https://azure.microsoft.com/services/open-datasets/) são conjuntos de informações públicos estruturados que você pode usar para adicionar recursos específicos do cenário a soluções de aprendizado de máquina para modelos mais precisos. Os conjuntos de itens abertos estão na nuvem em Microsoft Azure e estão prontamente disponíveis para Azure Databricks, Machine Learning serviço e Machine Learning Studio. Você também pode acessar os conjuntos de os por meio de APIs e usá-los em outros produtos, como Power BI e Azure Data Factory.
+Os conjuntos de itens [abertos do Azure](https://azure.microsoft.com/services/open-datasets/) são conjuntos de informações públicos estruturados que você pode usar para adicionar recursos específicos do cenário a soluções de aprendizado de máquina para modelos mais precisos. Os conjuntos de itens abertos estão na nuvem em Microsoft Azure e são integrados ao Azure Machine Learning e prontamente disponíveis para Azure Databricks e Machine Learning Studio (clássico). Você também pode acessar os conjuntos de os por meio de APIs e usá-los em outros produtos, como Power BI e Azure Data Factory.
 
 DataSets incluem dados de domínio público para clima, censo, feriados, segurança pública e local que ajudam você a treinar modelos de aprendizado de máquina e enriquecer soluções preditivas. Você também pode compartilhar seus conjuntos de valores públicos nos conjuntos de valores abertos do Azure. 
 
@@ -47,7 +47,7 @@ Veja a seguir exemplos de conjuntos de valores disponíveis.
 ## <a name="access-to-datasets"></a>Acesso a conjuntos de os  
 Com uma conta do Azure, você pode acessar conjuntos de valores abertos usando código ou por meio da interface de serviço do Azure. Os dados são colocados com recursos de computação na nuvem do Azure para uso em sua solução de aprendizado de máquina.  
 
-Os conjuntos de dados abertos fornecem Azure Notebooks e Azure Databricks notebooks que você pode usar para conectar dados a Azure Machine Learning serviço e Azure Databricks. Os conjuntos de linhas também podem ser acessados por meio de um SDK do Python. 
+Os conjuntos de itens abertos estão disponíveis por meio da interface do usuário e do SDK do Azure Machine Learning. Os conjuntos de dados abertos também fornecem blocos de anotações Azure Notebooks e Azure Databricks que você pode usar para conectar dados a Azure Machine Learning e Azure Databricks. Os conjuntos de linhas também podem ser acessados por meio de um SDK do Python. 
 
 No entanto, você não precisa de uma conta do Azure para acessar conjuntos de os abertos; Você pode acessá-los de qualquer ambiente Python com ou sem o Spark.
 
@@ -57,5 +57,5 @@ Se você não encontrar os dados desejados, envie-nos um email para [solicitar u
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Bloco de anotações de exemplo](samples.md)
-* [Tutorial: Modelagem de regressão com dados de táxi de NY](tutorial-opendatasets-automl.md)
+* [Tutorial: modelagem de regressão com dados de táxi de NY](tutorial-opendatasets-automl.md)
 * [SDK do Python para conjuntos de valores abertos](/python/api/azureml-opendatasets/?view=azure-ml-py)

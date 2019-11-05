@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: 3c63283a1a13e2deb178a53dfc5045d371d6a28a
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 9dfed5ec14460c3c6213d528f59b86eda15aa1a7
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996928"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520885"
 ---
 # <a name="azure-security-center-data-security"></a>Segurança de Dados do Centro de Segurança do Azure
 Para ajudar os clientes a evitar, detetar e responder a ameaças, o Centro de Segurança do Azure recolhe e processa dados relacionados com segurança, incluindo informações de configuração, metadados, registos de eventos, ficheiros de informação de falha de sistema e mais. A Microsoft respeita diretrizes rigorosas de conformidade e segurança, desde a codificação à operação de um serviço.
@@ -28,22 +28,22 @@ Este artigo explica como os dados são geridos e salvaguardados no Centro de Seg
 ## <a name="data-sources"></a>Origens de dados
 O Centro de Segurança do Azure analisa dados das origens seguintes para proporcionar visibilidade para o estado da segurança, identificar vulnerabilidades e recomendar mitigações e detetar ameaças ativas:
 
-- Serviços do Azure: Usa informações sobre a configuração dos serviços do Azure que você implantou comunicando-se com o provedor de recursos do serviço.
-- Tráfego de rede: Usa metadados de exemplo de tráfego de rede da infraestrutura da Microsoft, como IP/porta de origem/destino, tamanho do pacote e protocolo de rede.
-- Soluções de parceiros: O usa alertas de segurança de soluções de parceiros integradas, como firewalls e soluções antimalware.
-- Suas máquinas virtuais e servidores: O usa informações de configuração e informações sobre eventos de segurança, como logs de eventos e auditoria do Windows, logs do IIS, mensagens de syslog e arquivos de despejo de memória de suas máquinas virtuais. Além disso, quando é criado um alerta, o Centro de Segurança do Azure pode gerar um instantâneo do disco da VM afetada e extrair artefactos da máquina relacionados com o alerta desse disco, como o ficheiro de registo, para fins forenses.
+- Serviços do Azure: utiliza informações sobre a configuração dos serviços do Azure que implementou através da comunicação com o fornecedor de recursos desses serviços.
+- Tráfego de Rede: utiliza metadados de tráfego de rede de amostragem da infraestrutura da Microsoft, tais como porta/IP de origem/destino, tamanho do pacote e protocolo de rede.
+- Soluções de Parceiros: utiliza alertas de segurança das soluções de parceiros integradas, tais como firewalls e soluções antimalware.
+- As suas Máquinas Virtuais e Servidores: utiliza informações de configuração e informações sobre eventos de segurança, tais como eventos do Windows e registos de auditoria, registos do IIS, mensagens do syslog e ficheiros de informação de falha de sistema das suas máquinas virtuais. Além disso, quando é criado um alerta, o Centro de Segurança do Azure pode gerar um instantâneo do disco da VM afetada e extrair artefactos da máquina relacionados com o alerta desse disco, como o ficheiro de registo, para fins forenses.
 
 
 ## <a name="data-protection"></a>Proteção de dados
-**Segregação de dados**: Os dados são mantidos separados logicamente em cada componente em todo o serviço. Todos os dados são etiquetados por organização. Este tipo de etiquetagem persiste por todo o ciclo de vida dos dados e é imposto em cada camada do serviço.
+**Segregação de dados**: os dados são mantidos separados de forma lógica em cada componente em todo o serviço. Todos os dados são etiquetados por organização. Este tipo de etiquetagem persiste por todo o ciclo de vida dos dados e é imposto em cada camada do serviço.
 
-**Acesso a dados**: Para fornecer recomendações de segurança e investigar possíveis ameaças de segurança, o pessoal da Microsoft pode acessar as informações coletadas ou analisadas pelos serviços do Azure, incluindo arquivos de despejo de memória, eventos de criação de processos, instantâneos de disco de VM e artefatos, que pode incluir involuntariamente dados do cliente ou dados pessoais de suas máquinas virtuais. Respeitamos os [Termos e a Declaração de Privacidade do Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), os quais estipulam que a Microsoft não utilizará Dados do Cliente ou derivará informações dos mesmos para qualquer fim publicitário ou comercial semelhante. Apenas utilizamos os Dados do Cliente conforme necessário para lhe fornecer os serviços do Azure, incluindo fins compatíveis com o fornecimento desses serviços. O utilizador retém todos os direitos sobre os Dados do Cliente.
+**Acesso a dados**: para disponibilizar recomendações de segurança e investigar potenciais ameaças de segurança, os técnicos da Microsoft podem aceder a informações recolhidas ou analisadas pelos serviços do Azure, incluindo ficheiros de informação de falha de sistema, eventos de criação de processos, instantâneos e artefactos do disco da VM, que pode incluir, de forma não intencional, Dados do Cliente ou dados pessoais das suas máquinas virtuais. Respeitamos os [Termos e a Declaração de Privacidade do Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), os quais estipulam que a Microsoft não utilizará Dados do Cliente ou derivará informações dos mesmos para qualquer fim publicitário ou comercial semelhante. Apenas utilizamos os Dados do Cliente conforme necessário para lhe fornecer os serviços do Azure, incluindo fins compatíveis com o fornecimento desses serviços. O utilizador retém todos os direitos sobre os Dados do Cliente.
 
-**Uso de dados**: A Microsoft usa padrões e inteligência contra ameaças vistos em vários locatários para aprimorar nossos recursos de prevenção e detecção; fazemos isso de acordo com os compromissos de privacidade descritos em nossa [política de privacidade](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
+**Utilização de dados**: a Microsoft utiliza os padrões e as informações sobre ameaças presentes em vários inquilinos para melhorar as nossas capacidades de prevenção e deteção. Fazemo-lo em conformidade com os compromissos de privacidade descritos na nossa [Declaração de Privacidade](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 
-## <a name="data-location"></a>Localização de dados
+## <a name="data-location"></a>Localização dos dados
 
-**Seus espaços de trabalho**: Um espaço de trabalho é especificado para os seguintes áreas geográficas, e os dados coletados de suas máquinas virtuais do Azure, incluindo despejos de memória, e alguns tipos de dados de alerta, são armazenados no espaço de trabalho mais próximo.
+**As suas Áreas de Trabalho**: uma área de trabalho é especificada para as seguintes Áreas Geográficas e os dados recolhidos das suas máquinas virtuais do Azure, incluindo informações de falhas e alguns tipos de dados de alerta, são armazenados na área de trabalho mais próxima.
 
 | Área Geográfica da VM                              | Área Geográfica da Área de Trabalho |
 |-------------------------------------|---------------|
@@ -63,7 +63,7 @@ Instantâneos de disco da VM são armazenados na mesma conta de armazenamento co
 
 Para máquinas virtuais e servidores em execução noutros ambientes, por exemplo, no local, pode especificar a área de trabalho e a região onde são armazenados os dados recolhidos.
 
-**Armazenamento da central de segurança do Azure**: As informações sobre alertas de segurança, incluindo alertas de parceiros, são armazenadas de forma regional, de acordo com o local do recurso relacionado do Azure, enquanto as informações sobre o status de integridade da segurança e a recomendação são armazenadas centralmente no Estados Unidos ou Europa de acordo com o local do cliente.
+**Armazenamento do Centro de Segurança do Azure**: as informações sobre alertas de segurança, incluindo alertas de parceiros, são armazenadas regionalmente de acordo com a localização do recurso do Azure relacionado, enquanto que as informações sobre o estado de funcionamento de segurança e recomendações são armazenadas centralmente nos Estados Unidos ou na Europa, em conformidade com a localização do cliente.
 O Centro de Segurança do Azure recolhe cópias efémeras dos ficheiros de informação de falha de sistema e analisa-as para encontrar sinais de tentativas de exploração e casos em que a segurança tenha sido comprometida. O Centro de Segurança do Azure faz esta análise na mesma Geografia que a área de trabalho e elimina as cópias efémeras quando a análise estiver concluída.
 
 Os artefactos das máquinas são armazenados centralmente na mesma região que as VMs.
@@ -87,7 +87,7 @@ Os clientes podem consumir dados relacionados com o Centro de Segurança a parti
 > [!NOTE]
 > As recomendações de segurança também podem ser consumidas pela API REST. Leia [Security Resource Provider REST API Reference (Referência da API REST do Fornecedor de Recursos de Segurança)](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx) para obter mais informações.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consultar também
 Através deste documento aprendeu como os dados são geridos e salvaguardados no Centro de Segurança do Azure. Para saber mais acerca do Centro de Segurança do Azure, veja:
 
 * [Guia de Operações e Planeamento do Centro de Segurança do Azure](security-center-planning-and-operations-guide.md) – Saiba como planear e compreender as considerações de conceção para adoção do Centro de Segurança do Azure.

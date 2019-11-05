@@ -9,20 +9,21 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/08/2019
-ms.openlocfilehash: 27988edaf9d6fe70288352b0ba45945e32976d4d
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 10/25/2019
+ms.openlocfilehash: 6590b6c3ecf1efc43822a4fefab79cdc7f624dcd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034633"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496984"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implantar um modelo em instâncias de contêiner do Azure
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Saiba como usar Azure Machine Learning para implantar um modelo como um serviço Web em ACI (instâncias de contêiner do Azure). Use as instâncias de contêiner do Azure se uma das seguintes condições for verdadeira:
 
-- Precisa implementar e validar o seu modelo rapidamente. Você não precisa criar contêineres ACI antes do tempo. Eles são criados como parte do processo de implantação.
-- Está a testar um modelo que está em desenvolvimento. 
+- Você precisa implantar e validar rapidamente seu modelo. Você não precisa criar contêineres ACI antes do tempo. Eles são criados como parte do processo de implantação.
+- Você está testando um modelo que está em desenvolvimento. 
 
 Para obter informações sobre a disponibilidade de cota e região para ACI, consulte o artigo [cotas e disponibilidade de região para instâncias de contêiner do Azure](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) .
 
@@ -36,13 +37,13 @@ Para obter informações sobre a disponibilidade de cota e região para ACI, con
 
 - Os trechos de código __Python__ neste artigo pressupõem que as seguintes variáveis sejam definidas:
 
-    * `ws`-Defina para seu espaço de trabalho.
-    * `model`-Defina para o modelo registrado.
-    * `inference_config`– Defina para a configuração de inferência para o modelo.
+    * `ws`-defina para seu espaço de trabalho.
+    * `model`-defina para seu modelo registrado.
+    * `inference_config`-defina como a configuração de inferência para o modelo.
 
     Para obter mais informações sobre como definir essas variáveis, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
-- Os trechos de código da __CLI__ neste artigo pressupõem que você `inferenceconfig.json` criou um documento. Para obter mais informações sobre como criar este documento, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
+- Os trechos de código da __CLI__ neste artigo pressupõem que você criou um documento `inferenceconfig.json`. Para obter mais informações sobre como criar este documento, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
 ## <a name="deploy-to-aci"></a>Implementar para ACI
 
@@ -68,7 +69,7 @@ Para obter mais informações sobre as classes, os métodos e os parâmetros usa
 
 ### <a name="using-the-cli"></a>Usando a CLI
 
-Para implantar usando a CLI, use o comando a seguir. Substituir `mymodel:1` pelo nome e versão do modelo registrado. Substitua `myservice` pelo nome para fornecer este serviço:
+Para implantar usando a CLI, use o comando a seguir. Substitua `mymodel:1` pelo nome e versão do modelo registrado. Substitua `myservice` pelo nome para fornecer este serviço:
 
 ```azurecli-interactive
 az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
@@ -85,15 +86,15 @@ Consulte [implantar seus modelos com vs Code](how-to-vscode-tools.md#deploy-and-
 > [!IMPORTANT]
 > Você não precisa criar um contêiner ACI para testar com antecedência. Os contêineres ACI são criados conforme necessário.
 
-## <a name="update-the-web-service"></a>Atualizar o serviço web
+## <a name="update-the-web-service"></a>Atualizar o serviço Web
 
 [!INCLUDE [aml-update-web-service](../../../includes/machine-learning-update-web-service.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como implantar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Solução de problemas de implantação](how-to-troubleshoot-deployment.md)
-* [Proteger serviços da web do Azure Machine Learning com SSL](how-to-secure-web-service.md)
-* [Consumir um modelo de ML implementado como um serviço web](how-to-consume-web-service.md)
+* [Proteger Azure Machine Learning serviços Web com SSL](how-to-secure-web-service.md)
+* [Consumir um modelo de ML implantado como um serviço Web](how-to-consume-web-service.md)
 * [Monitore seus modelos de Azure Machine Learning com Application Insights](how-to-enable-app-insights.md)
 * [Coletar dados para modelos em produção](how-to-enable-data-collection.md)

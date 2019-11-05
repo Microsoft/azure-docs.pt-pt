@@ -1,24 +1,24 @@
 ---
 title: 'Remover linhas duplicadas: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo remover linhas duplicadas no serviço Azure Machine Learning para remover duplicatas potenciais de um conjunto de informações.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo remover linhas duplicadas no Azure Machine Learning para remover duplicatas potenciais de um conjunto de informações.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 8b3f73c56d85eecd50633085eca0e632abaa6b4c
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: a0faba895c5717d061bacee2ce724c20464f8150
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693671"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497703"
 ---
 # <a name="remove-duplicate-rows-module"></a>Remover o módulo de linhas duplicadas
 
-Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para remover duplicatas potenciais de um conjunto de uma.
 
@@ -78,4 +78,4 @@ Quando você executa o módulo, ele cria um conjunto de registros candidato e re
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

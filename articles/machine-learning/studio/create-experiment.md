@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: Criar um experimento de ciência de dados'
-titleSuffix: Azure Machine Learning Studio
+title: 'Início rápido: criar um experimento de ciência de dados'
+titleSuffix: Azure Machine Learning Studio (classic)
 description: Este guia de início rápido do Machine Learning orienta você por um experimento de ciência de dados fácil. Vamos prever o preço de um carro através de um algoritmo de regressão.
 services: machine-learning
 ms.service: machine-learning
@@ -10,16 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: e5c004b69f24b50ed2eb3a10dbd0a7915c0773ce
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: c95954bbe96b947312a952ebaab4e6bfc2b2f5a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515117"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493285"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Início rápido: Crie seu primeiro experimento de ciência de dados no Azure Machine Learning Studio
+# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Início rápido: criar seu primeiro experimento de ciência de dados no Azure Machine Learning Studio (clássico)
 
-Neste guia de início rápido, você cria um experimento de aprendizado de máquina em [Azure Machine Learning Studio](what-is-ml-studio.md) que prevê o preço de um carro com base em variáveis diferentes, como make e especificações técnicas.
+[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
+
+Neste guia de início rápido, você cria um experimento de aprendizado de máquina no [Azure Machine Learning Studio (clássico)](what-is-ml-studio.md) que prevê o preço de um carro com base em variáveis diferentes, como make e especificações técnicas.
 
 Se você é novo no Machine Learning, a série de vídeos [ciência de dados para iniciantes](data-science-for-beginners-the-5-questions-data-science-answers.md) é uma excelente introdução ao aprendizado de máquina usando linguagem e conceitos cotidianos.
 
@@ -40,26 +42,24 @@ Este guia de início rápido segue o fluxo de trabalho padrão para um experimen
 [Escolher e aplicar um algoritmo]: #choose-and-apply-an-algorithm
 [Prever novos preços de automóvel]: #predict-new-automobile-prices
 
-Se você não tiver uma conta do estúdio, vá para a [página inicial do estúdio](https://studio.azureml.net) e selecione **inscrever-se aqui** para criar uma conta gratuita. O espaço de trabalho gratuito terá todos os recursos necessários para este guia de início rápido.
-
 ## <a name="get-the-data"></a>Obter os dados
 
 A primeira coisa que você precisa no aprendizado de máquina são os dados.
-Há vários conjuntos de dados de exemplo incluídos no estúdio que você pode usar ou pode importar dados de várias fontes. Neste exemplo, vamos utilizar o conjunto de dados de exemplo, **Automobile price data (Raw) (Dados de preços de automóveis (não processados))** , que está incluído na sua área de trabalho.
+Há vários conjuntos de dados de exemplo incluídos na versão clássica do estúdio que você pode usar, ou você pode importar dados de várias fontes. Neste exemplo, vamos utilizar o conjunto de dados de exemplo, **Automobile price data (Raw) (Dados de preços de automóveis (não processados))** , que está incluído na sua área de trabalho.
 Este conjunto de dados inclui entradas para vários automóveis individuais, incluindo informações como a marca, o modelo, as especificações técnicas e o preço.
 
 > [!TIP]
-> Pode encontrar uma cópia de trabalho da experimentação seguinte na [Galeria de IA do Azure](https://gallery.azure.ai). Aceda a **[Your first data science experiment - Automobile price prediction (A sua primeira experimentação de ciência de dados - Previsão do preço de automóveis)](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** e clique em **Open in Studio (Abrir no Studio)** para transferir uma cópia da experimentação para a sua área de trabalho do Machine Learning Studio.
+> Pode encontrar uma cópia de trabalho da experimentação seguinte na [Galeria de IA do Azure](https://gallery.azure.ai). Vá para **[seu primeiro experimento de ciência de dados – previsão de preço de automóvel](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** e clique em **abrir no estúdio** para baixar uma cópia do experimento em seu espaço de trabalho Machine Learning Studio (clássico).
 
 Eis como obter o conjunto de dados na sua experimentação.
 
-1. Crie um novo experimento clicando em **+ novo** na parte inferior da janela de Machine Learning Studio. Selecione experimento**em branco**teste.  >  
+1. Crie um novo experimento clicando em **+ novo** na parte inferior da janela Machine Learning Studio (clássica). Selecione **experimento** >  **experimento em branco**.
 
 1. É dado um nome predefinido à experimentação, que pode ver na parte superior da tela. Selecione este texto e mude o nome para algo significativo, como, por exemplo, **Previsão de preços de automóveis**. O nome não tem de ser exclusivo.
 
     ![Mude o nome da experimentação](./media/create-experiment/rename-experiment.png)
 
-1. À esquerda da tela da experimentação existe uma paleta de conjuntos de dados e módulos. Digite **automóvel** na caixa de pesquisa na parte superior desta paleta para localizar o conjunto de dados denominado **Dados de preços de automóveis (não processados)** . Arraste este conjunto de dados para a tela da experimentação.
+1. À esquerda da tela da experimentação existe uma paleta de conjuntos de dados e módulos. Digite **automóvel** na caixa de pesquisa na parte superior desta paleta para localizar o conjunto de dados denominado **Dados do preço automóvel (bruto)** . Arraste este conjunto de dados para a tela da experimentação.
 
     ![Localize o conjunto de um automóvel e arraste-o para a tela do experimento](./media/create-experiment/type-automobile.png)
 
@@ -223,11 +223,11 @@ Para exibir a saída do módulo [modelo de avaliação][evaluate-model] , clique
 
 As estatísticas seguintes são apresentadas para o nosso modelo:
 
-- **Erro de média absoluta** (MAE): A média de erros absolutos (um *erro* é a diferença entre o valor previsto e o valor real).
-- **Erro ao quadrado da média raiz** (RMSE): A raiz quadrada da média de erros quadrados de previsões feitas no conjunto de testes.
-- **Erro absoluto relativo**: A média de erros absolutos em relação à diferença absoluta entre os valores reais e a média de todos os valores reais.
-- **Erro de quadrado relativo**: A média de erros quadrados em relação à diferença quadrada entre os valores reais e a média de todos os valores reais.
-- **Coeficiente de determinação**: Também conhecido como o **valor de R quadrado**, essa é uma métrica estatística que indica o quão bem um modelo se ajusta aos dados.
+- **Média dos erros absolutos** (MAE): A média dos erros absolutos (um *erro* é a diferença entre o valor previsto e o valor real).
+- **Raiz quadrada da média dos erros** (RMSE): A raiz quadrada da média dos erros ao quadrado das predições efetuadas no conjunto de dados de teste.
+- **Erro relativo absoluto**: A média dos erros absolutos relativos à diferença absoluta entre os valores reais e a média de todos os valores reais.
+- **Erro ao quadrado absoluto**: A média dos erros ao quadrado relativos à diferença ao quadrado entre os valores reais e a média de todos os valores reais.
+- **Coeficiente de determinação**: Também conhecido como o **valor de R ao quadrado**, esta é uma métrica de estatística que indica o quão bem um modelo é adequado para os dados.
 
 Em cada uma das estatísticas de erros, quanto mais pequeno, melhor. Um valor mais pequeno indica que as predições mais detalhadas correspondem aos valores reais. No **Coeficiente de determinação**, quanto mais próximo for um valor de outro (1.0), melhores serão as predições.
 
@@ -235,12 +235,12 @@ Em cada uma das estatísticas de erros, quanto mais pequeno, melhor. Um valor ma
 
 [!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você criou um experimento simples usando um conjunto de exemplo. Para explorar o processo de criação e implantação de um modelo com mais detalhes, prossiga para o tutorial de solução preditiva.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Desenvolver uma solução preditiva no estúdio](tutorial-part1-credit-risk.md)
+> [Tutorial: desenvolver uma solução preditiva no estúdio (clássico)](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

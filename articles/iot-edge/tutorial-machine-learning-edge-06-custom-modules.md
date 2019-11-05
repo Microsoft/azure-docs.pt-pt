@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5fa13f209d6f4df0ebd531f803e75cdb657abf5c
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 731abdde2160c16123ed648b5e552e9e62378438
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163119"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493996"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: criar e implantar módulos de IoT Edge personalizados
 
@@ -172,7 +172,7 @@ Em seguida, adicionamos o módulo do roteador à nossa solução. O módulo do r
 4. Quando solicitado a fornecer o repositório de imagens do Docker, use o registro do espaço de trabalho Machine Learning (você pode encontrar o registro no nó registryCredentials do arquivo. *Template. JSON de implantação* ). Esse valor é o endereço totalmente qualificado para o registro, como **\<seu registro\>. azurecr.Io/turbofanrouter**.
 
     > [!NOTE]
-    > Neste artigo, usamos o registro de contêiner do Azure criado pelo espaço de trabalho do Azure Machine Learning Service, que usamos para treinar e implantar nosso classificador. Isso é puramente para conveniência. Poderíamos ter criado um novo registro de contêiner e publicado nossos módulos.
+    > Neste artigo, usamos o registro de contêiner do Azure criado pelo espaço de trabalho Azure Machine Learning, que usamos para treinar e implantar nosso classificador. Isso é puramente para conveniência. Poderíamos ter criado um novo registro de contêiner e publicado nossos módulos.
 
 5. Abra uma nova janela de terminal no Visual Studio Code (**exibir** > **terminal**) e copie os arquivos do diretório modules.
 
@@ -693,7 +693,7 @@ Não queremos rotear os novos dados de previsão para o nosso local de armazenam
 
 6. Selecione **Guardar**.
 
-### <a name="configure-file-upload"></a>Configurar carregamento de ficheiro
+### <a name="configure-file-upload"></a>Configurar o carregamento de ficheiros
 
 Configure o recurso de upload de arquivo do Hub IoT para habilitar o módulo gravador de arquivo para carregar arquivos no armazenamento.
 
@@ -752,7 +752,7 @@ Agora que fizemos as alterações de configuração, estamos prontos para criar 
 
 Depois que a compilação for concluída com êxito, poderáremos usar o portal do Azure para examinar nossos módulos publicados.
 
-1. Na portal do Azure, navegue até o espaço de trabalho do serviço de Azure Machine Learning e clique no hiperlink para o **registro**.
+1. Na portal do Azure, navegue até o espaço de trabalho Azure Machine Learning e clique no hiperlink para o **registro**.
 
     ![Navegar até o registro do espaço de trabalho do serviço de Machine Learning](media/tutorial-machine-learning-edge-06-custom-modules/follow-registry-link.png)
 

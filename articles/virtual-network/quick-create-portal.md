@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: f95174efbffedd09946f5910a39285e7bec062c1
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d8e95f9c345a943eb458800b852640e3f1fde907
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161493"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488494"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Início Rápido: criar uma rede virtual com o Portal do Azure
 
@@ -30,13 +30,15 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
-## <a name="create-a-virtual-network"></a>Criar rede virtual
+## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-1. No lado superior esquerdo da tela, selecione **criar um recurso** > **rede** > **rede virtual**.
+1. No menu portal do Azure, selecione **criar um recurso**.
 
-1. Em **criar rede virtual**, insira ou selecione estas informações:
+2. No Azure Marketplace **, escolha rede** > **rede virtual**.
+
+3. Em **criar rede virtual**, insira ou selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
@@ -48,7 +50,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
     | Nome da sub-rede | Insira *myVirtualSubnet*. |
     | Sub-rede - Intervalo de endereços | Insira *10.1.0.0/24*. |
 
-1. Deixe o restante como padrão e selecione **criar**.
+4. Deixe o restante como padrão e selecione **criar**.
 
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
@@ -56,9 +58,11 @@ Crie duas VMs na rede virtual:
 
 ### <a name="create-the-first-vm"></a>Criar a primeira VM
 
-1. No lado superior esquerdo da tela, selecione **criar um recurso** > **computação** > **Windows Server 2019 datacenter**.
+1. No menu portal do Azure, selecione **criar um recurso**.
 
-1. Em **criar uma máquina virtual-noções básicas**, insira ou selecione estas informações:
+2. No Azure Marketplace, selecione **computação** > **Windows Server 2019 datacenter**.
+
+3. Em **criar uma máquina virtual-noções básicas**, insira ou selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
@@ -80,11 +84,11 @@ Crie duas VMs na rede virtual:
     | **ECONOMIZE DINHEIRO** |  |
     | Já tem uma licença do Windows? | Deixe o padrão **não**. |
 
-1. Selecione **Avançar: discos**.
+4. Selecione **Avançar: discos**.
 
-1. Em **criar uma máquina virtual-discos**, deixe os padrões e selecione **Avançar: rede**.
+5. Em **criar uma máquina virtual-discos**, deixe os padrões e selecione **Avançar: rede**.
 
-1. Em **criar uma máquina virtual-rede**, selecione estas informações:
+6. Em **criar uma máquina virtual-rede**, selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
@@ -94,11 +98,11 @@ Crie duas VMs na rede virtual:
     | Portas de entrada públicas | Selecione **permitir portas selecionadas**. |
     | Selecionar portas de entrada | Selecione **http** e **RDP**.
 
-1. Selecione **Avançar: gerenciamento**.
+7. Selecione **Avançar: gerenciamento**.
 
-1. Em **criar uma máquina virtual-gerenciamento**, para **conta de armazenamento de diagnóstico**, selecione **criar novo**.
+8. Em **criar uma máquina virtual-gerenciamento**, para **conta de armazenamento de diagnóstico**, selecione **criar novo**.
 
-1. Em **criar conta de armazenamento**, insira ou selecione estas informações:
+9. Em **criar conta de armazenamento**, insira ou selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
@@ -107,11 +111,11 @@ Crie duas VMs na rede virtual:
     | Desempenho | Deixe o **padrão**padrão. |
     | Replicação | Deixe o **armazenamento padrão com redundância local (LRS)** . |
 
-1. Selecione **OK**
+10. Selecione **OK**
 
-1. Selecione **Rever + criar**. Você é levado para a página **revisar + criar** , na qual o Azure valida sua configuração.
+11. Selecione **Rever + criar**. Você é levado para a página **revisar + criar** , na qual o Azure valida sua configuração.
 
-1. Quando você vir a mensagem **validação aprovada** , selecione **criar**.
+12. Quando você vir a mensagem **validação aprovada** , selecione **criar**.
 
 ### <a name="create-the-second-vm"></a>Criar a segunda VM
 
@@ -122,9 +126,9 @@ Crie duas VMs na rede virtual:
     >
     > Na etapa 7, para **conta de armazenamento de diagnóstico**, certifique-se de selecionar **myvmstorageaccount**.
 
-1. Selecione **Rever + criar**. Você é levado para a página **revisar + criar** e o Azure valida sua configuração.
+2. Selecione **Rever + criar**. Você é levado para a página **revisar + criar** e o Azure valida sua configuração.
 
-1. Quando você vir a mensagem **validação aprovada** , selecione **criar**.
+3. Quando você vir a mensagem **validação aprovada** , selecione **criar**.
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ligar a uma VM a partir da Internet
 
@@ -132,34 +136,34 @@ Depois de criar o *myVm1*, conecte-se à Internet.
 
 1. Na barra de pesquisa do portal, insira *myVm1*.
 
-1. Selecione o botão **Ligar**.
+2. Selecione o botão **Ligar**.
 
     ![Ligar a uma máquina virtual](./media/quick-create-portal/connect-to-virtual-machine.png)
 
     Depois de selecionar o botão **conectar** , **Conecte-se à máquina virtual** é aberto.
 
-1. Selecione **baixar arquivo RDP**. O Azure cria um arquivo protocolo RDP ( *. rdp*) e o baixa em seu computador.
+3. Selecione **baixar arquivo RDP**. O Azure cria um arquivo protocolo RDP ( *. rdp*) e o baixa em seu computador.
 
-1. Abra o arquivo *. rdp* baixado.
+4. Abra o arquivo *. rdp* baixado.
 
     1. Se lhe for pedido, selecione **Ligar**.
 
-    1. Insira o nome de usuário e a senha que você especificou ao criar a VM.
+    2. Insira o nome de usuário e a senha que você especificou ao criar a VM.
 
         > [!NOTE]
-        > Talvez seja necessário selecionar **mais opções** > **use uma conta diferente**, para especificar as credenciais que você inseriu quando criou a VM.
+        > Talvez seja necessário selecionar **mais escolhas** > **usar uma conta diferente**, para especificar as credenciais inseridas quando você criou a VM.
 
-1. Selecione **OK**.
+5. Selecione **OK**.
 
-1. Você pode receber um aviso de certificado durante o processo de entrada. Se você receber um aviso de certificado, selecione **Sim** ou **continuar**.
+6. Você pode receber um aviso de certificado durante o processo de entrada. Se você receber um aviso de certificado, selecione **Sim** ou **continuar**.
 
-1. Depois que a área de trabalho da VM for exibida, minimize-a para voltar para a área de trabalho local.
+7. Depois que a área de trabalho da VM for exibida, minimize-a para voltar para a área de trabalho local.
 
 ## <a name="communicate-between-vms"></a>Comunicar entre VMs
 
 1. No Área de Trabalho Remota do *myVm1*, abra o PowerShell.
 
-1. Introduza `ping myVm2`.
+2. Introduza `ping myVm2`.
 
     Você receberá uma mensagem semelhante a esta:
 
@@ -176,7 +180,7 @@ Depois de criar o *myVm1*, conecte-se à Internet.
 
     A `ping` falha, porque `ping` usa o protocolo ICMP. Por padrão, o ICMP não é permitido por meio do firewall do Windows.
 
-1. Para permitir que o *myVm2* execute ping em *myVm1* em uma etapa posterior, digite este comando:
+3. Para permitir que o *myVm2* execute ping em *myVm1* em uma etapa posterior, digite este comando:
 
     ```powershell
     New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
@@ -184,11 +188,11 @@ Depois de criar o *myVm1*, conecte-se à Internet.
 
     Esse comando permite o ICMP de entrada por meio do firewall do Windows:
 
-1. Feche a ligação de ambiente de trabalho remoto à *myVm1*.
+4. Feche a ligação de ambiente de trabalho remoto à *myVm1*.
 
-1. Conclua novamente os passos em [Ligar a uma VM a partir da Internet](#connect-to-a-vm-from-the-internet), mas ligue à *myVm2*.
+5. Conclua novamente os passos em [Ligar a uma VM a partir da Internet](#connect-to-a-vm-from-the-internet), mas ligue à *myVm2*.
 
-1. Numa linha de comandos, introduza `ping myvm1`.
+6. Numa linha de comandos, introduza `ping myvm1`.
 
     Você receberá algo parecido com esta mensagem:
 
@@ -207,7 +211,7 @@ Depois de criar o *myVm1*, conecte-se à Internet.
 
     Você recebe respostas de *myVm1*, porque você permitiu o ICMP por meio do firewall do Windows na VM *myVm1* na etapa 3.
 
-1. Feche a ligação de ambiente de trabalho remoto à *myVm2*.
+7. Feche a ligação de ambiente de trabalho remoto à *myVm2*.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -215,9 +219,9 @@ Quando você terminar de usar a rede virtual e as VMs, exclua o grupo de recurso
 
 1. Insira *MyResource* The na caixa de **pesquisa** na parte superior do portal e selecione **MyResource** Bedos resultados da pesquisa.
 
-1. Selecione **Eliminar grupo de recursos**.
+2. Selecione **Eliminar grupo de recursos**.
 
-1. Insira *MyResource* Group para **digite o nome do grupo de recursos** e selecione **excluir**.
+3. Insira *MyResource* Group para **digite o nome do grupo de recursos** e selecione **excluir**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

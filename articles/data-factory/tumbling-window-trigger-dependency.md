@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: daperlov
-ms.openlocfilehash: 6e5e293e9759f091b6537d5efab9884e0a20fabc
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 24a1a5d132990db2aa10b7860774eecafb4b4edb
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725452"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "73520534"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Criar uma dependência de acionamento de janela em cascata
 
@@ -78,9 +78,9 @@ A tabela a seguir fornece a lista de atributos necessários para definir uma dep
 
 | **Nome da propriedade** | **Descrição**  | **Tipo** | **Necessário** |
 |---|---|---|---|
-| type  | Todos os gatilhos de janela em cascata existentes são exibidos nessa lista suspensa. Escolha o gatilho para assumir a dependência.  | TumblingWindowTriggerDependencyReference ou SelfDependencyTumblingWindowTriggerReference | Sim |
-| desvio | Deslocamento do gatilho de dependência. Forneça um valor no formato de intervalo de tempo e deslocamentos negativos e positivos são permitidos. Essa propriedade será obrigatória se o gatilho estiver dependendo de si mesmo e em todos os outros casos for opcional. A autodependência sempre deve ser um deslocamento negativo. Se nenhum valor for especificado, a janela será igual ao próprio gatilho. | Período de tempo<br/>(hh: mm: SS) | Dependência automática: Sim<br/>Outro: Não |
-| size | Tamanho da janela em cascata de dependência. Forneça um valor de TimeSpan positivo. Esta propriedade é opcional. | Período de tempo<br/>(hh: mm: SS) | Não  |
+| tipo  | Todos os gatilhos de janela em cascata existentes são exibidos nessa lista suspensa. Escolha o gatilho para assumir a dependência.  | TumblingWindowTriggerDependencyReference ou SelfDependencyTumblingWindowTriggerReference | Sim |
+| desvio | Deslocamento do gatilho de dependência. Forneça um valor no formato de intervalo de tempo e deslocamentos negativos e positivos são permitidos. Essa propriedade será obrigatória se o gatilho estiver dependendo de si mesmo e em todos os outros casos for opcional. A autodependência sempre deve ser um deslocamento negativo. Se nenhum valor for especificado, a janela será igual ao próprio gatilho. | Timespan<br/>(hh: mm: SS) | Dependência automática: Sim<br/>Outro: não |
+| Tamanho | Tamanho da janela em cascata de dependência. Forneça um valor de TimeSpan positivo. Esta propriedade é opcional. | Timespan<br/>(hh: mm: SS) | Não  |
 
 > [!NOTE]
 > Um gatilho de janela em cascata pode depender de um máximo de dois outros gatilhos.
@@ -151,16 +151,18 @@ Um trabalho diário sem lacunas nos fluxos de saída do trabalho:
 
 ## <a name="monitor-dependencies"></a>Monitorar dependências
 
-Você pode monitorar a cadeia de dependência e as janelas correspondentes na página monitoramento de execução de gatilho. Navegue até **monitoramento > execuções de gatilho**.
+Você pode monitorar a cadeia de dependência e as janelas correspondentes na página monitoramento de execução de gatilho. Navegue até **monitoramento > execuções de gatilho**. Na coluna ações, você pode executar novamente o gatilho ou exibir suas dependências.
 
-![Monitorar execuções de gatilho](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "Monitorar execuções de gatilho")
+![Monitorar execuções de gatilho](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "Monitorizar execuções acionadas")
 
-Clique no ícone de ação para exibir todas as execuções de gatilho dependentes da janela selecionada.
+Se você clicar em ' Exibir dependências de gatilho ', poderá ver o status das dependências. Se um dos disparadores de dependência falhar, você deverá executá-lo com êxito para que o gatilho dependente seja executado. Um gatilho de janela em cascata aguardará as dependências por sete dias antes de atingir o tempo limite.
 
 ![Monitorar dependências](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "Monitorar dependências")
 
-No exemplo acima, um gatilho diário depende de um gatilho por hora sem nenhuma janela definida e um deslocamento de 3 horas. Como resultado, o gatilho é executado após 24 execuções bem-sucedidas da dependência.
+Para obter mais visual para exibir a agenda de dependência do gatilho, selecione o modo de exibição de Gantt.
 
-## <a name="next-steps"></a>Passos Seguintes
+![Monitorar dependências](media/tumbling-window-trigger-dependency/tumbling-window-dependency09.png "Monitorar dependências")
+
+## <a name="next-steps"></a>Passos seguintes
 
 * Examine [como criar um gatilho de janela em cascata](how-to-create-tumbling-window-trigger.md)

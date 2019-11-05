@@ -6,36 +6,41 @@ ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 9/17/2019
-ms.openlocfilehash: a69b4988a5ee835381de986edaa5899b09aa9e4e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 6053ba37bf330f6b59e291dade822a5ca9de8c85
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262495"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492324"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Dimensionar um grupo de servidores de hiperescala (Citus)
 
-Banco de dados do Azure para PostgreSQL-Citus (hiperescala) fornece dimensionamento de autoatendimento para lidar com o aumento da carga. A portal do Azure facilita a adição de novos nós de trabalho.
+Banco de dados do Azure para PostgreSQL-Citus (hiperescala) fornece dimensionamento de autoatendimento para lidar com o aumento da carga. O portal do Azure facilita a adição de novos nós de trabalho e a aumentar a capacidade dos nós existentes.
 
-Para fazer isso, vá para a guia **Configurar** em seu grupo de servidores de hiperescala (Citus).
-Arraste o controle deslizante da **contagem de nós de trabalho** para alterar o valor.
+## <a name="add-worker-nodes"></a>Adicionar nós de trabalho
+
+Para adicionar nós, vá para a guia **Configurar** em seu grupo de servidores de hiperescala (Citus).  Arrastar o controle deslizante para **contagem de nós de trabalho** altera o valor.
 
 ![Controles deslizantes de recursos](./media/howto-hyperscale-scaling/01-sliders-workers.png)
 
-Clique no botão "salvar" para fazer com que o valor alterado tenha efeito.
+Clique no botão **salvar** para fazer o valor alterado entrar em vigor.
 
 > [!NOTE]
 > Depois de aumentado e salvo, o número de nós de trabalho não pode ser reduzido usando o controle deslizante.
->
-> Além disso, o vCores e o armazenamento ainda não podem ser ajustados no coordenador ou em trabalhadores com essa interface do usuário. Abra um tíquete de suporte se a computação em escala nos nós coordenador ou de trabalho for necessária.
 
-Para aproveitar os nós recém-adicionados, você deve reequilibrar os [fragmentos](concepts-hyperscale-distributed-data.md#shards)de tabela distribuída, o que significa mover alguns fragmentos de nós existentes para os novos. Para iniciar o rebalanceador de fragmentos, conecte-se ao nó de coordenador de cluster com psql e execute:
+### <a name="rebalance-shards"></a>Reequilibrar fragmentos
+
+Para aproveitar os nós recém-adicionados, você deve reequilibrar os [fragmentos](concepts-hyperscale-distributed-data.md#shards)de tabela distribuída, o que significa mover alguns fragmentos de nós existentes para os novos. Primeiro, verifique se os novos trabalhadores concluíram com êxito o provisionamento. Em seguida, inicie o rebalanceador de fragmento, conectando-se ao nó de coordenador de cluster com psql e executando:
 
 ```sql
 SELECT rebalance_table_shards('distributed_table_name');
 ```
 
-A `rebalance_table_shards` função reequilibra todas as tabelas no grupo de [colocalização](concepts-hyperscale-colocation.md) da tabela chamada em seu argumento. Portanto, você não precisa chamar a função para cada tabela distribuída, basta chamá-la em uma tabela representativa de cada grupo de colocalização.
+A função `rebalance_table_shards` reequilibra todas as tabelas no grupo de [colocalização](concepts-hyperscale-colocation.md) da tabela nomeada em seu argumento. Portanto, você não precisa chamar a função para cada tabela distribuída, basta chamá-la em uma tabela representativa de cada grupo de colocalização.
+
+## <a name="increase-vcores-or-storage-space"></a>Aumentar vCores ou espaço de armazenamento
+
+Além de adicionar novos nós, você pode aumentar os recursos dos nós existentes. Vá para a guia **Configurar** em seu grupo de servidores Citus (hiperescala) e arraste o controle deslizante para **vCores** e **armazenamento** para alterar esses valores para todos os nós de trabalho. Certifique-se de clicar em **salvar** para aplicar as alterações.
 
 ## <a name="next-steps"></a>Passos seguintes
 

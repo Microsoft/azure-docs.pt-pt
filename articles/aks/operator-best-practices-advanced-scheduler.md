@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: f260e019ffa6eb89e8a2c1e17d2bf239e74290c2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 798c368edb4a738124fce965f8990e6805fbdeba
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900112"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472609"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para recursos avançados do Agendador no serviço de kubernetes do Azure (AKS)
 
@@ -31,7 +31,7 @@ Este artigo de práticas recomendadas se concentra em recursos avançados de age
 
 Ao criar o cluster AKS, você pode implantar nós com suporte de GPU ou um grande número de CPUs poderosas. Esses nós são frequentemente usados para cargas de trabalho de processamento de dados grandes, como o aprendizado de máquina (ML) ou a inteligência artificial (ia). Como esse tipo de hardware é normalmente um recurso de nó caro para implantar, limite as cargas de trabalho que podem ser agendadas nesses nós. Em vez disso, talvez você queira dedicar alguns nós no cluster para executar serviços de entrada e evitar outras cargas de trabalho.
 
-Esse suporte para nós diferentes é fornecido usando vários pools de nó. Um cluster AKS fornece um ou mais pools de nós. O suporte para vários pools de nós no AKS está atualmente em visualização.
+Esse suporte para nós diferentes é fornecido usando vários pools de nó. Um cluster AKS fornece um ou mais pools de nós.
 
 O Agendador kubernetes pode usar os conteúdo e os Tolerations para restringir quais cargas de trabalho podem ser executadas em nós.
 
@@ -44,7 +44,7 @@ Quando você implanta um pod em um cluster AKS, o kubernetes só agenda pods em 
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
 ```
 
-Com um toleration aplicado a nós, você definirá um submeio na especificação Pod que permite o agendamento nos nós. O exemplo a seguir define o `sku: gpu` e `effect: NoSchedule` para tolerar o o o o seu que é aplicado ao nó na etapa anterior:
+Com um toleration aplicado a nós, você definirá um submeio na especificação Pod que permite o agendamento nos nós. O exemplo a seguir define o `sku: gpu` e o `effect: NoSchedule` para tolerar o o o seu que é aplicado ao nó na etapa anterior:
 
 ```yaml
 kind: Pod
@@ -81,16 +81,16 @@ Para obter mais informações sobre como usar vários pools de nós no AKS, cons
 
 Quando você atualiza um pool de nós em AKS, os tolerationss seguem um padrão definido à medida que são aplicados a novos nós:
 
-- **Clusters padrão sem suporte de escala de máquina virtual**
-  - Vamos supor que você tenha um cluster de dois nós- *Node1* e *NODE2*. Quando você atualiza, um nó adicional (*Node3*) é criado.
+- **Clusters padrão que usam conjuntos de dimensionamento de máquinas virtuais**
+  - Vamos supor que você tenha um cluster de dois nós- *Node1* e *NODE2*. Você atualiza o pool de nós.
+  - Dois nós adicionais são criados, *Node3* e *Nó4*, e os são passados em respectivamente.
+  - Os *Node1* e *NODE2* originais são excluídos.
+
+- **Clusters sem suporte ao conjunto de dimensionamento de máquinas virtuais**
+  - Novamente, vamos supor que você tenha um cluster de dois nós- *Node1* e *NODE2*. Quando você atualiza, um nó adicional (*Node3*) é criado.
   - Os de *Node1* são aplicados ao *Node3*, então *Node1* é excluído.
   - Outro novo nó é criado (chamado *Node1*, uma vez que o *Node1* anterior foi excluído) e *os* os seus Em seguida, *NODE2* é excluído.
   - Em essência, *Node1* se torna *Node3*e *NODE2* se torna *Node1*.
-
-- **Clusters que usam conjuntos de dimensionamento de máquinas virtuais**
-  - Novamente, vamos supor que você tenha um cluster de dois nós- *Node1* e *NODE2*. Você atualiza o pool de nós.
-  - Dois nós adicionais são criados, *Node3* e *Nó4*, e os são passados em respectivamente.
-  - Os *Node1* e *NODE2* originais são excluídos.
 
 Quando você dimensiona um pool de nós em AKS, os projetos e Tolerations não são transferidos por design.
 
@@ -106,7 +106,7 @@ Vejamos um exemplo de nós com uma grande quantidade de memória. Esses nós pod
 kubectl label node aks-nodepool1 hardware:highmem
 ```
 
-Uma especificação de Pod adiciona a propriedade `nodeSelector` para definir um seletor de nó que corresponde ao conjunto de rótulos em um nó:
+Em seguida, uma especificação Pod adiciona a propriedade `nodeSelector` para definir um seletor de nó que corresponde ao conjunto de rótulos em um nó:
 
 ```yaml
 kind: Pod

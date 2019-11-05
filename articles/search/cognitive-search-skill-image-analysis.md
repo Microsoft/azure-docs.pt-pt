@@ -1,29 +1,28 @@
 ---
-title: Habilidades de pesquisa cognitiva de análise de imagem-Azure Search
-description: Extraia o texto semântico por meio da análise de imagem usando a habilidade cognitiva ImageAnalysis em um pipeline de enriquecimento de Azure Search.
-services: search
+title: Habilidade cognitiva de análise de imagem
+titleSuffix: Azure Cognitive Search
+description: Extraia o texto semântico por meio da análise de imagem usando a habilidade cognitiva de análise de imagem em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 08/28/2019
 ms.author: luisca
-ms.openlocfilehash: e2c8f0519ffcbdbc2445d1fed2725b6f6b948cd1
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 4819f34e16efebcdab734270988382e086c44e36
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064073"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479725"
 ---
-#   <a name="image-analysis-cognitive-skill"></a>Habilidade cognitiva de análise de imagem
+# <a name="image-analysis-cognitive-skill"></a>Habilidade cognitiva de análise de imagem
 
 A habilidade de **análise de imagem** extrai um conjunto avançado de recursos visuais com base no conteúdo da imagem. Por exemplo, você pode gerar uma legenda de uma imagem, gerar marcas ou identificar celebridades e pontos de referência. Essa habilidade usa os modelos de aprendizado de máquina fornecidos pelo [Pesquisa Visual computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) em serviços cognitivas. 
 
 > [!NOTE]
-> Volumes pequenos (menos de 20 transações) podem ser executados gratuitamente em Azure Search, mas cargas de trabalho maiores exigem [a anexação de um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Search. Não há encargos para a extração de texto de documentos.
+> Volumes pequenos (menos de 20 transações) podem ser executados gratuitamente no Azure Pesquisa Cognitiva, mas cargas de trabalho maiores exigem [a anexação de um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Pesquisa Cognitiva. Não há encargos para a extração de texto de documentos.
 >
-> A execução de habilidades internas é cobrada pelo [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. O preço de extração de imagem é descrito na [página de preços de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de habilidades internas é cobrada pelo [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. O preço de extração de imagem é descrito na [página de preços do Azure pesquisa cognitiva](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -43,7 +42,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome de entrada      | Descrição                                          |
 |---------------|------------------------------------------------------|
-| imagem         | Tipo complexo. No momento, só funciona com o campo "/Document/normalized_images", produzido pelo indexador de blob do Azure quando ```imageAction``` é definido com um valor diferente de ```none```. Consulte o [exemplo](#sample-output) para obter mais informações.|
+| image         | Tipo complexo. No momento, só funciona com o campo "/Document/normalized_images", produzido pelo indexador de blob do Azure quando ```imageAction``` é definido com um valor diferente de ```none```. Consulte o [exemplo](#sample-output) para obter mais informações.|
 
 
 
@@ -519,8 +518,8 @@ Se você receber o erro semelhante a `"One or more skills are invalid. Details: 
             ]
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consultar também
 
-+ [Habilidades predefinidas](cognitive-search-predefined-skills.md)
++ [Habilidades internas](cognitive-search-predefined-skills.md)
 + [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
 + [Criar indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

@@ -19,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1184d210f5b7ea25b9f73cbd70b5f960402126a1
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 3fca872d639ab5c2d4053656cdd3e68a59fdc1e6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803531"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473972"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenciais de certificado para autenticação de aplicativo
 
@@ -133,5 +133,8 @@ No registro do aplicativo do Azure para o aplicativo cliente:
    A propriedade `keyCredentials` tem valores múltiplos, portanto, você pode carregar vários certificados para um gerenciamento mais avançado de chaves.
    
 ## <a name="code-sample"></a>Exemplo de código
+
+> [!NOTE]
+> Você deve calcular o cabeçalho X5T usando o hash do certificado e convertê-lo em uma cadeia de caracteres base64. C# Ele seria algo semelhante ao de: `System.Convert.ToBase64String(cert.GetCertHash());`
 
 O exemplo de código sobre [autenticação no Azure AD em aplicativos daemon com certificados](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) mostra como um aplicativo usa suas próprias credenciais para autenticação. Ele também mostra como você pode [criar um certificado autoassinado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) usando o comando `New-SelfSignedCertificate` PowerShell. Você também pode tirar proveito e usar os [scripts de criação de aplicativo](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) para criar os certificados, computar a impressão digital e assim por diante.

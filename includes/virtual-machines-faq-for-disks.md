@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 155ca71ae30559cc79e090a8a7bbc12c896b637f
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
-ms.translationtype: MT
+ms.openlocfilehash: f8c049cc8d2b09cb37dbd444427b03c1013da65c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973004"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73523566"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos de VM IaaS do Azure e discos Premium gerenciados e não gerenciados
 
@@ -31,11 +31,11 @@ Um disco gerenciado padrão criado a partir de um VHD de 80 GB é tratado como o
 
 **Há algum custo de transação para o Managed disks Standard?**
 
-Sim. Você é cobrado por cada transação. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/storage).
+Sim. É-lhe cobrada qualquer transação. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/storage).
 
 **Para um disco gerenciado padrão, serei cobrado pelo tamanho real dos dados no disco ou pela capacidade provisionada do disco?**
 
-Você é cobrado com base na capacidade provisionada do disco. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/storage).
+É cobrado com base na capacidade aprovisionada do disco. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/storage).
 
 **Como o preço dos discos gerenciados Premium é diferente dos discos não gerenciados?**
 
@@ -85,9 +85,9 @@ Você configura uma conta de armazenamento particular para diagnóstico de VM.
 
 Managed Disks dá suporte a três funções padrão principais:
 
-* Proprietário Pode gerenciar tudo, incluindo o acesso
-* Simplifica Pode gerenciar tudo, exceto o acesso
-* Leitora Pode exibir tudo, mas não pode fazer alterações
+* Proprietário: pode gerenciar tudo, incluindo o acesso
+* Colaborador: pode gerenciar tudo, exceto o acesso
+* Leitor: pode exibir tudo, mas não pode fazer alterações
 
 **Há uma maneira de copiar ou exportar um disco gerenciado para uma conta de armazenamento particular?**
 
@@ -145,6 +145,30 @@ O particionamento GPT pode ser usado somente em discos de dados, não em discos 
 
 Os instantâneos de suporte a SSD Premium, SSD padrão e HDD padrão. Para esses três tipos de disco, os instantâneos têm suporte para todos os tamanhos de disco (incluindo discos de até 32 TiB de tamanho). Ultra discos não oferecem suporte a instantâneos.
 
+### <a name="disk-reservation"></a>Reserva de disco
+
+**O que é a reserva de disco do Azure?**
+A reserva de disco é a opção de comprar um ano de armazenamento em disco com antecedência, reduzindo o custo total.
+
+**Quais opções a reserva de disco do Azure oferece?**
+A reserva de disco do Azure fornece a opção de comprar o SSDs Premium nas SKUs especificadas de p30 (1 TiB) até P80 (32 TiB) por um termo de um ano. Não há nenhuma limitação na quantidade mínima de discos necessários para comprar uma reserva de disco. Além disso, você pode optar por pagar com um único pagamento antecipado ou pagamentos mensais. Não há nenhum custo transacional adicional aplicado para SSD Premium Managed Disks.
+
+As reservas são feitas na forma de discos, não na capacidade. Em outras palavras, ao reservar um disco P80 (32 TiB), você obtém um único disco P80, não é possível divvy essa reserva específica em dois discos menores P70 (16 TiB). É claro que você pode reservar tantos discos quanto desejar, incluindo dois discos P70 (16 TiB) separados.
+
+**Como serei cobrado pela reserva de disco do Azure?**
+- Para clientes de Enterprise Agreement (EA), o compromisso monetário do Azure será usado primeiro para comprar reservas de discos do Azure. Em cenários em que os clientes do EA usaram todo o seu compromisso monetário, as reservas de disco ainda podem ser compradas e essas compras serão faturadas para o pagamento antecipado único na próxima cobrança de excedente.
+
+- Para clientes que compram por meio do Azure.com, no momento da compra, o cartão de crédito no arquivo será cobrado pelo pagamento antecipado completo (ou por pagamentos fixos mensais) da reserva de discos do Azure.
+
+**Como a reserva de disco do Azure é aplicada?**
+A reserva de discos segue um modelo semelhante às instâncias de VM (máquina virtual) reservadas. A diferença é que uma reserva de disco não pode ser aplicada a SKUs diferentes, enquanto uma instância de VM pode. Confira [salvar custos com instâncias de VM reservadas do Azure](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) para obter mais informações sobre instâncias de VM. 
+
+**Posso usar meu armazenamento de dados adquirido por meio da reserva de discos do Azure em várias regiões?**
+A reserva de discos do Azure é adquirida para uma região e SKU específicos (como p30 no leste dos EUA 2) e, portanto, não pode ser usada fora dessas construções. Você sempre pode comprar uma reserva adicional de discos do Azure para suas necessidades de armazenamento em disco em outras regiões ou SKUs.
+
+**O que acontece quando minha reserva de discos do Azure expira?**
+Você receberá notificações por email 30 dias antes da expiração e novamente na data de expiração. Depois que a reserva expirar, os discos implantados continuarão a ser executados e serão cobrados com as [tarifas pagas pelo uso](https://azure.microsoft.com/pricing/details/managed-disks/)mais recentes.
+
 ## <a name="ultra-disks"></a>Ultra discos
 
 **Quais regiões suportam ultra disks no momento?**
@@ -157,7 +181,7 @@ Os instantâneos de suporte a SSD Premium, SSD padrão e HDD padrão. Para esses
 - DSv3
 
 **Para que devo definir a taxa de transferência de ultra Disk?**
-Se você não tiver certeza sobre o que definir a taxa de transferência do disco como, recomendamos que comece supondo um tamanho de e/s de 16 KiB e ajuste o desempenho a partir daí, enquanto monitora seu aplicativo. A fórmula é: Taxa de transferência em MBps = n º de IOPS * 16/1000.
+Se você não tiver certeza sobre o que definir a taxa de transferência do disco como, recomendamos que comece supondo um tamanho de e/s de 16 KiB e ajuste o desempenho a partir daí, enquanto monitora seu aplicativo. A fórmula é: taxa de transferência em MBps = # de IOPS * 16/1000.
 
 **Configurei meu disco para 40000 IOPS, mas estou vendo apenas 12800 IOPS, por que não estou vendo o desempenho do disco?**
 Além do acelerador de disco, há um acelerador de e/s que é imposto no nível da VM. Verifique se o tamanho da VM que você está usando pode dar suporte aos níveis que estão configurados em seus discos. Para obter detalhes sobre os limites de e/s impostos pela sua VM, consulte [tamanhos de máquinas virtuais do Windows no Azure](../articles/virtual-machines/windows/sizes.md).
@@ -219,7 +243,7 @@ Sim, o backup do Azure agora está disponível.
 Você pode criar SSD Standard discos usando modelos de Azure Resource Manager, SDK, PowerShell ou CLI. Abaixo estão os parâmetros necessários no modelo do Resource Manager para criar SSD Standard discos:
 
 * *apiVersion* para Microsoft. Compute deve ser definido como `2018-04-01` (ou posterior)
-* Especificar *managedDisk. storageAccountType* como `StandardSSD_LRS`
+* Especifique *managedDisk. storageAccountType* como `StandardSSD_LRS`
 
 O exemplo a seguir mostra a seção *Properties. storageProfile. osDisk* para uma VM que usa SSD Standard discos:
 
@@ -250,7 +274,7 @@ Não, os discos SSDs padrão só estão disponíveis como Managed Disks.
 **SSD Standard discos dão suporte a "SLA de VM de instância única"?**
 Não, o SSDs padrão não tem SLA de VM de instância única. Use SSD Premium discos para o SLA de VM de instância única.
 
-## <a name="migrate-to-managed-disks"></a>Migrar para Managed Disks
+## <a name="migrate-to-managed-disks"></a>Migrar para o Managed Disks
 
 **Há algum impacto na migração no desempenho do Managed Disks?**
 
@@ -333,7 +357,19 @@ Sim
 
 Não. Mas se você exportar um VHD para uma conta de armazenamento criptografada de um disco gerenciado ou instantâneo criptografado, ele será criptografado. 
 
-## <a name="premium-disks-managed-and-unmanaged"></a>Discos Premium: Gerenciado e não gerenciado
+## <a name="premium-disks-managed-and-unmanaged"></a>Discos Premium: gerenciados e não gerenciados
+
+**Quais regiões dão suporte à capacidade de intermitência para o tamanho de disco SSD Premium aplicável?**
+
+No momento, há suporte para a capacidade de intermitência no Azure West EUA Central.
+
+**Quais regiões são 4/8/16 GiB de tamanhos de disco gerenciado (P1/P2/P3, E1/E2/E3) com suporte no?**
+
+Atualmente, há suporte para esses novos tamanhos de disco no Azure West EUA Central.
+
+**Os tamanhos de disco P1/P2/P3 têm suporte para discos não gerenciados ou BLOBs de página?**
+
+Não, só há suporte para ele no SSD Premium Managed Disks. 
 
 **Se uma VM usa uma série de tamanho que dá suporte a discos SSD Premium, como um DSv2, posso anexar discos de dados Premium e Standard?** 
 
@@ -363,7 +399,7 @@ O SSD local é um armazenamento temporário que é incluído com uma VM Managed 
 
 Não há nenhuma desvantagem do uso de TRIM em discos do Azure em discos Premium ou Standard.
 
-## <a name="new-disk-sizes-managed-and-unmanaged"></a>Novos tamanhos de disco: Gerenciado e não gerenciado
+## <a name="new-disk-sizes-managed-and-unmanaged"></a>Novos tamanhos de disco: gerenciados e não gerenciados
 
 **Qual é o maior tamanho de disco gerenciado com suporte para discos de sistema operacional e de dados?**
 
@@ -383,10 +419,10 @@ Você não precisa atualizar suas ferramentas existentes do Azure para criar, an
 
 |Ferramentas do Azure      | Versões suportadas                                |
 |-----------------|---------------------------------------------------|
-|Azure PowerShell | Número de versão 4.1.0: Versão de junho de 2017 ou posterior|
-|CLI do Azure v1     | Número de versão 0.10.13: Versão 2017 de maio ou posterior|
-|CLI do Azure v2     | Número de versão 2.0.12: Versão de julho de 2017 ou posterior|
-|AzCopy           | Número de versão 6.1.0: Versão de junho de 2017 ou posterior|
+|Azure PowerShell | Número de versão 4.1.0: versão de junho de 2017 ou posterior|
+|CLI do Azure v1     | Número de versão 0.10.13: maio de 2017 versão ou posterior|
+|CLI do Azure v2     | Número de versão 2.0.12: versão de julho de 2017 ou posterior|
+|AzCopy           | Número de versão 6.1.0: versão de junho de 2017 ou posterior|
 
 **Os tamanhos de disco P4 e P6 têm suporte para discos não gerenciados ou BLOBs de página?**
 
@@ -410,7 +446,7 @@ O maior tamanho de disco com suporte do backup do Azure e do serviço de Azure S
 
 **Quais são os tamanhos de VM recomendados para tamanhos de disco maiores (> 4 TiB) para SSD Standard e HDD Standard discos para alcançar IOPS e largura de banda de disco otimizados?**
 
-Para obter a taxa de transferência de disco de SSD Standard e HDD Standard tamanhos de disco grandes (> 4 TiB) Além de 500 IOPS e 60 MiB/s, recomendamos que você implante uma nova VM de um dos seguintes tamanhos de VM para otimizar o desempenho: Série B, DSv2, série Dsv3, série ESv3, série FS, série Fsv2, série M, série a, NCv2, série NCv3, ou VMs da série ls, ou 2 a 3. Anexar discos grandes a VMs ou VMS existentes que não usam os tamanhos recomendados acima pode apresentar um desempenho inferior.
+Para obter a taxa de transferência de disco de SSD Standard e HDD Standard tamanhos de disco grandes (> 4 TiB) Além de 500 IOPS e 60 MiB/s, recomendamos que você implante uma nova VM de um dos seguintes tamanhos de VM para otimizar seu desempenho: série B, DSv2, série Dsv3, série ESv3 , Série FS, série Fsv2, série M, série GS, série NCv2, série NCv3 ou VMs da série ls-series. Anexar discos grandes a VMs ou VMS existentes que não usam os tamanhos recomendados acima pode apresentar um desempenho inferior.
 
 **Como posso atualizar meus discos (> 4 TiB) que foram implantados durante a visualização de tamanhos de disco maiores para obter o IOPS mais alto & largura de banda em GA?**
 

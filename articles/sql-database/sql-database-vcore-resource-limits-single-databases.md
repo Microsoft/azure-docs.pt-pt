@@ -1,6 +1,6 @@
 ---
-title: Limites de recursos baseados em vCore do banco de dados SQL do Azure-banco de dados individual | Microsoft Docs
-description: Esta página descreve alguns limites comuns de recursos baseados em vCore para um único banco de dados no banco de dados SQL do Azure.
+title: Limites de recursos vCore do banco de dados SQL do Azure-banco de dados individual | Microsoft Docs
+description: Esta página descreve alguns limites de recursos vCore comuns para um único banco de dados no banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -10,29 +10,115 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 10/21/2019
-ms.openlocfilehash: 108e31ebff5910c139bcaf83675cc8161c2a96f6
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/04/2019
+ms.openlocfilehash: 55b0b28f3081cfe643645683a9773b4c97b9caef
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693356"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495940"
 ---
-# <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra baseado em vCore
+# <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra vCore
 
-Este artigo fornece os limites de recursos detalhados para bancos de dados individuais do banco de dados SQL do Azure usando o modelo de compra baseado em vCore.
+Este artigo fornece os limites de recursos detalhados para bancos de dados individuais do banco de dados SQL do Azure usando o modelo de compra vCore.
 
-Para os limites de modelo de compra baseados em DTU para bancos de dados individuais em um servidor de banco de dados SQL, consulte [visão geral dos limites de recursos em um servidor de banco de dados SQL](sql-database-resource-limits-database-server.md).
+Para os limites de modelo de compra de DTU para bancos de dados individuais em um servidor de banco de dados SQL, consulte [visão geral dos limites de recursos em um servidor de banco de dados SQL](sql-database-resource-limits-database-server.md).
 
-> [!IMPORTANT]
-> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](sql-database-file-space-management.md).
 
 Você pode definir a camada de serviço, o tamanho da computação e a quantidade de armazenamento para um único banco de dados usando o [portal do Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), o [CLI do Azure](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases)ou a [API REST](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases).
 
 > [!IMPORTANT]
 > Para obter diretrizes e considerações sobre o dimensionamento, consulte [dimensionar um banco de dados individual](sql-database-single-database-scale.md).
 
-## <a name="general-purpose-service-tier-for-provisioned-compute"></a>Uso Geral camada de serviço para computação provisionada
+
+## <a name="general-purpose---serverless-compute---gen5"></a>Computação de uso geral sem servidor-Gen5
+
+A [camada de computação sem servidor](sql-database-serverless.md) está disponível atualmente somente em hardware Gen5.
+
+### <a name="gen5-compute-generation-part-1"></a>Geração de computação Gen5 (parte 1)
+
+|Tamanho da computação|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|GP_S_Gen5_6|GP_S_Gen5_8|
+|:--- | --: |--: |--: |--: |--: |
+|Geração de computação|Gen5|Gen5|Gen5|Gen5|Gen5|
+|VCores mín. máx.|0,5-1|0.5-2|0,5-4|0,75 a 6|1,0 a 8|
+|Memória mín. máx. (GB)|2.02-3|2.05-6|2.10-12|2,25-18|3,00-24|
+|Mínimo de atraso de pausa automática (minutos)|60|60|60|60|60|
+|Suporte a Columnstore|Sim|Sim|Sim|Sim|Sim|
+|Armazenamento OLTP na memória (GB)|N/A|N/A|N/A|N/A|N/A|
+|Tamanho máximo de dados (GB)|512|1024|1024|1024|1536|
+|Tamanho máximo do log (GB)|154|307|307|307|461|
+|Tamanho máximo de dados de TempDB (GB)|32|64|128|192|256|
+|Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
+|Latência de e/s (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
+|IOPS de dados máximo (64 KB)|500|1000|2000|3000|4000|
+|Taxa máxima de logs (MBps)|2,5|5,6|10|15|20|
+|Máximo de trabalhos simultâneos (solicitações)|75|150|300|450|600|
+|Sessões simultâneas máx.|30000|30000|30000|30000|30000|
+|Número de réplicas|1|1|1|1|1|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|
+|Expansão de leitura|N/A|N/A|N/A|N/A|N/A|
+|Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
+
+### <a name="gen5-compute-generation-part-2"></a>Geração de computação Gen5 (parte 2)
+
+|Tamanho da computação|GP_S_Gen5_10|GP_S_Gen5_12|GP_S_Gen5_14|GP_S_Gen5_16|
+|:--- | --: |--: |--: |--: |
+|Geração de computação|Gen5|Gen5|Gen5|Gen5|
+|VCores mín. máx.|1,25-10|1,50-12|1,75-14|2,00-16|
+|Memória mín. máx. (GB)|3,75-30|4.50-36|5,25-42|6.00-48|
+|Mínimo de atraso de pausa automática (minutos)|60|60|60|60|
+|Suporte a Columnstore|Sim|Sim|Sim|Sim|
+|Armazenamento OLTP na memória (GB)|N/A|N/A|N/A|N/A|
+|Tamanho máximo de dados (GB)|1536|1536|1536|3072|
+|Tamanho máximo do log (GB)|461|461|461|922|
+|Tamanho máximo de dados de TempDB (GB)|320|384|448|512|
+|Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
+|Latência de e/s (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
+|IOPS de dados máximo (64 KB)|5000|6000|7000|8000|
+|Taxa máxima de logs (MBps)|20|20|20|20|
+|Máximo de trabalhos simultâneos (solicitações)|750|900|1050|1200|
+|Sessões simultâneas máx.|30000|30000|30000|30000|
+|Número de réplicas|1|1|1|1|
+|Multi-AZ|N/A|N/A|N/A|N/A|
+|Expansão de leitura|N/A|N/A|N/A|N/A|
+|Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
+
+
+## <a name="hyperscale---provisioned-compute---gen5"></a>Hiperescala – computação provisionada-Gen5
+
+### <a name="gen5-compute-generation"></a>Geração de computação Gen5
+
+|Nível de desempenho|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|Geração de computação|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
+|vCores|2|4|8|16|24|32|40|80|
+|Memória (GB)|10.2|20,4|40,8|81,6|122,4|163,2|204|408|
+|[RBPEX](sql-database-service-tier-hyperscale.md#compute) Tamanho|3X de memória|3X de memória|3X de memória|3X de memória|3X de memória|3X de memória|3X de memória|3X de memória|
+|Suporte a Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
+|Armazenamento OLTP na memória (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Tamanho máximo de dados (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
+|Tamanho máximo do log (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
+|Tamanho máximo de dados de TempDB (GB)|64|128|256|384|384|384|384|384|
+|Tipo de armazenamento| [Observação 1](#notes) |[Observação 1](#notes)|[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) | [Observação 1](#notes) |
+|IOPS de dados máximo (64 KB)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|
+|Latência de e/s (aproximada)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|
+|Máximo de trabalhos simultâneos (solicitações)|200|400|800|1600|2400|3200|4000|8000|
+|Sessões simultâneas máx.|30000|30000|30000|30000|30000|30000|30000|30000|
+|Réplicas secundárias|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Expansão de leitura|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
+|Retenção de armazenamento de backup|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|
+|||
+
+#### <a name="notes"></a>Notas
+
+**Observação 1**: o hiperescala é uma arquitetura de várias camadas com componentes de armazenamento e computação separados: [arquitetura de camada de serviço de hiperescala](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
+
+**Observação 2**: a arquitetura em várias camadas de hiperescala tem cache em vários níveis. O IOPS efetivo dependerá da carga de trabalho.
+
+**Observação 3**: a latência é 1-2 ms para dados no cache baseado em SSD RBPEX em réplicas de computação, que armazena em cache as páginas de dados mais usadas. Maior latência de dados recuperados de servidores de páginas.
+
+## <a name="general-purpose---provisioned-compute---gen4"></a>Computação provisionada de uso geral-Gen4
 
 > [!IMPORTANT]
 > Novos bancos de dados Gen4 não têm mais suporte nas regiões leste da Austrália ou sul do Brasil.
@@ -83,6 +169,8 @@ Você pode definir a camada de serviço, o tamanho da computação e a quantidad
 |Expansão de leitura|N/A|N/A|N/A|N/A|N/A|N/A|
 |Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
 
+## <a name="general-purpose---provisioned-compute---gen5"></a>Computação provisionada de uso geral-Gen5
+
 ### <a name="gen5-compute-generation-part-1"></a>Geração de computação Gen5 (parte 1)
 
 |Tamanho da computação|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
@@ -129,59 +217,34 @@ Você pode definir a camada de serviço, o tamanho da computação e a quantidad
 |Expansão de leitura|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
 
-## <a name="general-purpose-service-tier-for-serverless-compute"></a>Uso Geral camada de serviço para computação sem servidor
+## <a name="general-purpose---provisioned-compute---fsv2-series"></a>Computação provisionada de uso geral-série Fsv2
 
-A [camada de computação sem servidor](sql-database-serverless.md) está em versão prévia.
+### <a name="fsv2-series-compute-generation-preview"></a>Geração de computação da série Fsv2 (visualização)
 
-### <a name="gen5-compute-generation-part-1"></a>Geração de computação Gen5 (parte 1)
+|Tamanho da computação|GP_Fsv2_72|
+|:--- | --: |
+|Geração de computação|Série Fsv2|
+|vCores|72|
+|Memória (GB)|136|
+|Suporte a Columnstore|Sim|
+|Armazenamento OLTP na memória (GB)|N/A|
+|Tamanho máximo de dados (GB)|4096|
+|Tamanho máximo do log (GB)|1024|
+|Tamanho máximo de dados de TempDB (GB)|333|
+|Tipo de armazenamento|SSD remoto|
+|Latência de e/s (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|
+|IOPS de dados máximo (64 KB)|36000|
+|Taxa máxima de logs (MBps)|30|
+|Máximo de trabalhos simultâneos (quests)|3600|
+|Sessões simultâneas máx.|30000|
+|Número de réplicas|1|
+|Multi-AZ|N/A|
+|Expansão de leitura|N/A|
+|Armazenamento de backup incluído|tamanho do banco de BD 1X|
 
-|Tamanho da computação|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|GP_S_Gen5_6|GP_S_Gen5_8|
-|:--- | --: |--: |--: |--: |--: |
-|Geração de computação|Gen5|Gen5|Gen5|Gen5|Gen5|
-|VCores mín. máx.|0,5-1|0.5-2|0,5-4|0,75 a 6|1,0 a 8|
-|Memória mín. máx. (GB)|2.02-3|2.05-6|2.10-12|2,25-18|3,00-24|
-|Mínimo de atraso de pausa automática (minutos)|60|60|60|60|60|
-|Suporte a Columnstore|Sim|Sim|Sim|Sim|Sim|
-|Armazenamento OLTP na memória (GB)|N/A|N/A|N/A|N/A|N/A|
-|Tamanho máximo de dados (GB)|512|1024|1024|1024|1536|
-|Tamanho máximo do log (GB)|154|307|307|307|461|
-|Tamanho máximo de dados de TempDB (GB)|32|64|128|192|256|
-|Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
-|Latência de e/s (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
-|IOPS de dados máximo (64 KB)|500|1000|2000|3000|4000|
-|Taxa máxima de logs (MBps)|2,5|5,6|10|15|20|
-|Máximo de trabalhos simultâneos (solicitações)|75|150|300|450|600|
-|Sessões simultâneas máx.|30000|30000|30000|30000|30000|
-|Número de réplicas|1|1|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|
-|Expansão de leitura|N/A|N/A|N/A|N/A|N/A|
-|Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
 
-### <a name="gen5-compute-generation-part-2"></a>Geração de computação Gen5 (parte 2)
 
-|Tamanho da computação|GP_S_Gen5_10|GP_S_Gen5_12|GP_S_Gen5_14|GP_S_Gen5_16|
-|:--- | --: |--: |--: |--: |
-|Geração de computação|Gen5|Gen5|Gen5|Gen5|
-|VCores mín. máx.|1,25-10|1,50-12|1,75-14|2,00-16|
-|Memória mín. máx. (GB)|3,75-30|4.50-36|5,25-42|6.00-48|
-|Mínimo de atraso de pausa automática (minutos)|60|60|60|60|
-|Suporte a Columnstore|Sim|Sim|Sim|Sim|
-|Armazenamento OLTP na memória (GB)|N/A|N/A|N/A|N/A|
-|Tamanho máximo de dados (GB)|1536|1536|1536|3072|
-|Tamanho máximo do log (GB)|461|461|461|922|
-|Tamanho máximo de dados de TempDB (GB)|320|384|448|512|
-|Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
-|Latência de e/s (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
-|IOPS de dados máximo (64 KB)|5000|6000|7000|8000|
-|Taxa máxima de logs (MBps)|20|20|20|20|
-|Máximo de trabalhos simultâneos (solicitações)|750|900|1050|1200|
-|Sessões simultâneas máx.|30000|30000|30000|30000|
-|Número de réplicas|1|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|N/A|
-|Expansão de leitura|N/A|N/A|N/A|N/A|
-|Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
-
-## <a name="business-critical-service-tier-for-provisioned-compute"></a>Comercialmente Crítico camada de serviço para computação provisionada
+## <a name="business-critical---provisioned-compute---gen4"></a>Comercialmente crítico-computação provisionada-Gen4
 
 > [!IMPORTANT]
 > Novos bancos de dados Gen4 não têm mais suporte nas regiões leste da Austrália ou sul do Brasil.
@@ -234,7 +297,9 @@ A [camada de computação sem servidor](sql-database-serverless.md) está em ver
 |Expansão de leitura|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
 
-### <a name="gen5-compute-compute-part-1"></a>Computação de computação Gen5 (parte 1)
+## <a name="business-critical---provisioned-compute---gen5"></a>Comercialmente crítico-computação provisionada-Gen5
+
+### <a name="gen5-compute-generation-part-1"></a>Geração de computação Gen5 (parte 1)
 
 |Tamanho da computação|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
@@ -282,45 +347,43 @@ A [camada de computação sem servidor](sql-database-serverless.md) está em ver
 |Expansão de leitura|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
 
-## <a name="hyperscale-service-tier-for-provisioned-compute"></a>Camada de serviço de hiperescala para computação provisionada
 
-### <a name="gen5-compute-generation"></a>Geração de computação Gen5
+## <a name="business-critical---provisioned-compute---m-series"></a>Computação comercialmente crítica-série M
 
-|Nível de desempenho|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
-|Geração de computação|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
-|vCores|2|4|8|16|24|32|40|80|
-|Memória (GB)|10.2|20,4|40,8|81,6|122,4|163,2|204|408|
-|[RBPEX](sql-database-service-tier-hyperscale.md#compute) Tamanho|3X de memória|3X de memória|3X de memória|3X de memória|3X de memória|3X de memória|3X de memória|3X de memória|
-|Suporte a Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
-|Armazenamento OLTP na memória (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Tamanho máximo de dados (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
-|Tamanho máximo do log (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
-|Tamanho máximo de dados de TempDB (GB)|64|128|256|384|384|384|384|384|
-|Tipo de armazenamento| [Observação 1](#notes) |[Observação 1](#notes)|[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) | [Observação 1](#notes) |
-|IOPS de dados máximo (64 KB)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|
-|Latência de e/s (aproximada)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|
-|Máximo de trabalhos simultâneos (solicitações)|200|400|800|1600|2400|3200|4000|8000|
-|Sessões simultâneas máx.|30000|30000|30000|30000|30000|30000|30000|30000|
-|Réplicas secundárias|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Expansão de leitura|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
-|Retenção de armazenamento de backup|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|
-|||
+### <a name="m-series-compute-generation-preview"></a>Geração de computação da série M (versão prévia)
 
-#### <a name="notes"></a>Notas
+|Tamanho da computação|GP_M_128|
+|:--- | --: |
+|Geração de computação|Série M|
+|vCores|128|
+|Memória (GB)|3767|
+|Suporte a Columnstore|Sim|
+|Armazenamento OLTP na memória (GB)|481|
+|Tamanho máximo de dados (GB)|4096|
+|Tamanho máximo do log (GB)|2048|
+|Tamanho máximo de dados de TempDB (GB)|4096|
+|Tipo de armazenamento|SSD local|
+|Latência de e/s (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|
+|IOPS de dados máximo (64 KB)|204800|
+|Taxa máxima de logs (MBps)|192|
+|Máximo de trabalhos simultâneos (solicitações)|12800|
+|Sessões simultâneas máx.|30000|
+|Número de réplicas|4|
+|Multi-AZ|Sim|
+|Expansão de leitura|Sim|
+|Armazenamento de backup incluído|tamanho do banco de BD 1X|
 
-**Observação 1**: o hiperescala é uma arquitetura de várias camadas com componentes de armazenamento e computação separados: [arquitetura de camada de serviço de hiperescala](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
 
-**Observação 2**: a arquitetura em várias camadas de hiperescala tem cache em vários níveis. O IOPS efetivo dependerá da carga de trabalho.
 
-**Observação 3**: a latência é 1-2 ms para dados no cache baseado em SSD RBPEX em réplicas de computação, que armazena em cache as páginas de dados mais usadas. Maior latência de dados recuperados de servidores de páginas.
+
+> [!IMPORTANT]
+> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](sql-database-file-space-management.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para os limites de recursos de DTU para um único banco de dados, consulte [limites de recursos para bancos de dados individuais usando o modelo de compra baseado em DTU](sql-database-dtu-resource-limits-single-databases.md)
-- Para limites de recursos vCore para pools elásticos, consulte [limites de recursos para pools elásticos usando o modelo de compra baseado em vCore](sql-database-vcore-resource-limits-elastic-pools.md)
-- Para os limites de recursos de DTU para pools elásticos, consulte [limites de recursos para pools elásticos usando o modelo de compra baseado em DTU](sql-database-dtu-resource-limits-elastic-pools.md)
+- Para os limites de recursos de DTU para um único banco de dados, consulte [limites de recursos para bancos de dados individuais usando o modelo de compra de DTU](sql-database-dtu-resource-limits-single-databases.md)
+- Para limites de recursos vCore para pools elásticos, consulte [limites de recursos para pools elásticos usando o modelo de compra vCore](sql-database-vcore-resource-limits-elastic-pools.md)
+- Para os limites de recursos de DTU para pools elásticos, consulte [limites de recursos para pools elásticos usando o modelo de compra de DTU](sql-database-dtu-resource-limits-elastic-pools.md)
 - Para os limites de recurso para instâncias gerenciadas, consulte [limites de recursos de instância gerenciada](sql-database-managed-instance-resource-limits.md).
 - Para obter informações sobre limites gerais do Azure, consulte [assinatura do Azure e limites de serviço, cotas e restrições](../azure-subscription-service-limits.md).
 - Para obter informações sobre limites de recursos em um servidor de banco de dados, consulte [visão geral dos limites de recursos em um servidor de banco de dados SQL](sql-database-resource-limits-database-server.md) para obter informações sobre os limites nos níveis de servidor e assinatura.

@@ -1,7 +1,7 @@
 ---
-title: Resolução de problemas de uma área de trabalho
-titleSuffix: Azure Machine Learning Studio
-description: Este guia fornece soluções para alguns encontrados com freqüência desafios quando estiver a configurar áreas de trabalho do Azure Machine Learning Studio.
+title: Solucionando problemas de um espaço de trabalho
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Este guia fornece soluções para alguns desafios frequentemente encontrados quando você está configurando a versão clássica dos espaços de trabalho do Azure Machine Learning Studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,53 +10,53 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 7cc825daa29a0398793f3c6fc5ce8ee426ad79e6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7d4aebf71ef16287a415e4c39eed1328c9359f6c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60193870"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492595"
 ---
-# <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-workspace"></a>Guia de resolução de problemas: Criar e ligar a uma área de trabalho do Azure Machine Learning Studio
-Este guia fornece soluções para alguns encontrados com freqüência desafios quando estiver a configurar áreas de trabalho do Azure Machine Learning Studio.
+# <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-classic-workspace"></a>Guia de solução de problemas: criar e conectar-se a um espaço de trabalho Azure Machine Learning Studio (clássico)
+Este guia fornece soluções para alguns desafios frequentemente encontrados quando você está configurando espaços de trabalho do Azure Machine Learning Studio (clássico).
 
 
 
-## <a name="workspace-owner"></a>Proprietário da área de trabalho
-Para abrir uma área de trabalho no Machine Learning Studio, precisa estar conectado à Account Microsoft que utilizou para criar a área de trabalho ou terá de receber um convite de proprietário para associar a área de trabalho. No portal do Azure pode gerir a área de trabalho, que inclui a capacidade para configurar o acesso.
+## <a name="workspace-owner"></a>Proprietário do espaço de trabalho
+Para abrir um espaço de trabalho no Machine Learning Studio (clássico), você deve estar conectado à conta da Microsoft usada para criar o espaço de trabalho ou você precisa receber um convite do proprietário para ingressar no espaço de trabalho. No portal do Azure você pode gerenciar o espaço de trabalho, que inclui a capacidade de configurar o acesso.
 
-Para obter mais informações sobre como gerir uma área de trabalho, consulte [gerir uma área de trabalho do Azure Machine Learning Studio].
+Para obter mais informações sobre como gerenciar um espaço de trabalho, consulte [gerenciar um espaço de trabalho Azure Machine Learning Studio (clássico)].
 
-[Gerir uma área de trabalho do Azure Machine Learning Studio]: manage-workspace.md
+[Gerenciar um espaço de trabalho Azure Machine Learning Studio (clássico)]: manage-workspace.md
 
 ## <a name="allowed-regions"></a>Regiões permitidas
-Machine Learning está atualmente disponível num número limitado de regiões. Se a sua subscrição não incluir uma destas regiões, poderá ver a mensagem de erro, "Tem não existem subscrições nas regiões permitidas."
+O Machine Learning está disponível atualmente em um número limitado de regiões. Se sua assinatura não incluir uma dessas regiões, você poderá ver a mensagem de erro "você não tem assinaturas nas regiões permitidas".
 
-Para pedir que uma região de ser adicionado à sua subscrição, criar um novo pedido de suporte da Microsoft a partir do portal do Azure, escolha **faturação** como o tipo de problema e siga as instruções para submeter o pedido.
+Para solicitar que uma região seja adicionada à sua assinatura, crie uma nova solicitação de suporte da Microsoft na portal do Azure, escolha **cobrança** como o tipo de problema e siga os prompts para enviar sua solicitação.
 
 ## <a name="storage-account"></a>Conta de armazenamento
-O serviço Machine Learning tem uma conta de armazenamento para armazenar dados. Pode utilizar uma conta de armazenamento existente ou pode criar uma nova conta de armazenamento ao criar a nova área de trabalho do Machine Learning Studio (se tiver de quota para criar uma nova conta de armazenamento).
+O serviço de Machine Learning precisa de uma conta de armazenamento para armazenar dados. Você pode usar uma conta de armazenamento existente ou pode criar uma nova conta de armazenamento ao criar o novo espaço de trabalho Machine Learning Studio (clássico) (se você tiver uma cota para criar uma nova conta de armazenamento).
 
-Depois de criar a nova área de trabalho do Machine Learning Studio, pode iniciar sessão Machine Learning Studio, utilizando a conta da Microsoft que utilizou para criar a área de trabalho. Se encontrar a mensagem de erro, "Área de trabalho não encontrada" (semelhante à seguinte captura de ecrã), utilize os seguintes passos para eliminar os cookies do browser.
+Depois que o novo espaço de trabalho de Machine Learning Studio (clássico) for criado, você poderá entrar no Machine Learning Studio (clássico) usando o conta Microsoft usado para criar o espaço de trabalho. Se você encontrar a mensagem de erro "espaço de trabalho não encontrado" (semelhante à captura de tela a seguir), use as etapas a seguir para excluir os cookies do navegador.
 
-![Área de trabalho não foi encontrada](media/troubleshooting-creating-ml-workspace/screen3.png)
+![Espaço de trabalho não encontrado](media/troubleshooting-creating-ml-workspace/screen3.png)
 
-**Para eliminar cookies do browser**
+**Para excluir cookies do navegador**
 
-1. Se usar o Internet Explorer, clique nas **ferramentas** no canto superior direito e selecione **opções da Internet**.  
+1. Se você usar o Internet Explorer, clique no botão **ferramentas** no canto superior direito e selecione **Opções da Internet**.  
 
    ![Opções da Internet](media/troubleshooting-creating-ml-workspace/screen4.png)
 
-2. Sob o **gerais** separador, clique em **eliminar...**
+2. Na guia **geral** , clique em **excluir...**
 
-   ![Separador Geral](media/troubleshooting-creating-ml-workspace/screen5.png)
+   ![Guia geral](media/troubleshooting-creating-ml-workspace/screen5.png)
 
-3. Na **eliminar histórico de navegação** caixa de diálogo caixa, certifique-se **Cookies e dados do site** está selecionada e clique em **eliminar**.
+3. Na caixa de diálogo **Excluir Histórico de navegação** , verifique se **cookies e dados do site** estão selecionados e clique em **excluir**.
 
-   ![Eliminar cookies](media/troubleshooting-creating-ml-workspace/screen6.png)
+   ![Excluir cookies](media/troubleshooting-creating-ml-workspace/screen6.png)
 
-Depois dos cookies são eliminados, reinicie o navegador e, em seguida, vá para o [Microsoft Azure Machine Learning Studio](https://studio.azureml.net) página. Quando lhe for pedido um nome de utilizador e palavra-passe, introduza a mesma conta Microsoft que utilizou para criar a área de trabalho.
+Depois que os cookies forem excluídos, reinicie o navegador e vá para a página [Microsoft Azure Machine Learning Studio (clássica)](https://studio.azureml.net) . Quando for solicitado um nome de usuário e uma senha, insira o mesmo conta Microsoft usado para criar o espaço de trabalho.
 
 ## <a name="comments"></a>Comentários
 
-Nosso objetivo é tornar a experiência de Machine Learning o mais direto possível. Publique quaisquer comentários e problemas com o [fórum do Azure Machine Learning](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) para ajudar-na atendê-lo melhor.
+Nosso objetivo é tornar a experiência de Machine Learning o mais simples possível. Poste comentários e problemas no [Fórum de Azure Machine Learning](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) para nos ajudar a atendê-lo melhor.

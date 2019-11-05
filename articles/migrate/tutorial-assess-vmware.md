@@ -5,20 +5,20 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 10/11/2019
 ms.author: hamusa
-ms.openlocfilehash: 04162f074dba05ac6492c16acb446912296cd673
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 46bf756a729441bd3bc4b2b00aaa2c79fa06c0b8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952104"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521240"
 ---
-# <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Avalie as VMs do VMware com as migrações para Azure: Avaliação do Servidor
+# <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Avaliar VMs VMware com migrações para Azure: avaliação do servidor
 
-Este artigo mostra como avaliar as VMs VMware locais usando as migrações para Azure: Ferramenta de avaliação do servidor.
+Este artigo mostra como avaliar as VMs VMware locais, usando a ferramenta migrações para Azure: Server Assessment.
 
-As migrações para [Azure](migrate-services-overview.md) fornecem um hub de ferramentas que ajudam a descobrir, avaliar e migrar aplicativos, infraestrutura e cargas de trabalho para Microsoft Azure. O Hub inclui ferramentas de migração do Azure e ofertas de fornecedores independentes de software (ISV) de terceiros.
+As [migrações para Azure](migrate-services-overview.md) fornecem um hub de ferramentas que ajudam a descobrir, avaliar e migrar aplicativos, infraestrutura e cargas de trabalho para Microsoft Azure. O Hub inclui ferramentas de migração do Azure e ofertas de fornecedores independentes de software (ISV) de terceiros.
 
 
 
@@ -48,37 +48,37 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="set-up-an-azure-migrate-project"></a>Configurar um projeto de migrações para Azure
 
-Configure um novo projeto de migrações para Azure da seguinte maneira.
+Configure um novo projeto do Azure Migrate da seguinte forma.
 
-1. Na portal do Azure > **todos os serviços**, procure migrações para **Azure**.
-2. Em **Serviços**, selecione **migrações para Azure**.
-3. Em **visão geral**, em **descobrir, avaliar e migrar servidores**, clique em **avaliar e migrar servidores**.
+1. No portal do Azure > **Todos os serviços**, procure **Azure Migrate**.
+2. Em **Serviços**, selecione **Azure Migrate**.
+3. Na **Descrição geral**, em **Descobrir, avaliar e migrar servidores**, clique em **Avaliar e migrar servidores**.
 
     ![Descobrir e avaliar servidores](./media/tutorial-assess-vmware/assess-migrate.png)
 
-4. Em **introdução**, clique em **Adicionar ferramentas**.
-5. Em **migrar projeto**, selecione sua assinatura do Azure e crie um grupo de recursos, se você não tiver um.     
+4. Em **Introdução**, clique em **Adicionar ferramentas**.
+5. Em **Migrar projeto**, selecione a sua subscrição do Azure e crie um grupo de recursos, caso não tenha um.     
 6. Em **detalhes do projeto**, especifique o nome do projeto e a geografia em que você deseja criar o projeto. Há suporte para a Ásia, Europa, Reino Unido e o Estados Unidos.
 
-    - A geografia do projeto é usada somente para armazenar os metadados coletados de VMs locais.
-    - Você pode selecionar qualquer região de destino ao executar uma migração.
+    - A geografia do projeto só é utilizada para armazenar os metadados recolhidos das VMs no local.
+    - Pode selecionar qualquer região de destino ao executar uma migração.
 
     ![Criar um projeto de migrações para Azure](./media/tutorial-assess-vmware/migrate-project.png)
 
 
 7. Clique em **Seguinte**.
-8. Em **selecionar ferramenta de avaliação**, **selecione migrações para Azure:** Avaliação > do servidor**em seguida**.
+8. Em **selecionar ferramenta de avaliação**, selecione **migrações para Azure: avaliação do servidor** > **Avançar**.
 
     ![Criar um projeto de migrações para Azure](./media/tutorial-assess-vmware/assessment-tool.png)
 
-9. Em **selecionar ferramenta de migração**, selecione **ignorar a adição de uma ferramenta de migração para agora** > **em seguida**.
-10. Em **examinar + adicionar ferramentas**, examine as configurações e clique em **Adicionar ferramentas**.
-11. Aguarde alguns minutos para que o projeto de migrações para Azure seja implantado. Você será levado para a página do projeto. Se você não vir o projeto, poderá acessá-lo de **servidores** no painel migrações para Azure.
+9. Em **Selecionar ferramenta de migração**, selecione **Ignorar a adição de uma ferramenta de migração por agora** > **Seguinte**.
+10. Em **Analisar + adicionar ferramentas**, analise as definições e clique em **Adicionar ferramentas**.
+11. Aguarde alguns minutos para que o projeto do Azure Migrate seja implementado. Será encaminhado para a página do projeto. Se não vir o projeto, poderá aceder ao mesmo em **Servidores** no dashboard do Azure Migrate.
 
 
 ## <a name="set-up-the-appliance-vm"></a>Configurar a VM do dispositivo
 
-Azure Migrate: A avaliação do servidor executa um dispositivo de VM VMware leve.
+Migrações para Azure: a avaliação do servidor executa um dispositivo leve de VM VMware.
 
 - Esse dispositivo executa a descoberta de VM e envia dados de desempenho e metadados da VM para a avaliação do servidor de migrações para Azure.
 - Para configurar o dispositivo, você:
@@ -89,9 +89,9 @@ Azure Migrate: A avaliação do servidor executa um dispositivo de VM VMware lev
 
 ### <a name="download-the-ova-template"></a>Baixar o modelo OVA
 
-1. Em **objetivos** > de migração**servidores** > migraçõesparaAzure: **Avaliação**do servidor, clique em **descobrir**.
-2. Em **descobrir computadores** > **são seus computadores virtualizados?** , clique em **Sim, com o hipervisor do VMware vSphere**.
-3. Clique em **baixar** para baixar o. Arquivo de modelo OVA.
+1. Em **metas de migração** > **servidores** > **migrações para Azure: avaliação do servidor**, clique em **descobrir**.
+2. Nos **Descobrir computadores** > **Os computadores estão virtualizados?** , clique **Sim, com o hipervisor VMware vSphere**.
+3. Clique em **Transferir** para transferir o ficheiro de modelo .OVA.
 
     ![Transferir o ficheiro .ova](./media/tutorial-assess-vmware/download-ova.png)
 
@@ -104,7 +104,7 @@ Verifique se o arquivo OVA é seguro, antes de implantá-lo.
 2. Execute o comando abaixo para gerar o hash para o OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Utilização de exemplo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Para a versão 2.19.07.30, o hash gerado deve corresponder a esses valores. 
+3. Para a versão 2.19.07.30, o hash gerado deve corresponder a esses valores.
 
   **Algoritmo** | **Valor de hash**
   --- | ---
@@ -140,19 +140,19 @@ Configure o dispositivo usando as etapas a seguir.
 
 1. Na consola do vSphere Client, clique com o botão direito do rato na VM > **Abrir Consola**.
 2. Forneça o idioma, o fuso horário e a senha para o dispositivo.
-3. Abra um navegador em qualquer computador que possa se conectar à VM e abra a URL do aplicativo Web do dispositivo: **https://nome do*dispositivo ou endereço IP*: 44368**.
+3. Abra um navegador em qualquer computador que possa se conectar à VM e abra a URL do aplicativo Web do dispositivo: **https://*nome do dispositivo ou endereço IP*: 44368**.
 
    Como alternativa, você pode abrir o aplicativo na área de trabalho do dispositivo clicando no atalho do aplicativo.
 4. No aplicativo Web > **configurar os pré-requisitos**, faça o seguinte:
-    - **Licença**: Aceite os termos de licenciamento e leia as informações de terceiros.
-    - **Conectividade**: O aplicativo verifica se a VM tem acesso à Internet. Se a VM usar um proxy:
-        - Clique em **configurações de proxy**e especifique o endereço de proxy e a porta de escuta http://ProxyIPAddress , http://ProxyFQDN no formato ou.
+    - **Licença**: aceite os termos de licença e leia as informações de terceiros.
+    - **Conectividade**: o aplicativo verifica se a VM tem acesso à Internet. Se a VM usar um proxy:
+        - Clique em **configurações de proxy**e especifique o endereço de proxy e a porta de escuta, no formato http://ProxyIPAddress ou http://ProxyFQDN.
         - Especifique as credenciais se o proxy precisar de autenticação.
         - Apenas é suportado o proxy HTTP.
     - **Sincronização de horário**: o tempo no dispositivo deve ser sincronizado com a hora da Internet para que a descoberta funcione corretamente.
-    - **Instalar atualizações**: O dispositivo garante que as atualizações mais recentes sejam instaladas.
-    - **Instalar o VDDK**: O dispositivo verifica se o VDDK (Kit de desenvolvimento de disco virtual) do VMWare vSphere está instalado.
-        - Azure Migrate: A migração de servidor usa o VDDK para replicar máquinas durante a migração para o Azure.
+    - **Instalar atualizações**: o dispositivo garante que as atualizações mais recentes sejam instaladas.
+    - **Instalar o VDDK**: o dispositivo verifica se o VDDK (Kit de desenvolvimento de disco virtual) do VMware vSphere está instalado.
+        - Migrações para Azure: a migração do servidor usa o VDDK para replicar máquinas durante a migração para o Azure.
         - Baixe o VDDK 6,7 do VMware e extraia o conteúdo do zip baixado para o local especificado no dispositivo.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrar o dispositivo com as migrações para Azure
@@ -166,17 +166,30 @@ Configure o dispositivo usando as etapas a seguir.
 3. Especifique um nome para o dispositivo. O nome deve ser alfanumérico com 14 caracteres ou menos.
 4. Clique em **registrar**.
 
-
 ## <a name="start-continuous-discovery"></a>Iniciar descoberta contínua
 
-Agora, conecte-se do dispositivo para vCenter Server e inicie a descoberta de VM.
+O dispositivo precisa se conectar ao vCenter Server para descobrir a configuração e os dados de desempenho das VMs.
 
+### <a name="specify-vcenter-server-details"></a>Especificar detalhes do vCenter Server
 1. Em **especificar vCenter Server detalhes**, especifique o nome (FQDN) ou o endereço IP do vCenter Server. Você pode deixar a porta padrão ou especificar uma porta personalizada na qual o vCenter Server escuta.
 2. Em **nome de usuário** e **senha**, especifique as credenciais de conta somente leitura que o dispositivo usará para descobrir as VMs no servidor do vCenter. Verifique se a conta tem as [permissões necessárias para a descoberta](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Você pode fazer o escopo da descoberta limitando o acesso à conta do vCenter de acordo; Saiba mais sobre a descoberta de escopo [aqui](tutorial-assess-vmware.md#scoping-discovery).
 3. Clique em **validar conexão** para garantir que o dispositivo possa se conectar ao vCenter Server.
-4. Depois que a conexão for estabelecida, clique em **salvar e iniciar descoberta**.
 
-Isso inicia a descoberta. Leva cerca de 15 minutos para que os metadados de VMs descobertas apareçam no Portal.
+### <a name="specify-vm-credentials"></a>Especificar credenciais de VM
+Para a descoberta de aplicativos, funções e recursos e visualização de dependências das VMs, você pode fornecer uma credencial de VM que tenha acesso às VMs VMware. Você pode adicionar uma credencial para VMs do Windows e uma credencial para VMs do Linux. [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) sobre os privilégios de acesso necessários.
+
+> [!NOTE]
+> Essa entrada é opcional e é necessária para habilitar a descoberta de aplicativos e a visualização de dependência sem agente.
+
+1. Em **descobrir aplicativos e dependências em VMs**, clique em **Adicionar credenciais**.
+2. Selecione o **sistema operacional**.
+3. Forneça um nome amigável para a credencial.
+4. Em **nome de usuário** e **senha**, especifique uma conta que tenha pelo menos acesso de convidado nas VMs.
+5. Clique em **Adicionar**.
+
+Depois de especificar o vCenter Server e as credenciais da VM (opcional), clique em **salvar e inicie a descoberta** para iniciar a descoberta do ambiente local.
+
+Leva cerca de 15 minutos para que os metadados de VMs descobertas apareçam no Portal. A descoberta de aplicativos, funções e recursos instalados leva algum tempo, a duração depende do número de VMs que estão sendo descobertas. Para as VMs 500, leva aproximadamente 1 hora para o inventário de aplicativos aparecer no portal de migrações para Azure.
 
 ### <a name="scoping-discovery"></a>Descoberta de escopo
 
@@ -189,13 +202,13 @@ Para definir o escopo, você precisa executar as seguintes etapas:
 
 **Criar uma conta de usuário do vCenter**
 1.  Faça logon no cliente Web vSphere como o administrador do vCenter Server.
-2.  Clique na guia **Administração** > **usuários SSO e grupos** > **usuários** .
+2.  Clique em **administração** > **usuários e grupos do SSO** > guia **usuários** .
 3.  Clique no ícone **novo usuário** .
 4.  Preencha as informações necessárias para criar um novo usuário e clique em **OK**.
 
-**Definir uma nova função com privilégios necessários** (<em>necessário para a migração de servidor sem agente</em>)
+**Definir uma nova função com os privilégios necessários** (<em>necessário para a migração de servidor sem agente</em>)
 1.  Faça logon no cliente Web vSphere como o administrador do vCenter Server.
-2.  Navegue até **Administração** > **Gerenciador de funções**.
+2.  Navegue até **administração** > **Gerenciador de funções**.
 3.  Selecione seu vCenter Server no menu suspenso.
 4.  Clique em **criar** ação de função.
 5.  Digite um nome para a nova função. (como <em>Azure_Migrate</em>).
@@ -205,18 +218,18 @@ Para definir o escopo, você precisa executar as seguintes etapas:
 **Atribuir permissões em objetos do vCenter**
 
 Há duas abordagens para atribuir permissões em objetos de inventário no vCenter à conta de usuário do vCenter com uma função atribuída a ele.
-- Para avaliação do servidor, a função **somente leitura** deve ser aplicada à conta de usuário do vCenter para todos os objetos pai em que as VMs a serem descobertas estão hospedadas. Todos os objetos pai-host, pasta de hosts, cluster, pasta de clusters na hierarquia até os data center devem ser incluídos. Essas permissões devem ser propagadas para objetos filho na hierarquia. 
+- Para avaliação do servidor, a função **somente leitura** deve ser aplicada à conta de usuário do vCenter para todos os objetos pai em que as VMs a serem descobertas estão hospedadas. Todos os objetos pai-host, pasta de hosts, cluster, pasta de clusters na hierarquia até os data center devem ser incluídos. Essas permissões devem ser propagadas para objetos filho na hierarquia.
 
     Da mesma forma, para a migração de servidor, uma função definida pelo usuário (pode ser chamada de <em>_Migrate do Azure</em>) com esses [privilégios](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) atribuídos deve ser aplicada à conta de usuário do vCenter para todos os objetos pai onde as VMs a serem migradas estão hospedadas.
 
 ![Atribuir permissões](./media/tutorial-assess-vmware/assign-perms.png)
 
 - A abordagem alternativa é atribuir a conta de usuário e a função no nível do datacenter e propagá-las aos objetos filho. Em seguida, dê à conta uma função **sem acesso** para cada objeto (como VMS) que você não deseja descobrir/migrar. Essa configuração é complicada. Ele expõe controles de acesso acidentais, pois cada novo objeto filho também recebe automaticamente o acesso herdado do pai. Portanto, recomendamos que você use a primeira abordagem.
- 
+
 > [!NOTE]
 > Hoje, a avaliação do servidor não será capaz de descobrir as VMs se a conta do vCenter tiver acesso concedido no nível da pasta da VM do vCenter. Se você pretende fazer o escopo de sua descoberta por pastas de VM, você pode fazê-lo, garantindo que a conta do vCenter tenha acesso somente leitura atribuído em um nível de VM.  Veja a seguir as instruções sobre como você pode fazer isso:
 >
-> 1. Atribua permissões somente leitura em todas as VMs nas pastas de VM nas quais você deseja definir o escopo da descoberta. 
+> 1. Atribua permissões somente leitura em todas as VMs nas pastas de VM nas quais você deseja definir o escopo da descoberta.
 > 2. Conceda acesso somente leitura a todos os objetos pai onde as VMs estão hospedadas. Todos os objetos pai-host, pasta de hosts, cluster, pasta de clusters-na hierarquia até os data center devem ser incluídos. Você não precisa propagar as permissões para todos os objetos filho.
 > 3. Use as credenciais para descoberta selecionando datacenter como *escopo da coleção*. A configuração do RBAC garante que o usuário correspondente do vCenter terá acesso somente a VMs específicas de locatário.
 >
@@ -227,16 +240,16 @@ Há duas abordagens para atribuir permissões em objetos de inventário no vCent
 Após a descoberta, você pode verificar se as VMs aparecem no portal do Azure.
 
 1. Abra o painel migrações para Azure.
-2. No **Azure migrar-servidores** > **migrações do Azure: Página avaliação** do servidor, clique no ícone que exibe a contagem de **servidores**descobertos.
+2. Na página **migrações para Azure – servidores** > **migrações para Azure: avaliação do servidor** , clique no ícone que exibe a contagem de **servidores descobertos**.
 
 ## <a name="set-up-an-assessment"></a>Configurar uma avaliação
 
-Há dois tipos de avaliações que você pode criar usando as migrações para Azure: Avaliação do Servidor.
+Há dois tipos de avaliações que você pode criar usando as migrações para Azure: avaliação do servidor.
 
-**Locação** | **Detalhes** | **Dados**
+**Avaliação** | **Detalhes** | **Dados**
 --- | --- | ---
-**Baseado em desempenho** | Avaliações com base nos dados de desempenho coletados | **Tamanho de VM recomendado**: Com base nos dados de utilização de CPU e memória.<br/><br/> **Tipo de disco recomendado (disco gerenciado Standard ou Premium)** : Com base na IOPS e na taxa de transferência dos discos locais.
-**Como local** | Avaliações com base no dimensionamento local. | **Tamanho de VM recomendado**: Com base no tamanho da VM local<br/><br> **Tipo de disco recomendado**: Com base na configuração de tipo de armazenamento que você selecionar para a avaliação.
+**Baseado em desempenho** | Avaliações com base nos dados de desempenho coletados | **Tamanho de VM recomendado**: com base nos dados de utilização de CPU e memória.<br/><br/> **Tipo de disco recomendado (disco gerenciado Standard ou Premium)** : com base na IOPS e na taxa de transferência dos discos locais.
+**Como local** | Avaliações com base no dimensionamento local. | **Tamanho de VM recomendado**: com base no tamanho da VM local<br/><br> **Tipo de disco recomendado**: com base na configuração de tipo de armazenamento que você selecionar para a avaliação.
 
 
 ### <a name="run-an-assessment"></a>Executar uma avaliação
@@ -244,14 +257,14 @@ Há dois tipos de avaliações que você pode criar usando as migrações para A
 Execute uma avaliação da seguinte maneira:
 
 1. Examine as [práticas recomendadas](best-practices-assessment.md) para a criação de avaliações.
-2. Na guia **servidores** , em **migrações para Azure: Bloco avaliação** do servidor, clique em **avaliar**.
+2. Na guia **servidores** , no bloco **migrações para Azure: avaliação do servidor** , clique em **avaliar**.
 
     ![Avaliar](./media/tutorial-assess-vmware/assess.png)
 
 2. Em **avaliar servidores**, especifique um nome para a avaliação.
 3. Clique em **Ver tudo** para rever as propriedades de avaliação.
 
-    ![Propriedades de avaliação](./media/tutorial-assess-vmware/view-all.png)
+    ![Propriedades da avaliação](./media/tutorial-assess-vmware/view-all.png)
 
 3. Em **selecionar ou criar um grupo**, selecione **criar novo**e especifique um nome de grupo. Um grupo reúne uma ou mais VMs juntas para avaliação.
 4. Em **Adicionar computadores ao grupo**, selecione VMs para adicionar ao grupo.
@@ -259,7 +272,7 @@ Execute uma avaliação da seguinte maneira:
 
     ![Criar uma avaliação](./media/tutorial-assess-vmware/assessment-create.png)
 
-6. Após a criação da avaliação, exiba-a nos **servidores** > **migrações para Azure: **Avaliações**de**avaliação > do servidor.
+6. Após a criação da avaliação, exiba-a em **servidores** > **migrações para Azure:** **avaliações de > de**avaliação do servidor.
 7. Clique em **Exportar avaliação**, para transferi-la como um ficheiro do Excel.
 
 
@@ -268,25 +281,25 @@ Execute uma avaliação da seguinte maneira:
 
 Uma avaliação descreve:
 
-- **Preparação do Azure**: Se as VMs são adequadas para a migração para o Azure.
-- **Estimativa de custo mensal**: A computação mensal estimada e os custos de armazenamento para executar as VMs no Azure.
-- **Estimativa de custo de armazenamento mensal**: Custos estimados para o armazenamento em disco após a migração.
+- **Preparação do Azure**: se as VMs são adequadas para a migração para o Azure.
+- **Estimativa de custo mensal**: a computação mensal estimada e os custos de armazenamento para executar as VMs no Azure.
+- **Estimativa de custo de armazenamento mensal**: custos estimados para armazenamento em disco após a migração.
 
 ### <a name="view-an-assessment"></a>Exibir uma avaliação
 
-1. Em **metas** >  de migração**servidores**, clique em avaliações **em migrações para Azure: Avaliação**do servidor.
+1. Em **metas de migração** >  **servidores**, clique em **avaliações** em **migrações para Azure: avaliação do servidor**.
 2. Em **avaliações**, clique em uma avaliação para abri-la.
 
-    ![Resumo de avaliação](./media/tutorial-assess-vmware/assessment-summary.png)
+    ![Resumo da avaliação](./media/tutorial-assess-vmware/assessment-summary.png)
 
 ### <a name="review-azure-readiness"></a>Examinar a preparação do Azure
 
 1. Em **preparação do Azure**, verifique se as VMs estão prontas para migração para o Azure.
 2. Examine o status da VM:
-    - **Pronto para o Azure**: As migrações para Azure recomendam um tamanho de VM e estimativas de custo para VMs na avaliação.
-    - **Pronto com condições**: Mostra problemas e correção sugerida.
-    - **Não está pronto para o Azure**: Mostra problemas e correção sugerida.
-    - **Preparação desconhecida**: Usado quando as migrações para Azure não podem avaliar a preparação, devido a problemas de disponibilidade de dados.
+    - **Pronto para o Azure**: as migrações para Azure recomendam um tamanho de VM e estimativas de custo para VMs na avaliação.
+    - **Pronto com condições**: mostra problemas e correção sugerida.
+    - **Não está pronto para o Azure**: mostra problemas e correção sugerida.
+    - **Preparação desconhecida**: usada quando as migrações para Azure não podem avaliar a preparação, devido a problemas de disponibilidade de dados.
 
 2. Clique em um status de **preparação do Azure** . Você pode exibir os detalhes de preparação da VM e fazer uma busca detalhada para ver os detalhes da VM, incluindo as configurações de computação, armazenamento e rede.
 

@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 764a4dd31125dad20f6ef23e3628d7710dba2b85
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 7ebcf865ad23e75b2aa9070fe14fc3ee8f1397c7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880131"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481135"
 ---
 # <a name="azure-data-factory-faq"></a>Perguntas frequentes Azure Data Factory
 Este artigo fornece respostas para perguntas frequentes sobre Azure Data Factory.  
@@ -168,7 +168,7 @@ Sim, os parâmetros são um conceito de primeira classe e de nível superior em 
 Sim. Você pode definir valores padrão para os parâmetros nos pipelines. 
 
 ### <a name="can-an-activity-in-a-pipeline-consume-arguments-that-are-passed-to-a-pipeline-run"></a>Uma atividade em um pipeline pode consumir argumentos que são passados para uma execução de pipeline? 
-Sim. Cada atividade dentro do pipeline pode consumir o valor do parâmetro que é passado para o pipeline e executado com a construção `@parameter`. 
+Sim. Cada atividade no pipeline pode consumir o valor do parâmetro que é passado para o pipeline e executado com a construção `@parameter`. 
 
 ### <a name="can-an-activity-output-property-be-consumed-in-another-activity"></a>Uma propriedade de saída de atividade pode ser consumida em outra atividade? 
 Sim. Uma saída de atividade pode ser consumida em uma atividade subsequente com a construção `@activity`.
@@ -191,6 +191,82 @@ Use a atividade de cópia para preparar dados de qualquer um dos outros conector
 ### <a name="is-the-self-hosted-integration-runtime-available-for-data-flows"></a>O tempo de execução de integração auto-hospedado está disponível para fluxos de dados?
 
 O IR auto-hospedado é uma construção de pipeline do ADF que você pode usar com a atividade de cópia para adquirir ou mover dados de e para fontes de dados locais ou baseadas em VM e coletores. Prepare os dados primeiro com uma cópia, depois o fluxo de dados para transformação e, em seguida, uma cópia subsequente se você precisar mover esses dados transformados de volta para o repositório local.
+
+## <a name="wrangling-data-flows"></a>Fluxos de dados Wrangling
+
+### <a name="what-are-the-supported-regions-for-wrangling-data-flow"></a>Quais são as regiões com suporte para o fluxo de dados do Wrangling?
+
+Atualmente, há suporte para o fluxo de dados Wrangling em data factories criadas nas seguintes regiões:
+
+* Leste da Austrália
+* Canadá Central
+* Índia Central
+* EUA Central
+* EUA Leste
+* EUA Leste 2
+* Este do Japão
+* Europa do Norte
+* Sudeste Asiático
+* EUA Centro-Sul
+* Sul do Reino Unido
+* E.U.A. Centro-Oeste
+* Europa Ocidental
+* Oeste dos E.U.A.
+* EUA Oeste 2
+
+### <a name="what-are-the-limitations-and-constraints-with-wrangling-data-flow"></a>Quais são as limitações e restrições com o fluxo de dados do Wrangling?
+
+Os nomes dos conjuntos de valores só podem conter caracteres alfanuméricos. Há suporte para os seguintes repositórios de dados:
+
+* Conjunto de DelimitedText no armazenamento de BLOBs do Azure usando autenticação de chave de conta
+* Conjunto de DelimitedText no Azure Data Lake Storage Gen2 usando a chave da conta ou a autenticação da entidade de serviço
+* Conjunto de DelimitedText no Azure Data Lake Storage Gen1 usando a autenticação de entidade de serviço
+* Banco de dados SQL do Azure e data warehouse usando a autenticação do SQL. Consulte tipos de SQL com suporte abaixo. Não há suporte ao polybase nem ao preparo para data warehouse.
+
+Neste momento, o serviço vinculado Key Vault integração não tem suporte em fluxos de dados Wrangling.
+
+### <a name="what-is-the-difference-between-mapping-and-wrangling-data-flows"></a>Qual é a diferença entre o mapeamento e os fluxos de dados do Wrangling?
+
+O mapeamento de fluxos de dados fornece uma maneira de transformar dados em escala sem qualquer codificação necessária. Você pode criar um trabalho de transformação de dados na tela de fluxo de dados construindo uma série de transformações. Comece com qualquer número de transformações de origem seguidas pelas etapas de transformação de dados. Conclua seu fluxo de dados com um coletor para direcionar os resultados em um destino. O mapeamento de fluxo de dados é ótimo no mapeamento e na transformação de dados com esquemas conhecidos e desconhecidos nos coletores e fontes.
+
+Os fluxos de dados Wrangling permitem que você faça a preparação de dados ágil e a exploração usando o editor de mashup Power Query online em escala por meio da execução do Spark. Com o aumento dos lagos de dados, às vezes você só precisa explorar um conjunto de dados ou criar um conjunto de dado no Lake. Você não está mapeando para um destino conhecido. Os fluxos de dados Wrangling são usados para cenários de análise menos formais e baseados em modelos.
+
+### <a name="what-is-the-difference-between-power-platform-dataflows-and-wrangling-data-flows"></a>Qual é a diferença entre os fluxos de dados da plataforma de energia e de Wrangling?
+
+Os fluxos de dados da plataforma de energia permitem que os usuários importem e transformem dados de uma ampla variedade de fontes de dados no Common Data Service e Azure Data Lake para criar aplicativos do PowerApps, Power BI relatórios ou automaçãos de fluxo. Os fluxos de dados da plataforma de energia usam as experiências estabelecidas de preparação do Power Query, semelhante ao Power BI e ao Excel. Os fluxos de alimentação da plataforma de energia também permitem reutilização fácil em uma organização e manipulam a orquestração automaticamente (por exemplo, atualizando automaticamente os fluxos de energia que dependem de outro fluxo de recursos quando o anterior é atualizado).
+
+O Azure Data Factory (ADF) é um serviço de integração de dados gerenciado que permite que os engenheiros de dados e o integrador de dados do cidadão crie fluxos de trabalho de ETL (extração, transformação e carregamento) híbridos complexos. O fluxo de dados do Wrangling no ADF capacita os usuários com um ambiente sem servidor e livre de código que simplifica a preparação de dados na nuvem e dimensiona para qualquer tamanho de dados sem necessidade de gerenciamento de infraestrutura. Ele usa a tecnologia de preparação de dados Power Query (também usada em fluxos de data da plataforma de energia, Excel Power BI) para preparar e moldar os dados. Criado para lidar com todas as complexidades e desafios de escala da integração de Big Data, os fluxos de dados Wrangling permitem aos usuários preparar rapidamente os dados em escala por meio da execução do Spark. Os usuários podem criar pipelines de dados resilientes em um ambiente visual acessível com nossa interface baseada em navegador e deixar o ADF lidar com as complexidades da execução do Spark. Crie agendas para seus pipelines e monitore suas execuções de fluxo de dados no portal de monitoramento do ADF. Gerencie facilmente os SLAs de disponibilidade de dados com monitoramento e alertas de disponibilidade avançados do ADF e aproveite os recursos internos de integração e implantação contínua para salvar e gerenciar seus fluxos em um ambiente gerenciado. Estabeleça alertas e exiba planos de execução para validar que a lógica está sendo executada conforme planejado conforme você ajusta seus fluxos de dados.
+
+### <a name="supported-sql-types"></a>Tipos SQL com suporte
+
+O fluxo de dados Wrangling dá suporte aos seguintes tipos de dados no SQL. Você receberá um erro de validação para usar um tipo de dados que não tem suporte.
+
+* baixo
+* double
+* foto
+* float
+* º
+* nchar
+* varchar
+* nvarchar
+* número inteiro
+* int
+* parte
+* boolean
+* smallint
+* tinyint
+* bigint
+* Longas
+* texto
+* date
+* datetime
+* datetime2
+* smalldatetime
+* carimbo de data/hora
+* uniqueidentifier
+* xml
+
+Outros tipos de dados terão suporte no futuro.
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter instruções detalhadas sobre como criar um data factory, consulte os seguintes tutoriais:

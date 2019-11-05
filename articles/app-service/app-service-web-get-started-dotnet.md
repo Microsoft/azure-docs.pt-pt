@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/30/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 82a1dc293a019e4a48760ccbce830d067f2d620d
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 919e717811b3b04ca7407772fcf11f293d58508c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240927"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471599"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Criar uma aplicação Web ASP.NET Core no Azure
 
@@ -39,7 +39,7 @@ Para concluir este tutorial, instale o <a href="https://www.visualstudio.com/dow
 
 Se você já instalou o Visual Studio 2019:
 
-- Instale as atualizações mais recentes no Visual Studio selecionando **ajuda** > **para verificar**se há atualizações.
+- Instale as atualizações mais recentes no Visual Studio selecionando **ajuda** > **verificar se há atualizações**.
 - Adicione a carga de trabalho selecionando **ferramentas** > **obter ferramentas e recursos**.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Criar uma aplicação Web ASP.NET Core
@@ -95,12 +95,12 @@ Crie um aplicativo Web ASP.NET Core seguindo estas etapas:
    | Definição | Valor sugerido | Descrição |
    |-|-|-|
    |Plano do Serviço de Aplicações| myAppServicePlan | Nome do plano de serviço de aplicações. |
-   | Location | Europa Ocidental | O centro de dados onde o a aplicação Web está alojada. |
-   | Size | Gratuito | O [escalão de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determina as funcionalidades do alojamento. |
+   | Localização | Europa Ocidental | O centro de dados onde o a aplicação Web está alojada. |
+   | Tamanho | Gratuito | O [escalão de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determina as funcionalidades do alojamento. |
 
    ![Criar plano do App Service](./media/app-service-web-get-started-dotnet/app-service-plan-vs2019.png)
 
-1. Em **nome**, insira um nome de aplicativo exclusivo que inclua somente os caracteres válidos `a-z`são `A-Z`, `0-9`, e `-`. Você pode aceitar o nome exclusivo gerado automaticamente. O URL da aplicação Web é `http://<app_name>.azurewebsites.net`, em que `<app_name>` é o nome da aplicação.
+1. Em **nome**, insira um nome de aplicativo exclusivo que inclua somente os caracteres válidos são `a-z`, `A-Z`, `0-9`e `-`. Você pode aceitar o nome exclusivo gerado automaticamente. O URL da aplicação Web é `http://<app_name>.azurewebsites.net`, em que `<app_name>` é o nome da aplicação.
 
    ![Configurar o nome da aplicação](./media/app-service-web-get-started-dotnet/web-app-name-vs2019.png)
 
@@ -110,13 +110,13 @@ Depois de concluir o assistente, este publica a aplicação Web ASP.NET Core no 
 
 ![Aplicação Web ASP.NET publicada no Azure](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
-O nome do aplicativo especificado na página **criar novo do serviço de aplicativo** é usado como o prefixo de URL `http://<app_name>.azurewebsites.net`no formato.
+O nome do aplicativo especificado na página **criar novo do serviço de aplicativo** é usado como o prefixo de URL no formato `http://<app_name>.azurewebsites.net`.
 
 **Parabéns!** Seu aplicativo Web ASP.NET Core está em execução no serviço Azure App.
 
 ## <a name="update-the-app-and-redeploy"></a>Atualizar a aplicação e reimplementar
 
-1. No **Gerenciador de soluções**, em seu projeto, abra **pages** > **index. cshtml**.
+1. No **Gerenciador de soluções**, em seu projeto, abra **páginas** > **index. cshtml**.
 
 1. Substitua as duas tags `<div>` pelo seguinte código:
 
@@ -139,17 +139,19 @@ Quando a publicação estiver concluída, o Visual Studio inicia um browser para
 
 ## <a name="manage-the-azure-app"></a>Gerenciar o aplicativo do Azure
 
-1. Aceda ao <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerir a aplicação Web.
+Para gerenciar o aplicativo Web, vá para o [portal do Azure](https://portal.azure.com)e procure e selecione serviços de **aplicativos**.
 
-1. No menu à esquerda, selecione **serviços de aplicativos**e, em seguida, selecione o nome do seu aplicativo do Azure.
+![Selecionar serviços de aplicativos](./media/app-service-web-get-started-dotnet/app-services.png)
 
-   ![Navegação do portal para a aplicação do Azure](./media/app-service-web-get-started-dotnet/access-portal-vs2019.png)
+Na página **serviços de aplicativos** , selecione o nome do seu aplicativo Web.
 
-   É apresentada a página de descrição geral da sua aplicação Web. Aqui, você pode fazer gerenciamento básico, como procurar, parar, iniciar, reiniciar e excluir.
+![Navegação do portal para a aplicação do Azure](./media/app-service-web-get-started-dotnet/access-portal-vs2019.png)
 
-   ![Serviço de aplicativo no portal do Azure](./media/app-service-web-get-started-dotnet/web-app-general-vs2019.png)
+É apresentada a página de descrição geral da sua aplicação Web. Aqui, você pode fazer gerenciamento básico, como procurar, parar, iniciar, reiniciar e excluir.
 
-   O menu à esquerda fornece diferentes páginas para configurar a sua aplicação.
+![Serviço de aplicativo no portal do Azure](./media/app-service-web-get-started-dotnet/web-app-general-vs2019.png)
+
+O menu à esquerda fornece diferentes páginas para configurar a sua aplicação.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

@@ -5,19 +5,19 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 09/19/2019
+ms.date: 10/14/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b42634aa86f210382adb1ae224c847a92d89109b
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
-ms.translationtype: MT
+ms.openlocfilehash: 587848c6718a003bf781f81d0298c73ef1549bb3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103313"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474884"
 ---
-# <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Tutorial: Habilitar a autenticação em um aplicativo Web usando Azure Active Directory B2C
+# <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Tutorial: habilitar a autenticação em um aplicativo Web usando o Azure Active Directory B2C
 
 Este tutorial mostra como usar Azure Active Directory B2C (Azure AD B2C) para entrar e inscrever usuários em um aplicativo Web ASP.NET. O Azure AD B2C permite que seus aplicativos se autentiquem em contas sociais, contas corporativas e Azure Active Directory contas usando protocolos padrão abertos.
 
@@ -35,18 +35,42 @@ Neste tutorial, ficará a saber como:
 * [Crie fluxos de usuário](tutorial-create-user-flows.md) para habilitar experiências de usuário em seu aplicativo.
 * Instale o [Visual Studio 2019](https://www.visualstudio.com/downloads/) com a carga de trabalho de **desenvolvimento de ASP.net e Web** .
 
-## <a name="update-the-application"></a>Atualizar a aplicação
+## <a name="update-the-application-registration"></a>Atualizar o registro do aplicativo
 
-No tutorial que você concluiu como parte dos pré-requisitos, você adicionou um aplicativo Web no Azure AD B2C. Para habilitar a comunicação com o exemplo neste tutorial, você precisa adicionar um URI de redirecionamento ao aplicativo em Azure AD B2C.
+No tutorial que você concluiu como parte dos pré-requisitos, você registrou um aplicativo Web no Azure AD B2C. Para habilitar a comunicação com o exemplo neste tutorial, você precisa adicionar um URI de redirecionamento e criar um segredo do cliente (chave) para o aplicativo registrado.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+### <a name="add-a-redirect-uri-reply-url"></a>Adicionar um URI de redirecionamento (URL de resposta)
+
+Você pode usar a experiência de **aplicativos** atual ou nossa nova experiência unificada de **registros de aplicativo (versão prévia)** para atualizar o aplicativo. [Saiba mais sobre a experiência de visualização](http://aka.ms/b2cappregintro).
+
+#### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
+
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
 1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 1. Selecione **aplicativos**e, em seguida, selecione o aplicativo *webapp1* .
-1. Em **URL de resposta**, `https://localhost:44316`adicione.
+1. Em **URL de resposta**, adicione `https://localhost:44316`.
 1. Selecione **Guardar**.
-1. Na página Propriedades, registre a ID do aplicativo que você usará ao configurar o aplicativo Web.
-1. Selecione **chaves**, selecione **gerar chave**e selecione **salvar**. Registre a chave que você usará ao configurar o aplicativo Web.
+1. Na página Propriedades, registre a ID do aplicativo para uso em uma etapa posterior ao configurar o aplicativo Web.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
+
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
+1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
+1. Selecione **registros de aplicativo (versão prévia)** , selecione a guia **aplicativos de propriedade** e, em seguida, selecione o aplicativo *webapp1* .
+1. Selecione **autenticação**e, em seguida, selecione **experimentar a nova experiência** (se mostrado).
+1. Em **Web**, selecione o link **Adicionar URI** , insira `https://localhost:44316`e, em seguida, selecione **salvar**.
+1. Selecione **Descrição geral**.
+1. Registre a **ID do aplicativo (cliente)** para uso em uma etapa posterior ao configurar o aplicativo Web.
+
+* * *
+
+### <a name="create-a-client-secret"></a>Criar um segredo do cliente
+
+Em seguida, crie um segredo do cliente para o aplicativo Web registrado. O exemplo de código do aplicativo Web usa isso para provar sua identidade ao solicitar tokens.
+
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 ## <a name="configure-the-sample"></a>Configurar o exemplo
 
@@ -67,7 +91,7 @@ Atualize as configurações no arquivo Web. config para trabalhar com seu fluxo 
 
 1. Abra a solução **B2C-WebAPI-DotNet** no Visual Studio.
 1. No projeto **TaskWebApp** , abra o arquivo **Web. config** .
-    1. Atualize o valor de `ida:Tenant` e `ida:AadInstance` com o nome do locatário de Azure ad B2C que você criou. Por exemplo, substitua `fabrikamb2c` por `contoso`.
+    1. Atualize o valor de `ida:Tenant` e `ida:AadInstance` com o nome do locatário Azure AD B2C que você criou. Por exemplo, substitua `fabrikamb2c` por `contoso`.
     1. Substitua o valor de `ida:ClientId` pela ID do aplicativo que você registrou.
     1. Substitua o valor de `ida:ClientSecret` pela chave que registou. Você deve codificar o segredo do cliente em XML antes de adicioná-lo ao Web. config.
     1. Substitua o valor de `ida:SignUpSignInPolicyId` por `b2c_1_signupsignin1`.
@@ -91,9 +115,9 @@ Atualize as configurações no arquivo Web. config para trabalhar com seu fluxo 
 
 O usuário do aplicativo agora pode usar seu endereço de email para entrar e usar o aplicativo Web.
 
-No entanto, o recurso de **lista de tarefas pendentes** não funcionará até que você conclua [o próximo tutorial da série, tutorial: Use Azure AD B2C para proteger uma API](active-directory-b2c-tutorials-web-api.md)Web ASP.net.
+No entanto, o recurso de **lista de tarefas pendentes** não funcionará até que você conclua o próximo tutorial da série, [tutorial: usar Azure ad B2C para proteger uma API Web ASP.net](active-directory-b2c-tutorials-web-api.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
@@ -105,4 +129,4 @@ Neste tutorial, ficou a saber como:
 Agora passe para o próximo tutorial para habilitar o recurso de **lista de tarefas pendentes** do aplicativo Web. Nele, você registra um aplicativo de API Web em seu próprio locatário Azure AD B2C e, em seguida, modifica o exemplo de código para usar seu locatário para autenticação de API.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use Azure Active Directory B2C para proteger uma API Web ASP.NET >](active-directory-b2c-tutorials-web-api.md)
+> [Tutorial: usar Azure Active Directory B2C para proteger uma API Web ASP.NET >](active-directory-b2c-tutorials-web-api.md)

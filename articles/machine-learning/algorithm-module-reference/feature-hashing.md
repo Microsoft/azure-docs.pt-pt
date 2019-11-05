@@ -1,7 +1,7 @@
 ---
 title: Referência de módulo de hash de recurso
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo hash de recurso no serviço de Azure Machine Learning para personalizarr dados de texto.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo hash de recurso no Azure Machine Learning para personalizarr dados de texto.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: bbcab6e94783583c7e13ae482d68fd013ba4c91d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 48960eae4941bb744a937639e1308e1b5f6aaf9f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170870"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497823"
 ---
 # <a name="feature-hashing-module-reference"></a>Referência de módulo de hash de recurso
 
-Este artigo descreve um módulo da interface visual (visualização) para o serviço Azure Machine Learning.
+Este artigo descreve um módulo incluído no designer de Azure Machine Learning (versão prévia).
 
 Use o módulo hash de recurso para transformar um fluxo de texto em inglês em um conjunto de recursos inteiros. Em seguida, você pode passar esse conjunto de recursos com hash para um algoritmo de aprendizado de máquina para treinar um modelo de análise de texto.
 
@@ -53,13 +53,13 @@ Você pode controlar o tamanho dos n-grams usando a propriedade **n-grams** . Se
 |preços|3|
 |I|3|
 |Informática|1|
-|era|1|
+|deveria|1|
 
 Depois que o dicionário é criado, o módulo hash de recurso converte os termos do dicionário em valores de hash. Em seguida, ele computa se um recurso foi usado em cada caso. Para cada linha de dados de texto, o módulo gera um conjunto de colunas, uma coluna para cada recurso com hash.
 
 Por exemplo, após o hash, as colunas de recurso podem ter uma aparência semelhante a esta:
 
-|Classificação|Recurso de hash 1|Recurso de hash 2|Recurso de hash 3|
+|Avaliações|Recurso de hash 1|Recurso de hash 2|Recurso de hash 3|
 |-----|-----|-----|-----|
 |4|1|1|0|
 |5|0|0|0|
@@ -73,7 +73,7 @@ As saídas numéricas também possibilitam o uso de métodos comuns de aprendiza
 
 ## <a name="configure-the-feature-hashing-module"></a>Configurar o módulo hash de recurso
 
-1.  Adicione o módulo hash de recurso ao seu experimento em uma interface visual.
+1.  Adicione o módulo hash de recurso ao seu pipeline no designer.
 
 1. Conecte o conjunto de um que contém o texto que você deseja analisar.
 
@@ -94,7 +94,7 @@ As saídas numéricas também possibilitam o uso de métodos comuns de aprendiza
 
     Por exemplo, se você inserir 3, unigrams, bigrams e trigrams serão criados.
 
-1. Execute a experimentação.
+1. Executar o pipeline.
 
 ## <a name="results"></a>Resultados
 
@@ -102,7 +102,7 @@ Depois que o processamento é concluído, o módulo gera um conjunto de resultad
 
 |Nome da coluna 1|Tipo de coluna 2|
 |-------------------|-------------------|
-|USERTEXT|Coluna de dados original|
+|UserText|Coluna de dados original|
 |SENTIMENTO|Coluna de dados original|
 |UserText-recurso de hash 1|Coluna de recurso com hash|
 |UserText-recurso de hash 2|Coluna de recurso com hash|
@@ -127,8 +127,8 @@ As práticas recomendadas a seguir podem ajudá-lo a obter o máximo do módulo 
     * Remoção de Pontuação e caracteres especiais
     * Lematização  
 
-O conjunto ideal de métodos de pré-processamento a serem aplicados em qualquer solução depende do domínio, do vocabulário e da necessidade de negócios. Experimente seus dados para ver quais métodos de processamento de texto são mais eficazes.
+O conjunto ideal de métodos de pré-processamento a serem aplicados em qualquer solução depende do domínio, do vocabulário e da necessidade de negócios. Pipeline com seus dados para ver quais métodos de processamento de texto são mais eficazes.
 
 ## <a name="next-steps"></a>Passos seguintes
             
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para o serviço de Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning 

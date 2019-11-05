@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 07/30/2019
+ms.date: 10/21/2019
 ms.author: aahi
-ms.openlocfilehash: 642b21624ce3ffc993d5f29a413845044d703fd7
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: e51e5945df8b08ec81db0c85416b31b3ec788ffd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984271"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488627"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como usar o reconhecimento de entidade nomeada no Análise de Texto
 
@@ -23,47 +23,109 @@ A [API de reconhecimento de entidade nomeada](https://westcentralus.dev.cognitiv
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>Vinculação de entidade e reconhecimento de entidade nomeada
 
-O ponto de `entities` extremidade análise de texto ' dá suporte ao reconhecimento de entidade nomeada (Ner) e à vinculação de entidade.
+O ponto de extremidade do Análise de Texto ' `entities` dá suporte ao reconhecimento de entidade nomeada (NER) e à vinculação de entidade.
 
 ### <a name="entity-linking"></a>Ligar à Entidade
-A vinculação de entidades é a capacidade de identificar e desambiguar a identidade de uma entidade encontrada em texto (por exemplo, determinar se o "Mars" está sendo usado como o planeta ou como o Deus romano de guerra). Esse processo requer a presença de uma base de dados de conhecimento na qual as entidades reconhecidas são vinculadas-a Wikipédia `entities` é usada como a base de dados de conhecimento para o ponto de extremidade análise de texto.
+A vinculação de entidades é a capacidade de identificar e desambiguar a identidade de uma entidade encontrada em texto (por exemplo, determinar se o "Mars" está sendo usado como o planeta ou como o Deus romano de guerra). Esse processo requer a presença de uma base de dados de conhecimento para a qual as entidades reconhecidas são vinculadas-a Wikipédia é usada como a base de dados de conhecimento para o ponto de extremidade `entities` Análise de Texto.
 
 ### <a name="named-entity-recognition-ner"></a>Reconhecimento de entidade nomeada (NER)
-O NER (reconhecimento de entidade nomeada) é a capacidade de identificar diferentes entidades no texto e categorizá-las em classes predefinidas. As classes de entidades com suporte estão listadas abaixo.
+O NER (reconhecimento de entidade nomeada) é a capacidade de identificar diferentes entidades no texto e categorizá-las em classes predefinidas ou tipos. 
 
-No Análise de Texto [versão 2,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), a vinculação de entidade e o reconhecimento de entidade nomeada (Ner) estão disponíveis para vários idiomas. Consulte o artigo [suporte ao idioma](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) para obter mais informações.
+## <a name="named-entity-recognition-v3-public-preview"></a>Visualização pública de reconhecimento de entidade nomeada v3
 
-### <a name="language-support"></a>Suporte de idiomas
+A [próxima versão do reconhecimento de entidade nomeada](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c7/console) agora está disponível para visualização pública. Ele fornece atualizações para vinculação de entidade e reconhecimento de entidade nomeada. 
 
-Usar a vinculação de entidades em várias linguagens requer o uso de uma base de dados de conhecimento correspondente em cada idioma. Para vinculação de entidade em análise de texto, isso significa que cada idioma com suporte no `entities` ponto de extremidade será vinculado ao corpus da Wikipédia correspondente nesse idioma. Como o tamanho de subinstrução varia entre os idiomas, é esperado que a Recall da funcionalidade de vinculação de entidades também varie.
+:::row:::
+    :::column span="":::
+        **Funcionalidade**
+    :::column-end:::
+    ::: column span="":::
+        **Descrição** 
+    :::column-end:::
+:::row-end:::
+<!-- expanded types and subtypes row-->
+:::row:::
+    :::column span="":::
+        Tipos de entidade e subtipos expandidos
+    :::column-end:::
+    :::column span="":::
+     Classificação e detecção expandidas para vários tipos de entidade nomeados.
+    :::column-end:::
+:::row-end:::
+<!-- separate endpoints row-->
+:::row:::
+    :::column span="":::
+        Pontos de extremidade de solicitação separados 
+    :::column-end:::
+    :::column span="":::
+        Separe os pontos de extremidade para enviar solicitações de vinculação e NER de entidade.
+    :::column-end:::
+:::row-end:::
+<!-- model-version row -->
+:::row:::
+    :::column span="":::
+        `model-version` parâmetro
+    :::column-end:::
+    :::column span="":::
+        Um parâmetro opcional para escolher uma versão do modelo de Análise de Texto. No momento, apenas o modelo padrão está disponível para uso.
+    :::column-end:::
+:::row-end:::
 
-## <a name="supported-types-for-named-entity-recognition"></a>Tipos com suporte para reconhecimento de entidade nomeada
+### <a name="entity-types"></a>Tipos de entidade
 
-| Type  | Subtipo | Exemplo |
+O reconhecimento de entidade nomeada v3 fornece detecção expandida entre vários tipos. Atualmente, o NER v3 pode reconhecer as seguintes categorias de entidades. Para obter uma lista detalhada de entidades e linguagens com suporte, consulte o artigo [tipos de entidade nomeada](../named-entity-types.md) .
+
+* Geral
+* Informações pessoais 
+
+### <a name="request-endpoints"></a>Pontos de extremidade de solicitação
+
+O reconhecimento de entidade nomeada v3 usa pontos de extremidade separados para solicitações de vinculação de NER e entidade. Use um formato de URL abaixo com base em sua solicitação:
+
+NER
+* Entidades gerais-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
+
+* Entidades de informações pessoais-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
+
+Vinculação de entidade
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
+
+### <a name="model-versioning"></a>Controle de versão de modelo
+
+[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
+
+## <a name="supported-types-for-named-entity-recognition-v2"></a>Tipos com suporte para reconhecimento de entidade nomeada v2
+
+> [!NOTE]
+> As entidades a seguir têm suporte pelo reconhecimento de entidade nomeada (NER) versão 2. O [Ner v3](#named-entity-recognition-v3-public-preview) está em visualização pública e expande muito o número e a profundidade das entidades reconhecidas no texto.   
+
+| Tipo  | Subtipo | Exemplo |
 |:-----------   |:------------- |:---------|
-| Pessoa        | N/A\*         | "Jeff", "Bill Gates"     |
-| Location      | N/A\*         | "Redmond, Washington", "Paris"  |
-| Organização  | N/A\*         | "Microsoft"   |
-| Quantidade      | Número        | "6", "six"     |
+| Pessoa        | \* N/A         | "Jeff", "Bill Gates"     |
+| Localização      | \* N/A         | "Redmond, Washington", "Paris"  |
+| Organização  | \* N/A         | "Microsoft"   |
+| Quantidade      | Número        | "6", "seis"     |
 | Quantidade      | Percentagem    | "50%", "cinquenta por cento"|
 | Quantidade      | Ordinal       | "2.º", "segundo"     |
 | Quantidade      | Idade           | "dia de 90 dias antigos", "30 anos de idade"    |
-| Quantidade      | Currency      | "10,99 $"     |
+| Quantidade      | Moeda      | "10,99 $"     |
 | Quantidade      | Dimensão     | "10 milhas", "40 cm"     |
 | Quantidade      | Temperatura   | "32 graus"    |
-| DateTime      | N/A\*         | "18:30 4 de fevereiro de 2012"      |
+| DateTime      | \* N/A         | "18:30 4 de fevereiro de 2012"      |
 | DateTime      | Date          | "2 de maio de 2017", "02/05/2017"   |
-| DateTime      | Time          | "8:00", "8:00"  |
+| DateTime      | Hora          | "8:00", "8:00"  |
 | DateTime      | DateRange     | "2 a 5 de maio"    |
 | DateTime      | TimeRange     | "18:00 às 19:00"     |
-| DateTime      | Duration      | "1 minuto e 45 segundos"   |
+| DateTime      | Duração      | "1 minuto e 45 segundos"   |
 | DateTime      | Definir           | "todas as terças"     |
-| URL           | N/A\*         | "https:\//www.bing.com"    |
-| Email         | N/A\*         | "support@contoso.com" |
+| do IdP           | \* N/A         | "https:\//www.bing.com"    |
+| Email         | \* N/A         | "support@contoso.com" |
 
-\*Dependendo das entidades de entrada e extraídas, determinadas entidades podem omitir `SubType`o.  Todos os tipos de entidade com suporte listados estão disponíveis apenas para os idiomas inglês, chinês simplificado, francês, alemão e espanhol.
+\* dependendo das entidades de entrada e extraídas, determinadas entidades podem omitir a `SubType`.  Todos os tipos de entidade com suporte listados estão disponíveis apenas para idiomas inglês, chinês simplificado, francês, alemão e espanhol.
 
+### <a name="language-support"></a>Suporte de idiomas
 
+Usar a vinculação de entidades em várias linguagens requer o uso de uma base de dados de conhecimento correspondente em cada idioma. Para vinculação de entidade em Análise de Texto, isso significa que cada idioma com suporte pelo ponto de extremidade `entities` será vinculado ao corpus da Wikipédia correspondente nesse idioma. Como o tamanho de subinstrução varia entre os idiomas, é esperado que a Recall da funcionalidade de vinculação de entidades também varie. Consulte o artigo [suporte ao idioma](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) para obter mais informações.
 
 ## <a name="preparation"></a>Preparação
 
@@ -90,7 +152,7 @@ O tamanho do documento deve ter menos de 5.120 caracteres por documento e você 
     }
 ```
 
-## <a name="step-1-structure-the-request"></a>Passo 1: Estruturar a solicitação
+## <a name="step-1-structure-the-request"></a>Passo 1: estruturar o pedido
 
 Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Análise de Texto](text-analytics-how-to-call-api.md). Os seguintes pontos são novamente apresentados para sua comodidade:
 
@@ -105,13 +167,13 @@ Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Anál
 > [!Tip]
 > Utilize o [Postman](text-analytics-how-to-call-api.md) ou abra a **consola de teste da API** na [documentação](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) para estruturar um pedido e publicá-lo no serviço.
 
-## <a name="step-2-post-the-request"></a>Passo 2: Postar a solicitação
+## <a name="step-2-post-the-request"></a>Passo 2: publicar o pedido
 
 A análise é realizada aquando da receção do pedido. Consulte a seção [limites de dados](../overview.md#data-limits) na visão geral para obter informações sobre o tamanho e o número de solicitações que você pode enviar por minuto e segundo.
 
 Lembre-se de que o serviço não tem estado. Não são armazenados dados na sua conta. Os resultados são devolvidos imediatamente na resposta.
 
-## <a name="step-3-view-results"></a>Passo 3: Ver resultados
+## <a name="step-3-view-results"></a>Passo 3: ver resultados
 
 Todos os pedidos POST devolvem uma resposta formatada JSON com os IDs e as propriedades detetadas.
 
@@ -284,7 +346,7 @@ Neste artigo, você aprendeu os conceitos e o fluxo de trabalho para vinculaçã
 + O pedido POST refere-se a um ponto final `/entities` com recurso a uma [chave de acesso personalizada e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para a sua subscrição.
 + A saída de resposta, que consiste em entidades vinculadas (incluindo pontuações de confiança, deslocamentos e links da Web, para cada ID de documento) pode ser usada em qualquer aplicativo
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [API de Análise de Texto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)

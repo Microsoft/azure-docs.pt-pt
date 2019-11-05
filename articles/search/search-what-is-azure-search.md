@@ -1,5 +1,5 @@
 ---
-title: Introdução ao Azure Pesquisa Cognitiva
+title: Introdução à Pesquisa Cognitiva do Azure
 titleSuffix: Azure Cognitive Search
 description: O Azure Pesquisa Cognitiva é um serviço de pesquisa de nuvem hospedado totalmente gerenciado da Microsoft. Leia descrições de recursos, o fluxo de trabalho de desenvolvimento, comparações a outros produtos de pesquisa da Microsoft e como começar.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 51d7cf270a0df665fdcf5bc90cae283c85ae5d22
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1df8bb293834fca123b2573f02871410754a6bdc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794182"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479652"
 ---
-# <a name="what-is-azure-cognitive-search"></a>O que é o Azure Pesquisa Cognitiva?
+# <a name="what-is-azure-cognitive-search"></a>O que é a Pesquisa Cognitiva do Azure?
 
 O Azure Pesquisa Cognitiva ([anteriormente conhecido como "Azure Search"](whats-new.md#new-service-name)) é uma solução de nuvem de pesquisa como serviço que oferece aos desenvolvedores APIs e ferramentas para adicionar uma experiência de pesquisa avançada sobre conteúdo privado e heterogêneo em aplicativos Web, móveis e empresariais . Seu código ou uma ferramenta invoca a ingestão de dados (indexação) para criar e carregar um índice. Opcionalmente, você pode adicionar habilidades cognitivas para aplicar processos de ia durante a indexação. Isso pode adicionar novas informações e estruturas úteis para pesquisa e outros cenários.
 
@@ -67,8 +67,8 @@ O Pesquisa Cognitiva do Azure é adequado para os seguintes cenários de aplicat
 |-------------------|----------|
 | Ferramentas para criação de protótipos e inspeção | No portal, pode utilizar o [**Assistente de importação de dados**](search-import-data-portal.md) para configurar os indexados, o estruturador de índice para funcionar como índice e o [**Explorador de pesquisa**](search-explorer.md) para testar as consultas e refine os perfis de classificação. Também pode abrir qualquer índice para ver o seu esquema. |
 | Monitorização e diagnóstico | [**Habilite os recursos de monitoramento**](search-monitor-usage.md) para ir além das métricas em resumo que estão sempre visíveis no Portal. As métricas sobre as consultas por segundo, latência e limitação são recolhidas e comunicadas em páginas de portal sem ser necessária configuração adicional.|
-| Encriptação do lado do servidor | A [**criptografia gerenciada pela Microsoft em repouso**](search-security-overview.md#encrypted-transmission-and-storage) é incorporada à camada de armazenamento interna e é irrevogável. Opcionalmente, você pode complementar a criptografia padrão com [**chaves de criptografia gerenciadas pelo cliente (versão prévia)** ](search-security-manage-encryption-keys.md). As chaves que você cria e gerencia no Azure Key Vault são usadas para criptografar índices e mapas de sinônimos no Azure Search. |
-| Infraestrutura | A **plataforma altamente disponível** garante uma experiência de serviço de pesquisa extremamente fiável. Quando dimensionado corretamente, o [Azure Search oferece um SLA de 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> **Completamente gerido e dimensionável** como uma solução de ponto-a-ponto, o Azure Search não necessita absolutamente de nenhuma gestão de infraestrutura. O seu serviço pode ser ajustado às suas necessidades ao dimensionar em duas dimensões para processar mais armazenamento de documentos, maiores cargas de consulta ou ambos.<br/><br/>|
+| Encriptação do lado do servidor | A [**criptografia gerenciada pela Microsoft em repouso**](search-security-overview.md#encrypted-transmission-and-storage) é incorporada à camada de armazenamento interna e é irrevogável. Opcionalmente, você pode complementar a criptografia padrão com [**chaves de criptografia gerenciadas pelo cliente (versão prévia)** ](search-security-manage-encryption-keys.md). As chaves que você cria e gerencia no Azure Key Vault são usadas para criptografar índices e mapas de sinônimos no Azure Pesquisa Cognitiva. |
+| Infraestrutura | A **plataforma altamente disponível** garante uma experiência de serviço de pesquisa extremamente fiável. Quando dimensionado corretamente, [o Azure pesquisa cognitiva oferece um SLA de 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> **Totalmente gerenciado e escalonável** como uma solução de ponta a ponta, o Azure pesquisa cognitiva requer absolutamente nenhum gerenciamento de infraestrutura. O seu serviço pode ser ajustado às suas necessidades ao dimensionar em duas dimensões para processar mais armazenamento de documentos, maiores cargas de consulta ou ambos.<br/><br/>|
 
 ## <a name="how-to-use-azure-cognitive-search"></a>Como usar o Azure Pesquisa Cognitiva
 ### <a name="step-1-provision-service"></a>Passo 1: Aprovisionar o serviço

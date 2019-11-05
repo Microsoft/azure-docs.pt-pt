@@ -10,15 +10,16 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 07/31/2019
-ms.openlocfilehash: 7ebbc7575ad52bbf7a399babb048113bc505a7f8
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: 525fc8beafbdbe15435c59697d136ae06c91c135
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174544"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489694"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Iniciar, monitorar e cancelar execuções de treinamento em Python
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 O [SDK Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) e [Machine Learning CLI](reference-azure-machine-learning-cli.md) fornecem vários métodos para monitorar, organizar e gerenciar suas execuções para treinamento e experimentação.
 
@@ -62,7 +63,7 @@ ws = Workspace.from_config()
 exp = Experiment(workspace=ws, name="explore-runs")
 ```
 
-Inicie uma execução e seu processo de log com o método [`start_logging()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) .
+Inicie uma execução e seu processo de registro em log com o método [`start_logging()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) .
 
 ```python
 notebook_run = exp.start_logging()
@@ -120,7 +121,7 @@ Para obter a ID de execução, o tempo de execução e os detalhes adicionais so
 print(notebook_run.get_details())
 ```
 
-Quando sua execução for concluída com êxito, use o método [`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) para marcá-la como concluída.
+Quando sua execução for concluída com êxito, use o método [`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) para marcá-lo como concluído.
 
 ```python
 notebook_run.complete()
@@ -201,7 +202,7 @@ Crie execuções filhas para agrupar execuções relacionadas, como para diferen
 > [!NOTE]
 > As execuções filhas só podem ser criadas usando o SDK.
 
-Este exemplo de código usa o script `hello_with_children.py` para criar um lote de cinco execuções filho de dentro de uma execução enviada usando o método [`child_run()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#child-run-name-none--run-id-none--outputs-none-) :
+Este exemplo de código usa o script `hello_with_children.py` para criar um lote de cinco execuções filhas de dentro de uma execução enviada usando o método [`child_run()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#child-run-name-none--run-id-none--outputs-none-) :
 
 ```python
 !more hello_with_children.py

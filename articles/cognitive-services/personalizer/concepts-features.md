@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 2147ca2565d5977e3e47d5182627483aa3d8d1b2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 9a7599cd71c087201b54c594954a6fff377b3e45
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756111"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490759"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Recursos são informações sobre ações e contexto
 
@@ -26,7 +26,7 @@ O personalizador usa **recursos**, que são informações sobre o **contexto atu
 Por exemplo, você pode ter um **recurso** sobre:
 
 * O _usuário persona_ , como um `Sports_Shopper`. Isso não deve ser uma ID de usuário individual. 
-* O _conteúdo_ , como se um vídeo é um `Documentary`, um `Movie` ou um `TV Series`, ou se um item de varejo está disponível no repositório.
+* O _conteúdo_ , como se um vídeo é um `Documentary`, um `Movie`ou um `TV Series`, ou se um item de varejo está disponível no repositório.
 * O período de tempo _atual_ , como em qual dia da semana é.
 
 O personalizador não prescreve, limita ou corrige quais recursos você pode enviar para ações e contexto:
@@ -56,12 +56,12 @@ O personalizador leva em conta os recursos organizados em namespaces. Você dete
 Veja a seguir exemplos de namespaces de recurso usados por aplicativos:
 
 * User_Profile_from_CRM
-* Tempo
+* Hora
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
 * UserDeviceInfo
-* MSNBC
+* Meteorologia
 * Product_Recommendation_Ratings
 * current_time
 * NewsArticle_TextAnalytics
@@ -69,7 +69,10 @@ Veja a seguir exemplos de namespaces de recurso usados por aplicativos:
 Você pode nomear namespaces de recursos seguindo suas próprias convenções, desde que elas sejam chaves JSON válidas. Os namespaces são usados para organizar recursos em conjuntos distintos e para desambiguar recursos com nomes semelhantes. Você pode considerar os namespaces como um ' prefix ' que é adicionado aos nomes de recursos. Namespaces não podem ser aninhados.
 
 
-No JSON, `user`, `state` e `device` a seguir são namespaces de recurso. Observação de visualização pública: no momento, é altamente recomendável usar nomes para namespaces de recurso que são baseados em UTF-8 e começam com letras diferentes. Por exemplo, `user`, `state` e `device` começar com `u`, `s` e `d`. Atualmente, ter namespaces com os mesmos primeiros caracteres pode resultar em colisões em índices usados para aprendizado de máquina.
+No JSON, `user`, `state`e `device` a seguir são namespaces de recurso. 
+
+> [!Note]
+> No momento, é altamente recomendável usar nomes para namespaces de recursos que são baseados em UTF-8 e começar com letras diferentes. Por exemplo, `user`, `state`e `device` começar com `u`, `s`e `d`. Atualmente, ter namespaces com os mesmos primeiros caracteres pode resultar em colisões em índices usados para aprendizado de máquina.
 
 Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simples. Uma matriz só poderá ser incluída se os itens de matriz forem números. 
 
@@ -175,7 +178,7 @@ As ações que você envia para a API de classificação dependerão do que voc�
 
 Eis alguns exemplos:
 
-|Finalidade|Ação|
+|Objetivo|Ação|
 |--|--|
 |Personalize o artigo que está realçado em um site de notícias.|Cada ação é um artigo de notícias em potencial.|
 |Otimizar o posicionamento do AD em um site.|Cada ação será um layout ou regras para criar um layout para os anúncios (por exemplo, na parte superior, à direita, imagens pequenas, imagens grandes).|

@@ -1,7 +1,7 @@
 ---
 title: REST (referência de API de conversão de texto em fala) – serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Saiba como usar a API REST de conversão de texto em fala. Neste artigo, irá aprender sobre as opções de autorização, opções de consulta, como estruturar uma solicitação e receber uma resposta.
+description: Saiba como usar a API REST de conversão de texto em fala. Neste artigo, você aprenderá sobre as opções de autorização, opções de consulta, como estruturar uma solicitação e receber uma resposta.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: b0a0d788c9fadd13b9a37f541a81945c86b37c29
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9fa0157bd458d2de028cab8ff9c836761e99562f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559174"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481209"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de conversão de texto em fala
 
-Os serviços de fala permitem que você converta o [texto em fala sintetizada](#convert-text-to-speech) e [obtenha uma lista de vozes com suporte](#get-a-list-of-voices) para uma região usando um conjunto de APIs REST. Cada ponto de extremidade disponível é associado a uma região. É necessária uma chave de assinatura para o ponto de extremidade/região que você planeja usar.
+Os serviços de fala permitem que você [converta o texto em fala sintetizada](#convert-text-to-speech) e [obtenha uma lista de vozes com suporte](#get-a-list-of-voices) para uma região usando um conjunto de APIs REST. Cada ponto de extremidade disponível é associado a uma região. É necessária uma chave de assinatura para o ponto de extremidade/região que você planeja usar.
 
 A API REST de conversão de texto em fala dá suporte à neural e a vozes de conversão de texto em fala padrão, cada uma delas com suporte para um idioma e dialeto específicos, identificados por localidade.
 
@@ -31,13 +31,13 @@ A API REST de conversão de texto em fala dá suporte à neural e a vozes de con
 
 Antes de usar essa API, entenda:
 
-* A API REST do texto para discurso requer um cabeçalho de autorização. Isso significa que precisa para concluir uma troca de token para aceder ao serviço. Para obter mais informações, veja [Autenticação](#authentication).
+* A API REST de conversão de texto em fala requer um cabeçalho de autorização. Isso significa que você precisa concluir uma troca de token para acessar o serviço. Para obter mais informações, veja [Autenticação](#authentication).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
 ## <a name="get-a-list-of-voices"></a>Obter uma lista de vozes
 
-O `voices/list` ponto de extremidade permite obter uma lista completa de vozes para uma região/um ponto de extremidade específico.
+O ponto de extremidade `voices/list` permite obter uma lista completa de vozes para uma região/um ponto de extremidade específico.
 
 ### <a name="regions-and-endpoints"></a>Regiões e pontos de extremidade
 
@@ -48,34 +48,34 @@ O `voices/list` ponto de extremidade permite obter uma lista completa de vozes p
 | Canadá Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | EUA Central | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Ásia Oriental | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| EUA Leste | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | EUA Leste 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | França Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Índia Central | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Leste do Japão | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Este do Japão | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Coreia do Sul Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| EUA Centro-Norte | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| E.U.A. Centro-Norte | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa do Norte | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | EUA Centro-Sul | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sudeste Asiático | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Reino Unido Sul | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Sul do Reino Unido | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa Ocidental | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| EUA Oeste | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Oeste dos E.U.A. | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | EUA Oeste 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
-### <a name="request-headers"></a>Cabeçalhos do pedido
+### <a name="request-headers"></a>Cabeçalhos de solicitação
 
 Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de conversão de texto em fala.
 
-| Cabeçalho | Descrição | Obrigatório / opcional |
+| Cabeçalho | Descrição | Obrigatório/opcional |
 |--------|-------------|---------------------|
-| `Authorization` | Um token de autorização precedidas pela palavra `Bearer`. Para obter mais informações, veja [Autenticação](#authentication). | Requerido |
+| `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, veja [Autenticação](#authentication). | Necessário |
 
 ### <a name="request-body"></a>Corpo do pedido
 
-Um corpo não é necessário `GET` para solicitações a esse ponto de extremidade.
+Um corpo não é necessário para solicitações de `GET` para esse ponto de extremidade.
 
-### <a name="sample-request"></a>Pedido de exemplo
+### <a name="sample-request"></a>Exemplo de solicitação
 
 Essa solicitação requer apenas um cabeçalho de autorização.
 
@@ -131,43 +131,43 @@ Essa resposta foi truncada para ilustrar a estrutura de uma resposta.
 ]
 ```
 
-### <a name="http-status-codes"></a>Códigos de estado HTTP
+### <a name="http-status-codes"></a>Códigos de status HTTP
 
-O código de estado HTTP para cada resposta indica o êxito ou erros comuns.
+O código de status HTTP para cada resposta indica erros de êxito ou comuns.
 
-| Código de estado de HTTP | Descrição | Razão possível |
+| Código de estado de HTTP | Descrição | Possível motivo |
 |------------------|-------------|-----------------|
 | 200 | OK | A solicitação foi bem-sucedida. |
-| 400 | Pedido Inválido | Um parâmetro necessário está em falta, vazios ou nulos. Em alternativa, o valor transmitido como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é demasiado longo. |
-| 401 | Não autorizado | O pedido não está autorizado. Certifique-se a chave de subscrição ou o token é válido e na região correto. |
-| 429 | Demasiados Pedidos | Excedeu a quota ou a taxa de pedidos permitidos na sua subscrição. |
-| 502 | Gateway incorrecto | Problema de rede ou do lado do servidor. Também pode indicar a cabeçalhos inválidos. |
+| 400 | Pedido Incorreto | Um parâmetro necessário está ausente, vazio ou é nulo. Ou, o valor passado para um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho muito longo. |
+| 401 | Não autorizado | A solicitação não é autorizada. Verifique se sua chave de assinatura ou token é válido e na região correta. |
+| 429 | Número excessivo de solicitações | Você excedeu a cota ou a taxa de solicitações permitidas para sua assinatura. |
+| 502 | Gateway inadequado | Problema de rede ou do servidor. Também pode indicar cabeçalhos inválidos. |
 
 
 ## <a name="convert-text-to-speech"></a>Converter texto em voz
 
-O `v1` ponto de extremidade permite converter conversão de texto em fala usando a [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md).
+O ponto de extremidade `v1` permite que você converta conversão de texto em fala usando a [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md).
 
 ### <a name="regions-and-endpoints"></a>Regiões e pontos de extremidade
 
-Estas regiões são suportadas para voz com a API REST. Certifique-se de que seleciona o ponto final que corresponde à sua região de subscrição.
+Essas regiões têm suporte para conversão de texto em fala usando a API REST. Certifique-se de selecionar o ponto de extremidade que corresponde à sua região de assinatura.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-### <a name="request-headers"></a>Cabeçalhos do pedido
+### <a name="request-headers"></a>Cabeçalhos de solicitação
 
 Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de conversão de texto em fala.
 
-| Cabeçalho | Descrição | Obrigatório / opcional |
+| Cabeçalho | Descrição | Obrigatório/opcional |
 |--------|-------------|---------------------|
-| `Authorization` | Um token de autorização precedidas pela palavra `Bearer`. Para obter mais informações, veja [Autenticação](#authentication). | Requerido |
-| `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Aceite o valor: `application/ssml+xml`. | Necessário |
-| `X-Microsoft-OutputFormat` | Especifica o formato de saída de áudio. Para obter uma lista completa dos valores aceites, consulte [saídas áudio](#audio-outputs). | Necessário |
-| `User-Agent` | O nome da aplicação. O valor fornecido deve ter menos de 255 caracteres. | Requerido |
+| `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, veja [Autenticação](#authentication). | Necessário |
+| `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Valor aceito: `application/ssml+xml`. | Necessário |
+| `X-Microsoft-OutputFormat` | Especifica o formato de saída de áudio. Para obter uma lista completa de valores aceitos, consulte [saídas de áudio](#audio-outputs). | Necessário |
+| `User-Agent` | O nome do aplicativo. O valor fornecido deve ter menos de 255 caracteres. | Necessário |
 
 ### <a name="audio-outputs"></a>Saídas de áudio
 
-Esta é uma lista dos formatos de áudio suportados que são enviados em cada pedido como o `X-Microsoft-OutputFormat` cabeçalho. Cada incorpora uma velocidade de transmissão e o tipo de codificação. Os serviços de fala dão suporte a saídas de áudio de 24 kHz, 16 kHz e 8 kHz.
+Esta é uma lista de formatos de áudio com suporte que são enviados em cada solicitação como o cabeçalho de `X-Microsoft-OutputFormat`. Cada incorpora um tipo de taxa de bits e de codificação. Os serviços de fala dão suporte a saídas de áudio de 24 kHz, 16 kHz e 8 kHz.
 
 |||
 |-|-|
@@ -180,18 +180,18 @@ Esta é uma lista dos formatos de áudio suportados que são enviados em cada pe
 | `audio-24khz-48kbitrate-mono-mp3` | |
 
 > [!NOTE]
-> Se sua voz selecionado e o formato de saída tiverem taxas de bits diferentes, o áudio é resampled conforme necessário. No entanto, vozes de 24 kHz `audio-16khz-16kbps-mono-siren` não `riff-16khz-16kbps-mono-siren` dão suporte a formatos de saída e.
+> Se o formato de voz e saída selecionado tiver taxas de bits diferentes, o áudio será reamostrado conforme necessário. No entanto, as vozes de 24 kHz não dão suporte a `audio-16khz-16kbps-mono-siren` e `riff-16khz-16kbps-mono-siren` formatos de saída.
 
 ### <a name="request-body"></a>Corpo do pedido
 
-O corpo de cada `POST` solicitação é enviado como [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md). O SSML permite que você escolha a voz e o idioma da fala sintetizada retornada pelo serviço de conversão de texto em fala. Para obter uma lista completa de vozes com suporte, consulte [suporte a idiomas](language-support.md#text-to-speech).
+O corpo de cada solicitação de `POST` é enviado como [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md). O SSML permite que você escolha a voz e o idioma da fala sintetizada retornada pelo serviço de conversão de texto em fala. Para obter uma lista completa de vozes com suporte, consulte [suporte a idiomas](language-support.md#text-to-speech).
 
 > [!NOTE]
 > Se estiver usando uma voz personalizada, o corpo de uma solicitação poderá ser enviado como texto sem formatação (ASCII ou UTF-8).
 
-### <a name="sample-request"></a>Pedido de exemplo
+### <a name="sample-request"></a>Exemplo de solicitação
 
-Este pedido HTTP utiliza SSML para especificar a voz e linguagem. O corpo não pode ter mais de 1000 carateres.
+Essa solicitação HTTP usa SSML para especificar a voz e o idioma. O corpo não pode exceder 1.000 caracteres.
 
 ```http
 POST /cognitiveservices/v1 HTTP/1.1
@@ -210,27 +210,27 @@ Authorization: Bearer [Base64 access_token]
 
 Consulte nossos guias de início rápido para obter exemplos específicos de idioma:
 
-* [.NET Core, C#](quickstart-dotnet-text-to-speech.md)
-* [Python](quickstart-python-text-to-speech.md)
+* [.NET Core,C#](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
+* [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
 * [Node.js](quickstart-nodejs-text-to-speech.md)
 
-### <a name="http-status-codes"></a>Códigos de estado HTTP
+### <a name="http-status-codes"></a>Códigos de status HTTP
 
-O código de estado HTTP para cada resposta indica o êxito ou erros comuns.
+O código de status HTTP para cada resposta indica erros de êxito ou comuns.
 
-| Código de estado de HTTP | Descrição | Razão possível |
+| Código de estado de HTTP | Descrição | Possível motivo |
 |------------------|-------------|-----------------|
-| 200 | OK | O pedido foi concluída com êxito; o corpo da resposta é um arquivo de áudio. |
-| 400 | Pedido Inválido | Um parâmetro necessário está em falta, vazios ou nulos. Em alternativa, o valor transmitido como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é demasiado longo. |
-| 401 | Não autorizado | O pedido não está autorizado. Certifique-se a chave de subscrição ou o token é válido e na região correto. |
-| 413 | Entidade do pedido demasiado grande | A entrada SSML é superior a 1024 carateres. |
-| 415 | Tipo de mídia sem suporte | É possível que o incorreto `Content-Type` tenha sido fornecido. `Content-Type`deve ser definido como `application/ssml+xml`. |
-| 429 | Demasiados Pedidos | Excedeu a quota ou a taxa de pedidos permitidos na sua subscrição. |
-| 502 | Gateway incorrecto | Problema de rede ou do lado do servidor. Também pode indicar a cabeçalhos inválidos. |
+| 200 | OK | A solicitação foi bem-sucedida; o corpo da resposta é um arquivo de áudio. |
+| 400 | Pedido Incorreto | Um parâmetro necessário está ausente, vazio ou é nulo. Ou, o valor passado para um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho muito longo. |
+| 401 | Não autorizado | A solicitação não é autorizada. Verifique se sua chave de assinatura ou token é válido e na região correta. |
+| 413 | Entidade de solicitação muito grande | A entrada SSML tem mais de 1024 caracteres. |
+| 415 | Tipo de mídia sem suporte | É possível que o `Content-Type` errado seja fornecido. `Content-Type` deve ser definido como `application/ssml+xml`. |
+| 429 | Número excessivo de solicitações | Você excedeu a cota ou a taxa de solicitações permitidas para sua assinatura. |
+| 502 | Gateway inadequado | Problema de rede ou do servidor. Também pode indicar cabeçalhos inválidos. |
 
-Se o estado HTTP é `200 OK`, o corpo da resposta contém um arquivo de áudio no formato solicitado. Este ficheiro pode ser reproduzido como tem transferidos, salva num buffer ou guardado num ficheiro.
+Se o status HTTP for `200 OK`, o corpo da resposta conterá um arquivo de áudio no formato solicitado. Esse arquivo pode ser reproduzido à medida que é transferido, salvo em um buffer ou salvo em um arquivo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)

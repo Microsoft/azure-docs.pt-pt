@@ -1,27 +1,27 @@
 ---
-title: Adicionar conjuntos de dados a uma versão prévia existente do Azure data share
+title: Adicionar conjuntos de dados a um compartilhamento existente do Azure data
 description: Saiba como adicionar conjuntos de dados a um compartilhamento de dado existente no compartilhamento de dados do Azure e compartilhar com os mesmos destinatários.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 8cc61307ae6664889f60469cc3ca65c840c43b86
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 00c96950565b077e65f84e2d8b4977092df5e317
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169197"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490546"
 ---
-# <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share-preview"></a>Como adicionar conjuntos de dados a um compartilhamento existente na versão prévia do compartilhamento do Azure data share
+# <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share"></a>Como adicionar conjuntos de dados a um compartilhamento existente no Azure data share
 
-Este artigo explica como adicionar conjuntos de dados a um compartilhamento de dado pré-existente usando a visualização do compartilhamento de dados do Azure. Isso permite que você compartilhe mais dados com os mesmos destinatários sem precisar criar um novo compartilhamento.
+Este artigo explica como adicionar conjuntos de dados a um compartilhamento de dado pré-existente usando o compartilhamento de dados do Azure. Isso permite que você compartilhe mais dados com os mesmos destinatários sem precisar criar um novo compartilhamento.
 
 Para obter informações sobre como adicionar conjuntos de dados à medida que você cria um compartilhamento, consulte o tutorial [compartilhar data](share-your-data.md) .
 
 ## <a name="navigate-to-a-sent-data-share"></a>Navegar até um compartilhamento de dados enviado
 
-Na visualização do compartilhamento de dados do Azure, navegue até o compartilhamento enviado e selecione a guia **conjuntos** de dados. Clique no botão **+ Adicionar conjuntos** de dados para adicionar mais conjuntos de dados.
+No compartilhamento de dados do Azure, navegue até o compartilhamento enviado e selecione a guia **conjuntos** de dados. Clique no botão **+ Adicionar conjuntos** de dados para adicionar mais conjuntos de dados.
 
 ![Adicionar conjuntos de os](./media/how-to/how-to-add-datasets/add-datasets.png)
 

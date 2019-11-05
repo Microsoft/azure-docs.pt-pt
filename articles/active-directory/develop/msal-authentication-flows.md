@@ -18,18 +18,18 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e65c68e4f24dd95696cc53b92dd7e2b59d940b6c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 55d618a24b957fedb6fc2af3e75b7a7d2bd23d96
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175714"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473821"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
 
 Este artigo descreve os diferentes fluxos de autenticação fornecidos pela MSAL (biblioteca de autenticação da Microsoft).  Esses fluxos podem ser usados em uma variedade de cenários de aplicativos diferentes.
 
-| Flow | Descrição | Usado em|  
+| Fluxo | Descrição | Usado em|  
 | ---- | ----------- | ------- | 
 | [Interativo](#interactive) | Obtém o token por meio de um processo interativo que solicita as credenciais ao usuário por meio de um navegador ou janela pop-up. | [Aplicativos de desktop](scenario-desktop-overview.md), [aplicativos móveis](scenario-mobile-overview.md) |
 | [Concessão implícita](#implicit-grant) | Permite que o aplicativo obtenha tokens sem executar uma troca de credenciais de servidor back-end. Isso permite que o aplicativo entre no usuário, mantenha a sessão e obtenha tokens para outras APIs da Web, tudo no código JavaScript do cliente.| [Aplicativos de página única (SPA)](scenario-spa-overview.md) |
@@ -44,7 +44,7 @@ Este artigo descreve os diferentes fluxos de autenticação fornecidos pela MSAL
  
 Dependendo de como o cliente é criado, ele pode usar um (ou vários) dos fluxos de autenticação com suporte na plataforma de identidade da Microsoft.  Esses fluxos podem produzir uma variedade de tokens (id_tokens, tokens de atualização, tokens de acesso), bem como códigos de autorização, e exigem tokens diferentes para fazê-los funcionar. Este gráfico tem uma visão geral:
  
-|Flow | Requisitos | id_token | token de acesso | token de atualização | código de autorização | 
+|Fluxo | Requisitos | id_token | token de acesso | token de atualização | código de autorização | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Fluxo de código de autorização](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
 |[Fluxo implícito](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
@@ -54,7 +54,7 @@ Dependendo de como o cliente é criado, ele pode usar um (ou vários) dos fluxos
 |[Fluxo de código do dispositivo](v2-oauth2-device-code.md) | | x| x| x| |
 |[Credenciais de cliente](v2-oauth2-client-creds-grant-flow.md) | | | x (somente de aplicativo)| | |
  
-Tokens emitidos por meio do modo implícito têm uma limitação de comprimento devido a ser passado de volta para o navegador por meio da URL (em que `response_mode` é `query` ou `fragment`).  Alguns navegadores têm um limite no tamanho da URL que pode ser colocado na barra do navegador e falham quando é muito longo.  Portanto, esses tokens não têm declarações `groups` ou `wids`.
+Tokens emitidos por meio do modo implícito têm uma limitação de comprimento devido a ser passado de volta para o navegador por meio da URL (em que `response_mode` é `query` ou `fragment`).  Alguns navegadores têm um limite no tamanho da URL que pode ser colocado na barra do navegador e falham quando é muito longo.  Portanto, esses tokens não têm declarações de `groups` ou `wids`.
 
 ## <a name="interactive"></a>Interativo
 
@@ -203,7 +203,7 @@ Isso significa que uma das seguintes opções é verdadeira:
 - Você forneceu uma maneira para os usuários consentirem com o aplicativo (consulte [solicitando consentimento de usuário individual](v2-permissions-and-consent.md#requesting-individual-user-consent)).
 - Você forneceu uma maneira para o administrador do locatário consentir para o aplicativo (consulte [consentimento do administrador](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)).
 
-O fluxo IWA está habilitado para aplicativos .NET desktop, .NET Core e Windows universal Platform. No .NET Core, somente a sobrecarga que está usando o nome de usuário está disponível. A plataforma .NET Core não pode solicitar o nome de usuário para o sistema operacional.
+O fluxo IWA está habilitado para aplicativos .NET desktop, .NET Core e Windows universal Platform. No .NET Core, você deve fornecer o nome de usuário para IWA, pois o .NET Core não pode obter nomes de acessações do sistema operacional.
   
 Para obter mais informações sobre consentimento, consulte [permissões e consentimento do v 2.0](v2-permissions-and-consent.md).
 

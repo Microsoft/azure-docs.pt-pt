@@ -14,14 +14,14 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: 2d0519abdf25a6fc8373f9d1a3a7232a9783d316
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: a700cc83c6bd34f5f726b9cc1c97bd7e1476963b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984895"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73519273"
 ---
-# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutorial: Filtrar o tráfego de rede com um grupo de segurança de rede usando o portal do Azure
+# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutorial: filtrar o tráfego de rede com um grupo de segurança de rede usando o portal do Azure
 
 Pode filtrar o tráfego de rede de entrada e de saída de uma sub-rede de rede virtual com um grupo de segurança de rede. Os grupos de segurança de rede contêm regras de segurança que filtram o tráfego de rede por endereço IP, porta e protocolo. As regras de segurança são aplicadas a recursos implementados numa sub-rede. Neste tutorial, ficará a saber como:
 
@@ -41,7 +41,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-1. Selecione **+ Criar um recurso**, no canto superior esquerdo do Portal do Azure.
+1. No menu portal do Azure ou na **Home** Page do, selecione **criar um recurso**. 
 2. Selecione **Redes** e, em seguida, selecione **Rede virtual**.
 3. Introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **Criar**:
 
@@ -51,7 +51,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     | Espaço de endereços           | 10.0.0.0/16                                        |
     | Subscrição            | Selecione a sua subscrição.                          |
     | Grupo de recursos          | Selecione **Criar novo** e introduza *myResourceGroup*. |
-    | Location                | Selecione **E.U.A. Leste**.                                |
+    | Localização                | Selecione **E.U.A. Leste**.                                |
     | Nome da Sub-rede            | mySubnet                                           |
     | Sub-rede - Intervalo de endereços  | 10.0.0.0/24                                        |
 
@@ -59,38 +59,38 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 Os grupos de segurança de aplicações permitem-lhe agrupar servidores com funções semelhantes, como servidores Web.
 
-1. Selecione **+ Criar um recurso**, no canto superior esquerdo do Portal do Azure.
+1. No menu portal do Azure ou na **Home** Page do, selecione **criar um recurso**. 
 2. Na caixa **Pesquisar no Marketplace**, introduza *Grupo de segurança de aplicações*. Selecione **Grupo de segurança de aplicações** quando aparecer nos resultados da pesquisa, selecione novamente **Grupo de segurança de aplicações** em **Tudo** e, em seguida, selecione **Criar**.
 3. Introduza, ou selecione as seguintes informações e, em seguida, selecione **Criar**:
 
     | Definição        | Valor                                                         |
     | ---            | ---                                                           |
-    | Name           | myAsgWebServers                                               |
-    | Subscription   | Selecione a sua subscrição.                                     |
-    | Resource group | Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**. |
-    | Location       | East US                                                       |
+    | Nome           | myAsgWebServers                                               |
+    | Subscrição   | Selecione a sua subscrição.                                     |
+    | Grupo de recursos | Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**. |
+    | Localização       | EUA Leste                                                       |
 
 4. Conclua o passo 3 novamente, com os seguintes valores:
 
     | Definição        | Valor                                                         |
     | ---            | ---                                                           |
-    | Name           | myAsgMgmtServers                                              |
-    | Subscription   | Selecione a sua subscrição.                                     |
-    | Resource group | Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**. |
-    | Location       | East US                                                       |
+    | Nome           | myAsgMgmtServers                                              |
+    | Subscrição   | Selecione a sua subscrição.                                     |
+    | Grupo de recursos | Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**. |
+    | Localização       | EUA Leste                                                       |
 
 ## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
-1. Selecione **+ Criar um recurso**, no canto superior esquerdo do Portal do Azure.
+1. No menu portal do Azure ou na **Home** Page do, selecione **criar um recurso**. 
 2. Selecione **Rede** e selecione **Grupo de segurança de rede**.
 3. Introduza, ou selecione as seguintes informações e, em seguida, selecione **Criar**:
 
     |Definição|Valor|
     |---|---|
-    |Name|myNsg|
-    |Subscription| Selecione a sua subscrição.|
+    |Nome|myNsg|
+    |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos | Selecione **Utilizar existente** e, em seguida, selecione *myResourceGroup*.|
-    |Location|East US|
+    |Localização|EUA Leste|
 
 ## <a name="associate-network-security-group-to-subnet"></a>Associar o grupo de segurança de rede à sub-rede
 
@@ -109,22 +109,22 @@ Os grupos de segurança de aplicações permitem-lhe agrupar servidores com fun�
 
 2. Crie uma regra de segurança que permita que as portas 80 e 443 para o grupo de segurança de aplicações **myAsgWebServers**. Em **Adicionar regra de segurança de entrada**, introduza ou selecione os seguintes valores, aceite as restantes predefinições e, em seguida, selecione **Adicionar**:
 
-    | Definição                 | Value                                                                                                           |
+    | Definição                 | Valor                                                                                                           |
     | ---------               | ---------                                                                                                       |
     | Destino             | Selecione **Grupo de segurança de aplicações** e, em seguida, selecione **myAsgWebServers** para **Grupo de segurança de aplicações**.  |
     | Intervalos de portas de destino | Introduza 80.443                                                                                                    |
-    | Protocol                | Selecione TCP                                                                                                      |
-    | Name                    | Allow-Web-All                                                                                                   |
+    | Protocolo                | Selecione TCP                                                                                                      |
+    | Nome                    | Allow-Web-All                                                                                                   |
 
 3. Conclua o passo 2 novamente, com os seguintes valores:
 
-    | Definição                 | Value                                                                                                           |
+    | Definição                 | Valor                                                                                                           |
     | ---------               | ---------                                                                                                       |
     | Destino             | Selecione **Grupo de segurança de aplicações** e, em seguida, selecione **myAsgMgmtServers** para **Grupo de segurança de aplicações**. |
     | Intervalos de portas de destino | Introduza 3389                                                                                                      |
-    | Protocol                | Selecione TCP                                                                                                      |
-    | Priority                | Introduza 110                                                                                                       |
-    | Name                    | Allow-RDP-All                                                                                                   |
+    | Protocolo                | Selecione TCP                                                                                                      |
+    | Prioridade                | Introduza 110                                                                                                       |
+    | Nome                    | Allow-RDP-All                                                                                                   |
 
     Neste tutorial, o RDP (porta 3389) está exposto à Internet para a VM atribuída ao grupo de segurança de aplicações *myAsgMgmtServers*. Em ambientes de produção, em vez de expor a porta 3389 à Internet, recomenda-se que ligue aos recursos do Azure que quer gerir com uma VPN ou da ligação de rede privada.
 
@@ -138,16 +138,16 @@ Crie duas VMs na rede virtual.
 
 ### <a name="create-the-first-vm"></a>Criar a primeira VM
 
-1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do Portal do Azure.
+1. No menu portal do Azure ou na **Home** Page do, selecione **criar um recurso**. 
 2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**.
 3. Insira, ou selecione, as informações a seguir e aceite os padrões para as configurações restantes:
 
     |Definição|Valor|
     |---|---|
-    |Subscription| Selecione a sua subscrição.|
-    |Resource group| Selecione **Utilizar existente** e selecione **myResourceGroup**.|
-    |Name|myVmWeb|
-    |Location| Selecione **E.U.A. Leste**.|
+    |Subscrição| Selecione a sua subscrição.|
+    |Grupo de recursos| Selecione **Utilizar existente** e selecione **myResourceGroup**.|
+    |Nome|myVmWeb|
+    |Localização| Selecione **E.U.A. Leste**.|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
 
@@ -215,11 +215,11 @@ Quando o portal criou as VMs, criou uma interface de rede para cada VM e associo
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 
-1. Introduza *myResourceGroup* na caixa **Pesquisar** na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
+1. Introduza *myResourceGroup* na caixa **Pesquisar**, na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou um grupo de segurança de rede e associou-o a uma sub-rede de rede virtual. Para saber mais sobre os grupos de segurança de rede, veja [Descrição geral dos grupos de segurança de rede](security-overview.md) e [Manage a network security group](manage-network-security-group.md) (Gerir um grupo de segurança de rede).
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 10/15/2019
 ms.author: diberry
-ms.openlocfilehash: 3c3c54faa882a38fb6c55c9fc0476a569f25cb98
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 8069b3b9c9a226e29a3eae3261948ee92291726d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638324"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486630"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Entenda o que são bons declarações para seu aplicativo LUIS
 
@@ -90,7 +90,7 @@ Os sinais diacríticos são marcas ou sinais dentro do texto, como:
 
 Se o aplicativo ativar a normalização, as pontuações no painel de **teste** , nos testes de lote e nas consultas de ponto de extremidade serão alterados para todos os declarações usando sinais diacríticos ou pontuação.
 
-Ative a `settings` normalização de expressão para diacríticos ou pontuação em seu arquivo de aplicativo JSON Luis no parâmetro.
+Ative a normalização de expressão para diacríticos ou pontuação em seu arquivo de aplicativo JSON LUIS no parâmetro `settings`.
 
 ```JSON
 "settings": [
@@ -101,28 +101,28 @@ Ative a `settings` normalização de expressão para diacríticos ou pontuação
 
 A normalização da **Pontuação** significa que, antes que seus modelos sejam treinados e antes de suas consultas de ponto de extremidade serem previstas, a pontuação será removida do declarações. 
 
-Normalizar **diacríticos** substitui os caracteres por sinais diacríticos em declarações por caracteres normais. Por exemplo: `Je parle français` torna `Je parle francais`-se. 
+Normalizar **diacríticos** substitui os caracteres por sinais diacríticos em declarações por caracteres normais. Por exemplo: `Je parle français` se torna `Je parle francais`. 
 
 A normalização não significa que você não verá Pontuação e sinais diacríticos em seu exemplo de declarações ou respostas de previsão, apenas que eles serão ignorados durante o treinamento e a previsão.
 
 
 ### <a name="punctuation-marks"></a>Sinais de Pontuação
 
-Pontuação é um token separado no LUIS. Um expressão que contém um ponto no final versus um expressão que não contém um ponto no final são dois declarações separados e pode obter duas previsões diferentes. 
+A pontuação é um token separado em LUIS. Um expressão que contém um ponto no final versus um expressão que não contém um ponto no final são dois declarações separados e pode obter duas previsões diferentes. 
 
 Se a pontuação não for normalizada, o LUIS não ignorará as marcas de pontuação, por padrão, porque alguns aplicativos cliente podem inserir significância nessas marcas. Verifique se o exemplo declarações usa a pontuação e nenhuma pontuação para que ambos os estilos retornem as mesmas pontuações relativas. 
 
-Certificar-se de que o modelo processa pontuação ou no [expressões de exemplo](luis-concept-utterance.md) (com e sem pontuação) ou no [padrões](luis-concept-patterns.md) onde é mais fácil Ignorar pontuação com a sintaxe especial: `I am applying for the {Job} position[.]`
+Verifique se o modelo lida com pontuação no [exemplo declarações](luis-concept-utterance.md) (tendo e não tem pontuação) ou nos [padrões](luis-concept-patterns.md) onde é mais fácil ignorar a pontuação com a sintaxe especial: `I am applying for the {Job} position[.]`
 
 Se a pontuação não tiver um significado específico em seu aplicativo cliente, considere [ignorar a pontuação](#utterance-normalization) normalizando a pontuação. 
 
 ### <a name="ignoring-words-and-punctuation"></a>Ignorando palavras e Pontuação
 
-Se você quiser ignorar palavras específicas ou pontuação em padrões, use um [padrão](luis-concept-patterns.md#pattern-syntax) com a sintaxe de _ignorar_ entre colchetes, `[]`. 
+Se você quiser ignorar palavras específicas ou pontuação em padrões, use um [padrão](luis-concept-patterns.md#pattern-syntax) com a sintaxe de _ignorar_ colchetes, `[]`. 
 
 ## <a name="training-utterances"></a>Declarações de treinamento
 
-O treinamento geralmente é não determinístico: a previsão expressão pode variar ligeiramente em versões ou aplicativos. Você pode remover o treinamento não determinístico atualizando a API de [configurações](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) de versão `UseAllTrainingData` com o par nome/valor para usar todos os dados de treinamento.
+O treinamento geralmente é não determinístico: a previsão expressão pode variar ligeiramente em versões ou aplicativos. Você pode remover o treinamento não determinístico atualizando a API de [configurações de versão](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) com o par nome/valor `UseAllTrainingData` para usar todos os dados de treinamento.
 
 ## <a name="testing-utterances"></a>Testando declarações 
 
@@ -136,6 +136,20 @@ Depois que o modelo for treinado, publicado e receber consultas de [ponto de ext
 
 Examine [as práticas recomendadas](luis-concept-best-practices.md) e aplique-as como parte do seu ciclo de criação regular.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="label-for-word-meaning"></a>Rótulo para significado de palavra
+
+Se a palavra opção ou a organização de palavras for a mesma, mas não quer dizer a mesma coisa, não a rotule com a entidade. 
+
+O declarações a seguir, a palavra `fair` é um homograph. Ele é escrito da mesma, mas tem um significado diferente:
+
+|Expressão|
+|--|
+|Que tipo de feiras de condado estão acontecendo na área de Seattle neste verão?|
+|A classificação atual para a análise de Seattle é justa?|
+
+Se você quisesse que uma entidade de evento localizasse todos os dados do evento, rotule a palavra `fair` no primeiro expressão, mas não no segundo.
+
+
+## <a name="next-steps"></a>Passos seguintes
 Consulte [Adicionar exemplo declarações](luis-how-to-add-example-utterances.md) para obter informações sobre como treinar um aplicativo Luis para entender o declarações do usuário.
 
