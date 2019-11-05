@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar um projeto de detecção de objeto com o SDK do Visão Personalizada para node. js'
+title: 'Início rápido: criar um projeto de detecção de objeto com o SDK do Visão Personalizada para node. js'
 titleSuffix: Azure Cognitive Services
 description: Crie um projeto, adicione marcas, carregue imagens, treine seu projeto e detecte objetos usando o SDK do node. js.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: 6e3bf7b4fb60d81ff8883c2592de3739572bf2fa
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: b922073df468ca2d92e319e4e59cae098734c13c
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997803"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "73518991"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Início rápido: Criar um projeto de detecção de objeto com o Visão Personalizada SDK do node. js
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Início rápido: criar um projeto de detecção de objeto com o Visão Personalizada SDK do node. js
 
 Este artigo fornece informações e código de exemplo para ajudá-lo a começar a usar o SDK do Visão Personalizada com node. js para criar um modelo de detecção de objeto. Depois de criado, você pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão publicada do projeto e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como um modelo para criar seu próprio aplicativo node. js.
 
@@ -25,6 +25,7 @@ Este artigo fornece informações e código de exemplo para ajudá-lo a começar
 
 - [Node. js 8](https://www.nodejs.org/en/download/) ou posterior instalado.
 - [NPM](https://www.npmjs.com/) instalado.
+- [!INCLUDE [create-resources](includes/create-resources.md)]
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 
@@ -61,7 +62,7 @@ const predictionKey = "<your prediction key>";
 const predictionResourceId = "<your prediction resource id>";
 const sampleDataRoot = "<path to image files>";
 
-const endPoint = "https://southcentralus.api.cognitive.microsoft.com"
+const endPoint = "https://<my-resource-name>.cognitiveservices.azure.com/"
 
 const publishIterationName = "detectModel";
 
@@ -235,7 +236,7 @@ A saída da aplicação deverá aparecer na consola. Pode, em seguida, certifica
 
 [!INCLUDE [clean-od-project](includes/clean-od-project.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora viu como cada passo do processo de deteção de objeto pode ser feito no código. Este exemplo executa uma iteração de preparação individual, mas, muitas vezes, terá de preparar e testar o seu modelo várias vezes para torná-lo mais preciso. O guia seguinte aborda a classificação de imagens, mas os seus princípios são semelhantes à deteção de objetos.
 

@@ -10,14 +10,14 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: anroth
-ms.openlocfilehash: dfc137375e35d0d13a34ff45b0c6639bcf6784df
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 12be696c74a32909d79be405144582cd8fc05fb6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561066"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "73519161"
 ---
-# <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Início rápido: Como criar um classificador com Visão Personalizada
+# <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Início rápido: como criar um classificador com Visão Personalizada
 
 Neste guia de início rápido, você aprenderá a criar um classificador por meio do site Visão Personalizada. Depois de criar um modelo de classificador, você pode usar o serviço de Visão Personalizada para classificação de imagem.
 
@@ -29,7 +29,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Criar Visão Personalizada recursos no portal do Azure
 
-Para usar o Serviço de Visão Personalizada, você precisará criar Visão Personalizada recursos de treinamento e previsão no portal do Azure. Preencha a janela da caixa de diálogo na página [criar visão personalizada](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) para criar um recurso de treinamento e previsão. 
+[!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="create-a-new-project"></a>Criar um novo projeto
 
@@ -47,7 +47,7 @@ No navegador da Web, navegue até a [página da Web do visão personalizada](htt
    > [!NOTE]
    > Se nenhum grupo de recursos estiver disponível, confirme se você fez logon no [customvision.ai](https://customvision.ai) com a mesma conta usada para fazer logon no [portal do Azure](https://portal.azure.com/). Além disso, confirme que você selecionou o mesmo "diretório" no portal de Visão Personalizada como o diretório no portal do Azure em que os recursos do Visão Personalizada estão localizados. Em ambos os sites, você pode selecionar o diretório no menu suspenso da conta no canto superior direito da tela. 
 
-1. Selecione __classificação__ em __tipos de projeto__. Em seguida, em __tipos de classificação__, escolha multirótulo ou multiclasse, dependendo de seu caso de uso. A classificação de vários rótulos aplica qualquer número de marcas a uma imagem (zero ou mais), enquanto a classificação multiclasse classifica as imagens em categorias únicas (cada imagem que você enviar será classificada na marca mais provável). Você poderá alterar o tipo de classificação mais tarde, se desejar.
+1. Selecione __classificação__ em __tipos de projeto__. Em seguida, em __tipos de classificação__, escolha **multirótulo** ou **multiclasse**, dependendo de seu caso de uso. A classificação de vários rótulos aplica qualquer número de marcas a uma imagem (zero ou mais), enquanto a classificação multiclasse classifica as imagens em categorias únicas (cada imagem que você enviar será classificada na marca mais provável). Você poderá alterar o tipo de classificação mais tarde, se desejar.
 
 1. Em seguida, selecione um dos domínios disponíveis. Cada domínio otimiza o classificador para tipos específicos de imagens, conforme descrito na tabela a seguir. Você poderá alterar o domínio mais tarde, se desejar.
 
@@ -109,9 +109,9 @@ Após a conclusão do treinamento, o desempenho do modelo será estimado e exibi
 
 ## <a name="manage-training-iterations"></a>Gerenciar iterações de treinamento
 
-Cada vez que você treina o classificador, cria uma  nova iteração com suas próprias métricas de desempenho atualizadas. Você pode exibir todas as iterações no painel esquerdo da guia **desempenho** . No painel esquerdo, você também encontrará o botão **excluir** , que pode ser usado para excluir uma iteração se ela estiver obsoleta. Ao excluir uma iteração, você exclui todas as imagens que estão associadas exclusivamente a ela.
+Cada vez que você treina o classificador, cria uma nova _iteração_ com suas próprias métricas de desempenho atualizadas. Você pode exibir todas as iterações no painel esquerdo da guia **desempenho** . No painel esquerdo, você também encontrará o botão **excluir** , que pode ser usado para excluir uma iteração se ela estiver obsoleta. Ao excluir uma iteração, você exclui todas as imagens que estão associadas exclusivamente a ela.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você aprendeu a criar e treinar um modelo de classificação de imagem usando o site Visão Personalizada. Em seguida, obtenha mais informações sobre o processo iterativo de aprimorar seu modelo.
 

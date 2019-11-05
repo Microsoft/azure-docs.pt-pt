@@ -1,24 +1,24 @@
 ---
 title: 'Partição e exemplo: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo partição e exemplo no serviço de Azure Machine Learning para executar a amostragem em um conjunto de informações ou para criar partições a partir de seu conjunto de informações.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo partição e exemplo no Azure Machine Learning para executar a amostragem em um conjunto de informações ou para criar partições a partir de seu conjunto de informações.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: fcbf9fae3306c43613ef0b67a79c9c0b53f6b923
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 659dcae0bee0fe1015ba6225797c31bad438013f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693761"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497716"
 ---
 # <a name="partition-and-sample-module"></a>Módulo de partição e exemplo
 
-Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para executar a amostragem em um conjunto de um ou para criar partições do conjunto de seus.
 
@@ -122,7 +122,7 @@ Use esta opção quando você quiser dividir o conjunto de dados em subconjuntos
 
     - **Partição com proporções personalizadas**: Use essa opção para especificar o tamanho de cada partição como uma lista separada por vírgulas.
 
-        Por exemplo, se você quiser criar três partições, com a primeira partição contendo 50% dos dados e as duas partições restantes, cada uma contendo 25% dos dados, clique na caixa **de texto lista de proporções separadas por vírgula** e digite estes números: @no_ _t_1
+        Por exemplo, se você quiser criar três partições, com a primeira partição contendo 50% dos dados e as duas partições restantes, cada uma contendo 25% dos dados, clique na caixa **de texto lista de proporções separadas por vírgula** e digite estes números: @no_ _t_1_`.5, .25, .25`
 
         A soma de todos os tamanhos de partição deve somar exatamente 1.
 
@@ -156,7 +156,7 @@ Essa opção é usada quando você divide um conjunto de um DataSet em várias p
 
     Por exemplo, digamos que os pacientes particionados anteriormente em quatro dobras usando a idade. Para trabalhar com cada dobra individual, você precisa de quatro cópias da **partição e** do módulo de exemplo e, em cada uma delas, selecione uma dobra diferente, conforme mostrado abaixo. Não está correto usar a saída **atribuir para partições** diretamente.  
 
-    [![Partition e amostra](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
+    [![partição e exemplo](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
 
 5. Executar o pipeline.
 
@@ -167,4 +167,4 @@ Essa opção é usada quando você divide um conjunto de um DataSet em várias p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

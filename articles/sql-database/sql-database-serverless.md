@@ -1,5 +1,5 @@
 ---
-title: Banco de dados SQL do Azure sem servidor (visualização) | Microsoft Docs
+title: Banco de dados SQL do Azure sem servidor | Microsoft Docs
 description: Este artigo descreve a nova camada de computação sem servidor e a compara com a camada de computação provisionada existente
 services: sql-database
 ms.service: sql-database
@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 09/06/2019
-ms.openlocfilehash: 3b2cc5c0b5deab084c6fdae9435ea3a90b2dd8a6
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 11/04/2019
+ms.openlocfilehash: e8629baa3487795349844229b26d80321c1316ee
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173407"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496257"
 ---
-# <a name="azure-sql-database-serverless-preview"></a>Banco de dados SQL do Azure sem servidor (visualização)
+# <a name="azure-sql-database-serverless"></a>Base de Dados SQL do Azure sem servidor
 
-O banco de dados SQL do Azure sem servidor (visualização) é uma camada de computação para bancos de dados individuais que dimensionam automaticamente a computação com base na demanda de carga de trabalho e cobra pela quantidade de computação usada por segundo. A camada de computação sem servidor também pausa automaticamente os bancos de dados durante períodos inativos quando apenas o armazenamento é cobrado e retoma automaticamente os bancos de dados quando a atividade retorna.
+O banco de dados SQL do Azure sem servidor é uma camada de computação para bancos únicos de dados que dimensionam automaticamente a computação com base na demanda de carga de trabalho e cobra pela quantidade de computação usada por segundo. A camada de computação sem servidor também pausa automaticamente os bancos de dados durante períodos inativos quando apenas o armazenamento é cobrado e retoma automaticamente os bancos de dados quando a atividade retorna.
 
 ## <a name="serverless-compute-tier"></a>Escalão de serviço de computação sem servidor
 
@@ -126,12 +126,12 @@ A retomada será disparada se qualquer uma das seguintes condições for verdade
 
 |Funcionalidade|Gatilho de retomada|
 |---|---|
-|Autenticação e autorização|Início de Sessão|
+|Autenticação e autorização|Iniciar sessão|
 |Deteção de ameaças|Habilitação/desabilitação das configurações de detecção de ameaças no nível do banco de dados ou do servidor.<br>Modificar as configurações de detecção de ameaças no nível do banco de dados ou do servidor.|
 |Deteção e classificação de dados|Adicionando, modificando, excluindo ou exibindo rótulos de sensibilidade|
 |Auditoria|Exibindo registros de auditoria.<br>Atualizando ou exibindo a política de auditoria.|
 |Máscara de dados|Adicionando, modificando, excluindo ou exibindo regras de mascaramento de dados|
-|Encriptação de dados transparente|Estado de exibição ou status da Transparent Data Encryption|
+|Encriptação de Dados Transparente|Estado de exibição ou status da Transparent Data Encryption|
 |Repositório de dados de consulta (desempenho)|Modificando ou exibindo configurações do repositório de consultas|
 |Ajuste automática|Aplicativo e verificação de recomendações de ajuste automático, como indexação automática|
 |Cópia de banco de dados|Criar banco de dados como cópia.<br>Exportar para um arquivo BACPAC.|
@@ -155,7 +155,7 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
 
 1. Especifique o nome do objetivo de serviço. O objetivo do serviço prescreve a camada de serviço, a geração de hardware e o vCores máximo. A tabela a seguir mostra as opções de objetivo de serviço:
 
-   |Nome do objetivo de serviço|Escalão de serviço|Geração de hardware|VCores máx.|
+   |Nome do objetivo de serviço|Camada de serviços|Geração de hardware|VCores máx.|
    |---|---|---|---|
    |GP_S_Gen5_1|Fins Gerais|Gen5|1|
    |GP_S_Gen5_2|Fins Gerais|Gen5|2|
@@ -171,7 +171,7 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
 
    |Parâmetro|Opções de valor|Valor predefinido|
    |---|---|---|---|
-   |VCores mín.|Depende do máximo de vCores configurado-consulte [limites de recursos](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|0,5 vCores|
+   |VCores mín.|Depende do máximo de vCores configurado-consulte [limites de recursos](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|0,5 vCores|
    |Atraso de autopausa|Mínimo: 60 minutos (1 hora)<br>Máximo: 10080 minutos (7 dias)<br>Incrementos: 60 minutos<br>Desabilitar autopausa:-1|60 minutos|
 
 > [!NOTE]
@@ -235,7 +235,7 @@ Modificar o vCores máximo é executado usando o comando [set-AzSqlDatabase](htt
 
 #### <a name="use-powershell"></a>Utilizar o PowerShell
 
-Modificar o mínimo de vCores é executado usando o comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando o argumento `MinVcore`.
+Modificar o vCores mínimo é executado usando o comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando o argumento `MinVcore`.
 
 ### <a name="autopause-delay"></a>Atraso de autopausa
 
@@ -288,7 +288,7 @@ Get-AzSqlDatabase `
 
 ## <a name="resource-limits"></a>Limites de recursos
 
-Para limites de recursos, consulte [camada de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
+Para limites de recursos, consulte [camada de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).
 
 ## <a name="billing"></a>Faturação
 
@@ -331,4 +331,4 @@ A camada de computação sem servidor está disponível em todo o mundo, exceto 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para começar, consulte [início rápido: criar um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure](sql-database-single-database-get-started.md).
-- Para limites de recursos, consulte [limites de recursos da camada de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
+- Para limites de recursos, consulte [limites de recursos da camada de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).

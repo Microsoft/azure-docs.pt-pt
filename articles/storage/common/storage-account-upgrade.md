@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: d1c7edc2973231607cade89df56906190c2abbcf
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 3ad82a1312ccce5029685d903a3c5e3caff50f8a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671152"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495973"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento v2 de uso geral
 
@@ -23,9 +23,9 @@ A atualização para uma conta de armazenamento v2 de uso geral de suas contas d
 > [!IMPORTANT]
 > A atualização de uma conta de armazenamento de blob v1 ou de uso geral para uso geral V2 é permanente e não pode ser desfeita.
 
-## <a name="upgrade-using-the-azure-portal"></a>Atualizar usando o portal do Azure
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 2. Navegue até à sua conta de armazenamento.
 3. Na seção **configurações** , clique em **configuração**.
 4. Em **Tipo de conta**, clique em **Atualizar**.
@@ -34,7 +34,7 @@ A atualização para uma conta de armazenamento v2 de uso geral de suas contas d
 
     ![Tipo de conta de atualização](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
-## <a name="upgrade-with-powershell"></a>Atualizar com o PowerShell
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -45,8 +45,7 @@ Em seguida, chame o seguinte comando para atualizar a conta, substituindo o nome
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
 ```
-
-## <a name="upgrade-with-azure-cli"></a>Atualizar com a CLI do Azure
+# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para atualizar uma conta v1 de uso geral para uma conta v2 de uso geral usando CLI do Azure, primeiro instale a versão mais recente do CLI do Azure. Veja [Install the Azure CLI 2.0 ](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (Instalar a CLI 2.0 do Azure) para obter informações sobre a instalação da CLI.
 
@@ -56,11 +55,13 @@ Em seguida, chame o seguinte comando para atualizar a conta, substituindo o nome
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
 ```
 
+---
+
 ## <a name="specify-an-access-tier-for-blob-data"></a>Especificar uma camada de acesso para dados de BLOB
 
 As contas de uso geral v2 dão suporte a todos os serviços de armazenamento do Azure e objetos de dados, mas as camadas de acesso estão disponíveis somente para BLOBs de blocos no armazenamento de BLOBs. Ao atualizar para uma conta de armazenamento v2 de uso geral, você pode especificar uma camada de acesso para seus dados de BLOB.
 
-As camadas de acesso permitem que você escolha o armazenamento mais econômico com base em seus padrões de uso previstos. Blobs de blocos podem ser armazenados em uma camada quente, fria ou de arquivo morto. Para obter mais informações sobre camadas de acesso, consulte armazenamento de BLOBs [Azure: Camadas de armazenamento quentes, frias e de](../blobs/storage-blob-storage-tiers.md)arquivo morto.
+As camadas de acesso permitem que você escolha o armazenamento mais econômico com base em seus padrões de uso previstos. Blobs de blocos podem ser armazenados em uma camada quente, fria ou de arquivo morto. Para obter mais informações sobre camadas de acesso, consulte [armazenamento de BLOBs do Azure: camadas de armazenamento quentes, frias e de arquivo](../blobs/storage-blob-storage-tiers.md).
 
 Por padrão, uma nova conta de armazenamento é criada na camada de acesso quente e uma conta de armazenamento v1 de uso geral é atualizada para a camada de acesso quente. Se você estiver explorando qual camada de acesso usar para os dados após a atualização, considere seu cenário. Há dois cenários de usuário típicos para migrar para uma conta v2 de uso geral:
 
@@ -75,17 +76,17 @@ A atualização de uma conta de armazenamento v1 para uma conta v2 de uso geral 
 
 Todas as contas de armazenamento utilizam um modelo de preços para o armazenamento de blobs com base na camada de cada blob. Ao utilizar uma conta de armazenamento, aplicam-se as seguintes considerações de faturação:
 
-* **Custos de armazenamento**: Além da quantidade de dados armazenados, o custo de armazenamento de dados varia dependendo da camada de acesso de armazenamento. O custo por gigabyte diminui conforme a camada se torna mais esporádica.
+* **Custos de armazenamento**: além da quantidade de dados armazenados, o custo de armazenamento de dados varia dependendo da camada de acesso de armazenamento. O custo por gigabyte diminui conforme a camada se torna mais esporádica.
 
-* **Custos de acesso a dados**: As cobranças de acesso a dados aumentam à medida que a camada fica mais fria. Para dados na camada de acesso de armazenamento fria e de arquivo morto, você será cobrado por um encargo de acesso a dados por gigabyte para leituras.
+* **Custos de acesso a dados**: os custos de acesso a dados aumenta conforme a camada se torna mais esporádica. Para dados na camada de acesso de armazenamento fria e de arquivo morto, você será cobrado por um encargo de acesso a dados por gigabyte para leituras.
 
-* **Custos de transações**: Há uma cobrança por transação para todas as camadas que aumentam à medida que a camada fica mais fria.
+* **Custos de transação**: há um encargo por transação para todas as camadas que aumenta cada vez que a camada é mais esporádica.
 
-* **Custos de transferência de dados de replicação geográfica**: Essa cobrança só se aplica a contas com a replicação geográfica configurada, incluindo GRS e RA-GRS. A transferência de dados de georreplicação está sujeita a uma taxa por gigabyte.
+* **Custos de transferência de dados de georreplicação**: este custo aplica-se apenas às contas que têm a georreplicação configurada, incluindo GRS e RA-GRS. A transferência de dados de georreplicação está sujeita a uma taxa por gigabyte.
 
-* **Custos de transferência de dados de saída**: As transferências de dados de saída (dados transferidos para fora de uma região do Azure) incorrem na cobrança do uso de largura de banda por gigabyte, consistentes com contas de armazenamento de uso geral.
+* **Custos de transferência de dados de saída**: transferências de dados de saída (dados transferidos para fora de uma região do Azure) incorrem em cobrança de uso de largura de banda por gigabyte, consistente com contas de armazenamento de uso geral.
 
-* **Alterando a camada de acesso de armazenamento**: A alteração da camada de acesso de armazenamento da conta de fria para quente incorre em um encargo igual à leitura de todos os dados existentes na conta de armazenamento. No entanto, a alteração da camada de acesso da conta de quente para fria incorre em um encargo igual à gravação de todos os dados na camada fria (somente contas GPv2).
+* **Alterando a camada de acesso de armazenamento**: alterar a camada de acesso de armazenamento de conta de fria para quente incorre em um encargo igual à leitura de todos os dados existentes na conta de armazenamento. No entanto, a alteração da camada de acesso da conta de quente para fria incorre em um encargo igual à gravação de todos os dados na camada fria (somente contas GPv2).
 
 > [!NOTE]
 > Para obter mais informações sobre o modelo de preços das contas de armazenamento, veja a página [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/). Para obter mais informações sobre as taxas aplicáveis às transferências de dados de saída, veja a página [Detalhes de Preços das Transferências de Dados](https://azure.microsoft.com/pricing/details/data-transfers/).

@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de um trabalho lento ou com falha em um cluster HDInsight – Azure HDInsight
+title: Solucionar problemas de um trabalho lento ou com falha no cluster HDInsight do Azure
 description: Diagnostique e solucione problemas de um trabalho lento ou com falha em um cluster do Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: efb2ac4be074508107bb31ae321c27a3d1263d9e
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 69711f7ac20882617de175b1b90d8df4f2858c4d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105349"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498083"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Solucionar problemas de um trabalho lento ou com falha em um cluster HDInsight
 
@@ -21,15 +21,15 @@ Se um aplicativo processando dados em um cluster HDInsight estiver sendo executa
 
 Para diagnosticar um cluster lento ou com falha, reúna informações sobre todos os aspectos do ambiente, como serviços do Azure associados, configuração de cluster e informações de execução do trabalho. Um diagnóstico útil é tentar reproduzir o estado de erro em outro cluster.
 
-* Passo 1: Reúna dados sobre o problema.
-* Passo 2: Validar o ambiente de cluster HDInsight.
-* Passo 3: Exiba a integridade do cluster.
-* Passo 4: Examine a pilha e as versões do ambiente.
-* Passo 5: Examine os arquivos de log do cluster.
-* Passo 6: Verifique as definições de configuração.
-* Passo 7: Reproduza a falha em um cluster diferente.
+* Etapa 1: coletar dados sobre o problema.
+* Etapa 2: validar o ambiente de cluster HDInsight.
+* Etapa 3: exibir a integridade do cluster.
+* Etapa 4: examinar a pilha e as versões do ambiente.
+* Etapa 5: examinar os arquivos de log do cluster.
+* Etapa 6: verificar as definições de configuração.
+* Etapa 7: reproduzir a falha em um cluster diferente.
 
-## <a name="step-1-gather-data-about-the-issue"></a>Passo 1: Coletar dados sobre o problema
+## <a name="step-1-gather-data-about-the-issue"></a>Etapa 1: coletar dados sobre o problema
 
 O HDInsight fornece muitas ferramentas que você pode usar para identificar e solucionar problemas com clusters. As etapas a seguir o orientarão nessas ferramentas e fornecerão sugestões para identificar o problema.
 
@@ -65,7 +65,7 @@ az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 
 Outra opção é usar o PowerShell. Para obter mais informações, consulte [gerenciar clusters Apache Hadoop no HDInsight com Azure PowerShell](hdinsight-administer-use-powershell.md).
 
-## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>Passo 2: Validar o ambiente de cluster HDInsight
+## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>Etapa 2: validar o ambiente de cluster HDInsight
 
 Cada cluster HDInsight depende de vários serviços do Azure e de software livre, como o Apache HBase e o Apache Spark. Os clusters HDInsight também podem chamar outros serviços do Azure, como redes virtuais do Azure.  Uma falha de cluster pode ser causada por qualquer um dos serviços em execução no cluster ou por um serviço externo.  Uma alteração de configuração do serviço de cluster também pode causar falha no cluster.
 
@@ -101,7 +101,7 @@ Compare a versão do cluster com a versão mais recente do HDInsight. Cada vers�
 
 Se você estiver experimentando lentidão no cluster, considere reiniciar seus serviços por meio da interface do usuário do amAmbari ou da CLI clássica do Azure. O cluster pode estar apresentando erros transitórios e a reinicialização é a maneira mais rápida de estabilizar seu ambiente e, possivelmente, melhorar o desempenho.
 
-## <a name="step-3-view-your-clusters-health"></a>Passo 3: Exibir a integridade do cluster
+## <a name="step-3-view-your-clusters-health"></a>Etapa 3: exibir a integridade do cluster
 
 Os clusters HDInsight são compostos de diferentes tipos de nós em execução em instâncias de máquina virtual. Cada nó pode ser monitorado para consumo de recursos, problemas de conectividade de rede e outros problemas que podem retardar o cluster. Cada cluster contém dois nós de cabeçalho e a maioria dos tipos de cluster contém uma combinação de nós de trabalho e de borda. 
 
@@ -111,7 +111,7 @@ As seções a seguir descrevem como verificar a integridade de cada nó e do clu
 
 ### <a name="get-a-snapshot-of-the-cluster-health-using-the-ambari-ui-dashboard"></a>Obter um instantâneo da integridade do cluster usando o painel de interface do usuário do amAmbari
 
-O [painel de interface](#view-cluster-configuration-settings-with-the-ambari-ui) do`https://<clustername>.azurehdinsight.net`usuário do Ambari () fornece uma visão geral da integridade do cluster, como tempo de atividade, memória, rede e uso da CPU, uso de disco do HDFS e assim por diante. Use a seção hosts de Ambari para exibir recursos em um nível de host. Você também pode parar e reiniciar os serviços do.
+O [painel de interface do usuário do Ambari](#view-cluster-configuration-settings-with-the-ambari-ui) (`https://<clustername>.azurehdinsight.net`) fornece uma visão geral da integridade do cluster, como tempo de atividade, memória, rede e uso da CPU, uso de disco do HDFS e assim por diante. Use a seção hosts de Ambari para exibir recursos em um nível de host. Você também pode parar e reiniciar os serviços do.
 
 ### <a name="check-your-webhcat-service"></a>Verifique o serviço WebHCat
 
@@ -129,26 +129,26 @@ Ambari exibe um alerta mostrando os hosts nos quais o serviço WebHCat está ino
 
 ![Servidor do WebHCat de reinicialização do Apache Ambari](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat-server.png)
 
-Se um servidor WebHCat ainda não vier, verifique o log de operações em busca de mensagens de falha. Para obter informações mais detalhadas, verifique `stderr` os `stdout` arquivos e referenciados no nó.
+Se um servidor WebHCat ainda não vier, verifique o log de operações em busca de mensagens de falha. Para obter informações mais detalhadas, verifique os arquivos de `stderr` e `stdout` referenciados no nó.
 
 #### <a name="webhcat-times-out"></a>WebHCat tempo limite excedido
 
-O gateway de HDInsight An expira as respostas que levam mais de dois minutos `502 BadGateway`, retornando. WebHCat consulta os status do YARN dos serviços de trabalho e, se YARN levar mais de dois minutos para responder, essa solicitação poderá atingir o tempo limite.
+O gateway de HDInsight An expira as respostas que levam mais de dois minutos, retornando `502 BadGateway`. WebHCat consulta os status do YARN dos serviços de trabalho e, se YARN levar mais de dois minutos para responder, essa solicitação poderá atingir o tempo limite.
 
-Nesse caso, examine os seguintes logs no `/var/log/webhcat` diretório:
+Nesse caso, examine os seguintes logs no diretório `/var/log/webhcat`:
 
 * **webhcat. log** é o log de Log4J no qual o servidor grava logs
 * **webhcat-console. log** é o stdout do servidor quando iniciado
 * **webhcat-console-Error. log** é o stderr do processo do servidor
 
 > [!NOTE]  
-> Cada `webhcat.log` um é transferido diariamente, gerando arquivos `webhcat.log.YYYY-MM-DD`denominados. Selecione o arquivo apropriado para o intervalo de tempo que você está investigando.
+> Cada `webhcat.log` é transferida sobre o diário, gerando arquivos nomeados `webhcat.log.YYYY-MM-DD`. Selecione o arquivo apropriado para o intervalo de tempo que você está investigando.
 
 As seções a seguir descrevem algumas causas possíveis para tempos limite do WebHCat.
 
 ##### <a name="webhcat-level-timeout"></a>Tempo limite de nível de WebHCat
 
-Quando WebHCat está sob carga, com mais de 10 soquetes abertos, leva mais tempo para estabelecer novas conexões de soquete, o que pode resultar em um tempo limite. Para listar as conexões de rede de e para WebHCat `netstat` , use no cabeçalho ativo atual:
+Quando WebHCat está sob carga, com mais de 10 soquetes abertos, leva mais tempo para estabelecer novas conexões de soquete, o que pode resultar em um tempo limite. Para listar as conexões de rede de e para WebHCat, use `netstat` no cabeçalho ativo atual:
 
 ```bash
 netstat | grep 30111
@@ -170,7 +170,7 @@ No nível de YARN, há dois tipos de tempo limite:
 
 1. O envio de um trabalho YARN pode levar muito tempo para causar um tempo limite.
 
-    Se você abrir o `/var/log/webhcat/webhcat.log` arquivo de log e procurar "trabalho em fila", poderá ver várias entradas em que o tempo de execução é excessivamente longo (> 2000 MS), com entradas mostrando tempos de espera crescentes.
+    Se você abrir o arquivo de log `/var/log/webhcat/webhcat.log` e procurar "trabalho em fila", poderá ver várias entradas em que o tempo de execução é excessivamente longo (> 2000 MS), com entradas mostrando tempos de espera crescentes.
 
     O tempo para os trabalhos em fila continua a aumentar porque a taxa na qual novos trabalhos são enviados é maior do que a taxa na qual os trabalhos antigos são concluídos. Depois que a memória YARN for 100% usada, a *fila joblauncher* não poderá mais emprestar a capacidade da *fila padrão*. Portanto, nenhum novo trabalho pode ser aceito na fila joblauncher. Esse comportamento pode fazer com que o tempo de espera se torne mais longo e mais longo, causando um erro de tempo limite que geralmente é seguido por muitos outros.
 
@@ -182,14 +182,14 @@ No nível de YARN, há dois tipos de tempo limite:
 
 2. O processamento de YARN pode levar muito tempo, o que pode causar tempos limite.
 
-    * Listar todos os trabalhos: Essa é uma chamada demorada. Essa chamada enumera os aplicativos do ResourceManager YARN e, para cada aplicativo concluído, obtém o status de YARN JobHistoryServer. Com números mais altos de trabalhos, essa chamada pode atingir o tempo limite.
+    * Listar todos os trabalhos: essa é uma chamada demorada. Essa chamada enumera os aplicativos do ResourceManager YARN e, para cada aplicativo concluído, obtém o status de YARN JobHistoryServer. Com números mais altos de trabalhos, essa chamada pode atingir o tempo limite.
 
-    * Listar trabalhos com mais de sete dias: O JobHistoryServer yarn do HDInsight está configurado para reter informações de trabalho concluídas por`mapreduce.jobhistory.max-age-ms` sete dias (valor). A tentativa de enumerar os trabalhos limpos resulta em um tempo limite.
+    * Listar trabalhos com mais de sete dias: o JobHistoryServer HDInsight YARN está configurado para reter informações de trabalho concluídas por sete dias (`mapreduce.jobhistory.max-age-ms` valor). A tentativa de enumerar os trabalhos limpos resulta em um tempo limite.
 
 Para diagnosticar esses problemas:
 
 1. Determinar o intervalo de tempo UTC para solucionar problemas
-2. Selecionar os arquivos `webhcat.log` apropriados
+2. Selecionar os arquivos de `webhcat.log` apropriados
 3. Procurar mensagens de aviso e de erro durante esse tempo
 
 #### <a name="other-webhcat-failures"></a>Outras falhas de WebHCat
@@ -202,19 +202,19 @@ Para diagnosticar esses problemas:
 
     Pode haver casos em que as interações com WebHCat são bem-sucedidas, mas os trabalhos estão falhando.
 
-    O Templeton coleta a saída do console de `stderr` trabalho `statusdir`como em, que é geralmente útil para solução de problemas. `stderr`contém o identificador do aplicativo YARN da consulta real.
+    O Templeton coleta a saída do console de trabalho como `stderr` em `statusdir`, que é geralmente útil para solução de problemas. `stderr` contém o identificador do aplicativo YARN da consulta real.
 
-## <a name="step-4-review-the-environment-stack-and-versions"></a>Passo 4: Examinar a pilha e as versões do ambiente
+## <a name="step-4-review-the-environment-stack-and-versions"></a>Etapa 4: examinar a pilha e as versões do ambiente
 
 A página **pilha e versão** da interface do usuário do Ambari fornece informações sobre a configuração de serviços de cluster e o histórico de versão do serviço.  As versões incorretas da biblioteca de serviço do Hadoop podem ser uma causa da falha do cluster.  Na interface do usuário do amAmbari, selecione o menu **admin** e, em seguida, **pilhas e versões**.  Selecione a guia **versões** na página para ver as informações de versão do serviço:
 
 ![Pilha e versões do Apache Ambari](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 
-## <a name="step-5-examine-the-log-files"></a>Passo 5: Examinar os arquivos de log
+## <a name="step-5-examine-the-log-files"></a>Etapa 5: examinar os arquivos de log
 
 Há muitos tipos de logs que são gerados a partir de vários serviços e componentes que compõem um cluster HDInsight. [Os arquivos de log do WebHCat](#check-your-webhcat-service) são descritos anteriormente. Há vários outros arquivos de log úteis que você pode investigar para restringir problemas com o cluster, conforme descrito nas seções a seguir.
 
-* Os clusters HDInsight consistem em vários nós, a maioria dos quais são tarefas para executar trabalhos enviados. Os trabalhos são executados simultaneamente, mas os arquivos de log podem exibir apenas os resultados linearmente. O HDInsight executa novas tarefas, encerrando outras que falham ao concluir primeiro. Todas essas atividades são registradas `stderr` nos arquivos e. `syslog`
+* Os clusters HDInsight consistem em vários nós, a maioria dos quais são tarefas para executar trabalhos enviados. Os trabalhos são executados simultaneamente, mas os arquivos de log podem exibir apenas os resultados linearmente. O HDInsight executa novas tarefas, encerrando outras que falham ao concluir primeiro. Todas essas atividades são registradas nos arquivos `stderr` e `syslog`.
 
 * Os arquivos de log de ação de script mostram erros ou alterações de configuração inesperadas durante o processo de criação do cluster.
 
@@ -224,7 +224,7 @@ Há muitos tipos de logs que são gerados a partir de vários serviços e compon
 
 As [ações de script](hdinsight-hadoop-customize-cluster-linux.md) do HDInsight executam scripts no cluster manualmente ou quando especificadas. Por exemplo, as ações de script podem ser usadas para instalar software adicional no cluster ou alterar definições de configuração dos valores padrão. A verificação dos logs de ação de script pode fornecer informações sobre erros ocorridos durante a instalação e configuração do cluster.  Você pode exibir o status de uma ação de script selecionando o botão **Ops** na interface do usuário do amAmbari ou acessando os logs da conta de armazenamento padrão.
 
-Os logs de ação de script residem `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE` no diretório.
+Os logs de ação de script residem no diretório `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
 ### <a name="view-hdinsight-logs-using-ambari-quick-links"></a>Exibir logs do HDInsight usando links rápidos do Ambari
 
@@ -242,13 +242,13 @@ HDInsight An cluster gera logs que são gravados nas tabelas do Azure e no armaz
 
 Os despejos de heap contêm um instantâneo da memória do aplicativo, incluindo os valores das variáveis nesse momento, que são úteis para diagnosticar problemas que ocorrem em tempo de execução. Para obter mais informações, consulte [habilitar despejos de heap para serviços de Apache Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
 
-## <a name="step-6-check-configuration-settings"></a>Passo 6: Verificar definições de configuração
+## <a name="step-6-check-configuration-settings"></a>Etapa 6: verificar as definições de configuração
 
 Os clusters HDInsight são pré-configurados com configurações padrão para serviços relacionados, como Hadoop, Hive, HBase e assim por diante. Dependendo do tipo de cluster, sua configuração de hardware, seu número de nós, os tipos de trabalhos que você está executando e os dados com os quais você está trabalhando (e como esses dados estão sendo processados), talvez seja necessário otimizar sua configuração.
 
 Para obter instruções detalhadas sobre como otimizar as configurações de desempenho para a maioria dos cenários, consulte [otimizar as configurações de cluster com o Apache Ambari](hdinsight-changing-configs-via-ambari.md). Ao usar o Spark, consulte [otimizar trabalhos de Apache Spark para desempenho](spark/apache-spark-perf.md). 
 
-## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>Passo 7: Reproduzir a falha em um cluster diferente
+## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>Etapa 7: reproduzir a falha em um cluster diferente
 
 Para ajudar a diagnosticar a origem de um erro de cluster, inicie um novo cluster com a mesma configuração e reenvie as etapas do trabalho com falha um a um. Verifique os resultados de cada etapa antes de processar o próximo. Esse método oferece a oportunidade de corrigir e executar novamente uma única etapa com falha. Esse método também tem a vantagem de carregar apenas os dados de entrada uma vez.
 

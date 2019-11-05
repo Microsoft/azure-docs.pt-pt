@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
-ms.openlocfilehash: 9e398fd7d370d30fac87035b27a218834b4fab22
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: ef1f420e4c4dbd38ad703eb0573fae36af078edb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899728"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496230"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Camada de Comercialmente Crítico-banco de dados SQL do Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "70899728"
 O banco de dados SQL do Azure é baseado em SQL Server Mecanismo de Banco de Dados arquitetura ajustada para o ambiente de nuvem a fim de garantir 99,99% de disponibilidade mesmo nos casos de falhas de infraestrutura. Há três modelos de arquitetura que são usados no banco de dados SQL do Azure:
 - Uso Geral/Standard 
 - Comercialmente Crítico/Premium
-- Hiperescala
+- Hyperscale
 
 O modelo de camada de serviço Premium/Comercialmente Crítico baseia-se em um cluster de processos do mecanismo de banco de dados. Esse modelo de arquitetura depende de um fato de que sempre há um quorum de nós do mecanismo de banco de dados disponíveis e tem impacto mínimo sobre o desempenho na carga de trabalho mesmo durante as atividades de manutenção.
 
@@ -49,7 +49,7 @@ Comercialmente Crítico camada de serviço foi projetada para os aplicativos que
 Os principais motivos pelos quais você deve escolher Comercialmente Crítico camada de serviço em vez de Uso Geral camada são:
 -   Requisitos de latência de e/s baixos – a carga de trabalho que precisa da resposta rápida da camada de armazenamento (1-2 milissegundos em média) deve usar a camada de Comercialmente Crítico. 
 -   Comunicação frequente entre o aplicativo e o banco de dados. O aplicativo que não pode aproveitar o cache da camada de aplicativo ou solicitar o envio [em lote](sql-database-use-batching-to-improve-performance.md) e precisa enviar muitas consultas SQL que devem ser processadas rapidamente são bons candidatos à camada de comercialmente crítico.
--   Grande número de atualizações – as operações de inserção, atualização e exclusão modificam as páginas de dados na memória (página suja) que devem ser salvas `CHECKPOINT` em arquivos de dados com a operação. A falha do processo do mecanismo de banco de dados potencial ou um failover do banco de dados com um grande número de páginas sujas pode aumentar o tempo de recuperação na camada Uso Geral. Use Comercialmente Crítico camada se você tiver uma carga de trabalho que cause muitas alterações na memória. 
+-   Grande número de atualizações – as operações de inserção, atualização e exclusão modificam as páginas de dados na memória (página suja) que devem ser salvas em arquivos de dados com a operação `CHECKPOINT`. A falha do processo do mecanismo de banco de dados potencial ou um failover do banco de dados com um grande número de páginas sujas pode aumentar o tempo de recuperação na camada Uso Geral. Use Comercialmente Crítico camada se você tiver uma carga de trabalho que cause muitas alterações na memória. 
 -   Transações de longa execução que modificam dados. As transações que são abertas por um tempo maior impedem o truncamento do arquivo de log que pode aumentar o tamanho do log e o número de [arquivos de log virtuais (VLF)](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch). O alto número de VLF pode retardar a recuperação do banco de dados após o failover.
 -   Carga de trabalho com consultas analíticas e de relatório que podem ser redirecionadas para a réplica somente leitura secundária de liberação de custo.
 - Maior resiliência e recuperação mais rápida a partir das falhas. Em caso de falha do sistema, o banco de dados na instância primária será desabilitado e uma das réplicas secundárias se tornará imediatamente o novo banco de dados primário de leitura/gravação que está pronto para processar as consultas. O mecanismo de banco de dados não precisa analisar e refazer transações do arquivo de log e carregar todos os dados no buffer de memória.
@@ -57,9 +57,9 @@ Os principais motivos pelos quais você deve escolher Comercialmente Crítico ca
 - Maior disponibilidade-a camada de Comercialmente Crítico na configuração multi-AZ garante 99,995% de disponibilidade, em comparação com 99,99% da camada Uso Geral.
 - A Comercialmente Crítico camada de recuperação geográfica rápida configurada com replicação geográfica tem um RPO (objetivo de ponto de recuperação) garantido de 5 s e RTO (objetivo de tempo de recuperação) de 30 segundos para 100% de horas implantadas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Encontre características de recursos (número de núcleos, e/s, memória) da camada de Comercialmente Crítico em [instância gerenciada](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), banco de dados individual no modelo de [VCORE](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) ou [modelo de DTU](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)ou pool elástico no modelo de [VCORE](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) e [modelo de DTU](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
+- Encontre características de recursos (número de núcleos, e/s, memória) da camada de Comercialmente Crítico em [instância gerenciada](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), banco de dados individual no modelo de [VCORE](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) ou [modelo de DTU](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)ou pool elástico no modelo de [VCORE](sql-database-vcore-resource-limits-elastic-pools.md#business-critical---provisioned-compute---gen4) e [modelo de DTU](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
 - Saiba mais sobre as camadas de [uso geral](sql-database-service-tier-general-purpose.md) e [hiperescala](sql-database-service-tier-hyperscale.md) .
 - Saiba mais sobre [Service Fabric](../service-fabric/service-fabric-overview.md).
-- Para obter mais opções de alta disponibilidade e recuperação de desastres, consulte continuidade de [negócios](sql-database-business-continuity.md).
+- Para obter mais opções de alta disponibilidade e recuperação de desastres, consulte [continuidade de negócios](sql-database-business-continuity.md).

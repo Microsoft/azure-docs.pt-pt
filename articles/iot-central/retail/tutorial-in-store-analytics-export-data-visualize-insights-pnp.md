@@ -5,17 +5,17 @@ services: iot-central
 ms.service: iot-central
 ms.topic: tutorial
 ms.custom:
-- iot-storeAnalytics-conditionMonitor
+- iot-storeAnalytics-checkout
 - iot-p0-scenario
 ms.author: dobett
 author: dominicbetts
 ms.date: 10/22/2019
-ms.openlocfilehash: 057602e9a595f1cb76927810801bd87e4f124d31
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 913a87df47121c18fcd4f83aa8d5a24b4041ce19
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026384"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495117"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutorial: exportar dados do Azure IoT Central e visualizar informações no Power BI
 
@@ -41,7 +41,7 @@ Para concluir este tutorial, precisa de:
 
 Antes de criar o Hub de eventos e o aplicativo lógico, você precisa criar um grupo de recursos para gerenciá-los. O grupo de recursos deve estar no mesmo local que o aplicativo **Analytics-check-out in-store** IOT central. Para criar um grupo de recursos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. No painel de navegação esquerdo, selecione **grupos de recursos**. Em seguida, selecione **Adicionar**.
 1. Para **assinatura**, selecione o nome da assinatura do Azure que você usou para criar seu aplicativo IOT central.
 1. Para o nome do **grupo de recursos** , insira _Retail-Store-Analysis_*.
@@ -98,7 +98,7 @@ A exportação de dados pode levar alguns minutos para começar a enviar telemet
 
 Seu painel de Power BI exibirá dados do seu aplicativo de monitoramento de varejo. Nesta solução, você usa Power BI conjuntos de dados de streaming como a fonte de dado para o painel de Power BI. Nesta seção, você define o esquema dos conjuntos de dados de streaming para que o aplicativo lógico possa encaminhar dados do hub de eventos. As etapas a seguir mostram como criar dois conjuntos de Datastream para os sensores ambientais e um conjunto de fluxo de transmissão para o sensor de ocupação:
 
-1. Inicie sessão na sua conta do **Power BI**.
+1. Inicie sessão na sua conta do **Power BI**.
 1. Selecione **espaços de trabalho**e, em seguida, selecione **criar um espaço de trabalho**.
 1. Na página **criar um espaço de trabalho** , insira _Analytics no repositório-check-out_ como o **nome do espaço de trabalho**.
 1. Role até a parte inferior da página **Bem-vindo ao espaço de trabalho análise-check-out no armazenamento** e selecione **ignorar**.
@@ -110,8 +110,8 @@ Seu painel de Power BI exibirá dados do seu aplicativo de monitoramento de vare
     | Nome do valor  | Tipo de valor |
     | ----------- | ---------- |
     | Carimbo de data/hora   | DateTime   |
-    | Humidade    | Number     |
-    | Temperatura | Number     |
+    | Humidade    | Número     |
+    | Temperatura | Número     |
 
 1. Alterne a **análise de dados históricos** em.
 1. Selecione **criar** e, em seguida, **concluído**.
@@ -133,10 +133,10 @@ Você também precisa de um conjunto de fluxo de transmissão para a telemetria 
     | Nome do valor     | Tipo de valor |
     | -------------- | ---------- |
     | Carimbo de data/hora      | DateTime   |
-    | Comprimento da fila 1 | Number     |
-    | Comprimento da fila 2 | Number     |
-    | Tempo de pesquisa 1   | Number     |
-    | Tempo de duração 2   | Number     |
+    | Comprimento da fila 1 | Número     |
+    | Comprimento da fila 2 | Número     |
+    | Tempo de pesquisa 1   | Número     |
+    | Tempo de duração 2   | Número     |
 
 1. Alterne a **análise de dados históricos** em.
 1. Selecione **criar** e, em seguida, **concluído**.
@@ -428,7 +428,7 @@ O aplicativo lógico é executado automaticamente. Para ver o status de cada exe
 
 Agora você tem telemetria fluindo do seu aplicativo IoT Central por meio de seu hub de eventos. Em seguida, seu aplicativo lógico analisa as mensagens do hub de eventos e as adiciona a um conjunto de Power BI fluxo de os. Agora, você pode criar um painel de Power BI para visualizar a telemetria:
 
-1. Inicie sessão na sua conta do **Power BI**.
+1. Inicie sessão na sua conta do **Power BI**.
 1. Selecione **espaços de trabalho > análise na loja-check-out**.
 1. Selecione **criar > painel**.
 1. Insira o **Store Analytics** como o nome do painel e selecione **criar**.

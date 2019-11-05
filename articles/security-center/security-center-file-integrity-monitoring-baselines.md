@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: memildin
-ms.openlocfilehash: 116f295365084e7570ed9afc493d9179ea2dfb5a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 0e7ef558ec75622b804aef96781b549f1a833e21
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202135"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73518869"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Comparar linhas de base usando o monitoramento de integridade de arquivo (FIM)
 
@@ -48,19 +48,19 @@ As linhas de base do FIM começam identificando as características de um estado
 
 |Nome da Política                 | Configuração do registro|
 |---------------------------------------|-------------|
-|Controlador de domínio: Recusar alterações de senha da conta do computador| MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RefusePasswordChange|
-|Membro do domínio: Criptografar digitalmente ou assinar dados de canal seguro (sempre)|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RequireSignOrSeal|
-|Membro do domínio: Criptografar digitalmente os dados do canal seguro (quando possível)|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\SealSecureChannel|
-|Membro do domínio: Assinar digitalmente os dados do canal seguro (quando possível)|MACHINE\System\CurrentControlSet\Services   \Netlogon\Parameters\SignSecureChannel|
-|Membro do domínio: Desabilitar alterações de senha da conta do computador|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\DisablePasswordChange|
-|Membro do domínio: Duração máxima da senha da conta da máquina|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\MaximumPasswordAge|
-|Membro do domínio: Exigir chave de sessão forte (Windows 2000 ou posterior)|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RequireStrongKey|
-|Segurança de rede: Restringir NTLM:  Autenticação NTLM neste domínio|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RestrictNTLMInDomain|
-|Segurança de rede: Restringir NTLM: Adicionar exceções de servidor neste domínio|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\DCAllowedNTLMServers|
-|Segurança de rede: Restringir NTLM: Auditar a autenticação NTLM neste domínio|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\AuditNTLMInDomain|
+|Controlador de domínio: recusar alterações de senha da conta do computador| MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RefusePasswordChange|
+|Membro do domínio: criptografar ou assinar digitalmente os dados do canal seguro (sempre)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RequireSignOrSeal|
+|Membro do domínio: criptografar digitalmente os dados do canal seguro (quando possível)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\SealSecureChannel|
+|Membro do domínio: assinar digitalmente os dados do canal seguro (quando possível)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\SignSecureChannel|
+|Membro do domínio: desabilitar as alterações de senha da conta do computador|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\DisablePasswordChange|
+|Membro do domínio: duração máxima da senha da conta da máquina|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\MaximumPasswordAge|
+|Membro do domínio: requer chave de sessão forte (Windows 2000 ou posterior)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RequireStrongKey|
+|Segurança de rede: restringir NTLM: autenticação NTLM neste domínio|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RestrictNTLMInDomain|
+|Segurança de rede: restringir NTLM: Adicionar exceções de servidor neste domínio|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\DCAllowedNTLMServers|
+|Segurança de rede: restringir NTLM: auditar a autenticação NTLM neste domínio|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\AuditNTLMInDomain|
 
 > [!NOTE]
-> Para saber mais sobre as configurações de registro com suporte em várias versões de sistema operacional, consulte a [planilha de referência de configurações de política de grupo](https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250).
+> Para saber mais sobre as configurações de registro com suporte em várias versões de sistema operacional, consulte a [planilha de referência de configurações de política de grupo](https://www.microsoft.com/download/confirmation.aspx?id=25250).
 
 *Para configurar o FIM para monitorar linhas de base de registro:*
 

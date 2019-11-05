@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a4daaac6abababcedb5d6dd7eb2122ef29846ef4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: MT
+ms.openlocfilehash: dff6473fd01fc2d41c5bb100eefd583afe4175b0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792542"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496477"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>API REST do serviço de Pesquisa Cognitiva do Azure – versão 2019-05-06-visualização
 
@@ -24,6 +24,8 @@ Este artigo descreve a versão `api-version=2019-05-06-Preview` da API REST do s
 
 
 ## <a name="new-in-2019-05-06-preview"></a>Novo no 2019-05-06-Preview
+
+[* * A indexação incremental](cognitive-search-incremental-indexing-conceptual.md) é um novo modo para indexação que adiciona o estado e o cache, permitindo que você reutilize a saída existente quando as definições de dados, indexador e conjunto de qualificações não forem alteradas. Esse recurso se aplica apenas a aprimoramentos por meio de um contratador de conhecimento cognitiva.
 
 A [**loja de conhecimento**](knowledge-store-concept-intro.md) é um novo destino de um pipeline de enriquecimento baseado em ia. Além de um índice, agora você pode persistir estruturas de dados preenchidas criadas durante a indexação no armazenamento do Azure. Você controla as estruturas físicas de seus dados por meio de elementos em um configurador de habilidades, incluindo como os dados são formatados, se os dados são armazenados no armazenamento de tabelas ou no armazenamento de BLOBs e se há várias exibições.
 

@@ -1,24 +1,24 @@
 ---
 title: 'Regressão de árvore de decisão aumentada: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo regressão da árvore de decisão aumentada no serviço Azure Machine Learning para criar um Ensemble de árvores de regressão usando o aumento.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo regressão da árvore de decisão aumentada no Azure Machine Learning para criar um Ensemble de árvores de regressão usando o aumento.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 4b8ff1c9f5b0f0b04448b950d3ba904ba76927c9
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: b04a44a82f793f39b24ffd94083ca8fd5e66cfb8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693845"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493887"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regressão da árvore de decisão aumentada
 
-Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para criar um Ensemble de árvores de regressão usando o aumento. O *aumento* significa que cada árvore depende de árvores anteriores. O algoritmo aprende ajustando o resíduo das árvores que o precedem. Portanto, o aumento em uma árvore de decisão Ensemble tende a melhorar a precisão com um pequeno risco de menos cobertura.  
   
@@ -97,6 +97,8 @@ Após a conclusão do treinamento:
 
 + Para usar o modelo de pontuação, conecte-o ao [modelo de Pontuação](./score-model.md)para prever valores para novos exemplos de entrada.
 
++ Para salvar um instantâneo do modelo treinado, clique com o botão direito do mouse na saída do **modelo treinado** do módulo de treinamento e selecione **salvar como**. A cópia do modelo treinado que você salva não é atualizada em execuções sucessivas do pipeline.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

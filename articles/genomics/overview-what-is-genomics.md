@@ -1,7 +1,7 @@
 ---
 title: O que é o Microsoft Genomics?
 titleSuffix: Microsoft Genomics
-description: Saiba como Microsoft Genomics pode alimentar o sequenciamento genoma, usando uma implementação de nuvem de Burrows-Wheeler aligner (BWA) e genoma Analysis Toolkit (GATK).
+description: Saiba como usar Microsoft Genomics para executar o fluxo de trabalho BWA-GATK para análise de genoma.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: overview
 ms.date: 12/07/2017
-ms.openlocfilehash: 04ecab58db822aa80ca2abba1bebaa39598498bd
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 461e385bae3b091c72355ed27a35ae5408bda7c2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244015"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498821"
 ---
 # <a name="what-is-microsoft-genomics"></a>O que é o Microsoft Genomics?
 A Microsoft Genomics oferece uma implementação de nuvem do Burrows-Wheeler aligner (BWA) e do genoma Analysis Toolkit (GATK) para análise secundária. O serviço é certificado por ISO e está em conformidade com os regulamentos do HIPAA e oferece previsibilidade de preço para suas necessidades de sequenciamento genoma. Saiba como usar o serviço de Microsoft Genomics e integrar com nossa API lendo nossos guias de início rápido, tutoriais e documentação.
@@ -27,7 +27,7 @@ Em vez de gerir os seus próprios datacenters, tire partido do dimensionamento e
 O Microsoft Genomics oferece um SLA (contrato de nível de serviço) de disponibilidade de 99,99% para receber solicitações de fluxo de trabalho. Saiba mais sobre o [SLA](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/)de Microsoft Genomics.
 
 
-## <a name="secure-your-data"></a>Proteja os seus dados
+## <a name="secure-your-data"></a>Proteger os dados
 O serviço de Microsoft Genomics é ISO 27001, ISO 27018 e ISO 9001 certificado e em conformidade com os regulamentos do HIPAA. Visite o [Centro de Fidedignidade do Azure](https://www.microsoft.com/trustcenter/security) para obter informações sobre a segurança da plataforma do Azure.
 
 

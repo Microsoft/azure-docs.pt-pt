@@ -1,5 +1,5 @@
 ---
-title: Tutorial Apache Spark streaming estruturado com o Apache Kafka-Azure HDInsight
+title: 'Tutorial: & de streaming do Apache Spark Apache Kafka-HDInsight do Azure'
 description: Saiba como utilizar a transmissão em fluxo do Apache Spark para introduzir ou extrair dados do Apache Kafka. Neste tutorial, vai transmitir dados através de um bloco de notas Jupyter do Spark no HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 10/08/2019
-ms.openlocfilehash: db2174451f01ef38dc69e4e14561175203e075c3
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 96420a3ea4ddc8c3d8210f1b35d6606257eba5ff
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264252"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494370"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutorial: Utilizar a Transmissão em Fluxo Estruturada do Apache Spark com o Apache Kafka no HDInsight
 
@@ -94,7 +94,7 @@ Em ambos os fragmentos, os dados são lidos a partir do Kafka e escritos num fic
 | `write` | `writeStream` |
 | `save` | `start` |
 
-A operação de streaming também usa `awaitTermination(30000)`, que para o fluxo após 30.000 MS.
+A operação de streaming também usa `awaitTermination(30000)`, que interrompe o fluxo após 30.000 MS.
 
 Para utilizar a Transmissão em Fluxo Estruturada com o Kafka, o projeto tem de ter uma dependência no pacote `org.apache.spark : spark-sql-kafka-0-10_2.11`. A versão deste pacote deve corresponder à versão do Spark no HDInsight. Para o Spark 2.2.0 (disponível no HDInsight 3.6), pode encontrar as informações de dependência para diferentes tipos de projeto em [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar).
 
@@ -165,7 +165,7 @@ Para criar uma Rede Virtual do Azure e, em seguida, criar os clusters do Kafka e
 
 Este exemplo demonstra como usar o streaming estruturado do Spark com Kafka no HDInsight. Ele usa dados em viagens de táxi, que são fornecidas pela cidade de Nova York.  O conjunto de dados usado por este Notebook é de dados de corrida de [táxi de 2016](https://data.cityofnewyork.us/Transportation/2016-Green-Taxi-Trip-Data/hvrh-b6nb).
 
-1. Coletar informações do host. Use os comandos de rotação e [JQ](https://stedolan.github.io/jq/) abaixo para obter as informações de hosts do Kafka ZooKeeper e do Broker. Os comandos são projetados para um prompt de comando do Windows, pequenas variações serão necessárias para outros ambientes. Substitua `KafkaCluster` pelo nome do seu cluster Kafka e `KafkaPassword` pela senha de logon do cluster. Além disso, substitua `C:\HDI\jq-win64.exe` pelo caminho real para a instalação do JQ. Insira os comandos em um prompt de comando do Windows e salve a saída para uso em etapas posteriores.
+1. Coletar informações do host. Use os comandos de rotação e [JQ](https://stedolan.github.io/jq/) abaixo para obter as informações de hosts do Kafka ZooKeeper e do Broker. Os comandos são projetados para um prompt de comando do Windows, pequenas variações serão necessárias para outros ambientes. Substitua `KafkaCluster` pelo nome do seu cluster Kafka e `KafkaPassword` com a senha de logon do cluster. Além disso, substitua `C:\HDI\jq-win64.exe` pelo caminho real para a instalação do JQ. Insira os comandos em um prompt de comando do Windows e salve a saída para uso em etapas posteriores.
 
     ```cmd
     set CLUSTERNAME=KafkaCluster
@@ -199,7 +199,7 @@ Este exemplo demonstra como usar o streaming estruturado do Spark com Kafka no H
     }
     ```
 
-5. Crie o tópico Kafka. Edite o comando a seguir substituindo `YOUR_ZOOKEEPER_HOSTS` pelas informações do host Zookeeper extraídas na primeira etapa. Insira o comando editado em seu Jupyter Notebook para criar o tópico `tripdata`.
+5. Crie o tópico Kafka. Edite o comando a seguir, substituindo `YOUR_ZOOKEEPER_HOSTS` pelas informações do host Zookeeper extraídas na primeira etapa. Insira o comando editado em seu Jupyter Notebook para criar o tópico `tripdata`.
 
     ```scala
     %%bash

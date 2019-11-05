@@ -6,16 +6,14 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: c7d18ab6e9018511915e9b77ea02ac60b1277c12
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: fb11b785cecbd021c0b894754e31d226edfe72f2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72596486"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73519313"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformação de origem para mapeamento de fluxo de dados 
-
-
 
 Uma transformação de origem configura sua fonte de dados para o fluxo de dados. Ao criar fluxos de dados, sua primeira etapa sempre estará configurando uma transformação de origem. Para adicionar uma origem, clique na caixa **Adicionar origem** na tela fluxo de dados.
 
@@ -27,11 +25,12 @@ Cada transformação de origem é associada a exatamente um conjunto de Data Fac
 
 O mapeamento de fluxo de dados segue uma abordagem de extração, carregamento, transformação (ELT) e funciona com conjuntos de dados de *preparo* que estão todos no Azure. Atualmente, os seguintes conjuntos de valores podem ser usados em uma transformação de origem:
     
-* Armazenamento de Blobs do Azure
-* Armazenamento Ger1 do Azure Data Lake
-* Ger2 de Armazenamento do Azure Data Lake
-* Armazém de Dados SQL do Azure
+* Armazenamento de BLOBs do Azure (JSON, Avro, texto, parquet)
+* Azure Data Lake Storage Gen1 (JSON, Avro, texto, parquet)
+* Azure Data Lake Storage Gen2 (JSON, Avro, texto, parquet)
+* Azure SQL Data Warehouse
 * Base de Dados SQL do Azure
+* Azure CosmosDB
 
 Azure Data Factory tem acesso a mais de 80 conectores nativos. Para incluir dados dessas outras fontes em seu fluxo de dados, use a atividade de cópia para carregar esses dados em uma das áreas de preparo com suporte.
 
@@ -79,9 +78,9 @@ Exemplos de curinga:
 
 * ```/data/sales/**/*.csv``` obtém todos os arquivos CSV em/data/Sales
 * ```/data/sales/20??/**``` obtém todos os arquivos no século 20
-* ```/data/sales/2004/*/12/[XY]1?.csv``` Obtém todos os arquivos CSV em 2004 em dezembro, começando com X ou Y prefixados por um número de dois dígitos
+* ```/data/sales/2004/*/12/[XY]1?.csv``` obtém todos os arquivos CSV em 2004 em dezembro, começando com X ou Y prefixados por um número de dois dígitos
 
-**Caminho raiz da partição:** Se você tiver pastas particionadas em sua fonte de arquivo com um formato ```key=value``` (por exemplo, Year = 2019), poderá atribuir o nível superior dessa árvore de pastas de partição a um nome de coluna no fluxo de dados do fluxo de dados.
+**Caminho raiz da partição:** Se você tiver pastas particionadas em sua fonte de arquivo com um formato de ```key=value``` (por exemplo, Year = 2019), poderá atribuir o nível superior dessa árvore de pastas de partição a um nome de coluna no fluxo de dados do fluxo de dados.
 
 Primeiro, defina um curinga para incluir todos os caminhos que são as pastas particionadas mais os arquivos folha que você deseja ler.
 
@@ -130,7 +129,7 @@ Se sua fonte estiver no banco de dados SQL ou SQL Data Warehouse, configuraçõe
 
 **Entrada:** Selecione se você apontar sua fonte em uma tabela (equivalente a ```Select * from <table-name>```) ou inserir uma consulta SQL personalizada.
 
-**Consulta**: se você selecionar consulta no campo de entrada, insira uma consulta SQL para sua origem. Essa configuração substitui qualquer tabela que você tenha escolhido no conjunto de um. Não há suporte para cláusulas **ordenar por** aqui, mas você pode definir uma instrução SELECT FROM completa. Você também pode usar funções de tabela definidas pelo usuário. **Select * de udfGetData ()** é um UDF no SQL que retorna uma tabela. Essa consulta produzirá uma tabela de origem que você pode usar em seu fluxo de dados.
+**Consulta**: se você selecionar consulta no campo de entrada, insira uma consulta SQL para sua origem. Essa configuração substitui qualquer tabela que você tenha escolhido no conjunto de um. Não há suporte para cláusulas **ordenar por** aqui, mas você pode definir uma instrução SELECT FROM completa. Você também pode usar funções de tabela definidas pelo usuário. **Select * de udfGetData ()** é um UDF no SQL que retorna uma tabela. Essa consulta produzirá uma tabela de origem que você pode usar em seu fluxo de dados. O uso de consultas também é uma ótima maneira de reduzir linhas para teste ou pesquisas. Exemplo: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
 **Tamanho do lote**: Insira um tamanho de lote para dividir dados grandes em leituras.
 
@@ -152,6 +151,19 @@ Como os esquemas em conjuntos de dados, a projeção em uma fonte define as colu
 Se o arquivo de texto não tiver um esquema definido, selecione **detectar tipo de dados** para que data Factory obterá amostras e inferirá os tipos de dados. Selecione **definir formato padrão** para detectar automaticamente os formatos de dados padrão. 
 
 Você pode modificar os tipos de dados de coluna em uma transformação de coluna derivada de fluxo inferior. Use uma transformação selecionar para modificar os nomes de coluna.
+
+### <a name="import-schema"></a>Importar esquema
+
+Conjuntos de dados, como Avro e CosmosDB, que dão suporte a estruturas de dado complexas, não exigem que definições de esquema existam no DataSet. Portanto, você poderá clicar no botão "importar esquema" na guia projeção desses tipos de fontes.
+
+## <a name="cosmosdb-specific-settings"></a>Configurações específicas do CosmosDB
+
+Ao usar CosmosDB como um tipo de origem, há algumas opções a serem consideradas:
+
+* Incluir colunas do sistema: se você marcar isso, ```id```, ```_ts```e outras colunas do sistema serão incluídas em seus metadados de fluxo de dados do CosmosDB. Ao atualizar as coleções, é importante incluí-las para que você possa obter a ID de linha existente.
+* Tamanho da página: o número de documentos por página do resultado da consulta. O padrão é "-1", que usa a página dinâmica do serviço até 1000.
+* Taxa de transferência: defina um valor opcional para o número de RUs que você gostaria de aplicar à sua coleção CosmosDB para cada execução desse fluxo de dados durante a operação de leitura. O mínimo é 400.
+* Regiões preferenciais: você pode escolher as regiões de leitura preferenciais para esse processo.
 
 ## <a name="optimize-the-source-transformation"></a>Otimizar a transformação de origem
 

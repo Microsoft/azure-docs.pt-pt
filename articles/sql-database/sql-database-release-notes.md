@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: f1450399dc027a6977f4c99507e2e15b301272c4
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 62ec5d4e85a6e72982b49872af59e7b579c4fd77
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249393"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496270"
 ---
 # <a name="sql-database-release-notes"></a>Notas de versão do banco de dados SQL
 
@@ -26,6 +26,7 @@ Este artigo lista os recursos do banco de dados SQL que estão atualmente em vis
 
 | Funcionalidade | Detalhes |
 | ---| --- |
+| Novas gerações de hardware das séries Fsv2 e M| Para obter informações, consulte [gerações de hardware](sql-database-service-tiers-vcore.md#hardware-generations).|
 | [Link privado do Azure](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| A Ligação Privada simplifica a arquitetura da rede e protege a ligação entre pontos finais no Azure ao manter os dados na rede do Azure, eliminando, desta forma, a exposição à Internet. A Ligação Privada também lhe permite criar e compor os seus próprios serviços no Azure. |
 | Recuperação de banco de dados acelerada com bancos de dados individuais e pools elásticos | Para obter informações, consulte [recuperação de banco de dados acelerada](sql-database-accelerated-database-recovery.md).|
 |Contagem aproximada distinta|Para obter informações, veja [contagem aproximada distinta](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
@@ -37,7 +38,6 @@ Este artigo lista os recursos do banco de dados SQL que estão atualmente em vis
 |Comentários de concessão de memória (modo de linha) (em nível de compatibilidade 150)|Para obter informações, consulte [comentários de concessão de memória (modo de linha)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
 | Editor de consultas no portal do Azure |Para obter informações, consulte [usar o editor de consultas SQL do portal do Azure para se conectar e consultar dados](sql-database-connect-query-portal.md).|
 | Serviços de R/Machine Learning com bancos de dados individuais e pools elásticos |Para obter informações, consulte [serviços de Machine Learning no banco de dados SQL do Azure](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
-| Escalão de serviço de computação sem servidor | Para obter informações, consulte [banco de dados SQL sem servidor (visualização)](sql-database-serverless.md).|
 |Análise de SQL|Para obter informações, consulte [análise de SQL do Azure](../azure-monitor/insights/azure-sql.md).|
 |Compilação adiada da variável de tabela (no nível de compatibilidade 150)|Para obter informações, consulte [compilação adiada da variável de tabela](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation).|
 | &nbsp; |

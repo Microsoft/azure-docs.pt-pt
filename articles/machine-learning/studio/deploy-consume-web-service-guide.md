@@ -1,7 +1,7 @@
 ---
-title: Implementação e consumo
-titleSuffix: Azure Machine Learning Studio
-description: Pode utilizar o Azure Machine Learning Studio para implementar fluxos de trabalho do machine learning e modelos como serviços web. Esses serviços da web, em seguida, podem ser utilizados para chamar os modelos de machine learning a partir de aplicações através da internet para fazer previsões em tempo real ou no modo de lote.
+title: Implantação e consumo
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Você pode usar Azure Machine Learning Studio (clássico) para implantar fluxos de trabalho e modelos do Machine Learning como serviços Web. Esses serviços Web podem ser usados para chamar os modelos de aprendizado de máquina de aplicativos pela Internet para fazer previsões em tempo real ou em modo de lote.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,61 +10,61 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 0a29d763ab54ee716e514df23576e9c3b294d792
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf169a9b7064bd83caf0c9f8ec6dd6dd55894d67
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751081"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493024"
 ---
-# <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio serviços da Web: Implementação e consumo
+# <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Serviços Web Azure Machine Learning Studio (clássico): implantação e consumo
 
-Pode utilizar o Azure Machine Learning Studio para implementar fluxos de trabalho do machine learning e modelos como serviços web. Esses serviços da web, em seguida, podem ser utilizados para chamar os modelos de machine learning a partir de aplicações através da Internet para fazer previsões em tempo real ou no modo de lote. Porque os serviços web RESTful, pode chamá-los a partir de várias linguagens de programação e plataformas, como o .NET e Java e de aplicativos, como o Excel.
+Você pode usar Azure Machine Learning Studio (clássico) para implantar fluxos de trabalho e modelos do Machine Learning como serviços Web. Esses serviços Web podem ser usados para chamar os modelos de aprendizado de máquina de aplicativos pela Internet para fazer previsões em tempo real ou em modo de lote. Como os serviços Web são RESTful, você pode chamá-los de várias linguagens de programação e plataformas, como .NET e Java, e de aplicativos, como o Excel.
 
-As secções seguintes fornecem ligações para instruções passo a passo, código e documentação para ajudar a começar.
+As seções a seguir fornecem links para orientações, código e documentação para ajudar você a começar.
 
 ## <a name="deploy-a-web-service"></a>Implementar serviços Web
 
-### <a name="with-azure-machine-learning-studio"></a>Com o Azure Machine Learning Studio
+### <a name="with-azure-machine-learning-studio-classic"></a>Com Azure Machine Learning Studio (clássico)
 
-Portal do Studio e o portal de serviços Web do Microsoft Azure Machine Learning ajudam a implementar e gerir um serviço web sem escrever código.
+O portal Studio (clássico) e o Microsoft Azure Machine Learning Portal de serviços Web ajudam você a implantar e gerenciar um serviço Web sem escrever código.
 
-As ligações seguintes fornecem informações gerais sobre como implementar um novo serviço web:
+Os links a seguir fornecem informações gerais sobre como implantar um novo serviço Web:
 
-* Para uma descrição geral sobre como implementar um novo serviço web baseado no Azure Resource Manager, consulte [implementar um novo serviço web](publish-a-machine-learning-web-service.md).
-* Para obter instruções sobre como implementar um serviço da web, consulte [implementar um serviço web do Azure Machine Learning](publish-a-machine-learning-web-service.md).
-* Para obter instruções completas sobre como criar e implementar um serviço web, inicie com [Tutorial 1: Prever o risco de crédito](tutorial-part1-credit-risk.md).
-* Para obter exemplos específicos que implementa um serviço web, consulte:
+* Para obter uma visão geral sobre como implantar um novo serviço Web baseado em Azure Resource Manager, consulte [implantar um novo serviço Web](publish-a-machine-learning-web-service.md).
+* Para obter instruções sobre como implantar um serviço Web, consulte [implantar um serviço web Azure Machine Learning](publish-a-machine-learning-web-service.md).
+* Para obter uma explicação completa sobre como criar e implantar um serviço Web, comece com o [tutorial 1: prever o risco de crédito](tutorial-part1-credit-risk.md).
+* Para obter exemplos específicos que implantam um serviço Web, consulte:
 
-  * [Tutorial 3: Implementar o modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md)
-  * [Como implementar um serviço web em várias regiões](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
+  * [Tutorial 3: implantar o modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md)
+  * [Como implantar um serviço Web em várias regiões](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
 
-### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Com o fornecedor de recursos de serviços de web APIs (APIs do Azure Resource Manager)
+### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Com APIs de provedor de recursos de serviços Web (APIs de Azure Resource Manager)
 
-O fornecedor de recursos do Azure Machine Learning Studio para serviços da web permite a implementação e gestão de serviços da web através de chamadas à REST API. Para obter mais informações, consulte a [Machine Learning Web Service (REST)](/rest/api/machinelearning/index) referência.
+A versão clássica do provedor de recursos Azure Machine Learning Studio para serviços Web permite a implantação e o gerenciamento de serviços Web usando chamadas à API REST. Para obter mais informações, consulte a referência do [serviço Web do Machine Learning (REST)](/rest/api/machinelearning/index) .
 
 <!-- [Machine Learning Web Service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference. -->
 
 ### <a name="with-powershell-cmdlets"></a>Com os cmdlets do PowerShell
 
-O fornecedor de recursos do Azure Machine Learning Studio para serviços da web permite a implementação e gestão de serviços da web utilizando cmdlets do PowerShell.
+A versão clássica do provedor de recursos Azure Machine Learning Studio para serviços Web permite a implantação e o gerenciamento de serviços Web usando cmdlets do PowerShell.
 
-Para utilizar os cmdlets, tem primeiro de iniciar sessão sua conta do Azure a partir de ambiente do PowerShell, utilizando o [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. Se não estiver familiarizado com como chamar comandos do PowerShell que são baseados no Resource Manager, veja [utilizar o Azure PowerShell com o Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
+Para usar os cmdlets, primeiro você deve entrar em sua conta do Azure de dentro do ambiente do PowerShell usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Se você não estiver familiarizado com como chamar comandos do PowerShell baseados no Resource Manager, consulte [usando Azure PowerShell com Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
 
-Para exportar a sua experimentação preditiva, utilize [este código de exemplo](https://github.com/ritwik20/AzureML-WebServices). Depois de criar o ficheiro de .exe do código, pode digitar:
+Para exportar seu experimento de previsão, use [este código de exemplo](https://github.com/ritwik20/AzureML-WebServices). Depois de criar o arquivo. exe do código, você pode digitar:
 
     C:\<folder>\GetWSD <experiment-url> <workspace-auth-token>
 
-Executar a aplicação cria um modelo de JSON do serviço web. Para utilizar o modelo para implementar um serviço da web, tem de adicionar as seguintes informações:
+A execução do aplicativo cria um modelo JSON de serviço Web. Para usar o modelo para implantar um serviço Web, você deve adicionar as seguintes informações:
 
-* Nome da conta de armazenamento e a chave
+* Nome e chave da conta de armazenamento
 
-    Pode obter o nome de conta de armazenamento e da chave do [portal do Azure](https://portal.azure.com/).
+    Você pode obter o nome da conta de armazenamento e a chave do [portal do Azure](https://portal.azure.com/).
 * ID do plano de compromisso
 
-    Pode obter o ID do plano do [serviços da Web do Azure Machine Learning](https://services.azureml.net) portal a iniciar sessão e clicando num nome de plano.
+    Você pode obter a ID do plano do [Azure Machine Learning Portal de serviços Web](https://services.azureml.net) entrando e clicando em um nome de plano.
 
-Adicioná-los para o modelo JSON como filhos do *propriedades* nó de mesmo nível, como o *MachineLearningWorkspace* nó.
+Adicione-os ao modelo JSON como filhos do nó *Propriedades* no mesmo nível que o nó *MachineLearningWorkspace* .
 
 Segue-se um exemplo:
 
@@ -76,28 +76,28 @@ Segue-se um exemplo:
         "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/providers/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
     }
 
-Consulte os seguintes artigos e o código de exemplo para obter detalhes adicionais:
+Consulte os seguintes artigos e código de exemplo para obter detalhes adicionais:
 
-* [Cmdlets Studio do Azure Machine Learning](https://docs.microsoft.com/powershell/module/az.machinelearning) referência no MSDN
-* Exemplo [passo a passo](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) no GitHub
+* Referência de [cmdlets do Azure Machine Learning Studio (clássico)](https://docs.microsoft.com/powershell/module/az.machinelearning) no MSDN
+* Exemplo de [explicação](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) no github
 
-## <a name="consume-the-web-services"></a>Consumir os serviços web
+## <a name="consume-the-web-services"></a>Consumir os serviços Web
 
-### <a name="from-the-azure-machine-learning-web-services-ui-testing"></a>Os Azure Machine Learning serviços da Web da interface do Usuário (teste)
+### <a name="from-the-azure-machine-learning-web-services-ui-testing"></a>Na interface do usuário de serviços Web do Azure Machine Learning (teste)
 
-Pode testar o seu serviço web a partir do portal do Azure Machine Learning Web Services. Isto inclui o teste do serviço de solicitação-resposta (RRS) e interfaces de serviço de execução de lotes (BES).
+Você pode testar seu serviço Web do Azure Machine Learning Portal de serviços Web. Isso inclui o teste das interfaces RRS (serviço de solicitação-resposta) e BES (serviço de execução em lote).
 
 * [Implementar um serviço Web novo](publish-a-machine-learning-web-service.md)
-* [Implementar um serviço web do Azure Machine Learning](publish-a-machine-learning-web-service.md)
-* [Tutorial 3: Implementar o modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md)
+* [Implantar um serviço Web Azure Machine Learning](publish-a-machine-learning-web-service.md)
+* [Tutorial 3: implantar o modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md)
 
-### <a name="from-excel"></a>A partir do Excel
+### <a name="from-excel"></a>Do Excel
 
-Pode transferir um modelo do Excel que consome o serviço web:
+Você pode baixar um modelo do Excel que consome o serviço Web:
 
-* [Consumir um serviço web do Azure Machine Learning a partir do Excel](consuming-from-excel.md)
-* [Suplemento do Excel para serviços da Web do Azure Machine Learning](excel-add-in-for-web-services.md)
+* [Consumindo um serviço Web Azure Machine Learning do Excel](consuming-from-excel.md)
+* [Suplemento do Excel para serviços Web do Azure Machine Learning](excel-add-in-for-web-services.md)
 
 ### <a name="from-a-rest-based-client"></a>De um cliente baseado em REST
 
-Serviços Web do Azure Machine Learning são RESTful APIs. Pode consumir essas APIs de várias plataformas, como .NET, Python, R, Java, etc. O **Consume** página do web Service a [portal do Microsoft Azure Machine Learning Web Services](https://services.azureml.net) tem o código de exemplo que pode ajudá-lo a começar a utilizar. Para obter mais informações, veja [How to consume an Azure Machine Learning Web service](consume-web-services.md) (Como consumir um serviço Web do Azure Machine Learning).
+Azure Machine Learning serviços Web são APIs RESTful. Você pode consumir essas APIs de várias plataformas, como .NET, Python, R, Java, etc. A página **consumir** do serviço Web no portal de [Serviços Web Microsoft Azure Machine Learning](https://services.azureml.net) tem um código de exemplo que pode ajudá-lo a começar. Para obter mais informações, veja [How to consume an Azure Machine Learning Web service](consume-web-services.md) (Como consumir um serviço Web do Azure Machine Learning).

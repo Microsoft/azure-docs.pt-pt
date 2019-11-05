@@ -1,5 +1,5 @@
 ---
-title: Consultar Apache Hive com o driver ODBC e o PowerShell-Azure HDInsight
+title: Consultar Apache Hive com o driver ODBC & PowerShell-Azure HDInsight
 description: Use o driver ODBC do Microsoft Hive e o PowerShell para consultar Apache Hive clusters no Azure HDInsight.
 keywords: Hive, ODBC do hive, PowerShell
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
-ms.openlocfilehash: 4ec580c3d4c30fa4d86c24defb7eaded464dea3b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f6139bb98fa0272e43c8e180d4ec029f7a7538bb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177326"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494323"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Tutorial: Apache Hive de consulta com ODBC e PowerShell
 

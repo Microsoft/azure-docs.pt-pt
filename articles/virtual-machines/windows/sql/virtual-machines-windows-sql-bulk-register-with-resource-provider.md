@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 80a1ac3ebe5f49d6a63f47e08e0b16114d75e91f
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 97541484501a3ecdd1bd5998314c1ee9e7a4e3a5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199213"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489076"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registrar em massa máquinas virtuais do SQL no Azure com o provedor de recursos da VM do SQL
 
@@ -37,7 +37,7 @@ Para registrar sua VM SQL Server com o provedor de recursos, você precisará do
 - Uma [assinatura do Azure](https://azure.microsoft.com/free/) que foi [registrada com o provedor de recursos](virtual-machines-windows-sql-register-with-resource-provider.md#register-subscription-with-rp) e contém máquinas virtuais SQL Server não registradas. 
 - As credenciais de cliente usadas para registrar as máquinas virtuais existem em qualquer uma das seguintes funções de RBAC: **colaborador de máquina virtual**, **colaborador**ou **proprietário**. 
 - A versão mais recente do [AZ PowerShell](/powershell/azure/new-azureps-module-az). 
-- A versão mais recente do [AZ. SqlVirtualMachine] (https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0.
+- A versão mais recente do [AZ. SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
 ## <a name="getting-started"></a>Introdução
 
@@ -214,7 +214,7 @@ O relatório é gerado como um arquivo de `.txt` chamado `RegisterSqlVMScriptRep
 | Número de VMs ignoradas porque não estão em execução SQL Server no Windows | Contagem de máquinas virtuais que foram ignoradas porque não estão em execução SQL Server ou não são uma máquina virtual do Windows. As máquinas virtuais são listadas no formato `SubscriptionID, Resource Group, Virtual Machine`. | 
 | &nbsp; | &nbsp; |
 
-### <a name="log"></a>Registo 
+### <a name="log"></a>Registar 
 
 Os erros são registrados no arquivo de log chamado `VMsNotRegisteredDueToError<Timestamp>.log` em que Timestamp é a hora em que o script foi iniciado. Se o erro estiver no nível da assinatura, o log conterá a assinatura separada por vírgula e a mensagem de erro. Se o erro for com o registro da máquina virtual, o log conterá a ID da assinatura, o nome do grupo de recursos, o nome da máquina virtual, o código de erro e a mensagem separados por vírgulas. 
 

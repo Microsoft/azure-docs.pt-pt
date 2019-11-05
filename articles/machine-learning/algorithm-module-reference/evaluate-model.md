@@ -1,7 +1,7 @@
 ---
 title: 'Avaliar modelo: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo modelo de avaliação no serviço de Azure Machine Learning para medir a precisão de um modelo treinado.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo modelo de avaliação no Azure Machine Learning para medir a precisão de um modelo treinado.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 0ad4ceedf9c1d65339c9e4aabebc0a47475ed568
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: ddc6a35d5959a2d1f85c151a6f229223db9ba566
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693809"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497924"
 ---
 # <a name="evaluate-model-module"></a>Módulo avaliar modelo
 
-Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para medir a precisão de um modelo treinado. Você fornece um conjunto de resultados que contém pontuações geradas de um modelo e o módulo **avaliar modelo** computa um conjunto de métricas de avaliação padrão do setor.
   
@@ -69,7 +69,7 @@ Esse recurso é útil porque você pode comparar facilmente os resultados de doi
 Depois de executar o **modelo**de avaliação, clique com o botão direito do mouse no módulo e selecione **resultados da avaliação** para ver os resultados. Pode:
 
 + Salvar os resultados como um conjunto de um, para uma análise mais fácil com outras ferramentas
-+ Gerar uma visualização na interface
++ Gerar uma visualização no designer
 
 Se você conectar conjuntos de dados a ambas as entradas do **modelo de avaliação**, os resultados conterão métricas para ambos os conjuntos ou ambos os modelos.
 O modelo ou os dados anexados à porta à esquerda são apresentados primeiro no relatório, seguidos pelas métricas para o conjunto de dados ou modelo anexado na porta correta.  
@@ -126,4 +126,4 @@ As métricas retornadas para modelos de regressão geralmente são projetadas pa
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: aa3e3b63bdfda7aa6d875055dee4c69b9840db25
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: e07939bd5f0264df637fda439d96be213a8d28d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "72167359"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499214"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>O que é Apache Hive e HiveQL no Azure HDInsight?
 
 [Apache Hive](https://hive.apache.org/) é um sistema de data warehouse para Apache Hadoop. O hive permite o resumo de dados, a consulta e a análise de dados. As consultas do hive são escritas em HiveQL, que é uma linguagem de consulta semelhante ao SQL.
 
-O hive permite que você projeto a estrutura em dados grandes não estruturados. Depois de definir a estrutura, você pode usar HiveQL para consultar os dados sem conhecimento de Java ou MapReduce.
+O hive permite projetar a estrutura em dados amplamente estruturados. Depois de definir a estrutura, você pode usar HiveQL para consultar os dados sem conhecimento de Java ou MapReduce.
 
 O HDInsight fornece vários tipos de cluster, que são ajustados para cargas de trabalho específicas. Os seguintes tipos de cluster são usados com mais frequência em consultas de Hive:
 
@@ -143,7 +143,7 @@ No exemplo anterior, as instruções HiveQL executam as seguintes ações:
 
 * `SELECT`: seleciona uma contagem de todas as linhas em que a coluna **T4** contém o valor **[ERROR]** . Essa instrução retorna um valor de **3** porque há três linhas que contêm esse valor.
 
-* `INPUT__FILE__NAME LIKE '%.log'`-Hive tenta aplicar o esquema a todos os arquivos no diretório. Nesse caso, o diretório contém arquivos que não correspondem ao esquema. Para evitar dados de lixo nos resultados, essa instrução informa ao hive que só devemos retornar dados de arquivos que terminam em. log.
+* `INPUT__FILE__NAME LIKE '%.log'`-o hive tenta aplicar o esquema a todos os arquivos no diretório. Nesse caso, o diretório contém arquivos que não correspondem ao esquema. Para evitar dados de lixo nos resultados, essa instrução informa ao hive que só devemos retornar dados de arquivos que terminam em. log.
 
 > [!NOTE]  
 > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa. Por exemplo, um processo de upload de dados automatizado ou uma operação MapReduce.
@@ -171,7 +171,7 @@ Essas instruções executam as seguintes ações:
 
 * `CREATE TABLE IF NOT EXISTS`: se a tabela não existir, crie-a. Como a palavra-chave **external** não é usada, essa instrução cria uma tabela interna. A tabela é armazenada no data warehouse do hive e é gerenciada completamente pelo Hive.
 
-* `STORED AS ORC`: armazena os dados no formato colunar de linha otimizado (ORC). O ORC é um formato altamente otimizado e eficiente para armazenar dados do hive.
+* `STORED AS ORC`: armazena os dados no formato colunar de linhas otimizadas (ORC). O ORC é um formato altamente otimizado e eficiente para armazenar dados do hive.
 
 * `INSERT OVERWRITE ... SELECT`: seleciona linhas da tabela **log4jLogs** que contém **[ERROR]** e insere os dados na tabela de logs de **erros** .
 

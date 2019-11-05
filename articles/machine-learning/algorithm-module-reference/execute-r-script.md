@@ -1,7 +1,7 @@
 ---
 title: 'Executar script R: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo executar script R no serviço de Azure Machine Learning para executar o código R.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo executar script R no Azure Machine Learning para executar o código R.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,25 +9,25 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: 01d4e3a06b8c6a95374b9ee246864167e6d2ac85
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: f9aae1302f0d83c27d5d8f01745ddecbaeea9467
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693774"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497874"
 ---
 # <a name="execute-r-script"></a>Executar Script R
 
-Este artigo descreve como usar o módulo **Executar script r** para executar o código r em seu pipeline de interface visual.
+Este artigo descreve como usar o módulo **Executar script r** para executar o código r em seu pipeline do Azure Machine Learning designer (versão prévia).
 
 Com o R, você pode executar tarefas que atualmente não são suportadas por módulos existentes, como: 
 - Criar transformações de dados personalizadas
 - Use suas próprias métricas para avaliar previsões
-- Criar modelos usando algoritmos que não são implementados como módulos autônomos na interface visual
+- Crie modelos usando algoritmos que não são implementados como módulos autônomos no designer
 
 ## <a name="r-version-support"></a>Suporte à versão do R
 
-A interface visual do serviço de Azure Machine Learning usa a distribuição CRAN (ampla rede de arquivos R) de R. A versão atualmente usada é CRAN 3.5.1.
+O designer de Azure Machine Learning usa a distribuição CRAN (rede de arquivos R abrangente) de R. A versão atualmente usada é CRAN 3.5.1.
 
 ## <a name="supported-r-packages"></a>Pacotes de R com suporte
 
@@ -73,7 +73,7 @@ O módulo **Executar script R** contém um código de exemplo que você pode usa
 
 ![Módulo R](media/module/execute-r-script.png)
 
-Os conjuntos de dados armazenados na interface visual são automaticamente convertidos em um quadro de data do R quando carregados com esse módulo.
+Os conjuntos de dados armazenados no designer são convertidos automaticamente em um quadro do R data quando carregados com esse módulo.
 
 1.  Adicione o módulo **Executar script R** ao seu pipeline.
 
@@ -116,10 +116,10 @@ azureml_main <- function(dataframe1, dataframe2){
  * A função de ponto de entrada pode conter até dois argumentos de entrada: `Param<dataframe1>` e `Param<dataframe2>`
  
    > [!NOTE]
-    > Os dados passados para o módulo **Executar script R** são referenciados como `dataframe1` e `dataframe2`, que é diferente do Azure Machine Learning Studio (referência do estúdio como `dataset1`, `dataset2`). Verifique se os dados de entrada estão referneced corretamente em seu script.  
+    > Os dados passados para o módulo **Executar script R** são referenciados como `dataframe1` e `dataframe2`, que é diferente do designer de Azure Machine Learning (a referência de designer como `dataset1`, `dataset2`). Verifique se os dados de entrada estão referneced corretamente em seu script.  
  
     > [!NOTE]
-    >  O código R existente pode precisar de alterações secundárias para ser executado em um pipeline de interface visual. Por exemplo, os dados de entrada que você fornecer no formato CSV devem ser explicitamente convertidos em um DataSet antes que você possa usá-lo em seu código. Os tipos de dados e colunas usados na linguagem R também são diferentes de algumas maneiras dos tipos de dados e colunas usados na interface visual.
+    >  O código R existente pode precisar de alterações secundárias para ser executado em um pipeline de designer. Por exemplo, os dados de entrada que você fornecer no formato CSV devem ser explicitamente convertidos em um DataSet antes que você possa usá-lo em seu código. Os tipos de dados e colunas usados na linguagem R também são diferentes de algumas maneiras dos tipos de dados e colunas usados no designer.
 
 1.  **Semente aleatória**: digite um valor a ser usado dentro do ambiente de R como o valor de semente aleatória. Esse parâmetro é equivalente a chamar `set.seed(value)` no código R.  
 
@@ -127,7 +127,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## <a name="results"></a>Resultados
 
-Os módulos **Executar script r** podem retornar várias saídas, mas devem ser fornecidas como quadros de dados do r. Os quadros de dados são convertidos automaticamente em conjuntos de elementos de interface visual para compatibilidade com outros módulos.
+Os módulos **Executar script r** podem retornar várias saídas, mas devem ser fornecidas como quadros de dados do r. Os quadros de dados são convertidos automaticamente em conjuntos de dados no designer para compatibilidade com outros módulos.
 
 Mensagens e erros padrão do R são retornados para o log do módulo.
 
@@ -235,7 +235,7 @@ Você pode passar objetos R entre instâncias do módulo **Executar script r** u
     }
     ```
 
-    A conversão explícita para o tipo de inteiro é feita porque a função de serialização gera dados no formato R `Raw`, que não tem suporte da interface visual.
+    A conversão explícita para o tipo de inteiro é feita porque a função de serialização gera dados no formato R `Raw`, que não tem suporte do designer.
 
 1. Adicione uma segunda instância do módulo **Executar script R** e conecte-a à porta de saída do módulo anterior.
 
@@ -402,4 +402,4 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

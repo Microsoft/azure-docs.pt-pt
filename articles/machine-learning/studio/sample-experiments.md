@@ -1,7 +1,7 @@
 ---
-title: Dar suas experimentações dos exemplos
-titleSuffix: Azure Machine Learning Studio
-description: Saiba como utilizar o exemplo experimentações de machine learning para criar novas experimentações com a Galeria de IA do Azure e Azure Machine Learning Studio.
+title: Início rápido seus experimentos de exemplos
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Saiba como usar os experimentos de aprendizado de máquina de exemplo para criar novos experimentos com Galeria de IA do Azure e Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,18 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: f88323069ed23f4a038ffa4a030b1c4d4541ec42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 547cd7c97ddf7aa08ef94f6aeea82e16119c7135
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61460386"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496785"
 ---
-# <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>Criar experimentações do Azure Machine Learning Studio a partir de exemplos de trabalho na Galeria de IA do Azure
+# <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Crie Azure Machine Learning Studio (clássico) experimentos de exemplos de trabalho em Galeria de IA do Azure
 
 Saiba como iniciar experimentações de exemplo a partir da [Galeria de IA do Azure](https://gallery.azure.ai/), em vez de criar experimentações de machine learning do zero. Pode utilizar os exemplos para criar a sua própria solução de machine learning.
 
-A Galeria tem exemplos de experimentações da equipa do Microsoft Azure Machine Learning Studio, bem como exemplos partilhados pela Comunidade do Machine Learning. Também pode colocar questões ou publicar comentários sobre experimentações.
+A galeria tem experimentos de exemplo da equipe de Microsoft Azure Machine Learning Studio (clássicas), bem como exemplos compartilhados pela comunidade de Machine Learning. Também pode colocar questões ou publicar comentários sobre experimentações.
 
 Para saber como utilizar a galeria, veja o vídeo de 3 minutos [Copy other people's work to do data science (Copiar o trabalho de outras pessoas para efetuar ciência de dados)](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) da série [Data Science for Beginners (Ciência de Dados para Principiantes)](data-science-for-beginners-the-5-questions-data-science-answers.md).
 
@@ -39,7 +39,7 @@ Para procurar todas as experimentações:
 1. Clique em **Procurar tudo** na parte superior da página.
 2. No lado esquerdo, em **Refinar por** na secção **Categorias**, selecione **Experimentação** para ver todas as experimentações na Galeria.
 3. Pode encontrar experimentações que cumprem os requisitos de duas formas diferentes:
-   * **Selecione filtros no lado esquerdo.** Por exemplo procurar experimentações que utilizam um algoritmo de deteção de anomalias baseado em PCA: Sob **categorias** clique em **experimentação**. Em seguida, em **Algoritmos Utilizados**, clique em **Mostrar tudo** e, na caixa de diálogo, escolha **Deteção de Anomalias Baseada em PCA**. Poderá ter de deslocar para baixo para vê-la.<br></br>
+   * **Selecione filtros no lado esquerdo.** Por exemplo, para procurar experimentações que utilizem um algoritmo de deteção de anomalias baseado em PCA: em **Categorias**, clique em **Experimentação**. Em seguida, em **Algoritmos Utilizados**, clique em **Mostrar tudo** e, na caixa de diálogo, escolha **Deteção de Anomalias Baseada em PCA**. Poderá ter de deslocar para baixo para vê-la.<br></br>
      ![Selecionar filtros](./media/sample-experiments/choose-an-algorithm.png)
    * **Utilize a caixa de pesquisa.** Por exemplo, para procurar experimentações que tenham feito parte da Microsoft e estejam relacionadas com o reconhecimento de dígitos que utilizam um algoritmo da máquina de vetor com suporte de classe dois, introduza "reconhecimento de dígitos" na caixa de pesquisa. Em seguida, selecione os filtros **Experimentação**, **Apenas conteúdos da Microsoft** e **Máquina de Vetor com Suporte de Classe Dois**:<br></br>
      ![Utilizar a caixa de pesquisa](./media/sample-experiments/search-for-experiments.png)
@@ -48,20 +48,15 @@ Para procurar todas as experimentações:
 
     ![Experimentação de exemplo](./media/sample-experiments/example-experiment.png)
 
-    > [!NOTE]
-    > Quando abre uma experimentação no Machine Learning Studio pela primeira vez, pode experimentar gratuitamente ou comprar uma subscrição do Azure. [Saiba mais sobre a avaliação gratuita do Machine Learning Studio vs. serviço pago](https://azure.microsoft.com/pricing/details/machine-learning/)
-    >
-    >
-
 ## <a name="create-a-new-experiment-using-an-example-as-a-template"></a>Criar uma nova experimentação com um exemplo como modelo
-Também pode criar uma nova experimentação no Machine Learning Studio através de um exemplo da Galeria como modelo.
+Você também pode criar um novo experimento na versão clássica do Machine Learning Studio usando um exemplo de galeria como um modelo.
 
 1. Inicie sessão com as credenciais da sua conta Microsoft no [Studio](https://studio.azureml.net) e, em seguida, clique em **Novo** para criar uma experimentação.
 2. Navegue no conteúdo de exemplos e clique num deles.
 
-É criada uma nova experimentação na sua área de trabalho do Machine Learning Studio através da experimentação de exemplo como modelo.
+Um novo experimento é criado no seu espaço de trabalho Machine Learning Studio (clássico) usando o teste de exemplo como um modelo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Importar dados de várias origens](import-data.md)
 * [Tutorial de início rápido para a linguagem R no Machine Learning](r-quickstart.md)
 * [Implementar um serviço Web Machine Learning](publish-a-machine-learning-web-service.md)

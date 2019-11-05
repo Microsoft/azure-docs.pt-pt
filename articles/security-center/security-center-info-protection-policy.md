@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: memildin
-ms.openlocfilehash: edd415c330656d4cecc42a39d27598a88a1a8d2c
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
-ms.translationtype: MT
+ms.openlocfilehash: f9b161bbb692c1336083640250b93f9d87f1e0d9
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202087"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520809"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalizar a política de proteção de informações do SQL na central de segurança do Azure (versão prévia)
  
@@ -52,7 +52,7 @@ Para personalizar a política de proteção de informações para seu locatário
 2. Na tela **Configurar rótulo de sensibilidade** , você pode criar ou alterar o nome do rótulo e a descrição. Você também pode definir se o rótulo está ativo ou desabilitado alternando a opção **habilitada** ativar ou desativar. Por fim, você pode adicionar ou remover tipos de informações associados ao rótulo. Todos os dados descobertos que correspondem a esse tipo de informação incluirão automaticamente o rótulo de sensibilidade associado nas recomendações de classificação.
 3. Clique em **OK**.
  
-   ![Configurar etiqueta de confidencialidade](./media/security-center-info-protection-policy/config-sensitivity-label.png)
+   ![Configurar rótulo de sensibilidade](./media/security-center-info-protection-policy/config-sensitivity-label.png)
  
 4. Os rótulos são listados na ordem de sensibilidade crescente. Para alterar a classificação entre os rótulos, arraste os rótulos para reordená-los na tabela ou use os botões **mover para cima** e **mover para baixo** para alterar a ordem. 
  
@@ -83,8 +83,5 @@ Neste artigo, você aprendeu a definir uma política de proteção de informaç�
 
 Para obter mais informações sobre políticas de segurança e segurança de dados na central de segurança do Azure, consulte os seguintes artigos:
  
-- [Visão geral das políticas de segurança](security-center-policies-overview.md): Obtenha uma visão geral das políticas de segurança na central de segurança
-- [Configurando políticas de segurança na central de segurança do Azure](tutorial-security-policy.md): Saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure
-- [Segurança de dados da central de segurança do Azure](security-center-data-security.md): Saiba como a central de segurança gerencia e protege os dados
-
-
+- [Configurando políticas de segurança na central de segurança do Azure](tutorial-security-policy.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure
+- [Segurança de dados da central de segurança do Azure](security-center-data-security.md): saiba como a central de segurança gerencia e protege os dados

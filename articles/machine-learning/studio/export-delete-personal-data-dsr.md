@@ -1,7 +1,7 @@
 ---
 title: Exportar e eliminar dados
-titleSuffix: Azure Machine Learning Studio
-description: Dados de produto armazenados pelo Azure Machine Learning Studio estão disponíveis para a exportação e eliminação através do portal do Azure e também através de APIs de REST autenticados. Dados de telemetria podem ser acedidos através do Portal de privacidade do Azure. Este artigo mostra-lhe como.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Os dados no produto armazenados por Azure Machine Learning Studio (clássico) estão disponíveis para exportação e exclusão por meio do portal do Azure e também por meio de APIs REST autenticadas. Os dados de telemetria podem ser acessados por meio do portal de privacidade do Azure. Este artigo mostra como.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,68 +10,68 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 827714fea9618724ef058e1f76dc099f692482bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0cc200f69be2362806886aae79ece52c833a43a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60750121"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492961"
 ---
-# <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Exportar e eliminar dados de utilizador no produto do Azure Machine Learning Studio
+# <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Exportar e excluir dados de usuário no produto do Azure Machine Learning Studio (clássico)
 
-Pode eliminar ou exportar no produto dados armazenados por Azure Machine Learning Studio através do portal do Azure, a interface do Studio, PowerShell e autenticado REST APIs. Este artigo mostra-lhe como. 
+Você pode excluir ou exportar dados no produto armazenados por Azure Machine Learning Studio (clássico) usando o portal do Azure, a interface do Studio (clássico), o PowerShell e as APIs REST autenticadas. Este artigo explica como. 
 
-Dados de telemetria podem ser acedidos através do portal de privacidade do Azure. 
+Os dados de telemetria podem ser acessados por meio do portal de privacidade do Azure. 
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="what-kinds-of-user-data-does-studio-collect"></a>Quais são os tipos de dados de utilizador recolher o Studio?
+## <a name="what-kinds-of-user-data-does-studio-classic-collect"></a>Que tipos de dados do usuário são coletados pelo estúdio (clássico)?
 
-Para este serviço, dados de utilizador consiste em informações sobre os utilizadores autorizados a aceder a áreas de trabalho e registos de telemetria de interações de utilizador com o serviço.
+Para esse serviço, os dados do usuário consistem em informações sobre os usuários autorizados a acessar espaços de trabalho e registros de telemetria de interações do usuário com o serviço.
 
-Existem dois tipos de dados de utilizador no Machine Learning Studio:
-- **Dados de conta pessoal:** IDs de conta e endereços associados a uma conta de e-mail.
-- **Dados do cliente:** Dados que carregou para analisar.
+Há dois tipos de dados de usuário em Machine Learning Studio (clássico):
+- **Dados da conta pessoal:** IDs de conta e endereços de email associados a uma conta.
+- **Dados do cliente:** Dados que você carregou para analisar.
 
-## <a name="studio-account-types-and-how-data-is-stored"></a>Tipos de conta de Studio e o modo como os dados são armazenados
+## <a name="studio-classic-account-types-and-how-data-is-stored"></a>Tipos de conta do Studio (clássico) e como os dados são armazenados
 
-Existem três tipos de contas no Machine Learning Studio. O tipo de conta que tiver determina como os dados são armazenados e como pode eliminar ou exportá-lo.
+Há três tipos de contas no Machine Learning Studio (clássico). O tipo de conta que você tem determina como os dados são armazenados e como você pode excluí-los ou exportá-los.
 
-- R **área de trabalho de convidado** é uma conta gratuita e anônima. Inscrever-se sem fornecer credenciais, tal como um endereço de e-mail ou palavra-passe.
-    -  Os dados são removidos depois de expira a área de trabalho de convidado.
-    - Os utilizadores convidados podem exportar dados de clientes através do pacote da interface do Usuário, as APIs REST ou do PowerShell.
-- R **área de trabalho gratuita** é uma conta gratuita que iniciar sessão no Microsoft credenciais - um endereço de e-mail e palavra-passe da conta.
-    - Pode exportar e eliminar os dados pessoais e de cliente, que estão sujeitos a pedidos de (DSR direitos) dos dados.
-    - Pode exportar dados de clientes através do pacote da interface do Usuário, as APIs REST ou do PowerShell.
-    - Gratuitamente as áreas de trabalho, não a utilizar contas do Azure AD, telemetria pode ser exportada com o Portal de privacidade.
-    - Ao eliminar a área de trabalho, excluir todos os dados de pessoal de cliente.
-- R **área de trabalho standard** é uma conta paga aceder com credenciais de início de sessão.
-    - Pode exportar e eliminar os dados pessoais e de cliente, que estão sujeitos a pedidos DSR.
-    - Pode acessar dados através do portal de privacidade do Azure
-    - Pode exportar os dados pessoais e de cliente através do pacote da interface do Usuário, as APIs REST ou o PowerShell
-    - Pode eliminar os dados no portal do Azure.
+- Um **espaço de trabalho convidado** é uma conta anônima e gratuita. Você se inscreve sem fornecer credenciais, como um endereço de email ou senha.
+    -  Os dados são limpos após a expiração do espaço de trabalho convidado.
+    - Os usuários convidados podem exportar dados do cliente por meio da interface do usuário, APIs REST ou pacote do PowerShell.
+- Um **espaço de trabalho gratuito** é uma conta gratuita na qual você entra com credenciais conta Microsoft-um endereço de email e uma senha.
+    - Você pode exportar e excluir dados pessoais e do cliente, que estão sujeitos a solicitações de DSR (direitos de entidade de dados).
+    - Você pode exportar dados do cliente por meio da interface do usuário, APIs REST ou pacote do PowerShell.
+    - Para espaços de trabalho gratuitos que não usam contas do Azure AD, a telemetria pode ser exportada usando o portal de privacidade.
+    - Ao excluir o espaço de trabalho, você exclui todos os dados pessoais do cliente.
+- Um **espaço de trabalho padrão** é uma conta paga que você acessa com credenciais de entrada.
+    - Você pode exportar e excluir dados pessoais e do cliente, que estão sujeitos a solicitações de DSR.
+    - Você pode acessar dados por meio do portal de privacidade do Azure
+    - Você pode exportar dados pessoais e de clientes por meio da interface do usuário, APIs REST ou pacote do PowerShell
+    - Você pode excluir seus dados no portal do Azure.
 
-## <a name="delete"></a>Eliminar dados de área de trabalho do Studio 
+## <a name="delete"></a>Excluir dados do espaço de trabalho no estúdio (clássico) 
 
-### <a name="delete-individual-assets"></a>Eliminar recursos individuais
+### <a name="delete-individual-assets"></a>Excluir ativos individuais
 
-Os utilizadores podem eliminar os recursos numa área de trabalho selecionando-os e, em seguida, selecionar o botão de eliminação.
+Os usuários podem excluir ativos em um espaço de trabalho selecionando-os e, em seguida, selecionando o botão excluir.
 
-![Eliminar recursos no Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-asset.png)
+![Excluir ativos em Machine Learning Studio (clássico)](./media/export-delete-personal-data-dsr/delete-studio-asset.png)
 
-### <a name="delete-an-entire-workspace"></a>Eliminar uma área de trabalho inteira
+### <a name="delete-an-entire-workspace"></a>Excluir um espaço de trabalho inteiro
 
-Os utilizadores também podem eliminar a sua área de trabalho inteira:
-- Área de trabalho paga: Elimine através do portal do Azure.
-- Área de trabalho gratuita: Utilize o botão Eliminar no **definições** painel.
+Os usuários também podem excluir seu espaço de trabalho inteiro:
+- Espaço de trabalho pago: exclua o portal do Azure.
+- Espaço de trabalho gratuito: Use o botão excluir no painel **configurações** .
 
-![Eliminar uma área de trabalho gratuita no Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
+![Excluir um espaço de trabalho gratuito no Machine Learning Studio (clássico)](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
-## <a name="export-studio-data-with-powershell"></a>Exportar dados do Studio com o PowerShell
-Utilize o PowerShell para exportar todas as suas informações num formato portáteis de utilizar comandos do Azure Machine Learning Studio. Para obter informações, consulte a [módulo do PowerShell para o Azure Machine Learning Studio](powershell-module.md) artigo.
+## <a name="export-studio-classic-data-with-powershell"></a>Exportar dados do estúdio (clássico) com o PowerShell
+Use o PowerShell para exportar todas as suas informações para um formato portátil da versão clássica do Azure Machine Learning Studio usando comandos. Para obter informações, consulte o artigo [módulo do PowerShell para Azure Machine Learning Studio (clássico)](powershell-module.md) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter documentação que abrangem serviços da web e o plano de compromisso de faturação, consulte [referência da API de REST do Azure Machine Learning Studio](https://docs.microsoft.com/rest/api/machinelearning/). 
+Para obter a documentação que aborda os serviços Web e a cobrança do plano de compromisso, consulte [Azure Machine Learning Studio (clássico) referência da API REST](https://docs.microsoft.com/rest/api/machinelearning/). 

@@ -1,24 +1,24 @@
 ---
 title: 'Aplicar transformação: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo aplicar transformação no serviço de Azure Machine Learning para modificar um conjunto de dados de entrada com base em uma transformação computada anteriormente.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo aplicar transformação em Azure Machine Learning para modificar um conjunto de dados de entrada com base em uma transformação computada anteriormente.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: adb2477fe2b7eea0dd0a98c7240843d90411d832
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 19385870d184654d902cd40b45d4be3646c87b46
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693867"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493892"
 ---
 # <a name="apply-transformation-module"></a>Aplicar módulo de transformação
 
-Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para modificar um conjunto de dados de entrada com base em uma transformação computada anteriormente.  
   
@@ -46,4 +46,4 @@ Azure Machine Learning fornece suporte para criar e, em seguida, aplicar vários
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

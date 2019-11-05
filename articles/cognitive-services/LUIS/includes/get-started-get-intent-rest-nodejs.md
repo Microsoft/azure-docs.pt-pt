@@ -6,14 +6,14 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/27/2019
+ms.date: 10/18/2019
 ms.author: diberry
-ms.openlocfilehash: a6dfe21cd92c5bf5580d7b121f33f68fb4e135fa
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 5d8ed625e13d31e148ef1e54d8028fc7d13a6ede
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838492"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499598"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -21,45 +21,136 @@ ms.locfileid: "71838492"
 * [Visual Studio Code](https://code.visualstudio.com/)
 * ID da aplicação pública: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
-
-> [!NOTE] 
-> A solução completa do node. js está disponível no [repositório GitHub **Azure-Samples** ](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/analyze-text/node).
-
 ## <a name="get-luis-key"></a>Obter chave LUIS
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
 
 ## <a name="get-intent-programmatically"></a>Obter a intenção através de programação
 
-Pode utilizar o Node.js para aceder aos mesmos resultados que viu na janela do browser no passo anterior.
+Use o Node. js para consultar o ponto de extremidade de previsão obter [API](https://aka.ms/luis-apim-v3-prediction) para obter o resultado da previsão.
 
-1. Copie o seguinte fragmento de código:
+1. Copie o trecho de código a seguir para um arquivo chamado `predict.js`:
 
-   [!code-nodejs[Console app code that calls a LUIS endpoint for Node.js](~/samples-luis/documentation-samples/quickstarts/analyze-text/node/call-endpoint.js)]
-
-2. Crie um ficheiro `.env` com o seguinte texto ou defina estas variáveis no ambiente do sistema:
-
-    ```CMD
-    LUIS_APP_ID=df67dcdb-c37d-46af-88e1-8b97951ca1c2
-    LUIS_ENDPOINT_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    ```javascript
+    var request = require('request');
+    var requestpromise = require('request-promise');
+    var querystring = require('querystring');
+    
+    // Analyze text
+    //
+    getPrediction = async () => {
+    
+        // YOUR-KEY - Language Understanding starter key
+        var endpointKey = "YOUR-KEY";
+    
+        // YOUR-ENDPOINT Language Understanding endpoint URL, an example is westus2.api.cognitive.microsoft.com
+        var endpoint = "YOUR-ENDPOINT";
+    
+        // Set the LUIS_APP_ID environment variable 
+        // to df67dcdb-c37d-46af-88e1-8b97951ca1c2, which is the ID
+        // of a public sample application.    
+        var appId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2";
+    
+        var utterance = "turn on all lights";
+    
+        // Create query string 
+        var queryParams = {
+            "show-all-intents": true,
+            "verbose":  true,
+            "query": utterance,
+            "subscription-key": endpointKey
+        }
+    
+        // append query string to endpoint URL
+        var URI = `https://${endpoint}/luis/prediction/v3.0/apps/${appId}/slots/production/predict?${querystring.stringify(queryParams)}`
+    
+        // HTTP Request
+        const response = await requestpromise(URI);
+    
+        // HTTP Response
+        console.log(response);
+    
+    }
+    
+    // Pass an utterance to the sample LUIS app
+    getPrediction().then(()=>console.log("done")).catch((err)=>console.log(err));
     ```
 
-3. Defina a variável de ambiente `LUIS_ENDPOINT_KEY` para a sua chave.
+1. Defina os seguintes valores:
 
-4. Instale dependências ao executar o comando `npm install` na linha de comandos.
+    * `YOUR-KEY` à sua chave de início
+    * `YOUR-ENDPOINT` à URL do ponto de extremidade
 
-5. Execute o código com o comando `npm start`. Apresenta os mesmos valores que viu anteriormente na janela do browser.
+1. Instale as dependências executando o seguinte comando na linha de comando: 
 
+    ```console
+    npm install request request-promise querystring
+    ```
+
+1. Execute o código com o seguinte comando:
+
+    ```console
+    node predict.js
+    ```
+
+ 1. Examine a resposta de previsão no formato JSON:   
+    
+    ```console
+    {"query":"turn on all lights","prediction":{"topIntent":"HomeAutomation.TurnOn","intents":{"HomeAutomation.TurnOn":{"score":0.5375382},"None":{"score":0.08687421},"HomeAutomation.TurnOff":{"score":0.0207554}},"entities":{"HomeAutomation.Operation":["on"],"$instance":{"HomeAutomation.Operation":[{"type":"HomeAutomation.Operation","text":"on","startIndex":5,"length":2,"score":0.724984169,"modelTypeId":-1,"modelType":"Unknown","recognitionSources":["model"]}]}}}}
+    ```
+
+    A resposta JSON formatada para facilitar a leitura: 
+
+    ```JSON
+    {
+        "query": "turn on all lights",
+        "prediction": {
+            "topIntent": "HomeAutomation.TurnOn",
+            "intents": {
+                "HomeAutomation.TurnOn": {
+                    "score": 0.5375382
+                },
+                "None": {
+                    "score": 0.08687421
+                },
+                "HomeAutomation.TurnOff": {
+                    "score": 0.0207554
+                }
+            },
+            "entities": {
+                "HomeAutomation.Operation": [
+                    "on"
+                ],
+                "$instance": {
+                    "HomeAutomation.Operation": [
+                        {
+                            "type": "HomeAutomation.Operation",
+                            "text": "on",
+                            "startIndex": 5,
+                            "length": 2,
+                            "score": 0.724984169,
+                            "modelTypeId": -1,
+                            "modelType": "Unknown",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    ```
 
 ## <a name="luis-keys"></a>Chaves LUIS
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando terminar este guia de introdução, feche o projeto do Visual Studio e remova o diretório do projeto do sistema de ficheiros. 
+Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Adicionar declarações e treinar com node. js](../luis-get-started-node-add-utterance.md)
+> [Adicionar declarações e treinar](../luis-get-started-node-add-utterance.md)

@@ -1,28 +1,28 @@
 ---
 title: 'Regressão de floresta de decisão: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo regressão de floresta de decisão no serviço Azure Machine Learning para criar um modelo de regressão com base em uma Ensemble de árvores de decisão.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo de regressão de floresta de decisão em Azure Machine Learning para criar um modelo de regressão com base em uma Ensemble de árvores de decisão.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 7b89d08f4621ecde77a60510b05d96decff0cfde
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: d930a6d856c6608e7792ce8ef3204b39aba0028a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693177"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497965"
 ---
 # <a name="decision-forest-regression-module"></a>Módulo de regressão de floresta de decisão
 
-Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para criar um modelo de regressão com base em uma Ensemble de árvores de decisão.
 
-Depois de configurar o modelo, você deve treinar o modelo usando um DataSet rotulado e o módulo [treinar modelo](./train-model.md) .  O modelo treinado pode então ser usado para fazer previsões. 
+Depois de configurar o modelo, você deve treinar o modelo usando um DataSet rotulado e o módulo [treinar modelo](./train-model.md) . O modelo treinado pode então ser usado para fazer previsões. 
 
 ## <a name="how-it-works"></a>Como funciona
 
@@ -42,11 +42,11 @@ Para obter mais informações sobre a estrutura teórica para este algoritmo e s
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Como configurar o modelo de regressão de floresta de decisão
 
-1. Adicione o módulo **regressão de floresta de decisão** ao pipeline. Você pode encontrar o módulo na interface em **Machine Learning**, **inicializar modelo**e **regressão**.
+1. Adicione o módulo **regressão de floresta de decisão** ao pipeline. Você pode encontrar o módulo no designer em **Machine Learning**, **inicializar modelo**e **regressão**.
 
 2. Abra as propriedades do módulo e, para o **método de reamostragem**, escolha o método usado para criar as árvores individuais.  Você pode escolher entre **bagging** ou **replicar**.
 
-    - **Bagging**: bagging também é chamado de *agregação de Bootstrap*. Cada árvore em uma floresta de decisão de regressão gera uma distribuição gaussiana por meio de previsão. A agregação é para localizar um gaussiano cujo primeiro dois momentos corresponda ao tempo da mistura de gaussianos, dado pela combinação de todos os gaussianos retornados por árvores individuais.
+    - **Bagging**: bagging também é chamado de *agregação de Bootstrap*. Cada árvore em uma floresta de decisão de regressão gera uma distribuição gaussiana por meio de previsão. A agregação é para localizar um gaussiano cujos primeiros dois momentos correspondem ao momento da mistura de distribuições gaussianas dadas pela combinação de todas as distribuições retornadas por árvores individuais.
 
          Para obter mais informações, consulte a entrada da Wikipédia para [agregação de Bootstrap](https://wikipedia.org/wiki/Bootstrap_aggregating).
 
@@ -96,4 +96,4 @@ Após a conclusão do treinamento:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

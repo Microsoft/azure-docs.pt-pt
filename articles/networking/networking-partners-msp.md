@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sukishen
-ms.openlocfilehash: a65a36734af235312f3b8edd3d18ba5b3e0645c6
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: MT
+ms.openlocfilehash: 680d4c90078131b44e39e3f2b3d526ca53b34a95
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177049"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496758"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Sobre os parceiros MSP de rede do Azure
 
@@ -44,11 +44,13 @@ Use os links nesta seção para obter mais informações sobre os serviços de r
 
 [IIJ](https://www.iij.ad.jp/biz/cloudex/)
 
-[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/)
+Interxion (https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/
 
 [ixreach](https://www.ixreach.com/)
 
 [KINX](https://www.kinx.net/service/cloud/?lang=en)
+
+[Telecomunicações líquidas](https://www.liquidtelecom.com/products-and-services/microsoft-azure.html)
 
 [Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)
 
@@ -63,6 +65,8 @@ Use os links nesta seção para obter mais informações sobre os serviços de r
 [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)
 
 [Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)
+
+[TCTS](https://www.tatacommunications-ts.com/index.php)
 
 [Mahindra de tecnologia](https://networkservices.techmahindra.com/pages/default.aspx)
 

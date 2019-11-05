@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Padrão. qualquer entidade-LUIS'
+title: 'Tutorial: padrão. qualquer entidade-LUIS'
 titleSuffix: Azure Cognitive Services
 description: Utilize a entidade pattern.any para extrair dados de expressões em que as expressões estão bem formatadas e em que o final dos dados pode ser facilmente confundido com as restantes palavras da expressão.
 services: cognitive-services
@@ -9,20 +9,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 57a7deee3112737dc457646d040d5d3e02e63d46
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 43ad6558b685d3959562be720f7494b3d2a7334e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390289"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499431"
 ---
-# <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Tutorial: Extrair dados de forma livre com padrão. qualquer entidade
+# <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Tutorial: extrair dados de forma livre com padrão. qualquer entidade
 
 Neste tutorial, utilize a entidade pattern.any para extrair dados de expressões em que as expressões estão bem formatadas e em que o final dos dados pode ser facilmente confundido com as restantes palavras da expressão. 
 
-**Neste tutorial, vai aprender a:**
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
+**Neste tutorial, ficará a saber como:**
 
 > [!div class="checklist"]
 > * Importar aplicativo de exemplo
@@ -143,7 +145,7 @@ Se chegar à conclusão que o seu padrão, ao incluir uma entidade Pattern.any, 
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este tutorial adicionou expressões de exemplo a uma intenção existente e, em seguida, criou um novo Pattern.any para o nome do formulário. Em seguida, o tutorial criou um padrão para a intenção existente com as novas expressões de exemplo e uma entidade. O teste interativo mostrou que o padrão e a respetiva intenção foram previstos porque a entidade foi encontrada. 
 

@@ -1,53 +1,71 @@
 ---
-title: O que é o Azure SQL Data Warehouse? | Microsoft Docs
-description: Nível empresarial base de dados distribuída que pode processar volumes de petabytes de dados relacionais e não relacionais. É o primeiro armazém do setor na cloud dados com a capacidade de aumentar, diminuir e colocar em pausa em segundos.
+title: O que é o Azure Synapse Analytics (anteriormente conhecido como SQL DW)? | Microsoft Docs
+description: O Azure Synapse Analytics (anteriormente conhecido como SQL DW) é um serviço de análise ilimitado que reúne conjunto de dados corporativos e análise de Big Data.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 05/30/2019
+ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-mscustom: sqlfreshmay19
-ms.openlocfilehash: a9126e9023091dd8c3df71f2aa2558a01227a8be
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: d10ea99e2dc8513a9cfebec782535f9e3185a3b9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428025"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496295"
 ---
-# <a name="what-is-azure-sql-data-warehouse"></a>O que é o Azure SQL Data Warehouse?
+# <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>O que é o Azure Synapse Analytics (anteriormente conhecido como SQL DW)?
 
-SQL Data Warehouse é um com base na cloud empresarial armazém de dados (EDW) que utiliza em grande escala paralela de processamento (MPP) para executar rapidamente consultas complexas em petabytes de dados. Utilize o SQL Data Warehouse como um componente fundamental de uma solução de macrodados. Importe grandes volumes de dados para o SQL Data Warehouse com simples [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) consultas de T-SQL e, em seguida, utilize o poder do MPP para executar análises de elevado desempenho. À medida que integra e analisa, o armazém de dados tornar-se-á a única versão real com que a sua empresa pode contar para obter informações.  
+O Azure Synapse é um serviço de análise ilimitado que reúne conjunto de dados corporativos e análise de Big Data. Ele oferece a você a liberdade de consultar dados sobre seus termos, usando recursos sem servidor sob demanda ou provisionados, em escala. O Azure Synapse traz esses dois mundos junto com uma experiência unificada para ingerir, preparar, gerenciar e fornecer dados para necessidades imediatas de BI e aprendizado de máquina
 
-## <a name="key-component-of-big-data-solution"></a>Componente fundamental da solução de macrodados
+O Azure Synapse tem quatro componentes:
+- Análise de SQL: análise baseada em T-SQL completa – disponibilidade geral
+    - Pool do SQL (pague por DWU provisionado) 
+    - SQL sob demanda (pagamento por TB processado) – (versão prévia)
+- Spark: Apache Spark profundamente integrados (versão prévia) 
+- Integração de dados: integração de dados híbridas (versão prévia)
+- Studio: experiência do usuário unificada.  (Pré-visualização)
 
-O SQL Data Warehouse é um componente fundamental de uma solução de macrodados ponto a ponto na cloud.
+> [!NOTE]
+> Para acessar os recursos de visualização do Azure Synapse, solicite o acesso [aqui](https://aka.ms/synapsepreview). A Microsoft fará a triagem de todas as solicitações e responderá assim que possível.
+
+## <a name="sql-analytics-and-sql-pool-in-azure-synapse"></a>Análise de SQL e pool de SQL no Azure Synapse
+
+A análise de SQL refere-se aos recursos corporativos de data warehousing que estão geralmente disponíveis com o Azure Synapse. 
+
+O pool do SQL representa uma coleção de recursos analíticos que estão sendo provisionados ao usar a análise do SQL. O tamanho do pool do SQL é determinado pelas DWU (unidades de data warehouse).
+
+Importe Big Data com consultas T-SQL simples do [polybase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) e, em seguida, use o poder do MPP para executar análises de alto desempenho. À medida que você se integra e analisa, a análise do SQL se tornará a única versão da verdade que sua empresa pode contar para obter informações mais rápidas e robustas.  
+
+## <a name="key-component-of-a-big-data-solution"></a>Componente-chave de uma solução de Big Data
+
+O data warehousing é um componente fundamental de uma solução de Big Data de ponta a ponta baseada em nuvem.
 
 ![Solução de armazém de dados](media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png) 
 
-Numa solução de dados da cloud, os dados são ingeridos em arquivos de macrodados a partir de várias origens. Uma vez num arquivo de macrodados, os algoritmos do Hadoop, do Spark e de machine learning preparam os dados. Quando os dados estão prontos para análises complexas, o SQL Data Warehouse utiliza o PolyBase para consultar os arquivos de macrodados. O PolyBase utiliza consultas de T-SQL padrão para colocar os dados no SQL Data Warehouse.
+Numa solução de dados da cloud, os dados são ingeridos em arquivos de macrodados a partir de várias origens. Uma vez num arquivo de macrodados, os algoritmos do Hadoop, do Spark e de machine learning preparam os dados. Quando os dados estiverem prontos para análise complexa, o SQL Analytics usará o polybase para consultar os repositórios de Big Data. O polybase usa consultas T-SQL padrão para colocar os dados em tabelas de análise de SQL.
  
-O SQL Data Warehouse armazena os dados em tabelas relacionais através do armazenamento em colunas. Este formato reduz significativamente os custos de armazenamento de dados e melhora o desempenho das consultas. Depois de os dados serem armazenados no SQL Data Warehouse, pode executar análises em grande escala. Em comparação com os sistemas de bases de dados tradicionais, as consultas de análise terminam em segundos em vez de minutos ou horas em vez de dias. 
+A análise do SQL armazena dados em tabelas relacionais com armazenamento de coluna. Este formato reduz significativamente os custos de armazenamento de dados e melhora o desempenho das consultas. Depois que os dados são armazenados, você pode executar a análise em grande escala. Em comparação com os sistemas de bases de dados tradicionais, as consultas de análise terminam em segundos em vez de minutos ou horas em vez de dias. 
 
 Os resultados das análises podem ser enviados para aplicações ou bases de dados de relatórios em todo o mundo. Em seguida, os analistas empresariais podem obter informações para tomar decisões mais adequadas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Explore [arquitetura do Azure SQL Data Warehouse](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
-- Rapidamente [criar um SQL Data Warehouse][create a SQL Data Warehouse]
+- Explore a [arquitetura do Azure Synapse](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
+- [Criar rapidamente um pool do SQL](create-data-warehouse-portal.md)
 - [Carregar dados de exemplo][load sample data].
-- Explore [vídeos](/azure/sql-data-warehouse/sql-data-warehouse-videos)
+- Explorar [vídeos](/azure/sql-data-warehouse/sql-data-warehouse-videos)
 
-Em alternativa, veja alguns destes outros Recursos do SQL Data Warehouse.  
-* Pesquisa [Blogues]
-* Submeter um [pedidos de funcionalidades]
-* Pesquisa [Blogues da Equipa Customer Advisory]
+Ou então, veja alguns desses outros recursos do Azure Synapse.  
+* Pesquisar [Blogues]
+* Enviar [Pedidos de funcionalidades]
+* Pesquisar [Blogues da Equipa Customer Advisory]
 * [Criar um pedido de suporte]
-* Pesquisa [fórum do MSDN]
-* Pesquisa [fórum do Stack Overflow]
+* Pesquisar no [Fórum do MSDN]
+* Pesquisar [Fórum do Stack Overflow]
 
 
 <!--Image references-->
@@ -56,9 +74,9 @@ Em alternativa, veja alguns destes outros Recursos do SQL Data Warehouse.
 <!--Article references-->
 [Criar um pedido de suporte]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [load sample data]: ./sql-data-warehouse-load-sample-databases.md
-[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[create a data warehouse]: ./sql-data-warehouse-get-started-provision.md
 [Migration documentation]: ./sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
+[Azure Synapse Analytics solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
 [Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
 [Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
 [Azure glossary]: ../azure-glossary-cloud-terminology.md
@@ -73,6 +91,6 @@ Em alternativa, veja alguns destes outros Recursos do SQL Data Warehouse.
 [Fórum do Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[SLA for SQL Data Warehouse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
+[SLA for Azure Synapse Analytics]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
 [Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/

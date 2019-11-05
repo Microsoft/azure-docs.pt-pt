@@ -1,7 +1,7 @@
 ---
 title: 'Criar modelo Python: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o modelo de criação de modelo Python no serviço de Azure Machine Learning para criar um módulo personalizado de modelagem ou processamento de dados.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o modelo de criação de modelo Python no Azure Machine Learning para criar um módulo personalizado de modelagem ou processamento de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 2a035644dc0d3d533aa052217c89968a5692230b
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 33e15055958ac99f2aa9eb160f9e5cf3c5b0cd41
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693899"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493794"
 ---
 # <a name="create-python-model"></a>Criar Modelo Python
 
 Este artigo descreve como usar o módulo **criar modelo Python** para criar um modelo não treinado a partir de um script Python. 
 
-Você pode basear o modelo em qualquer aprendiz que esteja incluído em um pacote do Python no ambiente de Azure Machine Learning. 
+Você pode basear o modelo em qualquer aprendiz que esteja incluído em um pacote do Python no ambiente do Azure Machine Learning designer. 
 
 Depois de criar o modelo, você pode usar [treinar modelo](train-model.md) para treinar o modelo em um conjunto de informações, como qualquer outro aprendiz no Azure Machine Learning. O modelo treinado pode ser passado para o [modelo de Pontuação](score-model.md) para usar o modelo para fazer previsões. O modelo treinado pode ser salvo e o fluxo de trabalho de Pontuação pode ser publicado como um serviço Web.
 

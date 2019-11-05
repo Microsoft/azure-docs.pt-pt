@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 51860efdcc440d6b8a4ea57777ad31fa718657b5
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 036ecbbbd2ea562f3e809691a1b3af62578893f5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772811"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498976"
 ---
-# <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-c"></a>Tutorial: Adicionar resultados de LUIS a Application Insights de um bot emC#
+# <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-c"></a>Tutorial: Adicionar resultados de LUIS a Application Insights de um bot noC#
 
-Este tutorial adiciona informações de bot e Reconhecimento vocal para [Application insights](https://azure.microsoft.com/services/application-insights/) armazenamento de dados de telemetria. Depois de ter esses dados, você pode consultá-los com a linguagem Kusto ou Power BI para analisar, agregar e relatar tentativas e entidades de expressão em tempo real. Isto ajuda a análise é determinar se deve utilizar para adicionar ou editar as intenções e entidades da sua aplicação LUIS.
+Este tutorial adiciona informações de bot e Reconhecimento vocal para [Application insights](https://azure.microsoft.com/services/application-insights/) armazenamento de dados de telemetria. Depois de ter esses dados, você pode consultá-los com a linguagem Kusto ou Power BI para analisar, agregar e relatar tentativas e entidades de expressão em tempo real. Essa análise ajuda a determinar se você deve adicionar ou editar as intenções e entidades do seu aplicativo LUIS.
+
+[!INCLUDE [Waiting for Bot refresh](./includes/wait-bot-upgrade.md)]
 
 Neste tutorial, ficará a saber como:
 
@@ -39,17 +41,17 @@ Todo o código deste tutorial está disponível no [repositório Azure-samples r
 
 ## <a name="add-application-insights-to-web-app-bot-project"></a>Adicionar Application Insights ao projeto de bot do aplicativo Web
 
-Atualmente, o serviço do Application Insights, usado este bot de funções, recolhe telemetria do Estado geral para o bot. Ele não coleta informações de LUIS. 
+Atualmente, o serviço de Application Insights, usado neste bot de aplicativo Web, coleta a telemetria de estado geral para o bot. Ele não coleta informações de LUIS. 
 
 Para capturar as informações do LUIS, o bot do aplicativo Web precisa do pacote NuGet **[Microsoft. ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** instalado e configurado.  
 
-1. No Visual Studio, adicione a dependência à solução. Na **Gerenciador de soluções**, clique com o botão direito do mouse no nome do projeto e selecione **gerenciar pacotes NuGet...** . O Gestor de pacotes de NuGet mostra uma lista de pacotes instalados. 
+1. No Visual Studio, adicione a dependência à solução. Na **Gerenciador de soluções**, clique com o botão direito do mouse no nome do projeto e selecione **gerenciar pacotes NuGet...** . O Gerenciador de pacotes NuGet mostra uma lista de pacotes instalados. 
 1. Selecione **procurar** e, em seguida, procure **Microsoft. ApplicationInsights**.
 1. Instale o pacote. 
 
-## <a name="capture-and-send-luis-query-results-to-application-insights"></a>Capturar e enviar os resultados da consulta de LUIS para o Application Insights
+## <a name="capture-and-send-luis-query-results-to-application-insights"></a>Capturar e enviar resultados da consulta LUIS para Application Insights
 
-1. Abra o `LuisHelper.cs` arquivo e substitua o conteúdo pelo código a seguir. O método **LogToApplicationInsights** captura os dados bot e Luis e os envia para Application insights como um evento de rastreamento `LUIS`chamado.
+1. Abra o arquivo `LuisHelper.cs` e substitua o conteúdo pelo código a seguir. O método **LogToApplicationInsights** captura os dados bot e Luis e os envia para Application insights como um evento de rastreamento chamado `LUIS`.
 
     ```csharp
     // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -150,10 +152,10 @@ Para capturar as informações do LUIS, o bot do aplicativo Web precisa do pacot
 
 Para adicionar dados ao Application insights, você precisa da chave de instrumentação.
 
-1. Em um navegador, na [portal do Azure](https://portal.azure.com), localize o recurso de **Application insights** do bot. Seu nome terá a maior parte do nome do bot e, em seguida, os caracteres aleatórios no final do nome `luis-csharp-bot-johnsmithxqowom`, como. 
+1. Em um navegador, na [portal do Azure](https://portal.azure.com), localize o recurso de **Application insights** do bot. Seu nome terá a maior parte do nome do bot e, em seguida, os caracteres aleatórios no final do nome, como `luis-csharp-bot-johnsmithxqowom`. 
 1. No recurso Application Insights, na página **visão geral** , copie a **chave de instrumentação**.
 1. No Visual Studio, abra o arquivo **appSettings. JSON** na raiz do projeto bot. Esse arquivo contém todas as suas variáveis de ambiente.
-1. Adicione uma nova variável, `BotDevAppInsightsKey` com o valor de sua chave de instrumentação. O valor em deve estar entre aspas. 
+1. Adicione uma nova variável, `BotDevAppInsightsKey` com o valor da sua chave de instrumentação. O valor em deve estar entre aspas. 
 
 ## <a name="build-and-start-the-bot"></a>Criar e iniciar o bot
 
@@ -162,9 +164,9 @@ Para adicionar dados ao Application insights, você precisa da chave de instrume
 
 1. Faça uma pergunta ao bot. Esta [etapa](luis-csharp-tutorial-bf-v4.md##use-the-bot-emulator-to-test-the-bot) é fornecida no tutorial anterior.
 
-## <a name="view-luis-entries-in-application-insights"></a>Vista LUIS entradas no Application Insights
+## <a name="view-luis-entries-in-application-insights"></a>Exibir entradas de LUIS no Application Insights
 
-Abrir o Application Insights para ver as entradas de LUIS. Pode levar alguns minutos para que os dados apareçam em Application Insights.
+Abra Application Insights para ver as entradas LUIS. Pode levar alguns minutos para que os dados apareçam em Application Insights.
 
 1. No [portal do Azure](https://portal.azure.com), abra o recurso de Application insights do bot. 
 1. Quando o recurso for aberto, selecione **Pesquisar** e pesquise todos os dados nos últimos **30 minutos** com o tipo de evento **rastreamento**. Selecione o rastreamento chamado **Luis**. 
@@ -172,11 +174,11 @@ Abrir o Application Insights para ver as entradas de LUIS. Pode levar alguns min
 
     ![Examine as propriedades personalizadas do LUIS armazenadas no Application Insights](./media/luis-tutorial-appinsights/application-insights-luis-trace-custom-properties-csharp.png)
 
-## <a name="query-application-insights-for-intent-score-and-utterance"></a>Application Insights para intenção, a pontuação e a expressão de consulta
+## <a name="query-application-insights-for-intent-score-and-utterance"></a>Application Insights de consulta para intenção, pontuação e expressão
 Application Insights dá a você o poder de consultar os dados com o idioma [Kusto](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#what-language-do-log-queries-use) , bem como exportá-los para [Power bi](https://powerbi.microsoft.com). 
 
-1. Selecione **log (análise)** . É aberta uma janela nova com uma janela de consulta na parte superior e uma janela da tabela de dados abaixo dele. Se tiver utilizado a bases de dados antes, esse esquema é familiar. A consulta representa os dados filtrados anteriormente. A coluna **CustomDimensions** tem as informações de bot e Luis.
-1. Para extrair a principal intenção, a pontuação e a expressão, adicione o seguinte logo acima da última linha (a `|top...` linha) na janela de consulta:
+1. Selecione **log (análise)** . Uma nova janela é aberta com uma janela de consulta na parte superior e uma janela de tabela de dados abaixo dessa. Se você já usou bancos de dados antes, essa organização é familiar. A consulta representa os dados filtrados anteriormente. A coluna **CustomDimensions** tem as informações de bot e Luis.
+1. Para extrair a principal intenção, a pontuação e a expressão, adicione o seguinte logo acima da última linha (a linha de `|top...`) na janela de consulta:
 
     ```kusto
     | extend topIntent = tostring(customDimensions.LUIS_topScoringIntent_Name)
@@ -184,20 +186,20 @@ Application Insights dá a você o poder de consultar os dados com o idioma [Kus
     | extend utterance = tostring(customDimensions.LUIS_query)
     ```
 
-1. Execute a consulta. As novas colunas de expressão, pontuação e topIntent estão disponíveis. Selecione a coluna topIntent para classificar.
+1. Execute a consulta. As novas colunas de topIntent, Score e expressão estão disponíveis. Selecione a coluna topIntent para classificar.
 
 Saiba mais sobre a [linguagem de consulta Kusto](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) ou [exporte os dados para Power bi](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 
 
 ## <a name="learn-more-about-bot-framework"></a>Saiba mais sobre o Bot Framework
 
-Saiba mais sobre [Bot Framework](https://dev.botframework.com/).
+Saiba mais sobre o [bot Framework](https://dev.botframework.com/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Outras informações que pretende adicionar aos dados do application insights incluem o ID da aplicação, ID de versão, data da última alteração modelo, data da última train, a última data de publicação. Esses valores podem ser recuperados da URL do ponto de extremidade (ID do aplicativo e ID da versão) ou de uma chamada à API de criação e, em seguida, definidos nas configurações de bot do aplicativo Web e extraídos de lá.  
+Outras informações que você talvez queira adicionar aos dados do Application insights incluem ID do aplicativo, ID da versão, data da última alteração de modelo, última data de treinamento, última data de publicação. Esses valores podem ser recuperados da URL do ponto de extremidade (ID do aplicativo e ID da versão) ou de uma chamada à API de criação e, em seguida, definidos nas configurações de bot do aplicativo Web e extraídos de lá.  
 
-Se estiver a utilizar a mesma subscrição do ponto final para a mais do que uma aplicação do LUIS, também deve incluir o ID de subscrição e uma propriedade que diz que é uma chave partilhada.
+Se você estiver usando a mesma assinatura de ponto de extremidade para mais de um aplicativo LUIS, também deverá incluir a ID da assinatura e uma propriedade informando que ela é uma chave compartilhada.
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre expressões de exemplo](luis-how-to-add-example-utterances.md)
+> [Saiba mais sobre o exemplo declarações](luis-how-to-add-example-utterances.md)

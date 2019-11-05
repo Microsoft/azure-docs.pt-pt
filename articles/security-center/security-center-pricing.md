@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/17/2019
+ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: c5e457a6478fce070070ba7d0d610cbfe4f55024
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 43ae34b946fada4d27c6843dbb8c3f9511aefd81
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554690"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520780"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Atualizar para a camada Standard da central de segurança para aumentar a segurança
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, no local e noutras clouds. Ele fornece visibilidade e controle sobre as cargas de trabalho de nuvem híbrida, defesas ativas que reduzem a exposição a ameaças e detecção inteligente para ajudá-lo a acompanhar os ataques cibernéticos em rápida evolução.
@@ -26,15 +26,13 @@ O Centro de Segurança do Azure oferece gestão de segurança unificada e prote�
 ## <a name="pricing-tiers"></a>Escalões de preço
 O Centro de Segurança é disponibilizado em dois escalões:
 
-- A camada **gratuita** é habilitada em todas as suas assinaturas do Azure depois que você visitar o painel da central de segurança do Azure no portal do Azure pela primeira vez ou se estiver habilitado PROGREMMATICALY via API. Se você adicionar outras assinaturas aftewards, a nova assinatura não terá a central de segurança habilitada por padrão, no entanto, você só precisará iniciar o portal da central de segurança e a nova assinatura será registrada e a camada gratuita é aplicada. A camada gratuita fornece política de segurança, avaliação de segurança contínua e recomendações de segurança acionáveis para ajudá-lo a proteger seus recursos do Azure.
-- A camada **Standard** estende os recursos da camada gratuita para cargas de trabalho em execução em outras nuvens públicas e privadas, fornecendo gerenciamento de segurança unificado e proteção contra ameaças em suas cargas de trabalho de nuvem híbrida. A camada Standard também adiciona recursos avançados de detecção de ameaças, que usam análise comportamental interna e aprendizado de máquina para identificar ataques e explorações de dia zero, controles de acesso e de aplicativos para reduzir a exposição a ataques de rede e malware e cada. Você pode experimentar a camada Standard gratuitamente. A central de segurança Standard dá suporte a recursos do Azure, incluindo VMs, conjuntos de dimensionamento de máquinas virtuais, serviço de aplicativo, servidores SQL e contas de armazenamento. Se você tiver a central de segurança do Azure padrão, poderá recusar o suporte com base no tipo de recurso. 
+- A camada **gratuita** é habilitada em todas as suas assinaturas do Azure depois que você visita o painel da central de segurança do azure na portal do Azure pela primeira vez ou, se habilitada programaticamente via API. A camada gratuita fornece política de segurança, avaliação de segurança contínua e recomendações de segurança acionáveis para ajudá-lo a proteger seus recursos do Azure.
+- A camada **Standard** estende os recursos da camada gratuita para cargas de trabalho em execução em outras nuvens públicas e privadas, fornecendo gerenciamento de segurança unificado e proteção contra ameaças em suas cargas de trabalho de nuvem híbrida. A camada Standard também adiciona recursos avançados de detecção de ameaças, que usam análise comportamental interna e aprendizado de máquina para identificar ataques e explorações de dia zero, controles de acesso e de aplicativos para reduzir a exposição a ataques de rede e malware e cada. Você pode experimentar a camada Standard gratuitamente. A central de segurança Standard dá suporte a recursos do Azure, incluindo VMs, conjuntos de dimensionamento de máquinas virtuais, serviço de aplicativo, servidores SQL e contas de armazenamento. Se você tiver a central de segurança do Azure Standard, poderá recusar o suporte com base no tipo de recurso. 
 
 A maioria das avaliações de segurança de camada gratuita para VMs, bem como muitos dos alertas de segurança de camada Standard, requer a instalação do recurso de Microsoft Monitoring Agent (MMA). Você pode habilitar o provisionamento automático na central de segurança para implantar automaticamente o agente para suas VMs do Azure.
 
-Para obter mais informações, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/)da central de segurança.
-
 ## <a name="try-standard-free-for-30-days"></a>Experimente o Standard gratuitamente por 30 dias
-A camada Standard é oferecida gratuitamente nos primeiros 30 dias. No final de 30 dias, se você optar por continuar usando o serviço, começaremos a cobrar automaticamente pelo uso.
+O escalão Standard é gratuito durante os primeiros 30 dias. No final de 30 dias, se você optar por continuar usando o serviço, começaremos a cobrar automaticamente pelo uso.
 
 Você pode atualizar uma assinatura inteira do Azure para a camada Standard, que é herdada por todos os recursos na assinatura.
 
@@ -42,23 +40,23 @@ Para obter a camada Standard:
 
 1. Selecione **configurações de & de preços** no menu principal da **central de segurança** .
 2. Selecione a assinatura que você deseja atualizar para o padrão.
-3. Selecione **tipo de preço**.
+3. Selecione **Escalão de preço**.
 4. Selecione **Standard** para atualizar.
 5. Clique em **Guardar**.
 
-(Os preços na imagem são apenas para fins de exemplo.)  Preços do ![Security Center ](./media/security-center-pricing/get-standard.png)
+(Os preços na imagem são fornecidos apenas para fins ilustrativos) [preços da central de segurança![](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)
 
 > [!NOTE]
 > Para ativar todas as funcionalidades do Centro de Segurança, tem de aplicar o escalão de preço Standard à subscrição que contém as máquinas virtuais aplicáveis. A configuração de preços para um espaço de trabalho não permite o acesso just-in-time à VM, controles de aplicativos adaptáveis e detecções de rede para recursos do Azure.
->
 >
 
 ## <a name="why-upgrade-to-standard"></a>Por que atualizar para o padrão?
 A central de segurança oferece proteção avançada contra ameaças e segurança para suas cargas de trabalho de nuvem híbrida, incluindo:
 
-- **Segurança híbrida** – obtenha uma exibição unificada de segurança em todas as suas cargas de trabalho locais e na nuvem. Aplique políticas de segurança e avalie continuamente a segurança de suas cargas de trabalho de nuvem híbrida para garantir a conformidade com os padrões de segurança. Recolha, pesquise e analise os dados de segurança de várias origens, incluindo firewalls e outras soluções de parceiros.
+- **Segurança híbrida** – obtenha uma exibição unificada de segurança em todas as suas cargas de trabalho locais e na nuvem. Aplique políticas de segurança e avalie continuamente a segurança de suas cargas de trabalho de nuvem híbrida para garantir a conformidade com os padrões de segurança. Colete, pesquise e analise dados de segurança de várias fontes, incluindo firewalls e outras soluções de parceiros.
 - **Detecção avançada de ameaças** -use a análise avançada e a gráfico de segurança inteligente da Microsoft para obter uma borda sobre ataques cibernéticos em evolução.  Tire partido da análise comportamental e do machine learning incorporados para identificar ataques e explorações de dia zero. Monitorize redes, máquinas e serviços cloud para ataques recebidos e atividade pós-falhas. Uniformize a investigação com ferramentas interativas e informações sobre ameaças contextuais.
-- **Controles de acesso e de aplicativo** – bloqueie malware e outros aplicativos indesejados aplicando recomendações de lista de permissões adaptadas para suas cargas de trabalho específicas e alimentadas pelo Machine Learning. Reduza a superfície de ataque de rede com acesso controlado just-in-time a portas de gerenciamento em VMs do Azure, reduzindo drasticamente a exposição à força bruta e a outros ataques de rede.
+- **Controles de acesso e de aplicativo** – bloquear malware e outros aplicativos indesejados aplicando recomendações de lista de permissões de aprendizado de máquina adaptadas para suas cargas de trabalho específicas. Reduza a superfície de ataque de rede com acesso controlado just-in-time a portas de gerenciamento em VMs do Azure. Isso reduz drasticamente a exposição à força bruta e a outros ataques de rede.
+- **Recursos de segurança do contêiner** -Aproveite o gerenciamento de vulnerabilidades e a detecção de ameaças em tempo real em seus ambientes em contêineres. Ao habilitar o recurso de registros de contêiner, pode levar até 12hrs até que todos os recursos estejam habilitados.
 
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -66,6 +64,5 @@ Neste artigo, você foi apresentado aos preços da central de segurança. Para s
 
 - [Deteção avançada de ameaças](security-center-threat-report.md)
 - [Controle de acesso da VM just-in-time](security-center-just-in-time.md)
-
-<!--Image references-->
-[1]: ./media/security-center-pricing/get-standard.png
+- [Visão geral de segurança do contêiner](container-security.md)
+- [Detalhes de preços na sua moeda de escolha e de acordo com sua região](https://azure.microsoft.com/pricing/details/security-center/)

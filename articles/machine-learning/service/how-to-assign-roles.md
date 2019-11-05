@@ -11,14 +11,15 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 22ce9ea44dde6da4d1194463fe266ed00c5a3f96
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 0ceb21d6f77fd9694f7cd564c2e89735cf2a774d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067713"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497425"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerenciar o acesso a um espaço de trabalho do Azure Machine Learning
+[!INCLUDE [aml-applies-to-enterprise-sku](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Neste artigo, você aprenderá a gerenciar o acesso a um espaço de trabalho do Azure Machine Learning. O [RBAC (controle de acesso baseado em função)](/azure/role-based-access-control/overview) é usado para gerenciar o acesso aos recursos do Azure. Os usuários em seu Azure Active Directory recebem funções específicas, que concedem acesso aos recursos. O Azure fornece funções internas e a capacidade de criar funções personalizadas.
 
@@ -26,7 +27,7 @@ Neste artigo, você aprenderá a gerenciar o acesso a um espaço de trabalho do 
 
 Um espaço de trabalho Azure Machine Learning é um recurso do Azure. Assim como outros recursos do Azure, quando um novo espaço de trabalho Azure Machine Learning é criado, ele vem com três funções padrão. Você pode adicionar usuários ao espaço de trabalho e atribuí-los a uma dessas funções internas.
 
-| Role | Nível de acesso |
+| Função | Nível de acesso |
 | --- | --- |
 | **Leitor** | Ações somente leitura no espaço de trabalho. Os leitores podem listar e exibir ativos em um espaço de trabalho, mas não podem criar ou atualizar esses ativos. |
 | **Contribuidor** | Exiba, crie, edite ou exclua (onde aplicável) ativos em um espaço de trabalho. Por exemplo, os colaboradores podem criar um experimento, criar ou anexar um cluster de computação, enviar uma execução e implantar um serviço Web. |
@@ -43,7 +44,7 @@ Se você for um proprietário de um espaço de trabalho, poderá adicionar e rem
 - [Interface do usuário do portal do Azure](/azure/role-based-access-control/role-assignments-portal)
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [CLI do Azure](/azure/role-based-access-control/role-assignments-cli)
-- [REST API](/azure/role-based-access-control/role-assignments-rest)
+- [API REST](/azure/role-based-access-control/role-assignments-rest)
 - [Modelos de Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
 
 Se você instalou a [CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md), também poderá usar um comando da CLI para atribuir funções aos usuários.
@@ -52,7 +53,7 @@ Se você instalou a [CLI do Azure Machine Learning](reference-azure-machine-lear
 az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
 ```
 
-O `user` campo é o endereço de email de um usuário existente na instância do Azure Active Directory em que a assinatura pai do espaço de trabalho reside. Aqui está um exemplo de como usar este comando:
+O campo `user` é o endereço de email de um usuário existente na instância do Azure Active Directory em que a assinatura pai do espaço de trabalho reside. Aqui está um exemplo de como usar este comando:
 
 ```azurecli-interactive 
 az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
@@ -67,7 +68,7 @@ Se as funções internas forem insuficientes, você poderá criar funções pers
 
 Para criar uma função personalizada, primeiro Construa um arquivo JSON de definição de função que especifique a permissão e o escopo para a função. O exemplo a seguir define uma função personalizada denominada "cientista de dados" com escopo em um nível de espaço de trabalho específico:
 
-`data_scientist_role.json` :
+`data_scientist_role.json`:
 ```json
 {
     "Name": "Data Scientist",
@@ -86,7 +87,7 @@ Para criar uma função personalizada, primeiro Construa um arquivo JSON de defi
 }
 ```
 
-Você pode alterar o `AssignableScopes` campo para definir o escopo dessa função personalizada no nível da assinatura, no nível do grupo de recursos ou em um nível de espaço de trabalho específico.
+Você pode alterar o campo `AssignableScopes` para definir o escopo dessa função personalizada no nível da assinatura, no nível do grupo de recursos ou em um nível de espaço de trabalho específico.
 
 Essa função personalizada pode fazer tudo no espaço de trabalho, exceto pelas seguintes ações:
 
@@ -101,7 +102,7 @@ Para implantar essa função personalizada, use o seguinte comando de CLI do Azu
 az role definition create --role-definition data_scientist_role.json
 ```
 
-Após a implantação, essa função fica disponível no espaço de trabalho especificado. Agora você pode adicionar e atribuir essa função no portal do Azure. Ou, você pode atribuir essa função a um usuário usando o comando `az ml workspace share` da CLI:
+Após a implantação, essa função fica disponível no espaço de trabalho especificado. Agora você pode adicionar e atribuir essa função no portal do Azure. Ou, você pode atribuir essa função a um usuário usando o comando `az ml workspace share` CLI:
 
 ```azurecli-interactive
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
@@ -115,5 +116,5 @@ Para obter mais informações sobre as operações (ações) utilizáveis com fu
 
 - [Visão geral de segurança corporativa](concept-enterprise-security.md)
 - [Executar experimentos e inferência/Pontuação com segurança dentro de uma rede virtual](how-to-enable-virtual-network.md)
-- [Tutorial: Treinar modelos](tutorial-train-models-with-aml.md)
+- [Tutorial: treinar modelos](tutorial-train-models-with-aml.md)
 - [Operações do provedor de recursos](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

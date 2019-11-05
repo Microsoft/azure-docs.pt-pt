@@ -5,12 +5,12 @@ ms.subservice: custom-vision
 ms.topic: include
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 4d4c37a31a279fab9af0f3d84575641d10ff09ce
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e478c005ade1320a7a45449c59a1fca49ba7f147
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184584"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "73519124"
 ---
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -18,4 +18,4 @@ Se desejar implementar o seu próprio projeto de classificação de imagens (ou,
 
 No [Site de Visão Personalizada](https://customvision.ai), navegue para **Projetos** e selecione o caixote do lixo em O Meu Novo Projeto.
 
-![Captura de ecrã de um painel assinalado como O Meu Novo Projeto com um ícone de caixote do lixo](../media/csharp-tutorial/delete_project.png)
+![Captura de tela de um painel rotulado meu novo projeto com um ícone de lixeira](../media/csharp-tutorial/delete_project.png)

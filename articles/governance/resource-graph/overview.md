@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: overview
 ms.service: resource-graph
-ms.openlocfilehash: 45853e3c8986cec58f27d785af31f174aff21b2e
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c113719d304aa4ed9c13df1fe0264d22aacb5002
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755876"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499146"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Visão geral do serviço de grafo de recursos do Azure
 
@@ -25,7 +25,7 @@ O grafo de recursos do Azure é um serviço no Azure projetado para estender o g
 Nesta documentação, vamos abordar cada funcionalidade de forma detalhada.
 
 > [!NOTE]
-> O grafo de recursos do Azure capacita a barra de pesquisa de portal do Azure, a nova experiência de "todos os recursos" e o [histórico de alterações](../policy/how-to/determine-non-compliance.md#change-history-preview) do Azure Policy 
+> O grafo de recursos do Azure capacita a barra de pesquisa de portal do Azure, a nova experiência de "todos os recursos" e o [histórico de alterações](../policy/how-to/determine-non-compliance.md#change-history-preview) do Azure Policy
 > _diferença visual_. Ele foi projetado para ajudar os clientes a gerenciar ambientes em larga escala.
 
 [!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
@@ -88,11 +88,13 @@ O grafo de recursos dá suporte a CLI do Azure, Azure PowerShell, SDK do Azure p
 
 - [portal do Azure e Gerenciador de grafo de recursos](first-query-portal.md) 
 - [CLI do Azure](first-query-azurecli.md#add-the-resource-graph-extension)
-- [O Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
+- [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
 
 ## <a name="next-steps"></a>Passos seguintes
 
+- Execute sua primeira consulta no [portal do Azure](first-query-portal.md).
 - Execute sua primeira consulta com [CLI do Azure](first-query-azurecli.md).
 - Execute sua primeira consulta com [Azure PowerShell](first-query-powershell.md).
+- Obtenha mais informações sobre a [linguagem de consulta](./concepts/query-language.md).
 - Comece com as [consultas iniciais](./samples/starter.md).
 - Aprimore sua compreensão com [consultas avançadas](./samples/advanced.md).

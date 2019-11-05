@@ -1,6 +1,6 @@
 ---
-title: Recursos baseados em DTU do banco de dados SQL do Azure limites de pools elásticos | Microsoft Docs
-description: Esta página descreve alguns limites comuns de recursos baseados em DTU para pools elásticos no banco de dados SQL do Azure.
+title: Recursos de DTU do banco de dados SQL do Azure limita pools elásticos | Microsoft Docs
+description: Esta página descreve alguns limites comuns de recursos de DTU para pools elásticos no banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
@@ -11,20 +11,20 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
-ms.openlocfilehash: 2bd193c53ee85a1423dc63bf669021de954231c8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 08e6c27b359e8fcf48caed6faf21c0aed8fad224
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568812"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521026"
 ---
-# <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Recursos limites para pools elásticos usando o modelo de compra baseado em DTU
+# <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Recursos limites para pools elásticos usando o modelo de compra de DTU
 
-Este artigo fornece os limites de recursos detalhados para os pools elásticos do banco de dados SQL do Azure e bancos de dados em pool usando o modelo de compra baseado em DTU.
+Este artigo fornece os limites de recursos detalhados para os pools elásticos do banco de dados SQL do Azure e bancos de dados em pool usando o modelo de compra DTU.
 
-Para os limites de recursos de modelo de compra baseados em DTU para bancos de dados individuais, consulte [limites de recursos baseados em DTU-bancos de dados individuais](sql-database-vcore-resource-limits-elastic-pools.md). Para limites de recursos baseados em vCore, consulte limites de recursos baseados em VCORE [-bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [limites de recursos baseados em VCORE-pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
+Para os limites de recursos do modelo de compra de DTU para bancos de dados individuais, consulte [limites de recursos de DTU-bancos de dados individuais](sql-database-vcore-resource-limits-elastic-pools.md). Para limites de recursos vCore, consulte [limites de recursos VCORE-bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [limites de recursos VCORE-pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
 
-## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Pool elástico: Tamanhos de armazenamento e tamanhos de computação
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Pool elástico: tamanhos de armazenamento e tamanhos de computação
 
 Para pools elásticos do banco de dados SQL, as tabelas a seguir mostram os recursos disponíveis em cada camada de serviço e tamanho de computação. Você pode definir a camada de serviço, o tamanho da computação e o valor de armazenamento usando o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), o [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), o [CLI do Azure](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases)ou a [API REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
@@ -39,7 +39,7 @@ Para pools elásticos do banco de dados SQL, as tabelas a seguir mostram os recu
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Armazenamento incluído por pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Opções de armazenamento máximo por pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Armazenamento máximo OLTP na memória por pool (GB) | N/A | N/D | N/D | N/D | N/D | N/D | N/D | N/A |
+| Armazenamento máximo OLTP na memória por pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 | Número de DBs máximo por conjunto | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Máximo de trabalhadores simultâneos (pedidos) por conjunto | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
@@ -54,7 +54,7 @@ Para pools elásticos do banco de dados SQL, as tabelas a seguir mostram os recu
 |:---|---:|---:|---:| ---: | ---: | ---: |
 | Armazenamento incluído por pool (GB) | 50 | 100 | 200 | 300 | 400 | 800 |
 | Opções de armazenamento máximo por pool (GB) | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 |
-| Armazenamento máximo OLTP na memória por pool (GB) | N/A | N/D | N/D | N/D | N/D | N/A |
+| Armazenamento máximo OLTP na memória por pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A |
 | Número de DBs máximo por conjunto | 100 | 200 | 500 | 500 | 500 | 500 |
 | Máximo de trabalhadores simultâneos (pedidos) por conjunto | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
@@ -69,7 +69,7 @@ Para pools elásticos do banco de dados SQL, as tabelas a seguir mostram os recu
 |:---|---:|---:|---:| ---: | ---: |
 | Armazenamento incluído por pool (GB) | 1200 | 1600 | 2000 | 2500 | 3000 |
 | Opções de armazenamento máximo por pool (GB) | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
-| Armazenamento máximo OLTP na memória por pool (GB) | N/A | N/D | N/D | N/D | N/A |
+| Armazenamento máximo OLTP na memória por pool (GB) | N/A | N/A | N/A | N/A | N/A |
 | Número de DBs máximo por conjunto | 500 | 500 | 500 | 500 | 500 |
 | Máximo de trabalhadores simultâneos (pedidos) por conjunto | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 | 30000 |
@@ -114,7 +114,7 @@ Para pools elásticos do banco de dados SQL, as tabelas a seguir mostram os recu
 Se todas as DTUs de um conjunto elástico forem utilizadas, cada base de dados no conjunto recebe uma quantidade igual de recursos para processar consultas. O serviço Base de Dados SQL fornece equidade de partilha de recursos entre bases de dados, garantindo frações iguais de tempo de computação. A equidade de partilha de recursos de um conjunto elástico é adicional a qualquer quantidade de recursos garantido de outro modo a cada base de dados quando o mínimo de DTUs por base de dados está definido como um valor diferente de zero.
 
 > [!NOTE]
-> Para `tempdb` limites, consulte [limites de tempdb](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
+> Para limites de `tempdb`, consulte [limites de tempdb](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 
 ### <a name="database-properties-for-pooled-databases"></a>Propriedades do banco de dados em pools
 
@@ -127,11 +127,11 @@ A tabela a seguir descreve as propriedades de bancos de dados em pool.
 | Armazenamento máximo por banco de dados |O tamanho máximo do banco de dados definido pelo usuário para um banco de dados em um pool. No entanto, os bancos de dados em pool compartilham o armazenamento de pool alocado. Mesmo que o total de armazenamento máximo *por banco de dados* esteja definido para ser maior que o *espaço de*armazenamento total disponível do pool, o espaço total usado por todos os bancos de dados não poderá exceder o limite de pool disponível. O tamanho máximo do banco de dados refere-se ao tamanho máximo dos arquivos e não inclui o espaço usado pelos arquivos de log. |
 |||
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para limites de recursos vCore para um único banco de dados, confira [limites de recursos para bancos de dados individuais usando o modelo de compra baseado em vCore](sql-database-vcore-resource-limits-single-databases.md)
-- Para os limites de recursos de DTU para um único banco de dados, consulte [limites de recursos para bancos de dados individuais usando o modelo de compra baseado em DTU](sql-database-dtu-resource-limits-single-databases.md)
-- Para limites de recursos vCore para pools elásticos, consulte [limites de recursos para pools elásticos usando o modelo de compra baseado em vCore](sql-database-vcore-resource-limits-elastic-pools.md)
+- Para limites de recursos vCore para um único banco de dados, confira [limites de recursos para bancos de dados individuais usando o modelo de compra vCore](sql-database-vcore-resource-limits-single-databases.md)
+- Para os limites de recursos de DTU para um único banco de dados, consulte [limites de recursos para bancos de dados individuais usando o modelo de compra de DTU](sql-database-dtu-resource-limits-single-databases.md)
+- Para limites de recursos vCore para pools elásticos, consulte [limites de recursos para pools elásticos usando o modelo de compra vCore](sql-database-vcore-resource-limits-elastic-pools.md)
 - Para os limites de recurso para instâncias gerenciadas, consulte [limites de recursos de instância gerenciada](sql-database-managed-instance-resource-limits.md).
 - Para obter informações sobre limites gerais do Azure, consulte [assinatura do Azure e limites de serviço, cotas e restrições](../azure-subscription-service-limits.md).
 - Para obter informações sobre limites de recursos em um servidor de banco de dados, consulte [visão geral dos limites de recursos em um servidor de banco de dados SQL](sql-database-resource-limits-database-server.md) para obter informações sobre os limites nos níveis de servidor e assinatura.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 32b7f1d699c0d620d70614c441a8c18520c1b2d5
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 6a01ddbc733ce52c02e9abef2569adbfbd19c6a8
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201055"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520739"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendações de segurança no Centro de Segurança do Azure 
 Este tópico explica como exibir e entender as recomendações na central de segurança do Azure para ajudá-lo a proteger seus recursos do Azure.
@@ -36,7 +36,7 @@ A central de segurança analisa periodicamente o estado de segurança de seus re
 Cada recomendação fornece:
 
 - Uma breve descrição do que está sendo recomendado.
-- As etapas de correção para executar a fim de implementar a recomendação. <!-- In some cases, one-click remediation is available. -->
+- As etapas de correção para executar a fim de implementar a recomendação. <!-- In some cases, Quick Fix remediation is available. -->
 - Quais recursos são necessários para executar a ação recomendada neles.
 - O **impacto de Pontuação segura**, que é o valor que sua pontuação de segurança aumentará se você implementar essa recomendação.
 
@@ -52,13 +52,13 @@ A central de segurança analisa o estado de segurança de seus recursos para ide
 
     Você pode filtrar as recomendações. Para filtrar as recomendações, selecione **Filtrar** na folha **recomendações** . A folha **filtro** é aberta e você seleciona os valores de gravidade e estado que deseja ver.
 
-   * **RECOMENDAÇÕES**: A recomendação.
-   * **IMPACTO DE PONTUAÇÃO SEGURA**: Uma pontuação gerada pela central de segurança usando suas recomendações de segurança e aplicando algoritmos avançados para determinar a crucialidade de cada recomendação. Para obter mais informações, consulte [cálculo de Pontuação segura](security-center-secure-score.md#secure-score-calculation).
-   * **RECURSO**: Lista os recursos aos quais essa recomendação se aplica.
-   * **BARRAS DE STATUS**:  Descreve a severidade dessa recomendação específica:
-       * **Alta (vermelho)** : Existe uma vulnerabilidade com um recurso significativo (como um aplicativo, uma VM ou um grupo de segurança de rede) e requer atenção.
-       * **Médio (laranja)** : Existe uma vulnerabilidade e etapas não críticas ou adicionais são necessárias para eliminá-la ou para concluir um processo.
-       * **Baixa (azul)** : Existe uma vulnerabilidade que deve ser resolvida, mas não requer atenção imediata. (Por padrão, as recomendações baixas não são apresentadas, mas você pode filtrar com recomendações baixas se quiser vê-las.) 
+   * **Recomendações**: a recomendação.
+   * **Impacto de Pontuação segura**: uma pontuação gerada pela central de segurança usando suas recomendações de segurança e aplicando algoritmos avançados para determinar a crucialidade de cada recomendação. Para obter mais informações, consulte [cálculo de Pontuação segura](security-center-secure-score.md#secure-score-calculation).
+   * **Recurso**: lista os recursos aos quais essa recomendação se aplica.
+   * **Barras de status**: descreve a severidade dessa recomendação específica:
+       * **Alta (vermelho)** : existe uma vulnerabilidade com um recurso significativo (como um aplicativo, uma VM ou um grupo de segurança de rede) e requer atenção.
+       * **Médio (laranja)** : existe uma vulnerabilidade e etapas não críticas ou adicionais são necessárias para eliminá-la ou para concluir um processo.
+       * **Baixa (azul)** : existe uma vulnerabilidade que deve ser resolvida, mas não requer atenção imediata. (Por padrão, as recomendações baixas não são apresentadas, mas você pode filtrar com recomendações baixas se quiser vê-las.) 
        * **Íntegro (verde)** :
        * **Não disponível (cinza)** :
 

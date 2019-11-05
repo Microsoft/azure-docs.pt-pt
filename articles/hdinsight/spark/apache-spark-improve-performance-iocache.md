@@ -1,5 +1,5 @@
 ---
-title: Desempenho de cargas de trabalho Apache Spark com o cache de e/s do Azure HDInsight (versão prévia)
+title: Desempenho de Apache Spark-cache de e/s do Azure HDInsight (versão prévia)
 description: Saiba mais sobre o cache de e/s do Azure HDInsight e como usá-lo para melhorar o desempenho de Apache Spark.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/29/2019
-ms.openlocfilehash: b60906df01f640877e90281812acf64082ffad01
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3ef2def6329dc31eb1b175133b4525f87de9181c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162830"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494651"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Melhorar o desempenho de cargas de trabalho de Apache Spark usando o cache de e/s do Azure HDInsight
 
@@ -69,7 +69,7 @@ Você pode obter erros de espaço em disco executando trabalhos do Spark depois 
 
 1. Selecione **salvar** no canto superior direito.
 
-1. Selecione **reiniciar**  > **reiniciar todos os afetados**.
+1. Selecione **reiniciar** > **reiniciar todos os afetados**.
 
     ![O Apache Ambari reinicia todos os afetados](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Reiniciar todos os afetados")
 

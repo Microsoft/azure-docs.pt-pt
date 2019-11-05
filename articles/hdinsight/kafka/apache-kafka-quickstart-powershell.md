@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 082be3630474ec5f97ab7d80a3ee1b92cdc28fd7
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: d14d8f38ff8a2bed01584d5c5fec56d254cede05
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242337"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494752"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Início rápido: criar Apache Kafka cluster no Azure HDInsight usando o PowerShell
 
 [Apache Kafka](https://kafka.apache.org/) é uma plataforma de streaming distribuída de software livre. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição. 
 
-Neste guia de início rápido, irá aprender a criar um cluster do [Apache Kafka](https://kafka.apache.org) com o Azure PowerShell. Também vai saber como utilizar utilitários incluídos para enviar e receber mensagens com o Kafka.
+Neste guia de início rápido, irá aprender a criar um cluster do [Apache Kafka](https://kafka.apache.org) com o Azure PowerShell. Também irá saber como utilizar utilitários incluídos para enviar e receber mensagens com o Kafka.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -28,6 +28,8 @@ Só os recursos dentro da mesma rede virtual podem aceder à API Kafka. Neste gu
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * O [módulo AZ](https://docs.microsoft.com/powershell/azure/overview) do PowerShell instalado.
 
@@ -60,7 +62,7 @@ $location = Read-Host -Prompt "Enter the Azure region to use"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-## <a name="create-a-storage-account"></a>Create a storage account
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Enquanto o Kafka no HDInsight utiliza o Managed Disks do Azure para armazenar dados do Kafka, o cluster também utiliza o Armazenamento do Azure para armazenar informações, tais como registos. Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) para criar uma nova conta de armazenamento.
 
@@ -139,7 +141,7 @@ Se planeia utilizar mais do que 32 nós de trabalho (seja durante a criação do
 
 ## <a name="connect-to-the-cluster"></a>Ligar ao cluster
 
-1. Para se ligar ao nó principal do cluster do Kafka, utilize o seguinte comando. Substitua `sshuser` pelo nome de utilizador SSH. Substitua `mykafka` pelo nome do seu cluster do Kafka
+1. Para ligar ao nó principal primário do cluster do Kafka, utilize o seguinte comando. Substitua `sshuser` pelo nome de utilizador SSH. Substitua `mykafka` pelo nome do seu cluster do Kafka
 
     ```bash
     ssh sshuser@mykafka-ssh.azurehdinsight.net
@@ -210,7 +212,7 @@ Nesta seção, você obtém as informações do host da API REST do Apache Ambar
 
     `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
 
-5. Para definir uma variável de ambiente com as informações do anfitrião do mediador do Kafka, utilize o comando seguinte:
+5. Para definir uma variável de ambiente com as informações do anfitrião Zookeeper e do mediador, utilize o comando seguinte:
 
     ```bash
     export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`

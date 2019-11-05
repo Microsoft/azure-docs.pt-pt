@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for Eclipse: Criar aplicativos escalares para o HDInsight Spark '
+title: 'Azure Toolkit for Eclipse: criar aplicativos escalares para o HDInsight Spark'
 description: Use as ferramentas do HDInsight no Azure Toolkit for Eclipse para desenvolver aplicativos Spark escritos em escala e enviá-los para um cluster HDInsight Spark diretamente do IDE do eclipse.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 5336153a776f3324e5f73564ba2804389cd96938
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 7e320b4a0166ffad3ba62c80ad7667c626acb136
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257573"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494686"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Usar Azure Toolkit for Eclipse para criar aplicativos Apache Spark para um cluster HDInsight
 
@@ -71,7 +71,7 @@ O usuário pode [entrar na assinatura do Azure](#sign-in-to-your-azure-subscript
 
 ## <a name="link-a-cluster"></a>Vincular um cluster
 
-Você pode vincular um cluster normal usando o nome de usuário gerenciado Ambari. Da mesma forma, para um cluster HDInsight ingressado no domínio, você pode vincular usando o domínio e o nome `user1@contoso.com`de usuário, como.
+Você pode vincular um cluster normal usando o nome de usuário gerenciado Ambari. Da mesma forma, para um cluster HDInsight ingressado no domínio, você pode vincular usando o domínio e o nome de usuário, como `user1@contoso.com`.
 
 1. Selecione **vincular um cluster** do **Azure Explorer**.
 
@@ -83,7 +83,7 @@ Você pode vincular um cluster normal usando o nome de usuário gerenciado Ambar
 
    > [!NOTE]  
    > Usamos a chave de armazenamento vinculada, o nome de usuário e a senha se o cluster fizer logon na assinatura do Azure e vinculado a um cluster.
-   > ![Contas de armazenamento do Azure Explorer](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
+   > ![contas de armazenamento do Azure Explorer](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
 1. Você poderá ver um cluster vinculado no nó **HDInsight** depois de clicar no botão OK, se as informações de entrada estiverem corretas. Agora você pode enviar um aplicativo para esse cluster vinculado.
 
@@ -214,7 +214,7 @@ Você pode executar várias operações usando as ferramentas do HDInsight, incl
 
 1. Quando for solicitado, insira as credenciais de administrador para o cluster. Você especificou isso ao provisionar o cluster.
 
-### <a name="manage-azure-subscriptions"></a>Gerir subscrições do Azure
+### <a name="manage-azure-subscriptions"></a>Gerenciar assinaturas do Azure
 
 Por padrão, a ferramenta HDInsight no Azure Toolkit for Eclipse lista os clusters Spark de todas as suas assinaturas do Azure. Se necessário, você pode especificar as assinaturas para as quais deseja acessar o cluster.
 
@@ -318,13 +318,13 @@ Há dois modos para enviar os trabalhos. Se a credencial de armazenamento for fo
 
 ## <a name="seealso"></a>Ver também
 
-* [Sobre Apache Spark no Azure HDInsight](apache-spark-overview.md)
+* [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
 
-* [Apache Spark com BI: Executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: Usar o Spark no HDInsight para analisar a temperatura de edifício usando dados de HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark com Machine Learning: Usar o Spark no HDInsight para prever os resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: Use o Spark no HDInsight para analisar a temperatura de edifício usando dados HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: Use o Spark no HDInsight para prever os resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
 * [Análise de log do site usando Apache Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="creating-and-running-applications"></a>Criando e executando aplicativos

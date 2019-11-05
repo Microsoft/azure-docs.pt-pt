@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Funções de padrão – LUIS'
+title: 'Tutorial: funções de padrão – LUIS'
 titleSuffix: Azure Cognitive Services
 description: Padrões extraem dados do modelo declarações bem formatado. A expressão de modelo utiliza uma entidade simples e funções para extrair dados relacionados, como a localização de origem e a localização de destino.
 ms.custom: seodec18
@@ -9,21 +9,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 7b95dcf6a93c9abdeab9520f0a0fd80eb17dccff
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 13a1589a6cc6ed48f159f361ff69a5a3ba8f0f80
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387647"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499440"
 ---
-# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Tutorial: Extrair padrões relacionados contextual usando funções
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Tutorial: extrair padrões relacionados contextuais usando funções
 
 Neste tutorial, utilize um padrão para extrair dados de uma expressão de modelo bem formatada. O modelo expressão usa uma [entidade](luis-concept-entity-types.md#simple-entity) e [funções](luis-concept-roles.md) simples para extrair dados relacionados, como local de origem e local de destino.  Ao utilizar padrões, são necessárias menos expressões de exemplo para a intenção.
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 > [!div class="checklist"]
 > * Importar aplicativo de exemplo
@@ -47,7 +48,7 @@ O nome do novo colaborador, Billy Patterson, ainda não faz parte da entidade de
 
 O novo colaborador e a família têm de ser movidos da cidade atual para a cidade onde está localizada a empresa fictícia. Tendo em conta que um novo colaborador pode vir de qualquer cidade, as localizações têm de ser detetadas. Uma lista de conjunto, como uma entidade de lista, não funcionaria porque apenas as cidades na lista seriam extraídas.
 
-Os nomes das funções associadas às cidades de origem e de destino têm de ser exclusivos em todas as entidades. Uma forma fácil de certificar-se que as funções são exclusivas é associá-las à entidade contentora através de uma estratégia de nomenclatura. A entidade **NewEmployeeRelocation** é uma entidade simples com duas funções: **NewEmployeeReloOrigin** e **NewEmployeeReloDestination**. Relo é a abreviatura de relocation (transferência).
+Os nomes das funções associadas às cidades de origem e de destino têm de ser exclusivos em todas as entidades. Uma forma fácil de certificar-se que as funções são exclusivas é associá-las à entidade contentora através de uma estratégia de nomenclatura. A entidade **NewEmployeeRelocation** é uma entidade com duas funções: **NewEmployeeReloOrigin** e **NewEmployeeReloDestination**. Relo é a abreviatura de relocation (transferência).
 
 Uma vez que a expressão de exemplo `Move new employee Robert Williams from Sacramento and San Francisco` tem apenas entidades de aprendizagem automática, é importante fornecer expressões de exemplo suficientes à intenção, para que as entidades sejam detetadas.  
 
@@ -91,7 +92,7 @@ A identificação das entidades nestes passos poderá ser mais fácil se a entid
 
 1. Selecione **Intenções** no painel de navegação esquerdo.
 
-2. Selecione **Create new intent** (Criar nova intenção). 
+2. Selecione **Criar nova intenção**. 
 
 3. Introduza `NewEmployeeRelocationProcess` como o nome da intenção na caixa de diálogo de pop-up.
 
@@ -107,7 +108,7 @@ A identificação das entidades nestes passos poderá ser mais fácil se a entid
     |Mover **J. Benson** de **Boston** para **Staines-upon-Thames**|J. Benson|Boston, Staines-upon-Thames|
     |Mover **Travis “Trav” Hinton** de **Castelo Branco** para **Orlando**|Travis “Trav” Hinton|Castelo Branco, Orlando|
     |Mover **Trevor Nottington III** de **Aranda de Duero** para **Boise**|Trevor Nottington III|Aranda de Duero, Boise|
-    |Mover **Dr. Greg Williams** de **Orlando** para **Ellicott City**|Dr. Greg Williams|Orlando, Ellicott City|
+    |Mova a **Dr. Greg** Orlando de **Orlando** para a **cidade Ellicott**|Dr. Greg|Orlando, Ellicott City|
     |Mover **Robert “Bobby” Gregson** de **Kansas City** para **San Juan Capistrano**|Robert “Bobby” Gregson|Kansas City, San Juan Capistrano|
     |Mover **Patti Owens** de **Bellevue** para **Rockford**|Patti Owens|Bellevue, Rockford|
     |Mover **Janet Bartlet** de **Tuscan** para **Santa Fe**|Janet Bartlet|Tuscan, Santa Fe|
@@ -378,7 +379,7 @@ A pontuação da intenção é agora muito superior e os nomes das funções faz
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este tutorial adicionou uma entidade com funções e uma intenção com expressões de exemplo. A primeira predição de ponto final que utilizou a entidade corretamente previu a intenção, mas com uma pontuação de confiança baixa. Apenas uma das duas entidades foi detetada. Em seguida, o tutorial adicionou um padrão que utilizou as funções de entidade e uma lista de expressões para aumentar o valor dos nomes de cidades nas expressões. A segunda predição de ponto final devolveu uma pontuação de alta confiança e encontrou as duas funções de entidade. 
 

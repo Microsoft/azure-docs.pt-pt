@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: a0c86f9ad134e9b640d33d1a391c5387af9f9afd
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 40797c1b46bc88ecdaab6e28ef64f05a73e3ba8d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965668"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495918"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure
 
@@ -57,7 +57,7 @@ Os endereços IP públicos são criados com um dos SKUs seguintes:
 >[!IMPORTANT]
 > Têm de ser utilizados SKUs de correspondência para o balanceador de carga e os recursos de IP público. Não é possível ter uma mistura de recursos de SKU básicos e recursos de SKU standard. Não é possível anexar máquinas virtuais autónomas, máquinas virtuais num recurso de conjunto de disponibilidade ou uma máquina virtual dos recursos do conjunto de dimensionamento para ambos os SKUs em simultâneo.  Os novos designs devem ponderar a utilização de recursos SKU Standard.  Veja [Balanceador de Carga Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter mais detalhes.
 
-#### <a name="basic"></a>Basic
+#### <a name="basic"></a>Básica
 
 Todos os endereços IP públicos criados antes da introdução de SKUs são endereços IP públicos de SKU Básico. Com a introdução de SKUs, tem a opção de especificar que SKU pretende que o endereço IP público seja. Os endereços de SKU Básico:
 
@@ -67,7 +67,7 @@ Todos os endereços IP públicos criados antes da introdução de SKUs são ende
 - São atribuídos a qualquer recurso do Azure ao qual possa ser atribuído um endereço IP público, como interfaces de rede, Gateways de VPN, Gateways de Aplicação e Balanceadores de carga com acesso à Internet.
 - Não oferecem suporte a cenários de zona de disponibilidade.  Você precisa usar o IP público do SKU padrão para cenários de zona de disponibilidade. Para obter mais informações sobre zonas de disponibilidade, veja [Descrição geral de zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-#### <a name="standard"></a>Padrão
+#### <a name="standard"></a>Standard
 
 Os endereços IP de SKU Standard:
 
@@ -133,7 +133,7 @@ Pode associar um endereço IP público a um [Gateway de Aplicação](../applicat
 ### <a name="at-a-glance"></a>De relance
 A tabela seguinte mostra a propriedade específica através da qual os endereços IP públicos podem ser associados a recursos de nível superior e os métodos de alocação possíveis (dinâmico ou estático) que podem ser utilizados.
 
-| Recurso de nível superior | Associação de endereço IP | Dinâmico | Estático |
+| Recurso de nível superior | Associação de endereço IP | Dinâmica | Estático |
 | --- | --- | --- | --- |
 | Máquina virtual |Interface de rede |Sim |Sim |
 | Balanceador de carga com acesso à Internet |Configuração de front-end |Sim |Sim |
@@ -151,7 +151,7 @@ No modelo de implementação Azure Resource Manager, os endereços IP privados s
 
 ### <a name="allocation-method"></a>Método de alocação
 
-Os endereços IP privados são alocados a partir do intervalo de endereços da sub-rede da rede virtual em que um recurso está implementado. O Azure reserva os primeiros quatro endereços em cada intervalo de endereços da sub-rede, de modo a que os endereços não possam ser atribuídos aos recursos. Por exemplo, se o intervalo de endereços da sub-rede for 10.0.0.0/16, não é possível atribuir os endereços 10.0.0.0 a 10.0.0.3 aos recursos. Os endereços IP dentro do intervalo de endereços da sub-rede só podem ser atribuídos a um recurso de cada vez. 
+Os endereços IP privados são alocados a partir do intervalo de endereços da sub-rede da rede virtual em que um recurso está implementado. O Azure reserva os primeiros quatro endereços em cada intervalo de endereços da sub-rede, de modo a que os endereços não possam ser atribuídos aos recursos. Por exemplo, se o intervalo de endereços da sub-rede for 10.0.0.0/16, os endereços 10.0.0.0-10.0.0.3 e 10.0.255.255 não poderão ser atribuídos aos recursos. Os endereços IP dentro do intervalo de endereços da sub-rede só podem ser atribuídos a um recurso de cada vez. 
 
 Os endereços IP privados podem ser alocados de duas formas:
 
@@ -177,10 +177,10 @@ Pode atribuir um endereço IP privado à configuração de **front-end** de um [
 ### <a name="at-a-glance"></a>De relance
 A tabela seguinte mostra a propriedade específica através da qual os endereços IP privados podem ser associados a recursos de nível superior e os métodos de alocação possíveis (dinâmico ou estático) que podem ser utilizados.
 
-| Recurso de nível superior | Associação de endereço IP | Dinâmico | Estático |
+| Recurso de nível superior | Associação de endereço IP | Dinâmica | Estático |
 | --- | --- | --- | --- |
 | Máquina virtual |Interface de rede |Sim |Sim |
-| Balanceador de carga |Configuração de front-end |Sim |Sim |
+| Load balancer |Configuração de front-end |Sim |Sim |
 | Gateway de aplicação |Configuração de front-end |Sim |Sim |
 
 ## <a name="limits"></a>Limites

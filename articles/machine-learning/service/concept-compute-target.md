@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/10/2019
-ms.openlocfilehash: fe60b740312ee49510ea931bba1346ceaef9f31a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: c3791946ee31183e4b3c5131a8e62934bf87dfee
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035525"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497474"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning? 
 
@@ -46,22 +46,37 @@ Saiba [onde e como implantar seu modelo em um destino de computação](how-to-de
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Computação Azure Machine Learning (gerenciada)
 
-Um recurso de computação gerenciado é criado e gerenciado pelo Azure Machine Learning. Essa computação é otimizada para cargas de trabalho de Machine Learning. Azure Machine Learning computação é a única computação gerenciada a partir de 30 de maio de 2019. Recursos de computação gerenciados adicionais podem ser adicionados no futuro.
+Um recurso de computação gerenciado é criado e gerenciado pelo Azure Machine Learning. Essa computação é otimizada para cargas de trabalho de Machine Learning. Azure Machine Learning clusters de computação e [instâncias de computação](concept-compute-instance.md) são as únicas computações gerenciadas. Recursos de computação gerenciados adicionais podem ser adicionados no futuro.
 
-Você pode usar Azure Machine Learning computação para treinamento e inferência do lote (versão prévia).  Com esse recurso de computação, você tem:
+Você pode criar Azure Machine Learning instâncias de computação ou clusters de computação no:
+
+| | Azure Machine Learning studio | Portal do Azure | SDK | Modelo do Resource Manager | CLI |
+|---| ----- | ----- | ----- | ----- | ----- |
+| Instância de computação | sim | sim | sim | sim |  |
+| Cluster de computação | sim | sim | sim | sim | sim |
+
+Quando criados, esses recursos de computação são automaticamente parte do seu espaço de trabalho, ao contrário de outros tipos de destinos de computação.
+
+> [!NOTE]
+> As instâncias de computação estão disponíveis somente para espaços de trabalho com uma região de **EUA Central norte** ou **sul do Reino Unido**.
+>Se o seu espaço de trabalho estiver em qualquer outra região, você poderá continuar a criar e usar uma [VM do bloco de anotações](concept-compute-instance.md#notebookvm) . 
+
+### <a name="compute-clusters"></a>Clusters de computação
+
+Você pode usar Azure Machine Learning clusters de computação para treinamento e inferência do lote (versão prévia).  Com esse recurso de computação, você tem:
 
 * Cluster único ou com vários nós
 * Dimensionamento a cada vez que você envia uma execução 
 * Gerenciamento automático de clusters e agendamento de trabalhos 
 * Suporte para recursos de CPU e GPU
 
-Você pode criar Azure Machine Learning instâncias de computação no portal do Azure ou na [página de aterrissagem do espaço de trabalho (versão prévia)](https://ml.azure.com), com o SDK ou com a CLI. Quando criado, ele faz parte automaticamente de seu espaço de trabalho, ao contrário de outros tipos de destinos de computação.
+
 
 ## <a name="unmanaged-compute"></a>Computação não gerenciada
 
 Um destino de computação *não gerenciado não* é gerenciado pelo Azure Machine Learning. Você cria esse tipo de destino de computação fora do Azure Machine Learning e, em seguida, anexa-o ao seu espaço de trabalho. Recursos de computação não gerenciados podem exigir etapas adicionais para você manter ou para melhorar o desempenho de cargas de trabalho de aprendizado de máquina.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a:
 * [Configurar um destino de computação para treinar seu modelo](how-to-set-up-training-targets.md)

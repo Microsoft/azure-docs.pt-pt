@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 7c163dacae24749dbe309bca33bac016a3be7aa5
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 902bf84ebf090cf9f0f886ad1e774ff7bdfeca93
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002893"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490741"
 ---
 # <a name="how-personalizer-works"></a>Como funciona o Personalizador
 
@@ -27,13 +27,13 @@ Para cada loop, **chame a API de classificação com** base no contexto atual, c
 
 A API de **classificação** decide usar:
 
-* _Exploração_: O modelo atual para decidir a melhor ação com base nos dados anteriores.
-* _Explorar_: Selecione uma ação diferente em vez da ação superior.
+* _Exploração_: o modelo atual para decidir a melhor ação com base nos dados anteriores.
+* _Explorar_: selecione uma ação diferente em vez da ação superior.
 
 A API de **recompensa** :
 
 * Coleta dados para treinar o modelo registrando os recursos e recompensando pontuações de cada chamada de classificação.
-* Usa esses dados para atualizar o modelo com base nas configurações especificadas na _política de aprendizado_.
+* Usa esses dados para atualizar o modelo com base na configuração especificada na _política de aprendizado_.
 
 ## <a name="architecture"></a>Arquitetura
 
@@ -55,11 +55,11 @@ O personalizador é baseado em ciência de ponta e pesquisa na área de [aprendi
 
 ## <a name="terminology"></a>Terminologia
 
-* **Loop de aprendizagem**: Você pode criar um loop de aprendizagem para cada parte do seu aplicativo que pode se beneficiar da personalização. Se você tiver mais de uma experiência para personalizar, crie um loop para cada uma delas. 
+* **Loop de aprendizagem**: você pode criar um loop de aprendizagem para cada parte do seu aplicativo que pode se beneficiar da personalização. Se você tiver mais de uma experiência para personalizar, crie um loop para cada uma delas. 
 
-* **Ações**: As ações são itens de conteúdo, como produtos ou promoções, para escolher. O personalizador escolhe a ação principal a ser mostrada aos usuários, conhecida como a _ação de recompensa_, por meio da API de classificação. Cada ação pode ter recursos enviados com a solicitação de classificação.
+* **Ações**: as ações são itens de conteúdo, como produtos ou promoções, para escolher. O personalizador escolhe a ação principal a ser mostrada aos usuários, conhecida como a _ação de recompensa_, por meio da API de classificação. Cada ação pode ter recursos enviados com a solicitação de classificação.
 
-* **Contexto**: Para fornecer uma classificação mais precisa, forneça informações sobre seu contexto, por exemplo:
+* **Contexto**: para fornecer uma classificação mais precisa, forneça informações sobre seu contexto, por exemplo:
     * Seu usuário.
     * O dispositivo no qual estão. 
     * A hora atual.
@@ -68,19 +68,19 @@ O personalizador é baseado em ciência de ponta e pesquisa na área de [aprendi
 
     Seu aplicativo específico pode ter informações de contexto diferentes. 
 
-* **[Recursos](concepts-features.md)** do: Uma unidade de informações sobre um item de conteúdo ou um contexto de usuário.
+* **[Recursos](concepts-features.md)** : uma unidade de informações sobre um item de conteúdo ou um contexto de usuário.
 
-* **Recompensa**: Uma medida de como o usuário respondeu à API Rank retornou a ação, como uma pontuação entre 0 e 1. O valor de 0 a 1 é definido pela lógica de negócios, com base em como a escolha ajudou a atingir suas metas de negócios de personalização. 
+* **Recompensa**: uma medida de como o usuário respondeu à API Rank retornou a ação, como uma pontuação entre 0 e 1. O valor de 0 a 1 é definido pela lógica de negócios, com base em como a escolha ajudou a atingir suas metas de negócios de personalização. 
 
-* **Exploração**: O serviço personalizado está explorando quando, em vez de retornar a melhor ação, ele escolhe uma ação diferente para o usuário. O serviço personalizado evita descompasso, estagnação e pode se adaptar ao comportamento contínuo do usuário explorando. 
+* **Exploração**: o serviço personalizado está explorando quando, em vez de retornar a melhor ação, ele escolhe uma ação diferente para o usuário. O serviço personalizado evita descompasso, estagnação e pode se adaptar ao comportamento contínuo do usuário explorando. 
 
-* **Duração do experimento**: A quantidade de tempo que o serviço personalizado aguarda para um prêmio, começando do momento em que a chamada de classificação ocorreu para esse evento.
+* **Duração do experimento**: a quantidade de tempo que o serviço personalizado aguarda para um prêmio, começando do momento em que a chamada de classificação ocorreu para esse evento.
 
-* **Eventos**inativos: Um evento inativo é aquele em que você chamou Rank, mas não tem certeza de que o usuário verá o resultado, devido às decisões do aplicativo cliente. Os eventos inativos permitem que você crie e armazene os resultados da personalização e, em seguida, decida descartá-los mais tarde sem afetar o modelo de aprendizado de máquina.
+* **Eventos inativos**: um evento inativo é aquele em que você chamou Rank, mas não tem certeza de que o usuário verá o resultado, devido às decisões do aplicativo cliente. Os eventos inativos permitem que você crie e armazene os resultados da personalização e, em seguida, decida descartá-los mais tarde sem afetar o modelo de aprendizado de máquina.
 
-* **Modelo**: Um modelo personalizado captura todos os dados aprendidos sobre o comportamento do usuário, obtendo dados de treinamento da combinação dos argumentos que você envia para classificar e recompensar chamadas e com um comportamento de treinamento determinado pela política de aprendizado. 
+* **Modelo**: um modelo personalizado captura todos os dados aprendidos sobre o comportamento do usuário, obtendo dados de treinamento da combinação dos argumentos que você envia para classificar e recompensar chamadas e com um comportamento de treinamento determinado pela política de aprendizado. 
 
-* **Política de aprendizagem**: O modo como o personalizado treinará um modelo em cada evento será determinado por alguns metaparâmetros que afetam o funcionamento dos algoritmos de aprendizado de máquina. Novos loops do personalizador começarão com uma política de aprendizado padrão, que pode produzir um desempenho moderado. Ao executar [avaliações](concepts-offline-evaluation.md), o personalizador pode criar novas políticas de aprendizado especificamente otimizadas para os casos de uso do loop. O personalizador terá um desempenho significativamente melhor com políticas otimizadas para cada loop específico, gerado durante a avaliação.
+* **Política de aprendizagem**: como o personalizador treina um modelo em cada evento será determinado por alguns metaparâmetros que afetam o funcionamento dos algoritmos de aprendizado de máquina. Novos loops do personalizador começarão com uma política de aprendizado padrão, que pode produzir um desempenho moderado. Ao executar [avaliações](concepts-offline-evaluation.md), o personalizador pode criar novas políticas de aprendizado especificamente otimizadas para os casos de uso do loop. O personalizador terá um desempenho significativamente melhor com políticas otimizadas para cada loop específico, gerado durante a avaliação.
 
 ## <a name="example-use-cases-for-personalizer"></a>Casos de uso de exemplo para personalizador
 
@@ -158,5 +158,5 @@ Você pode monitorar a eficácia do Personalizar periodicamente executando [aval
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Entenda [onde você pode usar](where-can-you-use-personalizer.md)o personalizador.
+Entenda [onde você pode usar o personalizador](where-can-you-use-personalizer.md).
 Executar [avaliações offline](how-to-offline-evaluation.md)

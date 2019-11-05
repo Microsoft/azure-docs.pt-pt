@@ -1,5 +1,5 @@
 ---
-title: Usar nós de borda vazios em clusters de Apache Hadoop no HDInsight – Azure
+title: Usar nós de borda vazios em clusters de Apache Hadoop no Azure HDInsight
 description: Como adicionar um nó de borda vazio a um cluster HDInsight que pode ser usado como um cliente e, em seguida, testar/hospedar seus aplicativos do HDInsight.
 ms.reviewer: jasonh
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: hrasheed
-ms.openlocfilehash: a669c6fe0ffd6ff1c4d4613a91074edfe9fa87e9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b39d30248e9aedc82b5da1e479a383e0c9bfbdc4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162647"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498019"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Usar nós de borda vazios em clusters de Apache Hadoop no HDInsight
 

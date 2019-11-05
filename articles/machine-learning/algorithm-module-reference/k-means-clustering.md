@@ -1,7 +1,7 @@
 ---
 title: 'Clustering K-means: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo de clustering K-means no serviço de Azure Machine Learning para treinar modelos de clustering.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo de clustering K-means no Azure Machine Learning para treinar modelos de clustering.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: bb39a57f565a542e5106b7ba14e58bc39041f53d
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 4634519f55582a3184472d28acfd98fa849be86a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693102"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497771"
 ---
 # <a name="module-k-means-clustering"></a>Módulo: clustering K-means
 
-Este artigo descreve como usar o módulo de *clustering k-* means no Azure Machine Learning Studio para criar um modelo de clustering k-means não treinado. 
+Este artigo descreve como usar o módulo de *clustering k-* means no designer de Azure Machine Learning (versão prévia) para criar um modelo de clustering k-means não treinado. 
  
 K-means é um dos mais simples e mais conhecidos algoritmos de aprendizado não *supervisionados* . Você pode usar o algoritmo para uma variedade de tarefas de aprendizado de máquina, como: 
 

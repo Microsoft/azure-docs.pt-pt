@@ -1,5 +1,5 @@
 ---
-title: Sincronizar Azure Active Directory usuários para um cluster-Azure HDInsight
+title: Sincronizar Azure Active Directory usuários com o cluster HDInsight
 description: Sincronizar usuários autenticados do Azure Active Directory para um cluster HDInsight.
 ms.service: hdinsight
 author: ashishthaps
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9767bccc754d5ccf8c0e7cbb66c8e9c3d5eaf7d0
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: b6252e99e69f849e2e988819f38dcccc5a7a73e0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105356"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498147"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronizar utilizadores do Azure Active Directory num cluster do HDInsight
 
@@ -33,7 +33,7 @@ Para exibir seus hosts, abra a interface do usuário do amAmbari Web. Cada nó s
 
     ![portal do Azure todos os usuários e grupos](./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png)
 
-3. Preencha o formulário novo usuário. Selecione os grupos que você criou para atribuir permissões baseadas em cluster. Neste exemplo, crie um grupo chamado "HiveUsers", ao qual você pode atribuir novos usuários. As [instruções de exemplo](hdinsight-domain-joined-configure.md) para a criação de um cluster ESP incluem a `HiveUsers` adição `AAD DC Administrators`de dois grupos e.
+3. Preencha o formulário novo usuário. Selecione os grupos que você criou para atribuir permissões baseadas em cluster. Neste exemplo, crie um grupo chamado "HiveUsers", ao qual você pode atribuir novos usuários. As [instruções de exemplo](hdinsight-domain-joined-configure.md) para a criação de um cluster ESP incluem a adição de dois grupos, `HiveUsers` e `AAD DC Administrators`.
 
     ![Painel do usuário do portal do Azure selecionar grupos](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
 
@@ -74,7 +74,7 @@ O método a seguir usa POST com a API REST do amAmbari. Para obter mais informa�
     }
     ```
 
-4. Para ver o status da sincronização, execute um `curl` novo comando:
+4. Para ver o status da sincronização, execute um novo comando `curl`:
 
     ```bash
     curl -u admin:<YOUR PASSWORD> https://<YOUR CLUSTER NAME>.azurehdinsight.net/api/v1/ldap_sync_events/1
@@ -127,7 +127,7 @@ O método a seguir usa POST com a API REST do amAmbari. Para obter mais informa�
 
 ## <a name="verify-the-newly-added-azure-ad-user"></a>Verificar o usuário recém-adicionado do Azure AD
 
-Abra a [interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md) para verificar se o novo usuário do Azure ad foi adicionado. Aceder à IU Web do Ambari, navegando até **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** . Insira o nome de usuário e a senha do administrador de cluster.
+Abra a [interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md) para verificar se o novo usuário do Azure ad foi adicionado. Acesse a interface do usuário da Web do amAmbari navegando até **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** . Insira o nome de usuário e a senha do administrador de cluster.
 
 1. No painel do Ambari, selecione **gerenciar Ambari** no menu **admin** .
 
@@ -137,15 +137,15 @@ Abra a [interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-a
 
     ![Menu usuários e grupos do HDInsight](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-menu-item.png)
 
-3. O novo usuário deve estar listado na tabela usuários. O tipo é definido como `LDAP` em vez `Local`de.
+3. O novo usuário deve estar listado na tabela usuários. O tipo é definido como `LDAP` em vez de `Local`.
 
     ![Visão geral da página de usuários do HDInsight AAD](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-page.png)
 
 ## <a name="log-in-to-ambari-as-the-new-user"></a>Faça logon no Ambari como o novo usuário
 
-Quando o novo usuário (ou qualquer outro usuário de domínio) fizer logon no Ambari, eles usarão seu nome de usuário e as credenciais de domínio completos do Azure AD.  Ambari exibe um alias de usuário, que é o nome de exibição do usuário no Azure AD. O novo usuário de exemplo tem o nome `hiveuser3@contoso.com`de usuário. No Ambari, esse novo usuário aparece como `hiveuser3` , mas o usuário faz logon no Ambari como. `hiveuser3@contoso.com`
+Quando o novo usuário (ou qualquer outro usuário de domínio) fizer logon no Ambari, eles usarão seu nome de usuário e as credenciais de domínio completos do Azure AD.  Ambari exibe um alias de usuário, que é o nome de exibição do usuário no Azure AD. O novo usuário de exemplo tem o nome de usuário `hiveuser3@contoso.com`. No Ambari, esse novo usuário aparece como `hiveuser3`, mas o usuário faz logon no Ambari como `hiveuser3@contoso.com`.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consultar também
 
 * [Configurar políticas de Apache Hive no HDInsight com ESP](hdinsight-domain-joined-run-hive.md)
 * [Gerenciar clusters HDInsight com o ESP](hdinsight-domain-joined-manage.md)

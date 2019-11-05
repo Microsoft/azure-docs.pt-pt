@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: aplicativo escalar Maven para Spark com IntelliJ-Azure HDInsight'
+title: 'Tutorial: aplicativo escalar Maven para Spark & IntelliJ – Azure HDInsight'
 description: Tutorial-criar um aplicativo Spark escrito em escala com o Apache Maven como o sistema de compilação e um arquétipo Maven existente para escalabilidade fornecida pela IntelliJ IDEA.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.openlocfilehash: 667590120bba4676cbedf3d3bb2ff08e31656e1d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 156892a4785bf1644d29b82e98c3b2ae202c5a49
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "71147024"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494705"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Tutorial: criar um aplicativo de escala do Maven para Apache Spark no HDInsight usando o IntelliJ
 
@@ -47,7 +47,7 @@ Execute as seguintes etapas para instalar o plug-in escalar:
 
 1. Abra o IntelliJ IDEA.
 
-2. Na tela de boas-vindas, navegue até **configurar** > **plugins** para abrir a janela **plug-ins** .
+2. Na tela de boas-vindas, navegue até **configurar** > **plug-ins** para abrir a janela **plug-ins** .
 
     ![IntelliJ ideia habilitar o plug-in escalar](./media/apache-spark-create-standalone-application/enable-scala-plugin1.png)
 
@@ -78,7 +78,7 @@ Execute as seguintes etapas para instalar o plug-in escalar:
   	|  Propriedade   | Descrição   |  
   	| ----- | ----- |  
   	|Nome do projeto| Insira um nome.|  
-  	|Projeto @ no__t-0location| Insira o local desejado para salvar o projeto.|
+  	|Local do&nbsp;do projeto| Insira o local desejado para salvar o projeto.|
   	|SDK do projeto| Isso estará em branco no primeiro uso da ideia.  Selecione **novo...** e navegue até o JDK.|
   	|Versão do Spark|O assistente de criação integra a versão apropriada do SDK do Spark e do SDK do Scale. Se a versão do cluster do Spark for anterior à 2.0, selecione **Spark 1.x**. Caso contrário, selecione **Spark2.x**. Este exemplo usa o **Spark 2.3.0 (escala 2.11.8)** .|
 
@@ -113,13 +113,13 @@ Execute as seguintes etapas para instalar o plug-in escalar:
 
 10. Confirme o nome e a localização do projeto e selecione **Finish** (Concluir).  O projeto levará alguns minutos para ser importado.
 
-11. Depois que o projeto for importado, no painel esquerdo, navegue até **SparkSimpleApp** > **src** > **Test** > **escalat** > **com** > **Microsoft**1**Spark**3 **exemplo**.  Clique com o botão direito do mouse em **myspec**e selecione **excluir...** . Você não precisa desse arquivo para o aplicativo.  Selecione **OK** na caixa de diálogo.
+11. Depois que o projeto for importado, no painel esquerdo, navegue até **SparkSimpleApp** > **src** > **Test** > **escalat** > **com** > **Microsoft** > **Spark** > **exemplo**.  Clique com o botão direito do mouse em **myspec**e selecione **excluir...** . Você não precisa desse arquivo para o aplicativo.  Selecione **OK** na caixa de diálogo.
   
 12. Nas etapas subsequentes, você atualiza o **pom. xml** para definir as dependências para o aplicativo do Spark escalar. Para que essas dependências sejam transferidas e resolvidas automaticamente, tem de configurar o Maven em conformidade.
 
 13. No menu **arquivo** , selecione **configurações** para abrir a janela **configurações** .
 
-14. Na janela **configurações** , navegue até **compilação, execução, implantação** > **ferramentas de Build** > **Maven** **importação**de  > .
+14. Na janela **configurações** , navegue até **compilação, execução, implantação** > **ferramentas de Build** > **Maven** > **importando**.
 
 15. Marque a caixa de seleção **Importar projetos Maven automaticamente** .
 
@@ -127,7 +127,7 @@ Execute as seguintes etapas para instalar o plug-in escalar:
 
     ![Configurar o Maven para transferências automáticas](./media/apache-spark-create-standalone-application/configure-maven-download.png)
 
-17. No painel esquerdo, navegue até **src** > **Main** > **escala**de  > **com. Microsoft. Spark. example**e clique duas vezes em **app** para abrir app. Scale.
+17. No painel esquerdo, navegue até **src** > **principal** > **escala** de > **com. Microsoft. Spark. example**e clique duas vezes em **aplicativo** para abrir app. Scale.
 
 18. Substitua o código de exemplo existente pelo seguinte código e guarde as alterações. Este código lê os dados do HVAC.csv (disponível em todos os clusters do Spark no HDInsight), obtém as linhas que só têm um dígito na sexta coluna e escreve a saída para **/HVACOut**, no contentor de armazenamento predefinido do cluster.
 
@@ -174,7 +174,7 @@ Execute as seguintes etapas para instalar o plug-in escalar:
 
     1. No menu **arquivo** , selecione **estrutura do projeto...** .
 
-    2. Na janela **estrutura do projeto** , navegue até **artefatos**@no__t-**2 o símbolo de mais +**  > **jar** > **de módulos com dependências...** .
+    2. Na janela **estrutura do projeto** , navegue até **artefatos** > **o símbolo de mais +**  > **jar** > **de módulos com dependências...** .
 
         ![Adicionar JAR da estrutura do projeto IntelliJ IDEA](./media/apache-spark-create-standalone-application/hdinsight-create-jar1.png)
 
@@ -194,7 +194,7 @@ Execute as seguintes etapas para instalar o plug-in escalar:
 
         Verifique se a caixa de seleção **incluir no Build do projeto** está selecionada, o que garante que o jar seja criado toda vez que o projeto for compilado ou atualizado. Selecione **aplicar** e **OK**.
 
-    7. Para criar o Jar, navegue até **build** >  compilar**artefatos** > **Build**. O projeto será compilado em cerca de 30 segundos.  O jar de saída é criado em **\out\artifacts**.
+    7. Para criar o Jar, navegue até **compilar** > **criar artefatos** > **Compilar**. O projeto será compilado em cerca de 30 segundos.  O jar de saída é criado em **\out\artifacts**.
 
         ![Saída do artefato do projeto IntelliJ IDEA](./media/apache-spark-create-standalone-application/hdi-artifact-output-jar.png)
 
@@ -210,7 +210,7 @@ Para executar a aplicação no cluster, pode utilizar as seguintes abordagens:
 
 Se você não pretende usar este aplicativo, exclua o cluster que você criou com as seguintes etapas:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Na caixa de **pesquisa** na parte superior, digite **HDInsight**.
 
@@ -220,7 +220,7 @@ Se você não pretende usar este aplicativo, exclua o cluster que você criou co
 
 1. Selecione **Eliminar**. Selecione **Sim**.
 
-![Portal do Azure do hdinsight excluir cluster](./media/apache-spark-create-standalone-application/hdinsight-azure-portal-delete-cluster.png "excluir cluster hdinsight")
+![Portal do Azure do HDInsight excluir cluster](./media/apache-spark-create-standalone-application/hdinsight-azure-portal-delete-cluster.png "Excluir cluster HDInsight")
 
 ## <a name="next-step"></a>Passo seguinte
 

@@ -12,14 +12,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: c72de809dc5818cced95be2cbd6b47308bad4f22
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
-ms.translationtype: MT
+ms.openlocfilehash: 2d8bf44f5e5e7a3f8c328a47480599f9dd18b845
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045207"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489507"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitorar execuções e métricas de experimento do Azure ML
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Aprimore o processo de criação de modelo rastreando suas experiências e monitorando métricas de execução. Neste artigo, saiba como adicionar o código de registro em log ao script de treinamento, enviar uma execução de experimento, monitorar a execução e inspecionar os resultados em Azure Machine Learning.
 
@@ -35,7 +36,7 @@ As métricas a seguir podem ser adicionadas a uma execução durante o treinamen
 |Valores escalares |Funcionamento<br>`run.log(name, value, description='')`<br><br>Exemplo:<br>Run. log ("exatidão", 0,95) |Registre um valor numérico ou de cadeia de caracteres para a execução com o nome fornecido. Registrar uma métrica em uma execução faz com que essa métrica seja armazenada no registro de execução no experimento.  Você pode registrar a mesma métrica várias vezes em uma execução, o resultado sendo considerado um vetor dessa métrica.|
 |Lista|Funcionamento<br>`run.log_list(name, value, description='')`<br><br>Exemplo:<br>Run. log _list ("imprecisões", [0,6, 0,7, 0,87]) | Registra em log uma lista de valores para a execução com o nome fornecido.|
 |fila|Funcionamento<br>`run.log_row(name, description=None, **kwargs)`<br>Exemplo:<br>Run. log _row ("Y sobre X", X = 1, Y = 0.4) | O uso de *log_row* cria uma métrica com várias colunas, conforme descrito em kwargs. Cada parâmetro nomeado gera uma coluna com o valor especificado.  *log_row* pode ser chamado uma vez para registrar uma tupla arbitrária ou várias vezes em um loop para gerar uma tabela completa.|
-|Tabelas|Funcionamento<br>`run.log_table(name, value, description='')`<br><br>Exemplo:<br>Run. log _table ("Y sobre X", {"X": [1, 2, 3], "Y": [0,6, 0,7, 0,89]}) | Registra em log um objeto Dictionary na execução com o nome fornecido. |
+|Tabela|Funcionamento<br>`run.log_table(name, value, description='')`<br><br>Exemplo:<br>Run. log _table ("Y sobre X", {"X": [1, 2, 3], "Y": [0,6, 0,7, 0,89]}) | Registra em log um objeto Dictionary na execução com o nome fornecido. |
 |Imagens|Funcionamento<br>`run.log_image(name, path=None, plot=None)`<br><br>Exemplo:<br>`run.log_image("ROC", plt)` | Registre uma imagem no registro de execução. Use log_image para registrar um arquivo de imagem ou um gráfico matplotlib na execução.  Essas imagens estarão visíveis e comparáveis no registro de execução.|
 |Marcar uma execução|Funcionamento<br>`run.tag(key, value=None)`<br><br>Exemplo:<br>Run. Tag ("Selected", "Yes") | Marque a execução com uma chave de cadeia de caracteres e um valor de cadeia de caracteres opcional.|
 |Carregar arquivo ou diretório|Funcionamento<br>`run.upload_file(name, path_or_stream)`<br> <br> Exemplo:<br>Run. upload_file ("best_model. PKL", "./Model.PKL") | Carregue um arquivo no registro de execução. Executa o arquivo de captura automaticamente no diretório de saída especificado, cujo padrão é "./Outputs" para a maioria dos tipos de execução.  Use upload_file somente quando arquivos adicionais precisarem ser carregados ou se um diretório de saída não for especificado. Sugerimos adicionar `outputs` ao nome para que ele seja carregado no diretório de saídas. Você pode listar todos os arquivos associados a esse registro de execução chamado `run.get_file_names()`|
@@ -261,7 +262,7 @@ print(run.get_portal_url())
    ![Widget Jupyter Notebook para Machine Learning automatizada](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
 
 
-Para exibir mais detalhes de um pipeline, clique no pipeline que você gostaria de explorar na tabela e os gráficos serão renderizados em um pop-up da portal do Azure.
+Para exibir mais detalhes de um pipeline, clique no pipeline que você gostaria de explorar na tabela e os gráficos serão renderizados em um pop-up do Azure Machine Learning Studio.
 
 ### <a name="get-log-results-upon-completion"></a>Obter resultados do registo após a conclusão
 
@@ -273,27 +274,24 @@ O monitoramento e o treinamento do modelo ocorrem em segundo plano para que voc�
 Você pode exibir as métricas de um modelo treinado usando ```run.get_metrics()```. Agora você pode obter todas as métricas que foram registradas no exemplo acima para determinar o melhor modelo.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## <a name="view-the-experiment-in-the-azure-portal-or-your-workspace-landing-page-previewhttpsmlazurecom"></a>Exibir o experimento no portal do Azure ou na [página de aterrissagem do espaço de trabalho (visualização)](https://ml.azure.com)
+## <a name="view-the-experiment-in-your-workspace-in-azure-machine-learning-studiohttpsmlazurecom"></a>Exibir o experimento em seu espaço de trabalho no [Azure Machine Learning Studio](https://ml.azure.com)
 
-Quando um experimento terminar de ser executado, você poderá navegar até o registro de execução do experimento gravado. Você pode acessar o histórico de duas maneiras:
+Quando um experimento terminar de ser executado, você poderá navegar até o registro de execução do experimento gravado. Você pode acessar o histórico do [Azure Machine Learning Studio](https://ml.azure.com).
 
-* Obter a URL para a execução diretamente ```print(run.get_portal_url())```
-* Exiba os detalhes da execução enviando o nome da execução (neste caso, ```run```). Dessa forma, você aponta para o nome do experimento, ID, tipo, status, página de detalhes, um link para a portal do Azure e um link para a documentação.
+Navegue até a guia experimentos e selecione seu experimento. Você é levado para o painel Executar teste, no qual você pode ver as métricas e os gráficos acompanhados que são registrados para cada execução. Nesse caso, registramos em log o MSE e os valores Alfa.
 
-O link para a execução leva você diretamente para a página de detalhes de execução no portal do Azure. Aqui você pode ver todas as propriedades, métricas controladas, imagens e gráficos que são registrados no experimento. Nesse caso, registramos em log o MSE e os valores Alfa.
+  ![Detalhes da execução no Azure Machine Learning Studio](./media/how-to-track-experiments/experiment-dashboard.png)
 
-  ![Detalhes da execução no portal do Azure](./media/how-to-track-experiments/run-details-page.png)
-
-Você também pode exibir quaisquer saídas ou logs para a execução ou baixar o instantâneo do teste que você enviou para que você possa compartilhar a pasta experimento com outras pessoas.
+Você pode fazer uma busca detalhada em uma execução específica para exibir suas saídas ou logs ou baixar o instantâneo do teste enviado para que você possa compartilhar a pasta experimento com outras pessoas.
 
 ### <a name="viewing-charts-in-run-details"></a>Exibindo gráficos em detalhes da execução
 
-Há várias maneiras de usar as APIs de log para registrar diferentes tipos de métricas durante uma execução e exibi-las como gráficos no portal do Azure. 
+Há várias maneiras de usar as APIs de log para registrar diferentes tipos de métricas durante uma execução e exibi-las como gráficos no Azure Machine Learning Studio.
 
 |Valor registrado|Código de exemplo| Exibir no portal|
 |----|----|----|
 |Registrar uma matriz de valores numéricos| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|gráfico de linhas de variável única|
-|Registrar em log um único valor numérico com o mesmo nome de métrica usado repetidamente (como de dentro de um loop for)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Gráfico de linhas de variável única|
+|Registrar em log um único valor numérico com o mesmo nome de métrica usado repetidamente (como de dentro de um loop for)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| gráfico de linhas de variável única|
 |Registrar uma linha com duas colunas numéricas repetidamente|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Gráfico de linhas de duas variáveis|
 |Tabela de log com duas colunas numéricas|`run.log_table(name='Sine Wave', value=sines)`|Gráfico de linhas de duas variáveis|
 

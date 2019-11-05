@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 7ae3eb74b0d0c3f0bd6124362608e14555179697
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 7e341cf8a4ff2a18e44e36d73ad5dbc642582802
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710157"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496284"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a instância gerenciada do banco de dados SQL
 
@@ -58,7 +58,7 @@ Você pode [exportar o banco de dados para BACPAC](sql-database-export.md) e, em
 
 A replicação transacional poderá ser usada se todas as tabelas no banco de dados tiverem chaves primárias.
 
-Backups nativos `COPY_ONLY` obtidos da instância gerenciada não podem ser restaurados para SQL Server porque a instância gerenciada tem uma versão de banco de dados superior em comparação com SQL Server.
+Os backups de `COPY_ONLY` nativos obtidos da instância gerenciada não podem ser restaurados para SQL Server porque a instância gerenciada tem uma versão de banco de dados superior em comparação com SQL Server.
 
 ## <a name="how-can-i-migrate-my-instance-database-to-a-single-azure-sql-database"></a>Como posso migrar meu banco de dados de instância para um único banco de dados SQL do Azure?
 
@@ -97,7 +97,7 @@ O tamanho do armazenamento para a instância gerenciada depende da camada de ser
 
 ## <a name="is-the-backup-storage-deducted-from-my-managed-instance-storage"></a>O armazenamento de backup foi deduzido do meu armazenamento de instância gerenciada? 
 
-Não, o armazenamento de backup não é deduzido do seu espaço de armazenamento de instância gerenciada. O armazenamento de backup é independente do espaço de armazenamento da instância e não é limitado em tamanho. O armazenamento de backup é limitado pelo período de tempo para reter o backup dos bancos de dados de instância, configuráveis de 7 a 35 dias. Para obter detalhes, [](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups)consulte backups automatizados.
+Não, o armazenamento de backup não é deduzido do seu espaço de armazenamento de instância gerenciada. O armazenamento de backup é independente do espaço de armazenamento da instância e não é limitado em tamanho. O armazenamento de backup é limitado pelo período de tempo para reter o backup dos bancos de dados de instância, configuráveis de 7 a 35 dias. Para obter detalhes, consulte [backups automatizados](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
   
 ## <a name="how-can-i-set-inbound-nsg-rules-on-management-ports"></a>Como posso definir regras de NSG de entrada em portas de gerenciamento?
 
@@ -134,8 +134,8 @@ Estudos de caso de instância gerenciada:
 - [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
 - [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
 - [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
-- Todos os [scripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)  
-Para obter uma melhor compreensão dos benefícios, dos custos e dos riscos associados à implantação da instância gerenciada do banco de dados SQL do Azure, também há um estudo da Forrester: [Impacto econômico total de mi](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
+-   de [scripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure) 
+Para entender melhor os benefícios, os custos e os riscos associados à implantação da instância gerenciada do banco de dados SQL do Azure, também há um estudo da Forrester: [impacto econômico total de mi](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 
 
 ## <a name="can-i-do-dns-refresh"></a>Posso fazer a atualização de DNS? 
@@ -179,7 +179,7 @@ O carregamento de dados é geralmente mais lento na instância gerenciada do que
 Sim, você não precisa descriptografar seu banco de dados para poder restaurá-lo na instância gerenciada. Você precisa fornecer um certificado/chave usado como um protetor de chave de criptografia no sistema de origem para a instância gerenciada para poder ler dados do arquivo de backup criptografado. Há duas maneiras possíveis de fazer isso:
 
 - *Carregar o protetor de certificado para a instância gerenciada*. Ele só pode ser feito usando o PowerShell. O [script de exemplo](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate-tde-certificate) descreve todo o processo.
-- *Carregue o protetor de chave assimétrica em Azure Key Vault (akv) e instância gerenciada de ponto para ele*. Essa abordagem é semelhante ao BYOK (traga sua própria chave) TDE caso de uso que também usa a integração do AKV para armazenar a chave de criptografia. Se você não quiser usar a chave como um protetor de chave de criptografia e apenas quiser disponibilizar a chave para a instância gerenciada para restaurar bancos de dados criptografados, siga as instruções para [Configurar BYOK TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption-in-the-azure-portal)e não marque a caixa de seleção *tornar a chave selecionada o protetor de TDE padrão*.
+- *Carregue o protetor de chave assimétrica em Azure Key Vault (akv) e instância gerenciada de ponto para ele*. Essa abordagem é semelhante ao BYOK (traga sua própria chave) TDE caso de uso que também usa a integração do AKV para armazenar a chave de criptografia. Se você não quiser usar a chave como um protetor de chave de criptografia e apenas quiser disponibilizar a chave para a instância gerenciada para restaurar bancos de dados criptografados, siga as instruções para [Configurar BYOK TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption)e não marque a caixa de seleção *tornar a chave selecionada o protetor de TDE padrão*.
 
 Depois de disponibilizar o protetor de criptografia para a instância gerenciada, você pode prosseguir com o procedimento de restauração do banco de dados padrão.
 

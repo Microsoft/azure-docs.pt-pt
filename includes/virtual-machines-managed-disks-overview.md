@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 979fa8bed99a8244e9ebae9de4b615bfac4bd773
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: f041381534dfe59036ce1b9d91792f9e78d0dace
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72966469"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73523567"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos Managed disks
 
@@ -85,12 +85,12 @@ Cada VM contém um disco temporário, que não é um disco gerenciado. O disco t
 
 Um instantâneo do disco gerenciado é uma cópia completa consistente com falha somente leitura de um disco gerenciado que é armazenado como um disco gerenciado padrão por padrão. Com os instantâneos, você pode fazer backup dos discos gerenciados em qualquer momento. Esses instantâneos existem independentemente do disco de origem e podem ser usados para criar novos discos gerenciados. 
 
-Os instantâneos são cobrados com base no tamanho usado. Por exemplo, se você criar um instantâneo de um disco gerenciado com capacidade provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, esse instantâneo será cobrado somente pelo tamanho dos dados usados de 10 GiB. Você pode ver o tamanho usado de seus instantâneos examinando o [relatório de uso do Azure](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). Por exemplo, se o tamanho dos dados usados de um instantâneo for 10 GiB, o relatório de uso mostrará 10 GiB/(31 dias x 24 horas) = 0, 13441 GiB como a quantidade consumida.
+Os instantâneos são cobrados com base no tamanho usado. Por exemplo, se você criar um instantâneo de um disco gerenciado com capacidade provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, esse instantâneo será cobrado somente pelo tamanho dos dados usados de 10 GiB. Você pode ver o tamanho usado de seus instantâneos examinando o [relatório de uso do Azure](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). Por exemplo, se o tamanho dos dados usados de um instantâneo for 10 GiB, o relatório de uso **diário** mostrará 10 GIB/(31 dias) = 0,3226 como a quantidade consumida.
 
-Para saber mais sobre como criar instantâneos com o Managed disks, confira os seguintes recursos:
+Para saber mais sobre como criar instantâneos para discos gerenciados, consulte os seguintes recursos:
 
-* [Criar cópia do VHD armazenado como um disco gerenciado usando instantâneos no Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a managed disk using snapshots in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md) (Criar uma cópia de um VHD armazenado como disco gerido com os instantâneos no Linux)
+* [Criar um instantâneo de um disco gerenciado no Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Criar um instantâneo de um disco gerenciado no Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Imagens
 

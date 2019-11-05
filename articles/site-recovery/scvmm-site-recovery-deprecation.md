@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: rajanaki
-ms.openlocfilehash: 972223815810917684f35c4e99f04e1ab5b882c8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 68881d57f251d2f26996b2a837780106326ec1d3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952124"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492290"
 ---
 # <a name="upcoming-deprecation-of-dr-between-customer-owned-sites-using-hyper-v-and-between-sites-managed-by-scvmm-to-azure"></a>Substituição futura de DR entre sites de Propriedade do cliente usando o Hyper-V e entre sites gerenciados pelo SCVMM para o Azure
 
@@ -32,13 +32,13 @@ Este artigo descreve o próximo plano de substituição, as implicações corres
 
 - Depois que os cenários forem preteridos, haverá as seguintes implicações, a menos que o cliente siga as etapas recomendadas.
 
-    - DR entre as VMs do Hyper-V gerenciadas pelo SCVMM entre os sites pertencentes ao cliente: as replicações continuarão a funcionar, pois o recurso subjacente da réplica do Hyper-V continuará a funcionar, mas os clientes não poderão exibir, gerenciar ou executar operações de NY de DR por meio da experiência de recuperação do Azure Sire no portal do Azure. 
-    - DR de VMs do Hyper-V gerenciadas pelo SCVMM para o Azure: as replicações existentes serão interrompidas e os clientes não poderão exibir, gerenciar ou executar operações de NY de recuperação de desastre por meio do Azure Site Recovery
+    - DR entre as VMs do Hyper-V gerenciadas pelo SCVMM entre os sites pertencentes ao cliente: as replicações continuarão a funcionar, pois o recurso subjacente da réplica do Hyper-V continuará a funcionar, mas os clientes não poderão exibir, gerenciar ou executar quaisquer operações relacionadas a DR por meio da experiência de recuperação do Azure Sire no portal do Azure. 
+    - DR de VMs do Hyper-V gerenciadas pelo SCVMM para o Azure: as replicações existentes serão interrompidas e os clientes não poderão exibir, gerenciar ou executar quaisquer operações relacionadas a DR por meio do Azure Site Recovery
 
 
 ## <a name="recommended-actions-to-be-taken"></a>Ações recomendadas a serem tomadas
 
-Abaixo estão as opções alternativas que o cliente tem para garantir que sua estratégia de DR não seja afetada quando o cenário for preterido. 
+Abaixo estão as opções que o cliente tem para garantir que sua estratégia de DR não seja afetada quando o cenário for preterido. 
 
 - Opte [por começar a usar o Azure como o destino de Dr para VMs em hosts Hyper-V](hyper-v-azure-tutorial.md).
 

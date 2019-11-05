@@ -9,15 +9,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 06/20/2019
-ms.openlocfilehash: 3cec6ee9368b1d9d1f2c9a627108aaf41c6da3c3
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: d9a879e92f78275f2366ccfc008068afbe208e5a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819860"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497357"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treinar automaticamente um modelo de previsão de série temporal
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, você aprenderá a treinar um modelo de regressão de previsão de série temporal usando o aprendizado de máquina automatizado no Azure Machine Learning. Configurar um modelo de previsão é semelhante a configurar um modelo de regressão padrão usando o Machine Learning automatizado, mas algumas opções de configuração e etapas de pré-processamento existem para trabalhar com dados de série temporal. Os exemplos a seguir mostram como:
 
@@ -50,7 +51,7 @@ Os modelos de aprendizado profundo têm três capbailities intrínsecos:
 1. Eles dão suporte a várias entradas e saídas
 1. Eles podem extrair automaticamente padrões em dados de entrada que se estendem por longas sequências
 
-Considerando dados maiores, modelos de aprendizado profundo, como Microsoft ' ForecasTCN ', podem melhorar as pontuações do modelo resultante. 
+Considerando dados maiores, modelos de aprendizado profundo, como Microsoft ' ForecastTCN ', podem melhorar as pontuações do modelo resultante. 
 
 Os aprendizes da série temporal nativa também são fornecidos como parte do ML automatizado. O Prophet funciona melhor com a série temporal que tem efeitos sazonais fortes e várias estações de dados históricos. O Prophet é preciso & rápido, robusto a exceções, dados ausentes e alterações consideráveis na sua série temporal. 
 
@@ -112,13 +113,14 @@ Para tarefas de previsão, o Machine Learning automatizado usa etapas de pré-pr
 
 O objeto `AutoMLConfig` define as configurações e os dados necessários para uma tarefa de aprendizado de máquina automatizada. Semelhante a um problema de regressão, você define parâmetros de treinamento padrão, como tipo de tarefa, número de iterações, dados de treinamento e número de validações cruzadas. Para tarefas de previsão, há parâmetros adicionais que devem ser definidos para afetar o experimento. A tabela a seguir explica cada parâmetro e seu uso.
 
-| Param | Descrição | Obrigatório |
+| Param | Descrição | Necessário |
 |-------|-------|-------|
 |`time_column_name`|Usado para especificar a coluna datetime nos dados de entrada usados para criar a série temporal e inferir sua frequência.|✓|
 |`grain_column_names`|Nome (s) definindo grupos de séries individuais nos dados de entrada. Se a granulação não for definida, o conjunto de dados será considerado uma série temporal.||
 |`max_horizon`|Define o horizonte de previsão máximo desejado em unidades de frequência de série temporal. As unidades são baseadas no intervalo de tempo de seus dados de treinamento, por exemplo, mensalmente, semanalmente que o previsão deve prever.|✓|
 |`target_lags`|Número de linhas para atrasar os valores de destino com base na frequência dos dados. Isso é representado como uma lista ou um único inteiro. O retardo deve ser usado quando a relação entre as variáveis independentes e a variável dependente não corresponder ou correlacionar por padrão. Por exemplo, ao tentar prever a demanda de um produto, a demanda em qualquer mês pode depender do preço de mercadorias específicas de 3 meses antes. Neste exemplo, você pode querer atrasar o destino (demanda) negativamente por 3 meses para que o modelo seja treinamento na relação correta.||
 |`target_rolling_window_size`|*n* períodos históricos a serem usados para gerar valores previstos, < = tamanho do conjunto de treinamento. Se omitido, *n* será o tamanho completo do conjunto de treinamento. Especifique esse parâmetro quando desejar apenas considerar uma determinada quantidade de histórico ao treinar o modelo.||
+|`enable_dnn`|Habilitar previsão de DNNs.||
 
 Consulte a [documentação de referência](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) para obter mais informações.
 
@@ -150,7 +152,8 @@ import logging
 
 automl_config = AutoMLConfig(task='forecasting',
                              primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
+                             experiment_timeout_minutes=15,
+                             enable_early_stopping=True,
                              training_data=train_data,
                              label_column_name=label,
                              n_cross_validations=5,
@@ -170,6 +173,17 @@ Consulte o [notebook de demanda de energia](https://github.com/Azure/MachineLear
 * validação cruzada de origem sem interrupção
 * retardo configurável
 * recursos agregados de janela sem interrupção
+
+### <a name="configure-a-dnn-enable-forecasting-experiment"></a>Configurar um teste de previsão de DNN habilitar
+
+> [!NOTE]
+> O suporte do DNN para previsão no Machine Learning automatizado está em versão prévia.
+
+Para aproveitar o DNNs para previsão, você precisará definir o parâmetro `enable_dnn` no AutoMLConfig como true. 
+
+Para usar o DNNs, é recomendável usar um cluster de computação AML com SKUs de GPU e pelo menos 2 nós como o destino de computação. Consulte a [documentação de computação AML](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute) para obter mais informações. Consulte [tamanhos de máquina virtual otimizada para GPU](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-gpu) para obter mais informações sobre os tamanhos de VM que incluem GPUs.
+
+Para permitir o tempo suficiente para que o treinamento do DNN seja concluído, é recomendável definir o tempo limite do experimento para pelo menos algumas horas.
 
 ### <a name="view-feature-engineering-summary"></a>Exibir Resumo de engenharia de recursos
 

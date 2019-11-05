@@ -1,5 +1,5 @@
 ---
-title: Suporte do Azure para VMs de geração 2 (visualização) | Microsoft Docs
+title: Suporte do Azure para VMs de geração 2 | Microsoft Docs
 description: Visão geral do suporte do Azure para VMs de geração 2
 services: virtual-machines-windows
 documentationcenter: ''
@@ -11,31 +11,26 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 10/29/2019
+ms.date: 11/04/2019
 ms.author: lahugh
-ms.openlocfilehash: c85e02b01e11b94d9e23e669bf2f6fcde7f2c1de
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 63cf3301a08ce4073998c5d281f155a6b3eefe4d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064024"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491926"
 ---
-# <a name="support-for-generation-2-vms-preview-on-azure"></a>Suporte para VMs de geração 2 (versão prévia) no Azure
+# <a name="support-for-generation-2-vms-on-azure"></a>Suporte para VMs de geração 2 no Azure
 
-> [!IMPORTANT]
-> O suporte do Azure para VMs de geração 2 está atualmente em visualização.
-> Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+O suporte para VMs (máquinas virtuais) de geração 2 agora está disponível no Azure. Você não pode alterar a geração de uma máquina virtual depois de criá-la, portanto, examine as considerações nesta página antes de escolher uma geração.
 
-O suporte para VMs (máquinas virtuais) de geração 2 agora está disponível em versão prévia no Azure. Você não pode alterar a geração de uma máquina virtual depois de criá-la, portanto, examine as considerações nesta página antes de escolher uma geração. 
-
-As VMs de geração 2 oferecem suporte a recursos principais que não têm suporte em VMs de geração 1. Esses recursos incluem memória aumentada, extensões Intel SGX (Intel® software Guard) e vPMEM (memória persistente virtualizada). As VMs de geração 2 também têm alguns recursos que ainda não têm suporte no Azure. Para obter mais informações, consulte a seção [recursos e funcionalidades](#features-and-capabilities) .
+As VMs de geração 2 oferecem suporte a recursos principais que não têm suporte em VMs de geração 1. Esses recursos incluem memória aumentada, extensões Intel SGX (Intel® software Guard) e vPMEM (memória persistente virtualizada). As VMs de geração 2 em execução no local têm alguns recursos que ainda não têm suporte no Azure. Para obter mais informações, consulte a seção [recursos e funcionalidades](#features-and-capabilities) .
 
 As VMs de geração 2 usam a nova arquitetura de inicialização baseada em UEFI em vez da arquitetura baseada em BIOS usada pelas VMs de geração 1. Em comparação com as VMs de geração 1, as VMs de geração 2 podem ter tempos de inicialização e de instalação aprimorados. Para obter uma visão geral das VMs de geração 2 e algumas das diferenças entre a geração 1 e a geração 2, consulte [devo criar uma máquina virtual de geração 1 ou 2 no Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
 ## <a name="generation-2-vm-sizes"></a>Tamanhos de VM de geração 2
 
-As VMs de geração 1 têm suporte de todos os tamanhos de VM no Azure. O Azure agora oferece suporte à versão de visualização 2 para a seguinte série de VMs selecionada:
+As VMs de geração 1 têm suporte de todos os tamanhos de VM no Azure. O Azure agora oferece suporte à geração 2 para a seguinte série de VMs selecionada:
 
 * [Série B](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
 * [Série DC](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dc-series)
@@ -66,7 +61,6 @@ As VMs de geração 2 dão suporte às seguintes imagens do Marketplace:
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 16.04 +
 
-
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>VMs locais vs. Azure geração 2
 
 Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local dá suporte para VMs de geração 2.
@@ -96,7 +90,7 @@ Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local d
 | Disco do sistema operacional > 2 TB                    | w.x.y.                | :heavy_check_mark: |
 | Disco personalizado/imagem/sistema operacional de permuta         | :heavy_check_mark: | :heavy_check_mark: |
 | Suporte ao conjunto de dimensionamento de máquinas virtuais | :heavy_check_mark: | :heavy_check_mark: |
-| Recuperação de Site do Azure               | :heavy_check_mark: | w.x.y.                |
+| Azure Site Recovery               | :heavy_check_mark: | w.x.y.                |
 | Backup/restauração                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galeria de imagens compartilhadas              | :heavy_check_mark: | :heavy_check_mark: |
 | Criptografia de disco do Azure             | :heavy_check_mark: | w.x.y.                |
@@ -126,7 +120,7 @@ Quando você seleciona uma SKU do Windows Server como a oferta, na guia **avanç
 
 Você também pode usar o PowerShell para criar uma VM referenciando diretamente a SKU de geração 1 ou geração 2.
 
-Por exemplo, use o seguinte cmdlet do PowerShell para obter uma lista das SKUs na oferta `WindowsServer`.
+Por exemplo, use o seguinte cmdlet do PowerShell para obter uma lista das SKUs na oferta de `WindowsServer`.
 
 ```powershell
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer

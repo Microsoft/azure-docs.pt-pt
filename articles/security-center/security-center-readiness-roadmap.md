@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: b2b4dc1aa9486e432fb2fae48343c21fba620221
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: ea029e62ac1273d9796e52edc3f7a46868964d2a
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996686"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520744"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Plano de Preparação do Centro de Segurança do Azure
 Este documento fornece um plano de preparação que irá ajudá-lo a começar a utilizar o Centro de Segurança do Azure.
@@ -32,7 +32,7 @@ Artigos
 * [Introdução ao Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * [Manual de início rápido do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
-Os meus vídeos
+Vídeos
 * [Vídeo de Introdução Rápida](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
 * [Descrição Geral da Prevenção, Deteção e Capacidades de Resposta do Centro de Segurança](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
 
@@ -79,7 +79,7 @@ Para reduzir os custos e os danos, é importante ter um plano de resposta a inci
 
 Utilize os seguintes recursos para compreender como o Centro de Segurança pode ser incorporado no seu processo de resposta a incidentes.
 
-Os meus vídeos  
+Vídeos  
 * [Centro de Segurança do Azure na Resposta a Incidentes](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response)
 * [Responder rapidamente a ameaças com a operação e investigação de segurança de próxima geração](https://youtu.be/e8iFCz5RM4g)
 
@@ -93,7 +93,7 @@ As VMs do Azure podem tirar partido das capacidades avançadas de defesa da clou
 
 Utilize os seguintes recursos para aprender a utilizar estas capacidades no Centro de Segurança.
 
-Os meus vídeos  
+Vídeos  
 * [Central de segurança do Azure – acesso à VM just-in-time](https://youtu.be/UOQb2FcdQnU)
 * [Centro de Segurança do Azure - Controlos de Aplicação Adaptáveis](https://youtu.be/wWWekI1Y9ck)
 
@@ -105,7 +105,7 @@ Artigos
 
 * [Laboratório prático do Centro de Segurança](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=78871abf-6f35-4aa0-840f-d801f5cdbd72)
 * [Playbook de recomendações da Firewall de Aplicações Web (WAF) no Centro de Segurança](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff)
-* [Manual de Procedimentos do Centro de Segurança do Azure: Alertas de segurança @ no__t-0
+* [Manual de Procedimentos do Centro de Segurança do Azure: Alertas de Segurança](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Página de Documentação do Centro de Segurança](https://docs.microsoft.com/azure/security-center/)
@@ -115,7 +115,7 @@ Artigos
 * [Melhores práticas da segurança de identidade](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
 * [Melhores práticas de segurança de rede](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
 * [Recomendações PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments)
-* [Conformidade](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
+* [Conformidade](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
 * [Os clientes do log Analytics agora podem usar a central de segurança do Azure para proteger suas cargas de trabalho de nuvem híbrida](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>Recursos da Comunidade

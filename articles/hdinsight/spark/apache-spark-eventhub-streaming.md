@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: processar dados de hubs de eventos do Azure com Apache Spark no HDInsight'
+title: 'Tutorial: & de dados dos hubs de eventos do Azure Apache Spark-HDInsight'
 description: Tutorial-conectar Apache Spark no Azure HDInsight aos hubs de eventos do Azure e processar os dados de streaming.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 10/17/2019
-ms.openlocfilehash: 33ec747edaeba60f1c1e5fdb29fd2af1cb29cf8d
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 0b24d1b0215564fb9f6063d4a2d091bb7a9a1c3e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800079"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494623"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Tutorial: processar tweets usando hubs de eventos do Azure e Apache Spark no HDInsight
 
@@ -70,7 +70,7 @@ Para receber um fluxo de tweets, crie uma aplicação no Twitter. Siga as instru
 
 Você usa esse Hub de eventos para armazenar tweets.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
 1. No menu à esquerda, navegue até **todos os serviços** > **Internet das coisas** > **hubs de eventos**.  
 
@@ -137,7 +137,7 @@ Crie um hub de eventos depois que o namespace dos hubs de eventos tiver sido imp
     {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.13,org.twitter4j:twitter4j-core:4.0.6"}}
     ```
 
-1. Edite o código a seguir substituindo `<Event hub name>`, `<Event hub namespace connection string>`, `<CONSUMER KEY>`, `<CONSUMER SECRET>`, `<ACCESS TOKEN>` e `<TOKEN SECRET>` pelos valores apropriados. Execute o código editado para enviar Tweets para o Hub de eventos:
+1. Edite o código a seguir, substituindo `<Event hub name>`, `<Event hub namespace connection string>`, `<CONSUMER KEY>`, `<CONSUMER SECRET>`, `<ACCESS TOKEN>`e `<TOKEN SECRET>` pelos valores apropriados. Execute o código editado para enviar Tweets para o Hub de eventos:
 
     ```scala
     import java.util._
@@ -219,7 +219,7 @@ Crie outro Notebook Jupyter e nomeie-o **ReadTweetsFromEventHub**.
     {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.13"}}
     ```
 
-2. Edite o código a seguir substituindo `<Event hub name>` e `<Event hub namespace connection string>` pelos valores apropriados. Execute o código editado para ler tweets do seu hub de eventos:
+2. Edite o código a seguir substituindo `<Event hub name>`e `<Event hub namespace connection string>` com os valores apropriados. Execute o código editado para ler tweets do seu hub de eventos:
 
     ```scala
     import org.apache.spark.eventhubs._

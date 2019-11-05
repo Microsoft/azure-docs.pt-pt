@@ -1,6 +1,6 @@
 ---
-title: Criar um banco de dados multilocatário com o banco de dados do Azure para PostgreSQL – tutorial de hiperescala (Citus) (visualização)
-description: Este tutorial mostra como criar, popular e consultar tabelas distribuídas no banco de dados do Azure para PostgreSQL (Citus) (visualização).
+title: Criar um banco de dados multilocatário com o banco de dados do Azure para PostgreSQL – tutorial de Citus (hiperescala)
+description: Este tutorial mostra como criar, popular e consultar tabelas distribuídas no banco de dados do Azure para PostgreSQL Citus (hiperescala).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,16 +9,16 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: ba20a048faecc9e37a2bfbe750de0fbeba88d538
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 130c3e9f5abb24ffcc4e0c4ad6b96af5fca62090
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70163989"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496531"
 ---
-# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Tutorial: criar um banco de dados multilocatário usando o banco de dados do Azure para PostgreSQL – Citus (visualização)
+# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: criar um banco de dados multilocatário usando o banco de dados do Azure para PostgreSQL – Citus (hiperescala)
 
-Neste tutorial, você usa o banco de dados do Azure para PostgreSQL-Citus (visualização) para aprender a:
+Neste tutorial, você usa o banco de dados do Azure para PostgreSQL-Citus (hiperescala) para aprender a:
 
 > [!div class="checklist"]
 > * Criar um grupo do servidor Hyperscale (Citus)
@@ -35,7 +35,7 @@ Neste tutorial, você usa o banco de dados do Azure para PostgreSQL-Citus (visua
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Usar o utilitário psql para criar um esquema
 
-Uma vez conectado ao banco de dados do Azure para PostgreSQL-hiperescala (Citus) (visualização) usando psql, você pode concluir algumas tarefas básicas. Este tutorial orienta você pela criação de um aplicativo Web que permite que os anunciantes acompanhem suas campanhas.
+Uma vez conectado ao banco de dados do Azure para PostgreSQL-Citus (hiperescala) usando psql, você pode concluir algumas tarefas básicas. Este tutorial orienta você pela criação de um aplicativo Web que permite que os anunciantes acompanhem suas campanhas.
 
 Várias empresas podem usar o aplicativo, portanto, vamos criar uma tabela para manter as empresas e outra para suas campanhas. No console do psql, execute estes comandos:
 
@@ -130,7 +130,7 @@ Os aplicativos multilocatários podem impor exclusividade apenas por locatário,
 
 Uma implantação de hiperescala armazena linhas de tabela em nós diferentes com base no valor de uma coluna designada pelo usuário. Essa "coluna de distribuição" marca qual locatário possui quais linhas.
 
-Vamos definir a coluna de distribuição como \_id da empresa, o identificador do locatário. No psql, execute estas funções:
+Vamos definir a coluna de distribuição como ID de\_da empresa, o identificador do locatário. No psql, execute estas funções:
 
 ```sql
 SELECT create_distributed_table('companies',   'id');
@@ -211,7 +211,7 @@ Carregue-o com dados de exemplo. Lembre-se de executar esse comando em psql de d
 \copy geo_ips from 'geo_ips.csv' with csv
 ```
 
-Ingressar na tabela de cliques com \_ips geográfica é eficiente em todos os nós.
+Ingressar na tabela de cliques com os IPs de\_geográfica é eficiente em todos os nós.
 Aqui está uma junção para encontrar os locais de todas as pessoas que clicaram no AD
 290. Tente executar a consulta no psql.
 

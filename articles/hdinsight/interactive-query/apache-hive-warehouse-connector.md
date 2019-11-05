@@ -1,5 +1,5 @@
 ---
-title: Integrar Apache Spark e Apache Hive com o conector do depósito do hive
+title: Apache Spark & Hive-conector de depósito do hive – Azure HDInsight
 description: Saiba como integrar Apache Spark e Apache Hive com o conector do depósito do hive no Azure HDInsight.
 author: nakhanha
 ms.author: nakhanha
@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 440820b7772d8edeb43ce328b8393789d7ba2973
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 2448550cf35f92bc8d91bc6ad9d5b22cc90b5ae0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264304"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494302"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integrar Apache Spark e Apache Hive com o conector do depósito do hive
 
@@ -46,7 +46,7 @@ Siga estas etapas para configurar o conector de depósito do hive entre um Spark
 
 ### <a name="modify-hosts-file"></a>Modificar arquivo de hosts
 
-Copie as informações do nó do arquivo `/etc/hosts` em headnode0 do seu cluster de consulta interativa e concatene as informações para o arquivo `/etc/hosts` no headnode0 do cluster do Spark. Esta etapa permitirá que o cluster Spark resolva os endereços IP dos nós no cluster de consulta interativa. Exiba o conteúdo do arquivo atualizado com `cat /etc/hosts`. A saída final deve ter uma aparência semelhante à mostrada na captura de tela abaixo.
+Copie as informações de nó do arquivo `/etc/hosts` em headnode0 do seu cluster de consulta interativa e concatene as informações para o arquivo de `/etc/hosts` no headnode0 do cluster Spark. Esta etapa permitirá que o cluster Spark resolva os endereços IP dos nós no cluster de consulta interativa. Exiba o conteúdo do arquivo atualizado com `cat /etc/hosts`. A saída final deve ter uma aparência semelhante à mostrada na captura de tela abaixo.
 
 ![arquivo de hosts do conector de depósito do hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
 
@@ -54,21 +54,21 @@ Copie as informações do nó do arquivo `/etc/hosts` em headnode0 do seu cluste
 
 #### <a name="from-your-interactive-query-cluster"></a>Do seu cluster de consulta interativa
 
-1. Navegue até o Apache Ambari do cluster home page usando `https://LLAPCLUSTERNAME.azurehdinsight.net`, em que `LLAPCLUSTERNAME` é o nome do seu cluster de consulta interativa.
+1. Navegue até o Apache Ambari do cluster home page usando `https://LLAPCLUSTERNAME.azurehdinsight.net` em que `LLAPCLUSTERNAME` é o nome do seu cluster de consulta interativa.
 
-1. Navegue até **hive** > **configurações** > **avançado** > **avançado Hive-site** > **Hive. Zookeeper. quorum** e observe o valor. O valor pode ser semelhante a: `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
+1. Navegue até **hive** > **configurações** > **avançado** > **Hive avançado-site** > **Hive. Zookeeper. quorum** e anote o valor. O valor pode ser semelhante a: `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
 
 1. Navegue até **hive** > **configurações** > **avançado** > **geral** > **Hive. metastore. URIs** e observe o valor. O valor pode ser semelhante a: `thrift://hn0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
 
 #### <a name="from-your-apache-spark-cluster"></a>Do seu cluster Apache Spark
 
-1. Navegue até o Apache Ambari do cluster home page usando `https://SPARKCLUSTERNAME.azurehdinsight.net`, em que `SPARKCLUSTERNAME` é o nome do seu cluster Apache Spark.
+1. Navegue até o Apache Ambari do cluster home page usando `https://SPARKCLUSTERNAME.azurehdinsight.net` em que `SPARKCLUSTERNAME` é o nome do seu cluster Apache Spark.
 
-1. Navegue até o **hive** > **configurações** > **avançado** > **avançado Hive-Interactive-site** > **Hive. LLAP. daemon. Service. hosts** e anote o valor. O valor pode ser semelhante a: `@llap0`.
+1. Navegue até **hive** > **configurações** > **avançado** > **Hive-Interactive-site** > **Hive. LLAP. daemon. Service. hosts** e anote o valor. O valor pode ser semelhante a: `@llap0`.
 
 ### <a name="configure-spark-cluster-settings"></a>Definir configurações de cluster do Spark
 
-Na interface do usuário da Web do Spark Ambari, navegue até **Spark2** > **configs** > **Spark2 personalizados-padrões**.
+Em sua interface do usuário da Web do Spark Ambari, navegue até **Spark2** > **configs** > **Personalizar Spark2-padrões**.
 
 ![Configuração do Apache Ambari Spark2](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
@@ -111,7 +111,7 @@ Para iniciar uma sessão do Spark-Shell, execute as seguintes etapas:
     --conf spark.security.credentials.hiveserver2.enabled=false
     ```
 
-    Você verá uma mensagem de boas-vindas e um prompt `scala>`, onde você pode inserir comandos.
+    Você verá uma mensagem de boas-vindas e um `scala>` prompt em que você pode inserir comandos.
 
 1. Depois de iniciar o Spark-Shell, uma instância do conector do depósito do hive pode ser iniciada usando os seguintes comandos:
 
@@ -163,7 +163,7 @@ O Spark não dá suporte nativo à gravação em tabelas ACID gerenciadas do hiv
     hive.createTable("sampletable_colorado").column("clientid","string").column("querytime","string").column("market","string").column("deviceplatform","string").column("devicemake","string").column("devicemodel","string").column("state","string").column("country","string").column("querydwelltime","double").column("sessionid","bigint").column("sessionpagevieworder","bigint").create()
     ```
 
-1. Filtre a tabela `hivesampletable` em que a coluna `state` é igual a `Colorado`. Essa consulta da tabela hive é retornada como um dataframe do Spark. Em seguida, o dataframe é salvo na tabela do hive `sampletable_colorado` usando a função `write`.
+1. Filtre a tabela `hivesampletable` em que a coluna `state` é igual a `Colorado`. Essa consulta da tabela hive é retornada como um dataframe do Spark. Em seguida, o dataframe é salvo na tabela Hive `sampletable_colorado` usando a função `write`.
 
     ```scala
     hive.table("hivesampletable").filter("state = 'Colorado'").write.format(HiveWarehouseSession.HIVE_WAREHOUSE_CONNECTOR).option("table","sampletable_colorado").save()
@@ -228,7 +228,7 @@ Use **Ctrl + C** para interromper o netcat na segunda sessão SSH. Use `:q` para
 
 ### <a name="securing-data-on-spark-esp-clusters"></a>Protegendo dados em clusters do Spark
 
-1. Crie uma tabela `demo` com alguns dados de exemplo digitando os seguintes comandos:
+1. Crie uma tabela `demo` com alguns dados de exemplo inserindo os seguintes comandos:
 
     ```scala
     create table demo (name string);
@@ -246,15 +246,15 @@ Use **Ctrl + C** para interromper o netcat na segunda sessão SSH. Use `:q` para
     ![tabela de demonstração antes de aplicar a política de Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png)
 
 1. Aplique uma política de mascaramento de coluna que mostre apenas os últimos quatro caracteres da coluna.  
-    1. Vá para a interface do usuário do administrador do Ranger em `https://CLUSTERNAME.azurehdinsight.net/ranger/`.
+    1. Acesse a interface do usuário do administrador do Ranger em `https://CLUSTERNAME.azurehdinsight.net/ranger/`.
     1. Clique no serviço de Hive para o cluster em **Hive**.
-        ![ranger Service Manager @ no__t-1
+        ![Ranger Service Manager](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
     1. Clique na guia **mascaramento** e **adicione nova política**
 
         ![lista de políticas do hive do conector do depósito do hive Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
 
     a. Forneça um nome de política desejado. Selecione banco de dados: **padrão**, tabela Hive: **demonstração**, coluna Hive: **nome**, usuário: **rsadmin2**, tipos de acesso: **Select**e **máscara parcial: mostrar últimos 4** no menu de **opção Selecionar mascaramento** . Clique em **Adicionar**.
-                política ![create @ no__t-1
+                ![criar](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png) de política
 1. Exiba o conteúdo da tabela novamente. Depois de aplicar a política de Ranger, podemos ver apenas os últimos quatro caracteres da coluna.
 
     ![tabela de demonstração após a aplicação da política de Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)

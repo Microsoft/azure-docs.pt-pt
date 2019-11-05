@@ -1,6 +1,6 @@
 ---
 title: Solucionar erros de módulo
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Solucionar problemas de exceções de módulo no Azure Machine Learning Studio usando códigos de erro
 services: machine-learning
 ms.service: machine-learning
@@ -8,25 +8,25 @@ ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: a1a6817c08223b360c08804e0595f12f2947ea5f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: b07b1fc14ac7ac72a30f75a098b4aab35f2de713
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693079"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497726"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>Exceções e códigos de erro para o algoritmo & referência de módulo
 
-Saiba mais sobre as mensagens de erro e os códigos de exceção que você pode encontrar usando módulos no Azure Machine Learning Studio. 
+Saiba mais sobre as mensagens de erro e os códigos de exceção que você pode encontrar usando módulos no designer de Azure Machine Learning (versão prévia). 
 
-Para resolver o problema, procure o erro neste artigo para ler sobre as causas comuns. Há duas maneiras de obter o texto completo de uma mensagem de erro no estúdio:  
+Para resolver o problema, procure o erro neste artigo para ler sobre as causas comuns. Há duas maneiras de obter o texto completo de uma mensagem de erro no designer:  
  
 - Clique no link, **exiba o log de saída**, no painel direito e role até a parte inferior. A mensagem de erro detalhada é exibida nas duas últimas linhas da janela.  
   
 - Selecione o módulo que tem o erro e clique no X vermelho. Somente o texto de erro pertinente é exibido.  
   
-Se o texto da mensagem de erro não for útil, envie-nos informações sobre o contexto e sobre as adições ou alterações desejadas. Você pode enviar comentários sobre o tópico de erro ou visitar o [Fórum do Azure Machine Learning Studio](https://aka.ms/aml-forum-studio) e postar uma pergunta.  
+Se o texto da mensagem de erro não for útil, envie-nos informações sobre o contexto e quaisquer adições ou alterações desejadas enviando comentários.
 
 
 ## <a name="error-0001"></a>Erro 0001  
@@ -163,9 +163,9 @@ Se o texto da mensagem de erro não for útil, envie-nos informações sobre o c
 ## <a name="error-0009"></a>Erro 0009  
  Ocorrerá uma exceção quando o nome da conta de armazenamento do Azure ou o nome do contêiner for especificado incorretamente.  
   
-Esse erro ocorre em Azure Machine Learning Studio quando você especifica parâmetros para uma conta de armazenamento do Azure, mas o nome ou a senha não podem ser resolvidos. Erros em senhas ou nomes de conta podem ocorrer por vários motivos:
+Esse erro ocorre no designer de Azure Machine Learning quando você especifica parâmetros para uma conta de armazenamento do Azure, mas o nome ou a senha não podem ser resolvidos. Erros em senhas ou nomes de conta podem ocorrer por vários motivos:
  
- + A conta é do tipo incorreto. Não há suporte para alguns novos tipos de conta para uso com Machine Learning Studio. Consulte [importar dados](import-data.md) para obter detalhes.
+ + A conta é do tipo incorreto. Não há suporte para alguns novos tipos de conta para uso com Machine Learning designer. Consulte [importar dados](import-data.md) para obter detalhes.
  + Você inseriu o nome da conta incorreta
  + A conta não existe mais
  + A senha da conta de armazenamento está incorreta ou foi alterada
@@ -779,7 +779,7 @@ Outro motivo para você receber esse erro se tentar usar uma coluna que contém 
 |Mensagens de exceção|  
 |------------------------|  
 |Nenhum método explícito acessível é igual a encontrado.|  
-|Não é possível comparar valores para a coluna \\ "{0} \\" do tipo {1}. Nenhum método explícito acessível é igual a encontrado.|  
+|Não é possível comparar valores para a coluna \\"{0}\\" do tipo {1}. Nenhum método explícito acessível é igual a encontrado.|  
 
 
 ## <a name="error-0044"></a>Erro 0044  
@@ -806,7 +806,7 @@ Outro motivo para você receber esse erro se tentar usar uma coluna que contém 
 |Mensagens de exceção|  
 |------------------------|  
 |Não é possível criar coluna com tipos de elementos mistos.|  
-|Não é possível criar a coluna com a ID "{0}" de tipos de elementos mistos: \ n\tType de dados [{1}, {0}] é {2} \n\tType de dados [{3}, {0}] é {4}.|  
+|Não é possível criar a coluna com a ID "{0}" de tipos de elementos mistos: \ n\tType de dados [{1}, {0}] é {2}\n\tType de dados [{3}, {0}] é {4}.|  
   
 
 ## <a name="error-0046"></a>Erro 0046  
@@ -1063,7 +1063,7 @@ Outro motivo para você receber esse erro se tentar usar uma coluna que contém 
   
 **Resolution:**
 
-1. In Azure Machine Learning Studio, right-click the module that has the error, and select **View Log**.
+1. In Azure Machine Learning designer, right-click the module that has the error, and select **View Log**.
 2. Examine the standard error log of the module, which contains the stack trace.
     + Lines beginning with [ModuleOutput] indicate output from R.
     + Messages from R marked as **warnings** typically do not cause the pipeline to fail.
@@ -1192,7 +1192,7 @@ Consulte os artigos a seguir para obter ajuda com consultas de Hive para aprendi
   
  Se houver uma mensagem gerada pelo SQL relatada pela exceção do módulo, execute uma ação com base no erro relatado. Por exemplo, as mensagens de erro às vezes incluem diretrizes específicas sobre o erro provável:
 + *Nenhuma coluna ou banco de dados ausente*, indicando que você pode ter digitado um nome de coluna errado. Se você tiver certeza de que o nome da coluna está correto, tente usar colchetes ou aspas para colocar o identificador de coluna.
-+ *Erro lógico do SQL próximo \<SQL palavra-chave \>* , indicando que você pode ter um erro de sintaxe antes da palavra-chave especificada
++ *Erro lógico do SQL próximo \<palavra-chave sql\>* , indicando que você pode ter um erro de sintaxe antes da palavra-chave especificada
 
   
 |Mensagens de exceção|  
@@ -1429,8 +1429,8 @@ Em geral, uma transformação baseada em contagem só pode ser aplicada a conjun
 |Mensagens de exceção|  
 |------------------------|  
 |Transformação de contagem inválida especificada.|  
-|A transformação de contagem na porta de entrada ' {0} ' é inválida.|  
-|A transformação de contagem na porta de entrada ' {0} ' não pode ser mesclada com a transformação de contagem na porta de entrada ' {1} '. Marque para verificar os metadados usados para a contagem de correspondências.|  
+|A transformação de contagem na porta de entrada '{0}' é inválida.|  
+|A transformação de contagem na porta de entrada '{0}' não pode ser mesclada com a transformação de contagem na porta de entrada '{1}'. Marque para verificar os metadados usados para a contagem de correspondências.|  
   
 
 ## <a name="error-0087"></a>Erro 0087  
@@ -1463,7 +1463,7 @@ Em geral, uma transformação baseada em contagem só pode ser aplicada a conjun
 |Mensagens de exceção|  
 |------------------------|  
 |Tipo de contagem inválido especificado.|  
-|O tipo de contagem especificado ' {0} ' não é um tipo de contagem válido.|  
+|O tipo de contagem especificado '{0}' não é um tipo de contagem válido.|  
   
 
 ## <a name="error-0089"></a>Erro 0089  
@@ -1480,7 +1480,7 @@ Em geral, uma transformação baseada em contagem só pode ser aplicada a conjun
 |Mensagens de exceção|  
 |------------------------|  
 |O número de classes está incorreto. Certifique-se de que o número de classes especificado no painel parâmetro seja maior ou igual ao número de classes na coluna rótulo.|  
-|O número de classes especificado é ' {0} ', que não é maior que um valor de rótulo ' {1} ' no conjunto de dados usado para contagem. Certifique-se de que o número de classes especificado no painel parâmetro seja maior ou igual ao número de classes na coluna rótulo.|  
+|O número de classes especificado é '{0}', que não é maior que um valor de rótulo '{1}' no conjunto de dados usado para contagem. Certifique-se de que o número de classes especificado no painel parâmetro seja maior ou igual ao número de classes na coluna rótulo.|  
   
 
 ## <a name="error-0090"></a>Erro 0090  
@@ -1521,7 +1521,7 @@ Em geral, uma transformação baseada em contagem só pode ser aplicada a conjun
 |Mensagens de exceção|  
 |------------------------|  
 |Todas as IDs de porta e parâmetro para um módulo devem ser exclusivas|  
-|O módulo ' {0} ' tem IDs de porta/argumento duplicadas. Todas as IDs de porta/argumento devem ser exclusivas para um módulo.|  
+|O módulo '{0}' tem IDs de porta/argumento duplicadas. Todas as IDs de porta/argumento devem ser exclusivas para um módulo.|  
   
 
 ## <a name="error-0102"></a>Erro 0102  
@@ -1564,7 +1564,7 @@ Em geral, uma transformação baseada em contagem só pode ser aplicada a conjun
 |Mensagens de exceção|  
 |------------------------|  
 |O arquivo de script R referenciado não existe.|  
-|O arquivo de script R ' {0} ' referenciado não foi encontrado. Verifique se o caminho relativo para o arquivo está correto no local de definições.|  
+|O arquivo de script R '{0}' referenciado não foi encontrado. Verifique se o caminho relativo para o arquivo está correto no local de definições.|  
 
 
 ## <a name="error-0105"></a>Erro 0105  
@@ -1577,7 +1577,7 @@ Em geral, uma transformação baseada em contagem só pode ser aplicada a conjun
 |Mensagens de exceção|  
 |------------------------|  
 |Tipo de parâmetro sem suporte.|  
-|Tipo de parâmetro ' {0} ' não suportado especificado.|  
+|Tipo de parâmetro '{0}' não suportado especificado.|  
 
 
 ## <a name="error-0106"></a>Erro 0106  
@@ -1590,7 +1590,7 @@ Em geral, uma transformação baseada em contagem só pode ser aplicada a conjun
 |Mensagens de exceção|  
 |------------------------|  
 |Tipo de entrada sem suporte.|  
-|Tipo de entrada ' {0} ' não suportado especificado.|  
+|Tipo de entrada '{0}' não suportado especificado.|  
 
 
 ## <a name="error-0107"></a>Erro 0107  
@@ -1603,7 +1603,7 @@ Em geral, uma transformação baseada em contagem só pode ser aplicada a conjun
 |Mensagens de exceção|  
 |------------------------|  
 |Tipo de saída sem suporte.|  
-|Tipo de saída ' {0} ' especificado sem suporte.|  
+|Tipo de saída '{0}' especificado sem suporte.|  
 
 
 ## <a name="error-0108"></a>Erro 0108  
@@ -1616,7 +1616,7 @@ Em geral, uma transformação baseada em contagem só pode ser aplicada a conjun
 |Mensagens de exceção|  
 |------------------------|  
 |Excedido o número de portas de entrada ou saída com suporte.|  
-|O número de portas ' {0} ' com suporte foi excedido. O número máximo permitido de portas ' {0} ' é ' {1} '.| 
+|O número de portas '{0}' com suporte foi excedido. O número máximo permitido de portas '{0}' é '{1}'.| 
 
 ## <a name="error-0109"></a>Erro 0109  
  Gerado quando um arquivo de definição de módulo define um seletor de coluna incorretamente  
@@ -1640,7 +1640,7 @@ Em geral, uma transformação baseada em contagem só pode ser aplicada a conjun
 |Mensagens de exceção|  
 |------------------------|  
 |O seletor de coluna faz referência a uma ID de porta de entrada não existente.|  
-|O seletor de coluna faz referência a uma ID de porta de entrada não existente ' {0} '.|  
+|O seletor de coluna faz referência a uma ID de porta de entrada não existente '{0}'.|  
   
 
 ## <a name="error-0111"></a>Erro 0111  
@@ -1653,7 +1653,7 @@ Em geral, uma transformação baseada em contagem só pode ser aplicada a conjun
 |Mensagens de exceção|  
 |------------------------|  
 |Definição de propriedade inválida.|  
-|A definição de propriedade ' {0} ' é inválida.|  
+|A definição de propriedade '{0}' é inválida.|  
   
 
 ## <a name="error-0112"></a>Erro 0112  
@@ -1666,7 +1666,7 @@ Em geral, uma transformação baseada em contagem só pode ser aplicada a conjun
 |Mensagens de exceção|  
 |------------------------|  
 |Não é possível analisar o arquivo de definição de módulo.|  
-|Não é possível analisar o arquivo de definição de módulo ' {0} '.|  
+|Não é possível analisar o arquivo de definição de módulo '{0}'.|  
   
 
 ## <a name="error-0113"></a>Erro 0113  
@@ -1679,8 +1679,8 @@ Em geral, uma transformação baseada em contagem só pode ser aplicada a conjun
 |Mensagens de exceção|  
 |------------------------|  
 |O arquivo de definição de módulo contém erros.|  
-|O arquivo de definição de módulo ' {0} ' contém erros.|  
-|O arquivo de definição de módulo ' {0} ' contém erros. {1}|  
+|O arquivo de definição de módulo '{0}' contém erros.|  
+|O arquivo de definição de módulo '{0}' contém erros. {1}|  
   
 
 ## <a name="error-0114"></a>Erro 0114  
@@ -1706,7 +1706,7 @@ Em geral, uma transformação baseada em contagem só pode ser aplicada a conjun
 |Mensagens de exceção|  
 |------------------------|  
 |Extensão sem suporte para o script padrão.|  
-|@No__t_0 de extensão de arquivo sem suporte para o script padrão.|  
+|{0} de extensão de arquivo sem suporte para o script padrão.|  
   
 
 ## <a name="error-0121"></a>Erro 0121  
@@ -1805,7 +1805,7 @@ Em geral, uma transformação baseada em contagem só pode ser aplicada a conjun
 |Mensagens de exceção|  
 |------------------------|  
 |O tamanho do pixel da imagem excede o limite permitido.|  
-|O tamanho do pixel da imagem no arquivo ' {0} ' excede o limite permitido: ' {1} '|  
+|O tamanho do pixel da imagem no arquivo '{0}' excede o limite permitido: '{1}'|  
 
 
 ## <a name="error-0128"></a>Erro 0128  
@@ -1816,7 +1816,7 @@ Em geral, uma transformação baseada em contagem só pode ser aplicada a conjun
 |Mensagens de exceção|  
 |------------------------|  
 |O número de probabilidades condicionais para colunas categóricas excede o limite.|  
-|O número de probabilidades condicionais para colunas categóricas excede o limite. As colunas ' {0} ' e ' {1} ' são o par problemático.|  
+|O número de probabilidades condicionais para colunas categóricas excede o limite. As colunas '{0}' e '{1}' são o par problemático.|  
 
 
 ## <a name="error-0129"></a>Erro 0129  
@@ -1827,9 +1827,9 @@ Em geral, uma transformação baseada em contagem só pode ser aplicada a conjun
 |Mensagens de exceção|  
 |------------------------|  
 |O número de colunas no conjunto de tempo excede o limite permitido.|  
-|O número de colunas no conjunto de um ' {0} ' excede o permitido. '|  
-|O número de colunas no conjunto de um ' {0} ' excede o limite permitido de ' {1} '. '|  
-|O número de colunas no conjunto de {0} ' excede o limite ' {1} ' permitido de ' {2} '. '|  
+|O número de colunas no conjunto de um '{0}' excede o permitido. '|  
+|O número de colunas no conjunto de um '{0}' excede o limite permitido de '{1}'. '|  
+|O número de colunas no conjunto de{0}' excede o limite '{1}' permitido de '{2}'. '|  
 ## <a name="error-0130"></a>Erro 0130  
  Ocorrerá uma exceção quando todas as linhas no conjunto de registros de treinamento contiverem valores ausentes.  
   
@@ -1979,10 +1979,10 @@ Resolução:
 |------------------------|  
 |Conversão não permitida.|  
 |Não foi possível converter: {0}.|  
-|Não foi possível converter: {0}, na {1} de linha.|  
-|Não foi possível converter a coluna do tipo {0} para a coluna do tipo {1} na {2} de linha.|  
-|Não foi possível converter a coluna "{2}" do tipo {0} para a coluna do tipo {1} na {3} de linha.|  
-|Não foi possível converter a coluna "{2}" do tipo {0} para a coluna "{3}" do tipo {1} na {4} de linha.| 
+|Não foi possível converter: {0}, na {1}de linha.|  
+|Não foi possível converter a coluna do tipo {0} para a coluna do tipo {1} na {2}de linha.|  
+|Não foi possível converter a coluna "{2}" do tipo {0} para a coluna do tipo {1} na {3}de linha.|  
+|Não foi possível converter a coluna "{2}" do tipo {0} para a coluna "{3}" do tipo {1} na {4}de linha.| 
 
 ## <a name="error-0140"></a>Erro 0140  
  Ocorrerá uma exceção se o argumento de conjunto de colunas aprovado não contiver outras colunas, exceto a coluna de rótulo.  
@@ -2041,12 +2041,12 @@ Resolução:
   
  Esse erro em Azure Machine Learning ocorre quando você especifica uma origem de arquivo do GitHub usando um formato de URL inválido.  
   
-**Resolução:** Verifique se a URL do repositório GitHub é válida e termina com \blob\ ou \tree \\.  
+**Resolução:** Verifique se a URL do repositório GitHub é válida e termina com \blob\ ou \tree\\.  
   
 |Mensagens de exceção|  
 |------------------------|  
 |Não é possível analisar a URL do GitHub.|  
-|Não é possível analisar a URL do GitHub (esperando ' \blob \\ ' ou ' \tree \\ ' após o nome do repositório): {0}|  
+|Não é possível analisar a URL do GitHub (esperando ' \blob\\' ou ' \tree\\' após o nome do repositório): {0}|  
 
 ## <a name="error-0145"></a>Erro 0145  
  Não é possível criar o diretório de replicação por algum motivo.  

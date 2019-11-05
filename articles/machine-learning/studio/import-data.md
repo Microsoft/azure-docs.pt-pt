@@ -1,7 +1,7 @@
 ---
-title: Importar dados de várias origens de dados
-titleSuffix: Azure Machine Learning Studio
-description: Como importar os dados para o Azure Machine Learning Studio a partir de várias origens de dados. Saiba quais tipos de dados e formatos de dados são suportados.
+title: Importar dados de várias fontes de dados
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Como importar seus dados para Azure Machine Learning Studio (clássico) de várias fontes de dados. Saiba quais tipos de dados e formatos de dados têm suporte.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,77 +10,77 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 41cc1d6638871f26ae942e724a402e17f52150fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e84f5c8cab6323234b81126ad3e8b1299e10171
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811062"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492895"
 ---
-# <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importar os seus dados de preparação para o Azure Machine Learning Studio a partir de várias origens de dados
+# <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importe seus dados de treinamento para Azure Machine Learning Studio (clássico) de várias fontes de dados
 
-Para utilizar os seus dados no Machine Learning Studio para desenvolver e formar uma solução de Análise Preditiva, pode utilizar dados a partir de: 
+Para usar seus próprios dados no Machine Learning Studio (clássico) para desenvolver e treinar uma solução de análise preditiva, você pode usar dados de: 
 
-* **Ficheiro local** -carregar os dados locais antes do tempo do disco rígido para criar um módulo de conjunto de dados na sua área de trabalho
-* **Origens de dados online** -utilize o [importar dados] [ import-data] módulo para aceder a dados a partir de uma das várias origens online durante a execução de sua experiência
-* **Experimentação do Studio de aprendizagem da máquina** -usar dados que foi guardados como um conjunto de dados no Machine Learning Studio
-* [**Base de dados do SQL Server no local** ](use-data-from-an-on-premises-sql-server.md) -utilizar dados a partir de uma base de dados do SQL Server no local sem ter de copiar manualmente os dados
+* **Arquivo local** -carregue dados locais antecipadamente a partir do disco rígido para criar um módulo de DataSet em seu espaço de trabalho
+* **Fontes de dados online** – use o módulo [importar dados][import-data] para acessar dados de uma das várias fontes online enquanto o experimento está em execução
+* **Teste de Machine Learning Studio (clássico)** – use os dados que foram salvos como um DataSet na versão clássica do Machine Learning Studio
+* [**Banco de dados SQL Server local**](use-data-from-an-on-premises-sql-server.md) – use os dados de um banco de SQL Server local sem precisar copiar os dados manualmente
 
 > [!NOTE]
-> Um número de conjuntos de dados de exemplo estão disponíveis no Machine Learning Studio, que pode utilizar para os dados de treinamento. Para obter informações sobre elas, consulte [utilizar os conjuntos de dados de exemplo no Azure Machine Learning Studio](use-sample-datasets.md).
+> Há vários conjuntos de dados de exemplo disponíveis na versão clássica do Machine Learning Studio que você pode usar para dados de treinamento. Para obter informações sobre eles, consulte [usar os conjuntos de dados de exemplo em Azure Machine Learning Studio (clássico)](use-sample-datasets.md).
 
 ## <a name="prepare-data"></a>Preparar dados
 
-O Machine Learning Studio foi projetado para trabalhar com dados retangulares ou em tabela, como dados de texto delimitados ou estruturado de dados a partir de uma base de dados, embora em algumas circunstâncias os dados não retangulares podem ser usados.
+A versão clássica do Machine Learning Studio é projetada para trabalhar com dados retangulares ou tabulares, como dados de texto delimitados ou dados estruturados de um banco de dado, embora em algumas circunstâncias os dados não retangulares possam ser usados.
 
-É melhor se seus dados forem relativamente limpos antes de importá-lo no Studio. Por exemplo, desejará lidar com problemas como unquoted cadeias de caracteres.
+É melhor se os dados forem relativamente limpos antes de você importá-los para a versão clássica do Studio. Por exemplo, você desejará cuidar de problemas como cadeias de caracteres sem aspas.
 
-No entanto, existem módulos disponíveis no Studio que permitem alguma manipulação de dados dentro de sua experiência, depois de importar os dados. Consoante os algoritmos de machine learning que irá utilizar, poderá ter de decidir como irá lidar com problemas de estrutural de dados, tais como valores em falta e dados dispersos, e existem módulos que podem ajudar com isso. Consulte a **transformação de dados** secção da paleta do módulo para módulos que executar estas funções.
+No entanto, há módulos disponíveis na versão clássica do Studio que habilitam alguma manipulação de dados dentro de seu experimento após a importação dos dados. Dependendo dos algoritmos de aprendizado de máquina que você usará, talvez seja necessário decidir como você tratará os problemas estruturais de dados, como valores ausentes e dados esparsos, e há módulos que podem ajudar com isso. Procure na seção **transformação de dados** da paleta de módulo os módulos que executam essas funções.
 
-Em qualquer ponto na sua experimentação, pode ver ou transferir os dados que são produzidos por um módulo ao clicar na porta de saída. Dependendo do módulo, pode haver opções diferentes de download disponível ou poderá visualizar os dados dentro de seu navegador da web no Studio.
+Em qualquer ponto do experimento, você pode exibir ou baixar os dados produzidos por um módulo clicando na porta de saída. Dependendo do módulo, pode haver diferentes opções de download disponíveis, ou você poderá visualizar os dados no navegador da Web na versão clássica do Studio.
 
-## <a name="supported-data-formats-and-data-types"></a>Formatos de dados suportados e tipos de dados
+## <a name="supported-data-formats-and-data-types"></a>Tipos de dados e formatos de dados com suporte
 
-Pode importar um número de tipos de dados na sua experimentação, dependendo de qual mecanismo é utilizado para importar dados e de onde vem de:
+Você pode importar vários tipos de dados para seu experimento, dependendo do mecanismo usado para importar dados e de onde eles estão vindo:
 
 * Texto sem formatação (. txt)
-* Valores separados por vírgulas (CSV) com um cabeçalho (. csv) ou sem (. nh.csv)
-* Separador valores separados (TSV) com um cabeçalho. (tsv) ou sem (. nh.tsv)
-* Ficheiro do Excel
+* CSV (valores separados por vírgula) com um cabeçalho (. csv) ou sem (. NH. csv)
+* Valores separados por tabulação (TSV) com um cabeçalho (. tsv) ou sem (. NH. tsv)
+* Arquivo do Excel
 * Tabela do Azure
-* Tabela do Hive
-* Tabela de base de dados SQL
+* Tabela do hive
+* Tabela do banco de dados SQL
 * Valores de OData
-* Dados de SVMLight (.svmlight) (consulte a [SVMLight definição](http://svmlight.joachims.org/) para informações de formato)
-* Atributo de dados do formato de ficheiro de relação (ARFF) (.arff) (consulte a [definição ARFF](https://weka.wikispaces.com/ARFF) para informações de formato)
-* Ficheiro zip (. zip)
-* Ficheiro de objeto ou área de trabalho de R (. RData)
+* Dados de SVMLight (. SVMLight) (consulte a [definição de SVMLight](http://svmlight.joachims.org/) para obter informações sobre o formato)
+* Dados de formato de arquivo de relação de atributo (ARFF) (. ARFF) (consulte a [definição de ARFF](https://weka.wikispaces.com/ARFF) para obter informações sobre o formato)
+* Arquivo zip (. zip)
+* Objeto R ou arquivo de espaço de trabalho (. RData
 
-Se importar dados num formato como ARFF que inclui metadados, o Studio usa esses metadados para definir o cabeçalho e o tipo de dados de cada coluna.
+Se você importar dados em um formato como ARFF que inclui metadados, a versão clássica do Studio usará esses metadados para definir o cabeçalho e o tipo de dados de cada coluna.
 
-Se importar dados, tais como o formato TSV ou CSV, que não inclua estes metadados, o Studio infere o tipo de dados para cada coluna, os dados de amostragem. Se os dados também não tem cabeçalhos de coluna, o Studio fornece nomes predefinidos.
+Se você importar dados como o formato TSV ou CSV que não inclua esses metadados, a versão clássica do estúdio infere o tipo de dados para cada coluna por meio da amostragem dos dados. Se os dados também não tiverem títulos de coluna, a versão clássica do estúdio fornecerá nomes padrão.
 
-É possível especificar explicitamente ou alterar os cabeçalhos e tipos de dados para colunas com o [Editar metadados] [ edit-metadata] módulo.
+Você pode especificar ou alterar explicitamente os títulos e tipos de dados para colunas usando o módulo [Editar metadados][edit-metadata] .
 
-Os seguintes tipos de dados são reconhecidos pelo Studio:
+Os seguintes tipos de dados são reconhecidos pela versão clássica do Studio:
 
 * String
-* Integer
-* Double
-* Boolean
+* Número inteiro
+* Clique
+* Booleano
 * DateTime
-* TimeSpan
+* Período
 
-Studio utiliza um tipo de dados interno chamado ***tabela de dados*** para passar dados entre os módulos. Explicitamente pode converter os dados em formato de tabela do dados com o [converter para o conjunto de dados] [ convert-to-dataset] módulo.
+O estúdio usa um tipo de dados interno chamado ***tabela de dados*** para passar dados entre módulos. Você pode converter explicitamente seus dados em formato de tabela de dados usando o módulo [converter para conjunto de][convert-to-dataset] dados.
 
-Qualquer módulo que formatos que não seja a tabela de dados irá converter a tabela de dados para dados silenciosamente, antes de passá-lo ao módulo seguinte.
+Qualquer módulo que aceite formatos diferentes da tabela de dados converterá os dados em uma tabela de dados silenciosamente antes de passá-los para o próximo módulo.
 
-Se necessário, pode converter o formato de tabela de dados no CSV, TSV, ARFF ou formato de SVMLight com outros módulos de conversão.
-Consulte a **conversões de formato de dados** secção da paleta do módulo para módulos que executar estas funções.
+Se necessário, você pode converter o formato de tabela de dados de volta no formato CSV, TSV, ARFF ou SVMLight usando outros módulos de conversão.
+Examine a seção **conversões de formato de dados** da paleta de módulo para obter os módulos que executam essas funções.
 
 ## <a name="data-capacities"></a>Capacidades de dados
 
-Os módulos no Machine Learning Studio suportam conjuntos de dados até 10 GB de dados numéricos em casos de utilização comum. Se um módulo precisar de mais do que uma entrada, 10 GB é o valor do tamanho total de todas as entradas de dados. Pode apresentar exemplos dos conjuntos de dados maiores através de consultas do Hive ou base de dados do Azure SQL ou pode utilizar a aprendizagem por contagens pré-processamentos antes de importar os dados.  
+Os módulos na versão clássica do Machine Learning Studio dão suporte a conjuntos de dados de até 10 GB de data numérico denso para casos de uso comuns. Se um módulo precisar de mais do que uma entrada, 10 GB é o valor do tamanho total de todas as entradas de dados. Você pode obter amostras de conjuntos de dados maiores usando consultas do hive ou do banco de dado SQL do Azure, ou pode usar o aprendizado por conta de pré-processamento antes de importar os dados.  
 
 Os seguintes tipos de dados podem ser expandidos para conjuntos de dados de maiores dimensões durante a normalização da funcionalidade, estando limitados a menos de 10 GB:
 
@@ -97,89 +97,89 @@ Os seguintes módulos estão limitados a conjuntos de dados inferiores a 10 GB:
 * Módulos onde o tamanho dos dados de saída pode ser superior ao tamanho dos dados de entrada, tais como Associação ou Hashing de Funcionalidade
 * Validação Cruzada, Hiperparâmetros do Modelo de Otimização, Regressão Ordinal e Multicasse “One-vs-All”, quando o número de iterações é muito grande
 
-Para conjuntos de dados superiores a alguns GB, carregue os dados para o armazenamento do Azure ou a base de dados do Azure SQL ou utilizar o Azure HDInsight, em vez de os carregar diretamente a partir de um ficheiro local.
+Para conjuntos de dados maiores que alguns GBs, carregue os dados no armazenamento do Azure ou no banco de dados SQL do Azure ou use o Azure HDInsight, em vez de carregar diretamente de um arquivo local.
 
-Pode encontrar informações sobre dados de imagem na [importar imagens](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/import-images#bkmk_Notes) referência do módulo.
+Você pode encontrar informações sobre dados de imagem na referência do módulo [importar imagens](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/import-images#bkmk_Notes) .
 
-## <a name="import-from-a-local-file"></a>Importar a partir de um ficheiro local
+## <a name="import-from-a-local-file"></a>Importar de um arquivo local
 
-Pode carregar um ficheiro de dados do disco rígido para utilizar como dados de treinamento no Studio. Quando importa um ficheiro de dados, vai criar um módulo de conjunto de dados pronta a utilizar experimentações em sua área de trabalho.
+Você pode carregar um arquivo de dados do disco rígido para usar como dados de treinamento na versão clássica do Studio. Quando você importa um arquivo de dados, você cria um módulo de DataSet pronto para uso em experimentos em seu espaço de trabalho.
 
-Para importar dados de uma unidade de disco rígida local, faça o seguinte:
+Para importar dados de um disco rígido local, faça o seguinte:
 
-1. Clique em **+ novo** na parte inferior da janela do Studio.
-2. Selecione **conjunto de dados** e **do ficheiro LOCAL**.
-3. Na **carregar um novo conjunto de dados** caixa de diálogo, procure o ficheiro que pretende carregar.
-4. Introduza um nome, identificar o tipo de dados e, opcionalmente, introduza uma descrição. Recomenda-se uma descrição, ele permite que Registre quaisquer características sobre os dados que deseja lembrar ao utilizar os dados no futuro.
-5. A caixa de verificação **esta é a nova versão de um conjunto de dados existente** permite-lhe atualizar um conjunto de dados existente com novos dados. Para tal, clique nesta caixa de verificação e, em seguida, introduza o nome de um conjunto de dados existente.
+1. Clique em **+ novo** na parte inferior da janela do Studio (clássico).
+2. Selecione **DataSet** e **do arquivo local**.
+3. Na caixa de diálogo **carregar um novo conjunto de um** , navegue até o arquivo que você deseja carregar.
+4. Insira um nome, identifique o tipo de dados e, opcionalmente, insira uma descrição. Uma descrição é recomendada-ela permite que você registre quaisquer características sobre os dados que você deseja lembrar ao usar os dados no futuro.
+5. A caixa de seleção **é que a nova versão de um conjunto de dados existente** permite que você atualize um DataSet existente com novos data. Para fazer isso, clique nessa caixa de seleção e digite o nome de um conjunto de um existente.
 
-![Carregar um novo conjunto de dados](./media/import-data/upload-dataset-from-local-file.png)
+![Carregar um novo conjunto de um](./media/import-data/upload-dataset-from-local-file.png)
 
-Carregar tempo depende do tamanho dos seus dados e a velocidade da sua ligação ao serviço. Se souber que o ficheiro irá demorar muito tempo, pode fazer outras coisas dentro do Studio enquanto espera. No entanto, fecho do browser antes do carregamento de dados está concluído faz com que o carregamento falhe.
+O tempo de carregamento depende do tamanho dos dados e da velocidade da conexão com o serviço. Se você souber que o arquivo levará muito tempo, poderá fazer outras coisas dentro da versão clássica do estúdio enquanto espera. No entanto, fechar o navegador antes que o carregamento de dados seja concluído faz com que o carregamento falhe.
 
-Depois de seus dados são carregados, ele é armazenado num módulo de conjunto de dados e está disponível para qualquer experimentação na sua área de trabalho.
+Depois que os dados são carregados, eles são armazenados em um módulo de conjunto e estão disponíveis para qualquer experimento em seu espaço de trabalho.
 
-Quando estiver a editar uma experimentação, pode encontrar os conjuntos de dados que carregou o **conjuntos de dados de meu** lista sob a **conjuntos de dados guardado** lista na paleta do módulo. Pode arrastar e largar o conjunto de dados para a tela de experimentação, quando desejar usar o conjunto de dados para análise adicional e o machine learning.
+Quando estiver editando um experimento, você poderá encontrar os conjuntos de os que você carregou na lista **meus conjuntos** de valores na lista **DataSets salvos** na paleta de módulos. Você pode arrastar e soltar o conjunto de informações na tela do experimento quando desejar usar o conjunto de informações para análise e aprendizado de máquina adicionais.
 
-## <a name="import-from-online-data-sources"></a>Importar a partir de origens de dados online
+## <a name="import-from-online-data-sources"></a>Importar de fontes de dados online
 
-Utilizar o [importar dados] [ import-data] módulo, sua experimentação pode importar dados de várias origens de dados online ao mesmo tempo a experimentação em execução.
+Usando o módulo [importar dados][import-data] , seu experimento pode importar dados de várias fontes de dados online enquanto o experimento está em execução.
 
 > [!NOTE]
-> Este artigo fornece informações gerais sobre o [importar dados] [ import-data] módulo. Para obter mais informações sobre os tipos de dados pode aceder, formatos, parâmetros e respostas a perguntas comuns, consulte o tópico de referência de módulo para o [importar dados] [ import-data] módulo.
+> Este artigo fornece informações gerais sobre o módulo [importar dados][import-data] . Para obter informações mais detalhadas sobre os tipos de dados que você pode acessar, formatos, parâmetros e respostas a perguntas comuns, consulte o tópico de referência do módulo para o módulo [importar dados][import-data] .
 
-Ao utilizar o [importar dados] [ import-data] módulo, pode acessar dados de uma das várias origens de dados online durante a execução de sua experiência:
+Usando o módulo [importar dados][import-data] , você pode acessar dados de uma das várias fontes de dados online enquanto o experimento está em execução:
 
-* Um URL de Web através de HTTP
-* Hadoop com o HiveQL
-* Armazenamento de blobs do Azure
+* Uma URL da Web usando HTTP
+* Hadoop usando HiveQL
+* Armazenamento de BLOBs do Azure
 * Tabela do Azure
-* Base de dados SQL ou SQL Server numa VM do Azure do Azure
-* Base de dados do SQL Server no local
-* Um provedor de OData atualmente de feed de dados
+* Banco de dados SQL do Azure ou SQL Server na VM do Azure
+* Banco de dados SQL Server local
+* Um provedor de feed de dados, OData atualmente
 * Azure Cosmos DB
 
-Uma vez que estes dados de treinamento são acedidos durante a execução de sua experiência, só está disponível desse experimento. Por comparação, os dados que tenham sido armazenados num módulo de conjunto de dados estão disponíveis para qualquer experimentação na sua área de trabalho.
+Como esses dados de treinamento são acessados enquanto o experimento está em execução, ele só está disponível nesse experimento. Por comparação, os dados que foram armazenados em um módulo DataSet estão disponíveis para qualquer experimento em seu espaço de trabalho.
 
-Para aceder a origens de dados online na sua experimentação do Studio, adicione a [importar dados] [ import-data] módulo à sua experimentação. Em seguida, selecione **iniciar o Assistente para importar dados** sob **propriedades** para obter instruções passo a passo de guiado selecionar e configurar a origem de dados. Em alternativa, pode selecionar manualmente **origem de dados** sob **propriedades** e fornecer os parâmetros necessários para acessar os dados.
+Para acessar fontes de dados online em seu experimento do estúdio (clássico), adicione o módulo [importar dados][import-data] ao seu experimento. Em seguida, selecione **iniciar o assistente de dados de importação** em **Propriedades** para obter instruções guiadas passo a passo para selecionar e configurar a fonte de dados. Como alternativa, você pode selecionar manualmente a **fonte de dados** em **Propriedades** e fornecer os parâmetros necessários para acessar os dados.
 
-As origens de dados online, que são suportadas estão descritas na tabela abaixo. Esta tabela também resume os formatos de ficheiro suportados e os parâmetros que são utilizados para aceder aos dados.
+As fontes de dados online com suporte são discriminadas na tabela a seguir. Esta tabela também resume os formatos de arquivo com suporte e os parâmetros que são usados para acessar os dados.
 
 > [!IMPORTANT]
-> Atualmente, o [importar dados] [ import-data] e [exportar dados] [ export-data] módulos podem ler e escrever dados apenas a partir de armazenamento do Azure criado com clássica modelo de implementação. Em outras palavras, o novo tipo de conta de armazenamento de Blobs do Azure que oferece uma camada de acesso de armazenamento frequente ou de uma camada de acesso de armazenamento esporádico não ainda é suportado.
+> Atualmente, os módulos [importar dados][import-data] e [exportar dados][export-data] podem ler e gravar dados somente do armazenamento do Azure criado usando o modelo de implantação clássico. Em outras palavras, o novo tipo de conta de armazenamento de BLOBs do Azure que oferece uma camada de acesso de armazenamento dinâmico ou camada de acesso de armazenamento fria ainda não tem suporte.
 >
-> Em geral, as contas de armazenamento do Azure que pode ter criado antes desta opção de serviço se tornar disponível não deve ser afetado.
-> Se precisar de criar uma nova conta, selecione **clássica** para a implementação de modelo, ou utilizar o Resource manager e selecione **fins gerais** vez **armazenamento de BLOBs** para  **Tipo de conta**.
+> Em geral, todas as contas de armazenamento do Azure que você pode ter criado antes dessa opção de serviço se tornaram disponíveis não devem ser afetadas.
+> Se você precisar criar uma nova conta, selecione **clássico** para o modelo de implantação ou use o Gerenciador de recursos e selecione uso **geral** em vez de **armazenamento de BLOBs** para **tipo de conta**.
 >
-> Para obter mais informações, consulte [armazenamento de Blobs do Azure: Acesso frequente e esporádico camadas de armazenamento](../../storage/blobs/storage-blob-storage-tiers.md).
+> Para obter mais informações, consulte [armazenamento de BLOBs do Azure: camadas de armazenamento quentes e frias](../../storage/blobs/storage-blob-storage-tiers.md).
 
-### <a name="supported-online-data-sources"></a>Origens de dados online suportadas
-O Azure Machine Learning Studio **importar dados** módulo suporta as seguintes origens de dados:
+### <a name="supported-online-data-sources"></a>Fontes de dados online com suporte
+A versão clássica do módulo Azure Machine Learning Studio **importar dados** dá suporte às seguintes fontes de dados:
 
-| Origem de Dados | Descrição | Parâmetros |
+| Fonte de dados | Descrição | Parâmetros |
 | --- | --- | --- |
-| URL de Web por meio de HTTP |Leia os dados em valores separados por vírgulas (CSV), valores separados por tabulações (TSV), o formato de ficheiro de relação de atributo (ARFF) e formatos de máquinas de Vetores de suporte (SVM luz), de qualquer URL da web que utiliza HTTP |<b>URL</b>: Especifica o nome completo do ficheiro, incluindo o URL do site e o nome de ficheiro, com qualquer extensão. <br/><br/><b>Formato de dados</b>: Especifica um dos formatos de dados suportados: CSV, TSV, ARFF ou SVM-light. Se os dados têm uma linha de cabeçalho, ele é usado para atribuir nomes de coluna. |
-| Hadoop/HDFS |Leia os dados de armazenamento distribuído no Hadoop. Especifique os dados que pretende ao utilizar o HiveQL, uma linguagem de consulta do tipo SQL. Também pode ser utilizado o HiveQL para agregar dados e realizar antes de adicionar os dados para o Studio de filtragem de dados. |<b>Consulta de base de dados do Hive</b>: Especifica a consulta do Hive utilizada para gerar os dados.<br/><br/><b>URI do servidor de HCatalog </b> : Especificar o nome do seu cluster com o formato  *&lt;o nome do cluster&gt;. azurehdinsight.net.*<br/><br/><b>Nome de conta de utilizador do Hadoop</b>: Especifica o nome de conta de utilizador do Hadoop utilizado para aprovisionar o cluster.<br/><br/><b>Palavra-passe de conta de utilizador Hadoop</b> : Especifica as credenciais utilizadas quando o aprovisionamento do cluster. Para obter mais informações, consulte [criar clusters Hadoop no HDInsight](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).<br/><br/><b>Localização de dados de saída</b>: Especifica se os dados são armazenados num sistema de ficheiros distribuído Hadoop (HDFS) ou no Azure. <br/><ul>Se armazenar dados de saída no HDFS, especifique o URI do servidor HDFS. (Certifique-se de que utiliza o nome de cluster do HDInsight sem o prefixo HTTPS://). <br/><br/>Se armazenar os dados de saída no Azure, tem de especificar o nome da conta de armazenamento do Azure, a chave de acesso de armazenamento e o nome do contentor de armazenamento.</ul> |
-| Base de dados SQL |Lê os dados armazenados numa base de dados SQL do Azure ou numa base de dados do SQL Server em execução numa máquina virtual do Azure. |<b>Nome do servidor de base de dados</b>: Especifica o nome do servidor no qual a base de dados está em execução.<br/><ul>Em caso de base de dados do Azure SQL, introduza o nome do servidor que é gerado. Normalmente, ela tem o formato  *&lt;generated_identifier&gt;. database.windows.net.* <br/><br/>Em caso de um SQL server alojado numa máquina Virtual do Azure, introduza *tcp:&lt;nome de DNS da Máquina Virtual&gt;, 1433*</ul><br/><b>Nome da base de dados </b>: Especifica o nome da base de dados no servidor. <br/><br/><b>Nome de conta de utilizador do servidor</b>: Especifica um nome de utilizador para uma conta que tenha permissões de acesso para a base de dados. <br/><br/><b>Palavra-passe de conta de utilizador servidor</b>: Especifica a palavra-passe da conta de utilizador.<br/><br/><b>Consulta de base de dados</b>: introduza uma instrução SQL que descreve os dados que pretende ler. |
-| Base de dados SQL no local |Lê os dados armazenados numa base de dados SQL no local. |<b>Gateway de dados</b>: Especifica o nome do Gateway de gestão de dados instalado num computador em que ele pode acessar seu banco de dados do SQL Server. Para obter informações sobre como configurar o gateway, consulte [executar análises avançadas com o Azure Machine Learning Studio usando dados de um servidor SQL no local](use-data-from-an-on-premises-sql-server.md).<br/><br/><b>Nome do servidor de base de dados</b>: Especifica o nome do servidor no qual a base de dados está em execução.<br/><br/><b>Nome da base de dados </b>: Especifica o nome da base de dados no servidor. <br/><br/><b>Nome de conta de utilizador do servidor</b>: Especifica um nome de utilizador para uma conta que tenha permissões de acesso para a base de dados. <br/><br/><b>Nome de utilizador e palavra-passe</b>: Clique em <b>introduza valores</b> que introduza as credenciais da base de dados. Pode usar a autenticação integrada do Windows ou a autenticação do SQL Server, dependendo de como o SQL Server no local está configurado.<br/><br/><b>Consulta de base de dados</b>: introduza uma instrução SQL que descreve os dados que pretende ler. |
-| Tabela do Azure |Lê dados a partir do serviço tabela no armazenamento do Azure.<br/><br/>Se leu grandes quantidades de dados com pouca frequência, utilize o serviço de tabela do Azure. Ele fornece flexível, não relacionais (NoSQL), a solução de armazenamento de elevada disponibilidade, económica e dimensionável em massa. |As opções de **importar dados** alterar dependendo se aceder a informações públicas ou uma conta de armazenamento privado que necessite de credenciais de início de sessão. Tal é determinado através da <b>tipo de autenticação</b> que pode ter um valor de "PublicOrSAS" ou "Conta", cada um com seu próprio conjunto de parâmetros. <br/><br/><b>Assinatura de acesso público ou partilhado (SAS) URI</b>: Os parâmetros são:<br/><br/><ul><b>URI de tabela</b>: Especifica o público ou o URL de SAS para a tabela.<br/><br/><b>Especifica as linhas para verificar a existência de nomes de propriedade</b>: Os valores são <i>TopN</i> para analisar o número especificado de linhas, ou <i>ScanAll</i> para obter todas as linhas na tabela. <br/><br/>Se os dados são homogêneos e previsível, recomenda-se que seleciona *TopN* e introduza um número para N. Para tabelas grandes, isso pode resultar em tempos de leitura mais rápidos.<br/><br/>Se os dados estão estruturados com conjuntos de propriedades que variam com base na profundidade e a posição da tabela, escolha o *ScanAll* opção para verificar todas as linhas. Isto garante a integridade da sua propriedade resultante e a conversão de metadados.<br/><br/></ul><b>Conta de armazenamento privado</b>: Os parâmetros são: <br/><br/><ul><b>Nome da conta</b>: Especifica o nome da conta que contém a tabela de ler.<br/><br/><b>Chave da conta</b>: Especifica a chave de armazenamento associada à conta.<br/><br/><b>Nome da tabela</b> : Especifica o nome da tabela que contém os dados para ler.<br/><br/><b>Linhas para verificar a existência de nomes de propriedade</b>: Os valores são <i>TopN</i> para analisar o número especificado de linhas, ou <i>ScanAll</i> para obter todas as linhas na tabela.<br/><br/>Se os dados forem homogêneos e previsível, recomendamos que seleciona *TopN* e introduza um número para N. Para tabelas grandes, isso pode resultar em tempos de leitura mais rápidos.<br/><br/>Se os dados estão estruturados com conjuntos de propriedades que variam com base na profundidade e a posição da tabela, escolha o *ScanAll* opção para verificar todas as linhas. Isto garante a integridade da sua propriedade resultante e a conversão de metadados.<br/><br/> |
-| Armazenamento de Blobs do Azure |Lê os dados armazenados no serviço de BLOBs no armazenamento do Azure, incluindo imagens, texto não estruturado ou dados binários.<br/><br/>Pode utilizar o serviço de BLOBs para expor publicamente os dados ou para armazenar os dados da aplicação em privado. Pode aceder aos dados a partir de qualquer lugar usando conexões HTTP ou HTTPS. |As opções de **importar dados** módulo alteração dependendo se aceder a informações públicas ou uma conta de armazenamento privado que necessite de credenciais de início de sessão. Tal é determinado através da <b>tipo de autenticação</b> que pode ter um valor de "PublicOrSAS" ou "Conta".<br/><br/><b>Assinatura de acesso público ou partilhado (SAS) URI</b>: Os parâmetros são:<br/><br/><ul><b>URI</b>: Especifica o público ou o URL de SAS para o blob de armazenamento.<br/><br/><b>Formato de arquivo</b>: Especifica o formato dos dados no serviço Blob. Os formatos suportados são CSV, TSV e ARFF.<br/><br/></ul><b>Conta de armazenamento privado</b>: Os parâmetros são: <br/><br/><ul><b>Nome da conta</b>: Especifica o nome da conta que contém o blob que pretende ler.<br/><br/><b>Chave da conta</b>: Especifica a chave de armazenamento associada à conta.<br/><br/><b>Caminho para o contentor, diretório ou blob </b> : Especifica o nome do blob que contém os dados para ler.<br/><br/><b>Formato de ficheiro blob</b>: Especifica o formato dos dados no serviço blob. Os formatos de dados suportados são CSV, TSV, ARFF, CSV com uma codificação especificada e o Excel. <br/><br/><ul>Se o formato CSV ou TSV, certifique-se de que indicam se o ficheiro contém uma linha de cabeçalho.<br/><br/>Pode utilizar a opção do Excel para ler dados de livros do Excel. Na <i>formato de dados do Excel</i> opção, indique se os dados estão num intervalo de folha de cálculo do Excel ou numa tabela do Excel. Na <i>folha do Excel ou tabela embedded </i>opção, especifique o nome da folha de cálculo ou tabela que pretende ler a partir de.</ul><br/> |
-| Fornecedor de Feeds de dados |Leia os dados de um provedor de feed de suporte. Atualmente apenas o formato de Open Data Protocol (OData) é suportado. |<b>Tipo de conteúdo de dados</b>: Especifica o formato OData.<br/><br/><b>URL de origem</b>: Especifica o URL completo para o feed de dados. <br/>Por exemplo, o seguinte URL lê a partir de dados Northwind de exemplo: https://services.odata.org/northwind/northwind.svc/ |
+| URL da Web via HTTP |Lê dados em CSV (valores separados por vírgula), TSV (valores separados por tabulação), formato de arquivo de relação de atributo (ARFF) e formatos de máquinas de vetor de suporte (SVM-Light), de qualquer URL da Web que usa HTTP |<b>URL</b>: especifica o nome completo do arquivo, incluindo a URL do site e o nome do arquivo, com qualquer extensão. <br/><br/><b>Formato de dados</b>: especifica um dos formatos de dados com suporte: CSV, TSV, ARFF ou SVM-Light. Se os dados tiverem uma linha de cabeçalho, eles serão usados para atribuir nomes de coluna. |
+| Hadoop/HDFS |Lê dados do armazenamento distribuído no Hadoop. Você especifica os dados desejados usando o HiveQL, uma linguagem de consulta do tipo SQL. O HiveQL também pode ser usado para agregar dados e executar a filtragem de dados antes de adicionar os dados à versão clássica do Studio. |<b>Consulta de banco</b>de dados do hive: especifica a consulta do hive usada para gerar os dados.<br/><br/><b>URI do servidor HCatalog</b> : especifica o nome do cluster usando o formato *&lt;nome do cluster&gt;. azurehdinsight.net.*<br/><br/><b>Nome da conta de usuário do Hadoop</b>: especifica o nome de conta de usuário do Hadoop usado para provisionar o cluster.<br/><br/><b>Senha da conta de usuário do Hadoop</b> : especifica as credenciais usadas ao provisionar o cluster. Para obter mais informações, consulte [Criar clusters Hadoop no HDInsight](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).<br/><br/><b>Local dos dados de saída</b>: especifica se os dados são armazenados em um sistema de arquivos distribuído HADOOP (HDFS) ou no Azure. <br/><ul>Se você armazenar os dados de saída no HDFS, especifique o URI do servidor HDFS. (Certifique-se de usar o nome do cluster HDInsight sem o prefixo HTTPS://). <br/><br/>Se você armazenar os dados de saída no Azure, deverá especificar o nome da conta de armazenamento do Azure, a chave de acesso de armazenamento e o nome do contêiner de armazenamento.</ul> |
+| Base de dados SQL |Lê os dados que são armazenados em um banco de dado SQL do Azure ou em um SQL Server um em execução em uma máquina virtual do Azure. |<b>Nome do servidor de banco de dados</b>: especifica o nome do servidor no qual o banco de dados está em execução.<br/><ul>No caso do banco de dados SQL do Azure, insira o nome do servidor que é gerado. Normalmente, ele tem o formato *&lt;generated_identifier&gt;. Database.Windows.net.* <br/><br/>No caso de um SQL Server hospedado em uma máquina virtual do Azure *, insira TCP:&lt;nome DNS da máquina virtual&gt;, 1433*</ul><br/><b>Nome do banco de dados </b>: especifica o nome do banco de dados no servidor. <br/><br/><b>Nome da conta de usuário do servidor</b>: especifica um nome de usuário para uma conta que tenha permissões de acesso para o banco de dados. <br/><br/><b>Senha da conta de usuário do servidor</b>: especifica a senha da conta de usuário.<br/><br/><b>Consulta de banco</b>de dados: Insira uma instrução SQL que descreva os dados que você deseja ler. |
+| Banco de dados SQL local |Lê os dados que são armazenados em um banco de dado SQL local. |<b>Gateway de dados</b>: especifica o nome do gateway de gerenciamento de dados instalado em um computador em que ele pode acessar o banco de dados de SQL Server. Para obter informações sobre como configurar o gateway, consulte [executar análise avançada com a versão clássica do Azure Machine Learning Studio usando dados de um SQL Server local](use-data-from-an-on-premises-sql-server.md).<br/><br/><b>Nome do servidor de banco de dados</b>: especifica o nome do servidor no qual o banco de dados está em execução.<br/><br/><b>Nome do banco de dados </b>: especifica o nome do banco de dados no servidor. <br/><br/><b>Nome da conta de usuário do servidor</b>: especifica um nome de usuário para uma conta que tenha permissões de acesso para o banco de dados. <br/><br/><b>Nome de usuário e senha</b>: clique em <b>Inserir valores</b> para inserir suas credenciais de banco de dados. Você pode usar a autenticação integrada do Windows ou a autenticação SQL Server dependendo de como sua SQL Server local está configurada.<br/><br/><b>Consulta de banco</b>de dados: Insira uma instrução SQL que descreva os dados que você deseja ler. |
+| Tabela do Azure |Lê dados do serviço tabela no armazenamento do Azure.<br/><br/>Se você ler grandes quantidades de dados com pouca frequência, use o serviço tabela do Azure. Ele fornece uma solução de armazenamento flexível, não relacional (NoSQL), maciçamente escalonável, barata e altamente disponível. |As opções nos **dados de importação** mudam dependendo se você estiver acessando informações públicas ou uma conta de armazenamento particular que exija credenciais de logon. Isso é determinado pelo <b>tipo de autenticação</b> que pode ter o valor "PublicOrSAS" ou "Account", cada um deles com seu próprio conjunto de parâmetros. <br/><br/><b>URI de SAS (assinatura de acesso compartilhado) ou pública</b>: os parâmetros são:<br/><br/><ul><b>URI da tabela</b>: especifica a URL pública ou de SAS para a tabela.<br/><br/><b>Especifica as linhas para verificar nomes de propriedade</b>: os valores são <i>TopN</i> para verificar o número especificado de linhas ou <i>ScanAll</i> para obter todas as linhas na tabela. <br/><br/>Se os dados forem homogêneos e previsíveis, é recomendável que você selecione *TopN* e insira um número para N. Para tabelas grandes, isso pode resultar em tempos de leitura mais rápidos.<br/><br/>Se os dados forem estruturados com conjuntos de propriedades que variam de acordo com a profundidade e a posição da tabela, escolha a opção *ScanAll* para verificar todas as linhas. Isso garante a integridade da sua propriedade resultante e da conversão de metadados.<br/><br/></ul><b>Conta de armazenamento particular</b>: os parâmetros são: <br/><br/><ul><b>Nome da conta</b>: especifica o nome da conta que contém a tabela a ser lida.<br/><br/><b>Chave de conta</b>: especifica a chave de armazenamento associada à conta.<br/><br/><b>Nome da tabela</b> : especifica o nome da tabela que contém os dados a serem lidos.<br/><br/><b>Linhas para verificar nomes de propriedade</b>: os valores são <i>TopN</i> para verificar o número especificado de linhas ou <i>ScanAll</i> para obter todas as linhas na tabela.<br/><br/>Se os dados forem homogêneos e previsíveis, recomendamos que você selecione *TopN* e insira um número para N. Para tabelas grandes, isso pode resultar em tempos de leitura mais rápidos.<br/><br/>Se os dados forem estruturados com conjuntos de propriedades que variam de acordo com a profundidade e a posição da tabela, escolha a opção *ScanAll* para verificar todas as linhas. Isso garante a integridade da sua propriedade resultante e da conversão de metadados.<br/><br/> |
+| Armazenamento de Blobs do Azure |Lê os dados armazenados no serviço blob no armazenamento do Azure, incluindo imagens, texto não estruturado ou dados binários.<br/><br/>Você pode usar o serviço blob para expor dados publicamente ou para armazenar dados de aplicativo de forma privada. Você pode acessar seus dados de qualquer lugar usando conexões HTTP ou HTTPS. |As opções no módulo **importar dados** são alteradas dependendo se você está acessando informações públicas ou uma conta de armazenamento particular que requer credenciais de logon. Isso é determinado pelo <b>tipo de autenticação</b> que pode ter um valor de "PublicOrSAS" ou de "Account".<br/><br/><b>URI de SAS (assinatura de acesso compartilhado) ou pública</b>: os parâmetros são:<br/><br/><ul><b>URI</b>: especifica a URL pública ou de SAS para o blob de armazenamento.<br/><br/><b>Formato de arquivo</b>: especifica o formato dos dados no serviço BLOB. Os formatos com suporte são CSV, TSV e ARFF.<br/><br/></ul><b>Conta de armazenamento particular</b>: os parâmetros são: <br/><br/><ul><b>Nome da conta</b>: especifica o nome da conta que contém o blob que você deseja ler.<br/><br/><b>Chave de conta</b>: especifica a chave de armazenamento associada à conta.<br/><br/><b>Caminho para o contêiner, diretório ou BLOB</b> : especifica o nome do blob que contém os dados a serem lidos.<br/><br/><b>Formato de arquivo de blob</b>: especifica o formato dos dados no serviço BLOB. Os formatos de dados com suporte são CSV, TSV, ARFF, CSV com uma codificação especificada e Excel. <br/><br/><ul>Se o formato for CSV ou TSV, certifique-se de indicar se o arquivo contém uma linha de cabeçalho.<br/><br/>Você pode usar a opção do Excel para ler dados de pastas de trabalho do Excel. Na opção <i>formato de dados do Excel</i> , indique se os dados estão em um intervalo de planilha do Excel ou em uma tabela do Excel. Na opção <i>planilha do Excel ou tabela inserida </i>, especifique o nome da planilha ou da tabela da qual você deseja ler.</ul><br/> |
+| Provedor de feed de dados |Lê dados de um provedor de feeds com suporte. Atualmente, há suporte apenas para o formato Protocolo Open Data (OData). |<b>Tipo de conteúdo de dados</b>: especifica o formato OData.<br/><br/><b>URL de origem</b>: especifica a URL completa para o feed de dados. <br/>Por exemplo, a URL a seguir lê do banco de dados de exemplo Northwind: https://services.odata.org/northwind/northwind.svc/ |
 
-## <a name="import-from-another-experiment"></a>Importar a partir de outra experimentação
+## <a name="import-from-another-experiment"></a>Importar de outro experimento
 
-Haverá situações quando vai querer tirar um resultado intermediário a partir de uma experiência e utilizá-lo como parte de outra experimentação. Para fazer isso, salvar o módulo como um conjunto de dados:
+Haverá ocasiões em que você desejará pegar um resultado intermediário de um experimento e usá-lo como parte de outro experimento. Para fazer isso, salve o módulo como um conjunto de uma:
 
-1. Clique a saída do módulo que pretende guardar como um conjunto de dados.
-2. Clique em **guardar como conjunto de dados**.
-3. Quando lhe for pedido, introduza um nome e uma descrição que permitiria que identifique o conjunto de dados facilmente.
-4. Clique nas **OK** marca de verificação.
+1. Clique na saída do módulo que você deseja salvar como um conjunto de um DataSet.
+2. Clique em **salvar como conjunto de conjuntos**.
+3. Quando solicitado, insira um nome e uma descrição que permitiriam que você identificasse o conjunto de os facilmente.
+4. Clique na marca de seleção **OK** .
 
-Quando o salvamento for concluído, o conjunto de dados estarão disponível para uso dentro de qualquer experimentação na sua área de trabalho. Pode encontrá-lo na **conjuntos de dados guardado** lista na paleta do módulo.
+Quando o salvamento for concluído, o conjunto de um estará disponível para uso em qualquer experimento no espaço de trabalho. Você pode encontrá-lo na lista **DataSets salvos** na paleta de módulos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Implementar serviços web do Azure Machine Learning studio que utilizam a importação de dados e módulos de exportação de dados](web-services-that-use-import-export-modules.md)
+[Implantando Azure Machine Learning Studio Web Services que usam módulos de importação de dados e exportação de dados](web-services-that-use-import-export-modules.md)
 
 
 <!-- Module References -->

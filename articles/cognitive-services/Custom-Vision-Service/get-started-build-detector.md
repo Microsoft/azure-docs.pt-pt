@@ -10,14 +10,14 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: anroth
-ms.openlocfilehash: 40f30ddece9881f565f45f4ef6c9d0e2ad85fe95
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0ca849e75f01573bbb356105b281f03d267836e6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561136"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "73520467"
 ---
-# <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Início rápido: Como criar um detector de objeto com Visão Personalizada
+# <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Início rápido: como criar um detector de objeto com Visão Personalizada
 
 Neste guia de início rápido, você aprenderá a criar um detector de objeto por meio do site Visão Personalizada. Depois de criar um modelo de detector, você pode usar o serviço de Visão Personalizada para detecção de objeto.
 
@@ -29,7 +29,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Criar Visão Personalizada recursos no portal do Azure
 
-Para usar o Serviço de Visão Personalizada, você precisará criar Visão Personalizada recursos de treinamento e previsão no portal do Azure. Preencha a janela da caixa de diálogo na página [criar visão personalizada](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) para criar um recurso de treinamento e previsão. 
+[!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="create-a-new-project"></a>Criar um novo projeto
 
@@ -75,7 +75,7 @@ Nesta seção, você carregará e marcará manualmente as imagens para ajudar a 
 
     ![Imagens carregadas, na seção não marcada](./media/get-started-build-detector/images-untagged.png)
 
-1. Clique e arraste um retângulo em volta do objeto em sua imagem. Em seguida, insira um novo nome de marca **+** com o botão ou selecione uma marca existente na lista suspensa. É muito importante marcar todas as instâncias dos objetos que você deseja detectar, pois o detector usa a área de plano de fundo não marcada como um exemplo negativo no treinamento. Quando terminar de marcar, clique na seta à direita para salvar as marcas e passar para a próxima imagem.
+1. Clique e arraste um retângulo em volta do objeto em sua imagem. Em seguida, insira um novo nome de marca com o botão **+** ou selecione uma marca existente na lista suspensa. É muito importante marcar todas as instâncias dos objetos que você deseja detectar, pois o detector usa a área de plano de fundo não marcada como um exemplo negativo no treinamento. Quando terminar de marcar, clique na seta à direita para salvar as marcas e passar para a próxima imagem.
 
     ![Marcação de um objeto com uma seleção retangular](./media/get-started-build-detector/image-tagging.png)
 
@@ -108,7 +108,7 @@ Após a conclusão do treinamento, o desempenho do modelo é calculado e exibido
 
 Cada vez que você treina o detector, cria uma nova _iteração_ com suas próprias métricas de desempenho atualizadas. Você pode exibir todas as iterações no painel esquerdo da guia **desempenho** . No painel esquerdo, você também encontrará o botão **excluir** , que pode ser usado para excluir uma iteração se ela estiver obsoleta. Ao excluir uma iteração, você exclui todas as imagens que estão associadas exclusivamente a ela.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você aprendeu a criar e treinar um modelo de detector de objetos usando o site Visão Personalizada. Em seguida, obtenha mais informações sobre o processo iterativo de aprimorar seu modelo.
 

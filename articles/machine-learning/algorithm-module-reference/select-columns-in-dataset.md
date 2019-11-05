@@ -1,24 +1,24 @@
 ---
-title: 'Selecionar colunas no conjunto de conjuntos: Referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo selecionar colunas no conjunto de informações no serviço de Azure Machine Learning para escolher um subconjunto de colunas a ser usado em operações de downstream.
+title: 'Selecionar colunas no conjunto de conjuntos: referência de módulo'
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo selecionar colunas no conjunto de informações em Azure Machine Learning para escolher um subconjunto de colunas a ser usado em operações de downstream.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 097477fb9fc10d954954815c7f4b0fef8947a526
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.date: 10/22/2019
+ms.openlocfilehash: 3511c448298aa96c95dc970d1d192869c127eb0d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128500"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497664"
 ---
 # <a name="select-columns-in-dataset-module"></a>Selecionar colunas no módulo DataSet
 
-Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para escolher um subconjunto de colunas a ser usado em operações de downstream. O módulo não remove fisicamente as colunas do conjunto de fonte de origem; em vez disso, ele cria um subconjunto de colunas, assim como uma *exibição* ou *projeção*de banco de dados.
 
@@ -40,7 +40,7 @@ Há várias opções no módulo para escolher colunas por nome:
 
     Se você tiver conectado um conjunto de um que já está populado, uma lista de colunas disponíveis deverá aparecer. Se nenhuma coluna aparecer, talvez seja necessário executar módulos upstream para exibir a lista de colunas.
 
-    Para filtrar a lista, digite na caixa de pesquisa. Por exemplo, se você digitar a letra `w` na caixa de pesquisa, a lista será filtrada para mostrar os nomes de coluna que contêm `w`a letra.
+    Para filtrar a lista, digite na caixa de pesquisa. Por exemplo, se você digitar a letra `w` na caixa de pesquisa, a lista será filtrada para mostrar os nomes de coluna que contêm a letra `w`.
 
     Selecione colunas e clique no botão de seta para a direita para mover as colunas selecionadas para a lista no painel à direita.
 
@@ -79,7 +79,7 @@ A opção **begin with** determina seu ponto de partida e é importante para ent
 
 + Se você selecionar a opção **sem colunas** , a lista de colunas começará vazia. Em seguida, especifique as condições para *Adicionar* colunas à lista. 
 
-    Se você aplicar várias regras, cada condição será **aditiva**. Por exemplo, digamos que você inicie sem colunas e, em seguida, adicione uma regra para obter todas as colunas numéricas. No conjunto de linhas de preço do automóvel, isso resulta em 16 colunas. Em seguida, clique no **+** sinal para adicionar uma nova condição e selecione **incluir todos os recursos**. O conjunto de resultados resultante inclui todas as colunas numéricas, além de todas as colunas de recurso, incluindo algumas colunas de recursos de cadeia de caracteres.
+    Se você aplicar várias regras, cada condição será **aditiva**. Por exemplo, digamos que você inicie sem colunas e, em seguida, adicione uma regra para obter todas as colunas numéricas. No conjunto de linhas de preço do automóvel, isso resulta em 16 colunas. Em seguida, clique no sinal de **+** para adicionar uma nova condição e selecione **incluir todos os recursos**. O conjunto de resultados resultante inclui todas as colunas numéricas, além de todas as colunas de recurso, incluindo algumas colunas de recursos de cadeia de caracteres.
 
 ### <a name="choose-by-column-index"></a>Escolher por índice de coluna
 
@@ -87,7 +87,7 @@ O índice de coluna refere-se à ordem da coluna dentro do DataSet original.
 
 + As colunas são numeradas sequencialmente a partir de 1.  
 + Para obter um intervalo de colunas, use um hífen. 
-+ Especificações abertas, `1-` como ou `-3` não são permitidas.
++ As especificações abertas, como `1-` ou `-3`, não são permitidas.
 + Valores de índice duplicados (ou nomes de coluna) não são permitidos e podem resultar em um erro.
 
 Por exemplo, supondo que o conjunto de seus conjuntos de seus tem pelo menos oito colunas, você pode colar qualquer um dos seguintes exemplos para retornar várias colunas não contíguas: 
@@ -96,7 +96,7 @@ Por exemplo, supondo que o conjunto de seus conjuntos de seus tem pelo menos oit
 + `1,3-8`
 + `1,3-6,4` 
 
-o exemplo final não resulta em um erro; no entanto, ele retorna uma única instância `4`da coluna.
+o exemplo final não resulta em um erro; no entanto, ele retorna uma única instância de `4`de coluna.
 
 
 
@@ -110,6 +110,6 @@ Por exemplo, em um conjunto de linhas com as colunas Col1, Col2, Col3 e COL4, vo
 + `4,3,1`
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

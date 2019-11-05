@@ -10,14 +10,15 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 24ec49a0f23516638d1f525341ea44e204653fea
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: b0d7286d96d2fbfa35eb7ce9079413dfd186288c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034602"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496957"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Implantar um modelo de aprendizado de máquina no serviço Azure App (versão prévia)
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Saiba como implantar um modelo de Azure Machine Learning como um aplicativo Web no serviço Azure App.
 
@@ -28,7 +29,7 @@ Com Azure Machine Learning, você pode criar imagens do Docker de modelos de apr
 
 * [Autenticação](/azure/app-service/configure-authentication-provider-aad) avançada para segurança aprimorada. Os métodos de autenticação incluem Azure Active Directory e autenticação multifator.
 * [Dimensionamento automático](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json) sem precisar reimplantar.
-* [Suporte a SSL](/azure/app-service/app-service-web-ssl-cert-load) para comunicações seguras entre clientes e o serviço.
+* [Suporte a SSL](/azure/app-service/configure-ssl-certificate-in-code) para comunicações seguras entre clientes e o serviço.
 
 Para obter mais informações sobre os recursos fornecidos pelo serviço Azure App, consulte [visão geral do serviço de aplicativo](/azure/app-service/overview).
 
@@ -44,9 +45,9 @@ Para obter mais informações sobre os recursos fornecidos pelo serviço Azure A
     > [!IMPORTANT]
     > Os trechos de código neste artigo pressupõem que você definiu as seguintes variáveis:
     >
-    > * `ws`-Seu espaço de trabalho do Azure Machine Learning.
-    > * `model`-O modelo registrado que será implantado.
-    > * `inference_config`-A configuração de inferência para o modelo.
+    > * `ws`-seu espaço de trabalho do Azure Machine Learning.
+    > * `model`-o modelo registrado que será implantado.
+    > * `inference_config`-a configuração de inferência para o modelo.
     >
     > Para obter mais informações sobre como definir essas variáveis, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
@@ -99,7 +100,7 @@ Para obter mais informações sobre a configuração de inferência, consulte [i
 Para criar a imagem do Docker que é implantada no serviço Azure App, use [Model. Package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config--generate-dockerfile-false-). O trecho de código a seguir demonstra como criar uma nova imagem a partir do modelo e da configuração de inferência:
 
 > [!NOTE]
-> O trecho de código pressupõe `model` que contém um modelo registrado e que `inference_config` contém a configuração para o ambiente de inferência. Para obter mais informações, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
+> O trecho de código pressupõe que `model` contém um modelo registrado e que `inference_config` contém a configuração para o ambiente de inferência. Para obter mais informações, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
 ```python
 from azureml.core import Model
@@ -117,7 +118,7 @@ Quando `show_output=True`, a saída do processo de Build do Docker é mostrada. 
 
 ## <a name="deploy-image-as-a-web-app"></a>Implantar imagem como um aplicativo Web
 
-1. Use o comando a seguir para obter as credenciais de logon para o registro de contêiner do Azure que contém a imagem. Substituir `<acrinstance>` pelo valor e retornado anteriormente de `package.location`: 
+1. Use o comando a seguir para obter as credenciais de logon para o registro de contêiner do Azure que contém a imagem. Substituir `<acrinstance>` pelo valor th retornado anteriormente da `package.location`: 
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -153,9 +154,9 @@ Quando `show_output=True`, a saída do processo de Build do Docker é mostrada. 
     Neste exemplo, um tipo de preço __básico__ (`--sku B1`) é usado.
 
     > [!IMPORTANT]
-    > As imagens criadas por Azure Machine Learning usam o Linux, portanto, você `--is-linux` deve usar o parâmetro.
+    > As imagens criadas por Azure Machine Learning usam o Linux, portanto, você deve usar o parâmetro `--is-linux`.
 
-1. Para criar o aplicativo Web, use o comando a seguir. Substituir `<app-name>` pelo nome que você deseja usar. Substitua `<acrinstance>` `package.location` e `<imagename>` pelos valores de retornado anteriormente:
+1. Para criar o aplicativo Web, use o comando a seguir. Substitua `<app-name>` pelo nome que você deseja usar. Substitua `<acrinstance>` e `<imagename>` pelos valores de `package.location` retornados anteriormente:
 
     ```azurecli-interactive
     az webapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename>
@@ -184,7 +185,7 @@ Quando `show_output=True`, a saída do processo de Build do Docker é mostrada. 
     > [!IMPORTANT]
     > Neste ponto, o aplicativo Web foi criado. No entanto, como você não forneceu as credenciais para o registro de contêiner do Azure que contém a imagem, o aplicativo Web não está ativo. Na próxima etapa, você fornecerá as informações de autenticação para o registro de contêiner.
 
-1. Para fornecer ao aplicativo Web as credenciais necessárias para acessar o registro de contêiner, use o comando a seguir. Substituir `<app-name>` pelo nome que você deseja usar. Substitua `<acrinstance>` `package.location` e `<imagename>` pelos valores de retornado anteriormente. Substitua `<username>` e`<password>` pelas informações de logon do ACR recuperadas anteriormente:
+1. Para fornecer ao aplicativo Web as credenciais necessárias para acessar o registro de contêiner, use o comando a seguir. Substitua `<app-name>` pelo nome que você deseja usar. Substitua `<acrinstance>` e `<imagename>` pelos valores de `package.location` retornados anteriormente. Substitua `<username>` e `<password>` com as informações de logon do ACR recuperadas anteriormente:
 
     ```azurecli-interactive
     az webapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package:<imagename> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
@@ -230,7 +231,7 @@ Neste ponto, o aplicativo Web começa a carregar a imagem.
 > az webapp log tail --name <app-name> --resource-group myresourcegroup
 > ```
 >
-> Depois que a imagem for carregada e o site estiver ativo, o log exibirá uma mensagem afirmando `Container <container name> for site <app-name> initialized successfully and is ready to serve requests`.
+> Depois que a imagem for carregada e o site estiver ativo, o log exibirá uma mensagem que declara `Container <container name> for site <app-name> initialized successfully and is ready to serve requests`.
 
 Depois que a imagem for implantada, você poderá encontrar o nome do host usando o seguinte comando:
 
@@ -238,7 +239,7 @@ Depois que a imagem for implantada, você poderá encontrar o nome do host usand
 az webapp show --name <app-name> --resource-group myresourcegroup
 ```
 
-Esse comando retorna informações semelhantes ao nome de host `<app-name>.azurewebsites.net`a seguir:. Use esse valor como parte da __URL base__ para o serviço.
+Esse comando retorna informações semelhantes às seguintes `<app-name>.azurewebsites.net`de nome do host. Use esse valor como parte da __URL base__ para o serviço.
 
 ## <a name="use-the-web-app"></a>Usar o aplicativo Web
 
@@ -263,10 +264,10 @@ print(response.elapsed)
 print(response.json())
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como configurar seu aplicativo Web na documentação do [serviço de aplicativo no Linux](/azure/app-service/containers/) .
 * Saiba mais sobre o dimensionamento em introdução [ao dimensionamento automático no Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
-* [Use um certificado SSL em seu serviço de Azure app](/azure/app-service/app-service-web-ssl-cert-load).
+* [Use um certificado SSL em seu serviço de Azure app](/azure/app-service/configure-ssl-certificate-in-code).
 * [Configure seu aplicativo do serviço de aplicativo para usar Azure Active Directory entrar](/azure/app-service/configure-authentication-provider-aad).
-* [Consumir um modelo de ML implementado como um serviço web](how-to-consume-web-service.md)
+* [Consumir um modelo de ML implantado como um serviço Web](how-to-consume-web-service.md)
