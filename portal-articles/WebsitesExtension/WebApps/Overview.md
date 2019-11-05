@@ -8,12 +8,12 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: be918ecef3a9fb346d9aa441bef9b4c3991009d6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bc013469610d5535c89870947fe094da93660012
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60530869"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488434"
 ---
 # <a name="app-service-documentation"></a>Documentação do Serviço de Aplicações
 O Serviço de Aplicações do Azure permitem-lhe criar e alojar aplicações Web na linguagem de programação da sua preferência sem ter de gerir infraestrutura nem a linguagem ou o runtime do framework da Web. Este serviço garante dimensionamento automático e elevada disponibilidade, suporta Windows e Linux e permite implementações automáticas a partir do GitHub, Serviços de DevOps do Azure ou de qualquer repositório de Git. Saiba como utilizar o Serviço de Aplicações do Azure com os nossos guias de introdução, tutoriais e amostras.
@@ -42,7 +42,7 @@ Saiba como implementar, gerir e monitorizar aplicações Web seguras no Azure.
   - [Java com MySQL](/app-service/app-service-web-tutorial-java-mysql)
   - [Python com PostgreSQL](/app-service/containers/tutorial-python-postgresql-app)
 - [Mapeie um domínio personalizado existente na sua aplicação](/azure/app-service/app-service-web-tutorial-custom-domain)
-- [Vincule um certificado SSL existente à aplicação](/azure/app-service/app-service-web-tutorial-custom-SSL)
+- [Vincule um certificado SSL à sua aplicação](/azure/app-service/configure-ssl-bindings)
 
 ## <a name="free-pluralsight-video-training"></a>Vídeo de Formação Gratuita da PluralSight
 

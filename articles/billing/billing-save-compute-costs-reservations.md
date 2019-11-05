@@ -7,12 +7,12 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: b2c3fd9b59b371330e37dceb52b2e89b3db6c48e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 02a4ccc1bd7c18c36a7203f7d81cce8923ecf59a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390166"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499245"
 ---
 # <a name="what-are-azure-reservations"></a>O que é o Azure Reservations?
 
@@ -125,7 +125,7 @@ Um desconto de reserva só é aplicado a recursos associados a um Contrato Enter
 
 ## <a name="when-the-reservation-term-expires"></a>Quando o termo de reserva expira
 
-No final do termo de reserva, o desconto de faturação expira. A máquina virtual, a base de dados SQL, o Azure Cosmos DB ou qualquer outro recurso será cobrado de acordo com o preço pay as you go. O Azure Reservations não é renovado automaticamente. Para continuar a obter o desconto de faturação, tem de comprar uma nova reserva para o software e serviços elegíveis.
+No final do período de reserva, o desconto sobre a faturação expira e os recursos passam a ser faturados com base no preço pay as you go. Por predefinição, as reservas não estão definidas para renovação automática. Pode optar por ativar a renovação automática de uma reserva ao selecionar a opção nas definições de renovação. Com a renovação automática, uma reserva de substituição será comprada quando a reserva existente expirar. Por predefinição, a reserva de substituição tem os mesmos atributos da reserva que expira. Pode, opcionalmente, alterar a frequência, o período ou a quantidade da faturação nas definições de renovação. Qualquer utilizador com acesso de proprietário na reserva e na subscrição utilizada para faturação pode configurar a renovação.  
 
 ## <a name="discount-applies-to-different-sizes"></a>O desconto aplica-se a diferentes tamanhos
 
