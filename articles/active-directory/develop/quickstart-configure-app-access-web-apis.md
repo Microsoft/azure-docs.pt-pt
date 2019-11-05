@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5100af99046a03345230ed0468071766aae1c77b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 30b0649f23403363ca4ab4101a2d5cf7a42d505b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389613"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473701"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Início rápido: configurar um aplicativo cliente para acessar APIs Web
 
@@ -57,7 +57,8 @@ Antes de poder configurar a aplicação, siga estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina a sessão do portal para o locatário do Azure AD desejado.
-1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** e, em seguida, selecione **registros de aplicativo**.
+1. Procure e selecione **Azure Active Directory**. 
+1. No painel esquerdo, selecione **registros de aplicativo**.
 1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição geral** da aplicação ou a página de registo principal.
 1. Siga os passos para configurar a aplicação para aceder às APIs Web:
     * [Adicionar URIs de redirecionamento à aplicação](#add-redirect-uris-to-your-application)
@@ -113,11 +114,11 @@ Depois [de configurar os tipos de conta com suporte](quickstart-register-app.md)
 
 Para alterar os tipos de conta com suporte para um registro de aplicativo existente:
 
-* Consulte [Configurar o manifesto do aplicativo](reference-app-manifest.md) e atualizar a chave `signInAudience`.
+* Consulte [Configurar o manifesto do aplicativo](reference-app-manifest.md) e atualizar a chave de `signInAudience`.
 
 ## <a name="configure-platform-settings-for-your-application"></a>Definir configurações de plataforma para seu aplicativo
 
-[configurações de @no__t 1Configure para seu aplicativo com base na plataforma ou no dispositivo](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations-expanded.png)](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations-small.png#lightbox)
+[![definir configurações para seu aplicativo com base na plataforma ou no dispositivo](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations-expanded.png)](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations-small.png#lightbox)
 
 Para definir as configurações do aplicativo com base na plataforma ou no dispositivo, você está direcionando:
 

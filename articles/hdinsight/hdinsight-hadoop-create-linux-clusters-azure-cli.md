@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: hrasheed
-ms.openlocfilehash: c26c0b16331ae01f7505e44cef3fe91b3282750b
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 09696f5a3df7cc4170c57b862a11bbd5a82e2bc9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70809857"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494798"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Criar clusters HDInsight usando o CLI do Azure
 
@@ -47,11 +47,11 @@ CLI do Azure. Se você ainda não instalou o CLI do Azure, consulte [instalar o 
     |Parâmetro | Descrição |
     |---|---|
     |`--size`| O número de nós de trabalho no cluster. Este artigo usa a variável `clusterSizeInNodes` como o valor passado para `--size`. |
-    |`--version`| A versão do cluster HDInsight. Este artigo usa a variável `clusterVersion` como o valor passado para `--version`. Veja também: [Versões do HDInsight com suporte](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
-    |`--type`| Tipo de cluster HDInsight, como: Hadoop, interactivehive, HBase, Kafka, Storm, Spark, rserver, mlservices.  Este artigo usa a variável `clusterType` como o valor passado para `--type`. Veja também: [Tipos de cluster e configuração](./hdinsight-hadoop-provision-linux-clusters.md#cluster-types).|
-    |`--component-version`|As versões de vários componentes do Hadoop, em versões separadas por espaços no formato ' componente = versão '. Este artigo usa a variável `componentVersion` como o valor passado para `--component-version`. Veja também: [Componentes do Hadoop](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).|
+    |`--version`| A versão do cluster HDInsight. Este artigo usa a variável `clusterVersion` como o valor passado para `--version`. Consulte também: [versões do HDInsight com suporte](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
+    |`--type`| Tipo de cluster HDInsight, como: Hadoop, interactivehive, HBase, Kafka, Storm, Spark, rserver, mlservices.  Este artigo usa a variável `clusterType` como o valor passado para `--type`. Consulte também: [tipos de cluster e configuração](./hdinsight-hadoop-provision-linux-clusters.md#cluster-types).|
+    |`--component-version`|As versões de vários componentes do Hadoop, em versões separadas por espaços no formato ' componente = versão '. Este artigo usa a variável `componentVersion` como o valor passado para `--component-version`. Consulte também: [componentes do Hadoop](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).|
 
-    Substitua `RESOURCEGROUPNAME`, `LOCATION`, ,`CLUSTERNAME` epelos`PASSWORD` valores desejados `STORAGEACCOUNTNAME`. Altere os valores para as outras variáveis conforme desejado. Em seguida, insira os comandos da CLI.
+    Substitua `RESOURCEGROUPNAME`, `LOCATION`, `CLUSTERNAME`, `STORAGEACCOUNTNAME`e `PASSWORD` pelos valores desejados. Altere os valores para as outras variáveis conforme desejado. Em seguida, insira os comandos da CLI.
 
     ```azurecli-interactive
     export resourceGroupName=RESOURCEGROUPNAME
@@ -76,7 +76,7 @@ CLI do Azure. Se você ainda não instalou o CLI do Azure, consulte [instalar o 
         --name $resourceGroupName
     ```
 
-    Para obter uma lista de locais válidos, use `az account list-locations` o comando e, em seguida, use um dos locais `name` do valor.
+    Para obter uma lista de locais válidos, use o comando `az account list-locations` e, em seguida, use um dos locais do valor `name`.
 
 4. [Crie uma conta de armazenamento do Azure](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) inserindo o comando a seguir:
 
@@ -165,7 +165,7 @@ az group delete \
 
 Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você criou com êxito um cluster HDInsight usando o CLI do Azure, use o seguinte para aprender a trabalhar com o cluster:
 

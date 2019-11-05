@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 5baa8c78ad581a00a3601706f31cf815359120c7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3dee054f6c382a00a55e4acf07e2a188c5cc6a07
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70077051"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490684"
 ---
-# <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Início rápido: Criar uma fábrica de dados com a IU do Azure Data Factory
+# <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Início rápido: criar um data factory usando a interface do usuário do Azure Data Factory
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versão atual](quickstart-create-data-factory-portal.md)
 
-Este início rápido descreve como utilizar a UI do Azure Data Factory para criar e monitorizar uma fábrica de dados. O pipeline que criar nesta fábrica de dados *copia* dados de uma pasta para outra pasta num armazenamento de Blobs do Azure. Para obter um tutorial sobre como *transformar* dados usando Azure data Factory, consulte [o tutorial: Transforme dados usando o](tutorial-transform-data-spark-portal.md)Spark.
+Este início rápido descreve como utilizar a UI do Azure Data Factory para criar e monitorizar uma fábrica de dados. O pipeline que criar nesta fábrica de dados *copia* dados de uma pasta para outra pasta num armazenamento de Blobs do Azure. Para ter acesso a um tutorial sobre como *transformar* dados com o Azure Data Factory, veja [Tutorial: Transformar dados com o Spark](tutorial-transform-data-spark-portal.md).
 
 > [!NOTE]
 > Se não estiver familiarizado com o Azure Data Factory, veja [Introdução ao Azure Data Factory](data-factory-introduction.md) antes de começar o início rápido. 
@@ -39,7 +39,10 @@ Ver este vídeo ajuda-o a compreender a IU do Data Factory:
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
 1. Aceda ao [Portal do Azure](https://portal.azure.com). 
-1. Selecione **Criar um recurso** no menu esquerdo, selecione **Análise** e, em seguida, selecione **Data Factory**. 
+1. No menu portal do Azure, selecione **criar um recurso**.
+   
+   ![Selecione criar um recurso no menu portal do Azure](./media/doc-common-process/create-a-resource.png)
+1. Selecione **análise**e, em seguida, selecione **Data Factory**. 
    
    ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Na página **Nova fábrica de dados**, introduza **ADFTutorialDataFactory** em **Nome**. 
@@ -87,7 +90,7 @@ Neste procedimento, vai criar um serviço ligado para ligar a sua conta de armaz
    d. Para guardar o serviço ligado, selecione **Terminar**. 
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
-Neste procedimento, você cria dois conjuntos de valores: **InputDataset** e **OutputDataset**. Estes conjuntos de dados são do tipo **AzureBlob**. Dizem respeito ao serviço ligado do Armazenamento do Azure que criou na secção anterior. 
+Neste procedimento, vai criar dois conjuntos de dados, **InputDataset** e **OutputDataset**. Estes conjuntos de dados são do tipo **AzureBlob**. Dizem respeito ao serviço ligado do Armazenamento do Azure que criou na secção anterior. 
 
 O conjunto de dados de entrada representa a origem de dados na pasta de entrada. Na definição do conjunto de dados de entrada, vai especificar o contentor de blobs (**adftutorial**), a pasta (**input**) e o ficheiro (**emp.txt**) que contêm os dados de origem. 
 
@@ -175,7 +178,7 @@ Neste procedimento, vai implementar entidades (serviços ligados, conjuntos de d
 
    ![Detalhes da operação de cópia](./media/quickstart-create-data-factory-portal/copy-operation-details.png)
 1. Confirme que vê um ficheiro novo na pasta **output**. 
-1. Você pode alternar de volta para o modo de exibição de execuções de **pipeline** na exibição de execuções de **atividade** selecionando o link execuções de **pipeline** . 
+1. Você pode alternar de volta para o modo de exibição de **execuções de pipeline** na exibição de **execuções de atividade** selecionando o link **execuções de pipeline** . 
 
 ## <a name="trigger-the-pipeline-on-a-schedule"></a>Acionar o pipeline com base numa agenda
 Este procedimento é opcional neste tutorial. Pode criar um *acionador de agenda* para agendar a execução do pipeline periodicamente (hora a hora, diariamente, etc.). Neste procedimento, vai criar um acionador para ser executado a cada minuto até à data e hora de fim que especificar. 
@@ -205,5 +208,5 @@ Este procedimento é opcional neste tutorial. Pode criar um *acionador de agenda
 
 1. Confirme que é criado um ficheiro de saída para todas as execuções de pipelines até à data e hora de fim especificada na pasta de **saída**. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 O pipeline neste exemplo copia dados de uma localização para outra localização num armazenamento de Blobs do Azure. Para saber como utilizar o Data Factory em mais cenários, aceda aos [tutoriais](tutorial-copy-data-portal.md). 

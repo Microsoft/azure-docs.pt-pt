@@ -1,5 +1,5 @@
 ---
-title: Valores de clipe
+title: Valores de Clip
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo valores de clipes no serviço Azure Machine Learning para detectar exceções e recortar ou substituir seus valores.
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: a45755ca13aed6a514b548674ef424c40238fa42
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 704b7c8a0c55bdcdd69bd8a44b0f9f44e8ddf457
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694743"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493837"
 ---
-# <a name="clip-values"></a>Valores de clipe
+# <a name="clip-values"></a>Valores de Clip
 
-Este artigo descreve um módulo de Azure Machine Learning interface visual.
+Este artigo descreve um módulo do designer de Azure Machine Learning (versão prévia).
 
 Use o módulo valores de clipe para identificar e, opcionalmente, substituir valores de dados que estão acima ou abaixo de um limite especificado com uma média, uma constante ou outro valor substituto.  
 

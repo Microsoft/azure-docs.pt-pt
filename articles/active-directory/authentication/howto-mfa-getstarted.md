@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7504d14d522a440572aa25491270c0afc73325a9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 2d80ac949dea3c9d6c3d28d2a343c4ed7bad8983
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554402"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474326"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planejando uma implantação da autenticação multifator do Azure baseada em nuvem
 
@@ -220,6 +220,7 @@ Para planejar sua estratégia de política de acesso condicional, que determinar
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta de administrador global.
 1. Navegue até **Azure Active Directory**, **acesso condicional**.
 1. Selecione **nova política**.
+   ![criar uma política de acesso condicional para habilitar a MFA para portal do Azure usuários no grupo piloto](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Forneça um nome significativo para sua política.
 1. Em **usuários e grupos**:
    * Na guia **incluir** , selecione o botão de opção **todos os usuários**
@@ -237,8 +238,6 @@ Para planejar sua estratégia de política de acesso condicional, que determinar
 1. Ignore a seção de **sessão** .
 1. Defina ativar/desativar **política** como **ativado**.
 1. Clique em **Criar**.
-
-![Criar uma política de acesso condicional para habilitar a MFA para usuários portal do Azure no grupo piloto](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 
 ## <a name="plan-integration-with-on-premises-systems"></a>Planejar a integração com sistemas locais
 

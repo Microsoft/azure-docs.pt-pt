@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 68d0f693d0cc7d8db8e6f697ff8907400a7aca50
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 111ee6cda46677b3b0fc39f5a84268e6ac192da9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121316"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470524"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes de configuração e gerenciamento para aplicativos Web no Azure
 
@@ -43,12 +43,12 @@ Para saber como comprar e configurar um domínio personalizado para seu aplicati
 
 ## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>Como fazer carregar e configurar um certificado SSL existente para meu aplicativo Web?
 
-Para saber como carregar e configurar um certificado SSL personalizado existente, consulte [associar um certificado SSL personalizado existente a um aplicativo Web do Azure](app-service-web-tutorial-custom-ssl.md#upload).
+Para saber como carregar e configurar um certificado SSL personalizado existente, consulte [Adicionar um certificado SSL ao seu aplicativo do serviço de aplicativo](configure-ssl-certificate.md).
 
 
 ## <a name="how-do-i-purchase-and-configure-a-new-ssl-certificate-in-azure-for-my-web-app"></a>Como fazer comprar e configurar um novo certificado SSL no Azure para meu aplicativo Web?
 
-Para saber como comprar e configurar um certificado SSL para seu aplicativo Web do serviço de aplicativo, consulte [Adicionar um certificado SSL ao seu aplicativo do serviço de aplicativo](web-sites-purchase-ssl-web-site.md).
+Para saber como comprar e configurar um certificado SSL para seu aplicativo Web do serviço de aplicativo, consulte [Adicionar um certificado SSL ao seu aplicativo do serviço de aplicativo](configure-ssl-certificate.md).
 
 
 ## <a name="how-do-i-move-application-insights-resources"></a>Como fazer mover Application Insights recursos?
@@ -67,11 +67,11 @@ Para definir o fuso horário do servidor para seu aplicativo Web:
 
 1. Na portal do Azure, em sua assinatura do serviço de aplicativo, vá para o menu **configurações do aplicativo** .
 2. Em **configurações do aplicativo**, adicione esta configuração:
-    * Key = WEBSITE_TIME_ZONE
+    * Chave = WEBSITE_TIME_ZONE
     * Valor = *o fuso horário que você deseja*
 3. Selecione **Guardar**.
 
-Para os serviços de aplicativos que são executados no Windows, consulte a coluna **timezone** no artigo [fusos horários padrão](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) para obter os valores aceitos. Para os serviços de aplicativos que são executados no Linux, defina o [nome do banco de dados TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) como o valor de fuso horário. Aqui está um exemplo de nome do banco de dados TZ: América/Adak.
+Para os serviços de aplicativos que são executados no Windows, consulte a coluna **timezone** no artigo [fusos horários padrão](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) para obter os valores aceitos. Para os serviços de aplicativos que são executados no Linux, defina o [nome do banco de dados TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) como o valor de fuso horário. Aqui está um exemplo de nome do banco de dados TZ: America/Adak.
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Por que meus trabalhos Web contínuos às vezes falham?
 
@@ -139,7 +139,7 @@ Para examinar os logs do WebJob:
 6. Selecione o botão **alternar saída** .
 7. Selecione o link baixar.
 
-## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>Estou tentando usar Conexões Híbridas com SQL Server. Por que vejo a mensagem "System. OverflowException: A operação aritmética resultou em um estouro "?
+## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>Estou tentando usar Conexões Híbridas com SQL Server. Por que vejo a mensagem "System. OverflowException: a operação aritmética resultou em um estouro"?
 
 Se você usar Conexões Híbridas para acessar SQL Server, uma atualização de Microsoft .NET em 10 de maio de 2016 poderá causar falha nas conexões. Você pode ver esta mensagem:
 
@@ -153,7 +153,7 @@ A exceção foi causada por um problema com o Gerenciador de Conexões Híbridas
 
 ## <a name="how-do-i-add-a-url-rewrite-rule"></a>Como fazer adicionar uma regra de regravação de URL?
 
-Para adicionar uma regra de reescrita de URL, crie um arquivo Web. config com as entradas de configuração relevantes na pasta **wwwroot** . Para obter mais informações, [consulte serviços de Azure App: Entendendo a regravação](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/)de URL.
+Para adicionar uma regra de reescrita de URL, crie um arquivo Web. config com as entradas de configuração relevantes na pasta **wwwroot** . Para obter mais informações, consulte [serviços de Azure App: Noções básicas sobre a regravação de URL](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>Como fazer controlar o tráfego de entrada para o serviço de aplicativo?
 
@@ -197,7 +197,7 @@ Para exibir um arquivo HAR, você pode usar o [Visualizador Har](https://www.sof
 
 ## <a name="why-do-i-get-an-error-when-i-try-to-connect-an-app-service-web-app-to-a-virtual-network-that-is-connected-to-expressroute"></a>Por que recebo um erro quando tento conectar um aplicativo Web do serviço de aplicativo a uma rede virtual que está conectada ao ExpressRoute?
 
-Se você tentar conectar um aplicativo Web do Azure a uma rede virtual que está conectada ao Azure ExpressRoute, ele falhará. É apresentada a seguinte mensagem: "O gateway não é um gateway de VPN."
+Se você tentar conectar um aplicativo Web do Azure a uma rede virtual que está conectada ao Azure ExpressRoute, ele falhará. A seguinte mensagem é exibida: "o gateway não é um gateway de VPN".
 
 No momento, não é possível ter conexões VPN ponto a site com uma rede virtual conectada ao ExpressRoute. Uma VPN ponto a site e o ExpressRoute não podem coexistir para a mesma rede virtual. Para obter mais informações, veja [limites e limitações de conexões VPN site a](../expressroute/expressroute-howto-coexist-classic.md#limits-and-limitations)site e de ExpressRoute.
 

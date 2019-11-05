@@ -1,7 +1,7 @@
 ---
-title: Faça uma pergunta podem responder a dados
-titleSuffix: Azure Machine Learning Studio
-description: Aprenda a formular uma pergunta de ciência de dados pequenos em ciência de dados para principiantes 3 vídeo. Inclui uma comparação das perguntas sobre classificação e regressão.
+title: Fazer com que os dados da pergunta possam responder
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Saiba como formular uma pergunta de ciência de dados nítida no vídeo ciência de dados para iniciantes 3. Inclui uma comparação de perguntas de classificação e regressão.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -9,87 +9,87 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: 7343692e8484e50a02963b4528889a35cc1fcaa6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f0064d30c96a143dd2e53637a681e4a7ee0bc30
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239078"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493162"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Fazer perguntas que podem ser respondidas com dados
-## <a name="video-3-data-science-for-beginners-series"></a>Vídeo 3: Ciência de dados para a série de iniciantes
-Aprenda a formular um problema de ciência de dados numa pergunta em ciência de dados para principiantes 3 vídeo. Este vídeo inclui uma comparação das perguntas para algoritmos de classificação e regressão.
+## <a name="video-3-data-science-for-beginners-series"></a>Vídeo 3: série de ciência de dados para iniciantes
+Saiba como formular um problema de ciência de dados em uma pergunta no vídeo ciência de dados para iniciantes 3. Este vídeo inclui uma comparação de perguntas para algoritmos de classificação e regressão.
 
-Para obter o máximo proveito da série, assista a todos eles. [Aceda à lista de vídeos](#other-videos-in-this-series)
+Para obter o máximo da série, Assista a todos eles. [Ir para a lista de vídeos](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
 >
 >
 
-## <a name="other-videos-in-this-series"></a>Outros vídeos desta série
-*Ciência de dados para principiantes* é uma introdução rápida à ciência dos dados em cinco vídeos curtos.
+## <a name="other-videos-in-this-series"></a>Outros vídeos nesta série
+A *ciência de dados para iniciantes* é uma rápida introdução à ciência de dados em cinco vídeos curtos.
 
-* Vídeo 1: [Respostas de ciência de dados de questões do 5](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 seg)*
-* Vídeo 2: [Seus dados está pronto para ciência de dados?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 seg)*
-* Vídeo 3: Fazer perguntas que podem ser respondidas com dados
-* Vídeo 4: [Prever uma resposta com um modelo simples](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 seg)*
-* Vídeo 5: [Copiar o trabalho de outras pessoas para fazer ciência de dados](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 seg)*
+* Vídeo 1: [as cinco perguntas que a ciência de dados responde](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 s)*
+* Vídeo 2: [seus dados estão prontos para a ciência de dados?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 s)*
+* Vídeo 3: faça uma pergunta que você possa responder com os dados
+* Vídeo 4: [prever uma resposta com um modelo simples](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 s)*
+* Vídeo 5: [copiar o trabalho de outras pessoas para a ciência de dados](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 minutos e 18 segundos)*
 
-## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Transcrição: Fazer perguntas que podem ser respondidas com dados
-Bem-vindo ao terceiro vídeo da série "Ciência de dados para principiantes."  
+## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Transcrição: faça uma pergunta que você possa responder com os dados
+Bem-vindo ao terceiro vídeo da série "ciência de dados para iniciantes".  
 
-Este aqui, obterá algumas dicas para formular uma pergunta que pode ser respondidas com dados.
+Neste, você obterá algumas dicas para formular uma pergunta que você pode responder com os dados.
 
-Poderá receber mais fora neste vídeo, se primeiro, Assista aos vídeos anteriores dois desta série: "A ciência de dados de 5 perguntas pode responder a" e "É seus dados estão prontos para ciência de dados?"
+Você pode tirar o máximo proveito deste vídeo, se você observar primeiro os dois vídeos anteriores nesta série: "as cinco perguntas que a ciência de dados pode responder" e "seus dados estão prontos para a ciência de dados?"
 
-## <a name="ask-a-sharp-question"></a>Faça uma pergunta sharp
-Falamos sobre como a ciência de dados é o processo de uso (também denominado categorias ou rótulos) e os números para prever uma resposta a uma pergunta. Mas não pode ser qualquer pergunta; tem de ser um *sharp pergunta.*
+## <a name="ask-a-sharp-question"></a>Faça uma pergunta nítida
+Falamos sobre como a ciência de dados é o processo de usar nomes (também chamados de categorias ou rótulos) e números para prever uma resposta para uma pergunta. Mas não pode ser apenas qualquer pergunta; Ele precisa ser uma *pergunta mais nítida.*
 
-Não tem uma pergunta vaga de ser respondidas com um nome ou um número. Tem de ser uma pergunta sharp.
+Uma pergunta vaga não precisa ser respondida com um nome ou um número. Uma pergunta precisa.
 
-Imagine que encontrou uma mágica lamp com um genie que puder sustentar vai responder a qualquer pergunta. Mas é um genie mischievous, que irá tentar fazer sua resposta como vagas e confuso, pois pode se contentar com. Deseja afixá-los para baixo com uma pergunta tão airtight que não pode ajudar, mas lhe dizer o que deseja saber.
+Imagine que você tenha encontrado uma lâmpada mágica com um gênio que responderá a qualquer pergunta que você pergunte. Mas é um gênio gênio, que tentará fazer suas respostas como vagas e confusas, uma vez que elas podem se afastar. Você deseja fixá-los com uma pergunta tão rígida que eles não podem ajudar, mas informam o que você deseja saber.
 
-Se fosse fazer uma pergunta de vaga, como "O que vai acontecer com meu stock?", poderá responder a genie, "o preço será alterado". Essa é uma resposta truthful, mas não é muito útil.
+Se você fosse fazer uma pergunta vaga, como "o que vai acontecer com meu estoque?", o gênio pode responder, "o preço mudará". Essa é uma resposta confiável, mas não é muito útil.
 
-Mas se tivesse que fazer uma pergunta sharp, como "O que o preço de venda de meu stock serão próxima semana?", o genie não pode ajudar a mas dão-lhe um específico responder e prever o preço de venda.
+Mas se você fizer uma pergunta mais nítida, como "qual será o preço de venda do meu estoque na próxima semana?", o gênio não pode ajudar, mas lhe dá uma resposta específica e prevê um preço de venda.
 
-## <a name="examples-of-your-answer-target-data"></a>Exemplos da sua resposta: Dados de destino
-Depois de formular a sua pergunta, verifique se tem exemplos da resposta nos seus dados.
+## <a name="examples-of-your-answer-target-data"></a>Exemplos de sua resposta: dados de destino
+Depois de formular sua pergunta, verifique se você tem exemplos de resposta em seus dados.
 
-Se nossa pergunta é "O que o preço de venda de meu stock serão próxima semana?" em seguida, temos de certificar-se de que nossos dados incluem o histórico do preço das ações.
+Se nossa pergunta for "qual será o preço de venda do meu estoque na próxima semana?" em seguida, temos que garantir que nossos dados incluam o histórico de preços de ações.
 
-Se nossa pergunta é "qual carro em meu frota vai falhar em primeiro lugar?" em seguida, temos de certificar-se de que nossos dados incluem informações sobre falhas anteriores.
+Se nossa pergunta for "Qual carro em minha frota vai falhar primeiro?" em seguida, temos que garantir que nossos dados incluam informações sobre falhas anteriores.
 
-![Dados de destino - exemplos da sua resposta. Formule uma pergunta de ciência de dados.](./media/data-science-for-beginners-ask-a-question-you-can-answer-with-data/target-data.png)
+![Dados de destino-exemplos de sua resposta. Formular uma pergunta de ciência de dados.](./media/data-science-for-beginners-ask-a-question-you-can-answer-with-data/target-data.png)
 
-Estes exemplos de respostas são chamados de um destino. Um destino é o que estamos a tentar prever sobre os pontos de dados futuros, quer se trate de uma categoria ou um número.
+Esses exemplos de respostas são chamados de destino. Um destino é o que estamos tentando prever sobre pontos de dados futuros, seja uma categoria ou um número.
 
-Se não tiver quaisquer dados de destino, terá de obter algumas. Não será capaz de responder à sua pergunta sem ele.
+Se você não tiver dados de destino, precisará obter alguns. Você não poderá responder à sua pergunta sem ele.
 
-## <a name="reformulate-your-question"></a>Reformulate sua pergunta
-Por vezes, pode reword sua pergunta para receber uma resposta mais úteis.
+## <a name="reformulate-your-question"></a>Reformular sua pergunta
+Às vezes, você pode refazer sua pergunta para obter uma resposta mais útil.
 
-A pergunta "É este ponto de dados A ou B?" prevê a categoria (nome ou etiqueta) de algo. Para respondê-lo, utilizamos um *algoritmo de classificação*.
+A pergunta "é este ponto de dados A ou B?" prevê a categoria (ou nome ou rótulo) de algo. Para responder, usamos um algoritmo de *classificação*.
 
-A pergunta "Quanto?" ou "Quantos?" prevê uma quantidade. Para respondê-la, usamos uma *algoritmo de regressão*.
+A pergunta "o quanto?" ou "Quantos?" prevê um valor. Para responder, usamos um *algoritmo de regressão*.
 
-Para ver como podemos podem transformar esses, vamos examinar a pergunta, "que história de notícias é o mais interessante para este leitor?" Ele solicita uma predição de uma única opção de muitas possibilidades – em outras palavras "É esta A ou B ou C ou D?" - e usaria um algoritmo de classificação.
+Para ver como podemos transformá-los, vamos examinar a pergunta "Qual história de notícias é o mais interessante para esse leitor?" Ele solicita uma previsão de uma única escolha de várias possibilidades – em outras palavras, "é A ou B ou C ou D?" -e usaria um algoritmo de classificação.
 
-No entanto, essa pergunta pode ser mais fácil de responder, se reword-la como "como interessante é cada história esta lista para este leitor?" Agora pode dar a cada artigo uma pontuação numérica e, em seguida, é fácil identificar o artigo de pontuação mais alta. Este é um reformular da pergunta classificação numa questão de regressão ou quanto?
+No entanto, essa pergunta pode ser mais fácil de responder se você a repalavras como "quão interessante é cada história desta lista para este leitor?" Agora você pode dar a cada artigo uma pontuação numérica e, em seguida, é fácil identificar o artigo de pontuação mais alta. Esta é uma reformulação da pergunta de classificação em uma pergunta de regressão ou de quanto?
 
-![Reformulate sua pergunta. Pergunta de classificação versus pergunta de regressão.](./media/data-science-for-beginners-ask-a-question-you-can-answer-with-data/classification-question-vs-regression-question.png)
+![Reformule sua pergunta. Pergunta de classificação versus perguntas de regressão.](./media/data-science-for-beginners-ask-a-question-you-can-answer-with-data/classification-question-vs-regression-question.png)
 
-Como faça que uma pergunta é uma pista para quais algoritmos pode fornecer uma resposta.
+A maneira de fazer uma pergunta é uma pista de qual algoritmo pode lhe dar uma resposta.
 
-Descobrirá que certas famílias de algoritmos - como os que no nosso exemplo de história de notícias - estão intimamente relacionadas. Pode reformulate sua pergunta para utilizar o algoritmo que lhe dá a resposta mais úteis.
+Você descobrirá que determinadas famílias de algoritmos, como as do nosso exemplo de história de notícias, estão relacionadas. Você pode reformular sua pergunta para usar o algoritmo que oferece a resposta mais útil.
 
-Mas, mais importante, fazer essa pergunta sharp - a pergunta que podem ser respondidas com dados. E certifique-se de que tem os dados adequados respondê-la.
+Mas, o mais importante, faça uma pergunta mais nítida – a pergunta que você pode responder com os dados. E verifique se você tem os dados corretos para respondê-lo.
 
-Falamos sobre alguns princípios básicos para fazer uma pergunta que pode ser respondidas com dados.
+Falamos sobre alguns princípios básicos para fazer uma pergunta que você pode responder com os dados.
 
-Certifique-se de que consulta outros vídeos em "Dados ciência para principiantes" do Microsoft Azure Machine Learning Studio.
+Certifique-se de conferir os outros vídeos em "ciência de dados para iniciantes" em Microsoft Azure Machine Learning Studio (clássico).
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Tente uma primeira experimentação de ciência de dados com o Machine Learning Studio](create-experiment.md)
-* [Obtenha uma introdução ao Machine Learning no Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)
+## <a name="next-steps"></a>Passos seguintes
+* [Experimente um primeiro experimento de ciência de dados com Machine Learning Studio (clássico)](create-experiment.md)
+* [Obtenha uma introdução a Machine Learning em Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/12/2019
+ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 706f76c00022c5f5661ea261a5bb35eedc13d5ba
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: MT
+ms.openlocfilehash: ba6d81596cd8a690f5c17e1ca55b91c5ff27b916
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756037"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497527"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona a Azure Machine Learning: arquitetura e conceitos
 
@@ -23,18 +23,18 @@ Saiba mais sobre a arquitetura, os conceitos e o fluxo de trabalho para Azure Ma
 
 ![Arquitetura e fluxo de trabalho de Azure Machine Learning](./media/concept-azure-machine-learning-architecture/workflow.png)
 
-## <a name="workflow"></a>Fluxo de Trabalho
+## <a name="workflow"></a>Fluxo de trabalho
 
 O fluxo de trabalho do modelo de aprendizado de máquina geralmente segue esta sequência:
 
 1. **Trem**
-    + Desenvolva scripts de treinamento do Machine Learning no **Python** ou com a interface visual.
+    + Desenvolva scripts de treinamento do Machine Learning no **Python** ou com o Visual Designer.
     + Criar e configurar um **destino de computação**.
     + **Envie os scripts** para o destino de computação configurado para execução nesse ambiente. Durante o treinamento, os scripts podem ler ou gravar no **repositório de armazenamento**. E os registros de execução são salvos como são **executados** no **espaço de trabalho** e agrupados em **experimentos**.
 
 1. **Pacote** -após uma execução satisfatória ser encontrada, registre o modelo persistente no registro de **modelo**.
 
-1. **Validar**  - **consultar o experimento** quanto a métricas registradas das execuções atuais e anteriores. Se as métricas não indicarem um resultado desejado, execute o loop novamente para a etapa 1 e itere em seus scripts.
+1. **Validar** - **consultar o experimento** quanto a métricas registradas das execuções atuais e anteriores. Se as métricas não indicarem um resultado desejado, execute o loop novamente para a etapa 1 e itere em seus scripts.
 
 1. **Implantar** – desenvolver um script de pontuação que usa o modelo e **implantar o modelo** como um **serviço Web** no Azure ou em um **dispositivo IOT Edge**.
 
@@ -45,23 +45,26 @@ O fluxo de trabalho do modelo de aprendizado de máquina geralmente segue esta s
 Use estas ferramentas para Azure Machine Learning:
 
 +  Interaja com o serviço em qualquer ambiente do Python com o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
++ Interaja com o serviço em qualquer ambiente de R com o [SDK do Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Automatize suas atividades de aprendizado de máquina com a [CLI do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
 + Gravar código em Visual Studio Code com [Azure Machine Learning extensão de vs Code](how-to-vscode-tools.md)
-+ Use a [interface visual (visualização) para Azure Machine Learning](ui-concept-visual-interface.md) executar as etapas do fluxo de trabalho sem escrever código.
++ Use o [Designer de Azure Machine Learning (versão prévia)](concept-designer.md) para executar as etapas do fluxo de trabalho sem escrever código.
+
 
 > [!NOTE]
 > Embora este artigo defina os termos e conceitos usados pelo Azure Machine Learning, ele não define os termos e conceitos para a plataforma Azure. Para obter mais informações sobre a terminologia da plataforma Azure, consulte o [Glossário de Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
 ## <a name="glossary"></a>Glossário
 + <a href="#activities">Atividade</a>
++ <a href="#compute-instance">Instância de computação</a>
 + <a href="#compute-targets">Destinos de computação</a>
 + <a href="#datasets-and-datastores">Repositórios de & de conjunto de armazenamento</a>
-+ <a href="#deployment">Implementação</a>
++ <a href="#endpoints">Extremidade</a>
 + <a href="#environments">Sistemas</a>
 + [Estimativas](#estimators)
 + <a href="#experiments">Experiências</a>
 + <a href="#github-tracking-and-integration">Rastreamento de git</a>
-+ <a href="#iot-module-deployments">Módulos IoT</a>
++ <a href="#iot-module-endpoints">Módulos IoT</a>
 + <a href="#logging">Logout</a>
 + <a href="#ml-pipelines">Pipelines de ML</a>
 + <a href="#models">Modelos</a>
@@ -69,7 +72,7 @@ Use estas ferramentas para Azure Machine Learning:
 + <a href="#run-configurations">Configuração de execução</a>
 + <a href="#snapshots">Instantânea</a>
 + <a href="#training-scripts">Script de treinamento</a>
-+ <a href="#web-service-deployments">Serviços Web</a>
++ <a href="#web-service-endpoint">Serviços Web</a>
 + <a href="#workspaces">Espaço</a>
 
 ### <a name="activities"></a>Atividades
@@ -81,9 +84,19 @@ Uma atividade representa uma operação de execução longa. As seguintes opera�
 
 As atividades podem fornecer notificações por meio do SDK ou da interface do usuário da Web para que você possa monitorar facilmente o progresso dessas operações.
 
+### <a name="compute-instance"></a>Instância de computação
+
+> [!NOTE]
+> As instâncias de computação estão disponíveis somente para espaços de trabalho com uma região de **EUA Central norte** ou **sul do Reino Unido**.
+>Se o seu espaço de trabalho estiver em qualquer outra região, você poderá continuar a criar e usar uma [VM do bloco de anotações](concept-compute-instance.md#notebookvm) . 
+
+Uma **instância de computação de Azure Machine Learning** (antiga VM de notebook) é uma estação de trabalho totalmente gerenciada baseada em nuvem que inclui várias ferramentas e ambientes instalados para aprendizado de máquina. As instâncias de computação podem ser usadas como um destino de computação para trabalhos de treinamento e inferência. Para tarefas grandes, [Azure Machine Learning clusters de computação](how-to-set-up-training-targets.md#amlcompute) com recursos de dimensionamento de vários nós é uma opção de destino de computação melhor.
+
+Saiba mais sobre as [instâncias de computação](concept-compute-instance.md).
+
 ### <a name="compute-targets"></a>Destinos de computação
 
-Um [destino de computação](concept-compute-target.md) permite especificar o recurso de computação em que você executa o script de treinamento ou hospeda sua implantação de serviço. Esse local pode ser seu computador local ou um recurso de computação baseado em nuvem. Os destinos de computação facilitam a alteração do ambiente de computação sem alterar seu código.
+Um [destino de computação](concept-compute-target.md) permite especificar o recurso de computação em que você executa o script de treinamento ou hospeda sua implantação de serviço. Esse local pode ser seu computador local ou um recurso de computação baseado em nuvem.
 
 Saiba mais sobre os [destinos de computação disponíveis para treinamento e implantação](concept-compute-target.md).
 
@@ -97,23 +110,23 @@ Para obter mais informações, consulte [criar e registrar conjuntos de dados Az
 
 Um **datastore** é uma abstração de armazenamento em uma conta de armazenamento do Azure. O repositório de armazenamento pode usar um contêiner de blob do Azure ou um compartilhamento de arquivos do Azure como o armazenamento de back-end. Cada espaço de trabalho tem um repositório de armazenamento padrão e você pode registrar repositórios de armazenamento adicionais. Use a API do SDK do Python ou a CLI do Azure Machine Learning para armazenar e recuperar arquivos do repositório de armazenamento.
 
-### <a name="deployment"></a>Implementação
+### <a name="endpoints"></a>Pontos Finais
 
-Uma implantação é uma instanciação do seu modelo em um serviço Web que pode ser hospedado na nuvem ou um módulo IoT para implantações de dispositivo integradas.
+Um ponto de extremidade é uma instanciação do seu modelo em um serviço Web que pode ser hospedado na nuvem ou um módulo IoT para implantações de dispositivo integradas.
 
-#### <a name="web-service-deployments"></a>Implantações de serviço Web
+#### <a name="web-service-endpoint"></a>Ponto de extremidade de serviço Web
 
-Um serviço Web implantado pode usar as instâncias de contêiner do Azure, o serviço kubernetes do Azure ou o FPGAs. Você cria o serviço de seu modelo, script e arquivos associados. Eles são encapsulados em uma imagem, que fornece o ambiente de tempo de execução para o serviço Web. A imagem tem um ponto de extremidade HTTP com balanceamento de carga que recebe solicitações de Pontuação enviadas para o serviço Web.
+Ao implantar um modelo como um serviço Web, o ponto de extremidade pode ser implantado em instâncias de contêiner do Azure, serviço kubernetes do Azure ou FPGAs. Você cria o serviço de seu modelo, script e arquivos associados. Eles são colocados em uma imagem de contêiner de base que contém o ambiente de execução do modelo. A imagem tem um ponto de extremidade HTTP com balanceamento de carga que recebe solicitações de Pontuação enviadas para o serviço Web.
 
-O Azure ajuda a monitorar a implantação do serviço Web coletando Application Insights telemetria ou telemetria de modelo, se você tiver optado por habilitar esse recurso. Os dados de telemetria só podem ser acessados por você e armazenados em suas instâncias de Application Insights e de conta de armazenamento.
+O Azure ajuda você a monitorar seu serviço Web coletando Application Insights telemetria ou telemetria de modelo, se você tiver optado por habilitar esse recurso. Os dados de telemetria só podem ser acessados por você e armazenados em suas instâncias de Application Insights e de conta de armazenamento.
 
 Se você tiver habilitado o dimensionamento automático, o Azure dimensionará automaticamente a implantação.
 
 Para obter um exemplo de implantação de um modelo como um serviço Web, consulte [implantar um modelo de classificação de imagem em instâncias de contêiner do Azure](tutorial-deploy-models-with-aml.md).
 
-#### <a name="iot-module-deployments"></a>Implantações de módulo IoT
+#### <a name="iot-module-endpoints"></a>Pontos de extremidade do módulo IoT
 
-Um módulo IoT implantado é um contêiner do Docker que inclui seu modelo e o script ou aplicativo associado e quaisquer dependências adicionais. Você implanta esses módulos usando Azure IoT Edge em dispositivos de borda.
+Um ponto de extremidade do módulo IoT implantado é um contêiner do Docker que inclui seu modelo e o script ou aplicativo associado e quaisquer dependências adicionais. Você implanta esses módulos usando Azure IoT Edge em dispositivos de borda.
 
 Se você habilitou o monitoramento, o Azure coletará dados de telemetria do modelo dentro do módulo Azure IoT Edge. Os dados de telemetria só podem ser acessados por você e armazenados em sua instância de conta de armazenamento.
 
@@ -188,7 +201,6 @@ Você não pode excluir um modelo registrado que está sendo usado por uma impla
 
 Para obter um exemplo de como registrar um modelo, consulte [treinar um modelo de classificação de imagem com Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-
 ### <a name="runs"></a>Execuções
 
 Uma execução é uma única execução de um script de treinamento. Azure Machine Learning registra todas as execuções e armazena as seguintes informações:
@@ -220,10 +232,9 @@ Para treinar um modelo, você especifica o diretório que contém o script de tr
 
 Para obter um exemplo, consulte [tutorial: treinar um modelo de classificação de imagem com Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-### <a name="workspaces"></a>Áreas de trabalho
+### <a name="workspaces"></a>Áreas de Trabalho
 
 [O espaço de trabalho](concept-workspace.md) é o recurso de nível superior para Azure Machine Learning. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar ao usar o Azure Machine Learning. Você pode compartilhar um espaço de trabalho com outras pessoas. Para obter uma descrição detalhada dos espaços de trabalho, consulte [o que é um espaço de trabalho Azure Machine Learning?](concept-workspace.md).
-
 
 ### <a name="next-steps"></a>Passos seguintes
 

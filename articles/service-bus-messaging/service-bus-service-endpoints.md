@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: f32a67dc6d3b3f869afaa532403c05b218588552
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 7d31dd004c879fd3e689f4ba7a8ae58cb223ae70
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786388"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73484938"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Usar pontos de extremidade de serviço de rede virtual com o barramento de serviço do Azure
 
@@ -31,12 +31,11 @@ O resultado é uma relação privada e isolada entre as cargas de trabalho vincu
 > Os serviços confiáveis da Microsoft não têm suporte quando as redes virtuais são implementadas.
 >
 > Cenários comuns do Azure que não funcionam com redes virtuais (Observe que a lista **não** é exaustiva) –
-> - Monitor do Azure
+> - Azure Monitor
 > - Azure Stream Analytics
 > - Integração com a grade de eventos do Azure
 > - Rotas do Hub IoT do Azure
 > - Device Explorer de IoT do Azure
-> - Explorador de Dados do Azure
 >
 > Os serviços da Microsoft a seguir devem estar em uma rede virtual
 > - Serviço de Aplicações do Azure

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 90f83e3e6fa1910641b3e384460cf4aa14016c1a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 386229bc272a520ec8093c95bc861704ce9ea7eb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067335"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471429"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Criar uma aplicação Web PHP no Azure
 
@@ -182,17 +182,19 @@ Depois de concluída a implementação, volte para a janela do browser aberta du
 
 ## <a name="manage-your-new-azure-app"></a>Gerenciar seu novo aplicativo do Azure
 
-Aceda ao <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerir a aplicação Web que criou.
+1. Aceda ao <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerir a aplicação Web que criou. Pesquise e selecione **serviços de aplicativos**.
 
-No menu à esquerda, clique em **serviços de aplicativos**e, em seguida, clique no nome do seu aplicativo do Azure.
+    ![Pesquisar serviços de aplicativos, portal do Azure, criar aplicativo Web PHP](media/app-service-web-get-started-php/navigate-to-app-services-in-the-azure-portal.png)
 
-![Navegação do portal para a aplicação do Azure](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
+2. Selecione o nome do seu aplicativo do Azure.
 
-Será apresentada a página Descrição geral da sua aplicação Web. Aqui, pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar.
+    ![Navegação do portal para a aplicação do Azure](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
-![Página Serviço de Aplicações no portal do Azure](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+    A página **visão geral** do seu aplicativo Web será exibida. Aqui, você pode executar tarefas básicas de gerenciamento, como **procurar**, **parar**, **reiniciar**e **excluir**.
 
-O menu esquerdo fornece diferentes opções para configurar a aplicação. 
+    ![Página Serviço de Aplicações no portal do Azure](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+
+    O menu do aplicativo Web fornece opções diferentes para configurar seu aplicativo. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

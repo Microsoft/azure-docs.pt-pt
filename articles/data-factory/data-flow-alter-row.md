@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: fff08b3e046161fbedefdc55f4e6a39a7f965f80
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 7a782c62165aa6f2641c2ebe8e4600198ec373c5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72387272"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486206"
 ---
 # <a name="azure-data-factory-alter-row-transformation"></a>Transformação alterar linha Azure Data Factory
 
@@ -22,7 +22,7 @@ Use a transformação alterar linha para definir políticas de inserção, exclu
 ![Alterar configurações de linha](media/data-flow/alter-row1.png "Alterar configurações de linha")
 
 > [!NOTE]
-> As transformações de alteração de linha só funcionarão em coletores de banco de dados em seu fluxo. As ações que você atribui a linhas (inserir, atualizar, excluir, Upsert) não ocorrerão durante as sessões de depuração. Você deve adicionar uma tarefa Executar fluxo de dados a um pipeline e usar depuração de pipeline ou gatilhos para aplicarr as políticas de alteração de linha em suas tabelas de banco de dados.
+> As transformações de alteração de linha só funcionarão em coletores de banco de dados ou CosmosDB em seu fluxo de dados. As ações que você atribui a linhas (inserir, atualizar, excluir, Upsert) não ocorrerão durante as sessões de depuração. Você deve adicionar uma tarefa Executar fluxo de dados a um pipeline e usar depuração de pipeline ou gatilhos para aplicarr as políticas de alteração de linha em suas tabelas de banco de dados.
 
 ## <a name="indicate-a-default-row-policy"></a>Indicar uma política de linha padrão
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Executar operações de ETL usando a consulta interativa no Azure HDInsight'
+title: 'Tutorial: operações de ETL com consulta interativa – Azure HDInsight'
 description: Tutorial-saiba como extrair dados de um conjunto de um CSV bruto, transformá-lo usando a consulta interativa no HDInsight e, em seguida, carregar os dados transformados no banco de dado SQL do Azure usando o Apache Sqoop.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 07/02/2019
 ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
-ms.openlocfilehash: 9ff215bb687ea2b6aa32ecb01dba7a61385b15a4
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: d1136c153a529f58db1de277ec84ac332b9f78ae
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735837"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494152"
 ---
-# <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados usando a consulta interativa no Azure HDInsight
+# <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutorial: extrair, transformar e carregar dados usando a consulta interativa no Azure HDInsight
 
 Neste tutorial, você pega um arquivo de dados CSV bruto de dados de vôo publicamente disponíveis, importa-o para o armazenamento de cluster do HDInsight e, em seguida, transforma os dados usando a consulta interativa no Azure HDInsight. Depois que os dados são transformados, você os carrega em um banco de dados SQL do Azure usando o [Apache Sqoop](https://sqoop.apache.org/).
 
@@ -42,7 +42,7 @@ Este tutorial abrange as seguintes tarefas:
 
 2. Na página, desmarque todos os campos e, em seguida, selecione os seguintes valores:
 
-   | Name | Valor |
+   | Nome | Valor |
    | --- | --- |
    | Filtrar Ano |2019 |
    | Filtrar Período |Janeiro |
@@ -54,7 +54,7 @@ Este tutorial abrange as seguintes tarefas:
 
 Existem muitas formas de carregar dados para o armazenamento associado a um cluster do HDInsight. Nesta secção, vai utilizar `scp` para carregar os dados. Para ver outras formas de carregar dados, veja [Upload data to HDInsight](../hdinsight-upload-data.md) (Carregar dados para o HDInsight).
 
-1. Carregue o arquivo. zip no nó principal do cluster HDInsight. Edite o comando a seguir `FILENAME` substituindo pelo nome do arquivo. zip e `CLUSTERNAME` pelo nome do cluster HDInsight. Em seguida, abra um prompt de comando, defina seu diretório de trabalho para o local do arquivo e, em seguida, digite o comando.
+1. Carregue o arquivo. zip no nó principal do cluster HDInsight. Edite o comando a seguir, substituindo `FILENAME` pelo nome do arquivo. zip e `CLUSTERNAME` pelo nome do cluster HDInsight. Em seguida, abra um prompt de comando, defina seu diretório de trabalho para o local do arquivo e, em seguida, digite o comando.
 
     ```cmd
     scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
@@ -62,13 +62,13 @@ Existem muitas formas de carregar dados para o armazenamento associado a um clus
 
     Se for solicitado que você insira sim ou não para continuar, digite Sim no prompt de comando e pressione Enter. O texto não é visível na janela conforme você digita.
 
-2. Depois de concluído o carregamento, utilize SSH para ligar ao cluster. Edite o comando a seguir `CLUSTERNAME` substituindo pelo nome do cluster HDInsight. Em seguida, introduza o seguinte comando:
+2. Depois de concluído o carregamento, utilize SSH para ligar ao cluster. Edite o comando a seguir, substituindo `CLUSTERNAME` pelo nome do cluster HDInsight. Em seguida, introduza o seguinte comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-3. Configure a variável de ambiente quando uma conexão SSH tiver sido estabelecida. Substitua `FILE_NAME`, `SQL_SERVERNAME`, ,`SQL_DATABASE` epelos`SQL_PASWORD` valores apropriados`SQL_USER`. Em seguida, digite o comando:
+3. Configure a variável de ambiente quando uma conexão SSH tiver sido estabelecida. Substitua `FILE_NAME`, `SQL_SERVERNAME`, `SQL_DATABASE`, `SQL_USER`e `SQL_PASWORD` pelos valores apropriados. Em seguida, digite o comando:
 
     ```bash
     export FILENAME=FILE_NAME
@@ -260,15 +260,15 @@ Nas secções anteriores, copiou os dados transformados em `/tutorials/flightdel
     sqoop list-databases --connect jdbc:sqlserver://$SQLSERVERNAME.database.windows.net:1433 --username $SQLUSER --password $SQLPASWORD
     ```
 
-    Esse comando retorna uma lista de bancos de dados, incluindo o banco de dados no qual você `delays` criou a tabela anteriormente.
+    Esse comando retorna uma lista de bancos de dados, incluindo o banco de dados no qual você criou a tabela de `delays` anteriormente.
 
-2. Exporte dados `/tutorials/flightdelays/output` do para `delays` a tabela inserindo o comando a seguir:
+2. Exporte dados de `/tutorials/flightdelays/output` para a tabela `delays` inserindo o comando abaixo:
 
     ```bash
     sqoop export --connect "jdbc:sqlserver://$SQLSERVERNAME.database.windows.net:1433;database=$DATABASE" --username $SQLUSER --password $SQLPASWORD --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
 
-    O Sqoop conecta-se ao banco de `delays` dados `/tutorials/flightdelays/output` que contém a tabela e exporta o diretório para `delays` a tabela.
+    Sqoop conecta-se ao banco de dados que contém a tabela de `delays` e exporta o diretório `/tutorials/flightdelays/output` para a tabela `delays`.
 
 3. Depois que o comando sqoop for concluído, use o utilitário TSQL para se conectar ao banco de dados digitando o comando a seguir:
 

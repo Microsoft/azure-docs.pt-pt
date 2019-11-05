@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 164ba5ff7be38d3b11a8c5f8e5c76a3ff19ff508
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4753cc9a98cd59c0c5d446b3d92280aabfb72c12
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172917"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474701"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutorial: ingressar uma máquina virtual do Windows Server em um domínio gerenciado
 
@@ -54,7 +54,8 @@ Para ver como unir um computador a um domínio gerenciado AD DS do Azure, vamos 
 
 Se você já tiver uma VM que deseja ingressar no domínio, pule para a seção para [ingressar a VM no domínio gerenciado AD DS do Azure](#join-the-vm-to-the-azure-ad-ds-managed-domain).
 
-1. No canto superior esquerdo da portal do Azure, selecione **+ criar um recurso**.
+1. No menu portal do Azure ou na **Home** Page do, selecione **criar um recurso**.
+
 1. Em **introdução**, escolha **Windows Server 2016 datacenter**.
 
     ![Escolha criar uma VM do Windows Server 2016 datacenter no portal do Azure](./media/join-windows-vm/select-vm-image.png)

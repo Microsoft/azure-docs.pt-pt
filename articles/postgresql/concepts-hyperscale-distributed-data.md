@@ -7,23 +7,23 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 8a0fe871685f2a140cd8272d93f49f594cd2c910
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 53d656d8d39c71c813d7dd7a504ec45667bf18b4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947493"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482430"
 ---
 # <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Distributed data in Azure database for PostgreSQL – Citus (hiperescala)
 
-Este artigo descreve os três tipos de tabela na visualização do banco de dados do Azure para PostgreSQL – Citus (hiperescala).
+Este artigo descreve os três tipos de tabela no banco de dados do Azure para PostgreSQL – Citus (hiperescala).
 Ele mostra como as tabelas distribuídas são armazenadas como fragmentos e a maneira como os fragmentos são colocados em nós.
 
 ## <a name="table-types"></a>Tipos de tabela
 
 Há três tipos de tabelas em um grupo de servidores de hiperescala (Citus), cada uma usada para finalidades diferentes.
 
-### <a name="type-1-distributed-tables"></a>Tipo 1: Tabelas distribuídas
+### <a name="type-1-distributed-tables"></a>Tipo 1: tabelas distribuídas
 
 O primeiro tipo e mais comum são tabelas distribuídas. Eles parecem ser tabelas normais para instruções SQL, mas são particionados horizontalmente entre nós de trabalho. Isso significa que as linhas da tabela são armazenadas em nós diferentes, em tabelas de fragmento chamadas de fragmentos.
 
@@ -35,13 +35,13 @@ Alterar o esquema de uma tabela distribuída em cascata para atualizar todos os 
 O Citus (hiperscale) usa a fragmentação de algoritmos para atribuir linhas a fragmentos. A atribuição é feita de forma determinista com base no valor de uma coluna de tabela chamada coluna de distribuição. O administrador de cluster deve designar esta coluna ao distribuir uma tabela.
 Fazer a escolha certa é importante para desempenho e funcionalidade.
 
-### <a name="type-2-reference-tables"></a>Tipo 2: Tabelas de referência
+### <a name="type-2-reference-tables"></a>Tipo 2: tabelas de referência
 
 Uma tabela de referência é um tipo de tabela distribuída cujo conteúdo inteiro está concentrado em um único fragmento. O fragmento é replicado em todos os trabalhadores. As consultas em qualquer trabalho podem acessar as informações de referência localmente, sem a sobrecarga de rede de solicitar linhas de outro nó. Tabelas de referência não têm nenhuma coluna de distribuição porque não há necessidade de distinguir fragmentos separados por linha.
 
 As tabelas de referência são geralmente pequenas e são usadas para armazenar dados relevantes para consultas em execução em qualquer nó de trabalho. Um exemplo são valores enumerados como status da ordem ou categorias de produtos.
 
-### <a name="type-3-local-tables"></a>Tipo 3: Tabelas locais
+### <a name="type-3-local-tables"></a>Tipo 3: tabelas locais
 
 Quando você usa o Citus (hiperescala), o nó de coordenador ao qual você se conecta é um banco de dados PostgreSQL normal. Você pode criar tabelas comuns no coordenador e optar por não fragmentá-las.
 
@@ -64,7 +64,7 @@ SELECT * from pg_dist_shard;
  (4 rows)
 ```
 
-Se o nó de coordenador quiser determinar qual fragmento contém uma linha de `github_events`, ele aplicará hash ao valor da coluna de distribuição na linha. Em seguida, o nó verifica qual intervalo @ no__t-0s de fragmento contém o valor de hash. Os intervalos são definidos de forma que a imagem da função de hash seja sua União não-junção.
+Se o nó de coordenador quiser determinar qual fragmento contém uma linha de `github_events`, ele aplicará hash ao valor da coluna de distribuição na linha. Em seguida, o nó verifica qual fragmento\'s intervalo contém o valor de hash. Os intervalos são definidos de forma que a imagem da função de hash seja sua União não-junção.
 
 ### <a name="shard-placements"></a>Posicionamentos de fragmentos
 

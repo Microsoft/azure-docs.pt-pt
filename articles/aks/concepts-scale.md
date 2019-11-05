@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: d2d7508b4f0a2789a0eae5d6c6205475b5795e36
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 1972a91e1ed8a39bcd467272108e0e772116344e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097832"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472886"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de dimensionamento para aplicativos no serviço kubernetes do Azure (AKS)
 
@@ -57,8 +57,6 @@ Para responder à alteração das demandas de Pod, o kubernetes tem um conjunto 
 
 O dimensionamento em escala geral do cluster normalmente é usado junto com o dimensionamento horizontal do pod. Quando combinado, o pod de dimensionamento horizontal aumenta ou diminui o número de pods com base na demanda do aplicativo e o dimensionamento automática do cluster ajusta o número de nós conforme necessário para executar os pods adicionais de forma adequada.
 
-O autoescalar do cluster só deve ser testado na visualização em clusters AKS.
-
 Para começar a usar o cluster de dimensionamento em AKS, consulte o [dimensionamento de cluster em AKs][aks-cluster-autoscaler].
 
 ### <a name="scale-up-events"></a>Escalar verticalmente os eventos
@@ -89,7 +87,7 @@ Seu aplicativo não requer nenhuma modificação para usar nós virtuais. As imp
 
 Os nós virtuais são implantados em uma sub-rede adicional na mesma rede virtual que o cluster AKS. Essa configuração de rede virtual permite que o tráfego entre ACI e AKS seja protegido. Como um cluster AKS, uma instância de ACI é um recurso de computação lógico seguro que é isolado de outros usuários.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar a dimensionar aplicativos, primeiro siga o guia de [início rápido para criar um cluster AKs com o CLI do Azure][aks-quickstart]. Em seguida, você pode começar a dimensionar manualmente ou automaticamente os aplicativos em seu cluster AKS:
 

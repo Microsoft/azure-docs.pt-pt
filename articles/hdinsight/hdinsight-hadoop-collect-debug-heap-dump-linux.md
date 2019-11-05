@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5df6ab47c45a64077a39974a30c65fe13f3c851d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 90de0b4bfad4c5096ebc38eb3d31fc41bca6649b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091504"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494845"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Habilitar despejos de heap para serviços de Apache Hadoop no HDInsight baseado em Linux
 
@@ -37,12 +37,12 @@ Você também pode habilitar despejos de heap para o mapa e reduzir os processos
 
 Os despejos de heap são habilitados por meio da passagem de opções (às vezes conhecidas como optas ou parâmetros) para a JVM quando um serviço é iniciado. Para a maioria dos serviços [Apache Hadoop](https://hadoop.apache.org/) , você pode modificar o script de shell usado para iniciar o serviço para passar essas opções.
 
-Em cada  **\*script, há uma \_exportação para as**opções, que contém a opção passada para a JVM. Por exemplo, no script **Hadoop-env.sh** , a linha que começa com `export HADOOP_NAMENODE_OPTS=` contém as opções para o serviço NameNode.
+Em cada script, há uma exportação para **\*\_** opções, que contém as que são passadas para a JVM. Por exemplo, no script **Hadoop-env.sh** , a linha que começa com `export HADOOP_NAMENODE_OPTS=` contém as opções para o serviço NameNode.
 
 Os processos de mapeamento e redução são ligeiramente diferentes, pois essas operações são um processo filho do serviço MapReduce. Cada mapa ou redução de processo é executado em um contêiner filho, e há duas entradas que contêm as opções de JVM. Ambos estão contidos em **mapred-site. xml**:
 
-* **mapreduce.admin.map.child.java.opts**
-* **mapreduce.admin.reduce.child.java.opts**
+* **MapReduce. admin. map. Child. java. de optas**
+* **MapReduce. admin. Reduza. Child. java.**
 
 > [!NOTE]  
 > É recomendável usar o [Apache Ambari](https://ambari.apache.org/) para modificar os scripts e as configurações de mapred-site. xml, uma vez que o Ambari lida com a replicação de alterações entre nós no cluster. Consulte a seção [usando o Apache Ambari](#using-apache-ambari) para obter etapas específicas.
@@ -64,7 +64,7 @@ O local padrão para o arquivo de despejo é o diretório de trabalho atual. Voc
 
     -XX:HeapDumpPath=/path
 
-Por exemplo, usar `-XX:HeapDumpPath=/tmp` faz com que os despejos sejam armazenados no diretório/tmp.
+Por exemplo, o uso de `-XX:HeapDumpPath=/tmp` faz com que os despejos sejam armazenados no diretório/tmp.
 
 ### <a name="scripts"></a>Scripts
 
@@ -75,7 +75,7 @@ Você também pode disparar um script quando ocorrer um **OutOfMemoryError** . P
 > [!NOTE]  
 > Como Apache Hadoop é um sistema distribuído, qualquer script usado deve ser colocado em todos os nós no cluster em que o serviço é executado.
 > 
-> O script também deve estar em um local acessível pela conta em que o serviço é executado e deve fornecer permissões de execução. Por exemplo, você pode desejar armazenar scripts no `/usr/local/bin` e usar `chmod go+rx /usr/local/bin/filename.sh` o para conceder permissões de leitura e execução.
+> O script também deve estar em um local acessível pela conta em que o serviço é executado e deve fornecer permissões de execução. Por exemplo, você pode desejar armazenar scripts em `/usr/local/bin` e usar `chmod go+rx /usr/local/bin/filename.sh` para conceder permissões de leitura e execução.
 
 ## <a name="using-apache-ambari"></a>Usando o Apache Ambari
 
@@ -96,7 +96,7 @@ Para modificar a configuração de um serviço, use as seguintes etapas:
 
     ![Lista filtrada de configuração do Apache Ambari](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
 
-4. Localize a  **\* entradadeopçõesparaoserviçoparaoqualvocêdesejahabilitarosdespejosdeheapeadicioneasopçõesquedesejahabilitar.\_** Na imagem a seguir, adicionei `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` à entrada de opções do **HADOOP\_NAMENODE:\_**
+4. Localize o **\*\_** entrada de opções para o serviço para o qual você deseja habilitar os despejos de heap e adicione as opções que deseja habilitar. Na imagem a seguir, adicionei `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` ao **HADOOP\_NAMENODE\_** entrada de opções:
 
     ![Apache Ambari Hadoop-namenode-optas por](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
 

@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 07/24/2019
-ms.openlocfilehash: d0e0c5601a6cddf936604df6d5b48b8bf48e7c8d
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 10/25/2019
+ms.openlocfilehash: 2e088557bf61141d3ea3cbeb25d53f711a71fd97
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162435"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496863"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implantar um modelo de aprendizado profundo para inferência com GPU
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Este artigo ensina como usar Azure Machine Learning para implantar um modelo habilitado para GPU como um serviço Web. As informações neste artigo se baseiam na implantação de um modelo no serviço de kubernetes do Azure (AKS). O cluster AKS fornece um recurso de GPU que é usado pelo modelo para inferência.
 
@@ -132,7 +133,7 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-Esse arquivo é nomeado `score.py`. Para obter mais informações sobre scripts de entrada, consulte [como e onde implantar](how-to-deploy-and-where.md).
+Esse arquivo é denominado `score.py`. Para obter mais informações sobre scripts de entrada, consulte [como e onde implantar](how-to-deploy-and-where.md).
 
 ## <a name="define-the-conda-environment"></a>Definir o ambiente Conda
 
@@ -209,7 +210,7 @@ print(aks_service.state)
 ```
 
 > [!NOTE]
-> Se o `InferenceConfig` objeto tiver `enable_gpu=True`, o `deployment_target` parâmetro deverá fazer referência a um cluster que fornece uma GPU. Caso contrário, a implantação falhará.
+> Se o objeto `InferenceConfig` tiver `enable_gpu=True`, o parâmetro `deployment_target` deverá fazer referência a um cluster que fornece uma GPU. Caso contrário, a implantação falhará.
 
 Para obter mais informações, consulte a documentação de referência para o [modelo](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 

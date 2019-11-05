@@ -12,14 +12,14 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab1caeb59cf7fc0a6baef5ba0001e734a75fccd2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 25d1aec836f66ae2ebc007e920cf6ef8a4450919
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72758237"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473344"
 ---
-# <a name="plan-an-automatic-user-provisioning-deployment"></a>Planejar uma implantação de provisionamento de usuário automático
+# <a name="plan-an-automatic-user-provisioning-deployment"></a>Planear uma implementação de aprovisionamento automático de utilizadores
 
 Muitas organizações contam com aplicativos SaaS (software como serviço), como ServiceNow, Zscaler e margem de atraso para produtividade do usuário final. Historicamente, a equipe de ti conta com métodos de provisionamento manual, como carregar arquivos CSV, ou usar scripts personalizados para gerenciar identidades de usuário com segurança em cada aplicativo SaaS. Esses processos são propensos a erros, inseguros e difíceis de gerenciar.
 
@@ -27,7 +27,7 @@ O provisionamento automático de usuário do Azure Active Directory (AD do Azure
 
 Consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) para entender melhor a funcionalidade.
 
-## <a name="learn"></a>Aprenda
+## <a name="learn"></a>Saiba mais
 
 O provisionamento de usuário cria uma base para o controle de identidade contínuo e aprimora a qualidade dos processos de negócios que dependem de dados de identidade autoritativa.
 
@@ -43,7 +43,7 @@ Os principais benefícios de habilitar o provisionamento automático de usuário
 
 * **Reduza o custo**. O provisionamento automático de usuário reduz os custos, evitando ineficiências e erros humanos associados ao provisionamento manual. Ele reduz a necessidade de soluções de provisionamento de usuário, scripts e logs de auditoria desenvolvidos de fato personalizado.
 
-### <a name="licensing"></a>Licenças
+### <a name="licensing"></a>Licenciamento
 
 O Azure AD fornece integração de autoatendimento de qualquer aplicativo usando modelos fornecidos no menu da Galeria de aplicativos. Para obter uma lista completa dos requisitos de licença, consulte a [página de licenciamento do Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -63,7 +63,7 @@ Este artigo usa os seguintes termos:
 
 * Sistema de destino – o repositório de usuários ao qual o Azure AD provisiona. O sistema de destino é normalmente um aplicativo SaaS, como ServiceNow, Zscaler e margem de atraso. O sistema de destino também pode ser um sistema local, como o AD.
 
-* [Sistema para scim (gerenciamento de identidade entre domínios)](http://www.simplecloud.info/)) -Um padrão aberto que permite a automação do provisionamento do usuário. O SCIM comunica dados de identidade do usuário entre provedores de identidade, como a Microsoft, e provedores de serviço como o Salesforce ou outros aplicativos SaaS que exigem informações de identidade do usuário.
+* [Sistema para scim (gerenciamento de identidade entre domínios)](https://aka.ms/scimoverview) – um padrão aberto que permite a automação do provisionamento do usuário. O SCIM comunica dados de identidade do usuário entre provedores de identidade, como a Microsoft, e provedores de serviço como o Salesforce ou outros aplicativos SaaS que exigem informações de identidade do usuário.
 
 ### <a name="training-resources"></a>Recursos de treinamento
 
@@ -281,6 +281,8 @@ Após um [ciclo inicial](https://docs.microsoft.com/azure/active-directory/manag
 * O processo de provisionamento entra em quarentena devido a uma alta taxa de erros e permanece em quarentena por mais de quatro semanas quando ela será desabilitada automaticamente.
 
 Para examinar esses eventos e todas as outras atividades executadas pelo serviço de provisionamento, consulte [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context)do Azure AD.
+
+Para entender quanto tempo os ciclos de provisionamento levam e monitoram o progresso do trabalho de provisionamento, você pode [verificar o status do provisionamento do usuário](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).
 
 ### <a name="gain-insights-from-reports"></a>Obter informações de relatórios
 

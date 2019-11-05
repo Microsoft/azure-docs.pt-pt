@@ -11,14 +11,15 @@ ms.author: jordane
 author: jpe316
 ms.date: 10/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 597cc4e03257b544187fc2bc131974954b64c84b
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: dcbe535bb92f7755980929956093b0f0121ef41b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819865"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476441"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Usar a extensão da CLI para Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 A CLI do Azure Machine Learning é uma extensão do [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), uma interface de linha de comando de plataforma cruzada para a plataforma do Azure. Essa extensão fornece comandos para trabalhar com Azure Machine Learning. Ele permite automatizar suas atividades de aprendizado de máquina. A lista a seguir fornece algumas ações de exemplo que você pode fazer com a extensão CLI:
 
@@ -149,7 +150,7 @@ Os comandos a seguir demonstram como usar a CLI para gerenciar os recursos usado
     >
     > Se você tiver um script Python que cria um objeto de configuração de execução programaticamente, poderá usar [runconfig. Save ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) para salvá-lo como um arquivo runconfig.
     >
-    > Para obter mais exemplos de arquivos runconfig, consulte [https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml](https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml).
+    > O esquema runconfig completo pode ser encontrado neste [arquivo JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
 
     Para obter mais informações, consulte [AZ ml Run Submit-script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
 

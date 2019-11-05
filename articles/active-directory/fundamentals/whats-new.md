@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6847384177e71c7f2b012e46211a5c09fa80fedb
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7db35b89903de6c5027bb7ea445245d84b96d6ef
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149019"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473309"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que há de novo no Azure Active Directory?
 
@@ -434,7 +434,7 @@ Os relatórios de segurança modernos fornecerão recursos adicionais das versõ
 - Estado de risco, abrangendo: em risco, ignorado, remediado e confirmado comprometido
 - Novas detecções relacionadas a riscos (disponíveis para assinantes Azure AD Premium)
 
-Para obter mais informações, consulte [usuários arriscados](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-users-report), [entradas arriscadas](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-sign-ins-report)e [detecções de risco](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risk-detections-report).
+Para obter mais informações, consulte [usuários arriscados](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-users), [entradas arriscadas](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-sign-ins)e [detecções de risco](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risk-detections).
 
 ---
 
@@ -551,7 +551,7 @@ Para obter mais informações sobre como configurar Azure Monitor, consulte [log
 
 Em 25 de setembro de 2019, vamos desligar a experiência de informações de segurança antiga e não avançada para registrar e gerenciar informações de segurança do usuário e ativar apenas a nova [versão aprimorada](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271). Isso significa que os usuários não poderão mais usar a experiência antiga.
 
-Para obter mais informações sobre a experiência de informações de segurança aprimorada, consulte nossa documentação de [administrador](https://aka.ms/securityinfodocs) and nossa [documentação do usuário](https://aka.ms/securityinfoguide).
+Para obter mais informações sobre a experiência de informações de segurança aprimorada, consulte nossa [documentação de administração](https://aka.ms/securityinfodocs) e nossa [documentação de usuário](https://aka.ms/securityinfoguide).
 
 #### <a name="to-turn-on-this-new-experience-you-must"></a>Para ativar essa nova experiência, você deve:
 
@@ -739,7 +739,7 @@ Todos os administradores do Azure AD agora podem selecionar a faixa na parte sup
 
 - Estado de risco, abrangendo: em risco, ignorado, remediado e confirmado comprometido
 
-Para obter mais informações, consulte relatório de [usuários arriscados](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-users-report) e [registro de entradas arriscadas](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-sign-ins-report).
+Para obter mais informações, consulte relatório de [usuários arriscados](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-users) e [registro de entradas arriscadas](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-sign-ins).
 
 ---
 

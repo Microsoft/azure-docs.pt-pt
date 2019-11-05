@@ -6,17 +6,17 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 08/02/2019
-ms.openlocfilehash: 8a6a9862679508971edd23b2d4220446c2692d72
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 10/15/2019
+ms.openlocfilehash: 906ae92b0018430bdda02639642dd66ae2231dce
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555373"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73477059"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Visão geral de Azure Monitor para contêineres
 
-O Azure Monitor para contêineres é um recurso projetado para monitorar o desempenho de cargas de trabalho de contêiner implantadas em instâncias de contêiner do Azure ou clusters kubernetes gerenciados hospedados no AKS (serviço kubernetes do Azure). O monitoramento de seus contêineres é essencial, especialmente quando você está executando um cluster de produção, em escala, com vários aplicativos.
+Azure Monitor para contêineres é um recurso projetado para monitorar o desempenho de cargas de trabalho de contêiner implantadas em instâncias de contêiner do Azure, clusters kubernetes gerenciados hospedados no AKS (serviço kubernetes do Azure) ou clusters de kubernetes autogerenciados hospedados em Azure Stack. O monitoramento de seus contêineres é essencial, especialmente quando você está executando um cluster de produção, em escala, com vários aplicativos.
 
 Azure Monitor para contêineres oferece visibilidade de desempenho coletando métricas de memória e processador de controladores, nós e contêineres que estão disponíveis no kubernetes por meio da API de métricas. Os registos do contentor também são recolhidos.  Depois de habilitar o monitoramento de clusters do kubernetes, as métricas e os logs são coletados automaticamente para você por meio de uma versão em contêiner do agente de Log Analytics para Linux. As métricas são gravadas no repositório de métricas e os dados de log são gravados no repositório de logs associado ao seu espaço de trabalho [log Analytics](../log-query/log-query-overview.md) . 
 
@@ -28,17 +28,17 @@ O Azure Monitor para contêineres fornece uma experiência de monitoramento abra
 
 * Identifique os contêineres do AKS que estão em execução no nó e sua utilização média de processador e memória. Esse conhecimento pode ajudá-lo a identificar gargalos de recursos.
 * Identifique a utilização de memória e processador de grupos de contêineres e seus contêineres hospedados em instâncias de contêiner do Azure.  
-* Identifique onde o contêiner reside em um controlador ou um pod. Esse conhecimento pode ajudá-lo a exibir o desempenho geral do controlador ou do pod.
+* Identifique onde o contêiner reside em um controlador ou um pod. Esse conhecimento pode ajudá-lo a exibir o desempenho geral do controlador ou do pod. 
 * Examine a utilização de recursos de cargas de trabalho em execução no host que não estão relacionadas aos processos padrão que dão suporte ao Pod.
 * Entenda o comportamento do cluster em cargas médias e mais pesadas. Esse conhecimento pode ajudá-lo a identificar as necessidades de capacidade e determinar a carga máxima que o cluster pode sustentar. 
-* Configure alertas para notificá-lo proativamente ou registre-o quando a utilização de CPU e memória em nós ou contêineres exceder seus limites.
+* Configure alertas para notificá-lo proativamente ou registre-o quando a utilização de CPU e memória em nós ou contêineres exceder seus limites ou quando uma alteração de estado de integridade ocorrer no cluster na infraestrutura, nos nós ou no acúmulo de integridade da carga de trabalho.
 * Integre com o [Prometheus](https://prometheus.io/docs/introduction/overview/) para exibir as métricas de aplicativo e carga de trabalho coletadas de nós e kubernetes usando [consultas](container-insights-log-search.md) para criar alertas personalizados, painéis e executar análise detalhada.
 
     >[!NOTE]
     >O suporte para Prometheus é um recurso em visualização pública no momento.
     >
 
-* Monitore cargas de trabalho de contêiner [implantadas no AKs-Engine](https://github.com/microsoft/OMS-docker/tree/aks-engine).
+* Monitore cargas de trabalho de contêiner [implantadas](https://github.com/microsoft/OMS-docker/tree/aks-engine) no mecanismo do AKS no local e no [mecanismo de AKs no Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
 
 Confira o vídeo a seguir fornecendo um aprofundamento no nível intermediário para ajudá-lo a saber mais sobre como monitorar o cluster AKS com Azure Monitor para contêineres.
 
@@ -54,4 +54,6 @@ Se você estiver interessado em monitorar e gerenciar seus hosts de contêiner d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar a monitorar o cluster do AKS, examine [como habilitar o Azure monitor para contêineres](container-insights-onboard.md) para entender os requisitos e os métodos disponíveis para habilitar o monitoramento.  
+- Para começar a monitorar o cluster do AKS, examine [como habilitar o Azure monitor para contêineres](container-insights-onboard.md) para entender os requisitos e os métodos disponíveis para habilitar o monitoramento. 
+
+- Para iniciar o monitoramento do mecanismo AKS no Azure Stack ou no kubernetes implantado localmente, examine [Configurar clusters kubernetes híbridos com Azure monitor para contêineres](container-insights-hybrid-setup.md).  

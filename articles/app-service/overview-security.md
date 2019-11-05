@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b6f122abff1ac75bb1cb836f3389c96dfcdf60e0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 07dbbb956dcf6f1204bef2af3a28a0af3eeb5226
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074106"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470094"
 ---
 # <a name="security-in-azure-app-service"></a>Segurança no serviço de Azure App
 
@@ -40,16 +40,20 @@ As seções a seguir mostram como proteger ainda mais seu aplicativo de serviço
 
 ## <a name="https-and-certificates"></a>HTTPS e certificados
 
-O serviço de aplicativo permite que você proteja seus aplicativos com [https](https://wikipedia.org/wiki/HTTPS). Quando seu aplicativo é criado, seu nome de domínio padrão\<(app_name >. azurewebsites. net) já está acessível usando HTTPS. Se você [configurar um domínio personalizado para seu aplicativo](app-service-web-tutorial-custom-domain.md), também deverá [protegê-lo com um certificado personalizado](app-service-web-tutorial-custom-ssl.md) para que os navegadores cliente possam fazer conexões HTTPS seguras com seu domínio personalizado. Há duas maneiras de fazer isso:
+O serviço de aplicativo permite que você proteja seus aplicativos com [https](https://wikipedia.org/wiki/HTTPS). Quando seu aplicativo é criado, seu nome de domínio padrão (\<app_name >. azurewebsites. net) já está acessível usando HTTPS. Se você [configurar um domínio personalizado para seu aplicativo](app-service-web-tutorial-custom-domain.md), também deverá [protegê-lo com um certificado SSL](configure-ssl-bindings.md) para que os navegadores cliente possam fazer conexões HTTPS seguras com seu domínio personalizado. Há vários tipos de certificados com suporte pelo serviço de aplicativo:
 
-- **Certificado do serviço de aplicativo** -crie um certificado diretamente no Azure. O certificado é protegido em [Azure Key Vault](/azure/key-vault/)e pode ser importado para seu aplicativo do serviço de aplicativo. Para obter mais informações, consulte [comprar e configurar um certificado SSL para seu serviço de Azure app](web-sites-purchase-ssl-web-site.md).
-- **Certificado de terceiros** – carregue um certificado SSL personalizado que você comprou de uma autoridade de certificação confiável e associe-o ao seu aplicativo do serviço de aplicativo. O serviço de aplicativo dá suporte a certificados de domínio único e certificados curinga. Ele também dá suporte a certificados autoassinados para fins de teste. Para obter mais informações, consulte [associar um certificado SSL personalizado existente ao serviço de Azure app](app-service-web-tutorial-custom-ssl.md).
+- Serviço de Aplicativo Gratuito certificado gerenciado
+- Certificado do serviço de aplicativo
+- Certificado de terceiros
+- Certificado importado de Azure Key Vault
+
+Para obter mais informações, consulte [Adicionar um certificado SSL no serviço de Azure app](configure-ssl-certificate.md).
 
 ## <a name="insecure-protocols-http-tls-10-ftp"></a>Protocolos inseguros (HTTP, TLS 1,0, FTP)
 
-Para proteger seu aplicativo contra todas as conexões não criptografadas (HTTP), o serviço de aplicativo fornece uma configuração de clique para impor HTTPS. As solicitações não seguras são desativadas antes mesmo de alcançar o código do aplicativo. Para obter mais informações, consulte [impor https](app-service-web-tutorial-custom-ssl.md#enforce-https).
+Para proteger seu aplicativo contra todas as conexões não criptografadas (HTTP), o serviço de aplicativo fornece uma configuração de clique para impor HTTPS. As solicitações não seguras são desativadas antes mesmo de alcançar o código do aplicativo. Para obter mais informações, consulte [impor https](configure-ssl-bindings.md#enforce-https).
 
-O [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1,0 não é mais considerado seguro por padrões do setor, como [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). O serviço de aplicativo permite que você desabilite protocolos desatualizados impondo o [TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions).
+O [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1,0 não é mais considerado seguro por padrões do setor, como [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). O serviço de aplicativo permite que você desabilite protocolos desatualizados [impondo o TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions).
 
 O serviço de aplicativo dá suporte a FTP e FTPS para implantar seus arquivos. No entanto, FTPS deve ser usado em vez de FTP, se possível. Quando um ou ambos os protocolos não estão em uso, você deve [desabilitá-los](deploy-ftp.md#enforce-ftps).
 
@@ -57,7 +61,7 @@ O serviço de aplicativo dá suporte a FTP e FTPS para implantar seus arquivos. 
 
 Por padrão, o aplicativo do serviço de aplicativo aceita solicitações de todos os endereços IP da Internet, mas você pode limitar o acesso a um pequeno subconjunto de endereços IP. O serviço de aplicativo no Windows permite que você defina uma lista de endereços IP que têm permissão para acessar seu aplicativo. A lista de permissões pode incluir endereços IP individuais ou um intervalo de endereços IP definidos por uma máscara de sub-rede. Para obter mais informações, consulte [Azure app restrições de IP estático do serviço](app-service-ip-restrictions.md).
 
-Para o serviço de aplicativo no Windows, você também pode restringir os endereços IP dinamicamente Configurando o _Web. config_. Para obter mais informações, consulte [dynamicIpSecurity de \<segurança de IP dinâmico >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Para o serviço de aplicativo no Windows, você também pode restringir os endereços IP dinamicamente Configurando o _Web. config_. Para obter mais informações, consulte [segurança de IP dinâmico \<dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>Autenticação e autorização de cliente
 
@@ -104,7 +108,7 @@ Você pode acessar com segurança recursos locais, como bancos de dados, de trê
 
 ## <a name="application-secrets"></a>Segredos do aplicativo
 
-Não armazene segredos do aplicativo, como credenciais de banco de dados, tokens de API e chaves privadas em seu código ou arquivos de configuração. A abordagem comumente aceita é acessá-las como [variáveis de ambiente](https://wikipedia.org/wiki/Environment_variable) usando o padrão padrão no idioma de sua escolha. No serviço de aplicativo, a maneira de definir variáveis de ambiente é por meio de [configurações de aplicativo](configure-common.md#configure-app-settings) (e, especialmente para aplicativos .net, cadeias de [conexão](configure-common.md#configure-connection-strings)). As configurações do aplicativo e as cadeias de conexão são armazenadas criptografadas no Azure e são descriptografadas somente antes de serem injetadas na memória do processo do aplicativo quando o aplicativo é iniciado. As chaves de criptografia são giradas regularmente.
+Não armazene segredos do aplicativo, como credenciais de banco de dados, tokens de API e chaves privadas em seu código ou arquivos de configuração. A abordagem comumente aceita é acessá-las como [variáveis de ambiente](https://wikipedia.org/wiki/Environment_variable) usando o padrão padrão no idioma de sua escolha. No serviço de aplicativo, a maneira de definir variáveis de ambiente é por meio de [configurações de aplicativo](configure-common.md#configure-app-settings) (e, especialmente para aplicativos .net, [cadeias de conexão](configure-common.md#configure-connection-strings)). As configurações do aplicativo e as cadeias de conexão são armazenadas criptografadas no Azure e são descriptografadas somente antes de serem injetadas na memória do processo do aplicativo quando o aplicativo é iniciado. As chaves de criptografia são giradas regularmente.
 
 Como alternativa, você pode integrar seu aplicativo do serviço de aplicativo com [Azure Key Vault](/azure/key-vault/) para o gerenciamento avançado de segredos. Ao [acessar o Key Vault com uma identidade gerenciada](../key-vault/tutorial-web-application-keyvault.md), seu aplicativo do serviço de aplicativo pode acessar com segurança os segredos de que você precisa.
 

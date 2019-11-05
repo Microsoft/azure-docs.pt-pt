@@ -1,5 +1,5 @@
 ---
-title: Migrar clusters de Apache Hadoop locais para o Azure HDInsight-segurança
+title: 'Segurança: migrar Apache Hadoop locais para o Azure HDInsight'
 description: Aprenda as práticas recomendadas de segurança e DevOps para migrar clusters Hadoop locais para o Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: c1523ccb3952bce904deac375d11de692ac235ef
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 1cebe425e323eefda6e26b0f32ddeda0118a70d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736144"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494970"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrar clusters de Apache Hadoop locais para as práticas recomendadas do Azure HDInsight-Security e DevOps
 
@@ -43,12 +43,12 @@ Use as etapas a seguir para implantar o cluster HDInsight ingressado no domínio
 
 
 - Implante o cluster do HDInsight ESP definindo os seguintes parâmetros:
-    - **Nome de domínio**: O nome de domínio associado ao AD DS do Azure.
-    - **Nome de usuário do domínio**: A conta de serviço no domínio gerenciado pelo DC AD DS do Azure que você criou na seção anterior, por exemplo: `hdiadmin@contoso.onmicrosoft.com`. Esse usuário de domínio será o administrador deste cluster HDInsight.
-    - **Senha do domínio**: A senha da conta de serviço.
-    - **Unidade organizacional**: O nome distinto da UO que você deseja usar com o cluster HDInsight, por exemplo: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Se essa UO não existir, o cluster HDInsight tentará criar a UO usando os privilégios da conta de serviço.
-    - **URL de LDAPS**: por exemplo `ldaps://contoso.onmicrosoft.com:636`,.
-    - **Acessar o grupo de usuários**: Os grupos de segurança cujos usuários você deseja sincronizar com o cluster, por exemplo: `HiveUsers`. Se você quiser especificar vários grupos de usuários, separe-os por ponto e vírgula '; '. Os grupos devem existir no diretório antes da criação do cluster ESP.
+    - **Nome de domínio**: o nome de domínio que está associado ao AD DS do Azure.
+    - **Nome de usuário de domínio**: a conta de serviço no domínio gerenciado pelo Azure AD DS DC que você criou na seção anterior, por exemplo: `hdiadmin@contoso.onmicrosoft.com`. Esse usuário de domínio será o administrador deste cluster HDInsight.
+    - **Senha do domínio**: a senha da conta de serviço.
+    - **Unidade organizacional**: o nome distinto da UO que você deseja usar com o cluster HDInsight, por exemplo: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Se essa UO não existir, o cluster HDInsight tentará criar a UO usando os privilégios da conta de serviço.
+    - **URL de LDAPS**: por exemplo, `ldaps://contoso.onmicrosoft.com:636`.
+    - **Acessar grupo de usuários**: os grupos de segurança cujos usuários você deseja sincronizar com o cluster, por exemplo: `HiveUsers`. Se você quiser especificar vários grupos de usuários, separe-os por ponto e vírgula '; '. Os grupos devem existir no diretório antes da criação do cluster ESP.
 
 Para obter mais informações, veja os artigos seguintes:
 
@@ -108,13 +108,13 @@ Atualize regularmente para a versão mais recente do HDInsight para aproveitar o
 1. Importe os dados transitórios dos quais foi feito backup.
 1. Iniciar trabalhos/continuar o processamento usando o novo cluster.
 
-Para obter mais informações, consulte o artigo: [Atualize o cluster HDInsight para uma nova versão](../hdinsight-upgrade-cluster.md).
+Para obter mais informações, consulte o artigo: [atualizar o cluster HDInsight para uma nova versão](../hdinsight-upgrade-cluster.md).
 
 ## <a name="patch-cluster-operating-systems"></a>Sistemas operacionais de cluster de patch
 
 Como um serviço Hadoop gerenciado, o HDInsight cuida da aplicação de patch no sistema operacional das VMs usadas por clusters HDInsight.
 
-Para obter mais informações, consulte o artigo: [Aplicação de patch de so para HDInsight](../hdinsight-os-patching.md).
+Para obter mais informações, consulte o artigo: [aplicação de patch de so para HDInsight](../hdinsight-os-patching.md).
 
 ## <a name="post-migration"></a>Pós-migração
 
@@ -122,6 +122,6 @@ Para obter mais informações, consulte o artigo: [Aplicação de patch de so pa
 2. **Executar testes** -execução iterativa de testes funcionais e de desempenho.
 3. **Otimize** -resolva os problemas de desempenho com base nos resultados do teste acima e, em seguida, teste novamente para confirmar as melhorias de desempenho.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia mais sobre o [HDInsight 4,0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction).

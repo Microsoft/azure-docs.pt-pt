@@ -1,24 +1,24 @@
 ---
 title: 'Regressão de floresta de decisão: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo perceptron médio de duas classes no serviço Azure Machine Learning para criar um modelo de aprendizado de máquina com base no algoritmo de média de perceptron.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo perceptron médio de duas classes no Azure Machine Learning para criar um modelo de aprendizado de máquina com base no algoritmo de média de perceptron.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 369974e52cb3585e4333b6033573b433e0a1a41a
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 379cddd9654cc897b49fd085d8df55fcd77a7ce8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693635"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490359"
 ---
 # <a name="two-class-averaged-perceptron-module"></a>Módulo perceptron médio de duas classes
 
-Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para criar um modelo de aprendizado de máquina com base no algoritmo médio de perceptron.  
   
@@ -61,4 +61,4 @@ Após a conclusão do treinamento:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

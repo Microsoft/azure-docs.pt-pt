@@ -8,18 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 6fe959a661f23673bb5d3e6df630ef4ee25128f7
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 894396686a54ed3a685366fcf3e933fa8f03bee8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958551"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474529"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administrar Política de Grupo em um domínio Azure AD Domain Services gerenciado
 
 As configurações para objetos de usuário e computador no Azure Active Directory Domain Services (AD DS do Azure) geralmente são gerenciadas usando objetos Política de Grupo (GPOs). O Azure AD DS inclui GPOs internos para os contêineres *usuários AADDC* e *computadores AADDC* . Você pode personalizar esses GPOs internos para configurar Política de Grupo conforme necessário para o seu ambiente. Os membros do grupo de *Administradores de DC do Azure ad* têm política de grupo privilégios de administração no domínio de AD DS do Azure e também podem criar GPOs personalizados e UOs (unidades organizacionais). Para obter mais informações sobre o que Política de Grupo é e como funciona, consulte [política de grupo visão geral][group-policy-overview].
+
+Em um ambiente híbrido, as políticas de grupo configuradas em um ambiente de AD DS local não são sincronizadas com o AD DS do Azure. Para definir as definições de configuração para usuários ou computadores no Azure AD DS, edite um dos GPOs padrão ou crie um GPO personalizado.
 
 Este artigo mostra como instalar as ferramentas de gerenciamento de Política de Grupo e, em seguida, editar os GPOs internos e criar GPOs personalizados.
 
@@ -80,7 +82,7 @@ Há dois objetos de Política de Grupo internos (GPOs) em um domínio gerenciado
 
     ![GPOs internos aplicados aos contêineres padrão ' AADDC Computers ' e ' AADDC users '](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
 
-1. Esses GPOs internos podem ser personalizados para configurar políticas de grupo específicas em seu domínio gerenciado AD DS do Azure. Selecione um dos GPOs, como o *GPO computadores AADDC*e, em seguida, selecione **Editar...** .
+1. Esses GPOs internos podem ser personalizados para configurar políticas de grupo específicas em seu domínio gerenciado AD DS do Azure. Selecione um dos GPOs, como o *GPO computadores AADDC*, e escolha **Editar...** .
 
     ![Escolha a opção para ' Editar ' um dos GPOs internos](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
 

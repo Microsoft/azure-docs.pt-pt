@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: dc4336629a4c3b9da906daefca160c5a305603dc
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f5a12ca2bdccee1d2f738aa3c810577caf3d8eac
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990855"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491957"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planejar seu ambiente de Azure Time Series Insights Preview
 
@@ -43,7 +43,7 @@ Ao provisionar um ambiente de visualização de Time Series Insights, você cria
 * Um ambiente de visualização Azure Time Series Insights
 * Uma conta v1 de uso geral do armazenamento do Azure
 
-Como parte do processo de provisionamento, você especifica se deseja habilitar uma loja a quente. A loja a quente fornece uma experiência de consulta em camadas. Quando habilitado, você deve especificar um período de retenção entre 7 e 30 dias. As consultas executadas no período de retenção de armazenamento quente geralmente fornecem tempos de resposta mais rápidos. Quando uma consulta se estende pelo período de retenção de armazenamento quente, ela é servida por meio do armazenamento frio.
+Como parte do processo de provisionamento, você especifica se deseja habilitar uma loja a quente. A loja a quente fornece uma experiência de consulta em camadas. Quando habilitado, você deve especificar um período de retenção entre 7 e 30 dias. As consultas executadas no período de retenção de armazenamento quente geralmente fornecem tempos de resposta mais rápidos. Quando uma consulta se estende pelo período de retenção de armazenamento quente, ela é servida por meio da loja fria.
 
 As consultas na loja a quente são gratuitas, enquanto as consultas em armazenamento frio incorrem em custos. É importante entender seus padrões de consulta e planejar sua configuração de armazenamento quente adequadamente. É recomendável que a análise interativa nos dados mais recentes resida em sua loja e análise de padrões quentes e tendências de longo prazo residam em frio.
 

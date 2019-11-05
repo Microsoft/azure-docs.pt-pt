@@ -16,16 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: eca3a969d56d9b016afbf2d104aaf951cdbf6360
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: edba2a18e3b086a132f0bba7622df5df389671c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372413"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489191"
 ---
-# <a name="hunt-for-threats-with-in-azure-sentinel"></a>Procurar ameaças com o Azure Sentinel
-
-
+# <a name="hunt-for-threats-with-azure-sentinel"></a>Procurar ameaças com o Azure Sentinel
 
 Se você é um investigador que deseja ser proativo sobre a procura de ameaças à segurança, o Azure Sentinel cria poderosas ferramentas de pesquisa e consulta para procurar ameaças à segurança nas fontes de dados de sua organização. Mas seus sistemas e dispositivos de segurança geram montanhas de dados que podem ser difíceis de analisar e filtrar em eventos significativos. Para ajudar os analistas de segurança a procurarem de forma pró-ativa as novas anomalias que não foram detectadas pelos seus aplicativos de segurança, as consultas de busca interna do Azure Sentinel o orientam a fazer as perguntas certas para encontrar problemas nos dados que você já tem em sua rede. 
 
@@ -48,7 +46,7 @@ Com a busca do Azure Sentinel, você pode aproveitar os seguintes recursos:
 ## <a name="get-started-hunting"></a>Introdução à busca
 
 1. No portal do Azure Sentinel, clique em **busca**.
-  @no__t 0Azure Sentinel começa a buscar @ no__t-1
+  ![o Azure Sentinel começa a buscar](media/tutorial-hunting/hunting-start.png)
 
 2. Quando você abre a página de **busca** , todas as consultas de busca são exibidas em uma única tabela. A tabela lista todas as consultas escritas pela equipe de analistas de segurança da Microsoft, bem como qualquer consulta adicional que você criou ou modificou. Cada consulta fornece uma descrição do que é buscado e em que tipo de dados ele é executado. Esses modelos são agrupados por suas várias táticas: os ícones à direita categorizam o tipo de ameaça, como o acesso inicial, a persistência e a vazamento. Você pode filtrar esses modelos de consulta buscados usando qualquer um dos campos. Você pode salvar qualquer consulta em seus favoritos. Ao salvar uma consulta em seus favoritos, a consulta é executada automaticamente sempre que a página de **busca** é acessada. Você pode criar sua própria consulta de busca ou clonar e personalizar um modelo de consulta de busca existente. 
  
@@ -66,7 +64,7 @@ Com a busca do Azure Sentinel, você pode aproveitar os seguintes recursos:
 
  
 
-## <a name="query-language"></a>Linguagem de consulta 
+## <a name="query-language"></a>Linguagem da consulta 
 
 A busca no Azure Sentinel se baseia na linguagem de consulta Kusto. Para obter mais informações sobre a linguagem de consulta e os operadores com suporte, consulte [referência de linguagem de consulta](https://docs.loganalytics.io/docs/Language-Reference/).
 

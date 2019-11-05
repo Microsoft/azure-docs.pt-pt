@@ -1,51 +1,45 @@
 ---
-title: Ligar a uma VM do Windows com o Azure Bastion | Documentos da Microsoft
-description: Neste artigo, saiba como ligar a uma Máquina Virtual do Azure com o Windows utilizando o Azure Bastion.
+title: Conectar-se a uma VM do Windows usando a bastiões do Azure | Microsoft Docs
+description: Neste artigo, saiba como se conectar a uma máquina virtual do Azure que executa o Windows usando a bastiões do Azure.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 10/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 376b7042a513dd50647dc8f88bf1de70f65bb21c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: dc741007c7de8d8e24f9c0f9e4e0c03306d036a4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478405"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498379"
 ---
-# <a name="connect-to-a-windows-virtual-machine-using-azure-bastion-preview"></a>Ligar a uma máquina de virtual de Windows através do Azure Bastion (pré-visualização)
+# <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Conectar-se a uma máquina virtual do Windows usando a bastiões do Azure
 
-Este artigo mostra como a forma segura e RDP para as VMs do Windows no Azure virtual de rede através do Azure Bastion. Pode ligar a uma VM diretamente a partir do portal do Azure. Ao utilizar o Azure Bastion, as VMs não precisam de um cliente, agente ou software adicional. Para obter mais informações sobre Bastion do Azure, consulte a [descrição geral](bastion-overview.md).
-
-> [!IMPORTANT]
-> Esta pré-visualização pública é disponibilizada sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
->
+Este artigo mostra como usar o RDP de forma segura e direta para suas VMs do Windows em uma rede virtual do Azure usando a bastiões do Azure. Pode ligar a uma VM diretamente a partir do portal do Azure. Ao utilizar o Azure Bastion, as VMs não precisam de um cliente, agente ou software adicional. Para obter mais informações sobre a bastiões do Azure, consulte a [visão geral](bastion-overview.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Certifique-se de que configurou um anfitrião de bastião do Azure para a rede virtual em que a VM reside. Para obter mais informações, consulte [criar um anfitrião de bastião de Azure](bastion-create-host-portal.md). Assim que o serviço de Bastion é aprovisionado e implementado na sua rede virtual, pode usá-lo para ligar a qualquer VM nesta rede virtual. Nesta pré-visualização, Bastion pressupõe que está a utilizar o RDP para ligar a uma VM do Windows e SSH para ligar às suas VMs do Linux. Para obter informações sobre a ligação a uma VM do Linux, consulte [ligar a uma VM - Linux](bastion-connect-vm-ssh.md).
+Verifique se você configurou um host de bastiões do Azure para a rede virtual na qual a VM reside. Para obter mais informações, consulte [criar um host de bastiões do Azure](bastion-create-host-portal.md). Depois que o serviço de bastiões for provisionado e implantado em sua rede virtual, você poderá usá-lo para se conectar a qualquer VM nessa rede virtual. A bastiões pressupõe que você esteja usando o RDP para se conectar a uma VM do Windows e o SSH para se conectar às suas VMs do Linux. Para obter informações sobre a conexão a uma VM do Linux, consulte [conectar-se a uma VM-Linux](bastion-connect-vm-ssh.md).
 
-Para estabelecer uma ligação, as seguintes funções são necessárias:
+Para estabelecer uma conexão, as seguintes funções são necessárias:
 
 * Função de leitor na máquina virtual
-* Função de leitor na NIC com o IP privado da máquina virtual
-* Função de leitor do recurso de Bastion do Azure
+* Função de leitor na NIC com IP privado da máquina virtual
+* Função de leitor no recurso de bastiões do Azure
 
-## <a name="rdp"></a>Estabelecer ligação utilizando RDP
+## <a name="rdp"></a>Conectar usando RDP
 
-1. Uso [esta ligação](https://aka.ms/BastionHost) para abrir a página de portal de pré-visualização da Bastion do Azure. Navegue para a máquina virtual que deseja se conectar, em seguida, clique em **Connect**. A VM deve ser uma máquina virtual do Windows ao utilizar uma ligação RDP.
+1. Abra o [Portal do Azure](https://portal.azure.com). Navegue até a máquina virtual à qual você deseja se conectar e clique em **conectar**. A VM deve ser uma máquina virtual do Windows ao usar uma conexão RDP.
 
-    ![Ligação da VM](./media/bastion-connect-vm-rdp/connect.png)
+   ![Conexão de VM](./media/bastion-connect-vm-rdp/connect.png)
+1. Depois de clicar em conectar, uma barra lateral é exibida com três guias – RDP, SSH e bastiões. Se a bastiões tiver sido provisionada para a rede virtual, a guia de bastiões estará ativa por padrão. Se você não provisionar a bastiões para a rede virtual, poderá clicar no link para configurar a bastiões. Para obter instruções de configuração, consulte [Configurar a bastiões](bastion-create-host-portal.md).
 
-1. Depois de clicar em ligar, é apresentada uma barra lateral que tem três separadores: Bastion, RDP e SSH. Se tiver Bastion foi aprovisionado para a rede virtual, no separador de Bastion está ativo por predefinição. Se não o tiver aprovisionado Bastion para a rede virtual, pode clicar na ligação para configurar Bastion. Para obter instruções de configuração, consulte [Bastion configurar](bastion-create-host-portal.md). Se não vir **Bastion** listada, não abriu o portal de pré-visualização. Abra o portal usando essa [ligação de pré-visualização](https://aka.ms/BastionHost).
+   ![Conexão de VM](./media/bastion-connect-vm-rdp/bastion.png)
+1. Na guia bastião, o nome de usuário e a senha para sua máquina virtual e clique em **conectar**. A conexão RDP com essa máquina virtual via bastiões será aberta diretamente no portal do Azure (sobre o HTML5) usando a porta 443 e o serviço de bastiões.
 
-    ![Ligação da VM](./media/bastion-connect-vm-rdp/bastion.png)
-
-1. No separador de Bastion, o nome de utilizador e palavra-passe para a máquina virtual, em seguida, clique em **Connect**. A ligação RDP a esta máquina virtual através de Bastion será aberto diretamente no portal do Azure (ao longo do HTML5) com a porta 443 e o serviço de Bastion.
-
-    ![Ligação da VM](./media/bastion-connect-vm-rdp/443rdp.png)
+   ![Conexão de VM](./media/bastion-connect-vm-rdp/443rdp.png)
  
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Leia o [Bastion FAQ](bastion-faq.md)
+Leia as [perguntas frequentes de bastiões](bastion-faq.md)

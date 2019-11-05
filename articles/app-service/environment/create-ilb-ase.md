@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: dad2841d680702786cfc1f175a70390158444e02
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 07b47374484cf954b1fc4279c93dddcc6cec7e61
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72928635"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470565"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Criar e usar um Load Balancer interno Ambiente do Serviço de Aplicativo 
 
@@ -29,7 +29,7 @@ A Ambiente do Serviço de Aplicativo do Azure é uma implantação do serviço d
 
 Este artigo mostra como criar um ASE de ILB. Para obter uma visão geral do ASE, consulte [introdução aos ambientes do serviço de aplicativo][Intro]. Para saber como criar um ASE externo, consulte [criar um ase externo][MakeExternalASE].
 
-## <a name="overview"></a>Visão geral 
+## <a name="overview"></a>Descrição geral 
 
 Pode implementar um ASE com um ponto final acessível pela Internet ou com um endereço IP na sua VNet. Para definir o endereço IP para um endereço VNet, o ASE tem de ser implementado com um ILB. Ao implantar seu ASE com um ILB, você deve fornecer o nome do seu ASE. O nome do seu ASE é usado no sufixo de domínio para os aplicativos em seu ASE.  O sufixo de domínio para seu ASE ILB é &lt;nome do ASE&gt;. appserviceenvironment.net. Os aplicativos que são feitos em um ASE ILB não são colocados no DNS público. 
 
@@ -157,7 +157,7 @@ ILB ASEs que foram feitas antes de 2019 de maio exigiram que você definisse o s
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Pipelines ML para pontuação em lote'
+title: 'Tutorial: pipelines ML para pontuação em lote'
 titleSuffix: Azure Machine Learning
 description: Crie um pipeline de Machine Learning para executar a pontuação em lote em um modelo de classificação de imagem no Azure Machine Learning. Os pipelines do Machine Learning otimizam seu fluxo de trabalho com velocidade, portabilidade e reutilização, para que você possa se concentrar em sua experiência-aprendizado de máquina, em vez de infraestrutura e automação.
 services: machine-learning
@@ -9,15 +9,17 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/05/2019
-ms.openlocfilehash: 3fe25f0f8297a7b743ed5f522e8a35deb165a039
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: f693a80726c9185bbd75d5fb99eb7e5f3ccad987
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695618"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493501"
 ---
 # <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Criar & usar um pipeline de Azure Machine Learning para Pontuação de lote
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste tutorial, você usa um pipeline no Azure Machine Learning para executar um trabalho de pontuação em lotes. O exemplo usa o modelo de Tensorflow de rede neural do intitulada pretreinado [-v3](https://arxiv.org/abs/1512.00567) para classificar imagens sem rótulo. Depois de criar e publicar um pipeline, você configura um ponto de extremidade REST que pode ser usado para disparar o pipeline de qualquer biblioteca HTTP em qualquer plataforma.
 
@@ -47,7 +49,7 @@ Se você quiser executar o tutorial de instalação em seu próprio [ambiente lo
 Crie um objeto de espaço de trabalho do espaço de trabalho Azure Machine Learning existente.
 
 - Um [espaço de trabalho](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) é uma classe que aceita suas informações de assinatura e recursos do Azure. O espaço de trabalho também cria um recurso de nuvem que você pode usar para monitorar e acompanhar as execuções de modelo. 
-- `Workspace.from_config()` lê o arquivo `config.json` e, em seguida, carrega os detalhes de autenticação em um objeto chamado `ws`. O objeto `ws` é usado no código durante todo este tutorial.
+- `Workspace.from_config()` lê o arquivo de `config.json` e, em seguida, carrega os detalhes de autenticação em um objeto chamado `ws`. O objeto `ws` é usado no código durante todo este tutorial.
 
 ```python
 from azureml.core import Workspace
@@ -56,7 +58,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-datastore-for-sample-images"></a>Criar um repositório de armazenamento para imagens de exemplo
 
-Na conta `pipelinedata`, obtenha o exemplo de dados públicos de avaliação do ImageNet do contêiner de blob público `sampledata`. Chame `register_azure_blob_container()` para disponibilizar os dados para o espaço de trabalho com o nome `images_datastore`. Em seguida, defina o armazenamento de datastore padrão do espaço de trabalho como o repositório de armazenamento de saída. Use o repositório de armazenamento de saída para pontuar a saída no pipeline.
+Na conta do `pipelinedata`, obtenha o exemplo de dados públicos de avaliação do ImageNet do contêiner de BLOBs público `sampledata`. Chame `register_azure_blob_container()` para disponibilizar os dados para o espaço de trabalho sob o nome `images_datastore`. Em seguida, defina o armazenamento de datastore padrão do espaço de trabalho como o repositório de armazenamento de saída. Use o repositório de armazenamento de saída para pontuar a saída no pipeline.
 
 ```python
 from azureml.core.datastore import Datastore
@@ -72,16 +74,16 @@ def_data_store = ws.get_default_datastore()
 
 ## <a name="create-data-objects"></a>Criar objetos de dados
 
-Quando você cria um pipeline, um objeto `DataReference` lê dados do armazenamento de espaço de trabalho. Um objeto `PipelineData` transfere dados intermediários entre etapas de pipeline.
+Quando você cria um pipeline, um objeto de `DataReference` lê dados do armazenamento de espaço de trabalho. Um objeto `PipelineData` transfere dados intermediários entre etapas de pipeline.
 
 > [!Important]
 > O exemplo de Pontuação de lote neste tutorial usa apenas uma etapa de pipeline. Em casos de uso que têm várias etapas, o fluxo típico incluirá estas etapas:
 >
-> 1. Use objetos `DataReference` como *entradas* para buscar dados brutos, executar alguma transformação e, em seguida, *gerar* um objeto `PipelineData`.
+> 1. Use `DataReference` objetos como *entradas* para buscar dados brutos, executar alguma transformação e, em seguida, *gerar* um objeto de `PipelineData`.
 >
-> 2. Use o *objeto de saída* `PipelineData` na etapa anterior como um *objeto de entrada*. Repita-o para as etapas subsequentes.
+> 2. Use o `PipelineData` *objeto de saída* na etapa anterior como um *objeto de entrada*. Repita-o para as etapas subsequentes.
 
-Nesse cenário, você cria objetos `DataReference` que correspondem aos diretórios de armazenamento de dados para as imagens de entrada e os rótulos de classificação (valores de teste y). Você também cria um `PipelineData` objeto para os dados de saída de Pontuação de lote.
+Nesse cenário, você cria `DataReference` objetos que correspondem aos diretórios de armazenamento de dados para as imagens de entrada e os rótulos de classificação (valores de teste y). Você também cria um objeto `PipelineData` para os dados de saída de Pontuação do lote.
 
 ```python
 from azureml.data.data_reference import DataReference
@@ -121,7 +123,7 @@ tar = tarfile.open("model.tar.gz", "r:gz")
 tar.extractall("models")
 ```
 
-Em seguida, registre o modelo em seu espaço de trabalho, para que você possa recuperar facilmente o modelo no processo de pipeline. `model_name` Na função `register()` estática, o parâmetro é a chave que você usa para localizar o modelo em todo o SDK.
+Em seguida, registre o modelo em seu espaço de trabalho, para que você possa recuperar facilmente o modelo no processo de pipeline. Na função estática `register()`, o parâmetro `model_name` é a chave que você usa para localizar o modelo em todo o SDK.
 
 ```python
 from azureml.core.model import Model
@@ -137,7 +139,7 @@ model = Model.register(model_path="models/inception_v3.ckpt",
 
 Os pipelines do Machine Learning não podem ser executados localmente, portanto, você os executa em recursos de nuvem ou *destinos de computação remota*. Um destino de computação remota é um ambiente de computação virtual reutilizável no qual você executa experimentos e fluxos de trabalho de aprendizado de máquina. 
 
-Execute o código a seguir para criar um destino [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) habilitado para GPU e, em seguida, anexe-o ao seu espaço de trabalho. Para obter mais informações sobre destinos de computação, consulte o [artigo conceitual](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target).
+Execute o código a seguir para criar um destino de [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) habilitado para GPU e, em seguida, anexe-o ao seu espaço de trabalho. Para obter mais informações sobre destinos de computação, consulte o [artigo conceitual](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target).
 
 
 ```python
@@ -160,15 +162,15 @@ except ComputeTargetException:
 
 ## <a name="write-a-scoring-script"></a>Escrever um script de Pontuação
 
-Para fazer a pontuação, crie um script de Pontuação de lote chamado `batch_scoring.py` e, em seguida, grave-o no diretório atual. O script usa imagens de entrada, aplica o modelo de classificação e, em seguida, gera as previsões para um arquivo de resultados.
+Para fazer a pontuação, crie um script de Pontuação de lote chamado `batch_scoring.py`e, em seguida, grave-o no diretório atual. O script usa imagens de entrada, aplica o modelo de classificação e, em seguida, gera as previsões para um arquivo de resultados.
 
-O script `batch_scoring.py` usa os seguintes parâmetros, que são passados da etapa de pipeline que você cria posteriormente neste tutorial:
+O script de `batch_scoring.py` usa os seguintes parâmetros, que são passados da etapa de pipeline que você cria posteriormente neste tutorial:
 
-- `--model_name`: O nome do modelo que está sendo usado.
-- `--label_dir`: O diretório que contém o arquivo `labels.txt`.
-- `--dataset_path`: O diretório que contém as imagens de entrada.
-- `--output_dir`: O diretório de saída para o arquivo `results-label.txt` depois que o script executa o modelo nos dados.
-- `--batch_size`: O tamanho do lote usado na execução do modelo.
+- `--model_name`: o nome do modelo que está sendo usado.
+- `--label_dir`: o diretório que contém o arquivo de `labels.txt`.
+- `--dataset_path`: o diretório que contém as imagens de entrada.
+- `--output_dir`: o diretório de saída para o arquivo de `results-label.txt` depois que o script executa o modelo nos dados.
+- `--batch_size`: o tamanho do lote usado na execução do modelo.
 
 A infraestrutura de pipeline usa a classe `ArgumentParser` para passar parâmetros em etapas de pipeline. Por exemplo, no código a seguir, o primeiro argumento `--model_name` recebe o identificador de propriedade `model_name`. Na função `main()`, `Model.get_model_path(args.model_name)` é usado para acessar essa propriedade.
 
@@ -292,11 +294,11 @@ if __name__ == "__main__":
 ```
 
 > [!TIP]
-> O pipeline neste tutorial tem apenas uma etapa e grava a saída em um arquivo. Para pipelines de várias etapas, você também usa `ArgumentParser` para definir um diretório para gravar dados de saída de entrada em etapas subsequentes. Para obter um exemplo de como passar dados entre várias etapas de pipeline usando o padrão de design `ArgumentParser`, consulte o [bloco de anotações](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb).
+> O pipeline neste tutorial tem apenas uma etapa e grava a saída em um arquivo. Para pipelines de várias etapas, você também usa `ArgumentParser` para definir um diretório para gravar dados de saída para entrada em etapas subsequentes. Para obter um exemplo de como passar dados entre várias etapas de pipeline usando o padrão de design `ArgumentParser`, consulte o [bloco de anotações](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb).
 
 ## <a name="build-and-run-the-pipeline"></a>Compilar e executar o pipeline
 
-Antes de executar o pipeline, crie um objeto que defina o ambiente do Python e crie as dependências exigidas pelo script `batch_scoring.py`. A principal dependência necessária é Tensorflow, mas você também instala `azureml-defaults` do SDK para processos em segundo plano. Crie um objeto `RunConfiguration` usando as dependências. Além disso, especifique o suporte do Docker e do Docker-GPU.
+Antes de executar o pipeline, crie um objeto que defina o ambiente do Python e crie as dependências que o script de `batch_scoring.py` requer. A principal dependência necessária é Tensorflow, mas você também instala `azureml-defaults` do SDK para processos em segundo plano. Crie um objeto `RunConfiguration` usando as dependências. Além disso, especifique o suporte do Docker e do Docker-GPU.
 
 ```python
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
@@ -321,18 +323,18 @@ from azureml.pipeline.core.graph import PipelineParameter
 batch_size_param = PipelineParameter(name="param_batch_size", default_value=20)
 ```
 
-### <a name="create-the-pipeline-step"></a>Criar o passo de pipeline
+### <a name="create-the-pipeline-step"></a>Criar a etapa de pipeline
 
 Uma etapa de pipeline é um objeto que encapsula tudo o que você precisa para executar um pipeline, incluindo:
 
-* configurações de dependência e ambiente
-* o recurso de computação no qual executar o pipeline
-* dados de entrada e saída e quaisquer parâmetros personalizados
+* Configurações de dependência e ambiente
+* O recurso de computação no qual executar o pipeline
+* Dados de entrada e saída e quaisquer parâmetros personalizados
 * Referência a uma lógica de script ou SDK a ser executada durante a etapa
 
-Várias classes herdam da classe pai [`PipelineStep`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py). Você pode escolher classes para usar estruturas ou pilhas específicas para criar uma etapa. Neste exemplo, você usa a classe [`PythonScriptStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) para definir a lógica da etapa usando um script Python personalizado. Se um argumento para o script for uma entrada para a etapa ou uma saída da etapa, o argumento deverá *ser definido na* matriz `arguments` *e* no parâmetro `input` ou `output`, respectivamente. 
+Várias classes herdam da classe pai [`PipelineStep`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py). Você pode escolher classes para usar estruturas ou pilhas específicas para criar uma etapa. Neste exemplo, você usa a classe [`PythonScriptStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) para definir a lógica da etapa usando um script Python personalizado. Se um argumento para o script for uma entrada para a etapa ou uma saída da etapa, o argumento deverá ser definido *tanto* na matriz de `arguments` *quanto* no parâmetro `input` ou `output`, respectivamente. 
 
-Em cenários em que há mais de uma etapa, uma referência de objeto na matriz `outputs` torna-se disponível como uma *entrada* para uma etapa de pipeline subsequente.
+Em cenários em que há mais de uma etapa, uma referência de objeto na matriz de `outputs` se torna disponível como uma *entrada* para uma etapa de pipeline subsequente.
 
 ```python
 from azureml.pipeline.steps import PythonScriptStep
@@ -358,7 +360,7 @@ Para obter uma lista de todas as classes que você pode usar para diferentes tip
 
 Agora, execute o pipeline. Primeiro, crie um objeto `Pipeline` usando a referência do espaço de trabalho e a etapa do pipeline que você criou. O parâmetro `steps` é uma matriz de etapas. Nesse caso, há apenas uma etapa para a Pontuação do lote. Para criar pipelines que têm várias etapas, coloque as etapas na ordem nessa matriz.
 
-Em seguida, use a função `Experiment.submit()` para enviar o pipeline para execução. Você também especifica o parâmetro `param_batch_size`personalizado. A função `wait_for_completion` gera logs durante o processo de compilação do pipeline. Você pode usar os logs para ver o progresso atual.
+Em seguida, use a função `Experiment.submit()` para enviar o pipeline para execução. Você também especifica o parâmetro personalizado `param_batch_size`. A função `wait_for_completion` gera logs durante o processo de compilação do pipeline. Você pode usar os logs para ver o progresso atual.
 
 > [!IMPORTANT]
 > A primeira execução do pipeline leva aproximadamente *15 minutos*. Todas as dependências devem ser baixadas, uma imagem do Docker é criada e o ambiente do Python é provisionado e criado. Executar o pipeline novamente leva significativamente menos tempo porque esses recursos são reutilizados em vez de criados. No entanto, o tempo total de execução para o pipeline depende da carga de trabalho de seus scripts e dos processos em execução em cada etapa de pipeline.
@@ -374,7 +376,7 @@ pipeline_run.wait_for_completion(show_output=True)
 
 ### <a name="download-and-review-output"></a>Baixar e examinar a saída
 
-Execute o código a seguir para baixar o arquivo de saída que é criado a partir do script `batch_scoring.py`. Em seguida, explore os resultados da pontuação.
+Execute o código a seguir para baixar o arquivo de saída que é criado a partir do script de `batch_scoring.py`. Em seguida, explore os resultados da pontuação.
 
 ```python
 import pandas as pd
@@ -388,7 +390,7 @@ df.head(10)
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th: só de-de-type {vertical-align: intermédia;}
+<style scoped>. dataframe tbody TR th: somente de tipo {vertical-align: Middle;}
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -402,8 +404,8 @@ df.head(10)
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Nome de ficheiro</th>
-      <th>predição</th>
+      <th>Nome do arquivo</th>
+      <th>Previsão</th>
     </tr>
   </thead>
   <tbody>
@@ -463,7 +465,7 @@ df.head(10)
 
 ## <a name="publish-and-run-from-a-rest-endpoint"></a>Publicar e executar de um ponto de extremidade REST
 
-Execute o código a seguir para publicar o pipeline em seu espaço de trabalho. Em seu espaço de trabalho no portal do Azure, você pode ver metadados para o pipeline, incluindo histórico de execução e durações. Você também pode executar o pipeline manualmente no Portal.
+Execute o código a seguir para publicar o pipeline em seu espaço de trabalho. Em seu espaço de trabalho no Azure Machine Learning Studio, você pode ver metadados para o pipeline, incluindo histórico de execução e durações. Você também pode executar o pipeline manualmente no estúdio.
 
 A publicação do pipeline habilita um ponto de extremidade REST que você pode usar para executar o pipeline de qualquer biblioteca HTTP em qualquer plataforma.
 
@@ -478,7 +480,7 @@ Para executar o pipeline do ponto de extremidade REST, você precisa de um cabe�
 
 A autenticação da entidade de serviço envolve a criação de um *registro de aplicativo* no *Azure Active Directory*. Primeiro, você gera um segredo do cliente e, em seguida, concede *acesso à função* da entidade de serviço ao seu espaço de trabalho do Machine Learning. Use a classe [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) para gerenciar seu fluxo de autenticação. 
 
-@No__t-0 e `ServicePrincipalAuthentication` herdam de `AbstractAuthentication`. Em ambos os casos, use a função `get_authentication_header()` da mesma maneira de buscar o cabeçalho:
+`InteractiveLoginAuthentication` e `ServicePrincipalAuthentication` herdam de `AbstractAuthentication`. Em ambos os casos, use a função `get_authentication_header()` da mesma maneira de buscar o cabeçalho:
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication
@@ -487,11 +489,11 @@ interactive_auth = InteractiveLoginAuthentication()
 auth_header = interactive_auth.get_authentication_header()
 ```
 
-Obtenha a URL REST da propriedade `endpoint` do objeto de pipeline publicado. Você também pode encontrar a URL REST em seu espaço de trabalho no portal do Azure. 
+Obtenha a URL REST da propriedade `endpoint` do objeto de pipeline publicado. Você também pode encontrar a URL REST em seu espaço de trabalho no Azure Machine Learning Studio. 
 
 Crie uma solicitação HTTP POST para o ponto de extremidade. Especifique o cabeçalho de autenticação na solicitação. Adicione um objeto de carga JSON que tem o nome do experimento e o parâmetro de tamanho do lote. Conforme observado anteriormente no tutorial, `param_batch_size` é passado para o script `batch_scoring.py` porque você o definiu como um objeto `PipelineParameter` na configuração da etapa.
 
-Faça a solicitação para disparar a execução. Inclua o código para acessar a chave `Id` do dicionário de resposta para obter o valor da ID de execução.
+Faça a solicitação para disparar a execução. Inclua o código para acessar a chave de `Id` do dicionário de resposta para obter o valor da ID de execução.
 
 ```python
 import requests
@@ -520,14 +522,9 @@ RunDetails(published_pipeline_run).show()
 
 Não conclua esta seção se você planeja executar outros tutoriais de Azure Machine Learning.
 
-### <a name="stop-the-notebook-vm"></a>Parar a VM do notebook
+### <a name="stop-the-compute-instance"></a>Parar a instância de computação
 
-Se você usou um servidor de bloco de anotações de nuvem para reduzir os custos, pare a VM quando your'e não a estiver usando:
-
-1. Em seu espaço de trabalho, selecione **máquinas virtuais do notebook**.
-1. Na lista de VMs, selecione a VM que você deseja parar.
-1. Selecione **parar**.
-1. Quando você estiver pronto para usar o servidor novamente, selecione **Iniciar**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### <a name="delete-everything"></a>Excluir tudo
 

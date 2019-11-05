@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: a3c25553e7abbe39c00407e8000880dc99056bcd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ccc3da6f2dd49775ff4d4486fcd2af9f08a396d6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172992"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475920"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o ponto de extremidade privado do Azure?
 
-O ponto de extremidade privado do Azure é uma interface de rede que conecta você de forma privada e segura a um serviço da plataforma Azure link privado. O ponto de extremidade privado usa um endereço IP privado de sua VNet, colocando efetivamente o serviço em sua VNet. O serviço pode ser um serviço do Azure, como o armazenamento do Azure, SQL, etc. ou seu próprio [serviço de link privado](private-link-service-overview.md).
+O ponto de extremidade privado do Azure é uma interface de rede que conecta você de forma privada e segura a um serviço da plataforma Azure link privado. O ponto de extremidade privado usa um endereço IP privado de sua VNet, colocando efetivamente o serviço em sua VNet. O serviço pode ser um serviço do Azure, como o armazenamento do Azure, Azure Cosmos DB, SQL, etc. ou seu próprio [serviço de link privado](private-link-service-overview.md).
   
 ## <a name="private-endpoint-properties"></a>Propriedades do ponto de extremidade privado 
  Um ponto de extremidade privado especifica as seguintes propriedades: 
@@ -57,7 +57,7 @@ Um recurso de link privado é o destino de destino de um determinado ponto de ex
 |**Azure SQL Data Warehouse** | Microsoft. SQL/Servers    |  SQL Server (sqlServer)        |
 |**Armazenamento do Azure**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)<BR> Tabela (tabela, table_secondary)<BR> Fila (fila, queue_secondary)<BR> Arquivo (arquivo, file_secondary)<BR> Web (Web, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)       |
- 
+|**Azure Cosmos DB** | Microsoft. AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, tabela|
  
 ## <a name="network-security-of-private-endpoints"></a>Segurança de rede de pontos de extremidade privados 
 Ao usar pontos de extremidade privados para serviços do Azure, o tráfego é protegido para um recurso de link particular específico. A plataforma executa um controle de acesso para validar conexões de rede que atingem apenas o recurso de link particular especificado. Para acessar recursos adicionais dentro do mesmo serviço do Azure, são necessários pontos de extremidade privados adicionais. 
@@ -107,9 +107,12 @@ Para os serviços do Azure, use os nomes de zona recomendados, conforme descrito
 |Conta de armazenamento (Microsoft. Storage/storageAccounts)   |    Arquivo (arquivo, file_secondary)      |    privatelink.file.core.windows.net      |
 |Conta de armazenamento (Microsoft. Storage/storageAccounts)     |  Web (Web, web_secondary)        |    privatelink.web.core.windows.net      |
 |Data Lake sistema de arquivos Gen2 (Microsoft. Storage/storageAccounts)  |  Data Lake sistema de arquivos Gen2 (DFS, dfs_secondary)        |     privatelink.dfs.core.windows.net     |
-||||
+|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|SQL |privatelink.documents.azure.com|
+|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|MongoDB |privatelink.mongo.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Gremlin |privatelink.gremlin.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Tabela|privatelink.table.cosmos.azure.com|
  
-
 O Azure criará um registro DNS de nome canônico (CNAME) no DNS público para redirecionar a resolução para os nomes de domínio sugeridos. Você poderá substituir a resolução pelo endereço IP privado dos seus pontos de extremidade privados. 
  
 Seus aplicativos não precisam alterar a URL de conexão. Ao tentar resolver usando um DNS público, o servidor DNS agora será resolvido para seus pontos de extremidade privados. O processo não afeta seus aplicativos. 
@@ -131,4 +134,5 @@ A tabela a seguir inclui uma lista de limitações conhecidas ao usar pontos de 
 - [Criar um ponto de extremidade privado para o servidor de banco de dados SQL usando o PowerShell](create-private-endpoint-powershell.md)
 - [Criar um ponto de extremidade privado para o servidor de banco de dados SQL usando a CLI](create-private-endpoint-cli.md)
 - [Criar um ponto de extremidade privado para a conta de armazenamento usando o portal](create-private-endpoint-storage-portal.md)
+- [Criar um ponto de extremidade privado para a conta do Azure Cosmos usando o portal](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Crie seu próprio serviço de vínculo privado usando Azure PowerShell](create-private-link-service-powershell.md)

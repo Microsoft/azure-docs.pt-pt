@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Dados contextuais com funções-LUIS'
+title: 'Tutorial: dados contextuais com funções-LUIS'
 titleSuffix: Azure Cognitive Services
 description: Localizar dados relacionados com base no contexto. Por exemplo, as localizações de origem e destino para uma mudança física de um edifício e escritório para outros estão relacionadas.
 services: cognitive-services
@@ -9,22 +9,24 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 2af35e08b523d782418ab356bf148e038f397f83
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 3e85067439fe412822ac34a065753e9a13c7a506
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308043"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488730"
 ---
-# <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: Extrair dados relacionados contextualmente de um expressão
+# <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: extrair dados relacionados contextualmente de um expressão
 
 Neste tutorial, localize fragmentos de dados relacionados com base no contexto. Por exemplo, uma origem e locais de destino para uma transferência de uma cidade para outra. Ambas as partes de dados podem ser necessárias e estão relacionadas entre si.  
 
 Uma função pode ser usada com qualquer tipo de entidade predefinida ou personalizada e usada nos dois exemplos de declarações e padrões. 
 
-**Neste tutorial, vai aprender a:**
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
+**Neste tutorial, ficará a saber como:**
 
 > [!div class="checklist"]
 > * Criar nova aplicação
@@ -55,7 +57,7 @@ Uma função deve ser usada quando os dados da entidade devem ser extraídos:
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. Selecione **Create new intent** (Criar nova intenção). 
+1. Selecione **Criar nova intenção**. 
 
 1. Introduza `MoveEmployeeToCity` na caixa de diálogo de pop-up e, em seguida, selecione **Concluído**. 
 
@@ -75,7 +77,7 @@ Uma função deve ser usada quando os dados da entidade devem ser extraídos:
     |Transferir Steve Standish de San Diego para Bellevue |
     |Levante Tanner Thompson da cidade de Kansas e mude para Chicago|
 
-    [![Captura de tela de LUIS com nova declarações no MoveEmployee intenção](./media/tutorial-entity-roles/hr-enter-utterances.png)](./media/tutorial-entity-roles/hr-enter-utterances.png#lightbox)
+    [![captura de tela de LUIS com nova declarações no MoveEmployee intenção](./media/tutorial-entity-roles/hr-enter-utterances.png)](./media/tutorial-entity-roles/hr-enter-utterances.png#lightbox)
 
 ## <a name="add-prebuilt-entity-geographyv2"></a>Adicionar geographyV2 de entidade predefinida
 
@@ -83,12 +85,12 @@ A entidade predefinida, geographyV2, extrai informações de localização, incl
 
 1. Selecione **entidades** na navegação do lado esquerdo.
 
-1. Selecione **Adicionar entidade predefinida**e, em `geo` seguida, selecione na barra de pesquisa para filtrar as entidades predefinidas. 
+1. Selecione **Adicionar entidade predefinida**e, em seguida, selecione `geo` na barra de pesquisa para filtrar as entidades predefinidas. 
 
     ![Adicionar entidade predefinida geographyV2 ao aplicativo](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
 1. Marque a caixa de seleção e selecione **concluído**.
 1. Na lista **entidades** , selecione **geographyV2** para abrir a nova entidade. 
-1. Adicione duas funções, `Origin`e. `Destination` 
+1. Adicione duas funções, `Origin`e `Destination`. 
 
     ![Adicionar funções à entidade predefinida](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. Selecione **tentativas** na navegação do lado esquerdo e, em seguida, selecione a intenção **MoveEmployeeToCity** . Observe que os nomes de cidades são rotulados com a entidade predefinida **geographyV2**.
@@ -113,7 +115,7 @@ A entidade predefinida, geographyV2, extrai informações de localização, incl
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
-1. Vá para o final do URL na barra de endereço e introduza `Please move Carl Chamerlin from Tampa to Portland`. O último parâmetro querystring é `q`, a expressão **query**. Esse expressão não é o mesmo que qualquer um dos declarações rotulados, portanto, é um bom teste e deve retornar `MoveEmployee` a intenção com a entidade extraída.
+1. Vá para o final do URL na barra de endereço e introduza `Please move Carl Chamerlin from Tampa to Portland`. O último parâmetro querystring é `q`, a expressão **query**. Esse expressão não é o mesmo que qualquer um dos declarações rotulados, portanto, é um bom teste e deve retornar a intenção de `MoveEmployee` com a entidade extraída.
 
     ```json
     {
@@ -167,7 +169,7 @@ A entidade predefinida, geographyV2, extrai informações de localização, incl
 * [Como testar no portal do LUIS](luis-interactive-test.md)
 * [Funções](luis-concept-roles.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este tutorial criou uma nova tentativa e adicionou declarações de exemplo para os dados de origem e locais de destino contextualmente aprendidos. Depois de a aplicação ser preparada e publicada, uma aplicação cliente pode utilizar essas informações para criar um pedido de movimentação com as informações relevantes.
 

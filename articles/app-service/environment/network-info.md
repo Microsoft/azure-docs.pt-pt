@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9b7c63639eea7176af36593983b08ad0c5213613
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ee7e3cb200a20b52a307dba31682a534e9f7b455
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073224"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470652"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações de rede para um Ambiente do Serviço de Aplicativo #
 
@@ -26,8 +26,8 @@ ms.locfileid: "70073224"
 
  O Azure [ambiente do serviço de aplicativo][Intro] é uma implantação do serviço de Azure app em uma sub-rede em sua VNet (rede virtual) do Azure. Há dois tipos de implantação para um ambiente do serviço de aplicativo (ASE):
 
-- **Ase externo**: Expõe os aplicativos hospedados pelo ASE em um endereço IP acessível pela Internet. Para obter mais informações, consulte [criar um ase externo][MakeExternalASE].
-- **ASE ILB**: Expõe os aplicativos hospedados pelo ASE em um endereço IP dentro de sua VNet. O ponto de extremidade interno é um ILB (balanceador de carga interno), que é o motivo pelo qual ele é chamado de ASE ILB. Para obter mais informações, consulte [criar e usar um ase ILB][MakeILBASE].
+- **Ase externo**: expõe os aplicativos hospedados pelo ASE em um endereço IP acessível pela Internet. Para obter mais informações, consulte [criar um ase externo][MakeExternalASE].
+- **ILB ase**: expõe os aplicativos hospedados pelo ASE em um endereço IP dentro de sua VNet. O ponto de extremidade interno é um ILB (balanceador de carga interno), que é o motivo pelo qual ele é chamado de ASE ILB. Para obter mais informações, consulte [criar e usar um ase ILB][MakeILBASE].
 
 Todos os ASEs, external e ILB, têm um VIP público que é usado para tráfego de gerenciamento de entrada e como o endereço de ao fazer chamadas do ASE para a Internet. As chamadas de um ASE que vão para a Internet deixam a rede virtual por meio do VIP atribuído para o ASE. O IP público desse VIP é o IP de origem para todas as chamadas do ASE que vão para a Internet. Se os aplicativos em seu ASE fizerem chamadas para recursos em sua VNet ou por uma VPN, o IP de origem será um dos IPs na sub-rede usada pelo ASE. Como o ASE está dentro da VNet, ele também pode acessar recursos na VNet sem nenhuma configuração adicional. Se a VNet estiver conectada à sua rede local, os aplicativos em seu ASE também terão acesso aos recursos sem configuração adicional.
 
@@ -49,7 +49,7 @@ Se você tiver um ASE ILB, o endereço do endereço ILB será o ponto de extremi
 O tamanho da sub-rede usada para hospedar um ASE não pode ser alterado depois que o ASE é implantado.  O ASE usa um endereço para cada função de infraestrutura, bem como para cada instância de plano do serviço de aplicativo isolado.  Além disso, há cinco endereços usados pela rede do Azure para cada sub-rede que é criada.  Um ASE sem nenhum plano do serviço de aplicativo usará 12 endereços antes de criar um aplicativo.  Se for um ASE ILB, ele usará 13 endereços antes de criar um aplicativo nesse ASE. À medida que você dimensiona seu ASE, as funções de infraestrutura são adicionadas a cada 15 e 20 de suas instâncias de plano do serviço de aplicativo.
 
    > [!NOTE]
-   > Nada mais pode estar na sub-rede, mas no ASE. Certifique-se de escolher um espaço de endereço que permita o crescimento futuro. Você não pode alterar essa configuração mais tarde. Recomendamos um tamanho de `/24` com 256 endereços.
+   > Nada mais pode estar na sub-rede, mas no ASE. Certifique-se de escolher um espaço de endereço que permita o crescimento futuro. Você não pode alterar essa configuração mais tarde. Recomendamos um tamanho de `/24` com endereços 256.
 
 Quando você escala ou reduz verticalmente, novas funções do tamanho apropriado são adicionadas e, em seguida, suas cargas de trabalho são migradas do tamanho atual para o tamanho de destino. As VMs originais são removidas somente depois que as cargas de trabalho foram migradas. Se você tivesse um ASE com instâncias de 100 ASP, haveria um período em que é necessário dobrar o número de VMs.  É por esse motivo que recomendamos o uso de '/24 ' para acomodar quaisquer alterações que você possa precisar.  
 
@@ -59,10 +59,10 @@ Quando você escala ou reduz verticalmente, novas funções do tamanho apropriad
 
 Apenas para que o ASE opere, o ASE exige que as seguintes portas sejam abertas:
 
-| Utilizar | De | Para |
+| Utilizar | A partir de | Para |
 |-----|------|----|
 | Gestão | Endereços de gerenciamento do serviço de aplicativo | Sub-rede ASE: 454, 455 |
-|  Comunicação interna do ASE | Sub-rede ASE: Todas as portas | Sub-rede ASE: Todas as portas
+|  Comunicação interna do ASE | Sub-rede do ASE: todas as portas | Sub-rede do ASE: todas as portas
 |  Permitir entrada do Azure Load Balancer | Balanceador de carga do Azure | Sub-rede ASE: 16001
 
 Há duas outras portas que podem ser exibidas como abertas em uma verificação de porta, 7654 e 1221. Eles respondem com um endereço IP e nada mais. Se desejado, eles poderão ser bloqueados. 
@@ -95,7 +95,7 @@ O ASE se comunica com endereços acessíveis à Internet nas seguintes portas:
 | DNS | 53 |
 | NTP | 123 |
 | 8CRL, atualizações do Windows, dependências do Linux, serviços do Azure | 80/443 |
-| Azure SQL | 1433 | 
+| SQL do Azure | 1433 | 
 | Monitorização | 12000 |
 
 As dependências de saída são listadas no documento que descreve o [bloqueio ambiente do serviço de aplicativo tráfego de saída](./firewall-integration.md). Se o ASE perder o acesso a suas dependências, ele deixará de funcionar. Quando isso acontece por tempo suficiente, o ASE é suspenso. 
@@ -115,11 +115,11 @@ Se você alterar a configuração de DNS da VNet em que seu ASE está, será nec
 Além das dependências funcionais do ASE, há alguns itens extras relacionados à experiência do Portal. Alguns dos recursos do portal do Azure dependem do acesso direto ao site do _SCM_. Para cada aplicativo no serviço Azure App, há duas URLs. A primeira URL é acessar seu aplicativo. A segunda URL é acessar o site do SCM, que também é chamado de _console do kudu_. Os recursos que usam o site do SCM incluem:
 
 -   Trabalhos da Web
--   Functions
--   Transmissão em fluxo de registo
+-   Funções
+-   Streaming de log
 -   Kudu
 -   Extensões
--   Explorador de processos
+-   Explorador de Processos
 -   Consola
 
 Quando você usa um ASE ILB, o site do SCM não é acessível de fora da VNet. Alguns recursos não funcionarão no portal do aplicativo, pois eles exigem acesso ao site do SCM de um aplicativo. Você pode se conectar ao site do SCM diretamente em vez de usar o Portal. 
@@ -130,10 +130,10 @@ Se o ASE ILB for o nome de domínio *contoso.appserviceenvironment.net* e o nome
 
 Um ASE tem alguns endereços IP que você deve conhecer. São:
 
-- **Endereço IP de entrada pública**: Usado para o tráfego de aplicativo em um ASE externo e o tráfego de gerenciamento em um ASE externo e um ASE ILB.
-- **IP público de saída**: Usado como o IP "de" para conexões de saída do ASE que deixam a VNet, que não são roteadas para uma VPN.
-- **Endereço IP do ILB**: O endereço IP ILB existe apenas em um ASE ILB.
-- **Endereços SSL baseados em IP atribuídos ao aplicativo**: Possível somente com um ASE externo e quando o SSL baseado em IP está configurado.
+- **Endereço IP de entrada pública**: usado para o tráfego de aplicativo em um ase externo e o tráfego de gerenciamento em um ase externo e um ase ILB.
+- **IP público de saída**: usado como o IP "de" para conexões de saída do ase que deixam a VNet, que não são roteadas para uma VPN.
+- **Endereço IP do ILB**: o endereço IP do ILB só existe em um ase ILB.
+- **Endereços SSL baseados em IP atribuídos ao aplicativo**: somente possível com um ase externo e quando o SSL baseado em IP está configurado.
 
 Todos esses endereços IP estão visíveis na portal do Azure da interface do usuário do ASE. Se você tiver um ASE ILB, o IP para o ILB será listado.
 
@@ -144,7 +144,7 @@ Todos esses endereços IP estão visíveis na portal do Azure da interface do us
 
 ### <a name="app-assigned-ip-addresses"></a>Endereços IP atribuídos ao aplicativo ###
 
-Com um ASE externo, você pode atribuir endereços IP a aplicativos individuais. Você não pode fazer isso com um ASE ILB. Para obter mais informações sobre como configurar seu aplicativo para ter seu próprio endereço IP, consulte [associar um certificado SSL personalizado existente ao serviço de Azure app](../app-service-web-tutorial-custom-ssl.md).
+Com um ASE externo, você pode atribuir endereços IP a aplicativos individuais. Você não pode fazer isso com um ASE ILB. Para obter mais informações sobre como configurar seu aplicativo para ter seu próprio endereço IP, consulte [proteger um nome DNS personalizado com uma associação SSL no serviço Azure app](../configure-ssl-bindings.md).
 
 Quando um aplicativo tem seu próprio endereço SSL baseado em IP, o ASE reserva duas portas para mapear para esse endereço IP. Uma porta é para o tráfego HTTP e a outra porta é para HTTPS. Essas portas são listadas na interface do usuário do ASE na seção endereços IP. O tráfego deve ser capaz de alcançar essas portas do VIP ou os aplicativos estão inacessíveis. Esse requisito é importante de se lembrar quando você configura NSGs (grupos de segurança de rede).
 
@@ -183,9 +183,9 @@ Quando os requisitos de entrada e saída são levados em conta, o NSGs deve ser 
 
 ![Regras de segurança de entrada][4]
 
-Uma regra padrão permite que os IPs na VNet se comuniquem com a sub-rede do ASE. Outra regra padrão habilita o balanceador de carga, também conhecido como VIP público, para se comunicar com o ASE. Para ver as regras padrão, selecione **regras padrão** ao lado do ícone **Adicionar** . Se você colocar uma regra negar tudo antes das regras padrão, você impedirá o tráfego entre o VIP e o ASE. Para evitar o tráfego proveniente de dentro da VNet, adicione sua própria regra para permitir a entrada. Use uma origem igual a AzureLoadBalancer com um destino de **qualquer** e um intervalo de portas **\*** de. Como a regra NSG é aplicada à sub-rede do ASE, você não precisa ser específico no destino.
+Uma regra padrão permite que os IPs na VNet se comuniquem com a sub-rede do ASE. Outra regra padrão habilita o balanceador de carga, também conhecido como VIP público, para se comunicar com o ASE. Para ver as regras padrão, selecione **regras padrão** ao lado do ícone **Adicionar** . Se você colocar uma regra negar tudo antes das regras padrão, você impedirá o tráfego entre o VIP e o ASE. Para evitar o tráfego proveniente de dentro da VNet, adicione sua própria regra para permitir a entrada. Use uma origem igual a AzureLoadBalancer com um destino de **qualquer** e um intervalo de portas de **\*** . Como a regra NSG é aplicada à sub-rede do ASE, você não precisa ser específico no destino.
 
-Se você tiver atribuído um endereço IP ao seu aplicativo, certifique-se de manter as portas abertas. Para ver as portas, selecione **ambiente do serviço de aplicativo** > **endereços IP**.  
+Se você tiver atribuído um endereço IP ao seu aplicativo, certifique-se de manter as portas abertas. Para ver as portas, selecione **Ambiente do Serviço de Aplicativo** > **endereços IP**.  
 
 Todos os itens mostrados nas regras de saída a seguir são necessários, exceto o último item. Eles habilitam o acesso à rede para as dependências do ASE que foram observadas anteriormente neste artigo. Se você bloquear qualquer um deles, seu ASE deixará de funcionar. O último item da lista permite que seu ASE se comunique com outros recursos em sua VNet.
 
@@ -204,7 +204,7 @@ Para criar as mesmas rotas manualmente, siga estas etapas:
 
 2. Crie uma nova tabela de rotas na mesma região que sua VNet.
 
-3. Na interface do usuário da tabela de rotas, selecione **rotas** > **Adicionar**.
+3. Em sua interface do usuário da tabela de rotas, selecione **rotas** > **Adicionar**.
 
 4. Defina o **tipo do próximo salto** como **Internet** e o **prefixo de endereço** como **0.0.0.0/0**. Selecione **Guardar**.
 
@@ -251,7 +251,7 @@ Quando estão ativados Pontos Finais de Serviço numa sub-rede com uma instânci
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ConfigureSSL]: ../configure-ss-cert.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

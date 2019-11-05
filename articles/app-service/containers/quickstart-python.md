@@ -16,12 +16,12 @@ ms.author: cephalin
 ms.custom: seo-python-october2019
 experimental: false
 experiment_id: 1e304dc9-5add-4b
-ms.openlocfilehash: 8c3015f78df1427af760f14bd948057643ef2a98
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 69e7cfef01005432a99dd10ed5bc7f004562e582
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990830"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470801"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Início rápido: criar um aplicativo Python no serviço de Azure App no Linux
 
@@ -207,17 +207,19 @@ Para interromper o streaming de log a qualquer momento, digite `Ctrl`+`C`.
 
 ## <a name="manage-the-azure-app"></a>Gerenciar o aplicativo do Azure
 
-Você gerencia o aplicativo criado no <a href="https://portal.azure.com" target="_blank">portal do Azure</a>. 
+Vá para o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerenciar o aplicativo que você criou. Pesquise e selecione **serviços de aplicativos**.
 
-No menu à esquerda, selecione **serviços de aplicativos**e, em seguida, selecione o nome do seu aplicativo do Azure.
+![Navegue até serviços de aplicativos no portal do Azure](./media/quickstart-python/navigate-to-app-services-in-the-azure-portal.png)
+
+Selecione o nome do seu aplicativo do Azure.
 
 ![Navegue até seu aplicativo Python nos serviços de aplicativos na portal do Azure](./media/quickstart-python/navigate-to-app-in-app-services-in-the-azure-portal.png)
 
-A página Visão geral do aplicativo é exibida. Nessa página, você pode executar tarefas básicas de gerenciamento, como procurar, parar, iniciar, reiniciar e excluir.
+Você vê a página de visão geral do seu aplicativo. Aqui, pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar.
 
 ![Gerencie seu aplicativo Python na página Visão geral no portal do Azure](./media/quickstart-python/manage-an-app-in-app-services-in-the-azure-portal.png)
 
-O menu à esquerda fornece diferentes páginas para configurar a sua aplicação. 
+O menu serviço de aplicativo fornece páginas diferentes para configurar seu aplicativo.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

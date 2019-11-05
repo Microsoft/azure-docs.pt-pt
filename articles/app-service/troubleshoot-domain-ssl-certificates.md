@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: a6c3b8485a3243d7c89ab409a2fb83b1b045c9ba
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 778836661ff15c334823f95fef42acadb3e8b649
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121986"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470141"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Solucionar problemas de domínio e certificado SSL no serviço Azure App
 
 Este artigo lista os problemas comuns que você pode encontrar ao configurar um domínio ou certificado SSL para seus aplicativos Web no serviço Azure App. Ele também descreve as possíveis causas e soluções para esses problemas.
 
-Se precisar de mais ajuda a qualquer momento neste artigo, você poderá entrar em contato com os especialistas do Azure nos [fóruns do MSDN e do Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
+Se precisar de mais ajuda a qualquer momento neste artigo, você poderá entrar em contato com os especialistas do Azure nos [fóruns do MSDN e do Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você pode arquivar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -70,7 +70,7 @@ Remova a associação SSL para esse certificado dos aplicativos. Em seguida, ten
 ### <a name="you-cant-purchase-an-app-service-certificate"></a>Não é possível comprar um certificado do serviço de aplicativo 
 
 #### <a name="symptom"></a>Sintoma
-Não é possível comprar um [certificado de serviço Azure app](./web-sites-purchase-ssl-web-site.md) do portal do Azure.
+Não é possível comprar um [certificado de serviço Azure app](./configure-ssl-certificate.md#import-an-app-service-certificate) do portal do Azure.
 
 #### <a name="cause-and-solution"></a>Causa e solução
 Esse problema pode ocorrer por qualquer um dos seguintes motivos:
@@ -89,14 +89,14 @@ Esse problema pode ocorrer por qualquer um dos seguintes motivos:
 
 - A assinatura atingiu o limite de compras permitidas em uma assinatura.
 
-    **Solução**: Os certificados do serviço de aplicativo têm um limite de 10 compras de certificado para os tipos de assinatura pago pelo uso e EA. Para outros tipos de assinatura, o limite é 3. Para aumentar o limite, entre em contato com o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- O certificado do serviço de aplicativo foi marcado como fraude. Você recebeu a seguinte mensagem de erro: "Seu certificado foi sinalizado para uma possível fraude. A solicitação está em análise no momento. Se o certificado não se tornar utilizável dentro de 24 horas, entre em contato com o suporte do Azure.
+    **Solução**: os certificados do serviço de aplicativo têm um limite de 10 compras de certificado para os tipos de assinatura pago pelo uso e ea. Para outros tipos de assinatura, o limite é 3. Para aumentar o limite, entre em contato com o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- O certificado do serviço de aplicativo foi marcado como fraude. Você recebeu a seguinte mensagem de erro: "o certificado foi sinalizado para uma possível fraude. A solicitação está em análise no momento. Se o certificado não se tornar utilizável dentro de 24 horas, entre em contato com o suporte do Azure.
 
-    **Solução**: Se o certificado for marcado como fraude e não for resolvido após 24 horas, siga estas etapas:
+    **Solução**: se o certificado for marcado como fraude e não for resolvido após 24 horas, siga estas etapas:
 
-    1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+    1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
     2. Vá para **certificados do serviço de aplicativo**e selecione o certificado.
-    3. Selecione > aconfiguração**de certificado etapa 2: Verifique**a > **verificação de domínio**. Esta etapa envia um aviso por email ao provedor de certificados do Azure para resolver o problema.
+    3. Selecione **configuração de certificado** > **etapa 2: verificar** > **verificação de domínio**. Esta etapa envia um aviso por email ao provedor de certificados do Azure para resolver o problema.
 
 ## <a name="custom-domain-problems"></a>Problemas de domínio personalizado
 
@@ -196,9 +196,9 @@ O serviço de aplicativo sincroniza automaticamente seu certificado dentro de 48
 
 Você pode forçar uma sincronização do certificado:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **certificados do serviço de aplicativo**e, em seguida, selecione o certificado.
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Selecione **certificados do serviço de aplicativo**e, em seguida, selecione o certificado.
 2. Selecione **rechaveamento e sincronização**e, em seguida, selecione **sincronizar**. A sincronização leva algum tempo para ser concluída. 
-3. Quando a sincronização for concluída, você verá a seguinte notificação: "Êxito ao atualizar todos os recursos com o certificado mais recente".
+3. Quando a sincronização for concluída, você verá a seguinte notificação: "atualização bem-sucedida de todos os recursos com o certificado mais recente".
 
 ### <a name="domain-verification-is-not-working"></a>A verificação de domínio não está funcionando 
 
@@ -219,7 +219,7 @@ Como alternativa, você pode usar o método HTML da página da Web para verifica
 3.  Carregue esse arquivo na raiz do servidor Web que está hospedando seu domínio.
 4.  Selecione **Atualizar** para verificar o status do certificado. Pode levar alguns minutos para que a verificação seja concluída.
 
-Por exemplo, se você estiver comprando um certificado padrão para Azure.com com o token de verificação de domínio 1234abcd, uma solicitação da https://azure.com/1234abcd.html Web feita para deve retornar 1234abcd. 
+Por exemplo, se você estiver comprando um certificado padrão para azure.com com o token de verificação de domínio 1234abcd, uma solicitação da Web feita para https://azure.com/1234abcd.html deverá retornar 1234abcd. 
 
 > [!IMPORTANT]
 > Uma ordem de certificado tem apenas 15 dias para concluir a operação de verificação de domínio. Após 15 dias, a autoridade de certificação negará o certificado e você não será cobrado pelo certificado. Nessa situação, exclua esse certificado e tente novamente.
@@ -241,10 +241,10 @@ Esse problema ocorre por um dos seguintes motivos:
 
 - Você não é o proprietário da assinatura, portanto, você não tem permissão para comprar um domínio.
 
-    **Solução**: [Atribua a função de proprietário](../role-based-access-control/role-assignments-portal.md) à sua conta. Ou contate o administrador da assinatura para obter permissão para comprar um domínio.
+    **Solução**: [atribua a função de proprietário](../role-based-access-control/role-assignments-portal.md) à sua conta. Ou contate o administrador da assinatura para obter permissão para comprar um domínio.
 - Você atingiu o limite para a compra de domínios em sua assinatura. O limite atual é 20.
 
-    **Solução**: Para solicitar um aumento do limite, entre em contato com o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+    **Solução**: para solicitar um aumento do limite, entre em contato com o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - O tipo de assinatura do Azure não oferece suporte à compra de um domínio do serviço de aplicativo.
 
     **Solução**: Atualize sua assinatura do Azure para outro tipo de assinatura, como uma assinatura paga conforme o uso.
@@ -261,12 +261,12 @@ Esse problema ocorre por um dos seguintes motivos:
 
 - Você não tem permissão para adicionar um nome de host.
 
-    **Solução**: Peça ao administrador da assinatura que lhe conceda permissão para adicionar um nome de host.
+    **Solução**: peça ao administrador da assinatura que lhe conceda permissão para adicionar um nome de host.
 - Não foi possível verificar a propriedade do domínio.
 
-    **Solução**: Verifique se o CNAME ou registro A está configurado corretamente. Para mapear um domínio personalizado para um aplicativo, crie um registro CNAME ou um registro A. Se você quiser usar um domínio raiz, deverá usar os registros A e TXT:
+    **Solução**: Verifique se o CNAME ou registro a está configurado corretamente. Para mapear um domínio personalizado para um aplicativo, crie um registro CNAME ou um registro A. Se você quiser usar um domínio raiz, deverá usar os registros A e TXT:
 
-    |Tipo de registo|Host|Aponte para|
+    |Tipo de registo|Anfitrião|Aponte para|
     |------|------|-----|
     |A|@|Endereço IP para um aplicativo|
     |TXT|@|`<app-name>.azurewebsites.net`|
@@ -276,7 +276,7 @@ Esse problema ocorre por um dos seguintes motivos:
 
 **É necessário configurar meu domínio personalizado para meu site depois de comprá-lo?**
 
-Quando você adquire um domínio do portal do Azure, o aplicativo do serviço de aplicativo é configurado automaticamente para usar esse domínio personalizado. Você não precisa executar nenhuma etapa adicional. Para obter mais informações, [Assista à auto ajuda do serviço de Azure App: Adicione um nome](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) de domínio personalizado em channel9.
+Quando você adquire um domínio do portal do Azure, o aplicativo do serviço de aplicativo é configurado automaticamente para usar esse domínio personalizado. Você não precisa executar nenhuma etapa adicional. Para obter mais informações, Assista à [auto-ajuda do serviço de Azure App: adicionar um nome de domínio personalizado](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) em channel9.
 
 **Posso usar um domínio adquirido no portal do Azure para apontar para uma VM do Azure em vez disso?**
 

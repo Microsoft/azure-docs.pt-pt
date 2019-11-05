@@ -8,26 +8,30 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: ecdd419331c88e712644851f9213861f882cf0f6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3a44dc35c27cd084e6589482f180b13b258f0b24
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184419"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470978"
 ---
 ## <a name="prepare-your-web-app"></a>Preparar a sua aplicação Web
 
 Para vincular um certificado SSL personalizado (um certificado de terceiros ou certificado do Serviço de Aplicações) à sua aplicação Web, o [plano do Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/) tem de estar no escalão **Básico**, **Standard**,**Premium** ou **Isolado**. Neste passo, vai confirmar que a aplicação Web está no escalão de preço suportado.
 
-### <a name="log-in-to-azure"></a>Iniciar sessão no Azure
+### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Abra o [Portal do Azure](https://portal.azure.com).
 
 ### <a name="navigate-to-your-web-app"></a>Navegue até à sua aplicação Web
 
-No menu à esquerda, clique em **Serviços de Aplicações** e clique no nome da sua aplicação Web.
+Pesquise e selecione **serviços de aplicativos**.
 
-![Selecionar a aplicação Web](./media/app-service-ssl-prepare-app/select-app.png)
+![Selecionar serviços de aplicativos](./media/app-service-ssl-prepare-app/app-services.png)
+
+Na página **serviços de aplicativos** , selecione o nome do seu aplicativo do Azure.
+
+![Navegação do portal para a aplicação do Azure](./media/app-service-ssl-prepare-app/select-app.png)
 
 Chegou à página de gestão da sua aplicação Web.  
 
@@ -41,7 +45,7 @@ Confirme que a aplicação Web não está no escalão **F1** ou **D1**. O escal�
 
 ![Verificar o escalão de preço](./media/app-service-ssl-prepare-app/check-pricing-tier.png)
 
-O SSL personalizado não é suportado nos escalões **F1** ou **D1**. Se precisar de aumentar verticalmente, siga os passos na secção seguinte. Caso contrário, feche o **aumentar verticalmente** página e a ignorar a [aumentar verticalmente o seu plano do serviço de aplicações](#scale-up-your-app-service-plan) secção.
+O SSL personalizado não é suportado nos escalões **F1** ou **D1**. Se precisar de aumentar verticalmente, siga os passos na secção seguinte. Caso contrário, feche a página **escalar verticalmente** e ignore a seção [escalar verticalmente o plano do serviço de aplicativo](#scale-up-your-app-service-plan) .
 
 ### <a name="scale-up-your-app-service-plan"></a>Aumentar verticalmente o seu plano do Serviço de Aplicações
 

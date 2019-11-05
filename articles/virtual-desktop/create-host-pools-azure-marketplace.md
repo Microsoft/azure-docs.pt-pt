@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: f5b40e59a4ed2393e3b9912f8e4caa06ee267428
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: MT
+ms.openlocfilehash: 76cb2e0378cc7a005232304174c1de887adfe387
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757509"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482230"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: criar um pool de hosts usando o Azure Marketplace
 
@@ -34,13 +34,13 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="run-the-azure-marketplace-offering-to-provision-a-new-host-pool"></a>Executar a oferta do Azure Marketplace para provisionar um novo pool de hosts
 
 Para executar a oferta do Azure Marketplace para provisionar um novo pool de hosts:
 
-1. Selecione **+** ou **+ criar um recurso**.
+1. No menu portal do Azure ou na **Home** Page do, selecione **criar um recurso**.
 2. Insira **área de trabalho virtual do Windows** na janela pesquisa do Marketplace.
 3. Selecione **área de trabalho virtual do Windows-provisionar um pool de hosts**e, em seguida, selecione **criar**.
 
@@ -52,7 +52,7 @@ Veja o que você faz para a folha **noções básicas** :
 
 1. Insira um nome para o pool de hosts que é exclusivo no locatário da área de trabalho virtual do Windows.
 2. Selecione a opção apropriada para uma área de trabalho pessoal. Se você selecionar **Sim**, cada usuário que se conecta a esse pool de hosts será permanentemente atribuído a uma máquina virtual.
-3. Insira uma lista separada por vírgulas de usuários que podem entrar nos clientes da área de trabalho virtual do Windows e acessar uma área de trabalho após a conclusão da oferta do Azure Marketplace. Por exemplo, se você quiser atribuir user1@contoso.com e user2@contoso.com acesso, insira "user1@contoso.com user2@contoso.com".
+3. Insira uma lista separada por vírgulas de usuários que podem entrar nos clientes da área de trabalho virtual do Windows e acessar uma área de trabalho após a conclusão da oferta do Azure Marketplace. Por exemplo, se você quiser atribuir user1@contoso.com e user2@contoso.com acesso, insira "user1@contoso.comuser2@contoso.com".
 4. Selecione **criar novo** e forneça um nome para o novo grupo de recursos.
 5. Para **local**, selecione o mesmo local que a rede virtual que tem conectividade com o servidor de Active Directory.
 6. Selecione **OK**.

@@ -9,16 +9,16 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/26/2019
-ms.openlocfilehash: 85d1c1cd294bfc02a2e0e327073bb6a80366548b
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: e11b1c8c19db73ace069d4bfda3516cdbbceaa02
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841108"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476071"
 ---
 1. Use as instruções em [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para instalar o sdk do Azure Machine Learning para Python
 
-1. Crie um [espaço de trabalho de serviço do Azure Machine Learning](../articles/machine-learning/service/how-to-manage-workspace.md).
+1. Crie um [espaço de trabalho Azure Machine Learning](../articles/machine-learning/service/how-to-manage-workspace.md).
 
 1. Gravar um arquivo de [configuração](../articles/machine-learning/service/how-to-configure-environment.md#workspace) (**aml_config/config. JSON**).
 

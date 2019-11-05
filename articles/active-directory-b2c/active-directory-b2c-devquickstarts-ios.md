@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 96221ffc8249f722268ea5778bee4b4389ded26e
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 0fb5341c2e7ee55391cb38251b0ea66b55b93301
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326606"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469150"
 ---
-# <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Entrar usando um aplicativo iOS
+# <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: entrar usando um aplicativo iOS
 
 A plataforma de identidade da Microsoft utiliza as normas de abertura, como o OAuth2 e o OpenID Connect. O uso de um protocolo padrão aberto oferece mais opções de desenvolvedor ao selecionar uma biblioteca para integração com nossos serviços. Fornecemos este passo a passos e outros como ele para ajudar os desenvolvedores a escrever aplicativos que se conectam à plataforma de identidade da Microsoft. A maioria das bibliotecas que implementam [a especificação especificação rfc6749 OAuth2](https://tools.ietf.org/html/rfc6749) é capaz de se conectar à plataforma de identidade da Microsoft.
 
@@ -37,7 +37,9 @@ Em seguida, registre um aplicativo em seu locatário de Azure AD B2C. Isso dá a
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-Registre a **ID do aplicativo** para uso em uma etapa posterior. Em seguida, selecione o aplicativo na lista e registre o **URI de redirecionamento personalizado**, também para uso em uma etapa posterior. Por exemplo, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+Registre a **ID do aplicativo (cliente)** para uso em uma etapa posterior.
+
+Registre também seu URI de redirecionamento personalizado para uso em uma etapa posterior. Por exemplo, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 ## <a name="create-your-user-flows"></a>Criar seus fluxos de usuário
 No Azure AD B2C, cada experiência de usuário é definida por um [fluxo de usuário](active-directory-b2c-reference-policies.md). Este aplicativo contém uma experiência de identidade: uma entrada e uma inscrição combinadas. Ao criar o fluxo de usuário, certifique-se de:
@@ -63,15 +65,15 @@ Este exemplo foi criado seguindo as instruções do LEIAme do [projeto APPAUTH d
 
 Você pode configurar a comunicação com Azure AD B2C especificando o ponto de extremidade de autorização e os URIs de ponto de extremidade do token.  Para gerar esses URIs, você precisará das seguintes informações:
 * ID do locatário (por exemplo, contoso.onmicrosoft.com)
-* Nome do fluxo do usuário (por exemplo, B2C @ no__t-01 @ no__t-1SignUpIn)
+* Nome do fluxo do usuário (por exemplo, B2C\_1\_inscrição)
 
-O URI do ponto de extremidade do token pode ser gerado substituindo o locatário @ no__t-0ID e a política @ no__t-1Name na seguinte URL:
+O URI do ponto de extremidade do token pode ser gerado substituindo a ID de\_do locatário e o nome da\_de política na seguinte URL:
 
 ```objc
 static NSString *const tokenEndpoint = @"https://<Tenant_name>.b2clogin.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/token";
 ```
 
-O URI do ponto de extremidade de autorização pode ser gerado substituindo o locatário @ no__t-0ID e a política @ no__t-1Name na seguinte URL:
+O URI do ponto de extremidade de autorização pode ser gerado substituindo a ID de\_do locatário e o nome da\_de política na seguinte URL:
 
 ```objc
 static NSString *const authorizationEndpoint = @"https://<Tenant_name>.b2clogin.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/authorize";
@@ -85,7 +87,7 @@ OIDServiceConfiguration *configuration =
 // now we are ready to perform the auth request...
 ```
 
-### <a name="authorizing"></a>A Autorizar
+### <a name="authorizing"></a>Autorizando
 
 Depois de configurar ou recuperar uma configuração de serviço de autorização, uma solicitação de autorização pode ser construída. Para criar a solicitação, você precisará das seguintes informações:
 
@@ -120,7 +122,7 @@ appDelegate.currentAuthorizationFlow =
 
 Para configurar seu aplicativo para manipular o redirecionamento para o URI com o esquema personalizado, você precisa atualizar a lista de ' esquemas de URL ' no seu info. pList:
 * Abra o info. pList.
-* Passe o mouse sobre uma linha como "empacotar código de tipo de so" e clique no símbolo \+.
+* Passe o mouse sobre uma linha como "empacotar código de tipo de so" e clique no símbolo de \+.
 * Renomeie a nova linha ' tipos de URL '.
 * Clique na seta à esquerda de ' tipos de URL ' para abrir a árvore.
 * Clique na seta à esquerda de ' item 0 ' para abrir a árvore.

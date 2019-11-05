@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/26/2019
+ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: 4308ed6d00bd3900986f08a93a686f0d7d00bcfb
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: b86a8df86b7f9b8a5936752a5f0413aa863ae85f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515589"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490807"
 ---
 # <a name="quickstart-personalizer-client-library-for-net"></a>Início rápido: biblioteca de cliente do personalizador para .NET
 
@@ -26,7 +26,7 @@ Introdução à biblioteca de cliente do personalizador para .NET. Siga estas et
  * Classifique uma lista de ações para personalização.
  * Relatório de Pontuação de recompensa indicando o sucesso da ação de classificação mais alta.
 
-[Documentação de referência](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview)  | [amostras](https://github.com/Azure-Samples/cognitive-services-personalizer-samples) do NuGet ([código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer)  | [do pacote)  |  de](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) biblioteca
+[Documentação de referência](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview) | [amostras](https://github.com/Azure-Samples/cognitive-services-personalizer-samples) do NuGet ( [código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer) | [do pacote) | de](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) biblioteca
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,19 +38,18 @@ Introdução à biblioteca de cliente do personalizador para .NET. Siga estas et
 Há várias etapas para usar este guia de início rápido:
 
 * No portal do Azure, criar um recurso personalizador
-* Na portal do Azure, para o recurso personalizador, na página **configurações** , altere a frequência de atualização do modelo
+* Na portal do Azure, para o recurso personalizador, na página **configuração** , altere a frequência de atualização do modelo
 * Em um editor de código, crie um arquivo de código e edite o arquivo de código
 * Na linha de comando ou terminal, instale o SDK da linha de comando
 * Na linha de comando ou no terminal, execute o arquivo de código
 
 ## <a name="create-a-personalizer-azure-resource"></a>Criar um recurso personalizado do Azure
 
-Os serviços cognitivas do Azure são representados pelos recursos do Azure que você assina. Crie um recurso para personalizador usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. Também pode:
+Crie um recurso para personalizador usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. Também pode:
 
 * Obtenha uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services) válida por 7 dias gratuitamente. Depois de se inscrever, ele estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Exiba seu recurso no [portal do Azure](https://portal.azure.com/).
 
-<!-- rename TBD_KEY to something meaningful for your service, like TEXT_ANALYTICS_KEY -->
 Depois de obter uma chave de sua assinatura ou recurso de avaliação, crie duas [variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
 
 * `PERSONALIZER_RESOURCE_KEY` para a chave de recurso.
@@ -60,7 +59,7 @@ No portal do Azure, os valores de chave e ponto de extremidade estão disponíve
 
 ## <a name="change-the-model-update-frequency"></a>Alterar a frequência de atualização do modelo
 
-No portal do Azure, no recurso personalizado na página **configurações** , altere a frequência de atualização do **modelo** para 10 segundos. Isso treinará o serviço rapidamente, permitindo que você veja como as principais ações são alteradas para cada iteração.
+No portal do Azure, no recurso personalizado na página **configuração** , altere a frequência de atualização do **modelo** para 10 segundos. Essa curta duração treinará o serviço rapidamente, permitindo que você veja como as principais ações são alteradas para cada iteração.
 
 ![Alterar a frequência de atualização do modelo](./media/settings/configure-model-update-frequency-settings.png)
 
@@ -110,11 +109,11 @@ Para solicitar uma classificação do conteúdo, crie um [RankRequest](https://d
 
 Para enviar um recompensa ao personalizador, crie um [RewardRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rewardrequest?view=azure-dotnet-preview)e, em seguida, passe-o para o [cliente. ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.reward?view=azure-dotnet-preview)Método de recompensa. 
 
-A determinação da recompensa, neste guia de início rápido, é trivial. Em um sistema de produção, a determinação do que afeta a [Pontuação de recompensa](concept-rewards.md) e o quanto pode ser um processo complexo, que você pode decidir alterar ao longo do tempo. Essa deve ser uma das principais decisões de design na arquitetura do personalizador. 
+A determinação da recompensa, neste guia de início rápido, é trivial. Em um sistema de produção, a determinação do que afeta a [Pontuação de recompensa](concept-rewards.md) e o quanto pode ser um processo complexo, que você pode decidir alterar ao longo do tempo. Essa decisão de design deve ser uma das principais decisões em sua arquitetura de personalização. 
 
 ## <a name="code-examples"></a>Exemplos de código
 
-Esses trechos de código mostram como fazer o seguinte com a biblioteca de cliente do personalizador para .NET:
+Esses trechos de código mostram como realizar as seguintes tarefas com a biblioteca de cliente do personalizador para .NET:
 
 * [Criar um cliente personalizado](#create-a-personalizer-client)
 * [Solicitar uma classificação](#request-a-rank)

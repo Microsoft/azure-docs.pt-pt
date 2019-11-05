@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 09/12/2019
-ms.openlocfilehash: 0ca73d75751259eccd9e952c2d704a09fc081396
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5d68c343fee5807c430ce42777b988a48b9227f8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162281"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73478607"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Habilitar o monitoramento do cluster AKS (serviço kubernetes do Azure) já implantado
 
@@ -27,11 +27,11 @@ Você pode habilitar o monitoramento de um cluster AKS que já está implantado 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com). 
+Iniciar sessão no [portal do Azure](https://portal.azure.com). 
 
 ## <a name="enable-using-azure-cli"></a>Habilitar usando CLI do Azure
 
-A etapa a seguir habilita o monitoramento do cluster AKS usando CLI do Azure. Neste exemplo, não é necessário que você por criar ou especificar um espaço de trabalho existente. Esse comando simplifica o processo para você criando um espaço de trabalho padrão no grupo de recursos padrão da assinatura do cluster AKS, caso ainda não exista uma na região.  O espaço de trabalho padrão criado se assemelha ao formato *defaultworkspace-\<GUID >-\<Region >* .  
+A etapa a seguir habilita o monitoramento do cluster AKS usando CLI do Azure. Neste exemplo, não é necessário que você por criar ou especificar um espaço de trabalho existente. Esse comando simplifica o processo para você criando um espaço de trabalho padrão no grupo de recursos padrão da assinatura do cluster AKS, caso ainda não exista uma na região.  O espaço de trabalho padrão criado se assemelha ao formato *defaultworkspace-\<GUID >-\<região >* .  
 
 ```azurecli
 az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
@@ -371,4 +371,6 @@ Após alguns minutos, o comando é concluído e retorna informações formatadas
 
 * Se você tiver problemas ao tentar carregar a solução, examine o [Guia de solução de problemas](container-insights-troubleshoot.md)
 
-* Com o monitoramento habilitado para capturar métricas de integridade para os nós de cluster AKS e pods, essas métricas de integridade estão disponíveis no portal do Azure. Para saber como usar Azure Monitor para contêineres, consulte [exibir a integridade do serviço kubernetes do Azure](container-insights-analyze.md).
+* Com o monitoramento habilitado para coletar a utilização de recursos e de integridade do cluster AKS e das cargas de trabalho em execução neles, saiba [como usar](container-insights-analyze.md) Azure monitor para contêineres.
+
+

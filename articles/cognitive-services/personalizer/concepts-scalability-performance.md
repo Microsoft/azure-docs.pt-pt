@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: d116f6bd389b1404ea723c965111cd05880e6c30
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 5ac9a870cb05328f040febd0f8161a97f0982e09
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662825"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490782"
 ---
 # <a name="scalability-and-performance"></a>Escalabilidade e desempenho
 
@@ -24,28 +24,15 @@ Sites e aplicativos de alto desempenho e de alto tráfego têm dois fatores prin
 * Mantendo baixa latência ao fazer chamadas à API de classificação
 * Garantindo que a taxa de transferência de treinamento acompanha a entrada do evento
 
-A personalização pode retornar uma classificação muito rapidamente, com a maior parte da duração da chamada dedicada à comunicação por meio da API REST. O Azure fará o dimensionamento automático da capacidade de responder às solicitações rapidamente.
+A personalização pode retornar uma classificação rapidamente, com a maior parte da duração da chamada dedicada à comunicação por meio da API REST. O Azure fará o dimensionamento automático da capacidade de responder às solicitações rapidamente.
 
 ##  <a name="low-latency-scenarios"></a>Cenários de baixa latência
 
-Alguns aplicativos exigem latências baixas ao retornar uma classificação. Isso é necessário:
+Alguns aplicativos exigem latências baixas ao retornar uma classificação. São necessárias latências baixas:
 
 * Para impedir que o usuário aguarde uma quantidade perceptível de tempo antes de exibir o conteúdo classificado.
 * Para ajudar um servidor que está apresentando tráfego extremo, evite a conexão de conexões de rede e de tempo de computação escassos.
 
-<!--
-
-If your web site is scaled on your infrastructure, you can avoid making HTTP calls by hosting the Personalizer API in your own servers running a Docker container.
-
-This change would be transparent to your application, other than using an endpoint URL referring to the running docker instances as opposed to an online service in the cloud.
-
-
-
-### Extreme Low Latency Scenarios
-
-If you require latencies under a millisecond, and have already tested using Personalizer via containers, please contact our support team so we can assess your scenario and provide guidance suited to your needs.
-
--->
 
 ## <a name="scalability-and-training-throughput"></a>Escalabilidade e produtividade de treinamento
 
@@ -62,6 +49,6 @@ Por exemplo, se a carga média tiver 500 recursos e cada um for um número estim
 
 Se você estiver atingindo esses limites, entre em contato com nossa equipe de suporte para obter conselhos sobre arquitetura.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Criar e configurar](how-to-settings.md)o personalizador.
+[Criar e configurar o personalizador](how-to-settings.md).

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9c21ff5c4c94eecc7bb1a6643e46166df80edf4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: acdcbef74d95fbbc4cfb49176d1f98621e746ff6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648324"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474363"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilitar a entrada sem senha com o aplicativo Microsoft Authenticator (versão prévia)
 
@@ -46,7 +46,7 @@ Os recursos de registro para métodos de autenticação com senha contam com a v
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Habilitar métodos de autenticação de entrada por telefone sem senha
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com)
-1. Navegue até **Azure Active Directory** > **política de método de autenticação de** **métodos** > de autenticação (versão prévia)
+1. Navegue até **segurança do Azure AD** > **métodos de autenticação** > **política de método de autenticação (versão prévia)**
 1. Em **entrada no telefone sem senha**, escolha as seguintes opções
    1. **Habilitar** -Sim ou não
    1. **Destino** -todos os usuários ou Selecionar usuários
@@ -54,7 +54,7 @@ Os recursos de registro para métodos de autenticação com senha contam com a v
 
 ## <a name="user-registration-and-management-of-microsoft-authenticator-app"></a>Registro de usuário e gerenciamento do aplicativo Microsoft Authenticator
 
-1. Navegue até[https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)
+1. Navegue até [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)
 1. Entrar se ainda não estiver
 1. Adicione um aplicativo autenticador clicando em **Adicionar método**, escolhendo **aplicativo autenticador**e clicando em **Adicionar**
 1. Siga as instruções para instalar e configurar o aplicativo Microsoft Authenticator em seu dispositivo
@@ -97,7 +97,7 @@ Um dos pré-requisitos para criar essa nova credencial forte é que o dispositiv
 > [!NOTE]
 > O registro do dispositivo não é o mesmo que o gerenciamento de dispositivos ou "MDM". Ele só associa uma ID de dispositivo e uma ID de usuário ao diretório do Azure AD.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [O que não tem senha?](concept-authentication-passwordless.md)
 

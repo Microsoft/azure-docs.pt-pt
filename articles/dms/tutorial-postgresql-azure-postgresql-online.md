@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use o serviço de migração de banco de dados do Azure para executar uma migração online do PostgreSQL para o banco de dados do Azure para PostgreSQL | Microsoft Docs'
+title: 'Tutorial: usar o serviço de migração de banco de dados do Azure para executar uma migração online do PostgreSQL para o banco de dados do Azure para PostgreSQL | Microsoft Docs'
 description: Saiba como executar uma migração online do PostgreSQL local para o banco de dados do Azure para PostgreSQL usando o serviço de migração de banco de dados do Azure.
 services: dms
 author: HJToland3
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/06/2019
-ms.openlocfilehash: 5888555e93c28c96445bed1936deda022b0a4b94
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.date: 10/28/2019
+ms.openlocfilehash: 1b4eebafadcdbebfc89ce7265f4d4f77f4f5ac8c
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734592"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043237"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Tutorial: Migrar o PostgreSQL para a Base de Dados do Azure para PostgreSQL online com o DMS
 
@@ -56,14 +56,14 @@ Para concluir este tutorial, precisa de:
     >
     > Essa configuração é necessária porque o serviço de migração de banco de dados do Azure não tem conectividade com a Internet.
 
-* Verifique se suas regras de NSG (grupo de segurança de rede) VNet não bloqueiam as seguintes portas de comunicação de entrada para o serviço de migração de banco de dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG VNet do Azure, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+* Certifique-se de que suas regras de NSG (grupo de segurança de rede) VNet não bloqueiem as seguintes portas de comunicação de entrada para o serviço de migração de banco de dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG VNet do Azure, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 * Configurar a sua [Firewall do Windows para acesso ao motor de bases de dados](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Abra o Firewall do Windows para permitir que o serviço de migração de banco de dados do Azure acesse o servidor PostgreSQL de origem, que por padrão é a porta TCP 5432.
 * Se estiver a utilizar uma aplicação de firewall à frente da base ou bases de dados, poderá ter de adicionar regras de firewall para permitir que o Azure Database Migration Service aceda à base ou bases de dados de origem para migração.
 * Crie uma [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) no nível do servidor para o banco de dados do Azure para PostgreSQL para permitir que o serviço de migração de banco de dados do Azure acesse os bancos de dados de destino. Forneça o intervalo de sub-rede da VNet usada para o serviço de migração de banco de dados do Azure.
 * Existem dois métodos para invocar a CLI:
 
-  * No canto superior direito do portal do Azure, selecione o botão Cloud Shell:
+  * No canto superior direito da portal do Azure, selecione o botão Cloud Shell:
 
        ![Botão Cloud Shell no portal do Azure](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
 
@@ -208,10 +208,10 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
    Por exemplo, o seguinte comando vai criar um serviço em:
 
-   * Local E.U.A. Leste 2
+   * Localização: EUA Leste 2
    * Subscrição: 97181df2-909d-420b-ab93-1bff15acb6b7
-   * Nome do grupo de recursos: PostgresDemo
-   * Nome do serviço DMS: PostgresCLI
+   * Nome de Grupo de Recursos: PostgresDemo
+   * Nome do Serviço DMS: PostgresCLI
 
    ```
    az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores
@@ -257,9 +257,9 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
     Por exemplo, o comando seguinte cria um projeto que utiliza estes parâmetros:
 
-   * Local EUA Centro-Oeste
-   * Nome do grupo de recursos: PostgresDemo
-   * Nome do serviço: PostgresCLI
+   * Localização: EUA Centro-Oeste
+   * Nome de Grupo de Recursos: PostgresDemo
+   * Nome do Serviço: PostgresCLI
    * Nome do projeto: PGMigration
    * Plataforma de origem: PostgreSQL
    * Plataforma de destino: AzureDbForPostgreSql

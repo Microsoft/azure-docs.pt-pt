@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: yexu
-ms.openlocfilehash: b330c6010ddb5401dbf9753c2ea91bfeedf35c3b
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 22ff4adfa3cbb8ead500e817620b9236fe32ed0e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020094"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490864"
 ---
-# <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Início rápido: Utilizar a ferramenta Copiar Dados para copiar dados
+# <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Início rápido: usar a ferramenta de Copiar Dados para copiar dados
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -35,9 +35,14 @@ Neste início rápido, irá utilizar o portal do Azure para criar uma fábrica d
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
 1. Aceda ao [Portal do Azure](https://portal.azure.com). 
-1. Selecione **Criar um recurso** no menu esquerdo, selecione **Análise** e, em seguida, selecione **Data Factory**. 
-   
-   ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
+1. No menu portal do Azure, selecione **criar um recurso**.
+
+    ![Criar um recurso no menu portal do Azure](./media/quickstart-create-data-factory-copy-data-tool/create-data-factory-resource.png)
+
+1. Selecione **análise**e, em seguida, selecione **Data Factory**.
+
+   ![Seleção do Data Factory no painel "Novo"](./media/quickstart-create-data-factory-copy-data-tool/new-azure-data-factory-menu.png)
+
 1. Na página **Nova fábrica de dados**, introduza **ADFTutorialDataFactory** em **Nome**. 
  
    O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se receber o seguinte erro, altere o nome da fábrica de dados (por exemplo, **&lt;oseunome&gt;ADFTutorialDataFactory**) e tente criá-la novamente. Para regras de nomenclatura de artefactos do Data Factory, veja o artigo [Data Factory – Regras de Nomenclatura](naming-rules.md).
@@ -74,7 +79,7 @@ Neste início rápido, irá utilizar o portal do Azure para criar uma fábrica d
 
     a. Clique em **+ Criar nova ligação** para adicionar uma ligação.
 
-    b. Selecione **armazenamento** de BLOBs do Azure na galeria e selecione **continuar**.
+    b. Selecione **armazenamento de BLOBs do Azure** na galeria e selecione **continuar**.
 
     c. Na página **novo serviço vinculado (armazenamento de BLOBs do Azure)** , especifique um nome para o serviço vinculado. Selecione sua conta de armazenamento na lista **nome da conta de armazenamento** , testar conexão e, em seguida, selecione **concluir**. 
 
@@ -106,7 +111,7 @@ Neste início rápido, irá utilizar o portal do Azure para criar uma fábrica d
 
     ![Página "Implementação concluída"](./media/quickstart-create-data-factory-copy-data-tool/deployment-page.png)
 
-1. A aplicação muda para o separador **Monitorização**. Verá o estado do pipeline neste separador. Selecione **Atualizar** para atualizar a lista. 
+1. O aplicativo alterna para a guia **Monitor** . Você vê o status do pipeline nesta guia. Selecione **Atualizar** para atualizar a lista. 
     
 1. Selecione a ligação **Ver Execuções de Atividades** na coluna **Ações**. O pipeline apenas tem uma atividade do tipo **Cópia**. 
     
@@ -116,5 +121,5 @@ Neste início rápido, irá utilizar o portal do Azure para criar uma fábrica d
 
 1. Mude para o separador **Criar** acima do **Monitor** no painel esquerdo, para que possa editar os serviços ligados, conjuntos de dados e pipelines. Para saber mais sobre a edição dos mesmos na IU do Data Factory, consulte [Criar uma fábrica de dados através do portal do Azure](quickstart-create-data-factory-portal.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 O pipeline neste exemplo copia dados de uma localização para outra localização num armazenamento de Blobs do Azure. Para saber como utilizar o Data Factory em mais cenários, aceda aos [tutoriais](tutorial-copy-data-portal.md). 

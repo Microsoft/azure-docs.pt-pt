@@ -1,5 +1,5 @@
 ---
-title: Criar clusters Apache Hadoop usando um navegador da Web, Azure HDInsight
+title: Criar clusters Apache Hadoop usando o navegador da Web, Azure HDInsight
 description: Saiba como criar clusters Apache Hadoop, Apache HBase, Apache Storm ou Apache Spark no Linux para HDInsight usando um navegador da Web e o portal do Azure.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/28/2019
-ms.openlocfilehash: 687fde2e203ed471e2f0164f1f4a670de4afc74e
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 3a64ba088a24f6202b74ae84ad7fb6c011d3bcbf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71677091"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494767"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Criar clusters baseados em Linux no HDInsight usando o portal do Azure
 
@@ -34,9 +34,9 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando modelos d
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
-1. No menu à esquerda, navegue até **+ criar um recurso**  >  **Analytics**  > **HDInsight**.
+1. No menu à esquerda, navegue até **+ criar um recurso** >  **Analytics** > **HDInsight**.
 
     ![Criar um novo cluster no portal do Azure](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster.png "Criando um novo cluster no portal do Azure")
 
@@ -81,7 +81,7 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando modelos d
 
      ![HDInsight criar armazenamento de cluster](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-storage.png "Criando um novo cluster no portal do Azure")
 
-     | Armazenamento                                      | Descrição |
+     | Storage                                      | Descrição |
      |----------------------------------------------|-------------|
      | **Blobs de armazenamento do Azure como o armazenamento padrão**   | <ul><li>Para **tipo de armazenamento primário**, selecione **armazenamento do Azure**. Para o **método de seleção**, escolha **minhas assinaturas** se desejar especificar uma conta de armazenamento que faça parte de sua assinatura do Azure. Em seguida, selecione a conta de armazenamento. Caso contrário, selecione **chave de acesso**. Em seguida, forneça as informações para a conta de armazenamento que você deseja escolher fora de sua assinatura do Azure.</li><li>Para o **contêiner padrão**, escolha o nome de contêiner padrão sugerido pelo portal ou especifique seu próprio.</li><li>Se o armazenamento de BLOBs do Azure for seu armazenamento padrão, você também poderá selecionar **contas de armazenamento adicionais** para especificar contas de armazenamento adicionais a serem associadas ao cluster. Para **chaves de armazenamento do Azure**, selecione **Adicionar uma chave de armazenamento**. Em seguida, você pode fornecer uma conta de armazenamento de suas assinaturas do Azure ou de outras assinaturas. Forneça a chave de acesso da conta de armazenamento.</li><li>Se o armazenamento de BLOBs for seu armazenamento padrão, você também poderá selecionar **Data Lake Storage acesso** para especificar Azure data Lake Storage como armazenamento adicional. Para obter mais informações, consulte [início rápido: configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
      | **Azure Data Lake Storage como o armazenamento padrão** | Para **tipo de armazenamento primário**, selecione **Azure data Lake Storage Gen1** ou **Azure data Lake Storage Gen2**. Em seguida, consulte o artigo [início rápido: configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) para obter instruções. |

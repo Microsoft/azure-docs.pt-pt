@@ -9,15 +9,17 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/03/2019
-ms.openlocfilehash: c78a45cedbeb5cfa0f0cc7c5c976fceb36f1da2a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: b5b3ca127aba62b39bd7236412d4c6a542347db3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173294"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476176"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: treinar seu primeiro modelo de ML
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Este tutorial é a **segunda parte de uma série composta por duas partes**. No tutorial anterior, você [criou um espaço de trabalho e escolheu um ambiente de desenvolvimento](tutorial-1st-experiment-sdk-setup.md). Neste tutorial, você aprende os padrões de design básico em Azure Machine Learning e treina um modelo scikit simples com base no conjunto de dados diabetes. Depois de concluir este tutorial, você terá o conhecimento prático do SDK para escalar verticalmente para o desenvolvimento de experimentos e fluxos de trabalho mais complexos.
 
@@ -37,13 +39,13 @@ Nesta parte do tutorial, você executa o código no bloco de anotações Jupyter
 
 ## <a name="open-the-notebook"></a>Abrir o bloco de anotações
 
-1. Entre na página de [aterrissagem do espaço de trabalho](https://ml.azure.com/).
+1. Entre no [Azure Machine Learning Studio](https://ml.azure.com/).
 
 1. Abra o **tutorial-1º-experimento-SDK-Train. ipynb** em sua pasta, conforme mostrado na [parte um](tutorial-1st-experiment-sdk-setup.md#open).
 
 
 > [!Warning]
-> **Não** crie um *novo* bloco de anotações na interface Jupyter! O notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` é inclusivo de **todos os códigos e dados necessários** para este tutorial.
+> **Não** crie um *novo* bloco de anotações na interface Jupyter! O `tutorials/tutorial-1st-experiment-sdk-train.ipynb` do bloco de anotações é inclusivo de **todos os códigos e dados necessários** para este tutorial.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Conectar espaço de trabalho e criar experimento
 
@@ -62,7 +64,7 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-Agora, crie um experimento em seu espaço de trabalho. Um experimento é outro recurso de nuvem fundamental que representa uma coleção de avaliações (execuções de modelo individuais). Neste tutorial, você usa o experimento para criar execuções e acompanhar o treinamento do modelo no portal do Azure. Os parâmetros incluem sua referência de espaço de trabalho e um nome de cadeia de caracteres para o experimento.
+Agora, crie um experimento em seu espaço de trabalho. Um experimento é outro recurso de nuvem fundamental que representa uma coleção de avaliações (execuções de modelo individuais). Neste tutorial, você usa o experimento para criar execuções e acompanhar seu treinamento de modelo no Azure Machine Learning Studio. Os parâmetros incluem sua referência de espaço de trabalho e um nome de cadeia de caracteres para o experimento.
 
 
 ```python
@@ -72,15 +74,17 @@ experiment = Experiment(workspace=ws, name="diabetes-experiment")
 
 ## <a name="load-data-and-prepare-for-training"></a>Carregue dados e prepare-se para treinamento
 
-Para este tutorial, você usa o conjunto de dados diabetes, que é um conjunto de dados previamente normalizado incluído no scikit-learn. Esse conjunto de dados usa recursos como idade, sexo e BMI para prever a progressão de doença diabetes. Carregue os dados da função estática `load_diabetes()` e divida-os em conjuntos de treinamento e teste usando `train_test_split()`. Essa função separa os dados para que o modelo tenha dados não vistos a serem usados para testar o treinamento a seguir.
+Para este tutorial, você usa o conjunto de dados diabetes, que usa recursos como idade, sexo e BMI para prever a progressão de doença diabetes. Carregue os dados da classe [Azure Open DataSets](https://azure.microsoft.com/services/open-datasets/) e divida-os em conjuntos de treinamento e teste usando `train_test_split()`. Essa função separa os dados para que o modelo tenha dados não vistos a serem usados para testar o treinamento a seguir.
 
 
 ```python
-from sklearn.datasets import load_diabetes
+from azureml.opendatasets import Diabetes
 from sklearn.model_selection import train_test_split
 
-X, y = load_diabetes(return_X_y = True)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=66)
+x_df = Diabetes.get_tabular_dataset().to_pandas_dataframe().dropna()
+y_df = x_df.pop("Y")
+
+X_train, X_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=66)
 ```
 
 ## <a name="train-a-model"></a>Preparar um modelo
@@ -139,7 +143,7 @@ Ao treinar modelos em escala em centenas e milhares de execuções separadas, es
 
 ![Página principal do experimento no portal](./media/tutorial-quickstart/experiment-main.png)
 
-Clicar em um link de número de execução na coluna `RUN NUMBER` leva você até a página para cada execução individual. Os **detalhes** da guia padrão mostram informações mais detalhadas sobre cada execução. Navegue até a guia **saídas** e você verá o arquivo `.pkl` para o modelo que foi carregado para a execução durante cada iteração de treinamento. Aqui você pode baixar o arquivo de modelo, em vez de ter que retreiná-lo manualmente.
+Clicar em um link de número de execução na coluna `RUN NUMBER` leva você até a página para cada execução individual. Os **detalhes** da guia padrão mostram informações mais detalhadas sobre cada execução. Navegue até a guia **saídas** e veja o arquivo `.pkl` para o modelo que foi carregado para a execução durante cada iteração de treinamento. Aqui você pode baixar o arquivo de modelo, em vez de ter que retreiná-lo manualmente.
 
 ![Página executar detalhes no portal](./media/tutorial-quickstart/model-download.png)
 
@@ -193,19 +197,9 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 Não conclua esta seção se você planeja executar outros tutoriais de Azure Machine Learning.
 
-### <a name="stop-the-notebook-vm"></a>Parar a VM do notebook
+### <a name="stop-the-compute-instance"></a>Parar a instância de computação
 
-Se você usou um servidor de bloco de anotações de nuvem, pare a VM quando não a estiver usando para reduzir o custo.
-
-1. Em seu espaço de trabalho, selecione **máquinas virtuais do notebook**.
-
-   ![Parar o servidor de VM](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
-
-1. Na lista, selecione a VM.
-
-1. Selecione **parar**.
-
-1. Quando você estiver pronto para usar o servidor novamente, selecione **Iniciar**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### <a name="delete-everything"></a>Excluir tudo
 

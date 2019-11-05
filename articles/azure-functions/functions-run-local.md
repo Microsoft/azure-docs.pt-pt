@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 28502c49c0eebce84ffd5aa376e7b20bd52213c0
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 60ef89308eceeb8ae74caba7230f1dc9c6940f47
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674972"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469104"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com Azure Functions Core Tools
 
@@ -156,8 +156,8 @@ Na versão 2. x, quando você executa o comando, deve escolher um tempo de execu
 Select a worker runtime:
 dotnet
 node
-python (preview)
-powershell (preview)
+python 
+powershell
 ```
 
 Use as teclas de seta para cima/para baixo para escolher um idioma e pressione Enter. Se você planeja desenvolver funções JavaScript ou TypeScript, escolha **nó**e, em seguida, selecione o idioma. O TypeScript tem [alguns requisitos adicionais](functions-reference-node.md#typescript). 
@@ -178,11 +178,11 @@ o `func init` dá suporte às seguintes opções, que são apenas a versão 2. x
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 | **`--csx`** | Inicializa um C# projeto de script (. CSX). Você deve especificar `--csx` em comandos subsequentes. |
-| **`--docker`** | Crie um Dockerfile para um contêiner usando uma imagem base com base no `--worker-runtime` escolhido. Use esta opção quando você planeja publicar em um contêiner personalizado do Linux. |
+| **`--docker`** | Crie um Dockerfile para um contêiner usando uma imagem base com base no `--worker-runtime`escolhido. Use esta opção quando você planeja publicar em um contêiner personalizado do Linux. |
 | **`--force`** | Inicializar o projeto mesmo quando houver arquivos existentes no projeto. Essa configuração substitui os arquivos existentes com o mesmo nome. Outros arquivos na pasta do projeto não são afetados. |
 | **`--no-source-control -n`** | Impede a criação padrão de um repositório git na versão 1. x. Na versão 2. x, o repositório git não é criado por padrão. |
 | **`--source-control`** | Controla se um repositório Git é criado. Por padrão, um repositório não é criado. Quando `true`, um repositório é criado. |
-| **`--worker-runtime`** | Define o tempo de execução de linguagem para o projeto. Os valores com suporte são `dotnet`, `node` (JavaScript), `java` e `python`. Quando não estiver definido, você será solicitado a escolher o tempo de execução durante a inicialização. |
+| **`--worker-runtime`** | Define o tempo de execução de linguagem para o projeto. Os valores com suporte são `dotnet`, `node` (JavaScript), `java`e `python`. Quando não estiver definido, você será solicitado a escolher o tempo de execução durante a inicialização. |
 
 > [!IMPORTANT]
 > Por padrão, a versão 2. x das ferramentas principais cria projetos de aplicativo de funções para o tempo de execução do .net como [ C# projetos de classe](functions-dotnet-class-library.md) (. csproj). Esses C# projetos, que podem ser usados com o Visual Studio ou o Visual Studio Code, são compilados durante o teste e ao publicar no Azure. Se, em vez disso, você quiser criar e trabalhar C# com os mesmos arquivos de script (. CSX) criados na versão 1. x e no portal, deverá incluir o parâmetro `--csx` ao criar e implantar funções.
@@ -202,17 +202,19 @@ Os valores das configurações do aplicativo de funções também podem ser lido
 
 Quando nenhuma cadeia de conexão de armazenamento válida é definida para [`AzureWebJobsStorage`] e o emulador não está sendo usado, a seguinte mensagem de erro é mostrada:
 
-> Valor ausente para AzureWebJobsStorage em local. Settings. JSON. Isso é necessário para todos os gatilhos diferentes de HTTP. Você pode executar ' Func Azure functionapp FETCH-app-Settings \<functionAppName \> ' ou especificar uma cadeia de conexão em local. Settings. JSON.
+> Valor ausente para AzureWebJobsStorage em local. Settings. JSON. Isso é necessário para todos os gatilhos diferentes de HTTP. Você pode executar ' Func Azure functionapp FETCH-app-Settings \<functionAppName\>' ou especificar uma cadeia de conexão em local. Settings. JSON.
 
 ### <a name="get-your-storage-connection-strings"></a>Obter suas cadeias de conexão de armazenamento
 
 Mesmo ao usar o emulador de armazenamento para desenvolvimento, talvez você queira testar com uma conexão de armazenamento real. Supondo que você já tenha [criado uma conta de armazenamento](../storage/common/storage-create-storage-account.md), você pode obter uma cadeia de conexão de armazenamento válida de uma das seguintes maneiras:
 
-+ Do [portal do Azure]. Navegue até sua conta de armazenamento, selecione **chaves de acesso** em **configurações**e, em seguida, copie um dos valores da cadeia de **conexão** .
+- No [portal do Azure], procure e selecione contas de **armazenamento**. 
+  ![selecionar contas de armazenamento de portal do Azure](./media/functions-run-local/select-storage-accounts.png)
+  
+  Selecione sua conta de armazenamento, selecione **chaves de acesso** em **configurações**e, em seguida, copie um dos valores da cadeia de **conexão** .
+  ![copiar a cadeia de conexão do portal do Azure](./media/functions-run-local/copy-storage-connection-portal.png)
 
-  ![Copiar cadeia de conexão do portal do Azure](./media/functions-run-local/copy-storage-connection-portal.png)
-
-+ Use [Gerenciador de armazenamento do Azure](https://storageexplorer.com/) para se conectar à sua conta do Azure. No **Gerenciador**, expanda sua assinatura, selecione sua conta de armazenamento e copie a cadeia de conexão primária ou secundária.
+- Use [Gerenciador de armazenamento do Azure](https://storageexplorer.com/) para se conectar à sua conta do Azure. No **Gerenciador**, expanda sua assinatura, selecione sua conta de armazenamento e copie a cadeia de conexão primária ou secundária.
 
   ![Copiar cadeia de conexão do Gerenciador de Armazenamento](./media/functions-run-local/storage-explorer.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Implantar um aplicativo com o portal do LUIS'
+title: 'Início rápido: implantar um aplicativo com o portal do LUIS'
 titleSuffix: Azure Cognitive Services
 description: Saiba como implantar seu aplicativo LUIS no ponto de extremidade de previsão depois que o aplicativo estiver pronto para retornar previsões expressão para um aplicativo cliente, como um bot de chat. Este guia de início rápido orienta como implantar um aplicativo Criando um recurso de ponto de extremidade de previsão, atribuindo o recurso ao aplicativo, treinando o aplicativo e publicando o aplicativo.
 services: cognitive-services
@@ -8,16 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/27/2019
+ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: f640921e6f48559db3f1414551d6ed974df15e4f
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
-ms.translationtype: MT
+ms.openlocfilehash: ecae5c7db02436fe34fec19989f174504fd1e03a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703225"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488709"
 ---
-# <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Início rápido: Implantar um aplicativo no portal do LUIS
+# <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Início rápido: implantar um aplicativo no portal do LUIS
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
 
 Quando seu aplicativo LUIS estiver pronto para retornar previsões de expressão para um aplicativo cliente (por exemplo, um bot de chat), você precisará implantar o aplicativo no ponto de extremidade de previsão.
 
@@ -32,19 +35,19 @@ Neste guia de início rápido, você aprende a implantar um aplicativo. Você cr
 
 Você cria o recurso de ponto de extremidade de previsão no portal do Azure. Esse recurso só deve ser usado para consultas de previsão de ponto de extremidade. Não use esse recurso para criar alterações no aplicativo.
 
-1. Inicie sessão no [portal do Azure](https://ms.portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://ms.portal.azure.com/).
 
-1. Selecione o sinal verde **+** no painel superior esquerdo. Pesquise `Cognitive Services` no Marketplace e selecione-o.
+1. Selecione o sinal de **+** verde no painel superior esquerdo. Pesquise `Cognitive Services` no Marketplace e selecione-o.
 
 1. Configure a assinatura com as seguintes configurações:
 
-   |Definição|Value|Objetivo|
+   |Definição|Valor|Objetivo|
    |--|--|--|
-   |Name|`my-cognitive-service-resource`|O nome do recurso do Azure. Você precisará desse nome ao atribuir o recurso ao aplicativo no portal do LUIS.|
-   |Subscription|A sua subscrição|Selecione uma das assinaturas associadas à sua conta.|
-   |Location|**E.U.A. Oeste**|A região do Azure para este recurso.|
+   |Nome|`my-cognitive-service-resource`|O nome do recurso do Azure. Você precisará desse nome ao atribuir o recurso ao aplicativo no portal do LUIS.|
+   |Subscrição|A sua subscrição|Selecione uma das assinaturas associadas à sua conta.|
+   |Localização|**E.U.A. Oeste**|A região do Azure para este recurso.|
    |Escalão de preço|**S0**|O tipo de preço padrão para este recurso.|
-   |Resource group|`my-cognitive-service-resource-group`|Crie um novo grupo de recursos para todos os seus recursos de serviço cognitiva. Quando terminar os recursos, você poderá excluir o grupo de recursos para limpar sua assinatura. |
+   |Grupo de recursos|`my-cognitive-service-resource-group`|Crie um novo grupo de recursos para todos os seus recursos de serviço cognitiva. Quando terminar os recursos, você poderá excluir o grupo de recursos para limpar sua assinatura. |
    | | | |
 
    ![Escolha da API do Azure](./media/get-started-portal-deploy-app/create-cognitive-services-resource.png)
@@ -65,11 +68,11 @@ Sempre que você criar um novo recurso para LUIS, será necessário atribuir o r
 
     <!-- TBD: get screenshot-->
 
-1. Selecione seu locatário, assinatura e nome do recurso. Selecione **atribuir recursos**.
+1. Selecione seu locatário, assinatura e nome do recurso. Selecione **atribuir recurso**.
 
-   ![Atribuir um recurso à sua aplicação](./media/get-started-portal-deploy-app/assign-resource.png)
+   ![Atribuir um recurso ao seu aplicativo](./media/get-started-portal-deploy-app/assign-resource.png)
 
-1. Localize a nova linha na tabela e copie o URL de ponto final. Ele é construído corretamente para fazer uma solicitação `HTTP GET` para o ponto de extremidade da API do LUIS para uma previsão.
+1. Localize a nova linha na tabela e copie a URL do ponto de extremidade. Ele é construído corretamente para fazer uma solicitação de `HTTP GET` ao ponto de extremidade da API do LUIS para uma previsão.
 
 ## <a name="train-and-publish-the-app"></a>Preparar e publicar a aplicação
 
@@ -77,66 +80,73 @@ Treine o aplicativo quando você estiver pronto para testá-lo. Publique o aplic
 
 1. Se o aplicativo for não treinado, selecione **treinar** no menu no canto superior direito.
 
-1. Selecione **publicar** no menu superior. Aceite as configurações de ambiente padrão e selecione **publicar**.
+1. Selecione **publicar** no menu superior. Selecione o slot de produção e publique.
 
-1. Quando a barra de notificação de êxito verde aparecer na parte superior da janela do navegador, selecione **consultar a lista de pontos de extremidade**.
+1. Quando a barra de notificação for exibida, a publicação será concluída.
 
-   ![Barra de notificação do aplicativo publicada com êxito no navegador](./media/get-started-portal-deploy-app/successfully-published-notification.png)
+1. Na página gerenciar recursos do **Azure** da seção, localize a lista de recursos atribuídos e as URLs de ponto de extremidade correspondentes.
 
-1. Na página **configurações de chaves e ponto de extremidade** , localize a lista de recursos atribuídos e as URLs de ponto de extremidade correspondentes na parte inferior.
-
-1. Selecione a URL do ponto de extremidade associada ao novo nome do recurso. Essa ação abre um navegador da Web com uma URL construída corretamente para fazer uma solicitação `GET` para o tempo de execução de ponto de extremidade de previsão.
+1. Copie a consulta de exemplo em uma janela do navegador e adicione o usuário expressão como o parâmetro `query`.
 
 ## <a name="prediction-endpoint-request"></a>Solicitação de ponto de extremidade de previsão
 
-<!-- V3FIX -->
-
-O `q=` no final da URL é curto para a **consulta** e é onde o expressão do usuário é acrescentado à solicitação get. Após o `q=`, insira o mesmo usuário expressão usado no final do início rápido anterior:
+O `query=` no final da URL é curto para a **consulta** e é onde o expressão do usuário é acrescentado à solicitação get. Após a `query=`, insira o mesmo usuário expressão usado no final do início rápido anterior:
 
 ```Is there a form named hrf-234098```
 
-O navegador mostra a resposta, que é o mesmo JSON que seu aplicativo cliente receberá:
+Verifique se a cadeia de caracteres de consulta inclui os seguintes pares:
+
+* `show-all-intents=true`
+* `verbose=true`
+
+O navegador mostra a resposta:
 
 ```JSON
 {
-"query": "Is there a form named hrf-234098",
-"topScoringIntent": {
-    "intent": "FindForm",
-    "score": 0.9768753
-},
-"intents": [
-    {
-    "intent": "FindForm",
-    "score": 0.9768753
-    },
-    {
-    "intent": "None",
-    "score": 0.0216071066
+    "query": "Is there a form named hrf-234098",
+    "prediction": {
+        "topIntent": "FindForm",
+        "intents": {
+            "FindForm": {
+                "score": 0.9768753
+            },
+            "None": {
+                "score": 0.0216071177
+            }
+        },
+        "entities": {
+            "Human Resources Form Number": [
+                "hrf-234098"
+            ],
+            "$instance": {
+                "Human Resources Form Number": [
+                    {
+                        "type": "Human Resources Form Number",
+                        "text": "hrf-234098",
+                        "startIndex": 22,
+                        "length": 10,
+                        "modelTypeId": 8,
+                        "modelType": "Regex Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
     }
-],
-"entities": [
-    {
-    "entity": "hrf-234098",
-    "type": "Human Resources Form Number",
-    "startIndex": 22,
-    "endIndex": 31
-    }
-    ]
 }
 ```
 
-Essa resposta fornece mais informações do que o painel de teste padrão no tutorial anterior. Para ver esse mesmo nível de informação no painel de teste, você deve publicar o aplicativo. Depois que o aplicativo for publicado, selecione **comparar com publicado** no painel de teste. Use a **exibição mostrar JSON** no painel de teste publicado para ver o mesmo JSON da etapa anterior. Dessa forma, você pode comparar o aplicativo atual no qual está trabalhando com um aplicativo que é publicado no ponto de extremidade.
+Para ver esse mesmo nível de informação no painel de teste, você deve publicar o aplicativo. Depois que o aplicativo for publicado, selecione **comparar com publicado** no painel de teste. Use a **exibição mostrar JSON** no painel de teste publicado para ver o mesmo JSON da etapa anterior. Dessa forma, você pode comparar o aplicativo atual no qual está trabalhando com um aplicativo que é publicado no ponto de extremidade.
 
-[![Compare atualmente edição versus versão publicada do aplicativo](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
-
-
-
+[![comparar a edição atual versus a versão publicada do aplicativo](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando você terminar este guia de início rápido, selecione **meus aplicativos** no menu de navegação superior. Marque a caixa de seleção do aplicativo na lista e, em seguida, selecione **excluir** na barra de ferramentas de contexto acima da lista.
 
-[aplicativo ![Exclua da minha lista de aplicativos](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
+[![excluir aplicativo da minha lista de aplicativos](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: b9e910f24503f6bbf86e8ed8cdcb6f422d2490d9
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1cfab9b065fd4e28a9ce11ac85682a298011200b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074001"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470118"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorar aplicativos no serviço Azure App
 O [serviço de Azure app](https://go.microsoft.com/fwlink/?LinkId=529714) fornece funcionalidade de monitoramento interna para aplicativos Web, back-ends móveis e aplicativos de API no [portal do Azure](https://portal.azure.com).
 
-No portal do Azure, você pode examinar as *cotas* e as métricas de um aplicativo, examinar o plano do serviço de aplicativo e configurar automaticamente os *alertas* e o *dimensionamento* com base nas métricas.
+No portal do Azure, você pode examinar as *cotas* e as *métricas* de um aplicativo, examinar o plano do serviço de aplicativo e configurar automaticamente os *alertas* e o *dimensionamento* com base nas métricas.
 
 ## <a name="understand-quotas"></a>Entender as cotas
 
@@ -43,7 +43,7 @@ As cotas para aplicativos livres ou compartilhados são:
 | **CPU (curta)** | A quantidade de CPU permitida para esse aplicativo em um intervalo de 5 minutos. Essa cota é redefinida a cada cinco minutos. |
 | **CPU (dia)** | A quantidade total de CPU permitida para esse aplicativo em um dia. Essa cota é redefinida a cada 24 horas à meia-noite UTC. |
 | **Memória** | A quantidade total de memória permitida para este aplicativo. |
-| **Larga** | A quantidade total de largura de banda de saída permitida para esse aplicativo em um dia. Essa cota é redefinida a cada 24 horas à meia-noite UTC. |
+| **Largura de Banda** | A quantidade total de largura de banda de saída permitida para esse aplicativo em um dia. Essa cota é redefinida a cada 24 horas à meia-noite UTC. |
 | **WPD** | A quantidade total de armazenamento permitido. |
 
 A única cota aplicável a aplicativos hospedados em planos *Basic*, *Standard*e *Premium* é FileSystem.
@@ -70,7 +70,7 @@ Para um aplicativo, as métricas disponíveis são:
 
 | Métrica | Descrição |
 | --- | --- |
-| **Tempo médio de resposta** | O tempo médio necessário para o aplicativo atender solicitações, em milissegundos. |
+| **Tempo médio de resposta** | O tempo médio necessário para o aplicativo atender solicitações, em segundos. |
 | **Conjunto de trabalho de memória média** | A quantidade média de memória usada pelo aplicativo, em megabytes (MiB). |
 | **Ligações** | O número de soquetes vinculados existentes na área restrita (w3wp. exe e seus processos filho).  Um soquete associado é criado chamando-se as APIs BIND ()/Connect () e permanece até que o soquete seja fechado com CloseHandle ()/closesocket (). |
 | **Tempo de CPU** | A quantidade de CPU consumida pelo aplicativo, em segundos. Para obter mais informações sobre essa métrica, consulte [CPU time vs CPU Percentage](#cpu-time-vs-cpu-percentage). |
@@ -124,9 +124,9 @@ Para um plano do serviço de aplicativo, as métricas disponíveis são:
 
 Há duas métricas que refletem o uso da CPU:
 
-**Tempo de CPU**: Útil para aplicativos hospedados em planos gratuitos ou compartilhados, porque uma de suas cotas é definida nos minutos de CPU usados pelo aplicativo.
+**Tempo de CPU**: útil para aplicativos hospedados em planos gratuitos ou compartilhados, pois uma de suas cotas é definida em minutos de CPU usados pelo aplicativo.
 
-**Percentual de CPU**: Útil para aplicativos hospedados nos planos básico, Standard e Premium, pois eles podem ser escalados horizontalmente. A porcentagem de CPU é uma boa indicação do uso geral em todas as instâncias.
+**Percentual de CPU**: útil para aplicativos hospedados nos planos básico, Standard e Premium, pois eles podem ser escalados horizontalmente. A porcentagem de CPU é uma boa indicação do uso geral em todas as instâncias.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Granularidade de métricas e política de retenção
 As métricas para um aplicativo e um plano do serviço de aplicativo são registradas e agregadas pelo serviço, com as seguintes granularidades e políticas de retenção:
@@ -146,7 +146,7 @@ Para localizar cotas, selecione **configurações** > **cotas**. No gráfico, vo
 1. Seu limite atual.
 1. Seu valor atual.
 
-![Gráfico de métrica no portal do Azure][metrics] você pode acessar as métricas diretamente da página de **recursos** . Para personalizar o gráfico: 
+![gráfico de métricas no portal do Azure][metrics] você pode acessar as métricas diretamente da página de **recursos** . Para personalizar o gráfico: 
 1. Selecione o gráfico.
 1. Selecione **Editar gráfico**.
 1. Edite o **intervalo de tempo**.

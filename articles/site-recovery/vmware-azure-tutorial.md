@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 268def74a354b19427849738549fbc0c6b197746
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: e07b1d7e01d743bb46c8d5a21664bf68184c97dd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813398"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488465"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar a recuperação após desastre para o Azure das VMs VMware no local
 
@@ -60,9 +60,9 @@ Conclua os tutoriais anteriores:
 
 No seu ambiente de origem, você precisa de uma máquina local única e altamente disponível para hospedar esses componentes de Site Recovery locais:
 
-- **Servidor de configuração**: O servidor de configuração coordena as comunicações entre o local e o Azure, e gere a replicação de dados.
-- **Servidor de processos**: O servidor de processos atua como um gateway de replicação. Ele recebe dados de replicação; otimiza-o com caching, compactação e criptografia e o envia para uma conta de armazenamento de cache no Azure. O servidor de processo também instala o agente do serviço de mobilidade nas VMs que você deseja replicar e executa a descoberta automática de VMs do VMware locais.
-- **Servidor de destino mestre**: O servidor de destino principal processa dados de replicação durante a reativação pós-falha a partir do Azure.
+- **Servidor de configuração**: o servidor de configuração coordena as comunicações entre o local e o Azure e gerencia a replicação de dados.
+- **Servidor de processo**: o servidor de processo atua como um gateway de replicação. Ele recebe dados de replicação; otimiza-o com caching, compactação e criptografia e o envia para uma conta de armazenamento de cache no Azure. O servidor de processo também instala o agente do serviço de mobilidade nas VMs que você deseja replicar e executa a descoberta automática de VMs do VMware locais.
+- **Servidor de destino mestre**: o servidor de destino mestre lida com os dados de replicação durante o failback do Azure.
 
 
 Todos esses componentes são instalados juntos em máquinas locais únicas que são conhecidas como o *servidor de configuração*. Por padrão, para a recuperação de desastres do VMware, configuramos o servidor de configuração como uma VM VMware altamente disponível. Para fazer isso, baixe um modelo OVA (aplicativo de virtualização aberta) preparado e importe o modelo para o VMware para criar a VM. 
@@ -158,7 +158,7 @@ Selecione e verifique os recursos de destino.
 
 ## <a name="create-a-replication-policy"></a>Criar uma política de replicação
 
-1. Abra o [portal do Azure](https://portal.azure.com) e selecione **Todos os recursos**.
+1. Abra o [Portal do Azure](https://portal.azure.com). Pesquise e selecione **cofres dos serviços de recuperação**.
 2. Selecione o cofre dos Serviços de Recuperação (**ContosoVMVault** neste tutorial).
 3. Para criar uma política de replicação, selecione **Infraestrutura do Site Recovery** > **Políticas de Replicação** >  **+Política de Replicação**.
 4. Em **Criar política de replicação**, introduza o nome da política. Estamos a utilizar o **VMwareRepPolicy**.
@@ -171,7 +171,7 @@ Selecione e verifique os recursos de destino.
 - A política é associada automaticamente ao servidor de configuração.
 - Uma política correspondente é criada automaticamente para reativação pós-falha por predefinição. Por exemplo, se a política de replicação for **rep-policy**, a política de reativação pós-falha é **rep-policy-failback**. Esta política não é utilizada depois de iniciar uma reativação pós-falha a partir do Azure.
 
-## <a name="enable-replication"></a>Ativar replicação
+## <a name="enable-replication"></a>Ativar a replicação
 
 Habilite a replicação para VMs da seguinte maneira:
 
@@ -191,7 +191,7 @@ Habilite a replicação para VMs da seguinte maneira:
 1. Pode demorar 15 minutos ou mais tempo para as alterações produzirem efeitos e aparecerem no portal.
 1. Para monitorizar as VMs que adiciona, verifique a última hora de deteção de VMs em **Servidores de Configuração** > **Último Contacto Em**. Para adicionar VMs sem aguardar a deteção agendada, realce o servidor de configuração (não o selecione) e selecione **Atualizar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Depois de habilitar a replicação, execute uma análise para verificar se tudo está funcionando conforme o esperado.
 > [!div class="nextstepaction"]
 > [Executar um teste de recuperação após desastre](site-recovery-test-failover-to-azure.md)

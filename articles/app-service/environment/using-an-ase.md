@@ -13,21 +13,21 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cabefcc53106a53459975fc26513dc59ae7d3372
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 841271c474ba8e24bc352bcae1fa037cf382a8ec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073216"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470579"
 ---
 # <a name="use-an-app-service-environment"></a>Usar um ambiente do serviço de aplicativo #
 
 Ambiente do Serviço de Aplicativo do Azure é uma implantação do serviço de Azure App em uma sub-rede na rede virtual do Azure de um cliente. Ele consiste em:
 
-- **Front-ends**: Os front-ends são onde o HTTP/HTTPS é encerrado em um ASE (ambiente do serviço de aplicativo).
-- **Trabalhadores**: Os trabalhos são os recursos que hospedam seus aplicativos.
-- **Banco de dados**: O banco de dados contém informações que definem o ambiente.
-- **Armazenamento**: O armazenamento é usado para hospedar os aplicativos publicados pelo cliente.
+- **Front-ends**: os front-ends são onde o http/https termina em um ase (ambiente do serviço de aplicativo).
+- **Trabalhadores**: os trabalhos são os recursos que hospedam seus aplicativos.
+- **Banco de dados**: o banco de dados contém informações que definem o ambiente.
+- **Armazenamento**: o armazenamento é usado para hospedar os aplicativos publicados pelo cliente.
 
 > [!NOTE]
 > Há duas versões do Ambiente do Serviço de Aplicativo: ASEv1 e ASEv2. No ASEv1, você deve gerenciar os recursos antes de poder usá-los. Para saber como configurar e gerenciar o ASEv1, consulte [configurar um ambiente do serviço de aplicativo v1][ConfigureASEv1]. O restante deste artigo se concentra em ASEv2.
@@ -105,7 +105,7 @@ Os recursos de front-end são o ponto de extremidade HTTP/HTTPS para o ASE. Com 
 
 ## <a name="app-access"></a>Acesso da aplicação ##
 
-Em um ASE externo, o domínio que é usado quando você cria aplicativos é diferente do serviço de aplicativo multilocatário. Ele inclui o nome do ASE. Para obter mais informações sobre como criar um ASE externo, consulte [criar um ambiente do serviço de aplicativo][MakeExternalASE]. O nome de domínio em um ASE externo é semelhante a *.&lt; asename&gt;. p.azurewebsites.net*. Por exemplo, se seu ASE for chamado de _ase externo_ e você hospedar um aplicativo chamado _contoso_ nesse ASE, você o atingirá nas seguintes URLs:
+Em um ASE externo, o domínio que é usado quando você cria aplicativos é diferente do serviço de aplicativo multilocatário. Ele inclui o nome do ASE. Para obter mais informações sobre como criar um ASE externo, consulte [criar um ambiente do serviço de aplicativo][MakeExternalASE]. O nome de domínio em um ASE externo é semelhante a *.&lt;asename&gt;. p.azurewebsites.net*. Por exemplo, se seu ASE for chamado de _ase externo_ e você hospedar um aplicativo chamado _contoso_ nesse ASE, você o atingirá nas seguintes URLs:
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
@@ -179,7 +179,7 @@ Para excluir um ASE:
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md

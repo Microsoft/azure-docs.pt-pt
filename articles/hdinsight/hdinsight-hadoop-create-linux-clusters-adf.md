@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: clusters de Apache Hadoop sob demanda no Azure HDInsight-Data Factory'
+title: 'Tutorial: clusters sob demanda no Azure HDInsight com Data Factory'
 description: Tutorial-saiba como criar clusters de Apache Hadoop sob demanda no HDInsight usando Azure Data Factory.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 10/09/2019
-ms.openlocfilehash: 00937197536ede7d6eed168e0a84bad294800159
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 1d1ddb84c000efaf58356ffdd15382e0b74aa744
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72264591"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494868"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Criar clusters de Apache Hadoop sob demanda no HDInsight usando Azure Data Factory
 
@@ -23,7 +23,7 @@ Neste tutorial, você aprenderá a criar um cluster [Apache Hadoop](https://hado
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Criar uma conta de armazenamento do Azure
+> * Criar uma conta do Storage do Azure
 > * Entender Azure Data Factory atividade
 > * Criar um data factory usando portal do Azure
 > * Criar serviços ligados
@@ -154,7 +154,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 **Para verificar a criação da conta de armazenamento**
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. À esquerda, navegue até **todos os serviços** > **grupos de recursos** **gerais** > .
+1. À esquerda, navegue até **todos os serviços** > **geral** > **grupos de recursos**.
 1. Selecione o nome do grupo de recursos que você criou no script do PowerShell. Use o filtro se você tiver muitos grupos de recursos listados.
 1. No modo de exibição **visão geral** , você verá um recurso listado, a menos que compartilhe o grupo de recursos com outros projetos. Esse recurso é a conta de armazenamento com o nome especificado anteriormente. Selecione o nome da conta de armazenamento.
 1. Selecione o bloco **contêineres** .
@@ -183,7 +183,7 @@ Neste artigo, você configura a atividade do hive para criar um cluster Hadoop d
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 2. No menu à esquerda, navegue até **+ criar um recurso** > **Analytics** > **Data Factory**.
 
@@ -298,7 +298,7 @@ Nesta seção, você criará dois serviços vinculados dentro de seu data factor
 
         ![Fornecer detalhes do script do hive para o pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "Fornecer detalhes do script do hive para o pipeline")
 
-    1. Em**parâmetros**de  >  **avançados**, selecione **preenchimento automático do script**. Essa opção procura quaisquer parâmetros no script do hive que exigem valores em tempo de execução. O script que você usa (**partitionweblogs. HQL**) tem um parâmetro de **saída** . Forneça o **valor** no formato `wasbs://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` para apontar para uma pasta existente no armazenamento do Azure. O caminho é sensível a maiúsculas e minúsculas. Esse é o caminho em que a saída do script será armazenada. O esquema `wasbs` é necessário porque as contas de armazenamento agora têm a transferência segura necessária habilitada por padrão.
+    1. Em **parâmetros**de > **avançados** , selecione **preenchimento automático do script**. Essa opção procura quaisquer parâmetros no script do hive que exigem valores em tempo de execução. O script que você usa (**partitionweblogs. HQL**) tem um parâmetro de **saída** . Forneça o **valor** no formato `wasbs://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` para apontar para uma pasta existente no armazenamento do Azure. O caminho é sensível a maiúsculas e minúsculas. Esse é o caminho em que a saída do script será armazenada. O esquema de `wasbs` é necessário porque as contas de armazenamento agora têm a transferência segura necessária habilitada por padrão.
     
         ![Fornecer parâmetros para o script do hive](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "Fornecer parâmetros para o script do hive")
 
@@ -336,7 +336,7 @@ Nesta seção, você criará dois serviços vinculados dentro de seu data factor
 
     - Você verá um **adfgerstarted/outputfolder** que contém a saída do script do hive que foi executado como parte do pipeline.
 
-    - Você verá um contêiner **adfhdidatafactory-\<linked-Service-name >-\<timestamp >** . Esse contêiner é o local de armazenamento padrão do cluster HDInsight que foi criado como parte da execução do pipeline.
+    - Você verá um **\<>-\<timestamp > contêiner-Service-Name vinculado a adfhdidatafactory** . Esse contêiner é o local de armazenamento padrão do cluster HDInsight que foi criado como parte da execução do pipeline.
 
     - Você verá um contêiner **adfjobs** que tem os logs de trabalho do Azure data Factory.  
 

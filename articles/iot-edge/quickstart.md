@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8264030593a1e44b2a50d9f95dce925136eb4d26
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: edb100901dea4419d65635f9214555c27c1949f0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965993"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494056"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Início rápido: implantar seu primeiro módulo de IoT Edge em um dispositivo virtual do Windows
 
@@ -22,7 +22,7 @@ Teste Azure IoT Edge neste guia de início rápido implantando código em contê
 
 Neste início rápido, vai aprender a:
 
-1. Criar um Hub IoT.
+1. Crie um hub IoT.
 2. Registar um dispositivo IoT Edge no seu hub IoT.
 3. Instale e inicie o tempo de execução de IoT Edge em seu dispositivo virtual.
 4. Implementar remotamente um módulo num dispositivo IoT Edge e enviar telemetria para o Hub IoT.
@@ -93,7 +93,7 @@ O código seguinte cria um hub **F1** gratuito no grupo de recursos **IoTEdgeRes
 
 ## <a name="register-an-iot-edge-device"></a>Registar um dispositivo do IoT Edge
 
-Registe um dispositivo do IoT Edge no seu Hub IoT recentemente criado.
+Registe um dispositivo do IoT Edge no seu hub IoT recentemente criado.
 Diagrama de ![-registrar um dispositivo com uma identidade de Hub IoT](./media/quickstart/register-device.png)
 
 Crie uma identidade de dispositivo para o seu dispositivo simulado para que este consiga comunicar com o seu hub IoT. A identidade do dispositivo reside na cloud e verá uma cadeia de ligação do dispositivo única para associar um dispositivo físico a uma identidade do dispositivo.
@@ -139,7 +139,7 @@ Utilize o PowerShell para transferir e instalar o runtime IoT Edge. Utilize a ca
 
 1. Se você ainda não fez isso, siga as etapas em [registrar um novo Azure IOT Edge dispositivo](how-to-register-device.md) para registrar seu dispositivo e recuperar a cadeia de conexão do dispositivo.
 
-2. Execute o PowerShell como administrador.
+2. Na máquina virtual, execute o PowerShell como administrador.
 
    >[!NOTE]
    >Use uma sessão AMD64 do PowerShell para instalar IoT Edge, não o PowerShell (x86). Se você não tiver certeza de qual tipo de sessão está usando, execute o seguinte comando:

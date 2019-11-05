@@ -1,6 +1,6 @@
 ---
-title: Criar um dashboard em tempo real com a base de dados do Azure para PostgreSQL – Hiperescala (Citus) (pré-visualização) tutorial
-description: Este tutorial mostra como criar, preencher e consultar tabelas distribuídas na base de dados do Azure para PostgreSQL Hiperescala (Citus) (pré-visualização).
+title: Projete um painel em tempo real com o banco de dados do Azure para PostgreSQL – tutorial de Citus (hiperescala)
+description: Este tutorial mostra como criar, popular e consultar tabelas distribuídas no banco de dados do Azure para PostgreSQL Citus (hiperescala).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,35 +8,35 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: a5e4b2073a29785ee851b2733c12d6331afe59d8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 32487d65397a96d9e96ae3bf3476eed23ddb8adc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791314"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482881"
 ---
-# <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Tutorial: Criar um dashboard de análise em tempo real através da utilização da base de dados do Azure para PostgreSQL – Hiperescala (Citus) (pré-visualização)
+# <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: criar um painel de análise em tempo real usando o banco de dados do Azure para PostgreSQL – Citus (hiperescala)
 
-Neste tutorial, vai utilizar base de dados do Azure para PostgreSQL - Hiperescala (Citus) (pré-visualização) para saber como:
+Neste tutorial, você usa o banco de dados do Azure para PostgreSQL-Citus (hiperescala) para aprender a:
 
 > [!div class="checklist"]
-> * Criar um grupo de servidores de grande escala (Citus)
-> * Utilizar o utilitário psql para criar um esquema
-> * Tabelas de partição horizontal em todos os nós
+> * Criar um grupo do servidor Hyperscale (Citus)
+> * Usar o utilitário psql para criar um esquema
+> * Tabelas de fragmento entre nós
 > * Gerar dados de exemplo
 > * Executar rollups
-> * Consultar dados não processados e agregados
+> * Consultar dados brutos e agregados
 > * Expirar dados
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
-## <a name="use-psql-utility-to-create-a-schema"></a>Utilizar o utilitário psql para criar um esquema
+## <a name="use-psql-utility-to-create-a-schema"></a>Usar o utilitário psql para criar um esquema
 
-Assim que estiver ligado à base de dados do Azure para PostgreSQL - Hiperescala (Citus) (pré-visualização) com psql, pode concluir algumas tarefas básicas. Este tutorial explica-lhe ingerir dados de tráfego de análise da web, em seguida, acumular os dados para fornecer dashboards em tempo real com base nesses dados.
+Uma vez conectado ao banco de dados do Azure para PostgreSQL-Citus (hiperescala) usando psql, você pode concluir algumas tarefas básicas. Este tutorial orienta a ingestão de dados de tráfego do Web Analytics e, em seguida, a distribuição dos dados para fornecer painéis em tempo real com base nesses dados.
 
-Vamos criar uma tabela que irá consumir todos os nossos dados de tráfego web não processados. Execute os seguintes comandos no psql terminal:
+Vamos criar uma tabela que consumirá todos os nossos dados brutos de tráfego da Web. Execute os seguintes comandos no terminal psql:
 
 ```sql
 CREATE TABLE http_request (
@@ -52,7 +52,7 @@ CREATE TABLE http_request (
 );
 ```
 
-Também vamos criar uma tabela que irá conter o nosso agregados por minuto e uma tabela que mantém a posição do nosso último rollup. Execute os seguintes comandos no também psql:
+Também vamos criar uma tabela que conterá as agregações por minuto e uma tabela que mantém a posição de nosso último ROLLUP. Execute os seguintes comandos no psql também:
 
 ```sql
 CREATE TABLE http_request_1min (
@@ -76,17 +76,17 @@ CREATE TABLE latest_rollup (
 );
 ```
 
-Pode ver as tabelas recém-criado na lista de tabelas agora com o comando psql:
+Você pode ver as tabelas recém-criadas na lista de tabelas agora com este comando psql:
 
 ```postgres
 \dt
 ```
 
-## <a name="shard-tables-across-nodes"></a>Tabelas de partição horizontal em todos os nós
+## <a name="shard-tables-across-nodes"></a>Tabelas de fragmento entre nós
 
-Uma implementação de hiperescala armazena linhas de tabela em nós diferentes com base no valor de uma coluna designado pelo usuário. Este "coluna de distribuição" marca como os dados são em partição horizontal em todos os nós.
+Uma implantação de hiperescala armazena linhas de tabela em nós diferentes com base no valor de uma coluna designada pelo usuário. Essa "coluna de distribuição" marca como os dados são fragmentados entre os nós.
 
-Vamos definir a coluna de distribuição para que seja o site\_id, a chave de partição horizontal. No psql, execute estas funções:
+Vamos definir a coluna de distribuição como ID do site\_, a chave de fragmentação. No psql, execute estas funções:
 
   ```sql
 SELECT create_distributed_table('http_request',      'site_id');
@@ -95,7 +95,7 @@ SELECT create_distributed_table('http_request_1min', 'site_id');
 
 ## <a name="generate-sample-data"></a>Gerar dados de exemplo
 
-Agora, nosso grupo de servidor deve estar pronto para a ingestão de alguns dados. Podemos executar o seguinte localmente a partir de nossa `psql` ligação continuamente inserir dados.
+Agora, nosso grupo de servidores deve estar pronto para ingerir alguns dados. Podemos executar o seguinte localmente de nossa conexão de `psql` para inserir dados continuamente.
 
 ```sql
 DO $$
@@ -122,18 +122,18 @@ DO $$
 END $$;
 ```
 
-A consulta insere cada segundo de aproximadamente oito linhas. As linhas são armazenadas em nós de trabalho diferentes, conforme indicado pela coluna de distribuição, `site_id`.
+A consulta insere aproximadamente oito linhas a cada segundo. As linhas são armazenadas em nós de trabalho diferentes, conforme direcionado pela coluna de distribuição, `site_id`.
 
    > [!NOTE]
-   > Deixe a consulta de geração de dados em execução e abrir uma segunda ligação psql para os comandos restantes neste tutorial.
+   > Deixe a consulta de geração de dados em execução e abra uma segunda conexão psql para os comandos restantes neste tutorial.
    >
 
 ## <a name="query"></a>Consulta
 
-A opção de alojamento de hiperescala permite que vários nós processar consultas em paralelo para a velocidade. Por exemplo, a base de dados calcula as agregações, como soma e CONTAGEM em nós de trabalho e combina os resultados numa resposta final.
+A opção de Hospedagem de hiperescala permite que vários nós processem consultas em paralelo para velocidade. Por exemplo, o banco de dados calcula agregações como SUM e COUNT em nós de trabalho e combina os resultados em uma resposta final.
 
-Eis uma consulta para a contagem de solicitações da web por minuto, juntamente com algumas estatísticas.
-Tente executá-lo no psql e observe os resultados.
+Aqui está uma consulta para contar solicitações da Web por minuto juntamente com algumas estatísticas.
+Tente executá-lo em psql e observe os resultados.
 
 ```sql
 SELECT
@@ -149,13 +149,13 @@ GROUP BY site_id, minute
 ORDER BY minute ASC;
 ```
 
-## <a name="rolling-up-data"></a>Sem interrupção dos dados
+## <a name="rolling-up-data"></a>Acumulando dados
 
-A consulta anterior funciona bem nos estágios iniciais, mas o desempenho degrada consoante o dimensionamento de dados. Mesmo com o processamento distribuído, é mais rápido computar previamente os dados que ao recalcular isso repetidamente.
+A consulta anterior funciona bem nos estágios iniciais, mas seu desempenho diminui à medida que seus dados são dimensionados. Mesmo com o processamento distribuído, é mais rápido calcular previamente os dados do que recalculá-los repetidamente.
 
-Podemos garantir que o nosso dashboard permanece rápida, acumular regularmente os dados não processados para uma tabela de agregação. Pode experimentar com a duração de agregação. Utilizamos uma tabela de agregação de minuto, mas poderia dividir dados em 60, 5 ou 15 minutos em vez disso.
+Podemos garantir que nosso painel permaneça rápido ao acumular regularmente os dados brutos em uma tabela de agregação. Você pode experimentar a duração da agregação. Usamos uma tabela de agregação por minuto, mas você poderia dividir os dados em 5, 15 ou 60 minutos em vez disso.
 
-Para executar este rollup mais facilmente, vamos colocá-la numa função de plpgsql. Executar estes comandos psql para criar o `rollup_http_request` função.
+Para executar esse acúmulo mais facilmente, vamos colocá-lo em uma função Plpgsql. Execute estes comandos em psql para criar a função `rollup_http_request`.
 
 ```sql
 -- initialize to a time long ago
@@ -190,13 +190,13 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 
-Com a nossa função in-loco, executá-lo para os dados de agregação:
+Com nossa função em vigor, execute-a para acumular os dados:
 
 ```sql
 SELECT rollup_http_request();
 ```
 
-E com nossos dados num formulário pré-agregados pode consultar a tabela de agregação para obter o mesmo relatório como anteriormente. Execute a seguinte consulta:
+E, com nossos dados em uma forma previamente agregada, podemos consultar a tabela de rollup para obter o mesmo relatório anterior. Execute a seguinte consulta:
 
 ```sql
 SELECT site_id, ingest_time as minute, request_count,
@@ -205,25 +205,25 @@ SELECT site_id, ingest_time as minute, request_count,
  WHERE ingest_time > date_trunc('minute', now()) - '5 minutes'::interval;
  ```
 
-## <a name="expiring-old-data"></a>Expirar dados antigos
+## <a name="expiring-old-data"></a>Dados antigos expirados
 
-Os rollups efetuam consultas mais rápido, mas ainda temos de expirar dados antigos para evitar os custos de armazenamento não vinculado. Decida quanto pretende manter os dados para cada granularidade e utilize consultas padrão para eliminar dados expirados. No exemplo a seguir, decidimos de manter os dados não processados de um dia e por minuto agregações durante um mês:
+Os rollups tornam as consultas mais rápidas, mas ainda precisamos expirar dados antigos para evitar custos de armazenamento não associados. Decida por quanto tempo deseja manter os dados para cada granularidade e use as consultas padrão para excluir os dados expirados. No exemplo a seguir, decidimos manter dados brutos por um dia e agregações por minuto para um mês:
 
 ```sql
 DELETE FROM http_request WHERE ingest_time < now() - interval '1 day';
 DELETE FROM http_request_1min WHERE ingest_time < now() - interval '1 month';
 ```
 
-Na produção, pode encapsular essas consultas numa função e chamá-lo a cada minuto numa tarefa cron.
+Em produção, você pode encapsular essas consultas em uma função e chamá-las a cada minuto em um trabalho cron.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Nos passos anteriores, criou os recursos do Azure num grupo de servidor. Se não espera precisa destes recursos no futuro, elimine o grupo de servidor. Prima a *eliminar* botão no *descrição geral* página para o seu grupo de servidor. Quando lhe for pedido numa página de pop-up, confirme o nome do grupo de servidor e clique no último *eliminar* botão.
+Nas etapas anteriores, você criou recursos do Azure em um grupo de servidores. Se você não espera precisar desses recursos no futuro, exclua o grupo de servidores. Pressione o botão *excluir* na página *visão geral* do seu grupo de servidores. Quando solicitado em uma página pop-up, confirme o nome do grupo de servidores e clique no botão *excluir* final.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu como aprovisionar um grupo de servidores de grande escala (Citus). Conectados a ele com psql, criou um esquema e dados distribuídos. Aprendeu a consultar dados de ambos no formato não processado, regularmente agregar dados, consultar as tabelas agregadas e expirar os dados antigos.
+Neste tutorial, você aprendeu a provisionar um grupo de servidores de hiperescala (Citus). Você se conectou a ele com psql, criou um esquema e distribuiu dados. Você aprendeu a consultar dados na forma bruta, agregar regularmente esses dados, consultar as tabelas agregadas e expirar dados antigos.
 
 Em seguida, saiba mais sobre os conceitos de hiperescala.
 > [!div class="nextstepaction"]
-> [Tipos de nós de Hiperescala](https://aka.ms/hyperscale-concepts)
+> [Tipos de nó de hiperescala](https://aka.ms/hyperscale-concepts)

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 09/26/2019
-ms.openlocfilehash: a8cf17ab3eab31d4ac6113437f55d73f96425e4e
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: a43783110f625dd5faef13c83228a2659155ead0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71843292"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492230"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
 
@@ -27,7 +27,7 @@ O banco de dados SQL cria automaticamente os backups de banco de dados que são 
 
 ## <a name="what-is-a-sql-database-backup"></a>O que é um backup do banco de dados SQL
 
-O banco de dados SQL usa a tecnologia SQL Server para criar [backups completos](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) toda semana, [backups diferenciais](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) a cada 12 horas e backups de log de [Transações](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) a cada 5-10 minutos. Os backups são armazenados em blobs de [armazenamento ra-grs](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) que são replicados para um [Data Center emparelhado](../best-practices-availability-paired-regions.md) para proteção contra uma interrupção Data Center. Quando você restaura um banco de dados, o serviço descobre quais backups completos, diferenciais e de log de transações precisam ser restaurados.
+O banco de dados SQL usa a tecnologia SQL Server para criar [backups completos](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) toda semana, [backups diferenciais](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) a cada 12 horas e [backups de log de transações](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) a cada 5-10 minutos. Os backups são armazenados em [blobs de armazenamento ra-grs](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) que são replicados para um [Data Center emparelhado](../best-practices-availability-paired-regions.md) para proteção contra uma interrupção Data Center. Quando você restaura um banco de dados, o serviço descobre quais backups completos, diferenciais e de log de transações precisam ser restaurados.
 
 Você pode usar esses backups para:
 
@@ -82,7 +82,7 @@ Assim como o PITR, os backups EPD são com redundância geográfica e protegidos
 Para obter mais informações, consulte [retenção de backup de longo prazo](sql-database-long-term-retention.md).
 
 ## <a name="storage-costs"></a>Custos de armazenamento
-Para bancos de dados individuais, um valor de armazenamento de backup mínimo igual a 100% do tamanho do banco de dados é fornecido sem custo adicional. Para pools elásticos, um valor de armazenamento de backup mínimo igual a 100% do armazenamento de dados alocado para o pool é fornecido sem custo adicional. O consumo adicional do armazenamento de cópias de segurança será cobrado em GB/mês. Esse consumo adicional dependerá da carga de trabalho e do tamanho dos bancos de dados individuais.
+Para bancos de dados individuais e instâncias gerenciadas, um valor de armazenamento de backup mínimo igual a 100% do tamanho do banco de dados é fornecido sem custo adicional. Para pools elásticos, um valor de armazenamento de backup mínimo igual a 100% do armazenamento de dados alocado para o pool é fornecido sem custo adicional. O consumo adicional do armazenamento de cópias de segurança será cobrado em GB/mês. Esse consumo adicional dependerá da carga de trabalho e do tamanho dos bancos de dados individuais.
 
 Para obter mais informações sobre preços de armazenamento, consulte a página de [preços](https://azure.microsoft.com/pricing/details/sql-database/single/) . 
 
@@ -94,7 +94,7 @@ Se o banco de dados for criptografado com TDE, os backups serão criptografados 
 
 Em uma base contínua, a equipe de engenharia do banco de dados SQL do Azure testa automaticamente a restauração de backups automatizados de banco de dados de bancos que são colocados em servidores lógicos e pools elásticos (isso não está disponível no Instância Gerenciada). Na restauração pontual, os bancos de dados também recebem verificações de integridade usando DBCC CHECKDB.
 
-Instância gerenciada usa o backup inicial automático `CHECKSUM` com os bancos de dados restaurados usando `RESTORE` o comando nativo ou o serviço de migração de data quando a migração é concluída.
+Instância Gerenciada usa o backup inicial automático com `CHECKSUM` dos bancos de dados restaurados usando o comando `RESTORE` nativo ou o serviço de migração de serviços quando a migração é concluída.
 
 Quaisquer problemas encontrados durante a verificação de integridade resultarão em um alerta para a equipe de engenharia. Para obter mais informações sobre a integridade de dados no banco de dados SQL do Azure, consulte [integridade de dados no banco de dados SQL do Azure](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
@@ -177,7 +177,7 @@ Para obter mais informações, consulte [API REST de retenção de backup](https
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Os backups de banco de dados são uma parte essencial de qualquer estratégia de continuidade de negócios e recuperação de desastres, pois eles protegem seus dados contra corrupção ou exclusão acidental. Para saber mais sobre as outras soluções de continuidade de negócios do banco de dados SQL do Azure, confira [visão geral](sql-database-business-continuity.md)da continuidade
+- Os backups de banco de dados são uma parte essencial de qualquer estratégia de continuidade de negócios e recuperação de desastres, pois eles protegem seus dados contra corrupção ou exclusão acidental. Para saber mais sobre as outras soluções de continuidade de negócios do banco de dados SQL do Azure, confira [visão geral da continuidade](sql-database-business-continuity.md)
 - Para restaurar para um ponto no tempo usando o portal do Azure, consulte [restaurar banco de dados para um ponto no tempo usando o portal do Azure](sql-database-recovery-using-backups.md).
 - Para restaurar para um ponto no tempo usando o PowerShell, consulte [restaurar banco de dados para um ponto no tempo usando o PowerShell](scripts/sql-database-restore-database-powershell.md).
 - Para configurar, gerenciar e restaurar de retenção de longo prazo de backups automatizados no armazenamento de BLOBs do Azure usando o portal do Azure, consulte [gerenciar retenção de backup de longo prazo usando o portal do Azure](sql-database-long-term-backup-retention-configure.md).

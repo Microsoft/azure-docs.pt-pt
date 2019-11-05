@@ -6,19 +6,20 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
-ms.author: marthalc
-author: marthalc
+ms.reviewer: laobri
+ms.author: copeters
+author: lostmygithubaccount
 ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 25017e6ea0be5d4320832298cdadbec7ec5a05cc
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
-ms.translationtype: MT
+ms.openlocfilehash: 845d271c60762177ea88912f2100f3b47aedde46
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72929370"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489997"
 ---
 # <a name="collect-data-for-models-in-production"></a>Coletar dados para modelos em produção
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
 > Este SDK está sendo desativado em breve. Esse SDK ainda é apropriado para os desenvolvedores que monitoram a descompasso de dados em modelos, mas a maioria dos desenvolvedores deve usar o monitoramento de dados simplificado [com o Application insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
@@ -115,7 +116,7 @@ Para habilitá-lo, você precisa:
 
 Se você já tiver um serviço com as dependências instaladas em seu **arquivo de ambiente** e **arquivo de Pontuação**, habilite a coleta de dados por:
 
-1. Vá para [portal do Azure](https://portal.azure.com).
+1. Vá para [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Abra seu espaço de trabalho.
 
@@ -133,10 +134,10 @@ Se você já tiver um serviço com as dependências instaladas em seu **arquivo 
 
 
 ## <a name="disable-data-collection"></a>Desabilitar coleta de dados
-Você pode interromper a coleta de dados a qualquer momento. Use o código Python ou o portal do Azure para desabilitar a coleta de dados.
+Você pode interromper a coleta de dados a qualquer momento. Use o código Python ou o Azure Machine Learning Studio para desabilitar a coleta de dados.
 
-+ Opção 1-desabilitar no portal do Azure: 
-  1. Inicie sessão no [portal do Azure](https://portal.azure.com).
++ Opção 1-desabilitar no Azure Machine Learning Studio: 
+  1. Entre no [Azure Machine Learning Studio](https://ml.azure.com).
 
   1. Abra seu espaço de trabalho.
 
@@ -150,7 +151,7 @@ Você pode interromper a coleta de dados a qualquer momento. Use o código Pytho
 
   1. Selecione **Atualizar** para aplicar a alteração.
 
-  Você também pode acessar essas configurações na [página de aterrissagem do espaço de trabalho (versão prévia)](https://ml.azure.com).
+  Você também pode acessar essas configurações em seu espaço de trabalho no [Azure Machine Learning Studio](https://ml.azure.com).
 
 + Opção 2-usar o Python para desabilitar a coleta de dados:
 
@@ -160,15 +161,15 @@ Você pode interromper a coleta de dados a qualquer momento. Use o código Pytho
   ```
 
 ## <a name="validate-your-data-and-analyze-it"></a>Valide seus dados e analise-os
-Você pode escolher qualquer ferramenta de sua preferência para analisar os dados coletados em seu blob do Azure. 
+Você pode escolher qualquer ferramenta de sua preferência para analisar os dados coletados em seu blob do Azure.
 
 Para acessar rapidamente os dados do seu blob:
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Entre no [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Abra seu espaço de trabalho.
 1. Clique em **armazenamento**.
 
-    [Armazenamento![](media/how-to-enable-data-collection/StorageLocation.png)](./media/how-to-enable-data-collection/StorageLocation.png#lightbox)
+    [Armazenamento ![](media/how-to-enable-data-collection/StorageLocation.png)](./media/how-to-enable-data-collection/StorageLocation.png#lightbox)
 
 1. Siga o caminho para os dados de saída no blob com esta sintaxe:
 
@@ -220,11 +221,11 @@ Para acessar rapidamente os dados do seu blob:
 
 1. No espaço de trabalho do databricks, selecione **carregar dados**.
 
-    [upload do![DB](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
+    [upload do ![DB](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
 
 1. Crie uma nova tabela e selecione **outras fontes de dados** -> armazenamento de BLOBs do Azure-> criar tabela no bloco de anotações.
 
-    [tabela![DB](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
+    [tabela ![DB](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
 1. Atualize o local dos seus dados. Segue-se um exemplo:
 

@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5c668d1d0783300333e4d0b78c93fe5e7a9d0dd0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5a7374af71b262a72b680ac215f6960f961b3a15
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069228"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470625"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introdução aos Ambientes de Serviço de Aplicações #
  
@@ -30,7 +30,7 @@ O Ambiente de Serviço de Aplicações do Azure é uma funcionalidade do Serviç
 * Aplicações Web do Linux 
 * Contentores do Docker
 * Aplicações móveis
-* Functions
+* Funções
 
 Os ambientes de Serviço de Aplicações (ASEs) são adequados para cargas de trabalho de aplicações que exigem:
 
@@ -66,7 +66,7 @@ Existe uma tarifa mensal fixa para um ASE que paga a infraestrutura e não muda 
 
 ## <a name="virtual-network-support"></a>Suporte de rede virtual ##
 
-A funcionalidade ASE é uma implementação do Serviço de Aplicações do Azure diretamente na rede virtual do gestor de recursos do Azure do cliente. Para saber mais sobre as redes virtuais do Azure, veja as [Perguntas Frequentes sobre as redes virtuais do Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). Um ASE existe sempre numa rede virtual e, mais precisamente, numa sub-rede de uma rede virtual. Pode utilizar as funcionalidades de segurança das redes virtuais para controlar as comunicações de rede de entrada e saída para as suas aplicações.
+O recurso ASE é uma implantação do serviço de Azure App diretamente na rede virtual Azure Resource Manager de um cliente. Para saber mais sobre as redes virtuais do Azure, veja as [Perguntas Frequentes sobre as redes virtuais do Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). Um ASE existe sempre numa rede virtual e, mais precisamente, numa sub-rede de uma rede virtual. Pode utilizar as funcionalidades de segurança das redes virtuais para controlar as comunicações de rede de entrada e saída para as suas aplicações.
 
 Um ASE pode ter acesso à Internet com um endereço IP público ou ter acesso interno apenas com um endereço do balanceador de carga interno (ILB) do Azure.
 
@@ -80,7 +80,7 @@ Para obter mais informações sobre como o ASEs funciona com redes virtuais e re
 
 ## <a name="app-service-environment-v1"></a>Ambiente do Serviço de Aplicações v1 ##
 
-Ambiente do Serviço de Aplicativo tem duas versões: ASEv1 e ASEv2. As informações anteriores tiveram como base a versão ASEv2. Esta secção mostra as diferenças entre as versões ASEv1 e ASEv2. 
+O Ambiente de Serviço de Aplicações tem duas versões: ASEv1 e ASEv2. As informações anteriores tiveram como base a versão ASEv2. Esta secção mostra as diferenças entre as versões ASEv1 e ASEv2. 
 
 No ASEv1, é necessário gerir todos os recursos manualmente. Tal inclui os front-ends, os trabalhos e os endereços IP utilizados para SSL baseado em IP. Para poder aumentar horizontalmente o seu plano do Serviço de Aplicações, primeiro tem de aumentar horizontalmente o conjunto de processos de trabalho onde pretende alojá-lo.
 
@@ -104,7 +104,7 @@ O ASEv1 utiliza um modelo de preços diferente do ASEv2. No ASEv1, paga por cada
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/waf-overview.md

@@ -5,17 +5,16 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
-ms.custom: mvc
-ms.openlocfilehash: d1c90e61890ee98dc5371faed872d03409aaf31f
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: bfec1493492fb1e8e9bd7394aae3db8983f4cff9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489552"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495648"
 ---
-# <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Tutorial: Criar e gerenciar um gateway de VPN usando o PowerShell
+# <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Tutorial: criar e gerenciar um gateway de VPN usando o PowerShell
 
 Os gateways de VPN do Azure fornecem conectividade em vários locais entre as instalações do cliente e o Azure. Este tutorial abrange itens básicos da implementação do gateway de VPN do Azure, tais como criar e gerir um gateway de VPN. Saiba como:
 
@@ -85,7 +84,7 @@ New-AzResourceGroup -ResourceGroupName $RG1 -Location $Location1
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-O gateway de VPN do Azure fornece conectividade em vários locais e a funcionalidade de servidor VPN P2S para a sua rede virtual. Adicione o gateway de VPN a uma rede virtual existente ou crie uma nova rede virtual e o gateway. Observe que o exemplo especifica o nome da sub-rede de gateway especificamente. Você sempre deve especificar o nome da sub-rede de gateway como "GatewaySubnet" para que ela funcione corretamente. Este exemplo cria uma nova rede virtual com três sub-redes: Front-end, backend e GatewaySubnet usando [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) e [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
+O gateway de VPN do Azure fornece conectividade em vários locais e a funcionalidade de servidor VPN P2S para a sua rede virtual. Adicione o gateway de VPN a uma rede virtual existente ou crie uma nova rede virtual e o gateway. Observe que o exemplo especifica o nome da sub-rede de gateway especificamente. Você sempre deve especificar o nome da sub-rede de gateway como "GatewaySubnet" para que ela funcione corretamente. Este exemplo cria uma nova rede virtual com três sub-redes: frontend, backend e GatewaySubnet usando [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) e [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
 
 ```azurepowershell-interactive
 $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
@@ -126,9 +125,9 @@ New-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
 ```
 
 Valores de parâmetros chave:
-* GatewayType Usar **VPN** para conexões site a site e VNet a vnet
-* VpnType Use o **RouteBased** para interagir com maior variedade de dispositivos VPN e mais recursos de roteamento
-* GatewaySku: **VpnGw1** é o padrão; Altere-o para VpnGw2 ou VpnGw3 se precisar de mais taxas de transferência ou mais conexões. Para obter mais informações, veja [SKUs de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+* GatewayType: utilize **Vpn** para ligações site a site e VNet a VNet
+* VpnType: Utilize **RouteBased** para interagir com um leque mais vasto de dispositivos VPN e mais funcionalidades de encaminhamento
+* GatewaySku: **VpnGw1** é o padrão; Altere-o para outro SKU do VpnGw se precisar de mais taxas de transferência ou mais conexões. Para obter mais informações, veja [SKUs de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 Se você estiver usando o TryIt, sua sessão poderá atingir o tempo limite. Está okey. O gateway ainda será criado.
 
@@ -147,7 +146,7 @@ $myGwIp.IpAddress
 
 ## <a name="resize-a-gateway"></a>Redimensionar um gateway
 
-Pode alterar a SKU do gateway de VPN após a criação do gateway. SKUs de gateway diferentes suportam especificações diferentes, tais como débitos, número de ligações, etc. O exemplo a seguir usa [redimension-AzVirtualNetworkGateway](/powershell/module/az.network/Resize-azVirtualNetworkGateway) para redimensionar o gateway de VpnGw1 para VpnGw2. Para obter mais informações, veja [SKUs de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+Pode alterar a SKU do gateway de VPN após a criação do gateway. SKUs de gateway diferentes dão suporte a especificações diferentes, como taxas de transferência, número de conexões, etc. O exemplo a seguir usa [redimension-AzVirtualNetworkGateway](/powershell/module/az.network/Resize-azVirtualNetworkGateway) para redimensionar o gateway de VpnGw1 para VpnGw2. Para obter mais informações, veja [SKUs de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 ```azurepowershell-interactive
 $gateway = Get-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1

@@ -16,12 +16,12 @@ ms.author: cephalin
 ms.custom: seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: 380e587fc8c921b395d63d1dbca10e2f5fb1b9ba
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 98d939c69bb03666dbeed124778b06f8a7e73532
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72433200"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471472"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar uma aplicação Web Node.js no Azure 
 
@@ -43,7 +43,7 @@ Depois que a extensão for instalada, faça logon em sua conta do Azure. Na barr
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 
-Se você vir o erro **"não é possível encontrar a assinatura com o nome [ID da assinatura]"** , pode ser porque você está atrás de um proxy e não consegue acessar a API do Azure. Configure as variáveis de ambiente `HTTP_PROXY` e `HTTPS_PROXY` com as informações de proxy em seu terminal usando `export`.
+Se você vir o erro **"não é possível encontrar a assinatura com o nome [ID da assinatura]"** , pode ser porque você está atrás de um proxy e não consegue acessar a API do Azure. Configure `HTTP_PROXY` e `HTTPS_PROXY` variáveis de ambiente com suas informações de proxy em seu terminal usando `export`.
 
 ```sh
 export HTTPS_PROXY=https://username:password@proxy:8080
@@ -70,13 +70,13 @@ Em seguida, crie um aplicativo node. js que pode ser implantado na nuvem. Este g
 
 ### <a name="scaffold-a-new-application-with-the-express-generator"></a>Scaffold um novo aplicativo com o Express Generator
 
-[Express](https://www.expressjs.com) é uma estrutura popular para compilar e executar aplicativos node. js. Você pode scaffold (criar) um novo aplicativo expresso usando a ferramenta do [gerador Express](https://expressjs.com/en/starter/generator.html) . O gerador expresso é fornecido como um módulo NPM e pode ser executado diretamente (sem instalação) usando a ferramenta de linha de comando NPM `npx`.
+[Express](https://www.expressjs.com) é uma estrutura popular para compilar e executar aplicativos node. js. Você pode scaffold (criar) um novo aplicativo expresso usando a ferramenta do [gerador Express](https://expressjs.com/en/starter/generator.html) . O gerador Express é fornecido como um módulo NPM e pode ser executado diretamente (sem instalação) usando a ferramenta de linha de comando NPM `npx`.
 
 ```bash
 npx express-generator myExpressApp --view pug --git
 ```
 
-Os parâmetros `--view pug --git` dizem ao gerador para usar o mecanismo de modelo [Pug](https://pugjs.org/api/getting-started.html) (anteriormente conhecido como `jade`) e criar um arquivo `.gitignore`.
+Os parâmetros de `--view pug --git` dizem ao gerador para usar o mecanismo de modelo [Pug](https://pugjs.org/api/getting-started.html) (anteriormente conhecido como `jade`) e para criar um arquivo de `.gitignore`.
 
 Para instalar todas as dependências do aplicativo, vá para a nova pasta e execute `npm install`.
 
@@ -93,7 +93,7 @@ Em seguida, verifique se o aplicativo é executado. No terminal, inicie o aplica
 npm start
 ```
 
-Agora, abra o navegador e navegue até [http://localhost:3000](http://localhost:3000), em que você verá algo assim:
+Agora, abra o navegador e navegue até [http://localhost:3000](http://localhost:3000), onde você verá algo assim:
 
 ![Executando aplicativo expresso](containers/media/quickstart-nodejs/express.png)
 
@@ -124,13 +124,13 @@ No Gerenciador do **serviço de aplicativo do Azure** , selecione o ícone de se
 1. Escolha uma opção de criação com base no sistema operacional no qual você deseja implantar:
 
     - Linux: escolha **criar novo aplicativo Web**.
-    - Windows: escolha **criar novo aplicativo Web... Avançado**.
+    - Windows: escolha **criar novo aplicativo Web** e selecione a opção **avançado** .
 
 1. Digite um nome global exclusivo para seu aplicativo Web e pressione ENTER. Os caracteres válidos para um nome de aplicativo são ' a-z ', ' 0-9 ' e '-'.
 
 1. Se estiver direcionando para o Linux, selecione uma versão do node. js quando solicitado. Uma versão do **LTS** é recomendada.
 
-1. Se estiver direcionando o Windows usando a opção *avançada**, siga os prompts adicionais:
+1. Se estiver direcionando o Windows usando a opção **avançado** , siga os prompts adicionais:
     1. Selecione **criar um novo grupo de recursos**e insira um nome para o grupo de recursos.
     1. Selecione **Windows** para o sistema operacional.
     1. Selecione um plano do serviço de aplicativo existente ou crie um novo. Você pode selecionar um tipo de preço ao criar um novo plano.
@@ -139,7 +139,7 @@ No Gerenciador do **serviço de aplicativo do Azure** , selecione o ícone de se
 
 1. Depois de responder a todos os prompts, o canal de notificação mostra os recursos do Azure que estão sendo criados para seu aplicativo.
 
-1. Selecione **Sim** quando solicitado a atualizar sua configuração para executar o `npm install` no servidor de destino. Em seguida, seu aplicativo é implantado.
+1. Selecione **Sim** quando solicitado a atualizar sua configuração para executar `npm install` no servidor de destino. Em seguida, seu aplicativo é implantado.
 
     ![Implantação configurada](containers/media/quickstart-nodejs/server-build.png)
 

@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 07/24/2019
+ms.date: 10/14/2019
 ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 40b92f24922b146dfdc66c1b0a59aab748dea6f2
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
-ms.translationtype: MT
+ms.openlocfilehash: f6a417e33ac9c60c978d8638539a1e5a0772a034
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931374"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475060"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>Tutorial: habilitar a autenticação em um aplicativo de página única usando Azure Active Directory B2C (Azure AD B2C)
 
@@ -48,13 +48,30 @@ Além disso, você precisa do seguinte em seu ambiente de desenvolvimento local:
 
 No segundo tutorial que você concluiu como parte dos pré-requisitos, você registrou um aplicativo Web em Azure AD B2C. Para habilitar a comunicação com o exemplo no tutorial, você precisa adicionar um URI de redirecionamento ao aplicativo em Azure AD B2C.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+Você pode usar a experiência de **aplicativos** atual ou nossa nova experiência unificada de **registros de aplicativo (versão prévia)** para atualizar o aplicativo. [Saiba mais sobre a experiência de visualização](http://aka.ms/b2cappregintro).
+
+#### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
+
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
 1. Selecione **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 1. Selecione **aplicativos**e, em seguida, selecione o aplicativo *webapp1* .
 1. Em **URL de resposta**, adicione `http://localhost:6420`.
 1. Selecione **Guardar**.
 1. Na página Propriedades, registre a **ID do aplicativo**. Você usará a ID do aplicativo em uma etapa posterior quando atualizar o código no aplicativo Web de página única.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
+
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
+1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
+1. Selecione **registros de aplicativo (versão prévia)** , selecione a guia **aplicativos de propriedade** e, em seguida, selecione o aplicativo *webapp1* .
+1. Selecione **autenticação**e, em seguida, selecione **experimentar a nova experiência** (se mostrado).
+1. Em **Web**, selecione o link **Adicionar URI** , insira `http://localhost:6420`e, em seguida, selecione **salvar**.
+1. Selecione **Descrição geral**.
+1. Registre a **ID do aplicativo (cliente)** para uso em uma etapa posterior quando você atualizar o código no aplicativo Web de página única.
+
+* * *
 
 ## <a name="get-the-sample-code"></a>Obter o código de exemplo
 
@@ -124,7 +141,7 @@ O exemplo dá suporte à inscrição, à entrada, à edição de perfil e à red
 
     Utilize um endereço de e-mail válido e valide com o código de verificação. Defina uma palavra-passe. Introduza os valores para os atributos solicitados.
 
-    ![Página de inscrição apresentada pelo fluxo de usuário de entrada/inscrição](./media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
+    ![Página de inscrição apresentada pelo fluxo de usuário de entrada/inscrição](./media/active-directory-b2c-tutorials-spa/azure-ad-b2c-sign-up-workflow.png)
 
 1. Selecione **criar** para criar uma conta local no diretório Azure ad B2C.
 
