@@ -6,6 +6,8 @@
   items:
     - name: O que é o serviço de Voz?
       href: overview.md
+    - name: Suporte de idioma e região
+      href: language-support.md
 - name: Conversão de voz em texto
   expanded: false
   items:
@@ -38,7 +40,7 @@
         - name: Utilizar formatos de entrada de áudio comprimido
           href: how-to-use-codec-compressed-audio-input-streams.md
         - name: Utilizar o reconhecimento de voz com contentores do Docker
-          href: speech-container-howto.md
+          href: speech-container-howto.md?tabs=stt
     - name: Referência
       items:
         - name: APIs do SDK de voz
@@ -87,7 +89,7 @@
         - name: Sintetizar a voz com a API de Áudio Longo
           href: long-audio-api.md
         - name: Utilizar a sintetização de voz com contentores do Docker
-          href: speech-container-howto.md
+          href: speech-container-howto.md?tabs=tts
     - name: Referência
       items:
         - name: API de Voz

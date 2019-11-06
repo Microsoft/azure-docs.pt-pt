@@ -42,7 +42,7 @@
     - name: Criar aplicação
       items:
         - name: Determinar intenções do utilizador
-          href: luis-quickstart-intents-only.md
+          href: tutorial-intents-only.md
         - name: Identificar dados de utilizador comuns com modelos pré-construídos
           href: luis-tutorial-prebuilt-intents-entities.md
         - name: Obter sentimento a partir de expressões do utilizador
@@ -116,6 +116,7 @@
           displayName: roles
         - name: Funcionalidades
           href: luis-concept-feature.md
+          displayName: 'descriptor, phrase list'
     - name: Classificação da predição
       href: luis-concept-prediction-score.md
     - name: Melhores práticas
