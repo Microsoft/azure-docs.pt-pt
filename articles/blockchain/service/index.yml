@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: PatAltimore
   ms.author: patricka
-  ms.date: 09/18/2019
-  ms.openlocfilehash: f0abf5d3c81f7bd81c4fef6a15f34f753c1e1a24
-  ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 1f119808513e7c4c51659ce7bf08a569eb555abf
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/02/2019
-  ms.locfileid: "71718559"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73498841"
 landingContent:
 - title: Acerca do Azure Blockchain Service
   linkLists:
@@ -65,12 +65,22 @@ landingContent:
       url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-IV-Publish-events-and-ledger-data
 - title: Integrar
   linkLists:
+  - linkListType: concept
+    links:
+    - text: Enviar dados do blockchain para outros serviços do Azure com o Blockchain Data Manager
+      url: data-manager.md
   - linkListType: how-to-guide
     links:
+    - text: Configurar o Blockchain Data Manager com o portal do Azure
+      url: data-manager-portal.md
+    - text: Configurar o Blockchain Data Manager com a CLI do Azure
+      url: data-manager-cli.md
     - text: Integrar o blockchain com o Azure Logic Apps
       url: ethereum-logic-app.md
   - linkListType: video
     links:
+    - text: Introdução ao Blockchain Data Manager
+      url: https://aka.ms/BTDataManager
     - text: Utilizar o conector Blockchain do Ethereum com o Azure Logic Apps
       url: https://channel9.msdn.com/Shows/Blocktalk/Logic-Apps-Connector-to-Ethereum-Blockchain-Networks?term=logic%20apps%20blockchain&lang-en=true
     - text: Cenários comuns de ligação do blockchain com o Azure Logic Apps

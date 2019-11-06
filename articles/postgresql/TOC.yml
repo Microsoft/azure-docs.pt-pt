@@ -78,6 +78,8 @@
           items:
             - name: Escalões de preço
               href: concepts-pricing-tiers.md
+            - name: Fazer pré-pagamento para a capacidade de reserva
+              href: concept-reserved-pricing.md
             - name: Limites
               href: concepts-limits.md
         - name: Acesso e segurança dos dados
@@ -92,6 +94,8 @@
               href: concepts-data-access-and-security-vnet.md
             - name: Arquitetura de conectividade
               href: concepts-connectivity-architecture.md
+            - name: Autenticação do Azure AD
+              href: concepts-aad-authentication.md
         - name: Continuidade do negócio
           items:
             - name: Introdução à continuidade de negócio
@@ -153,8 +157,14 @@
               href: concepts-hyperscale-firewall-rules.md
             - name: Configurar o SSL
               href: concepts-hyperscale-ssl-connection-security.md
+        - name: Monitorizar e otimizar
+          items:
+            - name: Monitorizar e otimizar
+              href: concepts-hyperscale-monitoring.md
         - name: Extensões do PostgreSQL
           href: concepts-hyperscale-extensions.md
+        - name: Elevada disponibilidade
+          href: concepts-hyperscale-high-availability.md
         - name: Recursos
           items:
             - name: Opções de configuração
@@ -163,8 +173,12 @@
   items:
     - name: Servidor único
       items:
-        - name: Criar utilizadores
-          href: howto-create-users.md
+        - name: Autenticação
+          items:
+            - name: Criar utilizadores
+              href: howto-create-users.md
+            - name: Configurar a integração do Azure AD
+              href: howto-configure-sign-in-aad-authentication.md
         - name: Otimizar
           items:
             - name: Inserções em massa
@@ -245,12 +259,20 @@
               href: howto-read-replicas-cli.md
     - name: Hyperscale (Citus)
       items:
-        - name: Dimensionamento
+        - name: Criar utilizadores
+          href: howto-hyperscale-create-users.md
+        - name: Escala
           href: howto-hyperscale-scaling.md
         - name: Gerir a firewall
           items:
             - name: Portal do Azure
               href: howto-hyperscale-manage-firewall-using-portal.md
+        - name: Elevada disponibilidade
+          href: howto-hyperscale-high-availability.md
+        - name: Monitorizar
+          items:
+            - name: Criar alertas para as métricas
+              href: howto-hyperscale-alert-on-metric.md
         - name: Resolução de problemas
           items:
             - name: Resolver problemas de erros de ligação

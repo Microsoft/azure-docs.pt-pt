@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/17/2019
-  ms.openlocfilehash: 58e5b078fc337a53193b9c0518ae12437d26fb75
-  ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 1a91f7fe63753ddc7c8b88d487064b15206fcfe3
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/02/2019
-  ms.locfileid: "71802273"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73494344"
 landingContent:
 - title: Acerca do Azure Policy
   linkLists:
@@ -49,6 +49,10 @@ landingContent:
     links:
     - text: Criar e gerir políticas
       url: ./tutorials/create-and-manage.md
+    - text: Utilizar a extensão do VS Code
+      url: ./how-to/extension-for-vscode.md
+    - text: Criar fluxos de trabalho de Política como Código
+      url: ./concepts/policy-as-code.md
   - linkListType: deploy
     links:
     - text: Índice de exemplos de política
@@ -59,6 +63,8 @@ landingContent:
     links:
     - text: Criar uma política personalizada
       url: ./tutorials/create-custom-policy-definition.md
+    - text: Gerir governação de etiquetas
+      url: ./tutorials/govern-tags.md
   - linkListType: how-to-guide
     links:
     - text: Criar política com o SDK
@@ -69,6 +75,8 @@ landingContent:
     links:
     - text: Política para o AKS
       url: ./concepts/rego-for-aks.md
+    - text: Política para o Motor AKS
+      url: ./concepts/aks-engine.md
     - text: Política para VMs
       url: ./concepts/guest-configuration.md
 - title: Analisar e Remediar recursos

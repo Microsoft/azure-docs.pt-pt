@@ -137,6 +137,8 @@
           href: disk-encryption.md
         - name: Conceber para desempenho elevado
           href: premium-storage-performance.md
+        - name: Expansão do disco
+          href: disk-bursting.md
         - name: Destinos de escalabilidade para discos
           href: disk-scalability-targets.md
         - name: Cópia de Segurança e recuperação após desastre para discos

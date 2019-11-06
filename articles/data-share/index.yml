@@ -1,23 +1,23 @@
 ### YamlMime:Landing
-title: Documentação (pré-visualização) do Azure Data Share
-summary: A Pré-visualização do Azure Data Share é um serviço seguro e fiável que permite partilhar dados com organizações de terceiros.
+title: Documentação do Azure Data Share
+summary: O Azure Data Share é um serviço seguro e fiável que permite partilhar dados com organizações de terceiros.
 metadata:
-  title: Azure Data Share (pré-visualização)
-  description: O Azure Data Share (pré-visualização) é um serviço seguro e fiável que permite partilhar dados com organizações de terceiros.
+  title: Azure Data Share
+  description: O Azure Data Share é um serviço seguro e fiável que permite partilhar dados com organizações de terceiros.
   services: data-share
   ms.service: data-share
   ms.subservice: subservice
   ms.topic: landing-page
   ms.collection: collection
-  author: joannapea
-  ms.author: joanpo
+  author: hrasheed-msft
+  ms.author: hrasheed
   ms.date: 09/13/2019
-  ms.openlocfilehash: 3780957ad47869181ba6cae39996eb13638f9326
-  ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+  ms.openlocfilehash: 2ea263e9c0c68877528f10654024b4d7e60f24f5
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2019
-  ms.locfileid: "72169045"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73481041"
 landingContent:
 - title: Sobre o Azure Data Share
   linkLists:

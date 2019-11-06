@@ -1,0 +1,52 @@
+### YamlMime:Landing
+title: Peering Service (Pré-visualização)
+summary: Saiba mais sobre o Azure Peering Service
+metadata:
+  title: Documentação do Azure Peering Service (Pré-visualização)
+  description: Saiba como gerir e implementar a ligação ao Peering Service
+  services: peering-service
+  ms.service: peering-service
+  ms.subservice: peering-service
+  ms.topic: landing-page
+  author: ypitsch
+  ms.author: v-meravi
+  ms.date: 11/04/2019
+  ms.openlocfilehash: b8ea3e631df062bb1e8671f2755d0d8ec089e41f
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73508810"
+landingContent:
+- title: Acerca do Peering Service
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Peering Service?
+      url: about.md
+  - linkListType: concept
+    links:
+    - text: Localização e parceiros
+      url: location-partners.md
+    - text: Ligações
+      url: connection.md
+    - text: Telemetria de ligação
+      url: connection-telemetry.md
+    - text: Modelo de inclusão
+      url: onboarding-model.md
+- title: Introdução
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Registar Peering Service - portal do Azure
+      url: azure-portal.md
+- title: Telemetria
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Telemetria de ligação
+      url: connection-telemetry.md
+  - linkListType: how-to-guide
+    links:
+    - text: Medir a telemetria de ligação
+      url: measure-connection-telemetry.md

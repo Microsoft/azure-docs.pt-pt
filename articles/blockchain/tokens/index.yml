@@ -1,0 +1,49 @@
+### YamlMime:Landing
+title: Documentação do Azure Blockchain Tokens
+summary: Saiba como criar, emitir e gerir tokens de blockchain.
+metadata:
+  title: Documentação do Azure Blockchain Tokens - Tutoriais, Referência da API
+  description: Saiba como emitir e gerir tokens de blockchain. Os tutoriais, referências de API e outras documentações mostram-lhe como utilizar o Azure Blockchain Tokens para criar e gerir tokens de blockchain no Azure.
+  services: azure-blockchain
+  ms.service: azure-blockchain
+  ms.topic: landing-page
+  author: PatAltimore
+  ms.author: patricka
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 6df625c2264db279e29c4ebcf5aab5695b335a0e
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73508436"
+landingContent:
+- title: Acerca do Azure Blockchain Tokens
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure Blockchain Tokens?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Gestão de contas
+      url: account-management.md
+    - text: Modelos
+      url: templates.md
+    - text: Capacidade de composição
+      url: composability.md
+- title: Introdução
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Inscrever-se no acesso de pré-visualização
+      url: https://aka.ms/PreviewForm
+  - linkListType: video
+    links:
+    - text: Introdução ao Azure Blockchain Tokens
+      url: https://aka.ms/ABTokensPartI
+    - text: Gerir contas
+      url: https://aka.ms/ABTokensPartII
+    - text: Modelos e capacidade de composição
+      url: https://aka.ms/ABTokensPartIII
+    - text: Tokens e estrutura de taxonomia de tokens
+      url: https://aka.ms/TokenTaxFramework

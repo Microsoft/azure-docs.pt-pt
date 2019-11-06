@@ -1,0 +1,27 @@
+- name: Documentação da Base de Dados SQL no Edge
+  href: index.yml
+- name: Descrição geral
+  items:
+    - name: O que é a Base de Dados SQL no Edge?
+      href: overview.md
+- name: Inícios rápidos
+  expanded: true
+  items:
+    - name: Implementar Base de Dados SQL no Edge
+      href: deploy-portal.md
+    - name: Implementar ONNX na Base de Dados SQL no Edge
+      href: deploy-onnx.md
+- name: Tutoriais
+  items:
+    - name: Sincronizar dados com o Azure Data Factory
+      href: tutorial-sync-data-factory.md
+    - name: Sincronizar dados com a Sincronização de Dados SQL
+      href: tutorial-sync-data-sync.md
+- name: Procedimento
+  items:
+    - name: Pacotes DAC e tarefas do Stream Analytics
+      href: stream-analytics.md
+- name: Conceitos
+  items:
+    - name: Aprendizagem automática e IA com ONNX
+      href: onnx-overview.md

@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/01/2019
-  ms.openlocfilehash: 115f02f82e598db227541c44f69954b1f3805f71
-  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.openlocfilehash: b17796fe07f37931c4a4924c6d4daaa8399562d2
+  ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72931799"
+  ms.lasthandoff: 11/06/2019
+  ms.locfileid: "73647842"
 landingContent:
 - title: Sobre a Imagem Digitalizada
   linkLists:
@@ -133,7 +133,7 @@ landingContent:
     - text: SDK Java
       url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
     - text: SDK Node.js
-      url: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-computervision?view=azure-node-latest
+      url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
     - text: SDK Go
       url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
     - text: Azure PowerShell

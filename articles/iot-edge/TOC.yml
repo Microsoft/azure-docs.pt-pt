@@ -45,7 +45,7 @@
           href: tutorial-deploy-function.md
         - name: Encontrar médias com o Azure Stream Analytics
           href: tutorial-deploy-stream-analytics.md
-        - name: Classificar dados com o serviço Azure Machine Learning
+        - name: Classificar dados com o Azure Machine Learning
           href: tutorial-deploy-machine-learning.md
         - name: Classificar imagens com a Visão Personalizada
           href: tutorial-deploy-custom-vision.md

@@ -94,7 +94,7 @@ sections:
         items:
           - html: 'Crie uma aplicação com <a href="/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core com a BD SQL do Azure</a>, <a href="/azure/app-service/containers/tutorial-java-enterprise-postgresql-app">Java Enterprise com PostgreSQL</a> ou <a href="/azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js com MongoDB</a>'
           - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Mapeie um domínio personalizado existente na sua aplicação.</a>
-          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Vincule um certificado SSL existente à aplicação</a>
+          - html: <a href="/azure/app-service/configure-ssl-bindings">Proteger um nome DNS personalizado com um enlace SSL no Serviço de Aplicações do Azure</a>
           - html: <a href="/azure/cdn/cdn-add-to-web-app">Adicionar uma CDN à sua aplicação</a>
   - title: Amostras
     items:
@@ -113,7 +113,7 @@ sections:
         className: cardsD
         items:
           - title: Linha de Comandos
-            html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">CLI do Azure</a></p>
+            html: <p><a href="/powershell/azureps-cmdlets-docs">O Azure PowerShell</a></p><p><a href="/cli/azure/appservice">CLI do Azure</a></p>
           - title: Linguagens
             html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
           - title: REST

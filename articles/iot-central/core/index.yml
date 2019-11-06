@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: f4cafdef283e009eb763352aa14c5f02abd46b46
-  ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+  ms.openlocfilehash: 2bf497152f17796011abba04d39a6a1ad1d7bdd9
+  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/30/2019
-  ms.locfileid: "73176210"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73583195"
 landingContent:
 - title: Acerca do Azure IoT Central
   linkLists:
@@ -76,9 +76,9 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Criar regras personalizadas
-      url: howto-create-custom-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: howto-create-custom-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - text: Criar análise personalizada
-      url: howto-create-custom-analytics.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: howto-create-custom-analytics-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
 - title: Administração
   linkLists:
   - linkListType: how-to-guide

@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: a31426dd53981a03d83b7e5b2f7ea30e61735d3a
-  ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+  ms.openlocfilehash: 7862534e1ce938d5f95aeb5861cc194ebabd427b
+  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/30/2019
-  ms.locfileid: "73176145"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73575156"
 landingContent:
 - title: Criar soluções para a administração pública
   linkLists:
@@ -72,9 +72,9 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Criar regras personalizadas
-      url: ../core/howto-create-custom-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../core/howto-create-custom-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - text: Criar análise personalizada
-      url: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../core/howto-create-custom-analytics-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
 - title: Administração
   linkLists:
   - linkListType: how-to-guide

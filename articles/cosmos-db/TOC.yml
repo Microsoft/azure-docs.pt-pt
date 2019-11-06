@@ -12,7 +12,9 @@
       items:
         - name: Portal do Azure
           href: create-cosmosdb-resources-portal.md
-        - name: Aplicação .NET
+        - name: Aplicação .NET - SDK V4
+          href: create-sql-api-dotnet-v4.md
+        - name: Aplicação .NET - SDK V3
           href: create-sql-api-dotnet.md
         - name: Aplicação Java
           href: create-sql-api-java.md
@@ -47,8 +49,11 @@
             - name: Xamarin
               href: mobile-apps-with-xamarin.md
     - name: 2 - Migrar dados
-      displayName: import
-      href: import-data.md
+      items:
+        - name: Utilizar Ferramenta de migração de dados
+          href: import-data.md
+        - name: Utilizar suporte em massa do .NET
+          href: tutorial-sql-api-dotnet-bulk-import.md
     - name: 3 - Consultar dados
       href: tutorial-query-sql-api.md
     - name: 4 - Crie um bloco de notas
@@ -122,6 +127,8 @@
         - name: Aprovisionar débito em contentores e bases de dados
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
+        - name: Aprovisionar débito - modo Autopilot
+          href: provision-throughput-autopilot.md
     - name: Referência de consulta SQL
       items:
         - name: Introdução
@@ -953,6 +960,11 @@
           href: how-to-configure-firewall.md
         - name: Configurar acesso a partir de redes virtuais
           href: how-to-configure-vnet-service-endpoint.md
+        - name: Configurar o acesso a partir de pontos finais privados
+          href: how-to-configure-private-endpoints.md
+        - name: Ligar de forma privada a uma conta do Cosmos DB
+          href: /azure/private-link/create-private-endpoint-cosmosdb-portal
+          maintainContext: true
         - name: Configurar a Partilha de Recursos Transversais à Origem (CORS)
           href: how-to-configure-cross-origin-resource-sharing.md
         - name: Proteger as chaves do Azure Cosmos com o Key Vault

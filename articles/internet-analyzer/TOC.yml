@@ -1,0 +1,34 @@
+- name: Documentação do Internet Analyzer
+  href: index.yml
+- name: Descrição geral
+  items:
+    - name: Acerca do Internet Analyzer
+      href: internet-analyzer-overview.md
+- name: Tutorial
+  items:
+    - name: Criar um teste do Internet Analyzer com o Portal
+      href: internet-analyzer-create-test-portal.md
+    - name: Criar um teste do Internet Analyzer com a CLI
+      herf: internet-analyzer-cli.md
+- name: Guias de procedimentos
+  items:
+    - name: Incorporar cliente
+      href: internet-analyzer-embed-client.md
+    - name: Configurar um ponto final personalizado
+      href: internet-analyzer-custom-endpoint.md
+    - name: Interpretar a tabela de indicadores
+      href: internet-analyzer-scorecard.md
+- name: Recursos
+  items:
+    - name: FAQ do Internet Analyzer
+      href: internet-analyzer-faq.md
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blogue
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Fórum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: SLA de pré-visualização
+      href: 'https://azure.microsoft.com/support/legal/preview-supplemental-terms'
+    - name: SLA
+      href: 'https://azure.microsoft.com/support/legal/sla'

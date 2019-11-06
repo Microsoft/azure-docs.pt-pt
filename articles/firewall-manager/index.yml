@@ -1,0 +1,49 @@
+### YamlMime:Landing
+title: Documentação do Azure Firewall Manager
+summary: Saiba como implementar o Azure Firewall Manager, um serviço de gestão de segurança distribuído globalmente.
+metadata:
+  title: Documentação do Azure Firewall Manager
+  description: Saiba como implementar o Azure Firewall Manager, um serviço de gestão de segurança distribuído globalmente.
+  services: firewall
+  ms.service: firewall-manager
+  ms.topic: landing-page
+  author: vhorne
+  ms.author: victorh
+  ms.date: 10/10/2019
+  ms.openlocfilehash: e3b98f3954ee70b5e002bb844147d4d51b1f6d9d
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73508674"
+landingContent:
+- title: Saiba mais sobre o Azure Firewall Manager
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure Firewall Manager?
+      url: overview.md
+    - text: Descrição geral da implementação
+      url: deployment-overview.md
+- title: Saiba mais sobre hubs virtuais seguros
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: O que é um hub virtual seguro?
+      url: secured-virtual-hub.md
+- title: Parceiros de segurança fidedignos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: O que são parceiros de segurança fidedignos (pré-visualização)?
+      url: trusted-security-partners.md
+  - linkListType: how-to-guide
+    links:
+    - text: Implementar um parceiro de segurança fidedigno (pré-visualização)
+      url: deploy-trusted-security-partner.md
+- title: Proteger a rede na cloud do Azure
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Proteger a rede na cloud com o portal do Azure
+      url: secure-cloud-network.md

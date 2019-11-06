@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/31/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: b5723bc4a8c74255abd23c1e13ead26af52390e1
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: c728e6d52b00ea21ba985c20bcb7854099319919
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200859"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581272"
 ---
 # <a name="overview-of-the-fedramp-moderate-blueprint-sample"></a>Descrição geral do exemplo de esquema FedRAMP Moderado
 
@@ -29,7 +29,7 @@ Analisou a descrição geral do exemplo de esquema FedRAMP Moderado. A seguir, v
 > [Esquema FedRAMP Moderado - Mapeamento de controlo](./control-mapping.md)
 > [Esquema FedRAMP Moderado - Passos de implementação](./deploy.md)
 
-Artigos adicionais sobre esquemas e como utilizá-los:
+Artigos adicionais sobre esquemas e como os utilizar:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

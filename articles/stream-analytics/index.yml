@@ -10,12 +10,12 @@ metadata:
   author: mamccrea
   ms.author: mamccrea
   ms.date: 09/16/2019
-  ms.openlocfilehash: a4573c9f6938db56eba80da084004a620a54e9e4
-  ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+  ms.openlocfilehash: 3939133ae0e562a081e2ac555ce90683a17fcab1
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/16/2019
-  ms.locfileid: "71018866"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73479587"
 landingContent:
 - title: Sobre o Azure Stream Analytics
   linkLists:
@@ -141,7 +141,7 @@ landingContent:
     links:
     - text: Utilizar machine learning para detetar anomalias
       url: stream-analytics-machine-learning-anomaly-detection.md
-    - text: Realizar a análise de sentimentos com o Azure Machine Learning Studio
+    - text: Realizar análise de sentimentos com o Azure Machine Learning Studio (clássico)
       url: stream-analytics-machine-learning-integration-tutorial.md
     - text: Dimensionar tarefas com funções do Machine Learning Studio
       url: stream-analytics-scale-with-machine-learning-functions.md

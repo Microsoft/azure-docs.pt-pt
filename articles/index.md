@@ -6,12 +6,12 @@ description: Saiba como criar e gerir aplicações poderosas com os serviços cl
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: b451763a4d359d18ccb4d53cd3ee96fdafd53818
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 4c1b7c49002d9ff6cd8c782c3308edaaa5d2373d
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501234"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73519529"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -147,7 +147,7 @@ ms.locfileid: "68501234"
                                                             <img src="media/index/logo_NET.svg" alt=""> .NET</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/python/azure/">
+                                                        <a class="barLink" href="/azure/python/">
                                                             <img src="media/index/logo_python.svg" alt=""> Python</a>
                                                     </li>
                                                     <li>
@@ -159,11 +159,11 @@ ms.locfileid: "68501234"
                                                             <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/javascript/azure/">
+                                                        <a class="barLink" href="/azure/javascript/">
                                                             <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/go/azure/">
+                                                        <a class="barLink" href="/azure/go/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt=""> Go</a>
                                                     </li>
                                                 </ul></td></tr></table>
@@ -188,9 +188,10 @@ ms.locfileid: "68501234"
                                                 <h3>Gerir dados e IA</h3>
                                                 <h4>Bases de Dados Relacionais</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/sql-database/">Base de dados SQL como serviço</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-database/">Base de Dados SQL enquanto serviço</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-database-edge/">Base de Dados SQL para o edge</a></li>
                                                     <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">SQL Server numa VM do Azure</a></li>
-                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse como um serviço</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">Synapse Analytics (anteriormente SQL DW)</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">Base de dados PostgreSQL como serviço</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">Base de dados MySQL como serviço</a></li>
                                                 </ul>
@@ -331,7 +332,7 @@ ms.locfileid: "68501234"
                 <a href="#products">Produtos</a>
                 <ul id="products">
                     <li>
-                        <a href="#all">Tudo</a>
+                        <a data-default="true" href="#all">Todos</a>
                         <ul id="all" class="directory">
                             <li>
                                 <div class="group">
@@ -345,7 +346,7 @@ ms.locfileid: "68501234"
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/welcome">
-                                                <img src="media/index/machinelearning.svg" alt="" />
+                                                <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
                                                 <p>Serviços Cognitivos</p>
                                             </a>
                                         </li>
@@ -588,8 +589,8 @@ ms.locfileid: "68501234"
                                     <ul>
                                         <li>
                                             <a href="/azure/sql-data-warehouse/">
-                                                <img src="media/index/sqldatawarehouse.svg" alt="" />
-                                                <p>SQL Data Warehouse</p>
+                                                <img src="media/index/azure_synapse_icon.svg" alt="" />
+                                                <p>Azure Synapse Analytics (anteriormente SQL DW)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -825,6 +826,12 @@ ms.locfileid: "68501234"
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                                                <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                <p>Serviços Cognitivos</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
                                                 <p>Service Fabric</p>
@@ -857,6 +864,12 @@ ms.locfileid: "68501234"
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/sql-database-edge/">
+                                                <img src="media/index/sqldatabaseedge.svg" alt="" />
+                                                <p>Base de Dados SQL do Azure no Edge</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/cosmos-db/">
                                                 <img src="media/index/cosmosdb.svg" alt="" />
                                                 <p>Azure Cosmos DB</p>
@@ -864,8 +877,8 @@ ms.locfileid: "68501234"
                                         </li>
                                         <li>
                                             <a href="/azure/sql-data-warehouse/">
-                                                <img src="media/index/SQLDataWarehouse.svg" alt="" />
-                                                <p>SQL Data Warehouse</p>
+                                                <img src="media/index/azure_synapse_icon.svg" alt="" />
+                                                <p>Azure Synapse Analytics (anteriormente SQL DW)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1122,6 +1135,12 @@ ms.locfileid: "68501234"
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/iot-pnp/">
+                                                <img src="media/index/cloud-check.svg" alt="" />
+                                                <p>IoT Plug and Play</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/iot-suite/">
                                                 <img src="media/index/iot-solution-accelerators.svg" alt="" />
                                                 <p>Aceleradores de soluções IoT</p>
@@ -1356,6 +1375,12 @@ ms.locfileid: "68501234"
                                             <a href="/azure/billing/">
                                                 <img src="media/index/billing.svg" alt="" />
                                                 <p>Faturação</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/lighthouse/">
+                                                <img src="media/index/azure-resource-manager.svg" alt="" />
+                                                <p>Azure Lighthouse</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1605,6 +1630,36 @@ ms.locfileid: "68501234"
                                                 <p>Azure Bastion</p>
                                             </a>
                                         </li>
+                                        <li>
+                                          <a href="/azure/web-application-firewall/">
+                                                <img src="media/index/web-app-firewall.svg" alt="" />
+                                                <p>Firewall de Aplicação Web</p>
+                                          </a>
+                                        </li>
+                                        <li>
+                                          <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
+                                                <img src="media/index/private-link.svg" alt="" />
+                                                <p>Azure Private Link</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/peering-service/">
+                                                <img src="media/index/peering-service.svg" alt="" />
+                                                <p>Peering Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/firewall-manager/">
+                                                <img src="media/index/icon-networking-361-azure-firewall-manager.svg" alt="" />
+                                                <p>Azure Firewall Manager</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/internet-analyzer/">
+                                                <img src="media/index/internet-analyzer.svg" alt="" />
+                                                <p>Azure Internet Analyzer</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Segurança</h3>
                                     <ul>
@@ -1627,19 +1682,19 @@ ms.locfileid: "68501234"
                                             </a>
                                         </li>
                                         <li>
-                                        <li>
                                             <a href="/azure/dedicated-hsm">
                                                 <img src="media/index/dedicated-hsm.svg" alt="" />
                                                 <p>HSM Dedicado do Azure</p>
                                             </a>
                                         </li>
+                                        <li>
                                             <a href="/azure/virtual-network/ddos-protection-overview">
                                                 <img src="media/index/ddos-protection.svg" alt="" />
                                                 <p>Proteção contra DDoS do Azure</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/security/azure-threat-detection">
+                                            <a href="/azure/security/fundamentals/threat-detection">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
                                                 <p>Proteção Avançada Contra Ameaças do Azure</p>
                                             </a>
@@ -1851,10 +1906,13 @@ ms.locfileid: "68501234"
                                                 <p>Serviço Azure SignalR</p>
                                             </a>
                                         </li>
+                                    </ul>
+                                    <h3>Windows Virtual Desktop</h3>
+                                    <ul>
                                         <li>
-                                            <a href="/azure/lighthouse/">
-                                                <img src="media/index/azure-resource-manager.svg" alt="" />
-                                                <p>Azure Lighthouse</p>
+                                            <a href="/azure/virtual-desktop/">
+                                                <img src="media/index/windows-virtual-desktop.svg" alt="" />
+                                                <p>Windows Virtual Desktop</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2188,12 +2246,12 @@ ms.locfileid: "68501234"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/sqldatawarehouse.svg" alt="" />
+                                                        <img src="media/index/azure_synapse_icon.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>SQL Data Warehouse</h3>
-                                                    <p>Armazém de dados elástico como um serviço com funcionalidades de classe empresarial</p>
+                                                    <h3>Azure Synapse Analytics (anteriormente SQL DW)</h3>
+                                                    <p>Serviço de análise ilimitado com uma velocidade de obtenção de informações sem rival</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2288,7 +2346,7 @@ ms.locfileid: "68501234"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
-                                                    <p>Processamento de fluxo de dados de milhões de dispositivos IoT em tempo real</p>
+                                                    <p>Análise em tempo real sobre a movimentação rápida de fluxos de dados de aplicações e dispositivos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2607,7 +2665,7 @@ ms.locfileid: "68501234"
                         </ul>
                     </li>
                     <li>
-                        <a data-default="true" href="#Compute">Computação</a>
+                        <a href="#Compute">Computação</a>
                         <ul id="Compute" class="cardsA">
                             <li>
                                 <a href="/azure/virtual-machines/linux/">
@@ -2717,6 +2775,25 @@ ms.locfileid: "68501234"
                                                 <div class="cardText">
                                                     <h3>Container Instances</h3>
                                                     <p>Executar facilmente contentores com um único comando</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cognitive-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Serviços Cognitivos</h3>
+                                                    <p>Confira inteligência a aplicações, sites e bots para ver, ouvir, falar e compreender</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2976,6 +3053,25 @@ ms.locfileid: "68501234"
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Serviços Cognitivos</h3>
+                                                    <p>Utilizar contentores dos Serviços Cognitivos do Azure com o Docker, Kubernetes, AKS e Instâncias de Contentor</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/service-fabric/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3095,6 +3191,25 @@ ms.locfileid: "68501234"
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/sql-database-edge/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/sqldatabaseedge.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Base de Dados SQL do Azure no Edge</h3>
+                                                    <p>Motor de base de dados relacional otimizado para implementações de IoT e edge.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/cosmos-db/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3120,12 +3235,12 @@ ms.locfileid: "68501234"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/SQLDataWarehouse.svg" alt="" />
+                                                        <img src="media/index/azure_synapse_icon.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>SQL Data Warehouse</h3>
-                                                    <p>Armazém de dados elástico como um serviço com funcionalidades de classe empresarial</p>
+                                                    <h3>Azure Synapse Analytics (anteriormente SQL DW)</h3>
+                                                    <p>Serviço de análise ilimitado com uma velocidade de obtenção de informações sem rival</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3918,6 +4033,25 @@ ms.locfileid: "68501234"
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/iot-pnp/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/cloud-check.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT Plug and Play</h3>
+                                                    <p>Ligar dispositivos à solução de IoT sem escrever código do dispositivo</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/iot-suite/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -4663,10 +4797,29 @@ ms.locfileid: "68501234"
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/lighthouse/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-resource-manager.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Lighthouse</h3>
+                                                    <p>Gerir recursos de cliente à escala</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#media">Suporte de Dados</a>
+                        <a href="#media">Suporte de dados</a>
                         <ul id="media" class="cardsA">
                             <li>
                                 <a href="/azure/media-services/">
@@ -5024,7 +5177,7 @@ ms.locfileid: "68501234"
                         </ul>
                     </li>
                     <li>
-                        <a href="#mobile">Móvel</a>
+                        <a href="#mobile">Telemóvel</a>
                         <ul id="mobile" class="cardsA">
                             <li>
                                 <a href="/appcenter">
@@ -5430,24 +5583,19 @@ ms.locfileid: "68501234"
                                     </div>
                                 </a>
                             </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#security">Segurança</a>
-                        <ul id="security" class="cardsA">
                             <li>
-                                <a href="/azure/security/">
+                                <a href="/azure/web-application-firewall/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/SecurityCenter.svg" alt="" />
+                                                        <img src="media/index/web-app-firewall.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Informação de Segurança</h3>
-                                                    <p>Saiba como o Azure fornece uma infraestrutura segura para construir soluções em cloud</p>
+                                                    <h3>Firewall de Aplicação Web</h3>
+                                                    <p>Fornece proteção centralizada para as suas aplicações Web contra exploits e vulnerabilidades comuns</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5455,7 +5603,67 @@ ms.locfileid: "68501234"
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/security-center">
+                                <a href="/azure/peering-service/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/peering-service.svg" alt="" />
+                                                    </div>
+                                            </div>
+                                            <div class="cardText">
+                                                    <h3>Peering Service</h3>
+                                                    <p>Obtenha conectividade de Internet ideal para aceder à rede da Microsoft</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#security">Segurança</a>
+                        <ul id="security" class="cardsA">
+                            <li>
+                                <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/private-link.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Private Link</h3>
+                                                    <p>Acesso privado a serviços alojados na plataforma do Azure, que mantém os seus dados na rede da Microsoft</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/firewall-manager/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/icon-networking-361-azure-firewall-manager.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Firewall Manager</h3>
+                                                    <p>Um serviço de gestão de segurança distribuído globalmente</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                               <a href="/azure/security-center/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -5531,7 +5739,7 @@ ms.locfileid: "68501234"
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/security/azure-threat-detection">
+                                <a href="/azure/security/fundamentals/threat-detection">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -5704,7 +5912,7 @@ ms.locfileid: "68501234"
                         </ul>
                     </li>
                     <li>
-                        <a href="#other">Clouds Soberanas</a>
+                        <a href="#other">Clouds Nacionais</a>
                         <ul id="other" class="cardsA">
                             <li>
                                 <a href="/azure/azure-government/">
@@ -5819,25 +6027,6 @@ ms.locfileid: "68501234"
                                                 <div class="cardText">
                                                     <h3>Armazenamento do Data Lake Ger2</h3>
                                                     <p>Armazenamento Data Lake seguro, dimensionável em massa criado no armazenamento de Blobs</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/lighthouse/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/azure-resource-manager.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Lighthouse</h3>
-                                                    <p>Gerir recursos de cliente à escala</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -6212,13 +6401,37 @@ ms.locfileid: "68501234"
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="#windowsvirtualdesktop">Windows Virtual Desktop</a>
+                        <ul id="windowsvirtualdesktop" class="cardsA">
+                            <li>
+                                <a href="/azure/virtual-desktop">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/windows-virtual-desktop.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Windows Virtual Desktop</h3>
+                                                    <p>Proporcione uma experiência de área de trabalho virtual a qualquer dispositivo à escala da cloud</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
              <li>
                 <a href="#sdkstools">SDKs/Ferramentas</a>
                 <ul id="sdkstools">
                     <li>
-                        <a href="#sdkstools-all">todos</a>
+                        <a href="#sdkstools-all">tudo</a>
                         <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
@@ -6261,10 +6474,10 @@ Azure para programadores .NET </h3>
                                                 <h3>
 Azure para programadores Python </h3>
                                                 <p>
-                                                    <a href="/python/azure">Introdução</a>
+                                                    <a href="/azure/python">Introdução</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/python/api/overview/azure/">Referência da API</a>
+                                                    <a href="/python/api/?view=azure-python">Referência da API</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6284,7 +6497,7 @@ Azure para programadores Python </h3>
                                                 <h3>
 Azure para programadores Node.js </h3>
                                                 <p>
-                                                    <a href="/javascript/azure/">Introdução</a>
+                                                    <a href="/azure/javascript/">Introdução</a>
                                                 </p>
                                                 <p>
                                                     <a href="/javascript/api/overview/azure/">Referência da API</a>
@@ -6330,7 +6543,7 @@ Azure para Programadores Java </h3>
                                                 <h3>
 Azure para programadores Go </h3>
                                                 <p>
-                                                    <a href="/go/azure/">Introdução</a>
+                                                    <a href="/azure/go/">Introdução</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Referência da API</a>
