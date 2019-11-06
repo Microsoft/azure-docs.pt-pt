@@ -469,9 +469,6 @@
           href: change-feed-functions.md
     - name: Análise distribuída globalmente e IA
       items:
-        - name: Introdução
-          displayName: 'Apache Spark, spark'
-          href: spark-api-introduction.md
         - name: Casos de utilização de análise
           href: analytics-usecases.md
         - name: Análise - arquiteturas de soluções
