@@ -1,7 +1,7 @@
 ---
 title: Suporte ao idioma-QnA Maker
 titleSuffix: Azure Cognitive Services
-description: A linguagem de uma base de dados de conhecimento afeta a capacidade do QnA Maker de extrair perguntas e respostas de fontes automaticamente, bem como a relevância dos resultados QnA Maker fornece em resposta a consultas do usuário. Uma lista de cultura, linguagens naturais com suporte pelo QnA Maker para sua base de dados de conhecimento. Não misture idiomas na mesma base de dados de conhecimento.
+description: Uma lista de cultura, linguagens naturais com suporte pelo QnA Maker para sua base de dados de conhecimento. Não misture idiomas na mesma base de dados de conhecimento.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: f4f7fffdde7d103271fa667bbab11c09ebc54825
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 96440bf0e9c26e6f222f3bc94c8fabb0bc8f488d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285872"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720996"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Suporte a idiomas para um recurso QnA Maker e bases de dados de conhecimento
 
@@ -29,7 +29,7 @@ Saiba mais sobre o [impacto da seleção de idioma](../how-to/language-knowledge
 
 A lista a seguir contém os idiomas com suporte para um recurso de QnA Maker. 
 
-|Linguagem|
+|Idioma|
 |--|
 |Árabe|
 |Armênio|

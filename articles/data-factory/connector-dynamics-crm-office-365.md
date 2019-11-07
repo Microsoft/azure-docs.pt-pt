@@ -1,5 +1,5 @@
 ---
-title: Copiar dados de e para o Dynamics CRM ou o Dynamics 365 (Common Data Service) usando Azure Data Factory | Microsoft Docs
+title: Copiar dados de e para o Dynamics CRM ou o Dynamics 365 (Common Data Service) usando Azure Data Factory
 description: Saiba como copiar dados do Microsoft Dynamics CRM ou do Microsoft Dynamics 365 (Common Data Service) para armazenamentos de dados de coletor com suporte ou de armazenamentos de dados de origem com suporte para Dynamics CRM ou Dynamics 365, usando uma atividade de cópia em um pipeline de data factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 3ad9ac3f0a3106b4562217a9c444b58423374318
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c9adcf72eeec82fd4b8f1805fca1f284c0b953b7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931112"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680988"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para o Dynamics 365 (Common Data Service) ou o Dynamics CRM usando Azure Data Factory
 
@@ -72,7 +72,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Dynamics.
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 e Dynamics CRM Online
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type deve ser definida como **Dynamics**, **DynamicsCrm**ou **CommonDataServiceForApps**. | Sim |
 | deploymentType | O tipo de implantação da instância do Dynamics. Ele deve ser **"online"** para o Dynamics online. | Sim |
@@ -115,7 +115,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Dynamics.
 
 *Propriedades adicionais que se comparam ao Dynamics online são "hostName" e "Port".*
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type deve ser definida como **Dynamics**, **DynamicsCrm**ou **CommonDataServiceForApps**. | Sim |
 | deploymentType | O tipo de implantação da instância do Dynamics. Deve ser **"OnPremisesWithIfd"** para o Dynamics local com IFD.| Sim |
@@ -161,7 +161,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados de e para o Dynamics, há suporte para as propriedades a seguir.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type do conjunto de conjuntos deve ser definida como **DynamicsEntity**, **DynamicsCrmEntity**ou **CommonDataServiceForAppsEntity**. |Sim |
 | entityName | O nome lógico da entidade a ser recuperada. | Não para origem (se "consulta" na origem da atividade for especificada), sim para o coletor |
@@ -193,7 +193,7 @@ Para obter uma lista completa de seções e propriedades disponíveis para defin
 
 Para copiar dados do Dynamics, há suporte para as propriedades a seguir na seção **origem** da atividade de cópia.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como **dynamicsname**, **DynamicsCrmSource**ou **CommonDataServiceForAppsSource**. | Sim |
 | consulta | FetchXML é uma linguagem de consulta proprietária que é usada no Dynamics (online e local). Veja o seguinte exemplo. Para saber mais, consulte [criar consultas com FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Não (se "EntityName" no DataSet for especificado) |
@@ -261,7 +261,7 @@ Para copiar dados do Dynamics, há suporte para as propriedades a seguir na seç
 
 Para copiar dados para o Dynamics, as propriedades a seguir têm suporte na seção **coletor** de atividade de cópia.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type do coletor da atividade de cópia deve ser definida como **DynamicsSink**, **DynamicsCrmSink**ou **CommonDataServiceForAppsSink**. | Sim |
 | WriteBehavior | O comportamento de gravação da operação.<br/>O valor permitido é **"Upsert"** . | Sim |

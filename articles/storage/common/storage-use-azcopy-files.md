@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: b141677e60705dc4176630ee7fd195ae03bba842
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 225fcd475d488cedb8bd210fe2fa9371849314ac
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72816933"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615525"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferir dados com o AzCopy e o armazenamento de arquivos 
 
@@ -47,7 +47,7 @@ Esta seção contém os seguintes exemplos:
 > * Carregar um arquivo específico
 
 > [!NOTE]
-> AzCopy não calcula e armazena automaticamente o código hash MD5 do arquivo. Se você quiser que o AzCopy faça isso, anexe o sinalizador `--put-md5` a cada comando de cópia. Dessa forma, quando o arquivo for baixado, AzCopy calculará um hash MD5 para dados baixados e verificará se o hash MD5 armazenado na propriedade `Content-md5` do arquivo corresponde ao hash calculado.
+> AzCopy não calcula e armazena automaticamente o código hash MD5 do arquivo. Se você quiser que o AzCopy faça isso, anexe o sinalizador `--put-md5` a cada comando de cópia. Dessa forma, quando o arquivo for baixado, AzCopy calculará um hash MD5 para dados baixados e verificará se o hash MD5 armazenado na propriedade de `Content-md5` do arquivo corresponde ao hash calculado.
 
 Para documentos de referência detalhados, consulte [cópia azcopy](storage-ref-azcopy-copy.md).
 
@@ -61,7 +61,7 @@ Para documentos de referência detalhados, consulte [cópia azcopy](storage-ref-
 | **Sintaxe** | `azcopy copy '<local-file-path>' 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-name>?<SAS-token>'` |
 | **Exemplo** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
-Você também pode carregar um arquivo usando um símbolo curinga (*) em qualquer lugar no caminho do arquivo ou nome do arquivo. Por exemplo: `'C:\myDirectory\*.txt'` ou `C:\my*\*.txt`.
+Você também pode carregar um arquivo usando um símbolo curinga (*) em qualquer lugar no caminho do arquivo ou nome do arquivo. Por exemplo: `'C:\myDirectory\*.txt'`ou `C:\my*\*.txt`.
 
 ### <a name="upload-a-directory"></a>Carregar um diretório
 
@@ -90,7 +90,7 @@ Você pode carregar o conteúdo de um diretório sem copiar o próprio diretóri
 | **Exemplo** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D"` |
 
 > [!NOTE]
-> Acrescente o sinalizador `--recursive` para carregar arquivos em todos os subdiretórios.
+> Acrescente o sinalizador de `--recursive` para carregar arquivos em todos os subdiretórios.
 
 ### <a name="upload-specific-files"></a>Carregar arquivos específicos
 
@@ -120,7 +120,7 @@ Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a opção `--include
 
 Você também pode excluir arquivos usando a opção `--exclude-pattern`. Para saber mais, consulte [azcopy Copy](storage-ref-azcopy-copy.md) Reference docs.
 
-As opções `--include-pattern` e `--exclude-pattern` se aplicam somente a nomes de filename e não ao caminho.  Se você quiser copiar todos os arquivos de texto que existem em uma árvore de diretório, use a opção `–recursive` para obter a árvore de diretórios inteira e use o `–include-pattern` e especifique `*.txt` para obter todos os arquivos de texto.
+As opções `--include-pattern` e `--exclude-pattern` se aplicam somente a nomes de filename e não ao caminho.  Se você quiser copiar todos os arquivos de texto que existem em uma árvore de diretório, use a opção `–recursive` para obter a árvore de diretórios inteira e, em seguida, use a `–include-pattern` e especifique `*.txt` para obter todos os arquivos de texto.
 
 ## <a name="download-files"></a>Transferir ficheiros
 
@@ -153,8 +153,9 @@ Para documentos de referência detalhados, consulte [cópia azcopy](storage-ref-
 
 |    |     |
 |--------|-----------|
-| **Sintaxe** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path>?<SAS-token>' '<local-directory-path>' --recursive` |
-| **Exemplo** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D' 'C:\myDirectory'  --recursive` |
+| **Sintaxe** | ' azcopy Copy "https://< o nome da conta de armazenamento >. File. Core. Windows. net/< File-Share-Name >/< Directory-Path >? < SAS-token >" 
+"< diretório local-caminho >"--recursivo " |
+| **Exemplo** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory"  --recursive` |
 
 Este exemplo resulta em um diretório chamado `C:\myDirectory\myFileShareDirectory` que contém todos os arquivos baixados.
 
@@ -168,7 +169,7 @@ Você pode baixar o conteúdo de um diretório sem copiar o próprio diretório 
 | **Exemplo** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory/*?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D' 'C:\myDirectory'` |
 
 > [!NOTE]
-> Acrescente o sinalizador `--recursive` para baixar arquivos em todos os subdiretórios.
+> Acrescente o sinalizador de `--recursive` para baixar arquivos em todos os subdiretórios.
 
 ### <a name="download-specific-files"></a>Baixar arquivos específicos
 
@@ -198,7 +199,7 @@ Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a opção `--include
 
 Você também pode excluir arquivos usando a opção `--exclude-pattern`. Para saber mais, consulte [azcopy Copy](storage-ref-azcopy-copy.md) Reference docs.
 
-As opções `--include-pattern` e `--exclude-pattern` se aplicam somente a nomes de filename e não ao caminho.  Se você quiser copiar todos os arquivos de texto que existem em uma árvore de diretório, use a opção `–recursive` para obter a árvore de diretórios inteira e use o `–include-pattern` e especifique `*.txt` para obter todos os arquivos de texto.
+As opções `--include-pattern` e `--exclude-pattern` se aplicam somente a nomes de filename e não ao caminho.  Se você quiser copiar todos os arquivos de texto que existem em uma árvore de diretório, use a opção `–recursive` para obter a árvore de diretórios inteira e, em seguida, use a `–include-pattern` e especifique `*.txt` para obter todos os arquivos de texto.
 
 ## <a name="copy-files-between-storage-accounts"></a>Copiar arquivos entre contas de armazenamento
 
@@ -254,9 +255,9 @@ Você pode sincronizar o conteúdo de um compartilhamento de arquivos com outro 
 > [!NOTE]
 > Atualmente, esse cenário tem suporte apenas para contas que não têm um namespace hierárquico. A versão atual do AzCopy não é sincronizada entre os arquivos do Azure e o armazenamento de BLOBs.
 
-O comando [Sync](storage-ref-azcopy-sync.md) compara os nomes de arquivo e os últimos carimbos de data/hora. Defina o sinalizador opcional `--delete-destination` como um valor de `true` ou `prompt` para excluir arquivos no diretório de destino se esses arquivos não existirem mais no diretório de origem.
+O comando [Sync](storage-ref-azcopy-sync.md) compara os nomes de arquivo e os últimos carimbos de data/hora. Defina o `--delete-destination` sinalizador opcional como um valor de `true` ou `prompt` para excluir arquivos no diretório de destino se esses arquivos não existirem mais no diretório de origem.
 
-Se você definir o sinalizador `--delete-destination` como `true` AzCopy excluirá arquivos sem fornecer um prompt. Se você quiser que um prompt apareça antes de AzCopy excluir um arquivo, defina o sinalizador `--delete-destination` como `prompt`.
+Se você definir o sinalizador `--delete-destination` como `true` AzCopy excluirá os arquivos sem fornecer um prompt. Se você quiser que um prompt apareça antes de AzCopy excluir um arquivo, defina o sinalizador `--delete-destination` como `prompt`.
 
 Para obter documentos de referência detalhados, consulte [azcopy Sync](storage-ref-azcopy-sync.md).
 

@@ -1,7 +1,7 @@
 ---
-title: Como implantar modelos para computar instâncias
+title: Como implantar modelos em VMs de notebook
 titleSuffix: Azure Machine Learning
-description: Saiba como implantar seus modelos de Azure Machine Learning como um serviço Web usando instâncias de computação.
+description: Saiba como implantar seus modelos de Azure Machine Learning como um serviço Web usando VMs de notebook.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,38 +10,34 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 10/25/2019
-ms.openlocfilehash: bb187826250b3edc9ac3d9e36a243d75819a45b3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: d4e37b02b3d7a21546a04c8948fbbfb7262bfa6a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496872"
+ms.locfileid: "73584775"
 ---
-# <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Implantar um modelo para Azure Machine Learning instâncias de computação
+# <a name="deploy-a-model-to-azure-machine-learning-notebook-vms"></a>Implantar um modelo para Azure Machine Learning VMs de notebook
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-> [!NOTE]
-> As instâncias de computação estão disponíveis somente para espaços de trabalho com uma região de **EUA Central norte** ou **sul do Reino Unido**.
->Se o seu espaço de trabalho estiver em qualquer outra região, você poderá continuar a criar e usar uma [VM do bloco de anotações](concept-compute-instance.md#notebookvm) .  Você pode implantar um modelo em uma instância de computação ou em uma VM do notebook usando as etapas neste artigo.
-
-Saiba como usar Azure Machine Learning para implantar um modelo como um serviço Web em sua instância de computação do Azure Machine Learning. Use instâncias de computação se uma das seguintes condições for verdadeira:
+Saiba como usar Azure Machine Learning para implantar um modelo como um serviço Web em sua VM do Azure Machine Learning notebook. Use as VMs do notebook se uma das seguintes condições for verdadeira:
 
 - Você precisa implantar e validar rapidamente seu modelo.
 - Você está testando um modelo que está em desenvolvimento.
 
 > [!TIP]
-> Implantar um modelo de um Jupyter Notebook em uma instância de computação para um serviço Web na mesma VM é uma _implantação local_. Nesse caso, o computador "local" é a instância de computação. Para obter mais informações sobre implantações, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
+> Implantar um modelo de um Jupyter Notebook em uma VM do notebook, para um serviço Web na mesma VM é uma _implantação local_. Nesse caso, o computador "local" é a VM do notebook. Para obter mais informações sobre implantações, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um espaço de trabalho Azure Machine Learning com uma instância de computação em execução. Para obter mais informações, consulte [ambiente de instalação e espaço de trabalho](tutorial-1st-experiment-sdk-setup.md).
+- Um espaço de trabalho Azure Machine Learning com uma VM de notebook em execução. Para obter mais informações, consulte [ambiente de instalação e espaço de trabalho](tutorial-1st-experiment-sdk-setup.md).
 
-## <a name="deploy-to-the-compute-instances"></a>Implantar nas instâncias de computação
+## <a name="deploy-to-the-notebook-vms"></a>Implantar nas VMs do notebook
 
-Um bloco de anotações de exemplo que demonstra implantações locais está incluído em sua instância de computação. Use as etapas a seguir para carregar o bloco de anotações e implantar o modelo como um serviço Web na VM:
+Um bloco de anotações de exemplo que demonstra implantações locais está incluído em sua VM do bloco de anotações. Use as etapas a seguir para carregar o bloco de anotações e implantar o modelo como um serviço Web na VM:
 
-1. No [Azure Machine Learning Studio](https://ml.azure.com), selecione suas instâncias de computação Azure Machine Learning.
+1. No [Azure Machine Learning Studio](https://ml.azure.com), selecione suas VMs de Azure Machine Learning notebook.
 
 1. Abra o subdiretório `samples-*` e, em seguida, abra `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb`. Uma vez aberto, execute o bloco de anotações.
 
@@ -51,13 +47,7 @@ Um bloco de anotações de exemplo que demonstra implantações locais está inc
 
     ![Captura de tela da porta de serviço local em execução](media/how-to-deploy-local-container-notebookvm/deploy-local-service-port.png)
 
-1. Para testar o serviço de uma instância de computação, use a URL de `https://localhost:<local_service.port>`. Para testar a partir de um cliente remoto, obtenha a URL pública do serviço em execução na instância de computação. A URL pública pode ser determinada usando a fórmula a seguir; 
-    * VM do notebook: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score`. 
-    * Instância de computação: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score`. 
-    
-    Por exemplo, 
-    * VM do notebook: `https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
-    * Instância de computação: `https://vm-name-6789.northcentralus.instances.azureml.net/score`
+1. Para testar o serviço da VM do notebook, use a URL do `https://localhost:<local_service.port>`. Para testar a partir de um cliente remoto, obtenha a URL pública do serviço em execução na VM do notebook. A URL pública pode ser determinada usando a fórmula a seguir; `https://<notebookvm_name>-<local_service_port>.<azure_region_of_notebook>.notebooks.azureml.net/score`. Por exemplo, `https://mynotebookvm-6789.eastus2.notebooks.azureml.net/score`.
 
 ## <a name="test-the-service"></a>Testar o serviço
 
