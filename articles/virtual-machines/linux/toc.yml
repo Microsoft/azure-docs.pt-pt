@@ -62,7 +62,7 @@
 - name: Conceitos
   items:
     - name: Azure Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Regiões
       href: regions.md
     - name: Disponibilidade e desempenho
@@ -72,7 +72,7 @@
         - name: Colocalização
           href: co-location.md
         - name: Desempenho da rede
-          href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Tipos e tamanhos de VM
       href: sizes.md
       items:
@@ -148,7 +148,7 @@
     - name: Redes
       href: network-overview.md
     - name: Conjuntos de dimensionamento
-      href: ../../virtual-machine-scale-sets/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Automatização de infraestruturas
       href: infrastructure-automation.md
     - name: Segurança
@@ -219,7 +219,7 @@
                 - name: Cenários de encriptação de discos para Linux
                   href: disk-encryption-linux-aad.md
         - name: Utilizar controlos de acesso
-          href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../role-based-access-control/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Utilizar políticas
           href: policy.md
         - name: Criar um Key Vault
@@ -235,25 +235,25 @@
     - name: Proteger VMs
       items:
         - name: Fazer cópias de segurança de VMs
-          href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../backup/backup-introduction-to-azure-backup.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
           items:
             - name: Criar cópia de segurança de uma única VM
-              href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../../backup/quick-backup-vm-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Fazer uma cópia de segurança de várias VMs
-              href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../../backup/tutorial-backup-vm-at-scale.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Restaurar discos
-              href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../../backup/tutorial-restore-disk.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Restaurar ficheiros individuais
-              href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../../backup/tutorial-restore-files.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Configurar a recuperação após desastre para VMs
-          href: ../../site-recovery/site-recovery-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../site-recovery/site-recovery-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
           items:
             - name: Ativar a recuperação após desastre para uma VM
-              href: ../../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Executar um teste de recuperação após desastre para uma VM
-              href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Efetuar a ativação pós-falha de uma VM para outra região
-              href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Gerir VMs
       items:
         - name: Utilização de VM
@@ -377,7 +377,7 @@
     - name: Disponibilidade e dimensionamento
       items:
         - name: Dimensionamento Automático
-          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Elevada disponibilidade
           href: manage-availability.md
         - name: Criar um grupo de colocação em proximidade
@@ -385,7 +385,7 @@
             - name: CLI
               href: proximity-placement-groups.md
             - name: Portal
-              href: ../windows/proximity-placement-groups-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../windows/proximity-placement-groups-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Criar uma VM na zona de disponibilidade
           href: create-cli-availability-zone.md
     - name: Utilizar ferramentas de automatização
@@ -448,7 +448,7 @@
             - name: Implemente a primeira aplicação
               href: cloudfoundry-deploy-your-first-app.md
         - name: Cassandra
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json'
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json'
         - name: OpenShift
           items:
             - name: Descrição geral do OpenShift
@@ -551,15 +551,15 @@
     - name: Gerir redes
       items:
         - name: Criar a rede virtual
-          href: ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Abrir portas para uma VM
           href: nsg-quickstart.md
         - name: Atribuir um endereço IP público
-          href: ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Utilizar vários NICs
           href: multiple-nics.md
         - name: Utilizar redes aceleradas
-          href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Atribuir um nome DNS público
           href: portal-create-fqdn.md
         - name: Localizar e eliminar NICs desanexados
@@ -591,18 +591,18 @@
         - name: Alterar subscrição ou grupo de recursos
           href: move-vm.md
         - name: Mover VMs para outra região
-          href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Mover para uma zona de disponibilidade
-          href: ../../site-recovery/move-azure-vms-avset-azone.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../site-recovery/move-azure-vms-avset-azone.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Migrar VMs AWS e VMs no local
-          href: ../windows/on-prem-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../windows/on-prem-to-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
           items:
             - name: Migrar a partir do Amazon Web Services (AWS) para o Azure
-              href: ../windows/aws-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../windows/aws-to-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Carregar VM no local
               href: upload-vhd.md
             - name: Utilizar o Azure Site Recovery
-              href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Migrar de Clássico para o Azure Resource Manager
           href: migration-classic-resource-manager-overview.md
           items:
@@ -615,7 +615,7 @@
             - name: Erros comuns de migração
               href: migration-classic-resource-manager-errors.md
             - name: Ferramentas da comunidade para migração
-              href: ../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: FAQ
               href: migration-classic-resource-manager-faq.md
 - name: Referência

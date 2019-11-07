@@ -141,7 +141,7 @@
 - name: Conceitos
   items:
     - name: Azure Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Regiões
       href: regions.md
     - name: Disponibilidade e desempenho
@@ -151,7 +151,7 @@
         - name: Colocalização
           href: co-location.md
         - name: Desempenho da rede
-          href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+          href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Tipos e tamanhos de VM
       href: sizes.md
       items:
@@ -231,7 +231,7 @@
     - name: Redes
       href: network-overview.md
     - name: Conjuntos de dimensionamento
-      href: ../../virtual-machine-scale-sets/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Automatização de infraestruturas
       href: infrastructure-automation.md
     - name: Segurança
@@ -320,7 +320,7 @@
         - name: Utilizar o WinRM
           href: winrm.md
         - name: Utilizar controlos de acesso
-          href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+          href: ../../role-based-access-control/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Utilizar políticas
           href: policy.md
         - name: Criar um Key Vault
@@ -328,25 +328,25 @@
     - name: Proteger VMs
       items:
         - name: Fazer cópias de segurança de VMs
-          href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../backup/backup-introduction-to-azure-backup.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
           items:
             - name: Criar cópia de segurança de uma única VM
-              href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../../backup/quick-backup-vm-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Fazer uma cópia de segurança de várias VMs
-              href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../../backup/tutorial-backup-vm-at-scale.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Restaurar discos
-              href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../../backup/tutorial-restore-disk.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Restaurar ficheiros individuais
-              href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../../backup/tutorial-restore-files.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Configurar a recuperação após desastre para VMs
-          href: ../../site-recovery/site-recovery-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../site-recovery/site-recovery-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
           items:
             - name: Ativar a recuperação após desastre para uma VM
-              href: ../../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Executar um teste de recuperação após desastre para uma VM
-              href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Efetuar a ativação pós-falha de uma VM para outra região
-              href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Gerir VMs
       items:
         - name: Utilização de VM
@@ -407,7 +407,7 @@
             - name: Portal
               href: shared-images-portal.md
             - name: CLI
-              href: ../linux/shared-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+              href: ../linux/shared-images.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Partilhar imagens entre inquilinos
               href: share-images-across-tenants.md
             - name: Resolver problemas de imagens partilhadas
@@ -415,7 +415,7 @@
         - name: Construtor de imagens (pré-visualização)
           items:
             - name: Descrição geral
-              href: ../linux/image-builder-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+              href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Utilizar a CLI do Azure
               href: image-builder.md
             - name: Criar para galerias de imagens
@@ -423,9 +423,9 @@
             - name: Atualizar uma imagem existente
               href: image-builder-gallery-update-image-version.md
             - name: Armazenar scripts
-              href: ../linux/image-builder-user-assigned-identity.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+              href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Referência de modelo
-              href: ../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+              href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Resolução de problemas
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Localizar e utilizar imagens
@@ -445,7 +445,7 @@
     - name: Disponibilidade e dimensionamento
       items:
         - name: Conjuntos de Dimensionamento de Máquinas Virtuais
-          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Elevada disponibilidade
           href: manage-availability.md
         - name: Criar um grupo de colocação em proximidade
@@ -543,7 +543,7 @@
       href: ps-common-network-ref.md
       items:
         - name: Criar a rede virtual
-          href: ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+          href: ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Abrir portas para uma VM
           items:
             - name: Portal do Azure
@@ -551,15 +551,15 @@
             - name: Azure PowerShell
               href: nsg-quickstart-powershell.md
         - name: Atribuir um endereço IP público
-          href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+          href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Utilizar vários NICs
           href: multiple-nics.md
         - name: Utilizar redes aceleradas
-          href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+          href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Atribuir um nome DNS público
           href: portal-create-fqdn.md
         - name: Resolução de DNS
-          href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+          href: ../../dns/dns-for-azure-services.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Configurar identidades geridas
       items:
         - name: Portal
@@ -581,9 +581,9 @@
         - name: Alterar subscrição ou grupo de recursos
           href: move-vm.md
         - name: Mover regiões
-          href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Mover para uma zona de disponibilidade
-          href: ../../site-recovery/move-azure-vms-avset-azone.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../site-recovery/move-azure-vms-avset-azone.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Migrar VMs AWS e VMs no local
           href: on-prem-to-azure.md
           items:
@@ -592,7 +592,7 @@
             - name: Do Amazon Web Services (AWS)
               href: aws-to-azure.md
             - name: Utilizar o Azure Site Recovery
-              href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+              href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Migrar de Clássico para o Azure Resource Manager
           href: migration-classic-resource-manager-overview.md
           items:
@@ -634,7 +634,7 @@
 - name: Recursos
   items:
     - name: Modelos de autor
-      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Desenvolva as suas competências com o Microsoft Learn
       href: /learn/browse/?products=azure-virtual-machines
     - name: Mapa do Azure

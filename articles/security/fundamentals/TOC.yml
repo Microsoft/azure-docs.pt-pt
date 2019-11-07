@@ -2,7 +2,6 @@
   href: index.yml
 - name: Arquitetura e design
   href: overview.md
-  expanded: false
   items:
     - name: Responsabilidade partilhada na cloud
       href: shared-responsibility.md
@@ -23,6 +22,7 @@
       href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: Capacidades técnicas de segurança
       href: technical-capabilities.md
+  expanded: false
 - name: Segurança e encriptação de dados
   href: encryption-overview.md
   items:
@@ -128,19 +128,6 @@
         - name: Segurança da gestão remota
           href: management.md
         - name: Integração de registos do Azure
-          items:
-            - name: Introdução
-              href: azure-log-integration-overview.md
-            - name: Introdução
-              href: azure-log-integration-get-started.md
-            - name: Integrar registos de auditoria do Azure AD
-              displayName: active directory
-              href: azure-log-integration-ad.md
-            - name: Integrar registos do Key Vault
-              displayName: keyvault
-              href: azure-log-integration-keyvault-eventhub.md
-            - name: FAQ
-              href: azure-log-integration-faq.md
     - name: Segurança operacional
       href: operational-overview.md
       items:
