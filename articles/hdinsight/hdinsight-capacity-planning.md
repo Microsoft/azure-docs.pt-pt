@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 31d7299b0c14b35aad7a29c875630d8a7fa4827e
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: d8d5ecd64ba689dc9cce342513702d8359038162
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200599"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682263"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planejamento de capacidade para clusters HDInsight
 
@@ -31,13 +31,13 @@ As principais perguntas a serem feitas para o planejamento de capacidade são:
 
 A região do Azure determina onde o cluster está fisicamente provisionado. Para minimizar a latência de leituras e gravações, o cluster deve estar próximo dos dados.
 
-O HDInsight está disponível em muitas regiões do Azure. Para localizar a região mais próxima, consulte [produtos disponíveis por região](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=hdinsight/).
+O HDInsight está disponível em muitas regiões do Azure. Para localizar a região mais próxima, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=hdinsight).
 
 ## <a name="choose-storage-location-and-size"></a>Escolher o local e o tamanho do armazenamento
 
 ### <a name="location-of-default-storage"></a>Local do armazenamento padrão
 
-O armazenamento padrão, ou seja, uma conta de armazenamento do Azure ou Azure Data Lake Storage, deve estar no mesmo local que o cluster. O armazenamento do Azure está disponível em todos os locais. Data Lake Storage Gen1 está disponível em algumas regiões – consulte a atual [Data Lake Storage disponibilidade](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage).
+O armazenamento padrão, ou seja, uma conta de armazenamento do Azure ou Azure Data Lake Storage, deve estar no mesmo local que o cluster. O armazenamento do Azure está disponível em todos os locais. Data Lake Storage Gen1 está disponível em algumas regiões – consulte a atual [Data Lake Storage disponibilidade](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 
 ### <a name="location-of-existing-data"></a>Local dos dados existentes
 
@@ -94,7 +94,7 @@ Você é cobrado pelo tempo de vida de um cluster. Se houver apenas alguns momen
 
 Depois de determinar o tamanho, a escala e o tipo da VM do cluster de destino, verifique os limites de capacidade da cota atual da sua assinatura. Quando você atingir um limite de cota, talvez não seja possível implantar novos clusters ou escalar horizontalmente os clusters existentes adicionando mais nós de trabalho. O único limite de cota é a cota de núcleos de CPU que existe no nível de região para cada assinatura. Por exemplo, sua assinatura pode ter um limite de 30 núcleos na região leste dos EUA. Se você precisar solicitar um aumento de cota, execute as seguintes etapas:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 1. Selecione **ajuda + suporte** no lado inferior esquerdo da página.
 1. Selecione **Novo pedido de suporte**.
 1. Na página **nova solicitação de suporte** , na guia **noções básicas** , selecione as seguintes opções:

@@ -1,5 +1,5 @@
 ---
-title: Agente de sincronização de dados para o Azure Sincronização de Dados SQL | Microsoft Docs
+title: Agente de sincronização de dados para Sincronização de Dados SQL do Azure
 description: Saiba como instalar e executar o agente de sincronização de dados para o Sincronização de Dados SQL do Azure para sincronizar dados com bancos de SQL Server do local
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 13a59a9b536a25897d7c545b6fb466c1192cb545
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 097c8547093a13f73f1ae5facdc0f7e6c75c071d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177708"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690796"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Agente de sincronização de dados para Sincronização de Dados SQL do Azure
 

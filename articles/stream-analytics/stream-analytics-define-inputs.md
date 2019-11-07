@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 8f64b3381f22c31b58604477260b5dae4b84d19a
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: df111d605b7c05bcb934771b6063f2be04770ea9
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988272"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606467"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Transmitir dados como entrada no Stream Analytics
 
@@ -129,7 +129,13 @@ Para cenários com grandes quantidades de dados não estruturados para armazenar
 
 O processamento de log é um cenário comumente usado para usar entradas de armazenamento de blob com Stream Analytics. Nesse cenário, os arquivos de dados de telemetria foram capturados de um sistema e precisam ser analisados e processados para extrair dados significativos.
 
-O carimbo de data/hora padrão dos eventos de armazenamento de BLOBs em Stream Analytics é o carimbo de data/hora em que o blob foi modificado pela última vez, `BlobLastModifiedUtcTime`que Para processar os dados como um fluxo usando um carimbo de data/hora na carga do evento, você deve usar o [carimbo de data/hora por](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) palavra-chave. Um trabalho Stream Analytics efetua pull dos dados da entrada do armazenamento de BLOBs do Azure a cada segundo se o arquivo de blob estiver disponível. Se o arquivo de blob estiver indisponível, haverá uma retirada exponencial com um atraso de tempo máximo de 90 segundos.
+O carimbo de data/hora padrão dos eventos de armazenamento de BLOBs em Stream Analytics é o carimbo de data/hora em que o blob foi modificado pela última vez, `BlobLastModifiedUtcTime`que Se um blob for carregado em uma conta de armazenamento em 13:00 e o trabalho de Azure Stream Analytics for iniciado usando a opção *agora* às 13:01, o BLOB não será selecionado, pois sua hora modificada fica fora do período de execução do trabalho.
+
+Se um blob for carregado em um contêiner de conta de armazenamento em 13:00 e o trabalho de Azure Stream Analytics for iniciado usando a *hora personalizada* em 13:00 ou anterior, o blob será coletado à medida que sua hora modificada estiver dentro do período de execução do trabalho.
+
+Se um trabalho de Azure Stream Analytics for iniciado usando o *agora* às 13:00 e um blob for carregado no contêiner da conta de armazenamento em 13:01, Azure Stream Analytics selecionará o blob.
+
+Para processar os dados como um fluxo usando um carimbo de data/hora na carga do evento, você deve usar o [carimbo de data/hora por](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) palavra-chave. Um trabalho Stream Analytics efetua pull dos dados da entrada do armazenamento de BLOBs do Azure a cada segundo se o arquivo de blob estiver disponível. Se o arquivo de blob estiver indisponível, haverá uma retirada exponencial com um atraso de tempo máximo de 90 segundos.
 
 As entradas formatadas em CSV exigem uma linha de cabeçalho para definir campos para o conjunto de dados, e todos os campos de linha de cabeçalho devem ser exclusivos.
 
@@ -149,7 +155,7 @@ A tabela a seguir explica cada propriedade na página **nova entrada** no portal
 | **Conta de armazenamento** | O nome da conta de armazenamento onde os arquivos de blob estão localizados. |
 | **Chave da conta de armazenamento** | A chave secreta associada à conta de armazenamento. Essa opção é preenchida automaticamente no, a menos que você selecione a opção para fornecer as configurações de armazenamento de BLOBs manualmente. |
 | **Container** | O contêiner para a entrada de BLOB. Os contêineres fornecem um agrupamento lógico para BLOBs armazenados no serviço blob Microsoft Azure. Ao carregar um blob para o serviço de armazenamento de BLOBs do Azure, você deve especificar um contêiner para esse BLOB. Você pode escolher usar o contêiner **existente** ou **criar novo** para ter um novo contêiner criado.|
-| **Padrão de caminho** (opcional) | O caminho do arquivo usado para localizar os BLOBs dentro do contêiner especificado. No caminho, você pode especificar uma ou mais instâncias das três variáveis a seguir: `{date}`, `{time}`ou `{partition}`<br/><br/>Exemplo 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemplo 2: `cluster1/logs/{date}`<br/><br/>O caractere de `*` não é um valor permitido para o prefixo de caminho. Somente <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caracteres de blob do Azure</a> válidos são permitidos. Não incluem nomes de contêiner ou nomes de arquivo. |
+| **Padrão de caminho** (opcional) | O caminho do arquivo usado para localizar os BLOBs dentro do contêiner especificado. Se você quiser ler BLOBs da raiz do contêiner, não defina um padrão de caminho. No caminho, você pode especificar uma ou mais instâncias das três variáveis a seguir: `{date}`, `{time}`ou `{partition}`<br/><br/>Exemplo 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemplo 2: `cluster1/logs/{date}`<br/><br/>O caractere de `*` não é um valor permitido para o prefixo de caminho. Somente <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caracteres de blob do Azure</a> válidos são permitidos. Não incluem nomes de contêiner ou nomes de arquivo. |
 | **Formato de data** (opcional) | Se você usar a variável de data no caminho, o formato de data no qual os arquivos são organizados. Exemplo: `YYYY/MM/DD` |
 | **Formato de hora** (opcional) |  Se você usar a variável de tempo no caminho, o formato de hora no qual os arquivos são organizados. Atualmente, o único valor com suporte é `HH` por horas. |
 | **Formato de serialização de eventos** | O formato de serialização (JSON, CSV, Avro ou [outro (Protobuf, XML, proprietário...)](custom-deserializer.md)do fluxo de dados de entrada.  Verifique se o formato JSON se alinha com a especificação e não inclui 0 à esquerda para números decimais. |

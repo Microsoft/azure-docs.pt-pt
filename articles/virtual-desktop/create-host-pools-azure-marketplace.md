@@ -1,5 +1,5 @@
 ---
-title: Criar um pool de hosts de área de trabalho virtual do Windows usando o Azure Marketplace – Azure
+title: Pool de hosts da área de trabalho virtual do Windows Azure Marketplace – Azure
 description: Como criar um pool de hosts de área de trabalho virtual do Windows usando o Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: 76cb2e0378cc7a005232304174c1de887adfe387
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: e5be2490ebf756c030e6a53b226f91c49c7bccaf
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482230"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605575"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: criar um pool de hosts usando o Azure Marketplace
 
@@ -73,7 +73,9 @@ Para a folha **configurar máquinas virtuais** :
 Para a folha **configurações de máquina virtual** :
 
 >[!NOTE]
-> Se você estiver ingressando suas VMs em um ambiente Azure Active Directory Domain Services (AD DS do Azure), verifique se o usuário ingressar no domínio também é membro do [grupo de administradores de DC do AAD](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+> Se você estiver unindo suas VMs a um ambiente Azure Active Directory Domain Services (AD DS do Azure), verifique se o usuário ingressar no domínio é membro do [grupo de administradores de DC do AAD](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+>
+> A conta também deve fazer parte do domínio gerenciado do Azure AD DS ou as contas de locatário do Azure AD de diretórios externos associados ao seu locatário do Azure AD não podem ser autenticadas corretamente durante o processo de ingresso no domínio. 
 
 1. Para **origem da imagem**, selecione a origem e insira as informações apropriadas sobre como encontrá-la e como armazená-la. Se você optar por não usar discos gerenciados, selecione a conta de armazenamento que contém o arquivo. vhd.
 2. Insira o nome principal do usuário e a senha para a conta de domínio que ingressará as VMs no domínio Active Directory. Esse mesmo nome de usuário e senha serão criados nas máquinas virtuais como uma conta local. Você pode redefinir essas contas locais mais tarde.

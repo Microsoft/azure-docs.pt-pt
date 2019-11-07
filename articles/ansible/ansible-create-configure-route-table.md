@@ -1,6 +1,6 @@
 ---
 title: Tutorial – configurar tabelas de rotas do Azure usando o Ansible
-description: Saiba como criar, alterar e excluir tabelas de rotas do Azure usando o Ansible
+description: Saiba como criar, gerenciar e excluir tabelas de rotas do Azure usando o Ansible. Saiba também como criar e excluir rotas.
 keywords: Ansible, Azure, DevOps, Bash, manual, rede, rota, tabela de rotas
 ms.topic: tutorial
 ms.service: ansible
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 14753af58a179ddf4011cb29c7ed08faab62875c
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 0ffc00606eac4cf57cdf19072986373f5602aafa
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241787"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614349"
 ---
 # <a name="tutorial-configure-azure-route-tables-using-ansible"></a>Tutorial: configurar tabelas de rotas do Azure usando o Ansible
 
@@ -117,7 +117,7 @@ ansible-playbook route_table_associate.yml
 
 O código do guia estratégico nesta seção dissocia uma tabela de rotas de uma sub-rede.
 
-Ao dissociar uma tabela de rotas de uma sub-rede, defina o `route_table` para a sub-rede como `None`. 
+Ao dissociar uma tabela de rotas de uma sub-rede, defina o `route_table` para a sub-rede a `None`. 
 
 Guarde o manual de procedimentos seguinte como `route_table_dissociate.yml`:
 

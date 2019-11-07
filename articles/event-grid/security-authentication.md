@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: f22d8c57b0127e646321a20587d0cd89f5c9ea45
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b9e471928940094b29bdffeb73ea42fe852492cb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72325411"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73665581"
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança e autenticação da grade de eventos 
 
@@ -85,15 +85,15 @@ Para provar a propriedade do ponto de extremidade, retorne o código de validaç
 }
 ```
 
-Você deve retornar um código de status de resposta HTTP 200 OK. O HTTP 202 aceito não é reconhecido como uma resposta de validação de assinatura de grade de eventos válida.
+Você deve retornar um código de status de resposta HTTP 200 OK. O HTTP 202 aceito não é reconhecido como uma resposta de validação de assinatura de grade de eventos válida. A solicitação HTTP deve ser concluída dentro de 30 segundos. Se a operação não for concluída dentro de 30 segundos, a operação será cancelada e poderá ser tentada novamente após 5 segundos. Se todas as tentativas falharem, elas serão tratadas como um erro de handshake de validação.
 
-Ou, você pode validar manualmente a assinatura enviando uma solicitação GET para a URL de validação. A assinatura de evento permanece em um estado pendente até ser validada.
+Ou, você pode validar manualmente a assinatura enviando uma solicitação GET para a URL de validação. A assinatura de evento permanece em um estado pendente até ser validada. A URL de validação usa a porta 553. Se suas regras de firewall bloquearem a porta 553, talvez seja necessário atualizar as regras para um handshake manual bem-sucedido.
 
 Para obter um exemplo de tratamento do handshake de validação de assinatura, consulte um [ C# exemplo](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
 ### <a name="checklist"></a>Lista de Verificação
 
-Durante a criação da assinatura do evento, se você estiver vendo uma mensagem de erro como "a tentativa de validar o ponto de extremidade fornecido https: \//seu ponto de extremidade-aqui falhou. Para obter mais detalhes, visite https: \//aka. ms/esvalidation ", mas isso indica que há uma falha no handshake de validação. Para resolver esse erro, verifique os seguintes aspectos:
+Durante a criação da assinatura do evento, se você estiver vendo uma mensagem de erro como "a tentativa de validar o ponto de extremidade fornecido https:\//Your-Endpoint-Here falhou. Para obter mais detalhes, visite https:\//aka.ms/esvalidation ", isso indica que há uma falha no handshake de validação. Para resolver esse erro, verifique os seguintes aspectos:
 
 * Você tem controle do código do aplicativo no ponto de extremidade de destino? Por exemplo, se você estiver escrevendo um gatilho HTTP com base em uma função do Azure, você terá acesso ao código do aplicativo para fazer alterações nele?
 * Se você tiver acesso ao código do aplicativo, implemente o mecanismo de handshake baseado em ValidationCode, conforme mostrado no exemplo acima.

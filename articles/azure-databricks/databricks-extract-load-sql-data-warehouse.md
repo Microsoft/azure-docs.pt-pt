@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 39f71e109b0d9d7b3b0375c0ec2c4d1e4a657994
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 8ceb9e940584ae4c41484fe31ce5cb1832bb3400
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469519"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605702"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: extrair, transformar e carregar dados usando Azure Databricks
 
@@ -77,7 +77,7 @@ Certifique-se de concluir os pré-requisitos deste tutorial.
 
    : heavy_check_mark: a chave de acesso da sua conta de armazenamento de BLOBs.
 
-   : heavy_check_mark: o nome da sua conta de armazenamento Data Lake Storage Gen2.
+   : heavy_check_mark: o nome da sua conta de armazenamento de Data Lake Storage Gen2.
 
    : heavy_check_mark: a ID de locatário da sua assinatura.
 
@@ -156,7 +156,6 @@ Nesta seção, você cria um bloco de anotações no espaço de trabalho Azure D
    ```scala
    val appID = "<appID>"
    val password = "<password>"
-   val fileSystemName = "<file-system-name>"
    val tenantID = "<tenant-id>"
 
    spark.conf.set("fs.azure.account.auth.type", "OAuth")
@@ -165,8 +164,6 @@ Nesta seção, você cria um bloco de anotações no espaço de trabalho Azure D
    spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-   dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
-   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
    ```
 
    **Account configuration** (Configuração da conta)
@@ -245,7 +242,7 @@ Na célula, pressione **Shift + Enter** para executar o código.
 
 ## <a name="transform-data-in-azure-databricks"></a>Transformar dados no Azure Databricks
 
-O arquivo RAW de dados de exemplo **small_radio_json. JSON** captura o público para uma estação de rádio e tem uma variedade de colunas. Nesta seção, você transforma os dados para recuperar apenas as colunas específicas do conjunto.
+Os dados brutos de exemplo **small_radio_json arquivo. JSON** capturam o público-alvo de uma estação de rádio e têm uma variedade de colunas. Nesta seção, você transforma os dados para recuperar apenas as colunas específicas do conjunto.
 
 1. Primeiro, recupere apenas as colunas **FirstName**, **LastName**, **sexo**, **Location**e **Level** a partir do dataframe que você criou.
 

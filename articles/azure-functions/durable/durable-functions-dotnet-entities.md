@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 9eba76d78c2070f03ed835cdf2bf303ed72b1f7f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a59e5443c80c9372f646edfdae2261157a41acc9
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72801860"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614895"
 ---
-# <a name="developers-guide-to-durable-entities-in-net-preview"></a>Guia do desenvolvedor para entidades duráveis no .NET (visualização)
+# <a name="developers-guide-to-durable-entities-in-net"></a>Guia do desenvolvedor para entidades duráveis no .NET
 
 Neste artigo, descrevemos as interfaces disponíveis para desenvolver entidades duráveis com o .NET em detalhes, incluindo exemplos e conselhos gerais. 
 
@@ -35,7 +35,7 @@ Este artigo se concentra principalmente na sintaxe baseada em classe, pois esper
  
 ## <a name="defining-entity-classes"></a>Definindo classes de entidade
 
-O exemplo a seguir é uma implementação de uma entidade `Counter` que armazena um único valor do tipo inteiro e oferece quatro operações `Add`, `Reset`, `Get` e `Delete`.
+O exemplo a seguir é uma implementação de uma entidade `Counter` que armazena um único valor do tipo inteiro e oferece quatro operações `Add`, `Reset`, `Get`e `Delete`.
 
 ```csharp
 [JsonObject(MemberSerialization.OptIn)]
@@ -93,7 +93,7 @@ Além disso, qualquer método destinado a ser invocado como uma operação deve 
 
 Todas as operações de entidade podem ler e atualizar o estado da entidade e as alterações no estado são persistidas automaticamente no armazenamento. Além disso, as operações podem executar e/s externa ou outros cálculos, dentro dos limites gerais comuns a todos os Azure Functions.
 
-As operações também têm acesso à funcionalidade fornecida pelo contexto `Entity.Current`:
+As operações também têm acesso à funcionalidade fornecida pelo contexto de `Entity.Current`:
 
 * `EntityName`: o nome da entidade atualmente em execução.
 * `EntityKey`: a chave da entidade atualmente em execução.
@@ -130,7 +130,7 @@ A seguinte função http do Azure implementa uma operação de exclusão usando 
 [FunctionName("DeleteCounter")]
 public static async Task<HttpResponseMessage> DeleteCounter(
     [HttpTrigger(AuthorizationLevel.Function, "delete", Route = "Counter/{entityKey}")] HttpRequestMessage req,
-    [DurableClient] IDurableClient client,
+    [DurableClient] IDurableEntityClient client,
     string entityKey)
 {
     var entityId = new EntityId("Counter", entityKey);
@@ -147,7 +147,7 @@ A seguinte função http do Azure implementa uma operação GET usando convenç�
 [FunctionName("GetCounter")]
 public static async Task<HttpResponseMessage> GetCounter(
     [HttpTrigger(AuthorizationLevel.Function, "get", Route = "Counter/{entityKey}")] HttpRequestMessage req,
-    [DurableClient] IDurableClient client,
+    [DurableClient] IDurableEntityClient client,
     string entityKey)
 {
     var entityId = new EntityId("Counter", entityKey);
@@ -194,6 +194,7 @@ public interface ICounter
     Task<int> Get();
     void Delete();
 }
+
 public class Counter : ICounter
 {
     ...
@@ -212,7 +213,7 @@ O código do cliente pode usar `SignalEntityAsync<TEntityInterface>` para enviar
 [FunctionName("DeleteCounter")]
 public static async Task<HttpResponseMessage> DeleteCounter(
     [HttpTrigger(AuthorizationLevel.Function, "delete", Route = "Counter/{entityKey}")] HttpRequestMessage req,
-    [DurableClient] IDurableClient client,
+    [DurableClient] IDurableEntityClient client,
     string entityKey)
 {
     var entityId = new EntityId("Counter", entityKey);
@@ -224,12 +225,12 @@ public static async Task<HttpResponseMessage> DeleteCounter(
 Neste exemplo, o parâmetro `proxy` é uma instância gerada dinamicamente de `ICounter`, que converte internamente a chamada para `Delete` em um sinal.
 
 > [!NOTE]
-> As APIs `SignalEntityAsync` podem ser usadas somente para operações unidirecionais. Mesmo que uma operação retorne `Task<T>`, o valor do parâmetro `T` sempre será nulo ou `default`, não o resultado real.
-Por exemplo, não faz sentido sinalizar a operação `Get`, uma vez que nenhum valor é retornado. Em vez disso, os clientes podem usar o `ReadStateAsync` para acessar o estado do contador diretamente ou podem iniciar uma função de orquestrador que chama a operação `Get`. 
+> As APIs de `SignalEntityAsync` podem ser usadas somente para operações unidirecionais. Mesmo que uma operação retorne `Task<T>`, o valor do parâmetro `T` sempre será nulo ou `default`, não o resultado real.
+Por exemplo, não faz sentido sinalizar a operação de `Get`, uma vez que nenhum valor é retornado. Em vez disso, os clientes podem usar qualquer `ReadStateAsync` para acessar o estado do contador diretamente ou podem iniciar uma função de orquestrador que chama a operação de `Get`. 
 
 ### <a name="example-orchestration-first-signals-then-calls-entity-through-proxy"></a>Exemplo: primeiro os sinais de orquestração e, em seguida, chama a entidade por meio do proxy
 
-Para chamar ou sinalizar uma entidade de dentro de uma orquestração, `CreateEntityProxy` pode ser usado, juntamente com o tipo de interface, para gerar um proxy para a entidade. Esse proxy pode então ser usado para chamar ou sinalizar operações:
+Para chamar ou sinalizar uma entidade de dentro de uma orquestração, `CreateEntityProxy` pode ser usada, juntamente com o tipo de interface, para gerar um proxy para a entidade. Esse proxy pode então ser usado para chamar ou sinalizar operações:
 
 ```csharp
 [FunctionName("IncrementThenGet")]
@@ -249,7 +250,7 @@ public static async Task<int> Run(
 }
 ```
 
-Implicitamente, todas as operações que retornam `void` são sinalizadas e todas as operações que retornam `Task` ou `Task<T>` são chamadas. É possível alterar esse comportamento padrão e as operações de sinal, mesmo que retornem a tarefa, usando o método `SignalEntity<IInterfaceType>` explicitamente.
+Implicitamente, todas as operações que retornam `void` são sinalizadas e quaisquer operações que retornam `Task` ou `Task<T>` são chamadas. É possível alterar esse comportamento padrão e as operações de sinal, mesmo que retornem a tarefa, usando o método `SignalEntity<IInterfaceType>` explicitamente.
 
 ### <a name="shorter-option-for-specifying-the-target"></a>Opção mais curta para especificar o destino
 
@@ -270,9 +271,9 @@ Também impõem algumas regras adicionais:
 * As interfaces de entidade devem definir apenas métodos.
 * As interfaces de entidade não devem conter parâmetros genéricos.
 * Os métodos de interface de entidade não devem ter mais de um parâmetro.
-* Os métodos de interface de entidade devem retornar `void`, `Task` ou `Task<T>` 
+* Os métodos de interface de entidade devem retornar `void`, `Task`ou `Task<T>` 
 
-Se qualquer uma dessas regras for violada, um `InvalidOperationException` será lançado em tempo de execução quando a interface for usada como um argumento de tipo para `SignalEntity` ou `CreateProxy`. A mensagem de exceção explica qual regra foi quebrada.
+Se qualquer uma dessas regras for violada, uma `InvalidOperationException` será lançada em tempo de execução quando a interface for usada como um argumento de tipo para `SignalEntity` ou `CreateProxy`. A mensagem de exceção explica qual regra foi quebrada.
 
 > [!NOTE]
 > Métodos de interface que retornam `void` só podem ser sinalizados (unidirecional), não chamados (bidirecional). Métodos de interface que retornam `Task` ou `Task<T>` podem ser chamados ou sinalizados. Se chamado, eles retornam o resultado da operação ou geram novamente exceções lançadas pela operação. No entanto, quando sinalizado, eles não retornam o resultado real ou a exceção da operação, mas apenas o valor padrão.
@@ -356,7 +357,7 @@ Há muitas opções disponíveis para personalizar o comportamento de Json.NET. 
 
 ### <a name="custom-initialization-on-first-access"></a>Inicialização personalizada no primeiro acesso
 
-Ocasionalmente, precisamos executar alguma inicialização especial antes de distribuir uma operação para uma entidade que nunca foi acessada ou que foi excluída. Para especificar esse comportamento, é possível adicionar uma condicional antes do `DispatchAsync`:
+Ocasionalmente, precisamos executar alguma inicialização especial antes de distribuir uma operação para uma entidade que nunca foi acessada ou que foi excluída. Para especificar esse comportamento, é possível adicionar uma condicional antes da `DispatchAsync`:
 
 ```csharp
 [FunctionName(nameof(Counter))]
@@ -372,9 +373,9 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
 
 ### <a name="bindings-in-entity-classes"></a>Associações em classes de entidade
 
-Diferentemente das funções regulares, os métodos de classe de entidade não têm acesso direto a associações de entrada e saída. Em vez disso, os dados de associação devem ser capturados na declaração da função de ponto de entrada e, em seguida, passados para o método `DispatchAsync<T>`. Todos os objetos passados para `DispatchAsync<T>` serão passados automaticamente para o construtor da classe de entidade como um argumento.
+Diferentemente das funções regulares, os métodos de classe de entidade não têm acesso direto a associações de entrada e saída. Em vez disso, os dados de associação devem ser capturados na declaração da função de ponto de entrada e, em seguida, passados para o método `DispatchAsync<T>`. Todos os objetos passados para `DispatchAsync<T>` serão automaticamente passados para o construtor da classe de entidade como um argumento.
 
-O exemplo a seguir mostra como uma referência a `CloudBlobContainer` da [Associação de entrada de blob](../functions-bindings-storage-blob.md#input) pode ser disponibilizada para uma entidade baseada em classe.
+O exemplo a seguir mostra como uma referência de `CloudBlobContainer` da [Associação de entrada de blob](../functions-bindings-storage-blob.md#input) pode ser disponibilizada para uma entidade baseada em classe.
 
 ```csharp
 public class BlobBackedEntity
@@ -405,7 +406,7 @@ Para obter mais informações sobre associações no Azure Functions, consulte a
 
 ### <a name="dependency-injection-in-entity-classes"></a>Injeção de dependência em classes de entidade
 
-As classes de entidade dão suporte à [injeção de dependência Azure Functions](../functions-dotnet-dependency-injection.md). O exemplo a seguir demonstra como registrar um serviço `IHttpClientFactory` em uma entidade baseada em classe.
+As classes de entidade dão suporte à [injeção de dependência Azure Functions](../functions-dotnet-dependency-injection.md). O exemplo a seguir demonstra como registrar um serviço de `IHttpClientFactory` em uma entidade baseada em classe.
 
 ```csharp
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
@@ -451,6 +452,9 @@ public class HttpEntity
 
 > [!NOTE]
 > Para evitar problemas com a serialização, certifique-se de excluir os campos destinados a armazenar valores injetados da serialização.
+
+> [!NOTE]
+> Ao contrário de quando usar a injeção de Construtor no .NET Azure Functions regular, o método de ponto de entrada de funções para entidades baseadas em classe *deve* ser declarado `static`. Declarar um ponto de entrada de função não estática pode causar conflitos entre o inicializador de objeto de Azure Functions normal e o inicializador de objeto de entidades duráveis.
 
 ## <a name="function-based-syntax"></a>Sintaxe baseada em função
 
@@ -500,7 +504,7 @@ Os membros a seguir gerenciam o estado da entidade (criar, ler, atualizar, exclu
 * `SetState(arg)`: cria ou atualiza o estado da entidade.
 * `DeleteState()`: exclui o estado da entidade, se ela existir. 
 
-Se o estado retornado por `GetState` for um objeto, ele poderá ser modificado diretamente pelo código do aplicativo. Não é necessário chamar `SetState` novamente no final (mas também sem danos). Se `GetState<TState>` for chamado várias vezes, o mesmo tipo deverá ser usado.
+Se o estado retornado por `GetState` for um objeto, ele poderá ser modificado diretamente pelo código do aplicativo. Não há necessidade de chamar `SetState` novamente no final (mas também sem danos). Se `GetState<TState>` for chamado várias vezes, o mesmo tipo deverá ser usado.
 
 Por fim, os membros a seguir são usados para sinalizar outras entidades ou iniciar novas orquestrações:
 

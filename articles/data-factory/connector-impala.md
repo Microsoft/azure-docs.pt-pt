@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do Impala usando o Azure Data Factory | Microsoft Docs
+title: Copiar dados do Impala usando Azure Data Factory
 description: Saiba como copiar dados do Impala para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline de data factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 54f46c09cfab64d53e8f5f503ca46004289f18c2
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 4fa43246278c33755f6a8a5b62f914689e6e9b40
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935573"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680790"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Copiar dados do Impala usando Azure Data Factory
 
@@ -48,7 +48,7 @@ As seções a seguir fornecem detalhes sobre as propriedades que são usadas par
 
 As propriedades a seguir têm suporte para o serviço vinculado do Impala.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type deve ser definida como **Impala**. | Sim |
 | hospedeira | O endereço IP ou nome do host do servidor Impala (ou seja, 192.168.222.160).  | Sim |
@@ -94,12 +94,12 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Impala, defina a propriedade Type do conjunto de dado como **apacheimpalaobject**. As propriedades a seguir têm suporte:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **apacheimpalaobject** | Sim |
-| Esquema | Nome do esquema. |Não (se "Query" na origem da atividade for especificada)  |
-| Tabela | Nome da tabela. |Não (se "Query" na origem da atividade for especificada)  |
-| tableName | Nome da tabela com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Use `schema` e `table` para uma nova carga de trabalho. | Não (se "Query" na origem da atividade for especificada) |
+| schema | Nome do esquema. |Não (se for especificada "query" na origem de atividade)  |
+| tabela | Nome da tabela. |Não (se for especificada "query" na origem de atividade)  |
+| tableName | Nome da tabela com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Use `schema` e `table` para uma nova carga de trabalho. | Não (se for especificada "query" na origem de atividade) |
 
 **Exemplo**
 
@@ -126,7 +126,7 @@ Para obter uma lista completa de seções e propriedades disponíveis para defin
 
 Para copiar dados do Impala, defina o tipo de origem na atividade de cópia como **ImpalaSource**. As propriedades a seguir têm suporte na seção **origem** da atividade de cópia.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como **ImpalaSource**. | Sim |
 | consulta | Use a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`. | Não (se "TableName" no DataSet for especificado) |

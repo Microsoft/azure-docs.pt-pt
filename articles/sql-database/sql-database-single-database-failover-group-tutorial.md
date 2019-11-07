@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: adicionar um banco de dados SQL do Azure para um grupo de failover | Microsoft Docs'
+title: 'Tutorial: adicionar um banco de dados SQL do Azure para um grupo de failover '
 description: Adicione um banco de dados SQL do banco de dados do Azure a um grupo de failover usando o portal do Azure, o PowerShell ou o CLI do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 106351487980d2f76e9122bc7423114e65593b15
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 022faa04db6f9699d5d80918087c62c69b0fb5fe
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933260"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687295"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Tutorial: adicionar um banco de dados SQL do Azure para um grupo de failover
 
@@ -39,7 +39,7 @@ Para concluir este tutorial, confirme que tem:
 Para concluir o tutorial, verifique se você tem os seguintes itens:
 
 - Uma subscrição do Azure. [Crie uma conta gratuita](https://azure.microsoft.com/free/) se você ainda não tiver uma.
-- [O Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)

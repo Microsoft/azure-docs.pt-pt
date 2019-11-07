@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do SAP Business Warehouse via hub aberto usando o Azure Data Factory | Microsoft Docs
+title: Copiar dados do SAP Business Warehouse via hub aberto usando o Azure Data Factory
 description: Saiba como copiar dados do SAP Business Warehouse (BW) via hub aberto para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,28 +12,28 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: a35246aff99ec78e665e3be4afd47409959bef63
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: f4ee4ec40aeecdb902be3cf93beb9ee25350e262
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089729"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680311"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse via hub aberto usando o Azure Data Factory
 
-Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de um SAP Business Warehouse (BW) via Open Hub. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de um SAP Business Warehouse (BW) via Open Hub. Ele se baseia no artigo [visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 >[!TIP]
 >Para aprender o suporte geral do ADF no cenário de integração de dados do SAP, consulte [integração de dados SAP usando Azure data Factory White Paper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) com introdução, análise e diretrizes detalhadas.
 
-## <a name="supported-capabilities"></a>Capacidades suportadas
+## <a name="supported-capabilities"></a>Recursos com suporte
 
 Este SAP Business Warehouse via conector de Hub aberto tem suporte para as seguintes atividades:
 
 - [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
-Você pode copiar dados do SAP Business Warehouse via hub aberto para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Você pode copiar dados do SAP Business Warehouse via hub aberto para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como fontes/coletores pela atividade de cópia, consulte a tabela [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
 
 Especificamente, este conector do Hub aberto do SAP Business Warehouse dá suporte a:
 
@@ -52,10 +52,10 @@ SAP BW OHD (Open Hub Destination) define o destino para o qual os dados SAP são
 
 ## <a name="delta-extraction-flow"></a>Fluxo de extração de Delta
 
-O ADF SAP BW Open Hub Connector oferece duas propriedades opcionais `baseRequestId` : `excludeLastRequest` e que podem ser usadas para lidar com a carga Delta do Open Hub. 
+O ADF SAP BW Open Hub Connector oferece duas propriedades opcionais: `excludeLastRequest` e `baseRequestId` que podem ser usadas para lidar com a carga Delta do Open Hub. 
 
-- **excludeLastRequestId**: Se os registros da última solicitação devem ser excluídos. O valor padrão é true. 
-- **baseRequestId**: A ID da solicitação de carregamento Delta. Depois de definido, somente os dados com requestId maior do que o valor dessa propriedade serão recuperados. 
+- **excludeLastRequestId**: se os registros da última solicitação devem ser excluídos. O valor padrão é true. 
+- **baseRequestId**: a ID da solicitação de carregamento Delta. Depois de definido, somente os dados com requestId maior do que o valor dessa propriedade serão recuperados. 
 
 Em geral, a extração do SAP InfoProviders para Azure Data Factory (ADF) consiste em duas etapas: 
 
@@ -77,7 +77,7 @@ Para uma manipulação de Delta adequada, não é permitido ter IDs de solicita�
 
 Para usar esse conector de Hub aberto do SAP Business Warehouse, você precisa:
 
-- Configure um Integration Runtime auto-hospedado com a versão 3,13 ou superior. Ver [Integration Runtime autoalojado](create-self-hosted-integration-runtime.md) artigo para obter detalhes.
+- Configure um Integration Runtime auto-hospedado com a versão 3,13 ou superior. Confira o artigo de [Integration Runtime auto-hospedado](create-self-hosted-integration-runtime.md) para obter detalhes.
 
 - Baixe o  **[conector do SAP .net](https://support.sap.com/en/product/connectors/msnet.html) de 64 bits 3,0** do site da SAP e instale-o na máquina ir auto-hospedado. Ao instalar o, na janela etapas de instalação opcionais, certifique-se de selecionar a opção **instalar assemblies no GAC** , conforme mostrado na imagem a seguir. 
 
@@ -100,22 +100,22 @@ Para usar esse conector de Hub aberto do SAP Business Warehouse, você precisa:
 
 As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Data Factory entidades específicas ao conector de Hub aberto do SAP Business Warehouse.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 
 As propriedades a seguir têm suporte para o serviço vinculado de Hub aberto do SAP Business Warehouse:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade Type deve ser definida como: **SapOpenHub** | Sim |
-| server | Nome do servidor no qual reside a instância de SAP BW. | Sim |
-| systemNumber | Número de sistema do sistema de SAP BW.<br/>Valor permitido: número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim |
+| tipo | A propriedade Type deve ser definida como: **SapOpenHub** | Sim |
+| servidor | Nome do servidor no qual reside a instância de SAP BW. | Sim |
+| Número | Número de sistema do sistema de SAP BW.<br/>Valor permitido: número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim |
 | clientId | ID do cliente do cliente no sistema SAP W.<br/>Valor permitido: número decimal de três dígitos representado como uma cadeia de caracteres. | Sim |
 | language | Idioma usado pelo sistema SAP. | Não (o valor padrão é **en**)|
-| userName | Nome do usuário que tem acesso ao servidor SAP. | Sim |
-| password | A palavra-passe do utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Um Integration Runtime auto-hospedado é necessário conforme mencionado em [pré-requisitos](#prerequisites). |Sim |
+| Usu | Nome do usuário que tem acesso ao servidor SAP. | Sim |
+| palavra-passe | A palavra-passe do utilizador. Marque este campo como uma SecureString para armazená-lo com segurança no Data Factory ou [faça referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Um Integration Runtime auto-hospedado é necessário conforme mencionado em [pré-requisitos](#prerequisites). |Sim |
 
-**Example:**
+**Exemplo:**
 
 ```json
 {
@@ -140,20 +140,20 @@ As propriedades a seguir têm suporte para o serviço vinculado de Hub aberto do
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Propriedades de DataSet
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de SAP BW Open Hub.
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte pelo conjunto de SAP BW Open Hub.
 
-Para copiar dados de e para SAP BW Open Hub, defina a propriedade Type do conjunto de dados como **SapOpenHubTable**. São suportadas as seguintes propriedades.
+Para copiar dados de e para SAP BW Open Hub, defina a propriedade Type do conjunto de dados como **SapOpenHubTable**. As propriedades a seguir têm suporte.
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade Type deve ser definida como **SapOpenHubTable**.  | Sim |
+| tipo | A propriedade Type deve ser definida como **SapOpenHubTable**.  | Sim |
 | openHubDestinationName | O nome do destino do Hub aberto para o qual copiar dados. | Sim |
 
-Se você estivesse Configurando `excludeLastRequest` e `baseRequestId` no DataSet, ele ainda tem suporte como está, enquanto você é sugerido para usar o novo modelo na origem da atividade no futuro.
+Se você estivesse definindo `excludeLastRequest` e `baseRequestId` no DataSet, ainda há suporte no estado em que se encontra, enquanto você é sugerido para usar o novo modelo na origem da atividade no futuro.
 
-**Example:**
+**Exemplo:**
 
 ```json
 {
@@ -174,7 +174,7 @@ Se você estivesse Configurando `excludeLastRequest` e `baseRequestId` no DataSe
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo SAP BW fonte de Hub aberta.
+Para obter uma lista completa de seções e propriedades disponíveis para definir atividades, consulte o artigo [pipelines](concepts-pipelines-activities.md) . Esta seção fornece uma lista das propriedades com suporte pelo SAP BW fonte de Hub aberta.
 
 ### <a name="sap-bw-open-hub-as-source"></a>SAP BW abrir o Hub como fonte
 
@@ -182,16 +182,16 @@ Para copiar dados de SAP BW Hub aberto, as propriedades a seguir têm suporte na
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade **Type** da fonte da atividade de cópia deve ser definida como **SapOpenHubSource**. | Sim |
+| tipo | A propriedade **Type** da fonte da atividade de cópia deve ser definida como **SapOpenHubSource**. | Sim |
 | excludeLastRequest | Se os registros da última solicitação devem ser excluídos. | Não (o padrão é **true**) |
 | baseRequestId | A ID da solicitação de carregamento Delta. Depois de definido, somente os dados com requestId **maior do que** o valor dessa propriedade serão recuperados.  | Não |
 
 >[!TIP]
 >Se a tabela de Hub aberto contiver apenas os dados gerados por uma única ID de solicitação, por exemplo, você sempre faz a carga completa e substitui os dados existentes na tabela, ou só executa o DTP uma vez para teste, lembre-se de desmarcar a opção "excludeLastRequest" para copiar a d saída do ATA.
 
-Para acelerar o carregamento de dados, você pode definir [`parallelCopies`](copy-activity-performance.md#parallel-copy) na atividade de cópia para carregar dados de SAP BW Hub aberto em paralelo. Por exemplo, se você definir `parallelCopies` como quatro, data factory executar simultaneamente quatro chamadas RFC, e cada chamada RFC recuperará uma parte dos dados da tabela SAP BW Open Hub particionada pela ID da solicitação DTP e ID do pacote. Isso se aplica quando o número de ID de solicitação DTP + ID de pacote exclusiva é maior que `parallelCopies`o valor de. Ao copiar dados para o armazenamento de dados baseado em arquivo, ele também é recriado para gravar em uma pasta como vários arquivos (apenas especifique o nome da pasta); nesse caso, o desempenho é melhor do que gravar em um único arquivo.
+Para acelerar o carregamento de dados, você pode definir [`parallelCopies`](copy-activity-performance.md#parallel-copy) na atividade de cópia para carregar dados de SAP BW Hub aberto em paralelo. Por exemplo, se você definir `parallelCopies` como quatro, Data Factory executar simultaneamente quatro chamadas RFC, e cada chamada RFC recuperará uma parte dos dados da tabela SAP BW Open Hub particionada pela ID da solicitação DTP e ID do pacote. Isso se aplica quando o número de ID de solicitação DTP + ID de pacote exclusiva é maior que o valor de `parallelCopies`. Ao copiar dados para o armazenamento de dados baseado em arquivo, ele também é recriado para gravar em uma pasta como vários arquivos (apenas especifique o nome da pasta); nesse caso, o desempenho é melhor do que gravar em um único arquivo.
 
-**Example:**
+**Exemplo:**
 
 ```json
 "activities":[
@@ -226,23 +226,23 @@ Para acelerar o carregamento de dados, você pode definir [`parallelCopies`](cop
 
 ## <a name="data-type-mapping-for-sap-bw-open-hub"></a>Mapeamento de tipo de dados para SAP BW Hub aberto
 
-Ao copiar dados do SAP BW Hub aberto, os seguintes mapeamentos são usados de SAP BW tipos de dados para Azure Data Factory tipos de dados provisórios. Ver [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber mais sobre como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
+Ao copiar dados do SAP BW Hub aberto, os seguintes mapeamentos são usados de SAP BW tipos de dados para Azure Data Factory tipos de dados provisórios. Consulte [mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md) para saber mais sobre como a atividade de cópia mapeia o tipo de dados e o esquema de origem para o coletor.
 
-| Tipo de ABAP SAP | Tipo de dados intermediárias de fábrica de dados |
+| Tipo de ABAP SAP | Tipo de dados provisório do data Factory |
 |:--- |:--- |
-| C (cadeia de caracteres) | Cadeia |
+| C (cadeia de caracteres) | String |
 | I (Integer) | Int32 |
-| F (float) | Double |
-| D (Data) | Cadeia |
-| T (hora) | Cadeia |
-| P (BCD empacotado, moeda, Decimal, Qtd) | Decimal |
-| N (NUMC) | Cadeia |
-| X (binário e bruto) | Cadeia |
+| F (float) | Clique |
+| D (Data) | String |
+| T (hora) | String |
+| P (BCD empacotado, moeda, Decimal, Qtd) | Vírgula |
+| N (NUMC) | String |
+| X (binário e bruto) | String |
 
 ## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
 
 Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+## <a name="next-steps"></a>Passos seguintes
+Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Azure Data Factory, consulte [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,5 +1,5 @@
 ---
-title: Usar modelos do Resource Manager no Data Factory | Microsoft Docs
+title: Usar modelos do Resource Manager no Data Factory
 description: Saiba como criar e usar modelos de Azure Resource Manager para criar Data Factory entidades.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: d2360efe71327f02d5cb7d16cb8141f47c304b0c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: d9ee060b7d1f7a443357c7116c01e8aaf972e666
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164687"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682526"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Usar modelos para criar entidades de Azure Data Factory
 > [!NOTE]
@@ -29,7 +29,7 @@ Considere a situação em que uma organização tem 10 plantas de fabricação e
 
 Nesse caso, uma tarefa precisa ser repetida dentro do mesmo ambiente, mas com valores diferentes entre as 10 fábricas de dados para cada planta de fabricação. Na verdade, a **repetição** está presente. Templating permite a abstração desse fluxo genérico (ou seja, pipelines com as mesmas atividades em cada data factory), mas usa um arquivo de parâmetro separado para cada planta de fabricação.
 
-Além disso, como a organização deseja implantar essas 10 fábricas de dados várias vezes em ambientes diferentes, os modelos podem usar essa reusabilidade utilizando arquivos de parâmetros separados para ambientes de desenvolvimento, teste e produção.
+Além disso, como a organização deseja implantar essas 10 fábricas de dados várias vezes em ambientes diferentes, os modelos podem usar essa **reusabilidade** utilizando arquivos de parâmetros separados para ambientes de desenvolvimento, teste e produção.
 
 ## <a name="templating-with-azure-resource-manager"></a>Templating com Azure Resource Manager
 Os [modelos de Azure Resource Manager](../../azure-resource-manager/template-deployment-overview.md) são uma ótima maneira de obter templating em Azure data Factory. Os modelos do Resource Manager definem a infraestrutura e a configuração de sua solução do Azure por meio de um arquivo JSON. Como os modelos de Azure Resource Manager funcionam com todos/a maioria dos serviços do Azure, eles podem ser amplamente usados para gerenciar facilmente todos os recursos de seus ativos do Azure. Consulte [criando modelos de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para saber mais sobre os modelos do Resource Manager em geral.
@@ -37,8 +37,8 @@ Os [modelos de Azure Resource Manager](../../azure-resource-manager/template-dep
 ## <a name="tutorials"></a>Tutoriais
 Consulte os seguintes tutoriais para obter instruções passo a passo para criar Data Factory entidades usando modelos do Resource Manager:
 
-* [Tutorial: Criar um pipeline para copiar dados usando Azure Resource Manager modelo](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-* [Tutorial: Criar um pipeline para processar dados usando Azure Resource Manager modelo](data-factory-build-your-first-pipeline.md)
+* [Tutorial: criar um pipeline para copiar dados usando Azure Resource Manager modelo](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+* [Tutorial: criar um pipeline para processar dados usando Azure Resource Manager modelo](data-factory-build-your-first-pipeline.md)
 
 ## <a name="data-factory-templates-on-github"></a>Modelos de Data Factory no GitHub
 Confira os seguintes modelos de início rápido do Azure no GitHub:
@@ -127,7 +127,7 @@ Consulte [serviço vinculado de armazenamento](data-factory-azure-blob-connector
     ...
 }
 ```
-Consulte armazenamentos de [dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para obter detalhes sobre as propriedades JSON para o tipo de conjunto de dados específico que você deseja implantar. Observe que o parâmetro "depending" especifica o nome do data factory e do serviço vinculado de armazenamento correspondente. Um exemplo de definição do tipo de conjunto de texto do armazenamento de BLOBs do Azure é mostrado na seguinte definição de JSON:
+Consulte [armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para obter detalhes sobre as propriedades JSON para o tipo de conjunto de dados específico que você deseja implantar. Observe que o parâmetro "depending" especifica o nome do data factory e do serviço vinculado de armazenamento correspondente. Um exemplo de definição do tipo de conjunto de texto do armazenamento de BLOBs do Azure é mostrado na seguinte definição de JSON:
 
 ```JSON
 "type": "datasets",

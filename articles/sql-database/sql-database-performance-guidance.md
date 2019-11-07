@@ -1,5 +1,5 @@
 ---
-title: Diretrizes de ajuste do desempenho do banco de dados SQL do Azure | Microsoft Docs
+title: Diretrizes de ajuste do desempenho do banco de dados SQL do Azure
 description: Saiba mais sobre como usar as recomendações para ajustar manualmente o desempenho da consulta do banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 4ea5d6c734659d36822f62237a42a8fbe332c996
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 971b35838f370f31d6e2d2da06dfdbced2fafb02
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567117"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687673"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Ajuste manual de desempenho de consulta no banco de dados SQL do Azure
 
@@ -120,7 +120,7 @@ Depois de criada, essa mesma instrução SELECT escolhe um plano diferente, que 
 
 ![Um plano de consulta com índices corrigidos](./media/sql-database-performance-guidance/query_plan_corrected_indexes.png)
 
-A principal percepção é que a capacidade de e/s de um sistema de mercadoria compartilhado é mais limitada do que a de um computador servidor dedicado. Há um prêmio de minimizar a e/s desnecessária para tirar o máximo proveito do sistema na DTU de cada tamanho de computação das camadas de serviço do banco de dados SQL do Azure. As opções apropriadas de design de banco de dados físico podem melhorar significativamente a latência para consultas individuais, melhorar a taxa de transferência de solicitações simultâneas manipuladas por unidade de escala e minimizar os custos necessários para atender à consulta. Para obter mais informações sobre as DMVs de índice ausentes, consulte [Sys. dm _db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
+A principal percepção é que a capacidade de e/s de um sistema de mercadoria compartilhado é mais limitada do que a de um computador servidor dedicado. Há um prêmio de minimizar a e/s desnecessária para tirar o máximo proveito do sistema na DTU de cada tamanho de computação das camadas de serviço do banco de dados SQL do Azure. As opções apropriadas de design de banco de dados físico podem melhorar significativamente a latência para consultas individuais, melhorar a taxa de transferência de solicitações simultâneas manipuladas por unidade de escala e minimizar os custos necessários para atender à consulta. Para obter mais informações sobre as DMVs de índice ausentes, consulte [Sys. dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
 
 ### <a name="query-tuning-and-hinting"></a>Ajuste e dicas de consulta
 
@@ -206,11 +206,11 @@ Cada parte deste exemplo tenta executar uma instrução INSERT parametrizada 1.0
 
 Como executamos o procedimento usando o valor 1, o plano resultante era ideal para o valor 1, mas estava abaixo do ideal para todos os outros valores na tabela. O resultado provavelmente não é o que você desejaria se fosse escolher cada plano aleatoriamente, pois o plano é executado mais lentamente e usa mais recursos.
 
-Se você executar o teste com `SET STATISTICS IO` definido como `ON`, o trabalho de verificação lógica neste exemplo será feito em segundo plano. Você pode ver que há 1.148 leituras feitas pelo plano (o que é ineficiente, se o caso médio for retornar apenas uma linha):
+Se você executar o teste com `SET STATISTICS IO` definido como `ON`, o trabalho de verificação lógica neste exemplo será feito nos bastidores. Você pode ver que há 1.148 leituras feitas pelo plano (o que é ineficiente, se o caso médio for retornar apenas uma linha):
 
 ![Ajuste de consulta usando uma verificação lógica](./media/sql-database-performance-guidance/query_tuning_2.png)
 
-A segunda parte do exemplo usa uma dica de consulta para instruir o otimizador a usar um valor específico durante o processo de compilação. Nesse caso, ele força o processador de consulta a ignorar o valor passado como o parâmetro e, em vez disso, presumir `UNKNOWN`. Isso se refere a um valor que tem a frequência média na tabela (ignorando a distorção). O plano resultante é um plano baseado em busca que é mais rápido e usa menos recursos, em média, do que o plano na parte 1 deste exemplo:
+A segunda parte do exemplo usa uma dica de consulta para instruir o otimizador a usar um valor específico durante o processo de compilação. Nesse caso, ele força o processador de consulta a ignorar o valor que é passado como o parâmetro e, em vez disso, assumir `UNKNOWN`. Isso se refere a um valor que tem a frequência média na tabela (ignorando a distorção). O plano resultante é um plano baseado em busca que é mais rápido e usa menos recursos, em média, do que o plano na parte 1 deste exemplo:
 
 ![Ajuste de consulta usando uma dica de consulta](./media/sql-database-performance-guidance/query_tuning_3.png)
 
@@ -259,7 +259,7 @@ Alguns aplicativos são de gravação intensiva. Às vezes, você pode reduzir a
 
 Alguns aplicativos de banco de dados têm cargas de trabalho de leitura pesada. As camadas de cache podem reduzir a carga no banco de dados e podem reduzir potencialmente o tamanho de computação necessário para dar suporte a um banco de dados usando o banco de dados SQL do Azure. Com o [cache do Azure para Redis](https://azure.microsoft.com/services/cache/), se você tiver uma carga de trabalho com muita leitura, poderá ler os dados uma vez (ou talvez uma vez por computador da camada de aplicativo, dependendo de como ele está configurado) e, em seguida, armazenar esses dados fora do banco de dado SQL. Essa é uma maneira de reduzir a carga do banco de dados (CPU e e/s de leitura), mas há um efeito na consistência transacional, pois os dados que estão sendo lidos do cache podem estar fora de sincronia com os dados no banco de dado. Embora, em muitos aplicativos, algum nível de inconsistência seja aceitável, isso não é verdade para todas as cargas de trabalho. Você deve compreender totalmente os requisitos do aplicativo antes de implementar uma estratégia de cache da camada de aplicativo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre camadas de serviço baseadas em DTU, consulte [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md).
 - Para obter mais informações sobre as camadas de serviço baseadas em vCore, consulte [modelo de compra baseado em VCORE](sql-database-service-tiers-vcore.md).

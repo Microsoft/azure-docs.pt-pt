@@ -1,5 +1,5 @@
 ---
-title: Unidades de data warehouse (DWUs, cDWUs) no Azure Synapse Analytics (anteriormente conhecido como SQL DW) | Microsoft Docs
+title: Unidades de data warehouse (DWUs, cDWUs) no Azure Synapse Analytics (antigo SQL DW)
 description: Recomendações sobre como escolher o número ideal de unidades de data warehouse (DWUs, cDWUs) para otimizar o preço e o desempenho e como alterar o número de unidades.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,13 +10,13 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-mscustom: sqlfreshmay19
-ms.openlocfilehash: 32e75b78b8a5c304fc65a9c20d16fb85b4f8307b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f3415522a6ae80723500ba2d38867322fdef0dd7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475744"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685336"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unidades de data warehouse (DWUs) e unidades de data warehouse de computação (cDWUs)
 
@@ -46,7 +46,7 @@ O objetivo de nível de serviço (SLO) é a configuração de escalabilidade que
   > [!NOTE]
   > O pool SQL Gen 2 adicionou recentemente recursos de escala adicionais para dar suporte a camadas de computação tão baixas que 100 cDWU. Os pools existentes do SQL atualmente em Gen1 que exigem as camadas de computação inferiores agora podem ser atualizados para Gen2 nas regiões que estão atualmente disponíveis sem custo adicional.  Se sua região ainda não tiver suporte, você ainda poderá atualizar para uma região com suporte. Para obter mais informações, consulte [atualizar para Gen2](upgrade-to-latest-generation.md).
 
-No T-SQL, a configuração SERVICE_OBJECTIVE determina o nível de serviço e a camada de desempenho para o pool do SQL.
+No T-SQL, a configuração de SERVICE_OBJECTIVE determina o nível de serviço e a camada de desempenho para o pool do SQL.
 
 ```sql
 --Gen1
@@ -204,7 +204,7 @@ Para verificar o status das alterações de DWU:
     ;
     ```
     
-Essa DMV retorna informações sobre várias operações de gerenciamento em seu pool SQL, como a operação e o estado da operação, que é IN_PROGRESS ou COMPLETED.
+Essa DMV retorna informações sobre várias operações de gerenciamento em seu pool do SQL, como a operação e o estado da operação, que é IN_PROGRESS ou concluída.
 
 ## <a name="the-scaling-workflow"></a>O fluxo de trabalho de dimensionamento
 
@@ -215,4 +215,4 @@ Quando você inicia uma operação de dimensionamento, o sistema primeiro interr
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre como gerenciar o desempenho, consulte [classes de recurso para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md) e [limites de memória e simultaneidade](memory-and-concurrency-limits.md).
+Para saber mais sobre como gerenciar o desempenho, consulte [classes de recursos para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md) e [limites de memória e simultaneidade] memória-concurrency-Limits.MD).

@@ -1,5 +1,5 @@
 ---
-title: O que é a API de Imagem Digitalizada? -Pesquisa Visual Computacional
+title: O que é a Imagem Digitalizada? -Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
 description: O serviço Imagem Digitalizada fornece aos programadores acesso a algoritmos avançados para processamento de imagens e devolução de informações.
 services: cognitive-services
@@ -8,27 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 10/01/2019
+ms.date: 11/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: db62f003f7eb8dd272305b86712cf1d721797114
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: a34fdb24573df3287b72991454963c67e9689b9f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719544"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604548"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
-O serviço de Pesquisa Visual Computacional do Azure fornece aos desenvolvedores acesso a algoritmos avançados que processam imagens e retornam informações. Para analisar uma imagem, pode carregar uma imagem ou especificar um URL de imagem. Os algoritmos de processamento de imagens podem analisar o conteúdo de várias maneiras diferentes, dependendo dos recursos visuais nos quais você está interessado. Por exemplo, Pesquisa Visual Computacional pode determinar se uma imagem contém conteúdo adulto ou pode encontrar todas as faces humanas em uma imagem.
+O serviço de Pesquisa Visual Computacional do Azure fornece aos desenvolvedores acesso a algoritmos avançados que processam imagens e retornam informações, dependendo dos recursos visuais nos quais você está interessado. Por exemplo, Pesquisa Visual Computacional pode determinar se uma imagem contém conteúdo adulto ou pode encontrar todas as faces humanas em uma imagem.
 
-Você pode usar Pesquisa Visual Computacional em seu aplicativo usando um SDK nativo ou invocando a API REST diretamente. Esta página abrange em grande escala o que você pode fazer com Pesquisa Visual Computacional.
+Você pode usar Pesquisa Visual Computacional em seu aplicativo por meio de um SDK nativo ou invocando a API REST diretamente. Esta página abrange em grande escala o que você pode fazer com Pesquisa Visual Computacional.
+
+## <a name="computer-vision-for-digital-asset-management"></a>Pesquisa Visual Computacional para o gerenciamento de ativos digitais
+
+Pesquisa Visual Computacional pode alimentar muitos cenários de DAM (gerenciamento de ativos digitais). DAM é o processo comercial de organizar, armazenar e recuperar ativos de mídia avançados e gerenciar direitos e permissões digitais. Por exemplo, uma empresa pode querer agrupar e identificar imagens com base em logotipos, rostos, objetos, cores visíveis e assim por diante. Ou, talvez você queira gerar automaticamente [legendas para imagens](./Tutorials/storage-lab-tutorial.md) e anexar palavras-chave para que elas sejam pesquisáveis. Para uma solução de DAM All-in-One usando serviços cognitivas, Azure Search e relatórios inteligentes, consulte o [Guia do Solution Accelerator do Knowledge Mining](https://github.com/Azure-Samples/azure-search-knowledge-mining) no github. Para outros exemplos de DAM, consulte o Pesquisa Visual Computacional repositório de [modelos de solução](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) .
 
 ## <a name="analyze-images-for-insight"></a>Analisar imagens para Insight
 
 Você pode analisar imagens para detectar e fornecer informações sobre seus recursos e características visuais. Todos os recursos na tabela a seguir são fornecidos pela API de [análise de imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) .
 
-| Action | Descrição |
+| Ação | Descrição |
 | ------ | ----------- |
 |**[Etiquetar elementos visuais](concept-tagging-images.md)**|Identificar e marcar recursos visuais em uma imagem, de um conjunto de milhares de objetos reconhecíveis, coisas em ação, cenários e ações. Quando as marcas são ambíguas ou não são conhecimento comuns, a resposta da API fornece dicas para esclarecer o contexto da marca. A identificação não se limita ao motivo principal, por exemplo, uma pessoa em primeiro plano, mas também inclui o cenário (interior ou exterior), mobiliário, ferramentas, plantas, animais, acessórios, gadgets, etc.|
 |**[Detectar objetos](concept-object-detection.md)**| A detecção de objeto é semelhante à marcação, mas a API retorna as coordenadas da caixa delimitadora para cada marca aplicada. Por exemplo, se uma imagem contiver um cachorro, um gato e uma pessoa, a operação de detecção listará esses objetos junto com suas coordenadas na imagem. Você pode usar essa funcionalidade para processar mais relações entre os objetos em uma imagem. Ele também permite que você saiba quando há várias instâncias da mesma marca em uma imagem.|
@@ -47,8 +51,6 @@ Você pode analisar imagens para detectar e fornecer informações sobre seus re
 Você pode usar Pesquisa Visual Computacional [API de leitura](concept-recognizing-text.md#read-api) para extrair texto impresso e manuscrito de imagens em um fluxo de caracteres legível por máquina. A API de leitura usa nossos modelos mais recentes e trabalha com texto em uma variedade de superfícies e planos de fundo, como recibos, pôsteres, cartões de visita, cartas e quadros de comunicações. Atualmente, o inglês é o único idioma com suporte.
 
 Você também pode usar a API de [OCR (reconhecimento óptico de caracteres)](concept-recognizing-text.md#ocr-optical-character-recognition-api) para extrair o texto impresso em vários idiomas. Se necessário, o OCR corrige a rotação do texto reconhecido e fornece as coordenadas de quadro de cada palavra. O OCR dá suporte a 25 idiomas e detecta automaticamente o idioma do texto reconhecido.
-
-
 
 ## <a name="moderate-content-in-images"></a>Conteúdo moderado em imagens
 
@@ -75,6 +77,6 @@ Assim como acontece com todos os serviços cognitivas, os desenvolvedores que us
 
 Comece a usar o Pesquisa Visual Computacional seguindo um guia de início rápido:
 
-- [Quickstart: SDK do .NET Pesquisa Visual Computacional](quickstarts-sdk/csharp-sdk.md)
-- [Quickstart: Pesquisa Visual Computacional SDK do Python](quickstarts-sdk/python-sdk.md)
-- [Quickstart: Pesquisa Visual Computacional SDK do Java](quickstarts-sdk/java-sdk.md)
+- [Início rápido: SDK do .NET Pesquisa Visual Computacional](quickstarts-sdk/csharp-sdk.md)
+- [Início rápido: SDK do Pesquisa Visual Computacional Python](quickstarts-sdk/python-sdk.md)
+- [Início rápido: SDK do Pesquisa Visual Computacional Java](quickstarts-sdk/java-sdk.md)

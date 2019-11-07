@@ -1,6 +1,6 @@
 ---
-title: Início rápido do Striim com o Azure SQL Data Warehouse | Documentos da Microsoft
-description: Comece rapidamente com Striim e Azure SQL Data Warehouse.
+title: Início rápido do Striim
+description: Comece rapidamente com o Striim e o Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -10,58 +10,59 @@ ms.subservice: integration
 ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 8ed9936884a648d736942caecade2ac3c2980e67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 65dc0b8fcece4364f3828fee09221612b999df4e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873401"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685345"
 ---
-# <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Striim oferta do Azure SQL DW Marketplace guia de instalação
+# <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Guia de instalação de oferta do Azure SQL DW Marketplace Striim
 
-Este guia de introdução pressupõe que já tem uma instância já existente do SQL Data Warehouse.
+Este guia de início rápido pressupõe que você já tem uma instância pré-existente do SQL Data Warehouse.
 
-Procure Striim no Azure Marketplace e selecione o Striim para integração de dados para opção do SQL Data Warehouse (teste) 
+Pesquise Striim no Azure Marketplace e selecione a opção Striim for Data Integration to SQL Data Warehouse (preparado) 
 
-![Instalar Striim][install]
+![Instalar o Striim][install]
 
-Configurar a VM de Striim com propriedades especificadas, anota o nome do cluster Striim, a palavra-passe e a palavra-passe de administrador
+Configure a VM Striim com as propriedades especificadas, observando o nome do cluster Striim, a senha e a senha do administrador
 
-![Configurar Striim][configure]
+![Configurar o Striim][configure]
 
-Uma vez implantado, clique em \<VM Name >-masternode no portal do Azure, clique em ligar e copiar o início de sessão com conta local de VM 
+Depois de implantado, clique em \<nome da VM >-masternode no portal do Azure, clique em conectar e copie o logon usando a conta local da VM 
 
-![Ligar Striim ao SQL Data Warehouse][connect]
+![Conectar o Striim ao SQL Data Warehouse][connect]
 
-Transferir o sqljdbc42.jar de <https://www.microsoft.com/en-us/download/details.aspx?id=54671> no seu computador local. 
+Baixe o sqljdbc42. jar de <https://www.microsoft.com/en-us/download/details.aspx?id=54671> para seu computador local. 
 
-Abra uma janela da linha de comandos e mude de diretório para onde transferiu o jar do JDBC. SCP o ficheiro jar para a VM Striim, obter o endereço e a palavra-passe do portal do Azure
+Abra uma janela de linha de comando e altere os diretórios para onde você baixou o jar JDBC. SCP o arquivo JAR para sua VM Striim, obtendo o endereço e a senha do portal do Azure
 
-![Copie o ficheiro jar para a VM][copy-jar]
+![Copiar o arquivo JAR para sua VM][copy-jar]
 
-Abrir outra janela da linha de comandos ou utilize um ssh utilitário para ssh para o Striim do cluster
+Abra outra janela de linha de comando ou use um utilitário SSH para ssh no cluster Striim
 
-![SSH para o cluster][ssh]
+![SSH no cluster][ssh]
 
-Execute os seguintes comandos para mover o ficheiro jar do JDBC no diretório do Striim lib e iniciar e parar o servidor.
+Execute os comandos a seguir para mover o arquivo JAR do JDBC para o diretório lib do Striim e iniciar e parar o servidor.
 
-   1. sudo su
-   2. CD /tmp
-   3. mv sqljdbc42.jar /opt/striim/lib
-   4. parar de systemctl striim-nó
-   5. parar de systemctl striim-dbms
-   6. início de systemctl striim-dbms
-   7. striim-nó systemctl inicial
+   1. o sudo su
+   2. CD/tmp
+   3. MV sqljdbc42. jar/opt/striim/lib
+   4. systemctl parar striim-nó
+   5. systemctl parar striim-DBMS
+   6. systemctl iniciar striim-DBMS
+   7. systemctl iniciar striim-nó
 
-![Inicie o cluster do Striim][start-striim]
+![Iniciar o cluster Striim][start-striim]
 
-Agora, abra o seu browser favorito e navegue para \<nome DNS >: 9080
+Agora, abra seu navegador favorito e navegue até \<nome DNS >: 9080
 
-![Navegue para o ecrã de início de sessão][navigate]
+![Navegue até a tela de logon][navigate]
 
-Iniciar sessão com o nome de utilizador e a palavra-passe que configurar no portal do Azure e selecione o seu assistente preferido para começar a utilizar ou vá para a página de aplicações para começar a utilizar o arrastar e soltar da interface do Usuário
+Faça logon com o nome de usuário e a senha que você configurou na portal do Azure e selecione seu assistente preferido para começar ou acesse a página de aplicativos para começar a usar a interface do usuário de arrastar e soltar
 
-![Inicie sessão com as credenciais do servidor][login]
+![Fazer logon com as credenciais do servidor][login]
 
 
 

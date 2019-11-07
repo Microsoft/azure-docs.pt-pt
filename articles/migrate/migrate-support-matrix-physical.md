@@ -7,16 +7,19 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 56e49ab60733c9c0a813ca6e46712bcd8052a2ef
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 902e89305aa24e8cbb6d2dd84d6a61c710d11637
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518154"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715366"
 ---
 # <a name="support-matrix-for-physical-server-assessment-and-migration"></a>Matriz de suporte para avaliação e migração de servidor físico
 
 Você pode usar o [serviço migrações para Azure](migrate-overview.md) para avaliar e migrar computadores para a nuvem Microsoft Azure. Este artigo resume as configurações de suporte e as limitações para avaliar e migrar servidores físicos locais.
+
+> [!NOTE]
+> Se os recursos forem mencionados aqui que você ainda não vê no portal de migrações para Azure, aguarde. Eles serão exibidos na próxima semana ou assim.
 
 
 ## <a name="physical-server-scenarios"></a>Cenários de servidor físico

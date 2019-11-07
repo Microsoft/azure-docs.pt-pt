@@ -1,5 +1,5 @@
 ---
-title: Exemplo do PowerShell – grupo de failover-banco de dados SQL do Azure Microsoft Docs
+title: Exemplo do PowerShell – grupo de failover-banco de dados SQL do Azure banco de dados único
 description: Azure PowerShell script de exemplo para criar um banco de dados individual do banco de dados SQL do Azure, adicioná-lo a um grupo de failover e failover de teste.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 1f975eb11e546a0ece862ac239ac4321ed8e4110
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7315f747fb7319521b25e2eb6e7af72449867888
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570079"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691782"
 ---
 # <a name="use-powershell-to-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Usar o PowerShell para adicionar um banco de dados individual do banco de dados SQL do Azure a um grupo de failover 
 
@@ -57,7 +57,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Executa um failover de um grupo de failover do banco de dados SQL do Azure. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos | 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

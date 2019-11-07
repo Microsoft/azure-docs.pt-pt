@@ -1,5 +1,5 @@
 ---
-title: Ramificação no pipeline do Azure Data Factory | Microsoft Docs
+title: 'Ramificação no pipeline Azure Data Factory '
 description: Saiba como controlar o fluxo de dados no Azure Data Factory através de atividades de ramificação e encadeamento.
 services: data-factory
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/11/2018
-ms.openlocfilehash: d8e4c17307b35295f37f1f84db912d04ca625b6a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: aada9d02c624785750c3064b7ca31a863d4080c1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140913"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683827"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 Neste tutorial, vai criar um pipeline do Data Factory que demonstra algumas das funcionalidades de fluxo de controlo. Este pipeline cria uma cópia simples de um contentor do Armazenamento de Blobs do Azure para outro contentor na mesma conta de armazenamento. Se a atividade Copy tiver êxito, o pipeline envia detalhes da operação Copy bem-sucedida (por exemplo, a quantidade de dados escritos) num e-mail de êxito. Se a atividade Copy falhar, o pipeline envia detalhes da falha da cópia (por exemplo, a mensagem de erro) num e-mail de falha. Ao longo do tutorial, vai ver como passar os parâmetros.
 
-Uma visão geral de alto nível do cenário: ![Descrição Geral](media/tutorial-control-flow-portal/overview.png)
+Uma descrição geral de alto nível do cenário: ![Descrição geral](media/tutorial-control-flow-portal/overview.png)
 
 Vai executar os seguintes passos neste tutorial:
 
@@ -148,7 +148,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 6. Selecione **Afixar ao dashboard**.     
 7. Clique em **Criar**.      
-8. No painel, você verá o seguinte bloco com status: **Implantando data Factory**. 
+8. No painel, vai ver o mosaico seguinte com o estado **A implementar fábrica de dados**. 
 
     ![Mosaico “implementar a fábrica de dados”](media/tutorial-control-flow-portal/deploying-data-factory.png)
 9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
@@ -271,7 +271,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
 23. Arraste o botão **vermelho** junto à atividade Copy para a segunda atividade Web **SendFailureEmailActivity**. Pode mover as atividades de forma a que o aspeto do pipeline seja parecido com a imagem abaixo: 
 
     ![Pipeline completo com todas as atividades](./media/tutorial-control-flow-portal/full-pipeline.png)
-24. Para validar o pipeline, clique no botão **Validar**, na barra de ferramentas. Clique no botão **>>** para fechar a janela **Saída da Validação do Pipeline**.
+24. Para validar o pipeline, clique no botão **Validar**, na barra de ferramentas. Clique no botão **para fechar a janela >>Saída da Validação do Pipeline**.
 
     ![Validar o pipeline](./media/tutorial-control-flow-portal/validate-pipeline.png)
 24. Para publicar entidades (conjuntos de dados, pipelines, etc.) no serviço Data Factory, selecione **Publicar Tudo**. Aguarde até ver a mensagem **Publicação com êxito**.
@@ -325,7 +325,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
 
     ![Erro da execução da atividade](./media/tutorial-control-flow-portal/activity-run-error.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, executou os passos seguintes: 
 
 > [!div class="checklist"]

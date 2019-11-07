@@ -1,44 +1,44 @@
 ---
-title: Configurar a localização do Azure Media Clipper | Documentos da Microsoft
-description: Saiba mais sobre o suporte de localização e de idiomas suportados do Azure Media Clipper
+title: Configurar a localização do Azure Media Clipper | Microsoft Docs
+description: Saiba mais sobre os idiomas com suporte do Azure Media Clipper e suporte à localização
 services: media-services
-keywords: Clip; subclip; codificação; suporte de dados
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+keywords: clip; subclip; codificação; mídia
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 41fd483a0b78619db6d018cf4b2ab7933a7c3031
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96ffdfe5e6b3e913bd5596dd624e35afcaecfabe
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465801"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685025"
 ---
 # <a name="configure-localization"></a>Configurar localização 
 
-Azure Media Clipper está disponível em 18 idiomas. Para definir o idioma de widget, tem de definir o `language` parâmetro durante a inicialização. Passa a cadeia de caracteres do código de idioma desejado na lista seguinte:
-- Chinês (simplificado): zh-hans
-- Chinês (tradicional): zh-hant
-- Checo: cs
-- Holandês, Flemish: nl
+O Azure Media Clipper está disponível em 18 idiomas. Para definir o idioma do widget, você deve definir o parâmetro `language` durante a inicialização. Passe a cadeia de caracteres de código de idioma desejada da seguinte lista:
+- Chinês (simplificado): zh-Hans
+- Chinês (tradicional): zh-Hant
+- Tcheco: cs
+- Holandês, Flamengo: nl
 - Inglês: en
 - Francês: fr
-- Alemão: Alemanha
-- Húngaro: hu
-- Italiano:-
+- Alemão: de
+- Húngaro: Hu
+- Italiano:
 - Japonês: ja
 - Coreano: ko
-- Polaco: pl
+- Polonês: pl
 - Português (Brasil): pt-br
 - Português (Portugal): pt-pt
 - Russo: ru
 - Espanhol: es
-- Sueco: sv
-- Turco: tr
+- Sueco: VA
+- Turco: TR
 
-Para definir um dicionário de idioma personalizado ou estender o dicionário de idioma predefinido, tem de definir o `languages` ou `extraLanguages` parâmetro, respectivamente. Passar um dicionário personalizado usando o seguinte formato JSON:
+Para definir um dicionário de idioma personalizado ou estender o dicionário de idioma padrão, você deve definir o `languages` ou `extraLanguages` parâmetro, respectivamente. Passe um dicionário personalizado usando o seguinte formato JSON:
 
 ```javascript
 {
@@ -139,8 +139,8 @@ Por exemplo, o exemplo a seguir define as cadeias de caracteres localizadas em i
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-Veja os passos seguintes para configurar o Azure Media Clipper:
-- [Carregamento de recursos no Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
-- [Configurar atalhos de teclado personalizados](media-services-azure-media-clipper-keyboard-shortcuts.md)
-- [Submeter tarefas de recorte do Clipper](media-services-azure-media-clipper-submit-job.md)
+## <a name="next-steps"></a>Passos seguintes
+Consulte as próximas etapas para configurar o Azure Media Clipper:
+- [Carregando ativos no Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
+- [Configurando atalhos de teclado personalizados](media-services-azure-media-clipper-keyboard-shortcuts.md)
+- [Enviando trabalhos de recorte do Clipper](media-services-azure-media-clipper-submit-job.md)

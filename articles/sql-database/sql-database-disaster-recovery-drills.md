@@ -1,5 +1,5 @@
 ---
-title: Análises de recuperação de desastre do banco de dados SQL | Microsoft Docs
+title: Análises de recuperação de desastre do banco de dados SQL
 description: Conheça as diretrizes e as práticas recomendadas para usar o banco de dados SQL do Azure para realizar análises de recuperação de desastre.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: 2923ae8b9b25932ae214cfa45780dffb8780dd39
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bf337b1312abc59048649aabe3e4f895d07a8d51
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568851"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690619"
 ---
 # <a name="performing-disaster-recovery-drill"></a>Executando a análise de recuperação de desastre
 
@@ -25,7 +25,7 @@ ms.locfileid: "68568851"
 A execução de uma análise de recuperação de desastre consiste em:
 
 * Simulação da interrupção da camada de dados
-* A recuperar
+* Recuperação
 * Validar a integridade do aplicativo após a recuperação
 
 Dependendo de como você [criou seu aplicativo para continuidade dos negócios](sql-database-business-continuity.md), o fluxo de trabalho para executar a análise pode variar. Este artigo descreve as práticas recomendadas para realizar uma análise de recuperação de desastre no contexto do banco de dados SQL do Azure.
@@ -65,9 +65,9 @@ Para simular a interrupção, você pode desabilitar o aplicativo Web ou a máqu
 
 Conclua a análise verificando a integridade do aplicativo após a recuperação (incluindo conectividade, teste de funcionalidade básica ou outras validações necessárias para as aprovações de análise).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre cenários de continuidade de negócios, consulte [cenários](sql-database-business-continuity.md)de continuidade.
-* Para saber mais sobre os backups automatizados do [](sql-database-automated-backups.md) banco de dados SQL do Azure, confira backups automatizados
+* Para saber mais sobre cenários de continuidade de negócios, consulte [cenários de continuidade](sql-database-business-continuity.md).
+* Para saber mais sobre os backups automatizados do banco de dados SQL do Azure, confira [backups automatizados](sql-database-automated-backups.md)
 * Para saber mais sobre como usar backups automatizados para recuperação, consulte [restaurar um banco de dados dos backups iniciados pelo serviço](sql-database-recovery-using-backups.md).
 * Para saber mais sobre as opções de recuperação mais rápidas, consulte [replicação geográfica ativa](sql-database-active-geo-replication.md) e [grupos de failover automático](sql-database-auto-failover-group.md).

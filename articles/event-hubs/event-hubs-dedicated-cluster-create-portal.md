@@ -1,6 +1,6 @@
 ---
-title: Início rápido do Azure - criar um cluster de dedicado de Hubs de eventos com o portal do Azure | Documentos da Microsoft
-description: Neste início rápido, irá aprender a criar um cluster de Hubs de eventos do Azure com o portal do Azure.
+title: Início rápido do Azure-criar um cluster de hubs de eventos dedicado usando o portal do Azure
+description: Neste guia de início rápido, você aprende a criar um cluster de hubs de eventos do Azure usando portal do Azure.
 services: event-hubs
 documentationcenter: ''
 author: xurui203
@@ -8,104 +8,104 @@ manager: ''
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/02/2019
+ms.date: 11/05/2019
 ms.author: xurui
-ms.openlocfilehash: 269ecca8683229a56d40dfacc354abbd7ce10762
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: bde6844962561232e4af51f2b4e803d49bf5398e
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688582"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720635"
 ---
-# <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Início rápido: Criar um cluster de Hubs de eventos dedicado através do portal do Azure 
-Clusters de Hubs de eventos oferecem implementações de inquilino único para os clientes com as necessidades de transmissão em fluxo mais exigentes. Esta oferta tem um SLA de 99,99% garantido e está disponível apenas em nossa dedicado escalão de preço. Uma [cluster de Hubs de eventos](event-hubs-dedicated-overview.md) pode receber milhões de eventos por segundo com latência de capacidade e subsecond garantida. Os hubs de espaços de nomes e os eventos criados dentro de um cluster incluem todas as funcionalidades da oferta standard e muito mais, mas sem limites de entrada. A oferta dedicada e também inclui o popular [captura de Hubs de eventos](event-hubs-capture-overview.md) funcionalidade sem custos adicionais, que lhe permite automaticamente batch e de registo de transmissões de dados para [armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md) ou [ Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md).
+# <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Início rápido: criar um cluster de hubs de eventos dedicado usando portal do Azure 
+Os clusters de hubs de eventos oferecem implantações de locatário único para clientes com as necessidades de streaming mais exigentes. Esta oferta tem um SLA de 99,99% garantido e está disponível apenas em nosso tipo de preço dedicado. Um [cluster de hubs de eventos](event-hubs-dedicated-overview.md) pode ingressar milhões de eventos por segundo com a capacidade garantida e a latência de subsegundos. Os namespaces e os hubs de eventos criados em um cluster incluem todos os recursos da oferta padrão e muito mais, mas sem nenhum limite de entrada. A oferta dedicada também inclui o recurso popular de [captura de hubs de eventos](event-hubs-capture-overview.md) sem custo adicional, permitindo que você registre automaticamente os fluxos de dados de lote e de log no armazenamento de [BLOBs do Azure](../storage/blobs/storage-blobs-introduction.md) ou [Azure data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md).
 
-Clusters dedicados são aprovisionados e a faturação é ao **unidades de capacidade (CUs)** , uma quantidade previamente alocada de recursos de CPU e memória. Pode comprar CUs 1, 2, 4, 8, 12, 16 ou 20 para cada cluster. Neste início rápido, iremos irá guiá-lo através da criação de um cluster de Hubs de eventos de CU 1 através do portal do Azure.
+Os clusters dedicados são provisionados e cobrados por **unidades de capacidade (cus)** , uma quantidade alocada de CPU e recursos de memória. Você pode comprar 1, 2, 4, 8, 12, 16 ou 20 CUs para cada cluster. Neste guia de início rápido, vamos orientá-lo na criação de um cluster de hubs de eventos de 1 CU por meio do portal do Azure.
 
 > [!NOTE]
-> Esta experiência Self-Service está atualmente disponível em pré-visualização no [Portal do Azure](https://aka.ms/eventhubsclusterquickstart). Se tiver quaisquer perguntas sobre a oferta dedicada, entre em contacto para o [equipa dos Hubs de eventos](mailto:askeventhubs@microsoft.com).
+> Essa experiência de autoatendimento está disponível atualmente na visualização no [portal do Azure](https://aka.ms/eventhubsclusterquickstart). Se você tiver alguma dúvida sobre a oferta dedicada, entre em contato com a [equipe dos hubs de eventos](mailto:askeventhubs@microsoft.com).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este início rápido, certifique-se de que tem:
 
-- Uma conta do Azure. Se não tiver uma, [Compre uma](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) antes de começar. Esta funcionalidade não é suportada com uma conta gratuita do Azure. 
-- [Visual Studio](https://visualstudio.microsoft.com/vs/) 2017 atualização 3 (versão 15.3, 26730.01) ou posterior.
+- Uma conta do Azure. Se você não tiver uma, [compre uma conta](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) antes de começar. Não há suporte para esse recurso com uma conta gratuita do Azure. 
+- [Visual Studio](https://visualstudio.microsoft.com/vs/) 2017 atualização 3 (versão 15,3, 26730, 1) ou posterior.
 - [SDK .NET Standard](https://dotnet.microsoft.com/download), versão 2.0 ou posterior.
 - [Criou um grupo de recursos](../event-hubs/event-hubs-create.md#create-a-resource-group).
 
-## <a name="create-an-event-hubs-dedicated-cluster"></a>Criar um Cluster de dedicado de Hubs de eventos
-Um cluster de Hubs de eventos fornece um contentor de âmbito exclusivo na qual pode criar um ou mais espaços de nomes. Nesta fase de pré-visualização da experiência do portal Self-Service, pode criar 1 CU clusters em regiões selecionadas. Se precisar de um cluster maior do que 1 CU, pode submeter um pedido de suporte do Azure para aumentar verticalmente o cluster após a sua criação.
+## <a name="create-an-event-hubs-dedicated-cluster"></a>Criar um cluster Hubs de Eventos Dedicados
+Um cluster de hubs de eventos fornece um contêiner de escopo exclusivo no qual você pode criar um ou mais namespaces. Nesta fase de visualização da experiência de autoatendimento do portal, você pode criar 1 CU clusters em regiões selecionadas. Se você precisar de um cluster maior que 1 CU, poderá enviar uma solicitação de suporte do Azure para escalar verticalmente o cluster após sua criação.
 
-Para criar um cluster no seu grupo de recursos com o portal do Azure, conclua os seguintes passos:
+Para criar um cluster em seu grupo de recursos usando o portal do Azure, execute as seguintes etapas:
 
-1. Siga [esta ligação](https://aka.ms/eventhubsclusterquickstart) para criar um cluster no portal do Azure. Por outro lado, selecione **todos os serviços** do painel de navegação esquerdo, em seguida, escreva "Clusters de Hubs de eventos" na barra de pesquisa e selecione "Clusters de Hubs de eventos" na lista de resultados.
-2. Sobre o **criar clusters** página, configure o seguinte:
-    1. Introduza um **nome para o cluster**. O sistema verifica imediatamente a disponibilidade do nome.
-    2. Selecione o **subscrição** no qual pretende criar o cluster.
-    3. Selecione o **grupo de recursos** no qual pretende criar o cluster.
-    4. Selecione um **localização** para o cluster. Se a sua região preferencial está a cinzento, que está temporariamente sem capacidade e pode submeter um [pedido de suporte](#submit-a-support-request) para a equipe de Hubs de eventos.
-    5. Selecione o **seguinte: Etiquetas** na parte inferior da página. Poderá ter de aguardar alguns minutos para que o sistema aprovisione totalmente os recursos.
+1. Siga [este link](https://aka.ms/eventhubsclusterquickstart) para criar um cluster no portal do Azure. Por outro lado, selecione **todos os serviços** no painel de navegação esquerdo, digite "clusters de hubs de eventos" na barra de pesquisa e selecione "clusters de hubs de eventos" na lista de resultados.
+2. Na página **criar cluster** , configure o seguinte:
+    1. Insira um **nome para o cluster**. O sistema verifica imediatamente a disponibilidade do nome.
+    2. Selecione a **assinatura** na qual você deseja criar o cluster.
+    3. Selecione o **grupo de recursos** no qual você deseja criar o cluster.
+    4. Selecione um **local** para o cluster. Se sua região preferida estiver esmaecida, ela estará temporariamente sem capacidade e você poderá enviar uma [solicitação de suporte](#submit-a-support-request) para a equipe de hubs de eventos.
+    5. Selecione o botão **próximo: marcas** na parte inferior da página. Poderá ter de aguardar alguns minutos para que o sistema aprovisione totalmente os recursos.
 
-        ![Criar o Cluster de Hubs de eventos - página de noções básicas](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-basics-page.png)
-3. Sobre o **etiquetas** página, configure o seguinte:
-    1. Introduza um **name** e uma **valor** para a etiqueta que pretende adicionar. Este passo é **opcional**.  
-    2. Selecione o **rever + criar** botão.
+        ![Criar cluster de hubs de eventos-página noções básicas](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-basics-page.png)
+3. Na página **marcas** , configure o seguinte:
+    1. Insira um **nome** e um **valor** para a marca que você deseja adicionar. Este passo é **opcional**.  
+    2. Selecione o botão **revisar + criar** .
 
-        ![Criar Cluster de Hubs de eventos de página - página de etiquetas](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-tags-page.png)
-4. Sobre o **rever + criar** página, reveja os detalhes e selecione **criar**. 
+        ![Página criar um cluster de hubs de eventos – página marcas](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-tags-page.png)
+4. Na página **revisar + criar** , examine os detalhes e selecione **criar**. 
 
-    ![Criar a página de Cluster de Hubs de eventos - rever + criar página](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-review-create-page.png)
+    ![Página criar cluster de hubs de eventos – examinar + criar página](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-review-create-page.png)
 
-## <a name="create-a-namespace-and-event-hub-within-a-cluster"></a>Criar um hub de eventos e de espaço de nomes dentro de um cluster
+## <a name="create-a-namespace-and-event-hub-within-a-cluster"></a>Criar um namespace e um hub de eventos em um cluster
 
-1. Para criar um espaço de nomes dentro de um cluster, o **Cluster de Hubs de eventos** página para o seu cluster, selecione **+ espaço de nomes** no menu superior.
+1. Para criar um namespace em um cluster, na página do **cluster de hubs de eventos** para seu cluster, selecione **+ namespace** no menu superior.
 
-    ![Página de gerenciamento de cluster – Adicionar botão de espaço de nomes](./media/event-hubs-dedicated-cluster-create-portal/cluster-management-page-add-namespace-button.png)
-2. Em criar uma página de espaço de nomes, efetue os seguintes passos:
-    1. Introduza um **nome para o espaço de nomes**.  O sistema verifica se o nome está disponível.
-    2. O espaço de nomes herda as seguintes propriedades:
+    ![Página de gerenciamento de cluster – botão Adicionar namespace](./media/event-hubs-dedicated-cluster-create-portal/cluster-management-page-add-namespace-button.png)
+2. Na página criar um namespace, execute as seguintes etapas:
+    1. Insira um **nome para o namespace**.  O sistema verifica se o nome está disponível.
+    2. O namespace herda as seguintes propriedades:
         1. ID da subscrição
         2. Grupo de Recursos
-        3. Location
+        3. Localização
         4. Nome do Cluster
-    3. Selecione **criar** para criar o espaço de nomes. Agora pode gerir o cluster.  
+    3. Selecione **criar** para criar o namespace. Agora você pode gerenciar seu cluster.  
 
-        ![Criar o espaço de nomes na página do cluster](./media/event-hubs-dedicated-cluster-create-portal/create-namespace-cluster-page.png)
-3. Assim que o seu espaço de nomes é criado, pode [criar um hub de eventos](event-hubs-create.md#create-an-event-hub) como normalmente criaria um dentro de um espaço de nomes. 
+        ![Criar namespace na página do cluster](./media/event-hubs-dedicated-cluster-create-portal/create-namespace-cluster-page.png)
+3. Depois que o namespace for criado, você poderá [criar um hub de eventos](event-hubs-create.md#create-an-event-hub) como faria normalmente criar um em um namespace. 
 
 
 ## <a name="submit-a-support-request"></a>Submeter pedidos de suporte
 
-Se pretender alterar o tamanho do seu cluster após a criação ou se a sua região preferencial não está disponível, submeta um pedido de suporte através dos seguintes passos:
+Se você quiser alterar o tamanho do cluster após a criação ou se sua região preferida não estiver disponível, envie uma solicitação de suporte seguindo estas etapas:
 
-1. Na [portal do Azure](https://portal.azure.com), selecione **ajuda + suporte** no menu à esquerda.
-2. Selecione **+ novo pedido de suporte** no menu de suporte.
-3. Na página de suporte, siga estes passos:
-    1. Para **tipo de problema**, selecione **técnica** na lista pendente.
+1. Em [portal do Azure](https://portal.azure.com), selecione **ajuda + suporte** no menu à esquerda.
+2. Selecione **+ nova solicitação de suporte** no menu de suporte.
+3. Na página de suporte, siga estas etapas:
+    1. Para **tipo de problema**, selecione **técnico** na lista suspensa.
     2. Em **Subscrição**, selecione a sua subscrição.
-    3. Para **serviço**, selecione **meus serviços**e, em seguida, selecione **Hubs de eventos**.
-    4. Para **Resource**, selecione o cluster, se já existir, caso contrário, selecione **geral pergunta/recurso não está disponível**.
-    5. Para **tipo de problema**, selecione **Quota**.
-    6. Para **subtipo de problema**, selecione um dos seguintes valores na lista pendente:
-        1. Selecione **pedido para o SKU dedicado** para pedir para a funcionalidade de suporte na sua região.
-        2. Selecione **pedido para aumentar verticalmente ou dimensionar para baixo Cluster dedicado** se pretender aumentar ou reduzir verticalmente o cluster dedicado. 
+    3. Para **serviço**, selecione **meus serviços**e, em seguida, selecione **hubs de eventos**.
+    4. Para **recurso**, selecione o cluster se ele já existir, caso contrário, selecione **pergunta/recurso geral não disponível**.
+    5. Para **tipo de problema**, selecione **cota**.
+    6. Para **subtipo de problema**, selecione um dos seguintes valores na lista suspensa:
+        1. Selecione **solicitação de SKU dedicada** para solicitar que o recurso tenha suporte em sua região.
+        2. Selecione **solicitação para escalar ou reduzir verticalmente o cluster dedicado** se você quiser escalar ou reduzir verticalmente seu cluster dedicado. 
     7. Para **assunto**, descreva o problema.
 
-        ![Página de pedido de suporte](./media/event-hubs-dedicated-cluster-create-portal/support-ticket.png)
+        ![Página tíquete de suporte](./media/event-hubs-dedicated-cluster-create-portal/support-ticket.png)
 
- ## <a name="delete-a-dedicated-cluster"></a>Eliminar um cluster dedicado
+ ## <a name="delete-a-dedicated-cluster"></a>Excluir um cluster dedicado
  
-1. Para eliminar o cluster, selecione **eliminar** no menu superior. Tenha em atenção que o cluster será cobrado por um mínimo de 4 horas de utilização após a criação. 
-2. Será apresentada uma mensagem a confirmar o deseja eliminar o cluster.
-3. Tipo de **nome do cluster** e selecione **eliminar** para eliminar o cluster.
+1. Para excluir o cluster, selecione **excluir** no menu superior. Observe que o cluster será cobrado por um mínimo de 4 horas de uso após a criação. 
+2. Uma mensagem será exibida confirmando seu desejo de excluir o cluster.
+3. Digite o **nome do cluster** e selecione **excluir** para excluir o cluster.
 
-    ![Eliminar página do cluster](./media/event-hubs-dedicated-cluster-create-portal/delete-cluster-page.png)
+    ![Página excluir cluster](./media/event-hubs-dedicated-cluster-create-portal/delete-cluster-page.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, criou um cluster de Hubs de eventos. Para obter instruções passo a passo enviar e receber eventos de um hub de eventos e capturar eventos para um armazenamento do Azure ou do Azure Data Lake Store, veja os tutoriais seguintes:
+## <a name="next-steps"></a>Passos seguintes
+Neste artigo, você criou um cluster de hubs de eventos. Para obter instruções detalhadas sobre como enviar e receber eventos de um hub de eventos e capturar eventos para um armazenamento do Azure ou Azure Data Lake Store, consulte os seguintes tutoriais:
 
 - [Enviar e receber eventos no .NET Core](event-hubs-dotnet-standard-getstarted-send.md)
-- [Utilizar o portal do Azure para ativar a captura de Hubs de eventos](event-hubs-capture-enable-through-portal.md)
-- [Utilizar os Hubs de eventos do Azure para o Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+- [Usar portal do Azure para habilitar a captura de hubs de eventos](event-hubs-capture-enable-through-portal.md)
+- [Usar os hubs de eventos do Azure para Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)

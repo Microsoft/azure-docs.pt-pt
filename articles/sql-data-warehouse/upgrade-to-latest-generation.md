@@ -1,5 +1,5 @@
 ---
-title: Atualizar para a última geração do Azure SQL Data Warehouse | Microsoft Docs
+title: Atualizar para a última geração
 description: Atualize o Azure SQL Data Warehouse para a última geração de arquitetura de armazenamento e hardware do Azure.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2864e3d29a0beccd2ef52732a85ea1495e1efab8
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 02c426cd921f4af19f3b8c271e4b1c08eae2c3c2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575299"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692447"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Otimizar o desempenho ao atualizar o SQL Data Warehouse
 
@@ -67,7 +68,7 @@ Essa atualização se aplica aos data warehouses da camada Gen1 otimizada de com
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Se a camada Gen1 otimizada de computação data warehouse a ser atualizada estiver em pausa, [retome o data warehouse](pause-and-resume-compute-portal.md).
 
@@ -111,7 +112,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 ## <a name="start-the-upgrade"></a>Iniciar a atualização
 
 1. Vá para a camada Gen1 otimizada de computação data warehouse na portal do Azure. Se a camada Gen1 otimizada de computação data warehouse a ser atualizada estiver em pausa, [retome o data warehouse](pause-and-resume-compute-portal.md). 
-2. Selecione **atualizar para** o cartão Gen2 na guia tarefas:  ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+2. Selecione **atualizar para** o cartão Gen2 na guia tarefas: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
     
     > [!NOTE]
     > Se você não vir a **atualização para** o cartão Gen2 na guia tarefas, o tipo de assinatura será limitado na região atual.
@@ -183,13 +184,13 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 ## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Criar um ponto de restauração definido pelo usuário usando o portal do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Navegue até o SQL Data Warehouse para o qual você deseja criar um ponto de restauração.
 
 3. Na parte superior da seção visão geral, selecione **+ novo ponto de restauração**.
 
-    ![Novo ponto de restauro](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
+    ![Novo ponto de restauração](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
 
 4. Especifique um nome para o ponto de restauração.
 
@@ -197,7 +198,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 ## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Restaurar um banco de dados ativo ou pausado usando o portal do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 2. Navegue até o SQL Data Warehouse do qual você deseja restaurar.
 3. Na parte superior da seção visão geral, selecione **restaurar**.
 
@@ -205,7 +206,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 4. Selecione **pontos de restauração automáticos** ou **pontos de restauração definidos pelo usuário**.
 
-    ![Pontos de Restauro Automático](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
+    ![Pontos de restauração automática](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
 
 5. Para pontos de restauração definidos pelo usuário, **Selecione um ponto de restauração** ou **crie um novo ponto de restauração definido pelo usuário**. Escolha um servidor em uma região geográfica com suporte do Gen2. 
 

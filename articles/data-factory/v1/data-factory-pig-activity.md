@@ -1,5 +1,5 @@
 ---
-title: Transformar dados usando a atividade Pig em Azure Data Factory | Microsoft Docs
+title: Transformar dados usando a atividade Pig no Azure Data Factory
 description: Saiba como você pode usar a atividade Pig em uma data factory do Azure para executar scripts do Pig em um cluster do HDInsight sob demanda/seu próprio.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 72f532c277096a20387ab1b4922def2cd35a9afb
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a6861a22f853bb0b48eb7c9832adb251bc3467ca
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139133"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682401"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformar dados usando a atividade Pig no Azure Data Factory
 > [!div class="op_single_selector" title1="Atividades de transformação"]
@@ -39,7 +39,7 @@ ms.locfileid: "70139133"
 A atividade Pig do HDInsight em um [pipeline](data-factory-create-pipelines.md) data Factory executa consultas Pig em [seu próprio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster do HDInsight baseado em Windows/Linux [sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) . Este artigo se baseia no artigo [atividades de transformação de dados](data-factory-data-transformation-activities.md) , que apresenta uma visão geral da transformação de dados e das atividades de transformação com suporte.
 
 > [!NOTE] 
-> Se você for novo no Azure Data Factory, leia a [introdução ao Azure data Factory](data-factory-introduction.md) e faça o tutorial: [Crie seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md) antes de ler este artigo. 
+> Se você for novo no Azure Data Factory, leia a [introdução ao Azure data Factory](data-factory-introduction.md) e faça o tutorial: [criar seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md) antes de ler este artigo. 
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -82,17 +82,17 @@ A atividade Pig do HDInsight em um [pipeline](data-factory-create-pipelines.md) 
 
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 
-| Propriedade | Descrição | Requerido |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| name |Nome da atividade |Sim |
-| description |Texto que descreve para que a atividade é usada |Não |
-| type |HDinsightPig |Sim |
-| inputs |Uma ou mais entradas consumidas pela atividade Pig |Não |
-| outputs |Uma ou mais saídas produzidas pela atividade Pig |Sim |
+| nome |Nome da atividade |Sim |
+| descrição |Texto que descreve para que a atividade é usada |Não |
+| tipo |HDinsightPig |Sim |
+| informações |Uma ou mais entradas consumidas pela atividade Pig |Não |
+| produz |Uma ou mais saídas produzidas pela atividade Pig |Sim |
 | linkedServiceName |Referência ao cluster HDInsight registrado como um serviço vinculado no Data Factory |Sim |
-| script |Especificar o script Pig embutido |Não |
+| . |Especificar o script Pig embutido |Não |
 | scriptPath |Armazene o script Pig em um armazenamento de BLOBs do Azure e forneça o caminho para o arquivo. Use a propriedade ' script ' ou ' scriptPath '. Ambos não podem ser usados juntos. O nome do arquivo diferencia maiúsculas de minúsculas. |Não |
-| defines |Especificar parâmetros como pares de chave/valor para referência no script Pig |Não |
+| autor |Especificar parâmetros como pares de chave/valor para referência no script Pig |Não |
 
 ## <a name="example"></a>Exemplo
 Vamos considerar um exemplo de análise de logs de jogos em que você deseja identificar o tempo gasto pelos jogadores que desempenham jogos lançados por sua empresa.
@@ -219,7 +219,7 @@ Para usar o script Pig com parâmetros, faça o seguinte:
     Store PigSampleOut into '$Output' USING PigStorage (','); 
     ```
 
-## <a name="see-also"></a>Consultar Também
+## <a name="see-also"></a>Veja também
 * [Atividade do hive](data-factory-hive-activity.md)
 * [Atividade MapReduce](data-factory-map-reduce.md)
 * [Atividade de streaming do Hadoop](data-factory-hadoop-streaming-activity.md)

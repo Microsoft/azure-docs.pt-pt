@@ -1,5 +1,5 @@
 ---
-title: Conectar-se ao Azure SQL Data Warehouse-SSMS | Microsoft Docs
+title: Ligar com o SSMS
 description: Use o SQL Server Management Studio (SSMS) para se conectar e consultar o SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: b96896c0366c6fba2548480b166bdb9cf6ca692c
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d5c903a24ea47cb152555330688dd0bc515c625b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575339"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692594"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Conectar-se a SQL Data Warehouse com o SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -36,9 +37,9 @@ Para utilizar este tutorial, precisa do seguinte:
 * SQL Server Management Studio (SSMS) instalado. [Instale o SSMS][Install SSMS] gratuitamente se você ainda não o tiver.
 * O nome de servidor SQL completamente qualificado. Para o descobrir, veja [Ligar ao SQL Data Warehouse][Connect to SQL Data Warehouse].
 
-## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Ligar ao seu SQL Data Warehouse
+## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Conecte-se ao seu SQL Data Warehouse
 1. Abra o SQL Server Management Studio.
-2. Abra o pesquisador de objetos. Para fazer isso, selecione **arquivo** > conectar pesquisador de**objetos**.
+2. Abra o pesquisador de objetos. Para fazer isso, selecione **arquivo** > **conectar o pesquisador de objetos**.
    
     ![SQL Server Object Explorer][1]
 3. Preencha os campos na janela Ligar ao Servidor.
@@ -53,7 +54,7 @@ Para utilizar este tutorial, precisa do seguinte:
    
     ![Explorar AdventureWorksDW][3]
 
-## <a name="2-run-a-sample-query"></a>2. Executar uma consulta de exemplo
+## <a name="2-run-a-sample-query"></a>2. executar uma consulta de exemplo
 Agora que foi estabelecida uma ligação à base de dados, vamos escrever uma consulta.
 
 1. Clique com o botão direito do rato na base de dados no SQL Server Object Explorer.
@@ -65,7 +66,7 @@ Agora que foi estabelecida uma ligação à base de dados, vamos escrever uma co
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Execute a consulta. Para fazer isso, clique `Execute` ou use o seguinte atalho: `F5`.
+4. Execute a consulta. Para fazer isso, clique em `Execute` ou use o seguinte atalho: `F5`.
    
     ![Executar consulta][5]
 5. Veja os resultados da consulta. Neste exemplo, a tabela FactInternetSales tem 60398 linhas.

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2d8bf44f5e5e7a3f8c328a47480599f9dd18b845
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: d8a2c456c725a3170bc940bf17dec6b0c4ad2c3e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489507"
+ms.locfileid: "73584531"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitorar execuções e métricas de experimento do Azure ML
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,6 +27,9 @@ Aprimore o processo de criação de modelo rastreando suas experiências e monit
 > [!NOTE]
 > Azure Machine Learning também pode registrar informações de outras fontes durante o treinamento, como execuções automatizadas do Machine Learning ou o contêiner do Docker que executa o trabalho de treinamento. Esses logs não estão documentados. Se você encontrar problemas e entrar em contato com o suporte da Microsoft, eles podem ser capazes de usar esses logs durante a solução de problemas.
 
+> [!TIP]
+> As informações neste documento são basicamente para cientistas de dados e desenvolvedores que desejam monitorar o processo de treinamento de modelo. Se você for um administrador interessado em monitorar o uso de recursos e eventos do Azure Machine Learning, como cotas, execuções de treinamento concluídas ou implantações de modelo concluídas, consulte [monitoramento Azure Machine Learning](monitor-azure-machine-learning.md).
+
 ## <a name="available-metrics-to-track"></a>Métricas disponíveis para acompanhar
 
 As métricas a seguir podem ser adicionadas a uma execução durante o treinamento de um experimento. Para exibir uma lista mais detalhada do que pode ser acompanhado em uma execução, consulte a [documentação de referência da classe Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
@@ -34,9 +37,9 @@ As métricas a seguir podem ser adicionadas a uma execução durante o treinamen
 |Tipo| Função do Python | Notas|
 |----|:----|:----|
 |Valores escalares |Funcionamento<br>`run.log(name, value, description='')`<br><br>Exemplo:<br>Run. log ("exatidão", 0,95) |Registre um valor numérico ou de cadeia de caracteres para a execução com o nome fornecido. Registrar uma métrica em uma execução faz com que essa métrica seja armazenada no registro de execução no experimento.  Você pode registrar a mesma métrica várias vezes em uma execução, o resultado sendo considerado um vetor dessa métrica.|
-|Lista|Funcionamento<br>`run.log_list(name, value, description='')`<br><br>Exemplo:<br>Run. log _list ("imprecisões", [0,6, 0,7, 0,87]) | Registra em log uma lista de valores para a execução com o nome fornecido.|
-|fila|Funcionamento<br>`run.log_row(name, description=None, **kwargs)`<br>Exemplo:<br>Run. log _row ("Y sobre X", X = 1, Y = 0.4) | O uso de *log_row* cria uma métrica com várias colunas, conforme descrito em kwargs. Cada parâmetro nomeado gera uma coluna com o valor especificado.  *log_row* pode ser chamado uma vez para registrar uma tupla arbitrária ou várias vezes em um loop para gerar uma tabela completa.|
-|Tabela|Funcionamento<br>`run.log_table(name, value, description='')`<br><br>Exemplo:<br>Run. log _table ("Y sobre X", {"X": [1, 2, 3], "Y": [0,6, 0,7, 0,89]}) | Registra em log um objeto Dictionary na execução com o nome fornecido. |
+|Lista|Funcionamento<br>`run.log_list(name, value, description='')`<br><br>Exemplo:<br>Run. log_list ("imprecisões", [0,6, 0,7, 0,87]) | Registra em log uma lista de valores para a execução com o nome fornecido.|
+|fila|Funcionamento<br>`run.log_row(name, description=None, **kwargs)`<br>Exemplo:<br>Run. log_row ("Y sobre X", X = 1, Y = 0.4) | O uso de *log_row* cria uma métrica com várias colunas, conforme descrito em kwargs. Cada parâmetro nomeado gera uma coluna com o valor especificado.  *log_row* pode ser chamado uma vez para registrar uma tupla arbitrária ou várias vezes em um loop para gerar uma tabela completa.|
+|Tabela|Funcionamento<br>`run.log_table(name, value, description='')`<br><br>Exemplo:<br>Run. log_table ("Y sobre X", {"X": [1, 2, 3], "y": [0,6, 0,7, 0,89]}) | Registra em log um objeto Dictionary na execução com o nome fornecido. |
 |Imagens|Funcionamento<br>`run.log_image(name, path=None, plot=None)`<br><br>Exemplo:<br>`run.log_image("ROC", plt)` | Registre uma imagem no registro de execução. Use log_image para registrar um arquivo de imagem ou um gráfico matplotlib na execução.  Essas imagens estarão visíveis e comparáveis no registro de execução.|
 |Marcar uma execução|Funcionamento<br>`run.tag(key, value=None)`<br><br>Exemplo:<br>Run. Tag ("Selected", "Yes") | Marque a execução com uma chave de cadeia de caracteres e um valor de cadeia de caracteres opcional.|
 |Carregar arquivo ou diretório|Funcionamento<br>`run.upload_file(name, path_or_stream)`<br> <br> Exemplo:<br>Run. upload_file ("best_model. PKL", "./Model.PKL") | Carregue um arquivo no registro de execução. Executa o arquivo de captura automaticamente no diretório de saída especificado, cujo padrão é "./Outputs" para a maioria dos tipos de execução.  Use upload_file somente quando arquivos adicionais precisarem ser carregados ou se um diretório de saída não for especificado. Sugerimos adicionar `outputs` ao nome para que ele seja carregado no diretório de saídas. Você pode listar todos os arquivos associados a esse registro de execução chamado `run.get_file_names()`|
@@ -47,7 +50,7 @@ As métricas a seguir podem ser adicionadas a uma execução durante o treinamen
 ## <a name="choose-a-logging-option"></a>Escolha uma opção de log
 
 Se você quiser acompanhar ou monitorar seu experimento, você deve adicionar o código para iniciar o registro em log ao enviar a execução. Veja a seguir as maneiras de disparar o envio de execução:
-* __Execute. start_logging__ -adicione funções de log ao seu script de treinamento e inicie uma sessão de log interativa no experimento especificado. o **start_logging** cria uma execução interativa para uso em cenários como notebooks. Todas as métricas registradas durante a sessão são adicionadas ao registro de execução no experimento.
+* __Run. start_logging__ -adiciona funções de log ao seu script de treinamento e inicia uma sessão de log interativa no experimento especificado. **start_logging** cria uma execução interativa para uso em cenários como notebooks. Todas as métricas registradas durante a sessão são adicionadas ao registro de execução no experimento.
 * __ScriptRunConfig__ – adicione funções de registro em log ao seu script de treinamento e carregue a pasta de script inteira com a execução.  **ScriptRunConfig** é uma classe para configurar as configurações para execuções de script. Com essa opção, você pode adicionar o código de monitoramento para ser notificado da conclusão ou para fazer com que um widget Visual monitore.
 
 ## <a name="set-up-the-workspace"></a>Configurar o espaço de trabalho
@@ -64,7 +67,7 @@ Antes de adicionar o registro em log e enviar um experimento, você deve configu
   
 ## <a name="option-1-use-start_logging"></a>Opção 1: usar start_logging
 
-o **start_logging** cria uma execução interativa para uso em cenários como notebooks. Todas as métricas registradas durante a sessão são adicionadas ao registro de execução no experimento.
+**start_logging** cria uma execução interativa para uso em cenários como notebooks. Todas as métricas registradas durante a sessão são adicionadas ao registro de execução no experimento.
 
 O exemplo a seguir treina um modelo de ondulação sklearn simples localmente em um notebook Jupyter local. Para saber mais sobre como enviar experimentos para ambientes diferentes, confira [Configurar destinos de computação para treinamento de modelo com o Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets).
 

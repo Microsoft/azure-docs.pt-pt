@@ -1,5 +1,5 @@
 ---
-title: Atribuir variáveis no Azure SQL Data Warehouse | Microsoft Docs
+title: Atribuir variáveis
 description: Dicas para atribuir variáveis T-SQL no Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 6c943478f3904aac17a572f012f2b2b69ffa2223
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 1ae5285a8d1cf6fa391c082d0196b213e6b6a9c5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479551"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692768"
 ---
 # <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Atribuindo variáveis no Azure SQL Data Warehouse
 
@@ -23,7 +24,7 @@ Dicas para atribuir variáveis T-SQL no Azure SQL Data Warehouse para desenvolve
 
 ## <a name="setting-variables-with-declare"></a>Definindo variáveis com DECLARE
 
-As variáveis no SQL data warehouse são definidas usando `DECLARE` a instrução ou `SET` a instrução. Inicializar variáveis com DECLARE é uma das maneiras mais flexíveis de definir um valor de variável em SQL Data Warehouse.
+As variáveis no SQL Data Warehouse são definidas usando a instrução `DECLARE` ou a instrução `SET`. Inicializar variáveis com DECLARE é uma das maneiras mais flexíveis de definir um valor de variável em SQL Data Warehouse.
 
 ```sql
 DECLARE @v  int = 0
@@ -38,7 +39,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Você não pode inicializar e usar uma variável na mesma instrução DECLARE. Para ilustrar o ponto, o exemplo a seguir **não** é @p1 permitido, já que é inicializado e usado na mesma instrução Declare. O exemplo a seguir apresenta um erro.
+Você não pode inicializar e usar uma variável na mesma instrução DECLARE. Para ilustrar o ponto, o exemplo a seguir **não** é permitido, pois @p1 é inicializado e usado na mesma instrução Declare. O exemplo a seguir apresenta um erro.
 
 ```sql
 DECLARE @p1 int = 0

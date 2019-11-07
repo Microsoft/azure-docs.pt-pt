@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef3d6a47986056925f9964638c9c7192341ca5f9
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 82c1a536bb86f0b3a4fe6a24af00379686ccc292
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241000"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641494"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizando mapeamentos de atributo de provisionamento de usuário para aplicativos SaaS no Azure Active Directory
 
@@ -77,6 +77,16 @@ Junto com essa propriedade, os mapeamentos de atributo também oferecem suporte 
   - **Sempre** – aplique esse mapeamento nas ações de criação e atualização do usuário.
   - **Somente durante a criação** – aplique esse mapeamento somente em ações de criação de usuário.
 
+## <a name="matching-users-in-the-source-and-target--systems"></a>Usuários correspondentes nos sistemas de origem e de destino
+O serviço de provisionamento do Azure AD pode ser implantado em ambos os cenários Greenfield (os usuários não são encerrados no sistema de destino) e Brownfield (os usuários já existem nos sistemas de destino). Para dar suporte a ambos os cenários, o serviço de provisionamento usa o conceito de atributo (s) correspondente. Os atributos correspondentes permitem que você determine como identificar exclusivamente um usuário na origem e corresponder ao usuário no destino. Como parte do planejamento de sua implantação, identifique o atributo que pode ser usado para identificar exclusivamente um usuário nos sistemas de origem e de destino. Itens a serem observados:
+
+- Os **atributos correspondentes devem ser exclusivos:** Os clientes geralmente usam atributos como userPrincipalName, email ou ID de objeto como o atributo correspondente.
+- **Vários atributos podem ser usados como atributos correspondentes:** Você pode definir vários atributos a serem avaliados quando os usuários correspondentes e a ordem em que eles são avaliados (definidos como precedência de correspondência na interface do usuário). Se, por exemplo, você definir três atributos como atributos correspondentes e um usuário for correspondido com exclusividade depois de avaliar os dois primeiros atributos, o serviço não evaluat o terceiro atributo. O serviço avaliará os atributos correspondentes na ordem especificada e interromperá a avaliação quando uma correspondência for encontrada.  
+- **O valor na origem e no destino não precisam corresponder exatamente:** O valor no destino pode ser uma função simples do valor na origem. Portanto, um pode ter um atributo emailAddress na origem e o userPrincipalName no destino e corresponder por uma função do atributo emailAddress que substitui alguns caracteres por um valor constante.  
+- **Não há suporte para a correspondência com base em uma combinação de atributos:** A maioria dos aplicativos não oferece suporte à consulta com base em duas propriedades e portanto não é possível fazer a correspondência com base em uma combinação de atributos. É possível avaliar as propriedades únicas após a outra.
+- **Todos os usuários devem ter um valor para pelo menos um atributo correspondente:** Se você definir um atributo correspondente, todos os usuários deverão ter um valor para esse atributo no sistema de origem. Se, por exemplo, você definir userPrincipalName como o atributo correspondente, todos os usuários deverão ter um userPrincipalName. Se você definir vários atributos correspondentes (por exemplo, extensionAttribute1 e email), nem todos os usuários precisarão ter o mesmo atributo correspondente. Um usuário poderia ter um extensionAttribute1, mas não um email, enquanto outro usuário poderia ter um email, mas sem extensionAttribute1. 
+- **O aplicativo de destino deve dar suporte à filtragem no atributo correspondente:** Os desenvolvedores de aplicativos permitem a filtragem de um subconjunto de atributos em sua API de usuário ou de grupo. Para aplicativos na Galeria, garantimos que o mapeamento de atributo padrão seja para um atributo no qual a API do aplicativo de destino dá suporte à filtragem. Ao alterar o atributo de correspondência padrão para o aplicativo de destino, verifique a documentação da API de terceiros para garantir que o atributo possa ser filtrado.  
+
 ## <a name="editing-group-attribute-mappings"></a>Editando atributo de grupo-mapeamentos
 
 Um número selecionado de aplicativos, como ServiceNow, Box e G Suite, dá suporte à capacidade de provisionar objetos de grupo e objetos de usuário. Os objetos de grupo podem conter Propriedades de grupo, como nomes de exibição e aliases de email, juntamente com membros do grupo.
@@ -125,6 +135,113 @@ Ao editar a lista de atributos com suporte, as seguintes propriedades são forne
 - **Atributo de objeto referenciado** -se for um atributo de tipo de referência, esse menu permitirá que você selecione a tabela e o atributo no aplicativo de destino que contém o valor associado ao atributo. Por exemplo, se você tiver um atributo chamado "Department" cujo valor armazenado faz referência a um objeto em uma tabela "departamentos" separada, selecione "Departments.Name". As tabelas de referência e os campos de ID primária com suporte para um determinado aplicativo são pré-configurados e, no momento, não podem ser editados usando o portal do Azure, mas podem ser editados usando o [API do Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
 Para adicionar um novo atributo, role até o final da lista de atributos com suporte, preencha os campos acima usando as entradas fornecidas e selecione **Adicionar atributo**. Selecione **salvar** quando terminar de adicionar atributos. Em seguida, você precisa recarregar a guia **provisionamento** para que os novos atributos se tornem disponíveis no editor de mapeamento de atributos.
+## <a name="provisioning-a-role-to-a-scim-app"></a>Provisionando uma função para um aplicativo SCIM
+Use as etapas abaixo para provisionar funções para um usuário para seu aplicativo. Observe que a descrição abaixo é específica para aplicativos SCIM personalizados. Para aplicativos de galeria, como Salesforce e ServiceNow, use os mapeamentos de função predefinidos. Os marcadores abaixo descrevem como transformar o atributo AppRoleAssignments no formato esperado pelo aplicativo.
+
+- O mapeamento de um appRoleAssignment no Azure AD para uma função em seu aplicativo requer que você transforme o atributo usando uma [expressão](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data). O atributo appRoleAssignment **não deve ser mapeado diretamente** para um atributo role sem usar uma expressão para analisar os detalhes da função. 
+
+- **SingleAppRoleAssignment** 
+  - **Quando usar:** Use a expressão SingleAppRoleAssignment para provisionar uma única função para um usuário e para especificar a função primária. 
+  - **Como configurar:** Use as etapas descritas acima para navegar até a página Mapeamentos de atributo e use a expressão SingleAppRoleAssignment para mapear para o atributo funções. Há três atributos de função a serem escolhidos: (funções [Primary EQ "true"]. display, Roles [Primary EQ "true]. Type e Roles [Primary EQ" true "]. Value). Você pode optar por incluir qualquer um dos atributos de função ou todos eles em seus mapeamentos. Se você quiser incluir mais de um, basta adicionar um novo mapeamento e incluí-lo como o atributo de destino.  
+  
+  ![Adicionar SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
+  - **Itens a serem considerados**
+    - Certifique-se de que várias funções não sejam atribuídas a um usuário. Não podemos garantir qual função será provisionada.
+    
+  - **Exemplo de saída** 
+
+   ```json
+    {
+      "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "alias",
+      "userName": "alias@contoso.OnMicrosoft.com",
+      "active": true,
+      "displayName": "First Name Last Name",
+      "meta": {
+           "resourceType": "User"
+      },
+      "roles": [
+         {
+               "primary": true,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "value": "Admin"
+         }
+      ]
+   }
+   ```
+  
+- **AppRoleAssignmentsComplex** 
+  - **Quando usar:** Use a expressão AppRoleAssignmentsComplex para provisionar várias funções para um usuário. 
+  - **Como configurar:** Edite a lista de atributos com suporte, conforme descrito acima, para incluir um novo atributo para as funções: 
+  
+    ![Adicionar funções](./media/customize-application-attributes/add-roles.png)<br>
+
+    Em seguida, use a expressão AppRoleAssignmentsComplex para mapear para o atributo de função personalizada, conforme mostrado na imagem abaixo:
+
+    ![Adicionar AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
+  - **Itens a serem considerados**
+    - Todas as funções serão provisionadas como primárias = falso.
+    - A POSTAgem contém o tipo de função. A solicitação de PATCH não contém o tipo. Estamos trabalhando para enviar o tipo em solicitações POST e PATCH.
+    
+  - **Exemplo de saída** 
+  
+   ```json
+   {
+       "schemas": [
+           "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "alias",
+      "userName": "alias@contoso.OnMicrosoft.com",
+      "active": true,
+      "displayName": "First Name Last Name",
+      "meta": {
+           "resourceType": "User"
+      },
+      "roles": [
+         {
+               "primary": false,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "display": "Admin",
+               "value": "Admin"
+         },
+         {
+               "primary": false,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "display": "User",
+             "value": "User"
+         }
+      ]
+   }
+   ```
+
+  
+
+
+## <a name="provisioning-a-multi-value-attribute"></a>Provisionando um atributo com vários valores
+Determinados atributos, como phoneNumbers e emails, são atributos de vários valores, em que talvez seja necessário especificar diferentes tipos de números de telefone ou emails. Use a expressão abaixo para atributos de valores múltiplos. Ele permite que você especifique o tipo de atributo e mapeie-o para o atributo de usuário correspondente do Azure AD para o valor. 
+
+* phoneNumbers [type EQ "trabalho"]. valor
+* phoneNumbers [tipo EQ "móvel"]. valor
+* phoneNumbers [type EQ "fax"]. valor
+
+   ```json
+   "phoneNumbers": [
+       {
+         "value": "555-555-5555",
+         "type": "work"
+      },
+      {
+         "value": "555-555-5555",
+         "type": "mobile"
+      },
+      {
+         "value": "555-555-5555",
+         "type": "fax"
+      }
+   ]
+   ```
 
 ## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>Restaurando atributos padrão e mapeamentos de atributo
 

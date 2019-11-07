@@ -1,5 +1,5 @@
 ---
-title: Copiar dados de e para o Oracle usando o Azure Data Factory | Microsoft Docs
+title: Copiar dados de e para o Oracle usando o Azure Data Factory
 description: Saiba como copiar dados de armazenamentos de origem com suporte para um Oracle Database ou do Oracle para repositórios de coletor com suporte, usando Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 24ff711fcd27d59c555a53a910065e19f7298131
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d8cbc7410f2b2bd525148cee9dc5b8ddbb756dff
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931064"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680514"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para o Oracle usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -67,7 +67,7 @@ As seções a seguir fornecem detalhes sobre as propriedades que são usadas par
 
 O serviço vinculado do Oracle oferece suporte às seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type deve ser definida como **Oracle**. | Sim |
 | connectionString | Especifica as informações necessárias para se conectar à instância de Oracle Database. <br/>Marque este campo como um `SecureString` para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha em Azure Key Vault e extrair a configuração de `password` da cadeia de conexão. Consulte os exemplos a seguir e [armazene as credenciais em Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. <br><br>**Tipo de conexão com suporte**: você pode usar o **Oracle Sid** ou o **nome do serviço Oracle** para identificar seu banco de dados:<br>-Se você usar o SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Se você usar o nome do serviço: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Sim |
@@ -178,11 +178,11 @@ Esta seção fornece uma lista das propriedades com suporte pelo conjunto de sol
 
 Para copiar dados de e para o Oracle, defina a propriedade Type do conjunto para `OracleTable`. As propriedades a seguir têm suporte.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type do conjunto de conjuntos deve ser definida como `OracleTable`. | Sim |
-| Esquema | Nome do esquema. |Não para fonte, sim para coletor  |
-| Tabela | Nome da tabela/exibição. |Não para fonte, sim para coletor  |
+| schema | Nome do esquema. |Não para fonte, sim para coletor  |
+| tabela | Nome da tabela/exibição. |Não para fonte, sim para coletor  |
 | tableName | Nome da tabela/exibição com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Para uma nova carga de trabalho, use `schema` e `table`. | Não para fonte, sim para coletor |
 
 **Exemplo:**
@@ -217,7 +217,7 @@ Esta seção fornece uma lista das propriedades com suporte pela origem e pelo c
 
 Para copiar dados do Oracle, defina o tipo de fonte na atividade de cópia como `OracleSource`. As propriedades a seguir têm suporte na seção **origem** da atividade de cópia.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como `OracleSource`. | Sim |
 | oracleReaderQuery | Use a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`.<br>Ao habilitar a carga particionada, você precisa vincular quaisquer parâmetros de partição internos correspondentes em sua consulta. Para obter exemplos, consulte a seção [cópia paralela do Oracle](#parallel-copy-from-oracle) . | Não |
@@ -264,7 +264,7 @@ Para copiar dados do Oracle, defina o tipo de fonte na atividade de cópia como 
 
 Para copiar dados para o Oracle, defina o tipo de coletor na atividade de cópia como `OracleSink`. As propriedades a seguir têm suporte na seção **coletor** de atividade de cópia.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type do coletor da atividade de cópia deve ser definida como `OracleSink`. | Sim |
 | writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge `writeBatchSize`.<br/>Os valores permitidos são inteiro (número de linhas). |Não (o padrão é 10.000) |
@@ -374,7 +374,7 @@ Quando você copia dados do e para o Oracle, os mapeamentos a seguir se aplicam.
 | ESTAMPA |DateTime |
 | CARIMBO DE DATA/HORA COM FUSO HORÁRIO LOCAL |String |
 | CARIMBO DE DATA/HORA COM FUSO HORÁRIO |String |
-| INTEIRO SEM SINAL |Number |
+| INTEIRO SEM SINAL |Número |
 | VARCHAR2 |String |
 | XML |String |
 

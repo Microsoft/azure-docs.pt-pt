@@ -1,6 +1,6 @@
 ---
-title: Encriptar as credenciais no Azure Data Factory | Documentos da Microsoft
-description: Saiba como criptografar e armazenar as credenciais para os arquivos de dados no local num computador com o integration runtime autoalojado.
+title: Criptografar credenciais no Azure Data Factory
+description: Saiba como criptografar e armazenar credenciais para seus armazenamentos de dados locais em um computador com o Integration Runtime de hospedagem interna.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -12,24 +12,24 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 8e705a4430f6ccee847dc7d41ef80456a6dc4ea5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41e353931fb2d9fe26c0a6bd73d5085495ad7b78
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155140"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675064"
 ---
-# <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Encriptar as credenciais para arquivos de dados no local no Azure Data Factory
-Pode criptografar e armazenar credenciais de seus arquivos de dados no local (serviços ligados com informações confidenciais) numa máquina com o integration runtime autoalojado. 
+# <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Criptografar credenciais para armazenamentos de dados locais no Azure Data Factory
+Você pode criptografar e armazenar credenciais para seus armazenamentos de dados locais (serviços vinculados com informações confidenciais) em um computador com o Integration Runtime de hospedagem interna. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Passa um ficheiro de definição de JSON com as credenciais para o <br/>[**Novo AzDataFactoryV2LinkedServiceEncryptedCredential** ](/powershell/module/az.datafactory/New-AzDataFactoryV2LinkedServiceEncryptedCredential) cmdlet para produzir um ficheiro de definição de JSON de saída com as credenciais encriptadas. Em seguida, utilize a definição de JSON atualizada para criar serviços ligados.
+Você passa um arquivo de definição JSON com credenciais para o <br/>Cmdlet [**New-AzDataFactoryV2LinkedServiceEncryptedCredential**](/powershell/module/az.datafactory/New-AzDataFactoryV2LinkedServiceEncryptedCredential) para produzir um arquivo de definição JSON de saída com as credenciais criptografadas. Em seguida, use a definição de JSON atualizada para criar os serviços vinculados.
 
-## <a name="author-sql-server-linked-service"></a>Serviço ligado do SQL Server de autor
-Crie um ficheiro JSON com o nome **Sqlserverlinkedservice** em qualquer pasta com o seguinte conteúdo:  
+## <a name="author-sql-server-linked-service"></a>Criar SQL Server serviço vinculado
+Crie um arquivo JSON chamado **SqlServerLinkedService. JSON** em qualquer pasta com o seguinte conteúdo:  
 
-Substitua `<servername>`, `<databasename>`, `<username>`, e `<password>` com valores para o servidor de SQL antes de guardar o ficheiro. E, substitua `<integration runtime name>` com o nome do seu integration runtime. 
+Substitua `<servername>`, `<databasename>`, `<username>`e `<password>` pelos valores de seu SQL Server antes de salvar o arquivo. E substitua `<integration runtime name>` pelo nome do seu tempo de execução de integração. 
 
 ```json
 {
@@ -50,20 +50,20 @@ Substitua `<servername>`, `<databasename>`, `<username>`, e `<password>` com val
 }
 ```
 
-## <a name="encrypt-credentials"></a>Encriptar credenciais
-Para encriptar os dados confidenciais do payload JSON num runtime de integração autoalojado no local, execute **New-AzDataFactoryV2LinkedServiceEncryptedCredential**e transmitir o payload JSON. Este cmdlet garante que as credenciais são encriptadas com a interface DPAPI e armazenadas no nó do runtime de integração autoalojado localmente. O payload de saída que contém a referência encriptada para a credencial pode ser redirecionado para outro ficheiro JSON (neste caso, 'Encryptedlinkedservice').
+## <a name="encrypt-credentials"></a>Criptografar credenciais
+Para criptografar os dados confidenciais do conteúdo JSON em um tempo de execução de integração autohospedado local, execute **New-AzDataFactoryV2LinkedServiceEncryptedCredential**e passe o conteúdo JSON. Esse cmdlet garante que as credenciais sejam criptografadas usando DPAPI e armazenadas no nó de tempo de execução de integração auto-hospedado localmente. A carga de saída que contém a referência criptografada para a credencial pode ser redirecionada para outro arquivo JSON (neste caso, ' encryptedLinkedService. JSON ').
 
 ```powershell
 New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
 ```
 
-## <a name="use-the-json-with-encrypted-credentials"></a>Utilizar o JSON com as credenciais encriptadas
-Agora, utilize o ficheiro JSON de saída do comando anterior, que contém a credencial encriptada para configurar o **SqlServerLinkedService**.
+## <a name="use-the-json-with-encrypted-credentials"></a>Usar o JSON com credenciais criptografadas
+Agora, use o arquivo JSON de saída do comando anterior que contém a credencial criptografada para configurar o **SqlServerLinkedService**.
 
 ```powershell
 Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -DefinitionFile ".\encryptedSqlServerLinkedService.json" 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-Para obter informações sobre considerações de segurança para movimento de dados, consulte [considerações de segurança de movimento de dados](data-movement-security-considerations.md).
+## <a name="next-steps"></a>Passos seguintes
+Para obter informações sobre considerações de segurança para movimentação de dados, consulte [considerações de segurança de movimentação de dados](data-movement-security-considerations.md).
 

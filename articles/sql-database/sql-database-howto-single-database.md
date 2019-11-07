@@ -1,5 +1,5 @@
 ---
-title: Como configurar o banco de dados SQL do Azure-single | Microsoft Docs
+title: Como configurar o banco de dados SQL do Azure-único
 description: Saiba como configurar e gerenciar o banco de dados SQL do Azure-banco de dados individual
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 02/08/2019
-ms.openlocfilehash: 2117a811f977230dd9c9eecf6ea09b9b7deda3be
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 45e25641092fae36cd58a59400cea025f74cbc1f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568048"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689899"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Como usar um banco de dados individual no banco de dados SQL do Azure
 
@@ -29,12 +29,12 @@ Nesta seção, você pode encontrar vários guias, scripts e explicações que p
 
 ## <a name="configure-features"></a>Configurar funcionalidades
 
-- [Configure a replicação](replication-to-sql-database.md) transacional para replicar sua data entre bancos de dados.
+- [Configure a replicação transacional](replication-to-sql-database.md) para replicar sua data entre bancos de dados.
 - [Configure a detecção de ameaças](sql-database-threat-detection.md) para permitir que o banco de dados SQL do Azure identifique atividades suspeitas, como injeção de SQL ou acesso de locais suspeitos.
 - [Configure a máscara de dados dinâmicos](sql-database-dynamic-data-masking-get-started-portal.md) para proteger seus dados confidenciais.
 - [Configure a retenção de backup](sql-database-long-term-backup-retention-configure.md) para um banco de dados para manter seus backups no armazenamento de BLOBs do Azure. Como alternativa, há a abordagem [Configurar a retenção de backup usando o cofre do Azure (preterido)](sql-database-long-term-backup-retention-configure-vault.md) .
 - [Configure a replicação geográfica](sql-database-geo-replication-portal.md) para manter uma réplica do seu banco de dados em outra região.
-- [Configure a segurança para réplicas](sql-database-geo-replication-security-config.md)geográficas.
+- [Configure a segurança para réplicas geográficas](sql-database-geo-replication-security-config.md).
 
 ## <a name="monitor-and-tune-your-database"></a>Monitorar e ajustar seu banco de dados
 
@@ -72,5 +72,5 @@ Nesta seção, você pode encontrar vários guias, scripts e explicações que p
 - [Use o Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) para consultar dados fragmentados.
 - [Use a estrutura Dapper](sql-database-elastic-scale-working-with-dapper.md) para consultar dados fragmentados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre os [guias de instruções para a instância gerenciada](sql-database-howto-managed-instance.md)

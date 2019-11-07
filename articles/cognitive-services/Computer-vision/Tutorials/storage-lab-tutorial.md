@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Gerar metadados para imagens do Azure'
+title: 'Tutorial: gerar metadados para imagens do Azure'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, você aprenderá a integrar o serviço de Pesquisa Visual Computacional do Azure a um aplicativo Web para gerar metadados para imagens.
 services: cognitive-services
@@ -10,16 +10,18 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: pafarley
-ms.openlocfilehash: 7caf4493db32201a8e83ffb3722c80c5e9b41a8f
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: ac292f020bb64c7c70ce3ea5c7f66fe9e9ed1bb7
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057732"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604661"
 ---
-# <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Usar Pesquisa Visual Computacional para gerar metadados de imagem no armazenamento do Azure
+# <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: usar Pesquisa Visual Computacional para gerar metadados de imagem no armazenamento do Azure
 
-Neste tutorial, você aprenderá a integrar o serviço de Pesquisa Visual Computacional do Azure a um aplicativo Web para gerar metadados para imagens carregadas. Um guia de aplicativo completo pode ser encontrado no [laboratório de armazenamento do Azure e serviços cognitivas](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) no GitHub, e este tutorial aborda, essencialmente, o exercício 5 do laboratório. Você pode desejar criar o aplicativo de ponta a ponta seguindo cada etapa, mas se você quiser ver como Pesquisa Visual Computacional pode ser integrado a um aplicativo Web existente, leia aqui.
+Neste tutorial, você aprenderá a integrar o serviço de Pesquisa Visual Computacional do Azure a um aplicativo Web para gerar metadados para imagens carregadas. Isso é útil para cenários de [Dam (gerenciamento de ativos digitais)](../Home.md#computer-vision-for-digital-asset-management) , como se uma empresa quiser gerar rapidamente legendas descritivas ou palavras-chave pesquisáveis para todas as suas imagens.
+
+Um guia de aplicativo completo pode ser encontrado no [laboratório de armazenamento do Azure e serviços cognitivas](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) no GitHub, e este tutorial aborda, essencialmente, o exercício 5 do laboratório. Você pode desejar criar o aplicativo de ponta a ponta seguindo cada etapa, mas se você quiser ver como Pesquisa Visual Computacional pode ser integrado a um aplicativo Web existente, leia aqui.
 
 Este tutorial mostrar-lhe como:
 
@@ -59,7 +61,7 @@ Você precisará criar um recurso de Pesquisa Visual Computacional para sua cont
 
 Em seguida, você adicionará as credenciais necessárias ao seu aplicativo para que ele possa acessar Pesquisa Visual Computacional recursos
 
-Abra seu aplicativo Web ASP.NET no Visual Studio e navegue até o arquivo **Web. config** na raiz do projeto. Adicione as instruções a seguir à `<appSettings>` seção do arquivo, substituindo `VISION_KEY` pela chave que você copiou na etapa anterior e `VISION_ENDPOINT` pela URL que você salvou na etapa anterior.
+Abra seu aplicativo Web ASP.NET no Visual Studio e navegue até o arquivo **Web. config** na raiz do projeto. Adicione as instruções a seguir à seção `<appSettings>` do arquivo, substituindo `VISION_KEY` pela chave que você copiou na etapa anterior e `VISION_ENDPOINT` pela URL que você salvou na etapa anterior.
 
 ```xml
 <add key="SubscriptionKey" value="VISION_KEY" />
@@ -72,14 +74,14 @@ Em seguida, na Gerenciador de Soluções, clique com o botão direito do mouse n
 
 Em seguida, você adicionará o código que realmente aproveita o serviço de Pesquisa Visual Computacional para criar metadados para imagens. Essas etapas serão aplicadas ao aplicativo ASP.NET no laboratório, mas você poderá adaptá-las ao seu próprio aplicativo. O que é importante é que, neste ponto, você tem um aplicativo Web ASP.NET que pode carregar imagens para um contêiner de armazenamento do Azure, ler imagens dele e exibi-las na exibição. Se você não tiver certeza sobre isso, é melhor seguir [o exercício 3 do laboratório de armazenamento do Azure](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3). 
 
-1. Abra o arquivo *HomeController.cs* na pasta **controladores** do projeto e adicione as seguintes `using` instruções na parte superior do arquivo:
+1. Abra o arquivo *HomeController.cs* na pasta **controladores** do projeto e adicione as seguintes instruções de `using` na parte superior do arquivo:
 
     ```csharp
     using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
     using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
     ```
 
-1. Em seguida, vá para o método **upload** ; Esse método converte e carrega imagens no armazenamento de BLOBs. Adicione o código a seguir imediatamente após o bloco que começa `// Generate a thumbnail` com (ou no final do seu processo de criação de blob de imagem). Esse código usa o blob que contém a imagem`photo`() e usa pesquisa Visual computacional para gerar uma descrição para essa imagem. O API da Pesquisa Visual Computacional também gera uma lista de palavras-chave que se aplicam à imagem. A descrição e as palavras-chave geradas são armazenadas nos metadados do blob para que possam ser recuperadas posteriormente.
+1. Em seguida, vá para o método **upload** ; Esse método converte e carrega imagens no armazenamento de BLOBs. Adicione o código a seguir imediatamente após o bloco que começa com `// Generate a thumbnail` (ou no final do seu processo de criação de blob de imagem). Esse código usa o blob que contém a imagem (`photo`) e usa Pesquisa Visual Computacional para gerar uma descrição para essa imagem. O API da Pesquisa Visual Computacional também gera uma lista de palavras-chave que se aplicam à imagem. A descrição e as palavras-chave geradas são armazenadas nos metadados do blob para que possam ser recuperadas posteriormente.
 
     ```csharp
     // Submit the image to Azure's Computer Vision API
@@ -103,7 +105,7 @@ Em seguida, você adicionará o código que realmente aproveita o serviço de Pe
     await photo.SetMetadataAsync();
     ```
 
-1. Em seguida, vá para o método **index** no mesmo arquivo; Esse método enumera os blobs de imagem armazenados no contêiner de blob de destino (como instâncias de **IListBlobItem** ) e os passa para a exibição do aplicativo. Substitua o `foreach` bloco nesse método pelo código a seguir. Esse código chama **CloudBlockBlob. fetchattributes** para obter os metadados anexados de cada blob. Ele extrai a descrição gerada pelo computador (`caption`) dos metadados e a adiciona ao objeto **BlobInfo** , que é passado para a exibição.
+1. Em seguida, vá para o método **index** no mesmo arquivo; Esse método enumera os blobs de imagem armazenados no contêiner de blob de destino (como instâncias de **IListBlobItem** ) e os passa para a exibição do aplicativo. Substitua o bloco de `foreach` nesse método pelo código a seguir. Esse código chama **CloudBlockBlob. fetchattributes** para obter os metadados anexados de cada blob. Ele extrai a descrição gerada pelo computador (`caption`) dos metadados e a adiciona ao objeto **BlobInfo** , que é passado para a exibição.
     
     ```csharp
     foreach (IListBlobItem item in container.ListBlobs())
@@ -141,7 +143,7 @@ Se você quiser continuar trabalhando em seu aplicativo Web, consulte a seção 
 
 Para excluir o grupo de recursos, abra a folha **grupos de recursos** no portal, navegue até o grupo de recursos usado para este projeto e clique em **excluir grupo de recursos** na parte superior da exibição. Você será solicitado a digitar o nome do grupo de recursos para confirmar que deseja excluí-lo, pois, uma vez excluído, um grupo de recursos não poderá ser recuperado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você integrou o serviço de Pesquisa Visual Computacional do Azure a um aplicativo Web existente para gerar automaticamente legendas e palavras-chave para imagens de blob conforme elas são carregadas. Em seguida, consulte o laboratório de armazenamento do Azure, exercício 6, para saber como adicionar a funcionalidade de pesquisa ao seu aplicativo Web. Isso aproveita as palavras-chave de pesquisa que o serviço Pesquisa Visual Computacional gera.
 

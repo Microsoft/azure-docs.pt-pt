@@ -1,6 +1,6 @@
 ---
-title: Classificação de armazém de dados SQL do Azure | Documentos da Microsoft
-description: Orientações para utilizar a classificação para gerir a simultaneidade, importância e recursos de cálculo para consultas no armazém de dados SQL do Azure.
+title: Classificação da carga de trabalho
+description: Orientação para usar a classificação para gerenciar recursos de simultaneidade, importância e computação para consultas no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -10,62 +10,63 @@ ms.subservice: workload-management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4988d284bed46a918f85eec8d7b4a5b89fc6549e
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 15ca4b9fe3c40b7bf49d86464858747642e3cb5a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588494"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685384"
 ---
-# <a name="azure-sql-data-warehouse-workload-classification"></a>Classificação de carga de trabalho do armazém de dados SQL do Azure
+# <a name="azure-sql-data-warehouse-workload-classification"></a>Classificação de carga de trabalho do Azure SQL Data Warehouse
 
-Este artigo explica o processo de classificação de carga de trabalho do armazém de dados SQL da atribuição de uma classe de recursos e a importância para pedidos recebidos.
+Este artigo explica o SQL Data Warehouse processo de classificação de carga de trabalho de atribuição de uma classe de recurso e a importância para solicitações de entrada.
 
 ## <a name="classification"></a>Classificação
 
 > [!Video https://www.youtube.com/embed/QcCRBAhoXpM]
 
-Classificação de gestão da carga de trabalho permite que as políticas de carga de trabalho a ser aplicado aos pedidos através da atribuição [classes de recursos](resource-classes-for-workload-management.md#what-are-resource-classes) e [importância](sql-data-warehouse-workload-importance.md).
+A classificação de gerenciamento de carga de trabalho permite que as políticas de carga de trabalho sejam aplicadas a solicitações por meio da atribuição de [classes de recursos](resource-classes-for-workload-management.md#what-are-resource-classes) e [importância](sql-data-warehouse-workload-importance.md).
 
-Embora haja várias formas de classificar cargas de trabalho do armazém de dados, a classificação mais simples e mais comuns é a carga e a consulta. Carregar dados com o insert, update e delete instruções.  Consultar os dados usando o seleciona. Uma solução de armazém de dados, muitas vezes, terá uma política de carga de trabalho para a atividade de carga, tais como atribuir uma classe de recursos superior com mais recursos. É possível aplicar uma política de carga de trabalho diferente para consultas, tais como de menor importância em comparação comparada atividades de carga.
+Embora haja muitas maneiras de classificar cargas de trabalho de data warehouse, a classificação mais simples e mais comum é a carga e a consulta. Você carrega dados com instruções INSERT, Update e Delete.  Você consulta os dados usando selects. Uma solução de data warehouse geralmente terá uma política de carga de trabalho para carregar a atividade, como atribuir uma classe de recursos mais alta com mais recursos. Uma política de carga de trabalho diferente pode ser aplicada a consultas, como importância menor em comparação com as atividades de carregamento.
 
-Também pode subclassify suas cargas de trabalho de carga e a consulta. Subclassification dá-lhe maior controlo das suas cargas de trabalho. Por exemplo, cargas de trabalho de consulta podem incluir atualizações de cubo, consultas de dashboard ou consultas ad-hoc. Pode classificar cada uma destas cargas de trabalho de consulta com classes de recursos diferente ou definições de importância. Carga também pode se beneficiar subclassification. Transformações de grandes dimensões podem ser atribuídas a classes de recursos maiores. Maior importância pode ser utilizada para garantir que os dados de vendas principais for carregador antes dos dados meteorológicos ou um feed de dados sociais.
+Você também pode subclassificar suas cargas de trabalho de carregamento e consulta. A subclasse oferece mais controle sobre suas cargas de trabalho. Por exemplo, as cargas de trabalho de consulta podem consistir em atualizações de cubo, consultas de painel ou consultas ad hoc. Você pode classificar cada uma dessas cargas de trabalho de consulta com diferentes classes de recursos ou configurações de importância. A carga também pode se beneficiar da subclasse. Transformações grandes podem ser atribuídas a classes de recursos maiores. A maior importância pode ser usada para garantir que os dados de vendas de chave sejam carregador antes dos dados meteorológicos ou de um feed de dados social.
 
-Nem todas as declarações são classificadas como não requerem recursos ou precisar de importância para influenciar a execução.  Comandos DBCC, instruções BEGIN, consolidação e ROLLBACK TRANSACTION não são classificadas.
+Nem todas as instruções são classificadas, pois não exigem recursos ou precisam de importância para influenciar a execução.  Os comandos DBCC, as instruções BEGIN, COMMIT e ROLLBACK TRANSACTION não são classificados.
 
 ## <a name="classification-process"></a>Processo de classificação
 
-Classificação no SQL Data Warehouse tal hoje em dia, tem de atribuir utilizadores a uma função que tenha uma classe de recursos correspondente atribuída a ele usando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). A capacidade de caracterizam os pedidos que ultrapassem um início de sessão para uma classe de recursos é limitada com esta capacidade. Um método mais rico para classificação está agora disponível com o [CLASSIFICADOR de carga de trabalho de criar](/sql/t-sql/statements/create-workload-classifier-transact-sql) sintaxe.  Com essa sintaxe, os utilizadores do SQL Data Warehouse podem atribuir importância e uma classe de recursos para pedidos.  
+A classificação no SQL Data Warehouse é obtida hoje atribuindo usuários a uma função que tenha uma classe de recurso correspondente atribuída a ele usando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). A capacidade de caracterizar solicitações além de um logon para uma classe de recurso é limitada a esse recurso. Um método mais rico para classificação agora está disponível com a sintaxe de [criar classificação de carga de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql) .  Com essa sintaxe, SQL Data Warehouse usuários podem atribuir importância e uma classe de recurso a solicitações.  
 
 > [!NOTE]
-> Classificação é avaliada por solicitação. Vários pedidos numa única sessão podem ser classificados de maneira diferente.
+> A classificação é avaliada em uma base por solicitação. Várias solicitações em uma única sessão podem ser classificadas de forma diferente.
 
 ## <a name="classification-precedence"></a>Precedência de classificação
 
-Como parte do processo de classificação, a precedência é no local para determinar a classe de recurso que está atribuído. Classificação com base num utilizador da base de dados tem precedência sobre associação de função. Se criar um classificador que mapeia o utilizador de base de dados de utilizador para a classe de recursos de mediumrc. Em seguida, mapear a função de base de dados de RoleA (dos quais o utilizador é membro) para a classe de recursos de largerc. O classificador que mapeia o utilizador de base de dados para a classe de recursos de mediumrc irá ter precedência sobre o classificador de que a função de base de dados RoleA é mapeado para a classe de recursos de largerc.
+Como parte do processo de classificação, a precedência está em vigor para determinar qual classe de recurso é atribuída. A classificação baseada em um usuário de banco de dados tem precedência sobre a associação de função. Se você criar um classificador que mapeie o usuário do banco de dados UserA para a classe de recurso mediumrc. Em seguida, mapeie a função de banco de dados rolea (da qual UserA é um membro) para a classe de recurso largerc. O classificador que mapeia o usuário de banco de dados para a classe de recurso mediumrc terá precedência sobre o classificador que mapeia a função de banco de dados rolea para a classe de recurso largerc.
 
-Se um utilizador for membro de várias funções com classes de recursos diferentes atribuídos ou combinadas de vários classificadores, o utilizador recebe a atribuição de classe de recursos mais elevada.  Este comportamento é consistente com o comportamento de atribuição de classe de recursos existente.
+Se um usuário for membro de várias funções com diferentes classes de recursos atribuídas ou correspondidas em vários classificadores, o usuário receberá a atribuição de classe de recurso mais alta.  Esse comportamento é consistente com o comportamento de atribuição de classe de recurso existente.
 
-## <a name="system-classifiers"></a>Classificadores de sistema
+## <a name="system-classifiers"></a>Classificadores do sistema
 
-Classificação da carga de trabalho tem classificadores de carga de trabalho do sistema. Os classificadores de sistema mapeiam associações de função de classe de recursos existente para alocações de recursos de classe de recursos com importância normal. Não não possível remover classificadores de sistema. Para ver os classificadores de sistema, pode executar o abaixo de consulta:
+Classificação de carga de trabalho tem classificadores de carga de trabalho do sistema. Os classificadores de sistema mapeiam associações de função de classe de recurso existentes para alocações de recursos de classe de recurso com importância normal. Classificadores de sistema não podem ser descartados. Para exibir classificadores de sistema, você pode executar a consulta abaixo:
 
 ```sql
 SELECT * FROM sys.workload_management_workload_classifiers where classifier_id <= 12
 ```
 
-## <a name="mixing-resource-class-assignments-with-classifiers"></a>Misturar atribuições de classe com classificadores de recursos
+## <a name="mixing-resource-class-assignments-with-classifiers"></a>Mesclando atribuições de classe de recurso com classificadores
 
-Criado em seu nome de classificadores de System fornecem uma forma fácil de migrar a classificação de carga de trabalho. Utilizar os mapeamentos de função de classe de recursos com precedência de classificação, pode levar a misclassification como começar a criar novo classificadores com importância.
+Classificadores de sistema criados em seu nome fornecem um caminho fácil para migrar para a classificação de carga de trabalho. O uso de mapeamentos de função de classe de recurso com precedência de classificação pode levar a uma classificação incorreta conforme você começa a criar novos classificadores com importância.
 
 Considere o seguinte cenário:
 
-- Um armazém de dados existente tem um utilizador de base de dados que dbauser atribuída a função de classe de recursos de largerc. A atribuição de classe de recursos foi feita com sp_addrolemember.
-- O armazém de dados foi atualizado com a gestão da carga de trabalho.
-- Para testar a nova sintaxe de classificação, a função de base de dados DBARole (que DBAUser é um membro da), tem um classificador que criou para eles mapeando-os para mediumrc e de importância alta.
-- Quando DBAUser efetua login e executa uma consulta, a consulta será atribuída ao largerc. Uma vez que um utilizador tem precedência sobre uma associação de função.
+- Um data warehouse existente tem um usuário de banco de dados DBAUser atribuído à função de classe de recurso largerc. A atribuição de classe de recurso foi feita com sp_addrolemember.
+- O data warehouse agora é atualizado com o gerenciamento de carga de trabalho.
+- Para testar a nova sintaxe de classificação, a função de banco de dados DBARole (que DBAUser é membro de), tem um classificador criado para que elas sejam mapeadas para mediumrc e alta importância.
+- Quando o DBAUser faz logon e executa uma consulta, a consulta será atribuída a largerc. Porque um usuário tem precedência sobre uma associação de função.
 
-Para simplificar a resolução de problemas misclassification, recomendamos que remova mapeamentos de função de classe de recursos à medida que cria classificadores de carga de trabalho.  O código a seguir devolve as associações de função de classe de recurso existente.  Execute [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) para cada nome de membro retornado da classe de recurso correspondente.
+Para simplificar a solução de problemas de classificação indesejada, recomendamos que você remova os mapeamentos de função de classe de recurso ao criar classificadores de carga de trabalho.  O código a seguir retorna associações de função de classe de recurso existentes.  Execute [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) para cada nome de membro retornado da classe de recurso correspondente.
 
 ```sql
 SELECT  r.name AS [Resource Class]
@@ -81,7 +82,7 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações sobre como criar um classificador, consulte a [CLASSIFICADOR de carga de trabalho de criar (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
-- Consulte o guia de introdução sobre como criar um classificador de carga de trabalho [criar um classificador de carga de trabalho](quickstart-create-a-workload-classifier-tsql.md).
-- Consulte os artigos de procedimentos [configurar a importância de carga de trabalho](sql-data-warehouse-how-to-configure-workload-importance.md) e como [gerir e monitorizar a gestão da carga de trabalho](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
-- Ver [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) para ver as consultas e a importância atribuído.
+- Para obter mais informações sobre como criar um classificador, consulte [criar classificação de carga de trabalho (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- Consulte o início rápido sobre como criar um classificador de carga de trabalho [criar um classificador de carga de trabalho](quickstart-create-a-workload-classifier-tsql.md).
+- Consulte os artigos de instruções para [Configurar a importância da carga de trabalho](sql-data-warehouse-how-to-configure-workload-importance.md) e como [gerenciar e monitorar o gerenciamento de carga de trabalho](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- Consulte [Sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) para exibir consultas e a importância atribuída.

@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Publicar base de dados de conhecimento C# , REST QnA Maker'
+title: 'Início rápido: publicar C# a base de dados de conhecimento, REST QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Isso C# baseado em REST início rápido explica-lhe publicar a sua base de dados de conhecimento que envia a versão mais recente da base de dados de conhecimento testada para um índice da Azure Search dedicado que representa a base de dados de conhecimento publicada. Também cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
+description: Este C# guia de início rápido baseado em REST publica sua base de dados de conhecimento e cria um ponto de extremidade que pode ser chamado em seu aplicativo ou bot de bate-papo.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,16 +11,16 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 2b2c2ed43a229d929353767b229f8331b49a0e46
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 8bb1b87e5df92605192a60c49a11f1995449d255
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802906"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721162"
 ---
-# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Início rápido: Publicar uma base de dados de conhecimento no QnA Maker usandoC#
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Início Rápido: publicar uma base de dados de conhecimento no Criador de FAQ com o C#
 
-Este guia de introdução baseada em REST orienta-o através de publicação por meio de programação de sua base de dados de conhecimento (KB). A publicação emite a versão mais recente da base de dados de conhecimento para um índice dedicado do Azure Search e cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
+Este guia de início rápido baseado em REST orienta você pela publicação programática da base de dados de conhecimento (KB). A publicação emite a versão mais recente da base de dados de conhecimento para um índice dedicado do Azure Search e cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
 
 Este início rápido chama as APIs do Criador de FAQ:
 * [Publicar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) - esta API não requer quaisquer informações no corpo do pedido.
@@ -33,7 +33,7 @@ Este início rápido chama as APIs do Criador de FAQ:
 
     ![ID da base de dados de conhecimento do Criador de FAQ](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-    Se você ainda não tiver uma base de dados de conhecimento, poderá criar uma amostra a ser usada para este guia de início rápido: [Crie uma nova base de dados de conhecimento](create-new-kb-csharp.md).
+    Se ainda não tiver uma base de dados de conhecimento, pode criar uma de exemplo para utilizar neste guia de introdução: [Criar uma nova base de dados de conhecimento](create-new-kb-csharp.md).
 
 > [!NOTE] 
 > Os arquivos de solução completos estão disponíveis no repositório do GitHub [ **Azure-Samples/cognitiva-Services-qnamaker-Csharp** ](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
@@ -41,7 +41,7 @@ Este início rápido chama as APIs do Criador de FAQ:
 ## <a name="create-knowledge-base-project"></a>Criar um projeto de base de dados de conhecimento
 
 1. Abra o Visual Studio 2019 Community Edition.
-1. Crie um novo projeto de **aplicativo de console (.NET Core)** e nomeie `QnaMakerQuickstart`o projeto. Aceite as predefinições nas restantes definições.
+1. Crie um novo projeto de **aplicativo de console (.NET Core)** e nomeie o projeto `QnaMakerQuickstart`. Aceite as predefinições nas restantes definições.
 
 ## <a name="add-required-dependencies"></a>Adicionar as dependências necessárias
 
@@ -49,7 +49,7 @@ Na parte superior de Program.cs, substitua a instrução using única pelas segu
 
 [!code-csharp[Add the required dependencies](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=1-2 "Add the required dependencies")]
 
-## <a name="add-required-constants"></a>Adicionar constantes necessárias
+## <a name="add-required-constants"></a>Adicionar as constantes necessárias
 
 Na classe **programa** , adicione as constantes necessárias para acessar QnA Maker.
 
@@ -57,23 +57,23 @@ Na classe **programa** , adicione as constantes necessárias para acessar QnA Ma
 
 ## <a name="add-the-main-method-to-publish-the-knowledge-base"></a>Adicionar o método Main para publicar a base de dados de conhecimento
 
-Depois das constantes necessárias, adicione o seguinte código, o que faz um pedido HTTPS para a API do QnA Maker para publicar uma base de dados de conhecimento e recebe a resposta:
+Após as constantes necessárias, adicione o seguinte código, que faz uma solicitação HTTPS ao API de QnA Maker para publicar uma base de dados de conhecimento e recebe a resposta:
 
 [!code-csharp[Add HTTP Post request and response](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=36-56 "Add HTTP Post request and response")]
 
 A chamada à API devolve um estado 204 para uma publicação com êxito, sem qualquer conteúdo no corpo da resposta. 
  
-## <a name="build-and-run-the-program"></a>Compilar e executar o programa
+## <a name="build-and-run-the-program"></a>Criar e executar o programa
 
-Compile e execute o programa. Ele enviará automaticamente o pedido para a API do QnA Maker para publicar a base de dados de conhecimento, em seguida, a resposta é impresso para a janela da consola.
+Crie e execute o programa. Ele enviará automaticamente a solicitação para a API de QnA Maker para publicar a base de dados de conhecimento e, em seguida, a resposta será impressa na janela do console.
 
 Assim que a sua base de dados de conhecimento for publicada, pode consultá-la a partir do ponto final com uma aplicação cliente ou um chatbot. 
 
 [!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Depois da base de dados de conhecimento é publicado, é necessário o [URL de ponto final para gerar uma resposta](../Tutorials/create-publish-answer.md#generating-an-answer). 
+Depois que a base de dados de conhecimento for publicada, você precisará da [URL do ponto de extremidade para gerar uma resposta](../Tutorials/create-publish-answer.md#generating-an-answer). 
 
 > [!div class="nextstepaction"]
-> [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)
+> [Referência da API REST para o Criador de FAQ (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)

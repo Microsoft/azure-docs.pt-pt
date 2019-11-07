@@ -1,5 +1,5 @@
 ---
-title: Copiar dados utilizando a ferramenta Copiar Dados do Azure | Microsoft Docs
+title: Copiar dados usando a ferramenta de Copiar Dados do Azure
 description: Crie uma fábrica de dados do Azure e, em seguida, utilize a ferramenta Copiar Dados para copiar dados do Armazenamento de blobs do Azure para uma base de dados SQL.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: a99f319c25613f811b48923c734b77b135b677bc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 4646d7429dc4b3286f6af8861eaf7f1e6e27a760
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827941"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683600"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copiar dados do Armazenamento de blobs do Azure para uma base de dados SQL com a ferramenta Copiar Dados
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -36,9 +36,9 @@ Neste tutorial, vai executar os seguintes passos:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Assinatura do Azure**: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de armazenamento do Azure**: Use o armazenamento de BLOBs como o armazenamento de dados de _origem_ . Se não tem uma conta de armazenamento do Azure, veja as instruções apresentadas em [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
-* **Banco de dados SQL do Azure**: Use um banco de dados SQL como o armazenamento de dado do _coletor_ . Se não tem uma base de dados SQL, veja as instruções apresentadas em [Criar uma base de dados SQL](../sql-database/sql-database-get-started-portal.md).
+* **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Conta de armazenamento do Azure**: utilize o Armazenamento de blobs como arquivo de dados de _origem_. Se não tem uma conta de armazenamento do Azure, veja as instruções apresentadas em [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
+* **Base de Dados SQL do Azure**: utilize uma base de dados SQL como arquivo de dados _sink_. Se não tem uma base de dados SQL, veja as instruções apresentadas em [Criar uma base de dados SQL](../sql-database/sql-database-get-started-portal.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Criar um blob e uma tabela SQL
 
@@ -75,7 +75,7 @@ Prepare o Armazenamento de blobs e a sua base de dados SQL para o tutorial ao ex
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. No menu à esquerda, selecione **criar um recurso** > **análise** > **Data Factory**:
+1. No menu à esquerda, selecione **criar um recurso** > **Analytics** > **Data Factory**:
     
     ![Criação de nova fábrica de dados](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Na página **Nova fábrica de dados**, em **Nome**, introduza **ADFTutorialDataFactory**.
@@ -114,7 +114,7 @@ Prepare o Armazenamento de blobs e a sua base de dados SQL para o tutorial ao ex
 
     a. Clique em **+ Criar nova ligação** para adicionar uma ligação
 
-    b. Selecione **armazenamento** de BLOBs do Azure na galeria e selecione **continuar**.
+    b. Selecione **armazenamento de BLOBs do Azure** na galeria e selecione **continuar**.
 
     c. Na página **Novo Serviço Ligado**, selecione a sua conta de armazenamento da lista **Nome da conta de armazenamento** e, em seguida, selecione **Concluir**.
 
@@ -155,7 +155,7 @@ Prepare o Armazenamento de blobs e a sua base de dados SQL para o tutorial ao ex
 1. Na **Página de implementação**, selecione **Monitorizar** para monitorizar o pipeline (tarefa).
 1. Tenha em atenção que o separador **Monitorização** à esquerda é selecionado automaticamente. A coluna **Ações** inclui ligações para ver os detalhes de execução da atividade e voltar a executar o pipeline. Selecione **Atualizar** para atualizar a lista.
 
-1. Para ver as execuções da atividade associadas à execução do pipeline, selecione a ligação **Ver Execuções de Atividade** na coluna **Ações**. Para ver os detalhes da operação de cópia, selecione a ligação **Detalhes** (ícone de óculos) na coluna **Ações**. Para voltar à exibição de execuções de pipeline, selecione o link execuções de **pipeline** na parte superior. Para atualizar a vista, selecione **Atualizar**.
+1. Para ver as execuções da atividade associadas à execução do pipeline, selecione a ligação **Ver Execuções de Atividade** na coluna **Ações**. Para ver os detalhes da operação de cópia, selecione a ligação **Detalhes** (ícone de óculos) na coluna **Ações**. Para voltar à exibição de execuções de pipeline, selecione o link **execuções de pipeline** na parte superior. Para atualizar a vista, selecione **Atualizar**.
 
     ![Monitorização de execuções de atividade](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
@@ -165,7 +165,7 @@ Prepare o Armazenamento de blobs e a sua base de dados SQL para o tutorial ao ex
 
 1. Selecione o separador **Criar** à esquerda para mudar para o modo de edição. Pode atualizar os serviços ligados, os conjuntos de dados e os pipelines criados através da ferramenta com o editor. Para obter detalhes de edição sobre estas entidades na IU do Data Factory, veja [a versão do portal do Azure deste tutorial](tutorial-copy-data-portal.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 O pipeline deste exemplo copia os dados do Armazenamento de blobs para uma base de dados SQL. Aprendeu a:
 
 > [!div class="checklist"]
@@ -173,7 +173,7 @@ O pipeline deste exemplo copia os dados do Armazenamento de blobs para uma base 
 > * Utilizar a ferramenta Copiar Dados para criar um pipeline.
 > * Monitorizar o pipeline e execuções de atividades.
 
-Avance para o tutorial seguinte para saber como copiar dados do plano local para a cloud:
+Avance para o tutorial seguinte, para saber como copiar dados do local para a cloud:
 
 >[!div class="nextstepaction"]
 >[Copiar dados do plano local para a cloud](tutorial-hybrid-copy-data-tool.md)

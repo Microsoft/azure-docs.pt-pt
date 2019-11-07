@@ -1,25 +1,25 @@
 ---
-title: Introdução ao Azure Media Clipper | Documentos da Microsoft
-description: Introdução ao Azure Media Clipper, uma ferramenta para a criação de clips de vídeo dos recursos do AMS
+title: Introdução ao Azure Media Clipper | Microsoft Docs
+description: Introdução ao Azure Media Clipper, uma ferramenta para a criação de clipes de vídeo de ativos do AMS
 services: media-services
-keywords: Clip; subclip; codificação; suporte de dados
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+keywords: clip; subclip; codificação; mídia
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 51848b9ba4d18b3ac7d652cfbd97cab6b85f2ee8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45ecc81967d6a95f817b10bce7f8396d9379bc94
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466277"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685071"
 ---
-# <a name="create-clips-with-azure-media-clipper"></a>Crie clips a com o Azure Media Clipper
-Esta secção mostra-lhe os passos básicos de introdução ao Azure Media Clipper. Secções que se seguem fornecem detalhes sobre como configurar o Azure Media Clipper.
+# <a name="create-clips-with-azure-media-clipper"></a>Criar clipes com o Azure Media Clipper
+Esta seção mostra as etapas básicas de introdução ao Azure Media Clipper. As seções a seguir fornecem as informações específicas sobre como configurar o Azure Media Clipper.
 
-- Primeiro, adicione as seguintes ligações para o leitor de multimédia do Azure e Azure Media Clipper a frente do seu documento. É recomendável especificar explicitamente uma versão do leitor de multimédia do Azure e Clipper nos URLs. Não utilize a versão mais recente destes recursos na produção como estão sujeitas a alterações a pedido.
+- Primeiro, adicione os links a seguir para Player de Mídia do Azure e Azure Media Clipper para o cabeçalho do documento. É recomendável especificar explicitamente uma versão do Clipper e Player de Mídia do Azure nas URLs. Não use a versão mais recente desses recursos em produção, pois eles estão sujeitos a alterações sob demanda.
 
 ```javascript
 <!--Azure Media Player 2.1.4 or later is a prerequisite-->
@@ -30,19 +30,19 @@ Esta secção mostra-lhe os passos básicos de introdução ao Azure Media Clipp
 <script src="//amp.azure.net/libs/amc/0.1.0/azuremediaclipper.min.js"></script>
 ```
 
-- Em seguida, adicione as seguintes classes para o elemento div onde pretende criar uma instância do Clipper.
+- Em seguida, adicione as seguintes classes ao elemento div em que você gostaria de instanciar o Clipper.
 
 ```javascript
 <div id="root" class="azure-subclipper" />
 ```
 
-Opcionalmente, para habilitar o tema no escuro, adicione a classe de capa escuro:
+Opcionalmente, para habilitar o tema escuro, adicione a classe de capa escura:
 
 ```javascript
 <div id="root" class="azure-subclipper dark-skin" />
 ```
 
-- Em seguida, criar uma instância Clipper com a seguinte chamada à API:
+- Em seguida, instancie o Clipper com a seguinte chamada à API:
 
 ```javascript
 var subclipper = new subclipper({
@@ -87,41 +87,41 @@ var subclipper = new subclipper({
 });
 ```
 
-Os parâmetros para a chamada de método de inicialização são:
-- `selector` {REQUIRED, string}: Seletor CSS do elemento HTML correspondente em que deve ser composto o widget.
-- `restVersion` {REQUIRED, string}: A versão de API de REST de serviços de multimédia do Azure para o destino. A versão REST define o formato da saída gerada pelo widget. Atualmente, apenas 2.0 é suportado.
-- `submitSubclipCallback` {Promessa necessária} A função de retorno de chamada invocada quando se clica no botão "Enviar" do widget. A função de retorno de chamada deve esperar que o resultado gerado pelo widget (uma configuração de trabalho de composição ou uma definição de filtro). Para obter mais informações, consulte o retorno de chamada do envio subclip.
-- `logLevel` {OPTIONAL, {'info', 'warn', 'error'}}: O nível de registo a ser apresentado na consola do browser. Valor predefinido: erro
-- `minimumMarkerGap` {OPTIONAL, int}: O tamanho mínimo de um subclip (em segundos). Nota: o valor deve ser maior ou igual a 6, que também é a predefinição.
-- `singleBitrateMp4Profile` {OPCIONAL, objeto JSON} O perfil de mp4 de velocidade de transmissão única para utilizar para a configuração de trabalho de composição gerada pelo widget. Se não for indicado, ele usa o [predefinido o perfil de MP4 de velocidade de transmissão única](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-single-bitrate-1080p).
-- `multiBitrateMp4Profile` {OPCIONAL, objeto JSON} O perfil de mp4 de velocidade de transmissão múltipla a utilizar para processar a configuração de trabalho gerada pelo widget. Se não for indicado, ele usa o [predefinido o perfil de MP4 de velocidade de transmissão](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-multiple-bitrate-1080p).
-- `keymap` {OPCIONAL, objeto de json} Permite personalizar os atalhos de teclado do widget. Para obter mais informações, consulte [atalhos de teclado personalizável](media-services-azure-media-clipper-keyboard-shortcuts.md).
-- `assetsPanelLoaderCallback` {Promessa opcional} A função de retorno de chamada invocada para carregar (de forma assíncrona) uma nova página de recursos para o painel de recursos sempre que o utilizador desloca para baixo para a parte inferior do painel. Para obter mais informações, consulte o retorno de chamada do recurso painel carregador.
-- `height` {OPCIONAL, number} A altura total do widget (altura mínima é de 600 px sem o painel de recursos e 850 px com o painel de recursos).
-- `subclippingMode` (OPTIONAL, {'all', 'render', 'filter'}): O mode(s) subdistorção permitido. O valor predefinido é tudo.
-- `filterAssetsTypes` (Opcional, bool): filterAssetsTypes permitem-lhe mostrar/ocultar o menu pendente de filtros do painel de recursos. O valor predefinido é verdadeiro.
-- `speedLevels` (Opcional, matriz): speedLevels permite definir níveis diferentes de velocidade para o player de vídeo, consulte [documentação de leitor de multimédia do Azure](https://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) para obter mais informações.
-- `resetOnJobDone` (Opcional, bool): resetOnJobDone permite Clipper para repor o subclipper para um Estado inicial quando uma tarefa é submetida com êxito.
-- `autoplayVideo` (Opcional, bool): autoplayVideo permite Clipper reprodução automática do vídeo na carga. O valor predefinido é verdadeiro.
-- `language` {Cadeia de caracteres opcional,}: linguagem define o idioma do widget. Se não for especificado, o widget tenta localizar as mensagens com base no idioma do navegador. Se nenhuma linguagem for detetada no navegador, o widget é predefinido para inglês. Para obter mais informações, consulte a [configurar a localização](media-services-azure-media-clipper-localization.md) secção.
-- `languages` {OPCIONAL, JSON}: o parâmetro de idiomas substitui o dicionário predefinido das linguagens com um dicionário personalizado definido pelo utilizador. Para obter mais informações, consulte a [configurar a localização](media-services-azure-media-clipper-localization.md) secção.
-- `extraLanguages` (Opcional, JSON): o parâmetro extraLanguages adiciona novos idiomas ao dicionário predefinido. Para obter mais informações, consulte a [configurar a localização](media-services-azure-media-clipper-localization.md) secção.
+Os parâmetros para a chamada do método de inicialização são:
+- `selector` {REQUIRED, String}: seletor CSS do elemento HTML correspondente em que o widget deve ser renderizado.
+- `restVersion` {REQUIRED, String}: a versão do API REST de Serviços de Mídia do Azure para o destino. A versão REST define o formato da saída gerada pelo widget. Atualmente, há suporte apenas para 2,0.
+- `submitSubclipCallback` {REQUIRED, Promise} a função de retorno de chamada invocada quando o botão "enviar" do widget é clicado. A função de retorno de chamada deve esperar a saída gerada pelo widget (uma configuração de trabalho de renderização ou uma definição de filtro). Para obter mais informações, consulte enviar retorno de chamada de subclipe.
+- `logLevel` {OPTIONAL, {' info ', ' WARN ', ' erro '}}: o nível de log a ser exibido no console do navegador. Valor padrão: erro
+- `minimumMarkerGap` {OPTIONAL, int}: o tamanho mínimo de um subclipe (em segundos). Observação: o valor deve ser maior ou igual a 6, que também é o padrão.
+- `singleBitrateMp4Profile` {OPTIONAL, JSON Object} o perfil MP4 de taxa de bits única a ser usado para a configuração do trabalho de renderização gerada pelo widget. Se não for fornecido, ele usará o [perfil MP4 padrão de taxa de bits única](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-single-bitrate-1080p).
+- `multiBitrateMp4Profile` {OPTIONAL, JSON Object} o perfil MP4 de múltiplas taxas de bits a ser usado para a configuração do trabalho de renderização gerada pelo widget. Se não for fornecido, ele usará o [perfil MP4 padrão de múltiplas taxas de bits](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-multiple-bitrate-1080p).
+- `keymap` {OPTIONAL, JSON Object} permite personalizar os atalhos de teclado do widget. Para obter mais informações, consulte [atalhos de teclado personalizáveis](media-services-azure-media-clipper-keyboard-shortcuts.md).
+- `assetsPanelLoaderCallback` {OPTIONAL, Promise} a função de retorno de chamada invocada para carregar (de forma assíncrona) uma nova página de ativos no painel ativos toda vez que o usuário rola para baixo até a parte inferior do painel. Para obter mais informações, consulte retorno de chamada do carregador do painel do ativo.
+- `height` {OPTIONAL, Number} a altura total do widget (a altura mínima é 600 PX sem o painel de ativos e 850 PX com o painel ativos).
+- `subclippingMode` (opcional, {' all', ' render ', ' filtro '}): os modos de subcorte permitidos. O valor padrão é ALL.
+- `filterAssetsTypes` (opcional, bool): filterAssetsTypes permite mostrar/ocultar o menu suspenso filtros no painel ativos. O valor padrão é true.
+- `speedLevels` (opcional, matriz): speedLevels permite definir níveis de velocidade diferentes para o player de vídeo, consulte a [documentação player de mídia do Azure](https://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) para obter mais informações.
+- `resetOnJobDone` (opcional, bool): resetOnJobDone permite que o Clipper redefina o subclipe para um estado inicial quando um trabalho é enviado com êxito.
+- `autoplayVideo` (opcional, bool): autoplayVideo permite que o Clipper reproduzido o vídeo ao carregar. O valor padrão é true.
+- `language` {OPTIONAL, Cadeia de caracteres}: Language define o idioma do widget. Se não for especificado, o widget tentará localizar as mensagens com base no idioma do navegador. Se nenhum idioma for detectado no navegador, o widget assume o padrão de inglês. Para obter mais informações, consulte a seção [Configurar localização](media-services-azure-media-clipper-localization.md) .
+- `languages` {OPTIONAL, JSON}: o parâmetro Languages substitui o dicionário padrão de idiomas por um dicionário personalizado definido pelo usuário. Para obter mais informações, consulte a seção [Configurar localização](media-services-azure-media-clipper-localization.md) .
+- `extraLanguages` (opcional, JSON): o parâmetro extraLanguages adiciona novos idiomas ao dicionário padrão. Para obter mais informações, consulte a seção [Configurar localização](media-services-azure-media-clipper-localization.md) .
 
-## <a name="typescript-definition"></a>Definição do typeScript
-R [TypeScript](https://www.typescriptlang.org/) pode ser encontrado o ficheiro de definição para o Clipper [aqui](https://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).
+## <a name="typescript-definition"></a>Definição do TypeScript
+Um arquivo de definição do [TypeScript](https://www.typescriptlang.org/) para o Clipper pode ser encontrado [aqui](https://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).
 
 ## <a name="azure-media-clipper-api"></a>API do Azure Media Clipper
-Esta secção documenta a superfície de API fornecida pelo Clipper.
+Esta seção documenta a superfície de API fornecida pelo Clipper.
 
-- `ready(handler)`: oferece uma forma de executar o JavaScript assim que o Clipper estiver totalmente carregada e pronta para ser utilizada.
-- `load(assets)`: carrega uma lista de recursos para a linha cronológica de widget (não deve ser utilizado em conjunto com assetsPanelLoaderCallback). Ver isso [artigo](media-services-azure-media-clipper-load-assets.md) para obter detalhes sobre como carregar recursos para o Clipper.
-- `setLogLevel(level)`: define o nível de registo a ser apresentado na consola do browser. Os valores possíveis são: `info`, `warn`, `error`.
-- `setHeight(height)`: define a altura total do widget em pixéis (altura mínima é de 600 px sem o painel de recursos e 850 px com o painel de recursos).
-- `version`: obtém a versão de widget.
+- `ready(handler)`: o oferece uma maneira de executar o JavaScript assim que o Clipper é totalmente carregado e pronto para ser usado.
+- `load(assets)`: carrega uma lista de ativos na linha do tempo do widget (não deve ser usada junto com assetsPanelLoaderCallback). Consulte este [artigo](media-services-azure-media-clipper-load-assets.md) para obter detalhes sobre como carregar ativos no Clipper.
+- `setLogLevel(level)`: define o nível de log a ser exibido no console do navegador. Os valores possíveis são: `info`, `warn`, `error`.
+- `setHeight(height)`: define a altura total do widget em pixels (a altura mínima é 600 PX sem o painel de ativos e 850 PX com o painel ativos).
+- `version`: Obtém a versão do widget.
 
-## <a name="next-steps"></a>Passos Seguintes
-Veja os passos seguintes para configurar o Azure Media Clipper:
-- [Carregamento de recursos no Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
-- [Configurar atalhos de teclado personalizados](media-services-azure-media-clipper-keyboard-shortcuts.md)
-- [Submeter tarefas de recorte do Clipper](media-services-azure-media-clipper-submit-job.md)
-- [Configurar localização](media-services-azure-media-clipper-localization.md)
+## <a name="next-steps"></a>Passos seguintes
+Consulte as próximas etapas para configurar o Azure Media Clipper:
+- [Carregando ativos no Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
+- [Configurando atalhos de teclado personalizados](media-services-azure-media-clipper-keyboard-shortcuts.md)
+- [Enviando trabalhos de recorte do Clipper](media-services-azure-media-clipper-submit-job.md)
+- [Configurando a localização](media-services-azure-media-clipper-localization.md)

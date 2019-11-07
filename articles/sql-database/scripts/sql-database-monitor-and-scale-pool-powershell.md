@@ -1,5 +1,5 @@
 ---
-title: Exemplo do PowerShell-monitor-escala – pool elástico – banco de dados SQL do Azure | Microsoft Docs
+title: Exemplo do PowerShell-monitor-escala – pool elástico – banco de dados SQL do Azure
 description: Azure PowerShell script de exemplo para monitorar e dimensionar um pool elástico no banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 4d096600e57d3ca94a7c32547bd546bfdbeb9487
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6ab361b67741f2b96f593d04dafbabe355fc9121
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569934"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691614"
 ---
 # <a name="use-powershell-to-monitor-and-scale-an-elastic-pool-in-azure-sql-database"></a>Usar o PowerShell para monitorar e dimensionar um pool elástico no banco de dados SQL do Azure
 
@@ -57,7 +57,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: helohr
-ms.openlocfilehash: c19aa6e0acc936c5b03afdab99ce0b9230838ce2
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 41b0c1ced9e66bd58d73683865b2c40afc16c5d3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71339013"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605856"
 ---
-# <a name="connect-with-the-android-client"></a>Conectar-se ao cliente Android
+# <a name="connect-with-the-android-client"></a>Ligar ao cliente Android
 
 > Aplica-se a: Android 4,1 e posterior, Chromebooks com ChromeOS 53 e posterior.
 
@@ -35,7 +35,7 @@ Para assinar um feed:
 
 1. No centro de conexões, toque em **+** e, em seguida, toque em **feed de recursos remoto**.
 2. Insira a URL do feed no campo **URL do feed** . A URL do feed pode ser uma URL ou um endereço de email.
-   - Se você usar uma URL, use aquela que o administrador lhe forneceu, normalmente <https://rdweb.wvd.microsoft.com>.
+   - Se você usar uma URL, use a que o administrador lhe forneceu, normalmente <https://rdweb.wvd.microsoft.com>.
    - Para usar o email, insira seu endereço de email. O cliente pesquisará uma URL associada ao seu endereço de email se o administrador configurou o servidor dessa maneira.
 3. Toque **em Avançar**.
 4. Forneça suas credenciais quando solicitado.

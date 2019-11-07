@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/31/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 1f423fcb4de22747d6fccfdfd360d8d8909ea7d8
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 6bd78d68e8273989ae1a11011d2759c70d916276
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200811"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581331"
 ---
 # <a name="deploy-the-fedramp-moderate-blueprint-sample"></a>Implantar a amostra do FedRAMP moderado Blueprint
 
@@ -122,7 +122,7 @@ Agora que você analisou as etapas para implantar a amostra do FedRAMP moderado 
 > [FedRAMP moderado Blueprint-visão geral](./index.md)
 > [FedRAMP moderado Blueprint – mapeamento de controle](./control-mapping.md)
 
-Artigos adicionais sobre esquemas e como utilizá-los:
+Artigos adicionais sobre plantas e como usá-los:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

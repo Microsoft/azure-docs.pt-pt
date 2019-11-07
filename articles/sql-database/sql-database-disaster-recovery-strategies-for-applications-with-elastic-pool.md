@@ -1,5 +1,5 @@
 ---
-title: Criar soluções de recuperação de desastres-banco de dados SQL do Azure | Microsoft Docs
+title: Criar soluções de recuperação de desastres-banco de dados SQL do Azure
 description: Saiba como projetar sua solução de nuvem para recuperação de desastres escolhendo o padrão de failover correto.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: ccdd2443254da065a15911f567577672492ddb4f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 535397dcf32a617038ab4bef4ec7aa227f4563b1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568877"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690659"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estratégias de recuperação de desastre para aplicativos que usam pools elásticos do banco de dados SQL
 
@@ -164,12 +164,12 @@ As principais **vantagens** são:
 
 ## <a name="summary"></a>Resumo
 
-Este artigo se concentra nas estratégias de recuperação de desastres para a camada de banco de dados usada por um aplicativo de multilocatários de SaaS do SaaS. A estratégia escolhida é baseada nas necessidades do aplicativo, como o modelo de negócios, o SLA que você deseja oferecer a seus clientes, restrição de orçamento, etc. Cada estratégia descrita descreve os benefícios e a compensação para que você possa tomar uma decisão informada. Além disso, seu aplicativo específico provavelmente inclui outros componentes do Azure. Portanto, você examina suas diretrizes de continuidade de negócios e orquestra a recuperação da camada de banco de dados com elas. Para saber mais sobre como gerenciar a recuperação de aplicativos de banco de dados no Azure, consulte [Projetando soluções de nuvem para recuperação](sql-database-designing-cloud-solutions-for-disaster-recovery.md)de desastres.  
+Este artigo se concentra nas estratégias de recuperação de desastres para a camada de banco de dados usada por um aplicativo de multilocatários de SaaS do SaaS. A estratégia escolhida é baseada nas necessidades do aplicativo, como o modelo de negócios, o SLA que você deseja oferecer a seus clientes, restrição de orçamento, etc. Cada estratégia descrita descreve os benefícios e a compensação para que você possa tomar uma decisão informada. Além disso, seu aplicativo específico provavelmente inclui outros componentes do Azure. Portanto, você examina suas diretrizes de continuidade de negócios e orquestra a recuperação da camada de banco de dados com elas. Para saber mais sobre como gerenciar a recuperação de aplicativos de banco de dados no Azure, consulte [Projetando soluções de nuvem para recuperação de desastres](sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre backups automatizados do banco [](sql-database-automated-backups.md)de dados SQL
-* Para obter uma visão geral e cenários de continuidade de negócios, consulte [visão geral](sql-database-business-continuity.md)da continuidade de negócios
+* Para saber mais sobre backups automatizados do banco [de dados SQL](sql-database-automated-backups.md)
+* Para obter uma visão geral e cenários de continuidade de negócios, consulte [visão geral da continuidade de negócios](sql-database-business-continuity.md)
 * Para saber mais sobre como usar backups automatizados para recuperação, consulte [restaurar um banco de dados dos backups iniciados pelo serviço](sql-database-recovery-using-backups.md).
 * Para saber mais sobre as opções de recuperação mais rápidas, consulte [replicação geográfica ativa](sql-database-active-geo-replication.md) e [grupos de failover automático](sql-database-auto-failover-group.md).
 * Para saber mais sobre como usar backups automatizados para arquivamento, consulte [cópia de banco de dados](sql-database-copy.md).

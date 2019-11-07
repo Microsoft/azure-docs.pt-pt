@@ -1,5 +1,5 @@
 ---
-title: Como configurar uma instância gerenciada do banco de dados SQL do Azure | Microsoft Docs
+title: Como configurar uma instância gerenciada do banco de dados SQL do Azure
 description: Saiba como configurar e gerenciar a instância gerenciada do banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
-ms.openlocfilehash: b8c05ab05630e92e64a4885d5e6cdc6f5471dff2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 22bad381a59a74237a5539cd4294a08797c017b1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568069"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689920"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Como usar uma instância gerenciada no banco de dados SQL do Azure
 
@@ -28,7 +28,7 @@ Neste artigo, você pode encontrar vários guias, scripts e explicações que po
 
 - [Migrar o certificado TDE para uma instância gerenciada](sql-database-managed-instance-migrate-tde-certificate.md) – se seu banco de dados SQL Server estiver protegido com TDE (Transparent Data Encryption), você precisará migrar o certificado que uma instância gerenciada pode usar para descriptografar o backup que você deseja restaurar no Azure.
 
-## <a name="network-configuration"></a>Configuração de rede
+## <a name="network-configuration"></a>Configuração da rede
 
 - [Determinar o tamanho de uma sub-rede de instância gerenciada](sql-database-managed-instance-determine-size-vnet-subnet.md) – a instância gerenciada é colocada em uma sub-rede dedicada que não pode ser redimensionada quando você adiciona os recursos dentro. Portanto, você precisará calcular qual intervalo de IP de endereços seria necessário para a sub-rede, dependendo do número e dos tipos de instâncias que você deseja implantar na sub-rede.
 - [Criar nova VNet e sub-rede para uma instância gerenciada](sql-database-managed-instance-create-vnet-subnet.md) – vnet e sub-rede do Azure em que você deseja implantar suas instâncias gerenciadas devem ser configuradas de acordo com os [requisitos de rede descritos aqui](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Neste guia, você pode encontrar a maneira mais fácil de criar sua nova VNet e sub-rede adequadamente configuradas para instâncias gerenciadas.
@@ -41,9 +41,9 @@ Neste artigo, você pode encontrar vários guias, scripts e explicações que po
 
 ## <a name="feature-configuration"></a>Configuração de recurso
 
-- A [replicação](replication-with-sql-database-managed-instance.md) transacional permite replicar seus dados entre instâncias gerenciadas ou de SQL Server locais para uma instância gerenciada, e vice-versa. Encontre mais informações sobre como usar e configurar a replicação de transações neste guia.
+- A [replicação transacional](replication-with-sql-database-managed-instance.md) permite replicar seus dados entre instâncias gerenciadas ou de SQL Server locais para uma instância gerenciada, e vice-versa. Encontre mais informações sobre como usar e configurar a replicação de transações neste guia.
 - [Configurar a detecção de ameaças](sql-database-managed-instance-threat-detection.md) – a [detecção de ameaças](sql-database-threat-detection-overview.md) é um recurso interno do banco de dados SQL do Azure que detecta vários ataques em potencial, como injeção de SQL ou acesso de locais suspeitos. Neste guia, você pode aprender a habilitar e configurar a [detecção de ameaças](sql-database-threat-detection-overview.md) para uma instância gerenciada.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [os guias de instruções para bancos de dados individuais](sql-database-howto-single-database.md)

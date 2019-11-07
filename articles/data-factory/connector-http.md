@@ -1,5 +1,5 @@
 ---
-title: Copiar dados de uma origem HTTP usando Azure Data Factory | Microsoft Docs
+title: Copiar dados de uma origem HTTP usando Azure Data Factory
 description: Saiba como copiar dados de uma nuvem ou de uma origem HTTP local para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 7c3a657ff80f05a7f6bc3273edd85ebe4bddc65d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 125841697a8ad7d34441dfca3a4c079ef59e5f96
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935584"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680827"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto de extremidade HTTP usando Azure Data Factory
 
@@ -65,7 +65,7 @@ As seções a seguir fornecem detalhes sobre as propriedades que podem ser usada
 
 As propriedades a seguir têm suporte para o serviço vinculado de HTTP:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade **Type** deve ser definida como **HttpServer**. | Sim |
 | url | A URL base para o servidor Web. | Sim |
@@ -77,7 +77,7 @@ As propriedades a seguir têm suporte para o serviço vinculado de HTTP:
 
 Defina a propriedade **authenticationType** como **Basic**, **Digest**ou **Windows**. Além das propriedades genéricas que são descritas na seção anterior, especifique as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | Usu | O nome de usuário a ser usado para acessar o ponto de extremidade HTTP. | Sim |
 | palavra-passe | A senha do usuário (o valor de **nome de usuário** ). Marque este campo como um tipo **SecureString** para armazená-lo com segurança em data Factory. Você também pode [fazer referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
@@ -110,7 +110,7 @@ Defina a propriedade **authenticationType** como **Basic**, **Digest**ou **Windo
 
 Para usar a autenticação ClientCertificate, defina a propriedade **authenticationType** como **ClientCertificate**. Além das propriedades genéricas que são descritas na seção anterior, especifique as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | embeddedCertData | Dados de certificado codificados em base64. | Especifique **embeddedCertData** ou **certThumbprint**. |
 | certThumbprint | A impressão digital do certificado que está instalado no repositório de certificados de seu computador Integration Runtime auto-hospedado. Aplica-se somente quando o tipo auto-hospedado de Integration Runtime é especificado na propriedade **connectVia** . | Especifique **embeddedCertData** ou **certThumbprint**. |
@@ -175,7 +175,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte para HTTP em configurações de `location` no conjunto de entrada baseado em formato:
 
-| Propriedade    | Descrição                                                  | Obrigatório |
+| Propriedade    | Descrição                                                  | Necessário |
 | ----------- | ------------------------------------------------------------ | -------- |
 | tipo        | A propriedade Type em `location` no conjunto de texto deve ser definida como **HttpServerLocation**. | Sim      |
 | relativeUrl | Uma URL relativa para o recurso que contém os dados.       | Não       |
@@ -214,7 +214,7 @@ As propriedades a seguir têm suporte para HTTP em configurações de `location`
 >[!NOTE]
 >O modelo de conjunto de itens a seguir ainda tem suporte como está para compatibilidade com versões anteriores. Você deve usar o novo modelo mencionado na seção acima no futuro, e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade **Type** do conjunto de conjuntos deve ser definida como **httpfile**. | Sim |
 | relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando essa propriedade não é especificada, somente a URL especificada na definição de serviço vinculado é usada. | Não |
@@ -278,7 +278,7 @@ Para obter uma lista completa de seções e propriedades que estão disponíveis
 
 As propriedades a seguir têm suporte para HTTP em configurações de `storeSettings` em fonte de cópia baseada em formato:
 
-| Propriedade                 | Descrição                                                  | Obrigatório |
+| Propriedade                 | Descrição                                                  | Necessário |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | tipo                     | A propriedade Type em `storeSettings` deve ser definida como **HttpReadSetting**. | Sim      |
 | requestMethod            | O método HTTP. <br>Os valores permitidos são **Get** (padrão) e **post**. | Não       |
@@ -333,7 +333,7 @@ As propriedades a seguir têm suporte para HTTP em configurações de `storeSett
 >[!NOTE]
 >O modelo de origem de cópia a seguir ainda tem suporte como está para compatibilidade com versões anteriores. Você deve usar o novo modelo mencionado acima no futuro, e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade **Type** da fonte da atividade de cópia deve ser definida como **httpname**. | Sim |
 | httpRequestTimeout | O tempo limite (o valor de **TimeSpan** ) para a solicitação HTTP obter uma resposta. Esse valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. O valor padrão é **00:01:40**.  | Não |

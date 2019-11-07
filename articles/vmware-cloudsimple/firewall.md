@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 798f95281740213ac23892eb3b54ff780ca18395
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 411b4bb74c21a445f4001c949e1c7811af212453
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772351"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606441"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configurar tabelas e regras de firewall para nuvens privadas
 
@@ -34,7 +34,10 @@ As tabelas de firewall e as regras associadas permitem que você especifique as 
 5. Uma regra padrão para a tabela é listada. Clique em **criar nova regra** para criar uma regra adicional. Consulte o procedimento a seguir para obter detalhes.
 6. Clique em **concluído** para salvar a tabela de firewall.
 
-## <a name="firewall-rules"></a>Regras de firewall
+> [!IMPORTANT]
+> Você pode criar até duas tabelas de firewall por nuvem privada.
+
+## <a name="firewall-rules"></a>Regras da firewall
 
 As regras de firewall determinam como o firewall trata tipos específicos de tráfego. A guia **regras** para uma tabela de firewall selecionada lista todas as regras associadas.
 
@@ -62,12 +65,15 @@ As regras de firewall determinam como o firewall trata tipos específicos de tr�
 
 3. Clique em **concluído** para salvar a regra e adicioná-la à lista de regras para a tabela de firewall.
 
+> [!IMPORTANT]
+> Cada tabela de firewall pode ter até 10 regras de entrada e 20 regras de saída. Esses limites podem ser aumentados [entrando em contato com o suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
 ## <a name="attach-vlanssubnets"></a>Anexar VLANs/sub-redes
 
 Depois de definir uma tabela de firewall, você pode especificar as sub-redes que estão sujeitas às regras na tabela.
 
-1. Na página**tabelas de firewall** de **rede** > , selecione uma tabela de firewall.
+1. Na página tabelas de **Firewall** de > de **rede** , selecione uma tabela de firewall.
 2. Abra a guia **VLANs/sub-rede anexadas** .
 3. Clique em **anexar a uma VLAN/sub-rede**.
 4. Selecione a nuvem privada e a VLAN. O nome de sub-rede e o bloco CIDR associados são mostrados.
-5. Clique em **Submit** (Submeter).
+5. Clique em **Enviar**.

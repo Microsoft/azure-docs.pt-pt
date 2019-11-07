@@ -1,5 +1,5 @@
 ---
-title: Tutorial do Centro de Segurança do Azure - Responder a incidentes de segurança | Microsoft Docs
+title: Tutorial de resposta a incidentes – central de segurança do Azure
 description: Tutorial do Centro de Segurança do Azure - Responder a incidentes de segurança
 services: security-center
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: 11c2543de2b5456d253e7e905065eea14810877a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: cd3f99fe82c9a8e5e760aa3be3bed1ad5d9bd5e9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200619"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663648"
 ---
-# <a name="tutorial-respond-to-security-incidents"></a>Tutorial: Responder a incidentes de segurança
+# <a name="tutorial-respond-to-security-incidents"></a>Tutorial: responder a incidentes de segurança
 O Centro de Segurança analisa continuamente as suas cargas de trabalho da cloud híbrida com análises avançadas e informações de ameaças para o alertar de atividades maliciosas. Além disso, pode integrar alertas de outros produtos e serviços de segurança no Centro de Segurança e criar alertas personalizados com base nos seus próprios indicadores ou origens de informações. Assim que for gerado um alerta, é necessária uma ação rápida para analisar e remediar. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
@@ -66,7 +66,7 @@ O Centro de Segurança proporciona uma vista unificada de todos os alertas de se
 
 1. No menu principal do Centro de Segurança, em **DETEÇÃO**, selecione **Alertas de segurança**:
 
-   ![Alertas de segurança](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
+   ![Alertas de segurança](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
 
 2. Na lista de alertas, clique num incidente de segurança, que é uma coleção de alertas, para saber mais sobre o mesmo. É aberto **Incidente de segurança detetado**.
 

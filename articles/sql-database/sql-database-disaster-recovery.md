@@ -1,5 +1,5 @@
 ---
-title: Recuperação de desastre do banco de dados SQL | Microsoft Docs
+title: Recuperação de desastre do banco de dados SQL
 description: Saiba como recuperar um banco de dados de uma interrupção regional do Datacenter ou uma falha com a replicação geográfica ativa do banco de dados SQL do Azure e recursos de restauração geográfica.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/21/2019
-ms.openlocfilehash: 95814805d0bcb2532c09f4f68c6b8d97c3b8c6a5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bc4968541c29e3bf18eb4caca2abe648d17342a4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568835"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690599"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar um banco de dados SQL do Azure ou fazer failover para um secundário
 
@@ -27,7 +27,7 @@ O banco de dados SQL do Azure oferece os seguintes recursos para a recuperação
 - [Restauração geográfica](sql-database-recovery-using-backups.md#point-in-time-restore)
 - [Bancos de dados com redundância de zona](sql-database-high-availability.md)
 
-Para saber mais sobre cenários de continuidade de negócios e os recursos que dão suporte a esses cenários, consulte continuidade de [negócios](sql-database-business-continuity.md).
+Para saber mais sobre cenários de continuidade de negócios e os recursos que dão suporte a esses cenários, consulte [continuidade de negócios](sql-database-business-continuity.md).
 
 > [!NOTE]
 > Se você estiver usando pools ou bancos de dados Premium ou Comercialmente Crítico com redundância de zona, o processo de recuperação será automatizado e o restante deste material não se aplicará.
@@ -89,7 +89,7 @@ Se o tempo de inatividade do aplicativo não resultar em responsabilidade comerc
 
 Se estiver usando a restauração geográfica para se recuperar de uma interrupção, você deve verificar se a conectividade com os novos bancos de dados está configurada corretamente para que a função normal do aplicativo possa ser retomada. Esta é uma lista de verificação de tarefas para preparar sua produção de banco de dados recuperada.
 
-### <a name="update-connection-strings"></a>Atualizar cadeias de ligação
+### <a name="update-connection-strings"></a>Atualizar cadeias de conexão
 
 Como o banco de dados recuperado reside em um servidor diferente, você precisa atualizar a cadeia de conexão do aplicativo para apontar para esse servidor.
 
@@ -97,7 +97,7 @@ Para obter mais informações sobre como alterar cadeias de conexão, consulte a
 
 ### <a name="configure-firewall-rules"></a>Configurar regras de firewall
 
-Você precisa certificar-se de que as regras de firewall configuradas no servidor e no banco de dados correspondam às que foram configuradas no servidor primário e no banco de dados primário. Para obter mais informações, consulte [como: Definir configurações de firewall (banco de dados](sql-database-configure-firewall-settings.md)SQL do Azure).
+Você precisa certificar-se de que as regras de firewall configuradas no servidor e no banco de dados correspondam às que foram configuradas no servidor primário e no banco de dados primário. Para obter mais informações, consulte [como: definir configurações de firewall (banco de dados SQL do Azure)](sql-database-configure-firewall-settings.md).
 
 ### <a name="configure-logins-and-database-users"></a>Configurar logons e usuários de banco de dados
 
@@ -118,6 +118,6 @@ Se a auditoria for necessária para acessar seu banco de dados, você precisará
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre os backups automatizados do [](sql-database-automated-backups.md) banco de dados SQL do Azure, confira backups automatizados
-- Para saber mais sobre cenários de recuperação e design de continuidade de negócios, consulte [cenários](sql-database-business-continuity.md) de continuidade
+- Para saber mais sobre os backups automatizados do banco de dados SQL do Azure, confira [backups automatizados](sql-database-automated-backups.md)
+- Para saber mais sobre cenários de recuperação e design de continuidade de negócios, consulte [cenários de continuidade](sql-database-business-continuity.md)
 - Para saber mais sobre como usar backups automatizados para recuperação, consulte [restaurar um banco de dados dos backups iniciados pelo serviço](sql-database-recovery-using-backups.md)

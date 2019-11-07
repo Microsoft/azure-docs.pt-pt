@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: a1ab8f881aaee9e29519e99a5cd2a0e6fdbc9846
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: b3d5a61b93175559bce92a17e27602a4f79d88ad
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489406"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603967"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Crie um modelo de aprendizado profundo TensorFlow em escala com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,7 +30,7 @@ Saiba mais sobre o [aprendizado profundo em relação ao aprendizado de máquina
 
 Execute este código em qualquer um destes ambientes:
 
- - Instância de computação de Azure Machine Learning-nenhum download ou instalação é necessário
+ - VM do notebook Azure Machine Learning-não é necessário nenhum download ou instalação
 
      - Conclua o [tutorial: ambiente de instalação e espaço de trabalho](tutorial-1st-experiment-sdk-setup.md) para criar um servidor de notebook dedicado pré-carregado com o SDK e o repositório de exemplo.
     - Na pasta exemplos de aprendizado profundo no servidor do notebook, encontre um bloco de anotações concluído e expandido navegando até este diretório: **como usar-azureml > ml-frameworks > a implantação do tensorflow > > Train-hiperparameter-ajuste-implantação-com a pasta-tensorflow** . 
@@ -159,6 +159,9 @@ est = TensorFlow(source_directory=script_folder,
                  use_gpu=True)
 ```
 
+> [!TIP]
+> O suporte para **Tensorflow 2,0** foi adicionado à classe estimada Tensorflow. Consulte a [postagem no blog](https://azure.microsoft.com/blog/tensorflow-2-0-on-azure-fine-tuning-bert-for-question-tagging/) para obter mais informações.
+
 ## <a name="submit-a-run"></a>Enviar uma execução
 
 O [objeto Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) fornece a interface para o histórico de execução enquanto o trabalho está em execução e após sua conclusão.
@@ -256,7 +259,7 @@ estimator= TensorFlow(source_directory=project_folder,
 run = exp.submit(tf_est)
 ```
 
-#### <a name="define-cluster-specifications-in-tf_config"></a>Definir especificações de cluster em ' TF_CONFIG '
+#### <a name="define-cluster-specifications-in-tf_config"></a>Definir as especificações de cluster em ' TF_CONFIG '
 
 Você também precisa dos endereços de rede e das portas do cluster para o [`tf.train.ClusterSpec`](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec), de modo que Azure Machine Learning define a variável de ambiente `TF_CONFIG` para você.
 

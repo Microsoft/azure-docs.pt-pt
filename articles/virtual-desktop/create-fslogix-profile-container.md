@@ -1,5 +1,5 @@
 ---
-title: Criar um contêiner de perfil do FSLogix para um pool de hosts usando Azure NetApp Files na área de trabalho virtual do Windows-Azure
+title: Contêineres de perfil do FSLogix NetApp Windows Virtual Desktop – Azure
 description: Como criar um contêiner de perfil FSLogix usando Azure NetApp Files na área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: helohr
-ms.openlocfilehash: 4e714b872ae43eb313efe549c77f5610342f430c
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 1f5d1050815961f51c2bb1cfce256b1ea37d3ac1
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311629"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605768"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Criar um contêiner de perfil do FSLogix para um pool de hosts usando Azure NetApp Files
 
@@ -44,7 +44,7 @@ Antes de criar um contêiner de perfil do FSLogix para um pool de hosts, você d
 
 Para começar, você precisa configurar uma conta de Azure NetApp Files.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Verifique se sua conta tem permissões de colaborador ou administrador.
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Verifique se sua conta tem permissões de colaborador ou administrador.
 
 2. Selecione o **ícone de Azure cloud Shell** à direita da barra de pesquisa para abrir Azure cloud Shell.
 
@@ -134,7 +134,7 @@ Em seguida, você precisará criar um novo volume.
     - Para **rede virtual**, selecione uma rede virtual existente que tenha conectividade com o controlador de domínio no menu suspenso.
     - Em **sub-rede**, selecione **criar novo**. Tenha em mente que essa sub-rede será delegada a Azure NetApp Files.
 
-3.  Selecione **Avançar: protocolo \> @ no__t-2** para abrir a guia Protocolo e configurar os parâmetros de acesso ao volume.
+3.  Selecione **Avançar: protocolo \>\>** para abrir a guia Protocolo e configurar os parâmetros de acesso ao volume.
 
 ## <a name="configure-volume-access-parameters"></a>Configurar parâmetros de acesso ao volume
 
@@ -168,15 +168,15 @@ Esta seção baseia-se em [criar um contêiner de perfil para um pool de hosts u
 
 6. Selecione **Instalar**.
 
-7. Navegue até **C: \\Program arquivos @ no__t-2FSLogix @ no__t-3Apps** para confirmar o agente instalado.
+7. Navegue até **C:\\arquivos de programas\\FSLogix\\aplicativos** para confirmar o agente instalado.
 
 8. No menu Iniciar, execute **regedit** como administrador.
 
-9. Navegue até **computador @ no__t-1HKEY_LOCAL_MACHINE @ no__t-2software @ no__t-3FSLogix**.
+9. Navegue até **computador\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
 
 10. Crie uma chave chamada **perfis**.
 
-11.  Crie um valor chamado **habilitado** com um tipo **REG_DWORD** definido como um valor de dados de **1**.
+11.  Crie um valor chamado **habilitado** com um tipo de **REG_DWORD** definido como um valor de dados de **1**.
 
 12. Crie um valor chamado **VHDLocations** com um tipo de **cadeia de caracteres múltipla** e defina seu valor de dados como o URI para o compartilhamento de Azure NetApp files.
 
@@ -219,7 +219,7 @@ Esta seção baseia-se em [criar um contêiner de perfil para um pool de hosts u
 
 5. Vá para a guia **visão geral** e confirme se o contêiner do perfil FSLogix está usando espaço.
 
-6. Conecte-se diretamente a qualquer parte da VM do pool de hosts usando Área de Trabalho Remota e abra o **Explorador de arquivos.** Em seguida, navegue até o **caminho de montagem** (no exemplo a seguir, o caminho de montagem é @no__t -1\\anf-SMB-3863.gt1107.onmicrosoft.com @ no__t-3ANF-vol).
+6. Conecte-se diretamente a qualquer parte da VM do pool de hosts usando Área de Trabalho Remota e abra o **Explorador de arquivos.** Em seguida, navegue até o **caminho de montagem** (no exemplo a seguir, o caminho de montagem é \\\\ANF-SMB-3863.gt1107.onmicrosoft.com\\seja-vol).
 
    Dentro dessa pasta, deve haver um VHD de perfil (ou VHDX) como aquele no exemplo a seguir.
 

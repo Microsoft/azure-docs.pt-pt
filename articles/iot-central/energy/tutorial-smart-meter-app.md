@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 06b4fe3b716f2252f064a5b36fcde7dd7198db2d
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: c7bb35e7de6400a0fad13845a3faa38ad21b6de7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026747"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581246"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutorial: criar e percorrer o modelo de aplicativo de monitoramento do medidor inteligente 
 
@@ -30,7 +30,7 @@ Este tutorial orienta você pelo processo de criação do aplicativo de monitora
 Se você não tiver uma assinatura, [crie uma conta de avaliação gratuita](https://azure.microsoft.com/free)
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Nenhuma
+- Nenhum
 - A assinatura do Azure é recomendada, mas não é necessária para experimentar
 
 ## <a name="create-a-smart-meter-monitoring-app"></a>Criar um aplicativo de monitoramento do medidor inteligente 
@@ -41,8 +41,8 @@ Você pode criar esse aplicativo em três etapas simples:
 
 2. Selecione a guia **energia** e clique em **criar aplicativo** no bloco aplicativo de **monitoramento do medidor inteligente** .
 
-    [!div class="mx-imgBorder"]
-    ![](media/tutorial-iot-central-smart-meter/smart-meter-build.png) de aplicativo de compilação
+    > [!div class="mx-imgBorder"]
+    > ![](media/tutorial-iot-central-smart-meter/smart-meter-build.png) de aplicativo de compilação
     
 
 3. **Criar aplicativo** abrirá o formulário **novo aplicativo** . Preencha os detalhes solicitados, conforme mostrado na figura abaixo:
@@ -72,25 +72,25 @@ Adatum é uma empresa de energia fictícia, que monitora e gerencia medidores in
 * Acompanhar o consumo de energia total para fins de planejamento e cobrança
 * Operações de comando e controle, como reconectar medidor e atualizar versão do firmware. No modelo, os botões de comando mostram as funcionalidades possíveis e não enviam comandos reais. 
 
-[!div class="mx-imgBorder"]
-![painel de monitoramento do medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png)
+> [!div class="mx-imgBorder"]
+> ![painel de monitoramento do medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png)
 
 ### <a name="devices"></a>Dispositivos
 O aplicativo vem com um dispositivo de medidor inteligente de exemplo. Você pode ver os detalhes do dispositivo clicando na guia **dispositivos** .
 
-[!div class="mx-imgBorder"]
-![dispositivos de medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-devices.png)
+> [!div class="mx-imgBorder"]
+> ![dispositivos de medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-devices.png)
 
 Clique no link **SM0123456789** do dispositivo de exemplo para ver os detalhes do dispositivo. Você pode atualizar as propriedades graváveis do dispositivo na página **Propriedades da atualização** e visualizar os valores atualizados no painel.
 
-[!div class="mx-imgBorder"]
-![Propriedades de medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png)
+> [!div class="mx-imgBorder"]
+> ![Propriedades de medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png)
 
 ### <a name="device-template"></a>Modelo de dispositivo
 Clique na guia **modelos de dispositivo** para ver o modelo de dispositivo do medidor inteligente. O modelo tem a interface predefinida para dados, propriedade, comandos e exibições.
 
-[!div class="mx-imgBorder"]
-![modelos de dispositivo do medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-device-template.png)
+> [!div class="mx-imgBorder"]
+> ![modelos de dispositivo do medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-device-template.png)
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos

@@ -1,5 +1,5 @@
 ---
-title: Copiar dados de um servidor FTP usando o Azure Data Factory | Microsoft Docs
+title: Copiar dados de um servidor FTP usando Azure Data Factory
 description: Saiba como copiar dados de um servidor FTP para um armazenamento de dados de coletor com suporte usando uma atividade de cópia em um pipeline de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: e8372769120f8df01344af0b9dccbf807ce741c8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fe8f04375a4a67574f3426d4a05c77cc7fa7c632
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931101"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680969"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Copiar dados do servidor FTP usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -55,7 +55,7 @@ As seções a seguir fornecem detalhes sobre as propriedades que são usadas par
 
 As propriedades a seguir têm suporte para o serviço vinculado de FTP:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type deve ser definida como: **ftpserver**. | Sim |
 | hospedeira | Especifique o nome ou endereço IP do servidor FTP. | Sim |
@@ -127,7 +127,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte para FTP em configurações de `location` no conjunto de uma base de forma:
 
-| Propriedade   | Descrição                                                  | Obrigatório |
+| Propriedade   | Descrição                                                  | Necessário |
 | ---------- | ------------------------------------------------------------ | -------- |
 | tipo       | A propriedade Type em `location` no conjunto de texto deve ser definida como **FtpServerLocation**. | Sim      |
 | folderPath | O caminho para a pasta. Se você quiser usar curinga para filtrar a pasta, ignore essa configuração e especifique nas configurações de origem da atividade. | Não       |
@@ -164,7 +164,7 @@ As propriedades a seguir têm suporte para FTP em configurações de `location` 
 >[!NOTE]
 >O modelo de conjunto de itens a seguir ainda tem suporte como está para compatibilidade com versões anteriores. Você deve usar o novo modelo mencionado na seção acima no futuro, e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **FileShare** |Sim |
 | folderPath | Caminho para a pasta. Há suporte para o filtro curinga, os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único caractere); Use `^` para escapar se o nome real da pasta tiver curinga ou este caractere de escape dentro. <br/><br/>Exemplos: RootFolder/subfolder/, veja mais exemplos nos [exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). |Sim |
@@ -217,7 +217,7 @@ Para obter uma lista completa de seções e propriedades disponíveis para defin
 
 As propriedades a seguir têm suporte para FTP em configurações de `storeSettings` na fonte de cópia baseada em formato:
 
-| Propriedade                 | Descrição                                                  | Obrigatório                                      |
+| Propriedade                 | Descrição                                                  | Necessário                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | tipo                     | A propriedade Type em `storeSettings` deve ser definida como **FtpReadSetting**. | Sim                                           |
 | recursiva                | Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. Observe que quando recursivo é definido como true e o coletor é um armazenamento baseado em arquivo, uma pasta ou subpasta vazia não é copiada ou criada no coletor. Os valores permitidos são **true** (padrão) e **false**. | Não                                            |
@@ -272,7 +272,7 @@ As propriedades a seguir têm suporte para FTP em configurações de `storeSetti
 >[!NOTE]
 >O modelo de origem de cópia a seguir ainda tem suporte como está para compatibilidade com versões anteriores. Você deve usar o novo modelo mencionado acima no futuro, e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como: **FileSystemName** |Sim |
 | recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observação Quando recursivo é definido como true e o coletor é um armazenamento baseado em arquivo, a pasta/subpasta vazia não será copiada/criada no coletor.<br/>Os valores permitidos são: **true** (padrão), **false** | Não |

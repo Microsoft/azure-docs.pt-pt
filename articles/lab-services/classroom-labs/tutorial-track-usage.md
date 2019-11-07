@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/18/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: 842392ab425628a1c82a39e25a65066064747211
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 315ebfa1460f9d9bc041925cec2451f63ac5be16
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675779"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580246"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Tutorial: Acompanhar a utilização de um laboratório no Azure Lab Services
 Este tutorial mostra-lhe como é que os criadores/proprietários de laboratórios podem acompanhar a utilização dos laboratórios.
 
-Neste tutorial, irá realizar as seguintes ações:
+Neste tutorial, vai realizar as seguintes ações:
 
 > [!div class="checklist"]
 > * Ver utilizadores registados no laboratório
@@ -41,6 +41,8 @@ Neste tutorial, irá realizar as seguintes ações:
 
     ![Utilizadores registados](../media/tutorial-track-usage/registered-users.png)
 
+    Para obter mais detalhes sobre como adicionar e gerenciar usuários para o laboratório, consulte [Adicionar e gerenciar usuários de laboratório](how-to-configure-student-usage.md).
+
 ## <a name="view-the-usage-of-vms-in-the-lab"></a>Ver a utilização das VMs no laboratório 
 
 1. Selecione **Máquinas virtuais**, no menu do lado esquerdo. 
@@ -49,12 +51,11 @@ Neste tutorial, irá realizar as seguintes ações:
     ![Utilização de VM](../media/tutorial-track-usage/vm-usage.png)
 
 ## <a name="manage-student-vms"></a>Gerir VMs de alunos 
-Nessa página, você pode iniciar, parar ou redefinir VMs de estudante usando uma das listas suspensas na coluna **status** ou nos botões na barra de ferramentas. 
+Nessa página, você pode iniciar, parar ou redefinir VMs de estudante usando controles na coluna **estado** ou na barra de ferramentas.
 
 ![Controlos de VMs](../media/tutorial-track-usage/vm-controls.png)
 
-Você também pode usar os botões da barra de ferramentas para iniciar, parar ou excluir uma VM. 
-
+Para obter mais detalhes sobre como gerenciar o pool de máquinas virtuais para o laboratório, consulte [configurar e gerenciar o pool de máquinas virtuais](how-to-set-virtual-machine-passwords.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre os laboratórios de sala de aula, consulte os artigos em [guias de instruções](how-to-manage-lab-accounts.md).

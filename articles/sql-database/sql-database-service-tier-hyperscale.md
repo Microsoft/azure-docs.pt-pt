@@ -1,5 +1,5 @@
 ---
-title: Visão geral do hiperescala do banco de dados SQL do Azure | Microsoft Docs
+title: Visão geral do hiperescala do banco de dados SQL do Azure
 description: Este artigo descreve a camada de serviço de hiperescala no modelo de compra baseado em vCore no banco de dados SQL do Azure e explica como ele é diferente das camadas de serviço Uso Geral e Comercialmente Crítico.
 services: sql-database
 ms.service: sql-database
@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: dimitri-furman
+ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: db6e47b39b7ebe35a6c0fef42af53f91e96c363f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 38402d6ccf5c5582fff878ad60bf1c9fd4a07118
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496201"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687321"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
 
@@ -82,7 +82,7 @@ Ao contrário dos mecanismos de banco de dados tradicionais que centralizaram to
 
 O diagrama a seguir ilustra os diferentes tipos de nós em um banco de dados de hiperescala:
 
-![arquitetura](./media/sql-database-hyperscale/hyperscale-architecture.png)
+![arquitetura](./media/sql-database-hyperscale/hyperscale-architecture2.png)
 
 Um banco de dados de hiperescala contém os seguintes tipos diferentes de componentes:
 
@@ -104,7 +104,7 @@ O armazenamento do Azure contém todos os arquivos de dados em um banco de dado.
 
 ## <a name="backup-and-restore"></a>Cópia de segurança e restauro
 
-Os backups são baseados em instantâneo de arquivo e, portanto, são quase instantâneos. O armazenamento e a separação de computação permitem o envio por push da operação de backup/restauração para a camada de armazenamento para reduzir a carga de processamento na réplica de computação primária. Como resultado, o backup do banco de dados não afeta o desempenho do nó de computação primário; da mesma forma, restaurações são feitas revertendo para instantâneos de arquivo e, como tal, não são um tamanho de operação de dados. Restore é uma operação em tempo constante e até mesmo bancos de dados com vários terabytes podem ser restaurados em minutos, em vez de horas ou dias. A criação de novos bancos de dados por meio da restauração de um backup existente também aproveita esse recurso: a criação de cópias para fins de desenvolvimento ou teste, até mesmo de bancos de dados de tamanho de terabyte, é factível em minutos.
+Os backups são baseados em instantâneo de arquivo e, portanto, são quase instantâneos. O armazenamento e a separação de computação permitem o envio por push da operação de backup/restauração para a camada de armazenamento para reduzir a carga de processamento na réplica de computação primária. Como resultado, o backup do banco de dados não afeta o desempenho do nó de computação primário; da mesma forma, restaurações são feitas revertendo para instantâneos de arquivo e, como tal, não são um tamanho de operação de dados. Restore é uma operação em tempo constante e até mesmo bancos de dados com vários terabytes podem ser restaurados em minutos, em vez de horas ou dias. A criação de novos bancos de dados por meio da restauração de um backup existente também aproveita esse recurso: a criação de cópias no mesmo servidor lógico para fins de desenvolvimento ou teste, mesmo de bancos de dados de tamanho de terabyte, é factível em minutos.
 
 ## <a name="scale-and-performance-advantages"></a>Vantagens de escala e desempenho
 
@@ -177,7 +177,7 @@ No momento, a camada de hiperescala do banco de dados SQL do Azure está dispon�
 - EUA Leste
 - Leste dos EUA 2
 - França Central
-- Este do Japão
+- Leste do Japão
 - Oeste do Japão
 - Coreia do Sul Central
 - Coreia do Sul

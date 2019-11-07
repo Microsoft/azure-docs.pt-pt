@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/15/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: c779147e464a592d45da8a9a2d8e812320dc23e8
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 27a254b664e2035cc66109f7a473a3e9ef4d730e
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184882"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73612145"
 ---
 <!-- This is the note explaining about the avro and json formats when routing to blob storage. -->
 > [!NOTE]
-> Os dados podem ser escritos para o blob storage em ambos os [Apache Avro](https://avro.apache.org/) formato, que é o predefinido, ou JSON (pré-visualização). 
+> Os dados podem ser gravados no armazenamento de BLOBs no formato [Apache Avro](https://avro.apache.org/) , que é o padrão, ou JSON (visualização). 
 >    
-> A capacidade de codificar o formato JSON está em pré-visualização em todas as regiões em que o IoT Hub está disponível, exceto E.U.A. leste, E.U.A. oeste e Europa Ocidental. O formato de codificação só pode ser definido no momento que o ponto final de armazenamento de Blobs está configurado. Não é possível alterar o formato para um ponto final que já tenha sido configurado. Ao usar a codificação de JSON, tem de definir o contentType para JSON e contentEncoding para UTF-8, nas propriedades do sistema de mensagem. 
+> A capacidade de codificar o formato JSON está em visualização em todas as regiões nas quais o Hub IoT está disponível, exceto leste dos EUA, oeste dos EUA e Europa Ocidental. O formato de codificação só pode ser definido no momento em que o ponto de extremidade do armazenamento de BLOBs é configurado. O formato não pode ser alterado para um ponto de extremidade que já foi configurado. Ao usar a codificação JSON, você deve definir o contentType como JSON e o contentEncoding como UTF-8 nas propriedades do sistema de mensagens. 
 >
-> Para obter mais informações sobre como utilizar um ponto de extremidade de armazenamento de BLOBs, veja [documentação de orientação sobre o encaminhamento para o armazenamento de BLOBs](../articles/iot-hub/iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+> Para obter informações mais detalhadas sobre como usar um ponto de extremidade de armazenamento de BLOBs, consulte [diretrizes sobre roteamento para armazenamento](../articles/iot-hub/iot-hub-devguide-messages-d2c.md#azure-storage).
 >

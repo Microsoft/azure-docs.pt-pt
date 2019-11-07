@@ -1,5 +1,5 @@
 ---
-title: Movendo dados entre bancos de dados de nuvem expandidos | Microsoft Docs
+title: Mover dados entre bases de dados de nuvem aumentadas horizontalmente
 description: Explica como manipular fragmentos e mover dados por meio de um serviço hospedado internamente usando APIs de banco de dados elástico.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 841794dcbb41249ea25f615524150df4bd257b45
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9b2203b7fb9e168b251eda16a9505ae2004b0460
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568392"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690189"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Mover dados entre bases de dados de nuvem aumentadas horizontalmente
 
@@ -26,9 +26,9 @@ A ferramenta de divisão/mesclagem é executada como um serviço Web do Azure. U
 
 ![Descrição geral][1]
 
-## <a name="download"></a>Transferência
+## <a name="download"></a>Transferir
 
-[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
+[Microsoft. Azure. SQLDatabase. ElasticScale. Service. SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
 ## <a name="documentation"></a>Documentação
 
@@ -98,7 +98,7 @@ A ferramenta de divisão/mesclagem é executada como um serviço Web do Azure. U
 
     Outras tabelas podem estar presentes na origem ou no destino de uma operação de divisão e mesclagem. O serviço de divisão/mesclagem ignora essas tabelas para qualquer movimentação de dados ou operações de cópia. Observe, no entanto, que eles podem interferir nessas operações em caso de restrições.
 
-    As informações sobre as tabelas de referência vs. fragmentadas são fornecidas `SchemaInfo` pelas APIs no mapa de fragmentos. O exemplo a seguir ilustra o uso dessas APIs em um determinado objeto do Gerenciador de mapa de fragmentos:
+    As informações sobre as tabelas de referência vs. fragmentadas são fornecidas pelas APIs de `SchemaInfo` no mapa de fragmentos. O exemplo a seguir ilustra o uso dessas APIs em um determinado objeto do Gerenciador de mapa de fragmentos:
 
     ```csharp
     // Create the schema annotations
@@ -115,7 +115,7 @@ A ferramenta de divisão/mesclagem é executada como um serviço Web do Azure. U
     smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo);
     ```
 
-    As tabelas ' Region ' e ' Nation ' são definidas como tabelas de referência e serão copiadas com operações de divisão/mesclagem/movimentação. ' Customer ' e ' Orders ', por sua vez, são definidos como tabelas fragmentadas. `C_CUSTKEY`e `O_CUSTKEY` serve como a chave de fragmentação.
+    As tabelas ' Region ' e ' Nation ' são definidas como tabelas de referência e serão copiadas com operações de divisão/mesclagem/movimentação. ' Customer ' e ' Orders ', por sua vez, são definidos como tabelas fragmentadas. `C_CUSTKEY` e `O_CUSTKEY` servem como a chave de fragmentação.
 
 - **Integridade referencial**
 
@@ -211,7 +211,7 @@ O serviço de divisão/mesclagem fornece a tabela **RequestStatus** no banco de 
 
 ### <a name="azure-diagnostics"></a>Diagnóstico do Azure
 
-O serviço de divisão/mesclagem usa Diagnóstico do Azure com base no SDK do Azure 2,5 para monitoramento e diagnóstico. Você controla a configuração de diagnóstico conforme explicado aqui: [Habilitando o diagnóstico nos serviços de nuvem do Azure e máquinas virtuais](../cloud-services/cloud-services-dotnet-diagnostics.md). O pacote de download inclui duas configurações de diagnóstico: uma para a função Web e outra para a função de trabalho. Ele inclui as definições para registrar em log contadores de desempenho, logs do IIS, logs de eventos do Windows e logs de eventos do aplicativo de divisão/mesclagem.
+O serviço de divisão/mesclagem usa Diagnóstico do Azure com base no SDK do Azure 2,5 para monitoramento e diagnóstico. Você controla a configuração de diagnóstico conforme explicado aqui: [habilitando o diagnóstico nos serviços de nuvem do Azure e máquinas virtuais](../cloud-services/cloud-services-dotnet-diagnostics.md). O pacote de download inclui duas configurações de diagnóstico: uma para a função Web e outra para a função de trabalho. Ele inclui as definições para registrar em log contadores de desempenho, logs do IIS, logs de eventos do Windows e logs de eventos do aplicativo de divisão/mesclagem.
 
 ## <a name="deploy-diagnostics"></a>Implantar diagnóstico
 
@@ -233,11 +233,11 @@ Para habilitar o monitoramento e o diagnóstico usando a configuração de diagn
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker"
 ```
 
-Você pode encontrar mais informações sobre como configurar e implantar configurações de diagnóstico aqui: [Habilitando o diagnóstico nos serviços de nuvem do Azure e máquinas virtuais](../cloud-services/cloud-services-dotnet-diagnostics.md).
+Você pode encontrar mais informações sobre como configurar e implantar configurações de diagnóstico aqui: [habilitando o diagnóstico nos serviços de nuvem do Azure e máquinas virtuais](../cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ## <a name="retrieve-diagnostics"></a>Recuperar diagnósticos
 
-Você pode acessar facilmente o seu diagnóstico do Gerenciador de Servidores do Visual Studio na parte do Azure da árvore de Gerenciador de Servidores. Abra uma instância do Visual Studio e, na barra de menus, clique em Exibir e Gerenciador de Servidores. Clique no ícone do Azure para se conectar à sua assinatura do Azure. Em seguida, navegue até Azure-> Storage `<your storage account>` ->-> tabelas-> WADLogsTable. Para obter mais informações, consulte [Gerenciador de servidores](https://msdn.microsoft.com/library/x603htbk.aspx).
+Você pode acessar facilmente o seu diagnóstico do Gerenciador de Servidores do Visual Studio na parte do Azure da árvore de Gerenciador de Servidores. Abra uma instância do Visual Studio e, na barra de menus, clique em Exibir e Gerenciador de Servidores. Clique no ícone do Azure para se conectar à sua assinatura do Azure. Em seguida, navegue até Azure-> Storage-> tabelas `<your storage account>`->-> WADLogsTable. Para obter mais informações, consulte [Gerenciador de servidores](https://msdn.microsoft.com/library/x603htbk.aspx).
 
 ![WADLogsTable][2]
 

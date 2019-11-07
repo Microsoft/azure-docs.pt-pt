@@ -1,26 +1,26 @@
 ---
-title: Configurar as definições de teclado do Azure Media Clipper | Documentos da Microsoft
-description: Passos para configurar atalhos de teclado configuráveis para o Azure Media Clipper
+title: Definir as configurações de teclado do Azure Media Clipper | Microsoft Docs
+description: Etapas para configurar os atalhos de teclado configuráveis para o Azure Media Clipper
 services: media-services
-keywords: Clip; subclip; codificação; suporte de dados
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+keywords: clip; subclip; codificação; mídia
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 2eb32b8ec265a4afa2581374c1f07ac06958a576
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 013ca640d30baceeb41e9cb38fab69020b3c50dd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466111"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685070"
 ---
 # <a name="configure-azure-media-clipper-keyboard-shortcuts"></a>Configurar atalhos de teclado do Azure Media Clipper 
 
-Azure Media Clipper suporta personalizando os atalhos de teclado padrão, fornecendo opcional `keymap` parâmetro JSON.
+O Azure Media Clipper dá suporte à personalização dos atalhos de teclado padrão fornecendo um parâmetro `keymap` JSON opcional.
 
-O JSON de exemplo seguinte ilustra os atalhos de teclado padrão. Pode personalizar estas definições, alterando os campos de chave e passando o parâmetro ao inicializar o Clipper.
+O JSON de exemplo a seguir ilustra os atalhos de teclado padrão. Você pode personalizar essas configurações alterando os campos de chave e passando o parâmetro ao inicializar o Clipper.
 
 ```json
 {

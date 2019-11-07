@@ -1,6 +1,6 @@
 ---
 title: Aprendizado profundo versus aprendizado de máquina
-titleSuffix: Azure Machine Learning
+titleSuffix: Azure
 description: Saiba como o aprendizado profundo está relacionado ao aprendizado de máquina e inteligência artificial. O aprendizado profundo é usado em cenários como detecção de fraudes, reconhecimento facial de voz &, análise de opiniões e previsão de séries temporais.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: cc98e620194c5bf67d2efa12d61af44d5527bafc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ed9f933e790aa70b257e27fa2bbbc04f6a2e077
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497499"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648001"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Aprendizado profundo versus aprendizado de máquina
 

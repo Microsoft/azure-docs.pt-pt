@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2aa2ed6fe4d8218737c42bb3d76084c5d677623f
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a221d55d942e6140c12f2ebfb64428b8ec7be74b
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71826954"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643578"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com uma conta de Azure Active Directory usando políticas personalizadas no Azure Active Directory B2C
 
@@ -31,13 +31,13 @@ Conclua as etapas em introdução [às políticas personalizadas no Azure Active
 
 Para habilitar a entrada para usuários de uma organização específica do Azure AD, você precisa registrar um aplicativo no locatário organizacional do Azure AD.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. Verifique se você está usando o diretório que contém seu locatário organizacional do Azure AD (por exemplo, contoso.com). Selecione o **diretório + filtro de assinatura** no menu superior e escolha o diretório que contém seu locatário do Azure AD.
 1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **registros de aplicativo**.
 1. Selecione **novo registro**.
 1. Insira um **nome** para seu aplicativo. Por exemplo, `Azure AD B2C App`.
 1. Aceite a seleção padrão de **contas neste diretório organizacional somente** para este aplicativo.
-1. Para o **URI de redirecionamento**, aceite o valor de **Web**e insira a URL a seguir em todas as letras `your-B2C-tenant-name` minúsculas, onde é substituído pelo nome do seu locatário de Azure ad B2C.
+1. Para o **URI de redirecionamento**, aceite o valor de **Web**e insira a URL a seguir em todas as letras minúsculas, em que `your-B2C-tenant-name` é substituído pelo nome do seu locatário Azure ad B2C.
 
     ```
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
@@ -60,7 +60,7 @@ Você precisa armazenar a chave do aplicativo que você criou em seu locatário 
 1. Para **Opções**, escolha `Manual`.
 1. Insira um **nome** para a chave de política. Por exemplo, `ContosoAppSecret`.  O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave quando ele é criado, portanto, sua referência no XML na seção a seguir é *B2C_1A_ContosoAppSecret*.
 1. Em **segredo**, insira o segredo do cliente que você registrou anteriormente.
-1. Para **uso de chave**, `Signature`selecione.
+1. Para **uso de chave**, selecione `Signature`.
 1. Selecione **Criar**.
 
 ## <a name="add-a-claims-provider"></a>Adicionar um provedor de declarações
@@ -127,10 +127,10 @@ Para obter um token do ponto de extremidade do Azure AD, você precisa definir o
 1. Atualize a ID do elemento **TechnicalProfile** . Essa ID é usada para fazer referência a este perfil técnico de outras partes da política.
 1. Atualize o valor para **DisplayName**. Esse valor será exibido no botão de entrada na tela de entrada.
 1. Atualize o valor de **Descrição**.
-1. O Azure AD usa o protocolo OpenID Connect, portanto, verifique se o valor de protocolo `OpenIdConnect`é.
-1. Defina o valor dos **metadados** como `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, onde `your-AD-tenant-name` é o nome do locatário do Azure AD. Por exemplo, `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
+1. O Azure AD usa o protocolo OpenID Connect, portanto, verifique se o valor de **protocolo** é `OpenIdConnect`.
+1. Defina o valor dos **metadados** para `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, em que `your-AD-tenant-name` é o nome do locatário do Azure AD. Por exemplo, `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
 1. Abra o navegador e vá para a URL de **metadados** que você acabou de atualizar, procure o objeto **emissor** e, em seguida, copie e cole o valor no valor de **ProviderName** no arquivo XML.
-1. Defina **client_id** como a ID do aplicativo do registro do aplicativo.
+1. Defina **client_id** para a ID do aplicativo do registro do aplicativo.
 1. Em **CryptographicKeys**, atualize o valor de **StorageReferenceId** para o nome da chave de política que você criou anteriormente. Por exemplo, `B2C_1A_ContosoAppSecret`.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Carregar o arquivo de extensão para verificação
@@ -197,10 +197,10 @@ Atualize o arquivo RP (terceira parte confiável) que inicia o percurso do usuá
 1. Copie o **ponto de extremidade executar agora** e abra-o em uma janela de navegador privada, por exemplo, o modo Incognito no Google Chrome ou uma janela InPrivate no Microsoft Edge. Abrir em uma janela privada do navegador permite que você teste o percurso completo do usuário não usando nenhuma credencial do Azure AD atualmente armazenada em cache.
 1. Selecione o botão entrar do Azure AD, por exemplo, *funcionário contoso*e, em seguida, insira as credenciais para um usuário em seu locatário organizacional do Azure AD. Você será solicitado a autorizar o aplicativo e, em seguida, a inserir informações para seu perfil.
 
-Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms`, que exibe o conteúdo do token retornado por Azure ad B2C.
+Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms`, que exibe o conteúdo do token retornado por Azure AD B2C.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Ao trabalhar com políticas personalizadas, às vezes você pode precisar de informações adicionais ao solucionar problemas de uma política durante seu desenvolvimento.
 
-Para ajudar a diagnosticar problemas, você pode colocar temporariamente a política em "modo de desenvolvedor" e coletar logs com o Aplicativo Azure insights. Descubra como [Azure Active Directory B2C: Coletando](active-directory-b2c-troubleshoot-custom.md)logs.
+Para ajudar a diagnosticar problemas, você pode colocar temporariamente a política em "modo de desenvolvedor" e coletar logs com o Aplicativo Azure insights. Descubra como [Azure Active Directory B2C: coletando logs](active-directory-b2c-troubleshoot-custom.md).

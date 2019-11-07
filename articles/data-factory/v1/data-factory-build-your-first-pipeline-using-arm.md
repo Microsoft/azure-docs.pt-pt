@@ -1,5 +1,5 @@
 ---
-title: Criar a primeira fábrica de dados (modelo do Resource Manager) | Microsoft Docs
+title: Criar seu primeiro data factory (modelo do Resource Manager)
 description: Neste tutorial, vai criar um exemplo de pipeline do Azure Data Factory com um modelo do Azure Resource Manager.
 services: data-factory
 documentationcenter: ''
@@ -11,33 +11,33 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: c4ff0f28f4f0058d388e3b2f9c753737fb6ee0d4
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: bc433fbd6117a6aded28e19d2f8b48d594ff5ad6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140506"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683041"
 ---
-# <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Crie seu primeiro data factory do Azure usando o modelo Azure Resource Manager
+# <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar a primeira fábrica de dados do Azure com o modelo Azure Resource Manager
 > [!div class="op_single_selector"]
 > * [Descrição geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 > 
  
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço de data Factory, consulte [início rápido: Crie um data factory usando Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja o [Início Rápido: criar uma fábrica de dados com o Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 Neste artigo, vai utilizar um modelo do Azure Resource Manager para criar a sua primeira fábrica de dados do Azure. Para fazer o tutorial com outras ferramentas/SDKs, selecione uma das opções na lista pendente.
 
-O pipeline neste tutorial tem uma atividade: **Atividade do hive do HDInsight**. Esta atividade executa um script de ramo de registo num cluster do Azure HDInsight que transforma os dados de entrada para produzir os dados de saída. O pipeline está agendado para ser executado uma vez por mês entre as horas de início e de fim especificadas. 
+O pipeline neste tutorial tem uma atividade: **atividade do HDInsight Hive**. Esta atividade executa um script de ramo de registo num cluster do Azure HDInsight que transforma os dados de entrada para produzir os dados de saída. O pipeline está agendado para ser executado uma vez por mês entre as horas de início e de fim especificadas. 
 
 > [!NOTE]
-> O pipeline de dados neste tutorial transforma os dados de entrada para produzirem dados de saída. Para obter um tutorial sobre como copiar dados usando Azure data Factory, consulte [o tutorial: Copiar dados do armazenamento de BLOBs para](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)o banco de dados SQL.
+> O pipeline de dados neste tutorial transforma os dados de entrada para produzirem dados de saída. Para um tutorial sobre como copiar dados com o Azure Data Factory, consulte [Tutorial: Copy data from Blob Storage to SQL Database (Tutorial: copiar dados do Armazenamento de Blobs para a Base de Dados SQL)](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
-> O pipeline neste tutorial tem apenas uma atividade do tipo: HDInsightHive. Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas atividades (executar uma atividade após a outra) ao definir o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra. Para obter mais informações, veja [scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (agendamento e execução no Data Factory). 
+> O pipeline neste tutorial tem apenas uma atividade de tipo: atividade do HDInsight Hive. Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas atividades (executar uma atividade após a outra) ao definir o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra. Para obter mais informações, veja [scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (agendamento e execução no Data Factory). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,7 +59,7 @@ O pipeline neste tutorial tem uma atividade: **Atividade do hive do HDInsight**.
 
 Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline pode conter uma atividade ou mais. Existem dois tipos de atividades: [atividades de movimento de dados](data-factory-data-movement-activities.md) e [atividades de transformação de dados](data-factory-data-transformation-activities.md). Neste tutorial, pode criar um pipeline com uma atividade (atividade do Hive).
 
-A secção seguinte disponibiliza o modelo do Resource Manager completo para a definição de entidades do Data Factory, para que possa rapidamente dar uma vista de olhos pelo tutorial e testar o modelo. Para compreender como cada entidade do Data Factory está definida, consulte a secção [Data Factory entities in the template (Entidades do Data Factory no modelo)](#data-factory-entities-in-the-template). Para saber mais sobre a sintaxe JSON e as propriedades para Data Factory recursos em um modelo, consulte [tipos de recurso Microsoft.](/azure/templates/microsoft.datafactory/allversions)datafactory.
+A secção seguinte disponibiliza o modelo do Resource Manager completo para a definição de entidades do Data Factory, para que possa rapidamente dar uma vista de olhos pelo tutorial e testar o modelo. Para compreender como cada entidade do Data Factory está definida, consulte a secção [Data Factory entities in the template (Entidades do Data Factory no modelo)](#data-factory-entities-in-the-template). Para saber mais sobre a sintaxe JSON e as propriedades para Data Factory recursos em um modelo, consulte [tipos de recurso Microsoft. datafactory](/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="data-factory-json-template"></a>Modelo JSON do Data Factory
 O modelo do Resource Manager de nível superior para definir uma fábrica de dados é: 
@@ -261,7 +261,7 @@ Crie um ficheiro JSON com o nome **ADFTutorialARM.json** na pasta **C:\ADFGetSta
 ```
 
 > [!NOTE]
-> Você pode encontrar outro exemplo de modelo do Resource Manager para criar um data Factory do [Azure no tutorial: Crie um pipeline com a atividade de cópia usando um](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)modelo de Azure Resource Manager.  
+> Pode encontrar outro exemplo do modelo do Resource Manager para criar uma fábrica de dados do Azure no [Tutorial: criar um pipeline com a Atividade de Cópia utilizando um modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md).  
 > 
 > 
 
@@ -615,9 +615,9 @@ Eis o exemplo de um modelo do Resource Manager para criar um gateway lógico. In
     ]
 }
 ```
-Este modelo cria um data factory chamado GatewayUsingArmDF com um gateway chamado: GatewayUsingARM. 
+Este modelo cria uma fábrica de dados com o nome GatewayUsingArmDF com um gateway designado: GatewayUsingARM. 
 
-## <a name="see-also"></a>Consultar Também
+## <a name="see-also"></a>Veja também
 
 | Tópico | Descrição |
 |:--- |:--- |

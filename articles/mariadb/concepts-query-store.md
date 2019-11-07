@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: ab543ee8e379b89aaa9a1133bb75387ed9904002
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 11/04/2019
+ms.openlocfilehash: 67ca6aa36166e8ae08bedec82441e45930976b80
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598401"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604002"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Monitorar o desempenho do banco de dados do Azure para MariaDB com o Repositório de Consultas
 
 **Aplica-se a:** Banco de dados do Azure para MariaDB 10,2
-
-> [!IMPORTANT]
-> Repositório de Consultas está em versão prévia.
 
 O recurso Repositório de Consultas no banco de dados do Azure para MariaDB fornece uma maneira de controlar o desempenho de consulta ao longo do tempo. O Repositório de Consultas simplifica a solução de problemas de desempenho, ajudando você a encontrar rapidamente as consultas mais longas e com uso intensivo de recursos. Repositório de Consultas captura automaticamente um histórico de consultas e estatísticas de tempo de execução e as retém para sua análise. Ele separa os dados por janelas de tempo para que você possa ver os padrões de uso do banco de dados. Todos os usuários, bancos de dados e consultas são armazenados no banco de dados de esquema do **MySQL** no banco de dados do Azure para a instância MariaDB.
 
@@ -92,7 +89,7 @@ As opções a seguir estão disponíveis para configurar parâmetros de Reposit�
 
 | **Meter** | **Descrição** | **Predefinição** | **Intervalo** |
 |---|---|---|---|
-| query_store_capture_mode | Ativar/desativar o recurso de repositório de consultas com base no valor. Observação: se performance_schema estiver OFF, ativar o query_store_capture_mode ativará performance_schema e um subconjunto de instrumentos de esquema de desempenho necessários para esse recurso. | OS | NENHUM, TUDO |
+| query_store_capture_mode | Ativar/desativar o recurso de repositório de consultas com base no valor. Observação: se performance_schema estiver desativado, ativar query_store_capture_mode ativará performance_schema e um subconjunto de instrumentos de esquema de desempenho necessário para esse recurso. | OS | NENHUM, TUDO |
 | query_store_capture_interval | O intervalo de captura do repositório de consultas em minutos. Permite especificar o intervalo no qual as métricas de consulta são agregadas | 15 | 5 - 60 |
 | query_store_capture_utility_queries | Ativar ou desativar o para capturar todas as consultas do utilitário que estão sendo executadas no sistema. | NO | SIM, NÃO |
 | query_store_retention_period_in_days | Janela de tempo em dias para manter os dados no repositório de consultas. | 7 | 1 - 30 |
@@ -105,7 +102,7 @@ As opções a seguir se aplicam especificamente às estatísticas de espera.
 | query_store_wait_sampling_frequency | Altera a frequência de amostragem de espera em segundos. 5 a 300 segundos. | 30 | 5-300 |
 
 > [!NOTE]
-> Atualmente, o **query_store_capture_mode** substitui essa configuração, o que significa que **query_store_capture_mode** e **query_store_wait_sampling_capture_mode** precisam ser habilitados para que todas as estatísticas de espera funcionem. Se **query_store_capture_mode** for desativado, as estatísticas de espera serão desativadas, já que as estatísticas de espera utilizam o performance_schema habilitado e o query_text capturado pelo repositório de consultas.
+> Atualmente **query_store_capture_mode** substitui essa configuração, o que significa que **query_store_capture_mode** e **query_store_wait_sampling_capture_mode** precisam ser habilitados para que todas as estatísticas de espera funcionem. Se **query_store_capture_mode** for desativado, as estatísticas de espera serão desativadas, já que as estatísticas de espera utilizam o performance_schema habilitado e a query_text capturada pelo repositório de consultas.
 
 Use o [portal do Azure](howto-server-parameters.md) para obter ou definir um valor diferente para um parâmetro.
 
@@ -123,7 +120,7 @@ Essa exibição retorna todos os dados em Repositório de Consultas. Há uma lin
 |---|---|---|---|
 | `schema_name`| varchar (64) | NO | Nome do esquema |
 | `query_id`| BigInt (20) | NO| ID exclusiva gerada para a consulta específica, se a mesma consulta for executada em um esquema diferente, uma nova ID será gerada |
-| `timestamp_id` | carimbo de data/hora| NO| Carimbo de data/hora em que a consulta é executada. Isso se baseia na configuração do query_store_interval|
+| `timestamp_id` | carimbo de data/hora| NO| Carimbo de data/hora em que a consulta é executada. Isso se baseia na configuração de query_store_interval|
 | `query_digest_text`| LONGTEXT| NO| O texto de consulta normalizado após a remoção de todos os literais|
 | `query_sample_text` | LONGTEXT| NO| Primeira aparência da consulta real com literais|
 | `query_digest_truncated` | parte| Ok| Se o texto da consulta foi truncado. O valor será Sim se a consulta tiver mais de 1 KB|
@@ -174,7 +171,7 @@ Essa exibição retorna dados de eventos de espera em Repositório de Consultas.
 
 ## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
 
-- Se um servidor MariaDB tiver o parâmetro `default_transaction_read_only` ativado, Repositório de Consultas não poderá capturar dados.
+- Se um servidor MariaDB tiver o parâmetro `default_transaction_read_only` em, Repositório de Consultas não poderá capturar dados.
 - Repositório de Consultas funcionalidade poderá ser interrompida se encontrar consultas longas em Unicode (\> = 6000 bytes).
 - O período de retenção para estatísticas de espera é de 24 horas.
 - Estatísticas de espera usa a captura de ti de exemplo uma fração de eventos. A frequência pode ser modificada usando o parâmetro `query_store_wait_sampling_frequency`.

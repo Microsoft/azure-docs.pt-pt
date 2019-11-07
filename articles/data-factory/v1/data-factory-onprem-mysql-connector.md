@@ -1,5 +1,5 @@
 ---
-title: Mover dados do MySQL usando o Azure Data Factory | Microsoft Docs
+title: Mover dados do MySQL usando Azure Data Factory
 description: Saiba mais sobre como mover dados do MySQL usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 675189a5485bb0cfcc833fc21b376a21ddde7cdf
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 4a7b42b51f49ab0c11aa8af3af6495c60907d230
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809359"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666100"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Mover dados do MySQL usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -66,12 +66,12 @@ As seções a seguir fornecem detalhes sobre as propriedades JSON que são usada
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do MySQL.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | tipo |A propriedade Type deve ser definida como: **OnPremisesMySql** |Sim |
 | servidor |Nome do servidor MySQL. |Sim |
 | base de dados |Nome do banco de dados MySQL. |Sim |
-| Esquema |Nome do esquema no banco de dados. |Não |
+| schema |Nome do esquema no banco de dados. |Não |
 | authenticationType |Tipo de autenticação usado para se conectar ao banco de dados MySQL. Os valores possíveis são: `Basic`. |Sim |
 | Usu |Especifique o nome de usuário para se conectar ao banco de dados MySQL. |Sim |
 | palavra-passe |Especifique a senha da conta de usuário que você especificou. |Sim |
@@ -82,7 +82,7 @@ Para obter uma lista completa das seções & propriedades disponíveis para defi
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção typeproperties para o conjunto de um do tipo **RelationalTable** (que inclui o conjunto de uma série MySQL) tem as seguintes propriedades
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | tableName |Nome da tabela na instância do banco de dados MySQL à qual o serviço vinculado se refere. |Não (se a **consulta** de **RelationalSource** for especificada) |
 
@@ -93,7 +93,7 @@ Enquanto que as propriedades disponíveis na seção **typeproperties** da ativi
 
 Quando a origem na atividade de cópia é do tipo **RelationalSource** (que inclui o MySQL), as seguintes propriedades estão disponíveis na seção typeproperties:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | consulta |Use a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: selecione * em MyTable. |Não (se **TableName** de **DataSet** for especificado) |
 

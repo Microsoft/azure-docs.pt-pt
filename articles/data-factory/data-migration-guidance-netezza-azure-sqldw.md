@@ -1,5 +1,5 @@
 ---
-title: Usar Azure Data Factory para migrar dados de um servidor Netezza local para o Azure | Microsoft Docs
+title: Usar Azure Data Factory para migrar dados de um servidor Netezza local para o Azure
 description: Use Azure Data Factory para migrar dados de um servidor Netezza local para o Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/03/2019
-ms.openlocfilehash: 9ea8326b10536cb91b9dc67f637664f0fc055e74
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: c5b36a04501b417af4e4527968a082da8a061804
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122835"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675795"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Usar Azure Data Factory para migrar dados de um servidor Netezza local para o Azure 
 
@@ -62,7 +62,7 @@ Como alternativa, se você não quiser que os dados sejam transferidos pela Inte
 
 A próxima seção discute como obter maior segurança.
 
-## <a name="solution-architecture"></a>Arquitetura da solução
+## <a name="solution-architecture"></a>Arquitetura de soluções
 
 Esta seção aborda duas maneiras de migrar seus dados.
 
@@ -120,9 +120,9 @@ O diagrama anterior pode ser interpretado da seguinte maneira:
 
 Para tabelas pequenas (ou seja, tabelas com um volume de menos de 100 GB ou que podem ser migradas para o Azure dentro de duas horas), você pode fazer com que cada trabalho de cópia carregue dados por tabela. Para obter maior taxa de transferência, você pode executar vários Azure Data Factory trabalhos de cópia para carregar tabelas separadas simultaneamente. 
 
-Em cada trabalho de cópia, para executar consultas paralelas e copiar dados por partições, você também pode alcançar algum nível de paralelismo usando a [ `parallelCopies` configuração de propriedade](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) com uma das seguintes opções de partição de dados:
+Em cada trabalho de cópia, para executar consultas paralelas e copiar dados por partições, você também pode alcançar algum nível de paralelismo usando a [configuração de propriedade`parallelCopies`](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) com uma das seguintes opções de partição de dados:
 
-- Para obter ajuda para obter maior eficiência, recomendamos que você inicie a partir de uma fatia de dados.  Certifique-se de que o valor `parallelCopies` na configuração seja menor que o número total de partições de fatia de dados em sua tabela no servidor Netezza.  
+- Para obter ajuda para obter maior eficiência, recomendamos que você inicie a partir de uma fatia de dados.  Verifique se o valor na configuração `parallelCopies` é menor que o número total de partições de fatia de dados em sua tabela no servidor Netezza.  
 
 - Se o volume de cada partição de fatia de dados ainda for grande (por exemplo, 10 GB ou mais), recomendamos que você alterne para uma partição de intervalo dinâmico. Essa opção oferece maior flexibilidade para definir o número de partições e o volume de cada partição por coluna de partição, limite superior e limite inferior.
 
@@ -150,13 +150,13 @@ Se você estiver migrando dados do servidor Netezza para o Azure, se o servidor 
 
 Como prática recomendada, realize uma prova de conceito de desempenho (POC) com um conjunto de exemplo representativo, para que você possa determinar um tamanho de partição apropriado para cada atividade de cópia. Sugerimos que você carregue cada partição no Azure dentro de duas horas.  
 
-Para copiar uma tabela, comece com uma única atividade de cópia com uma única máquina de IR hospedada internamente. Aumente gradualmente a `parallelCopies` configuração com base no número de partições de fatia de dados em sua tabela. Veja se a tabela inteira pode ser carregada no Azure dentro de duas horas, de acordo com a taxa de transferência resultante do trabalho de cópia. 
+Para copiar uma tabela, comece com uma única atividade de cópia com uma única máquina de IR hospedada internamente. Aumente gradualmente a configuração de `parallelCopies` com base no número de partições de fatia de dados em sua tabela. Veja se a tabela inteira pode ser carregada no Azure dentro de duas horas, de acordo com a taxa de transferência resultante do trabalho de cópia. 
 
 Se ele não puder ser carregado no Azure dentro de duas horas, e a capacidade do nó IR auto-hospedado e o armazenamento de dados não forem totalmente usados, Aumente gradualmente o número de atividades de cópia simultâneas até alcançar o limite de sua rede ou o limite de largura de banda do armazenamento de dados &. 
 
 Continue monitorando o uso de CPU e de memória no computador IR auto-hospedado e esteja pronto para escalar verticalmente o computador ou escalar horizontalmente para vários computadores quando você vir que a CPU e a memória são totalmente usadas. 
 
-Quando você encontrar erros de limitação, conforme relatado por Azure data Factory atividade de cópia, reduza a `parallelCopies` simultaneidade ou configuração em Azure data Factory ou considere aumentar a largura de banda ou os limites de IOPS (operações por segundo) da rede e armazenamentos de dados. 
+Quando você encontrar erros de limitação, conforme relatado por Azure Data Factory atividade de cópia, reduza a configuração de simultaneidade ou de `parallelCopies` no Azure Data Factory ou considere aumentar a largura de banda ou os limites de IOPS (operações por segundo) da rede e dos dados mercado. 
 
 
 ### <a name="estimate-your-pricing"></a>Estime seus preços 
@@ -173,7 +173,7 @@ Vamos supor que as seguintes instruções sejam verdadeiras:
 
 - O volume de 50 TB é dividido em 500 partições e cada atividade de cópia move uma partição.
 
-- Cada atividade de cópia é configurada com um IR auto-hospedado em quatro máquinas e atinge uma taxa de transferência de 20 megabytes por segundo (MBps). (Na atividade de cópia `parallelCopies` , é definido como 4, e cada thread para carregar dados da tabela alcança uma taxa de transferência de 5 Mbps.)
+- Cada atividade de cópia é configurada com um IR auto-hospedado em quatro máquinas e atinge uma taxa de transferência de 20 megabytes por segundo (MBps). (Na atividade de cópia, `parallelCopies` é definido como 4, e cada thread para carregar dados da tabela alcança uma taxa de transferência de 5 MBps.)
 
 - A simultaneidade ForEach é definida como 3 e a taxa de transferência agregada é de 60 MBps.
 

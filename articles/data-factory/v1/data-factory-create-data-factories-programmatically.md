@@ -1,5 +1,5 @@
 ---
-title: Criar pipelines de dados usando o SDK do .NET do Azure | Microsoft Docs
+title: Criar pipelines de dados usando o SDK do .NET do Azure
 description: Saiba como criar, monitorar e gerenciar as fábricas de dados do Azure programaticamente usando Data Factory SDK.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 11120a84f2796061d76d8d813ba906da073b57c6
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: cabeb6314c16aa5bc37f1139954f8829a37af5bb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140205"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682767"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Criar, monitorar e gerenciar fábricas de dados do Azure usando o SDK do .NET Azure Data Factory
 > [!NOTE]
@@ -34,7 +34,7 @@ Você pode criar, monitorar e gerenciar fábricas de dados do Azure programatica
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Visual Studio 2012 ou 2013 ou 2015
-* Transfira e instale [SDK .NET do Azure](https://azure.microsoft.com/downloads/).
+* Baixe e instale o [SDK do .net do Azure](https://azure.microsoft.com/downloads/).
 * Azure PowerShell. Siga as instruções do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalar o Azure PowerShell no seu computador. Utilize o Azure PowerShell para criar uma aplicação do Azure Active Directory.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Criar uma Aplicação no Azure Active Directory
@@ -138,7 +138,7 @@ A Atividade de Cópia executa o movimento de dados no Azure Data Factory. A ativ
         </appSettings>
     </configuration>
     ```
-5. No arquivo app. config, atualize os valores para  **&lt;ID&gt;do aplicativo**,  **&lt;senha&gt;** ,  **&lt;ID&gt;da assinatura**e **&lt;ID do locatário com&gt;** seus próprios valores.
+5. No arquivo app. config, atualize os valores para **&lt;ID do aplicativo&gt;** , **&lt;senha&gt;** , **&lt;id da assinatura** &gt;e **&lt;ID do locatário**&gt;com seus próprios valores.
 6. Adicione as seguintes instruções **using** ao arquivo **Program.cs** no projeto.
 
     ```csharp
@@ -446,7 +446,7 @@ A Atividade de Cópia executa o movimento de dados no Azure Data Factory. A ativ
     }
     ```
 
-15. No Gerenciador de Soluções, expanda o projeto: **DataFactoryAPITestApp**, clique com o botão direito do mouse em **referências**e clique em **Adicionar referência**. Marque a caixa de `System.Configuration` seleção para assembly e clique em **OK**.
+15. No Gerenciador de Soluções, expanda o projeto: **DataFactoryAPITestApp**, clique com o botão direito do mouse em **referências**e clique em **Adicionar referência**. Marque a caixa de seleção para `System.Configuration` assembly e clique em **OK**.
 15. Crie a aplicação da consola. Clique em **Criar** no menu e clique em **Criar Solução**.
 16. Confirme se há pelo menos um arquivo no contêiner adftutorial no armazenamento de BLOBs do Azure. Caso contrário, crie o arquivo EMP. txt no bloco de notas com o conteúdo a seguir e carregue-o no contêiner adftutorial.
 
@@ -457,8 +457,8 @@ A Atividade de Cópia executa o movimento de dados no Azure Data Factory. A ativ
 17. Execute o exemplo, clicando em **Depurar** -> **Iniciar Depuração** no menu. Quando vir **A obter detalhes da execução de um setor de dados**, aguarde alguns minutos e prima **ENTER**.
 18. Utilize o portal do Azure para verificar se a fábrica de dados **APITutorialFactory** foi criada com os artefactos seguintes:
     * Serviço vinculado: **AzureStorageLinkedService**
-    * DataSet **DatasetBlobSource** e **DatasetBlobDestination**.
-    * Tubula **PipelineBlobSample**
+    * Conjunto de dados: **DatasetBlobSource** e **DatasetBlobDestination**.
+    * Pipeline: **PipelineBlobSample**
 19. Verifique se um arquivo de saída foi criado na pasta **apifactoryoutput** no contêiner **adftutorial** .
 
 ## <a name="get-a-list-of-failed-data-slices"></a>Obter uma lista de fatias de dados com falha 

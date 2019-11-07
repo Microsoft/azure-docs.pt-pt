@@ -1,5 +1,5 @@
 ---
-title: Configurar a proteção avançada contra ameaças – instância gerenciada do banco de dados SQL do Azure | Microsoft Docs
+title: Configurar a proteção avançada contra ameaças – instância gerenciada do banco de dados SQL do Azure
 description: A proteção avançada contra ameaças detecta atividades anormais de banco de dados que indicam possíveis ameaças de segurança ao banco de dados em uma instância gerenciada.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: eb6d8229e85e54a6a3fc8591dc4688a73773fd8b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 8e419031c34a693bac7ab9f9825c24576e80ba14
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816574"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687876"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-database-managed-instance"></a>Configurar a proteção avançada contra ameaças na instância gerenciada do banco de dados SQL do Azure
 

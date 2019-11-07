@@ -1,6 +1,6 @@
 ---
-title: Utilizar o Azure Event Grid para automatizar o redimensionamento de imagens carregadas | Microsoft Docs
-description: O Azure Event Grid pode acionar carregamentos de blobs no Armazenamento do Azure. Pode utilizá-lo para enviar ficheiros de imagem carregados para o Armazenamento do Azure para outros serviços, como as Funções do Azure, para redimensionar e outras melhorias.
+title: 'Tutorial: usar a grade de eventos do Azure para automatizar o redimensionamento de imagens carregadas'
+description: 'Tutorial: a grade de eventos do Azure pode disparar em uploads de blob no armazenamento do Azure. Pode utilizá-lo para enviar ficheiros de imagem carregados para o Armazenamento do Azure para outros serviços, como as Funções do Azure, para redimensionar e outras melhorias.'
 services: event-grid, functions
 author: spelluru
 manager: jpconnoc
@@ -9,17 +9,17 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/29/2019
+ms.date: 11/05/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: c09e2cd812dd34976218ff71036734466943e8cd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4359ce859e3fbe270785c3cf4bbc673e71d19799
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "69623854"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718216"
 ---
-# <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar o redimensionamento de imagens carregadas com o Event Grid
+# <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: automatizar o redimensionamento de imagens carregadas usando a grade de eventos
 
 O [Azure Event Grid](overview.md) é um serviço de eventos para a cloud. O Event Grid permite criar subscrições para eventos gerados pelos serviços do Azure ou recursos de terceiros.  
 
@@ -54,7 +54,7 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial:
 
-Você deve ter concluído o tutorial de armazenamento de BLOBs anterior: [Carregue dados de imagem na nuvem com o armazenamento do Azure][previous-tutorial].
+Você deve ter concluído o tutorial de armazenamento de BLOBs anterior: [carregar dados de imagem na nuvem com o armazenamento do Azure][previous-tutorial].
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -235,7 +235,7 @@ Uma subscrição de evento indica que eventos gerados pelo fornecedor quer que s
 
     | Definição      | Valor sugerido  | Descrição                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Name** | imageresizersub | Nome que identifica a nova subscrição de evento. | 
+    | **Nome** | imageresizersub | Nome que identifica a nova subscrição de evento. | 
     | **Tipo de tópico** |  Contas de armazenamento | Selecione o fornecedor de eventos da conta de Armazenamento. | 
     | **Subscrição** | A sua subscrição do Azure | Por predefinição, a subscrição do Azure atual está selecionada.   |
     | **Grupo de recursos** | myResourceGroup | Selecione **Utilizar existente** e selecione o grupo de recursos que tem utilizado neste tutorial.  |
@@ -248,7 +248,7 @@ Uma subscrição de evento indica que eventos gerados pelo fornecedor quer que s
     2. Para o **assunto começa com**, insira o seguinte valor: **/blobServices/default/containers/images/BLOBs/** .
 
         ![Especificar filtro para a assinatura de evento](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png) 
-2. Selecione **criar** para adicionar a assinatura de evento. Isso cria uma assinatura de evento que `Thumbnail` dispara a função quando um blob é adicionado `images` ao contêiner. A função redimensiona as imagens e as adiciona ao `thumbnails` contêiner.
+2. Selecione **criar** para adicionar a assinatura de evento. Isso cria uma assinatura de evento que dispara `Thumbnail` função quando um blob é adicionado ao contêiner de `images`. A função redimensiona as imagens e as adiciona ao contêiner `thumbnails`.
 
 Agora que os serviços de back-end estão configurados, teste a funcionalidade de redimensionamento de imagens na aplicação Web de exemplo. 
 
@@ -266,19 +266,19 @@ Tenha em atenção que, depois de a imagem carregada desaparecer, é apresentada
 
 # <a name="nodejs-v2-sdktabnodejs"></a>[SDK do node. js v2](#tab/nodejs)
 
-Clique em **escolher arquivo** para selecionar um arquivo e, em seguida, clique em **carregar imagem**. Quando o upload for bem-sucedido, o navegador navegará para uma página de êxito. Clique no link para retornar ao home page. Uma cópia da imagem carregada é exibida na área **miniaturas geradas** . (Se a imagem não aparecer primeiro, tente recarregar a página.) Esta imagem foi redimensionada pela função, adicionada ao contentor de *miniaturas* e transferida pelo cliente Web.
+Clique em **escolher arquivo** para selecionar um arquivo e, em seguida, clique em **carregar imagem**. Quando o upload for bem-sucedido, o navegador navegará para uma página de êxito. Clique no link para retornar ao home page. Uma cópia da imagem carregada é exibida na área **miniaturas geradas** . (Se a imagem não aparecer primeiro, tente recarregar a página.) Essa imagem foi redimensionada pela função, adicionada ao contêiner de *miniaturas* e baixada pelo cliente Web.
 
 ![Aplicativo Web publicado no navegador](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
 # <a name="nodejs-v10-sdktabnodejsv10"></a>[SDK do V10 do node. js](#tab/nodejsv10)
 
-Clique em **escolher arquivo** para selecionar um arquivo e, em seguida, clique em **carregar imagem**. Quando o upload for bem-sucedido, o navegador navegará para uma página de êxito. Clique no link para retornar ao home page. Uma cópia da imagem carregada é exibida na área **miniaturas geradas** . (Se a imagem não aparecer primeiro, tente recarregar a página.) Esta imagem foi redimensionada pela função, adicionada ao contentor de *miniaturas* e transferida pelo cliente Web.
+Clique em **escolher arquivo** para selecionar um arquivo e, em seguida, clique em **carregar imagem**. Quando o upload for bem-sucedido, o navegador navegará para uma página de êxito. Clique no link para retornar ao home page. Uma cópia da imagem carregada é exibida na área **miniaturas geradas** . (Se a imagem não aparecer primeiro, tente recarregar a página.) Essa imagem foi redimensionada pela função, adicionada ao contêiner de *miniaturas* e baixada pelo cliente Web.
 
 ![Aplicativo Web publicado no navegador](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
 ---
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

@@ -1,5 +1,5 @@
 ---
-title: Recursos de escala do banco de dados SQL do Azure | Microsoft Docs
+title: Recursos de escala do banco de dados SQL do Azure
 description: Este artigo explica como dimensionar seu banco de dados adicionando ou removendo recursos alocados.
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 98d24b4f497f09e982101917296b572a5c381f42
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: fe93dbac74348166ed623754e5e1460132ca968c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053603"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687432"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dimensionar dinamicamente os recursos do banco de dados com tempo de inatividade mínimo
 
 O banco de dados SQL do Azure permite que você adicione dinamicamente mais recursos ao seu banco de dados com [tempo de inatividade](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)mínimo; no entanto, há uma mudança no período em que a conectividade é perdida no banco de dados por um curto período de tempo, o que pode ser mitigado usando a lógica de repetição.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Quando a demanda de seu aplicativo cresce de alguns dispositivos e clientes para milhões, o banco de dados SQL do Azure é dimensionado rapidamente com tempo de inatividade mínimo. A escalabilidade é uma das características mais importantes do PaaS que permite que você adicione dinamicamente mais recursos ao seu serviço quando necessário. O banco de dados SQL do Azure permite que você altere facilmente os recursos (capacidade de CPU, memória, taxa de transferência de e/s e armazenamento) alocados para seus bancos de dados.
 

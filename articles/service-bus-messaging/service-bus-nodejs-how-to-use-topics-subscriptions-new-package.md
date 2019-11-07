@@ -1,6 +1,6 @@
 ---
-title: Como usar os tópicos e as assinaturas do barramento de serviço do Azure com o Node. js | Microsoft Docs
-description: Saiba como usar os tópicos e as assinaturas do barramento de serviço no Azure de um aplicativo node. js.
+title: 'Início rápido: como usar os tópicos e as assinaturas do barramento de serviço do Azure com o Node. js'
+description: 'Início rápido: saiba como usar os tópicos e as assinaturas do barramento de serviço no Azure de um aplicativo node. js.'
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -11,22 +11,22 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: f927274e1e866a9cba72330280316cc5ee7d8047
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: fa6f40eba02ffe171dc521f952e0d00fc35fc7e6
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178065"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721674"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Como usar os tópicos e as assinaturas do barramento de serviço com o Node. js e o pacote do Azure/Service-Bus
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Início rápido: como usar os tópicos e as assinaturas do barramento de serviço com o Node. js e o pacote do Azure/Service-Bus
 > [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote node. js"]
 > - [(Node. js | Azure-SB)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 > - [(Node. js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
-Neste tutorial, você aprenderá a escrever um programa node. js para enviar mensagens para um tópico do barramento de serviço e receber mensagens de uma assinatura do barramento de serviço usando o novo pacote [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) . Esse pacote usa o [protocolo AMQP 1,0](service-bus-amqp-overview.md) mais rápido, enquanto o pacote [Azure-SB](https://www.npmjs.com/package/azure-sb) mais antigo usava [APIs de tempo de execução REST do barramento de serviço](/rest/api/servicebus/service-bus-runtime-rest). Os exemplos são escritos em JavaScript.
+Neste tutorial, você aprenderá a escrever um programa node. js para enviar mensagens para um tópico do barramento de serviço e receber mensagens de uma assinatura do barramento de serviço usando o novo pacote de [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) . Esse pacote usa o [protocolo AMQP 1,0](service-bus-amqp-overview.md) mais rápido, enquanto o pacote [Azure-SB](https://www.npmjs.com/package/azure-sb) mais antigo usava [APIs de tempo de execução REST do barramento de serviço](/rest/api/servicebus/service-bus-runtime-rest). Os exemplos são escritos em JavaScript.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Você pode ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
@@ -34,7 +34,7 @@ Neste tutorial, você aprenderá a escrever um programa node. js para enviar men
 
 > [!NOTE]
 > - Este tutorial funciona com exemplos que você pode copiar e executar usando o [NodeJS](https://nodejs.org/). Para obter instruções sobre como criar um aplicativo node. js, consulte [criar e implantar um aplicativo node. js em um site do Azure](../app-service/app-service-web-get-started-nodejs.md)ou [serviço de nuvem do node. js usando o Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
-> - O novo pacote [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) não oferece suporte à criação de topcis e assinaturas ainda. Use o pacote [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) se desejar criá-los programaticamente.
+> - O novo pacote de [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) não oferece suporte à criação de topcis e assinaturas ainda. Use o pacote [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) se desejar criá-los programaticamente.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Utilize o NPM (Node Package Manager, Gestor de Pacotes do Nó) para instalar o pacote
 Para instalar o pacote NPM para o barramento de serviço, abra um prompt de comando que tenha `npm` em seu caminho, altere o diretório para a pasta onde você deseja ter seus exemplos e, em seguida, execute este comando.
@@ -132,7 +132,7 @@ Interagir com uma assinatura do barramento de serviço começa com a instanciaç
 
 Parabéns! Você acabou de receber mensagens de uma assinatura do barramento de serviço.
 
-O método [Createreceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient#createreceiver-receivemode-) usa um `ReceiveMode`, que é um enum com os valores [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) e [Peeklock](message-transfers-locks-settlement.md#settling-receive-operations). Lembre-se de [liquidar suas mensagens](message-transfers-locks-settlement.md#settling-receive-operations) se usar o modo `PeekLock` usando qualquer um dos métodos `complete()`, `abandon()`, `defer()` ou `deadletter()` na mensagem.
+O método [Createreceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient#createreceiver-receivemode-) usa um `ReceiveMode` que é um enum com os valores [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) e [Peeklock](message-transfers-locks-settlement.md#settling-receive-operations). Lembre-se de [liquidar suas mensagens](message-transfers-locks-settlement.md#settling-receive-operations) se usar o modo de `PeekLock` usando qualquer um dos métodos `complete()`, `abandon()`, `defer()`ou `deadletter()` na mensagem.
 
 ## <a name="subscription-filters-and-actions"></a>Filtros de assinatura e ações
 O barramento de serviço dá suporte a [filtros e ações em assinaturas](topic-filters.md), o que permite filtrar as mensagens de entrada para uma assinatura e editar suas propriedades.

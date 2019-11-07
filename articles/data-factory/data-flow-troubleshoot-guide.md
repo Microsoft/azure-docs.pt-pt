@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas Azure Data Factory fluxos de dados | Microsoft Docs
+title: Solucionar problemas Azure Data Factory fluxos de dados
 description: Saiba como solucionar problemas de fluxo de dados no Azure Data Factory.
 services: data-factory
 author: kromerm
@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 10/08/2019
 ms.author: makromer
-ms.openlocfilehash: 53c38af2208be6bb7cdb794ad0403456613f2df6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1b2309ec71cb3d43f4e5a39b80db593ab201c614
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486180"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721342"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>Solucionar problemas Azure Data Factory fluxos de dados
 
@@ -75,6 +75,15 @@ Este artigo explora métodos comuns de solução de problemas para fluxos de dad
 - **Causa**: um campo do fluxo de dados é mapeado para uma coluna em seu banco de dado SQL não é grande o suficiente para armazenar o valor, fazendo com que o driver SQL gere esse erro
 
 - **Resolução**: você pode reduzir o comprimento dos dados para colunas de cadeia de caracteres usando ```left()``` em uma coluna derivada ou implementar o [padrão de "linha de erro".](how-to-data-flow-error-rows.md)
+
+### <a name="error-message-since-spark-23-the-queries-from-raw-jsoncsv-files-are-disallowed-when-the-referenced-columns-only-include-the-internal-corrupt-record-column"></a>Mensagem de erro: desde o Spark 2,3, as consultas de arquivos JSON/CSV brutos não são permitidas quando as colunas referenciadas incluem apenas a coluna de registro corrompida interna. 
+
+- **Sintomas**: falha na leitura de uma origem JSON
+
+- **Causa**: ao ler de uma origem JSON com um único documento em muitas linhas aninhadas, o ADF, por meio do Spark, não consegue determinar onde um novo documento começa e o documento anterior termina.
+
+- **Resolução**: na transformação de origem que está usando um conjunto de um DataSet JSON, expanda "configurações de JSON" e ative "documento único".
+
 
 ## <a name="general-troubleshooting-guidance"></a>Diretrizes gerais de solução de problemas
 

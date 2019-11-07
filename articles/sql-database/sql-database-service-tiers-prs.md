@@ -1,5 +1,5 @@
 ---
-title: Aposentadoria da camada de serviço do Azure Banco de Dados SQL Premium RS | Microsoft Docs
+title: Aposentadoria da camada de serviço do Azure Banco de Dados SQL Premium RS
 description: A camada de serviço Premium RS está sendo desativada e o suporte para ela está terminando-consulte Opções de migração.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/07/2019
-ms.openlocfilehash: d2637618ea9e2a0a0d0369eddce01fae073be221
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 688fd3fdefb54fc25d5236277c85dd4262df5f34
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566630"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687237"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>A camada de serviço do Azure Banco de Dados SQL Premium RS (versão prévia) está sendo desativada-opções para migração
 
@@ -26,7 +26,7 @@ A seguir estão os destinos de migração e as opções de preço que podem ser 
 
 - camadas de serviço vCore
 
-  As camadas de serviço **uso geral** e **comercialmente crítico** no [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). Essas duas camadas de serviço estão em disponibilidade geral. O modelo de compra baseado em vCore também oferece a camada de serviço de hiperescala que se adapta sob demanda às necessidades da carga de trabalho com o dimensionamento automático de até 100 TB por banco de dados. A camada de serviço de hiperescala fornece desempenho de e/s comparável à camada de serviço Premium no [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) a um preço mais próximo da camada de serviço Premium RS.
+  As camadas de serviço **uso geral** e **comercialmente crítico** no [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). Essas duas camadas de serviço estão em disponibilidade geral. O modelo de compra baseado em vCore também oferece a camada de serviço de **hiperescala** que se adapta sob demanda às necessidades da carga de trabalho com o dimensionamento automático de até 100 TB por banco de dados. A camada de serviço de hiperescala fornece desempenho de e/s comparável à camada de serviço Premium no [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) a um preço mais próximo da camada de serviço Premium RS.
 - Preços de Desenvolvimento/Teste
 
   Os [preços de desenvolvimento/teste](https://azure.microsoft.com/pricing/dev-test/) fornecem economias de até 55% versus taxas incluídas na licença com sua assinatura do Visual Studio.
@@ -97,7 +97,7 @@ A migração de um banco de dados de uma camada de serviço Premium RS para uma 
 
 Você pode copiar qualquer banco de dados com um Premium RS tamanho de computação para um banco de dados com um tamanho de computação baseado em DTU ou vCore sem restrições ou sequenciamento especial, contanto que o tamanho de computação de destino dê suporte ao tamanho máximo do banco de dados de origem. A cópia de banco de dados cria um instantâneo de data a partir da hora de início da operação de cópia e não executa a sincronização de dados entre a origem e o destino.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter detalhes sobre tamanhos de computação específicos e opções de tamanho de armazenamento disponíveis para um banco de dados individual, consulte [limites de recursos baseados em vCore do banco de dados SQL para bancos únicos](sql-database-vcore-resource-limits-single-databases.md)
 - Para obter detalhes sobre tamanhos de computação específicos e opções de tamanho de armazenamento disponíveis para pools elásticos, consulte [limites de recursos baseados em vCore do banco de dados SQL para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md).

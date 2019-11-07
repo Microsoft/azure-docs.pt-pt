@@ -1,5 +1,5 @@
 ---
-title: Copiar uma tabela de forma incremental com o Azure Data Factory | Microsoft Docs
+title: 'Copiar uma tabela incrementalmente usando Azure Data Factory '
 description: Neste tutorial, vai criar um pipeline da fábrica de dados do Azure, que copia dados de forma incremental de uma base de dados SQL do Azure para o armazenamento de Blobs do Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 604b859bc144331550db9b71e6b216e35fd2d88a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: bb1ddbddfb2e06f394ac2f57b10e18893879b51b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140610"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683341"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar dados de forma incremental de uma base de dados SQL do Azure para o armazenamento de Blobs do Azure
 Neste tutorial, vai criar uma fábrica de dados do Azure com um pipeline que carrega dados delta de uma tabela numa base de dados SQL do Azure para o armazenamento de Blobs do Azure. 
@@ -27,13 +27,13 @@ Vai executar os seguintes passos neste tutorial:
 > * Preparar o arquivo de dados para armazenar o valor de limite de tamanho.
 > * Criar uma fábrica de dados.
 > * Criar serviços ligados. 
-> * Crie conjuntos de dados de origem, de sink e de limite de tamanho.
+> * Criou conjuntos de dados de origem, de sink e de limite de tamanho.
 > * Criar um pipeline.
 > * Executar o pipeline.
 > * Monitorizar a execução do pipeline. 
 
 ## <a name="overview"></a>Descrição geral
-Eis o diagrama da solução de alto nível: 
+Eis o diagrama de nível elevado da solução: 
 
 ![Carregar dados de forma incremental](media/tutorial-Incrementally-copy-powershell/incrementally-load.png)
 
@@ -43,15 +43,15 @@ Eis os passos importantes para criar esta solução:
     Selecione uma coluna no arquivo de dados de origem, que pode ser utilizada para dividir os registos novos ou atualizados para cada execução. Normalmente, os dados nesta coluna selecionada (por exemplo, last_modify_time ou ID) continuam a aumentar quando as linhas são criadas ou atualizadas. O valor máximo nesta coluna é utilizado como limite de tamanho.
 
 2. **Preparar um arquivo de dados para armazenar o valor de limite de tamanho**.   
-    Neste tutorial, vai armazenar o valor de limite superior numa base de dados SQL.
+    Neste tutorial, vai armazenar o valor do limite de tamanho numa base de dados SQL.
     
 3. **Crie um pipeline com o seguinte fluxo de trabalho**: 
     
     O pipeline nesta solução tem as seguintes atividades:
   
-    * Criar duas atividades Lookup. Utilize a primeira atividade Lookup para obter o último valor de limite de tamanho. Utilize a segunda para obter o valor de limite de tamanho novo. Estes valores de limite de tamanho são transmitidos para a atividade Copy. 
+    * Crie duas atividades de Pesquisa. Utilize a primeira atividade Lookup para obter o último valor de limite de tamanho. Utilize a segunda para obter o valor de limite de tamanho novo. Estes valores de limite de tamanho são transmitidos para a atividade Copy. 
     * Criar uma atividade Copy que copia linhas do arquivo de dados de origem com o valor da coluna de limite de tamanho superior ao valor de limite de tamanho antigo e inferior ao valor novo. Em seguida, copia os dados delta do arquivo de dados de origem para um armazenamento de Blobs como um ficheiro novo. 
-    * Criar uma atividade StoredProcedure, que atualiza o valor de limite de tamanho do pipeline que vai ser executado da próxima vez. 
+    * Crie uma atividade StoredProcedure, que atualiza o valor de marca d'água do pipeline que vai ser executado da próxima vez. 
 
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -60,9 +60,9 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Base de Dados SQL do Azure**. Vai utilizar a base de dados como o arquivo de dados de origem. Se não tiver uma base de dados SQL, veja [Criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para seguir os passos para criar uma.
+* **Base de Dados SQL do Azure**. Vai utilizar a base de dados como o arquivo de dados de origem. Se não tiver uma base de dados SQL, veja[Criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para obter os passos para criar uma.
 * **Armazenamento do Azure**. Vai utilizar o armazenamento de blobs como arquivo de dados de sink. Se não tiver uma conta de armazenamento, veja [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) para seguir os passos para criar uma. Crie um contentor com o nome adftutorial. 
-* **Azure PowerShell**. Siga as instruções em [Instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps).
+* **Azure PowerShell**. Siga as instruções em [Install and configure Azure PowerShell (Instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps).
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Criar uma tabela de origem de dados na base de dados SQL
 1. Abra o SQL Server Management Studio. No **Explorador de Servidores**, clique com p botão direito do rato na base de dados e escolha **Nova Consulta**.
@@ -99,7 +99,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
     ```
 
 ### <a name="create-another-table-in-your-sql-database-to-store-the-high-watermark-value"></a>Criar outra tabela na base de dados SQL para armazenar o valor de limite superior de tamanho
-1. Execute o seguinte comando SQL na base de dados SQL para criar uma tabela com o nome `watermarktable` e armazenar o valor de marca d'água:  
+1. Execute o comando SQL seguinte na base de dados SQL para criar uma tabela com o nome `watermarktable` e armazenar o valor de limite de tamanho:  
     
     ```sql
     create table watermarktable
@@ -189,14 +189,14 @@ Tenha em atenção os seguintes pontos:
     ```
 
 * Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser membro das funções contribuidor ou proprietário ou administrador da subscrição do Azure.
-* Para obter uma lista de regiões do Azure nas quais Data Factory está disponível no momento, selecione as regiões que lhe interessam na página a seguir e expanda **análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento, Base de Dados SQL, etc.) e as computações (HDInsight do Azure, etc.) que a fábrica de dados utiliza podem estar noutras regiões.
+* Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento, Base de Dados SQL, etc.) e as computações (HDInsight do Azure, etc.) que a fábrica de dados utiliza podem estar noutras regiões.
 
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
 Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Nesta secção, vai criar serviços ligados à sua conta de Armazenamento e à base de dados SQL. 
 
 ### <a name="create-a-storage-linked-service"></a>Criar um serviço ligado ao Armazenamento
-1. Crie um ficheiro JSON com o nome AzureStorageLinkedService.json na pasta C:\ADF com o conteúdo seguinte. (Crie a pasta ADF, caso ainda não exista.) Substitua `<accountName>` e `<accountKey>` com o nome e a chave da conta de armazenamento antes de guardar o ficheiro.
+1. Crie um ficheiro JSON com o nome AzureStorageLinkedService.json na pasta C:\ADF com o conteúdo seguinte. (Crie a pasta ADF se ela ainda não existir.) Substitua `<accountName>` e `<accountKey>` pelo nome e chave da sua conta de armazenamento antes de salvar o arquivo.
 
     ```json
     {
@@ -230,7 +230,7 @@ Os serviços ligados são criados numa fábrica de dados para ligar os seus arqu
     ```
 
 ### <a name="create-a-sql-database-linked-service"></a>Criar um serviço ligado à Base de Dados SQL
-1. Crie um ficheiro JSON com o nome AzureSQLDatabaseLinkedService.json na pasta C:\ADF com o conteúdo seguinte. (Crie a pasta ADF, caso ainda não exista.) Substitua &lt;server&gt;, &lt;database&gt;, &lt;user id&gt; e &lt;password&gt; pelo nome do servidor, da base de dados, do ID de utilizador e da palavra-passe antes de guardar o ficheiro. 
+1. Crie um ficheiro JSON com o nome AzureSQLDatabaseLinkedService.json na pasta C:\ADF com o conteúdo seguinte. (Crie a pasta ADF se ela ainda não existir.) Substitua &lt;Server&gt;, &lt;&gt;de banco de dados, &lt;ID de usuário&gt;e &lt;senha&gt; pelo nome do seu servidor, banco de dados, ID de usuário e senha antes de salvar o arquivo. 
 
     ```json
     {
@@ -385,7 +385,7 @@ Neste passo, vai criar um conjunto de dados para armazenar um valor de limite su
     ```
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline
-Neste tutorial, vai criar um pipeline com duas atividades Lookup uma atividade Copy e uma atividade StoredProcedure encadeadas num pipeline. 
+Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma atividade de Cópia e uma atividade StoredProcedure encadeadas num pipeline. 
 
 
 1. Crie um ficheiro JSON IncrementalCopyPipeline.json na mesma pasta com o seguinte conteúdo: 
@@ -611,7 +611,7 @@ Neste tutorial, vai criar um pipeline com duas atividades Lookup uma atividade C
  
     TableName | WatermarkValue
     --------- | --------------
-    data_source_table | 2017-09-05  8:06:00.000
+    data_source_table | 2017-09-05 8:06:00.000
 
 ### <a name="insert-data-into-the-data-source-store-to-verify-delta-data-loading"></a>Inserir dados no arquivo de dados de origem para verificar o carregamento de dados delta
 
@@ -730,7 +730,7 @@ Neste tutorial, executou os passos seguintes:
 > * Preparar o arquivo de dados para armazenar o valor de limite de tamanho. 
 > * Criar uma fábrica de dados.
 > * Criar serviços ligados. 
-> * Crie conjuntos de dados de origem, de sink e de limite de tamanho.
+> * Criou conjuntos de dados de origem, de sink e de limite de tamanho.
 > * Criar um pipeline.
 > * Executar o pipeline.
 > * Monitorizar a execução do pipeline. 

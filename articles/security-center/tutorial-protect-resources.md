@@ -1,5 +1,5 @@
 ---
-title: Tutorial do Centro de Segurança do Azure – proteger os seus recursos com o Centro de Segurança do Azure | Microsoft Docs
+title: Tutorial de controles de aplicativo de acesso & – Central de segurança do Azure
 description: Este tutorial mostra como configurar uma política de acesso de VM just-in-time e uma política de controle de aplicativo.
 services: security-center
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: 8cb07f3447e50528a94811f33a2142086f698586
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 4b40b7c6f755eb2107a09b1b881ea33fa2187f29
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996334"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686329"
 ---
-# <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: Proteja seus recursos com a central de segurança do Azure
+# <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: proteger os seus recursos com o Centro de Segurança do Azure
 O Centro de Segurança limita a exposição a ameaças ao utilizar controlos de acesso e aplicações para bloquear atividade maliciosa. O acesso à VM (just-in-time) de máquina virtual (JIT) reduz sua exposição a ataques, permitindo que você negue o acesso persistente às VMs. Em alternativa, o utilizador fornece acesso controlado e auditado a VMs apenas quando necessário. Os controlos de aplicações adaptáveis ajudam a proteger as VMs contra software maligno ao controlar as aplicações que podem ser executadas nas suas VMs. O Centro de Segurança utiliza machine learning para analisar os processos que estão a ser executados na VM e ajuda-o a aplicar regras de inclusão nas listas de permissões com base nessas informações.
 
 Neste tutorial, ficará a saber como:
@@ -29,8 +29,6 @@ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Configurar uma política de acesso de VM just-in-time
 > * Configurar uma política de controlo de aplicações
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para acompanhar as funcionalidades abrangidas neste tutorial, tem de estar no escalão de preço Standard do Centro de Segurança. Você pode experimentar a central de segurança Standard sem nenhum custo. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard.
@@ -74,13 +72,13 @@ Os controlos de aplicações adaptáveis ajudam a definir um conjunto de aplica�
 
 1. Volte ao menu principal do Centro de Segurança. Em **DEFESA DE CLOUD AVANÇADA**, selecione **Controlos de aplicações adaptáveis**.
 
-   ![Controlos de aplicação adaptável][3]
+   ![Controlos de aplicações adaptáveis][3]
 
    A secção **Grupos de recursos** contém três separadores:
 
-   - **Configurado**: Lista de grupos de recursos que contêm as VMs que foram configuradas com o controle de aplicativo.
-   - **Recomendado**: Lista de grupos de recursos para os quais o controle de aplicativo é recomendado.
-   - **Nenhuma recomendação**: Lista de grupos de recursos que contêm VMs sem nenhuma recomendação de controle de aplicativo. Por exemplo, VMs em que as aplicações estão sempre a ser alteradas e que não atingiram um estado estável.
+   - **Configurados**: lista de grupos de recursos que contêm as VMs que foram configuradas com o controlo de aplicações.
+   - **Recomendados**: lista de grupos de recursos para os quais o controlo de aplicações é recomendado.
+   - **Nenhuma recomendação**: lista de grupos de recursos que contêm as VMs para as quais não existem recomendações de controlo de aplicações. Por exemplo, VMs em que as aplicações estão sempre a ser alteradas e que não atingiram um estado estável.
 
 2. Selecione o separador **Recomendados** para ver uma lista dos grupos de recursos com recomendações de controlo de aplicações.
 
@@ -88,15 +86,15 @@ Os controlos de aplicações adaptáveis ajudam a definir um conjunto de aplica�
 
 3. Selecione um grupo de recursos para abrir a opção **Criar regras de controlo de aplicações**. Em **Selecionar VMs**, reveja a lista de VMs recomendadas e desmarque aquelas às quais não pretende aplicar o controlo de aplicações. Em **Selecionar processos para regras de inclusão em listas de permissões**, reveja a lista de aplicações recomendadas e desmarque aquelas às quais não pretende aplicar. A lista inclui:
 
-   - **NOME**: O caminho completo do aplicativo
-   - **PROCESSOS**: Quantos aplicativos residem em cada caminho
-   - **COMUM**: "Sim" indica que esses processos foram executados na maioria das VMs neste grupo de recursos
-   - **EXPLORÁVEL**: Um ícone de aviso indica se os aplicativos podem ser usados por um invasor para ignorar a lista de permissões do aplicativo. Recomenda-se que reveja estas aplicações antes da respetiva aprovação.
+   - **NOME**: o caminho completo da aplicação
+   - **PROCESSOS**: quantas aplicações residem em cada caminho
+   - **COMUNS**: "Sim" indica que estes processos foram executados na maioria das VMs deste grupo de recursos
+   - **EXPLORÁVEIS**: um ícone de aviso indica se as aplicações podem ser utilizadas por um atacante para ignorar as listas de permissões de aplicações. Recomenda-se que reveja estas aplicações antes da respetiva aprovação.
 
 4. Depois de concluir as suas seleções, selecione **Criar**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se pretender continuar a trabalhar com inícios rápidos e tutoriais posteriores, continue a executar o escalão Standard e mantenha o aprovisionamento automático ativado. Se não pretender continuar ou quiser voltar para o Escalão gratuito:
+Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se você planeja continuar trabalhando com os tutoriais e guias de início rápido subsequentes, continue executando a camada Standard e mantenha o provisionamento automático habilitado. Se não pretender continuar ou quiser voltar para o Escalão gratuito:
 
 1. Regresse ao menu principal do Centro de Segurança e selecione **Política de Segurança**.
 2. Selecione a subscrição ou a política para a qual pretende voltar como Gratuita. **Política de segurança** abre-se.
@@ -125,7 +123,7 @@ Neste tutorial, aprendeu a limitar a exposição a ameaças ao:
 Avance para o próximo tutorial para aprender a responder a incidentes de segurança.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Responder a alertas de segurança](tutorial-security-incident.md)
+> [Tutorial: responder a incidentes de segurança](tutorial-security-incident.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-protect-resources/just-in-time-vm-access.png

@@ -1,5 +1,5 @@
 ---
-title: Monitorar visualmente data factories do Azure | Microsoft Docs
+title: Monitorizar visualmente fábricas de dados do Azure
 description: Saiba como monitorar visualmente as fábricas de dados do Azure
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: f7c27bde3806684045bc43f8ff99eefb14c8d04a
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7b79fd9c87e97e624cce567b57c1c65fefcc151e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029152"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684632"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Monitorizar visualmente fábricas de dados do Azure
 Azure Data Factory é um serviço de integração de dados baseado em nuvem. Você pode usá-lo para criar fluxos de trabalho controlados por dados na nuvem para orquestrar e automatizar a movimentação de dados e a transformação de dados. Usando Azure Data Factory, você pode:
@@ -45,9 +45,9 @@ A exibição de lista mostra cada execução de pipeline para seus pipelines de 
 | Nome do pipeline | Nome do pipeline |
 | Ações | Ação única disponível para exibir execuções de atividade |
 | Iniciar execução | Data e hora de início para a execução do pipeline (MM/DD/AAAA, HH: MM: SS AM/PM) |
-| Duration | Duração da execução (HH: MM: SS) |
+| Duração | Duração da execução (HH: MM: SS) |
 | Disparado por | Gatilho manual ou gatilho agendado |
-| State | **Com falha, com** **êxito**ou **em andamento** |
+| Estado | **Com falha, com** **êxito**ou **em andamento** |
 | Parâmetros | Parâmetros para a execução do pipeline (pares de nome/valor) |
 | Erro | Erro de execução de pipeline (se houver) |
 | ID da execução | ID da execução do pipeline |
@@ -62,10 +62,10 @@ A exibição de lista mostra as execuções de atividade que correspondem a cada
 | Nome da atividade | Nome da atividade dentro do pipeline |
 | Tipo de atividade | Tipo de atividade, como **Copy**, **HDInsightSpark**ou **HDInsightHive** |
 | Iniciar execução | Data e hora de início para a execução da atividade (MM/DD/AAAA, HH: MM: SS AM/PM) |
-| Duration | Duração da execução (HH: MM: SS) |
-| State | **Com falha, com** **êxito**ou **em andamento** |
+| Duração | Duração da execução (HH: MM: SS) |
+| Estado | **Com falha, com** **êxito**ou **em andamento** |
 | Input | Matriz JSON que descreve as entradas de atividade |
-| Output | Matriz JSON que descreve as saídas de atividade |
+| Saída | Matriz JSON que descreve as saídas de atividade |
 | Erro | Erro de execução da atividade (se houver) |
 
 ![Exibição de lista para monitoramento de execuções de atividade](media/monitor-visually/activity-runs.png)
@@ -90,7 +90,7 @@ Order pipeline é executado em DESC/ASC de acordo com a hora de início da execu
 | --- | --- |
 | Nome do pipeline | Nome do pipeline. As opções incluem filtros rápidos para as **últimas 24 horas**, **última semana**e **últimos 30 dias**. Ou selecione uma data e hora personalizadas. |
 | Iniciar execução | Data e hora de início para a execução do pipeline. |
-| Status da execução | O filtro é executado por status: Com **êxito**, **com falha**ou **em andamento**. |
+| Status da execução | O filtro é executado por status: com **êxito**, **com falha**ou **em andamento**. |
 
 ![Opções de filtragem](media/monitor-visually/filter.png)
 
@@ -161,7 +161,7 @@ Selecione o ícone de **comentários** para nos enviar comentários sobre vário
 
 ## <a name="alerts"></a>Alertas
 
-Você pode gerar alertas sobre as métricas com suporte no Data Factory. Selecione **monitorar** > **alerta & métricas** na página monitoramento de data Factory para começar.
+Você pode gerar alertas sobre as métricas com suporte no Data Factory. Selecione **monitorar** > **alertas & métricas** na página monitoramento de data Factory para começar.
 
 ![Página monitor do data Factory](media/monitor-visually/alerts01.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Particionando tabelas no Azure SQL Data Warehouse | Microsoft Docs
+title: Particionando tabelas
 description: Recomendações e exemplos para usar partições de tabela no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 6791ff2f2a9719a19d2c9abc4ff480435de7bb00
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 7ec313094a9ebc05f966e0c49f44284909ca778f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477092"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685414"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>Particionando tabelas no SQL Data Warehouse
 Recomendações e exemplos para usar partições de tabela no SQL Data Warehouse do Azure.
@@ -36,7 +37,7 @@ O particionamento também pode ser usado para melhorar o desempenho da consulta.
 ## <a name="sizing-partitions"></a>Dimensionando partições
 Embora o particionamento possa ser usado para melhorar o desempenho de alguns cenários, criar uma tabela com **muitas** partições pode prejudicar o desempenho em algumas circunstâncias.  Essas preocupações são especialmente verdadeiras para tabelas columnstore clusterizadas. Para que o particionamento seja útil, é importante entender quando usar o particionamento e o número de partições a serem criadas. Não há nenhuma regra difícil quanto a quantas partições são muitas, depende de seus dados e de quantas partições você carrega simultaneamente. Um esquema de particionamento bem-sucedido geralmente tem dezenas a centenas de partições, e não milhares.
 
-Ao criar partições em tabelas **columnstore clusterizadas** , é importante considerar quantas linhas pertencem a cada partição. Para obter a compactação e o desempenho ideais das tabelas columnstore clusterizadas, é necessário um mínimo de 1 milhão linhas por distribuição e partição. Antes que as partições sejam criadas, SQL Data Warehouse já divide cada tabela em bancos de dados distribuídos 60. Qualquer particionamento adicionado a uma tabela é além das distribuições criadas nos bastidores. Usando este exemplo, se a tabela de fatos de vendas contiver 36 partições mensais e, Considerando que SQL Data Warehouse tem 60 distribuições, a tabela de fatos de vendas deverá conter 60 milhões linhas por mês ou 2.100.000.000 linhas quando todos os meses forem preenchidos. Se uma tabela contiver menos que o número mínimo recomendado de linhas por partição, considere usar menos partições para aumentar o número de linhas por partição. Para obter mais informações, consulte [](sql-data-warehouse-tables-index.md) o artigo indexação, que inclui consultas que podem avaliar a qualidade dos índices columnstore do cluster.
+Ao criar partições em tabelas **columnstore clusterizadas** , é importante considerar quantas linhas pertencem a cada partição. Para obter a compactação e o desempenho ideais das tabelas columnstore clusterizadas, é necessário um mínimo de 1 milhão linhas por distribuição e partição. Antes que as partições sejam criadas, SQL Data Warehouse já divide cada tabela em bancos de dados distribuídos 60. Qualquer particionamento adicionado a uma tabela é além das distribuições criadas nos bastidores. Usando este exemplo, se a tabela de fatos de vendas contiver 36 partições mensais e, Considerando que SQL Data Warehouse tem 60 distribuições, a tabela de fatos de vendas deverá conter 60 milhões linhas por mês ou 2.100.000.000 linhas quando todos os meses forem preenchidos. Se uma tabela contiver menos que o número mínimo recomendado de linhas por partição, considere usar menos partições para aumentar o número de linhas por partição. Para obter mais informações, consulte o artigo [indexação](sql-data-warehouse-tables-index.md) , que inclui consultas que podem avaliar a qualidade dos índices columnstore do cluster.
 
 ## <a name="syntax-differences-from-sql-server"></a>Diferenças de sintaxe de SQL Server
 SQL Data Warehouse introduz uma maneira de definir partições mais simples do que SQL Server. As funções e os esquemas de particionamento não são usados no SQL Data Warehouse como estão em SQL Server. Em vez disso, tudo o que você precisa fazer é identificar a coluna particionada e os pontos de limite. Embora a sintaxe do particionamento possa ser um pouco diferente da SQL Server, os conceitos básicos são os mesmos. SQL Server e SQL Data Warehouse dão suporte a uma coluna de partição por tabela, que pode ser uma partição de intervalo. Para saber mais sobre particionamento, consulte [tabelas e índices particionados](/sql/relational-databases/partitions/partitioned-tables-and-indexes).
@@ -115,7 +116,7 @@ O SQL Data Warehouse dá suporte à divisão, mesclagem e alternância de parti�
 Para alternar as partições entre duas tabelas, você deve garantir que as partições se alinhem em seus respectivos limites e que as definições de tabela correspondam. Como as restrições de verificação não estão disponíveis para impor o intervalo de valores em uma tabela, a tabela de origem deve conter os mesmos limites de partição que a tabela de destino. Se os limites de partição não forem os mesmos, a opção de partição falhará, pois os metadados de partição não serão sincronizados.
 
 ### <a name="how-to-split-a-partition-that-contains-data"></a>Como dividir uma partição que contém dados
-O método mais eficiente para dividir uma partição que já contém dados é usar uma `CTAS` instrução. Se a tabela particionada for um columnstore clusterizado, a partição da tabela deverá estar vazia antes de poder ser dividida.
+O método mais eficiente para dividir uma partição que já contém dados é usar uma instrução `CTAS`. Se a tabela particionada for um columnstore clusterizado, a partição da tabela deverá estar vazia antes de poder ser dividida.
 
 O exemplo a seguir cria uma tabela columnstore particionada. Ele insere uma linha em cada partição:
 
@@ -147,7 +148,7 @@ INSERT INTO dbo.FactInternetSales
 VALUES (1,20000101,1,1,1,1,1,1);
 ```
 
-A consulta a seguir localiza a contagem de linhas usando `sys.partitions` a exibição de catálogo:
+A consulta a seguir localiza a contagem de linhas usando a exibição de catálogo `sys.partitions`:
 
 ```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
@@ -172,7 +173,7 @@ ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 
 MSG 35346, nível 15, estado 1, linha 44 divisão cláusula da instrução ALTER PARTITION falhou porque a partição não está vazia. Somente partições vazias podem ser divididas quando há um índice columnstore na tabela. Considere desabilitar o índice columnstore antes de emitir a instrução ALTER PARTITION e, em seguida, recompilar o índice columnstore após a conclusão de ALTER PARTITION.
 
-No entanto, você `CTAS` pode usar o para criar uma nova tabela para manter os dados.
+No entanto, você pode usar `CTAS` para criar uma nova tabela para manter os dados.
 
 ```sql
 CREATE TABLE dbo.FactInternetSales_20000101
@@ -226,7 +227,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Carregar novos dados em partições que contêm dados em uma única etapa
-Carregar dados em partições com a alternância de partição é uma maneira conveniente de novos dados em uma tabela que não está visível para os usuários na mudança dos novos dados.  Pode ser desafiador em sistemas ocupados para lidar com a contenção de bloqueio associada à alternância de partição.  Para limpar os dados existentes em uma partição, é necessário `ALTER TABLE` ter um usado para mudar os dados.  Em seguida `ALTER TABLE` , outro era necessário para alternar os novos dados.  No SQL data warehouse, a `TRUNCATE_TARGET` opção tem suporte `ALTER TABLE` no comando.  Com `TRUNCATE_TARGET` o`ALTER TABLE` comando, substitui os dados existentes na partição por novos dados.  Abaixo está um exemplo que usa `CTAS` o para criar uma nova tabela com os dados existentes, insere novos dados e, em seguida, alterna todos os dados de volta para a tabela de destino, substituindo os dados existentes.
+Carregar dados em partições com a alternância de partição é uma maneira conveniente de novos dados em uma tabela que não está visível para os usuários na mudança dos novos dados.  Pode ser desafiador em sistemas ocupados para lidar com a contenção de bloqueio associada à alternância de partição.  Para limpar os dados existentes em uma partição, um `ALTER TABLE` costumava ser necessário para desativar os dados.  Em seguida, outra `ALTER TABLE` era necessária para alternar os novos dados.  No SQL Data Warehouse, há suporte para a opção `TRUNCATE_TARGET` no comando `ALTER TABLE`.  Com `TRUNCATE_TARGET` o comando `ALTER TABLE` substitui os dados existentes na partição por novos dados.  Abaixo está um exemplo que usa `CTAS` para criar uma nova tabela com os dados existentes, insere novos dados e, em seguida, alterna todos os dados de volta para a tabela de destino, substituindo os dados existentes.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]
@@ -275,7 +276,7 @@ Para evitar a definição de tabela de **Rusting** no sistema de controle do có
     ;
     ```
 
-1. `SPLIT`a tabela como parte do processo de implantação:
+1. `SPLIT` a tabela como parte do processo de implantação:
 
     ```sql
      -- Create a table containing the partition boundaries
@@ -329,6 +330,6 @@ Para evitar a definição de tabela de **Rusting** no sistema de controle do có
 
 Com essa abordagem, o código no controle do código-fonte permanece estático e os valores de limite de particionamento podem ser dinâmicos; evoluindo com o warehouse ao longo do tempo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre como desenvolver tabelas, consulte os artigos em [visão geral da tabela](sql-data-warehouse-tables-overview.md).
 

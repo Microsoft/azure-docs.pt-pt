@@ -1,5 +1,5 @@
 ---
-title: Criar conjuntos de os Azure Data Factory | Microsoft Docs
+title: Criar conjuntos de os Azure Data Factory
 description: Saiba como criar conjuntos de os em Azure Data Factory, com exemplos que usam propriedades como offset e anchorDateTime.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: af5de469b4c4ca57979b80e691e9a5d12b573bec
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 18a5e11d2341fb020fc442d2f9ce7c1d44de9d0a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140128"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682754"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de valores no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -38,7 +38,7 @@ Uma atividade pode usar zero ou mais **conjuntos**de dados de entrada e produzir
 
 Antes de criar um conjunto de dados, crie um **serviço vinculado** para vincular o seu armazenamento de data ao data Factory. Os serviços ligados são muito semelhantes às cadeias de ligação, que definem as informações de ligação necessárias para que o Data Factory se possa ligar a recursos externos. Os conjuntos de dados identificam os dados dentro dos armazenamentos vinculados, como tabelas, arquivos, pastas e documentos do SQL. Por exemplo, um serviço vinculado do armazenamento do Azure vincula uma conta de armazenamento ao data factory. Um conjunto de dados de blob do Azure representa o contêiner de BLOB e a pasta que contém os blobs de entrada a serem processados.
 
-Aqui está um cenário de exemplo. Para copiar dados de um armazenamento de BLOBs para um SQL Database, você cria dois serviços vinculados: Armazenamento do Azure e banco de dados SQL do Azure. Em seguida, crie dois conjuntos de valores: Conjunto de dados de BLOBs do Azure (que se refere ao serviço vinculado do armazenamento do Azure) e ao DataSet da tabela SQL do Azure (que se refere ao serviço vinculado do banco de dados SQL do Azure). Os serviços vinculados de armazenamento do Azure e banco de dados SQL do Azure contêm cadeias de conexão que Data Factory usa em tempo de execução para se conectar ao armazenamento do Azure e ao banco de dados SQL do Azure, respectivamente O conjunto de dados de blob do Azure especifica o contêiner de BLOB e a pasta de BLOB que contém os blobs de entrada no armazenamento de BLOBs. O conjunto de dados da tabela SQL do Azure especifica a tabela SQL em seu banco de dado SQL para a qual os dados serão copiados.
+Aqui está um cenário de exemplo. Para copiar dados do armazenamento de BLOBs para um banco de dado SQL, você cria dois serviços vinculados: armazenamento do Azure e banco de dados SQL do Azure. Em seguida, crie dois conjuntos de dados: conjunto de dados de BLOBs do Azure (que se refere ao serviço vinculado do armazenamento do Azure) e ao Azure SQL Table (que se refere ao serviço vinculado do Azure SQL Database). Os serviços vinculados de armazenamento do Azure e banco de dados SQL do Azure contêm cadeias de conexão que Data Factory usa em tempo de execução para se conectar ao armazenamento do Azure e ao banco de dados SQL do Azure, respectivamente O conjunto de dados de blob do Azure especifica o contêiner de BLOB e a pasta de BLOB que contém os blobs de entrada no armazenamento de BLOBs. O conjunto de dados da tabela SQL do Azure especifica a tabela SQL em seu banco de dado SQL para a qual os dados serão copiados.
 
 O diagrama a seguir mostra as relações entre pipeline, atividade, conjunto de serviços e serviço vinculado no Data Factory:
 
@@ -77,15 +77,15 @@ Um conjunto de Data Factory é definido no formato JSON da seguinte maneira:
 
 A tabela a seguir descreve as propriedades no JSON acima:
 
-| Propriedade | Descrição | Requerido | Predefinição |
+| Propriedade | Descrição | Necessário | Predefinição |
 | --- | --- | --- | --- |
-| name |Nome do conjunto de uma. Consulte [regras de nomenclatura de Azure data Factory](data-factory-naming-rules.md) para regras de nomenclatura. |Sim |ND |
-| type |Tipo do conjunto de um. Especifique um dos tipos com suporte pelo Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [tipo de conjunto](#Type)de informações. |Sim |ND |
-| structure |Esquema do conjunto de um.<br/><br/>Para obter detalhes, consulte [estrutura do conjunto](#Structure)de dados. |Não |ND |
-| typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: Blob do Azure, tabela SQL do Azure). Para obter detalhes sobre os tipos com suporte e suas propriedades, consulte [tipo de conjunto](#Type)de informações. |Sim |ND |
-| external | Sinalizador booliano para especificar se um conjunto de um DataSet é gerado explicitamente por um pipeline data factory ou não. Se o conjunto de dados de entrada para uma atividade não for produzido pelo pipeline atual, defina esse sinalizador como true. Defina esse sinalizador como true para o conjunto de dados de entrada da primeira atividade no pipeline.  |Não |false |
+| nome |Nome do conjunto de uma. Consulte [regras de nomenclatura de Azure data Factory](data-factory-naming-rules.md) para regras de nomenclatura. |Sim |ND |
+| tipo |Tipo do conjunto de um. Especifique um dos tipos com suporte pelo Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [tipo de conjunto](#Type)de informações. |Sim |ND |
+| estruturá |Esquema do conjunto de um.<br/><br/>Para obter detalhes, consulte [estrutura do conjunto](#Structure)de dados. |Não |ND |
+| typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: BLOB do Azure, tabela SQL do Azure). Para obter detalhes sobre os tipos com suporte e suas propriedades, consulte [tipo de conjunto](#Type)de informações. |Sim |ND |
+| externo | Sinalizador booliano para especificar se um conjunto de um DataSet é gerado explicitamente por um pipeline data factory ou não. Se o conjunto de dados de entrada para uma atividade não for produzido pelo pipeline atual, defina esse sinalizador como true. Defina esse sinalizador como true para o conjunto de dados de entrada da primeira atividade no pipeline.  |Não |false |
 | availability | Define a janela de processamento (por exemplo, a cada hora ou diariamente) ou o modelo de divisão para a produção do conjunto de uma. Cada unidade de dados consumida e produzida por uma execução de atividade é chamada de fatia de dados. Se a disponibilidade de um conjunto de resultados de saída for definida como diária (frequência-dia, intervalo-1), uma fatia será produzida diariamente. <br/><br/>Para obter detalhes, consulte disponibilidade do conjunto de informações. <br/><br/>Para obter detalhes sobre o modelo de divisão de conjunto de informações, consulte o artigo [agendamento e execução](data-factory-scheduling-and-execution.md) . |Sim |ND |
-| policy |Define os critérios ou a condição que as fatias de DataSet devem atender. <br/><br/>Para obter detalhes, consulte a seção [política de conjunto](#Policy) de informações. |Não |ND |
+| política |Define os critérios ou a condição que as fatias de DataSet devem atender. <br/><br/>Para obter detalhes, consulte a seção [política de conjunto](#Policy) de informações. |Não |ND |
 
 ## <a name="dataset-example"></a>Exemplo de DataSet
 No exemplo a seguir, o DataSet representa uma tabela chamada **MyTable** em um banco de dados SQL.
@@ -189,12 +189,12 @@ structure:
 
 Cada coluna na estrutura contém as seguintes propriedades:
 
-| Propriedade | Descrição | Requerido |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| name |Nome da coluna. |Sim |
-| type |Tipo de dados da coluna.  |Não |
-| culture |. Cultura baseada em rede a ser usada quando o tipo é um tipo .net: `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. |Não |
-| format |Cadeia de caracteres de formato a ser usada quando o tipo é um `Datetime` tipo `Datetimeoffset`.net: ou. |Não |
+| nome |Nome da coluna. |Sim |
+| tipo |Tipo de dados da coluna.  |Não |
+| UICulture |. Cultura baseada em rede a ser usada quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. |Não |
+| ao |Cadeia de caracteres de formato a ser usada quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. |Não |
 
 As diretrizes a seguir ajudam a determinar quando incluir informações de estrutura e o que incluir na seção de **estrutura** .
 
@@ -231,12 +231,12 @@ O conjunto de resultados de saída é produzido por hora nas horas de início e 
 
 A tabela a seguir descreve as propriedades que podem ser usadas na seção disponibilidade:
 
-| Propriedade | Descrição | Requerido | Predefinição |
+| Propriedade | Descrição | Necessário | Predefinição |
 | --- | --- | --- | --- |
-| frequency |Especifica a unidade de tempo para produção da fatia do conjunto de um.<br/><br/><b>Frequência com suporte</b>: Minuto, hora, dia, semana, mês |Sim |ND |
-| interval |Especifica um multiplicador para frequência.<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida. Por exemplo, se você precisar que o conjunto de um seja dividido por hora, defina a <b>frequência</b> como <b>hora</b>e o <b>intervalo</b> como <b>1</b>.<br/><br/>Observe que, se você especificar **frequência** como **minuto**, deverá definir o intervalo como não menor que 15. |Sim |ND |
-| style |Especifica se a fatia deve ser produzida no início ou no final do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Se **Frequency** for definido como **month**e **Style** for definido como **EndOfInterval**, a fatia será produzida no último dia do mês. Se **Style** for definido como **StartOfInterval**, a fatia será produzida no primeiro dia do mês.<br/><br/>Se **Frequency** for definido como **Day**e **Style** for definido como **EndOfInterval**, a fatia será produzida na última hora do dia.<br/><br/>Se **Frequency** for definido como **Hour**e **Style** for definido como **EndOfInterval**, a fatia será produzida no final da hora. Por exemplo, para uma fatia do período de 1 PM-2 PM, a fatia é produzida às 2 PM. |Não |EndOfInterval |
-| anchorDateTime |Define a posição absoluta no tempo usada pelo Agendador para computar os limites de fatia do conjunto de cálculo. <br/><br/>Observe que, se essa propriedade tiver partes de data mais granulares do que a frequência especificada, as partes mais granulares serão ignoradas. Por exemplo, se o **intervalo** for por **hora** (frequência: hora e intervalo: 1), e o **anchorDateTime** contém **minutos e segundos**e, em seguida, as partes de minutos e segundos de **anchorDateTime** são ignoradas. |Não |01/01/0001 |
+| frequência |Especifica a unidade de tempo para produção da fatia do conjunto de um.<br/><br/><b>Frequência com suporte</b>: minuto, hora, dia, semana, mês |Sim |ND |
+| intervalo |Especifica um multiplicador para frequência.<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida. Por exemplo, se você precisar que o conjunto de um seja dividido por hora, defina a <b>frequência</b> como <b>hora</b>e o <b>intervalo</b> como <b>1</b>.<br/><br/>Observe que, se você especificar **frequência** como **minuto**, deverá definir o intervalo como não menor que 15. |Sim |ND |
+| estilo |Especifica se a fatia deve ser produzida no início ou no final do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Se **Frequency** for definido como **month**e **Style** for definido como **EndOfInterval**, a fatia será produzida no último dia do mês. Se **Style** for definido como **StartOfInterval**, a fatia será produzida no primeiro dia do mês.<br/><br/>Se **Frequency** for definido como **Day**e **Style** for definido como **EndOfInterval**, a fatia será produzida na última hora do dia.<br/><br/>Se **Frequency** for definido como **Hour**e **Style** for definido como **EndOfInterval**, a fatia será produzida no final da hora. Por exemplo, para uma fatia do período de 1 PM-2 PM, a fatia é produzida às 2 PM. |Não |EndOfInterval |
+| anchorDateTime |Define a posição absoluta no tempo usada pelo Agendador para computar os limites de fatia do conjunto de cálculo. <br/><br/>Observe que, se essa propriedade tiver partes de data mais granulares do que a frequência especificada, as partes mais granulares serão ignoradas. Por exemplo, se o **intervalo** for por **hora** (frequência: hora e intervalo: 1) e o **anchorDateTime** contiver **minutos e segundos**, as partes de minutos e segundos de **anchorDateTime** serão ignoradas. |Não |01/01/0001 |
 | desvio |Período de tempo pelo qual o início e o término de todas as fatias do conjunto de todos são deslocados. <br/><br/>Observe que, se **anchorDateTime** e **offset** forem especificados, o resultado será o deslocamento combinado. |Não |ND |
 
 ### <a name="offset-example"></a>exemplo de deslocamento
@@ -263,7 +263,7 @@ No exemplo a seguir, o DataSet é produzido uma vez a cada 23 horas. A primeira 
 ```
 
 ### <a name="offsetstyle-example"></a>exemplo de deslocamento/estilo
-O conjunto de DataSet a seguir é mensal e é produzido no terceiro de cada mês às 8:00 AM`3.08:00:00`():
+O conjunto de DataSet a seguir é mensal e é produzido no terceiro de cada mês às 8:00 AM (`3.08:00:00`):
 
 ```json
 "availability": {
@@ -278,7 +278,7 @@ O conjunto de DataSet a seguir é mensal e é produzido no terceiro de cada mês
 A seção de **política** na definição do conjunto de conjuntos define os critérios ou a condição que as fatias do conjunto de os deve atender.
 
 ### <a name="validation-policies"></a>Políticas de validação
-| Nome da política | Descrição | Aplicado a | Requerido | Predefinição |
+| Nome da política | Descrição | Aplicado a | Necessário | Predefinição |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Valida que os dados no **armazenamento de BLOBs do Azure** atendem aos requisitos mínimos de tamanho (em megabytes). |Armazenamento de Blobs do Azure |Não |ND |
 | minimumRows |Valida que os dados em um banco de dados **SQL do Azure** ou uma **tabela do Azure** contêm o número mínimo de linhas. |<ul><li>Base de dados SQL do Azure</li><li>Tabela do Azure</li></ul> |Não |ND |
@@ -314,9 +314,9 @@ Os conjuntos de valores externos são aqueles que não são produzidos por um pi
 
 A menos que um conjunto de um DataSet esteja sendo produzido por Data Factory, ele deve ser marcado como **externo**. Essa configuração geralmente se aplica às entradas da primeira atividade em um pipeline, a menos que a atividade ou o encadeamento de pipeline esteja sendo usado.
 
-| Name | Descrição | Requerido | Valor predefinido |
+| Nome | Descrição | Necessário | Valor predefinido |
 | --- | --- | --- | --- |
-| dataDelay |O tempo para atrasar a verificação na disponibilidade dos dados externos para a fatia determinada. Por exemplo, você pode atrasar uma verificação por hora usando essa configuração.<br/><br/>A configuração se aplica somente ao momento atual. Por exemplo, se for 1:00 PM no momento e esse valor for de 10 minutos, a validação começará às 1:10 PM.<br/><br/>Observe que essa configuração não afeta as fatias no passado. As fatias com a **hora** + de término da fatia datadelay < **agora** são processadas sem nenhum atraso.<br/><br/>Horas maiores que 23:59 horas devem ser especificadas usando o `day.hours:minutes:seconds` formato. Por exemplo, para especificar 24 horas, não use 24:00:00. Em vez disso, use 1,00:00:00. Se você usar o 24:00:00, ele será tratado como 24 dias (24.00:00:00). Por 1 dia e 4 horas, especifique 1:04:00:00. |Não |0 |
+| dataDelay |O tempo para atrasar a verificação na disponibilidade dos dados externos para a fatia determinada. Por exemplo, você pode atrasar uma verificação por hora usando essa configuração.<br/><br/>A configuração se aplica somente ao momento atual. Por exemplo, se for 1:00 PM no momento e esse valor for de 10 minutos, a validação começará às 1:10 PM.<br/><br/>Observe que essa configuração não afeta as fatias no passado. As fatias com a **hora de término da fatia + data** **Delay** < **agora** são processadas sem nenhum atraso.<br/><br/>As horas maiores que 23:59 horas devem ser especificadas usando o formato `day.hours:minutes:seconds`. Por exemplo, para especificar 24 horas, não use 24:00:00. Em vez disso, use 1,00:00:00. Se você usar o 24:00:00, ele será tratado como 24 dias (24.00:00:00). Por 1 dia e 4 horas, especifique 1:04:00:00. |Não |0 |
 | retryInterval |O tempo de espera entre uma falha e a próxima tentativa. Essa configuração se aplica a hora atual. Se a tentativa anterior falhar, a próxima tentativa será após o período de **retryInterval** . <br/><br/>Se for 1:00 PM no momento, começaremos a primeira tentativa. Se a duração para concluir a primeira verificação de validação for de 1 minuto e a operação falhar, a próxima tentativa será de 1:00 + 1min (duração) + 1min (intervalo de repetição) = 1:02 PM. <br/><br/>Para fatias no passado, não há nenhum atraso. A repetição ocorre imediatamente. |Não |00:01:00 (1 minuto) |
 | retryTimeout |O tempo limite para cada tentativa de repetição.<br/><br/>Se essa propriedade for definida como 10 minutos, a validação deverá ser concluída dentro de 10 minutos. Se demorar mais de 10 minutos para executar a validação, a nova tentativa atingirá o tempo limite.<br/><br/>Se todas as tentativas para a validação atingirem o tempo limite, a fatia será marcada como **TimedOut**. |Não |00:10:00 (10 minutos) |
 | maximumRetry |O número de vezes para verificar a disponibilidade dos dados externos. O valor máximo permitido é 10. |Não |3 |
@@ -346,7 +346,7 @@ Depois que um pipeline é criado e implantado, você pode gerenciar e monitorar 
 Você pode criar conjuntos de valores com escopo para um pipeline usando a propriedade **DataSets** . Esses conjuntos de valores só podem ser usados por atividades dentro desse pipeline, não por atividades em outros pipelines. O exemplo a seguir define um pipeline com dois conjuntos de valores (InputDataset-RDC e OutputDataset-RDC) a serem usados no pipeline.
 
 > [!IMPORTANT]
-> Só há suporte para conjuntos de data com escopo com pipelines únicos (em que pipelinemode é definido como **OneTime**). Consulte [pipeline de OneTime](data-factory-create-pipelines.md#onetime-pipeline) para obter detalhes.
+> Só há suporte para conjuntos de data com escopo com pipelines únicos (em que **pipelinemode** é definido como **OneTime**). Consulte [pipeline de OneTime](data-factory-create-pipelines.md#onetime-pipeline) para obter detalhes.
 >
 >
 
@@ -441,6 +441,6 @@ Você pode criar conjuntos de valores com escopo para um pipeline usando a propr
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Para obter mais informações sobre pipelines, consulte [criar pipelines](data-factory-create-pipelines.md).
 - Para obter mais informações sobre como os pipelines são agendados e executados, consulte [agendamento e execução em Azure data Factory](data-factory-scheduling-and-execution.md).

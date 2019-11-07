@@ -1,22 +1,19 @@
 ---
 title: Associar um Azure Cosmos DB ao seu aplicativo Azure Spring Cloud | Microsoft Docs
 description: Saiba como associar Azure Cosmos DB ao seu aplicativo Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 10/06/2019
-ms.author: v-vasuke
-ms.openlocfilehash: d051fd431180e9cb86f1df4642fb5e947103c007
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.author: jeconnoc
+ms.openlocfilehash: 76a2b9f305f041a19b8d7ace8234a804825f6a0e
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038733"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607122"
 ---
-# <a name="tutorial-bind-an-azure-cosmos-db-to-your-azure-spring-cloud-application"></a>Tutorial: Associar um Azure Cosmos DB ao seu aplicativo Azure Spring Cloud
+# <a name="tutorial-bind-an-azure-cosmos-db-to-your-azure-spring-cloud-application"></a>Tutorial: associar um Azure Cosmos DB ao seu aplicativo do Azure Spring Cloud
 
 O Azure Spring Cloud permite associar os serviços do Azure selecionados aos seus aplicativos automaticamente, em vez de configurar manualmente o aplicativo Spring boot. Este artigo demonstra como associar seu aplicativo a um Azure Cosmos DB.
 
@@ -32,7 +29,7 @@ Azure Cosmos DB tem cinco tipos de API diferentes que dão suporte à associaç�
 
 1. Adicione uma das seguintes dependências em seu aplicativo Spring Cloud `pom.xml` de acordo com seu tipo de API.
     
-    #### <a name="api-type-core-sql"></a>Tipo de API: Núcleo (SQL)
+    #### <a name="api-type-core-sql"></a>Tipo de API: Core (SQL)
 
     ```xml
     <dependency>
@@ -60,7 +57,7 @@ Azure Cosmos DB tem cinco tipos de API diferentes que dão suporte à associaç�
     </dependency>
     ```
 
-    #### <a name="api-type-gremlin-graph"></a>Tipo de API: Gremlin (gráfico)
+    #### <a name="api-type-gremlin-graph"></a>Tipo de API: Gremlin (grafo)
 
     ```xml
     <dependency>
@@ -70,7 +67,7 @@ Azure Cosmos DB tem cinco tipos de API diferentes que dão suporte à associaç�
     </dependency>
     ```
 
-    #### <a name="api-type-azure-table"></a>Tipo de API: Tabela do Azure
+    #### <a name="api-type-azure-table"></a>Tipo de API: tabela do Azure
 
     ```xml
     <dependency>

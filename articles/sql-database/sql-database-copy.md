@@ -1,5 +1,5 @@
 ---
-title: Copiar um banco de dados SQL do Azure | Microsoft Docs
+title: Copiar um banco de dados SQL do Azure
 description: Crie uma cópia transacionalmente consistente de um banco de dados SQL do Azure existente no mesmo servidor ou em um servidor diferente.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 09/04/2019
-ms.openlocfilehash: de56e66046bb61ac31c1842ae6ce7a9c6720760d
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d49896d8088ae1352cb2785d061cde6c8647cb89
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934209"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690814"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copiar uma cópia transacionalmente consistente de um banco de dados SQL do Azure
 
@@ -72,8 +72,8 @@ Para criar uma cópia de banco de dados, você precisará estar nas seguintes fu
 - SQL Server função colaborador ou
 - Função personalizada nos bancos de dados de origem e de destino com a seguinte permissão:
 
-   Microsoft.Sql/servers/databases/read   
-   Microsoft.Sql/servers/databases/write   
+   Microsoft. SQL/servidores/bancos de dados/leitura   
+   Microsoft. SQL/servidores/bancos de dados/gravação   
 
 Para cancelar uma cópia de banco de dados, você precisará estar nas seguintes funções
 
@@ -81,21 +81,21 @@ Para cancelar uma cópia de banco de dados, você precisará estar nas seguintes
 - SQL Server função colaborador ou
 - Função personalizada nos bancos de dados de origem e de destino com a seguinte permissão:
 
-   Microsoft.Sql/servers/databases/read   
-   Microsoft.Sql/servers/databases/write   
+   Microsoft. SQL/servidores/bancos de dados/leitura   
+   Microsoft. SQL/servidores/bancos de dados/gravação   
    
 Para gerenciar a cópia de banco de dados usando portal do Azure, você também precisará das seguintes permissões:
 
-&nbsp;&nbsp; Microsoft.Resources/subscriptions/&nbsp; Resources/Read   
-&nbsp;&nbsp; Microsoft.Resources/subscriptions/&nbsp; Resources/Write   
-&nbsp;&nbsp; Microsoft.Resources/&nbsp; implantações/leitura   
-&nbsp;&nbsp; Microsoft.Resources/&nbsp; Implantations/Write   
-&nbsp;&nbsp; Microsoft.Resources/Implantations&nbsp; /operationstatuses/Read    
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/subscriptions/Resources/Read   
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/subscriptions/Resources/Write   
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/Implantations/Read   
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/Implantations/Write   
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/Implantations/operationstatuses/Read    
 
 Se você quiser ver as operações em implantações no grupo de recursos no portal, operações em vários provedores de recursos, incluindo operações SQL, você precisará dessas funções RBAC adicionais: 
 
-&nbsp;&nbsp; Microsoft.Resources/subscriptions/resourcegroups/Implantations&nbsp; /Operations/Read   
-&nbsp;&nbsp; Microsoft.Resources/subscriptions/resourcegroups/Implantations&nbsp; /operationstatuses/Read
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/subscriptions/resourcegroups/Implantations/Operations/Read   
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/subscriptions/resourcegroups/Implantations/operationstatuses/Read
 
 
 
@@ -137,7 +137,7 @@ Você pode usar as etapas descritas na seção anterior para copiar seu banco de
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorar o progresso da operação de cópia
 
-Monitore o processo de cópia consultando os modos de exibição sys. databases e sys. dm _database_copies. Enquanto a cópia estiver em andamento, a coluna **state_desc** da exibição sys. databases para o novo banco de dados será definida como **Copying**.
+Monitore o processo de cópia consultando as exibições sys. databases e sys. dm_database_copies. Enquanto a cópia estiver em andamento, a coluna **state_desc** da exibição sys. databases para o novo banco de dados será definida como **copiando**.
 
 * Se a cópia falhar, a coluna **state_desc** da exibição sys. databases para o novo banco de dados será definida como **suspeita**. Execute a instrução DROP no novo banco de dados e tente novamente mais tarde.
 * Se a cópia for realizada com sucesso, a coluna **state_desc** da exibição sys. databases para o novo banco de dados será definida como **online**. A cópia está concluída e o novo banco de dados é um banco de dados normal que pode ser alterado independentemente do banco de dados de origem.
@@ -155,9 +155,9 @@ Depois que o novo banco de dados estiver online no servidor de destino, use a in
 
 Todos os usuários no novo banco de dados retêm as permissões que tinham no banco de dados de origem. O usuário que iniciou a cópia do banco de dados se torna o proprietário do novo banco de dados e recebe um novo SID (identificador de segurança). Depois que a cópia for realizada com sucesso e antes que outros usuários sejam remapeados, somente o logon que iniciou a cópia, o proprietário do banco de dados, poderá fazer logon no novo banco de dados.
 
-Para saber mais sobre como gerenciar usuários e logons ao copiar um banco de dados para um servidor de banco de dados SQL diferente, consulte [como gerenciar a segurança do banco de dados SQL do Azure após a recuperação](sql-database-geo-replication-security-config.md)de desastres.
+Para saber mais sobre como gerenciar usuários e logons ao copiar um banco de dados para um servidor de banco de dados SQL diferente, consulte [como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastres](sql-database-geo-replication-security-config.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre logons, consulte [gerenciar logons](sql-database-manage-logins.md) e [como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md).
 * Para exportar um banco de dados, consulte [exportar o banco de dados para um BACPAC](sql-database-export.md).

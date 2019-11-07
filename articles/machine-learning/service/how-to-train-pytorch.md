@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0c3157d3ff020fd8c4974bf694b9a96d98e83c58
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: f08e19ac08d39b19838582cdfbb0d00dfde9de62
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489449"
+ms.locfileid: "73584485"
 ---
 # <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>Treine os modelos de aprendizado profundo do Pytorch em escala com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ Saiba mais sobre o [aprendizado profundo em relação ao aprendizado de máquina
 
 Execute este código em qualquer um destes ambientes:
 
- - Instância de computação de Azure Machine Learning-nenhum download ou instalação é necessário
+ - VM do notebook Azure Machine Learning-não é necessário nenhum download ou instalação
 
     - Conclua o [tutorial: ambiente de instalação e espaço de trabalho](tutorial-1st-experiment-sdk-setup.md) para criar um servidor de notebook dedicado pré-carregado com o SDK e o repositório de exemplo.
     - Na pasta Samples Deep Learning no servidor do notebook, encontre um bloco de anotações completo e expandido navegando até este diretório: **instruções-uso-azureml > treinamento com aprendizado > Train-hiperparameter-ajuste-deploy-com-pytorch** pasta. 

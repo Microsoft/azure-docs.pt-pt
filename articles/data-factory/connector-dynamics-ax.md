@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do Dynamics AX usando o Azure Data Factory | Microsoft Docs
+title: Copiar dados do Dynamics AX usando o Azure Data Factory
 description: Saiba como copiar dados do Dynamics AX para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 02080388cdc6e408164de1eff208d19e4b5da60f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 07edc284c29ca209ee20e5de390e8126993f4ce3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935672"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681023"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Copiar dados do Dynamics AX usando o Azure Data Factory
 
@@ -59,7 +59,7 @@ Para usar a autenticação de entidade de serviço, siga estas etapas:
 
 As propriedades a seguir têm suporte para o serviço vinculado do Dynamics AX:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade **Type** deve ser definida como **DynamicsAX**. |Sim |
 | url | O ponto de extremidade OData da instância do Dynamics AX (ou Dynamics 365 Finance and Operations). |Sim |
@@ -103,7 +103,7 @@ Para obter uma lista completa das seções e propriedades que estão disponívei
 
 Para copiar dados do Dynamics AX, defina a propriedade **Type** do conjunto de dado como **DynamicsAXResource**. As propriedades a seguir têm suporte:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade **Type** do conjunto de conjuntos deve ser definida como **DynamicsAXResource**. | Sim |
 | Multi-Path | O caminho para a entidade do Dynamics AX OData. | Sim |
@@ -137,7 +137,7 @@ Para obter uma lista completa de seções e propriedades que estão disponíveis
 
 Para copiar dados do Dynamics AX, defina o tipo de **fonte** na atividade de cópia como **DynamicsAXSource**. As propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade **Type** da fonte da atividade de cópia deve ser definida como **DynamicsAXSource**. | Sim |
 | consulta | Opções de consulta OData para filtrar dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Observação**: o conector copia dados da URL combinada: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para obter mais informações, consulte [componentes de URL do OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |

@@ -1,5 +1,5 @@
 ---
-title: Usando a identidade para criar chaves substitutas-Azure SQL Data Warehouse | Microsoft Docs
+title: Usando a identidade para criar chaves substitutas
 description: Recomendações e exemplos para usar a propriedade IDENTITY para criar chaves substitutas em tabelas no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 4c65bf7cc8edfa246508bb22001aed40c34414f3
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 0ee15b975b5513077b26cceeb80ea3fb8c02456b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515594"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692465"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Usando a identidade para criar chaves substitutas no Azure SQL Data Warehouse
 
@@ -43,7 +44,7 @@ WITH
 ;
 ```
 
-Em seguida, você `INSERT..SELECT` pode usar para popular a tabela.
+Em seguida, você pode usar `INSERT..SELECT` para popular a tabela.
 
 Este restante desta seção destaca as nuances da implementação para ajudá-lo a entender isso de forma mais completa.  
 
@@ -76,13 +77,13 @@ FROM dbo.T1;
 DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
-No exemplo anterior, duas linhas descarregou na distribuição 1. A primeira linha tem o valor substituto de 1 na coluna `C1`e a segunda linha tem o valor substituto de 61. Esses dois valores foram gerados pela propriedade IDENTITY. No entanto, a alocação dos valores não é contígua. Este comportamento é propositado.
+No exemplo anterior, duas linhas descarregou na distribuição 1. A primeira linha tem o valor substituto de 1 na coluna `C1`, e a segunda linha tem o valor substituto de 61. Esses dois valores foram gerados pela propriedade IDENTITY. No entanto, a alocação dos valores não é contígua. Este comportamento é propositado.
 
 ### <a name="skewed-data"></a>Dados distorcidos
 
-O intervalo de valores para o tipo de dados é distribuído uniformemente entre as distribuições. Se uma tabela distribuída sofre de dados distorcidos, o intervalo de valores disponíveis para o tipo de dados pode ser esgotado prematuramente. Por exemplo, se todos os dados terminam em uma única distribuição, a tabela efetivamente tem acesso a apenas um sexagésimo dos valores do tipo de dados. Por esse motivo, a propriedade Identity é limitada apenas `INT` a `BIGINT` tipos de dados e.
+O intervalo de valores para o tipo de dados é distribuído uniformemente entre as distribuições. Se uma tabela distribuída sofre de dados distorcidos, o intervalo de valores disponíveis para o tipo de dados pode ser esgotado prematuramente. Por exemplo, se todos os dados terminam em uma única distribuição, a tabela efetivamente tem acesso a apenas um sexagésimo dos valores do tipo de dados. Por esse motivo, a propriedade IDENTITY é limitada somente a tipos de dados `INT` e `BIGINT`.
 
-### <a name="selectinto"></a>SELECIONE.. PORTA
+### <a name="selectinto"></a>Selecione.. PORTA
 
 Quando uma coluna de identidade existente é selecionada em uma nova tabela, a nova coluna herda a propriedade de identidade, a menos que uma das condições a seguir seja verdadeira:
 
@@ -95,11 +96,11 @@ Se qualquer uma dessas condições for verdadeira, a coluna será criada como NO
 
 ### <a name="create-table-as-select"></a>CREATE TABLE COMO SELECT
 
-CREATE TABLE AS SELECT (CTAS) segue o mesmo comportamento de SQL Server que está documentado para SELECT.. Porta. No entanto, você não pode especificar uma propriedade de identidade na definição `CREATE TABLE` de coluna da parte da instrução. Você também não pode usar a função IDENTITY na `SELECT` parte do CTAS. Para preencher uma tabela, você precisa usar `CREATE TABLE` para definir a tabela seguida por `INSERT..SELECT` para preenchê-la.
+CREATE TABLE AS SELECT (CTAS) segue o mesmo comportamento de SQL Server que está documentado para SELECT.. Porta. No entanto, você não pode especificar uma propriedade de identidade na definição de coluna da `CREATE TABLE` parte da instrução. Você também não pode usar a função IDENTITY na parte `SELECT` da CTAS. Para preencher uma tabela, você precisa usar `CREATE TABLE` para definir a tabela seguida por `INSERT..SELECT` para preenchê-la.
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Inserindo valores explicitamente em uma coluna de identidade
 
-SQL data warehouse dá `SET IDENTITY_INSERT <your table> ON|OFF` suporte à sintaxe. Você pode usar essa sintaxe para inserir valores explicitamente na coluna de identidade.
+SQL Data Warehouse dá suporte à sintaxe `SET IDENTITY_INSERT <your table> ON|OFF`. Você pode usar essa sintaxe para inserir valores explicitamente na coluna de identidade.
 
 Muitos modeladores de dados gostam de usar valores negativos predefinidos para determinadas linhas em suas dimensões. Um exemplo é a linha-1 ou "membro desconhecido".
 
@@ -122,7 +123,7 @@ FROM    dbo.T1
 ;
 ```
 
-## <a name="loading-data"></a>A carregar dados
+## <a name="loading-data"></a>Carregar dados
 
 A presença da propriedade IDENTITY tem algumas implicações em seu código de carregamento de dados. Esta seção destaca alguns padrões básicos para carregar dados em tabelas usando a identidade.
 
@@ -166,7 +167,7 @@ Para obter mais informações sobre como carregar dados, consulte [projetando, e
 
 Você pode usar a exibição de catálogo [Sys. identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql) para identificar uma coluna que tem a propriedade Identity.
 
-Para ajudá-lo a entender melhor o esquema de banco de dados, este exemplo mostra como integrar sys. identity_column ' a outras exibições de catálogo do sistema:
+Para ajudá-lo a entender melhor o esquema de banco de dados, este exemplo mostra como integrar sys. identity_column ' com outras exibições de catálogo do sistema:
 
 ```sql
 SELECT  sm.name
@@ -211,7 +212,7 @@ A coluna C1 é a identidade em todas as tarefas a seguir.
 
 ### <a name="find-the-highest-allocated-value-for-a-table"></a>Localizar o valor mais alto alocado para uma tabela
 
-Use a `MAX()` função para determinar o valor mais alto alocado para uma tabela distribuída:
+Use a função `MAX()` para determinar o valor mais alto alocado para uma tabela distribuída:
 
 ```sql
 SELECT MAX(C1)
@@ -238,7 +239,7 @@ AND     tb.name = 'T1'
 ;
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral da tabela](/azure/sql-data-warehouse/sql-data-warehouse-tables-overview)
 - [IDENTIDADE de CREATE TABLE (Transact-SQL) (Propriedade)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest)

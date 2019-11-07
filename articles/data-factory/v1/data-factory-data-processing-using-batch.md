@@ -1,5 +1,5 @@
 ---
-title: Processar conjuntos de grandes escalas usando Data Factory e lote | Microsoft Docs
+title: Processar conjuntos de grandes escalas usando Data Factory e lote
 description: Descreve como processar enormes quantidades de dados em um pipeline Azure Data Factory usando o recurso de processamento paralelo do lote do Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: fe015e2ffa371c0c31f7f5f43c433d44f3ca3c42
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 611c2a36cac5a589ecd6f9063f5f1bc325860ef6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140045"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682669"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de grandes escalas usando Data Factory e lote
 > [!NOTE]
@@ -63,7 +63,7 @@ Você também pode criar atividades personalizadas do .NET para mover ou process
 
 O diagrama ilustra como o Data Factory orquestra a movimentação e o processamento de dados. Ele também mostra como o lote processa os dados de maneira paralela. Baixe e imprima o diagrama para facilitar a referência (11 x 17 polegadas ou o tamanho a3). Para acessar o diagrama para que você possa imprimi-lo, consulte [a orquestração de dados e HPC usando o lote e data Factory](https://go.microsoft.com/fwlink/?LinkId=717686).
 
-[![Diagrama de processamento de dados em grande escala](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
+[diagrama de processamento de dados em grande escala ![](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
 
 A lista a seguir fornece as etapas básicas do processo. A solução inclui código e explicações para criar a solução de ponta a ponta.
 
@@ -84,7 +84,7 @@ A lista a seguir fornece as etapas básicas do processo. A solução inclui cód
 ## <a name="implementation-of-the-sample-solution"></a>Implementação da solução de exemplo
 A solução de exemplo é intencionalmente simples. Ele foi projetado para mostrar como usar Data Factory e lote em conjunto para processar conjuntos de os. A solução conta o número de ocorrências do termo de pesquisa "Microsoft" em arquivos de entrada que são organizados em uma série temporal. Em seguida, ele gera a contagem para os arquivos de saída.
 
-**Momento** Se você estiver familiarizado com os conceitos básicos do Azure, Data Factory e lote e tiver concluído os pré-requisitos a seguir, essa solução levará de uma a duas horas para ser concluída.
+**Hora:** Se você estiver familiarizado com os conceitos básicos do Azure, Data Factory e lote e tiver concluído os pré-requisitos a seguir, essa solução levará de uma a duas horas para ser concluída.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 #### <a name="azure-subscription"></a>Subscrição do Azure
@@ -105,7 +105,7 @@ Crie um pool do lote com pelo menos dois nós de computação.
 
 1. Selecione sua conta do lote para abrir a folha **conta do lote** .
 
-1. Selecione o bloco pools.
+1. Selecione o bloco **pools** .
 
 1. Na folha **pools** , selecione o botão **Adicionar** na barra de ferramentas para adicionar um pool.
 
@@ -130,9 +130,9 @@ Você usa [Gerenciador de armazenamento do Azure 6](https://azurestorageexplorer
 
    ![Estrutura de pastas e subpastas](./media/data-factory-data-processing-using-batch/image3.png)
 
-   `Inputfolder`e `outputfolder` são pastas de nível superior no `mycontainer`. A `inputfolder` pasta tem subpastas com carimbos de data/hora (aaaa-mm-dd-hh).
+   `Inputfolder` e `outputfolder` são pastas de nível superior no `mycontainer`. A pasta `inputfolder` tem subpastas com carimbos de data/hora (AAAA-MM-DD-HH).
 
-   Se você usar Gerenciador de armazenamento, na próxima etapa, carregará arquivos com os seguintes nomes: `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt`, e assim por diante. Esta etapa cria automaticamente as pastas.
+   Se você usar Gerenciador de Armazenamento, na próxima etapa, carregará arquivos com os seguintes nomes: `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt`e assim por diante. Esta etapa cria automaticamente as pastas.
 
 1. Crie um arquivo de texto **File. txt** em seu computador com conteúdo que tenha a palavra-chave **Microsoft**. Um exemplo é "testar atividade personalizada da Microsoft Test personalizada Activity Microsoft".
 
@@ -140,7 +140,7 @@ Você usa [Gerenciador de armazenamento do Azure 6](https://azurestorageexplorer
 
    ![Pastas de entrada](./media/data-factory-data-processing-using-batch/image4.png)
 
-   Se você usar Gerenciador de Armazenamento, carregue o arquivo **File. txt** para **MyContainer**. Selecione **copiar** na barra de ferramentas para criar uma cópia do blob. Na caixa de diálogo **copiar blob** , altere o **nome do blob** de `inputfolder/2015-11-16-00/file.txt`destino para. Repita essa etapa para criar `inputfolder/2015-11-16-01/file.txt`, `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt`e assim por diante. Essa ação cria automaticamente as pastas.
+   Se você usar Gerenciador de Armazenamento, carregue o arquivo **File. txt** para **MyContainer**. Selecione **copiar** na barra de ferramentas para criar uma cópia do blob. Na caixa de diálogo **copiar blob** , altere o **nome do blob de destino** para `inputfolder/2015-11-16-00/file.txt`. Repita essa etapa para criar `inputfolder/2015-11-16-01/file.txt`, `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt`e assim por diante. Essa ação cria automaticamente as pastas.
 
 1. Crie outro contêiner chamado `customactivitycontainer`. Carregue o arquivo zip da atividade personalizada para esse contêiner.
 
@@ -155,7 +155,7 @@ Instale o Visual Studio 2012 ou posterior para criar a atividade de lote persona
 ### <a name="create-the-custom-activity"></a>Criar a atividade personalizada
 A data factory atividade personalizada é o coração desta solução de exemplo. A solução de exemplo usa o lote para executar a atividade personalizada. Para obter informações sobre como desenvolver atividades personalizadas e usá-las em pipelines data factory, consulte [usar atividades personalizadas em um pipeline de data Factory](data-factory-use-custom-activities.md).
 
-Para criar uma atividade personalizada do .NET que você pode usar em um pipeline data factory, você cria um projeto de biblioteca de classes .NET com uma classe que implementa a interface IDotNetActivity. Esta interface tem apenas um método: Executados. Aqui está a assinatura do método:
+Para criar uma atividade personalizada do .NET que você pode usar em um pipeline data factory, você cria um projeto de biblioteca de classes .NET com uma classe que implementa a interface IDotNetActivity. Esta interface tem apenas um método: execute. Aqui está a assinatura do método:
 
 ```csharp
 public IDictionary<string, string> Execute(
@@ -169,20 +169,20 @@ O método tem alguns componentes principais que você precisa entender:
 
 * O método usa quatro parâmetros:
 
-  * **linkedServices**. Esse parâmetro é uma lista enumerável de serviços vinculados que vinculam fontes de dados de entrada/saída (por exemplo, armazenamento de BLOBs) ao data factory. Neste exemplo, há apenas um serviço vinculado do tipo armazenamento do Azure usado para entrada e saída.
+  * **linkservices**. Esse parâmetro é uma lista enumerável de serviços vinculados que vinculam fontes de dados de entrada/saída (por exemplo, armazenamento de BLOBs) ao data factory. Neste exemplo, há apenas um serviço vinculado do tipo armazenamento do Azure usado para entrada e saída.
   * **conjuntos**de os. Esse parâmetro é uma lista enumerável de conjuntos de valores. Você pode usar esse parâmetro para obter os locais e esquemas definidos pelos conjuntos de dados de entrada e saída.
   * **atividade**. Esse parâmetro representa a entidade de computação atual. Nesse caso, é um serviço de lote.
-  * **logger**. Você pode usar o agente para gravar comentários de depuração que são exibidos como o log de "usuário" para o pipeline.
+  * **agente de log**. Você pode usar o agente para gravar comentários de depuração que são exibidos como o log de "usuário" para o pipeline.
 * O método retorna um dicionário que pode ser usado para encadear atividades personalizadas em conjunto no futuro. Esse recurso ainda não está implementado, portanto, basta retornar um dicionário vazio do método.
 
-#### <a name="procedure-create-the-custom-activity"></a>Procedure Criar a atividade personalizada
+#### <a name="procedure-create-the-custom-activity"></a>Procedimento: criar a atividade personalizada
 1. Crie um projeto de biblioteca de classes .NET no Visual Studio.
 
    a. Inicie o Visual Studio 2012/2013/2015.
 
    b. Selecione **Ficheiro** > **Novo** > **Projeto**.
 
-   c. Expanda **modelos**e selecione **Visual C\#** . Neste tutorial, você usa C\#, mas você pode usar qualquer linguagem .net para desenvolver a atividade personalizada.
+   c. Expanda **modelos**e selecione **Visual C\#** . Neste tutorial, você usa o C\#, mas pode usar qualquer linguagem .NET para desenvolver a atividade personalizada.
 
    d. Selecione **biblioteca de classes** na lista de tipos de projeto à direita.
 
@@ -192,7 +192,7 @@ O método tem alguns componentes principais que você precisa entender:
 
    g. Selecione **OK** para criar o projeto.
 
-1. Selecione **ferramentas** > **Gerenciador**depacotesNuGetconsoledoGerenciadordepacotes. > 
+1. Selecione **ferramentas** > **Gerenciador de pacotes NuGet** > **console do Gerenciador de pacotes**.
 
 1. No console do Gerenciador de pacotes, execute o seguinte comando para importar Microsoft. Azure. Management. datafactorings:
 
@@ -396,13 +396,13 @@ O método tem alguns componentes principais que você precisa entender:
 
 1. Compile o projeto. Selecione **Compilar** no menu e, em seguida, selecione **Compilar solução**.
 
-1. Inicie o Windows Explorer e vá para a **pasta\\bin Debug** ou **bin\\Release** . A escolha da pasta depende do tipo de compilação.
+1. Inicie o Windows Explorer e vá para a pasta **bin\\Debug** ou **bin\\Release** . A escolha da pasta depende do tipo de compilação.
 
-1. Crie um arquivo zip **MyDotNetActivity. zip** que contenha todos os binários  **\\na\\pasta bin Debug** . Talvez você queira incluir o MyDotNetActivity. arquivo **PDB** para obter detalhes adicionais, como o número de linha no código-fonte que causou o problema quando ocorre uma falha.
+1. Crie um arquivo zip **MyDotNetActivity. zip** que contenha todos os binários no **\\bin\\depurar** pasta. Talvez você queira incluir o MyDotNetActivity. arquivo **PDB** para obter detalhes adicionais, como o número de linha no código-fonte que causou o problema quando ocorre uma falha.
 
    ![A lista de pastas bin\Debug](./media/data-factory-data-processing-using-batch/image5.png)
 
-1. Carregue **MyDotNetActivity. zip** como um blob para o contêiner `customactivitycontainer` de blob no armazenamento de BLOBs que o serviço vinculado StorageLinkedService no ADFTutorialDataFactory usa. Crie o contêiner `customactivitycontainer` de BLOB se ele ainda não existir.
+1. Carregue **MyDotNetActivity. zip** como um blob para o contêiner de blob `customactivitycontainer` no armazenamento de BLOBs que o serviço vinculado StorageLinkedService no ADFTutorialDataFactory usa. Crie o contêiner de blob `customactivitycontainer` se ele ainda não existir.
 
 #### <a name="execute-method"></a>Método execute
 Esta seção fornece mais detalhes sobre o código no método execute.
@@ -482,7 +482,7 @@ Esta seção fornece mais detalhes sobre o código no método execute.
 ### <a name="create-the-data-factory"></a>Criar o data factory
 Na seção [criar a atividade personalizada](#create-the-custom-activity) , você criou uma atividade personalizada e carregou o arquivo zip com binários e o arquivo PDB em um contêiner de BLOB. Nesta seção, você cria um data factory com um pipeline que usa a atividade personalizada.
 
-O conjunto de dados de entrada para a atividade personalizada representa os BLOBs (arquivos) na pasta`mycontainer\\inputfolder`de entrada () no armazenamento de BLOBs. O conjunto de resultados de saída para a atividade representa os blobs de saída na`mycontainer\\outputfolder`pasta de saída () no armazenamento de BLOBs.
+O conjunto de dados de entrada para a atividade personalizada representa os BLOBs (arquivos) na pasta de entrada (`mycontainer\\inputfolder`) no armazenamento de BLOBs. O conjunto de resultados de saída para a atividade representa os blobs de saída na pasta de saída (`mycontainer\\outputfolder`) no armazenamento de BLOBs.
 
 Solte um ou mais arquivos nas pastas de entrada:
 
@@ -523,7 +523,7 @@ Uma tarefa é criada para cada execução de atividade. Neste exemplo, há apena
 
 O instruções a seguir fornece detalhes adicionais.
 
-#### <a name="step-1-create-the-data-factory"></a>Passo 1: Criar o data factory
+#### <a name="step-1-create-the-data-factory"></a>Etapa 1: criar o data factory
 1. Depois de entrar no [portal do Azure](https://portal.azure.com/), execute as seguintes etapas:
 
    a. Selecione **novo** no menu à esquerda.
@@ -546,7 +546,7 @@ O instruções a seguir fornece detalhes adicionais.
 
    ![Página do data Factory](./media/data-factory-data-processing-using-batch/image6.png)
 
-#### <a name="step-2-create-linked-services"></a>Passo 2: Criar serviços ligados
+#### <a name="step-2-create-linked-services"></a>Etapa 2: criar serviços vinculados
 Os serviços vinculados vinculam armazenamentos de dados ou serviços de computação a um data factory. Nesta etapa, você vincula sua conta de armazenamento e conta do lote ao seu data factory.
 
 #### <a name="create-an-azure-storage-linked-service"></a>Criar um serviço ligado do Armazenamento do Azure
@@ -554,7 +554,7 @@ Os serviços vinculados vinculam armazenamentos de dados ou serviços de computa
 
 1. Selecione **novo armazenamento de dados** na barra de comandos e escolha **armazenamento do Azure.** O script JSON que você usa para criar um serviço vinculado de armazenamento no editor é exibido.
 
-   ![Novo arquivo de dados](./media/data-factory-data-processing-using-batch/image7.png)
+   ![Novo armazenamento de dados](./media/data-factory-data-processing-using-batch/image7.png)
 
 1. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua a **chave da conta** pela chave de acesso da sua conta de armazenamento. Para saber como obter sua chave de acesso de armazenamento, consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
 
@@ -578,13 +578,13 @@ Nesta etapa, você cria um serviço vinculado para sua conta do lote que é usad
    d. Insira o URI do lote para a propriedade JSON **batchUri** .
 
       > [!IMPORTANT]
-      > A URL da folha **conta do lote** está no seguinte formato: \<AccountName.\< \> Region\>. Batch.Azure.com. Para a propriedade **batchUri** no script JSON, você precisa remover A88 "AccountName". * * da URL. Um exemplo é `"batchUri": "https://eastus.batch.azure.com"`.
+      > A URL da folha **conta do lote** está no seguinte formato: \<AccountName\>. região de\<\>. batch.azure.com. Para a propriedade **batchUri** no script JSON, você precisa remover A88 "AccountName". * * da URL. Um exemplo é `"batchUri": "https://eastus.batch.azure.com"`.
       >
       >
 
       ![Folha conta do lote](./media/data-factory-data-processing-using-batch/image9.png)
 
-      Para a Propriedade PoolName, você também pode especificar a ID do pool em vez do nome do pool.
+      Para a propriedade **PoolName** , você também pode especificar a ID do pool em vez do nome do pool.
 
       > [!NOTE]
       > O serviço de Data Factory não dá suporte a uma opção sob demanda para o lote como faz para o HDInsight. Você pode usar apenas seu próprio pool do lote em um data factory.
@@ -595,11 +595,11 @@ Nesta etapa, você cria um serviço vinculado para sua conta do lote que é usad
 
 1. Selecione **Implementar** na barra de comandos para implementar o serviço ligado.
 
-#### <a name="step-3-create-datasets"></a>Passo 3: Criar conjuntos de dados
+#### <a name="step-3-create-datasets"></a>Etapa 3: criar conjuntos de os
 Nesta etapa, você cria conjuntos de dados para representar a entrada e a saída.
 
 #### <a name="create-the-input-dataset"></a>Criar o conjunto de dados de entrada
-1. No editor de Data Factory, selecione o botão **novo conjunto de novos** na barra de ferramentas. Selecione **armazenamento** de BLOBs do Azure na lista suspensa.
+1. No editor de Data Factory, selecione o botão **novo conjunto de novos** na barra de ferramentas. Selecione **armazenamento de BLOBs do Azure** na lista suspensa.
 
 1. Substitua o script JSON no painel direito pelo seguinte trecho JSON:
 
@@ -659,7 +659,7 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e a saída
     }
     ```
 
-    Você criará um pipeline mais adiante neste guia de introdução com a hora de início 2015-11-16T00:00:00Z e a hora de término 2015-11-16T05:00:00Z. Ele está agendado para produzir dados por hora, portanto, há cinco fatias de entrada/saída (entre 00\> : 00:00- **05**: 00:00).
+    Você criará um pipeline mais adiante neste guia de introdução com a hora de início 2015-11-16T00:00:00Z e a hora de término 2015-11-16T05:00:00Z. Ele está agendado para gerar dados por hora, portanto, há cinco fatias de entrada/saída (entre **00**: 00:00-\> **05**: 00:00).
 
     A **frequência** e o **intervalo** do conjunto de dados de entrada são definidos como **hora** e **1**, o que significa que a fatia de entrada está disponível por hora.
 
@@ -667,28 +667,28 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e a saída
 
     | **Slicer** | **Start time** (Hora de início)          |
     |-----------|-------------------------|
-    | 1         | 2015-11-16T**00**:00:00 |
-    | 2         | 2015-11-16T**01**:00:00 |
-    | 3         | 2015-11-16T**02**:00:00 |
-    | 4         | 2015-11-16T**03**:00:00 |
-    | 5         | 2015-11-16T**04**:00:00 |
+    | 1         | 2015-11-16T**00**: 00:00 |
+    | 2         | 2015-11-16T**01**: 00:00 |
+    | 3         | 2015-11-16T**02**: 00:00 |
+    | 4         | 2015-11-16T**03**: 00:00 |
+    | 5         | 2015-11-16T**04**: 00:00 |
 
     O **FolderPath** é calculado usando a parte de ano, mês, dia e hora da hora de início da fatia (**SliceStart**). Veja como uma pasta de entrada é mapeada para uma fatia.
 
     | **Slicer** | **Start time** (Hora de início)          | **Pasta de entrada**  |
     |-----------|-------------------------|-------------------|
-    | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00** |
-    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01** |
-    | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02** |
-    | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03** |
-    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
+    | 1         | 2015-11-16T**00**: 00:00 | 2015-11-16-**00** |
+    | 2         | 2015-11-16T**01**: 00:00 | 2015-11-16-**01** |
+    | 3         | 2015-11-16T**02**: 00:00 | 2015-11-16-**02** |
+    | 4         | 2015-11-16T**03**: 00:00 | 2015-11-16-**03** |
+    | 5         | 2015-11-16T**04**: 00:00 | 2015-11-16-**04** |
 
 1. Selecione **implantar** na barra de ferramentas para criar e implantar a tabela **InputDataset** .
 
 #### <a name="create-the-output-dataset"></a>Criar o conjunto de dados de saída
 Nesta etapa, você criará outro conjunto de dados do tipo AzureBlob para representar o dado de saída.
 
-1. No editor de Data Factory, selecione o botão **novo conjunto de novos** na barra de ferramentas. Selecione **armazenamento** de BLOBs do Azure na lista suspensa.
+1. No editor de Data Factory, selecione o botão **novo conjunto de novos** na barra de ferramentas. Selecione **armazenamento de BLOBs do Azure** na lista suspensa.
 
 1. Substitua o script JSON no painel direito pelo seguinte trecho JSON:
 
@@ -720,25 +720,25 @@ Nesta etapa, você criará outro conjunto de dados do tipo AzureBlob para repres
     }
     ```
 
-    Um blob/arquivo de saída é gerado para cada fatia de entrada. Veja como um arquivo de saída é nomeado para cada fatia. Todos os arquivos de saída são gerados em uma pasta de `mycontainer\\outputfolder`saída,.
+    Um blob/arquivo de saída é gerado para cada fatia de entrada. Veja como um arquivo de saída é nomeado para cada fatia. Todos os arquivos de saída são gerados em uma pasta de saída, `mycontainer\\outputfolder`.
 
     | **Slicer** | **Start time** (Hora de início)          | **Arquivo de saída**       |
     |-----------|-------------------------|-----------------------|
-    | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00.txt** |
-    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |
-    | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
-    | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
-    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
+    | 1         | 2015-11-16T**00**: 00:00 | 2015-11-16-**00. txt** |
+    | 2         | 2015-11-16T**01**: 00:00 | 2015-11-16-**01. txt** |
+    | 3         | 2015-11-16T**02**: 00:00 | 2015-11-16-**02. txt** |
+    | 4         | 2015-11-16T**03**: 00:00 | 2015-11-16-**03. txt** |
+    | 5         | 2015-11-16T**04**: 00:00 | 2015-11-16-**04. txt** |
 
     Lembre-se de que todos os arquivos em uma pasta de entrada (por exemplo, 2015-11-16-00) fazem parte de uma fatia com a hora de início 2015-11-16-00. Quando essa fatia é processada, a atividade personalizada examina cada arquivo e produz uma linha no arquivo de saída com o número de ocorrências do termo de pesquisa "Microsoft". Se houver três arquivos na pasta 2015-11-16-00, haverá três linhas no arquivo de saída 2015-11-16-00. txt.
 
 1. Selecione **implantar** na barra de ferramentas para criar e implantar o **OutputDataset**.
 
-#### <a name="step-4-create-and-run-the-pipeline-with-a-custom-activity"></a>Passo 4: Criar e executar o pipeline com uma atividade personalizada
+#### <a name="step-4-create-and-run-the-pipeline-with-a-custom-activity"></a>Etapa 4: criar e executar o pipeline com uma atividade personalizada
 Nesta etapa, você cria um pipeline com uma atividade, a atividade personalizada que você criou anteriormente.
 
 > [!IMPORTANT]
-> Se você não carregou **File. txt** em pastas de entrada no contêiner de BLOBs, faça isso antes de criar o pipeline. A propriedade IsPaused é definida como false no JSON do pipeline, portanto, o pipeline é executado imediatamente porque a data de **início** está no passado.
+> Se você não carregou **File. txt** em pastas de entrada no contêiner de BLOBs, faça isso antes de criar o pipeline. A propriedade **IsPaused** é definida como false no JSON do pipeline, portanto, o pipeline é executado imediatamente porque a data de **início** está no passado.
 >
 >
 
@@ -793,19 +793,19 @@ Nesta etapa, você cria um pipeline com uma atividade, a atividade personalizada
 
    * Apenas uma atividade está no pipeline e é do tipo **DotNetActivity**.
    * **AssemblyName** é definido como o nome da dll **MyDotNetActivity. dll**.
-   * **EntryPoint** é definido como **MyDotNetActivityNS. MyDotNetActivity**. Basicamente \<, é o\>namespace\< . ClassName\> em seu código.
+   * **EntryPoint** é definido como **MyDotNetActivityNS. MyDotNetActivity**. É basicamente \<namespace\>.\<ClassName\> no seu código.
    * **PackageLinkedService** é definido como **StorageLinkedService**, que aponta para o armazenamento de BLOBs que contém o arquivo zip da atividade personalizada. Se você usar contas de armazenamento diferentes para arquivos de entrada/saída e o arquivo zip da atividade personalizada, será necessário criar outro serviço vinculado de armazenamento. Este artigo pressupõe que você use a mesma conta de armazenamento.
-   * O pacotefile está definido como **customactivitycontainer/MyDotNetActivity. zip**. Ele está no formato \<containerforthezip\>/nameofthezip.zip\>.\<
+   * O **pacotefile** está definido como **customactivitycontainer/MyDotNetActivity. zip**. Ele está no formato \<containerforthezip\>/\<nameofthezip. zip\>.
    * A atividade personalizada usa **InputDataset** como entrada e **OutputDataset** como saída.
    * A propriedade **linkedServiceName** da atividade personalizada aponta para **AzureBatchLinkedService**, que informa data Factory que a atividade personalizada precisa ser executada no lote.
-   * A configuração de simultaneidade é importante. Se você usar o valor padrão, que é 1, mesmo se você tiver dois ou mais nós de computação no pool do lote, as fatias serão processadas uma após a outra. Portanto, você não está aproveitando a capacidade de processamento paralelo do lote. Se você definir **simultaneidade** como um valor mais alto, digamos 2, isso significa que duas fatias (correspondendo a duas tarefas no lote) podem ser processadas ao mesmo tempo. Nesse caso, ambas as VMs no pool do lote são utilizadas. Defina a propriedade Concurrency adequadamente.
+   * A configuração de **simultaneidade** é importante. Se você usar o valor padrão, que é 1, mesmo se você tiver dois ou mais nós de computação no pool do lote, as fatias serão processadas uma após a outra. Portanto, você não está aproveitando a capacidade de processamento paralelo do lote. Se você definir **simultaneidade** como um valor mais alto, digamos 2, isso significa que duas fatias (correspondendo a duas tarefas no lote) podem ser processadas ao mesmo tempo. Nesse caso, ambas as VMs no pool do lote são utilizadas. Defina a propriedade Concurrency adequadamente.
    * Apenas uma tarefa (fatia) é executada em uma VM em qualquer ponto por padrão. Por padrão, **as tarefas máximas por VM** são definidas como 1 para um pool do lote. Como parte dos pré-requisitos, você criou um pool com essa propriedade definida como 2. Portanto, duas fatias data factory podem ser executadas em uma VM ao mesmo tempo.
-     - A propriedade IsPaused é definida como false por padrão. O pipeline é executado imediatamente neste exemplo porque as fatias começam no passado. Você pode definir essa propriedade como **true** para pausar o pipeline e defini-lo de volta como **false** para reiniciar.
+     - A propriedade **IsPaused** é definida como false por padrão. O pipeline é executado imediatamente neste exemplo porque as fatias começam no passado. Você pode definir essa propriedade como **true** para pausar o pipeline e defini-lo de volta como **false** para reiniciar.
      -   As horas de **início** e de **término** são separadas por cinco horas. As fatias são produzidas por hora, portanto, cinco fatias são produzidas pelo pipeline.
 
 1. Selecione **Implementar** na barra de comandos para implementar o pipeline.
 
-#### <a name="step-5-test-the-pipeline"></a>Passo 5: Testar o pipeline
+#### <a name="step-5-test-the-pipeline"></a>Etapa 5: testar o pipeline
 Nesta etapa, você testará o pipeline soltando os arquivos nas pastas de entrada. Comece testando o pipeline com um arquivo para cada pasta de entrada.
 
 1. Na folha **Data Factory** da portal do Azure, selecione **diagrama**.
@@ -828,7 +828,7 @@ Nesta etapa, você testará o pipeline soltando os arquivos nas pastas de entrad
 
 1. Use o portal para exibir as tarefas associadas às fatias e veja em qual VM cada fatia foi executada. Para obter mais informações, consulte a seção [Data Factory e integração do lote](#data-factory-and-batch-integration) .
 
-1. Os arquivos de saída aparecem `mycontainer` em `outputfolder` em no armazenamento de BLOBs.
+1. Os arquivos de saída aparecem em `mycontainer` em `outputfolder` no armazenamento de BLOBs.
 
    ![Arquivos de saída no armazenamento](./media/data-factory-data-processing-using-batch/image15.png)
 
@@ -849,7 +849,7 @@ Nesta etapa, você testará o pipeline soltando os arquivos nas pastas de entrad
 
     ![Executar](./media/data-factory-data-processing-using-batch/image17.png)
 
-1. Depois que a fatia for executada e seu status estiver **pronto**, verifique o conteúdo no arquivo de saída para esta fatia (**2015-11-16-01. txt**). O arquivo de saída aparece `mycontainer` em `outputfolder` em no armazenamento de BLOBs. Deve haver uma linha para cada arquivo da fatia.
+1. Depois que a fatia for executada e seu status estiver **pronto**, verifique o conteúdo no arquivo de saída para esta fatia (**2015-11-16-01. txt**). O arquivo de saída aparece em `mycontainer` em `outputfolder` no armazenamento de BLOBs. Deve haver uma linha para cada arquivo da fatia.
 
     ```
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
@@ -865,13 +865,13 @@ Nesta etapa, você testará o pipeline soltando os arquivos nas pastas de entrad
 >
 
 #### <a name="data-factory-and-batch-integration"></a>Integração de Data Factory e lote
-O serviço de Data Factory cria um trabalho em lote com o `adf-poolname:job-xxx`nome.
+O serviço de Data Factory cria um trabalho em lote com o nome `adf-poolname:job-xxx`.
 
 ![Trabalhos em lotes](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
 
 Uma tarefa no trabalho é criada para cada execução de atividade de uma fatia. Se 10 fatias estiverem prontas para serem processadas, 10 tarefas serão criadas no trabalho. Você pode ter mais de uma fatia em execução em paralelo se tiver vários nós de computação no pool. Se o número máximo de tarefas por nó de computação for definido como maior que um, mais de uma fatia poderá ser executada na mesma computação.
 
-Neste exemplo, há cinco fatias, portanto, há cinco tarefas no lote. Com a simultaneidade definida como **5** no JSON de pipeline no data Factory e o **máximo de tarefas por VM** definido como **2** no pool do lote com **duas** VMS, as tarefas são executadas rapidamente. (Verifique as horas de início e de término das tarefas.)
+Neste exemplo, há cinco fatias, portanto, há cinco tarefas no lote. Com a **simultaneidade** definida como **5** no JSON de pipeline no data Factory e o **máximo de tarefas por VM** definido como **2** no pool do lote com **duas** VMS, as tarefas são executadas rapidamente. (Verifique as horas de início e de término das tarefas.)
 
 Use o portal para exibir o trabalho em lotes e suas tarefas que estão associadas às fatias e veja em qual VM cada fatia foi executada.
 
@@ -884,11 +884,11 @@ A depuração consiste em algumas técnicas básicas.
 
    ![Estrutura da pasta de entrada](./media/data-factory-data-processing-using-batch/image3.png)
 
-1. No método **Execute** de sua atividade personalizada, use o objeto **IActivityLogger** para registrar informações que ajudam a solucionar problemas. As mensagens registradas aparecem no arquivo user\_0. log.
+1. No método **Execute** de sua atividade personalizada, use o objeto **IActivityLogger** para registrar informações que ajudam a solucionar problemas. As mensagens registradas aparecem no arquivo\_0. log do usuário.
 
    Na folha **OutputDataset** , selecione a fatia para ver a folha **fatia de dados** dessa fatia. Em **execuções de atividade**, você vê uma execução de atividade para a fatia. Se você selecionar **executar** na barra de comandos, poderá iniciar outra execução de atividade para a mesma fatia.
 
-   Ao selecionar a execução da atividade, você verá a folha **detalhes da execução da atividade** com uma lista de arquivos de log. Você vê as mensagens registradas no\_arquivo user 0. log. Quando ocorrer um erro, você verá três execuções de atividade porque a contagem de repetição é definida como 3 no JSON de atividade/pipeline. Ao selecionar a execução da atividade, você verá os arquivos de log que podem ser examinados para solucionar o erro.
+   Ao selecionar a execução da atividade, você verá a folha **detalhes da execução da atividade** com uma lista de arquivos de log. Você vê mensagens registradas no arquivo\_0. log do usuário. Quando ocorrer um erro, você verá três execuções de atividade porque a contagem de repetição é definida como 3 no JSON de atividade/pipeline. Ao selecionar a execução da atividade, você verá os arquivos de log que podem ser examinados para solucionar o erro.
 
    ![OutputDataset e folhas de fatia de dados](./media/data-factory-data-processing-using-batch/image18.png)
 
@@ -920,7 +920,7 @@ A depuração consiste em algumas técnicas básicas.
    ![Opção de execução de folha OutputDataset](./media/data-factory-data-processing-using-batch/image21.png)
 
    > [!NOTE]
-   > Um contêiner está no seu armazenamento de BLOBs chamado `adfjobs`. Esse contêiner não é excluído automaticamente, mas você pode excluí-lo com segurança depois de concluir o teste da solução. Da mesma forma, a solução data factory cria um trabalho `adf-\<pool ID/name\>:job-0000000001`em lotes chamado. Você pode excluir esse trabalho depois de testar a solução, se desejar.
+   > Um contêiner está em seu armazenamento de BLOBs chamado `adfjobs`. Esse contêiner não é excluído automaticamente, mas você pode excluí-lo com segurança depois de concluir o teste da solução. Da mesma forma, a solução data factory cria um trabalho em lotes chamado `adf-\<pool ID/name\>:job-0000000001`. Você pode excluir esse trabalho depois de testar a solução, se desejar.
    >
    >
 1. A atividade personalizada não usa o arquivo **app. config** do seu pacote. Portanto, se o código ler as cadeias de conexão do arquivo de configuração, ele não funcionará em tempo de execução. A prática recomendada ao usar o lote é manter os segredos em Azure Key Vault. Em seguida, use uma entidade de serviço baseada em certificado para proteger o cofre de chaves e distribuir o certificado para o pool do lote. A atividade personalizada do .NET pode acessar segredos do cofre de chaves em tempo de execução. Essa solução genérica pode ser dimensionada para qualquer tipo de segredo, não apenas uma cadeia de conexão.
@@ -932,9 +932,9 @@ Você pode estender este exemplo para saber mais sobre Data Factory e recursos d
 
 1. Adicione as seguintes subpastas em `inputfolder`: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08 e 2015-11-16-09. Coloque os arquivos de entrada nessas pastas. Altere a hora de término do pipeline de `2015-11-16T05:00:00Z` para `2015-11-16T10:00:00Z`. No modo de exibição de **diagrama** , clique duas vezes em **InputDataset** e confirme se as fatias de entrada estão prontas. Clique duas vezes em **OutputDataset** para ver o estado das fatias de saída. Se eles estiverem no estado **pronto** , verifique a pasta de saída para os arquivos de saída.
 
-1. Aumente ou diminua a configuração de simultaneidade para entender como ela afeta o desempenho da solução, especialmente o processamento que ocorre no lote. Para obter mais informações sobre a configuração de simultaneidade, consulte a "etapa 4: Crie e execute o pipeline com uma atividade personalizada. "
+1. Aumente ou diminua a configuração de **simultaneidade** para entender como ela afeta o desempenho da solução, especialmente o processamento que ocorre no lote. Para obter mais informações sobre a configuração de **simultaneidade** , consulte a "etapa 4: criar e executar o pipeline com uma atividade personalizada".
 
-1. Crie um pool com um máximo de tarefas mais altas/inferiores **por VM**. Para usar o novo pool que você criou, atualize o serviço vinculado do lote na solução data factory. Para obter mais informações sobre a configuração **máximo de tarefas por VM** , consulte a "etapa 4: Crie e execute o pipeline com uma atividade personalizada. "
+1. Crie um pool com um máximo de tarefas mais altas/inferiores **por VM**. Para usar o novo pool que você criou, atualize o serviço vinculado do lote na solução data factory. Para obter mais informações sobre a configuração **máximo de tarefas por VM** , consulte a "etapa 4: criar e executar o pipeline com uma atividade personalizada".
 
 1. Crie um pool do lote com o recurso de **dimensionamento automático** . O dimensionamento automático de nós de computação em um pool do lote é o ajuste dinâmico da capacidade de processamento usada pelo seu aplicativo. 
 
@@ -956,13 +956,13 @@ Você pode estender este exemplo para saber mais sobre Data Factory e recursos d
 
 1. Na solução de exemplo, o método **Execute** invoca o método **Calculate** que processa uma fatia de dados de entrada para produzir uma fatia de dados de saída. Você pode escrever seu próprio método para processar dados de entrada e substituir a chamada do método **Calculate** no método **Execute** por uma chamada para seu método.
 
-### <a name="next-steps-consume-the-data"></a>Passos seguintes: Consumir os dados
+### <a name="next-steps-consume-the-data"></a>Próximas etapas: consumir os dados
 Depois de processar os dados, você pode consumi-los com ferramentas online, como Power BI. Aqui estão os links para ajudá-lo a entender Power BI e como usá-lo no Azure:
 
 * [Explorar um conjunto de Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
 * [Introdução ao Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
 * [Atualizar dados no Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
-* [Azure e Power BI: Visão geral básica](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
+* [Azure e Power BI: visão geral básica](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>Referências
 * [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)

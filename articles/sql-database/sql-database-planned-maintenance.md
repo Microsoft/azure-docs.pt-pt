@@ -1,5 +1,5 @@
 ---
-title: Planejando eventos de manutenção do Azure – banco de dados SQL do Azure | Microsoft Docs
+title: Planejando eventos de manutenção do Azure – banco de dados SQL do Azure
 description: Saiba como se preparar para eventos de manutenção planejada para o banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 ms.date: 01/30/2019
-ms.openlocfilehash: 1bb88d6f74ab4b93e226fe8630f07f0a96f4ba47
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5598d5a465645ce20d9244011de6d9cef47ac3c4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567041"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687624"
 ---
 # <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>Planejando eventos de manutenção do Azure no banco de dados SQL do Azure
 
@@ -28,7 +28,7 @@ Para cada banco de dados, o BD SQL do Azure mantém um quorum de réplicas de ba
 
 ## <a name="what-to-expect-during-a-planned-maintenance-event"></a>O que esperar durante um evento de manutenção planejada
 
-Reconfigurações/failovers geralmente são concluídos em 30 segundos – a média é de 8 segundos. Se já estiver conectado, seu aplicativo deverá se reconectar à cópia íntegra nova réplica primária do banco de dados. Se uma nova conexão for tentada enquanto o banco de dados estiver passando por uma reconfiguração antes que a nova réplica primária esteja online, você receberá o erro 40613 (banco de dados indisponível): "O banco de dados ' {DatabaseName} ' no servidor ' {servername} ' não está disponível no momento. Repita a conexão mais tarde. ". Se o banco de dados tiver uma consulta de execução longa, essa consulta será interrompida durante uma reconfiguração e precisará ser reiniciada.
+Reconfigurações/failovers geralmente são concluídos em 30 segundos – a média é de 8 segundos. Se já estiver conectado, seu aplicativo deverá se reconectar à cópia íntegra nova réplica primária do banco de dados. Se uma nova conexão for tentada enquanto o banco de dados estiver passando por uma reconfiguração antes que a nova réplica primária esteja online, você receberá o erro 40613 (banco de dados indisponível): "o banco de dados ' {DatabaseName} ' no servidor ' {servername} ' não está disponível no momento. Repita a conexão mais tarde. ". Se o banco de dados tiver uma consulta de execução longa, essa consulta será interrompida durante uma reconfiguração e precisará ser reiniciada.
 
 ## <a name="retry-logic"></a>Lógica de repetição
 
@@ -38,7 +38,7 @@ Qualquer aplicativo de produção de cliente que se conecta a um serviço de ban
 
 Em média, 1,7 eventos de manutenção planejada ocorrem a cada mês.
 
-## <a name="resource-health"></a>Estado de funcionamento do Recurso
+## <a name="resource-health"></a>Estado de Funcionamento de Recursos
 
 Se o banco de dados SQL estiver apresentando falhas de logon, verifique a janela [Resource Health](../service-health/resource-health-overview.md#get-started) no [portal do Azure](https://portal.azure.com) para obter o status atual. A seção Histórico de integridade contém o motivo do tempo de inatividade para cada evento (quando disponível).
 

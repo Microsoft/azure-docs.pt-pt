@@ -1,5 +1,5 @@
 ---
-title: Copiar arquivos novos e alterados incrementalmente com base em LastModifiedDate usando a ferramenta de Copiar Dados | Microsoft Docs
+title: Copiar arquivos novos e alterados incrementalmente com base em LastModifiedDate usando a ferramenta de Copiar Dados
 description: Crie um data factory do Azure e, em seguida, use a ferramenta Copiar Dados para carregar incrementalmente novos arquivos com base em LastModifiedDate.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 9f6fd57586603d0d987faa674d40a7e4678530a1
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 09a9fa4515913470c86bbafe293add007a3117ea
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933862"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683470"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copiar arquivos novos e alterados incrementalmente com base em LastModifiedDate usando a ferramenta de Copiar Dados
 
@@ -38,7 +38,7 @@ Neste tutorial, você executará as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Assinatura do Azure**: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * **Conta de armazenamento do Azure**: Use o armazenamento de BLOBs como o armazenamento de dados de _origem_ e de _coletor_ . Se não tem uma conta de armazenamento do Azure, veja as instruções apresentadas em [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
 
 ### <a name="create-two-containers-in-blob-storage"></a>Criar dois contêineres no armazenamento de BLOBs
@@ -75,7 +75,7 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
 6. Em **Localização**, selecione a localização da fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. Os armazenamentos de dados (por exemplo, o armazenamento do Azure e o SQL Database) e as computações (por exemplo, Azure HDInsight) que seu data factory usa podem estar em outros locais e regiões.
 7. Selecione **Afixar ao dashboard**. 
 8. Selecione **Criar**.
-9. No painel, consulte o bloco implantando **Data Factory** para ver o status do processo.
+9. No painel, consulte o bloco **Implantando data Factory** para ver o status do processo.
 
     ![Implantando Data Factory bloco](media/tutorial-copy-data-tool/deploying-data-factory.png)
 10. Depois de concluída a criação, é apresentada a home page **Fábrica de Dados**.
@@ -85,7 +85,7 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Utilizar a ferramenta Copiar Dados para criar um pipeline
 
-1. Na página introdução, selecione o título de **copiar dados** para abrir a ferramenta de copiar dados. 
+1. Na página **introdução** , selecione o título de **copiar dados** para abrir a ferramenta de copiar dados. 
 
    ![Mosaico ferramenta Copiar Dados](./media/doc-common-process/get-started-page.png)
    
@@ -111,7 +111,7 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
     
     ![Página de arquivo de dados de origem](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page.png)
 
-    b. Selecione **armazenamento** de BLOBs do Azure na galeria e selecione **continuar**.
+    b. Selecione **armazenamento de BLOBs do Azure** na galeria e selecione **continuar**.
     
     ![Página de arquivo de dados de origem](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
 
@@ -129,7 +129,7 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
     
     ![Escolher o ficheiro ou pasta de entrada](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-input-file-folder.png)
     
-    b. Em **comportamento de carregamento**de arquivo **, selecione carga incremental: LastModifiedDate**.
+    b. Em **comportamento de carregamento de arquivo**, selecione **carga incremental: LastModifiedDate**.
     
     ![Escolher o ficheiro ou pasta de entrada](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-loading-behavior.png)
     
@@ -202,7 +202,7 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
     ![Verificar arquivos usando Gerenciador de Armazenamento do Azure](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png)
 
     
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Avance para o tutorial a seguir para saber mais sobre como transformar dados usando um cluster Apache Spark no Azure:
 
 > [!div class="nextstepaction"]

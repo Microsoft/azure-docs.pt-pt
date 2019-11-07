@@ -1,20 +1,20 @@
 ---
-title: Azure Cosmos DB tutorial de distribuição global para a API do SQL
-description: Saiba como configurar a distribuição global do Azure Cosmos DB com a API SQL.
+title: 'Tutorial: Azure Cosmos DB tutorial de distribuição global para a API do SQL'
+description: 'Tutorial: saiba como configurar a distribuição global Azure Cosmos DB usando a API do SQL.'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 07/15/2019
+ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b6b8be29afc25a3862a440e46d41e8c911189c04
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: b76fee17b64d50831d5bceca9d8512e7b7498d73
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756834"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720779"
 ---
-# <a name="set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Configurar a distribuição global do Azure Cosmos DB com a API SQL
+# <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Tutorial: configurar a distribuição global Azure Cosmos DB usando a API do SQL
 
 Neste artigo, vamos mostrar como utilizar o portal do Azure para configurar a distribuição global do Azure Cosmos DB e, em seguida, ligar através da API SQL.
 
@@ -44,7 +44,7 @@ A aplicação pode verificar o ponto final de escrita atual e o ponto final de l
 
 Se a propriedade PreferredLocations não estiver definida, todos os pedidos serão fornecidos a partir da região de escrita atual.
 
-## <a name="net-sdk"></a>.NET SDK
+## <a name="net-sdk"></a>SDK .NET
 O SDK pode ser utilizado sem quaisquer alterações de código. Neste caso, o SDK direciona automaticamente as leituras e as escritas para a região de escrita atual.
 
 Na versão 1.8 e posterior do SDK .NET, o parâmetro ConnectionPolicy do construtor DocumentClient tem uma propriedade denominada Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Esta propriedade é do tipo de Coleção `<string>` e deve conter uma lista de nomes de região. Os valores de cadeia de caracteres são formatados de acordo com a coluna nome da região na página [regiões do Azure][regions] , sem espaços antes ou depois do primeiro e do último caractere, respectivamente.

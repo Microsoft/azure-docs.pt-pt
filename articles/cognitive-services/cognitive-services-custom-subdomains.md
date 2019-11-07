@@ -1,7 +1,7 @@
 ---
 title: Subdomínios personalizados
 titleSuffix: Azure Cognitive Services
-description: Os serviços cognitivas do Azure usam nomes de subdomínio personalizados para cada recurso criado por meio do portal do Azure, Azure Cloud Shell ou CLI do Azure. Ao contrário dos pontos de extremidade regionais, que eram comuns para todos os clientes em uma região específica do Azure, os nomes de subdomínio personalizados são exclusivos para o recurso. Os nomes de subdomínio personalizados são necessários para habilitar recursos como o Azure Active Directory (Azure AD) para autenticação.
+description: Os nomes de subdomínio personalizados para cada recurso de serviço cognitiva são criados por meio do portal do Azure, Azure Cloud Shell ou CLI do Azure.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 7153735052f96bef65bf3daaccde4eab3e61b0f9
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 108e5ebfa34db711af4ff33cbf4fbba897b8947d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68473053"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647680"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Nomes de subdomínio personalizados para serviços cognitivas
 
@@ -51,7 +51,7 @@ Sim. O uso de um nome de subdomínio personalizado não altera nenhum dos aspect
 
 ## <a name="what-are-the-requirements-for-a-custom-subdomain-name"></a>Quais são os requisitos para um nome de subdomínio personalizado?
 
-Um nome de subdomínio personalizado é exclusivo para seu recurso. O nome só pode incluir caracteres alfanuméricos e `-` o caractere; ele deve ter entre 2 e 64 caracteres de comprimento e não pode terminar `-`com um.
+Um nome de subdomínio personalizado é exclusivo para seu recurso. O nome só pode incluir caracteres alfanuméricos e o caractere de `-`; Ele deve ter entre 2 e 64 caracteres de comprimento e não pode terminar com um `-`.
 
 ## <a name="can-i-change-a-custom-domain-name"></a>Posso alterar um nome de domínio personalizado?
 
@@ -68,7 +68,7 @@ Sim. Esta é uma lista de pontos de extremidade regionais que você pode usar co
 > [!NOTE]
 > O API de Tradução de Texto e APIs de Pesquisa do Bing usar pontos de extremidade globais.
 
-| Tipo de ponto final | Região | Ponto Final |
+| Tipo de ponto de extremidade | Região | Ponto Final |
 |---------------|--------|----------|
 | Público | Global (Tradução de Texto & Bing) | `https://api.cognitive.microsoft.com` |
 | | Leste da Austrália | `https://australiaeast.api.cognitive.microsoft.com` |
@@ -76,27 +76,27 @@ Sim. Esta é uma lista de pontos de extremidade regionais que você pode usar co
 | | Canadá Central | `https://canadacentral.api.cognitive.microsoft.com` |
 | | EUA Central | `https://centralus.api.cognitive.microsoft.com` |
 | | Ásia Oriental | `https://eastasia.api.cognitive.microsoft.com` |
-| | East US | `https://eastus.api.cognitive.microsoft.com` |
+| | EUA Leste | `https://eastus.api.cognitive.microsoft.com` |
 | | EUA Leste 2 | `https://eastus2.api.cognitive.microsoft.com` |
 | | França Central | `https://francecentral.api.cognitive.microsoft.com` |
 | | Índia Central | `https://centralindia.api.cognitive.microsoft.com` |
 | | Leste do Japão | `https://japaneast.api.cognitive.microsoft.com` |
 | | Coreia do Sul Central | `https://koreacentral.api.cognitive.microsoft.com` |
-| | EUA Centro-Norte | `https://northcentralus.api.cognitive.microsoft.com` |
+| | E.U.A. Centro-Norte | `https://northcentralus.api.cognitive.microsoft.com` |
 | | Europa do Norte | `https://northeurope.api.cognitive.microsoft.com` |
 | | Norte da África do Sul | `https://southafricanorth.api.cognitive.microsoft.com` |
 | | EUA Centro-Sul | `https://southcentralus.api.cognitive.microsoft.com` |
 | | Sudeste Asiático | `https://southeastasia.api.cognitive.microsoft.com` |
-| | Reino Unido Sul | `https://uksouth.api.cognitive.microsoft.com` |
+| | Sul do Reino Unido | `https://uksouth.api.cognitive.microsoft.com` |
 | | EUA Centro-Oeste | `https://westcentralus.api.cognitive.microsoft.com` |
 | | Europa Ocidental | `https://westeurope.api.cognitive.microsoft.com` |
-| | EUA Oeste | `https://westus.api.cognitive.microsoft.com` |
+| | Oeste dos E.U.A. | `https://westus.api.cognitive.microsoft.com` |
 | | EUA Oeste 2 | `https://westus2.api.cognitive.microsoft.com` |
-| US Gov | Gov (US) - Virginia | `https://virginia.api.cognitive.microsoft.us` |
+| Governo dos EUA | Gov (US) - Virginia | `https://virginia.api.cognitive.microsoft.us` |
 | China | Leste da China 2 | `https://chinaeast2.api.cognitive.azure.cn` |
-| | Norte da China | `https://chinanorth.api.cognitive.azure.cn` |
+| | China Norte | `https://chinanorth.api.cognitive.azure.cn` |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consultar também
 
 * [Quais são os serviços cognitivas?](Welcome.md)
 * [Autenticação](authentication.md)

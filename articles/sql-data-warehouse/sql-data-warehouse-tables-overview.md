@@ -1,5 +1,5 @@
 ---
-title: Criando tabelas – SQL Data Warehouse do Azure | Microsoft Docs
+title: Projetando tabelas
 description: Introdução à criação de tabelas no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 55da4e3dc9c7f1c1f86a649a654ce41ef59ad839
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 9220d3adb31005551b6358034207f1071065b1a7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310105"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692394"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Criando tabelas no Azure SQL Data Warehouse
 
@@ -42,8 +43,8 @@ Para mostrar a organização das tabelas em SQL Data Warehouse, você pode usar 
 
 | Tabela WideWorldImportersDW  | Tipo de tabela | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
-| City | Dimensão | wwi.DimCity |
-| Encomenda | Fatos | wwi.FactOrder |
+| Localidade | Dimensão | WWI. DimCity |
+| Encomenda | Facto | WWI. FactOrder |
 
 
 ## <a name="table-persistence"></a>Persistência de tabela 
@@ -90,9 +91,9 @@ A categoria da tabela geralmente determina qual opção escolher para distribuir
 
 | Categoria da tabela | Opção de distribuição recomendada |
 |:---------------|:--------------------|
-| Fatos           | Use a distribuição de hash com o índice columnstore clusterizado. O desempenho melhora quando duas tabelas de hash são Unidas na mesma coluna de distribuição. |
+| Facto           | Use a distribuição de hash com o índice columnstore clusterizado. O desempenho melhora quando duas tabelas de hash são Unidas na mesma coluna de distribuição. |
 | Dimensão      | Use replicado para tabelas menores. Se as tabelas forem muito grandes para serem armazenadas em cada nó de computação, use o hash distribuído. |
-| Testes        | Use Round Robin para a tabela de preparo. A carga com CTAS é rápida. Depois que os dados estiverem na tabela de preparo, use INSERT... Selecione para mover os dados para tabelas de produção. |
+| Teste        | Use Round Robin para a tabela de preparo. A carga com CTAS é rápida. Depois que os dados estiverem na tabela de preparo, use INSERT... Selecione para mover os dados para tabelas de produção. |
 
 ## <a name="table-partitions"></a>Partições da tabela
 Uma tabela particionada armazena e executa operações nas linhas da tabela de acordo com os intervalos de dados. Por exemplo, uma tabela pode ser particionada por dia, mês ou ano. Você pode melhorar o desempenho da consulta por meio de eliminação de partição, o que limita uma verificação de consulta aos dados em uma partição. Você também pode manter os dados por meio da alternância de partição. Como os dados no SQL Data Warehouse já estão distribuídos, muitas partições podem reduzir o desempenho da consulta. Para obter mais informações, consulte [diretrizes de particionamento](sql-data-warehouse-tables-partition.md).  Quando a partição muda para partições de tabela que não estão vazias, considere usar a opção TRUNCATE_TARGET na instrução [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) se os dados existentes forem truncados. O código abaixo alterna os dados diários transformados para o SalesFact, substituindo os dados existentes. 

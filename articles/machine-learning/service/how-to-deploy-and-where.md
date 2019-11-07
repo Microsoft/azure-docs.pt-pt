@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 856f00b17a5ee994f8864c5d46ce4d796d68d367
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: df2f22f91cbed17035485d25369965d3284dbaf7
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497005"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622398"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implantar modelos com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -88,7 +88,7 @@ Os trechos de código nesta seção demonstram como registrar um modelo de uma e
     print(model.name, model.id, model.version, sep='\t')
     ```
 
-    O parâmetro `model_path` refere-se ao local da nuvem do modelo. Neste exemplo, o caminho de um único arquivo é usado. Para incluir vários arquivos no registro do modelo, defina `model_path` como o caminho de uma pasta que contém os arquivos. Para obter mais informações, consulte a documentação do [Run. register_model](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none----kwargs-) .
+    O parâmetro `model_path` refere-se ao local da nuvem do modelo. Neste exemplo, o caminho de um único arquivo é usado. Para incluir vários arquivos no registro do modelo, defina `model_path` como o caminho de uma pasta que contém os arquivos. Para obter mais informações, consulte a documentação [executar. register_model](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none----kwargs-) .
 
   + Registrar um modelo de um objeto `azureml.train.automl.run.AutoMLRun`:
 
@@ -228,7 +228,7 @@ model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model/1/sklea
 
 ##### <a name="get_model_path"></a>get_model_path
 
-Ao registrar um modelo, você fornece um nome de modelo que é usado para gerenciar o modelo no registro. Use esse nome com o método [Model. Get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) para recuperar o caminho do arquivo de modelo ou arquivos no sistema de arquivos local. Se você registrar uma pasta ou uma coleção de arquivos, essa API retornará o caminho do diretório que contém esses arquivos.
+Ao registrar um modelo, você fornece um nome de modelo que é usado para gerenciar o modelo no registro. Use esse nome com o método [Model. get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) para recuperar o caminho do arquivo de modelo ou arquivos no sistema de arquivos local. Se você registrar uma pasta ou uma coleção de arquivos, essa API retornará o caminho do diretório que contém esses arquivos.
 
 Ao registrar um modelo, você lhe dá um nome. O nome corresponde ao local em que o modelo é colocado, seja localmente ou durante a implantação do serviço.
 
@@ -254,7 +254,7 @@ Atualmente, esses tipos têm suporte:
 * `pyspark`
 * Objeto Python padrão
 
-Para usar a geração de esquema, inclua o pacote de `inference-schema` em seu arquivo de ambiente Conda.
+Para usar a geração de esquema, inclua o pacote de `inference-schema` em seu arquivo de ambiente Conda. Para obter mais informações sobre este pacote, consulte [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema).
 
 ##### <a name="example-dependencies-file"></a>Arquivo de dependências de exemplo
 
@@ -608,9 +608,9 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 
 Para obter mais informações, consulte a documentação de [implantação do modelo AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
 
-### <a id="notebookvm"></a>Serviço Web de instância de computação (desenvolvimento/teste)
+### <a id="notebookvm"></a>Serviço Web de VM do notebook (desenvolvimento/teste)
 
-Consulte [implantar um modelo para Azure Machine Learning instância de computação](how-to-deploy-local-container-notebook-vm.md).
+Consulte [implantar um modelo para Azure Machine Learning VM do notebook](how-to-deploy-local-container-notebook-vm.md).
 
 ### <a id="aci"></a>Instâncias de contêiner do Azure (desenvolvimento/teste)
 
@@ -627,7 +627,7 @@ Se você habilitou a autenticação de chave para seu serviço, precisará forne
 Se você tiver habilitado a autenticação de token para seu serviço, será necessário fornecer um token Azure Machine Learning JWT como um token de portador no cabeçalho da solicitação.
 
 > [!TIP]
-> Você pode recuperar o documento JSON do esquema depois de implantar o serviço. Use a [Propriedade swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) do serviço Web implantado (por exemplo, `service.swagger_uri`) para obter o URI para o arquivo Swagger do serviço Web local.
+> Você pode recuperar o documento JSON do esquema depois de implantar o serviço. Use a [propriedade swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) do serviço Web implantado (por exemplo, `service.swagger_uri`) para obter o URI para o arquivo Swagger do serviço Web local.
 
 ### <a name="request-response-consumption"></a>Consumo de solicitação-resposta
 
@@ -661,7 +661,7 @@ Para obter mais informações, consulte [criar aplicativos cliente para consumir
 
 ### <a name="web-service-schema-openapi-specification"></a>Esquema de serviço Web (especificação OpenAPI)
 
-Se você usou a geração de esquema automática com sua implantação, você pode obter o endereço da especificação OpenAPI para o serviço usando a [Propriedade swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri). (Por exemplo, `print(service.swagger_uri)`.) Use uma solicitação GET ou abra o URI em um navegador para recuperar a especificação.
+Se você usou a geração de esquema automática com sua implantação, você pode obter o endereço da especificação OpenAPI para o serviço usando a [propriedade swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri). (Por exemplo, `print(service.swagger_uri)`.) Use uma solicitação GET ou abra o URI em um navegador para recuperar a especificação.
 
 O documento JSON a seguir é um exemplo de um esquema (especificação de OpenAPI) gerado para uma implantação:
 
@@ -999,10 +999,12 @@ Para excluir um modelo registrado, use `model.delete()`.
 Para obter mais informações, consulte a documentação de [WebService. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) e [Model. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ## <a name="preview-no-code-model-deployment"></a>Apresentação Implantação de modelo sem código
+
 No momento, a implantação de modelo sem código está em versão prévia e dá suporte às seguintes estruturas de Machine Learning:
 
 ### <a name="tensorflow-savedmodel-format"></a>Tensorflow SavedModel Format
-```
+
+```python
 from azureml.core import Model
 
 model = Model.register(workspace=ws,
@@ -1017,10 +1019,12 @@ service = Model.deploy(ws, service_name, [model])
 ```
 
 ### <a name="onnx-models"></a>Modelos ONNX
+
 O registro e a implantação do modelo de ONNX têm suporte para qualquer grafo de inferência ONNX. Atualmente, não há suporte para as etapas de pré-processamento e postprocess.
 
 Aqui está um exemplo de como registrar e implantar um modelo MNIST ONNX:
-```
+
+```python
 from azureml.core import Model
 
 model = Model.register(workspace=ws,
@@ -1033,11 +1037,14 @@ model = Model.register(workspace=ws,
 service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
+
 ### <a name="scikit-learn-models"></a>Scikit-modelos de aprendizado
+
 Não há suporte para implantação de modelo de código para todos os tipos de modelo scikit-Learn internos.
 
 Aqui está um exemplo de como registrar e implantar um modelo sklearn sem código extra:
-```
+
+```python
 from azureml.core import Model
 from azureml.core.resource_configuration import ResourceConfiguration
 
@@ -1055,7 +1062,8 @@ service = Model.deploy(ws, service_name, [model])
 ```
 
 Observação: essas dependências estão incluídas no contêiner de inferência de sklearn predefinido:
-```
+
+```yaml
     - azureml-defaults
     - inference-schema[numpy-support]
     - scikit-learn
@@ -1063,6 +1071,7 @@ Observação: essas dependências estão incluídas no contêiner de inferência
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
+
 * [Como implantar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Solução de problemas de implantação](how-to-troubleshoot-deployment.md)
 * [Proteger Azure Machine Learning serviços Web com SSL](how-to-secure-web-service.md)

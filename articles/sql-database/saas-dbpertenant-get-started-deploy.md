@@ -1,5 +1,5 @@
 ---
-title: Tutorial de SaaS de banco de dados por locatário-banco de dados SQL do Azure | Microsoft Docs
+title: Tutorial de SaaS de banco de dados por locatário-banco de dados SQL do Azure
 description: Implante e explore o aplicativo de multilocatário Wingtip tickets SaaS que demonstra o padrão de banco de dados por locatário e outros padrões de SaaS usando o banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: d5f64f0a9abfa736c1db0e562b6f18ecfc1f6de5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: b271c4bbf942bee70c4995ee04ec370591d4f67d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023827"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692178"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o padrão de banco de dados por locatário com o banco de dados SQL
 
@@ -62,8 +62,8 @@ Escolha seus nomes agora e anote-os.
     > [!IMPORTANT]
     > Alguns firewalls de autenticação e de servidor são intencionalmente desprotegidos para fins de demonstração. Recomendamos que você crie um novo grupo de recursos. Não use grupos de recursos, servidores ou pools existentes. Não use este aplicativo, scripts ou qualquer recurso implantado para produção. Exclua esse grupo de recursos quando tiver terminado com o aplicativo para interromper a cobrança relacionada.
 
-    - **Grupo de recursos**: Selecione **criar novo**e forneça o nome exclusivo que você escolheu anteriormente para o grupo de recursos.
-    - **Local**: Selecione um local na lista suspensa.
+    - **Grupo de recursos**: selecione **criar novo**e forneça o nome exclusivo que você escolheu anteriormente para o grupo de recursos.
+    - **Local**: selecione um local na lista suspensa.
     - **Usuário**: Use o valor de nome de usuário que você escolheu anteriormente.
 
 1. Implante o aplicativo.
@@ -90,13 +90,13 @@ Enquanto o aplicativo é implantado, baixe o código-fonte e os scripts de geren
 1. Na guia **geral** , selecione **desbloquear** > **aplicar**.
 1. Selecione **OK**e extraia os arquivos
 
-Os scripts estão localizados na pasta... \\WingtipTicketsSaaS-DbPerTenant-Master @ no__t-1Learning modules.
+Os scripts estão localizados na pasta...\\repositório wingtipticketssaas-DbPerTenant-Master\\Learning modules.
 
 ## <a name="update-the-user-configuration-file-for-this-deployment"></a>Atualizar o arquivo de configuração do usuário para esta implantação
 
 Antes de executar qualquer script, atualize o grupo de recursos e os valores de usuário no arquivo de configuração do usuário. Defina essas variáveis para os valores que você usou durante a implantação.
 
-1. No ISE do PowerShell, abra... @no__t-modules 0Learning @ no__t-1**userconfig. psm1**
+1. No ISE do PowerShell, abra...\\módulos de aprendizado\\**userconfig. psm1**
 1. Atualize **ResourceGroupName** e **nomeie** com os valores específicos para sua implantação (somente nas linhas 10 e 11).
 1. Guarde as alterações.
 
@@ -110,27 +110,27 @@ Internamente no aplicativo, cada locatário Obtém um banco de dados SQL implant
 
 Uma página central de **eventos do Hub** fornece uma lista de links para os locatários em sua implantação.
 
-1. Use a URL para abrir o Hub de eventos em seu navegador da Web: http://events.wingtip-dpt.&lt; user&gt;.trafficmanager.net. Substitua &lt;user @ no__t-1 pelo valor de usuário da implantação.
+1. Use a URL para abrir o Hub de eventos em seu navegador da Web: http://events.wingtip-dpt.&lt; user&gt;.trafficmanager.net. Substitua&gt; de usuário &lt;pelo valor de usuário da implantação.
 
     ![Hub de eventos](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
 2. Selecione **Fabrikam Jazz Club** no Hub de eventos.
 
-    ![Events](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
+    ![Eventos](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
 ### <a name="azure-traffic-manager"></a>Traffic Manager do Azure
 
 O aplicativo Wingtip usa o [*Gerenciador de tráfego do Azure*](../traffic-manager/traffic-manager-overview.md) para controlar a distribuição de solicitações de entrada. A URL para acessar a página de eventos para um locatário específico usa o seguinte formato:
 
-- http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
+- http://events.wingtip-dpt.&lt; user&gt;.trafficmanager.net/fabrikamjazzclub
 
     As partes do formato anterior são explicadas na tabela a seguir.
 
     | Parte da URL        | Descrição       |
     | :-------------- | :---------------- |
     | http://events.wingtip-dpt | As partes de eventos do aplicativo Wingtip.<br /><br /> *-DPT* distingue a implementação de *banco de dados por locatário* do Wingtip tickets de outras implementações. Os exemplos são as implementações *únicas* de aplicativo por locatário ( *-SA*) ou de *banco de dados multilocatário* ( *-MT*). |
-    | . *&lt;user @ no__t-2* | *AF1* no exemplo. |
-    | .trafficmanager.net/ | Gerenciador de tráfego, URL base. |
+    | . *&lt;&gt;de usuário* | *AF1* no exemplo. |
+    | . trafficmanager.net/ | Gerenciador de tráfego, URL base. |
     | fabrikamjazzclub | Identifica o locatário chamado Fabrikam Jazz Club. |
     | &nbsp; | &nbsp; |
 
@@ -140,7 +140,7 @@ O aplicativo Wingtip usa o [*Gerenciador de tráfego do Azure*](../traffic-mana
   - O catálogo é implementado usando o *Gerenciamento de mapa de fragmentos*.
 - O Hub de eventos usa metadados estendidos no catálogo para construir as URLs de página da lista de eventos para cada locatário.
 
-Em um ambiente de produção, normalmente você cria um registro DNS CNAME para [*apontar para um domínio de Internet da empresa*](../traffic-manager/traffic-manager-point-internet-domain.md) To o nome DNS do Gerenciador de tráfego.
+Em um ambiente de produção, normalmente você cria um registro DNS CNAME para [*apontar um domínio de Internet da empresa*](../traffic-manager/traffic-manager-point-internet-domain.md) para o nome DNS do Gerenciador de tráfego.
 
 > [!NOTE]
 > Pode não ser imediatamente óbvio o que o uso do Gerenciador de tráfego está neste tutorial. O objetivo desta série de tutoriais é demonstrar padrões que podem lidar com a escala de um ambiente de produção complexo. Nesse caso, por exemplo, você teria vários aplicativos Web distribuídos em todo o mundo, colocalizado com bancos de dados e você precisaria do Gerenciador de tráfego para rotear entre essas instâncias.
@@ -152,7 +152,7 @@ Agora que o aplicativo foi implantado, vamos colocá-lo em funcionamento.
 
 O script do PowerShell *demo-LoadGenerator* inicia uma carga de trabalho que é executada em todos os bancos de dados de locatário. A carga do mundo real em muitos aplicativos SaaS é esporádica e imprevisível. Para simular esse tipo de carga, o gerador produz uma carga com picos aleatórios ou intermitências de atividade em cada locatário. As intermitências ocorrem em intervalos aleatórios. Leva vários minutos para que o padrão de carga surja. Deixe o gerador ser executado por pelo menos três ou quatro minutos antes de monitorar a carga.
 
-1. No ISE do PowerShell, abra os módulos... \\Learning @ no__t-1Utilities @ no__t-2*demo-LoadGenerator. ps1* .
+1. No ISE do PowerShell, abra o...\\módulos de aprendizado\\utilitários\\script *demo-LoadGenerator. ps1* .
 2. Pressione F5 para executar o script e iniciar o gerador de carga. Deixe os valores de parâmetro padrão por enquanto.
 3. Entre em sua conta do Azure e selecione a assinatura que você deseja usar, se necessário.
 
@@ -172,7 +172,7 @@ Se você quiser controlar e monitorar os trabalhos em segundo plano, use os segu
 
 1. *Demo-LoadGenerator. ps1* inicia *LoadGenerator. ps1* em primeiro plano.
 
-    - Ambos os arquivos. ps1 são armazenados nas pastas módulos de aprendizado @ no__t-0Utilities @ no__t-1.
+    - Ambos os arquivos. ps1 são armazenados nas pastas módulos de aprendizado\\utilitários\\.
 
 2. O *LoadGenerator. ps1* executa loops em todos os bancos de dados de locatário no catálogo.
 
@@ -180,8 +180,8 @@ Se você quiser controlar e monitorar os trabalhos em segundo plano, use os segu
 
     - Por padrão, os trabalhos em segundo plano são executados por 120 minutos.
     - Cada trabalho causa uma carga baseada em CPU em um banco de dados de locatário executando *sp_CpuLoadGenerator*. A intensidade e a duração da carga variam de acordo com `$DemoScenario`.
-    - *sp_CpuLoadGenerator* faz um loop em uma instrução SQL SELECT que causa uma alta carga de CPU. O intervalo de tempo entre os problemas de SELECT varia de acordo com os valores de parâmetro para criar uma carga de CPU controlável. Os níveis de carga e os intervalos são aleatórios para simular cargas mais realistas.
-    - Esse arquivo. SQL é armazenado em *WingtipTenantDB @ no__t-1dbo @ no__t-2StoredProcedures @ no__t-3*.
+    - *sp_CpuLoadGenerator* loops em uma instrução SQL SELECT que causa uma alta carga de CPU. O intervalo de tempo entre os problemas de SELECT varia de acordo com os valores de parâmetro para criar uma carga de CPU controlável. Os níveis de carga e os intervalos são aleatórios para simular cargas mais realistas.
+    - Esse arquivo. SQL é armazenado em *WingtipTenantDB\\dbo\\storedprocedures\\* .
 
 4. Se `$OneTime = $false`, o gerador de carga iniciará os trabalhos em segundo plano e continuará a ser executado. A cada 10 segundos, ele monitora os novos locatários que são provisionados. Se você definir `$OneTime = $true`, o LoadGenerator iniciará os trabalhos em segundo plano e interromperá a execução em primeiro plano. Para este tutorial, deixe `$OneTime = $false`.
 
@@ -198,7 +198,7 @@ Antes de continuar com a próxima seção, deixe o gerador de carga em execuçã
 A implantação inicial cria três locatários de exemplo. Agora você cria outro locatário para ver o impacto no aplicativo implantado. No aplicativo Wingtip, o fluxo de trabalho para provisionar novos locatários é explicado no [tutorial provisionar e catalogar](saas-dbpertenant-provision-and-catalog.md). Nesta fase, você cria um novo locatário, que leva menos de um minuto.
 
 1. Abra um novo ISE do PowerShell.
-2. Abra... \\Learning módulos e Catalog @ no__t-1*demo-provisionandcatalog. ps1*.
+2. Abra...\\Learning módulos and Catalog\\*demo-provisionandcatalog. ps1*.
 3. Para executar o script, pressione F5. Deixe os valores padrão por enquanto.
 
    > [!NOTE]
@@ -220,14 +220,14 @@ Atualize o Hub de eventos para fazer com que o novo locatário apareça na lista
 
 Agora que você começou a executar uma carga em relação à coleção de locatários, vamos dar uma olhada em alguns dos recursos que foram implantados.
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até sua lista de servidores SQL. Em seguida, abra o servidor **Catalog-DPT-&lt;USER @ no__t-2** .
+1. Na [portal do Azure](https://portal.azure.com), navegue até sua lista de servidores SQL. Em seguida, abra o **usuário do Catalog-DPT-&lt;&gt;** servidor.
     - O servidor de catálogo contém dois bancos de dados, **tenantcatalog** e **basetenantdb** (um modelo de banco que é copiado para criar novos locatários).
 
    ![Bases de Dados](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Volte para a lista de servidores SQL.
 
-3. Abra o servidor **tenants1-DPT-&lt;USER @ no__t-2** que contém os bancos de dados de locatário.
+3. Abra o servidor de **&gt;de usuário tenants1-DPT-&lt;** que contém os bancos de dados de locatário.
 
 4. Consulte os seguintes itens:
 
@@ -240,7 +240,7 @@ Agora que você começou a executar uma carga em relação à coleção de locat
 
 Após o *LoadGenerator. ps1* ser executado por vários minutos, os dados suficientes devem estar disponíveis para começar a examinar alguns recursos de monitoramento. Esses recursos são criados em pools e bancos de dados.
 
-Navegue até o servidor **tenants1-DPT-&lt;user @ no__t-2**e selecione **Pool1** para exibir a utilização de recursos para o pool. Nos gráficos a seguir, o gerador de carga foi executado por uma hora.
+Navegue até o servidor **tenants1-DPT-&lt;usuário&gt;** e selecione **Pool1** para exibir a utilização de recursos para o pool. Nos gráficos a seguir, o gerador de carga foi executado por uma hora.
 
    ![Monitorar pool](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 

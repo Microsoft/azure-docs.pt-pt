@@ -1,5 +1,5 @@
 ---
-title: Obter valores para autenticação de aplicativo – banco de dados SQL do Azure | Microsoft Docs
+title: Obter valores para autenticação de aplicativo-banco de dados SQL do Azure
 description: Crie uma entidade de serviço para acessar o banco de dados SQL do código.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: d7c8c6788a8699c5b57c39731c148454ad8dcfcf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6a8f5263e2f79f130814aa520712f679430440fd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569312"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691011"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Obter os valores necessários para autenticar um aplicativo para acessar o banco de dados SQL do código
 
@@ -71,7 +71,7 @@ O seguinte script do PowerShell cria a aplicação do Active Directory (AD) e o 
 
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consultar também
 * [Criar um banco de dados SQL comC#](sql-database-get-started-csharp.md)
 * [Conectando-se ao banco de dados SQL usando a autenticação Azure Active Directory](sql-database-aad-authentication.md)
 

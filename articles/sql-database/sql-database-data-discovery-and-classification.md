@@ -1,5 +1,5 @@
 ---
-title: Classificação de & do banco de dados SQL do Azure e SQL Data Warehouse a descoberta | Microsoft Docs
+title: Classificação & do banco de dados SQL do Azure e SQL Data Warehouse data Discovery
 description: Classificação & do banco de dados SQL do Azure e data Discovery
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: b85793223e23aa3d668d6f86494da3ee78c43e91
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 9bcb8ce69a65892109702f0f0a409310945b6781
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009996"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690765"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Classificação & do banco de dados SQL do Azure e SQL Data Warehouse data Discovery
 
-A classificação de & da descoberta de dados fornece recursos avançados incorporados ao banco de dados SQL do Azure para **descobrir**, **classificar** & , **rotular**a**proteção** de informações confidenciais em seus bancos.
+A classificação de & de descoberta de dados fornece recursos avançados incorporados ao banco de dado SQL do Azure para **descobrir**, **classificar**, **rotular** & **proteger** os dados confidenciais em seus bancos.
 
 Descobrindo e classificando seus dados mais confidenciais (negócios, financeiros, de saúde, PII (dados de identificação pessoal) e assim por diante.) pode desempenhar uma função dinâmica em sua estatura de proteção de informações organizacionais. Ele pode servir como uma infraestrutura para:
 
@@ -87,7 +87,7 @@ Depois que a política de todo o locatário tiver sido definida, você poderá c
 
 4. Para baixar um relatório no formato do Excel, clique na opção **Exportar** no menu superior da janela.
 
-   ![Exportar para Excel](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
+   ![Exportar para o Excel](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
 
 5. <a id="step-5"></a>Para começar a classificar seus dados, clique na **guia classificação** na parte superior da janela.
 
@@ -125,7 +125,7 @@ Depois que a política de todo o locatário tiver sido definida, você poderá c
 
 Um aspecto importante do paradigma da proteção de informações é a capacidade de monitorar o acesso a dados confidenciais. A auditoria do banco de dados [SQL do Azure](sql-database-auditing.md) foi aprimorada para incluir um novo campo no log de auditoria chamado *data_sensitivity_information*, que registra as classificações de sensibilidade (rótulos) dos dados reais retornados pela consulta.
 
-![Registo de auditoria](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
+![Log de auditoria](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
 ## <a id="subheading-4"></a>Gerenciar a classificação de dados usando o T-SQL
 
@@ -134,8 +134,8 @@ Você pode usar o T-SQL para adicionar/remover classificações de coluna, bem c
 > [!NOTE]
 > Ao usar o T-SQL para gerenciar rótulos, não há nenhuma validação que os rótulos adicionados a uma coluna existam na política de proteção de informações organizacionais (o conjunto de rótulos que aparecem nas recomendações do Portal). Portanto, cabe a você validar isso.
 
-- Adicionar/atualizar a classificação de uma ou mais colunas: [ADICIONAR CLASSIFICAÇÃO DE SENSIBILIDADE](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-- Remova a classificação de uma ou mais colunas: [REMOVER CLASSIFICAÇÃO DE SENSIBILIDADE](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+- Adicionar/atualizar a classificação de uma ou mais colunas: [Adicionar classificação de sensibilidade](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+- Remover a classificação de uma ou mais colunas: [remover classificação de sensibilidade](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Exibir todas as classificações no banco de dados: [Sys. sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 ### <a name="manage-classifications-using-rest-apis"></a>Gerenciar classificações usando APIs REST
@@ -144,8 +144,8 @@ Você também pode usar as APIs REST para gerenciar programaticamente as classif
 
 - [Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) – cria ou atualiza o rótulo de sensibilidade de uma determinada coluna
 - [Excluir](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) – exclui o rótulo de sensibilidade de uma determinada coluna
-- [Desabilitar recomendação](https://docs.microsoft.com/en-us/rest/api/sql/sensitivitylabels/disablerecommendation) -desabilita as recomendações de sensibilidade em uma determinada coluna
-- [Habilitar recomendação](https://docs.microsoft.com/en-us/rest/api/sql/sensitivitylabels/enablerecommendation) – habilita recomendações de sensibilidade em uma determinada coluna (as recomendações são habilitadas por padrão em todas as colunas)
+- [Desabilitar recomendação](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation) -desabilita as recomendações de sensibilidade em uma determinada coluna
+- [Habilitar recomendação](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation) – habilita recomendações de sensibilidade em uma determinada coluna (as recomendações são habilitadas por padrão em todas as colunas)
 - [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) -Obtém o rótulo de sensibilidade de uma determinada coluna
 - [Listar atual pelo banco de dados](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) -Obtém os rótulos de sensibilidade atuais de um determinado banco de dados
 
@@ -171,9 +171,9 @@ Você pode usar o PowerShell para obter todas as colunas recomendadas em um banc
 
 ## <a name="permissions"></a>Permissões
 
-As funções internas a seguir podem ler a classificação de dados de um Azure SQL Database: `Owner`, `Reader`, `Contributor` `SQL Security Manager` e `User Access Administrator`.
+As funções internas a seguir podem ler a classificação de dados de um Azure SQL Database: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` e `User Access Administrator`.
 
-As funções internas a seguir podem modificar a classificação de dados de um banco de dado SQL `Owner`do `Contributor`Azure `SQL Security Manager`:,,.
+As funções internas a seguir podem modificar a classificação de dados de um Azure SQL Database: `Owner`, `Contributor``SQL Security Manager`.
 
 Saiba mais sobre o [RBAC para recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 

@@ -1,5 +1,5 @@
 ---
-title: Criar a primeira fábrica de dados (REST) | Microsoft Docs
+title: Compilar seu primeiro data factory (REST)
 description: Neste tutorial, vai criar um exemplo de pipeline do Azure Data Factory com a API REST do Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/01/2017
-ms.openlocfilehash: da62b07b03aea94749f1d0a332d52790a06635ce
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7644bac01784ea795f24b967223b0eb37354ca87
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162543"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682964"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Criar a primeira fábrica de dados do Azure com a API REST do Data Factory
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ O pipeline neste tutorial tem uma atividade: **atividade do HDInsight Hive**. Es
   3. Obter o **ID de inquilino**.
   4. Atribuir a aplicação **ADFGetStartedApp** à função para o **Contribuinte do Data Factory**.
 * Instale o [Azure PowerShell](/powershell/azure/overview).
-* Inicie o **PowerShell** e execute o seguinte comando. Mantenha o Azure PowerShell aberto até ao fim deste tutorial. Se o fechar e reabrir, terá de executar os comandos novamente.
+* Inicie o **PowerShell** e execute o comando seguinte. Mantenha o Azure PowerShell aberto até ao fim deste tutorial. Se o fechar e reabrir, terá de executar os comandos novamente.
   1. Execute **Connect-AzAccount** e insira o nome de usuário e a senha que você usa para entrar no portal do Azure.
   2. Execute **Get-AzSubscription** para exibir todas as assinaturas desta conta.
   3. Execute **Get-AzSubscription-subscriptionname nameofazuresubscription pelo | Set-AzContext** para selecionar a assinatura com a qual você deseja trabalhar. Substitua **NameOfAzureSubscription** pelo nome da sua subscrição do Azure.
@@ -248,7 +248,7 @@ O JSON define um conjunto de dados com o nome **AzureBlobOutput**, que represent
 
 No fragmento JSON, está a criar um pipeline que consiste numa única atividade que utiliza o Hive para processar dados num cluster do HDInsight.
 
-O ficheiro do script do Hive **partitionweblogs.hql** é armazenado na conta de armazenamento do Azure (especificado pelo scriptLinkedService, denominado **StorageLinkedService**) e na pasta **script** no contentor **adfgetstarted**.
+O ficheiro do Script de ramo de registo **partitionweblogs.hql** é armazenado na conta de armazenamento do Azure (especificado pelo scriptLinkedService, denominado **StorageLinkedService**) e na pasta **script** no contentor **adfgetstarted**.
 
 A secção **define** especifica as definições do tempo de execução que são transmitidas ao script de Hive como valores de configuração do Hive (por exemplo, ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
 
@@ -320,7 +320,7 @@ Tenha em atenção os seguintes pontos:
   3. Execute os dois comandos seguintes para invocar a API REST, para criar a fábrica de dados e imprimir os resultados da operação.
 * Para criar instâncias do Data Factory, tem de ser um contribuidor/administrador da subscrição do Azure
 * O nome da fábrica de dados pode ser registado como um nome DNS no futuro e, por conseguinte, ficar publicamente visível.
-* Se receber o erro: "**Esta subscrição não está registada para utilizar o espaço de nomes Microsoft.DataFactory**", realize um dos seguintes procedimentos e tente publicar novamente:
+* Se receber o erro: “**Esta subscrição não está registada para utilizar o espaço de nomes Microsoft.DataFactory**”, realize um dos seguintes procedimentos e tente publicar novamente:
 
   * No Azure PowerShell, execute o seguinte comando para registar o fornecedor do Data Factory:
 
@@ -337,7 +337,7 @@ Tenha em atenção os seguintes pontos:
 Antes de criar um pipeline, deve primeiro criar algumas entidades do Data Factory. Comece por criar os serviços ligados para ligar os arquivos/computações de dados ao seu arquivo de dados e definir os conjuntos de dados de entrada e saída para representar os dados em arquivos de dados ligados.
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
-Neste passo, vai ligar a sua conta de Armazenamento do Azure e um cluster do Azure HDInsight a pedido à fábrica de dados. A conta de Armazenamento do Azure possui os dados de entrada e de saída do pipeline neste exemplo. Neste exemplo, o serviço ligado do HDInsight serve para executar um script do Hive especificado na atividade do pipeline.
+Neste passo, irá ligar a sua conta de Armazenamento do Azure e um cluster do Azure HDInsight a pedido à sua fábrica de dados. A conta de Armazenamento do Azure possui os dados de entrada e de saída do pipeline neste exemplo. Neste exemplo, o serviço ligado do HDInsight serve para executar um script do Hive especificado na atividade do pipeline.
 
 ### <a name="create-azure-storage-linked-service"></a>Criar o serviço ligado do Storage do Azure
 Neste passo, irá ligar a sua conta de Armazenamento do Azure à sua fábrica de dados. Com este tutorial, utilize a mesma conta de Armazenamento do Azure para armazenar os dados de entrada/saída e o ficheiro de script HQL.
@@ -476,7 +476,7 @@ Também pode utilizar o portal do Azure para monitorizar setores e resolver quai
 ## <a name="summary"></a>Resumo
 Neste tutorial, criou uma fábrica de dados do Azure para processar dados executando o Script de ramo de registo num cluster de hadoop do HDInsight. Utilizou o Editor do Data Factory no portal do Azure para realizar os seguintes passos:
 
-1. Criou uma **fábrica de dados** do Azure.
+1. Criar uma **fábrica de dados** do Azure.
 2. Criar dois **serviços ligados**:
    1. O serviço ligado do **Storage do Azure** para ligar o seu armazenamento de blobs do Azure que contém ficheiros de entrada/saída da fábrica de dados.
    2. O serviço ligado do **Azure HDInsight** a pedido para ligar um cluster de Hadoop do HDInsight a pedido à fábrica de dados. O Azure Data Factory cria um cluster de Hadoop do HDInsight para processar os dados de entrada e produzir dados de saída.
@@ -486,7 +486,7 @@ Neste tutorial, criou uma fábrica de dados do Azure para processar dados execut
 ## <a name="next-steps"></a>Passos seguintes
 Neste artigo, criou um pipeline com uma atividade de transformação (Atividade do HDInsight) que executa um Script de ramo de registo num cluster do Azure HDInsight a pedido. Para ver como utilizar uma Atividade de Cópia para copiar dados de um Blob do Azure para o Azure SQL, veja o [Tutorial: Copiar dados de um Blob do Azure para o Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 | Tópico | Descrição |
 |:--- |:--- |
 | [Referência da API REST do Data Factory](/rest/api/datafactory/) |Consulte a documentação abrangente sobre os cmdlets do Data Factory |

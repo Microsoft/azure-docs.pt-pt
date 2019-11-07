@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: b1007080c907eecc940b57184954c793b85f5eec
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 11/04/2019
+ms.openlocfilehash: 31aacfea7c68614add0229c3a9c494de4714fe16
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595595"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604024"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Análise de Desempenho de Consultas no banco de dados do Azure para MariaDB
 
 **Aplica-se a:** Banco de dados do Azure para MariaDB 10,2
-
-> [!IMPORTANT]
-> Análise de Desempenho de Consultas está em versão prévia.
 
 Análise de Desempenho de Consultas ajuda a identificar rapidamente o que são suas consultas em execução mais longas, como elas mudam com o passar do tempo e quais esperas estão afetando-as.
 

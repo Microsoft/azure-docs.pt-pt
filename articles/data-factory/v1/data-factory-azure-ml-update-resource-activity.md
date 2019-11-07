@@ -1,5 +1,5 @@
 ---
-title: Atualizar modelos de Machine Learning usando Azure Data Factory | Microsoft Docs
+title: Atualizar modelos de Machine Learning usando Azure Data Factory
 description: Descreve como criar pipelines de previsão usando Azure Data Factory e Azure Machine Learning
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: a980f269c8b88618ffa3311c05310a88ade379ed
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 190a4e704b002a4d6d4876d048c693a5fffe0114
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140460"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683126"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Atualizando modelos de Azure Machine Learning usando a atividade atualizar recurso
 
@@ -36,7 +36,7 @@ ms.locfileid: "70140460"
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço de Data Factory, consulte [Atualizar modelos de aprendizado de máquina no data Factory](../update-machine-learning-models.md).
 
-Este artigo complementa o principal artigo de integração de Azure Data Factory Azure Machine Learning: [Crie pipelines preditivas usando Azure Machine Learning e Azure data Factory](data-factory-azure-ml-batch-execution-activity.md). Se você ainda não tiver feito isso, examine o artigo principal antes de ler este artigo. 
+Este artigo complementa o principal artigo de integração de Azure Data Factory Azure Machine Learning: [criar pipelines preditivas usando Azure Machine Learning e Azure data Factory](data-factory-azure-ml-batch-execution-activity.md). Se você ainda não tiver feito isso, examine o artigo principal antes de ler este artigo. 
 
 ## <a name="overview"></a>Descrição geral
 Ao longo do tempo, os modelos de previsão nos experimentos de Pontuação do Azure ML precisam ser retreinados usando novos conjuntos de dados de entrada. Depois de concluir o retreinamento, você deseja atualizar o serviço Web de pontuação com o modelo ML retreinado. As etapas típicas para habilitar o retreinamento e a atualização de modelos do Azure ML por meio de serviços Web são:
@@ -44,7 +44,7 @@ Ao longo do tempo, os modelos de previsão nos experimentos de Pontuação do Az
 1. Crie um experimento no [Azure ml Studio](https://studio.azureml.net).
 2. Quando estiver satisfeito com o modelo, use o ML Studio do Azure para publicar serviços Web para o **experimento de treinamento** e teste de Pontuação/**previsão**.
 
-A tabela a seguir descreve os serviços Web usados neste exemplo.  Consulte [readaptação de modelos de Machine Learning](../../machine-learning/machine-learning-retrain-models-programmatically.md) programaticamente para obter detalhes.
+A tabela a seguir descreve os serviços Web usados neste exemplo.  Consulte [readaptação de modelos de Machine Learning programaticamente](../../machine-learning/machine-learning-retrain-models-programmatically.md) para obter detalhes.
 
 - **Serviço Web de treinamento** – recebe dados de treinamento e produz modelos treinados. A saída do novo treinamento é um arquivo. ilearner em um armazenamento de BLOBs do Azure. O **ponto de extremidade padrão** é criado automaticamente para você quando você publica o teste de treinamento como um serviço Web. Você pode criar mais pontos de extremidade, mas o exemplo usa apenas o ponto de extremidades padrão.
 - **Serviço Web de Pontuação** – recebe exemplos de dados sem rótulo e faz previsões. A saída da previsão pode ter várias formas, como um arquivo. csv ou linhas em um banco de dados SQL do Azure, dependendo da configuração do experimento. O ponto de extremidade padrão é criado automaticamente para você quando você publica o teste de previsão como um serviço Web. 

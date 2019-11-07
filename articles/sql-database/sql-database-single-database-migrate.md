@@ -1,5 +1,5 @@
 ---
-title: SQL Server migração de banco de dados para um banco de dados individual/em pool no banco de dados SQL do Azure | Microsoft Docs
+title: SQL Server migração de banco de dados para um banco de dados individual/em pool no banco de dados SQL do Azure
 description: Saiba mais sobre como SQL Server a migração de banco de dados para um único banco de dados ou um pool elástico no banco de dados SQL do Azure.
 keywords: migração de base de dados, migração de base de dados do sql server, ferramentas de migração de base de dados, migrar base de dados, migrar base de dados sql
 services: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: a156d73c7eedcbdf7c703b946a26d46ca9129632
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 67030d14670ccc51c89a04863f8b39ab6a9bb183
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566602"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687177"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>SQL Server migração de banco de dados para o banco de dados SQL do Azure
 
@@ -32,7 +32,7 @@ Em ambos os casos, você precisa garantir que o banco de dados de origem seja co
 > [!NOTE]
 > Para migrar uma base de dados não SQL Server, incluindo Microsoft Access, Sybase, MySQL Oracle e DB2 para a Base de Dados SQL do Azure, veja [SQL Server Migration Assistant (Assistente de Migração do SQL Server)](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/).
 
-## <a name="method-1-migration-with-downtime-during-the-migration"></a>Método 1: Migração com tempo de inatividade durante a migração
+## <a name="method-1-migration-with-downtime-during-the-migration"></a>Método 1: migração com período de indisponibilidade durante a migração
 
  Use esse método para migrar para um banco de dados único ou em pool se você puder pagar algum tempo de inatividade ou se estiver executando uma migração de teste de um banco de dados de produção para migração posterior. Para obter um tutorial, consulte [migrar um banco de dados SQL Server](../dms/tutorial-sql-server-to-azure-sql.md).
 
@@ -42,7 +42,7 @@ A lista a seguir contém o fluxo de trabalho geral para uma migração de banco 
 
 1. [Avalie](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) a compatibilidade do banco de dados usando a versão mais recente do [Assistente de migração de dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Prepare quaisquer correções necessárias como scripts do Transact-SQL.
-3. Faça uma cópia transacionalmente consistente do banco de dados de origem que está sendo migrado ou pare a ocorrência de novas transações no banco de dados de origem durante a migração. Os métodos para realizar essa última opção incluem desabilitar a conectividade do cliente ou criar um [instantâneo do banco de dados](https://msdn.microsoft.com/library/ms175876.aspx). Após a migração, você poderá usar a replicação transacional para atualizar os bancos de dados migrados com alterações que ocorrem após o ponto de corte para a migração. Consulte [migrar usando a migração](sql-database-single-database-migrate.md#method-2-use-transactional-replication)transacional.  
+3. Faça uma cópia transacionalmente consistente do banco de dados de origem que está sendo migrado ou pare a ocorrência de novas transações no banco de dados de origem durante a migração. Os métodos para realizar essa última opção incluem desabilitar a conectividade do cliente ou criar um [instantâneo do banco de dados](https://msdn.microsoft.com/library/ms175876.aspx). Após a migração, você poderá usar a replicação transacional para atualizar os bancos de dados migrados com alterações que ocorrem após o ponto de corte para a migração. Consulte [migrar usando a migração transacional](sql-database-single-database-migrate.md#method-2-use-transactional-replication).  
 4. Implemente os scripts do Transact-SQL para aplicar as correções na cópia da base de dados.
 5. [Migre](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) a cópia do banco de dados para um novo banco de dados SQL do Azure usando o assistente de migração de dados.
 
@@ -64,7 +64,7 @@ A lista seguinte contém recomendações para um melhor desempenho durante o pro
 
 [Atualize as estatísticas](https://msdn.microsoft.com/library/ms187348.aspx) com uma análise completa após a migração estar concluída.
 
-## <a name="method-2-use-transactional-replication"></a>Método 2: Usar replicação transacional
+## <a name="method-2-use-transactional-replication"></a>Método 2: Utilizar a Replicação Transacional
 
 Quando não pode remover a base de dados do SQL Server da produção enquanto a migração está a ocorrer, pode utilizar a replicação transacional do SQL Server como a sua solução de migração. Para utilizar este método, a base de dados de origem tem de cumprir os [requisitos para a replicação transacional](https://msdn.microsoft.com/library/mt589530.aspx) e ser compatível com a Base de Dados SQL do Azure. Para obter informações sobre a replicação do SQL com Always On, consulte [Configurar a replicação para Always on grupos de disponibilidade (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 
@@ -118,7 +118,7 @@ Para além de procurar na Internet e utilizar estes recursos, utilize os [fórun
 > [!IMPORTANT]
 > Instância Gerenciada do Banco de Dados SQL permite migrar uma instância existente do SQL Server e seus bancos de dados com problemas mínimos ou sem compatibilidade. Consulte [o que é um instância gerenciada](sql-database-managed-instance.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Utilize o script no blogue de Engenheiros do Azure SQL EMEA para [Monitorizar a utilização de tempdb durante a migração](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/).
 - Utilize o script no blogue de Engenheiros do Azure SQL EMEA para [Monitorizar o espaço do registo de transações da base de dados enquanto a migração está a ocorrer](https://blogs.msdn.microsoft.com/azuresqlemea/2016/10/31/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database/0).

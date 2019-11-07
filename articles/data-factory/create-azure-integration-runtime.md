@@ -1,6 +1,6 @@
 ---
-title: Criar runtime de integração do Azure no Azure Data Factory | Documentos da Microsoft
-description: Saiba como criar o runtime de integração do Azure no Azure Data Factory, que é utilizada para copiar dados e atividades de transformação de expedição.
+title: Criar tempo de execução de integração do Azure no Azure Data Factory
+description: Saiba como criar o tempo de execução de integração do Azure no Azure Data Factory, que é usado para copiar dados e distribuir atividades de transformação.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,38 +11,38 @@ ms.date: 01/15/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 4b166ded3dcef4a89951eb81f7f1b321f89a0e67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 898290f70777ca442bb8885d83064231c5486a7c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153405"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73677253"
 ---
-# <a name="how-to-create-and-configure-azure-integration-runtime"></a>Como criar e configurar o Runtime de integração do Azure
-O Runtime de integração (IR) é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter mais informações sobre o runtime de integração, consulte [runtime de integração](concepts-integration-runtime.md).
+# <a name="how-to-create-and-configure-azure-integration-runtime"></a>Como criar e configurar Azure Integration Runtime
+A Integration Runtime (IR) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer recursos de integração de dados em diferentes ambientes de rede. Para obter mais informações sobre o IR, consulte [Integration Runtime](concepts-integration-runtime.md).
 
-Runtime de integração do Azure fornece uma computação totalmente gerida para executar nativamente dados movimento e enviar dados atividades de transformação para computar os serviços, como o HDInsight. Ele está hospedado no ambiente do Azure e suporta a ligação a recursos no ambiente de rede pública com pontos finais públicos acessíveis.
+O Azure IR fornece uma computação totalmente gerenciada para executar nativamente a movimentação de dados e a distribuição de atividades de transformação de dados para serviços de computação como o HDInsight. Ele é hospedado no ambiente do Azure e dá suporte à conexão a recursos no ambiente de rede pública com pontos de extremidade acessíveis públicos.
 
-Este documento apresenta como pode criar e configurar o Runtime de integração do Azure. 
+Este documento apresenta como você pode criar e configurar Azure Integration Runtime. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="default-azure-ir"></a>Padrão do Runtime de integração do Azure
-Por predefinição, cada fábrica de dados tem um runtime de integração no back-end que oferece suporte a operações na cloud, arquivos de dados e serviços na rede pública de computação. A localização desse Runtime de integração do Azure é resolver automaticamente. Se **connectVia** propriedade não for especificada na definição do serviço ligado, a predefinição é utilizado o runtime de integração do Azure. Apenas terá de criar explicitamente um runtime de integração do Azure quando quiser definir explicitamente a localização do IR de, ou se quiser praticamente as execuções de atividade no IRs diferentes para fins de gestão de grupo. 
+## <a name="default-azure-ir"></a>Azure IR padrão
+Por padrão, cada data factory tem um Azure IR no back-end que dá suporte a operações em armazenamentos de dados de nuvem e serviços de computação na rede pública. O local do Azure IR é resolver automaticamente. Se a propriedade **connectVia** não for especificada na definição de serviço vinculado, o Azure ir padrão será usado. Você só precisa criar explicitamente um Azure IR quando desejar definir explicitamente o local do IR ou se desejar agrupar virtualmente as execuções de atividade em diferentes IRs para fins de gerenciamento. 
 
-## <a name="create-azure-ir"></a>Criar Runtime de integração do Azure
-Runtime de integração pode ser criado com o **Set-AzDataFactoryV2IntegrationRuntime** cmdlet do PowerShell. Para criar um runtime de integração do Azure, especifique o nome, a localização e o tipo para o comando. Eis um comando de exemplo para criar um runtime de integração do Azure com a localização definida como "Na Europa Ocidental":
+## <a name="create-azure-ir"></a>Criar Azure IR
+Integration Runtime pode ser criado usando o cmdlet do PowerShell **set-AzDataFactoryV2IntegrationRuntime** . Para criar um Azure IR, especifique o nome, o local e o tipo para o comando. Aqui está um comando de exemplo para criar um Azure IR com o local definido como "Europa Ocidental":
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -Name "MySampleAzureIR" -ResourceGroupName "ADFV2SampleRG" -Type Managed -Location "West Europe"
 ```  
-Para o runtime de integração do Azure, o tipo tem de ser definido **gerida**. Não é necessário especificar detalhes de computação, porque está totalmente gerido elástica na cloud. Especifique a computação detalha como o tamanho do nó e o nó de contagem de quando gostaria de criar o ir Azure-SSIS. Para obter mais informações, consulte [criar e configurar o runtime de integração Azure-SSIS](create-azure-ssis-integration-runtime.md).
+Para Azure IR, o tipo deve ser definido como **gerenciado**. Você não precisa especificar detalhes de computação porque ele é totalmente gerenciado de forma elástica na nuvem. Especifique detalhes de computação, como o tamanho do nó e a contagem de nós, quando você deseja criar Azure-SSIS IR. Para obter mais informações, consulte [criar e configurar Azure-SSIS ir](create-azure-ssis-integration-runtime.md).
 
-Pode configurar um IR do Azure existente para alterar a localização com o cmdlet Set-AzDataFactoryV2IntegrationRuntime PowerShell. Para obter mais informações sobre o local de um IR do Azure, consulte [introdução ao runtime de integração](concepts-integration-runtime.md).
+Você pode configurar um Azure IR existente para alterar seu local usando o cmdlet do PowerShell Set-AzDataFactoryV2IntegrationRuntime. Para obter mais informações sobre o local de um Azure IR, consulte [introdução ao Integration Runtime](concepts-integration-runtime.md).
 
-## <a name="use-azure-ir"></a>Utilize o runtime de integração do Azure
+## <a name="use-azure-ir"></a>Usar Azure IR
 
-Depois de criar um runtime de integração do Azure, pode referenciá-lo na sua definição de serviço ligado. Abaixo é um exemplo de como pode referenciar o Runtime de integração do Azure criado acima de um serviço ligado de armazenamento do Azure:  
+Depois que um Azure IR for criado, você poderá referenciá-lo em sua definição de serviço vinculado. Veja abaixo um exemplo de como você pode referenciar o Azure Integration Runtime criado acima de um serviço vinculado do armazenamento do Azure:  
 
 ```json
 {
@@ -64,9 +64,9 @@ Depois de criar um runtime de integração do Azure, pode referenciá-lo na sua 
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-Consulte os seguintes artigos sobre como criar outros tipos de runtimes de integração:
+## <a name="next-steps"></a>Passos seguintes
+Consulte os seguintes artigos sobre como criar outros tipos de tempos de execução de integração:
 
-- [Criar um integration runtime autoalojado](create-self-hosted-integration-runtime.md)
-- [Criar runtime de integração Azure-SSIS](create-azure-ssis-integration-runtime.md)
+- [Create self-hosted integration runtime](create-self-hosted-integration-runtime.md) (Criar o runtime de integração autoalojado)
+- [Criar tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md)
  

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 49bf7984efe74edd2a19909509e0c6b9564fc2e9
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: e42fa7f48b5e6475604570a95f2ffc034b43b8f7
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274428"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604606"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Usar referências de Key Vault para o serviço de aplicativo e Azure Functions
 
@@ -36,14 +36,14 @@ Para ler segredos de Key Vault, você precisa ter um cofre criado e dar permiss�
    > [!NOTE] 
    > Key Vault referências atualmente só dão suporte a identidades gerenciadas atribuídas pelo sistema. Não é possível usar identidades atribuídas pelo usuário.
 
-1. Crie uma [política de acesso no Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) para a identidade do aplicativo que você criou anteriormente. Habilite a permissão de segredo "Get" nessa política. Não defina as configurações "aplicativo autorizado" ou `applicationId`, pois isso não é compatível com uma identidade gerenciada.
+1. Crie uma [política de acesso no Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) para a identidade do aplicativo que você criou anteriormente. Habilite a permissão de segredo "Get" nessa política. Não defina as configurações de "aplicativo autorizado" ou `applicationId`, pois isso não é compatível com uma identidade gerenciada.
 
     > [!NOTE]
     > Key Vault referências não estão atualmente capazes de resolver segredos armazenados em um cofre de chaves com [restrições de rede](../key-vault/key-vault-overview-vnet-service-endpoints.md).
 
 ## <a name="reference-syntax"></a>Sintaxe de referência
 
-Uma referência de Key Vault é do formato `@Microsoft.KeyVault({referenceString})`, em que `{referenceString}` é substituído por uma das seguintes opções:
+Uma referência de Key Vault é do `@Microsoft.KeyVault({referenceString})`de formulário, em que `{referenceString}` é substituído por uma das seguintes opções:
 
 > [!div class="mx-tdBreakAll"]
 > | Cadeia de referência                                                            | Descrição                                                                                                                                                                                 |
@@ -51,13 +51,15 @@ Uma referência de Key Vault é do formato `@Microsoft.KeyVault({referenceString
 > | SecretUri =_SecretUri_                                                       | O **SecretUri** deve ser o URI completo do plano de dados de um segredo em Key Vault, incluindo uma versão, por exemplo, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
 > | Vaultname =_vaultname_; Secretname =_secretoname_; SecretVersion =_SecretVersion_ | O **vaultname** deve ter o nome de seu Key Vault recurso. O **segredoname** deve ser o nome do segredo de destino. O **SecretVersion** deve ser a versão do segredo a ser usado. |
 
-> [!NOTE] 
-> Atualmente, as versões são necessárias. Ao girar segredos, você precisará atualizar a versão na configuração do aplicativo.
-
-Por exemplo, uma referência completa seria semelhante ao seguinte:
+Por exemplo, uma referência completa com a versão seria parecida com a seguinte:
 
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
+```
+Uma referência completa sem versão seria parecida com a seguinte:
+
+```
+@Microsoft.KeyVault(SecretUri=https://<MYKEYVAULT>.vault.azure.net/secrets/eShopStorageAccountCS/)
 ```
 
 Como alternativa

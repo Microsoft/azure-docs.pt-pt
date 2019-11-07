@@ -1,5 +1,5 @@
 ---
-title: Como mover recursos do banco de dados SQL do Azure para outra região | Microsoft Docs
+title: Como mover recursos do banco de dados SQL do Azure para outra região
 description: Saiba como mover o banco de dados SQL do Azure, o pool elástico do SQL do Azure ou a instância gerenciada do SQL do Azure para outra região.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 2158d4120445de4c62461fb89555a1b73bc1e2b4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9e7cd6cb338de1d029d38ef08693a7b52f7cf15c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567169"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687786"
 ---
 # <a name="how-to-move-azure-sql-resources-to-another-region"></a>Como mover recursos do SQL do Azure para outra região
 
@@ -67,17 +67,17 @@ Este artigo fornece um fluxo de trabalho geral para mover recursos para uma regi
  
 ### <a name="monitor-the-preparation-process"></a>Monitorar o processo de preparação
 
-Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída `Get-AzSqlDatabaseFailoverGroup` de inclui uma propriedade parao replicationstate: 
-   - **Replicationstate = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ser realizado com êxito. 
-   - **Replicationstate = 0** (Propagação) indica que o banco de dados ainda não foi propagado e uma tentativa de failover falhará. 
+Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída de `Get-AzSqlDatabaseFailoverGroup` inclui uma propriedade para o **replicationstate**: 
+   - **Replicationstate = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ter o failover com segurança. 
+   - **Replicationstate = 0** (propagação) indica que o banco de dados ainda não foi propagado e uma tentativa de failover falhará. 
 
 ### <a name="test-synchronization"></a>Sincronização de teste
 
-Depois que replicationstate `2`é, conecte-se a cada banco de dados ou subconjunto de bancos de `<fog-name>.secondary.database.windows.net` dado usando o ponto de extremidade secundário e execute qualquer consulta em relação aos bancos de dados para garantir a conectividade, a configuração de segurança apropriada e a data replicação. 
+Depois que o **replicationstate** é `2`, conecte-se a cada banco de dados ou subconjunto de bancos de dado usando o ponto de extremidade secundário `<fog-name>.secondary.database.windows.net` e execute qualquer consulta em relação aos bancos de dados para garantir a conectividade, a configuração de segurança adequada e a replicação do dado. 
 
 ### <a name="initiate-the-move"></a>Iniciar a movimentação
 
-1. Conecte-se ao servidor de destino usando o `<fog-name>.secondary.database.windows.net`ponto de extremidade secundário.
+1. Conecte-se ao servidor de destino usando o ponto de extremidade secundário `<fog-name>.secondary.database.windows.net`.
 1. Use o [switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) para mudar a instância gerenciada secundária para ser a primária com sincronização completa. Esta operação terá sucesso ou será revertida. 
 1. Verifique se o comando foi concluído com êxito usando `nslook up <fog-name>.secondary.database.windows.net` para verificar se a entrada DNS CNAME aponta para o endereço IP da região de destino. Se o comando switch falhar, o CNAME não será atualizado. 
 
@@ -119,17 +119,17 @@ Quando a movimentação for concluída, remova os recursos na região de origem 
 
 ### <a name="monitor-the-preparation-process"></a>Monitorar o processo de preparação
 
-Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída `Get-AzSqlDatabaseFailoverGroup` de inclui uma propriedade parao replicationstate: 
-   - **Replicationstate = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ser realizado com êxito. 
-   - **Replicationstate = 0** (Propagação) indica que o banco de dados ainda não foi propagado e uma tentativa de failover falhará. 
+Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída de `Get-AzSqlDatabaseFailoverGroup` inclui uma propriedade para o **replicationstate**: 
+   - **Replicationstate = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ter o failover com segurança. 
+   - **Replicationstate = 0** (propagação) indica que o banco de dados ainda não foi propagado e uma tentativa de failover falhará. 
 
 ### <a name="test-synchronization"></a>Sincronização de teste
  
-Depois que replicationstate `2`é, conecte-se a cada banco de dados ou subconjunto de bancos de `<fog-name>.secondary.database.windows.net` dado usando o ponto de extremidade secundário e execute qualquer consulta em relação aos bancos de dados para garantir a conectividade, a configuração de segurança apropriada e a data replicação. 
+Depois que o **replicationstate** é `2`, conecte-se a cada banco de dados ou subconjunto de bancos de dado usando o ponto de extremidade secundário `<fog-name>.secondary.database.windows.net` e execute qualquer consulta em relação aos bancos de dados para garantir a conectividade, a configuração de segurança adequada e a replicação do dado. 
 
 ### <a name="initiate-the-move"></a>Iniciar a movimentação
  
-1. Conecte-se ao servidor de destino usando o `<fog-name>.secondary.database.windows.net`ponto de extremidade secundário.
+1. Conecte-se ao servidor de destino usando o ponto de extremidade secundário `<fog-name>.secondary.database.windows.net`.
 1. Use o [switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) para mudar a instância gerenciada secundária para ser a primária com sincronização completa. Esta operação terá sucesso ou será revertida. 
 1. Verifique se o comando foi concluído com êxito usando `nslook up <fog-name>.secondary.database.windows.net` para verificar se a entrada DNS CNAME aponta para o endereço IP da região de destino. Se o comando switch falhar, o CNAME não será atualizado. 
 
@@ -166,17 +166,17 @@ Crie um grupo de failover entre cada instância de origem e a instância de dest
  
 ### <a name="monitor-the-preparation-process"></a>Monitorar o processo de preparação
 
-Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup?view=azps-2.3.2) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída `Get-AzSqlDatabaseFailoverGroup` de inclui uma propriedade parao replicationstate: 
-   - **Replicationstate = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ser realizado com êxito. 
-   - **Replicationstate = 0** (Propagação) indica que o banco de dados ainda não foi propagado e uma tentativa de failover falhará. 
+Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup?view=azps-2.3.2) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída de `Get-AzSqlDatabaseFailoverGroup` inclui uma propriedade para o **replicationstate**: 
+   - **Replicationstate = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ter o failover com segurança. 
+   - **Replicationstate = 0** (propagação) indica que o banco de dados ainda não foi propagado e uma tentativa de failover falhará. 
 
 ### <a name="test-synchronization"></a>Sincronização de teste
 
-Depois que replicationstate `2`é, conecte-se a cada banco de dados ou subconjunto de bancos de `<fog-name>.secondary.database.windows.net` dado usando o ponto de extremidade secundário e execute qualquer consulta em relação aos bancos de dados para garantir a conectividade, a configuração de segurança apropriada e a data replicação. 
+Depois que o **replicationstate** é `2`, conecte-se a cada banco de dados ou subconjunto de bancos de dado usando o ponto de extremidade secundário `<fog-name>.secondary.database.windows.net` e execute qualquer consulta em relação aos bancos de dados para garantir a conectividade, a configuração de segurança adequada e a replicação do dado. 
 
 ### <a name="initiate-the-move"></a>Iniciar a movimentação 
 
-1. Conecte-se ao servidor de destino usando o `<fog-name>.secondary.database.windows.net`ponto de extremidade secundário.
+1. Conecte-se ao servidor de destino usando o ponto de extremidade secundário `<fog-name>.secondary.database.windows.net`.
 1. Use o [switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup?view=azps-2.3.2) para mudar a instância gerenciada secundária para ser a primária com sincronização completa. Esta operação terá sucesso ou será revertida. 
 1. Verifique se o comando foi concluído com êxito usando `nslook up <fog-name>.secondary.database.windows.net` para verificar se a entrada DNS CNAME aponta para o endereço IP da região de destino. Se o comando switch falhar, o CNAME não será atualizado. 
 
@@ -187,7 +187,7 @@ Quando a movimentação for concluída, remova os recursos na região de origem 
 1. Exclua a instância gerenciada de origem usando [Remove-AzSqlInstance](/powershell/module/az.sql/remove-azsqlinstance). 
 1. Remova todos os recursos adicionais no grupo de recursos, como o cluster virtual, a rede virtual e o grupo de segurança. 
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes 
 
 [Gerencie](sql-database-manage-after-migration.md) seu banco de dados SQL do Azure depois que ele tiver sido migrado. 
 

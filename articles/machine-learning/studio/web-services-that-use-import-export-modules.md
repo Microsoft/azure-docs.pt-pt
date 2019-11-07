@@ -1,5 +1,6 @@
 ---
-title: Importar/exportar dados em serviços Web-Azure Machine Learning Studio (clássico) | Microsoft Docs
+title: Importar/exportar dados nos serviços Web
+titleSuffix: ML Studio (classic) Azure
 description: Saiba como usar os módulos importar dados e exportar dados para enviar e receber dados de um serviço Web.
 services: machine-learning
 author: xiaoharper
@@ -11,12 +12,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: a9259856a792dbd3c2f22ed98eef26c8e5f7b17d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3a88d3958378a0746a22e99a817ad9ecebf217dc
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500114"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684706"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Implantar serviços Web Azure Machine Learning Studio (clássico) que usam módulos de importação de dados e exportação de dados
 

@@ -1,5 +1,5 @@
 ---
-title: Banco de dados SQL do Azure automático, backups com redundância geográfica | Microsoft Docs
+title: Banco de dados SQL do Azure automático, backups com redundância geográfica
 description: O banco de dados SQL cria automaticamente um backup de banco de dados local a cada poucos minutos e usa o armazenamento com redundância geográfica com acesso de leitura do Azure para redundância geográfica.
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 09/26/2019
-ms.openlocfilehash: a43783110f625dd5faef13c83228a2659155ead0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5dd2cb8d266fcb2a17c50a2213509b968894737e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492230"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691187"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
 

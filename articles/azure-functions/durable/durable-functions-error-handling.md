@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5a3cfb78fe97b52abb1406dff64132fc1b3fb985
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: adc23cad4ad7c55ce81096b1550520c496f744c1
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933416"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614877"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Tratamento de erros em Durable Functions (Azure Functions)
 
@@ -22,7 +22,7 @@ Orquestrações de função duráveis são implementadas no código e podem usar
 
 ## <a name="errors-in-activity-functions"></a>Erros em funções de atividade
 
-Qualquer exceção gerada em uma função de atividade é empacotada de volta para a função de orquestrador e lançada como `FunctionFailedException`um. Você pode escrever código de compensação e tratamento de erros que atenda às suas necessidades na função de orquestrador.
+Qualquer exceção gerada em uma função de atividade é empacotada de volta para a função de orquestrador e gerada como um `FunctionFailedException`. Você pode escrever código de compensação e tratamento de erros que atenda às suas necessidades na função de orquestrador.
 
 Por exemplo, considere a seguinte função de orquestrador que transfere fundos de uma conta para outra:
 
@@ -30,7 +30,7 @@ Por exemplo, considere a seguinte função de orquestrador que transfere fundos 
 
 ```csharp
 [FunctionName("TransferFunds")]
-public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     var transferDetails = ctx.GetInput<TransferOperation>();
 
@@ -69,7 +69,7 @@ public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
 
-public static async Task Run(DurableOrchestrationContext context)
+public static async Task Run(IDurableOrchestrationContext context)
 {
     var transferDetails = ctx.GetInput<TransferOperation>();
 
@@ -103,7 +103,10 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
+> [!NOTE]
+> Os exemplos C# anteriores são para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+
+### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -149,7 +152,7 @@ Quando você chama funções de atividade ou funções de suborquestração, pod
 
 ```csharp
 [FunctionName("TimerOrchestratorWithRetry")]
-public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     var retryOptions = new RetryOptions(
         firstRetryInterval: TimeSpan.FromSeconds(5),
@@ -164,7 +167,7 @@ public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext 
 ### <a name="c-script"></a>C#Prescritiva
 
 ```csharp
-public static async Task Run(DurableOrchestrationContext context)
+public static async Task Run(IDurableOrchestrationContext context)
 {
     var retryOptions = new RetryOptions(
         firstRetryInterval: TimeSpan.FromSeconds(5),
@@ -176,7 +179,10 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
+> [!NOTE]
+> Os exemplos C# anteriores são para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+
+### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -190,16 +196,16 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-A `CallActivityWithRetryAsync` API (.net) `callActivityWithRetry` ou (JavaScript) usa um `RetryOptions` parâmetro. As chamadas de suborquestração `CallSubOrchestratorWithRetryAsync` usando a API ( `callSubOrchestratorWithRetry` .net) ou (JavaScript) podem usar essas mesmas políticas de repetição.
+A API `CallActivityWithRetryAsync` (.NET) ou `callActivityWithRetry` (JavaScript) usa um parâmetro `RetryOptions`. As chamadas de suborquestração usando a API `CallSubOrchestratorWithRetryAsync` (.NET) ou `callSubOrchestratorWithRetry` (JavaScript) podem usar essas mesmas políticas de repetição.
 
 Há várias opções para personalizar a política de repetição automática:
 
-* **Número máximo de tentativas**: O número máximo de tentativas de repetição.
-* **Primeiro intervalo de repetição**: A quantidade de tempo de espera antes da primeira tentativa de repetição.
-* **Coeficiente de retirada**: O coeficiente usado para determinar a taxa de aumento de retirada. O padrão é 1.
-* **Intervalo máximo de repetição**: A quantidade máxima de tempo de espera entre as tentativas de repetição.
-* **Tempo limite de repetição**: A quantidade máxima de tempo para passar por novas tentativas. O comportamento padrão é repetir indefinidamente.
-* **Identificador**: Um retorno de chamada definido pelo usuário pode ser especificado para determinar se uma função deve ser repetida.
+* **Número máximo de tentativas**: o número máximo de tentativas de repetição.
+* **Primeiro intervalo de repetição**: a quantidade de tempo de espera antes da primeira tentativa de repetição.
+* **Coeficiente de retirada**: o coeficiente usado para determinar a taxa de aumento de retrocesso. O padrão é 1.
+* **Intervalo máximo de repetição**: a quantidade máxima de tempo de espera entre as tentativas de repetição.
+* **Tempo limite de repetição**: a quantidade máxima de tempo gasto para fazer novas tentativas. O comportamento padrão é repetir indefinidamente.
+* **Identificador**: um retorno de chamada definido pelo usuário pode ser especificado para determinar se uma função deve ser repetida.
 
 ## <a name="function-timeouts"></a>Tempos limite da função
 
@@ -209,7 +215,7 @@ Talvez você queira abandonar uma chamada de função dentro de uma função de 
 
 ```csharp
 [FunctionName("TimerOrchestrator")]
-public static async Task<bool> Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static async Task<bool> Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     TimeSpan timeout = TimeSpan.FromSeconds(30);
     DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
@@ -238,7 +244,7 @@ public static async Task<bool> Run([OrchestrationTrigger] DurableOrchestrationCo
 ### <a name="c-script"></a>C#Prescritiva
 
 ```csharp
-public static async Task<bool> Run(DurableOrchestrationContext context)
+public static async Task<bool> Run(IDurableOrchestrationContext context)
 {
     TimeSpan timeout = TimeSpan.FromSeconds(30);
     DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
@@ -264,7 +270,10 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
+> [!NOTE]
+> Os exemplos C# anteriores são para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+
+### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -293,9 +302,9 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="unhandled-exceptions"></a>Exceções não processadas
 
-Se uma função de orquestrador falhar com uma exceção sem tratamento, os detalhes da exceção serão registrados e a instância será concluída com um `Failed` status.
+Se uma função de orquestrador falhar com uma exceção sem tratamento, os detalhes da exceção serão registrados e a instância será concluída com um status de `Failed`.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre orquestrações do eternas](durable-functions-eternal-orchestrations.md)

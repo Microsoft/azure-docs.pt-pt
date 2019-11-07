@@ -9,14 +9,14 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: b890fe1a9ef30e18a54ced9f48015bed39298807
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b7b9cd1040accda4d39af4d0a18940b56a45f929
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858875"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569890"
 ---
-# <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Tutorial: Criar e testar um modelo de capacidade de dispositivo usando Visual Studio Code
+# <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Tutorial: criar e testar um modelo de capacidade de dispositivo usando Visual Studio Code
 
 Este tutorial mostra como, como desenvolvedor de dispositivos, usar Visual Studio Code para criar um modelo de _capacidade de dispositivo_. Você pode usar o modelo para gerar um código esqueleto para ser executado em um dispositivo que se conecta a uma instância do Hub IoT do Azure na nuvem.
 
@@ -34,7 +34,7 @@ Neste tutorial, ficará a saber como:
 
 Para trabalhar com o modelo de funcionalidade do dispositivo neste tutorial, você precisa de:
 
-* [Visual Studio Code](https://code.visualstudio.com/download): VS Code está disponível para várias plataformas
+* [Visual Studio Code](https://code.visualstudio.com/download): vs Code está disponível para várias plataformas
 * [Ferramentas de IOT do Azure para vs Code pacote de](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extensão. Use as etapas a seguir para instalar o pacote de extensão no VS Code:
 
     1. Em VS Code, selecione a guia **extensões** .
@@ -43,14 +43,9 @@ Para trabalhar com o modelo de funcionalidade do dispositivo neste tutorial, voc
 
 Para criar o código C gerado no Windows neste tutorial, você precisará de:
 
-* [Visual Studio (Comunidade, profissional ou empresa)](https://visualstudio.microsoft.com/downloads/) – certifique-se de incluir o componente **Gerenciador de pacotes NuGet** e o **desenvolvimento de desktop C++ com** carga de trabalho ao instalar o Visual Studio.
+* [Ferramentas de Build para Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) com  **C++ ferramentas de compilação** e cargas de trabalho de **componente do Gerenciador de pacotes NuGet** . Ou, se você já tiver o [Visual Studio (Community, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 ou 2015 com as mesmas cargas de trabalho instaladas.
 * [Git](https://git-scm.com/download)
 * [CMake](https://cmake.org/download/)
-* Uma cópia local do SDK do Azure IoT C:
-
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
-    ```
 
 Para testar o código do dispositivo neste tutorial, você precisará de:
 
@@ -71,13 +66,13 @@ Para criar um arquivo de interface que define os recursos do seu dispositivo IoT
 
 1. Inicie VS Code e use **Ctrl + Shift + P** para abrir a paleta de comandos.
 
-1. Insira **plug and Play** e, em seguida **, selecione o plug-in do IOT & Play: Comando Create** interface.
+1. Insira **plug and Play** e, em seguida, selecione o comando do **plug-in do IOT & Play: Create interface** .
 
 1. Navegue até e selecione a pasta **devicemodel** que você criou.
 
 1. Em seguida, insira **EnvironmentalSensor** como o nome da interface e pressione **Enter**. VS Code cria um arquivo de interface de exemplo chamado **EnvironmentalSensor. interface. JSON**.
 
-1. Substitua o conteúdo deste arquivo pelo JSON a seguir e substitua `{your name}` `@id` no campo por um valor exclusivo. Use somente os caracteres a-z, A-Z, 0-9 e sublinhado. Para obter mais informações, consulte [formato do identificador de entrelaça digital](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format). A ID da interface deve ser exclusiva para salvar a interface no repositório:
+1. Substitua o conteúdo deste arquivo pelo JSON a seguir e substitua `{your name}` no campo `@id` por um valor exclusivo. Use somente os caracteres a-z, A-Z, 0-9 e sublinhado. Para obter mais informações, consulte [formato do identificador de entrelaça digital](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format). A ID da interface deve ser exclusiva para salvar a interface no repositório:
 
     ```json
     {
@@ -176,7 +171,7 @@ Para criar um arquivo de interface que define os recursos do seu dispositivo IoT
           "commandType": "synchronous"
         }
       ],
-      "@context": "http://azureiot.com/v1/contexts/Interface.json"
+      "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
     }
     ```
 
@@ -219,9 +214,9 @@ Para criar um arquivo de modelo que especifica as interfaces que o dispositivo d
 
 1. Use **Ctrl + Shift + P** para abrir a paleta de comandos.
 
-1. Insira **plug and Play** e, em seguida **, selecione o plug-in do IOT & Play: Criar comando de** modelo de funcionalidade. Em seguida, insira **SensorboxModel** como o nome do modelo. VS Code cria um arquivo de interface de exemplo chamado **SensorboxModel. capabilitymodel. JSON**.
+1. Insira **plug and Play** e, em seguida, selecione o comando de **modelo de recurso do plug-in do IOT & Play: Create** . Em seguida, insira **SensorboxModel** como o nome do modelo. VS Code cria um arquivo de interface de exemplo chamado **SensorboxModel. capabilitymodel. JSON**.
 
-1. Substitua o conteúdo desse arquivo pelo JSON a seguir `{your name}` e substitua `@id` -o pelo campo e na `EnvironmentalSensor` interface com o mesmo valor usado no arquivo **EnvironmentalSensor. interface. JSON** . A ID da interface deve ser exclusiva para salvar a interface no repositório:
+1. Substitua o conteúdo deste arquivo pelo JSON a seguir e substitua `{your name}` no campo `@id` e na interface `EnvironmentalSensor` com o mesmo valor usado no arquivo **EnvironmentalSensor. interface. JSON** . A ID da interface deve ser exclusiva para salvar a interface no repositório:
 
     ```json
     {
@@ -256,7 +251,7 @@ Para baixar a interface **DeviceInformation** do repositório de modelos públic
 
 1. Insira **plug and Play**, selecione o comando **abrir repositório de modelos** e, em seguida, selecione **abrir repositório de modelos públicos**.
 
-1. Selecione **interfaces**, selecione a interface de informações do dispositivo com `urn:azureiot:DeviceManagement:DeviceInformation:1`ID e, em seguida, selecione **baixar**.
+1. Selecione **interfaces**e, em seguida, selecione a interface de informações do dispositivo com ID `urn:azureiot:DeviceManagement:DeviceInformation:1`e, em seguida, selecione **baixar**.
 
 Agora você tem os três arquivos que compõem o modelo de capacidade do dispositivo:
 
@@ -264,7 +259,7 @@ Agora você tem os três arquivos que compõem o modelo de capacidade do disposi
 * EnvironmentalSensor. interface. JSON
 * SensorboxModel. capabilitymodel. JSON
 
-## <a name="publish-the-model"></a>Publique o modelo
+## <a name="publish-the-model"></a>Publicar o modelo
 
 Para que a ferramenta do Azure IoT Explorer Leia o modelo de capacidade do dispositivo, você precisa publicá-lo no repositório da sua empresa. Para publicar de VS Code, você precisa da cadeia de conexão para o repositório da empresa:
 
@@ -280,7 +275,7 @@ Para abrir o repositório da sua empresa no VS Code:
 
 1. Use **Ctrl + Shift + P** para abrir a paleta de comandos.
 
-1. Insira **plug and Play** e, em seguida **, selecione o plug-in do IOT & Play: Abra o comando** de repositório de modelos.
+1. Insira **plug and Play** e, em seguida, selecione o comando **IOT plug & Play: abrir o repositório de modelos** .
 
 1. Selecione **abrir repositório de modelo organizacional** e cole na cadeia de conexão.
 
@@ -290,7 +285,7 @@ Para publicar o modelo de funcionalidade do dispositivo e as interfaces no repos
 
 1. Use **Ctrl + Shift + P** para abrir a paleta de comandos.
 
-1. Insira **plug and Play** e, em seguida **, selecione o plug-in do IOT & Play: Comando enviar arquivos para o** repositório de modelos.
+1. Insira **plug and Play** e, em seguida, selecione o comando **plug & Play do IOT: enviar arquivos ao repositório de modelo** .
 
 1. Selecione os arquivos **EnvironmentalSensor. interface. JSON** e **SensorboxModel. capabilitymodel. JSON** e selecione **OK**.
 
@@ -302,7 +297,7 @@ Você pode usar as **Ferramentas do Azure IOT para vs Code** para gerar o esquel
 
 1. Use **Ctrl + Shift + P** para abrir a paleta de comandos.
 
-1. Insira **plug and Play** e, em seguida **, selecione o plug-in do IOT & Play: Gerar comando de stub** de código de dispositivo.
+1. Insira **plug and Play** e, em seguida, selecione o comando de **stub de código do dispositivo IOT & Play: gerar**
 
 1. Selecione o arquivo de modelo de funcionalidade **SensorboxModel. capabilitymodel. JSON** .
 
@@ -310,9 +305,11 @@ Você pode usar as **Ferramentas do Azure IOT para vs Code** para gerar o esquel
 
 1. Escolha **ANSI C** como o idioma.
 
-1. Escolha **projeto CMake** como o destino.
-
 1. Escolha **por meio da cadeia de conexão do dispositivo do Hub IOT** como a maneira de se conectar.
+
+1. Escolha **projeto CMake no Windows** como modelo de projeto.
+
+1. Escolha **via Vcpkg** como uma maneira de incluir o SDK do dispositivo.
 
 VS Code gera o código de esqueleto C e salva os arquivos na pasta **sensorbox_app** na pasta **modelcode** VS Code abre uma nova janela que contém os arquivos de código gerados.
 
@@ -355,7 +352,7 @@ Quando você executa o código, ele se conecta ao Hub IoT e começa a enviar amo
 
     Anote a cadeia de conexão.
 
-1. Em um prompt de comando, navegue até a pasta **Azure-IOT-SDK-c** em que você criou o SDK e os exemplos. Em seguida, navegue até a pasta **\\CMake sensorbox_app\\Release** .
+1. Em um prompt de comando, navegue até a pasta **Azure-IOT-SDK-c** em que você criou o SDK e os exemplos. Em seguida, navegue até o **cmake\\sensorbox_app\\** pasta de versão.
 
 1. Execute o seguinte comando:
 
@@ -365,7 +362,7 @@ Quando você executa o código, ele se conecta ao Hub IoT e começa a enviar amo
 
 1. Use a ferramenta do Azure IoT Explorer para interagir com o dispositivo de Plug and Play de IoT conectado ao Hub IoT. Para obter mais informações, consulte [instalar e usar o Azure IOT Explorer](./howto-install-iot-explorer.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você criou um Plug and Play IoT pronto para certificação, saiba como:
 

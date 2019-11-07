@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 10/04/2019
 ms.author: victorh
-ms.openlocfilehash: 844e24466e9a9b46be3212690767a408e75f234d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 0ac37378797c59d79af5d026200b68154836c5ac
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516620"
+ms.locfileid: "73585396"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Regras personalizadas para o Firewall do aplicativo Web V2 no Aplicativo Azure gateway
 
@@ -163,6 +163,11 @@ Lista de valores a serem correspondidos, que pode ser considerada como sendo *ou
 
 ## <a name="geomatch-custom-rules-preview"></a>Regras personalizadas de correspondência geocombinadas (versão prévia)
 
+As regras personalizadas permitem a criação de regras adaptadas para atender às necessidades exatas de seus aplicativos e suas políticas de segurança. Agora, você pode restringir o acesso a seus aplicativos Web por país/região, que está disponível na visualização pública. Assim como acontece com todas as regras personalizadas, essa lógica pode ser composta por outras regras para atender às necessidades do seu aplicativo. 
+
+   > [!NOTE]
+   > As regras personalizadas de correspondência geocombinadas estão disponíveis no EUA Central do Sul e Europa Setentrional. Para acessá-los no portal, use [este link](https://aka.ms/AppGWWAFGeoMatch) até que ele fique ativo para todos. 
+
 Se você estiver usando o operador geomatch, os seletores podem ser qualquer um dos seguintes códigos de país de dois dígitos. 
 
 |Indicativo do país | Nome do país |
@@ -272,11 +277,11 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | MA | Marrocos|
 | MD | Moldova, República da|
 | MG | Madagáscar|
-| MK | Nordeste da Macedônia|
+| MK | Macedónia do Norte|
 | ML | Mali|
 | MM | Myanmar|
 | MN | Mongólia|
-| MO | Rae de Macau|
+| MO | RAE de Macau|
 | MQ | Martinica|
 | MR | Mauritânia|
 | MT | Malta|

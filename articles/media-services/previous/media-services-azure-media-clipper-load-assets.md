@@ -1,36 +1,36 @@
 ---
-title: Carregar recursos para o Azure Media Clipper | Documentos da Microsoft
-description: Passos para carregar recursos para o Azure Media Clipper
+title: Carregar ativos no Azure Media Clipper | Microsoft Docs
+description: Etapas para carregar ativos no Azure Media Clipper
 services: media-services
-keywords: Clip; subclip; codificação; suporte de dados
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+keywords: clip; subclip; codificação; mídia
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: ec8cd06be78bbd8df0bca390696e736c3a6ee075
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66b4ca5b2859dd306f6eb1c669a07840189f53d5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465886"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685052"
 ---
-# <a name="loading-assets-into-azure-media-clipper"></a>Carregamento de recursos no Azure Media Clipper  
+# <a name="loading-assets-into-azure-media-clipper"></a>Carregando ativos no Azure Media Clipper  
 
-Ativos podem ser carregados para o Azure Media Clipper por dois métodos:
-1. Estaticamente passando uma biblioteca de ativos
-2. Gerando dinamicamente uma lista de recursos através da API
+Os ativos podem ser carregados no Azure Media Clipper por dois métodos:
+1. Passagem estática em uma biblioteca de ativos
+2. Gerando dinamicamente uma lista de ativos por meio da API
 
-## <a name="statically-load-videos-into-clipper"></a>Estaticamente carregar vídeos para Clipper
-Estaticamente carregar vídeos para o Clipper para permitir que os utilizadores finais criar clips sem selecionar vídeos a partir do painel de seleção de elemento.
+## <a name="statically-load-videos-into-clipper"></a>Carregar estaticamente vídeos no Clipper
+Carregue estaticamente vídeos no Clipper para permitir que os usuários finais criem clipes sem selecionar vídeos no painel de seleção de ativos.
 
-Neste caso, passar um conjunto estático de ativos para o Clipper. Cada ativo inclui um ID de recurso/filtragem do AMS, o URL de transmissão em fluxo do nome, publicado. Se aplicável, um token de autenticação de proteção de conteúdo ou uma matriz de miniatura URLs podem ser passados. Se passado, as miniaturas são preenchidas na interface. Em cenários em que a biblioteca de ativos é estático e pequeno porte, pode passar no contrato de recurso para cada elemento na biblioteca.
+Nesse caso, você passa um conjunto estático de ativos para o Clipper. Cada ativo inclui uma ID de ativo/filtro do AMS, nome, URL de streaming publicada. Se aplicável, um token de autenticação de proteção de conteúdo ou uma matriz de URLs em miniatura pode ser passado. Se passadas, as miniaturas são populadas na interface. Em cenários em que a biblioteca de ativos é estática e pequena, você pode passar o contrato de ativos para cada ativo na biblioteca.
 
 > [!NOTE]
-> Ao carregar estaticamente ativos para o Clipper, os recursos são adicionados **diretamente para a linha cronológica** e o **painel de recurso não é processado**. O primeiro elemento é adicionado à linha cronológica e o restante dos ativos são empilhadas no lado direito da linha do tempo).
+> Ao carregar estaticamente os ativos no Clipper, os ativos são adicionados **diretamente à linha do tempo** e o **painel do ativo não é renderizado**. O primeiro ativo é adicionado à linha do tempo e o restante dos ativos é empilhado no lado direito da linha do tempo.
 
-Para carregar uma biblioteca de ativos estático, utilize o **carregar** método passar uma representação JSON de cada ativo. O exemplo de código a seguir ilustra a representação JSON para um recurso.
+Para carregar uma biblioteca de ativos estáticos, use o método **Load** para passar uma representação JSON de cada ativo. O exemplo de código a seguir ilustra a representação JSON para um ativo.
 
 ```javascript
 var assets = [
@@ -99,10 +99,10 @@ subclipper.ready(function () {
 ```
 
 > [!NOTE]
-> Recomenda-se para o método load() chamar com o método ready(handler), conforme mostrado no exemplo anterior de cadeia. O exemplo anterior garante que a widget é pronto antes de carregar os ativos.
+> É recomendável encadear a chamada do método Load () com o método pronto (manipulador), conforme mostrado no exemplo anterior. O exemplo anterior garante que o widget esteja pronto antes de carregar os ativos.
 
 > [!NOTE]
-> Para a miniatura URLs a funcionar conforme esperado na linha da tempo de Clipper eles devem ser distribuídos uniformemente por vídeo (com base na duração) e, em ordem cronológica dentro da matriz. Pode utilizar o seguinte fragmento predefinido de JSON como uma referência de exemplo para gerar imagens com o processador "Codificador de multimédia Standard":
+> Para que as URLs de miniatura funcionem conforme o esperado na linha do tempo do Clipper, elas devem ser distribuídas uniformemente pelo vídeo (com base na duração) e em ordem cronológica dentro da matriz. Você pode usar o seguinte trecho de predefinição JSON como uma referência de exemplo para gerar imagens com o processador ' Media Encoder Standard ':
 
 ```json
 {
@@ -120,13 +120,13 @@ subclipper.ready(function () {
 }
 ```
 
-## <a name="dynamically-load-videos-in-clipper"></a>Carregar dinamicamente os vídeos no Clipper
-Carregar dinamicamente vídeos para o Clipper para permitir que os utilizadores finais selecionar vídeos a partir do painel de seleção de recurso para recortar contra.
+## <a name="dynamically-load-videos-in-clipper"></a>Carregar dinamicamente vídeos no Clipper
+Carregue dinamicamente vídeos no Clipper para permitir que os usuários finais selecionem vídeos do painel de seleção de ativos para recortar.
 
-Em alternativa, pode carregar recursos dinamicamente por meio de um retorno de chamada. Em cenários em que ativos estão a ser gerados dinamicamente ou a biblioteca é grande, deve carregar por meio do retorno de chamada. Para carregar recursos dinamicamente, deve implementar a função de retorno de chamada onLoadAssets opcional. Esta função é passada para o Clipper na inicialização. Os recursos de resolvido devem seguir o mesmo contrato como ativos estaticamente carregá-lo. O exemplo de código a seguir ilustra a assinatura do método, a entrada esperada e a saída esperada.
+Como alternativa, você pode carregar ativos dinamicamente por meio de um retorno de chamada. Em cenários em que os ativos são gerados dinamicamente ou a biblioteca é grande, você deve carregar por meio do retorno de chamada. Para carregar o ativo dinamicamente, você deve implementar a função de retorno de chamada onLoadAssets opcional. Essa função é passada para o Clipper na inicialização. Os ativos resolvidos devem aderir ao mesmo contrato que os ativos carregados estaticamente. O exemplo de código a seguir ilustra a assinatura do método, a entrada esperada e a saída esperada.
 
 > [!NOTE]
-> Quando o carregamento dinâmico de recursos para o Clipper, os ativos são compostos na **painel de seleção de elemento**.
+> Ao carregar dinamicamente os ativos no Clipper, os ativos são renderizados no **painel de seleção de ativos**.
 
 ```javascript
 // Video Assets Pane Callback

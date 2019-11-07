@@ -8,12 +8,12 @@ ms.date: 11/04/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: chroyal
-ms.openlocfilehash: 1e92ae36aee5e62cd05b40bbaa38a226943f0adb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 9f408b090db40e5145b424034c39cdba4de14a8f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518024"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605908"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configurar Gerenciador de Dados Blockchain usando CLI do Azure
 
@@ -259,6 +259,10 @@ az resource create \
 
 Se você adicionar um aplicativo blockchain, Blockchain Gerenciador de Dados decodificará o evento e o estado da propriedade para o aplicativo. Caso contrário, somente os dados brutos de bloco e de transação bruto serão enviados. Blockchain Gerenciador de Dados também descobre os endereços de contrato quando o contrato é implantado. Você pode adicionar vários aplicativos blockchain a uma instância de Gerenciador de Dados do Blockchain.
 
+
+> [!IMPORTANT]
+> Atualmente, os aplicativos blockchain que declaram [tipos de matriz](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) de solidez ou [tipos de mapeamento](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) não têm suporte total. As propriedades declaradas como tipos de matriz ou de mapeamento não serão decodificadas em mensagens *ContractPropertiesMsg* ou *DecodedContractEventsMsg* .
+
 ``` azurecli
 az resource create \
                    --resource-group <Resource group> \
@@ -306,7 +310,7 @@ Exemplo de JSON de configuração para criar um recurso de aplicativo na região
 | localização | Região onde criar o recurso de aplicativo. |
 | artefatotype | Tipo de aplicativo. Atualmente, há suporte para **EthereumSmartContract** . |
 | abiFileUrl | URL para o arquivo JSON da ABI do Smart Contract. Para obter mais informações sobre como obter a ABI do contrato e criar uma URL, consulte [obter a Abi do contrato e o código de bytes](data-manager-portal.md#get-contract-abi-and-bytecode) e criar o Abi do [contrato e a URL do código](data-manager-portal.md#create-contract-abi-and-bytecode-url) |
-| bytecodeFileUrl | URL para o arquivo JSON do código de bytes do contrato inteligente. Para obter mais informações sobre como obter o código de bytes do contrato inteligente e criar uma URL, consulte [obter a Abi do contrato e o código de bytes](data-manager-portal.md#get-contract-abi-and-bytecode) e criar o Abi do [contrato e a URL de bytes](data-manager-portal.md#create-contract-abi-and-bytecode-url) |
+| bytecodeFileUrl | URL do arquivo JSON do código de bytes implantado pelo contrato inteligente. Para obter mais informações sobre como obter o código de bytes implantado do contrato inteligente e criar uma URL, consulte [obter a Abi do contrato e o código de bytes](data-manager-portal.md#get-contract-abi-and-bytecode) e criar a URL do [contrato Abi](data-manager-portal.md#create-contract-abi-and-bytecode-url) Observação: Blockchain Gerenciador de Dados requer o **código de bytes implantado**. |
 | queryTargetTypes | Tipos de mensagem publicados. Especificar **Contraiproperties** publica o tipo de mensagem *ContractPropertiesMsg* . Especificar **ContractEvents** publica o tipo de mensagem *DecodedContractEventsMsg* . Observação: os tipos de mensagem *RawBlockAndTransactionMsg* e *RawTransactionContractCreationMsg* são sempre publicados. |
 
 Crie um aplicativo chamado *MyApplication* para *myassister* que monitora um contrato inteligente definido por uma cadeia de caracteres JSON.
@@ -415,4 +419,7 @@ az resource delete \
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [manipuladores de eventos na grade de eventos do Azure](../../event-grid/event-handlers.md).
+Tente criar um Gerenciador de mensagens de transação blockchain usando o Blockchain Gerenciador de Dados e Azure Cosmos DB.
+
+> [!div class="nextstepaction"]
+> [Tutorial: usar o Blockchain Gerenciador de Dados para enviar dados para Azure Cosmos DB](data-manager-cosmosdb.md)

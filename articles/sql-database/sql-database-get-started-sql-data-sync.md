@@ -1,5 +1,5 @@
 ---
-title: Configurar Sincronização de Dados SQL do Azure | Microsoft Docs
+title: Configurar a Sincronização de Dados SQL do Azure
 description: Este tutorial mostra como configurar o Azure Sincronização de Dados SQL
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 37b8f64360e871236be7a8623460bbe75bd1d8b5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 082721ef1436d0b6668016aca29870016038af86
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568164"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689988"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Tutorial: Configurar Sincronização de Dados SQL entre o banco de dados SQL do Azure e o SQL Server local
 
@@ -29,7 +29,7 @@ Para obter uma visão geral do Sincronização de Dados SQL, consulte [sincroniz
 Para obter exemplos do PowerShell sobre como configurar Sincronização de Dados SQL, confira [como sincronizar entre bancos de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md) ou [um Azure SQL database e um SQL Server banco de dados local](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 > [!IMPORTANT]
-> O Azure Sincronização de Dados SQL não **oferece suporte a** instância gerenciada do banco de dados SQL do Azure no momento.
+> O Azure Sincronização de Dados SQL **não oferece suporte a** instância gerenciada do banco de dados SQL do Azure no momento.
 
 ## <a name="create-sync-group"></a>Criar grupo de sincronização
 
@@ -223,7 +223,7 @@ Depois de exportar um banco de dados como um arquivo *. bacpac* e importar o arq
 
 Para perguntas frequentes sobre o agente cliente, consulte [perguntas frequentes](sql-database-data-sync-agent.md#agent-faq)sobre o agente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Parabéns! Você criou um grupo de sincronização que inclui uma instância do banco de dados SQL e um banco de dados SQL Server.
 

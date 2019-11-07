@@ -1,5 +1,5 @@
 ---
-title: Usando o Gerenciador de recuperação para corrigir problemas de mapa de fragmentos | Microsoft Docs
+title: Usando o Gerenciador de recuperação para corrigir problemas de mapa de fragmentos
 description: Usar a classe RecoveryManager para resolver problemas com mapas de fragmentos
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: cbc4985f032c228db7a9ddf719390bbf2d0166b9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5920f0a3f08d83b1300956ca830b3b9b827fa5e2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568689"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690479"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Utilizar a classe RecoveryManager para corrigir problemas do mapa de partições horizontais
 
-A [](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) classe RecoveryManager fornece aos aplicativos ADO.net a capacidade de detectar e corrigir facilmente qualquer inconsistência entre o GSM (mapa de fragmentos global) e o LSM (mapa de fragmentos local) em um ambiente de banco de dados fragmentado.
+A classe [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) fornece aos aplicativos ADO.net a capacidade de detectar e corrigir facilmente qualquer inconsistência entre o GSM (mapa de fragmentos global) e o LSM (mapa de fragmentos local) em um ambiente de banco de dados fragmentado.
 
 O GSM e o LSM acompanham o mapeamento de cada banco de dados em um ambiente fragmentado. Ocasionalmente, ocorre uma interrupção entre o GSM e o LSM. Nesse caso, use a classe RecoveryManager para detectar e reparar a interrupção.
 
@@ -32,23 +32,23 @@ Para definições de termo, consulte [Glossário de ferramentas de banco de dado
 
 ## <a name="why-use-the-recovery-manager"></a>Por que usar o Gerenciador de recuperação
 
-Em um ambiente de banco de dados fragmentado, há um locatário por banco de dados, e muitos bancos por servidor. Também pode haver muitos servidores no ambiente. Cada banco de dados é mapeado no mapa de fragmentos, portanto, as chamadas podem ser roteadas para o servidor e o banco de dados corretos. Os bancos de dados são acompanhados de acordo com uma **chave**de fragmentação e cada fragmento recebe um **intervalo de valores de chave**. Por exemplo, uma chave de fragmentação pode representar os nomes de clientes de "D" a "F". O mapeamento de todos os fragmentos (também conhecido como bancos de dados) e seus intervalos de mapeamento estão contidos no **GSM (mapa de fragmentos global)** . Cada banco de dados também contém um mapa dos intervalos contidos no fragmento que é conhecido como **LSM (mapa de fragmentos local)** . Quando um aplicativo se conecta a um fragmento, o mapeamento é armazenado em cache com o aplicativo para recuperação rápida. O LSM é usado para validar dados armazenados em cache.
+Em um ambiente de banco de dados fragmentado, há um locatário por banco de dados, e muitos bancos por servidor. Também pode haver muitos servidores no ambiente. Cada banco de dados é mapeado no mapa de fragmentos, portanto, as chamadas podem ser roteadas para o servidor e o banco de dados corretos. Os bancos de dados são acompanhados de acordo com uma **chave de fragmentação**e cada fragmento recebe um **intervalo de valores de chave**. Por exemplo, uma chave de fragmentação pode representar os nomes de clientes de "D" a "F". O mapeamento de todos os fragmentos (também conhecido como bancos de dados) e seus intervalos de mapeamento estão contidos no **GSM (mapa de fragmentos global)** . Cada banco de dados também contém um mapa dos intervalos contidos no fragmento que é conhecido como **LSM (mapa de fragmentos local)** . Quando um aplicativo se conecta a um fragmento, o mapeamento é armazenado em cache com o aplicativo para recuperação rápida. O LSM é usado para validar dados armazenados em cache.
 
 O GSM e o LSM podem ficar fora de sincronia pelos seguintes motivos:
 
 1. A exclusão de um fragmento cujo intervalo é acreditado não estar mais em uso ou renomear um fragmento. Excluir um fragmento resulta em um **mapeamento de fragmento órfão**. Da mesma forma, um banco de dados renomeado pode causar um mapeamento de fragmento órfão. Dependendo da intenção da alteração, o fragmento pode precisar ser removido ou o local do fragmento precisa ser atualizado. Para recuperar um banco de dados excluído, consulte [restaurar um banco de dados excluído](sql-database-recovery-using-backups.md).
-2. Ocorre um evento de failover geográfico. Para continuar, é necessário atualizar o nome do servidor e o nome do banco de dados do Gerenciador de mapa de fragmentos no aplicativo e, em seguida, atualizar os detalhes de mapeamento de fragmento para todos os fragmentos em um mapa de fragmentos. Se houver um failover geográfico, essa lógica de recuperação deverá ser automatizada no fluxo de trabalho de failover. Automatizar ações de recuperação permite uma capacidade de gerenciamento descomplicada para bancos de dados habilitados geograficamente e evita ações humanas manuais. Para saber mais sobre as opções para recuperar um banco de dados se houver uma interrupção data center, consulte continuidade de [negócios](sql-database-business-continuity.md) e [recuperação](sql-database-disaster-recovery.md)de desastres.
+2. Ocorre um evento de failover geográfico. Para continuar, é necessário atualizar o nome do servidor e o nome do banco de dados do Gerenciador de mapa de fragmentos no aplicativo e, em seguida, atualizar os detalhes de mapeamento de fragmento para todos os fragmentos em um mapa de fragmentos. Se houver um failover geográfico, essa lógica de recuperação deverá ser automatizada no fluxo de trabalho de failover. Automatizar ações de recuperação permite uma capacidade de gerenciamento descomplicada para bancos de dados habilitados geograficamente e evita ações humanas manuais. Para saber mais sobre as opções para recuperar um banco de dados se houver uma interrupção data center, consulte [continuidade de negócios](sql-database-business-continuity.md) e [recuperação de desastres](sql-database-disaster-recovery.md).
 3. Um fragmento ou o banco de dados ShardMapManager é restaurado para um momento anterior. Para saber mais sobre a recuperação pontual usando backups, consulte [recuperação usando backups](sql-database-recovery-using-backups.md).
 
 Para obter mais informações sobre ferramentas de banco de dados elástico do banco de dados SQL do Azure, replicação geográfica e restauração, consulte o seguinte:
 
-* [Sobre Continuidade dos negócios de nuvem e recuperação de desastre do banco de dados](sql-database-business-continuity.md)
+* [Visão geral: continuidade dos negócios de nuvem e recuperação de desastre do banco de dados](sql-database-business-continuity.md)
 * [Introdução às ferramentas de banco de dados elástico](sql-database-elastic-scale-get-started.md)  
 * [Gerenciamento de ShardMap](sql-database-elastic-scale-shard-map-management.md)
 
 ## <a name="retrieving-recoverymanager-from-a-shardmapmanager"></a>Recuperando RecoveryManager de um ShardMapManager
 
-A primeira etapa é criar uma instância de RecoveryManager. O [método](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager) getrecoverymanager retorna o Gerenciador de recuperação para a instância de [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) atual. Para resolver quaisquer inconsistências no mapa de fragmentos, você deve primeiro recuperar o RecoveryManager para o mapa de fragmentos específico.
+A primeira etapa é criar uma instância de RecoveryManager. O [método Getrecoverymanager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager) retorna o Gerenciador de recuperação para a instância de [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) atual. Para resolver quaisquer inconsistências no mapa de fragmentos, você deve primeiro recuperar o RecoveryManager para o mapa de fragmentos específico.
 
    ```java
     ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnectionString,  

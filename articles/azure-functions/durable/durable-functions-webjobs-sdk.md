@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 930a0c6e854823189bc3bf561bd42027e56f5600
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 06f2019dbaff390e88c73d1aae7a635a34a64721
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086934"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614616"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Como executar Durable Functions como trabalhos Web
 
@@ -22,9 +22,9 @@ Por padrão, Durable Functions usa o tempo de execução Azure Functions para ho
 
 [Azure Functions](../functions-overview.md) e a extensão de [Durable Functions](durable-functions-overview.md) são criadas no [SDK de trabalhos](../../app-service/webjobs-sdk-how-to.md)Web. O host de trabalho no SDK de trabalhos Web é o tempo de execução no Azure Functions. Se você precisar controlar o comportamento de maneiras não possíveis no Azure Functions, você poderá desenvolver e executar Durable Functions usando o SDK de trabalhos Web por conta própria.
 
-Na versão 3. x do SDK de trabalhos Web, o host é uma implementação de `IHost`e, na versão 2. x, você usa `JobHost` o objeto.
+Na versão 3. x do SDK de trabalhos Web, o host é uma implementação de `IHost`e, na versão 2. x, você usa o objeto `JobHost`.
 
-O exemplo de encadeamento Durable Functions está disponível em uma versão do SDK do webjobs 2. x: Baixe ou clone o [repositório de durable Functions](https://github.com/azure/azure-functions-durable-extension/)e vá para a pasta *webjobssdk\\\\de encadeamento de exemplos* .
+O exemplo de encadeamento de Durable Functions está disponível em uma versão do SDK do webjobs 2. x: Baixe ou clone o [repositório de durable Functions](https://github.com/azure/azure-functions-durable-extension/)e vá para os *exemplos\\pasta webjobssdk\\de encadeamento* .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +42,7 @@ Para concluir as etapas neste artigo:
 
   (Você pode usar [Visual Studio Code](https://code.visualstudio.com/) em vez disso, mas algumas das instruções são específicas para o Visual Studio.)
 
-* Instale e execute o emulador de [armazenamento do Azure](../../storage/common/storage-use-emulator.md) versão 5,2 ou posterior. Uma alternativa é atualizar o arquivo *app. config* com uma cadeia de conexão de armazenamento do Azure.
+* Instale e execute o [emulador de armazenamento do Azure](../../storage/common/storage-use-emulator.md) versão 5,2 ou posterior. Uma alternativa é atualizar o arquivo *app. config* com uma cadeia de conexão de armazenamento do Azure.
 
 ## <a name="webjobs-sdk-versions"></a>Versões do SDK de trabalhos Web
 
@@ -52,9 +52,9 @@ Este artigo explica como desenvolver um projeto webjobs SDK 2. x (equivalente a 
 
 Para executar Durable Functions como trabalhos Web, você deve primeiro criar um aplicativo de console. Um projeto do SDK de trabalhos Web é apenas um projeto de aplicativo de console com os pacotes NuGet apropriados instalados.
 
-Na caixa de diálogo **novo projeto** do Visual Studio, selecione aplicativo de console **da área de trabalho** > clássica do Windows **(.NET Framework)** . No arquivo de projeto, o `TargetFrameworkVersion` deve ser `v4.6.1`.
+Na caixa de diálogo **novo projeto** do Visual Studio, selecione **área de trabalho clássica do Windows** > **aplicativo de console (.NET Framework)** . No arquivo de projeto, o `TargetFrameworkVersion` deve ser `v4.6.1`.
 
-O Visual Studio também tem um modelo de projeto webjob, que pode ser usado selecionando **Cloud** > **Azure WebJob (.NET Framework)** . Esse modelo instala vários pacotes, alguns dos quais você talvez não precise.
+O Visual Studio também tem um modelo de projeto WebJob, que pode ser usado selecionando **nuvem** > **WebJob do Azure (.NET Framework)** . Esse modelo instala vários pacotes, alguns dos quais você talvez não precise.
 
 ## <a name="install-nuget-packages"></a>Instalar pacotes NuGet
 
@@ -63,10 +63,10 @@ Você precisa de pacotes NuGet para o SDK de trabalhos Web, associações de nú
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions -version 2.2.0
 Install-Package Microsoft.Extensions.Logging -version 2.0.1
-Install-Package Microsoft.Azure.WebJobs.Extensions.DurableTask -version 1.4.0
+Install-Package Microsoft.Azure.WebJobs.Extensions.DurableTask -version 1.8.3
 ```
 
-Você também precisa de provedores de registro em log. Os comandos a seguir instalam o provedor de informações do Aplicativo Azure `ConfigurationManager`e o. O `ConfigurationManager` permite que você obtenha a chave de instrumentação de Application insights das configurações do aplicativo.
+Você também precisa de provedores de registro em log. Os comandos a seguir instalam o provedor do Aplicativo Azure insights e o `ConfigurationManager`. O `ConfigurationManager` permite que você obtenha a chave de instrumentação Application Insights das configurações do aplicativo.
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -version 2.2.0
@@ -83,7 +83,7 @@ Install-Package Microsoft.Extensions.Logging.Console -version 2.0.1
 
 Depois de criar o aplicativo de console e instalar os pacotes NuGet necessários, você estará pronto para usar Durable Functions. Você faz isso usando o código JobHost.
 
-Para usar a extensão Durable functions, chame `UseDurableTask` `JobHostConfiguration` no objeto em seu `Main` método:
+Para usar a extensão Durable Functions, chame `UseDurableTask` no objeto `JobHostConfiguration` em seu método `Main`:
 
 ```cs
 var config = new JobHostConfiguration();
@@ -93,9 +93,9 @@ config.UseDurableTask(new DurableTaskExtension
 };
 ```
 
-Para obter uma lista de propriedades que podem ser definidas no `DurableTaskExtension` objeto, consulte [host. JSON](../functions-host-json.md#durabletask).
+Para obter uma lista de propriedades que podem ser definidas no objeto `DurableTaskExtension`, consulte [host. JSON](../functions-host-json.md#durabletask).
 
-O `Main` método também é o local para configurar provedores de log. O exemplo a seguir configura o console e os provedores de Application Insights.
+O método `Main` também é o local para configurar provedores de log. O exemplo a seguir configura o console e os provedores de Application Insights.
 
 ```cs
 static void Main(string[] args)
@@ -124,7 +124,7 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funções
 
 Durable Functions no contexto de trabalhos Web difere um pouco de Durable Functions no contexto de Azure Functions. É importante estar ciente das diferenças à medida que você escreve seu código.
 
@@ -136,9 +136,9 @@ O SDK de trabalhos Web não dá suporte aos seguintes recursos de Azure Function
 
 ### <a name="functionname-attribute"></a>Atributo FunctionName
 
-Em um projeto do SDK de trabalhos Web, o nome do método de uma função é o nome da função. O `FunctionName` atributo é usado somente em Azure functions.
+Em um projeto do SDK de trabalhos Web, o nome do método de uma função é o nome da função. O atributo `FunctionName` é usado somente em Azure Functions.
 
-### <a name="http-trigger"></a>Accionador HTTP
+### <a name="http-trigger"></a>Acionador HTTP
 
 O SDK de trabalhos Web não tem um gatilho HTTP. O cliente de orquestração do projeto de exemplo usa um gatilho de temporizador:
 
@@ -162,7 +162,7 @@ Em um projeto do SDK de trabalhos Web, você pode chamar métodos no objeto de c
 * `RaiseEventAsync`
 * `TerminateAsync`
 
-A função de cliente de orquestração no projeto de exemplo inicia a função de orquestrador e entra em um loop que `GetStatusAsync` chama a cada 2 segundos:
+A função de cliente de orquestração no projeto de exemplo inicia a função de orquestrador e entra em um loop que chama `GetStatusAsync` a cada 2 segundos:
 
 ```cs
 string instanceId = await client.StartNewAsync(nameof(HelloSequence), input: null);
@@ -207,11 +207,11 @@ Esta seção fornece uma visão geral de como executar o [projeto de exemplo](ht
 
 1. Crie um aplicativo Web e uma conta de armazenamento.
 
-1. No aplicativo Web, salve a cadeia de conexão de armazenamento em uma configuração de `AzureWebJobsStorage`aplicativo chamada.
+1. No aplicativo Web, salve a cadeia de conexão de armazenamento em uma configuração de aplicativo chamada `AzureWebJobsStorage`.
 
 1. Crie um recurso de Application Insights e use o tipo de aplicativo **geral** para ele.
 
-1. Salve a chave de instrumentação em uma configuração de `APPINSIGHTS_INSTRUMENTATIONKEY`aplicativo chamada.
+1. Salve a chave de instrumentação em uma configuração de aplicativo chamada `APPINSIGHTS_INSTRUMENTATIONKEY`.
 
 1. Implante como um WebJob.
 
@@ -221,7 +221,7 @@ Este artigo explica como desenvolver um projeto do SDK de trabalhos Web 2. x. Se
 
 A principal alteração introduzida é o uso do .NET Core em vez de .NET Framework. Para criar um projeto webjobs SDK 3. x, as instruções são as mesmas, com estas exceções:
 
-1. Crie um aplicativo de console do .NET Core. Na caixa de diálogo **novo projeto** do Visual Studio, selecione > **aplicativo de console do .NET Core (.NET Core)** . O arquivo de projeto especifica `TargetFramework` que `netcoreapp2.x`é.
+1. Crie um aplicativo de console do .NET Core. Na caixa de diálogo **novo projeto** do Visual Studio, selecione **.NET Core** > **aplicativo de console (.NET Core)** . O arquivo de projeto especifica que `TargetFramework` é `netcoreapp2.x`.
 
 1. Escolha a versão de lançamento SDK 3. x dos seguintes pacotes:
 
@@ -238,7 +238,7 @@ A principal alteração introduzida é o uso do .NET Core em vez de .NET Framewo
         }
     ```
 
-1. Altere o `Main` código do método para fazer isso. Segue-se um exemplo:
+1. Altere o código do método `Main` para fazer isso. Segue-se um exemplo:
 
    ```cs
    static void Main(string[] args)
@@ -274,6 +274,6 @@ A principal alteração introduzida é o uso do .NET Core em vez de .NET Framewo
    }
    ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o SDK de trabalhos Web, consulte [como usar o SDK de trabalhos](../../app-service/webjobs-sdk-how-to.md)Web.

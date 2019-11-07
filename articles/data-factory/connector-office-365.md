@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do Office 365 usando Azure Data Factory | Microsoft Docs
+title: Copiar dados do Office 365 usando Azure Data Factory
 description: Saiba como copiar dados do Office 365 para armazenamentos de dados de coletor com suporte usando a atividade de cópia em um pipeline de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 7290a7a2f0bf6e12234ff3c09f5c5211dcaeba2d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9bd059d42686a37701af0d42f54335b83c06b752
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931050"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680578"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copiar dados do Office 365 para o Azure usando Azure Data Factory
 
@@ -67,7 +67,7 @@ Você pode criar um pipeline com a atividade de cópia usando uma das ferramenta
 - [Portal do Azure](quickstart-create-data-factory-portal.md)
 - [SDK do .NET](quickstart-create-data-factory-dot-net.md)
 - [Python SDK](quickstart-create-data-factory-python.md)
-- [O Azure PowerShell](quickstart-create-data-factory-powershell.md)
+- [Azure PowerShell](quickstart-create-data-factory-powershell.md)
 - [API REST](quickstart-create-data-factory-rest-api.md)
 - [Modelo de Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md). 
 
@@ -77,7 +77,7 @@ As seções a seguir fornecem detalhes sobre as propriedades que são usadas par
 
 As propriedades a seguir têm suporte para o serviço vinculado do Office 365:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type deve ser definida como: **Office365** | Sim |
 | office365TenantId | ID de locatário do Azure à qual a conta do Office 365 pertence. | Sim |
@@ -117,7 +117,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Office 365, há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **Office365Table** | Sim |
 | tableName | Nome do conjunto de DataSet a ser extraído do Office 365. Consulte [aqui](https://docs.microsoft.com/graph/data-connect-datasets#datasets) a lista de conjuntos de itens do Office 365 disponíveis para extração. | Sim |
@@ -151,7 +151,7 @@ Para obter uma lista completa de seções e propriedades disponíveis para defin
 
 Para copiar dados do Office 365, há suporte para as seguintes propriedades na seção **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como: **Office365Source** | Sim |
 | allowedGroups | Predicado de seleção de grupo.  Use essa propriedade para selecionar até 10 grupos de usuários para os quais os dados serão recuperados.  Se nenhum grupo for especificado, os dados serão retornados para toda a organização. | Não |

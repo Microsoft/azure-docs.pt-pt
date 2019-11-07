@@ -1,6 +1,6 @@
 ---
-title: Notas de versão do Data Management Gateway | Documentos da Microsoft
-description: Notas de versão do Data Management Gateway partir
+title: Notas de lançamento do Gateway de Gestão de Dados
+description: Notas de versão do Tory gateway Gerenciamento de Dados
 services: data-factory
 author: nabhishek
 manager: craigg
@@ -12,126 +12,126 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb89ed08b05f9a8f271ceee400bc609881e7048d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486469"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682576"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de lançamento do Gateway de Gestão de Dados
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [Self-hosted integration runtime no V2](../create-self-hosted-integration-runtime.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço de Data Factory, consulte [tempo de execução de integração auto-hospedado em v2](../create-self-hosted-integration-runtime.md).
 
-Um dos desafios para a integração de dados moderno é mover dados para e do local para a cloud. Fábrica de dados torna esta integração com o Data Management Gateway, que é um agente que pode instalar no local para permitir o movimento de dados híbrida.
+Um dos desafios para a integração de dados moderna é mover dados de e para o local para a nuvem. Data Factory torna essa integração com o gateway de Gerenciamento de Dados, que é um agente que você pode instalar localmente para habilitar a movimentação de dados híbridos.
 
-Veja os artigos seguintes para obter informações detalhadas sobre o Gateway de gestão de dados e como usá-lo:
+Consulte os artigos a seguir para obter informações detalhadas sobre Gerenciamento de Dados gateway e como usá-lo:
 
 *  [Data Management Gateway](data-factory-data-management-gateway.md)
-*  [Mover dados entre locais e na cloud com o Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
+*  [Mover dados entre o local e a nuvem usando Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 
 ## <a name="current-version"></a>VERSÃO ATUAL 
-Mantemos não mais aqui as notas de versão. Obter notas de versão mais recente [aqui](https://go.microsoft.com/fwlink/?linkid=853077)
+Não mantemos mais as notas de versão aqui. Obtenha as notas de versão mais recentes [aqui](https://go.microsoft.com/fwlink/?linkid=853077)
 
 
 
 
 ## <a name="earlier-versions"></a>Versões anteriores
 ## <a name="21063477"></a>2.10.6347.7
-### <a name="enhancements-"></a>Aprimoramentos de-
-- Pode adicionar entradas DNS para o barramento de serviço de lista de permissões em vez de listas de permissões de todos os endereços IP do Azure da sua firewall (se necessário). Encontrará a respetiva entrada DNS no portal do Azure (Data Factory -> "Criar e implementar" -> "Gateways" -> "serviceurls válida" (em JSON)
-- Conector HDFS suporta agora o certificado público autoassinado, permitindo-lhe ignorar a validação de SSL.
-- Corrigido: Problema com o gateway offline durante a atualização (devido a distorção)
+### <a name="enhancements-"></a>Aprimoramentos
+- Você pode adicionar entradas DNS ao barramento de serviço da lista de permissões em vez de colocar em lista de permissões todos os endereços IP do Azure do firewall (se necessário). Você pode encontrar a respectiva entrada DNS em portal do Azure (Data Factory-> ' criar e implantar '-> ' gateways '-> "perurls" (em JSON)
+- O conector HDFS agora dá suporte ao certificado público autoassinado, permitindo que você ignore a validação SSL.
+- Corrigido: problema com o gateway offline durante a atualização (devido à distorção do relógio)
 
 
 ## <a name="2963132"></a>2.9.6313.2
-### <a name="enhancements-"></a>Aprimoramentos de-
--   Pode adicionar entradas DNS à lista de permissões do Service Bus, em vez de listas de permissões de todos os endereços IP do Azure da sua firewall (se necessário). Obter mais detalhes aqui.
--   Pode agora até 4.75 TB, o que é o tamanho máximo suportado de blob de blocos de BLOBs de cópia de dados de/para um único bloco. (limite anterior era 195 GB).
--   Corrigido: Fora do problema de memória ao deszipar vários arquivos pequenos durante a atividade de cópia.
--   Corrigido: Índice fora do problema de intervalo ao copiar do Document DB, a um servidor de SQL no local com a funcionalidade de idempotência.
--   Corrigido: Script de limpeza SQL não funciona com o servidor de SQL no local do Assistente para copiar.
--   Corrigido: Nome da coluna com espaço no final não funciona na atividade de cópia.
+### <a name="enhancements-"></a>Aprimoramentos
+-   Você pode adicionar entradas DNS ao barramento de serviço da lista de permissões em vez de colocar em lista de permissões todos os endereços IP do Azure do firewall (se necessário). Mais detalhes aqui.
+-   Agora você pode copiar dados de/para um único blob de blocos até 4,75 TB, que é o tamanho máximo com suporte do blob de blocos. (o limite anterior era 195 GB).
+-   Corrigido: problema de memória insuficiente ao descompactar vários arquivos pequenos durante a atividade de cópia.
+-   Corrigido: problema de índice fora do intervalo ao copiar do BD de documento para um SQL Server local com o recurso Idempotência.
+-   Corrigido: o script de limpeza do SQL não funciona com SQL Server locais do assistente de cópia.
+-   Corrigido: o nome da coluna com espaço no final não funciona na atividade de cópia.
 
 ## <a name="28662833"></a>2.8.66283.3
-### <a name="enhancements-"></a>Aprimoramentos de-
-- Corrigido: Problema com a falta de credenciais no reinício da máquina de gateway.
-- Corrigido: Problema com o registo durante o gateway de restauro através de um ficheiro de cópia de segurança.
+### <a name="enhancements-"></a>Aprimoramentos
+- Corrigido: problema com credenciais ausentes na reinicialização do computador do gateway.
+- Corrigido: problema com o registro durante a restauração do gateway usando um arquivo de backup.
 
 
 ## <a name="2762401"></a>2.7.6240.1
-### <a name="enhancements-"></a>Aprimoramentos de-
-- Corrigido: Leitura incorreta de valor nulo Decimal do Oracle como origem.
+### <a name="enhancements-"></a>Aprimoramentos
+- Corrigido: leitura incorreta do valor nulo decimal do Oracle como fonte.
 
 ## <a name="2661922"></a>2.6.6192.2
 ### <a name="whats-new"></a>Novidades
-- Os clientes podem fornecer comentários sobre a registar a experiência de gateway.
-- Suporte um novo formato de compressão: ZIP (Deflate)
+- Os clientes podem fornecer comentários sobre a experiência de registro do gateway.
+- Suporte a um novo formato de compactação: ZIP (desinflar)
 
-### <a name="enhancements-"></a>Aprimoramentos de-
-- Melhoria de desempenho para Oracle Sink, origem HDFS.
-- Correção de erros para automática do gateway de atualização, capacidade de processamento paralelo de gateway.
+### <a name="enhancements-"></a>Aprimoramentos
+- Melhoria de desempenho para o coletor Oracle, origem do HDFS.
+- Correção de bug para atualização automática do gateway, capacidade de processamento paralelo do gateway.
 
 
 ## <a name="2561641"></a>2.5.6164.1
 ### <a name="enhancements"></a>Aprimoramentos
-- Melhorada e mais robusto Gateway registo experiência-agora pode controlar o estado do progresso durante o processo de registo do Gateway, o que faz com que o registo experiência mais responsivos.
-- Melhoria no Gateway restaurar processo - ainda pode recuperar o gateway, mesmo se não tiver o ficheiro de cópia de segurança de gateway com esta atualização. Isso exigiria a repor as credenciais do serviço ligado no Portal.
-- Correção de erros.
+- Experiência de registro de gateway aprimorada e mais robusta-agora você pode acompanhar o status de progresso durante o processo de registro do gateway, o que torna a experiência de registro mais responsiva.
+- Melhoria no processo de restauração do gateway-você ainda pode recuperar o gateway mesmo se não tiver o arquivo de backup do gateway com essa atualização. Isso exigiria que você redefina as credenciais do serviço vinculado no Portal.
+- Correção de bug.
 
 ## <a name="2461511"></a>2.4.6151.1
 
 ### <a name="whats-new"></a>Novidades
 
-- Agora pode armazenar as credenciais da origem de dados localmente. As credenciais são encriptadas. As credenciais da origem de dados podem ser recuperadas e restaurados com o ficheiro de cópia de segurança que pode ser exportado a partir do Gateway existente, todos os locais.
+- Agora você pode armazenar as credenciais de fonte de dados localmente. As credenciais são criptografadas. As credenciais da fonte de dados podem ser recuperadas e restauradas usando o arquivo de backup que pode ser exportado do gateway existente, tudo no local.
 
-### <a name="enhancements-"></a>Aprimoramentos de-
+### <a name="enhancements-"></a>Aprimoramentos
 
-- Experiência de registo de Gateway maior e mais robusta.
-- Suporta a deteção automática de configuração de QuoteChar para formato de texto no Assistente para copiar e melhorar a precisão de deteção de formato geral.
+- Experiência de registro de gateway aprimorada e mais robusta.
+- Dê suporte à detecção automática da configuração do QuoteChar para o formato de texto no assistente de cópia e melhore a precisão da detecção de formato geral.
 
 ## <a name="2361002"></a>2.3.6100.2
 
-- Suporte firstRowAsHeader e SkipLineCount a deteção automática no Assistente de cópia de ficheiros de texto no sistema de ficheiros no local e no HDFS.
-- Melhorar a estabilidade da ligação de rede entre o gateway e o Service Bus
-- Algumas correções de erros
+- Suporte para detecção automática de firstRowAsHeader e SkipLineCount no assistente de cópia para arquivos de texto no sistema de arquivos local e no HDFS.
+- Aprimore a estabilidade da conexão de rede entre o gateway e o barramento de serviço
+- Algumas correções de bugs
 
 
 ## <a name="2260721"></a>2.2.6072.1
 
-*  Suporta a definição do proxy HTTP para o gateway com o Gestor de configuração do Gateway. Se configurado, os BLOBs do Azure, tabelas do Azure, Azure Data Lake e Document DB são acedidos através do proxy HTTP.
-*  Cabeçalho de suporta manipulação para TextFormat quando se copiam dados de/para Blob do Azure, Azure Data Lake Store, sistema de ficheiros no local e no local HDFS.
-*  Suporta a cópia de dados do Blob de acréscimo e BLOBs de páginas, juntamente com o Blob de blocos já suportadas.
-*  Apresenta um novo estado do gateway **Online (limitado)** , que indica que a funcionalidade principal do gateway funcione, exceto o suporte de operação interativo para o Assistente para copiar.
-*  Melhora a robustez do Registro de gateway utilizando a chave de registo.
+*  Dá suporte à configuração do proxy HTTP para o gateway usando o Configuration Manager de gateway. Se configurado, BLOB do Azure, tabela do Azure, Azure Data Lake e o banco de documentos do documento são acessados por proxy HTTP.
+*  Dá suporte ao tratamento de cabeçalho para TextFormat ao copiar dados de/para blob do Azure, Azure Data Lake Store, sistema de arquivos local e HDFS local.
+*  Dá suporte à cópia de dados do blob de acréscimo e do blob de página junto com o blob de blocos já suportado.
+*  Apresenta um novo status de gateway **online (limitado)** , que indica que a funcionalidade principal do gateway funciona, exceto o suporte de operação interativa para o assistente de cópia.
+*  Aprimora a robustez do registro de gateway usando a chave de registro.
 
 ## <a name="216040"></a>2.1.6040.
 
-*  Driver de DB2 agora está incluído no pacote de instalação de gateway. Não é necessário instalá-lo em separado.
-*  Driver de DB2 suporta agora z/OS e DB2 para eu (AS as/400), juntamente com as plataformas suportadas já (Linux, Unix e Windows).
-*  Suporta a utilização do Azure Cosmos DB como uma origem ou de destino para arquivos de dados no local
-*  Suporta a cópia de dados de/para frequente/esporádico BLOBs de armazenamento juntamente com a conta de armazenamento para fins gerais já suportadas.
-*  Permite-lhe ligar ao servidor de SQL no local através do gateway com privilégios de início de sessão remoto.  
+*  O driver do DB2 está incluído no pacote de instalação do gateway agora. Não é necessário instalá-lo em separado.
+*  O driver DB2 agora dá suporte a z/OS e DB2 para i (AS/400) junto com as plataformas já suportadas (Linux, UNIX e Windows).
+*  Dá suporte ao uso de Azure Cosmos DB como origem ou destino para armazenamentos de dados locais
+*  O oferece suporte à cópia de dados de/para o armazenamento de BLOBs frio/quente junto com a conta de armazenamento de uso geral já suportada.
+*  Permite que você se conecte a SQL Server locais por meio de gateway com privilégios de logon remoto.  
 
 ## <a name="2060131"></a>2.0.6013.1
 
-*  Pode selecionar o idioma/cultura a ser utilizado por um gateway durante a instalação manual.
+*  Você pode selecionar o idioma/cultura a ser usado por um gateway durante a instalação manual.
 
-*  Quando o gateway não funciona conforme esperado, pode optar por enviar registos do gateway dos últimos sete dias para a Microsoft para facilitar a resolução de problemas do problema. Se o gateway não está ligado ao serviço cloud, pode optar por guardar e arquivar registos do gateway.  
+*  Quando o gateway não funciona conforme o esperado, você pode optar por enviar logs de gateway dos últimos sete dias para a Microsoft para facilitar a solução do problema. Se o gateway não estiver conectado ao serviço de nuvem, você poderá optar por salvar e arquivar os logs de gateway.  
 
-*  Aprimoramentos da interface de utilizador para o Gestor de configuração do gateway:
+*  Aprimoramentos da interface do usuário para o Gerenciador de configurações de gateway:
 
-    *  Verifique o estado do gateway mais visível no separador base.
+    *  Torne o status do gateway mais visível na guia página inicial.
 
-    *  Controles reorganizados e simplificadas.
+    *  Controles reorganizados e simplificados.
 
-    *  Pode copiar dados a partir de um armazenamento com o [ferramenta de cópia sem código](data-factory-copy-data-wizard-tutorial.md). Ver [cópia faseada](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes sobre esta funcionalidade em geral.
-*  Pode utilizar o Gateway de gestão de dados para dados de entrada diretamente a partir de uma base de dados do SQL Server no local no Azure Machine Learning.
+    *  Você pode copiar dados de um armazenamento usando a [ferramenta de cópia sem código](data-factory-copy-data-wizard-tutorial.md). Confira [cópia em etapas](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes sobre esse recurso em geral.
+*  Você pode usar Gerenciamento de Dados gateway para entrada de dados diretamente de um banco de SQL Server local no Azure Machine Learning.
 
 *  Melhorias de desempenho
 
-    * Melhore o desempenho sobre a visualização de esquema/pré-visualização no SQL Server na ferramenta de cópia sem código.
+    * Melhore o desempenho na exibição de esquema/visualização em relação a SQL Server na ferramenta de cópia sem código.
 
 ## <a name="11259531"></a>1.12.5953.1
 
@@ -139,15 +139,15 @@ Mantemos não mais aqui as notas de versão. Obter notas de versão mais recente
 
 ## <a name="11159181"></a>1.11.5918.1
 
-*  Tamanho máximo do registo de eventos de gateway foi aumentado de 1 MB para 40 MB.
+*  O tamanho máximo do log de eventos do gateway aumentou de 1 MB para 40 MB.
 
-*  Uma caixa de diálogo de aviso é apresentada no caso de um reinício é necessário durante a atualização automática do gateway. Pode optar por reiniciar à direita, em seguida, ou posterior.
+*  Uma caixa de diálogo de aviso é exibida no caso de uma reinicialização ser necessária durante a atualização automática do gateway. Você pode optar por reiniciar logo em seguida ou mais tarde.
 
-*  No caso de falha de atualização automática, o instalador do gateway repete a atualização automática três vezes no máximo.
+*  Caso a atualização automática falhe, o instalador do gateway tentará atualizar automaticamente três vezes no máximo.
 
 *  Melhorias de desempenho
 
-    * Melhore o desempenho para carregar tabelas grandes a partir do servidor no local, num cenário de cópia sem código.
+    * Melhore o desempenho para carregar grandes tabelas do servidor local no cenário de cópia sem código.
 
 *  Correções de erros
 
@@ -159,10 +159,10 @@ Mantemos não mais aqui as notas de versão. Obter notas de versão mais recente
 
 ## <a name="1958652"></a>1.9.5865.2
 
-*  Recurso de atualização de automática zero touch
-*  Novo ícone de Bandeja com indicadores de estado do gateway
-*  Capacidade de "Atualizar agora" do cliente
-*  Capacidade de definir a hora de agendamento de atualização
+*  Recurso de atualização automática de toque zero
+*  Novo ícone de bandeja com indicadores de status do gateway
+*  Capacidade de "atualizar agora" do cliente
+*  Capacidade de definir a hora da agenda de atualização
 *  Script do PowerShell para ativar/desativar a atualização automática
 *  Suporte para o formato JSON  
 *  Melhorias de desempenho
@@ -170,7 +170,7 @@ Mantemos não mais aqui as notas de versão. Obter notas de versão mais recente
 
 ## <a name="1858221"></a>1.8.5822.1
 
-*  Melhorar a experiência de resolução de problemas
+*  Melhorar a experiência de solução de problemas
 *  Melhorias de desempenho
 *  Correções de erros
 
@@ -186,7 +186,7 @@ Mantemos não mais aqui as notas de versão. Obter notas de versão mais recente
 
 ### <a name="1657351"></a>1.6.5735.1
 
-*  Suporte no local HDFS origem/Sink
+*  Suporte à fonte/coletor do HDFS local
 *  Melhorias de desempenho
 *  Correções de erros
 
@@ -197,62 +197,62 @@ Mantemos não mais aqui as notas de versão. Obter notas de versão mais recente
 
 ### <a name="1656761"></a>1.6.5676.1
 
-*  Ferramentas de diagnóstico de suporte sobre o Configuration Manager
-*  Colunas da tabela de suporte para origens de dados em tabela do Azure Data Factory
-*  Suporte do SQL DW a fábrica de dados do Azure
-*  Suporte Reclusive no BlobSource e FileSource fábrica de dados do Azure
-*  Suporte CopyBehavior – MergeFiles PreserveHierarchy e FlattenHierarchy em BlobSink e FileSink com cópia binária para a fábrica de dados do Azure
-*  Suporte a atividade de cópia, relatórios de andamento do Azure Data Factory
-*  Validação da conectividade de origem de dados de suporte do Azure Data Factory
+*  Suporte para ferramentas de diagnóstico no Configuration Manager
+*  Suporte a colunas da tabela para fontes de dados tabulares para Azure Data Factory
+*  Suporte ao SQL DW para Azure Data Factory
+*  Suporte a Reclusivo em Blobname e filename para Azure Data Factory
+*  Suporte a CopyBehavior – MergeFiles, PreserveHierarchy e FlattenHierarchy em BlobSink e filesink com cópia binária para Azure Data Factory
+*  Suporte ao progresso de relatórios de atividades de cópia para Azure Data Factory
+*  Suporte à validação de conectividade da fonte de dados para Azure Data Factory
 *  Correções de erros
 
 ### <a name="1656721"></a>1.6.5672.1
 
-*  Nome da tabela de suporte para a origem de dados ODBC do Azure Data Factory
+*  Nome da tabela de suporte para fonte de dados ODBC para Azure Data Factory
 *  Melhorias de desempenho
 *  Correções de erros
 
 ### <a name="1656581"></a>1.6.5658.1
 
-*  Ficheiro de suporte de Sink para a fábrica de dados do Azure
-*  Suporte a preservação de hierarquia na cópia binária do Azure Data Factory
-*  Suporte Idempotência de atividade de cópia para a fábrica de dados do Azure
+*  Suporte ao coletor de arquivos para Azure Data Factory
+*  Suporte para preservar a hierarquia na cópia binária para Azure Data Factory
+*  Suporte para Idempotência de atividade de cópia para Azure Data Factory
 *  Correções de erros
 
 ### <a name="1656401"></a>1.6.5640.1
 
-*  3 mais origens de dados de suporte do Azure Data Factory (ODBC, OData, HDFS)
-*  Suporte caráter de plica no analisador csv para o Azure Data Factory
-*  Suporte de compactação (BZip2)
+*  Suporte a mais 3 fontes de dados para Azure Data Factory (ODBC, OData, HDFS)
+*  Suporte ao caractere de aspas no analisador de CSV para Azure Data Factory
+*  Suporte à compactação (BZip2)
 *  Correções de erros
 
 ### <a name="1556121"></a>1.5.5612.1
 
-*  Suporte a cinco bases de dados relacionais para o Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata e Sybase)
-*  Suporte de compactação (Gzip e Deflate)
+*  Suporte a cinco bancos de dados relacionais para Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata e Sybase)
+*  Suporte à compactação (gzip e deflate)
 *  Melhorias de desempenho
 *  Correções de erros
 
 ### <a name="1455491"></a>1.4.5549.1
 
-*  Adicionar suporte de origem de dados Oracle para o Azure Data Factory
+*  Adicionar suporte à fonte de dados Oracle para Azure Data Factory
 *  Melhorias de desempenho
 *  Correções de erros
 
 ### <a name="1454921"></a>1.4.5492.1
 
-*  Binário unificado que ofereça suporte a serviços do Microsoft Azure Data Factory e Power BI do Office 365
-*  Refine o processo de IU de configuração e registo
-*  O Azure Data Factory – suportam a entrada do Azure e de saída para a origem de dados do SQL Server
+*  Binário unificado que dá suporte a Microsoft Azure Data Factory e serviços de Power BI do Office 365
+*  Refinar a interface do usuário de configuração e o processo de registro
+*  Azure Data Factory – suporte de entrada e saída do Azure para SQL Server fonte de dados
 
 ### <a name="1253031"></a>1.2.5303.1
 
-*  Corrigi o problema de tempo limite para suportar mais ligações de origem de dados demorado.
+*  Corrija o problema de tempo limite para dar suporte a mais conexões de fonte de dados demoradas.
 
 ### <a name="1155268"></a>1.1.5526.8
 
-*  Requer o .NET Framework 4.5.1 como pré-requisito durante a configuração.
+*  Requer o .NET Framework 4.5.1 como um pré-requisito durante a instalação.
 
 ### <a name="1051442"></a>1.0.5144.2
 
-*  Não existem alterações que afetam os cenários do Azure Data Factory.
+*  Nenhuma alteração que afete Azure Data Factory cenários.

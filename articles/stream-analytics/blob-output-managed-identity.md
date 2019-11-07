@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 4215dc85da6d507b08f23cf248044ea807fe5319
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1854a99cac3ead386f38c1c7fe27a56b672f365c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935157"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664313"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output-preview"></a>Usar identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para a saída do armazenamento de BLOBs do Azure (versão prévia)
 
@@ -23,7 +23,7 @@ Este artigo mostra como habilitar a identidade gerenciada para as saídas de blo
 
 1. Crie um novo trabalho de Stream Analytics ou abra um trabalho existente no portal do Azure. Na barra de menus localizada no lado esquerdo da tela, selecione **identidade gerenciada** localizada em **Configurar**. Certifique-se de que "usar identidade gerenciada atribuída pelo sistema" esteja selecionado e, em seguida, clique no botão **salvar** na parte inferior da tela.
 
-   ![Configurar Stream Analytics identidade gerenciada](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-enable-managed-identity.png)
+   ![Configurar Stream Analytics identidade gerenciada](./media/common/stream-analytics-enable-managed-identity.png)
 
 2. Na janela Propriedades de saída do coletor de saída do armazenamento de BLOBs do Azure, selecione a lista suspensa modo de autenticação e escolha **identidade gerenciada**. Para obter informações sobre outras propriedades de saída, consulte [entender as saídas de Azure Stream Analytics](./stream-analytics-define-outputs.md). Quando tiver terminado, clique em **salvar**.
 

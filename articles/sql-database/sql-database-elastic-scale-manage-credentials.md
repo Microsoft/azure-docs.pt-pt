@@ -1,5 +1,5 @@
 ---
-title: Gerenciando credenciais na biblioteca de cliente do banco de dados elástico | Microsoft Docs
+title: Gerenciando credenciais na biblioteca de cliente do banco de dados elástico
 description: Como definir o nível certo de credenciais, administrador para somente leitura, para aplicativos de banco de dados elástico
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: d89e83092775828016c2c47a96164319f5474c1e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8856b827ad2c6719cdc6e8c387be1b63b3f44b22
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568414"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690205"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Credenciais usadas para acessar a biblioteca de cliente do banco de dados elástico
 
@@ -70,9 +70,9 @@ Neste exemplo, **smmUserConnectionString** mantém a cadeia de conexão para as 
 "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 ```
 
-Assim como acontece com as credenciais de administrador, não use valores na forma deusername@server"". Em vez disso, basta usar "username".  Observe também que a cadeia de conexão não contém um nome de servidor e um nome de banco de dados. Isso ocorre porque a chamada **OpenConnectionForKey** direciona automaticamente a conexão para o fragmento correto com base na chave. Portanto, o nome do banco de dados e o nome do servidor não são fornecidos.
+Assim como acontece com as credenciais de administrador, não use valores na forma de "username@server". Em vez disso, basta usar "username".  Observe também que a cadeia de conexão não contém um nome de servidor e um nome de banco de dados. Isso ocorre porque a chamada **OpenConnectionForKey** direciona automaticamente a conexão para o fragmento correto com base na chave. Portanto, o nome do banco de dados e o nome do servidor não são fornecidos.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consultar também
 
 [Gerir bases de dados e inícios de sessão na Base de Dados SQL do Azure](sql-database-manage-logins.md)
 

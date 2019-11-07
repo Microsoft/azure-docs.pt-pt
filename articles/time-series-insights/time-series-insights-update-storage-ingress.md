@@ -8,35 +8,57 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b61e194bdea5fd8272ffc0fc9e16a2d80d3cf60
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: d0cdd78aaa2b58743e16a2e7cfe213a9daed85ff
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989696"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605887"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Armazenamento de dados e entrada na visualização Azure Time Series Insights
 
-Este artigo descreve as atualizações para o armazenamento de dados e entrada para Azure Time Series Insights versão prévia. Ele abrange a estrutura de armazenamento subjacente, o formato de arquivo e a propriedade ID da série temporal. Ele também aborda o processo de entrada, a taxa de transferência e as limitações subjacentes.
+Este artigo descreve as atualizações para o armazenamento de dados e entrada para Azure Time Series Insights versão prévia. Ele abrange a estrutura de armazenamento subjacente, o formato de arquivo e a propriedade ID da série temporal. Ele também aborda o processo de entrada subjacente, as práticas recomendadas e as limitações de visualização atuais.
 
 ## <a name="data-ingress"></a>Entrada de dados
 
-Na visualização Time Series Insights, as políticas de entrada de dados determinam de onde os dados podem ser originados e qual formato os dados devem ter.
-
-[Visão geral do modelo de série temporal![](media/v2-update-storage-ingress/tsi-data-ingress.png)](media/v2-update-storage-ingress/tsi-data-ingress.png#lightbox)
+Seu ambiente de Azure Time Series Insights contém um mecanismo de ingestão para coletar, processar e armazenar dados de série temporal. Ao planejar seu ambiente, há algumas considerações a serem levadas em conta para garantir que todos os dados de entrada sejam processados e para obter alta escala de entrada e minimizar a latência de ingestão (o tempo gasto pelo TSI para ler e processar dados do evento origem). Na visualização Time Series Insights, as políticas de entrada de dados determinam de onde os dados podem ser originados e qual formato os dados devem ter.
 
 ### <a name="ingress-policies"></a>Políticas de entrada
 
-O Time Series Insights Preview dá suporte às mesmas fontes de eventos que Time Series Insights atualmente dá suporte a:
+Time Series Insights visualização dá suporte às seguintes origens de evento:
 
 - [Hub IoT do Azure](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
 Time Series Insights visualização dá suporte a um máximo de duas origens de evento por instância.
   
-O Azure Time Series Insights dá suporte a JSON enviado por meio do Hub IoT do Azure ou hubs de eventos do Azure. Para otimizar seus dados de JSON de IoT, saiba [como formatar JSON](./time-series-insights-send-events.md#supported-json-shapes).
+O Azure Time Series Insights dá suporte a JSON enviado por meio do Hub IoT do Azure ou hubs de eventos do Azure.
+
+> [!WARNING] 
+> Ao anexar uma nova origem do evento ao seu ambiente de Time Series Insights versão prévia, dependendo do número de eventos atualmente no Hub IoT ou Hub de eventos, você pode enfrentar alta latência inicial de ingestão. À medida que os dados são ingeridos, você deve esperar essa alta latência para o sublado, mas se sua experiência indicar outra hora, entre em contato conosco enviando um tíquete de suporte por meio do portal do Azure.
+
+## <a name="ingress-best-practices"></a>Práticas recomendadas de entrada
+
+Recomendamos que você empregue as seguintes práticas recomendadas:
+
+* Configure Time Series Insights e um hub IoT ou Hub de eventos na mesma região. Isso reduzirá a latência de ingestão incorrida devido à rede.
+* Planeje suas necessidades de dimensionamento calculando sua taxa de ingestão antecipada e verificando se ela está dentro da taxa com suporte listada abaixo
+* Entenda como otimizar e formatar seus dados JSON, bem como as limitações atuais na visualização, lendo [como formatar JSON para entrada e consulta](./time-series-insights-update-how-to-shape-events.md).
+
+### <a name="ingress-scale-and-limitations-in-preview"></a>Escala e limitações de entrada na visualização
+
+Por padrão, Time Series Insights visualização dá suporte a uma escala de entrada inicial de até 1 megabyte por segundo (MB/s) por ambiente. A taxa de transferência de até 16 MB/s está disponível, se necessário, entre em contato conosco enviando um tíquete de suporte no portal do Azure se isso for necessário. Além disso, há um limite por partição de 0,5 MB/s. Isso tem implicações para clientes que usam o Hub IoT especificamente, considerando a afinidade entre um dispositivo do Hub IoT uma partição. Em cenários em que um dispositivo de gateway está encaminhando mensagens para o Hub usando sua própria ID de dispositivo e cadeia de conexão, há o risco de atingir o limite de 0,5 MB/s, Considerando que as mensagens chegarão em uma única partição, mesmo que o conteúdo do evento especifique diferentes TS Identidade. Em geral, a taxa de entrada é exibida como um fator do número de dispositivos que estão em sua organização, a frequência de emissão de eventos e o tamanho de um evento. Ao calcular a taxa de ingestão, os usuários do Hub IoT devem usar o número de conexões de Hub em uso, em vez do total de dispositivos na organização. O suporte ao dimensionamento avançado está em andamento. Esta documentação será atualizada para refletir essas melhorias. 
+
+> [!WARNING]
+> Para ambientes que usam o Hub IoT como uma origem de evento, calcule a taxa de ingestão usando o número de dispositivos de Hub em uso.
+
+Consulte os links a seguir para obter mais informações sobre unidades e partições de produtividade:
+
+* [Escala do Hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
+* [Escala do hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
+* [Partições do hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions)
 
 ### <a name="data-storage"></a>Armazenamento de dados
 
@@ -53,21 +75,13 @@ Time Series Insights visualização salva os dados de armazenamento frio no arma
 > Como o proprietário da conta de armazenamento de BLOBs do Azure onde os dados de armazenamento frio residem, você tem acesso completo a todos os dados na conta. Esse acesso inclui permissões de gravação e exclusão. Não edite ou exclua os dados que Time Series Insights as gravações de visualização, pois isso pode causar perda de dados.
 
 ### <a name="data-availability"></a>Disponibilidade de dados
+
 Time Series Insights Visualizar partições e dados de índices para obter um desempenho de consulta ideal. Os dados ficam disponíveis para consulta após sua indexação. A quantidade de dados que está sendo ingerida pode afetar essa disponibilidade.
 
 > [!IMPORTANT]
-> A versão de GA (disponibilidade geral) do Time Series Insights disponibilizará os dados em 60 segundos após a leitura da origem do evento. Durante a visualização, você pode experimentar um período mais longo antes que os dados se tornem disponíveis. Se você enfrentar uma latência significativa além de 60 segundos, entre em contato conosco.
+> A próxima versão de GA (disponibilidade geral) do Time Series Insights disponibilizará os dados em 60 segundos depois que eles forem lidos da origem do evento. Durante a visualização, você pode experimentar um período mais longo antes que os dados se tornem disponíveis. Se você enfrentar uma latência significativa além de 60 segundos, envie um tíquete de suporte por meio do portal do Azure.
 
-### <a name="scale"></a>Escalabilidade
-
-Por padrão, Time Series Insights visualização dá suporte a uma escala de entrada inicial de até 1 megabyte por segundo (MB/s) por ambiente. Uma taxa de transferência de até 16 MB/s estará disponível se você precisar dela. Se precisar de suporte de dimensionamento avançado, entre em contato conosco.
-
-Você pode obter recursos adicionais de entrada e colocação em escala para a origem do evento:
-
-* [Hub IoT](../iot-hub/iot-hub-scaling.md)
-* [Hubs de Eventos](../event-hubs/event-hubs-scalability.md)
-
-## <a name="azure-storage"></a>Armazenamento do Azure
+## <a name="azure-storage"></a>Storage do Azure
 
 Esta seção descreve os detalhes do armazenamento do Azure relevantes para Azure Time Series Insights versão prévia.
 

@@ -1,5 +1,5 @@
 ---
-title: Log de diagnóstico e métricas do banco de dados SQL do Azure | Microsoft Docs
+title: Log de diagnóstico e métricas do banco de dados SQL do Azure
 description: Saiba como habilitar o diagnóstico no banco de dados SQL do Azure para armazenar informações sobre a utilização de recursos e estatísticas de execução de consultas.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: 235cdff1297b840bfd1a522e265633b47094c855
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 6c2040a223b7ec33b05ee3c8b3c65bad031aa3c2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597974"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687805"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Log de diagnóstico e métricas do banco de dados SQL do Azure
 
@@ -50,8 +50,8 @@ Você pode habilitar e gerenciar as métricas e o log de telemetria de diagnóst
 Ao habilitar as métricas e o log de diagnóstico, você precisa especificar o destino de recurso do Azure para coletar a telemetria de diagnóstico. As opções disponíveis incluem:
 
 - Análise de SQL do Azure
-- Hubs de Eventos do Azure
-- Armazenamento do Azure
+- Azure Event Hubs
+- Storage do Azure
 
 Você pode provisionar um novo recurso do Azure ou selecionar um recurso existente. Depois de escolher um recurso usando a opção **configurações de diagnóstico** , especifique quais dados coletar.
 
@@ -113,7 +113,7 @@ Para habilitar o streaming de telemetria de diagnóstico para um recurso de pool
 1. Selecione um recurso de destino para os dados de diagnóstico de streaming: **arquivar na conta de armazenamento**, **transmitir para um hub de eventos**ou **Enviar para log Analytics**.
 1. Para o log Analytics, selecione **Configurar** e crie um novo espaço de trabalho selecionando **+ criar novo espaço de trabalho**ou selecione um espaço de trabalho existente.
 1. Marque a caixa de seleção para telemetria de diagnóstico de pool elástico: métricas **básicas** .
-   diagnóstico de ![Configure para pools elásticos ](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
+   ![configurar o diagnóstico para pools elásticos](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 1. Selecione **Guardar**.
 1. Além disso, configure o streaming de telemetria de diagnóstico para cada banco de dados dentro do pool elástico que você deseja monitorar seguindo as etapas descritas na próxima seção.
 
@@ -137,7 +137,7 @@ Para habilitar o streaming de telemetria de diagnóstico para bancos de dados in
 1. Selecione um recurso de destino para os dados de diagnóstico de streaming: **arquivar na conta de armazenamento**, **transmitir para um hub de eventos**ou **Enviar para log Analytics**.
 1. Para obter a experiência de monitoramento padrão baseada em eventos, marque as seguintes caixas de seleção para a telemetria do log de diagnóstico de banco de dados: **Sqlsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** , **Erros**, **DatabaseWaitStatistics**, **tempos limite**, **blocos**e **deadlocks**.
 1. Para uma experiência de monitoramento avançada, com base em um minuto, marque a caixa de seleção para métricas **básicas** .
-   ![Configure diagnósticos para bancos de dados únicos, em pool ou de instância ](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
+   ![configurar o diagnóstico para bancos de dados únicos, em pool ou de instância](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. Selecione **Guardar**.
 1. Repita essas etapas para cada banco de dados que você deseja monitorar.
 
@@ -175,7 +175,7 @@ Para habilitar o streaming de telemetria de diagnóstico para um recurso de inst
 1. Selecione um recurso de destino para os dados de diagnóstico de streaming: **arquivar na conta de armazenamento**, **transmitir para um hub de eventos**ou **Enviar para log Analytics**.
 1. Para o log Analytics, selecione **Configurar** e crie um novo espaço de trabalho selecionando **+ criar novo espaço de trabalho**ou use um espaço de trabalho existente.
 1. Marque a caixa de seleção para telemetria de diagnóstico de instância: **ResourceUsageStats**.
-   diagnóstico de ![Configure para instância gerenciada ](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
+   ![configurar o diagnóstico para a instância gerenciada](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 1. Selecione **Guardar**.
 1. Além disso, configure o streaming de telemetria de diagnóstico para cada banco de dados de instância dentro da instância gerenciada que você deseja monitorar seguindo as etapas descritas na próxima seção.
 
@@ -199,7 +199,7 @@ Para habilitar o streaming de telemetria de diagnóstico para bancos de dados de
 1. Insira um nome de configuração para sua própria referência.
 1. Selecione um recurso de destino para os dados de diagnóstico de streaming: **arquivar na conta de armazenamento**, **transmitir para um hub de eventos**ou **Enviar para log Analytics**.
 1. Marque as caixas de seleção para telemetria de diagnóstico de banco de dados: **Sqlsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** e **erros**.
-   ![Configure diagnóstico para bancos de dados de instância ](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![configurar o diagnóstico para bancos de dados de instância](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 1. Selecione **Guardar**.
 1. Repita essas etapas para cada banco de dados de instância que você deseja monitorar.
 
@@ -252,16 +252,16 @@ Você pode combinar esses parâmetros para habilitar várias opções de saída.
 
 Para dar suporte a várias assinaturas, use o script do PowerShell de [habilitar o log de métricas de recursos do Azure usando o PowerShell](https://blogs.technet.microsoft.com/msoms/20../../enable-azure-resource-metrics-logging-using-powershell/).
 
-Forneça a ID de recurso do espaço de trabalho \< $WSID \> como um parâmetro ao executar o `Enable-AzureRMDiagnostics.ps1` de script para enviar dados de diagnóstico de vários recursos para o espaço de trabalho.
+Forneça a ID de recurso do espaço de trabalho \<$WSID\> como um parâmetro ao executar o `Enable-AzureRMDiagnostics.ps1` de script para enviar dados de diagnóstico de vários recursos para o espaço de trabalho.
 
-- Para obter a ID do espaço de trabalho \< $WSID \> do destino dos dados de diagnóstico, use o seguinte script:
+- Para obter a ID do espaço de trabalho \<$WSID\> do destino dos dados de diagnóstico, use o seguinte script:
 
     ```powershell
     PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/<RG_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>"
     PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
     ```
 
-   Substitua \<subID \> pela ID da assinatura, \<RG_NAME \> com o nome do grupo de recursos e \<WS_NAME \> pelo nome do espaço de trabalho.
+   Substitua \<subID\> pela ID da assinatura, \<RG_NAME\> com o nome do grupo de recursos e \<WS_NAME a\> pelo nome do espaço de trabalho.
 
 ### <a name="azure-cli"></a>CLI do Azure
 

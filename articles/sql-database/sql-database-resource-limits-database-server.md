@@ -1,5 +1,5 @@
 ---
-title: Limites de recursos do servidor do banco de dados SQL | Microsoft Docs
+title: Limites de recursos do servidor do banco de dados SQL do Azure
 description: Este artigo fornece uma visão geral dos limites de recursos do servidor do banco de dados SQL do Azure para bancos de dados individuais e pools elásticos. Ele também fornece informações sobre o que acontece quando esses limites de recursos são atingidos ou ultrapassados.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 04/18/2019
-ms.openlocfilehash: 175f694cbe46f871349136c9ce91888b6de48d21
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b358e69df1df579e91a9098c120c7e6b4e3f2ead
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566863"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687497"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limites de recursos do banco de dados SQL para o servidor do banco de dados SQL
 
@@ -27,12 +27,12 @@ Este artigo fornece uma visão geral dos limites de recursos do banco de dados S
 
 ## <a name="maximum-resource-limits"></a>Limites máximos de recursos
 
-| Resource | Limite |
+| Recurso | Limite |
 | :--- | :--- |
 | Bancos de dados por servidor | 5000 |
 | Número padrão de servidores por assinatura em qualquer região | 20 |
 | Número máximo de servidores por assinatura em qualquer região | 200 |  
-| Cota de DTU/eDTU por servidor | 54,000 |  
+| Cota de DTU/eDTU por servidor | 54.000 |  
 | cota vCore por servidor/instância | 540 |
 | Máximo de pools por servidor | Limitado pelo número de DTUs ou vCores. Por exemplo, se cada pool for 1000 DTUs, um servidor poderá dar suporte a pools de 54.|
 |||
@@ -44,7 +44,7 @@ Este artigo fornece uma visão geral dos limites de recursos do banco de dados S
 > - Aumento da latência na execução de consultas no banco de dados mestre.  Isso inclui exibições de estatísticas de utilização de recursos, como sys. resource_stats.
 > - Aumento da latência em operações de gerenciamento e pontos de vista do portal de renderização que envolvem a enumeração de bancos de dados no servidor.
 
-### <a name="storage-size"></a>Tamanho de armazenamento
+### <a name="storage-size"></a>Tamanho do armazenamento
 - Para bancos de dados individuais rources, consulte limites de [recursos baseados em DTU](sql-database-dtu-resource-limits-single-databases.md) ou [limites de recursos baseados em vCore](sql-database-vcore-resource-limits-single-databases.md) para os limites de tamanho de armazenamento por tipo de preço.
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>O que acontece quando os limites de recursos do banco de dados são atingidos
@@ -57,7 +57,7 @@ Ao encontrar alta utilização de computação, as opções de mitigação inclu
 - Aumentar o tamanho de computação do banco de dados ou do pool elástico para fornecer ao banco de dados mais recursos de computação. Consulte [dimensionar recursos de banco de dados individual](sql-database-single-database-scale.md) e [dimensionar recursos de pool elástico](sql-database-elastic-pool-scale.md).
 - Otimização de consultas para reduzir a utilização de recursos de cada consulta. Para obter mais informações, consulte [ajuste/dicas de consulta](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="storage"></a>Armazenamento
+### <a name="storage"></a>Storage
 
 Quando o espaço de banco de dados usado atinge o limite de tamanho máximo, as inserções e atualizações de banco de dados que aumentam a falha de tamanho e os clientes recebem uma [mensagem de erro](sql-database-develop-error-messages.md). As seleções e exclusões do banco de dados continuam a ser bem-sucedidos.
 
@@ -88,7 +88,7 @@ As taxas de log são definidas de modo que elas possam ser alcançadas e mantida
 
 As taxas de geração de log reais impostas em tempo de execução também podem ser influenciadas por mecanismos de comentários, reduzindo temporariamente as taxas de log permitidas para que o sistema possa se estabilizar. Gerenciamento de espaço de arquivo de log, evitando a execução de condições de espaço de log e os mecanismos de replicação de grupo de disponibilidade podem diminuir temporariamente os limites gerais do sistema. 
 
-A modelagem de tráfego do administrador de taxa de log é revelada por meio dos seguintes tipos de espera (expostos na DMV [Sys. dm _db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) ):
+A modelagem de tráfego do administrador da taxa de log é apresentada por meio dos seguintes tipos de espera (expostos na DMV [Sys. dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) ):
 
 | Tipo de espera | Notas |
 | :--- | :--- |
@@ -104,7 +104,7 @@ Ao encontrar um limite de taxa de log que está atrasando a escalabilidade desej
 - Se os dados que estão sendo carregados forem transitórios, ou seja, os dados de preparo em um processo de ETL, eles poderão ser carregados em tempdb (que é minimamente registrado). 
 - Para cenários analíticos, carregue em uma tabela coberta por columnstore clusterizado. Isso reduz a taxa de log necessária devido à compactação. Essa técnica aumenta a utilização da CPU e só é aplicável a conjuntos de dados que se beneficiam de índices columnstore clusterizados. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre limites gerais do Azure, consulte [assinatura do Azure e limites de serviço, cotas e restrições](../azure-subscription-service-limits.md).
 - Para obter informações sobre DTUs e eDTUs, consulte [DTUs e eDTUs](sql-database-purchase-models.md#dtu-based-purchasing-model).

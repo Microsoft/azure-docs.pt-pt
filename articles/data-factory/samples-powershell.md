@@ -1,5 +1,5 @@
 ---
-title: Exemplos de Azure PowerShell para Azure Data Factory | Microsoft Docs
+title: Exemplos de Azure PowerShell para Azure Data Factory
 description: Azure PowerShell amostras-scripts para ajudá-lo a criar e gerenciar fábricas de dados.
 services: data-factory
 ms.service: data-factory
@@ -10,12 +10,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 02ec7de918b0704a3d72611f6f3e47cda2d23fae
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: b42a7667321215247233776eb0f2d733d67ab945
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140861"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684443"
 ---
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>Exemplos de Azure PowerShell para Azure Data Factory
 

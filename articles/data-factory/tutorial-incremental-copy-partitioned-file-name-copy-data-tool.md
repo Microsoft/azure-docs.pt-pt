@@ -1,5 +1,5 @@
 ---
-title: Usando Azure Data Factory para copiar incrementalmente novos arquivos somente com base no tempo de nome de arquivo particionado | Microsoft Docs
+title: Usando Azure Data Factory para copiar os novos arquivos incrementalmente somente com base no tempo de nome de arquivo particionado
 description: Crie um data factory do Azure e, em seguida, use a ferramenta Copiar Dados para carregar incrementalmente novos arquivos com base no nome do arquivo particionado.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 8081d7112d67e3bb4e72c6f6e88d765a159e047f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 273aaaa2ac51f75edfad6da03d6720f58b7c3c47
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933904"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683442"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copiar incrementalmente novos arquivos com base no nome do arquivo particionado usando a ferramenta de Copiar Dados
 
@@ -36,7 +36,7 @@ Neste tutorial, vai executar os seguintes passos:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Assinatura do Azure**: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * **Conta de armazenamento do Azure**: Use o armazenamento de BLOBs como o armazenamento de dados de _origem_ e de _coletor_ . Se não tem uma conta de armazenamento do Azure, veja as instruções apresentadas em [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
 
 ### <a name="create-two-containers-in-blob-storage"></a>Criar dois contêineres no armazenamento de BLOBs
@@ -88,7 +88,7 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Utilizar a ferramenta Copiar Dados para criar um pipeline
 
-1. Na página introdução, selecione o título de **copiar dados** para iniciar a ferramenta de copiar dados. 
+1. Na página **introdução** , selecione o título de **copiar dados** para iniciar a ferramenta de copiar dados. 
 
    ![Mosaico ferramenta Copiar Dados](./media/doc-common-process/get-started-page.png)
    
@@ -113,7 +113,7 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
 
     ![Página de arquivo de dados de origem](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page.png)
     
-    b. Selecione **armazenamento** de BLOBs do Azure na galeria e clique em **continuar**.
+    b. Selecione **armazenamento de BLOBs do Azure** na galeria e clique em **continuar**.
 
     ![Página de arquivo de dados de origem](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-select-blob.png)
     
@@ -165,16 +165,16 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
     ![Página de resumo](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/summary-page.png)
     
 9. Na **Página de implementação**, selecione **Monitorizar** para monitorizar o pipeline (tarefa).
-    ![Página de implantação](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/deployment-page.png)
+    página de implantação do ![](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/deployment-page.png)
     
-10. Tenha em atenção que o separador **Monitorização** à esquerda é selecionado automaticamente.  Você precisa aguardar a execução do pipeline quando ele é disparado automaticamente (aproximadamente uma hora).  Quando ele é executado, a coluna Actions inclui links para exibir detalhes da execução da atividade e executar novamente o pipeline. Selecione **Atualizar** para atualizar a lista e selecione o link **Exibir execuções de atividade** na coluna **ações** . 
+10. Tenha em atenção que o separador **Monitorização** à esquerda é selecionado automaticamente.  Você precisa aguardar a execução do pipeline quando ele é disparado automaticamente (aproximadamente uma hora).  Quando ele é executado, a coluna **Actions** inclui links para exibir detalhes da execução da atividade e executar novamente o pipeline. Selecione **Atualizar** para atualizar a lista e selecione o link **Exibir execuções de atividade** na coluna **ações** . 
 
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs1.png)
 11. Há apenas uma atividade (atividade copiar) no pipeline, pelo que só vai ver uma entrada. Você pode ver o arquivo de origem (file1. txt) foi copiado de **Source/2019/02/26/14/** para **Destination/2019/02/26/14/** com o mesmo nome de arquivo.  
 
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
     
-    Você também pode verificar o mesmo usando Gerenciador de armazenamento do Azure (https://storageexplorer.com/) para verificar os arquivos.
+    Você também pode verificar o mesmo usando Gerenciador de Armazenamento do Azure (https://storageexplorer.com/) para verificar os arquivos.
     
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
 12. Crie outro arquivo de texto vazio com o novo nome como **file2. txt**. Carregue o arquivo File2. txt no caminho da pasta **Source/2019/02/26/15** em sua conta de armazenamento.   Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/).   
@@ -196,12 +196,12 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
     
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs7.png) 
     
-    Você também pode verificar o mesmo usando Gerenciador de armazenamento do Azure (https://storageexplorer.com/) para examinar os arquivos no contêiner de **destino**
+    Você também pode verificar o mesmo usando Gerenciador de Armazenamento do Azure (https://storageexplorer.com/) para examinar os arquivos no contêiner de **destino**
     
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs8.png)
 
     
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Avance para o tutorial seguinte para saber como transformar dados através de um cluster do Spark no Azure:
 
 > [!div class="nextstepaction"]

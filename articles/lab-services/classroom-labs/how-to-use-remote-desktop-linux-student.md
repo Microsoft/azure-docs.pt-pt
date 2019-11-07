@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 33b4ed3974c3e4e88e5d74ff31a3b8008ab565e9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 0f45af2730b05998fc82212c63778c89bb16b6ef
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657323"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585080"
 ---
 # <a name="use-remote-desktop-for-linux-virtual-machines-in-a-classroom-lab-of-azure-lab-services"></a>Use a área de trabalho remota para máquinas virtuais Linux em um laboratório de sala de aula de Azure Lab Services
 Este artigo mostra como os alunos podem se conectar a uma VM (máquina virtual) do Linux em um laboratório usando RDP/SSH. 
@@ -32,7 +32,7 @@ Um instrutor precisa habilitar o recurso de conexão de área de trabalho remota
 Os alunos podem RDP em suas VMs Linux depois que o proprietário do laboratório (professor/professor) **publica** a VM do modelo com pacotes RDP e GUI instalados no computador. Eis os passos: 
 
 1. Quando um aluno entra no portal de laboratórios diretamente (`https://labs.azure.com`) ou usando um link de registro (`https://labs.azure.com/register/<registrationCode>`), um bloco para cada laboratório ao qual o aluno tem acesso é exibido. 
-2. No bloco, selecione **Iniciar** se a VM for interrompida. 
+2. No bloco, alterne o botão para iniciar a VM se ela estiver no estado parado. 
 3. Selecione **Ligar**. Você verá duas opções para se conectar à VM: **SSH** e **área de trabalho remota**.
 
     ![VM do aluno-opções de conexão](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
@@ -42,10 +42,10 @@ Se você selecionar a opção **SSH** , você verá a seguinte caixa de diálogo
 
 ![Cadeia de conexão SSH](../media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
-Selecione o botão **copiar** ao lado da caixa de texto para copiá-la para a área de transferência. Salve a cadeia de conexão SSH. Use essa cadeia de conexão de um terminal SSH ( [](https://www.putty.org/)como uma reseqüência) para se conectar à máquina virtual.
+Selecione o botão **copiar** ao lado da caixa de texto para copiá-la para a área de transferência. Salve a cadeia de conexão SSH. Use essa cadeia de conexão de um terminal SSH ( [como uma](https://www.putty.org/)reseqüência) para se conectar à máquina virtual.
 
 Se você selecionar a opção **RDP** , um arquivo RDP será baixado em seu computador. Salve-o e abra-o para se conectar ao computador. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber como habilitar o recurso de conexão de área de trabalho remota para VMs do Linux em um laboratório de sala de aula, consulte [habilitar área de trabalho remota para máquinas virtuais Linux](how-to-enable-remote-desktop-linux.md). 
 

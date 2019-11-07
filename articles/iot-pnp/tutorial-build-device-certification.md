@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 524bc3b2650ad7b435cba6b6b9d4084ffa5cf96c
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: e4dd5215812f0fd1a43afe0923601417bc8e6916
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932681"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569643"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>Criar um dispositivo de visualização de Plug and Play IoT pronto para certificação
 
@@ -35,7 +35,7 @@ Para concluir este tutorial, precisa de:
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Ferramentas de IOT do Azure para](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) o pacote de extensão vs Code
 
-Você também precisa do dispositivo IOT plug and Play criado no [início rápido: Use um modelo de funcionalidade de dispositivo para criar](quickstart-create-pnp-device.md)um dispositivo.
+Você também precisa do dispositivo de Plug and Play de IoT criado no [início rápido: usar um modelo de capacidade de dispositivo para criar um dispositivo](quickstart-create-pnp-device.md).
 
 ## <a name="store-a-capability-model-and-interfaces"></a>Armazenar um modelo de funcionalidade e interfaces
 
@@ -58,9 +58,9 @@ Para passar o processo de certificação, você deve incluir e implementar a int
 ```
 
 > [!NOTE]
-> Se você concluiu [o início rápido: Use um modelo de funcionalidade de dispositivo para criar](quickstart-create-pnp-device.md)um dispositivo, você já incluiu a interface de **informações do dispositivo** em seu modelo.
+> Se você concluiu o [início rápido: usar um modelo de capacidade de dispositivo para criar um dispositivo](quickstart-create-pnp-device.md), você já incluiu a interface de **informações do dispositivo** em seu modelo.
 
-Para incluir a interface de **informações do dispositivo** em seu modelo de dispositivo, adicione a ID `implements` da interface à propriedade do modelo de funcionalidade:
+Para incluir a interface de **informações do dispositivo** em seu modelo de dispositivo, adicione a ID da interface à propriedade `implements` do modelo de funcionalidade:
 
 ```json
 {
@@ -111,26 +111,17 @@ Para certificar o dispositivo, ele deve habilitar o provisionamento por meio do 
 
 1. Escolha **ANSI C** como o idioma.
 
-1. Escolha **projeto CMake** como seu tipo de projeto.
-
 1. Escolha **por meio da chave simétrica do DPS (serviço de provisionamento de dispositivos)** como método de conexão.
+
+1. Escolha **projeto CMake no Windows** ou **projeto CMake no Linux** como modelo de projeto, dependendo do seu sistema operacional do dispositivo.
 
 1. VS Code abre uma nova janela com arquivos stub de código de dispositivo gerados.
 
-1. Abra `main.c`o, preencha o **dpsIdScope**, o **sasKey**e o **RegistrationId** que você preparou. Você pode obter essas informações no portal de certificação. Para obter mais informações, consulte [conectar e testar seu dispositivo de plug and Play de IOT](tutorial-certification-test.md#connect-and-discover-interfaces).
+1. Depois de criar o código, insira as credenciais do DPS (**escopo da ID do DPS**, **chave simétrica do DPS**, ID do **dispositivo**) como parâmetros para o aplicativo. Para obter as credenciais do portal de certificação, consulte [conectar e testar seu dispositivo de plug and Play de IOT](tutorial-certification-test.md#connect-and-discover-interfaces).
 
-    ```c
-    // TODO: Specify DPS scope ID if you intend on using DPS / IoT Central.
-    static const char *dpsIdScope = "[DPS Id Scope]";
-    
-    // TODO: Specify symmetric keys if you intend on using DPS / IoT Central and symmetric key based auth.
-    static const char *sasKey = "[DPS symmetric key]";
-    
-    // TODO: specify your device registration ID
-    static const char *registrationId = "[device registration Id]";
+    ```cmd/sh
+    .\your_pnp_app.exe [DPS ID Scope] [DPS symmetric key] [device ID]
     ```
-
-1. Guarde o ficheiro.
 
 ### <a name="implement-standard-interfaces"></a>Implementar interfaces padrão
 
@@ -150,7 +141,7 @@ Você pode usar um exemplo de implementação da interface de **informações do
 
 Durante a certificação, seu dispositivo é testado programaticamente para garantir que ele implemente os recursos definidos em suas interfaces. Use o código de status HTTP 501 para responder à propriedade de leitura/gravação e às solicitações de comando se o dispositivo não implementá-las.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você criou um dispositivo IoT Plug and Play pronto para a certificação, a próxima etapa sugerida é:
 

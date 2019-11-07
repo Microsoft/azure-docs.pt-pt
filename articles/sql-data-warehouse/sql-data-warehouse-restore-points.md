@@ -1,5 +1,5 @@
 ---
-title: Pontos de restauração definidos pelo usuário | Microsoft Docs
+title: Pontos de restauração definidos pelo usuário
 description: Como criar um ponto de restauração SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: anumjs
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 9dcb8b2e9c1b75aac3c195f89777ac9c6eb030d7
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 61ceb2f1271d085321215aff1c6d138feb95d743
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575257"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692506"
 ---
 # <a name="user-defined-restore-points"></a>Pontos de restauração definidos pelo usuário
 
@@ -65,13 +66,13 @@ Os pontos de restauração definidos pelo usuário também podem ser criados por
 
 3. Selecione **visão geral** no painel esquerdo, selecione **+ novo ponto de restauração**. Se o botão novo ponto de restauração não estiver habilitado, verifique se o data warehouse não está em pausa.
 
-    ![Novo ponto de restauro](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
+    ![Novo ponto de restauração](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
 
 4. Especifique um nome para o ponto de restauração definido pelo usuário e clique em **aplicar**. Os pontos de restauração definidos pelo usuário têm um período de retenção padrão de sete dias.
 
     ![Nome do ponto de restauração](./media/sql-data-warehouse-restore-points/creating-restore-point-11.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Restaurar um data warehouse existente][Restore an existing data warehouse]
 - [Restaurar um data warehouse excluído][Restore a deleted data warehouse]

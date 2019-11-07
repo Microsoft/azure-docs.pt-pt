@@ -1,21 +1,19 @@
 ---
-title: 'Tutorial: Dimensionar um aplicativo no Azure Spring Cloud | Microsoft Docs'
+title: 'Tutorial: dimensionar um aplicativo no Azure Spring Cloud | Microsoft Docs'
 description: Neste tutorial, você aprenderá a dimensionar um aplicativo no Azure Spring Cloud no portal do Azure
-services: spring-cloud
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.reviewer: jeconnoc
-ms.author: v-vasuke
-author: v-vasuke
+ms.author: jeconnoc
+author: jpconnock
 ms.date: 10/06/2019
-ms.openlocfilehash: bca88cac45e1ba8117eb4e10141e32d621434b86
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: 31b2322bdf7b7c03ae8974d57ee1b44c2f6137b9
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038910"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607513"
 ---
-# <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Tutorial: Dimensionar um aplicativo no Azure Spring Cloud
+# <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Tutorial: dimensionar um aplicativo no Azure Spring Cloud
 
 Este tutorial demonstra como dimensionar qualquer aplicativo de microserviço usando o painel do Azure Spring Cloud no portal do Azure. Dimensione seu aplicativo para cima e para baixo modificando o número de CPUs virtuais (vCPUs) e a quantidade de memória. Dimensione seu aplicativo para dentro e para fora modificando o número de instâncias do aplicativo. Quando terminar, você saberá como fazer ajustes manuais rápidos em cada aplicativo em seu serviço. O dimensionamento entra em vigor em segundos e não requer nenhuma alteração de código ou reimplantação.
 
@@ -43,15 +41,15 @@ Para concluir este tutorial, precisa de:
 
 Você pode modificar os atributos de dimensionamento. Lembre-se das seguintes observações.
 
-* **CPUs**: O número máximo de CPUs permitidas é 4 por instância de aplicativo. O número total de CPUs para um aplicativo será o valor definido aqui multiplicado pelo número de instâncias do aplicativo.
+* **CPUs**: o número máximo de CPUs permitidas é 4 por instância de aplicativo. O número total de CPUs para um aplicativo será o valor definido aqui multiplicado pelo número de instâncias do aplicativo.
 
-* **Memória/GB**: A quantidade máxima de memória permitida é de 8 GB por instância do aplicativo.  A quantidade total de memória para um aplicativo será o valor definido aqui multiplicado pelo número de instâncias do aplicativo.
+* **Memória/GB**: a quantidade máxima de memória permitida é de 8 GB por instância do aplicativo.  A quantidade total de memória para um aplicativo será o valor definido aqui multiplicado pelo número de instâncias do aplicativo.
 
-* **Contagem de instâncias**: Você pode escalar horizontalmente até 20 instâncias na camada Standard. Esse valor altera o número de instâncias em execução separadas do aplicativo de microserviço.
+* **Contagem de instâncias**: você pode escalar horizontalmente até 20 instâncias na camada Standard. Esse valor altera o número de instâncias em execução separadas do aplicativo de microserviço.
 
 Certifique-se de clicar no botão **salvar** para aplicar suas configurações de dimensionamento.
 
-Após alguns segundos, as alterações feitas serão exibidas na página **visão geral** , com mais detalhes disponíveis na guia **instâncias do aplicativo** . O dimensionamento não requer nenhuma alteração de código ou reimplantação.
+Depois de alguns segundos, as alterações feitas serão exibidas na página **visão geral** , com mais detalhes disponíveis na guia instâncias do **aplicativo** . o dimensionamento não requer nenhuma alteração de código ou reimplantação.
 
 ## <a name="next-steps"></a>Passos seguintes
 

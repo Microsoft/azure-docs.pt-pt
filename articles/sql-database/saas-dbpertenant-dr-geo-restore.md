@@ -1,5 +1,5 @@
 ---
-title: 'Aplicativos SaaS: Backups com redundância geográfica do banco de dados SQL do Azure para recuperação de desastre | Microsoft Docs'
+title: 'Aplicativos SaaS: backups com redundância geográfica do banco de dados SQL do Azure para recuperação de desastre '
 description: Aprenda a usar backups com redundância geográfica do banco de dados SQL do Azure para recuperar um aplicativo SaaS multilocatário no caso de uma interrupção
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/14/2019
-ms.openlocfilehash: c8990e5183d09e8f530fdef952a80a09104d3617
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2f058a5cd20fff845a1feafe42b66beb1afef766
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570497"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692208"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usar a restauração geográfica para recuperar um aplicativo SaaS multilocatário de backups de banco de dados
 
@@ -62,10 +62,10 @@ A recuperação de desastres (DR) é uma consideração importante para muitos a
 Este tutorial usa recursos do banco de dados SQL do Azure e da plataforma Azure para resolver esses desafios:
 
 * [Azure Resource Manager modelos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), para reservar toda a capacidade necessária o mais rápido possível. Os modelos de Azure Resource Manager são usados para provisionar uma imagem espelho dos servidores originais e pools elásticos na região de recuperação. Um servidor e pool separados também são criados para provisionar novos locatários.
-* [Biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md) (EDCL), para criar e manter um catálogo de banco de dados de locatário. O catálogo estendido inclui informações de configuração de pool e banco de dados atualizadas periodicamente.
+* EDCL ( [biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md) ) para criar e manter um catálogo de banco de dados de locatário. O catálogo estendido inclui informações de configuração de pool e banco de dados atualizadas periodicamente.
 * [Recursos de recuperação de gerenciamento de fragmento](sql-database-elastic-database-recovery-manager.md) do EDCL, para manter entradas de local de banco de dados no catálogo durante a recuperação e repatriação.  
 * [Restauração geográfica](sql-database-disaster-recovery.md), para recuperar os bancos de dados de catálogo e locatário dos backups com redundância geográfica mantidos automaticamente. 
-* [As operações de restauração](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)assíncronas, enviadas na ordem de prioridade de locatário, são enfileiradas para cada pool pelo sistema e processadas em lotes para que o pool não seja sobrecarregado. Essas operações podem ser canceladas antes ou durante a execução, se necessário.   
+* [As operações de restauração assíncronas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations), enviadas na ordem de prioridade de locatário, são enfileiradas para cada pool pelo sistema e processadas em lotes para que o pool não seja sobrecarregado. Essas operações podem ser canceladas antes ou durante a execução, se necessário.   
 * [Replicação geográfica](sql-database-geo-replication-overview.md), para repatriar bancos de dados para a região original após a interrupção. Não há perda de dados e impacto mínimo sobre o locatário ao usar a replicação geográfica.
 * [Aliases de DNS do SQL Server](dns-alias-overview.md), para permitir que o processo de sincronização de catálogo se conecte ao catálogo ativo, independentemente de sua localização.  
 
@@ -79,7 +79,7 @@ Os scripts de DR usados neste tutorial estão disponíveis no [repositório GitH
 ## <a name="review-the-healthy-state-of-the-application"></a>Examinar o estado de integridade do aplicativo
 Antes de iniciar o processo de recuperação, examine o estado de integridade normal do aplicativo.
 
-1. No navegador da Web, abra o Hub de eventos do Wingtip http://events.wingtip-dpt.&lt tickets&gt; (; User. &lt; trafficmanager.NET&gt; , substitua User pelo seu valor de usuário de implantação).
+1. No navegador da Web, abra o Hub de eventos do Wingtip tickets (http://events.wingtip-dpt.&lt; User&gt;. trafficmanager.net, substitua &lt;usuário&gt; pelo valor de usuário de sua implantação).
     
    Role até a parte inferior da página e observe o nome e o local do servidor de catálogo no rodapé. O local é a região na qual você implantou o aplicativo.    
 
@@ -105,7 +105,7 @@ Nesta tarefa, você inicia um processo para sincronizar a configuração dos ser
 > [!IMPORTANT]
 > Para simplificar, o processo de sincronização e outros processos de recuperação e repatriação de longa execução são implementados nesses exemplos como trabalhos locais do PowerShell ou sessões que são executadas no logon de usuário do cliente. Os tokens de autenticação emitidos quando você faz logon expiram após várias horas, e os trabalhos falharão. Em um cenário de produção, processos de execução longa devem ser implementados como serviços confiáveis do Azure de algum tipo, sendo executados sob uma entidade de serviço. Consulte [usar Azure PowerShell para criar uma entidade de serviço com um certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
 
-1. No ISE do PowerShell, abra o arquivo. ..\Learning Modules\UserConfig.psm1. Substitua `<resourcegroup>` e`<user>` nas linhas 10 e 11 pelo valor usado quando você implantou o aplicativo. Guarde o ficheiro.
+1. No ISE do PowerShell, abra o arquivo. ..\Learning Modules\UserConfig.psm1. Substitua `<resourcegroup>` e `<user>` nas linhas 10 e 11 pelo valor usado quando você implantou o aplicativo. Guarde o ficheiro.
 
 2. No ISE do PowerShell, abra o script. ..\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1.
 
@@ -113,7 +113,7 @@ Nesta tarefa, você inicia um processo para sincronizar a configuração dos ser
 
 3. Defina o seguinte:
 
-    $DemoScenario = 1: Inicie um trabalho em segundo plano que sincroniza informações de configuração do servidor de locatário e do pool no catálogo.
+    $DemoScenario = 1: iniciar um trabalho em segundo plano que sincroniza as informações de configuração do servidor de locatário e do pool no catálogo.
 
 4. Para executar o script de sincronização, selecione F5. 
 
@@ -173,7 +173,7 @@ Imagine que haja uma interrupção na região em que o aplicativo é implantado 
 
 1. No ISE do PowerShell, no script. ..\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina o seguinte valor:
 
-    $DemoScenario = 2: Recupere o aplicativo em uma região de recuperação restaurando de backups com redundância geográfica.
+    $DemoScenario = 2: recuperar o aplicativo em uma região de recuperação restaurando de backups com redundância geográfica.
 
 2. Para executar o script, selecione F5.  
 
@@ -199,7 +199,7 @@ Enquanto o ponto de extremidade do aplicativo está desabilitado no Gerenciador 
  
     ![Processo de recuperação](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-  * Se você abrir a página de eventos de um locatário diretamente enquanto o locatário estiver offline, a página exibirá uma notificação offline do locatário. Por exemplo, se contoso Concert Hall estiver offline, tente abrir http://events.wingtip-dpt.&lt ; user&gt;. trafficmanager.net/contosoconcerthall.
+  * Se você abrir a página de eventos de um locatário diretamente enquanto o locatário estiver offline, a página exibirá uma notificação offline do locatário. Por exemplo, se contoso Concert Hall estiver offline, tente abrir http://events.wingtip-dpt.&lt; User&gt;. trafficmanager.net/contosoconcerthall.
 
     ![Processo de recuperação](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -208,7 +208,7 @@ Mesmo antes de os bancos de dados de locatário serem restaurados, você pode pr
 
 1. No ISE do PowerShell, no script. ..\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina a seguinte propriedade:
 
-    $DemoScenario = 3: Provisione um novo locatário na região de recuperação.
+    $DemoScenario = 3: provisionar um novo locatário na região de recuperação.
 
 2. Para executar o script, selecione F5.
 
@@ -246,13 +246,13 @@ Quando o processo de recuperação é concluído, o aplicativo e todos os locat�
 
    * As versões de recuperação dos servidores de catálogo e tenants1, com o sufixo-Recovery. Todos os bancos de dados de catálogo e locatário restaurados nesses servidores têm os nomes usados na região original.
 
-   * O SQL Server tenants2-&lt;DPT&gt;-User-Recovery. Esse servidor é usado para provisionar novos locatários durante a interrupção.
+   * O usuário do tenants2-DPT-&lt;&gt;-Recovery SQL Server. Esse servidor é usado para provisionar novos locatários durante a interrupção.
 
-   * O serviço de aplicativo nomeado Events-Wingtip-&lt;DPT&gt;-&gt;recoveryregion-&lt;usuário, que é a instância de recuperação do aplicativo de eventos.
+   * O serviço de aplicativo nomeado Events-Wingtip-DPT-&lt;recoveryregion&gt;-&lt;&gt;de usuário, que é a instância de recuperação do aplicativo de eventos.
 
      ![Recursos da Contoso na região de recuperação](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
     
-5. Abra o SQL Server tenants2-&lt;DPT&gt;-User-Recovery. Observe que ele contém o banco de dados hawthornhall e o pool elástico Pool1. O banco de dados hawthornhall é configurado como um banco de dados elástico no pool elástico Pool1.
+5. Abra o usuário tenants2-DPT-&lt;&gt;-Recovery SQL Server. Observe que ele contém o banco de dados hawthornhall e o pool elástico Pool1. O banco de dados hawthornhall é configurado como um banco de dados elástico no pool elástico Pool1.
 
 ## <a name="change-the-tenant-data"></a>Alterar os dados do locatário 
 Nesta tarefa, você atualiza um dos bancos de dados de locatário restaurados. O processo repatriação copia bancos de dados restaurados que foram alterados para a região original. 
@@ -261,11 +261,11 @@ Nesta tarefa, você atualiza um dos bancos de dados de locatário restaurados. O
 
 2. No ISE do PowerShell, no script. ..\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina o seguinte valor:
 
-    $DemoScenario = 4: Exclua um evento de um locatário na região de recuperação.
+    $DemoScenario = 4: excluir um evento de um locatário na região de recuperação.
 
 3. Para executar o script, selecione F5.
 
-4. Atualize a página de eventos do contoso Concert http://events.wingtip-dpt.&lt Hall (&gt; ; User. trafficmanager.net/contosoconcerthall) e observe que o evento Strauss seriamente está faltando.
+4. Atualize a página de eventos do contoso Concert Hall (http://events.wingtip-dpt.&lt; User&gt;. trafficmanager.net/contosoconcerthall) e observe que o evento Strauss seriamente está ausente.
 
 Neste ponto do tutorial, você recuperou o aplicativo, que agora está em execução na região de recuperação. Você provisionou um novo locatário na região de recuperação e modificou dados de um dos locatários restaurados.  
 
@@ -319,17 +319,17 @@ Se você seguiu o tutorial, o script reativa imediatamente o Fabrikam Jazz Club 
   
 1. No ISE do PowerShell, no script. ..\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, verifique se o processo de sincronização do catálogo ainda está em execução em sua instância do PowerShell. Se necessário, reinicie-o definindo:
 
-    $DemoScenario = 1: Inicie a sincronização de informações de configuração do servidor de locatário, do pool e do banco de dados no catálogo.
+    $DemoScenario = 1: iniciar a sincronização das informações de configuração do servidor de locatário, do pool e do banco de dados no catálogo.
 
     Para executar o script, selecione F5.
 
 2.  Em seguida, para iniciar o processo repatriação, defina:
 
-    $DemoScenario = 5: Repatriar o aplicativo em sua região original.
+    $DemoScenario = 5: repatriar o aplicativo em sua região original.
 
     Para executar o script de recuperação em uma nova janela do PowerShell, selecione F5. O repatriação leva vários minutos e pode ser monitorado na janela do PowerShell.
 
-3. Enquanto o script estiver em execução, atualize a página do Hub http://events.wingtip-dpt.&lt de eventos&gt; (; User. trafficmanager.net).
+3. Enquanto o script estiver em execução, atualize a página Hub de eventos (http://events.wingtip-dpt.&lt; usuário&gt;. trafficmanager.net).
 
     Observe que todos os locatários estão online e acessíveis durante esse processo.
 
@@ -351,7 +351,7 @@ O processo de restauração cria todos os recursos de recuperação em um grupo 
 
 1. No ISE do PowerShell, no script. ..\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina:
     
-    $DemoScenario = 6: Exclua os recursos obsoletos da região de recuperação.
+    $DemoScenario = 6: exclua os recursos obsoletos da região de recuperação.
 
 2. Para executar o script, selecione F5.
 
@@ -362,7 +362,7 @@ O aplicativo é projetado para sempre se conectar de uma instância na mesma reg
 
 Os bancos de dados de locatário podem ser distribuídos em regiões de recuperação e originais por algum tempo durante o repatriação. Para cada banco de dados, o aplicativo pesquisa a região na qual o banco de dados está localizado fazendo uma pesquisa de DNS no nome do servidor de locatário. No banco de dados SQL, o nome do servidor é um alias. O nome do servidor com alias contém o nome da região. Se o aplicativo não estiver na mesma região que o banco de dados, ele redirecionará para a instância na mesma região que o servidor de banco de dados. O redirecionamento para a instância na mesma região que o banco de dados minimiza a latência entre o aplicativo e o banco de dados.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 > [!div class="checklist"]

@@ -1,5 +1,5 @@
 ---
-title: Criar um Agente de Tarefa Elástica da Base de Dados SQL do Azure com o PowerShell | Microsoft Docs
+title: 'Criar um agente de trabalho elástico do banco de dados SQL do Azure usando o PowerShell '
 description: Saiba como criar um agente de Tarefa Elástica com o PowerShell.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 0d64bd150a43666679253f8244d80411e25dfdcd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 80f9db2d11c875d9be9bef225c04e3e90f3d0ff8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935045"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692259"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Criar um agente de Tarefa Elástica com o PowerShell
 
@@ -70,7 +70,7 @@ Get-Module Az.Sql
 
 A criação de um agente de Tarefa Elástica requer uma base de dados (S0 ou superior) para utilização como [base de dados de Tarefa](sql-database-job-automation-overview.md#job-database). 
 
-*O script abaixo cria um novo grupo de recursos, servidor e base de dados para utilização como base de dados de Tarefa. O script a seguir também cria um segundo servidor com dois bancos de dados em branco para executar trabalhos.*
+*O script a seguir cria um novo grupo de recursos, servidor e banco de dados para uso como o banco de dados de trabalho. O script a seguir também cria um segundo servidor com dois bancos de dados em branco para executar trabalhos.*
 
 As tarefas elásticas não têm requisitos de nomenclatura específicos, pelo que pode utilizar quaisquer convenções de nomenclatura que queira, desde que estejam em conformidade com os [requisitos do Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
@@ -215,7 +215,7 @@ $JobCred = $JobAgent | New-AzSqlElasticJobCredential -Name "jobuser" -Credential
 
 Um [grupo de destino](sql-database-job-automation-overview.md#target-group) define o conjunto de um ou mais bases de dados onde será executado um passo de tarefa. 
 
-O trecho a seguir cria dois grupos de destino: *ServerGroup*e *ServerGroupExcludingDb2*. *ServerGroup* destina-se a todas as bases de dados existentes no servidor no momento da execução e *ServerGroupExcludingDb2* destina-se a todas as bases de dados no servidor, exceto *TargetDb2*:
+O fragmento seguinte cria dois grupos de destino: *ServerGroup* e *ServerGroupExcludingDb2*. *ServerGroup* destina-se a todas as bases de dados existentes no servidor no momento da execução e *ServerGroupExcludingDb2* destina-se a todas as bases de dados no servidor, exceto *TargetDb2*:
 
 ```powershell
 Write-Output "Creating test target groups..."

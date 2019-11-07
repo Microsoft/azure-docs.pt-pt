@@ -1,20 +1,20 @@
 ---
-title: Criar um bloco de anotações no Azure Cosmos DB para analisar e visualizar os dados
-description: Saiba como usar notebooks Jupyter internos para importar dados para Azure Cosmos DB, analisar os dados e visualizar a saída.
+title: 'Tutorial: criar um bloco de anotações no Azure Cosmos DB para analisar e visualizar os dados'
+description: 'Tutorial: saiba como usar os blocos de anotações internos do Jupyter para importar dados para Azure Cosmos DB, analisar os dados e visualizar a saída.'
 author: deborahc
 ms.topic: tutorial
 ms.service: cosmos-db
-ms.date: 09/25/2019
+ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 679887ca6e9ad7713480899d1b40fddf9923c4c0
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 45dd4e8dcfd74cdb5d96b935e239b9f4b5094a7c
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931508"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720923"
 ---
-# <a name="create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Criar um bloco de anotações no Azure Cosmos DB para analisar e visualizar os dados
+# <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutorial: criar um bloco de anotações no Azure Cosmos DB para analisar e visualizar os dados
 
 Este artigo descreve como usar blocos de anotações internos do Jupyter para importar dados de varejo de exemplo para Azure Cosmos DB. Você verá como usar os comandos SQL e Azure Cosmos DB mágica para executar consultas, analisar os dados e visualizar os resultados.
 
@@ -121,7 +121,7 @@ Antes de executar consultas para analisar os dados, você pode ler os dados do c
 {Query text}
 ```
 
-Para saber mais, consulte os [comandos e recursos de bloco de anotações internos no artigo Azure Cosmos DB](use-notebook-features-and-commands.md) . Você executará o `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`de consulta. Os resultados serão salvos em um dataframe do pandas chamado df_cosmos. Cole o seguinte comando em uma nova célula do bloco de anotações e execute-o:
+Para saber mais, consulte os [comandos e recursos de bloco de anotações internos no artigo Azure Cosmos DB](use-notebook-features-and-commands.md) . Você executará o Query-`SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. Os resultados serão salvos em um dataframe do pandas chamado df_cosmos. Cole o seguinte comando em uma nova célula do bloco de anotações e execute-o:
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos

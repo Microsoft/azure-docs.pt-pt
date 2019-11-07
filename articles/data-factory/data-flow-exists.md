@@ -1,5 +1,5 @@
 ---
-title: Existe transformação no fluxo de dados de mapeamento de Azure Data Factory | Microsoft Docs
+title: Existe transformação no fluxo de dados de mapeamento Azure Data Factory
 description: Verificar as linhas existentes usando a transformação Exists no fluxo de dados de mapeamento Azure Data Factory
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 79bdfc84310686b2648e12d73d783de049e9d2fa
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: a477eba246c4ebcfbd32e92f1fd30c301ea1cc5b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596500"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73676736"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>Existe transformação no fluxo de dados de mapeamento
 
@@ -54,7 +54,7 @@ Para criar uma expressão de forma livre que contenha operadores diferentes de "
 
 ### <a name="example"></a>Exemplo
 
-O exemplo abaixo é uma transformação Exists chamada `checkForChanges` que usa o fluxo à esquerda `NameNorm2` e o `TypeConversions` de fluxo à direita.  A condição EXISTS é a `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` de expressão que retorna true se as colunas `EMPID` e `Region` em cada fluxo correspondem. Como estamos verificando a existência, `negate` é false. Não habilitamos nenhuma difusão na guia otimizar para que `broadcast` tenha valor `'none'`.
+O exemplo abaixo é uma transformação Exists chamada `checkForChanges` que usa o fluxo à esquerda `NameNorm2` e o `TypeConversions`de fluxo à direita.  A condição EXISTS é a `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` de expressão que retorna true se as colunas `EMPID` e `Region` em cada fluxo correspondem. Como estamos verificando a existência, `negate` é false. Não habilitamos nenhuma difusão na guia otimizar para que `broadcast` tenha valor `'none'`.
 
 No Data Factory UX, essa transformação é semelhante à imagem abaixo:
 

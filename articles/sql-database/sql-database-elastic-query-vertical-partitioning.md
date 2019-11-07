@@ -1,5 +1,5 @@
 ---
-title: Consultar em bancos de dados de nuvem com esquema diferente | Microsoft Docs
+title: Consultar entre bases de dados de cloud com esquema diferente
 description: como configurar consultas entre bancos de dados em partições verticais
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 5657490474a401d9e3074ed6ab250a34ef0a5d8d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 998513c942cf1b6ceae861160abfe3dc6dac7792
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568535"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690327"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consultar em bancos de dados de nuvem com esquemas diferentes (versão prévia)
 
@@ -126,12 +126,12 @@ O exemplo a seguir mostra como recuperar a lista de tabelas externas do banco de
 
 A consulta elástica estende a sintaxe da tabela externa existente para definir tabelas externas que usam fontes de dados externas do tipo RDBMS. Uma definição de tabela externa para o particionamento vertical abrange os seguintes aspectos: 
 
-* **Esquema**: A DDL da tabela externa define um esquema que suas consultas podem usar. O esquema fornecido em sua definição de tabela externa precisa corresponder ao esquema das tabelas no banco de dados remoto em que o dado real está armazenado. 
-* **Referência de banco de dados remoto**: A tabela externa DDL refere-se a uma fonte de dados externa. A fonte de dados externa especifica o nome do servidor do banco de dado SQL e o nome do banco de dados remoto em que estão armazenados o dado da tabela real. 
+* **Esquema**: a DDL da tabela externa define um esquema que suas consultas podem usar. O esquema fornecido em sua definição de tabela externa precisa corresponder ao esquema das tabelas no banco de dados remoto em que o dado real está armazenado. 
+* **Referência de banco**de dados remoto: a DDL de tabela externa refere-se a uma fonte externa. A fonte de dados externa especifica o nome do servidor do banco de dado SQL e o nome do banco de dados remoto em que estão armazenados o dado da tabela real. 
 
 Usando uma fonte de dados externa, conforme descrito na seção anterior, a sintaxe para criar tabelas externas é a seguinte: 
 
-A cláusula DATA_SOURCE define a fonte de dados externa (ou seja, o banco de dado remoto em caso de particionamento vertical) que é usada para a tabela externa.  
+A cláusula DATA_SOURCE define a fonte de dados externa (ou seja, o banco de dados remoto no caso de particionamento vertical) que é usado para a tabela externa.  
 
 As cláusulas SCHEMA_NAME e OBJECT_NAME fornecem a capacidade de mapear a definição da tabela externa para uma tabela em um esquema diferente no banco de dados remoto ou para uma tabela com um nome diferente, respectivamente. Isso será útil se você quiser definir uma tabela externa para uma exibição de catálogo ou DMV no seu banco de dados remoto – ou em qualquer outra situação em que o nome da tabela remota já esteja em uso localmente.  
 
@@ -139,7 +139,7 @@ A instrução DDL a seguir descarta uma definição de tabela externa existente 
 
     DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 
-**Permissões para criar/DEScartar tabela externa**: As permissões alterar qualquer fonte de dados externa são necessárias para a DDL de tabela externa, que também é necessária para fazer referência à fonte de dados subjacente.  
+**Permissões para criar/DEScartar tabela externa**: as permissões alterar qualquer fonte de dados externa são necessárias para a DDL de tabela externa, que também é necessária para fazer referência à fonte de dados subjacente.  
 
 ## <a name="security-considerations"></a>Considerações de segurança
 
@@ -165,16 +165,16 @@ A consulta a seguir executa uma junção de três vias entre as duas tabelas loc
     WHERE c_id = 100
 ```
 
-## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Procedimento armazenado para execução remota de T-SQL:\_SP execute_remote
+## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>Procedimento armazenado para execução remota de T-SQL: SP\_execute_remote
 
-A consulta elástica também apresenta um procedimento armazenado que fornece acesso direto ao banco de dados remoto. O procedimento armazenado é chamado [SP\_execute \_Remote](https://msdn.microsoft.com/library/mt703714) e pode ser usado para executar procedimentos armazenados remotos ou código T-SQL no banco de dados remoto. Ele usa os seguintes parâmetros: 
+A consulta elástica também apresenta um procedimento armazenado que fornece acesso direto ao banco de dados remoto. O procedimento armazenado é chamado [sp\_execute \_Remote](https://msdn.microsoft.com/library/mt703714) e pode ser usado para executar procedimentos armazenados remotos ou código t-SQL no banco de dados remoto. Ele usa os seguintes parâmetros: 
 
-* Nome da fonte de dados (nvarchar): O nome da fonte de dados externa do tipo RDBMS. 
-* Consulta (nvarchar): A consulta T-SQL a ser executada no banco de dados remoto. 
-* Declaração de parâmetro (nvarchar) – opcional: Cadeia de caracteres com definições de tipo de dados para os parâmetros usados no parâmetro de consulta (como sp_executesql). 
-* Lista de valores de parâmetro-opcional: Lista separada por vírgulas de valores de parâmetro (como sp_executesql).
+* Nome da fonte de dados (nvarchar): o nome da fonte de dados externa do tipo RDBMS. 
+* Consulta (nvarchar): a consulta T-SQL a ser executada no banco de dados remoto. 
+* Declaração de parâmetro (nvarchar)-opcional: cadeia de caracteres com definições de tipo de dados para os parâmetros usados no parâmetro de consulta (como sp_executesql). 
+* Lista de valores de parâmetro-opcional: lista separada por vírgulas de valores de parâmetro (como sp_executesql).
 
-O SP\_execute\_Remote usa a fonte de dados externa fornecida nos parâmetros de invocação para executar a instrução T-SQL especificada no banco de dados remoto. Ele usa a credencial da fonte de dados externa para se conectar ao banco de dado remoto.  
+O SP\_executar\_remoto usa a fonte de dados externa fornecida nos parâmetros de invocação para executar a instrução T-SQL fornecida no banco de dado remoto. Ele usa a credencial da fonte de dados externa para se conectar ao banco de dado remoto.  
 
 Exemplo: 
 
@@ -193,13 +193,13 @@ Você pode usar cadeias de conexão SQL Server regulares para conectar suas ferr
 * Verifique se o banco de dados de ponto de extremidade de consulta elástica recebeu acesso ao banco de dados remoto habilitando o acesso para serviços do Azure em sua configuração de firewall de banco de dados SQL. Além disso, certifique-se de que a credencial fornecida na definição da fonte de dados externa possa fazer logon com êxito no banco de dado remoto e tenha as permissões para acessar a tabela remota.  
 * A consulta elástica funciona melhor para consultas em que a maior parte da computação pode ser feita nos bancos de dados remotos. Normalmente, você obtém o melhor desempenho de consulta com predicados de filtro seletivo que podem ser avaliados nos bancos de dados remotos ou junções que podem ser executadas completamente no banco de dados remoto. Outros padrões de consulta podem precisar carregar grandes quantidades de dados do banco de dado remoto e podem funcionar mal. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma visão geral da consulta elástica, consulte [visão geral da consulta elástica](sql-database-elastic-query-overview.md).
 * Para obter um tutorial de particionamento vertical, consulte [introdução à consulta entre bancos de dados (particionamento vertical)](sql-database-elastic-query-getting-started-vertical.md).
 * Para obter um tutorial horizontal de particionamento (fragmentação), consulte [introdução à consulta elástica para particionamento horizontal (fragmentação)](sql-database-elastic-query-getting-started.md).
 * Para obter sintaxe e exemplos de consultas para dados particionados horizontalmente, consulte [consultando dados particionados horizontalmente)](sql-database-elastic-query-horizontal-partitioning.md)
-* Confira [\_SP \_execute Remote](https://msdn.microsoft.com/library/mt703714) para um procedimento armazenado que execute uma instrução Transact-SQL em um único banco de dados SQL do Azure remoto ou em conjunto de dados que servem como fragmentos em um esquema de particionamento horizontal.
+* Consulte [sp\_execute \_Remote](https://msdn.microsoft.com/library/mt703714) para obter um procedimento armazenado que executa uma instrução TRANSACT-SQL em um único banco de dados SQL do Azure remoto ou conjunto de bancos de dados que serve como fragmentos em um esquema de particionamento horizontal.
 
 
 <!--Image references-->

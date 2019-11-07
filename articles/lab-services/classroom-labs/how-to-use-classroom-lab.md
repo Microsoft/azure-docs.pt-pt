@@ -14,19 +14,19 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 10813600621293e9f559129230193f81ea0c505a
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 2ac9e8b8d0635eceb7d4f85ad867b102f7d064f5
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161522"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585172"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Como aceder a um laboratório de sala de aula no Azure Lab Services
 Este artigo descreve como se registrar em um laboratório de sala de aula, exibir todos os laboratórios que você pode acessar, iniciar/parar uma VM no laboratório e conectar-se à VM. 
 
 ## <a name="register-to-the-lab"></a>Registre-se no laboratório
 
-1. Navegue para o **URL de registo** que recebeu do professor/educador. Você não precisa usar a URL de registro depois de concluir o registro. Em vez disso, use a [https://labs.azure.com](https://labs.azure.com)URL:. O Internet Explorer 11 ainda não tem suporte. 
+1. Navegue para o **URL de registo** que recebeu do professor/educador. Você não precisa usar a URL de registro depois de concluir o registro. Em vez disso, use a URL: [https://labs.azure.com](https://labs.azure.com). O Internet Explorer 11 ainda não tem suporte. 
 1. Inicie sessão no serviço com a sua conta escolar para concluir o registo. 
 
     > [!NOTE]
@@ -63,13 +63,13 @@ Este artigo descreve como se registrar em um laboratório de sala de aula, exibi
 ## <a name="connect-to-a-vm-using-rdp-on-a-mac"></a>Conectar-se a uma VM usando o RDP em um Mac
 Esta seção mostra como um aluno pode se conectar a uma VM de um Mac usando o RDP.
 
-### <a name="step-1-install-microsoft-remote-desktop-on-a-mac"></a>Passo 1: Instalar o Área de Trabalho Remota da Microsoft em um Mac
+### <a name="step-1-install-microsoft-remote-desktop-on-a-mac"></a>Etapa 1: instalar o Área de Trabalho Remota da Microsoft em um Mac
 1. Abra a loja de aplicativos no seu Mac e procure **área de trabalho remota da Microsoft**.
 
     ![Área de Trabalho Remota da Microsoft](../media/how-to-use-classroom-lab/install-ms-remote-desktop.png)
 1. Instale a versão mais recente do Área de Trabalho Remota da Microsoft. 
 
-### <a name="step-2-access-the-vm-from-your-mac-using-rdp"></a>Passo 2: Acessar a VM do seu Mac usando o RDP
+### <a name="step-2-access-the-vm-from-your-mac-using-rdp"></a>Etapa 2: acessar a VM do seu Mac usando o RDP
 1. Abra o arquivo **RDP** que é baixado em seu computador com **área de trabalho remota da Microsoft** instalado. Ele deve começar a se conectar à VM. 
 
     ![Ligar à VM](../media/how-to-use-classroom-lab/connect-linux-vm.png)
@@ -107,7 +107,7 @@ Depois de se registrar nos laboratórios, você pode exibir todos os laboratóri
 2. Entre no serviço usando a conta de usuário que você usou para se registrar no laboratório. 
 3. Confirme que você vê todos os laboratórios aos quais tem acesso. 
 
-    ![Ver todos os laboratórios](../media/how-to-use-classroom-lab/all-labs.png)
+    ![Ver todos os laboratórios](../media/how-to-manage-classroom-labs/all-labs.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes

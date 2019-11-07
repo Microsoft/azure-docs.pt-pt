@@ -1,5 +1,5 @@
 ---
-title: Personalizar a instalação para o tempo de execução de integração do Azure-SSIS | Microsoft Docs
+title: 'Personalizar a instalação para o tempo de execução de integração do Azure-SSIS '
 description: Este artigo descreve como usar a interface de instalação personalizada para o tempo de execução de integração do Azure-SSIS para instalar componentes adicionais ou alterar configurações
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: f7b09dcbd474debc08b79599e9e2dfaaca52285a
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 222672a93ccde7464ec1f37212f18996033a1460
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754691"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674870"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personalizar a instalação para o tempo de execução de integração do Azure-SSIS
 
@@ -138,7 +138,7 @@ Para personalizar sua Azure-SSIS IR, você precisará das seguintes coisas:
 
    c. Selecione o contêiner de visualização pública conectada e clique duas vezes na pasta `CustomSetupScript`. Nesta pasta estão os seguintes itens:
 
-      1. Uma pasta `Sample`, que contém uma instalação personalizada para instalar uma tarefa básica em cada nó do seu Azure-SSIS IR. A tarefa não faz nada, mas está em suspensão por alguns segundos. A pasta também contém uma pasta `gacutil`, todo o conteúdo do qual (`gacutil.exe`, `gacutil.exe.config` e `1033\gacutlrc.dll`) pode ser copiado como está em seu contêiner. Além disso, `main.cmd` contém comentários para manter as credenciais de acesso para compartilhamentos de arquivos.
+      1. Uma pasta `Sample`, que contém uma instalação personalizada para instalar uma tarefa básica em cada nó do seu Azure-SSIS IR. A tarefa não faz nada, mas está em suspensão por alguns segundos. A pasta também contém uma pasta `gacutil`, todo o conteúdo do qual (`gacutil.exe`, `gacutil.exe.config`e `1033\gacutlrc.dll`) pode ser copiado como está em seu contêiner. Além disso, `main.cmd` contém comentários para manter as credenciais de acesso para compartilhamentos de arquivos.
 
       1. Uma pasta `UserScenarios`, que contém várias configurações personalizadas para cenários de usuário reais.
 
@@ -150,13 +150,13 @@ Para personalizar sua Azure-SSIS IR, você precisará das seguintes coisas:
 
       1. Uma pasta `BCP`, que contém uma instalação personalizada para instalar SQL Server utilitários de linha de comando (`MsSqlCmdLnUtils.msi`), incluindo o programa de cópia em massa (`bcp`), em cada nó do seu Azure-SSIS IR.
 
-      1. Uma pasta `EXCEL`, que contém uma instalação personalizada para instalar assemblies de código-fonte aberto (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll` e `ExcelDataReader.dll`) em cada nó do seu Azure-SSIS IR.
+      1. Uma pasta `EXCEL`, que contém uma instalação personalizada para instalar assemblies de código-fonte aberto (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`e `ExcelDataReader.dll`) em cada nó do seu Azure-SSIS IR.
 
-      1. Uma pasta `ORACLE ENTERPRISE`, que contém um script de instalação personalizada (`main.cmd`) e o arquivo de configuração de instalação silenciosa (`client.rsp`) para instalar os conectores Oracle e o driver de OCI em cada nó do seu Azure-SSIS IR Enterprise Edition. Essa configuração permite que você use o Gerenciador de conexões Oracle, a origem e o destino. Primeiro, baixe o Microsoft Connectors v 5.0 para Oracle (`AttunitySSISOraAdaptersSetup.msi` e `AttunitySSISOraAdaptersSetup64.msi`) do [centro de download da Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=55179) e o cliente Oracle mais recente, por exemplo, `winx64_12102_client.zip`-da [Oracle](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html)e, em seguida, carregue-os junto com `main.cmd` e `client.rsp` em seu Container. Se você usar TNS para se conectar ao Oracle, também precisará baixar `tnsnames.ora`, editá-lo e carregá-lo em seu contêiner, para que ele possa ser copiado para a pasta de instalação do Oracle durante a instalação.
+      1. Uma pasta `ORACLE ENTERPRISE`, que contém um script de instalação personalizada (`main.cmd`) e o arquivo de configuração de instalação silenciosa (`client.rsp`) para instalar os conectores Oracle e o driver de OCI em cada nó do seu Azure-SSIS IR Enterprise Edition. Essa configuração permite que você use o Gerenciador de conexões Oracle, a origem e o destino. Primeiro, baixe o Microsoft Connectors v 5.0 para Oracle (`AttunitySSISOraAdaptersSetup.msi` e `AttunitySSISOraAdaptersSetup64.msi`) do [centro de download da Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=55179) e o cliente Oracle mais recente, por exemplo, `winx64_12102_client.zip` da [Oracle](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html)e, em seguida, carregue-os junto com `main.cmd` e `client.rsp` em seu contêiner. Se você usar TNS para se conectar ao Oracle, também precisará baixar `tnsnames.ora`, editá-lo e carregá-lo em seu contêiner, para que ele possa ser copiado para a pasta de instalação do Oracle durante a instalação.
 
       1. Uma pasta `ORACLE STANDARD ADO.NET`, que contém um script de instalação personalizada (`main.cmd`) para instalar o Driver Oracle ODP.NET em cada nó do seu Azure-SSIS IR. Essa configuração permite que você use o Gerenciador de conexões do ADO.NET, a origem e o destino. Primeiro, baixe o driver do Oracle ODP.NET mais recente, por exemplo, `ODP.NET_Managed_ODAC122cR1.zip`-do [Oracle](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)e, em seguida, carregue-o junto com `main.cmd` em seu contêiner.
        
-      1. Uma pasta `ORACLE STANDARD ODBC`, que contém um script de instalação personalizada (`main.cmd`) para instalar o driver ODBC Oracle e configurar o DSN em cada nó do seu Azure-SSIS IR. Essa configuração permite usar o Gerenciador de conexões ODBC/origem/destino ou Power Query Gerenciador de conexões/origem com o tipo de fonte de dados ODBC para se conectar ao servidor Oracle. Primeiro, baixe o pacote mais recente do Oracle Instant Client (pacote básico ou Basic Lite) e ODBC, por exemplo, os pacotes de 64 bits [aqui](https://www.oracle.com/technetwork/topics/winx64soft-089540.html) (pacote básico: `instantclient-basic-windows.x64-18.3.0.0.0dbru.zip`, pacote Basic Lite: `instantclient-basiclite-windows.x64-18.3.0.0.0dbru.zip`, pacote ODBC: `instantclient-odbc-windows.x64-18.3.0.0.0dbru.zip`) ou os pacotes de 32 bits [aqui](https://www.oracle.com/technetwork/topics/winsoft-085727.html) (pacote básico: `instantclient-basic-nt-18.3.0.0.0dbru.zip`, pacote Basic Lite: `instantclient-basiclite-nt-18.3.0.0.0dbru.zip`, pacote ODBC: `instantclient-odbc-nt-18.3.0.0.0dbru.zip`) e, em seguida, carregue-os junto com `main.cmd` em seu contêiner.
+      1. Uma pasta `ORACLE STANDARD ODBC`, que contém um script de instalação personalizada (`main.cmd`) para instalar o driver ODBC Oracle e configurar o DSN em cada nó do seu Azure-SSIS IR. Essa configuração permite usar o Gerenciador de conexões ODBC/origem/destino ou Power Query Gerenciador de conexões/origem com o tipo de fonte de dados ODBC para se conectar ao servidor Oracle. Primeiro, baixe o pacote mais recente do Oracle Instant Client (pacote básico ou Basic Lite) e ODBC, por exemplo, os pacotes de 64 bits [aqui](https://www.oracle.com/technetwork/topics/winx64soft-089540.html) (pacote básico: `instantclient-basic-windows.x64-18.3.0.0.0dbru.zip`, pacote Basic Lite: `instantclient-basiclite-windows.x64-18.3.0.0.0dbru.zip`, pacote ODBC: `instantclient-odbc-windows.x64-18.3.0.0.0dbru.zip`) ou 32 bits pacotes [aqui](https://www.oracle.com/technetwork/topics/winsoft-085727.html) (pacote básico: `instantclient-basic-nt-18.3.0.0.0dbru.zip`, pacote Basic Lite: `instantclient-basiclite-nt-18.3.0.0.0dbru.zip`, pacote ODBC: `instantclient-odbc-nt-18.3.0.0.0dbru.zip`) e, em seguida, carregue-os junto com `main.cmd` em seu contêiner.
 
       1. Uma pasta `SAP BW`, que contém um script de instalação personalizada (`main.cmd`) para instalar o assembly do conector do SAP .NET (`librfc32.dll`) em cada nó do seu Azure-SSIS IR Enterprise Edition. Essa configuração permite que você use o Gerenciador de conexões SAP BW, a origem e o destino. Primeiro, carregue a versão de 64 bits ou 32 bits do `librfc32.dll` da pasta de instalação do SAP em seu contêiner, junto com `main.cmd`. Em seguida, o script copia o assembly SAP para a pasta `%windir%\SysWow64` ou `%windir%\System32` durante a instalação.
 

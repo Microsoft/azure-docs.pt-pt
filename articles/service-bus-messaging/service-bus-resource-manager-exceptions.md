@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2019
 ms.author: aschhab
-ms.openlocfilehash: 9a2d25aba03156d6d14fe5ef9aa58b3748033b85
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 25b0c14fb94cba611dfa9fa9bece1b728f39a905
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72296383"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585213"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>Exceções do Gerenciador de recursos do barramento de serviço
 
@@ -72,3 +72,20 @@ Essa classe de erros indica que o recurso não foi encontrado.
 | Não encontrado | nenhuma | Não encontrado. A operação não existe. | A operação que você está tentando executar não existe. | Verifique a operação e tente novamente. |
 | Não encontrado | nenhuma | A solicitação de entrada não é reconhecida como uma solicitação de Put de política de namespace. | O corpo da solicitação de entrada é nulo e, portanto, não pode ser executado como uma solicitação Put. | Verifique o corpo da solicitação para garantir que ele não seja nulo. | 
 | Não encontrado | nenhuma | Não foi possível encontrar a entidade de mensagens *' nome da entidade '* . | A entidade na qual você está tentando executar a operação não foi encontrada. | Verifique se a entidade existe e tente a operação novamente. |
+
+## <a name="error-code-internal-server-error"></a>Código de erro: erro interno do servidor
+
+Essa classe de erros indica que houve um erro interno do servidor
+
+| Código de erro | Subcódigo de erro | Mensagem de erro | Descrição | Recomendação |
+| ---------- | ------------- | ------------- | ----------- | -------------- |
+| Erro interno do servidor | 50000 | Subcódigo = 50000. Erro interno do servidor| Pode ocorrer por vários motivos. Alguns dos sintomas são- <ul> <li> A solicitação/o corpo do cliente está corrompido e leva a um erro. </li> <li> A solicitação do cliente atingiu o tempo limite devido a problemas de processamento no serviço. </li> </ul> | Para resolver isso <ul> <li> Verifique se os parâmetros de solicitações não são nulos ou malformados. </li> <li> Repita a solicitação. </li> </ul> |
+
+## <a name="error-code-unauthorized"></a>Código de erro: não autorizado
+
+Essa classe de erros indica a ausência de autorização para executar o comando.
+
+| Código de erro | Subcódigo de erro | Mensagem de erro | Descrição | Recomendação |
+| ---------- | ------------- | ------------- | ----------- | -------------- |
+| Não autorizado | nenhuma | Operação inválida no namespace secundário. O namespace secundário é somente leitura. | A operação foi executada em relação ao namespace secundário, que é configurado como um namespace ReadOnly. | Repita o comando no namespace primário. Saiba mais sobre o [namespace secundário](service-bus-geo-dr.md) |
+| Não autorizado | nenhuma | MissingToken: o cabeçalho de autorização não foi encontrado. | Esse erro ocorre quando a autorização tem valores nulos ou incorretos. | Verifique se o valor do token mencionado no cabeçalho de autorização está correto e não é nulo. |

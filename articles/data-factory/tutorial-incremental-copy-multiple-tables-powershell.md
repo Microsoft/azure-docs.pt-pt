@@ -1,5 +1,5 @@
 ---
-title: Copiar várias tabelas de forma incremental com o Azure Data Factory | Microsoft Docs
+title: 'Copiar várias tabelas incrementalmente usando Azure Data Factory '
 description: Neste tutorial, vai criar um pipeline do Azure Data Factory, que copia dados delta de forma incremental de várias tabelas numa base de dados do SQL Server local para uma base de dados SQL do Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: b7de8b164fcd818fba1f999ea7b67f11de646ccd
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: b841acf45c20320fada895f20dfc4065837d5add
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533197"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683398"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar dados de forma incremental a partir de várias tabelas no SQL Server para uma base de dados SQL do Azure
 Neste tutorial, vai criar um pipeline do Azure Data Factory que carrega dados delta a partir de várias tabelas no SQL Server local para uma base de dados SQL do Azure.    
@@ -27,23 +27,23 @@ Vai executar os seguintes passos neste tutorial:
 > * Prepare os arquivos de dados de origem e de destino.
 > * Criar uma fábrica de dados.
 > * Criar um integration runtime autoalojado.
-> * Instalou o integration runtime. 
+> * Instalar o integration runtime. 
 > * Criar serviços ligados. 
-> * Crie conjuntos de dados de origem, de sink e de limite de tamanho.
+> * Criou conjuntos de dados de origem, de sink e de limite de tamanho.
 > * Criar, executar e monitorizar um pipeline.
 > * Reveja os resultados.
 > * Adicionou ou atualizou os dados nas tabelas de origem.
 > * Voltou a executar e a monitorizar o pipeline.
 > * Rever os resultados finais.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 Eis os passos importantes para criar esta solução: 
 
 1. **Selecionar a coluna de limite de tamanho**.
     Selecione uma coluna por cada tabela no arquivo de dados de origem, que pode ser utilizada para identificar os registos novos ou atualizados para cada execução. Normalmente, os dados nesta coluna selecionada (por exemplo, last_modify_time ou ID) continuam a aumentar quando as linhas são criadas ou atualizadas. O valor máximo nesta coluna é utilizado como limite de tamanho.
 
 1. **Preparar um arquivo de dados para armazenar o valor de limite de tamanho**.   
-    Neste tutorial, vai armazenar o valor de limite superior numa base de dados SQL.
+    Neste tutorial, vai armazenar o valor do limite de tamanho numa base de dados SQL.
 
 1. **Criar um pipeline com as seguintes atividades:** 
     
@@ -55,7 +55,7 @@ Eis os passos importantes para criar esta solução:
 
     d. Crie uma atividade StoredProcedure, que atualiza o valor de marca d'água do pipeline que vai ser executado da próxima vez. 
 
-    Eis o diagrama da solução de alto nível: 
+    Eis o diagrama de nível elevado da solução: 
 
     ![Carregar dados de forma incremental](media/tutorial-incremental-copy-multiple-tables-powershell/high-level-solution-diagram.png)
 
@@ -64,7 +64,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **SQL Server**. Neste tutorial, vai utilizar uma base de dados do SQL Server no local como o arquivo de dados de origem. 
-* **Base de Dados SQL do Azure**. Vai ulizar uma base de dados SQL como o arquivo de dados de sink. Se não tiver uma base de dados SQL, veja [Criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para seguir os passos para criar uma. 
+* **Base de Dados SQL do Azure**. Vai ulizar uma base de dados SQL como o arquivo de dados de sink. Se não tiver uma base de dados SQL, veja[Criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para obter os passos para criar uma. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Criar tabelas de origem na base de dados do SQL Server
 
@@ -130,7 +130,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
     ```
 
 ### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Criar outra tabela na base de dados SQL do Azure para armazenar o valor de limite superior de tamanho
-1. Execute o seguinte comando SQL na base de dados SQL para criar uma tabela com o nome `watermarktable` e armazenar o valor de marca d'água: 
+1. Execute o comando SQL seguinte na base de dados SQL para criar uma tabela com o nome `watermarktable` e armazenar o valor de limite de tamanho: 
     
     ```sql
     create table watermarktable
@@ -252,7 +252,7 @@ Siga as instruções em [Instalar e Configurar o Azure PowerShell](/powershell/a
 1. Defina uma variável para o nome da fábrica de dados. 
 
     > [!IMPORTANT]
-    >  Atualize o nome da fábrica de dados, para que seja globalmente exclusivo. Um exemplo é ADFIncMultiCopyTutorialFactorySP1127. 
+    >  Atualize o nome da fábrica de dados para que seja globalmente exclusivo. Um exemplo é ADFIncMultiCopyTutorialFactorySP1127. 
 
     ```powershell
     $dataFactoryName = "ADFIncMultiCopyTutorialFactory";
@@ -360,7 +360,7 @@ Neste passo, vai ligar a base de dados do SQL Server no local à fábrica de dad
     ```
 
 ### <a name="create-the-sql-database-linked-service"></a>Criar o serviço ligado da base de dados SQL
-1. Crie um arquivo JSON chamado **AzureSQLDatabaseLinkedService. JSON** na pasta C:\ADFTutorials\IncCopyMultiTableTutorial com o conteúdo a seguir. (Crie a pasta ADF se ela ainda não existir.) Substitua &lt;servername &gt;, &lt;database Name &gt;, &lt;user Name &gt; e &lt;password &gt; pelo nome do seu banco de dados SQL Server, nome do seu banco de dados, nome de usuário e senha antes de salvar o arquivo. 
+1. Crie um arquivo JSON chamado **AzureSQLDatabaseLinkedService. JSON** na pasta C:\ADFTutorials\IncCopyMultiTableTutorial com o conteúdo a seguir. (Crie a pasta ADF se ela ainda não existir.) Substitua &lt;ServerName&gt;, &lt;nome do banco de dados&gt;, &lt;nome de usuário&gt;e &lt;senha&gt; pelo nome do seu banco de dados SQL Server, nome do seu banco de dados, nome de usuário e a senha antes de salvar o arquivo. 
 
     ```json
     {  
@@ -794,7 +794,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A **atividade Fo
 
 ## <a name="monitor-the-pipeline"></a>Monitorizar o pipeline
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
 1. Clique em **Todos os serviços**, pesquise com a palavra-chave *Fábricas de dados* e selecione **Fábricas de dados**. 
 
@@ -803,7 +803,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A **atividade Fo
 1. Na página **Data Factory** , selecione **criar & Monitor** para iniciar Azure data Factory em uma guia separada.
 
 1. Na página **vamos começar** , selecione **Monitor** no lado esquerdo. 
-![Pipeline execuções ](media/doc-common-process/get-started-page-monitor-button.png)    
+Execuções de pipeline ![](media/doc-common-process/get-started-page-monitor-button.png)    
 
 1. Pode ver todas as execuções de pipelines e os respetivos estados. Note que no seguinte exemplo, o estado da execução do pipeline é **Com Êxito**. Para verificar os parâmetros transmitidos para o pipeline, selecione a ligação na coluna **Parâmetros**. Se tiver ocorrido um erro, pode ver uma ligação na coluna **Erro**.
 
@@ -961,9 +961,9 @@ Neste tutorial, executou os passos seguintes:
 > * Prepare os arquivos de dados de origem e de destino.
 > * Criar uma fábrica de dados.
 > * Criou um integration runtime autoalojado (IR).
-> * Instalou o integration runtime.
+> * Instalar o integration runtime.
 > * Criar serviços ligados. 
-> * Crie conjuntos de dados de origem, de sink e de limite de tamanho.
+> * Criou conjuntos de dados de origem, de sink e de limite de tamanho.
 > * Criar, executar e monitorizar um pipeline.
 > * Reveja os resultados.
 > * Adicionou ou atualizou os dados nas tabelas de origem.

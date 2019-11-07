@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: d93c3599bb4a52a03d4ac436ca664ce6be1c55b9
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200830"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682207"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Selecionando o tamanho correto da VM para o cluster HDInsight do Azure
 
@@ -45,7 +45,7 @@ As famílias de máquinas virtuais no Azure são otimizadas para atender a difer
 | [Com otimização de computação](../virtual-machines/linux/sizes-compute.md)        | F           | Relação CPU/memória elevada. Ideal para servidores Web com tráfego médio, aplicações de rede, processos em lote e servidores de aplicações.        |
 | [Com otimização de memória](../virtual-machines/linux/sizes-memory.md)         | Esv3, Ev3  | Alta taxa de memória/CPU. Ideal para servidores de base de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
 
-- Para obter informações sobre os preços das instâncias de VM disponíveis em regiões com suporte do HDInsight, consulte [preços do hdinsight](https://azure.microsoft.com/en-us/pricing/details/hdinsight/).
+- Para obter informações sobre os preços das instâncias de VM disponíveis em regiões com suporte do HDInsight, consulte [preços do hdinsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="cost-saving-vm-types-for-light-workloads"></a>Tipos de VM de economia para cargas de trabalho leves
 
@@ -55,12 +55,12 @@ A tabela a seguir descreve os tipos de cluster e tipos de nó, que podem ser cri
 
 | Tipo de Cluster | Versão | Nó de Trabalho | Nó Principal | Nó de ZooKeeper |
 |---|---|---|---|---|
-| Spark | Tudo | F4 e acima | não | não |
-| Hadoop | Tudo | F4 e acima | não | não |
-| Kafka | Tudo | F4 e acima | não | não |
-| HBase | Tudo | F4 e acima | não | não |
-| LLAP | Desabilitado | não | não | não |
-| Storm | Desabilitado | não | não | não |
+| Spark | Todos | F4 e acima | não | não |
+| Hadoop | Todos | F4 e acima | não | não |
+| Kafka | Todos | F4 e acima | não | não |
+| HBase | Todos | F4 e acima | não | não |
+| LLAP | desabilitado | não | não | não |
+| Storm | desabilitado | não | não | não |
 | Serviço ML | SOMENTE HDI 3,6 | F4 e acima | não | não |
 
 Para ver as especificações de cada SKU da série F, consulte [tamanhos de VM da série f](https://azure.microsoft.com/blog/f-series-vm-size/).

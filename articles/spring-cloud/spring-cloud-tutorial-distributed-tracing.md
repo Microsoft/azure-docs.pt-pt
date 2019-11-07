@@ -1,22 +1,19 @@
 ---
-title: 'Tutorial: Usar o rastreamento distribuído com o Azure Spring Cloud | Microsoft Docs'
+title: 'Tutorial: usar o rastreamento distribuído com o Azure Spring Cloud | Microsoft Docs'
 description: Saiba como usar o rastreamento distribuído da Spring Cloud por meio do Aplicativo Azure insights
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 10/06/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 95aae47bddffd102c5d6d6dac67f22e6777cc3e7
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.author: jeconnoc
+ms.openlocfilehash: a9d2100103cdd5858d0d58cf6ef77a6ccac3745f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038938"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607554"
 ---
-# <a name="tutorial-using-distributed-tracing-with-azure-spring-cloud"></a>Tutorial: Usando o rastreamento distribuído com o Azure Spring Cloud
+# <a name="tutorial-using-distributed-tracing-with-azure-spring-cloud"></a>Tutorial: usando o rastreamento distribuído com o Azure Spring Cloud
 
 As ferramentas de rastreamento distribuídas da Spring Cloud permitem a fácil depuração e o monitoramento de problemas complexos. O Azure Spring Cloud integra o [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) com o [Application insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) do Azure para fornecer um poderoso recurso de rastreamento distribuído do portal do Azure.
 

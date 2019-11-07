@@ -1,5 +1,5 @@
 ---
-title: Analisar dados com o Azure Machine Learning | Microsoft Docs
+title: Analisar dados com o Azure Machine Learning
 description: Utilize o Azure Machine Learning para criar um modelo preditivo de machine learning com base em dados armazenados no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,13 @@ ms.subservice: integration
 ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: cae2acf98f39030f4ff340d32f1911bb2b5763ae
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f91960eaac92047e76275e63b1feaf471de3bac3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "65860836"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692797"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analisar dados com o Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -38,12 +39,12 @@ Para seguir este tutorial, é necessário:
 
 * Um SQL Data Warehouse pré-carregado com dados de exemplo da AdventureWorksDW. Para proceder ao aprovisionamento, consulte [Create a SQL Data Warehouse (Criar um SQL Data Warehouse)][Create a SQL Data Warehouse] e opte por carregar os dados de exemplo. Se já tiver um armazém de dados, mas não tiver dados de exemplo, pode [carregar dados de exemplo manualmente][load sample data manually].
 
-## <a name="1-get-the-data"></a>1. Obter os dados
+## <a name="1-get-the-data"></a>1. obter os dados
 Os dados encontram-se na vista dbo.vTargetMail na base de dados AdventureWorksDW. Para ler estes dados:
 
 1. Inicie sessão no [Azure Machine Learning studio][Azure Machine Learning studio] e clique em as minhas experimentações.
 2. Clique em **+ novo** na parte inferior esquerda da tela e selecione **experimento em branco**.
-3. Insira um nome para o experimento: Marketing direcionado.
+3. Introduza um nome para a experimentação: Marketing Direcionado.
 4. Arraste o módulo **importar dados** em **entrada e saída de dados** do painel módulos para a tela.
 5. Especifique os detalhes da sua base de dados SQL Data Warehouse no painel Propriedades.
 6. Especifique a **consulta** de base de dados para ler os dados de interesse.
@@ -74,17 +75,17 @@ Execute experimentação ao clicar em **Executar** na tela de experimentação.
 Depois de a execução da experimentação ser concluída com êxito, clique na porta de saída na parte inferior do módulo Leitor e selecione **Visualizar** para ver os dados importados.
 ![Ver os dados importados][3]
 
-## <a name="2-clean-the-data"></a>2. Limpar os dados
+## <a name="2-clean-the-data"></a>2. limpar os dados
 Para limpar os dados, remova algumas colunas que não sejam relevantes para o modelo. Para efetuar este procedimento:
 
 1. Arraste o módulo **selecionar colunas no conjunto** de **dados em data transformation < manipulação** na tela. Conecte este módulo ao módulo **importar dados** .
 2. Clique em **Iniciar seletor de colunas** no painel Propriedades, para especificar as colunas que pretende remover.
    ![Colunas do Projeto][4]
-3. Excluir duas colunas: CustomerAlternateKey e GeographyKey.
+3. Exclua duas colunas: CustomerAlternateKey e GeographyKey.
    ![Remover colunas desnecessárias][5]
 
-## <a name="3-build-the-model"></a>3. Criar o modelo
-Dividiremos os dados 80-20: 80% para treinar um modelo de aprendizado de máquina e 20% para testar o modelo. Iremos utilizar os algoritmos das “Duas Classes” para este problema de classificação binária.
+## <a name="3-build-the-model"></a>3. compilar o modelo
+Iremos dividir os dados 80-20: 80% para preparar um modelo de machine learning e 20% para testar o modelo. Iremos utilizar os algoritmos das “Duas Classes” para este problema de classificação binária.
 
 1. Arraste o módulo **Dividir** para a tela.
 2. No painel Propriedades, insira 0,8 para a fração de linhas no primeiro conjunto de registros de saída.
@@ -95,11 +96,11 @@ Dividiremos os dados 80-20: 80% para treinar um modelo de aprendizado de máquin
 5. Em seguida, clique em **Iniciar seletor de colunas** no painel Propriedades. Selecione a coluna **BikeBuyer** como a coluna a prever.
    ![Selecionar Coluna a prever][8]
 
-## <a name="4-score-the-model"></a>4. Pontuar o modelo
+## <a name="4-score-the-model"></a>4. pontuar o modelo
 Agora, iremos testar o desempenho do modelo em dados de teste. Iremos comparar o algoritmo escolhido com um algoritmo diferente, para ver qual tem o melhor desempenho.
 
 1. Arraste o módulo **modelo de Pontuação** para a tela e conecte-o para **treinar o modelo** e **dividir os** módulos de dados.
-   ![Pontuar o modelo][9]
+   ![pontuar o modelo][9]
 2. Arraste a **Máquina do Ponto Bayes de Duas Classes** para a tela de experimentação. Iremos comparar o desempenho deste algoritmo em comparação com a Árvore de Decisões Elevada de Duas Classes.
 3. Copie e cole os módulos Preparar Modelo e Pontuar Modelo na tela.
 4. Arraste o módulo **Avaliar Modelo** para a tela, para comparar os dois algoritmos.
@@ -118,7 +119,7 @@ Verá mais duas colunas adicionadas ao conjunto de dados de teste.
 
 Ao comparar a coluna BikeBuyer (real) com as Etiquetas Classificadas (predição), pode ver quão bom foi o desempenho do modelo. Nos passos seguintes, pode utilizar este modelo para fazer predições para clientes novos e publicar este modelo como um serviço Web ou escrever os resultados de volta para o SQL Data Warehouse.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre como criar modelos preditivos de machine learning, consulte [Introdução ao Machine Learning no Azure][Introduction to Machine Learning on Azure].
 
 <!--Image references-->

@@ -1,5 +1,5 @@
 ---
-title: Aprovisionar o Integration Runtime do Azure-SSIS com o PowerShell | Microsoft Docs
+title: Provisionar o Azure-SSIS Integration Runtime com o PowerShell
 description: Saiba como aprovisionar o runtime de integração do Azure-SSIS no Azure Data Factory com o PowerShell, para que possa implementar e executar pacotes SSIS no Azure.
 services: data-factory
 documentationcenter: ''
@@ -13,16 +13,16 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 7a4ae2198653ea8adab136caef0f812019efd998
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 594cdd848a3712d2164616e38f7b75a01a21b7f6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326110"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683583"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory-with-powershell"></a>Aprovisionar o Integration Runtime do Azure-SSIS no Azure Data Factory com o PowerShell
 
-Este tutorial fornece etapas para provisionar um Integration Runtime (IR) do Azure-SQL Server Integration Services (SSIS) no Azure Data Factory (ADF). Azure-SSIS IR dá suporte a pacotes em execução implantados no catálogo do SSIS (SSISDB) hospedado pelo servidor/Instância Gerenciada do banco de dados SQL do Azure (modelo de implantação de projeto) e aqueles implantados em sistemas de arquivos/compartilhamentos de arquivos/arquivos do Azure (modelo de implantação Depois que Azure-SSIS IR for provisionado, você poderá usar ferramentas familiares, como SQL Server Data Tools (SSDT)/SQL Server Management Studio (SSMS) e utilitários de linha de comando, como `dtinstall` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4, para implantar e executar seus pacotes no Azure. Neste tutorial, vai executar os seguintes passos:
+Este tutorial fornece etapas para provisionar um Integration Runtime (IR) do Azure-SQL Server Integration Services (SSIS) no Azure Data Factory (ADF). Azure-SSIS IR dá suporte a pacotes em execução implantados no catálogo do SSIS (SSISDB) hospedado pelo servidor/Instância Gerenciada do banco de dados SQL do Azure (modelo de implantação de projeto) e aqueles implantados em sistemas de arquivos/compartilhamentos de arquivos/arquivos do Azure (modelo de implantação Depois que Azure-SSIS IR for provisionado, você poderá usar ferramentas familiares, como SQL Server Data Tools (SSDT)/SQL Server Management Studio (SSMS) e utilitários de linha de comando, como `dtinstall`/`dtutil`/`dtexec`, para implantar e executar seus pacotes no Azure. Neste tutorial, vai executar os seguintes passos:
 
 > [!NOTE]
 > Este artigo usa Azure PowerShell para provisionar um Azure-SSIS IR. Para usar o aplicativo portal do Azure/ADF para provisionar um Azure-SSIS IR, consulte [tutorial: provisionando Azure-SSIS ir](tutorial-create-azure-ssis-runtime-portal.md). 
@@ -369,7 +369,7 @@ Veja os artigos seguintes para obter detalhes sobre a monitorização e a gestã
 
 ## <a name="deploy-ssis-packages"></a>Implementar pacotes de SSIS
 
-Se você usar o SSISDB, poderá implantar seus pacotes nele e executá-los em Azure-SSIS IR usando as ferramentas SSDT/SSMS que se conectam ao seu servidor de banco de dados por meio de seu ponto de extremidade do servidor. Para o servidor do banco de dados SQL do Azure/instância gerenciada com um ponto de extremidade público, o formato do ponto de extremidade do servidor é `<server name>.database.windows.net` @ no__t-1 @ no__t-2, respectivamente. Se você não usar o SSISDB, poderá implantar seus pacotes em sistemas de arquivos/compartilhamentos de arquivos/arquivos do Azure e executá-los em Azure-SSIS IR usando os utilitários de linha de comando `dtinstall` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4. Para obter mais informações, consulte [implantar pacotes do SSIS](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server). Em ambos os casos, você também pode executar seus pacotes implantados em Azure-SSIS IR usando a atividade executar pacote SSIS em pipelines do ADF, consulte [invocar a execução do pacote SSIS como uma atividade AAD de primeira classe](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
+Se você usar o SSISDB, poderá implantar seus pacotes nele e executá-los em Azure-SSIS IR usando as ferramentas SSDT/SSMS que se conectam ao seu servidor de banco de dados por meio de seu ponto de extremidade do servidor. Para o servidor de banco de dados SQL do Azure/instância gerenciada com um ponto de extremidade público, o formato de ponto de extremidade do servidor é `<server name>.database.windows.net`/`<server name>.public.<dns prefix>.database.windows.net,3342`, respectivamente. Se você não usar o SSISDB, poderá implantar seus pacotes em sistemas de arquivos/compartilhamentos de arquivos/arquivos do Azure e executá-los em Azure-SSIS IR usando `dtinstall`/`dtutil`/`dtexec` de linha de comando. Para obter mais informações, consulte [implantar pacotes do SSIS](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server). Em ambos os casos, você também pode executar seus pacotes implantados em Azure-SSIS IR usando a atividade executar pacote SSIS em pipelines do ADF, consulte [invocar a execução do pacote SSIS como uma atividade AAD de primeira classe](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
 
 Consulte também os seguintes artigos da documentação do SSIS: 
 

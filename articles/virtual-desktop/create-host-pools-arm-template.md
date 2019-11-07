@@ -1,5 +1,5 @@
 ---
-title: Criar um pool de hosts de área de trabalho virtual do Windows com um modelo de Azure Resource Manager – Azure
+title: Pool de hosts da área de trabalho virtual do Windows Azure Resource Manager-Azure
 description: Como criar um pool de hosts na área de trabalho virtual do Windows com um modelo de Azure Resource Manager.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: b96ecad93c481a762b81a7888940850ed3a73e5f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 23d032a2496e975c7e6ceafb61691c2cb1216218
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679616"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605755"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Criar um conjunto de anfitriões com um modelo do Azure Resource Manager
 

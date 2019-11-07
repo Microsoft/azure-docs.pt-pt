@@ -1,5 +1,5 @@
 ---
-title: Alta disponibilidade-serviço de banco de dados SQL do Azure | Microsoft Docs
+title: Alta disponibilidade-serviço do banco de dados SQL do Azure
 description: Conheça os recursos e recursos de alta disponibilidade do serviço de banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
-ms.openlocfilehash: ab3971b4fb6065701d693debf55242be7b15295e
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: b34590ca275b6e7254af7820fdc1a03655351cea
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965963"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689952"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Alta disponibilidade e banco de dados SQL do Azure
 
@@ -39,7 +39,7 @@ Essas camadas de serviço aproveitam a arquitetura de disponibilidade padrão. A
 
 O modelo de disponibilidade padrão inclui duas camadas:
 
-- Uma camada de computação sem monitoração de estado que executa o processo `sqlservr.exe` e contém somente dados transitórios e em cache, como TempDB, bancos de dado modelo no SSD anexado e cache de planos, pool de buffers e pool columnstore na memória. Esse nó sem estado é operado pelo Service Fabric do Azure que inicializa `sqlservr.exe`, controla a integridade do nó e executa o failover para outro nó, se necessário.
+- Uma camada de computação sem monitoração de estado que executa o processo de `sqlservr.exe` e contém somente dados transitórios e em cache, como TempDB, bancos de dado de modelo no SSD anexado e cache de planos, pool de buffers e pool columnstore na memória. Esse nó sem estado é operado pelo Service Fabric do Azure que inicializa `sqlservr.exe`, controla a integridade do nó e executa o failover para outro nó, se necessário.
 - Uma camada de dados com monitoração de estado com os arquivos de banco (. MDF/. ldf) armazenados no armazenamento de BLOBs do Azure. O armazenamento de BLOBs do Azure tem recursos internos de redundância e disponibilidade de dados. Ele garante que todos os registros no arquivo de log ou na página do arquivo de dados serão preservados mesmo se SQL Server processo falhar.
 
 Sempre que o mecanismo de banco de dados ou o sistema operacional for atualizado ou uma falha for detectada, o Azure Service Fabric moverá o processo de SQL Server sem estado para outro nó de computação sem estado com capacidade livre suficiente. Os dados no armazenamento de BLOBs do Azure não são afetados pela movimentação e os arquivos de dados/log são anexados ao processo de SQL Server inicializado recentemente. Esse processo garante a disponibilidade de 99,99%, mas uma carga de trabalho pesada pode enfrentar alguma degradação de desempenho durante a transição, uma vez que a nova instância de SQL Server começa com o cache frio.
@@ -62,8 +62,8 @@ A arquitetura da camada de serviço de hiperescala é descrita em [arquitetura d
 
 O modelo de disponibilidade em hiperescala inclui quatro camadas:
 
-- Uma camada de computação sem estado que executa os processos `sqlservr.exe` e contém somente dados transitórios e armazenados em cache, como o cache RBPEX não abrangendo, TempDB, banco de dado modelo, etc. no SSD anexado, no cache de planos, no pool de buffers e no pool columnstore na memória. Essa camada sem estado inclui a réplica de computação primária e, opcionalmente, um número de réplicas de computação secundárias que podem servir como destinos de failover.
-- Uma camada de armazenamento sem estado formada por servidores de página. Essa camada é o mecanismo de armazenamento distribuído para os processos `sqlservr.exe` em execução nas réplicas de computação. Cada servidor de página contém apenas dados transitórios e em cache, como cobrindo o cache RBPEX no SSD anexado e páginas de dados armazenadas em cache na memória. Cada servidor de página tem um servidor de páginas emparelhado em uma configuração ativo-ativo para fornecer balanceamento de carga, redundância e alta disponibilidade.
+- Uma camada de computação sem estado que executa os processos de `sqlservr.exe` e contém somente dados transitórios e armazenados em cache, como o cache RBPEX não abrangendo, TempDB, banco de dado modelo, etc. no SSD anexado, e no cache de planos, no pool de buffers e no pool columnstore na memória. Essa camada sem estado inclui a réplica de computação primária e, opcionalmente, um número de réplicas de computação secundárias que podem servir como destinos de failover.
+- Uma camada de armazenamento sem estado formada por servidores de página. Essa camada é o mecanismo de armazenamento distribuído para os `sqlservr.exe` processos em execução nas réplicas de computação. Cada servidor de página contém apenas dados transitórios e em cache, como cobrindo o cache RBPEX no SSD anexado e páginas de dados armazenadas em cache na memória. Cada servidor de página tem um servidor de páginas emparelhado em uma configuração ativo-ativo para fornecer balanceamento de carga, redundância e alta disponibilidade.
 - Uma camada de armazenamento de log de transações com estado formada pelo nó de computação executando o processo do serviço de log, a zona de aterrissagem do log de transações e o armazenamento de longo prazo do log de transações. Zona de aterrissagem e armazenamento de longo prazo usam o armazenamento do Azure, que fornece disponibilidade e [redundância](https://docs.microsoft.com/azure/storage/common/storage-redundancy) para o log de transações, garantindo a durabilidade dos dados para transações confirmadas.
 - Uma camada de armazenamento de dados com monitoração de estado com os arquivos (. MDF/. ndf) armazenados no armazenamento do Azure e são atualizados por servidores de página. Essa camada usa recursos de [redundância](https://docs.microsoft.com/azure/storage/common/storage-redundancy) e disponibilidade de dados do armazenamento do Azure. Ele garante que cada página em um arquivo de dados será preservada mesmo se os processos em outras camadas de falha de arquitetura de hiperescala ou se os nós de computação falharem.
 

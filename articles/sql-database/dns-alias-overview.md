@@ -1,5 +1,5 @@
 ---
-title: Alias de DNS para o banco de dados SQL do Azure | Microsoft Docs
+title: Alias de DNS para o banco de dados SQL do Azure
 description: Seus aplicativos podem se conectar a um alias para o nome do seu servidor de banco de dados SQL do Azure. Enquanto isso, você pode alterar o banco de dados SQL que o alias aponta para qualquer momento, para facilitar o teste e assim por diante.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: 5d37b41fa7b51871f9ce1b21c62de1f9ab7f3b82
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: c3681e882fea3e8e36472c8e540db0255cd654bb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058570"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692283"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias de DNS para o banco de dados SQL do Azure
 
@@ -56,7 +56,7 @@ Uma recuperação de desastre pode mudar o servidor do banco de dados SQL para u
 As propriedades a seguir se aplicam a cada alias DNS para o servidor do banco de dados SQL:
 
 - *Nome exclusivo:* Cada nome de alias que você cria é exclusivo em todos os servidores de banco de dados SQL do Azure, assim como os nomes de servidor.
-- *O servidor é necessário:* Um alias DNS não pode ser criado, a menos que ele referencie exatamente um servidor, e o servidor já deve existir. Um alias atualizado sempre deve fazer referência a exatamente um servidor existente.
+- O *servidor é necessário:* Um alias DNS não pode ser criado, a menos que ele referencie exatamente um servidor, e o servidor já deve existir. Um alias atualizado sempre deve fazer referência a exatamente um servidor existente.
   - Quando você remove um servidor de banco de dados SQL, o sistema do Azure também descarta todos os aliases DNS que se referem ao servidor.
 - *Não associado a nenhuma região:* Os aliases DNS não estão associados a uma região. Todos os aliases de DNS podem ser atualizados para se referir a um servidor de banco de dados SQL do Azure que reside em qualquer região geográfica.
   - No entanto, ao atualizar um alias para fazer referência a outro servidor, ambos os servidores devem existir na mesma *assinatura*do Azure.
@@ -92,10 +92,10 @@ Um exemplo de código dos cmdlets do PowerShell que está sendo usado para geren
 
 Os cmdlets usados no exemplo de código são os seguintes:
 
-- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Cria um novo alias DNS no sistema de serviço do banco de dados SQL do Azure. O alias refere-se ao servidor de banco de dados SQL do Azure 1.
-- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Obtenha e liste todos os aliases DNS atribuídos ao servidor de banco de BD SQL 1.
-- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Modifica o nome do servidor ao qual o alias está configurado para se referir, do servidor 1 ao servidor de banco de BD SQL 2.
-- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remova o alias DNS do servidor de banco de BD SQL 2, usando o nome do alias.
+- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): cria um novo alias DNS no sistema de serviço do banco de dados SQL do Azure. O alias refere-se ao servidor de banco de dados SQL do Azure 1.
+- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): obter e listar todos os aliases de DNS atribuídos ao servidor de banco de BD SQL 1.
+- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): modifica o nome do servidor ao qual o alias está configurado para se referir, do servidor 1 ao servidor de banco de BD SQL 2.
+- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remove o alias de DNS do servidor de banco de BD SQL 2, usando o nome do alias.
 
 ## <a name="limitations-during-preview"></a>Limitações durante a visualização
 

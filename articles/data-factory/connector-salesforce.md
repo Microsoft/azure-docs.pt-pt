@@ -1,5 +1,5 @@
 ---
-title: Copiar dados de e para o Salesforce usando Azure Data Factory | Microsoft Docs
+title: Copiar dados de e para o Salesforce usando Azure Data Factory
 description: Saiba como copiar dados do Salesforce para armazenamentos de dados de coletor com suporte ou de armazenamentos de dados de origem com suporte para o Salesforce usando uma atividade de cópia em um pipeline de data factory.
 services: data-factory
 documentationcenter: ''
@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 08d1afb4175a61b70d8e04b19db187bcc87dd129
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 1bcfc0386925d142fd765547ff60e1f2a3bd9101
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010522"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680342"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para o Salesforce usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-salesforce-connector.md)
 > * [Versão atual](connector-salesforce.md)
 
-Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para o Salesforce. Ele se baseia no [descrição geral da atividade de cópia](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para o Salesforce. Ele se baseia no artigo [visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
-## <a name="supported-capabilities"></a>Capacidades suportadas
+## <a name="supported-capabilities"></a>Recursos com suporte
 
 Este conector do Salesforce tem suporte para as seguintes atividades:
 
@@ -62,23 +62,23 @@ Você também pode receber a mensagem de erro "REQUEST_LIMIT_EXCEEDED" em ambos 
 
 As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Data Factory entidades específicas para o conector do Salesforce.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 
 As propriedades a seguir têm suporte para o serviço vinculado do Salesforce.
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type |A propriedade Type deve ser definida como **Salesforce**. |Sim |
-| environmentUrl | Especifique a URL da instância do Salesforce. <br> -O padrão `"https://login.salesforce.com"`é. <br> -Para copiar dados da área restrita, `"https://test.salesforce.com"`especifique. <br> -Para copiar dados de um domínio personalizado, especifique, por exemplo `"https://[domain].my.salesforce.com"`,. |Não |
-| username |Especifique um nome de usuário para a conta de usuário. |Sim |
-| password |Especifique uma senha para a conta de usuário.<br/><br/>Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| securityToken |Especifique um token de segurança para a conta de usuário. Para obter instruções sobre como redefinir e obter um token de segurança, consulte [obter um token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Para saber mais sobre os tokens de segurança em geral, consulte [segurança e a API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não para fonte, sim para o coletor se o serviço vinculado de origem não tiver o tempo de execução de integração |
+| tipo |A propriedade Type deve ser definida como **Salesforce**. |Sim |
+| environmentUrl | Especifique a URL da instância do Salesforce. <br> -O padrão é `"https://login.salesforce.com"`. <br> -Para copiar dados da área restrita, especifique `"https://test.salesforce.com"`. <br> -Para copiar dados de um domínio personalizado, especifique, por exemplo, `"https://[domain].my.salesforce.com"`. |Não |
+| o nome de utilizador |Especifique um nome de usuário para a conta de usuário. |Sim |
+| palavra-passe |Especifique uma senha para a conta de usuário.<br/><br/>Marque este campo como uma SecureString para armazená-lo com segurança no Data Factory ou [faça referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| securityToken |Especifique um token de segurança para a conta de usuário. Para obter instruções sobre como redefinir e obter um token de segurança, consulte [obter um token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Para saber mais sobre os tokens de segurança em geral, consulte [segurança e a API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Marque este campo como uma SecureString para armazená-lo com segurança no Data Factory ou [faça referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se não for especificado, ele usará o Azure Integration Runtime padrão. | Não para fonte, sim para o coletor se o serviço vinculado de origem não tiver o tempo de execução de integração |
 
 >[!IMPORTANT]
 >Quando você copia dados para o Salesforce, o Azure Integration Runtime padrão não pode ser usado para executar a cópia. Em outras palavras, se o serviço vinculado de origem não tiver um tempo de execução de integração especificado, [crie explicitamente um Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) com um local perto de sua instância do Salesforce. Associe o serviço vinculado do Salesforce como no exemplo a seguir.
 
-**Exemplo: Armazenar credenciais no Data Factory**
+**Exemplo: armazenar credenciais no Data Factory**
 
 ```json
 {
@@ -104,7 +104,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Salesforce.
 }
 ```
 
-**Exemplo: Armazenar credenciais no Key Vault**
+**Exemplo: armazenar credenciais no Key Vault**
 
 ```json
 {
@@ -138,23 +138,23 @@ As propriedades a seguir têm suporte para o serviço vinculado do Salesforce.
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Propriedades de DataSet
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de consulta do Salesforce.
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte pelo conjunto de consulta do Salesforce.
 
-Para copiar dados de e para o Salesforce, defina a propriedade Type do conjunto como **SalesforceObject**. São suportadas as seguintes propriedades.
+Para copiar dados de e para o Salesforce, defina a propriedade Type do conjunto como **SalesforceObject**. As propriedades a seguir têm suporte.
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade Type deve ser definida como **SalesforceObject**.  | Sim |
-| objectApiName | O nome do objeto do Salesforce do qual recuperar dados. | Não para a origem, Sim para o sink |
+| tipo | A propriedade Type deve ser definida como **SalesforceObject**.  | Sim |
+| objectApiName | O nome do objeto do Salesforce do qual recuperar dados. | Não para fonte, sim para coletor |
 
 > [!IMPORTANT]
 > A parte "__c" do **nome da API** é necessária para qualquer objeto personalizado.
 
 ![Nome da API de conexão Data Factory Salesforce](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
 
-**Example:**
+**Exemplo:**
 
 ```json
 {
@@ -174,25 +174,25 @@ Para copiar dados de e para o Salesforce, defina a propriedade Type do conjunto 
 ```
 
 >[!NOTE]
->Para compatibilidade com versões anteriores: Ao copiar dados do Salesforce, se você usar o conjunto de dado do tipo "RelationalTable" anterior, ele continuará funcionando enquanto você vê uma sugestão para alternar para o novo tipo "SalesforceObject".
+>Para compatibilidade com versões anteriores: quando você copia dados do Salesforce, se você usar o conjunto de dado do tipo "RelationalTable" anterior, ele continuará funcionando enquanto você vir uma sugestão para alternar para o novo tipo "SalesforceObject".
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como **RelationalTable**. | Sim |
+| tipo | A propriedade Type do conjunto de conjuntos deve ser definida como **RelationalTable**. | Sim |
 | tableName | Nome da tabela no Salesforce. | Não (se "Query" na origem da atividade for especificado) |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista das propriedades com suporte pela origem e pelo coletor do Salesforce.
+Para obter uma lista completa de seções e propriedades disponíveis para definir atividades, consulte o artigo [pipelines](concepts-pipelines-activities.md) . Esta seção fornece uma lista das propriedades com suporte pela origem e pelo coletor do Salesforce.
 
 ### <a name="salesforce-as-a-source-type"></a>Salesforce como um tipo de origem
 
-Para copiar dados do Salesforce, defina o tipo de fonte na atividade de cópia como **SalesforceSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção.
+Para copiar dados do Salesforce, defina o tipo de fonte na atividade de cópia como **SalesforceSource**. As propriedades a seguir têm suporte na seção **origem** da atividade de cópia.
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade Type da fonte da atividade de cópia deve ser definida como **SalesforceSource**. | Sim |
-| query |Use a consulta personalizada para ler os dados. Você pode usar a consulta [SOQL (Salesforce Object Querying Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) ou a consulta SQL-92. Veja mais dicas na seção [dicas de consulta](#query-tips) . Se a consulta não for especificada, todos os dados do objeto Salesforce especificado em "objectApiName" no DataSet serão recuperados. | Não (se "objectApiName" no DataSet for especificado) |
+| tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como **SalesforceSource**. | Sim |
+| consulta |Use a consulta personalizada para ler os dados. Você pode usar a consulta [SOQL (Salesforce Object Querying Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) ou a consulta SQL-92. Veja mais dicas na seção [dicas de consulta](#query-tips) . Se a consulta não for especificada, todos os dados do objeto Salesforce especificado em "objectApiName" no DataSet serão recuperados. | Não (se "objectApiName" no DataSet for especificado) |
 | readBehavior | Indica se é para consultar os registros existentes ou consultar todos os registros, incluindo aqueles excluídos. Se não for especificado, o comportamento padrão será o primeiro. <br>Valores permitidos: **Query** (padrão), **queryall**.  | Não |
 
 > [!IMPORTANT]
@@ -200,7 +200,7 @@ Para copiar dados do Salesforce, defina o tipo de fonte na atividade de cópia c
 
 ![Lista de nome da API de conexão do Salesforce Data Factory](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
 
-**Example:**
+**Exemplo:**
 
 ```json
 "activities":[
@@ -233,7 +233,7 @@ Para copiar dados do Salesforce, defina o tipo de fonte na atividade de cópia c
 ```
 
 >[!NOTE]
->Para compatibilidade com versões anteriores: Ao copiar dados do Salesforce, se você usar a cópia de tipo "RelationalSource" anterior, a origem continuará funcionando enquanto você vê uma sugestão para alternar para o novo tipo "SalesforceSource".
+>Para compatibilidade com versões anteriores: ao copiar dados do Salesforce, se você usar a cópia de tipo "RelationalSource" anterior, a origem continuará funcionando enquanto você vir uma sugestão para alternar para o novo tipo "SalesforceSource".
 
 ### <a name="salesforce-as-a-sink-type"></a>Salesforce como um tipo de coletor
 
@@ -241,13 +241,13 @@ Para copiar dados para o Salesforce, defina o tipo de coletor na atividade de c�
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade Type do coletor da atividade de cópia deve ser definida como **SalesforceSink**. | Sim |
-| writeBehavior | O comportamento de gravação para a operação.<br/>Os valores permitidos são **Insert** e **Upsert**. | Não (o padrão é inserir) |
+| tipo | A propriedade Type do coletor da atividade de cópia deve ser definida como **SalesforceSink**. | Sim |
+| WriteBehavior | O comportamento de gravação para a operação.<br/>Os valores permitidos são **Insert** e **Upsert**. | Não (o padrão é inserir) |
 | externalIdFieldName | O nome do campo de ID externa para a operação Upsert. O campo especificado deve ser definido como "campo de ID externa" no objeto Salesforce. Ele não pode ter valores nulos nos dados de entrada correspondentes. | Sim para "Upsert" |
 | writeBatchSize | A contagem de linhas de dados gravados no Salesforce em cada lote. | Não (o padrão é 5.000) |
-| ignoreNullValues | Indica se os valores nulos devem ser ignorados de dados de entrada durante uma operação de gravação.<br/>Os valores permitidos são **true** e **false**.<br>- **True**: Deixe os dados no objeto de destino inalterados quando você fizer uma operação de Upsert ou atualização. Insira um valor padrão definido quando você fizer uma operação de inserção.<br/>- **Falso**: Atualize os dados no objeto de destino para NULL quando você fizer uma operação de Upsert ou atualização. Insira um valor nulo ao fazer uma operação de inserção. | Não (o padrão é false) |
+| ignoreNullValues | Indica se os valores nulos devem ser ignorados de dados de entrada durante uma operação de gravação.<br/>Os valores permitidos são **true** e **false**.<br>- **true**: Deixe os dados no objeto de destino inalterados quando você fizer uma operação de Upsert ou atualização. Insira um valor padrão definido quando você fizer uma operação de inserção.<br/>- **false**: atualizar os dados no objeto de destino para NULL quando você fizer uma operação de Upsert ou atualização. Insira um valor nulo ao fazer uma operação de inserção. | Não (o padrão é false) |
 
-**Exemplo: Coletor Salesforce em uma atividade de cópia**
+**Exemplo: coletor do Salesforce em uma atividade de cópia**
 
 ```json
 "activities":[
@@ -290,7 +290,7 @@ Você pode recuperar dados de relatórios do Salesforce especificando uma consul
 
 ### <a name="retrieve-deleted-records-from-the-salesforce-recycle-bin"></a>Recuperar registros excluídos da lixeira do Salesforce
 
-Para consultar os registros com exclusão reversível da lixeira do Salesforce, você pode `readBehavior` especificar `queryAll`como. 
+Para consultar os registros com exclusão reversível da lixeira do Salesforce, você pode especificar `readBehavior` como `queryAll`. 
 
 ### <a name="difference-between-soql-and-sql-query-syntax"></a>Diferença entre SOQL e sintaxe de consulta SQL
 
@@ -298,54 +298,54 @@ Ao copiar dados do Salesforce, você pode usar a consulta SOQL ou a consulta SQL
 
 | Sintaxe | Modo de SOQL | Modo SQL |
 |:--- |:--- |:--- |
-| Seleção de coluna | É necessário enumerar os campos a serem copiados na consulta, por exemplo,`SELECT field1, filed2 FROM objectname` | `SELECT *`tem suporte além da seleção de coluna. |
-| Aspas | Nomes de objetos/arquivados não podem ser colocados entre aspas. | Os nomes de campo/objeto podem ser colocados entre aspas, por exemplo,`SELECT "id" FROM "Account"` |
+| Seleção de coluna | É necessário enumerar os campos a serem copiados na consulta, por exemplo, `SELECT field1, filed2 FROM objectname` | `SELECT *` tem suporte além da seleção de coluna. |
+| Aspas | Nomes de objetos/arquivados não podem ser colocados entre aspas. | Os nomes de campo/objeto podem ser colocados entre aspas, por exemplo, `SELECT "id" FROM "Account"` |
 | Formato DateTime |  Consulte os detalhes [aqui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) e os exemplos na próxima seção. | Consulte os detalhes [aqui](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) e os exemplos na próxima seção. |
-| Valores Boolianos | Representado como `False` e `True`, por exemplo `SELECT … WHERE IsDeleted=True`,. | Representado como 0 ou 1, por exemplo `SELECT … WHERE IsDeleted=1`,. |
-| Renomeação de coluna | Não suportado. | Com suporte, por exemplo `SELECT a AS b FROM …`:. |
-| Relação | Com suporte, por `Account_vod__r.nvs_Country__c`exemplo,. | Não suportado. |
+| Valores Boolianos | Representado como `False` e `True`, por exemplo, `SELECT … WHERE IsDeleted=True`. | Representado como 0 ou 1, por exemplo, `SELECT … WHERE IsDeleted=1`. |
+| Renomeação de coluna | Não suportado. | Com suporte, por exemplo: `SELECT a AS b FROM …`. |
+| Inter-relações | Com suporte, por exemplo, `Account_vod__r.nvs_Country__c`. | Não suportado. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Recuperar dados usando uma cláusula WHERE na coluna DateTime
 
 Quando você especifica a consulta SQL ou SOQL, preste atenção à diferença de formato DateTime. Por exemplo:
 
-* **Exemplo de SOQL**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
-* **Exemplo de SQL**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
+* **Exemplo de SOQL**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
+* **Exemplo de SQL**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
 ### <a name="error-of-malformed_querytruncated"></a>Erro de MALFORMED_QUERY: truncado
 
-Se você clicar no erro "MALFORMED_QUERY: Truncado ", normalmente é devido a você ter uma coluna de tipo JunctionIdList nos dados e o Salesforce tem a limitação de dar suporte a esses dados com um grande número de linhas. Para mitigar, tente excluir a coluna JunctionIdList ou limitar o número de linhas a serem copiadas (você pode particionar várias execuções da atividade de cópia).
+Se você encontrar o erro de "MALFORMED_QUERY: TRUNCATE", normalmente, é devido a você ter uma coluna de tipo JunctionIdList nos dados e o Salesforce tem a limitação de dar suporte a esses dados com um grande número de linhas. Para mitigar, tente excluir a coluna JunctionIdList ou limitar o número de linhas a serem copiadas (você pode particionar várias execuções da atividade de cópia).
 
 ## <a name="data-type-mapping-for-salesforce"></a>Mapeamento de tipo de dados para Salesforce
 
 Quando você copia dados do Salesforce, os seguintes mapeamentos são usados de tipos de dados do Salesforce para Data Factory tipos de dados provisórios. Para saber mais sobre como a atividade de cópia mapeia o esquema de origem e o tipo de dados para o coletor, consulte [mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
 
-| Tipo de dados do Salesforce | Tipo de dados intermediárias de fábrica de dados |
+| Tipo de dados do Salesforce | Data Factory tipo de dados provisório |
 |:--- |:--- |
-| Auto Number |String |
-| Checkbox |Boolean |
-| Currency |Decimal |
+| Número automático |String |
+| verificação |Booleano |
+| Moeda |Vírgula |
 | Date |DateTime |
-| Date/Time |DateTime |
+| Data/hora |DateTime |
 | Email |String |
-| ID |String |
-| Lookup Relationship |String |
-| Multi-Select Picklist |String |
-| Number |Decimal |
-| Percent |Decimal |
-| Phone |String |
-| Picklist |String |
-| Text |String |
-| Text Area |String |
-| Text Area (Long) |String |
-| Text Area (Rich) |String |
-| Text (Encrypted) |String |
-| URL |Cadeia |
+| Id |String |
+| Relação de pesquisa |String |
+| Lista de seleção de seleção múltipla |String |
+| Número |Vírgula |
+| Percentagem |Vírgula |
+| Telefone |String |
+| Seleção |String |
+| Texto |String |
+| Área de texto |String |
+| Área de texto (longa) |String |
+| Área de texto (rica) |String |
+| Texto (criptografado) |String |
+| do IdP |String |
 
 ## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
 
 Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+## <a name="next-steps"></a>Passos seguintes
+Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Data Factory, consulte [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

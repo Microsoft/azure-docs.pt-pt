@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 09/19/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: cf1bd223c852db930835ea1b56a93a381e8312c5
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 30983d141f087a46e420f7ea457fba181956c28e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161428"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577758"
 ---
-# <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Tutorial: Acesse um laboratório de sala de aula no Azure Lab Services
+# <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Tutorial: Aceder a um laboratório de sala de aula no Azure Lab Services
 Neste tutorial, como estudante vai ligar-se a uma máquina virtual (VM) num laboratório de sala de aula. 
 
-Neste tutorial, irá realizar as seguintes ações:
+Neste tutorial, vai realizar as seguintes ações:
 
 > [!div class="checklist"]
 > * Registre-se no laboratório
@@ -33,7 +33,7 @@ Neste tutorial, irá realizar as seguintes ações:
 
 ## <a name="register-to-the-lab"></a>Registre-se no laboratório
 
-1. Navegue para o **URL de registo** que recebeu do professor/educador. Você não precisa usar a URL de registro depois de concluir o registro. Em vez disso, use a [https://labs.azure.com](https://labs.azure.com)URL:. O Internet Explorer 11 ainda não tem suporte. 
+1. Navegue para o **URL de registo** que recebeu do professor/educador. Você não precisa usar a URL de registro depois de concluir o registro. Em vez disso, use a URL: [https://labs.azure.com](https://labs.azure.com). O Internet Explorer 11 ainda não tem suporte. 
 1. Inicie sessão no serviço com a sua conta escolar para concluir o registo. 
 
     > [!NOTE]

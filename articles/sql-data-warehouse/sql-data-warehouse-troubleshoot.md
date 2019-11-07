@@ -1,5 +1,5 @@
 ---
-title: Solução de problemas do Azure SQL Data Warehouse | Microsoft Docs
+title: Resolução de problemas
 description: Solução de problemas do Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,21 +10,22 @@ ms.subservice: manage
 ms.date: 7/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a6a6fdf6e63bf8c063f8dd6f23ae380e9ce7b98d
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 2aa7926286be277c7ad0aa7054b4bd6fceb8229f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575506"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685394"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Solução de problemas do Azure SQL Data Warehouse
 Este artigo lista perguntas comuns de solução de problemas.
 
-## <a name="connecting"></a>A ligar
+## <a name="connecting"></a>Fazendo
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Falha de logon do usuário ' NT AUTHORITY\ANONYMOUS LOGON '. (Microsoft SQL Server, Erro: 18456) | Esse erro ocorre quando um usuário do AAD tenta se conectar ao banco de dados mestre, mas não tem um usuário no mestre.  Para corrigir esse problema, especifique o SQL Data Warehouse ao qual você deseja se conectar no momento da conexão ou adicione o usuário ao banco de dados mestre.  Consulte o artigo [visão geral de segurança][Security overview] para obter mais detalhes. |
-| A entidade de segurança do servidor "myusername" não é capaz de acessar o banco de dados "mestre" no contexto de segurança atual. Não é possível abrir o banco de dados padrão do usuário. Falha no logon. Falha de logon do usuário ' MyUserName '. (Microsoft SQL Server, Erro: 916) | Esse erro ocorre quando um usuário do AAD tenta se conectar ao banco de dados mestre, mas não tem um usuário no mestre.  Para corrigir esse problema, especifique o SQL Data Warehouse ao qual você deseja se conectar no momento da conexão ou adicione o usuário ao banco de dados mestre.  Consulte o artigo [visão geral de segurança][Security overview] para obter mais detalhes. |
+| falha no início de sessão do utilizador "NT AUTHORITY\ANONYMOUS LOGON". (Microsoft SQL Server, erro: 18456) | Esse erro ocorre quando um usuário do AAD tenta se conectar ao banco de dados mestre, mas não tem um usuário no mestre.  Para corrigir este problema, especifique o SQL Data Warehouse a que pretende ligar na hora de ligação ou adicione o utilizador à base de dados mestra.  Consulte o artigo [visão geral de segurança][Security overview] para obter mais detalhes. |
+| o principal do servidor "MyUserName" não consegue aceder à base de dados "mestra" no contexto de segurança atual. Não é possível abrir a base de dados predefinida do utilizador. O início de sessão falhou. O início de sessão falhou para o utilizador"MyUserName". (Microsoft SQL Server, erro: 916) | Esse erro ocorre quando um usuário do AAD tenta se conectar ao banco de dados mestre, mas não tem um usuário no mestre.  Para corrigir este problema, especifique o SQL Data Warehouse a que pretende ligar na hora de ligação ou adicione o utilizador à base de dados mestra.  Consulte o artigo [visão geral de segurança][Security overview] para obter mais detalhes. |
 | Erro de CTAIP                                                  | Esse erro pode ocorrer quando um logon é criado no banco de dados mestre do SQL Server, mas não no banco de dados SQL Data Warehouse.  Se você encontrar esse erro, dê uma olhada no artigo [visão geral de segurança][Security overview] .  Este artigo explica como criar um logon e um usuário no mestre e como criar um usuário no banco de dados do SQL Data Warehouse. |
 | Bloqueado pelo firewall                                          | Os bancos de dados SQL do Azure são protegidos por firewalls de nível de servidor e de banco de dados para garantir que apenas endereços IP conhecidos tenham acesso a um banco de dados. Os firewalls são seguros por padrão, o que significa que você deve habilitar explicitamente o endereço IP ou o intervalo de endereços antes de poder se conectar.  Para configurar o firewall para acesso, siga as etapas em [Configurar o acesso de firewall do servidor para o IP do cliente][Configure server firewall access for your client IP] nas [instruções de provisionamento][Provisioning instructions]. |
 | Não é possível conectar com a ferramenta ou o driver                           | SQL Data Warehouse recomenda usar o [SSMS][SSMS], o [SSDT para Visual Studio][SSDT for Visual Studio]ou o [sqlcmd][sqlcmd] para consultar seus dados. Para obter mais informações sobre drivers e como se conectar a SQL Data Warehouse, confira [drivers do azure SQL data warehouse][Drivers for Azure SQL Data Warehouse] e [Conecte-se aos artigos do Azure SQL data warehouse][Connect to Azure SQL Data Warehouse] . |
@@ -49,7 +50,7 @@ Este artigo lista perguntas comuns de solução de problemas.
 ## <a name="system-management"></a>Gerenciamento do sistema
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| MSG 40847: Não foi possível executar a operação porque o servidor excederia a cota de unidade de transação de banco de dados permitida de 45000. | Reduza o [DWU][DWU] do banco de dados que você está tentando criar ou [solicite um aumento de cota][request a quota increase]. |
+| MSG 40847: não foi possível executar a operação porque o servidor excederia a cota de unidade de transação de banco de dados permitida de 45000. | Reduza o [DWU][DWU] do banco de dados que você está tentando criar ou [solicite um aumento de cota][request a quota increase]. |
 | Investigando a utilização de espaço                              | Consulte [tamanhos de tabela][Table sizes] para entender a utilização de espaço do seu sistema. |
 | Ajuda com o gerenciamento de tabelas                                    | Consulte o artigo [visão geral da tabela][Overview] para obter ajuda com o gerenciamento de suas tabelas.  Este artigo também inclui links para tópicos mais detalhados, como [tipos de dados de tabela][Data types], [distribuição de uma tabela][Distribute], [indexação de uma tabela][Index], [particionamento de uma tabela][Partition], [manutenção de estatísticas de tabela][Statistics] e [tabelas temporárias][Temporary]. |
 | A barra de progresso da TDE (Transparent Data Encryption) não está atualizando no portal do Azure | Você pode exibir o estado de TDE por meio do [PowerShell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
@@ -61,7 +62,7 @@ Este artigo lista perguntas comuns de solução de problemas.
 | Recursos de banco de dados SQL sem suporte     | Consulte [recursos de tabela sem suporte][Unsupported table features]. |
 | Tipos de dados SQL Database sem suporte   | Consulte [tipos de dados sem suporte][Unsupported data types].        |
 | Limitações de exclusão e atualização         | Consulte [soluções alternativas de atualização][UPDATE workarounds], [soluções alternativas de exclusão][DELETE workarounds] e [uso de CTAS para contornar a sintaxe de atualização e exclusão sem suporte][Using CTAS to work around unsupported UPDATE and DELETE syntax]. |
-| Não há suporte para a instrução MERGE      | Consulte [soluções alternativas][MERGE workarounds]de mesclagem.                  |
+| Não há suporte para a instrução MERGE      | Consulte [soluções alternativas de mesclagem][MERGE workarounds].                  |
 | Limitações de procedimento armazenado          | Consulte [limitações de procedimento armazenado][Stored procedure limitations] para entender algumas das limitações dos procedimentos armazenados. |
 | UDFs não dão suporte a instruções SELECT | Essa é uma limitação atual de nossos UDFs.  Consulte [criar função][CREATE FUNCTION] para a sintaxe que damos suporte. |
 

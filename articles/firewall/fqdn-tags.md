@@ -1,45 +1,45 @@
 ---
-title: Descrição geral de etiquetas do FQDN para o Firewall do Azure
-description: Saiba mais sobre as etiquetas FQDN na Firewall do Azure
+title: Visão geral das marcas de FQDN do firewall do Azure
+description: Saiba mais sobre as marcas de FQDN no firewall do Azure
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
 ms.date: 4/23/2019
 ms.author: victorh
-ms.openlocfilehash: 7a412589f4e86f2a49d07f2d01ca34bf30fd528b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d78f67b96776fa3fb1d13fbf7b385e41ca3aa59a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721178"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73665549"
 ---
-# <a name="fqdn-tags-overview"></a>Descrição geral de etiquetas FQDN
+# <a name="fqdn-tags-overview"></a>Visão geral das marcas de FQDN
 
-Uma etiqueta do FQDN representa um grupo de nomes de domínio completamente qualificado (FQDN) associado aos serviços do Microsoft bem conhecidos. Pode utilizar uma etiqueta do FQDN nas regras de aplicação para permitir o tráfego de rede de saída necessárias através da firewall.
+Uma marca FQDN representa um grupo de FQDNs (nomes de domínio totalmente qualificados) associados aos serviços da Microsoft conhecidos. Você pode usar uma marca de FQDN em regras de aplicativo para permitir o tráfego de rede de saída necessário por meio do firewall.
 
-Por exemplo, para permitir o tráfego de rede do Windows Update através da firewall manualmente, terá de criar várias regras de aplicações pela documentação da Microsoft. Utilização de etiquetas do FQDN, pode criar uma regra de aplicação, inclua o **atualizações do Windows** Etiquetar e agora tráfego de rede para pontos de extremidade podem fluir através da firewall do Microsoft Windows Update.
+Por exemplo, para permitir manualmente Windows Update tráfego de rede por meio do firewall, você precisa criar várias regras de aplicativo por meio da documentação da Microsoft. Usando marcas de FQDN, você pode criar uma regra de aplicativo, incluir a marca de **atualizações do Windows** e agora o tráfego de rede para os pontos de extremidade do Microsoft Windows Update pode fluir pelo firewall.
 
-Não é possível criar suas próprias etiquetas do FQDN, nem pode especificar que FQDNs são incluídos nas mesmas. A Microsoft gere os FQDNs abrangidos a etiqueta do FQDN e atualiza a etiqueta como alteração de FQDNs. 
+Você não pode criar suas próprias marcas de FQDN, nem pode especificar quais FQDNs estão incluídos em uma marca. A Microsoft gerencia os FQDNs abrangedos pela marca FQDN e atualiza a marca conforme os FQDNs são alterados. 
 
 <!--- screenshot of application rule with a FQDN tag.-->
 
-A tabela seguinte mostra as marcas FQDN atuais, que pode utilizar. A Microsoft mantém a essas marcas e pode esperar etiquetas adicionais a ser adicionados periodicamente.
+A tabela a seguir mostra as marcas de FQDN atuais que você pode usar. A Microsoft mantém essas marcas e você pode esperar que marcas adicionais sejam adicionadas periodicamente.
 
-## <a name="current-fqdn-tags"></a>Etiquetas FQDN atuais
+## <a name="current-fqdn-tags"></a>Marcas de FQDN atuais
 
-|Etiqueta do FQDN  |Descrição  |
+|Marca FQDN  |Descrição  |
 |---------|---------|
-|Windows Update     |Permitir acesso de saída para o Microsoft Update, conforme descrito em [como configurar uma Firewall para atualizações de Software](https://technet.microsoft.com/library/bb693717.aspx).|
-|Diagnóstico do Windows|Permitir acesso de saída a todos [pontos finais de diagnóstico do Windows](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
-|Serviço de Proteção Ativa Microsoft (MAPS)|Permitir acesso de saída [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
-|Ambiente de serviço de aplicações (ASE)|Permite o acesso de saída para o tráfego de plataforma do ASE. Esta etiqueta não abrange específicas do cliente armazenamento SQL pontos de extremidade e criados pelo ASE. Estas devem ser ativadas através de [pontos finais de serviço](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou adicionadas manualmente.<br><br>Para obter mais informações sobre como integrar o Firewall do Azure com o ASE, veja [o bloqueio de um ambiente de serviço de aplicações](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
-|Azure Backup|Permite o acesso de saída para os serviços de cópia de segurança do Azure.|
-|Azure HDInsight<br>(Pré-visualização)|Permite o acesso de saída para o tráfego de plataforma HDInsight. Esta etiqueta não abrange o tráfego de armazenamento ou SQL específicas do cliente do HDInsight. Ativar estas usando [pontos finais de serviço](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou adicioná-los manualmente.|
+|Windows Update     |Permita acesso de saída a Microsoft Update conforme descrito em [como configurar um firewall para atualizações de software](https://technet.microsoft.com/library/bb693717.aspx).|
+|Diagnóstico do Windows|Permitir acesso de saída a todos os [pontos de extremidade do diagnóstico do Windows](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
+|Serviço de Proteção Ativa Microsoft (MAPS)|Permitir acesso de saída a [mapas](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
+|Ambiente do Serviço de Aplicativo (ASE)|Permite o acesso de saída ao tráfego da plataforma ASE. Essa marca não abrange o armazenamento específico do cliente e os pontos de extremidade do SQL criados pelo ASE. Eles devem ser habilitados por meio de [pontos de extremidade de serviço](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou adicionados manualmente.<br><br>Para obter mais informações sobre como integrar o Firewall do Azure com o ASE, consulte [bloquear um ambiente do serviço de aplicativo](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
+|Azure Backup|Permite o acesso de saída aos serviços de backup do Azure.|
+|Azure HDInsight|Permite o acesso de saída para o tráfego da plataforma HDInsight. Essa marca não abrange o armazenamento específico do cliente ou o tráfego do SQL do HDInsight. Habilite-os usando [pontos de extremidade de serviço](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou adicione-os manualmente.|
 
 > [!NOTE]
-> Ao selecionar a etiqueta do FQDN numa regra de aplicação, o campo de protocolo: porta deve ser definido como **https**.
+> Ao selecionar a marca FQDN em uma regra de aplicativo, o campo protocolo: porta deve ser definido como **https**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber como implementar uma Firewall do Azure, veja [Tutorial: Implementar e configurar a Firewall do Azure no portal do Azure](tutorial-firewall-deploy-portal.md).
+Para saber como implantar um firewall do Azure, consulte [tutorial: implantar e configurar o Firewall do Azure usando o portal do Azure](tutorial-firewall-deploy-portal.md).

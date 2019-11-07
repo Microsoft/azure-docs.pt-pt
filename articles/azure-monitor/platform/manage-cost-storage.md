@@ -11,26 +11,29 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 11/05/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 1480418a70166887e7327452d407f78c2c992378
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: ae49a84dba01047d85ea0dbb854d1a7a59318567
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597306"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647660"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com logs de Azure Monitor
 
 > [!NOTE]
 > Este artigo descreve como entender e controlar seus custos para logs de Azure Monitor. Um artigo relacionado, [monitoramento de uso e custos estimados](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs) descreve como exibir o uso e os custos estimados em vários recursos de monitoramento do Azure para diferentes modelos de preços.
 
+> [!NOTE]
+> Todos os preços e custos mostrados neste artigo são apenas para fins de exemplo. 
+
 Os logs de Azure Monitor são projetados para dimensionar e dar suporte à coleta, indexação e armazenamento de grandes quantidades de dados por dia de qualquer fonte em sua empresa ou implantados no Azure.  Embora esse possa ser um driver primário para sua organização, a economia de custos é, por fim, o driver subjacente. Para esse fim, é importante entender que o custo de um espaço de trabalho Log Analytics não se baseia apenas no volume de dados coletados, mas também depende do plano selecionado e por quanto tempo você optou por armazenar os dados gerados de suas fontes conectadas.  
 
 Neste artigo, examinaremos como você pode monitorar proativamente o crescimento do armazenamento e do volume de dados ingeridos e definir limites para controlar esses custos associados. 
 
-## <a name="pricing-model"></a>Modelo de determinação de preço
+## <a name="pricing-model"></a>Modelo preços
 
 O preço padrão para Log Analytics é um modelo **pago conforme o uso** com base no volume de dados ingerido e, opcionalmente, para a retenção de dados mais longa. O volume de dados é medido como o tamanho dos dados que serão armazenados. Cada espaço de trabalho Log Analytics é cobrado como um serviço separado e contribui para a fatura de sua assinatura do Azure. A quantidade de ingestão de dados pode ser considerável dependendo dos seguintes fatores: 
 
@@ -38,17 +41,18 @@ O preço padrão para Log Analytics é um modelo **pago conforme o uso** com bas
   - Número de VMs monitoradas
   - Tipo de dados coletados de cada VM monitorada 
   
-Além do modelo pago conforme o uso, apresentamos **reservas de capacidade** para log Analytics, o que permite que você economize até 25% em comparação com o preço pago conforme o uso. O preço de reserva de capacidade permite que você compre uma reserva a partir de 100 GB/dia. Qualquer uso acima do nível de reserva será cobrado com a taxa paga conforme o uso. [Saiba mais](https://azure.microsoft.com/pricing/details/monitor/) sobre o log Analytics preços pagos conforme o uso e de reserva de capacidade. 
+Além do modelo pago conforme o uso, Log Analytics tem camadas de **reserva de capacidade** que permitem que você economize até 25% em comparação com o preço pago conforme o uso do. O preço de reserva de capacidade permite que você compre uma reserva a partir de 100 GB/dia. Qualquer uso acima do nível de reserva será cobrado com a taxa paga conforme o uso. As camadas de reserva de capacidade têm um período de compromisso de 31 dias. Durante o período de compromisso, você pode alterar para uma camada de reserva de capacidade de nível superior (que reiniciará o período de compromisso de 31 dias), mas não poderá voltar para o pré-pago ou para uma camada de reserva de capacidade mais baixa até que o período de compromisso seja Finaliza. 
+[Saiba mais](https://azure.microsoft.com/pricing/details/monitor/) sobre o log Analytics preços pagos conforme o uso e de reserva de capacidade. 
 
-Observe que algumas soluções, como a [central de segurança do Azure](https://azure.microsoft.com/pricing/details/security-center/) e o [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/), têm seu próprio modelo de preços. 
+Além disso, observe que algumas soluções, como a [central de segurança do Azure](https://azure.microsoft.com/pricing/details/security-center/) e o [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/), têm seu próprio modelo de preços. 
 
 ## <a name="estimating-the-costs-to-manage-your-environment"></a>Estimando os custos para gerenciar seu ambiente 
 
-Se você ainda não estiver usando logs de Azure Monitor, poderá usar a [calculadora de preços de Azure monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) para estimar o custo do uso de log Analytics. Comece inserindo "Azure Monitor" na caixa de pesquisa e clicando no bloco do Azure Monitor resultante. Role a página para baixo até Azure Monitor e selecione Log Analytics na lista suspensa tipo.  Aqui você pode inserir o número de VMs e os GB de dados que espera coletar de cada VM. Typcially 1 a 3 GB de data mês é ingerido de uma VM do Azure típica. Se já estiver avaliando os logs de Azure Monitor, você poderá usar suas estatísticas de dados do seu próprio ambiente. Veja abaixo como determinar o [número de VMs monitoradas](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-nodes-sending-data) e o [volume de dados que seu espaço de trabalho está ingerindo](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-ingested-data-volume). 
+Se você ainda não estiver usando logs de Azure Monitor, poderá usar a [calculadora de preços de Azure monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) para estimar o custo do uso de log Analytics. Comece inserindo "Azure Monitor" na caixa de pesquisa e clicando no bloco do Azure Monitor resultante. Role a página para baixo até Azure Monitor e selecione Log Analytics na lista suspensa tipo.  Aqui você pode inserir o número de VMs e os GB de dados que espera coletar de cada VM. Normalmente, 1 a 3 GB de dados de mês é ingerido de uma VM do Azure típica. Se já estiver avaliando os logs de Azure Monitor, você poderá usar suas estatísticas de dados do seu próprio ambiente. Veja abaixo como determinar o [número de VMs monitoradas](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-nodes-sending-data) e o [volume de dados que seu espaço de trabalho está ingerindo](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-ingested-data-volume). 
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>Entenda seu uso e calcule os custos
 
-Se você estiver usando logs de Azure Monitor agora, é fácil entender quais são os custos mais prováveis com base em padrões de uso recentes. Para fazer isso, use **log Analytics uso e custos estimados** para revisar e analisar o uso de dados. O mostra a quantidade de dados coletados por cada solução, a quantidade de dados que está sendo retida e uma estimativa dos custos com base na quantidade de dados ingeridos e qualquer retenção adicional além da quantidade incluída.
+Se você estiver usando logs de Azure Monitor agora, é fácil entender quais são os custos mais prováveis com base em padrões de uso recentes. Para fazer isso, use **log Analytics uso e custos estimados** para revisar e analisar o uso de dados. Isso mostra quantos dados são coletados por cada solução, quantos dados estão sendo retidos e uma estimativa dos custos com base na quantidade de dados ingeridos e qualquer retenção adicional além da quantidade incluída.
 
 ![Utilização e custos estimados](media/manage-cost-storage/usage-estimated-cost-dashboard-01.png)
 
@@ -66,48 +70,30 @@ O Azure fornece uma grande funcionalidade útil no gerenciamento de [custos do A
 
 Mais informações sobre seu uso podem ser obtidas [baixando seu uso do portal do Azure](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). Na planilha baixada, você pode ver o uso por recurso do Azure (por exemplo, Log Analytics espaço de trabalho) por dia. Nesta planilha do Excel, o uso de seus espaços de trabalho do Log Analytics pode ser encontrado primeiro filtrando a coluna "categoria do medidor" para mostrar "insights e análises" (usado por alguns dos tipos de preço herdados) e "Log Analytics" e, em seguida, adicionar um filtro na "instância do ID "coluna que é" contém espaço de trabalho ". O uso é mostrado na coluna "quantidade consumida" e a unidade de cada entrada é mostrada na coluna "unidade de medida".  Mais detalhes estão disponíveis para ajudá-lo a [entender sua fatura de Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
 
-## <a name="manage-your-maximum-daily-data-volume"></a>Gerenciar seu volume máximo de dados diário
+## <a name="changing-pricing-tier"></a>Alterando o tipo de preço
 
-Você pode configurar um limite diário e limitar a ingestão diária para seu espaço de trabalho, mas tome cuidado, pois sua meta não deve ser atingir o limite diário.  Caso contrário, você perderá dados para o restante do dia, o que pode afetar outros serviços e soluções do Azure cuja funcionalidade pode depender que os dados atualizados estejam disponíveis no espaço de trabalho.  Como resultado, sua capacidade de observar e receber alertas quando as condições de integridade dos recursos que dão suporte aos serviços de ti forem afetadas.  O limite diário destina-se a ser usado como uma maneira de gerenciar o aumento inesperado no volume de dados de seus recursos gerenciados e permanecer dentro do limite ou quando você quiser limitar os encargos não planejados para seu espaço de trabalho.  
+Para alterar o tipo de preço Log Analytics do seu espaço de trabalho, 
 
-Quando o limite diário é atingido, a coleção de tipos de dados faturáveis é interrompida para o restante do dia. Uma faixa de aviso aparece na parte superior da página do espaço de trabalho Log Analytics selecionado e um evento de operação é enviado para a tabela de *operação* em **LogManagement** categoria. A coleta de dados será retomada depois que o tempo de redefinição definido em *limite diário será definido em*. É recomendável definir uma regra de alerta com base nesse evento de operação, configurada para notificar quando o limite diário de dados foi atingido. 
+1. No portal do Azure, abra **uso e custos estimados** em seu espaço de trabalho, em que você verá uma lista de cada tipo de preço disponível para esse espaço de trabalho.
+
+2. Examine os custos estimados para cada tipo de preço. Essa estimativa se baseia nos últimos 31 dias de uso, portanto, essa estimativa de custo depende dos últimos 31 dias que representam o uso típico. No exemplo abaixo, você pode ver como, com base nos padrões de dados dos últimos 31 dias, esse espaço de trabalho custaria menos na camada pré-paga (#1) em comparação com a camada de reserva de capacidade de 100 GB/dia (#2).  
+
+    ![Escalões de preço](media/manage-cost-storage/pricing-tier-estimated-costs.png)
+
+3. Depois de examinar os custos estimados com base nos últimos 31 dias de uso, se você decidir alterar o tipo de preço, clique em **selecionar**.  
+
+Você também pode [definir o tipo de preço por meio de Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) usando o parâmetro `sku` (`pricingTier` no modelo Azure Resource Manager). 
+
+## <a name="legacy-pricing-tiers"></a>Tipos de preço herdados
+
+As assinaturas que tinham um espaço de trabalho Log Analytics ou Application Insights recurso nele antes de 2 de abril de 2018 ou estão vinculadas a uma Enterprise Agreement iniciada antes de 1º de fevereiro de 2019, continuarão a ter acesso para usar os tipos de preço herdados: **gratuito**, **Autônomo (por GB)** e **por nó (OMS)** .  Os espaços de trabalho no tipo de preço gratuito terão ingestão de dados diária limitada a 500 MB (exceto os tipos de dados de segurança coletados pela central de segurança do Azure) e a retenção de dados será limitada a 7 dias. O tipo de preço gratuito é destinado apenas para fins de avaliação. Os espaços de trabalho nos tipos de preço autônomos ou por nó têm retenção configurável do usuário de até 2 anos. 
+
+Os espaços de trabalho criados antes de abril de 2016 também podem acessar os tipos de preço Standard e **Premium** **padrão** que têm retenção de dados fixa de 30 a 365 dias, respectivamente. Novos espaços de trabalho não podem ser criados nos tipos de preço **Standard** ou **Premium** e, se um espaço de trabalho for movido para fora dessas camadas, ele não poderá ser movido de volta. 
+
+Mais detalhes sobre as limitações do tipo de preço estão disponíveis [aqui](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
 
 > [!NOTE]
-> O limite diário não interrompe a coleta de dados da central de segurança do Azure, exceto para espaços de trabalho nos quais a central de segurança do Azure foi instalada antes de 19 de junho de 2017. 
-
-### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite de dados diário a ser definido
-
-Examine [log Analytics uso e custos estimados](usage-estimated-costs.md) para entender a tendência de ingestão de dados e qual é o limite de volume diário a ser definido. Isso deve ser considerado com cuidado, pois você não poderá monitorar seus recursos depois que o limite for atingido. 
-
-### <a name="set-the-daily-cap"></a>Definir o limite diário
-
-As etapas a seguir descrevem como configurar um limite para gerenciar o volume de dados que Log Analytics espaço de trabalho será ingerido por dia.  
-
-1. Na área de trabalho, selecione **Utilização e custos estimados**, no painel do lado esquerdo.
-2. Na página **uso e custos estimados** para o espaço de trabalho selecionado, clique em **Gerenciamento de volume de dados** na parte superior da página. 
-3. O limite diário está **desativado** por padrão – Clique **em ativado** para habilitá-lo e defina o limite de volume de dados em GB/dia.
-
-    ![Log Analytics configurar o limite de dados](media/manage-cost-storage/set-daily-volume-cap-01.png)
-
-### <a name="alert-when-daily-cap-reached"></a>Alertar quando o limite diário for atingido
-
-Embora apresentemos uma indicação visual na portal do Azure quando seu limite de limite de dados é atingido, esse comportamento não está necessariamente alinhado à forma como você gerencia problemas operacionais que exigem atenção imediata.  Para receber uma notificação de alerta, você pode criar uma nova regra de alerta no Azure Monitor.  Para saber mais, consulte [como criar, exibir e gerenciar alertas](alerts-metric.md).
-
-Para começar, aqui estão as configurações recomendadas para o alerta:
-
-- Destino: Selecione seu recurso de Log Analytics
-- Aos 
-   - Nome do sinal: pesquisa de logs personalizada
-   - Consulta de pesquisa: operação | onde o detalhe tem ' overquota '
-   - Com base em: número de resultados
-   - Condição: maior que
-   - Limite: 0
-   - Período: 5 (minutos)
-   - Frequência: 5 (minutos)
-- Nome da regra de alerta: limite diário de dados atingido
-- Severidade: aviso (Sev 1)
-
-Quando o alerta é definido e o limite é atingido, um alerta é disparado e executa a resposta definida no grupo de ações. Ele pode notificar sua equipe por email e mensagens de texto, ou automatizar ações usando WebHooks, runbooks de automação ou [integração com uma solução de ITSM externa](itsmc-overview.md#create-itsm-work-items-from-azure-alerts). 
+> Para usar os direitos que vêm da compra do OMS E1 Suite, do OMS E2 Suite ou do complemento do OMS para o System Center, escolha o Log Analytics tipo de preço *por nó* .
 
 ## <a name="change-the-data-retention-period"></a>Alterar o período de retenção de dados
 
@@ -117,7 +103,7 @@ As etapas a seguir descrevem como configurar por quanto tempo os dados de log s�
 
 Para definir a retenção padrão para seu espaço de trabalho, 
  
-1. No portal do Azure, em seu espaço de trabalho, selecione **uso e custos estimados** no painel esquerdo.
+1. No portal do Azure, no espaço de trabalho, selecione **uso e custos estimados** no painel esquerdo.
 2. Na página **Utilização e custos estimados**, clique em **Gestão de volumes de dados**, na parte superior.
 3. No painel, mova o controle deslizante para aumentar ou diminuir o número de dias e clique em **OK**.  Se você estiver na camada *gratuita* , não poderá modificar o período de retenção de dados e precisará atualizar para a camada paga a fim de controlar essa configuração.
 
@@ -170,48 +156,48 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 > [!NOTE]
 > A configuração da retenção em tipos de dados individuais pode ser usada para reduzir os custos de retenção de dados.  Para os dados coletados a partir de outubro de 2019 (quando esse recurso foi lançado), a redução da retenção para alguns tipos de dados pode reduzir o custo de retenção ao longo do tempo.  Para os dados coletados anteriormente, a definição de uma retenção inferior para um tipo individual não afetará os custos de retenção.  
 
-## <a name="legacy-pricing-tiers"></a>Tipos de preço herdados
+## <a name="manage-your-maximum-daily-data-volume"></a>Gerenciar seu volume máximo de dados diário
 
-As assinaturas que tinham um espaço de trabalho Log Analytics ou Application Insights recurso nele antes de 2 de abril de 2018 ou estão vinculadas a uma Enterprise Agreement iniciada antes de 1º de fevereiro de 2019, continuarão a ter acesso para usar os tipos de preço herdados: **gratuito**, **Autônomo (por GB)** e **por nó (OMS)** .  Os espaços de trabalho no tipo de preço gratuito terão ingestão de dados diária limitada a 500 MB (exceto os tipos de dados de segurança coletados pela central de segurança do Azure) e a retenção de dados será limitada a 7 dias. O tipo de preço gratuito é destinado apenas para fins de avaliação. Os espaços de trabalho nos tipos de preço autônomos ou por nó têm retenção configurável do usuário de até 2 anos. 
+Você pode configurar um limite diário e limitar a ingestão diária para seu espaço de trabalho, mas tome cuidado, pois sua meta não deve ser atingir o limite diário.  Caso contrário, você perderá dados para o restante do dia, o que pode afetar outros serviços e soluções do Azure cuja funcionalidade pode depender que os dados atualizados estejam disponíveis no espaço de trabalho.  Como resultado, sua capacidade de observar e receber alertas quando as condições de integridade dos recursos que dão suporte aos serviços de ti forem afetadas.  O limite diário destina-se a ser usado como uma maneira de gerenciar o aumento inesperado no volume de dados de seus recursos gerenciados e permanecer dentro do limite ou quando você quiser limitar os encargos não planejados para seu espaço de trabalho.  
 
-Os espaços de trabalho criados antes de abril de 2016 também podem acessar os tipos de preço Standard e **Premium** **padrão** que têm retenção de dados fixa de 30 a 365 dias, respectivamente. Novos espaços de trabalho não podem ser criados nos tipos de preço **Standard** ou **Premium** e, se um espaço de trabalho for movido para fora dessas camadas, ele não poderá ser movido de volta. 
-
-Mais detalhes sobre as limitações do tipo de preço estão disponíveis [aqui](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
+Quando o limite diário é atingido, a coleção de tipos de dados faturáveis é interrompida para o restante do dia. Uma faixa de aviso aparece na parte superior da página do espaço de trabalho Log Analytics selecionado e um evento de operação é enviado para a tabela de *operação* em **LogManagement** categoria. A coleta de dados será retomada depois que o tempo de redefinição definido em *limite diário será definido em*. É recomendável definir uma regra de alerta com base nesse evento de operação, configurada para notificar quando o limite diário de dados foi atingido. 
 
 > [!NOTE]
-> Para usar os direitos que vêm da compra do OMS E1 Suite, do OMS E2 Suite ou do complemento do OMS para o System Center, escolha o Log Analytics tipo de preço *por nó* .
+> O limite diário não interrompe a coleta de dados da central de segurança do Azure, exceto para espaços de trabalho nos quais a central de segurança do Azure foi instalada antes de 19 de junho de 2017. 
 
+### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite de dados diário a ser definido
 
-## <a name="changing-pricing-tier"></a>Alterando o tipo de preço
+Examine [log Analytics uso e custos estimados](usage-estimated-costs.md) para entender a tendência de ingestão de dados e qual é o limite de volume diário a ser definido. Isso deve ser considerado com cuidado, pois você não poderá monitorar seus recursos depois que o limite for atingido. 
 
-Se seu espaço de trabalho Log Analytics tiver acesso a tipos de preço herdados, para alterar entre os tipos de preço herdados:
+### <a name="set-the-daily-cap"></a>Definir o limite diário
 
-1. No portal do Azure, no painel assinaturas do Log Analytics, selecione um espaço de trabalho.
+As etapas a seguir descrevem como configurar um limite para gerenciar o volume de dados que Log Analytics espaço de trabalho será ingerido por dia.  
 
-2. No painel do espaço de trabalho, em **geral**, selecione **tipo de preço**.  
+1. Na área de trabalho, selecione **Utilização e custos estimados**, no painel do lado esquerdo.
+2. Na página **uso e custos estimados** para o espaço de trabalho selecionado, clique em **Gerenciamento de volume de dados** na parte superior da página. 
+3. O limite diário está **desativado** por padrão – Clique **em ativado** para habilitá-lo e defina o limite de volume de dados em GB/dia.
 
-3. Em **tipo de preço**, selecione um tipo de preço e clique em **selecionar**.  
-    ![Selected plano de preços ](media/manage-cost-storage/workspace-pricing-tier-info.png)
+    ![Log Analytics configurar o limite de dados](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
-Você também pode [definir o tipo de preço por meio de Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) usando o parâmetro `sku` (`pricingTier` no modelo ARM). 
+### <a name="alert-when-daily-cap-reached"></a>Alertar quando o limite diário for atingido
 
-## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Solução de problemas por que o Log Analytics não está mais coletando dados
+Embora apresentemos uma indicação visual na portal do Azure quando seu limite de limite de dados é atingido, esse comportamento não está necessariamente alinhado à forma como você gerencia problemas operacionais que exigem atenção imediata.  Para receber uma notificação de alerta, você pode criar uma nova regra de alerta no Azure Monitor.  Para saber mais, consulte [como criar, exibir e gerenciar alertas](alerts-metric.md).
 
-Se você estiver no tipo de preço gratuito de legado e tiver enviado mais de 500 MB de dados em um dia, a coleta de dados será interrompida para o restante do dia. Atingir o limite diário é um motivo comum que Log Analytics para de coletar dados ou que os dados pareçam estar ausentes.  Log Analytics cria um evento do tipo operação quando a coleta de dados inicia e para. Execute a seguinte consulta na pesquisa para verificar se você está atingindo o limite diário e os dados ausentes: 
+Para começar, aqui estão as configurações recomendadas para o alerta:
 
-```kusto
-Operation | where OperationCategory == 'Data Collection Status'
-```
+- Destino: Selecione seu recurso de Log Analytics
+- Aos 
+   - Nome do sinal: pesquisa de logs personalizada
+   - Consulta de pesquisa: operação | onde o detalhe tem ' overquota '
+   - Com base em: número de resultados
+   - Condição: maior que
+   - Limite: 0
+   - Período: 5 (minutos)
+   - Frequência: 5 (minutos)
+- Nome da regra de alerta: limite diário de dados atingido
+- Severidade: aviso (Sev 1)
 
-Quando a coleta de dados é interrompida, o OperationStatus é **aviso**. Quando a coleta de dados é iniciada, o OperationStatus é **bem-sucedido**. A tabela a seguir descreve os motivos para a coleta de dados parar e uma ação sugerida para retomar a coleta de dados:  
-
-|Motivo paradas da coleta| Solução| 
-|-----------------------|---------|
-|Limite diário do tipo de preço gratuito de legado atingido |Aguarde até o dia seguinte para que a coleção seja reiniciada automaticamente ou mude para um tipo de preço pago.|
-|O limite diário do seu espaço de trabalho foi atingido|Aguarde até que a coleção seja reiniciada automaticamente ou aumente o limite diário de volume de dados descrito em gerenciar o volume máximo de dados diário. A hora de redefinição de limite diário é mostrada na página de **Gerenciamento de volume de dados** . |
-|A assinatura do Azure está em um estado suspenso devido a:<br> A avaliação gratuita terminou<br> O Azure Pass expirou<br> Limite de gastos mensal atingido (por exemplo, em uma assinatura do MSDN ou do Visual Studio)|Converter em uma assinatura paga<br> Remover limite ou aguardar até que o limite seja redefinido|
-
-Para ser notificado quando a coleta de dados for interrompida, use as etapas descritas em criar alerta de *limite de dados diários* para ser notificado quando a coleta de dados parar. Use as etapas descritas em [criar um grupo de ações](action-groups.md) para configurar uma ação de email, webhook ou runbook para a regra de alerta. 
+Quando o alerta é definido e o limite é atingido, um alerta é disparado e executa a resposta definida no grupo de ações. Ele pode notificar sua equipe por email e mensagens de texto, ou automatizar ações usando WebHooks, runbooks de automação ou [integração com uma solução de ITSM externa](itsmc-overview.md#create-itsm-work-items-from-azure-alerts). 
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Resolver o motivo pelo qual a utilização é superior ao esperado
 
@@ -300,7 +286,7 @@ Para ver a contagem de eventos **faturáveis** ingeridos por computador, use
 union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| summarize eventCount=count() by computerName  | sort by count_ nulls last
+| summarize eventCount=count() by computerName  | sort by eventCount nulls last
 ```
 
 Se você quiser ver as contagens de tipos de dados faturáveis que estão enviando dados para um computador específico, use:
@@ -479,6 +465,25 @@ Quando receber um alerta, utilize os passos da secção seguinte para resolver o
 ## <a name="data-transfer-charges-using-log-analytics"></a>Cobranças de transferência de dados usando Log Analytics
 
 Enviar dados para Log Analytics pode incorrer em encargos de largura de banda de dados. Conforme descrito na [página de preços de largura de banda do Azure](https://azure.microsoft.com/pricing/details/bandwidth/), a transferência de dados entre os serviços do Azure localizados em duas regiões cobradas como transferência de dados de saída na taxa normal. A transferência de dados de entrada é gratuita. No entanto, esse encargo é muito pequeno (alguns%) em comparação com os custos de ingestão de dados Log Analytics. Consequentemente, controlar os custos de Log Analytics precisa se concentrar no volume de dados ingerido e temos diretrizes para ajudar a entender isso [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-ingested-data-volume).   
+
+
+## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Solução de problemas por que o Log Analytics não está mais coletando dados
+
+Se você estiver no tipo de preço gratuito de legado e tiver enviado mais de 500 MB de dados em um dia, a coleta de dados será interrompida para o restante do dia. Atingir o limite diário é um motivo comum que Log Analytics para de coletar dados ou que os dados pareçam estar ausentes.  Log Analytics cria um evento do tipo operação quando a coleta de dados inicia e para. Execute a seguinte consulta na pesquisa para verificar se você está atingindo o limite diário e os dados ausentes: 
+
+```kusto
+Operation | where OperationCategory == 'Data Collection Status'
+```
+
+Quando a coleta de dados é interrompida, o OperationStatus é **aviso**. Quando a coleta de dados é iniciada, o OperationStatus é **bem-sucedido**. A tabela a seguir descreve os motivos para a coleta de dados parar e uma ação sugerida para retomar a coleta de dados:  
+
+|Motivo paradas da coleta| Solução| 
+|-----------------------|---------|
+|Limite diário do tipo de preço gratuito de legado atingido |Aguarde até o dia seguinte para que a coleção seja reiniciada automaticamente ou mude para um tipo de preço pago.|
+|O limite diário do seu espaço de trabalho foi atingido|Aguarde até que a coleção seja reiniciada automaticamente ou aumente o limite diário de volume de dados descrito em gerenciar o volume máximo de dados diário. A hora de redefinição de limite diário é mostrada na página de **Gerenciamento de volume de dados** . |
+|A assinatura do Azure está em um estado suspenso devido a:<br> A avaliação gratuita terminou<br> O Azure Pass expirou<br> Limite de gastos mensal atingido (por exemplo, em uma assinatura do MSDN ou do Visual Studio)|Converter em uma assinatura paga<br> Remover limite ou aguardar até que o limite seja redefinido|
+
+Para ser notificado quando a coleta de dados for interrompida, use as etapas descritas em criar alerta de *limite de dados diários* para ser notificado quando a coleta de dados parar. Use as etapas descritas em [criar um grupo de ações](action-groups.md) para configurar uma ação de email, webhook ou runbook para a regra de alerta. 
 
 ## <a name="limits-summary"></a>Resumo de limites
 

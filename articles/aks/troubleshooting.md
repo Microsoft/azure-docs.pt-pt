@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 2c25069ce5231a1f89027dea69579231f0fe4bcd
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 270dbb24d851645ff7a7f0bcf5f78bfb95bcd095
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72517073"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604736"
 ---
 # <a name="aks-troubleshooting"></a>Solução de problemas do AKS
 
@@ -34,9 +34,9 @@ A configuração de pods máxima por nó será 110 por padrão se você implanta
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Estou recebendo um erro de insufficientSubnetSize ao implantar um cluster AKS com rede avançada. O que devo fazer?
 
-Se o Azure CNI (rede avançada) for usado, o AKS prefixará o IP endereçado com base no "Max-pods" por nó configurado. O número de nós em um cluster AKS pode ser de qualquer lugar entre 1 e 110. Com base no máximo de pods configurado por nó, o tamanho da sub-rede deve ser maior que o "produto do número de nós e o Pod máximo por nó". A equação básica a seguir descreve isso:
+Se o Azure CNI (rede avançada) for usado, o AKS alocará endereços IP com base no "Max-pods" por nó configurado. Com base no máximo de pods configurado por nó, o tamanho da sub-rede deve ser maior que o produto do número de nós e a configuração do pod máximo por nó. A equação a seguir descreve isso:
 
-O tamanho da sub-rede > número de nós no cluster (levando em consideração os requisitos de dimensionamento futuros) * máximo de pods por nó.
+O tamanho da sub-rede > número de nós no cluster (levando em consideração os requisitos de dimensionamento futuros) * máximo de pods por conjunto de nós.
 
 Para obter mais informações, consulte [planejar o endereçamento de IP para o cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
@@ -59,7 +59,7 @@ O motivo para os avisos no painel é que o cluster agora está habilitado com RB
 
 ## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Não consigo me conectar ao painel. O que devo fazer?
 
-A maneira mais fácil de acessar o serviço fora do cluster é executar `kubectl proxy`, quais proxies as solicitações enviaram para a porta localhost 8001 para o servidor de API kubernetes. A partir daí, o servidor de API pode fazer proxy para seu serviço: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
+A maneira mais fácil de acessar o serviço fora do cluster é executar `kubectl proxy`, que os proxies solicitam enviados à porta localhost 8001 para o servidor de API kubernetes. A partir daí, o servidor de API pode fazer proxy para seu serviço: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
 
 Se você não vir o painel do kubernetes, verifique se o Pod `kube-proxy` está em execução no namespace `kube-system`. Se não estiver em um estado de execução, exclua o pod e ele será reiniciado.
 
@@ -77,7 +77,7 @@ Você pode estar recebendo esse erro porque modificou as marcas nos nós de agen
 
 Esse erro ocorre quando os clusters entram em um estado de falha por vários motivos. Siga as etapas abaixo para resolver o estado de falha do cluster antes de repetir a operação que falhou anteriormente:
 
-1. Até que o cluster esteja fora do estado de `failed`, as operações de `upgrade` e `scale` não terão sucesso. As resoluções e problemas de raiz comuns incluem:
+1. Até que o cluster esteja fora do estado `failed`, as operações `upgrade` e `scale` não terão sucesso. As resoluções e problemas de raiz comuns incluem:
     * Dimensionamento com **cota de computação insuficiente (CRP)** . Para resolver, primeiro dimensione o cluster de volta para um estado de meta estável dentro da cota. Em seguida, siga estas [etapas para solicitar um aumento de cota de computação](../azure-supportability/resource-manager-core-quotas-request.md) antes de tentar escalar verticalmente novamente além dos limites de cota iniciais.
     * Dimensionamento de um cluster com rede avançada e **recursos de sub-rede (rede) insuficientes**. Para resolver, primeiro dimensione o cluster de volta para um estado de meta estável dentro da cota. Em seguida, siga [estas etapas para solicitar um aumento de cota de recursos](../azure-resource-manager/resource-manager-quota-errors.md#solution) antes de tentar escalar verticalmente novamente além dos limites de cota iniciais.
 2. Depois que a causa subjacente da falha de atualização for resolvida, o cluster deverá estar em um estado com êxito. Quando um estado bem-sucedido for verificado, repita a operação original.
@@ -118,7 +118,7 @@ Siga as etapas *antes de começar* no documento apropriado para criar corretamen
 
 As restrições de nomenclatura são implementadas pela plataforma do Azure e AKS. Se um nome de recurso ou parâmetro quebrar uma dessas restrições, será retornado um erro solicitando que você forneça uma entrada diferente. As seguintes diretrizes de nomenclatura comuns se aplicam:
 
-* O nome do grupo de recursos AKS *MC_* combina o nome do grupo de recursos e o nome do recurso. A sintaxe gerada automaticamente de `MC_resourceGroupName_resourceName_AzureRegion` não deve ser maior que 80 caracteres. Se necessário, reduza o tamanho do nome do grupo de recursos ou do nome do cluster AKS.
+* O nome do grupo de recursos do AKS *MC_* combina o nome do grupo de recursos e o nome do recurso. A sintaxe gerada automaticamente de `MC_resourceGroupName_resourceName_AzureRegion` não deve ser maior que 80 caracteres. Se necessário, reduza o tamanho do nome do grupo de recursos ou do nome do cluster AKS.
 * O *dnsPrefix* deve começar e terminar com valores alfanuméricos. Os caracteres válidos incluem valores alfanuméricos e hifens (-). O *dnsPrefix* não pode incluir caracteres especiais, como um ponto (.).
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Estou recebendo erros ao tentar criar, atualizar, dimensionar, excluir ou atualizar o cluster. essa operação não é permitida porque outra operação está em andamento.
@@ -144,7 +144,7 @@ Use as seguintes soluções alternativas para isso:
 
 ## <a name="im-receiving-errors-after-restricting-my-egress-traffic"></a>Estou recebendo erros depois de restringir o tráfego de egresso
 
-Ao restringir o tráfego de saída de um cluster AKS, há regras de saída/portas de rede [recomendadas e opcionais necessárias](limit-egress-traffic.md) e regras de FQDN/aplicativo para AKs. Se suas configurações estiverem em conflito com qualquer uma dessas regras, talvez você não possa executar determinados comandos de `kubectl`. Você também pode ver erros ao criar um cluster AKS.
+Ao restringir o tráfego de saída de um cluster AKS, há regras de saída/portas de rede [recomendadas e opcionais necessárias](limit-egress-traffic.md) e regras de FQDN/aplicativo para AKs. Se suas configurações estiverem em conflito com qualquer uma dessas regras, talvez você não possa executar determinados comandos `kubectl`. Você também pode ver erros ao criar um cluster AKS.
 
 Verifique se as configurações não estão em conflito com nenhuma das portas de rede/regras de saída necessárias ou opcionais recomendadas ou regras de FQDN/aplicativo.
 
@@ -192,7 +192,7 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | -- | :--: |
 | 1,10 | 1.10.2 ou posterior |
 | 1,11 | 1.11.0 ou posterior |
-| 1,12 e posterior | N/A |
+| 1,12 e posterior | N/D |
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Falha ao definir UID e GID em mountoptions para disco do Azure
 
@@ -266,7 +266,7 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | 1,11 | 1.11.5 ou posterior |
 | 1,12 | 1.12.3 ou posterior |
 | 1,13 | 1.13.0 ou posterior |
-| 1,14 e posterior | N/A |
+| 1,14 e posterior | N/D |
 
 Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema, você pode mitigar o problema aguardando vários minutos e tentando novamente.
 
@@ -287,7 +287,7 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | 1,11 | 1.11.6 ou posterior |
 | 1,12 | 1.12.4 ou posterior |
 | 1,13 | 1.13.0 ou posterior |
-| 1,14 e posterior | N/A |
+| 1,14 e posterior | N/D |
 
 Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema, você pode mitigar o problema experimentando o seguinte:
 
@@ -308,7 +308,7 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | 1,11 | 1.11.9 ou posterior |
 | 1,12 | 1.12.7 ou posterior |
 | 1,13 | 1.13.4 ou posterior |
-| 1,14 e posterior | N/A |
+| 1,14 e posterior | N/D |
 
 Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema, você pode mitigar o problema desanexando manualmente o disco.
 
@@ -323,7 +323,7 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | 1,12 | 1.12.9 ou posterior |
 | 1,13 | 1.13.6 ou posterior |
 | 1,14 | 1.14.2 ou posterior |
-| 1,15 e posterior | N/A |
+| 1,15 e posterior | N/D |
 
 Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema e a VM do nó tiver uma lista de discos obsoletos, você poderá mitigar o problema desanexando todos os discos não existentes da VM como uma única operação em massa. **O desanexação individual de discos não existentes pode falhar.**
 
@@ -343,7 +343,7 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | 1,12 | 1.12.10 ou posterior |
 | 1,13 | 1.13.8 ou posterior |
 | 1,14 | 1.14.4 ou posterior |
-| 1,15 e posterior | N/A |
+| 1,15 e posterior | N/D |
 
 Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema e a VM do nó estiver em um estado de falha, você poderá mitigar o problema atualizando manualmente o status da VM usando um dos seguintes:
 
@@ -460,7 +460,7 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | -- | :--: |
 | 1,12 | 1.12.6 ou posterior |
 | 1,13 | 1.13.4 ou posterior |
-| 1,14 e posterior | N/A |
+| 1,14 e posterior | N/D |
 
 ### <a name="azure-files-mount-fails-due-to-storage-account-key-changed"></a>Falha na montagem de arquivos do Azure devido à chave de conta de armazenamento alterada
 

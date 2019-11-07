@@ -1,5 +1,5 @@
 ---
-title: Carga do tutorial de Azure Data Lake Storage para SQL Data Warehouse do Azure | Microsoft Docs
+title: Tutorial de carregamento de dados de Azure Data Lake Storage
 description: Use tabelas externas do polybase para carregar dados de Azure Data Lake Storage para o SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: load-data
 ms.date: 08/08/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 3db355cf5782620bda3a9e04afbee073c8929856
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 522cb9b75d5c0db270f8ba4a65850e35a2e8c4fd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935125"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685687"
 ---
 # <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Carregar dados de Azure Data Lake Storage para SQL Data Warehouse
 Use tabelas externas do polybase para carregar dados de Azure Data Lake Storage para o SQL Data Warehouse do Azure. Embora seja possível executar consultas ad hoc em dados armazenados no Data Lake Storage, é recomendável importar os dados para o SQL Data Warehouse para obter o melhor desempenho.
@@ -203,14 +204,14 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 ## <a name="optimize-statistics"></a>Otimizar estatísticas
 É melhor criar estatísticas de coluna única imediatamente após um carregamento. Há algumas opções para estatísticas. Por exemplo, se você criar estatísticas de coluna única em cada coluna, pode levar muito tempo para recompilar todas as estatísticas. Se você souber que determinadas colunas não serão em predicados de consulta, você poderá ignorar a criação de estatísticas nessas colunas.
 
-Se você decidir criar estatísticas de coluna única em cada coluna de cada tabela, poderá usar o exemplo `prc_sqldw_create_stats` de código de procedimento armazenado no artigo [estatísticas](sql-data-warehouse-tables-statistics.md) .
+Se você decidir criar estatísticas de coluna única em cada coluna de cada tabela, poderá usar o exemplo de código de procedimento armazenado `prc_sqldw_create_stats` no artigo [estatísticas](sql-data-warehouse-tables-statistics.md) .
 
 O exemplo a seguir é um bom ponto de partida para a criação de estatísticas. Ele cria estatísticas de coluna única em cada coluna na tabela de dimensões e em cada coluna de junção nas tabelas de fatos. Você sempre pode adicionar estatísticas de coluna única ou de várias colunas a outras colunas da tabela de fatos posteriormente.
 
 ## <a name="achievement-unlocked"></a>Realização desbloqueada!
 Você carregou com êxito os dados no Azure SQL Data Warehouse. Ótimo trabalho!
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes 
 Neste tutorial, você criou tabelas externas para definir a estrutura de dados armazenados em Data Lake Storage Gen1 e, em seguida, usou a instrução CREATE TABLE do polybase como SELECT para carregar dados em seu data warehouse. 
 
 Fez tudo isto:

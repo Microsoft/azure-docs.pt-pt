@@ -1,5 +1,5 @@
 ---
-title: Limites de recursos do banco de dados SQL do Azure – instância gerenciada | Microsoft Docs
+title: Limites de recursos do banco de dados SQL do Azure – instância gerenciada
 description: Este artigo fornece uma visão geral dos limites de recursos do banco de dados SQL do Azure para instâncias gerenciadas.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 10/02/2019
-ms.openlocfilehash: 17ffc07bb5632b1b56b7bff1e843e5955d396089
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 723704b6b81aacf086ff42b02c32259d0e2f1c6d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372203"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687915"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral dos limites de recursos de instância gerenciada do banco de dados SQL
 
@@ -65,7 +65,7 @@ A instância gerenciada tem duas camadas de serviço: [uso geral](sql-database-s
 
 | **Funcionalidade** | **Uso Geral** | **Comercialmente Crítico** |
 | --- | --- | --- |
-| Número de vCores @ no__t-0 | Gen4:8, 16, 24<br/>Gen5:4, 8, 16, 24, 32, 40, 64, 80 | Gen4:8, 16, 24 <br/> Gen5:4, 8, 16, 24, 32, 40, 64, 80 <br/>\*Same número de vCores é dedicado para consultas somente leitura. |
+| Número de\* vCores | Gen4:8, 16, 24<br/>Gen5:4, 8, 16, 24, 32, 40, 64, 80 | Gen4:8, 16, 24 <br/> Gen5:4, 8, 16, 24, 32, 40, 64, 80 <br/>\*Same número de vCores é dedicado para consultas somente leitura. |
 | Memória máxima | Gen4:56 GB-168 GB (7 GB/vCore)<br/>Gen5:20,4 GB-408 GB (5.1 GB/vCore)<br/>Adicione mais vCores para obter mais memória. | Gen4:56 GB-168 GB (7 GB/vCore)<br/>Gen5:20,4 GB-408 GB (5.1 GB/vCore) para consultas de leitura/gravação<br/>+ 20,4 GB adicionais-408 GB (5.1 GB/vCore) para consultas somente leitura.<br/>Adicione mais vCores para obter mais memória. |
 | Tamanho máximo de armazenamento de instância (reservado) | -2 TB para 4 vCores (somente Gen5)<br/>-8 TB para outros tamanhos | Gen4:1 TB <br/> Gen5 <br/>-1 TB para 4, 8, 16 vCores<br/>-2 TB para 24 vCores<br/>-4 TB para 32, 40, 64, 80 vCores |
 | Tamanho máx. da base de dados | Até o tamanho da instância disponível no momento (máximo de 2 TB-8 TB, dependendo do número de vCores). | Até o tamanho da instância disponível no momento (máximo de 1 TB-4 TB, dependendo do número de vCores). |
@@ -134,17 +134,17 @@ A tabela a seguir mostra os **limites regionais padrão** para os tipos de assin
 
 |Tipo de subscrição| Número máximo de sub-redes de instância gerenciada | Número máximo de unidades vCore * |
 | :---| :--- | :--- |
-|Pay as you go|3|320|
+|"Pay-as-you-go"|3|320|
 |CSP |8 (15 em algumas regiões * *)|960 (1440 em algumas regiões * *)|
 |Desenvolvimento/teste pago conforme o uso|3|320|
-|Enterprise Programador/Teste|3|320|
+|Enterprise Dev/Test|3|320|
 |EUM|8 (15 em algumas regiões * *)|960 (1440 em algumas regiões * *)|
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional e Plataformas MSDN|2|32|
 
 \* em implantações de planejamento, leve em consideração que a camada de serviço Comercialmente Crítico (BC) requer quatro (4) vezes mais capacidade de vCore que a camada de serviço de Uso Geral (GP). Por exemplo: 1 GP vCore = 1 unidade vCore e 1 BC vCore = 4 unidades vCore. Para simplificar a análise de consumo em relação aos limites padrão, resuma as unidades vCore em todas as sub-redes na região em que as instâncias gerenciadas são implantadas e compare os resultados com os limites de unidade de instância para o tipo de assinatura. O limite **máximo de unidades vCore** aplica-se a cada assinatura em uma região. Não há limite por sub-redes individuais, exceto que a soma de todos os vCores implantados em várias sub-redes deve ser menor ou igual ao **número máximo de unidades vCore**.
 
-\* @ no__t-1 a sub-rede maior e os limites de vCore estão disponíveis nas seguintes regiões: leste da Austrália, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Europa Ocidental, oeste dos EUA 2.
+\*\* maiores limites de sub-rede e vCore estão disponíveis nas seguintes regiões: leste da Austrália, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Europa Ocidental, oeste dos EUA 2.
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Obtendo uma cota maior para a instância gerenciada do SQL
 

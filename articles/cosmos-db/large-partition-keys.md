@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: be639a67f70ab40f8d7dcc0f3793cbbd4a2ec4a3
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e2ea934140322a13f07a90f4246bacd3f9dbe6c9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72436806"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721088"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Criar contêineres com chave de partição grande
 
@@ -71,13 +71,14 @@ As chaves de partição grandes têm suporte com as seguintes versões mínimas 
 |.Net     |    1,18     |
 |Sincronização de Java     |   2.4.0      |
 |Assíncrono de Java   |  2.5.0        |
-| API REST | versão superior a `2017-05-03` usando o cabeçalho de solicitação `x-ms-version`.|
+| API REST | versão maior que `2017-05-03` usando o cabeçalho de solicitação `x-ms-version`.|
+| Modelo do Resource Manager | versão 2 usando a propriedade `"version":2` dentro do objeto `partitionKey`. |
 
 No momento, você não pode usar contêineres com chave de partição grande dentro do Power BI e aplicativos lógicos do Azure. Você pode usar contêineres sem uma chave de partição grande desses aplicativos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
-* [Unidades de Pedido no Azure Cosmos DB](request-units.md)
+* [Request Units in Azure Cosmos DB](request-units.md) (Unidades de Pedido no Azure Cosmos DB)
 * [Provisionar taxa de transferência em contêineres e bancos de dados](set-throughput.md)
 * [Trabalhar com a conta do Azure Cosmos](account-overview.md)

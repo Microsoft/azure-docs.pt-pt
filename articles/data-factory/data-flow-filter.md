@@ -1,5 +1,5 @@
 ---
-title: Transformação de filtro no fluxo de dados de mapeamento de Azure Data Factory | Microsoft Docs
+title: Transformação de filtro no fluxo de dados de mapeamento Azure Data Factory
 description: Filtrar linhas usando a transformação de filtro em Azure Data Factory fluxo de dados de mapeamento
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: a4dd53f37a8a963d05a3ad9c49769528e945f6a1
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 77587d007d9bfcdc1461201f676c79880bd89d6b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527396"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73676165"
 ---
 # <a name="filter-transformation-in-mapping-data-flow"></a>Transformação de filtro no fluxo de dados de mapeamento
 
@@ -37,7 +37,7 @@ Use o construtor de expressões de fluxo de dados para inserir uma expressão pa
 
 ### <a name="example"></a>Exemplo
 
-O exemplo abaixo é uma transformação de divisão condicional chamada `FilterBefore1960` que usa o fluxo de entrada `CleanData`. A condição de filtro é a `year <= 1960` de expressão.
+O exemplo abaixo é uma transformação de divisão condicional chamada `FilterBefore1960` que usa o fluxo de entrada `CleanData`. A condição de filtro é a `year <= 1960`de expressão.
 
 No Data Factory UX, essa transformação é semelhante à imagem abaixo:
 

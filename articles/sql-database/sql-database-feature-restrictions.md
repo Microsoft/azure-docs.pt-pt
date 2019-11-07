@@ -1,5 +1,5 @@
 ---
-title: Restrições de recursos do banco de dados SQL do Azure | Microsoft Docs
+title: Restrições de recursos do banco de dados SQL do Azure
 description: As restrições de recurso do banco de dados SQL do Azure aprimoram a segurança do banco de dados restringindo recursos em seu banco de dados que podem ser invasores para obter acesso a informações neles.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 03/22/2019
-ms.openlocfilehash: f2fd6cb73428c69fbb27cb93377f851a4e06221d
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: e9518065b2240d72698ed75f2fa8a7aed343b7bf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959140"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690059"
 ---
 # <a name="azure-sql-database-feature-restrictions"></a>Restrições de recursos do banco de dados SQL do Azure
 
@@ -24,7 +24,7 @@ Uma fonte comum de ataques de SQL Server é por meio de aplicativos Web que aces
 
 ## <a name="enabling-feature-restrictions"></a>Habilitando restrições de recursos
 
-A habilitação de restrições de recursos `sp_add_feature_restriction` é feita usando o procedimento armazenado da seguinte maneira:
+A habilitação de restrições de recursos é feita usando o procedimento armazenado `sp_add_feature_restriction` da seguinte maneira:
 
 ```sql
 EXEC sp_add_feature_restriction <feature>, <object_class>, <object_name>
@@ -34,12 +34,12 @@ Os seguintes recursos podem ser restritos:
 
 | Funcionalidade          | Descrição |
 |------------------|-------------|
-| N'ErrorMessages' | Quando restrito, todos os dados de usuário dentro da mensagem de erro serão mascarados. Ver a [restrição de recursos de mensagens de erro](#error-messages-feature-restriction) |
+| N'ErrorMessages' | Quando restrito, todos os dados de usuário dentro da mensagem de erro serão mascarados. Consulte a [restrição de recurso de mensagens de erro](#error-messages-feature-restriction) |
 | N'Waitfor'       | Quando restrito, o comando retornará imediatamente sem nenhum atraso. Consulte a [restrição de recurso WAITFOR](#waitfor-feature-restriction) |
 
-O valor de `object_class` pode `N'User'` ser ou `N'Role'` para indicar se `object_name` é um nome de usuário ou um nome de função no banco de dados.
+O valor de `object_class` pode ser `N'User'` ou `N'Role'` para indicar se `object_name` é um nome de usuário ou um nome de função no banco de dados.
 
-O exemplo a seguir fará com que todas as mensagens `MyUser` de erro do usuário sejam mascaradas:
+O exemplo a seguir fará com que todas as mensagens de erro para o usuário `MyUser` sejam mascaradas:
 
 ```sql
 EXEC sp_add_feature_restriction N'ErrorMessages', N'User', N'MyUser'
@@ -47,13 +47,13 @@ EXEC sp_add_feature_restriction N'ErrorMessages', N'User', N'MyUser'
 
 ## <a name="disabling-feature-restrictions"></a>Desabilitando restrições de recursos
 
-A desabilitação das restrições de recursos é `sp_drop_feature_restriction` feita usando o procedimento armazenado da seguinte maneira:
+A desabilitação das restrições de recursos é feita usando o procedimento armazenado `sp_drop_feature_restriction` da seguinte maneira:
 
 ```sql
 EXEC sp_drop_feature_restriction <feature>, <object_class>, <object_name>
 ```
 
-O exemplo a seguir desabilita o mascaramento de mensagens de erro `MyUser`para o usuário:
+O exemplo a seguir desabilita o mascaramento de mensagens de erro para o usuário `MyUser`:
 
 ```sql
 EXEC sp_drop_feature_restriction N'ErrorMessages', N'User', N'MyUser'
@@ -61,13 +61,13 @@ EXEC sp_drop_feature_restriction N'ErrorMessages', N'User', N'MyUser'
 
 ## <a name="viewing-feature-restrictions"></a>Exibindo restrições de recursos
 
-A `sys.sql_feature_restrictions` exibição apresenta todas as restrições de recurso definidas no momento no banco de dados. Ele tem as seguintes colunas:
+A exibição `sys.sql_feature_restrictions` apresenta todas as restrições de recurso definidas no momento no banco de dados. Ele tem as seguintes colunas:
 
-| Nome da coluna | Tipo de dados | Descrição |
+| Nome da coluna | Data type | Descrição |
 |-------------|-----------|-------------|
-| Classe       | nvarchar(128) | Classe de objeto ao qual a restrição se aplica |
-| object      | nvarchar(256) | Nome do objeto ao qual a restrição se aplica |
-| Funcionalidade     | nvarchar(128) | Recurso que é restrito |
+| Classes       | nvarchar(128 | Classe de objeto ao qual a restrição se aplica |
+| objeto      | nvarchar (256) | Nome do objeto ao qual a restrição se aplica |
+| Recurso     | nvarchar(128 | Recurso que é restrito |
 
 ## <a name="feature-restrictions"></a>Restrições de recursos
 
@@ -87,7 +87,7 @@ Que executa a seguinte consulta de banco de dados:
 SELECT Name FROM EMPLOYEES WHERE Id=$EmpId
 ```
 
-Se o valor passado como o `id` parâmetro para a solicitação do aplicativo Web for copiado para substituir $empid na consulta de banco de dados, um invasor poderá fazer a seguinte solicitação:
+Se o valor passado como o parâmetro `id` para a solicitação do aplicativo Web for copiado para substituir $EmpId na consulta de banco de dados, um invasor poderá fazer a seguinte solicitação:
 
 ```html
 http://www.contoso.com/employee.php?id=1 AND CAST(DB_NAME() AS INT)=0
@@ -125,7 +125,7 @@ Arithmetic overflow error for data type ******, value = ******.
 
 ### <a name="waitfor-feature-restriction"></a>Restrição de recurso WAITFOR
 
-Uma injeção de SQL cego é quando um aplicativo não fornece um invasor com os resultados do SQL injetado ou com uma mensagem de erro, mas o invasor pode inferir informações do banco de dados construindo uma consulta condicional na qual as duas ramificações condicionais Reserve um período de tempo diferente para executar. Comparando o tempo de resposta, o invasor pode saber qual ramificação foi executada e, portanto, aprender informações sobre o sistema. A variante mais simples desse ataque é usar a `WAITFOR` instrução para introduzir o atraso.
+Uma injeção de SQL cego é quando um aplicativo não fornece um invasor com os resultados do SQL injetado ou com uma mensagem de erro, mas o invasor pode inferir informações do banco de dados construindo uma consulta condicional na qual as duas ramificações condicionais Reserve um período de tempo diferente para executar. Comparando o tempo de resposta, o invasor pode saber qual ramificação foi executada e, portanto, aprender informações sobre o sistema. A variante mais simples desse ataque é usar a instrução `WAITFOR` para introduzir o atraso.
 
 Considere um aplicativo Web que tenha uma solicitação na forma de:
 
@@ -133,7 +133,7 @@ Considere um aplicativo Web que tenha uma solicitação na forma de:
 http://www.contoso.com/employee.php?id=1
 ```
 
-que executa a seguinte consulta de banco de dados:
+Que executa a seguinte consulta de banco de dados:
 
 ```sql
 SELECT Name FROM EMPLOYEES WHERE Id=$EmpId
@@ -145,4 +145,4 @@ Se o valor passado como o parâmetro de ID para as solicitações do aplicativo 
 http://www.contoso.com/employee.php?id=1; IF SYSTEM_USER='sa' WAITFOR DELAY '00:00:05'
 ```
 
-E a consulta levaria mais 5 segundos se a `sa` conta estivesse sendo usada. Se `WAITFOR` a restrição de recurso estiver desabilitada no banco `WAITFOR` de dados, a instrução será ignorada e não as informações serão vazadas usando esse ataque.
+E a consulta levaria mais 5 segundos se a conta de `sa` estava sendo usada. Se `WAITFOR` restrição de recurso estiver desabilitada no banco de dados, a instrução `WAITFOR` será ignorada e não as informações serão vazadas usando esse ataque.

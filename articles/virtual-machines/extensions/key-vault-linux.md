@@ -7,12 +7,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 60d5b8197e142306a51922ce0e042ed2463457d6
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 5991d3d2197822b239b946de66f020dd258f835a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301233"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584369"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão de máquina virtual Key Vault para Linux
 
@@ -61,7 +61,7 @@ O JSON a seguir mostra o esquema para a extensão de VM Key Vault. A extensão n
 > [!NOTE]
 > Suas URLs de certificados observadas devem estar no formato `https://myVaultName.vault.azure.net/secrets/myCertName`.
 > 
-> Isso ocorre porque o caminho `/secrets` retorna o certificado completo, incluindo a chave privada, enquanto o caminho `/certificates` não faz isso. Mais informações sobre certificados podem ser encontradas aqui: [Key Vault certificados](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Isso ocorre porque o caminho `/secrets` retorna o certificado completo, incluindo a chave privada, enquanto o caminho de `/certificates` não faz isso. Mais informações sobre certificados podem ser encontradas aqui: [Key Vault certificados](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
 
 ### <a name="property-values"></a>Valores de propriedade
@@ -72,7 +72,7 @@ O JSON a seguir mostra o esquema para a extensão de VM Key Vault. A extensão n
 | Programa | Microsoft. Azure. keyvault. EDP | string |
 | tipo | KeyVaultForLinux | string |
 | typeHandlerVersion | 1.0 | int |
-| pollingIntervalInS | 3600 | int |
+| pollingIntervalInS | 3600 | string |
 | certificateStoreName | MY | string |
 | linkOnRenewal | false | boolean |
 | certificateStoreLocation  | LocalMachine | string |
@@ -84,7 +84,7 @@ O JSON a seguir mostra o esquema para a extensão de VM Key Vault. A extensão n
 
 As extensões de VM do Azure podem ser implantadas com modelos de Azure Resource Manager. Os modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem a atualização pós-implantação de certificados. A extensão pode ser implantada em VMs individuais ou conjuntos de dimensionamento de máquinas virtuais. O esquema e a configuração são comuns a ambos os tipos de modelo. 
 
-A configuração JSON para uma extensão de máquina virtual deve ser aninhada dentro do fragmento de recurso de máquina virtual do modelo, especificamente @no__t objeto-0 para o modelo de máquina virtual e no caso do conjunto de dimensionamento de máquinas virtuais no objeto `"virtualMachineProfile":"extensionProfile":{"extensions" :[]`.
+A configuração JSON para uma extensão de máquina virtual deve ser aninhada dentro do fragmento de recurso de máquina virtual do modelo, especificamente `"resources": []` objeto para o modelo de máquina virtual e no caso do conjunto de dimensionamento de máquinas virtuais em `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` objeto.
 
 ```json
     {

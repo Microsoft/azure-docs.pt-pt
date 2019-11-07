@@ -1,5 +1,5 @@
 ---
-title: Copiar dados de forma incremental com o Controlo de Alterações e o Azure Data Factory | Microsoft Docs
+title: 'Copiar dados incrementalmente usando Controle de Alterações e Azure Data Factory '
 description: 'Neste tutorial, vai criar um pipeline do Azure Data Factory, que copia dados delta de forma incremental de várias tabelas numa base de dados do SQL Server local para uma base de dados SQL do Azure. '
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 6a71c83a190bd7e88edd5008edef670b32905add
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c754b5755cbab3720ca0ffebc891ce76ce7aebc5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140810"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683515"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar dados de forma incremental da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure com informações de controlo de alterações 
 Neste tutorial, cria uma fábrica de dados do Azure com um pipeline que carrega dados delta com base em informações de **controlo de alterações** na base de dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
@@ -173,7 +173,7 @@ Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções 
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 6. Selecione **Afixar ao dashboard**.     
 7. Clique em **Criar**.      
-8. No painel, você verá o seguinte bloco com status: **Implantando data Factory**. 
+8. No painel, vai ver o mosaico seguinte com o estado **A implementar fábrica de dados**. 
 
     ![Mosaico “implementar a fábrica de dados”](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
 9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
@@ -260,7 +260,7 @@ Neste passo, cria um conjunto de dados para representar os dados que são copiad
 
     1. Selecione **AzureStorageLinkedService** em **Serviço ligado**.
     2. Introduza **adftutorial/incchgtracking** na parte **folder** de **filePath**.
-    3. **Insira\@Concat (' incremental-', pipeline (). RunId, '. txt ')** para a parte do **arquivo** do **FilePath**.  
+    3. Insira **\@Concat (' incremental-', pipeline (). RunId, '. txt ')** para a parte do **arquivo** do **FilePath**.  
 
        ![Conjunto de dados de sink - ligação](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 
@@ -293,7 +293,7 @@ Neste passo, cria um pipeline com uma atividade de cópia que copia os dados int
 5. Mude para o separador **Sink** e selecione **SinkDataset** no campo**Conjunto de Dados de Sink**. 
 
     ![Atividade Copy - sink](./media/tutorial-incremental-copy-change-tracking-feature-portal/copy-activity-sink.png)
-6. Para validar a definição do pipeline, clique em **Validar**, na barra de ferramentas. Confirme que não há nenhum erro de validação. Clique em **>>** para fechar o **Relatório de Validação do Pipeline**. 
+6. Para validar a definição do pipeline, clique em **Validar**, na barra de ferramentas. Confirme que não há nenhum erro de validação. Clique em **para fechar o >>Relatório de Validação do Pipeline**. 
 
     ![Validar o pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png)
 7. Para publicar entidades (serviços ligados, conjuntos de dados e pipelines), clique em **Publicar**. Aguarde até que a publicação seja bem-sucedida. 
@@ -355,7 +355,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 ## <a name="create-a-pipeline-for-the-delta-copy"></a>Criar um pipeline para a cópia do delta
 Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicamente. As duas **atividades de pesquisa** obtêm os SYS_CHANGE_VERSION antigo e novo da Base de Dados SQL do Azure e passe-o para a atividade de cópia. A **atividade de cópia** copia os dados inseridos/atualizados/eliminados entre os dois valores de SYS_CHANGE_VERSION da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure. A **atividade de procedimentos armazenados** atualiza o valor de SYS_CHANGE_VERSION para a próxima execução de pipeline.
 
-1. Na IU do Data Factory, mude para o separador **Editar**. Clique em **+ (mais)** , no painel do lado esquerdo, e clique em **Pipeline**. 
+1. Na interface do usuário do Data Factory, alterne para a guia **Editar** . clique em **+ (mais)** no painel esquerdo e clique em **pipeline**. 
 
     ![Menu Novo pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
 2. Verá um separador novo para configurar o pipeline. Também verá o pipeline na vista de árvore. Na janela **Propriedades**, altere o nome do pipeline para **IncrementalCopyPipeline**.
@@ -413,16 +413,16 @@ Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicam
     2. Selecione **Parâmetro de importação**. 
     3. Na secção **Parâmetros de procedimentos armazenados**, especifique os seguintes valores para os parâmetros: 
 
-        | Name | Tipo | Value | 
+        | Nome | Tipo | Valor | 
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
-        | TableName | Cadeia | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
+        | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![Atividade Stored Procedure - Parâmetros](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
 14. **Ligue a atividade Copy à atividade Stored Procedure**. Arraste e largue o botão **verde** associado à atividade Copy na atividade Stored Procedure. 
 
     ![Ligar as atividades Copy e Stored Procedure](./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-copy-stored-procedure.png)
-15. Clique em **Validar**, na barra de ferramentas. Confirme que não há erros de validação. Clique em **>>** para fechar a janela **Relatório de Validação do Pipeline**. 
+15. Clique em **Validar**, na barra de ferramentas. Confirme que não há erros de validação. Clique em **para fechar a janela >>Relatório de Validação do Pipeline**. 
 
     ![Botão Validar](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
 16. Clique no botão **Publicar Tudo** para publicar entidades (serviços ligados, conjuntos de dados e pipelines) no serviço Data Factory. Aguarde até ver a mensagem **Publicação com êxito**. 
@@ -455,7 +455,7 @@ O ficheiro deve ter apenas os dados delta da base de dados SQL do Azure. O regis
 1,update,10,2,U
 6,new,50,1,I
 ```
-As primeiros três colunas são dados alterados de data_source_table. As últimas duas colunas são os metadados da tabela do sistema de controlo de alterações. A quarta coluna é o SYS_CHANGE_VERSION para cada linha alterada. A quinta coluna é a operação:  U = Update, I = INSERT.  Para obter detalhes sobre as informações do registo de alterações, consulte [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
+As primeiros três colunas são dados alterados de data_source_table. As últimas duas colunas são os metadados da tabela do sistema de controlo de alterações. A quarta coluna é o SYS_CHANGE_VERSION para cada linha alterada. A quinta coluna é a operação: U = atualizar, I = inserir.  Para obter detalhes sobre as informações do registo de alterações, consulte [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
 
 ```
 ==================================================================

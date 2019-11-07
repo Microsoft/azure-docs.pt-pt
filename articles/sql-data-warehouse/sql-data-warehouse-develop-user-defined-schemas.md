@@ -1,5 +1,5 @@
 ---
-title: Usando esquemas definidos pelo usuário no SQL Data Warehouse | Microsoft Docs
+title: Usando esquemas definidos pelo usuário
 description: Dicas para usar esquemas definidos pelo usuário do T-SQL no Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: e0ae00e0fca5ed4c6fba04444e5c50424462d297
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 697bffa36e9b208c1a027654df81fb356ddfc8ed
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479573"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685817"
 ---
 # <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>Usando esquemas definidos pelo usuário no SQL Data Warehouse
 Dicas para usar esquemas definidos pelo usuário do T-SQL no Azure SQL Data Warehouse para desenvolver soluções.
@@ -120,6 +121,6 @@ FROM    [edw].customer
 > 
 > 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais dicas de desenvolvimento, consulte [visão geral de desenvolvimento](sql-data-warehouse-overview-develop.md).
 

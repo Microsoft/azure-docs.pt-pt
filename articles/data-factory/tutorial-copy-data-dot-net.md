@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do Armazenamento de Blobs do Azure para a Base de Dados SQL | Microsoft Docs
+title: 'Copiar dados do armazenamento de BLOBs do Azure para o banco de dados SQL '
 description: Este tutorial fornece instruções passo a passo para copiar dados do Armazenamento de Blobs do Azure para a Base de Dados SQL do Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 49b5b03356790bd45b2ad29897a57b746af1abe1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 96b1e5a9633ee141fd4aa369468a8866d87f27f2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140692"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683646"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiar dados do Blob do Azure para a Base de Dados SQL do Azure utilizando o Azure Data Factory
 
@@ -95,7 +95,7 @@ Com o Visual Studio 2015/2017, crie uma aplicação de consola de C# .NET.
 ## <a name="install-nuget-packages"></a>Instalar pacotes NuGet
 
 1. clique em **Ferramentas** -> **Gestor de Pacotes NuGet** -> **Consola de Gestor de Pacotes**.
-2. No **console do Gerenciador de pacotes**, execute os seguintes comandos para instalar pacotes. Consulte [o pacote do NuGet Microsoft. Azure. Management.](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) datafactory com detalhes.
+2. No **console do Gerenciador de pacotes**, execute os seguintes comandos para instalar pacotes. Consulte [o pacote do NuGet Microsoft. Azure. Management. datafactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) com detalhes.
 
     ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
@@ -119,7 +119,7 @@ Com o Visual Studio 2015/2017, crie uma aplicação de consola de C# .NET.
     ```
 
     
-2. Adicione o código seguinte ao método **Main** que define as variáveis. Substitua os marcadores de posição pelos seus próprios valores. Para obter uma lista de regiões do Azure nas quais Data Factory está disponível no momento, selecione as regiões que lhe interessam na página a seguir e expanda **análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
+2. Adicione o código seguinte ao método **Main** que define as variáveis. Substitua os marcadores de posição pelos seus próprios valores. Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 
     ```csharp
     // Set variables
@@ -188,7 +188,7 @@ Neste tutorial, crie dois serviços ligados para a origem e sink, respetivamente
 
 ### <a name="create-an-azure-storage-linked-service"></a>Criar um serviço ligado do Armazenamento do Azure
 
-Adicione o código seguinte ao método **Main** que cria um **serviço ligado do Armazenamento do Azure**. Saiba mais a partir da secção [Propriedades do serviço ligado do Blob do Azure](connector-azure-blob-storage.md#linked-service-properties) sobre detalhes e propriedades suportadas.
+Adicione o código seguinte ao método **Main**, que cria um **serviço ligado do Armazenamento do Microsoft Azure**. Saiba mais a partir da secção [Propriedades do serviço ligado do Blob do Azure](connector-azure-blob-storage.md#linked-service-properties) sobre detalhes e propriedades suportadas.
 
 ```csharp
 // Create an Azure Storage linked service
@@ -232,8 +232,8 @@ Adicione o código seguinte ao método **Main** que cria um **conjunto de dados 
 
 Defina um conjunto de dados que represente os dados de origem no Blob do Azure. Este conjunto de dados do Blob refere-se ao serviço ligado de Armazenamento do Microsoft Azure que criou no passo anterior e descreve:
 
-- O local do blob do qual copiar: **FolderPath** e **filename**;
-- O formato de BLOB que indica como analisar o conteúdo: TextFormat e suas configurações (por exemplo, delimitador de coluna).
+- A localização do blob a partir da qual copiar: **FolderPath** e **FileName**;
+- O formato de blob que indica como analisar o conteúdo: **TextFormat** e as definições (por exemplo, delimitador de coluna).
 - A estrutura de dados, incluindo os tipos de dados e os nomes de coluna que, neste caso, são mapeados para a tabela SQL sink.
 
 ```csharp

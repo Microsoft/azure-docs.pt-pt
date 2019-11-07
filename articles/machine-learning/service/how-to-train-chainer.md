@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 91278bdc1748615c91675e3894ebae4cf5fce1e4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 8427bd8532895e95de82a6ed577052971f15a25d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489503"
+ms.locfileid: "73584515"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Treinar e registrar modelos de encadeamento em escala com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de co
 
 Execute este código em qualquer um destes ambientes:
 
-- Instância de computação de Azure Machine Learning-nenhum download ou instalação é necessário
+- VM do notebook Azure Machine Learning-não é necessário nenhum download ou instalação
 
     - Conclua o [tutorial: ambiente de instalação e espaço de trabalho](tutorial-1st-experiment-sdk-setup.md) para criar um servidor de notebook dedicado pré-carregado com o SDK e o repositório de exemplo.
     - Na pasta de aprendizado profundo de exemplos no servidor do notebook, encontre um bloco de anotações e arquivos concluídos no **> de instruções-uso-azureml-estruturas > chain > a implantação > Train-hiperparameter-ajustar-implantar-com-a pasta do Chainr** .  O notebook inclui seções expandidas que abrangem o ajuste de hiperparâmetro inteligente, implantação de modelo e widgets de notebook.

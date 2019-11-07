@@ -1,6 +1,7 @@
 ---
 title: Notas de versão-Serviço de Visão Personalizada
 titleSuffix: Azure Cognitive Services
+description: Obtenha as informações mais recentes sobre novas versões da equipe de Visão Personalizada.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -9,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 79f3f2a5545b8cdcee86e52f35bd22a31e93d387
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b9606c63ec7b53fb0b69918c21bdd9206f34c555
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564090"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647563"
 ---
 # <a name="custom-vision-service-release-notes"></a>Notas de versão do Serviço de Visão Personalizada
 
@@ -53,7 +54,7 @@ ms.locfileid: "68564090"
 
 ## <a name="january-22-2019"></a>22 de janeiro de 2019
 
-- Suporte adicionado para novas regiões do Azure: Oeste dos EUA 2, leste dos EUA, leste dos EUA 2, Europa Ocidental, Europa Setentrional, Sudeste Asiático, leste da Austrália, Índia central, Sul do Reino Unido, leste do Japão e EUA Central do Norte. O suporte continua para o EUA Central do Sul.
+- Suporte adicionado para novas regiões do Azure: oeste dos EUA 2, leste dos EUA, leste dos EUA 2, Europa Ocidental, Europa Setentrional, Sudeste Asiático, leste da Austrália, Índia central, Sul do Reino Unido, leste do Japão e EUA Central do Norte. O suporte continua para o EUA Central do Sul.
 
 ## <a name="december-12-2018"></a>12 de dezembro de 2018
 
@@ -107,7 +108,7 @@ Correções de bugs, incluindo para ONNX a exportação com caracteres especiais
 
 ## <a name="december-19-2017"></a>19 de dezembro de 2017
 
-- Exportar para o Android (TensorFlow) adicionado, além da exportação lançada anteriormente para iOS (CoreML.) Isto permite que a exportação de um modelo compacto preparado seja executado offline numa aplicação.
+- Exportação para Android (TensorFlow) adicionada, além da exportação lançada anteriormente para iOS (do coreml.) Isso permite que a exportação de um modelo compacto treinado seja executada offline em um aplicativo.
 - Domínios "compactos" de Retalho e de Ponto de Referência adicionados para permitir a exportação de modelos para estes domínios.
 - Versão de lançamento [1.2 API de Preparação](https://southcentralus.dev.cognitive.microsoft.com/docs/services/f2d62aa3b93843d79e948fe87fa89554/operations/5a3044ee08fa5e06b890f11f) e [1.1 API de Predição](https://southcentralus.dev.cognitive.microsoft.com/docs/services/57982f59b5964e36841e22dfbfe78fc1/operations/5a3044f608fa5e06b890f164). As APIs atualizadas suportam a exportação de modelo, uma nova operação de Predição que não guarda imagens em "Predições" e introduziu operações em lote na API de Preparação.
 - Ajustes na experiência do utilizador, incluindo a capacidade de ver qual foi o domínio utilizado para preparar uma iteração.

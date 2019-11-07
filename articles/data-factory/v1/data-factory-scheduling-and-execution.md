@@ -1,5 +1,5 @@
 ---
-title: Agendamento e execução com Data Factory | Microsoft Docs
+title: Agendamento e execução com Data Factory
 description: Aprenda aspectos de agendamento e execução do modelo de aplicativo Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6ea8a03f45a3655c5761e0011876c6232b5bf36b
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 15a2d6ae5d8b80468ffcdd00d60b1f36843ed677
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135297"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666138"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Agendamento e execução de Data Factory
 > [!NOTE]
@@ -59,9 +59,9 @@ A propriedade **Scheduler** de uma atividade é opcional. Se você especificar e
 ## <a name="specify-schedule-for-a-dataset"></a>Especificar o agendamento de um conjunto de uma
 Uma atividade em um pipeline Data Factory pode usar zero ou mais **conjuntos** de dados de entrada e produzir um ou mais conjuntos de valores de saída. Para uma atividade, você pode especificar a cadência na qual os dados de entrada estão disponíveis ou os dados de saída são produzidos usando a seção **disponibilidade** nas definições do conjunto de dados. 
 
-**Frequência** na seção **disponibilidade** especifica a unidade de tempo. Os valores permitidos para Frequency são: Minuto, hora, dia, semana e mês. A propriedade **Interval** na seção de disponibilidade especifica um multiplicador para frequência. Por exemplo: se a frequência for definida como dia e o intervalo for definido como 1 para um conjunto de dados de saída, os dados de saída serão produzidos diariamente. Se você especificar a frequência como minuto, recomendamos que defina o intervalo como não menor que 15. 
+**Frequência** na seção **disponibilidade** especifica a unidade de tempo. Os valores permitidos para frequência são: minuto, hora, dia, semana e mês. A propriedade **Interval** na seção de disponibilidade especifica um multiplicador para frequência. Por exemplo: se a frequência for definida como dia e o intervalo for definido como 1 para um conjunto de dados de saída, os dados de saída serão produzidos diariamente. Se você especificar a frequência como minuto, recomendamos que defina o intervalo como não menor que 15. 
 
-No exemplo a seguir, os dados de entrada estão disponíveis por hora e os dados de saída são produzidos por`"frequency": "Hour", "interval": 1`hora (). 
+No exemplo a seguir, os dados de entrada estão disponíveis por hora e os dados de saída são produzidos por hora (`"frequency": "Hour", "interval": 1`). 
 
 **Conjunto de dados de entrada:** 
 
@@ -172,7 +172,7 @@ O diagrama mostra as fatias de dados por hora para o conjunto de dado de entrada
 
 Você pode acessar o intervalo de tempo associado à fatia atual no DataSet JSON usando variáveis: [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) e [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables). Da mesma forma, você pode acessar o intervalo de tempo associado a uma janela de atividade usando o WindowStart e o WindowEnd. O agendamento de uma atividade deve corresponder à agenda do conjunto de resultados de saída para a atividade. Portanto, os valores SliceStart e SliceEnd são os mesmos que os valores WindowStart e WindowEnd, respectivamente. Para obter mais informações sobre essas variáveis, consulte [funções do data Factory e](data-factory-functions-variables.md#data-factory-system-variables) artigos sobre variáveis do sistema.  
 
-Você pode usar essas variáveis para finalidades diferentes em seu JSON de atividade. Por exemplo, você pode usá-los para selecionar dados de conjuntos de dado de entrada e saída que representam dados de série temporal (por exemplo: 8:00 às 9h). Este exemplo também usa **WindowStart** e **WindowEnd** para selecionar dados relevantes para uma execução de atividade e copiá-los para um blob com o **FolderPath**apropriado. O **FolderPath** é parametrizado para ter uma pasta separada para cada hora.  
+Você pode usar essas variáveis para finalidades diferentes em seu JSON de atividade. Por exemplo, você pode usá-los para selecionar dados de conjuntos de dado de entrada e saída representando dados de série temporal (por exemplo: 8:00 às 9h). Este exemplo também usa **WindowStart** e **WindowEnd** para selecionar dados relevantes para uma execução de atividade e copiá-los para um blob com o **FolderPath**apropriado. O **FolderPath** é parametrizado para ter uma pasta separada para cada hora.  
 
 No exemplo anterior, o agendamento especificado para conjuntos de dados de entrada e saída é o mesmo (por hora). Se o conjunto de dados de entrada para a atividade estiver disponível em uma frequência diferente, digamos a cada 15 minutos, a atividade que produz esse conjunto de dados de saída ainda será executada uma vez por hora, pois o conjunto de dados de saída é o que impulsiona o agendamento da atividade. Para saber mais, confira conjuntos de dados de [modelo com frequências diferentes](#model-datasets-with-different-frequencies).
 
@@ -182,13 +182,13 @@ Você viu o uso de propriedades de frequência e de intervalo na seção de disp
 ### <a name="dataset-availability"></a>Disponibilidade do conjunto de 
 A tabela a seguir descreve as propriedades que podem ser usadas na seção **disponibilidade** :
 
-| Propriedade | Descrição | Requerido | Predefinição |
+| Propriedade | Descrição | Necessário | Predefinição |
 | --- | --- | --- | --- |
-| frequency |Especifica a unidade de tempo para produção da fatia do conjunto de um.<br/><br/><b>Frequência com suporte</b>: Minuto, hora, dia, semana, mês |Sim |ND |
-| interval |Especifica um multiplicador para a frequência<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida.<br/><br/>Se você precisar que o conjunto de um seja dividido por hora, defina a <b>frequência</b> como <b>hora</b>e o <b>intervalo</b> como <b>1</b>.<br/><br/><b>Nota</b>: Se você especificar a frequência como minuto, recomendamos que defina o intervalo como não menor que 15 |Sim |ND |
-| style |Especifica se a fatia deve ser produzida no início/fim do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se Frequency for definido como Month e Style for definido como EndOfInterval, a fatia será produzida no último dia do mês. Se o estilo for definido como StartOfInterval, a fatia será produzida no primeiro dia do mês.<br/><br/>Se Frequency for definido como Day e Style for definido como EndOfInterval, a fatia será produzida na última hora do dia.<br/><br/>Se Frequency for definida como hour e Style for definido como EndOfInterval, a fatia será produzida no final da hora. Por exemplo, para uma fatia do período de 1 PM – 2 PM, a fatia é produzida às 2 PM. |Não |EndOfInterval |
-| anchorDateTime |Define a posição absoluta no tempo usada pelo Agendador para computar os limites de fatia do conjunto de cálculo. <br/><br/><b>Nota</b>: Se o AnchorDateTime tiver partes de data mais granulares do que a frequência, as partes mais granulares serão ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> for por <b>hora</b> (frequência: hora e intervalo: 1) e o <b>AnchorDateTime</b> contém <b>minutos e segundos</b>, então as partes de <b>minutos e segundos</b> do AnchorDateTime são ignoradas. |Não |01/01/0001 |
-| desvio |Período de tempo pelo qual o início e o término de todas as fatias do conjunto de todos são deslocados. <br/><br/><b>Nota</b>: Se anchorDateTime e offset forem especificados, o resultado será o deslocamento combinado. |Não |ND |
+| frequência |Especifica a unidade de tempo para produção da fatia do conjunto de um.<br/><br/><b>Frequência com suporte</b>: minuto, hora, dia, semana, mês |Sim |ND |
+| intervalo |Especifica um multiplicador para a frequência<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida.<br/><br/>Se você precisar que o conjunto de um seja dividido por hora, defina a <b>frequência</b> como <b>hora</b>e o <b>intervalo</b> como <b>1</b>.<br/><br/><b>Observação</b>: se você especificar a frequência como minuto, recomendamos que defina o intervalo como não menor que 15 |Sim |ND |
+| estilo |Especifica se a fatia deve ser produzida no início/fim do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se Frequency for definido como Month e Style for definido como EndOfInterval, a fatia será produzida no último dia do mês. Se o estilo for definido como StartOfInterval, a fatia será produzida no primeiro dia do mês.<br/><br/>Se Frequency for definido como Day e Style for definido como EndOfInterval, a fatia será produzida na última hora do dia.<br/><br/>Se Frequency for definida como hour e Style for definido como EndOfInterval, a fatia será produzida no final da hora. Por exemplo, para uma fatia do período de 1 PM – 2 PM, a fatia é produzida às 2 PM. |Não |EndOfInterval |
+| anchorDateTime |Define a posição absoluta no tempo usada pelo Agendador para computar os limites de fatia do conjunto de cálculo. <br/><br/><b>Observação</b>: se o AnchorDateTime tiver partes de data mais granulares do que a frequência, as partes mais granulares serão ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> for por <b>hora</b> (frequência: hora e intervalo: 1) e o <b>AnchorDateTime</b> contiver <b>minutos e segundos</b>, as partes de <b>minutos e segundos</b> do AnchorDateTime serão ignoradas. |Não |01/01/0001 |
+| desvio |Período de tempo pelo qual o início e o término de todas as fatias do conjunto de todos são deslocados. <br/><br/><b>Observação</b>: se anchorDateTime e offset forem especificados, o resultado será o deslocamento combinado. |Não |ND |
 
 ### <a name="offset-example"></a>exemplo de deslocamento
 Por padrão, as fatias diárias (`"frequency": "Day", "interval": 1`) começam às 12 horas de UTC (meia-noite). Se você quiser que a hora de início seja 6, hora UTC, defina o deslocamento conforme mostrado no trecho a seguir: 
@@ -214,7 +214,7 @@ No exemplo a seguir, o DataSet é produzido uma vez a cada 23 horas. A primeira 
 ```
 
 ### <a name="offsetstyle-example"></a>Exemplo de deslocamento/estilo
-O DataSet a seguir é um conjunto de uma mensal e é produzido em 3 de cada mês às`3.08:00:00`8:00 AM ():
+O conjunto de um conjunto de um é mensal e é produzido em 3 de cada mês às 8:00 AM (`3.08:00:00`):
 
 ```json
 "availability": {
@@ -226,11 +226,11 @@ O DataSet a seguir é um conjunto de uma mensal e é produzido em 3 de cada mês
 ```
 
 ### <a name="dataset-policy"></a>Política de conjunto de
-Um conjunto de dados pode ter uma política de validação definida que especifica como os dados gerados por uma execução de fatia podem ser validados antes de serem prontos para consumo. Nesses casos, depois que a fatia tiver terminado a execução, o status da fatia de saída será alterado para aguardar com um substatus de **validação**. Depois que as fatias são validadas, o status da fatia é alterado para **pronto**. Se uma fatia de dados tiver sido produzida, mas não tiver passado a validação, as execuções de atividade para fatias downstream que dependem dessa fatia não serão processadas. [Monitorar e gerenciar pipelines](data-factory-monitor-manage-pipelines.md) abrange os vários Estados de fatias de dados em data Factory.
+Um conjunto de dados pode ter uma política de validação definida que especifica como os dados gerados por uma execução de fatia podem ser validados antes de serem prontos para consumo. Nesses casos, depois que a fatia tiver terminado a execução, o status da fatia de saída será alterado para **aguardar** com um substatus de **validação**. Depois que as fatias são validadas, o status da fatia é alterado para **pronto**. Se uma fatia de dados tiver sido produzida, mas não tiver passado a validação, as execuções de atividade para fatias downstream que dependem dessa fatia não serão processadas. [Monitorar e gerenciar pipelines](data-factory-monitor-manage-pipelines.md) abrange os vários Estados de fatias de dados em data Factory.
 
 A seção de **política** na definição do conjunto de conjuntos define os critérios ou a condição que as fatias do conjunto de os deve atender. A tabela a seguir descreve as propriedades que você pode usar na seção **política** :
 
-| Nome da Política | Descrição | Aplicado a | Requerido | Predefinição |
+| Nome da Política | Descrição | Aplicado a | Necessário | Predefinição |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB | Valida que os dados em um **blob do Azure** atendem aos requisitos mínimos de tamanho (em megabytes). |Blob do Azure |Não |ND |
 | minimumRows | Valida que os dados em um banco de dados **SQL do Azure** ou uma **tabela do Azure** contêm o número mínimo de linhas. |<ul><li>Base de Dados SQL do Azure</li><li>Tabela do Azure</li></ul> |Não |ND |
@@ -266,17 +266,17 @@ Para obter mais informações sobre essas propriedades e exemplos, consulte o ar
 ## <a name="activity-policies"></a>Políticas de atividade
 As políticas afetam o comportamento de tempo de execução de uma atividade, especificamente quando a fatia de uma tabela é processada. A tabela a seguir fornece os detalhes.
 
-| Propriedade | Valores permitidos | Default Value | Descrição |
+| Propriedade | Valores permitidos | Valor padrão | Descrição |
 | --- | --- | --- | --- |
-| concurrency |Integer <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Ele determina o número de execuções de atividade paralelas que podem ocorrer em diferentes fatias. Por exemplo, se uma atividade precisar passar por um grande conjunto de dados disponíveis, ter um valor de simultaneidade maior acelera o processamento de dados. |
-| executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a ordenação de fatias de dados que estão sendo processadas.<br/><br/>Por exemplo, se você tiver duas fatias (uma acontecendo em 16:00 e outra às 17:00), e ambas estiverem com execução pendente. Se você definir Executionpriorityorder como como NewestFirst, a fatia em 5 PM será processada primeiro. Da mesma forma, se você definir Executionpriorityorder como como OldestFIrst, a fatia às 4 PM será processada. |
-| retry |Integer<br/><br/>O valor máximo pode ser 10 |0 |Número de repetições antes de o processamento de dados para a fatia ser marcado como falha. A execução da atividade para uma fatia de dados é repetida até a contagem de repetições especificada. A repetição é feita assim que possível após a falha. |
-| timeout |TimeSpan |00:00:00 |Tempo limite para a atividade. Exemplo: 00:10:00 (implica o tempo limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite será infinito.<br/><br/>Se o tempo de processamento de dados em uma fatia exceder o valor de tempo limite, ele será cancelado e o sistema tentará repetir o processamento. O número de repetições depende da Propriedade Retry. Quando o tempo limite ocorre, o status é definido como TimedOut. |
-| delay |TimeSpan |00:00:00 |Especifique o atraso antes que o processamento de dados da fatia seja iniciado.<br/><br/>A execução da atividade para uma fatia de dados é iniciada após o atraso ultrapassar o tempo de execução esperado.<br/><br/>Exemplo: 00:10:00 (implica atraso de 10 minutos) |
-| longRetry |Integer<br/><br/>Valor máximo: 10 |1 |O número de tentativas de repetição longas antes da execução da fatia falhar.<br/><br/>as tentativas de longRetry são espaçadas por longRetryInterval. Portanto, se você precisar especificar um tempo entre as tentativas de repetição, use longRetry. Se ambas as opções Retry e longRetry forem especificadas, cada tentativa de longRetry incluirá tentativas de repetição e o número máximo de tentativas será Retry * longRetry.<br/><br/>Por exemplo, se tivermos as seguintes configurações na política de atividade:<br/>Repita 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Suponha que haja apenas uma fatia a ser executada (o status está aguardando) e a execução da atividade falha a cada vez. Inicialmente, haveria três tentativas consecutivas de execução. Após cada tentativa, o status da fatia seria tentar novamente. Após o fim das três primeiras tentativas, o status da fatia seria LongRetry.<br/><br/>Após uma hora (ou seja, o valor de longRetryInteval), haveria outro conjunto de três tentativas de execução consecutivas. Depois disso, o status da fatia seria falhado e não haverá mais tentativas de repetição. Portanto, as 6 tentativas gerais foram feitas.<br/><br/>Se qualquer execução for realizada com sucesso, o status da fatia estará pronto e não haverá mais novas tentativas.<br/><br/>o longRetry pode ser usado em situações em que os dados dependentes chegam em momentos não determinísticos ou o ambiente geral é instável sob o que ocorre o processamento de dados. Nesses casos, fazer novas tentativas uma após a outra pode não ajudar e fazer isso após um intervalo de tempo resulta na saída desejada.<br/><br/>Palavra de cuidado: não defina valores altos para longRetry ou longRetryInterval. Normalmente, valores mais altos implicam outros problemas do sistema. |
-| longRetryInterval |TimeSpan |00:00:00 |O atraso entre as tentativas de repetição longas |
+| corrente |Número inteiro <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Ele determina o número de execuções de atividade paralelas que podem ocorrer em diferentes fatias. Por exemplo, se uma atividade precisar passar por um grande conjunto de dados disponíveis, ter um valor de simultaneidade maior acelera o processamento de dados. |
+| Executionpriorityorder como |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a ordenação de fatias de dados que estão sendo processadas.<br/><br/>Por exemplo, se você tiver duas fatias (uma acontecendo em 16:00 e outra às 17:00), e ambas estiverem com execução pendente. Se você definir Executionpriorityorder como como NewestFirst, a fatia em 5 PM será processada primeiro. Da mesma forma, se você definir Executionpriorityorder como como OldestFIrst, a fatia às 4 PM será processada. |
+| retry |Número inteiro<br/><br/>O valor máximo pode ser 10 |0 |Número de repetições antes de o processamento de dados para a fatia ser marcado como falha. A execução da atividade para uma fatia de dados é repetida até a contagem de repetições especificada. A repetição é feita assim que possível após a falha. |
+| tempo limite |Período |00:00:00 |Tempo limite para a atividade. Exemplo: 00:10:00 (implica o tempo limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite será infinito.<br/><br/>Se o tempo de processamento de dados em uma fatia exceder o valor de tempo limite, ele será cancelado e o sistema tentará repetir o processamento. O número de repetições depende da Propriedade Retry. Quando o tempo limite ocorre, o status é definido como TimedOut. |
+| retardo |Período |00:00:00 |Especifique o atraso antes que o processamento de dados da fatia seja iniciado.<br/><br/>A execução da atividade para uma fatia de dados é iniciada após o atraso ultrapassar o tempo de execução esperado.<br/><br/>Exemplo: 00:10:00 (implica atraso de 10 minutos) |
+| longRetry |Número inteiro<br/><br/>Valor máximo: 10 |1 |O número de tentativas de repetição longas antes da execução da fatia falhar.<br/><br/>as tentativas de longRetry são espaçadas por longRetryInterval. Portanto, se você precisar especificar um tempo entre as tentativas de repetição, use longRetry. Se ambas as opções Retry e longRetry forem especificadas, cada tentativa de longRetry incluirá tentativas de repetição e o número máximo de tentativas será Retry * longRetry.<br/><br/>Por exemplo, se tivermos as seguintes configurações na política de atividade:<br/>Tentar novamente: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Suponha que haja apenas uma fatia a ser executada (o status está aguardando) e a execução da atividade falha a cada vez. Inicialmente, haveria três tentativas consecutivas de execução. Após cada tentativa, o status da fatia seria tentar novamente. Após o fim das três primeiras tentativas, o status da fatia seria LongRetry.<br/><br/>Após uma hora (ou seja, o valor de longRetryInteval), haveria outro conjunto de três tentativas de execução consecutivas. Depois disso, o status da fatia seria falhado e não haverá mais tentativas de repetição. Portanto, as 6 tentativas gerais foram feitas.<br/><br/>Se qualquer execução for realizada com sucesso, o status da fatia estará pronto e não haverá mais novas tentativas.<br/><br/>o longRetry pode ser usado em situações em que os dados dependentes chegam em momentos não determinísticos ou o ambiente geral é instável sob o que ocorre o processamento de dados. Nesses casos, fazer novas tentativas uma após a outra pode não ajudar e fazer isso após um intervalo de tempo resulta na saída desejada.<br/><br/>Palavra de cuidado: não defina valores altos para longRetry ou longRetryInterval. Normalmente, valores mais altos implicam outros problemas do sistema. |
+| longRetryInterval |Período |00:00:00 |O atraso entre as tentativas de repetição longas |
 
-Para obter mais informações, [](data-factory-create-pipelines.md) consulte o artigo pipelines. 
+Para obter mais informações, consulte o artigo [pipelines](data-factory-create-pipelines.md) . 
 
 ## <a name="parallel-processing-of-data-slices"></a>Processamento paralelo de fatias de dados
 Você pode definir a data de início para o pipeline no passado. Quando você faz isso, Data Factory calcula automaticamente (faz preenchimento de fundo) todas as fatias de dados no passado e começa a processá-las. Por exemplo: se você criar um pipeline com a data de início 2017-04-01 e a data atual for 2017-04-10. Se a cadência do conjunto de dados de saída for diária, Data Factory começará a processar todas as fatias de 2017-04-01 a 2017-04-09 imediatamente porque a data de início está no passado. A fatia de 2017-04-10 não é processada ainda porque o valor da propriedade de estilo na seção de disponibilidade é EndOfInterval por padrão. A fatia mais antiga é processada primeiro, pois o valor padrão de Executionpriorityorder como é OldestFirst. Para obter uma descrição da Propriedade Style, consulte a seção [disponibilidade do conjunto](#dataset-availability) de propriedades. Para obter uma descrição da seção Executionpriorityorder como, consulte a seção [políticas de atividade](#activity-policies) . 
@@ -323,14 +323,14 @@ Consulte a seção copiar sequencialmente no apêndice para obter um exemplo.
 ## <a name="model-datasets-with-different-frequencies"></a>Modelar conjuntos de itens com frequências diferentes
 Nos exemplos, as frequências dos conjuntos de dados de entrada e saída e da janela de agendamento de atividade eram as mesmas. Alguns cenários exigem a capacidade de produzir saída em uma frequência diferente das frequências de uma ou mais entradas. O Data Factory dá suporte à modelagem desses cenários.
 
-### <a name="sample-1-produce-a-daily-output-report-for-input-data-that-is-available-every-hour"></a>Exemplo 1: Produzir um relatório de saída diário para dados de entrada que estão disponíveis a cada hora
+### <a name="sample-1-produce-a-daily-output-report-for-input-data-that-is-available-every-hour"></a>Exemplo 1: produzir um relatório de saída diário para dados de entrada que estão disponíveis a cada hora
 Considere um cenário no qual você tenha dados de medição de entrada de sensores disponíveis a cada hora no armazenamento de BLOBs do Azure. Você deseja produzir um relatório agregado diário com estatísticas como média, máximo e mínimo para o dia com [Data Factory atividade de Hive](data-factory-hive-activity.md).
 
 Veja como você pode modelar esse cenário com Data Factory:
 
 **Conjunto de dados de entrada**
 
-Os arquivos de entrada por hora são descartados na pasta para o dia determinado. A disponibilidade de entrada é definida em **hora** (frequência: Hora, intervalo: 1).
+Os arquivos de entrada por hora são descartados na pasta para o dia determinado. A disponibilidade para entrada é definida em **hora** (frequência: hora, intervalo: 1).
 
 ```json
 {
@@ -359,7 +359,7 @@ Os arquivos de entrada por hora são descartados na pasta para o dia determinado
 ```
 **Conjunto de saída**
 
-Um arquivo de saída é criado todos os dias na pasta do dia. A disponibilidade da saída está definida no **dia** (frequência: Dia e intervalo: 1).
+Um arquivo de saída é criado todos os dias na pasta do dia. A disponibilidade da saída é definida no **dia** (frequência: dia e intervalo: 1).
 
 ```json
 {
@@ -443,14 +443,14 @@ O diagrama a seguir mostra o cenário de um ponto de vista de dependência de da
 
 A fatia de saída para todos os dias depende de 24 fatias por hora de um conjunto de dados de entrada. O Data Factory computa essas dependências automaticamente, descobrindo as fatias de dados de entrada que estão no mesmo período de tempo que a fatia de saída a ser produzida. Se nenhuma das 24 fatias de entrada não estiver disponível, Data Factory aguardará que a fatia de entrada esteja pronta antes de iniciar a execução da atividade diária.
 
-### <a name="sample-2-specify-dependency-with-expressions-and-data-factory-functions"></a>Exemplo 2: Especificar a dependência com expressões e funções de Data Factory
+### <a name="sample-2-specify-dependency-with-expressions-and-data-factory-functions"></a>Exemplo 2: especificar a dependência com expressões e funções de Data Factory
 Vamos considerar outro cenário. Suponha que você tenha uma atividade de Hive que processa dois conjuntos de dados de entrada. Um deles tem novos dados diariamente, mas um deles Obtém novos dados toda semana. Suponha que você quisesse fazer uma junção entre as duas entradas e produzir uma saída todos os dias.
 
 A abordagem simples na qual Data Factory ilustra automaticamente as fatias de entrada à direita para processar, alinhando ao período de tempo da fatia de dados de saída não funciona.
 
 Você deve especificar que para cada execução de atividade, o Data Factory deve usar a fatia de dados da semana passada para o conjunto de dado de entrada semanal. Você usa Azure Data Factory funções conforme mostrado no trecho a seguir para implementar esse comportamento.
 
-**Entrada1 Blob do Azure**
+**Entrada1: BLOB do Azure**
 
 A primeira entrada é o blob do Azure que está sendo atualizado diariamente.
 
@@ -480,7 +480,7 @@ A primeira entrada é o blob do Azure que está sendo atualizado diariamente.
 }
 ```
 
-**Entrada2 Blob do Azure**
+**Entrada2: BLOB do Azure**
 
 Entrada2 é o blob do Azure que está sendo atualizado semanalmente.
 
@@ -510,9 +510,9 @@ Entrada2 é o blob do Azure que está sendo atualizado semanalmente.
 }
 ```
 
-**Der Blob do Azure**
+**Saída: BLOB do Azure**
 
-Um arquivo de saída é criado todos os dias na pasta para o dia. A disponibilidade da saída é definida como **dia** (frequência: Dia, intervalo: 1).
+Um arquivo de saída é criado todos os dias na pasta para o dia. A disponibilidade da saída é definida como **dia** (frequência: dia, intervalo: 1).
 
 ```json
 {
@@ -604,7 +604,7 @@ Consulte [funções de data Factory e variáveis de sistema](data-factory-functi
 
 CopyActivity1
 
-Entrada: DataSet. Saída: Dataset2.
+Entrada: conjunto de dados. Saída: Dataset2.
 
 CopyActivity2
 
@@ -699,11 +699,11 @@ No exemplo, CopyActivity2 pode ter uma entrada diferente, como Dataset3, mas voc
 
 CopyActivity1
 
-Entrada: DataSet1. Saída: Dataset2.
+Entrada: dataSet1. Saída: Dataset2.
 
 CopyActivity2
 
-Informações Dataset3, Dataset2. Saída: Dataset4.
+Entradas: Dataset3, Dataset2. Saída: Dataset4.
 
 ```json
 {

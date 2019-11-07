@@ -1,5 +1,5 @@
 ---
-title: Copiar dados em massa com o Azure Data Factory | Microsoft Docs
+title: 'Copiar dados em massa usando Azure Data Factory '
 description: Saiba como utilizar o Azure Data Factory e a Atividade de Cópia para copiar dados de um arquivo de dados de origem para um arquivo de dados de destino em massa.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: b5d0807fb03c8518286a369f50df62f0ec0b23c2
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 5d695c7a74945fd68591360864e107aadc826240
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140772"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683693"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa através do Azure Data Factory
 Este tutorial demonstra como **copiar várias tabelas da Base de Dados SQL do Azure para o Azure SQL Data Warehouse**. Também pode aplicar o mesmo padrão noutros cenários de cópia. Por exemplo, copiar tabelas do SQL Server/Oracle para a Base de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiar caminhos diferentes do Blob para tabelas de Base de Dados SQL do Azure.
@@ -108,7 +108,7 @@ Tanto para a Base de dados SQL como para o SQL Data Warehouse, permita que os se
         ```
 
     * Para criar instâncias do Data Factory, tem de ser Contribuidor ou Administrador da subscrição do Azure.
-    * Para obter uma lista de regiões do Azure nas quais Data Factory está disponível no momento, selecione as regiões que lhe interessam na página a seguir e expanda **análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
+    * Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
 
@@ -116,7 +116,7 @@ Neste tutorial, vai criar três serviços ligados para blob de origem, sink e te
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Criar o serviço ligado da Base de Dados SQL do Azure de origem
 
-1. Crie um arquivo JSON chamado **AzureSqlDatabaseLinkedService. JSON** na pasta **C:\ADFv2TutorialBulkCopy** com o seguinte conteúdo: (Crie a pasta ADFv2TutorialBulkCopy se ela ainda não existir.)
+1. Crie um ficheiro JSON com o nome **AzureSqlDatabaseLinkedService.json** na pasta **C:\ADFv2TutorialBulkCopy** com o seguinte conteúdo: (crie a pasta ADFv2TutorialBulkCopy, caso ainda não exista.)
 
     > [!IMPORTANT]
     > Substitua &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; e &lt;password&gt; pelos valores da sua Base de Dados SQL do Azure antes de guardar o ficheiro.
@@ -253,7 +253,7 @@ Neste tutorial, vai criar conjuntos de dados de origem e sink, que especificam a
     }
     ```
 
-2. Para criar o conjunto de um: **AzureSqlDatabaseDataset**, execute o cmdlet **set-AzDataFactoryV2Dataset** .
+2. Para criar o conjunto de os: **AzureSqlDatabaseDataset**, execute o cmdlet **set-AzDataFactoryV2Dataset** .
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseDataset" -File ".\AzureSqlDatabaseDataset.json"
@@ -271,7 +271,7 @@ Neste tutorial, vai criar conjuntos de dados de origem e sink, que especificam a
 
 ### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>Criar um conjunto de dados para o SQL Data Warehouse de sink
 
-1. Crie um arquivo JSON chamado **AzureSqlDWDataset. JSON** na pasta **C:\ADFv2TutorialBulkCopy** com o seguinte conteúdo: O "TableName" é definido como um parâmetro, posteriormente, a atividade de cópia que faz referência a esse conjunto de dados passa o valor real para o conjunto de dados.
+1. Crie um ficheiro JSON com o nome **AzureSqlDWDataset.json** na pasta **C:\ADFv2TutorialBulkCopy**, com o seguinte conteúdo: "tableName" está definido como um parâmetro; mais à frente, a atividade de cópia que faz referência a este conjunto de dados transmite o valor real para o conjunto de dados.
 
     ```json
     {
@@ -297,7 +297,7 @@ Neste tutorial, vai criar conjuntos de dados de origem e sink, que especificam a
     }
     ```
 
-2. Para criar o conjunto de um: **AzureSqlDWDataset**, execute o cmdlet **set-AzDataFactoryV2Dataset** .
+2. Para criar o conjunto de os: **AzureSqlDWDataset**, execute o cmdlet **set-AzDataFactoryV2Dataset** .
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWDataset" -File ".\AzureSqlDWDataset.json"
@@ -581,7 +581,7 @@ Este pipeline executa dois passos:
 
 3. Ligue ao Azure SQL Data Warehouse de sink e confirme se os dados foram copiados corretamente da Base de Dados SQL do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, executou os passos seguintes: 
 
 > [!div class="checklist"]
@@ -594,4 +594,4 @@ Neste tutorial, executou os passos seguintes:
 
 Avance para o tutorial seguinte para saber como copiar dados de forma incremental de uma origem para um destino:
 > [!div class="nextstepaction"]
->[Copiar dados de forma incremental](tutorial-incremental-copy-powershell.md)
+>[Copiar dados incrementalmente](tutorial-incremental-copy-powershell.md)

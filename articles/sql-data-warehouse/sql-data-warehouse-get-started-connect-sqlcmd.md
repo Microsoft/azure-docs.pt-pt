@@ -1,5 +1,5 @@
 ---
-title: Ligar ao Azure SQL Data Warehouse sqlcmd | Microsoft Docs
+title: Conectar-se com o sqlcmd
 description: Use o utilitário de linha de comando sqlcmd para se conectar e consultar um SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f3b93660fb9f8f3b0bfdddc37105b9e998ed9eee
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: e4b432e0be0cdded5089965b9d272aa82e31bd36
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479508"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685749"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Ligar ao SQL Data Warehouse com sqlcmd
 > [!div class="op_single_selector"]
@@ -29,17 +30,17 @@ ms.locfileid: "68479508"
 
 Use o utilitário de linha de comando [sqlcmd][sqlcmd] para se conectar e consultar um SQL data warehouse do Azure.  
 
-## <a name="1-connect"></a>1. Ligar
+## <a name="1-connect"></a>1. conectar
 Para começar a utilizar o [sqlcmd][sqlcmd], abra a linha de comandos e escreva **sqlcmd**, seguido da cadeia de ligação da sua base de dados SQL Data Warehouse. A cadeia de ligação requer os parâmetros seguintes:
 
-* **Servidor (-S):** Servidor na forma `<`nome`>`do servidor. Database.Windows.net
-* **Banco de dados (-d):** Nome do banco de dados.
-* **Habilitar identificadores entre aspas (-I):** Identificadores entre aspas devem ser habilitados para se conectar a uma instância de SQL Data Warehouse.
+* **Server (-S):** servidor sob a forma `<`Nome do Servidor`>`. database.windows.net
+* **Database (-d):** nome da base de dados.
+* **Enable Quoted Identifiers (-I):** os identificadores delimitado por aspas têm de estar ativados para ligar a uma instância do SQL Data Warehouse.
 
 Para utilizar a Autenticação do SQL Server tem de adicionar os parâmetros de nome de utilizador/palavra-passe:
 
-* **Usuário (-U):** Usuário do servidor no formulário `<`usuário`>`
-* **Senha (-P):** Senha associada ao usuário.
+* **User (-U):** utilizador do servidor sob a forma `<`Utilizador`>`
+* **Password (-P):** palavra-passe associada ao utilizador.
 
 Por exemplo, a cadeia de ligação poderá ter o seguinte aspeto:
 
@@ -62,7 +63,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 > 
 > 
 
-## <a name="2-query"></a>2. Consulta
+## <a name="2-query"></a>2. consulta
 Após a ligação, pode emitir quaisquer instruções Transact-SQL suportadas na instância.  Neste exemplo, as consultas são submetidas no modo interativo.
 
 ```sql
@@ -82,7 +83,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte a [documentação do sqlcmd][sqlcmd] para obter mais detalhes sobre as opções disponíveis no sqlcmd.
 
 <!--Image references-->

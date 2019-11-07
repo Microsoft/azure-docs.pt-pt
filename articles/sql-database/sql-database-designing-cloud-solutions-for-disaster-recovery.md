@@ -1,5 +1,5 @@
 ---
-title: Projetar serviços disponíveis globalmente usando o banco de dados SQL do Azure | Microsoft Docs
+title: Projetar serviços disponíveis globalmente usando o banco de dados SQL do Azure
 description: Saiba mais sobre o design de aplicativos para serviços altamente disponíveis usando o banco de dados SQL do Azure.
 keywords: recuperação de desastre na nuvem, soluções de recuperação de desastre, backup de dados de aplicativo, replicação geográfica, planejamento de continuidade de negócios
 services: sql-database
@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: a79fa40568502a73194e467de2227d54931d0100
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 034d696fd8c9aae826d0bbc7e4d028cefad09840
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568950"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690718"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Projetando serviços disponíveis globalmente usando o banco de dados SQL do Azure
 
@@ -26,7 +26,7 @@ Ao criar e implantar serviços de nuvem com o banco de dados SQL do Azure, você
 > [!NOTE]
 > Se você estiver usando bancos de dados Premium ou Comercialmente Crítico e pools elásticos, poderá torná-los resilientes a interrupções regionais, convertendo-os para a configuração de implantação com redundância de zona. Consulte [bancos de dados com redundância de zona](sql-database-high-availability.md).  
 
-## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Cenário 1: Usando duas regiões do Azure para continuidade dos negócios com tempo de inatividade mínimo
+## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Cenário 1: usando duas regiões do Azure para continuidade dos negócios com tempo de inatividade mínimo
 
 Nesse cenário, os aplicativos têm as seguintes características:
 
@@ -35,7 +35,7 @@ Nesse cenário, os aplicativos têm as seguintes características:
 * A camada da Web e a camada de dados devem ser posicionadas para reduzir o custo de latência e tráfego
 * Fundamentalmente, o tempo de inatividade é um risco comercial maior para esses aplicativos do que a perda de dados
 
-Nesse caso, a topologia de implantação do aplicativo é otimizada para lidar com desastres regionais quando todos os componentes do aplicativo precisam fazer failover juntos. O diagrama a seguir mostra essa topologia. Para redundância geográfica, os recursos do aplicativo são implantados na região A e B. No entanto, os recursos na região B não são utilizados até a região A falhar. Um grupo de failover é configurado entre as duas regiões para gerenciar conectividade de banco de dados, replicação e failover. O serviço Web em ambas as regiões é configurado para acessar o banco de dados por meio do ouvinte  **&lt;de leitura-&gt;gravação failover-Group-Name. Database.Windows.net** (1). O Gerenciador de tráfego é configurado para usar o [método de roteamento de prioridade](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
+Nesse caso, a topologia de implantação do aplicativo é otimizada para lidar com desastres regionais quando todos os componentes do aplicativo precisam fazer failover juntos. O diagrama a seguir mostra essa topologia. Para redundância geográfica, os recursos do aplicativo são implantados na região A e B. No entanto, os recursos na região B não são utilizados até a região A falhar. Um grupo de failover é configurado entre as duas regiões para gerenciar conectividade de banco de dados, replicação e failover. O serviço Web em ambas as regiões é configurado para acessar o banco de dados por meio do ouvinte de leitura/gravação **&lt;failover-Group-name&gt;. Database.Windows.net** (1). O Gerenciador de tráfego é configurado para usar o [método de roteamento de prioridade](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
 
 > [!NOTE]
 > O [Gerenciador de tráfego do Azure](../traffic-manager/traffic-manager-overview.md) é usado em todo este artigo apenas para fins ilustrativos. Você pode usar qualquer solução de balanceamento de carga que dê suporte ao método de roteamento de prioridade.
@@ -68,7 +68,7 @@ As principais **vantagens** desse padrão de design são:
 
 A principal **desvantagem** é que os recursos do aplicativo na região B são subutilizados na maior parte do tempo.
 
-## <a name="scenario-2-azure-regions-for-business-continuity-with-maximum-data-preservation"></a>Cenário 2: Regiões do Azure para continuidade dos negócios com preservação máxima de dados
+## <a name="scenario-2-azure-regions-for-business-continuity-with-maximum-data-preservation"></a>Cenário 2: regiões do Azure para continuidade de negócios com preservação máxima de dados
 
 Essa opção é mais adequada para aplicativos com as seguintes características:
 
@@ -101,7 +101,7 @@ Esse padrão de design tem várias **vantagens**:
 
 A **desvantagem** é que o aplicativo deve ser capaz de operar no modo somente leitura.
 
-## <a name="scenario-3-application-relocation-to-a-different-geography-without-data-loss-and-near-zero-downtime"></a>Cenário 3: Realocação de aplicativos para uma geografia diferente sem perda de dados e tempo de inatividade quase zero
+## <a name="scenario-3-application-relocation-to-a-different-geography-without-data-loss-and-near-zero-downtime"></a>Cenário 3: realocação de aplicativo para uma geografia diferente sem perda de dados e tempo de inatividade quase zero
 
 Nesse cenário, o aplicativo tem as seguintes características:
 
@@ -112,7 +112,7 @@ Nesse cenário, o aplicativo tem as seguintes características:
 
 Para atender a esses requisitos, você precisa garantir que o dispositivo de usuário **sempre** se conecte ao aplicativo implantado na mesma geografia para as operações somente leitura, como procurar dados, análises, etc. Enquanto isso, as operações de OLTP são processadas na mesma geografia na **maior parte do tempo**. Por exemplo, durante o dia, as operações OLTP são processadas na mesma geografia, mas, durante as horas de folga, elas poderiam ser processadas em uma geografia diferente. Se a atividade do usuário final ocorrer principalmente durante o horário de trabalho, você poderá garantir o desempenho ideal para a maioria dos usuários na maior parte do tempo. O diagrama a seguir mostra essa topologia.
 
-Os recursos do aplicativo devem ser implantados em cada geografia em que você tem demanda de uso substancial. Por exemplo, se seu aplicativo for usado ativamente no Estados Unidos, União Europeia e Sul Ásia Oriental o aplicativo deverá ser implantado em todas essas regiões geográficas. O banco de dados primário deve ser alternado dinamicamente de uma geografia para a próxima no final do horário de trabalho. Esse método é chamado de "Siga o sol". A carga de trabalho OLTP sempre se conecta ao banco de dados por meio do ouvinte  **&lt;de leitura&gt;/gravação failover-Group-Name. Database.Windows.net** (1). A carga de trabalho somente leitura se conecta diretamente ao banco de dados local usando o servidor de pontos de extremidade  **&lt;Server-Name&gt;. Database.Windows.net** (2). O Gerenciador de tráfego é configurado com o [método de roteamento de desempenho](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Ele garante que o dispositivo do usuário final esteja conectado ao serviço Web na região mais próxima. O Gerenciador de tráfego deve ser configurado com o monitoramento de ponto de extremidade habilitado para cada ponto de extremidade do serviço Web (3).
+Os recursos do aplicativo devem ser implantados em cada geografia em que você tem demanda de uso substancial. Por exemplo, se seu aplicativo for usado ativamente no Estados Unidos, União Europeia e Sul Ásia Oriental o aplicativo deverá ser implantado em todas essas regiões geográficas. O banco de dados primário deve ser alternado dinamicamente de uma geografia para a próxima no final do horário de trabalho. Esse método é chamado de "Siga o sol". A carga de trabalho OLTP sempre se conecta ao banco de dados por meio do ouvinte de leitura/gravação **&lt;o nome do grupo de failover&gt;. Database.Windows.net** (1). A carga de trabalho somente leitura se conecta diretamente ao banco de dados local usando o ponto de extremidade do servidor databases **&lt;Server-name&gt;. Database.Windows.net** (2). O Gerenciador de tráfego é configurado com o [método de roteamento de desempenho](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Ele garante que o dispositivo do usuário final esteja conectado ao serviço Web na região mais próxima. O Gerenciador de tráfego deve ser configurado com o monitoramento de ponto de extremidade habilitado para cada ponto de extremidade do serviço Web (3).
 
 > [!NOTE]
 > A configuração do grupo de failover define qual região é usada para failover. Como o novo primário está em uma geografia diferente, o failover resulta em latência mais longa para cargas de trabalho OLTP e somente leitura até que a região afetada fique online novamente.
@@ -143,12 +143,12 @@ Os principais **benefícios** desse design são:
 * A carga de trabalho do aplicativo de leitura/gravação acessa os dados na região mais próxima durante o período da atividade mais alta em cada Geografia
 * Como o aplicativo é implantado em várias regiões, ele pode sobreviver a uma perda de uma das regiões sem nenhum tempo de inatividade significativo.
 
-Mas há algumas compensações:
+Mas há algumas **compensações**:
 
 * Uma interrupção regional resulta na geografia a ser afetada por latência mais longa. As cargas de trabalho de leitura/gravação e somente leitura são servidas pelo aplicativo em uma geografia diferente.
 * As cargas de trabalho somente leitura devem se conectar a um ponto de extremidade diferente em cada região.
 
-## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Planejamento de continuidade de negócios: Escolha um design de aplicativo para recuperação de desastre na nuvem
+## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Planejamento de continuidade de negócios: escolha um design de aplicativo para recuperação de desastre na nuvem
 
 Sua estratégia específica de recuperação de desastre na nuvem pode combinar ou estender esses padrões de design para atender melhor às necessidades do seu aplicativo.  Conforme mencionado anteriormente, a estratégia escolhida é baseada no SLA que você deseja oferecer aos seus clientes e à topologia de implantação do aplicativo. Para ajudar a orientar sua decisão, a tabela a seguir compara as opções com base no objetivo de ponto de recuperação (RPO) e no tempo de recuperação estimado (ERT).
 
@@ -160,9 +160,9 @@ Sua estratégia específica de recuperação de desastre na nuvem pode combinar 
 ||Acesso de leitura/gravação = zero | Acesso de leitura/gravação = tempo de detecção de falha + período de carência com perda de dados |
 |||
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para uma visão geral e cenários de continuidade de negócios, consulte [visão geral](sql-database-business-continuity.md) da continuidade de negócios
+* Para uma visão geral e cenários de continuidade de negócios, consulte [visão geral da continuidade de negócios](sql-database-business-continuity.md)
 * Para saber mais sobre a replicação geográfica ativa, consulte [replicação geográfica ativa](sql-database-active-geo-replication.md).
 * Para saber mais sobre grupos de failover automático, consulte [grupos de failover automático](sql-database-auto-failover-group.md).
-* Para obter informações sobre a replicação geográfica ativa com pools elásticos, consulte estratégias de recuperação de desastres do [pool elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+* Para obter informações sobre a replicação geográfica ativa com pools elásticos, consulte [estratégias de recuperação de desastres do pool elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

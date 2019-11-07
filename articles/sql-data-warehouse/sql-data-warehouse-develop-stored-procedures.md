@@ -1,5 +1,5 @@
 ---
-title: Usando procedimentos armazenados no Azure SQL Data Warehouse | Microsoft Docs
+title: Usando procedimentos armazenados
 description: Dicas para implementar procedimentos armazenados no Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2c12a679ed5f0a1574deb34df8c0151e737d2d01
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: e6e1144043cbbbc8124785351e1e56a776b84527
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479596"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692807"
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>Usando procedimentos armazenados no SQL Data Warehouse
 Dicas para implementar procedimentos armazenados no Azure SQL Data Warehouse para desenvolver soluções.
@@ -63,7 +64,7 @@ GO
 EXEC prc_nesting
 ```
 
-Observe que, no momento, o SQL Data Warehouse não dá suporte a [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql). Você precisa controlar o nível de aninhamento. É improvável que você exceda o limite de oito níveis de aninhamento, mas, se você fizer isso, precisará retrabalhar com seu código para ajustar os níveis de aninhamento dentro desse limite.
+Observe que, no momento, o SQL Data Warehouse não oferece suporte a [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql). Você precisa controlar o nível de aninhamento. É improvável que você exceda o limite de oito níveis de aninhamento, mas, se você fizer isso, precisará retrabalhar com seu código para ajustar os níveis de aninhamento dentro desse limite.
 
 ## <a name="insertexecute"></a>INSERIR.. EXECUTADOS
 SQL Data Warehouse não permite que você consuma o conjunto de resultados de um procedimento armazenado com uma instrução INSERT. No entanto, há uma abordagem alternativa que você pode usar. Para obter um exemplo, consulte o artigo em [tabelas temporárias](sql-data-warehouse-tables-temporary.md). 
@@ -79,7 +80,7 @@ São:
 * Procedimentos armazenados CLR
 * opção de criptografia
 * opção de replicação
-* parâmetros com valor de tabela
+* Parâmetros com valor de tabela
 * parâmetros somente leitura
 * parâmetros padrão
 * contextos de execução

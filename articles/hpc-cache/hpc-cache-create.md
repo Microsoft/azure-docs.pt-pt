@@ -1,19 +1,19 @@
 ---
-title: Criar um cache do HPC do Azure (versão prévia)
+title: Criar um cache HPC do Azure
 description: Como criar uma instância de cache do HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 7052b88a24ff5353656a71a7bfb044922ae1415c
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 1b9d2d3c46aab2096dd9208e0bea7f7776c0e429
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709986"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582714"
 ---
-# <a name="create-an-azure-hpc-cache-preview"></a>Criar um cache do HPC do Azure (versão prévia)
+# <a name="create-an-azure-hpc-cache"></a>Criar um cache HPC do Azure
 
 Use o portal do Azure para criar o cache.
 
@@ -23,7 +23,7 @@ Use o portal do Azure para criar o cache.
 
 ![captura de tela da página de detalhes do projeto no portal do Azure](media/hpc-cache-create-basics.png)
 
-Em **detalhes do projeto**, selecione a assinatura e o grupo de recursos que hospedarão o cache. Verifique se a assinatura está na lista de [acesso de visualização](hpc-cache-prereqs.md#azure-subscription) .
+Em **detalhes do projeto**, selecione a assinatura e o grupo de recursos que hospedarão o cache. Verifique se a assinatura está na lista de [acesso](hpc-cache-prereqs.md#azure-subscription) .
 
 Em **detalhes do serviço**, defina o nome do cache e esses outros atributos:
 

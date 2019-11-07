@@ -1,5 +1,5 @@
 ---
-title: Recuperação de desastre para aplicativos SaaS usando a replicação geográfica do banco de dados SQL do Azure | Microsoft Docs
+title: Recuperação de desastre para aplicativos SaaS usando a replicação geográfica do banco de dados SQL do Azure
 description: Saiba como usar as réplicas geográficas do banco de dados SQL do Azure para recuperar um aplicativo SaaS multilocatário no caso de uma interrupção
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: bebbb3d053db37a9716230dfbb14372696dd4936
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f6f8ed39de36ce38b0bc4b879980a054bf480d0e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570527"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692234"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperação de desastre para um aplicativo SaaS multilocatário usando replicação geográfica de banco de dados
 
@@ -89,10 +89,10 @@ Posteriormente, em uma etapa repatriação separada, você faz o failover dos ba
 ## <a name="review-the-healthy-state-of-the-application"></a>Examinar o estado de integridade do aplicativo
 
 Antes de iniciar o processo de recuperação, examine o estado de integridade normal do aplicativo.
-1. No navegador da Web, abra o Hub de eventos do Wingtip http://events.wingtip-dpt.&lt tickets&gt; (; User. &lt; trafficmanager.NET&gt; -Replace user com o valor de usuário de sua implantação).
+1. No navegador da Web, abra o Hub de eventos do Wingtip tickets (http://events.wingtip-dpt.&lt; usuário&gt;. trafficmanager.net-substitua &lt;&gt; de usuário pelo valor de usuário da implantação).
     * Role até a parte inferior da página e observe o nome e o local do servidor de catálogo no rodapé. O local é a região na qual você implantou o aplicativo.
-    *DICAS Passe o mouse sobre o local para ampliar a tela. EstadoíntegrodoHub*de 
-    eventosnaregiãooriginal ![](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
+    *Dica: passe o mouse sobre o local para ampliar a tela.* 
+    estado íntegro do hub de eventos ![na região original](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Clique no locatário contoso Concert Hall e abra sua página de evento.
     * No rodapé, observe o nome do servidor de locatário. O local será o mesmo que o local do servidor de catálogo.
@@ -107,13 +107,13 @@ Nesta tarefa, você inicia um processo que sincroniza a configuração dos servi
 > [!IMPORTANT]
 > Para simplificar, o processo de sincronização e outros processos de recuperação e repatriação de longa execução são implementados nesses tutoriais como trabalhos locais do PowerShell ou sessões que são executadas no logon de usuário do cliente. Os tokens de autenticação emitidos quando você fizer logon expirarão após várias horas e os trabalhos falharão. Em um cenário de produção, processos de execução longa devem ser implementados como serviços confiáveis do Azure de algum tipo, sendo executados sob uma entidade de serviço. Consulte [usar Azure PowerShell para criar uma entidade de serviço com um certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
-1. No _ISE do PowerShell_, abra o arquivo. ..\Learning Modules\UserConfig.psm1. Substitua `<resourcegroup>` e`<user>` nas linhas 10 e 11 pelo valor usado quando você implantou o aplicativo.  Salve o arquivo!
+1. No _ISE do PowerShell_, abra o arquivo. ..\Learning Modules\UserConfig.psm1. Substitua `<resourcegroup>` e `<user>` nas linhas 10 e 11 pelo valor usado quando você implantou o aplicativo.  Salve o arquivo!
 
 2. No *ISE do PowerShell*, abra o script. ..\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 e defina:
     * **$DemoScenario = 1**, iniciar um trabalho em segundo plano que sincroniza o servidor de locatário e informações de configuração do pool no catálogo
 
 3. Pressione **F5** para executar o script de sincronização. Uma nova sessão do PowerShell é aberta para sincronizar a configuração de recursos de locatário.
-![Processo de sincronização](media/saas-dbpertenant-dr-geo-replication/sync-process.png)
+![processo de sincronização](media/saas-dbpertenant-dr-geo-replication/sync-process.png)
 
 Deixe a janela do PowerShell em execução em segundo plano e continue com o restante do tutorial. 
 
@@ -131,7 +131,7 @@ Nesta tarefa, você inicia um processo que implanta uma instância de aplicativo
     * **$DemoScenario = 2**, criar ambiente de recuperação de imagem espelho e replicar bancos de dados de catálogo e locatário
 
 2. Prima **F5** para executar o script. Uma nova sessão do PowerShell é aberta para criar as réplicas.
-![Processo de sincronização](media/saas-dbpertenant-dr-geo-replication/replication-process.png)  
+![processo de sincronização](media/saas-dbpertenant-dr-geo-replication/replication-process.png)  
 
 ## <a name="review-the-normal-application-state"></a>Examinar o estado normal do aplicativo
 
@@ -141,7 +141,7 @@ Neste ponto, o aplicativo está sendo executado normalmente na região original 
 
 2. Explore os recursos no grupo de recursos de recuperação.  
 
-3. Clique no banco de dados contoso Concert Hall no servidor _tenants1-DPT&lt;-&gt;User-Recovery_ .  Clique em replicação geográfica no lado esquerdo. 
+3. Clique no banco de dados contoso Concert Hall no servidor _tenants1-DPT-&lt;usuário&gt;-Recovery_ .  Clique em replicação geográfica no lado esquerdo. 
 
     ![Link de replicação geográfica do contoso Concert](media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication.png) 
 
@@ -206,7 +206,7 @@ Enquanto o ponto de extremidade do aplicativo está desabilitado no Gerenciador 
  
      ![Hub de eventos offline](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-   * Se você abrir a página de eventos de um locatário offline diretamente, ele exibirá uma notificação de "locatário offline". Por exemplo, se contoso Concert Hall estiver offline, tente abrir http://events.wingtip-dpt.&lt ; user&gt;. trafficmanager.net/contosoconcerthall ![ contoso offline Page](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+   * Se você abrir a página de eventos de um locatário offline diretamente, ele exibirá uma notificação de "locatário offline". Por exemplo, se contoso Concert Hall estiver offline, tente abrir http://events.wingtip-dpt.&lt; usuário&gt;. trafficmanager.net/contosoconcerthall ![página offline da Contoso](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Provisionar um novo locatário na região de recuperação
 Mesmo antes do failover de todos os bancos de dados de locatário existentes, você pode provisionar novos locatários na região de recuperação.  
@@ -217,7 +217,7 @@ Mesmo antes do failover de todos os bancos de dados de locatário existentes, vo
 2. Pressione **F5** para executar o script e provisionar o novo locatário. 
 
 3. A página de eventos do Hawthorn Hall é aberta no navegador quando ela é concluída. Observação do rodapé que o banco de dados do Hawthorn Hall é provisionado na região de recuperação.
-    ![Página de eventos do Hawthorn Hall](media/saas-dbpertenant-dr-geo-replication/hawthornhallevents.png) 
+    ![página de eventos do Hawthorn Hall](media/saas-dbpertenant-dr-geo-replication/hawthornhallevents.png) 
 
 4. No navegador, atualize a página do hub de eventos do Wingtip tickets para ver o Hawthorn Hall incluído. 
     * Se você provisionou o Hawthorn Hall sem esperar que os outros locatários restaurem, outros locatários ainda podem estar offline.
@@ -229,7 +229,7 @@ Quando o processo de recuperação é concluído, o aplicativo e todos os locat�
 
 1. Depois que a exibição na janela do console do PowerShell indicar que todos os locatários são recuperados, atualize o Hub de eventos.  Os locatários aparecerão online, incluindo o novo locatário, Hawthorn Hall.
 
-    ![locatários recuperados e novos no Hub de eventos](media/saas-dbpertenant-dr-geo-replication/events-hub-with-hawthorn-hall.png)
+    ![Locatários recuperados e novos no Hub de eventos](media/saas-dbpertenant-dr-geo-replication/events-hub-with-hawthorn-hall.png)
 
 2. Na [portal do Azure](https://portal.azure.com), abra a lista de grupos de recursos.  
     * Observe o grupo de recursos que você implantou, além do grupo de recursos de recuperação, com o sufixo _-Recovery_ .  O grupo de recursos de recuperação contém todos os recursos criados durante o processo de recuperação, além de novos recursos criados durante a interrupção.  
@@ -237,14 +237,14 @@ Quando o processo de recuperação é concluído, o aplicativo e todos os locat�
 3. Abra o grupo de recursos de recuperação e observe os seguintes itens:
    * As versões de recuperação dos servidores de catálogo e tenants1, com o sufixo _-Recovery_ .  Todos os bancos de dados de catálogo e locatário restaurados nesses servidores têm os nomes usados na região original.
 
-   * O SQL Server _tenants2-&lt;DPT&gt;-User-Recovery_ .  Esse servidor é usado para provisionar novos locatários durante a interrupção.
-   * O serviço de aplicativo chamado _Events-Wingtip-DPT&lt;-&gt;recoveryregion-&lt;usuário & gt_;, que é a instância de recuperação do aplicativo de eventos. 
+   * O _usuário do tenants2-DPT-&lt;&gt;-Recovery_ SQL Server.  Esse servidor é usado para provisionar novos locatários durante a interrupção.
+   * O serviço de aplicativo chamado _Events-Wingtip-DPT-&lt;recoveryregion&gt;-&lt;usuário & gt_;, que é a instância de recuperação do aplicativo de eventos. 
 
      ![Recursos de recuperação do Azure](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
     
-4. Abra o SQL Server _tenants2-&lt;DPT&gt;-User-Recovery_ .  Observe que ele contém o banco de dados _hawthornhall_ e o pool elástico, _Pool1_.  O banco de dados _hawthornhall_ é configurado como um banco de dados elástico no pool elástico do _Pool1_ .
+4. Abra o _usuário tenants2-DPT-&lt;&gt;-Recovery_ SQL Server.  Observe que ele contém o banco de dados _hawthornhall_ e o pool elástico, _Pool1_.  O banco de dados _hawthornhall_ é configurado como um banco de dados elástico no pool elástico do _Pool1_ .
 
-5. Navegue de volta para o grupo de recursos e clique no banco de dados do contoso Concert Hall no servidor _tenants1&gt;-DPT-&lt;User-Recovery_ . Clique em replicação geográfica no lado esquerdo.
+5. Navegue de volta para o grupo de recursos e clique no banco de dados do contoso Concert Hall no servidor _tenants1-DPT-&lt;usuário&gt;-Recovery_ . Clique em replicação geográfica no lado esquerdo.
     
     ![Banco de dados contoso após failover](media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication-after-failover.png)
 
@@ -255,7 +255,7 @@ Nesta tarefa, você atualiza um dos bancos de dados de locatário.
 2. No *ISE do PowerShell*, no script. ..\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1, defina o seguinte valor:
     * **$DemoScenario = 5** Excluir um evento de um locatário na região de recuperação
 3. Pressione **F5** para executar o script
-4. Atualize a página de eventos do contoso Concert http://events.wingtip-dpt.&lt Hall (&gt; ; User. trafficmanager.net/contosoconcerthall &lt; –&gt; substitua o usuário pelo valor de usuário da implantação) e observe que o último evento foi excluído.
+4. Atualize a página de eventos do contoso Concert Hall (http://events.wingtip-dpt.&lt; User&gt;. trafficmanager.net/contosoconcerthall-substitua &lt;usuário&gt; pelo valor de usuário da implantação) e observe que o último evento foi excluído.
 
 ## <a name="repatriate-the-application-to-its-original-production-region"></a>Repatriar o aplicativo à sua região de produção original
 
@@ -286,13 +286,13 @@ Agora vamos imaginar que a interrupção foi resolvida e execute o script repatr
 3.  Em seguida, para iniciar o processo repatriação, defina:
     * **$DemoScenario = 6**, repatriar o aplicativo em sua região original
     * Pressione **F5** para executar o script de recuperação em uma nova janela do PowerShell.  O repatriação levará vários minutos e poderá ser monitorado na janela do PowerShell.
-    ![Processo de repatriação](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
+    ![processo repatriação](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
 
-4. Enquanto o script estiver em execução, atualize a página do Hub http://events.wingtip-dpt.&lt de eventos&gt; (; User. trafficmanager.net)
+4. Enquanto o script estiver em execução, atualize a página de Hub de eventos (http://events.wingtip-dpt.&lt; usuário&gt;. trafficmanager.net)
     * Observe que todos os locatários estão online e acessíveis durante esse processo.
 
 5. Depois que o repatriação for concluído, atualize o Hub de eventos e abra a página de eventos do Hawthorn Hall. Observe que esse banco de dados foi repatriadodo para a região original.
-    ![Repatriado do hub de eventos](media/saas-dbpertenant-dr-geo-replication/events-hub-repatriated.png)
+    ![repatriado do hub de eventos](media/saas-dbpertenant-dr-geo-replication/events-hub-repatriated.png)
 
 
 ## <a name="designing-the-application-to-ensure-app-and-database-are-colocated"></a>Criando o aplicativo para garantir que o aplicativo e o banco de dados estejam colocalizados 
@@ -300,7 +300,7 @@ O aplicativo foi projetado para que sempre se conecte de uma instância na mesma
 
 Os bancos de dados de locatário podem ser distribuídos em regiões de recuperação e originais por algum tempo durante o repatriação. Para cada banco de dados, o aplicativo pesquisa a região na qual o banco de dados está localizado fazendo uma pesquisa de DNS no nome do servidor de locatário. No banco de dados SQL, o nome do servidor é um alias. O nome do servidor com alias contém o nome da região. Se o aplicativo não estiver na mesma região que o banco de dados, ele redirecionará para a instância na mesma região que o servidor de banco de dados.  O redirecionamento para a instância na mesma região que o banco de dados minimiza a latência entre o aplicativo e o banco de dados. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 > [!div class="checklist"]
@@ -311,7 +311,7 @@ Neste tutorial, ficou a saber como:
 > * Fazer failover dos bancos de dados do aplicativo e do catálogo e do locatário para a região de recuperação 
 > * Fazer failback do aplicativo, do catálogo e dos bancos de dados de locatário para a região original após a interrupção ser resolvida
 
-Você pode saber mais sobre as tecnologias que o banco de dados SQL do Azure fornece para habilitar a continuidade de negócios na documentação de [visão geral](sql-database-business-continuity.md) da continuidade dos negócios.
+Você pode saber mais sobre as tecnologias que o banco de dados SQL do Azure fornece para habilitar a continuidade de negócios na documentação de [visão geral da continuidade dos negócios](sql-database-business-continuity.md) .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

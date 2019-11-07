@@ -4,21 +4,22 @@ description: Saiba como treinar um modelo, convertê-lo em ONNX, implantá-lo na
 keywords: implantar borda do banco de dados SQL
 services: sql-database-edge
 ms.service: sql-database-edge
+ms.subservice: machine-learning
 ms.topic: conceptual
 author: ronychatterjee
 ms.author: achatter
 ms.reviewer: davidph
 ms.date: 11/04/2019
-ms.openlocfilehash: 2306a63aa46bd8816c742b0a6d076471705c46a6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 37fc04919b844d1edf87be62a587c34de4a8c4d5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514072"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692331"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-in-sql-database-edge-preview"></a>Implantar e fazer previsões com um modelo ONNX na visualização de borda do banco de dados SQL
 
-Neste guia de início rápido, você aprenderá a treinar um modelo, convertê-lo em ONNX, implantá-lo na visualização de borda do banco de dados SQL do Azure e, em seguida, executar uma previsão nativa nos dados usando o modelo ONNX carregado.
+Neste guia de início rápido, você aprenderá a treinar um modelo, convertê-lo em ONNX, implantá-lo na visualização de borda do banco de dados SQL do Azure e, em seguida, executar uma previsão nativa nos dados usando o modelo ONNX carregado. Para obter mais informações, consulte [aprendizado de máquina e ia com ONNX na visualização de borda do banco de dados SQL](onnx-overview.md).
 
 Este guia de início rápido é baseado em **scikit-Learn** e usa o conjunto de informações do [invólucro de Boston](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 

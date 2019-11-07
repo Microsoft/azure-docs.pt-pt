@@ -1,5 +1,5 @@
 ---
-title: Data Factory-log de alterações da API .NET | Microsoft Docs
+title: Data Factory-log de alterações da API .NET
 description: Descreve as alterações significativas, adições de recursos, correções de bugs, etc... em uma versão específica da API do .NET para o Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
-ms.openlocfilehash: 35f0145526aa596691fde26e92695f64f5ac35e0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: e1902db6bc3a127262f5e37f36e82b07ab15c7c9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140522"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683199"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory-log de alterações da API .NET
 > [!NOTE]
@@ -84,12 +84,12 @@ Adições de recursos:
 
 ## <a name="version-460"></a>4\.6.0 da versão
 ### <a name="feature-additions"></a>Adições de recursos
-* As propriedades a seguir foram adicionadas [](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties_properties.aspx)a pipelineproperties:
+* As propriedades a seguir foram adicionadas a [pipelineproperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties_properties.aspx):
   * [PipelineMode](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.pipelinemode.aspx)
   * [ExpirationTime](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.expirationtime.aspx)
   * [Conjuntos de dados](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.datasets.aspx)
 * As propriedades a seguir foram adicionadas a [PipelineRuntimeInfo](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.aspx):
-  * [PipelineState](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.pipelinestate.aspx)
+  * [Pipelinestate](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.pipelinestate.aspx)
 * Adicionada nova tipo de [StorageFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.storageformat.aspx) tipo [JsonFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.jsonformat.aspx) para definir conjuntos de dados cujo dado está no formato JSON.
 
 ## <a name="version-450"></a>Versão 4.5.0
@@ -154,7 +154,7 @@ As classes a seguir foram renomeadas. Os novos nomes eram os nomes originais das
 | Nome antigo | Novo nome |
 |:--- |:--- |
 | ITableOperations |[IDatasetOperations](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.idatasetoperations.aspx) |
-| Tabela |[Dataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.dataset.aspx) |
+| Tabela |[DataSet](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.dataset.aspx) |
 | Tabelaproperties |[Propriedades](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetproperties.aspx) |
 | TableTypeProprerties |[DatasetTypeProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasettypeproperties.aspx) |
 | TableCreateOrUpdateParameters |[DatasetCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdateparameters.aspx) |
@@ -182,4 +182,4 @@ As classes a seguir foram renomeadas. Os novos nomes eram os nomes originais das
 
 ### <a name="feature-additions"></a>Adições de recursos
 * A classe [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) dá suporte a duas novas propriedades, **SliceIdentifierColumnName** e **SqlWriterCleanupScript**, para dar suporte à cópia idempotente para o Azure SQL data warehouse. Consulte o artigo [SQL data warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md) para obter detalhes sobre essas propriedades.
-* Agora damos suporte à execução de procedimento armazenado em relação ao banco de dados SQL do Azure e às fontes de SQL Data Warehouse do Azure como parte da atividade de cópia. As [](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) classes sqlsource e [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) têm as seguintes propriedades: **SqlReaderStoredProcedureName** e **storedprocedureparameters**. Consulte os artigos sobre o [banco de dados SQL do Azure](data-factory-azure-sql-connector.md#sqlsource) e [SQL data warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) em Azure.com para obter detalhes sobre essas propriedades.  
+* Agora damos suporte à execução de procedimento armazenado em relação ao banco de dados SQL do Azure e às fontes de SQL Data Warehouse do Azure como parte da atividade de cópia. As classes [sqlsource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) e [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) têm as seguintes propriedades: **SqlReaderStoredProcedureName** e **storedprocedureparameters**. Consulte os artigos sobre o [banco de dados SQL do Azure](data-factory-azure-sql-connector.md#sqlsource) e [SQL data warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) em Azure.com para obter detalhes sobre essas propriedades.  

@@ -1,20 +1,21 @@
 ---
-title: Proteção avançada contra ameaças – banco de dados SQL do Azure | Microsoft Docs
+title: Configurar a proteção avançada contra ameaças – banco de dados SQL do Azure
 description: A proteção avançada contra ameaças detecta atividades anormais de banco de dados que indicam possíveis ameaças de segurança ao banco de dados em um único banco de dados ou pool elástico.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+ms.custom: seo-dt-2019
 ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 ms.date: 08/05/2019
-ms.openlocfilehash: 755a3b391cb7b4909169b034cc8d89892ec2ed05
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 8a6d40f37dec3488009a702d52d6437cd345717b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816536"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686953"
 ---
 # <a name="azure-sql-database-advanced-threat-protection-for-single-or-pooled-databases"></a>Proteção avançada contra ameaças do banco de dados SQL do Azure para bancos de dados individuais ou em pool
 
@@ -42,7 +43,7 @@ A [proteção avançada contra ameaças](sql-database-threat-detection-overview.
 
 Para obter um exemplo de script, consulte [Configurar a auditoria e a proteção avançada contra ameaças usando o PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [proteção avançada contra ameaças](sql-database-threat-detection-overview.md).
 - Saiba mais sobre a [proteção avançada contra ameaças na instância gerenciada](sql-database-managed-instance-threat-detection.md).  

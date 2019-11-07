@@ -1,6 +1,6 @@
 ---
-title: Melhorar o desempenho do índice columnstore no Azure SQL Data Warehouse | Documentos da Microsoft
-description: Reduzir os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas que compacta de um índice columnstore em cada rowgroup.
+title: Melhorar o desempenho do índice columnstore
+description: O Azure SQL Data Warehouse reduzir os requisitos de memória ou aumentar a memória disponível para maximizar o número de linhas que um índice columnstore compacta em cada rowgroup.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,36 +10,37 @@ ms.subservice: load-data
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ec85bcc764ba7a7ae6341e0490530c31fdb5a02b
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d5dba4e9a086502f638252a0ce2b16b4abeeb643
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595465"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685654"
 ---
-# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizando a qualidade de rowgroup para columnstore
+# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizando a qualidade do rowgroup para columnstore
 
-Qualidade de Rowgroup é determinada pelo número de linhas num rowgroup. Aumentar a memória disponível pode maximizar o número de linhas que compacta de um índice columnstore em cada rowgroup.  Utilize estes métodos para melhorar as velocidades de compressão e consultar o desempenho de índices columnstore.
+A qualidade do rowgroup é determinada pelo número de linhas em um rowgroup. Aumentar a memória disponível pode maximizar o número de linhas que um índice columnstore compacta em cada rowgroup.  Use esses métodos para melhorar as taxas de compactação e o desempenho de consulta para índices columnstore.
 
-## <a name="why-the-rowgroup-size-matters"></a>Por que o tamanho de rowgroup é importante
-Uma vez que um índice columnstore analisa uma tabela através da análise de segmentos de coluna de grupos de linhas individuais, maximizar o número de linhas em cada rowgroup aprimora o desempenho de consulta. Quando os grupos de linhas têm um elevado número de linhas, compressão de dados melhora o que significa que há menos dados para ler a partir do disco.
+## <a name="why-the-rowgroup-size-matters"></a>Por que o tamanho do rowgroup é importante
+Como um índice columnstore examina uma tabela examinando os segmentos de coluna de RowGroups individuais, maximizar o número de linhas em cada rowgroup aprimora o desempenho da consulta. Quando os RowGroups têm um número alto de linhas, a compactação de dados melhora, o que significa que há menos dados a serem lidos do disco.
 
-Para obter mais informações sobre grupos de linhas, consulte [guia de índices Columnstore](https://msdn.microsoft.com/library/gg492088.aspx).
+Para obter mais informações sobre grupos de colunas, consulte [Guia de índices Columnstore](https://msdn.microsoft.com/library/gg492088.aspx).
 
-## <a name="target-size-for-rowgroups"></a>Tamanho de destino para grupos de linhas
-Para obter melhor desempenho de consulta, o objetivo é maximizar o número de linhas por rowgroup num índice columnstore. Um rowgroup pode ter um máximo de 1 048 576 linhas. Há problema em tem o número máximo de linhas por rowgroup. Os índices Columnstore alcançar o bom desempenho quando os grupos de linhas de tem, pelo menos, 100 000 linhas.
+## <a name="target-size-for-rowgroups"></a>Tamanho de destino para RowGroups
+Para melhor desempenho de consulta, o objetivo é maximizar o número de linhas por rowgroup em um índice columnstore. Um rowgroup pode ter um máximo de 1.048.576 linhas. Não há problema para não ter o número máximo de linhas por rowgroup. Os índices Columnstore atingem um bom desempenho quando os RowGroups têm pelo menos 100.000 linhas.
 
-## <a name="rowgroups-can-get-trimmed-during-compression"></a>Grupos de linhas podem obter cortados durante a compressão
+## <a name="rowgroups-can-get-trimmed-during-compression"></a>Os RowGroups podem ser cortados durante a compactação
 
-Durante uma em massa de carga ou columnstore recompilação de índice, às vezes, lá não existe memória suficiente disponível para comprimir todas as linhas designadas para cada rowgroup. Quando existe pressão de memória, os índices columnstore cortar os tamanhos de rowgroup para que compressão para o columnstore pode ter êxito. 
+Durante um carregamento em massa ou uma recompilação de índice columnstore, às vezes não há memória suficiente disponível para compactar todas as linhas designadas para cada rowgroup. Quando há pressão de memória, os índices columnstore cortam os tamanhos de rowgroup para que a compactação no columnstore possa ter sucesso. 
 
-Quando existe memória suficiente para comprimir, pelo menos, 10 000 linhas em cada rowgroup, o SQL Data Warehouse gera um erro.
+Quando não há memória suficiente para compactar pelo menos 10.000 linhas em cada rowgroup, SQL Data Warehouse gera um erro.
 
-Para obter mais informações sobre o carregamento em massa, consulte [carregamento em massa para um índice columnstore em cluster](https://msdn.microsoft.com/library/dn935008.aspx#Bulk ).
+Para obter mais informações sobre o carregamento em massa, consulte [carregamento em massa em um índice columnstore clusterizado](https://msdn.microsoft.com/library/dn935008.aspx#Bulk ).
 
-## <a name="how-to-monitor-rowgroup-quality"></a>Como monitorizar a qualidade de rowgroup
+## <a name="how-to-monitor-rowgroup-quality"></a>Como monitorar a qualidade do rowgroup
 
-A DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) contém a definição de vista que correspondem a BD SQL do armazém de dados SQL) que expõe informações úteis como o número de linhas em grupos de linhas e a razão para remoção de se existir foi corte. Pode criar a vista seguinte como uma forma prática de consultar essa DMV para obter informações sobre a remoção de rowgroup.
+O DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([Sys. dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) contém a definição de exibição correspondente ao banco de dados SQL para SQL data warehouse) que expõe informações úteis, como o número de linhas em RowGroups e o motivo para aparar se houver corte. Você pode criar a exibição a seguir como uma maneira útil de consultar essa DMV para obter informações sobre a filtragem de rowgroup.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -66,10 +67,10 @@ select *
 from cte;
 ```
 
-O trim_reason_desc informa se o rowgroup foi removido (trim_reason_desc = NO_TRIM implica não ocorreu nenhuma limitação e grupo de linhas é de qualidade ideal). Pelas seguintes razões corte indicam prematura corte do rowgroup:
-- BULKLOAD: Esta razão de compactação é utilizado quando o lote de entrada de linhas para a carga tinha menos de 1 milhão de linhas. O mecanismo irá criar grupos de linhas comprimido se existirem mais de 100 000 linhas que estão sendo inseridas (em vez de inserção para o arquivo de delta), mas define o motivo de compactação para BULKLOAD. Neste cenário, considere a aumentar a carga de batch para incluir mais linhas. Além disso, a reavaliar o esquema de partição para garantir que não seja muito granular como grupos de linhas não podem abranger os limites de partição.
-- MEMORY_LIMITATION: Para criar grupos de linhas com 1 milhão de linhas, uma determinada quantidade de memória de trabalho é necessário pelo motor. Quando a memória disponível da sessão de carregamento é menor do que a memória necessária do trabalho, os grupos de linhas prematuramente obterem cortados. As secções seguintes explicam como estimar a memória necessária e alocar mais memória.
-- DICTIONARY_SIZE: Esta razão corte indica que a remoção de rowgroup ocorreu devido a pelo menos uma coluna de cadeia de caracteres com cadeias de caracteres de e/ou elevada cardinalidade. O tamanho de dicionário é limitado a 16 MB na memória e quando este limite for atingido o grupo de linhas é comprimido. Caso se depare com essa situação, considere o isolamento da coluna problemática numa tabela separada.
+O trim_reason_desc informa se o rowgroup foi cortado (trim_reason_desc = NO_TRIM implica que não havia corte e o grupo de linhas é de qualidade ideal). Os seguintes motivos de corte indicam o corte prematuro do rowgroup:
+- CARREGAMENTO em massa: esse motivo de corte é usado quando o lote de entrada de linhas para a carga tinha menos de 1 milhão linhas. O mecanismo criará grupos de linhas compactados se houver mais de 100.000 linhas sendo inseridas (em vez de inserir no armazenamento Delta), mas definirá o motivo do corte como carregamento em massa. Nesse cenário, considere aumentar a carga do lote para incluir mais linhas. Além disso, reavalie seu esquema de particionamento para garantir que ele não seja muito granular, pois grupos de linhas não podem abranger limites de partição.
+- MEMORY_LIMITATION: para criar grupos de linhas com 1 milhão linhas, uma determinada quantidade de memória de trabalho é exigida pelo mecanismo. Quando a memória disponível da sessão de carregamento for menor que a memória de trabalho necessária, os grupos de linhas serão cortados prematuramente. As seções a seguir explicam como estimar a memória necessária e alocar mais memória.
+- DICTIONARY_SIZE: esse motivo de corte indica que a recorte de rowgroup ocorreu porque havia pelo menos uma coluna de cadeia de caracteres com cadeias de cardinalidade amplas e/ou altas. O tamanho do dicionário é limitado a 16 MB de memória e, quando esse limite é atingido, o grupo de linhas é compactado. Se você se deparar com essa situação, considere isolar a coluna problemática em uma tabela separada.
 
 ## <a name="how-to-estimate-memory-requirements"></a>Como estimar os requisitos de memória
 
@@ -77,52 +78,52 @@ O trim_reason_desc informa se o rowgroup foi removido (trim_reason_desc = NO_TRI
 To view an estimate of the memory requirements to compress a rowgroup of maximum size into a columnstore index, download and run the view [dbo.vCS_mon_mem_grant](). This view shows the size of the memory grant that a rowgroup requires for compression in to the columnstore.
 -->
 
-O máximo de memória necessário para compactar um rowgroup é de aproximadamente
+A memória máxima necessária para compactar um rowgroup é aproximadamente
 
 - 72 MB +
-- \#linhas \* \#colunas \* 8 bytes +
-- \#linhas \* \#colunas de cadeia curta \* 32 bytes +
-- \#colunas de cadeia longa \* 16 MB de dicionário de compressão
+- linhas de \#\* \#colunas \* 8 bytes +
+- \#linhas \* \#colunas de cadeia de caracteres curta \* 32 bytes +
+- \#colunas de cadeia de caracteres longa \* 16 MB para o dicionário de compactação
 
-onde colunas de cadeia curta utilizam tipos de dados de cadeia de caracteres de < = 32 bytes e tipos de dados de cadeia de caracteres de utilização de colunas de cadeia longa de > 32 bytes.
+onde as colunas de cadeia de caracteres curta usam tipos de dados de cadeia de caracteres de < = 32 bytes e colunas de cadeia de caracteres longa usam tipos de dados de cadeia de caracteres de > 32 bytes.
 
-Cadeias de caracteres longas são compactadas com um método de compressão concebido para a compressão de texto. Este método de compressão utiliza um *dicionário* para armazenar padrões de texto. O tamanho máximo de um dicionário é 16 MB. Há apenas um dicionário para cada coluna de cadeia longa no rowgroup.
+Cadeias de caracteres longas são compactadas com um método de compactação projetado para comprimir o texto. Esse método de compactação usa um *dicionário* para armazenar padrões de texto. O tamanho máximo de um dicionário é 16 MB. Há apenas um dicionário para cada coluna de cadeia de caracteres longa no rowgroup.
 
-Para uma visão detalhada dos requisitos de memória de columnstore, veja o vídeo [dimensionamento do Azure SQL Data Warehouse: configuração e documentação de orientação](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
+Para uma discussão aprofundada sobre os requisitos de memória columnstore, consulte o vídeo [Azure SQL data warehouse dimensionamento: configuração e diretrizes](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
-## <a name="ways-to-reduce-memory-requirements"></a>Formas de reduzir os requisitos de memória
+## <a name="ways-to-reduce-memory-requirements"></a>Maneiras de reduzir os requisitos de memória
 
-Utilize as seguintes técnicas para reduzir os requisitos de memória para a compressão de grupos de linhas em índices columnstore.
+Use as técnicas a seguir para reduzir os requisitos de memória para compactar grupos de itens em índices columnstore.
 
-### <a name="use-fewer-columns"></a>Utilizar menos colunas
-Se possível, crie a tabela com menos colunas. Quando um rowgroup é compactado para o columnstore, o índice columnstore compacta cada segmento de coluna em separado. Por conseguinte, os requisitos de memória para comprimir um rowgroup aumentam como o número de colunas aumenta.
+### <a name="use-fewer-columns"></a>Usar menos colunas
+Se possível, crie a tabela com menos colunas. Quando um rowgroup é compactado no columnstore, o índice columnstore compacta cada segmento de coluna separadamente. Portanto, os requisitos de memória para compactação de um rowgroup aumentam conforme o número de colunas aumenta.
 
 
-### <a name="use-fewer-string-columns"></a>Utilizar menos colunas de cadeia de caracteres
-Colunas de tipos de dados de cadeia de caracteres requerem mais memória do que numérico e tipos de dados de data. Para reduzir os requisitos de memória, considere remover colunas de cadeia de caracteres de tabelas de fatos e colocá-las em tabelas de dimensão mais pequenas.
+### <a name="use-fewer-string-columns"></a>Usar menos colunas de cadeia de caracteres
+Colunas de tipos de dados de cadeia de caracteres exigem mais memória do que tipos de dados numéricos e de data. Para reduzir os requisitos de memória, considere remover colunas de cadeia de caracteres de tabelas de fatos e colocá-las em tabelas de dimensões menores.
 
-Requisitos de memória adicional para compressão de cadeia de caracteres:
+Requisitos de memória adicionais para compactação de cadeia de caracteres:
 
-- Tipos de dados de cadeia de caracteres até 32 carateres podem exigir 32 bytes adicionais por valor.
-- Tipos de dados de cadeia de caracteres com mais do que 32 carateres são compactados usando métodos de dicionário.  Cada coluna no rowgroup pode exigir até um 16 MB adicional para criar o dicionário.
+- Os tipos de dados de cadeia de caracteres com até 32 caracteres podem exigir 32 bytes adicionais por valor.
+- Tipos de dados de cadeia de caracteres com mais de 32 caracteres são compactados usando métodos de dicionário.  Cada coluna no rowgroup pode exigir até 16 MB adicionais para criar o dicionário.
 
-### <a name="avoid-over-partitioning"></a>Evitar a criação de partições de excesso
+### <a name="avoid-over-partitioning"></a>Evitar o excesso de particionamento
 
-Os índices Columnstore criar um ou mais grupos de linhas por partição. No SQL Data Warehouse, o número de partições cresce rapidamente, porque os dados são distribuídos e cada distribuição está particionada. Se a tabela tem demasiadas partições, talvez não haja linhas suficientes para preencher os grupos de linhas. A falta de linhas não cria pressão de memória durante a compressão, mas isso leva a grupos de linhas que não alcance o melhor desempenho de consulta de columnstore.
+Os índices Columnstore criam um ou mais grupos de rowgroup por partição. Em SQL Data Warehouse, o número de partições aumenta rapidamente, pois os dados são distribuídos e cada distribuição é particionada. Se a tabela tiver muitas partições, talvez não haja linhas suficientes para preencher os RowGroups. A falta de linhas não cria a pressão de memória durante a compactação, mas leva a grupos que não atingem o melhor desempenho de consulta columnstore.
 
-Outro motivo para evitar o excesso de particionamento é que existe uma memória sobrecarga de carregamento de linhas para um índice columnstore numa tabela particionada. Durante uma carga, muitas partições possam receber as linhas de entrada, que são guardadas na memória até que cada partição tem linhas suficientes para ser comprimido. Ter demasiadas partições cria pressão de memória adicional.
+Outro motivo para evitar o excesso de particionamento é que há uma sobrecarga de memória para carregar linhas em um índice columnstore em uma tabela particionada. Durante uma carga, muitas partições podem receber as linhas de entrada, que são mantidas na memória até que cada partição tenha linhas suficientes para ser compactada. Ter muitas partições cria pressão de memória adicional.
 
-### <a name="simplify-the-load-query"></a>Simplifique a consulta de carga
+### <a name="simplify-the-load-query"></a>Simplificar a consulta de carregamento
 
-A base de dados compartilha a concessão de memória para uma consulta entre todos os operadores na consulta. Quando uma consulta de carga tem tipos complexos e associações, a memória disponível para compressão é reduzida.
+O banco de dados compartilha a concessão de memória para uma consulta entre todos os operadores na consulta. Quando uma consulta de carregamento tem classificações e junções complexas, a memória disponível para compactação é reduzida.
 
-Estruture a consulta de carga para se concentrar apenas a carregar a consulta. Se tiver de executar transformações nos dados, executá-las separadas da consulta de carga. Por exemplo, colocar os dados numa tabela de área dinâmica para dados, execute as transformações e, em seguida, carregar a tabela de testes para o índice columnstore. Pode também carregar os dados pela primeira vez e, em seguida, utilizar o sistema MPP para transformar os dados.
+Projete a consulta de carregamento para se concentrar apenas no carregamento da consulta. Se você precisar executar transformações nos dados, execute-os separadamente da consulta de carregamento. Por exemplo, preparar os dados em uma tabela de heap, executar as transformações e, em seguida, carregar a tabela de preparo no índice columnstore. Você também pode carregar os dados primeiro e, em seguida, usar o sistema MPP para transformar os dados.
 
 ### <a name="adjust-maxdop"></a>Ajustar MAXDOP
 
-Cada distribuição compacta os grupos de linhas para o columnstore em paralelo quando há mais de um núcleo de CPU disponível por distribuição. O paralelismo requer recursos de memória adicional, que podem levar a pressão de memória e remoção de rowgroup.
+Cada distribuição compacta os RowGroups no columnstore em paralelo quando há mais de um núcleo de CPU disponível por distribuição. O paralelismo requer recursos de memória adicionais, o que pode levar à pressão de memória e ao corte de rowgroup.
 
-Para reduzir a pressão de memória, pode utilizar a sugestão de consulta MAXDOP para forçar a operação de carregamento sejam executadas em modo serial dentro de cada distribuição.
+Para reduzir a pressão de memória, você pode usar a dica de consulta MAXDOP para forçar a operação de carregamento a ser executada no modo Serial dentro de cada distribuição.
 
 ```sql
 CREATE TABLE MyFactSalesQuota
@@ -131,14 +132,14 @@ AS SELECT * FROM FactSalesQuota
 OPTION (MAXDOP 1);
 ```
 
-## <a name="ways-to-allocate-more-memory"></a>Formas de alocar mais memória
+## <a name="ways-to-allocate-more-memory"></a>Maneiras de alocar mais memória
 
-Tamanho DWU e a classe de recursos de utilizador em conjunto determinam a quantidade de memória está disponível para uma consulta de utilizador. Para aumentar a concessão de memória para uma consulta de carga, pode aumentar o número de DWUs ou aumentar a classe de recursos.
+O tamanho do DWU e a classe de recurso de usuário juntos determinam a quantidade de memória disponível para uma consulta de usuário. Para aumentar a concessão de memória para uma consulta de carregamento, você pode aumentar o número de DWUs ou aumentar a classe de recurso.
 
-- Para aumentar as DWUs, consulte [como dimensionar o desempenho?](quickstart-scale-compute-portal.md)
-- Para alterar a classe de recursos para uma consulta, consulte [alterar um exemplo de classe de recursos de utilizador](resource-classes-for-workload-management.md#change-a-users-resource-class).
+- Para aumentar o DWUs, consulte [como fazer dimensionar o desempenho?](quickstart-scale-compute-portal.md)
+- Para alterar a classe de recurso de uma consulta, consulte [alterar um exemplo de classe de recurso de usuário](resource-classes-for-workload-management.md#change-a-users-resource-class).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para ver mais formas de melhorar o desempenho no SQL Data Warehouse, veja a [descrição geral do desempenho](sql-data-warehouse-overview-manage-user-queries.md).
+Para encontrar mais maneiras de melhorar o desempenho no SQL Data Warehouse, consulte a [visão geral de desempenho](sql-data-warehouse-overview-manage-user-queries.md).
 

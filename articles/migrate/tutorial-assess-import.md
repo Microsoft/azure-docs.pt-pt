@@ -7,14 +7,17 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 86d61dbd75363f68ee4651bfb36f940810909c00
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 856f7f7735435579ac14918ee8026f27b222773e
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501849"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715505"
 ---
 # <a name="assess-servers-using-imported-data"></a>Avaliar servidores usando dados importados
+
+> [!NOTE]
+> Se você ainda não tiver visto esse recurso no portal de migrações para Azure, aguarde. Ele será exibido na próxima semana ou assim.
 
 Este artigo explica como avaliar servidores locais com as [migrações para Azure: avaliação de servidor](migrate-services-overview.md#azure-migrate-server-assessment-tool), importando metadados de servidor usando CSV. Com esse método de avaliação, você não precisa configurar o dispositivo de migrações para Azure para criar uma avaliação. Isso será útil se: 
 

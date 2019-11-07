@@ -1,6 +1,6 @@
 ---
-title: Como usar as filas do Azure/Service-Bus no node. js
-description: Saiba como usar as filas do barramento de serviço no Azure de um aplicativo node. js usando o pacote do Azure/Service-Bus.
+title: 'Início rápido: como usar as filas do Azure/Service-Bus no node. js'
+description: 'Início rápido: saiba como usar as filas do barramento de serviço no Azure de um aplicativo node. js usando o pacote do Azure/Service-Bus.'
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -10,17 +10,17 @@ ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 10/22/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 58049855cc27d51134b9f76a773f32f49c6381b6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9901ccd6bb1abf27bb1141c618d0bfde167b9cc3
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790314"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721679"
 ---
-# <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Como usar filas do barramento de serviço com o Node. js e o pacote do Azure/Service-Bus
+# <a name="quickstart-how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Início rápido: como usar as filas do barramento de serviço com o Node. js e o pacote do Azure/Service-Bus
 > [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote node. js"]
 > - [(Node. js | Azure-SB)](service-bus-nodejs-how-to-use-queues.md)
 > - [(Node. js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
@@ -129,7 +129,7 @@ Interagir com uma fila do barramento de serviço começa com a instanciação da
 
 Parabéns! Você acabou de receber mensagens de uma fila do barramento de serviço.
 
-O método [Createreceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient#createreceiver-receivemode-) usa um `ReceiveMode`, que é um enum com os valores [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) e [Peeklock](message-transfers-locks-settlement.md#settling-receive-operations). Lembre-se de [liquidar suas mensagens](message-transfers-locks-settlement.md#settling-receive-operations) se usar o modo `PeekLock` usando qualquer um dos métodos `complete()`, `abandon()`, `defer()` ou `deadletter()` na mensagem.
+O método [Createreceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient#createreceiver-receivemode-) usa um `ReceiveMode` que é um enum com os valores [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) e [Peeklock](message-transfers-locks-settlement.md#settling-receive-operations). Lembre-se de [liquidar suas mensagens](message-transfers-locks-settlement.md#settling-receive-operations) se usar o modo de `PeekLock` usando qualquer um dos métodos `complete()`, `abandon()`, `defer()`ou `deadletter()` na mensagem.
 
 > [!NOTE]
 > Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem a um namespace do barramento de serviço e administrem entidades de mensagens de maneira fácil. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 

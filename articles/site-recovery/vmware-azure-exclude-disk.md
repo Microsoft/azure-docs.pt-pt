@@ -1,6 +1,6 @@
 ---
-title: Excluir discos da replicação para a recuperação de desastre do VMware para o Azure com o Azure Site Recovery | Documentos da Microsoft
-description: Descreve por que e como excluir discos da VM da replicação para a recuperação de desastre do VMware para o Azure.
+title: Excluir discos de VM do VMware da recuperação de desastre para o Azure com Azure Site Recovery
+description: Descreve por que e como excluir discos de VM da replicação para a recuperação de desastres do VMware para o Azure.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,16 +8,16 @@ ms.workload: storage-backup-recovery
 ms.date: 3/3/2019
 ms.author: mayg
 ms.topic: conceptual
-ms.openlocfilehash: 105074892cc6dfa4da1e7c8ddd0a0aad9f1b60a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c003620420611f3416e6481c575f987fbd1bd05f
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60922120"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622378"
 ---
-# <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>Excluir discos da replicação de VMs de VMware para o Azure
+# <a name="exclude-disks-from-vmware-vm-replication-to-azure"></a>Excluir discos da replicação de VM do VMware para o Azure
 
-Este artigo descreve como excluir discos quando replicar VMs de VMware para o Azure. Esta exclusão pode otimizar a largura de banda de replicação consumida ou otimizar os recursos do lado do destino que esses discos utilizam. Se precisar de informações sobre como excluir discos do Hyper-V, leia [neste artigo](hyper-v-exclude-disk.md)
+Este artigo descreve como excluir discos ao replicar VMs VMware para o Azure. Esta exclusão pode otimizar a largura de banda de replicação consumida ou otimizar os recursos do lado do destino que esses discos utilizam. Se você precisar de informações sobre como excluir discos para o Hyper-V, leia [Este artigo](hyper-v-exclude-disk.md)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -52,12 +52,12 @@ Siga o fluxo de trabalho [Enable replication (Ativar a replicação)](vmware-azu
 
 >[!NOTE]
 >
-> * Só pode excluir discos em VMs que já tenham o serviço de mobilidade instalado. Tem de instalar manualmente o Serviço de mobilidade, porque este só é instalado através do mecanismo push depois de a replicação ser ativada.
+> * Você só pode excluir discos em VMs que já têm o serviço de mobilidade instalado. Tem de instalar manualmente o Serviço de mobilidade, porque este só é instalado através do mecanismo push depois de a replicação ser ativada.
 > * Apenas os discos básicos podem ser excluídos da replicação. Não é possível excluir discos do sistema operativo ou discos dinâmicos.
 > * Após ativar a replicação, não pode adicionar ou remover discos para replicação. Se pretende adicionar ou excluir um disco, tem de desativar a proteção da máquina e reativá-la novamente.
 > * Se excluir um disco necessário para o funcionamento de uma aplicação, após a ativação pós-falha do Azure, terá de criar o disco manualmente no Azure, para que a aplicação replicada possa ser executada. Em alternativa, pode integrar a automatização do Azure num plano de recuperação para criar o disco durante a ativação pós-falha da máquina.
-> * Máquina virtual do Windows: Os discos que criar manualmente no Azure não realizarão a reativação pós-falha. Por exemplo, se realizar a ativação pós-falha de três discos e criar dois discos diretamente em Máquinas Virtuais do Azure, apenas três discos em que foi realizada a ativação pós-falha realizarão a reativação pós-falha. Não pode incluir discos que criou manualmente na reativação pós-falha ou na nova proteção no local para o Azure.
-> * Máquina virtual do Linux: Os discos que criar manualmente no Azure realizarão a reativação pós-falha. Por exemplo, se realizar a ativação pós-falha de três discos e criar dois discos diretamente em Máquinas Virtuais do Azure, os cinco discos realizarão a reativação pós-falha. Não pode excluir da reativação pós-falha os discos que foram criados manualmente.
+> * Máquina virtual do Windows: os discos que criar manualmente no Azure não poderão realizar a reativação pós-falha. Por exemplo, se realizar a ativação pós-falha de três discos e criar dois discos diretamente em Máquinas Virtuais do Azure, apenas três discos em que foi realizada a ativação pós-falha realizarão a reativação pós-falha. Não pode incluir discos que criou manualmente na reativação pós-falha ou na nova proteção no local para o Azure.
+> * Máquina virtual do Linux: os discos que criar manualmente no Azure poderão realizar a reativação pós-falha. Por exemplo, se realizar a ativação pós-falha de três discos e criar dois discos diretamente em Máquinas Virtuais do Azure, os cinco discos realizarão a reativação pós-falha. Não pode excluir da reativação pós-falha os discos que foram criados manualmente.
 >
 
 
@@ -67,7 +67,7 @@ Para compreender a funcionalidade de exclusão de discos, consideremos dois cen�
 - Disco tempdb do SQL Server
 - Disco do ficheiro de paginação (pagefile.sys)
 
-## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Exemplo 1: Excluir o disco tempdb do SQL Server
+## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Exemplo 1: excluir o disco tempdb do SQL Server
 Consideremos uma máquina virtual do SQL Server que tem um tempdb que pode ser excluído.
 
 O nome do disco virtual é SalesDB.
@@ -80,7 +80,7 @@ Os discos na máquina virtual de origem são os seguintes:
 DB-Disk0-OS | DISK0 | C:\ | Disco do sistema operativo
 DB-Disk1| Disk1 | D:\ | Base de dados do sistema SQL e User Database1
 DB-Disk2 (disco excluído da proteção) | Disk2 | E:\ | Ficheiros temporários
-DB-Disk3 (disco excluído da proteção) | Disk3 | F:\ | Base de dados tempdb do SQL (caminho da pasta (F:\MSSQL\Data\) <br /> <br />Anote o caminho da pasta antes da ativação pós-falha.
+DB-Disk3 (disco excluído da proteção) | Disk3 | F:\ | Base de dados tempdb do SQL (caminho da pasta (F:\MSSQL\Data\) <br /> <br />Anote o caminho da pasta antes do failover.
 DB-Disk4 | Disk4 |G:\ |User Database2
 
 Uma vez que as alterações a dados em dois discos da máquina virtual são temporárias, enquanto proteger a máquina virtual de SalesDB, exclua Disk2 e Disk3 da replicação. O Azure Site Recovery não irá replicar esses discos. Na ativação pós-falha, os discos não estarão presentes na máquina virtual de ativação pós-falha no Azure.
@@ -90,7 +90,7 @@ Os discos na máquina virtual do Azure após a ativação pós-falha são os seg
 **Sistema operativo convidado disco#** | **Letra da unidade** | **Tipo de dados no disco**
 --- | --- | ---
 DISK0 | C:\ | Disco do sistema operativo
-Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona este disco e atribui a primeira letra de unidade disponível.
+Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona esse disco e atribui a primeira letra da unidade disponível.
 Disk2 | D:\ | Base de dados do sistema SQL e User Database1
 Disk3 | G:\ | User Database2
 
@@ -154,7 +154,7 @@ No exemplo anterior, a configuração de disco da máquina virtual do Azure é a
 **Sistema operativo convidado disco#** | **Letra da unidade** | **Tipo de dados no disco**
 --- | --- | ---
 DISK0 | C:\ | Disco do sistema operativo
-Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona este disco e atribui a primeira letra de unidade disponível.
+Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona esse disco e atribui a primeira letra da unidade disponível.
 Disk2 | D:\ | Base de dados do sistema SQL e User Database1
 Disk3 | G:\ | User Database2
 
@@ -168,12 +168,12 @@ DISK0 | C:\ | Disco do sistema operativo
 Disk1 | D:\ | Base de dados do sistema SQL e User Database1
 Disk2 | G:\ | User Database2
 
-## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Exemplo 2: Excluir o disco do ficheiro de paginação (pagefile.sys)
+## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Exemplo 2: excluir o disco do ficheiro de paginação (pagefile.sys)
 
 Consideremos uma máquina virtual que tem um disco de ficheiro de paginação que pode ser excluído.
 Existem dois casos.
 
-### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Caso 1: O ficheiro de paginação está configurado na unidade d:
+### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Caso 1: o ficheiro de paginação está configurado na unidade D:
 Segue-se a configuração do disco:
 
 **Nome do disco** | **Sistema operativo convidado disco#** | **Letra da unidade** | **Tipo de dados no disco**
@@ -203,7 +203,7 @@ Seguem-se as definições de ficheiro de paginação na máquina virtual do Azur
 
 ![Definições de ficheiro de paginação na máquina virtual do Azure](./media/vmware-azure-exclude-disk/pagefile-on-azure-vm-after-failover.png)
 
-### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Caso 2: O ficheiro de paginação está configurado noutra unidade (que não seja a unidade d)
+### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Caso 2: o ficheiro de paginação está configurado noutra unidade (que não seja a unidade D:)
 
 Segue-se a configuração de disco da máquina virtual de origem:
 
@@ -233,5 +233,5 @@ Seguem-se as definições de ficheiro de paginação na máquina virtual do Azur
 
 ![Definições de ficheiro de paginação na máquina virtual do Azure](./media/vmware-azure-exclude-disk/pagefile-on-azure-vm-after-failover-2.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Depois da implementação estar instalada e em execução, [saiba mais](site-recovery-failover.md) sobre os diferentes tipos de ativação pós-falha.

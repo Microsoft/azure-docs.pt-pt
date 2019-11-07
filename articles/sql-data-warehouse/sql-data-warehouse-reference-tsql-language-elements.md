@@ -1,5 +1,5 @@
 ---
-title: Elementos da linguagem T-SQL-Azure SQL Data Warehouse | Microsoft Docs
+title: Elementos de linguagem do T-SQL
 description: Links para a documentação para instruções T-SQL com suporte no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: query
 ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 5d623ebbb5434338e2d7263ca63dd545230a612d
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 02f463e12547ba64a05e04988d9c192bba4f6a27
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479420"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692520"
 ---
 # <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Elementos de linguagem T-SQL com suporte no Azure SQL Data Warehouse
 Links para a documentação de elementos de linguagem T-SQL com suporte no Azure SQL Data Warehouse.
@@ -26,24 +27,24 @@ Links para a documentação de elementos de linguagem T-SQL com suporte no Azure
 * [Palavras-chave reservadas](https://msdn.microsoft.com/library/ms189822.aspx)
 * [agrupamentos](https://msdn.microsoft.com/library/ff848763.aspx)
 * [feitos](https://msdn.microsoft.com/library/ms181627.aspx)
-* [constants](https://msdn.microsoft.com/library/ms179899.aspx)
+* [:](https://msdn.microsoft.com/library/ms179899.aspx)
 * [tipos de dados](https://msdn.microsoft.com/library/ms187752.aspx)
 * [EXECUTADOS](https://msdn.microsoft.com/library/ms188332.aspx)
-* [expressions](https://msdn.microsoft.com/library/ms190286.aspx)
-* [KILL](https://msdn.microsoft.com/library/ms173730.aspx)
+* [expressões](https://msdn.microsoft.com/library/ms190286.aspx)
+* [Finaliza](https://msdn.microsoft.com/library/ms173730.aspx)
 * [Solução alternativa de propriedade de identidade](https://msdn.microsoft.com/library/ms186775.aspx)
 * [IMPRIMIR](https://msdn.microsoft.com/library/ms176047.aspx)
 * [UTILIZÁ](https://msdn.microsoft.com/library/ms188366.aspx)
 
 ## <a name="batches-control-of-flow-and-variables"></a>Lotes, controle de fluxo e variáveis
-* [BEGIN...END](https://msdn.microsoft.com/library/ms190487.aspx)
-* [BREAK](https://msdn.microsoft.com/library/ms181271.aspx)
-* [CLARO@local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
-* [IF...ELSE](https://msdn.microsoft.com/library/ms182717.aspx)
+* [Iniciar... COMPLETO](https://msdn.microsoft.com/library/ms190487.aspx)
+* [INTERRUPÇÃO](https://msdn.microsoft.com/library/ms181271.aspx)
+* [DECLARAR @local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
+* [SE... RESTANTE](https://msdn.microsoft.com/library/ms182717.aspx)
 * [RAISERROR](https://msdn.microsoft.com/library/ms178592.aspx)
 * [SET@local_variable](https://msdn.microsoft.com/library/ms189484.aspx)
 * [THROW](https://msdn.microsoft.com/library/ee677615.aspx)
-* [TRY...CATCH](https://msdn.microsoft.com/library/ms175976.aspx)
+* [TENTAR... PEGAR](https://msdn.microsoft.com/library/ms175976.aspx)
 * [MESMO](https://msdn.microsoft.com/library/ms178642.aspx)
 
 ## <a name="operators"></a>Operadores
@@ -65,11 +66,11 @@ Links para a documentação de elementos de linguagem T-SQL com suporte no Azure
 * [! = (Diferente de)](https://msdn.microsoft.com/library/ms190296.aspx)
 * [E](https://msdn.microsoft.com/library/ms188372.aspx)
 * [ENTRE](https://msdn.microsoft.com/library/ms187922.aspx)
-* [EXISTS](https://msdn.microsoft.com/library/ms188336.aspx)
-* [IN](https://msdn.microsoft.com/library/ms177682.aspx)
+* [EXISTE](https://msdn.microsoft.com/library/ms188336.aspx)
+* [NO](https://msdn.microsoft.com/library/ms177682.aspx)
 * [IS [NOT] NULL](https://msdn.microsoft.com/library/ms188795.aspx)
 * [SIMILAR](https://msdn.microsoft.com/library/ms179859.aspx)
-* [NÃO](https://msdn.microsoft.com/library/ms189455.aspx)
+* [VÁLIDO](https://msdn.microsoft.com/library/ms189455.aspx)
 * [OR](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### <a name="bitwise-operators"></a>Operadores bits
@@ -81,7 +82,7 @@ Links para a documentação de elementos de linguagem T-SQL com suporte no Azure
 * [| = (Or EQUALs or)](https://msdn.microsoft.com/library/cc627409.aspx)
 * [& = (bit e EQUALs)](https://msdn.microsoft.com/library/cc627427.aspx)
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funções
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
 * [@@ERROR](https://msdn.microsoft.com/library/ms188790.aspx)
 * [@@LANGUAGE](https://msdn.microsoft.com/library/ms177557.aspx)
@@ -90,22 +91,22 @@ Links para a documentação de elementos de linguagem T-SQL com suporte no Azure
 * [@@VERSION](https://msdn.microsoft.com/library/ms177512.aspx)
 * [ABS](https://msdn.microsoft.com/library/ms189800.aspx)
 * [ACOS](https://msdn.microsoft.com/library/ms178627.aspx)
-* [ASCII](https://msdn.microsoft.com/library/ms177545.aspx)
+* [LOCALIZADOS](https://msdn.microsoft.com/library/ms177545.aspx)
 * [ASIN](https://msdn.microsoft.com/library/ms181581.aspx)
 * [ATAN](https://msdn.microsoft.com/library/ms181746.aspx)
 * [ATN2](https://msdn.microsoft.com/library/ms173854.aspx)
 * [BINARY_CHECKSUM](https://msdn.microsoft.com/library/ms173784.aspx)
-* [CASE](https://msdn.microsoft.com/library/ms181765.aspx)
+* [CASOS](https://msdn.microsoft.com/library/ms181765.aspx)
 * [CAST e CONVERT](https://msdn.microsoft.com/library/ms187928.aspx)
 * [LIMITE](https://msdn.microsoft.com/library/ms189818.aspx)
-* [CHAR](https://msdn.microsoft.com/library/ms187323.aspx)
+* [º](https://msdn.microsoft.com/library/ms187323.aspx)
 * [CHARINDEX](https://msdn.microsoft.com/library/ms186323.aspx)
 * [SOMA](https://msdn.microsoft.com/library/ms189788.aspx)
 * [COALESCE](https://msdn.microsoft.com/library/ms190349.aspx)
 * [COL_NAME](https://msdn.microsoft.com/library/ms174974.aspx)
 * [COLLATIONPROPERTY](https://msdn.microsoft.com/library/ms190305.aspx)
 * [CONCAT](https://msdn.microsoft.com/library/hh231515.aspx)
-* [COS](https://msdn.microsoft.com/library/ms188919.aspx)
+* [EXIBI](https://msdn.microsoft.com/library/ms188919.aspx)
 * [COT](https://msdn.microsoft.com/library/ms188921.aspx)
 * [CONTAR](https://msdn.microsoft.com/library/ms175997.aspx)
 * [COUNT_BIG](https://msdn.microsoft.com/library/ms190317.aspx)
@@ -143,18 +144,18 @@ Links para a documentação de elementos de linguagem T-SQL com suporte no Azure
 * [HASHBYTES](https://msdn.microsoft.com/library/ms174415.aspx)
 * [INDEXPROPERTY](https://msdn.microsoft.com/library/ms187729.aspx)
 * [ISDATE](https://msdn.microsoft.com/library/ms187347.aspx)
-* [ISNULL](https://msdn.microsoft.com/library/ms184325.aspx)
+* [ÉNULO](https://msdn.microsoft.com/library/ms184325.aspx)
 * [ISNUMERIC](https://msdn.microsoft.com/library/ms186272.aspx)
-* [LAG](https://msdn.microsoft.com/library/hh231256.aspx)
+* [RETARDO](https://msdn.microsoft.com/library/hh231256.aspx)
 * [LAST_VALUE](https://msdn.microsoft.com/library/hh231517.aspx)
 * [LEVA](https://msdn.microsoft.com/library/hh213125.aspx)
-* [À ESQUERDA](https://msdn.microsoft.com/library/ms177601.aspx)
+* [MANTIDA](https://msdn.microsoft.com/library/ms177601.aspx)
 * [LEN](https://msdn.microsoft.com/library/ms190329.aspx)
-* [LOG](https://msdn.microsoft.com/library/ms190319.aspx)
+* [Façam](https://msdn.microsoft.com/library/ms190319.aspx)
 * [LOG10](https://msdn.microsoft.com/library/ms175121.aspx)
-* [INFERIOR](https://msdn.microsoft.com/library/ms174400.aspx)
+* [CANTO](https://msdn.microsoft.com/library/ms174400.aspx)
 * [LTRIM](https://msdn.microsoft.com/library/ms177827.aspx)
-* [MAX](https://msdn.microsoft.com/library/ms187751.aspx)
+* [MAXIMIZAR](https://msdn.microsoft.com/library/ms187751.aspx)
 * [MIN](https://msdn.microsoft.com/library/ms179916.aspx)
 * [MÊS](https://msdn.microsoft.com/library/ms187813.aspx)
 * [NCHAR](https://msdn.microsoft.com/library/ms182673.aspx)
@@ -171,36 +172,36 @@ Links para a documentação de elementos de linguagem T-SQL com suporte no Azure
 * [PERCENTILE_CONT](https://msdn.microsoft.com/library/hh231473.aspx)
 * [PERCENTILE_DISC](https://msdn.microsoft.com/library/hh231327.aspx)
 * [PERCENT_RANK](https://msdn.microsoft.com/library/hh213573.aspx)
-* [PI](https://msdn.microsoft.com/library/ms189512.aspx)
-* [POWER](https://msdn.microsoft.com/library/ms174276.aspx)
+* [13,PI](https://msdn.microsoft.com/library/ms189512.aspx)
+* [ALIMENTAR](https://msdn.microsoft.com/library/ms174276.aspx)
 * [QUOTENAME](https://msdn.microsoft.com/library/ms176114.aspx)
 * [RADIANOS](https://msdn.microsoft.com/library/ms189742.aspx)
 * [RAND](https://msdn.microsoft.com/library/ms177610.aspx)
-* [FIQUE](https://msdn.microsoft.com/library/ms176102.aspx)
-* [SUBSTITUIR](https://msdn.microsoft.com/library/ms186862.aspx)
+* [Fique](https://msdn.microsoft.com/library/ms176102.aspx)
+* [Substitua](https://msdn.microsoft.com/library/ms186862.aspx)
 * [REPLICAR](https://msdn.microsoft.com/library/ms174383.aspx)
-* [INVERTER](https://msdn.microsoft.com/library/ms180040.aspx)
-* [DIREITA](https://msdn.microsoft.com/library/ms177532.aspx)
-* [ARREDONDAR](https://msdn.microsoft.com/library/ms175003.aspx)
+* [ORDEM](https://msdn.microsoft.com/library/ms180040.aspx)
+* [Certo](https://msdn.microsoft.com/library/ms177532.aspx)
+* [IDAS](https://msdn.microsoft.com/library/ms175003.aspx)
 * [ROW_NUMBER](https://msdn.microsoft.com/library/ms186734.aspx)
 * [RTRIM](https://msdn.microsoft.com/library/ms178660.aspx)
 * [SCHEMA_ID](https://msdn.microsoft.com/library/ms188797.aspx)
 * [SCHEMA_NAME](https://msdn.microsoft.com/library/ms175068.aspx)
 * [SERVERPROPERTY](https://msdn.microsoft.com/library/ms174396.aspx)
 * [SESSION_USER](https://msdn.microsoft.com/library/ms177587.aspx)
-* [INÍCIO DE SESSÃO](https://msdn.microsoft.com/library/ms188420.aspx)
+* [Assine](https://msdn.microsoft.com/library/ms188420.aspx)
 * [SIN](https://msdn.microsoft.com/library/ms188377.aspx)
 * [SMALLDATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213396.aspx)
 * [SOUNDEX](https://msdn.microsoft.com/library/ms187384.aspx)
 * [DISCO](https://msdn.microsoft.com/library/ms187950.aspx)
 * [SQL_VARIANT_PROPERTY](https://msdn.microsoft.com/library/ms178550.aspx)
 * [SQRT](https://msdn.microsoft.com/library/ms176108.aspx)
-* [SQUARE](https://msdn.microsoft.com/library/ms173569.aspx)
+* [QUADRADO](https://msdn.microsoft.com/library/ms173569.aspx)
 * [STATS_DATE](https://msdn.microsoft.com/library/ms190330.aspx)
 * [STDEV](https://msdn.microsoft.com/library/ms190474.aspx)
 * [STDEVP](https://msdn.microsoft.com/library/ms176080.aspx)
 * [STR](https://msdn.microsoft.com/library/ms189527.aspx)
-* [STUFF](https://msdn.microsoft.com/library/ms188043.aspx)
+* [COISAS](https://msdn.microsoft.com/library/ms188043.aspx)
 * [SUBCADEIA](https://msdn.microsoft.com/library/ms187748.aspx)
 * [QUANTIA](https://msdn.microsoft.com/library/ms187810.aspx)
 * [SUSER_SNAME](https://msdn.microsoft.com/library/ms174427.aspx)
@@ -209,15 +210,15 @@ Links para a documentação de elementos de linguagem T-SQL com suporte no Azure
 * [SYSDATETIMEOFFSET](https://msdn.microsoft.com/library/bb677334.aspx)
 * [SYSTEM_USER](https://msdn.microsoft.com/library/ms179930.aspx)
 * [SYSUTCDATETIME](https://msdn.microsoft.com/library/bb630387.aspx)
-* [TAN](https://msdn.microsoft.com/library/ms190338.aspx)
+* [QUEIMADO](https://msdn.microsoft.com/library/ms190338.aspx)
 * [TERTIARY_WEIGHTS](https://msdn.microsoft.com/library/ms186881.aspx)
 * [TIMEFROMPARTS](https://msdn.microsoft.com/library/hh213398.aspx)
-* [TODATETIMEOFFSET](https://msdn.microsoft.com/library/bb630335.aspx)
+* [ToDateTimeOffset](https://msdn.microsoft.com/library/bb630335.aspx)
 * [TYPE_ID](https://msdn.microsoft.com/library/ms181628.aspx)
 * [TYPE_NAME](https://msdn.microsoft.com/library/ms189750.aspx)
 * [TYPEPROPERTY](https://msdn.microsoft.com/library/ms188419.aspx)
 * [UNICODE](https://msdn.microsoft.com/library/ms180059.aspx)
-* [SUPERIOR](https://msdn.microsoft.com/library/ms180055.aspx)
+* [CANTO superior](https://msdn.microsoft.com/library/ms180055.aspx)
 * [USUÁRIO](https://msdn.microsoft.com/library/ms186738.aspx)
 * [USER_NAME](https://msdn.microsoft.com/library/ms188014.aspx)
 * [VAR](https://msdn.microsoft.com/library/ms186290.aspx)
@@ -231,7 +232,7 @@ Links para a documentação de elementos de linguagem T-SQL com suporte no Azure
 ## <a name="diagnostic-sessions"></a>Sessões de diagnóstico
 * [CRIAR SESSÃO DE DIAGNÓSTICO](https://msdn.microsoft.com/library/mt204029.aspx)
 
-## <a name="procedures"></a>Procedimentos
+## <a name="procedures"></a>Aos
 * [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx)
 * [sp_columns](https://msdn.microsoft.com/library/ms176077.aspx)
 * [sp_configure](https://msdn.microsoft.com/library/ms188787.aspx)
@@ -255,19 +256,19 @@ Links para a documentação de elementos de linguagem T-SQL com suporte no Azure
 * [sp_unprepare](https://msdn.microsoft.com/library/ff848735.aspx)
 
 ## <a name="set-statements"></a>Instruções SET
-* [SET ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
-* [SET ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
-* [SET ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
-* [SET ANSI_NULLS](https://msdn.microsoft.com/library/ms188048.aspx)
-* [SET ANSI_PADDING](https://msdn.microsoft.com/library/ms187403.aspx)
+* [DEFINIR ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
+* [DEFINIR ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
+* [DEFINIR ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
+* [DEFINIR ANSI_NULLS](https://msdn.microsoft.com/library/ms188048.aspx)
+* [DEFINIR ANSI_PADDING](https://msdn.microsoft.com/library/ms187403.aspx)
 * [DEFINIR ANSI_WARNINGS](https://msdn.microsoft.com/library/ms190368.aspx)
 * [DEFINIR ARITHABORT](https://msdn.microsoft.com/library/ms190306.aspx)
 * [DEFINIR ARITHIGNORE](https://msdn.microsoft.com/library/ms184341.aspx)
-* [SET CONCAT_NULL_YIELDS_NULL](https://msdn.microsoft.com/library/ms176056.aspx)
+* [DEFINIR CONCAT_NULL_YIELDS_NULL](https://msdn.microsoft.com/library/ms176056.aspx)
 * [DEFINIR DATEFIRST](https://msdn.microsoft.com/library/ms181598.aspx)
 * [DEFINIR DATEFORMAT](https://msdn.microsoft.com/library/ms189491.aspx)
 * [DEFINIR FMTONLY](https://msdn.microsoft.com/library/ms173839.aspx)
-* [SET IMPLICIT_TRANSACITONS](https://msdn.microsoft.com/library/ms187807.aspx)
+* [DEFINIR IMPLICIT_TRANSACITONS](https://msdn.microsoft.com/library/ms187807.aspx)
 * [DEFINIR LOCK_TIMEOUT](https://msdn.microsoft.com/library/ms189470.aspx)
 * [DEFINIR NUMBERIC_ROUNDABORT](https://msdn.microsoft.com/library/ms188791.aspx)
 * [DEFINIR QUOTED_IDENTIFIER](https://msdn.microsoft.com/library/ms174393.aspx)
@@ -276,6 +277,6 @@ Links para a documentação de elementos de linguagem T-SQL com suporte no Azure
 * [DEFINIR NÍVEL DE ISOLAMENTO DA TRANSAÇÃO](https://msdn.microsoft.com/library/ms173763.aspx)
 * [DEFINIR XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
-## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações de referência, consulte [instruções T-SQL no azure SQL data warehouse](sql-data-warehouse-reference-tsql-statements.md)e exibições do [sistema no Azure SQL data warehouse](sql-data-warehouse-reference-tsql-system-views.md).
+## <a name="next-steps"></a>Passos seguintes
+Para obter mais informações de referência, consulte [instruções T-SQL no azure SQL data warehouse](sql-data-warehouse-reference-tsql-statements.md)e [exibições do sistema no Azure SQL data warehouse](sql-data-warehouse-reference-tsql-system-views.md).
 

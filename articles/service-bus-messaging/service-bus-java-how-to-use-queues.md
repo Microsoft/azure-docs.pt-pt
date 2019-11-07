@@ -1,6 +1,6 @@
 ---
-title: Usar filas do barramento de serviço do Azure com Java
-description: Saiba como utilizar as filas do Service Bus no Azure. Exemplos de código escritos em Java.
+title: 'Início rápido: usar filas do barramento de serviço do Azure com Java'
+description: 'Início rápido: saiba como usar as filas do barramento de serviço no Azure. Exemplos de código escritos em Java.'
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -11,18 +11,19 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 19cfd2c5dd4229e4687fcb1a3286509c9b768d7a
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: bb51f30a69294cd78d0664a5bdae70c969da1972
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155483"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721700"
 ---
-# <a name="use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Usar filas do barramento de serviço do Azure com Java para enviar e receber mensagens
+# <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Início rápido: usar filas do barramento de serviço do Azure com Java para enviar e receber mensagens
+
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 Neste tutorial, você aprenderá a criar aplicativos Java para enviar e receber mensagens de uma fila do barramento de serviço do Azure. 
 
@@ -44,7 +45,7 @@ Verifique se você instalou o [SDK do Azure para Java][Azure SDK for Java] antes
 
 ![Adicionar bibliotecas de Microsoft Azure para Java ao seu projeto Eclipse](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
 
-Adicione as seguintes `import` instruções à parte superior do arquivo Java:
+Adicione as seguintes instruções `import` à parte superior do arquivo Java:
 
 ```java
 // Include the following imports to use Service Bus APIs
@@ -125,7 +126,7 @@ Como o barramento de serviço marcou a mensagem como sendo consumida, quando o a
 
 No modo **Peeklock** , Receive se torna uma operação de dois estágios, o que possibilita o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma confiável para processamento futuro), ele conclui o segundo estágio do processo de recebimento chamando **delete** na mensagem recebida. Quando o barramento de serviço vê a chamada de **exclusão** , ele marca a mensagem como sendo consumida e a remove da fila.
 
-O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando o modo **Peeklock** (não o modo padrão). O exemplo a seguir faz um loop infinito e processa as mensagens à medida que `TestQueue`elas chegam ao nosso:
+O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando o modo **Peeklock** (não o modo padrão). O exemplo a seguir faz um loop infinito e processa as mensagens à medida que elas chegam ao nosso `TestQueue`:
 
 ```java
     public void run() throws Exception {

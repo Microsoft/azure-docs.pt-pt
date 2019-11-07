@@ -1,5 +1,5 @@
 ---
-title: Considerações de segurança para movimentação de dados no Azure Data Factory | Microsoft Docs
+title: Considerações de segurança para movimentação de dados no Azure Data Factory
 description: Saiba mais sobre como proteger a movimentação de dados no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b425db761375c705d3c810002234a937bac46d78
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 7f18505e02c5d65d21e93759eb5da480c20e2eb3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610160"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682630"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Considerações de Azure Data Factory sobre segurança para movimentação de dados
 
@@ -33,8 +33,8 @@ Embora Data Factory esteja disponível apenas nas regiões **oeste dos EUA**, **
 
 Azure Data Factory em si não armazena nenhum dado, exceto as credenciais de serviço vinculadas para armazenamentos de dados de nuvem, que são criptografados usando certificados. Permite-lhe criar fluxos de trabalho condicionados por dados para orquestrar o movimento dos dados entre [arquivos de dados suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) e o processamento de dados com [serviços de computação](data-factory-compute-linked-services.md) noutras regiões ou num ambiente no local. Também permite [monitorizar e gerir fluxos de trabalho](data-factory-monitor-manage-pipelines.md) com mecanismos programáticos e de IU.
 
-A movimentação de dados usando Azure Data Factory foi certificada para:
--   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
+A movimentação de dados usando Azure Data Factory foi **certificada** para:
+-   [HIPAA/ALTA TECNOLOGIA](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
 -   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
 -   [CSA ESTRELA](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
@@ -50,7 +50,7 @@ Neste artigo, examinaremos as considerações de segurança nos dois cenários d
 
 ## <a name="cloud-scenarios"></a>Cenários de nuvem
 ### <a name="securing-data-store-credentials"></a>Protegendo as credenciais do repositório de dados
-O Azure Data Factory protege suas credenciais de armazenamento de dados criptografando-as usando **certificados gerenciados pela Microsoft**. Esses certificados são girados a cada **dois anos** (o que inclui a renovação de certificado e a migração de credenciais). Essas credenciais criptografadas são armazenadas com segurança em um **armazenamento do Azure gerenciado pelo Azure data Factory Management Services**. Para obter mais informações sobre a segurança de armazenamento do Azure, consulte [visão geral de segurança do armazenamento do Azure](../../security/fundamentals/storage-overview.md).
+O Azure Data Factory protege suas credenciais de armazenamento de dados **criptografando** -as usando **certificados gerenciados pela Microsoft**. Esses certificados são girados a cada **dois anos** (o que inclui a renovação de certificado e a migração de credenciais). Essas credenciais criptografadas são armazenadas com segurança em um **armazenamento do Azure gerenciado pelo Azure data Factory Management Services**. Para obter mais informações sobre a segurança de armazenamento do Azure, consulte [visão geral de segurança do armazenamento do Azure](../../security/fundamentals/storage-overview.md).
 
 ### <a name="data-encryption-in-transit"></a>Criptografia de dados em trânsito
 Se o armazenamento de dados de nuvem oferecer suporte a HTTPS ou TLS, todas as transferências de dados entre os serviços de movimentação de dados no Data Factory e um armazenamento de dados de nuvem serão por meio do canal seguro HTTPS ou TLS.
@@ -114,8 +114,8 @@ Atualmente, Gerenciamento de Dados gateway usa um único **certificado**. Esse c
   
 | Versão do gateway (durante a criação) | Credenciais armazenadas | Criptografia/segurança de credencial | 
 | --------------------------------- | ------------------ | --------- |  
-| < = 2.3.xxxx.x | Na nuvem | Criptografado usando o certificado (diferente daquele usado pelo aplicativo Gerenciador de credenciais) | 
-| > = 2.4.xxxx.x | No local | Protegido via DPAPI | 
+| < = 2.3. xxxx. x | Na nuvem | Criptografado usando o certificado (diferente daquele usado pelo aplicativo Gerenciador de credenciais) | 
+| > = 2.4. xxxx. x | No local | Protegido via DPAPI | 
   
 
 ### <a name="encryption-in-transit"></a>Criptografia em trânsito
@@ -127,11 +127,11 @@ Rede virtual é uma representação lógica da sua rede na nuvem. Você pode con
 
 A tabela a seguir resume as recomendações de configuração de gateway e rede com base em diferentes combinações de locais de origem e de destino para movimentação de dados híbridos.
 
-| Source | Destino | Configuração de rede | Configuração do gateway |
+| Origem | Destino | Configuração da rede | Configuração do gateway |
 | ------ | ----------- | --------------------- | ------------- | 
-| No local | Máquinas virtuais e serviços de nuvem implantados em redes virtuais | VPN IPSec (ponto a site ou site a site) | O gateway pode ser instalado localmente ou em uma VM (máquina virtual) do Azure na VNet | 
-| No local | Máquinas virtuais e serviços de nuvem implantados em redes virtuais | ExpressRoute (emparelhamento privado) | O gateway pode ser instalado localmente ou em uma VM do Azure na VNet | 
-| No local | Serviços baseados no Azure que têm um ponto de extremidade público | ExpressRoute (emparelhamento público) | O gateway deve ser instalado localmente | 
+| Local | Máquinas virtuais e serviços de nuvem implantados em redes virtuais | VPN IPSec (ponto a site ou site a site) | O gateway pode ser instalado localmente ou em uma VM (máquina virtual) do Azure na VNet | 
+| Local | Máquinas virtuais e serviços de nuvem implantados em redes virtuais | ExpressRoute (emparelhamento privado) | O gateway pode ser instalado localmente ou em uma VM do Azure na VNet | 
+| Local | Serviços baseados no Azure que têm um ponto de extremidade público | ExpressRoute (emparelhamento público) | O gateway deve ser instalado localmente | 
 
 As imagens a seguir mostram o uso de Gerenciamento de Dados gateway para mover dados entre um banco de dados local e os serviços do Azure usando a rota expressa e a VPN IPSec (com rede virtual):
 
@@ -139,7 +139,7 @@ As imagens a seguir mostram o uso de Gerenciamento de Dados gateway para mover d
  
 ![Usar a rota expressa com o gateway](media/data-factory-data-movement-security-considerations/express-route-for-gateway.png) 
 
-**IPSec VPN:**
+**VPN IPSec:**
 
 ![VPN IPSec com gateway](media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
@@ -177,21 +177,21 @@ Os seguintes armazenamentos de dados de nuvem exigem a lista de permissões do e
 - [Base de Dados SQL do Azure](../../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-- [BD do Cosmos para o Azure](../../cosmos-db/firewall-support.md)
+- [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-**Pergunta** O gateway pode ser compartilhado entre diferentes fábricas de dados?
-**Atenda** Ainda não há suporte para esse recurso. Estamos a trabalhar ativamente para esse fim.
+**Pergunta:** O gateway pode ser compartilhado entre diferentes fábricas de dados?
+**Resposta:** Ainda não há suporte para esse recurso. Estamos a trabalhar ativamente para esse fim.
 
-**Pergunta** Quais são os requisitos de porta para que o gateway funcione?
-**Atenda** O gateway faz conexões baseadas em HTTP para abrir a Internet. As **portas de saída 443 e 80** devem ser abertas para o gateway para fazer essa conexão. Abra a **porta de entrada 8050** somente no nível do computador (não no nível do firewall corporativo) para o aplicativo Gerenciador de credenciais. Se o banco de dados SQL do Azure ou o SQL Data Warehouse do Azure for usado como origem/destino, você precisará abrir a porta **1433** também. Para obter mais informações, consulte [as configurações de firewall e a seção endereços IP de lista de](#firewall-configurations-and-whitelisting-ip-address-of gateway) permissões. 
+**Pergunta:** Quais são os requisitos de porta para que o gateway funcione?
+**Resposta:** O gateway faz conexões baseadas em HTTP para abrir a Internet. As **portas de saída 443 e 80** devem ser abertas para o gateway para fazer essa conexão. Abra a **porta de entrada 8050** somente no nível do computador (não no nível do firewall corporativo) para o aplicativo Gerenciador de credenciais. Se o banco de dados SQL do Azure ou o SQL Data Warehouse do Azure for usado como origem/destino, você precisará abrir a porta **1433** também. Para obter mais informações, consulte [as configurações de firewall e a seção endereços IP de lista de](#firewall-configurations-and-whitelisting-ip-address-of gateway) permissões. 
 
-**Pergunta** Quais são os requisitos de certificado para o gateway?
-**Atenda** O gateway atual requer um certificado que é usado pelo aplicativo Gerenciador de credenciais para configurar com segurança as credenciais do repositório de dados. Esse certificado é um certificado autoassinado criado e configurado pela instalação do gateway. Em vez disso, você pode usar seu próprio certificado TLS/SSL. Para obter mais informações, consulte [a seção aplicativo Gerenciador de credenciais de clique único](#click-once-credentials-manager-app) . 
+**Pergunta:** Quais são os requisitos de certificado para o gateway?
+**Resposta:** O gateway atual requer um certificado que é usado pelo aplicativo Gerenciador de credenciais para configurar com segurança as credenciais do repositório de dados. Esse certificado é um certificado autoassinado criado e configurado pela instalação do gateway. Em vez disso, você pode usar seu próprio certificado TLS/SSL. Para obter mais informações, consulte [a seção aplicativo Gerenciador de credenciais de clique único](#click-once-credentials-manager-app) . 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter informações sobre o desempenho da atividade de cópia, consulte [Guia de desempenho e ajuste da atividade de cópia](data-factory-copy-activity-performance.md).
 
  

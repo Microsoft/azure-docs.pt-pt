@@ -4,15 +4,15 @@ description: Disponibiliza uma descrição geral do serviço do Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 10/22/2019
+ms.date: 11/06/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 1ecd15b36b677e65eadbe4e979925723c9eedd51
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: af9305aafc3a77df9d7c4cffa65f6c61c53ad8a4
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498426"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715390"
 ---
 # <a name="whats-new-in-azure-migrate"></a>O que há de novo nas migrações para Azure
 
@@ -22,7 +22,12 @@ As [migrações para Azure](migrate-services-overview.md) ajudam a descobrir, av
 
 ## <a name="update-november-2019"></a>Atualização (novembro de 2019)
 
+
+
 Vários novos recursos foram adicionados à migração do Azure:
+
+> [!NOTE]
+> Se você ainda não vir alguns desses recursos no portal de migrações para Azure, aguarde. Eles serão exibidos na próxima semana ou assim.
 
 - **Avaliação do servidor físico**. Agora há suporte para a avaliação de servidores físicos locais, além da migração de servidor físico que já tem suporte.
 - **Avaliação baseada em importação**. Agora há suporte para a avaliação de computadores que usam metadados e dados de desempenho fornecidos em um arquivo CSV.
@@ -30,6 +35,13 @@ Vários novos recursos foram adicionados à migração do Azure:
 - **Visualização de dependência sem agente**: você não precisa mais instalar agentes explicitamente para visualização de dependência. Agora há suporte para ambos baseados em agente e em agente.
 - **Área de trabalho virtual**: Use ferramentas de ISV para avaliar e migrar a infraestrutura de área de trabalho virtual (VDI) local para a área de trabalho virtual do Windows no Azure.
 - **Aplicativo Web**: o serviço de Azure app assistente de migração, usado para avaliar e migrar aplicativos Web, agora está integrado às migrações para Azure.
+
+Novas ferramentas de avaliação e migração foram adicionadas às migrações para Azure:
+
+- **Rack**: oferta de migração na nuvem.
+- **Mover**: oferecer avaliação.
+
+[Saiba mais](migrate-services-overview.md) sobre como usar ferramentas e ofertas de ISV para avaliação e migração em migrações para Azure.
 
 ## <a name="release-version-july-2019"></a>Versão de lançamento (julho de 2019)
 

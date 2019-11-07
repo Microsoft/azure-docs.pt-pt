@@ -1,5 +1,5 @@
 ---
-title: Adicionando um fragmento usando ferramentas de banco de dados elástico | Microsoft Docs
+title: Adicionando um fragmento usando ferramentas de banco de dados elástico
 description: Como usar APIs de escala elástica para adicionar novos fragmentos a um conjunto de fragmentos.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 679c1bea640644cd46c436ec04278558f610ceda
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3243c8dfcfa83129f57bcd3ea7969fb4f8b07156
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568522"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690346"
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>Adicionando um fragmento usando ferramentas de banco de dados elástico
 
@@ -78,6 +78,6 @@ upd.Shard = shard2;
 sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd));
 ```
 
-**Importante**:  Use essa técnica somente se você tiver certeza de que o intervalo para o mapeamento atualizado está vazio.  Os métodos anteriores não verificam os dados para o intervalo que está sendo movido, portanto, é melhor incluir verificações em seu código.  Se houver linhas no intervalo que está sendo movido, a distribuição de dados real não corresponderá ao mapa de fragmentos atualizado. Use a [ferramenta de divisão/mesclagem](sql-database-elastic-scale-overview-split-and-merge.md) para executar a operação, em vez desses casos.  
+**Importante**: Use essa técnica somente se você tiver certeza de que o intervalo para o mapeamento atualizado está vazio.  Os métodos anteriores não verificam os dados para o intervalo que está sendo movido, portanto, é melhor incluir verificações em seu código.  Se houver linhas no intervalo que está sendo movido, a distribuição de dados real não corresponderá ao mapa de fragmentos atualizado. Use a [ferramenta de divisão/mesclagem](sql-database-elastic-scale-overview-split-and-merge.md) para executar a operação, em vez desses casos.  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

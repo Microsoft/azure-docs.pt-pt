@@ -1,5 +1,5 @@
 ---
-title: Replicação para o banco de dados SQL do Azure | Microsoft Docs "
+title: Replicação para o banco de dados SQL do Azure "
 description: Saiba mais sobre como usar a replicação SQL Server com bancos de dados individuais do banco de dados SQL do Azure em pools elásticos
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: eab8f4809742b69e92cb835801493722d28afe49
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ae564a98b77b1ac564fa9aae152b27c491187d0c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570478"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692217"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicação em bancos de dados individuais e em pool
 
@@ -38,7 +38,7 @@ A replicação do SQL Server pode ser configurada para bancos de dados individua
 - SQL Server 2014 (12. x) SP1 CU3
 - SQL Server 2014 (12. x) CU10 RTM
 - SQL Server 2012 (11. x) SP2 CU8 ou SP3
-- A tentativa de configurar a replicação usando uma versão mais antiga pode resultar no número de erro MSSQL_REPL20084 (o processo não pôde se conectar ao Assinante.) e \<MSSQL_REPL40532 (não é possível abrir o nome do servidor > solicitado pelo logon. Falha no logon.).  
+- A tentativa de configurar a replicação usando uma versão mais antiga pode resultar em um número de erro MSSQL_REPL20084 (o processo não pôde se conectar ao Assinante.) e MSSQL_REPL40532 (não é possível abrir o servidor \<nome > solicitado pelo logon. Falha no logon.).  
 - Para usar todos os recursos do banco de dados SQL do Azure, você deve usar as versões mais recentes do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
   
 ## <a name="remarks"></a>Observações
@@ -51,7 +51,7 @@ A replicação do SQL Server pode ser configurada para bancos de dados individua
 - Uma única publicação no SQL Server pode dar suporte aos assinantes do banco de dados SQL do Azure e SQL Server (local e SQL Server em uma máquina virtual do Azure).  
 - O gerenciamento de replicação, o monitoramento e a solução de problemas devem ser executados a partir do SQL Server local.  
 - Há suporte apenas para assinaturas push no banco de dados SQL do Azure.  
-- Somente `@subscriber_type = 0` tem suporte no **sp_addsubscription** para o banco de dados SQL.  
+- Há suporte apenas para `@subscriber_type = 0` no **sp_addsubscription** para o banco de dados SQL.  
 - O banco de dados SQL do Azure não dá suporte à replicação bidirecional, imediata, atualizável ou ponto a ponto.
 
 ## <a name="replication-architecture"></a>Arquitetura de replicação  
@@ -108,11 +108,11 @@ Crie uma publicação e uma assinatura push. Para obter mais informações, cons
 - [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Crie uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando o nome do servidor do banco de dados SQL do Azure como o assinante (por exemplo **n' azuresqldbdns. Database. Windows. net '** ) e o nome do banco de dados SQL do Azure como o banco de dados de destino (por exemplo, **AdventureWorks** ).  
 
-## <a name="see-also"></a>Consultar Também  
+## <a name="see-also"></a>Veja também  
 
 - [Replicação transacional](sql-database-managed-instance-transactional-replication.md)
 - [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Criar uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Tipos de replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
+- [Types of Replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication) (Tipos de Replicação)
 - [Monitoramento (replicação)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
 - [Inicializar uma assinatura](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  

@@ -1,5 +1,5 @@
 ---
-title: Configurar replicação em um banco de dados de instância gerenciada do banco de dados SQL do Azure | Microsoft Docs
+title: 'Configurar a replicação em um banco de dados de instância gerenciada do banco de dados SQL '
 description: Saiba como configurar a replicação transacional em um banco de dados de instância gerenciada do banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: b940be1d1b68e4e2a41e3f8353cb54fdb51bb886
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 21275ce7716ffc394c1e7445c3f6836f09b44c87
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338739"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692158"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurar a replicação em um banco de dados de instância gerenciada do banco de dados SQL
 
@@ -41,7 +41,7 @@ Configurar uma instância gerenciada para funcionar como um Publicador e/ou um d
 - Que a instância gerenciada pelo Publicador está na mesma rede virtual que o distribuidor e o Assinante, ou o [emparelhamento vNet](../virtual-network/tutorial-connect-virtual-networks-powershell.md) foi estabelecido entre as redes virtuais de todas as três entidades. 
 - A conectividade utiliza a Autenticação SQL entre os participantes da replicação.
 - Um compartilhamento de conta de armazenamento do Azure para o diretório de trabalho de replicação.
-- A porta 445 (TCP de saída) está aberta nas regras de segurança do NSG para as instâncias gerenciadas para acessar o compartilhamento de arquivos do Azure.  Se você encontrar o erro "falha ao conectar-se ao armazenamento do Azure \<storage nome da conta > com o erro de so 53", será necessário adicionar uma regra de saída ao NSG da sub-rede do SQL Instância Gerenciada apropriada.
+- A porta 445 (TCP de saída) está aberta nas regras de segurança do NSG para as instâncias gerenciadas para acessar o compartilhamento de arquivos do Azure.  Se você encontrar o erro "falha ao conectar-se ao armazenamento do Azure \<nome da conta de armazenamento > com o erro 53 do so", será necessário adicionar uma regra de saída ao NSG da sub-rede do SQL Instância Gerenciada apropriada.
 
 
  > [!NOTE]
@@ -86,7 +86,7 @@ Copie as chaves de acesso de armazenamento no formato: `DefaultEndpointsProtocol
 
 ## <a name="4---create-a-publisher-database"></a>4-criar um banco de dados do Publicador
 
-Conecte-se à sua instância gerenciada `sql-mi-pub` usando SQL Server Management Studio e execute o seguinte código Transact-SQL (T-SQL) para criar o banco de dados do Publicador:
+Conecte-se à instância gerenciada `sql-mi-pub` usando SQL Server Management Studio e execute o seguinte código Transact-SQL (T-SQL) para criar o banco de dados do Publicador:
 
 ```sql
 USE [master]
@@ -141,7 +141,7 @@ GO
 
 ## <a name="6---configure-distribution"></a>6-configurar a distribuição
 
-Conecte-se à instância gerenciada `sql-mi-pub` usando SQL Server Management Studio e execute o código T-SQL a seguir para configurar o banco de dados de distribuição. 
+Conecte-se à sua instância gerenciada do `sql-mi-pub` usando SQL Server Management Studio e execute o código T-SQL a seguir para configurar o banco de dados de distribuição. 
 
 ```sql
 USE [master]
@@ -154,7 +154,7 @@ GO
 
 ## <a name="7---configure-publisher-to-use-distributor"></a>7-configurar o Publicador para usar o distribuidor 
 
-Na instância gerenciada do Publicador `sql-mi-pub`, altere a execução da consulta para o modo [sqlcmd](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) e execute o código a seguir para registrar o novo distribuidor com o Publicador. 
+Em sua instância gerenciada do Publicador `sql-mi-pub`, altere a execução da consulta para o modo [sqlcmd](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) e execute o código a seguir para registrar o novo distribuidor com o seu editor. 
 
 ```sql
 :setvar username loginUsedToAccessSourceManagedInstance
@@ -325,7 +325,7 @@ GO
 Você pode limpar os recursos do Azure [excluindo os recursos de instância gerenciada do grupo de recursos](../azure-resource-manager/manage-resources-portal.md#delete-resources) e, em seguida, excluindo o grupo de recursos `SQLMI-Repl`. 
 
    
-## <a name="see-also"></a>Consultar Também
+## <a name="see-also"></a>Veja também
 
 - [Replicação transacional](sql-database-managed-instance-transactional-replication.md)
 - [O que é um Instância Gerenciada?](sql-database-managed-instance.md)

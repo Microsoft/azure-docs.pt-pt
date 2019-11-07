@@ -1,5 +1,5 @@
 ---
-title: Comparar linhas de base com o monitoramento de integridade de arquivo na central de segurança do Azure | Microsoft Docs
+title: Monitoramento de integridade de arquivo na central de segurança do Azure
 description: Saiba como comparar linhas de base com o monitoramento de integridade de arquivo na central de segurança do Azure.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: memildin
-ms.openlocfilehash: 0e7ef558ec75622b804aef96781b549f1a833e21
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: bb45e1d1ee17a6daf16bd688982f79fda986bde5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518869"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664414"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Comparar linhas de base usando o monitoramento de integridade de arquivo (FIM)
 
@@ -34,7 +34,7 @@ Na verdade, muitos padrões de conformidade regulatória, como PCI-DSS & ISO 177
 
 ## <a name="enable-built-in-recursive-registry-checks"></a>Habilitar verificações de registro recursivas internas
 
-Os padrões do hive do registro do FIM fornecem uma maneira conveniente de monitorar alterações recursivas em áreas de segurança comuns.  Por exemplo, um adversário pode configurar um script para ser executado no contexto de LOCAL_SYSTEM Configurando uma execução na inicialização ou no desligamento.  Para monitorar as alterações desse tipo, habilite a verificação interna.  
+Os padrões do hive do registro do FIM fornecem uma maneira conveniente de monitorar alterações recursivas em áreas de segurança comuns.  Por exemplo, um adversário pode configurar um script para ser executado no contexto LOCAL_SYSTEM Configurando uma execução na inicialização ou no desligamento.  Para monitorar as alterações desse tipo, habilite a verificação interna.  
 
 ![Registo](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
 

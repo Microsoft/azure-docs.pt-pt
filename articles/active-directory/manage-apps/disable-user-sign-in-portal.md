@@ -1,6 +1,6 @@
 ---
-title: Desativar utilizador-inícios de sessão de uma aplicação empresarial no Azure Active Directory | Documentos da Microsoft
-description: Como desativar uma aplicação empresarial, para que os utilizadores não poderão iniciar sessão na mesma no Azure Active Directory
+title: Desabilitar as entradas de usuário para um aplicativo empresarial no Azure Active Directory | Microsoft Docs
+description: Como desabilitar um aplicativo empresarial para que nenhum usuário possa entrar nele no Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,30 +16,49 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7256791c0b6bfbc72a26f6093cdd3c39410f702f
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 6a08779d171367d982392ae4e987fb46e019e61f
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807595"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720275"
 ---
-# <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Desativar utilizador-inícios de sessão de uma aplicação empresarial no Azure Active Directory
+# <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Desabilitar as entradas de usuário para um aplicativo empresarial no Azure Active Directory
 
-É fácil desativar uma aplicação empresarial, para que os utilizadores não podem iniciar sessão na mesma no Azure Active Directory (Azure AD). Tem as permissões adequadas para gerir a aplicação da empresa. E, tem de ser administrador global do diretório.
+É fácil desabilitar um aplicativo empresarial para que nenhum usuário possa entrar nele no Azure Active Directory (AD do Azure). Você precisa das permissões apropriadas para gerenciar o aplicativo empresarial. E você deve ser administrador global para o diretório.
 
-## <a name="how-do-i-disable-user-sign-ins"></a>Como posso desativar inícios de sessão do utilizador?
+## <a name="how-do-i-disable-user-sign-ins"></a>Como fazer desabilitar as entradas do usuário?
 
 1. Iniciar sessão no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
-1. Selecione **todos os serviços**, introduza **Azure Active Directory** na caixa de texto e, em seguida, selecione **Enter**.
-1. Sobre o **do Azure Active Directory** -  ***directoryname*** painel (ou seja, o Azure AD para o diretório que está a gerir), selecione **aplicações empresariais**.
-1. Sobre o **aplicações empresariais - todas as aplicações** painel, verá uma lista de aplicações pode gerir. Selecione uma aplicação.
-1. Sobre o ***appname*** painel (ou seja, o painel com o nome da aplicação selecionada no título), selecione **propriedades**.
-1. Sobre o ***appname*** - **propriedades** painel, selecione **não** para **ativado para os utilizadores para início de sessão?** .
-1. Selecione o **guardar** comando.
+1. Selecione **todos os serviços**, insira **Azure Active Directory** na caixa de texto e, em seguida, selecione **Enter**.
+1. No painel **Azure Active Directory** -  ***DirectoryName*** (ou seja, o painel do Azure ad para o diretório que você está gerenciando), selecione **aplicativos empresariais**.
+1. No painel **aplicativos empresariais – todos os aplicativos** , você vê uma lista dos aplicativos que você pode gerenciar. Selecione um aplicativo.
+1. No painel ***AppName*** (ou seja, o painel com o nome do aplicativo selecionado no título), selecione **Propriedades**.
+1. No painel **Propriedades** do ***AppName*** - , selecione **não** para **habilitado para os usuários entrarem?** .
+1. Selecione o comando **salvar** .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Usar o PowerShell do Azure AD para desabilitar um aplicativo não listado
+
+Se você souber a AppId de um aplicativo que não aparece na lista de aplicativos empresariais (por exemplo, porque você excluiu o aplicativo ou a entidade de serviço ainda não foi criada porque o aplicativo está autorizado previamente pela Microsoft), você poderá criar manualmente a entidade de serviço para o aplicativo e, em seguida, desabilitá-lo usando o [cmdlet do PowerShell do AzureAD](https://docs.microsoft.com/powershell/module/azuread/New-AzureADServicePrincipal?view=azureadps-2.0).
+
+```PowerShell
+# The AppId of the app to be disabled
+$appId = "{AppId}"
+
+# Check if a service principal already exists for the app
+$servicePrincipal = Get-AzureADServicePrincipal -Filter "appId eq '$appId'"
+if ($servicePrincipal) {
+    # Service principal exists already, disable it
+    Set-AzureADServicePrincipal -ObjectId $servicePrincipal.ObjectId -AccountEnabled $false
+} else {
+    # Service principal does not yet exist, create it and disable it at the same time
+    $servicePrincipal = New-AzureADServicePrincipal -AppId $appId -AccountEnabled $false
+}
+```
+
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ver todos os meus grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Atribuir um utilizador ou grupo a uma aplicação empresarial](assign-user-or-group-access-portal.md)
-* [Remover uma atribuição de utilizador ou grupo a partir de uma aplicação empresarial](remove-user-or-group-access-portal.md)
-* [Alterar o nome ou logótipo de uma aplicação empresarial](change-name-or-logo-portal.md)
+* [Atribuir um usuário ou grupo a um aplicativo empresarial](assign-user-or-group-access-portal.md)
+* [Remover uma atribuição de usuário ou grupo de um aplicativo empresarial](remove-user-or-group-access-portal.md)
+* [Alterar o nome ou o logotipo de um aplicativo empresarial](change-name-or-logo-portal.md)

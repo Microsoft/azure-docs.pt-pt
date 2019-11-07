@@ -1,6 +1,6 @@
 ---
-title: Otimizar o desempenho do Visual Studio para projetos de malha do Azure Service Fabric | Documentos da Microsoft
-description: Otimizar o desempenho do Visual Studio para aplicações de Mesh de recursos de infraestrutura de serviço do Azure
+title: Otimizar o desempenho do Visual Studio para projetos de malha de Service Fabric do Azure | Microsoft Docs
+description: Este artigo mostra como otimizar o desempenho do Visual Studio para projetos de malha Service Fabric de forma que sua primeira execução de depuração (F5) seja muito mais rápida.
 services: service-fabric-mesh
 keywords: otimizar o desempenho de depuração
 author: dkkapur
@@ -9,27 +9,27 @@ ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chakdan
-ms.openlocfilehash: f7a0cb47ad8010bd54a817e9990221b320cde541
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 04aeaa6b008b50789f4380e4bb98beba3957c2e9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60419057"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663437"
 ---
-# <a name="optimize-visual-studio-performance-for-service-fabric-mesh-projects"></a>Otimizar o desempenho do Visual Studio para projetos de malha do Service Fabric
+# <a name="optimize-visual-studio-performance-for-service-fabric-mesh-projects"></a>Otimizar o desempenho do Visual Studio para projetos de malha Service Fabric
 
-Este artigo mostra-lhe como otimizar o desempenho do Visual Studio para projetos de malha do Service Fabric, para que a sua depuração primeiro executar (F5) é muito mais rápida.  
+Este artigo mostra como otimizar o desempenho do Visual Studio para projetos de malha Service Fabric de forma que sua primeira execução de depuração (F5) seja muito mais rápida.  
 
-## <a name="change-visual-studio-settings"></a>Alterar configurações do Visual Studio
+## <a name="change-visual-studio-settings"></a>Alterar as configurações do Visual Studio
  
-No Visual Studio, em **ferramentas** > **opções**  > **ferramentas de malha de recursos de infraestrutura do serviço** > **geral**, pode ajustar as seguintes definições:
+No Visual Studio, em **ferramentas** > **Opções**  > **Service Fabric ferramentas de malha** > **geral**, você pode ajustar as seguintes configurações:
 
-- **Extrair imagens de Docker necessárias no projeto aberto** torna a sua depuração primeiro executar (F5) mais rapidamente ao iniciar o processo de download da imagem, enquanto o projeto está a carregar.  
-- **Implementar a aplicação no projeto aberto** pode tornar a sua depuração primeiro executar (F5) mais rapidamente ao iniciar o processo de implementação quando o projeto é aberto.  
-- **Remover a aplicação no projeto fechar** reclama recursos (CPU, RAM) alocados para a aplicação ao remover a aplicação de malha, quando o projeto está fechado.  
+- Efetuar **pull de imagens do Docker necessárias no projeto aberto** faz com que sua primeira execução de depuração (F5) seja mais rápida, iniciando o processo de download da imagem durante o carregamento do projeto.  
+- **Implantar aplicativo no projeto aberto** pode fazer sua primeira execução de depuração (F5) mais rápido iniciando o processo de implantação quando o projeto é aberto.  
+- **Remover aplicativo no projeto fechar** recursos de recuperações (CPU, RAM) alocados para o aplicativo removendo o aplicativo de malha quando o projeto é fechado.  
 
-Quando vir as mensagens na janela de saída de ferramentas do Service Fabric que o Visual Studio é "solicitar imagens", "aquecer" ou "Remover a aplicação", é no contexto das definições acima. Pode desativar estas definições.
+Quando você vê mensagens na janela Ferramentas do Service Fabric saída que o Visual Studio está "obtendo imagens", "aquecendo" ou "removendo aplicativo", ele está em referência às configurações acima. Você pode desativar essas configurações.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Leia o [depurar um tutorial de aplicação de malha](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+Leia o [tutorial depurar um aplicativo de malha](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)

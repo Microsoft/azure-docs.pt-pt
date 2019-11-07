@@ -1,5 +1,5 @@
 ---
-title: O que é o serviço Base de Dados SQL do Azure? | Microsoft Docs
+title: O que é o serviço Base de Dados SQL do Azure?
 description: 'Obtenha uma introdução ao banco de dados SQL: detalhes técnicos e recursos do RDBMS (sistema de gerenciamento de banco de dados relacional) da Microsoft na nuvem.'
 keywords: introdução à sql, introdução sql, o que é a base de dados sql
 services: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: e5782ba016cf58335de17cdacabbcca95914f59a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: d22408904ae21bc7512d4ebe8792666227893337
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066271"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687021"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço Base de Dados SQL do Azure?
 
@@ -48,7 +48,7 @@ O banco de dados SQL fornece desempenho previsível com vários tipos de recurso
 ## <a name="scalable-performance-and-pools"></a>Dimensionar o desempenho e os conjuntos
 
 Você pode definir a quantidade de recursos atribuídos. 
-- Com bancos de dados individuais, cada um deles é isolado de outros e é portátil. Cada uma tem sua própria quantidade garantida de recursos de computação, memória e armazenamento. A quantidade de recursos atribuídos ao banco de dados é dedicada a esse banco de dados, e não é compartilhada com outros banco de dados no Azure. Você pode dimensionar dinamicamente os [recursos de banco de dados individual](sql-database-single-database-scale.md) para cima e para baixo. A opção de banco de dados individual fornece diferentes recursos de computação, memória e armazenamento para diferentes necessidades. Por exemplo, você pode obter de 1 a 80 vCores ou 32 GB a 4 TB. A [camada de serviço](sql-database-service-tier-hyperscale.md) de hiperescala para um único banco de dados permite que você dimensione para 100 TB, com recursos rápidos de backup e restauração.
+- Com bancos de dados individuais, cada um deles é isolado de outros e é portátil. Cada uma tem sua própria quantidade garantida de recursos de computação, memória e armazenamento. A quantidade de recursos atribuídos ao banco de dados é dedicada a esse banco de dados, e não é compartilhada com outros banco de dados no Azure. Você pode dimensionar dinamicamente os [recursos de banco de dados individual](sql-database-single-database-scale.md) para cima e para baixo. A opção de banco de dados individual fornece diferentes recursos de computação, memória e armazenamento para diferentes necessidades. Por exemplo, você pode obter de 1 a 80 vCores ou 32 GB a 4 TB. A [camada de serviço de hiperescala](sql-database-service-tier-hyperscale.md) para um único banco de dados permite que você dimensione para 100 TB, com recursos rápidos de backup e restauração.
 - Com os pools elásticos, você pode atribuir recursos que são compartilhados por todos os bancos de dados no pool. Você pode criar um novo banco de dados ou movê-los para um pool de recursos para maximizar o uso de recursos e economizar dinheiro. Essa opção também oferece a capacidade de dimensionar dinamicamente os [recursos do pool elástico](sql-database-elastic-pool-scale.md) para cima e para baixo.
 - Com instâncias gerenciadas, cada instância gerenciada é isolada de outras instâncias com recursos garantidos. Em uma instância gerenciada, os bancos de dados de instância compartilham um conjunto de recursos. Você pode dimensionar dinamicamente os [recursos de instância gerenciada](sql-database-managed-instance-resource-limits.md) para cima e para baixo.
 
@@ -99,9 +99,9 @@ O banco de dados SQL do Azure fornece recursos avançados de monitoramento e sol
 
 O Azure fornece ferramentas [internas de monitoramento](sql-database-performance.md) e [alerta](sql-database-insights-alerts-portal.md) de desempenho, combinadas com classificações de desempenho, que permitem monitorar o status de milhares de bancos de dados. Usando essas ferramentas, você pode avaliar rapidamente o impacto de escalar ou reduzir verticalmente, com base em suas necessidades de desempenho atuais ou projetadas. Além disso, a Base de Dados SQL pode [emitir métricas e registos de diagnósticos](sql-database-metrics-diag-logging.md) para uma monitorização mais fácil. Pode configurar a Base de Dados SQL para armazenar a utilização de recursos, funções de trabalho e sessões e a conectividade a um dos recursos do Azure seguintes:
 
-- **Armazenamento do Azure**: Para arquivar enormes quantidades de telemetria por um preço pequeno.
-- **Hubs de eventos do Azure**: Para integrar a telemetria do banco de dados SQL com sua solução de monitoramento Personalizada ou pipelines quentes.
-- **Logs de Azure monitor**: Para uma solução de monitoramento interna com relatórios, alertas e recursos de mitigação.
+- **Armazenamento do Azure**: para arquivar grandes quantidades de telemetria a um preço baixo.
+- **Hubs de eventos do Azure**: para integrar a telemetria do banco de dados SQL com sua solução de monitoramento Personalizada ou pipelines quentes.
+- **Logs de Azure monitor**: para uma solução de monitoramento interna com relatórios, alertas e recursos de mitigação.
 
 ![Diagrama da arquitetura de monitoramento do Azure](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -117,7 +117,7 @@ Zonas de Disponibilidade do Azure tenta se proteger contra a interrupção de um
 
 Na verdade, o [SLA (](https://azure.microsoft.com/support/legal/sla/) contrato de nível de serviço) do Azure, equipado com uma rede global de datacenters gerenciados pela Microsoft, ajuda a manter seu aplicativo em execução 24/7. A plataforma Azure gerencia totalmente todos os bancos de dados e garante que não haja perda e um alto percentual de disponibilidade de dados. O Azure lida automaticamente com patches, backups, replicação, detecção de falhas, hardware potencial subjacente, software ou falhas de rede, implantação de correções de bugs, failovers, atualizações de banco de dados e outras tarefas de manutenção. A disponibilidade standard é conseguida por uma separação das camadas de armazenamento e computação. A disponibilidade Premium é obtida com a integração da computação e do armazenamento em um único nó para o desempenho e, em seguida, a implementação de uma tecnologia semelhante à Always On grupos de disponibilidade. Para obter uma discussão completa sobre os recursos de alta disponibilidade do banco de dados SQL do Azure, consulte [disponibilidade do banco de dados SQL](sql-database-high-availability.md). 
 
-Além disso, o banco de dados SQL fornece recursos internos de [continuidade de negócios e escalabilidade global](sql-database-business-continuity.md) . Estas incluem:
+Além disso, o banco de dados SQL fornece recursos internos de [continuidade de negócios e escalabilidade global](sql-database-business-continuity.md) . As regiões incluem:
 
 - [Backups automáticos](sql-database-automated-backups.md):
 
@@ -152,8 +152,8 @@ Muitos de nossos parceiros que executam [aplicativos SaaS multilocatários](sql-
 
 Dois aspectos de ajuste automático estão [disponíveis no banco de dados SQL](sql-database-automatic-tuning.md):
 
-- **Gerenciamento automático de índice**: Identifica os índices que devem ser adicionados ao banco de dados e os índices que devem ser removidos.
-- **Correção automática de plano**: Identifica planos problemáticos e corrige problemas de desempenho do plano SQL.
+- **Gestão de índices automática**: identifica os índices que devem ser adicionados à sua base de dados e os que devem ser removidos.
+- **Correção automática de plano**: identifica planos problemáticos e corrige problemas de desempenho do plano SQL.
 
 ### <a name="adaptive-query-processing"></a>Processamento de consultas adaptável
 
@@ -250,11 +250,11 @@ Os clientes do banco de dados SQL têm os seguintes direitos associados ao Benef
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Envolver a equipa de engenharia do SQL Server
 
-- [Intercâmbio de pilha do DBA](https://dba.stackexchange.com/questions/tagged/sql-server): Faça perguntas sobre administração de banco de dados.
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): Faça perguntas sobre o desenvolvimento.
-- [Fóruns do MSDN](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Faça perguntas técnicas.
+- [Intercâmbio de pilha do DBA](https://dba.stackexchange.com/questions/tagged/sql-server): faça perguntas sobre administração de banco de dados.
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): faça perguntas de desenvolvimento.
+- [Fóruns do MSDN](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): faça perguntas técnicas.
 - [Comentários](https://aka.ms/sqlfeedback): Relatar bugs e solicitar o recurso.
-- [Reddit](https://www.reddit.com/r/SQLServer/): Discuta SQL Server.
+- [Reddit](https://www.reddit.com/r/SQLServer/): discutir SQL Server.
 
 ## <a name="next-steps"></a>Passos seguintes
 

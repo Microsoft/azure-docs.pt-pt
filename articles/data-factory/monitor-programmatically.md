@@ -1,5 +1,5 @@
 ---
-title: Monitorar programaticamente uma data factory do Azure | Microsoft Docs
+title: Monitorar programaticamente uma data factory do Azure
 description: Saiba como monitorar um pipeline em um data factory usando SDKs (Software Development Kits) diferentes.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/16/2018
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 5c1f64282f1e0b1f225bcad0935c4c9b9a0f96b4
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f9e85a2660ffe1088a9897e9936b6fd0360f87d5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141046"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684611"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Monitorar programaticamente uma data factory do Azure
 Este artigo descreve como monitorar um pipeline em um data factory usando SDKs (Software Development Kits) diferentes. 
@@ -25,7 +25,7 @@ Este artigo descreve como monitorar um pipeline em um data factory usando SDKs (
 
 ## <a name="data-range"></a>Intervalo de dados
 
-Data Factory só armazena dados de execução de pipeline por 45 dias. Quando você consulta programaticamente dados sobre execuções de pipeline de data Factory, por exemplo, `Get-AzDataFactoryV2PipelineRun` com o comando do PowerShell, não há nenhuma `LastUpdatedAfter` data `LastUpdatedBefore` máxima para os parâmetros e opcionais. Mas se você consultar dados para o ano passado, por exemplo, a consulta não retornará um erro, mas somente retornará dados de execução de pipeline dos últimos 45 dias.
+Data Factory só armazena dados de execução de pipeline por 45 dias. Quando você consulta programaticamente dados sobre execuções de pipeline Data Factory-por exemplo, com o comando do PowerShell `Get-AzDataFactoryV2PipelineRun`-não há nenhuma data máxima para os parâmetros opcionais `LastUpdatedAfter` e `LastUpdatedBefore`. Mas se você consultar dados para o ano passado, por exemplo, a consulta não retornará um erro, mas somente retornará dados de execução de pipeline dos últimos 45 dias.
 
 Se você quiser manter os dados de execução do pipeline por mais de 45 dias, configure seu próprio log de diagnóstico com [Azure monitor](monitor-using-azure-monitor.md).
 
@@ -152,6 +152,6 @@ Para obter uma explicação completa de como criar e monitorar um pipeline usand
 
 Para obter a documentação completa sobre os cmdlets do PowerShell, consulte [Data Factory referência de cmdlet do PowerShell](/powershell/module/az.datafactory).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte [monitorar pipelines usando Azure monitor](monitor-using-azure-monitor.md) artigo para saber mais sobre como usar Azure monitor para monitorar data Factory pipelines. 
 

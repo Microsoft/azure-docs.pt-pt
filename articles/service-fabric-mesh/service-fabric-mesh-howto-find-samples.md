@@ -1,32 +1,32 @@
 ---
-title: Encontre exemplos de malha do Azure Service Fabric | Documentos da Microsoft
-description: Saiba como localizar diferentes aplicativos de exemplo de malha do Service Fabric.
+title: Localizar exemplos de malha de Service Fabric do Azure | Microsoft Docs
+description: Aqui está um índice de aplicativos de exemplo de malha Service Fabric disponíveis. O código-fonte nesses exemplos mostra como obter um cenário específico usando o modelo de recurso Service Fabric.
 services: service-fabric-mesh
 keywords: ''
-author: v-vasuke
-ms.author: v-vasuke
+author: athinanthny
+ms.author: atsenthi
 ms.date: 12/03/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
-manager: chakdan
-ms.openlocfilehash: f3f81ef1b65ba2685c806ad6a1a3e699019ed4da
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+manager: chackdan
+ms.openlocfilehash: a300c06a6a18bf2e986b3736b78957daf3d7efd6
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537910"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718811"
 ---
-# <a name="find-service-fabric-mesh-samples"></a>Encontre exemplos de malha do Service Fabric
+# <a name="find-service-fabric-mesh-samples"></a>Localizar amostras de malha Service Fabric
 
-Esta tabela descreve os aplicativos de exemplo malha de recursos de infraestrutura do serviço disponíveis. O código-fonte nestes exemplos mostra como obter um cenário em particular com o modelo de recursos do Service Fabric.
+Esta tabela descreve os aplicativos de exemplo de malha Service Fabric disponíveis. O código-fonte nesses exemplos mostra como obter um cenário específico usando o modelo de recurso Service Fabric.
 
-Para obter mais informações sobre a implementação de modelos diretamente para o Azure, consulte o [página GitHub do modelo de exemplo.](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/README.md)
+Para obter mais informações sobre como implantar modelos diretamente no Azure, consulte a [página do GitHub do modelo de exemplo.](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/README.md)
 
 |Modelo de exemplo|Descrição do cenário|Código-fonte|Ferramentas de Programação|
 |------------|--------------------|----------|----------------------|
-| [Aplicação Hello World](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/helloworld) | Página de Web estática alojada num contentor. Para Linux nginx, ele usa para o IIS do Windows | [Código-fonte](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/helloworld) | Sem requisitos |
-| [Aplicação de contadores para Volumes de ficheiros do Azure](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/counter/readme.md) | Estado de Store ao montar ficheiros do Azure com a base de volume no interior do contentor. <br><br> **Nota:** Este modelo requer uma partilha de ficheiros de ficheiros do Azure para já estar aprovisionado [instruções](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share) | [Código-fonte](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter) | As ferramentas de malha do Visual Studio |
-| [TodoListApp](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/todolist) | Crie uma aplicação com um serviço de front-end e back-end que utiliza a resolução de DNS. Utilizado como um tutorial [aqui](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore) | [Código-fonte](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/todolistapp) | As ferramentas de malha do Visual Studio |
-| [Aplicação de objetos visuais](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/visualobjects) | Dimensionamento e atualização microsserviços dentro de um aplicativo. | [Código-fonte](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/visualobjects) |  As ferramentas de malha do Visual Studio |
-| [Aplicação de votação](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/voting) | Criar uma aplicação com um serviço de front-end e back-end que utiliza a resolução de DNS | [Código-fonte](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp) | Código do Visual Studio malha de ferramentas para a versão do Windows, VS / cli do dotnet pode ser utilizada para a versão do Linux |
-| [Aplicação de contadores para Volumes fiáveis do Service Fabric](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/counter/readme.sfreliablevolume.md)| Estado de Store ao montar o disco fiáveis do Service Fabric com a base de volume no interior do contentor.| [Código-fonte](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter) | As ferramentas de malha do Visual Studio |
+| [Olá, Mundo aplicativo](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/helloworld) | Página da Web estática hospedada em um contêiner. Para o Linux, ele usa Nginx para o IIS do Windows | [Código-fonte](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/helloworld) | Sem requisitos |
+| [Aplicativo de contador para volumes de arquivos do Azure](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/counter/readme.md) | Armazene o estado montando o volume baseado em arquivos do Azure dentro do contêiner. <br><br> **Observação:** Este modelo requer que um compartilhamento de arquivo de arquivos do Azure já tenha [instruções](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share) provisionadas | [Código-fonte](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter) | Ferramentas de malha do Visual Studio |
+| [Apldelistadetarefas](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/todolist) | Crie um aplicativo com um serviço de front-end e backend que usa a resolução baseada em DNS. Usado como um tutorial [aqui](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore) | [Código-fonte](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/todolistapp) | Ferramentas de malha do Visual Studio |
+| [Aplicativo de objetos visuais](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/visualobjects) | Dimensione e atualize os microserviços em um aplicativo. | [Código-fonte](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/visualobjects) |  Ferramentas de malha do Visual Studio |
+| [Aplicativo de votação](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/voting) | Criar um aplicativo com um serviço de front-end e backend que usa a resolução baseada em DNS | [Código-fonte](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp) | Ferramentas de malha do Visual Studio para a versão do Windows, a CLI do VS Code/dotnet pode ser usada para a versão do Linux |
+| [Aplicativo de contador para volumes Service Fabric confiáveis](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/counter/readme.sfreliablevolume.md)| Armazene o estado montando Service Fabric volume baseado em disco confiável dentro do contêiner.| [Código-fonte](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter) | Ferramentas de malha do Visual Studio |

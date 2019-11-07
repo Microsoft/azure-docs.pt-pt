@@ -1,5 +1,5 @@
 ---
-title: Banco de dados SQL do Azure-ajuste automático | Microsoft Docs
+title: Banco de dados SQL do Azure-ajuste automático
 description: O banco de dados SQL do Azure analisa a consulta SQL e se adapta automaticamente à carga de trabalho do usuário.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/06/2019
-ms.openlocfilehash: b6c2885f0919752f7ede7f5a15121be2f8a953ca
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: bfac5a0eba68469d912efd02699624e1335e40e5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162327"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691106"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ajuste automático no banco de dados SQL do Azure
 
@@ -31,7 +31,7 @@ O ajuste automático do banco de dados SQL do Azure pode ser um dos recursos mai
 - Ajuste de desempenho automatizado de bancos de dados SQL do Azure
 - Verificação automatizada de ganhos de desempenho
 - Reversão automatizada e AutoCorreção
-- Histórico da otimização
+- Histórico de ajuste
 - Como ajustar scripts T-SQL de ação para implantações manuais
 - Monitoramento de desempenho de carga de trabalho proativa
 - Capacidade de expansão em centenas de milhares de bancos de dados
@@ -69,7 +69,7 @@ As opções de ajuste automático disponíveis no banco de dados SQL do Azure s�
 | :----------------------------- | ----- | ----- |
 | **Criar índice** – identifica índices que podem melhorar o desempenho de sua carga de trabalho, cria índices e verifica automaticamente se o desempenho das consultas foi melhorado. | Sim | Não | 
 | **Drop index** -identifica índices redundantes e duplicados diariamente, exceto índices exclusivos, e índices que não foram usados por um longo tempo (> 90 dias). Observe que essa opção não é compatível com aplicativos que usam a alternância de partição e dicas de índice. Não há suporte para a remoção de índices não utilizados para as camadas de serviço Premium e Comercialmente Crítico. | Sim | Não |
-| **forçar último plano bom** (correção de plano automática) – identifica consultas SQL usando o plano de execução que é mais lento do que o bom plano anterior e consultas usando o último plano bom conhecido em vez do plano regressivo. | Sim | Sim |
+| **Forçar último plano bom** (correção de plano automática) – identifica consultas SQL usando o plano de execução que é mais lento do que o bom plano anterior e consultas usando o último plano bom conhecido em vez do plano regressivo. | Sim | Sim |
 
 O ajuste automático identifica as recomendações **criar índice**, **drop index**e **forçar o último plano** que pode otimizar o desempenho do banco de dados e os mostra no [portal do Azure](sql-database-advisor-portal.md)e os expõe por meio [de T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) e [ API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). Para saber mais sobre o último bom plano e a configuração das opções de ajuste automático por meio do T-SQL, consulte o [ajuste automático introduz a correção automática do plano](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).
 
@@ -77,7 +77,7 @@ Você pode aplicar manualmente as recomendações de ajuste usando o portal ou p
 
 Caso você esteja aplicando recomendações de ajuste por meio do T-SQL, os mecanismos validação de desempenho automático e reversão não estão disponíveis. As recomendações aplicadas de forma que permanecerão ativas e mostradas na lista de recomendações de ajuste para 24-48 horas. antes que o sistema as retire automaticamente. Se você quiser remover uma recomendação mais cedo, poderá descartá-la de portal do Azure.
 
-As opções de ajuste automático podem ser habilitadas ou desabilitadas independentemente por banco de dados, ou podem ser configuradas em servidores de banco de dados SQL e aplicadas em cada banco de dados que herda as configurações do servidor. Os servidores de banco de dados SQL podem herdar os padrões do Azure para configurações de ajuste automático. Os padrões do Azure neste momento são definidos como FORCE_LAST_GOOD_PLAN está habilitado, CREATE_INDEX está habilitado e DROP_INDEX está desabilitado.
+As opções de ajuste automático podem ser habilitadas ou desabilitadas independentemente por banco de dados, ou podem ser configuradas em servidores de banco de dados SQL e aplicadas em cada banco de dados que herda as configurações do servidor. Os servidores de banco de dados SQL podem herdar os padrões do Azure para configurações de ajuste automático. No momento, os padrões do Azure são definidos como FORCE_LAST_GOOD_PLAN está habilitado, CREATE_INDEX está habilitado e DROP_INDEX está desabilitado.
 
 Configurar opções de ajuste automático em um servidor e herdar configurações para bancos de dados pertencentes ao servidor pai é um método recomendado para configurar o ajuste automático, pois simplifica o gerenciamento de opções de ajuste automático para um grande número de bancos de dados.
 

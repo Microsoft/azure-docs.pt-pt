@@ -1,6 +1,6 @@
 ---
-title: Tutorial de REST usando a retransmissão do Azure | Microsoft Docs
-description: Crie um aplicativo host de retransmissão do barramento de serviço do Azure que expõe uma interface baseada em REST.
+title: 'Tutorial: tutorial REST usando a retransmissão do Azure'
+description: 'Tutorial: criar um aplicativo host de retransmissão do barramento de serviço do Azure que expõe uma interface baseada em REST.'
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 1312b2db-94c4-4a48-b815-c5deb5b77a6a
 ms.service: service-bus-relay
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: a3daa7847ef037f0276792bf8173ad55aba0a944
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 229ed2b00582f2c73ce68c47406d68325abda736
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212919"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718829"
 ---
-# <a name="azure-wcf-relay-rest-tutorial"></a>Tutorial de REST do Azure Retransmissão do WCF
+# <a name="tutorial-azure-wcf-relay-rest-tutorial"></a>Tutorial: tutorial REST do Azure Retransmissão do WCF
 
 Este tutorial descreve como criar um aplicativo host de retransmissão do Azure que expõe uma interface baseada em REST. O REST permite que um cliente web, como um navegador, aceda às APIs do Service Bus através de pedidos de HTTP.
 
@@ -57,7 +57,7 @@ Ao criar um serviço estilo REST do WCF, você deve definir o contrato. O contra
 > [!TIP]
 > Se um método em uma interface que tem o [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) não tiver o [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute), esse método não será exposto. O código usado para essas tarefas é exibido no exemplo após o procedimento.
 
-A principal diferença entre um contrato do WCF e um contrato no estilo REST é a adição de uma propriedade ao [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute): [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute). Esta propriedade permite-lhe mapear um método na sua interface para um método no outro lado da interface. Este exemplo usa o atributo [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) para vincular um método a `HTTP GET`. Essa abordagem permite que o barramento de serviço recupere e interprete com precisão os comandos enviados para a interface.
+A principal diferença entre um contrato do WCF e um contrato no estilo REST é a adição de uma propriedade para o [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute): [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute). Esta propriedade permite-lhe mapear um método na sua interface para um método no outro lado da interface. Este exemplo usa o atributo [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) para vincular um método a `HTTP GET`. Essa abordagem permite que o barramento de serviço recupere e interprete com precisão os comandos enviados para a interface.
 
 ### <a name="to-create-a-contract-with-an-interface"></a>Para criar um contrato com uma interface
 
@@ -71,14 +71,14 @@ A principal diferença entre um contrato do WCF e um contrato no estilo REST é 
 1. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto **ImageListener** e selecione **gerenciar pacotes NuGet**.
 1. Selecione **procurar**e, em seguida, pesquise e escolha **WindowsAzure. ServiceBus**. Selecione **instalar**e aceite os termos de uso.
 
-    Esta etapa adiciona referências ao barramento de serviço e *System. ServiceModel. dll*. Esse pacote adiciona automaticamente referências às bibliotecas do barramento de serviço e ao `System.ServiceModel`WCF.
+    Esta etapa adiciona referências ao barramento de serviço e *System. ServiceModel. dll*. Esse pacote adiciona automaticamente referências às bibliotecas do barramento de serviço e ao `System.ServiceModel`do WCF.
 
-1. Adicione explicitamente uma referência ao `System.ServiceModel.Web.dll` projeto. Em **Gerenciador de soluções**, clique com o botão direito do mouse em **referências** na pasta do projeto e selecione **Adicionar referência**.
+1. Adicione explicitamente uma referência a `System.ServiceModel.Web.dll` ao projeto. Em **Gerenciador de soluções**, clique com o botão direito do mouse em **referências** na pasta do projeto e selecione **Adicionar referência**.
 1. Em **Adicionar referência**, selecione **estrutura** e insira *System. ServiceModel. Web* na **pesquisa**. Selecione a caixa de verificação **System.ServiceModel.Web** e clique em **OK**.
 
 Em seguida, faça as seguintes alterações de código no projeto:
 
-1. Adicione as instruções `using` a seguir na parte superior do arquivo *Program.cs* .
+1. Adicione as instruções de `using` a seguir na parte superior do arquivo *Program.cs* .
 
     ```csharp
     using System.ServiceModel;
@@ -91,7 +91,7 @@ Em seguida, faça as seguintes alterações de código no projeto:
     * [System. ServiceModel. Channels](/dotnet/api/system.servicemodel.channels) ajuda a definir o canal, que é o objeto por meio do qual você se comunica com a retransmissão do Azure e o navegador da Web do cliente.
     * [System. ServiceModel. Web](/dotnet/api/system.servicemodel.web) contém os tipos que permitem que você crie aplicativos baseados na Web.
 
-1. Renomeie `ImageListener` o `Microsoft.ServiceBus.Samples`namespace para.
+1. Renomeie o namespace `ImageListener` para `Microsoft.ServiceBus.Samples`.
 
     ```csharp
     namespace Microsoft.ServiceBus.Samples
@@ -99,7 +99,7 @@ Em seguida, faça as seguintes alterações de código no projeto:
         ...
     ```
 
-1. Diretamente após a chave de abertura da declaração do namespace, defina uma nova interface chamada `IImageContract` e aplique o `ServiceContractAttribute` atributo à interface com um valor de `https://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1`. 
+1. Diretamente após a chave de abertura da declaração do namespace, defina uma nova interface chamada `IImageContract` e aplique o atributo `ServiceContractAttribute` à interface com um valor de `https://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1`. 
 
     ```csharp
     [ServiceContract(Name = "ImageContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
@@ -110,7 +110,7 @@ Em seguida, faça as seguintes alterações de código no projeto:
 
     O valor do espaço de nomes difere do espaço de nomes que utiliza em todo o âmbito do seu código. O valor do namespace é um identificador exclusivo para este contrato e deve ter informações de versão. Para obter mais informações, consulte o artigo [Controlo de Versões do Serviço](/dotnet/framework/wcf/service-versioning). A especificação explícita do espaço de nomes impede que o valor de espaço de nomes predefinido seja adicionado ao nome do contrato.
 
-1. Dentro da `IImageContract` interface, declare um método para a operação única que o `IImageContract` contrato expõe na interface e aplique o `OperationContract` atributo ao método que você deseja expor como parte do contrato de barramento de serviço público.
+1. Na interface `IImageContract`, declare um método para a operação única que o contrato de `IImageContract` expõe na interface e aplique o atributo `OperationContract` ao método que você deseja expor como parte do contrato de barramento de serviço público.
 
     ```csharp
     public interface IImageContract
@@ -120,7 +120,7 @@ Em seguida, faça as seguintes alterações de código no projeto:
     }
     ```
 
-1. No atributo, adicione o `WebGet` valor. `OperationContract`
+1. No atributo `OperationContract`, adicione o valor `WebGet`.
 
     ```csharp
     public interface IImageContract
@@ -130,7 +130,7 @@ Em seguida, faça as seguintes alterações de código no projeto:
     }
     ```
 
-   Adicionar o `WebGet` valor permite que o serviço de retransmissão encaminhe solicitações HTTP `GetImage`get para e converta os valores retornados `GetImage` de em `HTTP GETRESPONSE` uma resposta. Posteriormente no tutorial, você usará um navegador da Web para acessar esse método e exibir a imagem no navegador.
+   Adicionar o valor de `WebGet` permite que o serviço de retransmissão encaminhe solicitações HTTP GET para `GetImage`e traduza os valores retornados de `GetImage` em uma resposta `HTTP GETRESPONSE`. Posteriormente no tutorial, você usará um navegador da Web para acessar esse método e exibir a imagem no navegador.
 
 1. Imediatamente depois da definição`IImageContract`, declare um canal que herde das interfaces `IImageContract` e `IClientChannel`.
 
@@ -138,9 +138,9 @@ Em seguida, faça as seguintes alterações de código no projeto:
     public interface IImageChannel : IImageContract, IClientChannel { }
     ```
 
-   Um canal é o objeto de WCF através do qual o serviço e o cliente passam informações entre si. Posteriormente, você criará o canal em seu aplicativo host. A retransmissão do Azure usa esse canal para passar as solicitações HTTP Get do navegador para `GetImage` sua implementação. A retransmissão também usa o canal para pegar `GetImage` o valor de retorno e convertê `HTTP GETRESPONSE` -lo em um para o navegador do cliente.
+   Um canal é o objeto de WCF através do qual o serviço e o cliente passam informações entre si. Posteriormente, você criará o canal em seu aplicativo host. Em seguida, a retransmissão do Azure usa esse canal para passar as solicitações HTTP GET do navegador para sua implementação de `GetImage`. A retransmissão também usa o canal para pegar o `GetImage` valor de retorno e convertê-lo em um `HTTP GETRESPONSE` para o navegador do cliente.
 
-1. Selecione **criar** > **solução de compilação** para confirmar a precisão do seu trabalho até o momento.
+1. Selecione **compilar** > **criar solução** para confirmar a precisão de seu trabalho até o momento.
 
 ### <a name="example-that-defines-a-wcf-relay-contract"></a>Exemplo que define um contrato de Retransmissão do WCF
 
@@ -179,7 +179,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="implement-the-rest-based-wcf-service-contract"></a>Implementar o contrato de serviço WCF baseado em REST
 
-Para criar um serviço de Retransmissão do WCF de estilo REST, primeiro crie o contrato usando uma interface. O passo seguinte consiste em implementar a interface. Este procedimento envolve a criação de uma `ImageService` classe chamada que implementa a interface `IImageContract` definida pelo usuário. Depois de implementar o contrato, você configura a interface usando um arquivo *app. config* . O arquivo de configuração contém as informações necessárias para o aplicativo. Essas informações incluem o nome do serviço, o nome do contrato e o tipo de protocolo usado para se comunicar com o serviço de retransmissão. O código usado para essas tarefas é exibido no exemplo após o procedimento.
+Para criar um serviço de Retransmissão do WCF de estilo REST, primeiro crie o contrato usando uma interface. O passo seguinte consiste em implementar a interface. Este procedimento envolve a criação de uma classe chamada `ImageService` que implementa a interface `IImageContract` definida pelo usuário. Depois de implementar o contrato, você configura a interface usando um arquivo *app. config* . O arquivo de configuração contém as informações necessárias para o aplicativo. Essas informações incluem o nome do serviço, o nome do contrato e o tipo de protocolo usado para se comunicar com o serviço de retransmissão. O código usado para essas tarefas é exibido no exemplo após o procedimento.
 
 Assim como nas etapas anteriores, há pouca diferença entre implementar um contrato de estilo REST e um contrato de Retransmissão do WCF.
 
@@ -195,7 +195,7 @@ Assim como nas etapas anteriores, há pouca diferença entre implementar um cont
 
     Tal como noutras implementações de interface, pode implementar a definição num ficheiro diferente. No entanto, neste tutorial, a implementação aparece no mesmo ficheiro que a definição de interface e o método`Main()`.
 
-1. Aplique o atributo [ServiceBehaviorAttribute](/dotnet/api/system.servicemodel.servicebehaviorattribute) à `IImageService` classe para indicar que a classe é uma implementação de um contrato WCF.
+1. Aplique o atributo [ServiceBehaviorAttribute](/dotnet/api/system.servicemodel.servicebehaviorattribute) à classe `IImageService` para indicar que a classe é uma implementação de um contrato WCF.
 
     ```csharp
     [ServiceBehavior(Name = "ImageService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
@@ -218,7 +218,7 @@ Assim como nas etapas anteriores, há pouca diferença entre implementar um cont
 
 1. Use o procedimento em [para criar um contrato com uma interface](#to-create-a-contract-with-an-interface) para adicionar uma referência ao assembly *System. Drawing. dll* ao projeto.
 
-1. Adicione as seguintes instruções `using` associadas:
+1. Adicione as seguintes instruções de `using` associadas:
 
     ```csharp
     using System.Drawing;
@@ -227,7 +227,7 @@ Assim como nas etapas anteriores, há pouca diferença entre implementar um cont
     using Microsoft.ServiceBus.Web;
     ```
 
-1. `ImageService` Na classe, adicione o seguinte construtor que carrega o bitmap e se prepara para enviá-lo ao navegador do cliente:
+1. Na classe `ImageService`, adicione o seguinte construtor que carrega o bitmap e se prepara para enviá-lo ao navegador do cliente:
 
     ```csharp
     class ImageService : IImageContract
@@ -243,7 +243,7 @@ Assim como nas etapas anteriores, há pouca diferença entre implementar um cont
     }
     ```
 
-1. Diretamente após o código anterior, adicione o método `GetImage` a seguir `ImageService` na classe para retornar uma mensagem http que contém a imagem.
+1. Diretamente após o código anterior, adicione o seguinte método de `GetImage` na classe `ImageService` para retornar uma mensagem HTTP que contém a imagem.
 
     ```csharp
     public Stream GetImage()
@@ -260,7 +260,7 @@ Assim como nas etapas anteriores, há pouca diferença entre implementar um cont
 
     Essa implementação usa `MemoryStream` para recuperar a imagem e prepará-la para streaming para o navegador. Ele inicia a posição do fluxo em zero, declara o conteúdo do fluxo como um *. jpg*e transmite as informações.
 
-1. Selecione **criar** > **solução de compilação**.
+1. Selecione **compilar** > **Compilar solução**.
 
 ### <a name="to-define-the-configuration-for-running-the-web-service-on-service-bus"></a>Para definir a configuração para executar o serviço Web no Service Bus
 
@@ -268,7 +268,7 @@ Assim como nas etapas anteriores, há pouca diferença entre implementar um cont
 
     O arquivo *app. config* inclui o nome do serviço, o ponto de extremidade e a associação. O ponto de extremidade é o local que a retransmissão do Azure expõe para clientes e hosts se comunicarem entre si. A associação é o tipo de protocolo usado para comunicação. A principal diferença aqui é que o ponto de extremidade de serviço configurado refere-se a uma associação [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) .
 
-1. O elemento XML `<system.serviceModel>` é um elemento de WCF que define um ou vários serviços. Aqui, ele é usado para definir o nome do serviço e o ponto de extremidade. Na parte inferior do `<system.serviceModel>` elemento, mas ainda em `<system.serviceModel>`, adicione um `<bindings>` elemento que tenha o seguinte conteúdo:
+1. O elemento XML `<system.serviceModel>` é um elemento de WCF que define um ou vários serviços. Aqui, ele é usado para definir o nome do serviço e o ponto de extremidade. Na parte inferior do elemento `<system.serviceModel>`, mas ainda em `<system.serviceModel>`, adicione um elemento `<bindings>` que tenha o seguinte conteúdo:
 
     ```xml
     <bindings>
@@ -283,7 +283,7 @@ Assim como nas etapas anteriores, há pouca diferença entre implementar um cont
 
     Esse conteúdo define as associações usadas no aplicativo. Você pode definir várias associações, mas, para este tutorial, você está definindo apenas uma.
 
-    O código anterior define um retransmissão do WCF [](/dotnet/api/microsoft.servicebus.webhttprelaybinding) Associação de WebHttpRelayBinding `relayClientAuthenticationType` com definido `None`como. Essa configuração indica que um ponto de extremidade que usa essa associação não requer uma credencial de cliente.
+    O código anterior define um Retransmissão do WCF Associação de [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) com `relayClientAuthenticationType` definido como `None`. Essa configuração indica que um ponto de extremidade que usa essa associação não requer uma credencial de cliente.
 
 1. Depois do elemento `<bindings>`, adicione um elemento `<services>`. Assim como nos enlaces, pode definir vários serviços num único ficheiro de configuração. No entanto, neste tutorial, definirá apenas um.
 
@@ -302,9 +302,9 @@ Assim como nas etapas anteriores, há pouca diferença entre implementar um cont
     </services>
     ```
 
-    Este conteúdo configura um serviço que usa o padrão `webHttpRelayBinding`definido anteriormente. Ele também usa o padrão `sbTokenProvider`, que é definido na próxima etapa.
+    Este conteúdo configura um serviço que usa o `webHttpRelayBinding`padrão definido anteriormente. Ele também usa o `sbTokenProvider`padrão, que é definido na próxima etapa.
 
-1. Depois do `<services>` elemento, crie um `<behaviors>` elemento com o conteúdo a seguir, `SAS_KEY` substituindo pela chave da assinatura de acesso compartilhado (SAS). Para obter uma chave SAS do [portal do Azure][Azure portal], consulte [obter credenciais de gerenciamento](service-bus-relay-tutorial.md#get-management-credentials).
+1. Após o elemento `<services>`, crie um elemento `<behaviors>` com o conteúdo a seguir, substituindo `SAS_KEY` pela chave SAS (assinatura de acesso compartilhado). Para obter uma chave SAS do [portal do Azure][Azure portal], consulte [obter credenciais de gerenciamento](service-bus-relay-tutorial.md#get-management-credentials).
 
     ```xml
     <behaviors>
@@ -325,7 +325,7 @@ Assim como nas etapas anteriores, há pouca diferença entre implementar um cont
     </behaviors>
     ```
 
-1. Ainda em *app. config*, no `<appSettings>` elemento, substitua todo o valor da cadeia de conexão pela cadeia de conexão obtida anteriormente no Portal.
+1. Ainda em *app. config*, no elemento `<appSettings>`, substitua todo o valor da cadeia de conexão pela cadeia de conexão obtida anteriormente no Portal.
 
     ```xml
     <appSettings>
@@ -335,11 +335,11 @@ Assim como nas etapas anteriores, há pouca diferença entre implementar um cont
     </appSettings>
     ```
 
-1. Selecione **criar** > **solução de compilação** para compilar a solução inteira.
+1. Selecione **compilar** > **Compilar solução** para compilar a solução inteira.
 
 ### <a name="example-that-implements-the-rest-based-wcf-service-contract"></a>Exemplo que implementa o contrato de serviço WCF baseado em REST
 
-O código a seguir mostra a implementação do contrato e do serviço para um serviço baseado em REST que está sendo executado no `WebHttpRelayBinding` barramento de serviço usando a associação.
+O código a seguir mostra a implementação do contrato e do serviço para um serviço baseado em REST que está sendo executado no barramento de serviço usando a associação de `WebHttpRelayBinding`.
 
 ```csharp
 using System;
@@ -500,7 +500,7 @@ Esta seção descreve como executar um serviço Web usando um aplicativo de cons
 
 ### <a name="to-create-a-base-address-for-the-service"></a>Para criar um endereço base para o serviço
 
-1. Na declaração da função, crie uma variável para armazenar o namespace do seu projeto. `Main()` Certifique-se de `yourNamespace` substituir pelo nome do namespace de retransmissão criado anteriormente.
+1. Na declaração da função `Main()`, crie uma variável para armazenar o namespace do seu projeto. Certifique-se de substituir `yourNamespace` pelo nome do namespace de retransmissão criado anteriormente.
 
     ```csharp
     string serviceNamespace = "yourNamespace";
@@ -516,7 +516,7 @@ Esta seção descreve como executar um serviço Web usando um aplicativo de cons
 
 ### <a name="to-create-and-configure-the-web-service-host"></a>Para criar e configurar o anfitrião do serviço Web
 
-Ainda no `Main()`, crie o host do serviço Web, usando o endereço URI criado anteriormente nesta seção.
+Ainda em `Main()`, crie o host do serviço Web, usando o endereço URI criado anteriormente nesta seção.
   
 ```csharp
 WebServiceHost host = new WebServiceHost(typeof(ImageService), address);

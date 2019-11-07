@@ -1,62 +1,62 @@
 ---
-title: Monitorização na base de dados do Azure para MariaDB
-description: Este artigo descreve as métricas de monitorização e alertas para base de dados do Azure para MariaDB, incluindo as estatísticas de CPU, armazenamento e conexão.
+title: Monitoramento no banco de dados do Azure para MariaDB
+description: Este artigo descreve as métricas para monitoramento e alertas para o banco de dados do Azure para MariaDB, incluindo CPU, armazenamento e estatísticas de conexão.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/12/2019
-ms.openlocfilehash: fb998edffed290bb7bc59945163f0fd48c55cbf5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.date: 11/04/2019
+ms.openlocfilehash: 2f4346dfdb095e849adc65baf0fd31d25d03c4a7
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612530"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604069"
 ---
-# <a name="monitoring-in-azure-database-for-mariadb"></a>Monitorização na base de dados do Azure para MariaDB
-Dados sobre os servidores de monitorização ajuda-o a resolver problemas e otimizar a sua carga de trabalho. Base de dados do Azure para MariaDB fornece várias métricas que lhe dar informações sobre o comportamento do seu servidor.
+# <a name="monitoring-in-azure-database-for-mariadb"></a>Monitoramento no banco de dados do Azure para MariaDB
+O monitoramento de dados sobre seus servidores ajuda você a solucionar problemas e otimizar sua carga de trabalho. O banco de dados do Azure para MariaDB fornece várias métricas que fornecem informações sobre o comportamento do seu servidor.
 
 ## <a name="metrics"></a>Métricas
-Todas as métricas do Azure têm uma frequência de um minuto e cada métrica oferece 30 dias do histórico. Pode configurar alertas sobre as métricas. Outras tarefas incluem definir ações automatizadas, a realização de análises avançadas e o arquivamento de histórico. Para obter mais informações, consulte a [descrição geral das métricas do Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Todas as métricas do Azure têm uma frequência de um minuto e cada métrica fornece 30 dias de histórico. Você pode configurar alertas nas métricas. Outras tarefas incluem a configuração de ações automatizadas, a execução de análises avançadas e o histórico de arquivamento. Para obter mais informações, consulte a [visão geral de métricas do Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Para obter orientações passo a passo, consulte [como posso configurar alertas](howto-alert-metric.md).
+Para obter orientações passo a passo, consulte [como configurar alertas](howto-alert-metric.md).
 
 ### <a name="list-of-metrics"></a>Lista de métricas
-Estas métricas estão disponíveis para a base de dados do Azure para MariaDB:
+Essas métricas estão disponíveis para o banco de dados do Azure para MariaDB:
 
-|Métrica|Nome a apresentar de métrica|Unidade|Descrição|
+|Métrica|Nome de exibição da métrica|Unidade|Descrição|
 |---|---|---|---|
-|cpu_percent|Percentagem de CPU|Percent|A percentagem de CPU em utilização.|
-|memory_percent|Percentagem de memória|Percent|A percentagem de memória em utilização.|
-|io_consumption_percent|Percentagem de e/s|Percent|A percentagem de e/s em utilização.|
-|storage_percent|Percentagem de armazenamento|Percent|A percentagem de armazenamento utilizado fora do servidor 's máxima.|
-|storage_used|Armazenamento utilizado|Bytes|A quantidade de armazenamento em utilização. O armazenamento utilizado pelo serviço pode incluir os ficheiros de base de dados, registos de transações e os registos do servidor.|
-|serverlog_storage_percent|Percentagem de armazenamento de registo do servidor|Percent|A percentagem de armazenamento de registo de servidor utilizado fora do armazenamento de registos de servidor máxima do servidor.|
-|serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|A quantidade de armazenamento de registo do servidor em utilização.|
-|serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|O armazenamento de registo de servidor máxima para este servidor.|
+|cpu_percent|Percentual de CPU|Percentagem|A porcentagem de CPU em uso.|
+|memory_percent|Porcentagem de memória|Percentagem|A porcentagem de memória em uso.|
+|io_consumption_percent|Porcentagem de e/s|Percentagem|A porcentagem de e/s em uso.|
+|storage_percent|Porcentagem de armazenamento|Percentagem|A porcentagem de armazenamento usada fora do máximo do servidor.|
+|storage_used|Armazenamento utilizado|Bytes|A quantidade de armazenamento em uso. O armazenamento usado pelo serviço pode incluir os arquivos de banco de dados, os logs de transações e os logs do servidor.|
+|serverlog_storage_percent|Porcentagem de armazenamento de log do servidor|Percentagem|A porcentagem de armazenamento de log do servidor usado fora do armazenamento de log do servidor máximo do servidor.|
+|serverlog_storage_usage|Armazenamento de log do servidor usado|Bytes|A quantidade de armazenamento de log do servidor em uso.|
+|serverlog_storage_limit|Limite de armazenamento de log do servidor|Bytes|O armazenamento máximo de log do servidor para este servidor.|
 |storage_limit|Limite de armazenamento|Bytes|O armazenamento máximo para este servidor.|
-|active_connections|Ligações ativas|Count|O número de ligações ativas para o servidor.|
-|connections_failed|Ligações com Falhas|Count|O número de ligações falhadas para o servidor.|
-|network_bytes_egress|Saída da Rede|Bytes|Rede horizontalmente através de ligações de Active Directory.|
-|network_bytes_ingress|Entrada na Rede|Bytes|Rede no através de ligações de Active Directory.|
+|active_connections|Conexões ativas|Contagem|O número de conexões ativas com o servidor.|
+|connections_failed|Ligações com Falhas|Contagem|O número de conexões com falha com o servidor.|
+|network_bytes_egress|Saída da Rede|Bytes|Saída de rede entre conexões ativas.|
+|network_bytes_ingress|Entrada na Rede|Bytes|Rede entre conexões ativas.|
 
 ## <a name="server-logs"></a>Registos do servidor
 
-Pode ativar o registo no seu servidor de consulta lenta. Estes registos também estão disponíveis através de registos de diagnóstico do Azure em registos, os Hubs de eventos e conta de armazenamento do Azure Monitor. Para saber mais sobre o registo, visite o [registos do servidor](concepts-server-logs.md) página.
+Você pode habilitar o log de consultas lentos no servidor. Esses logs também estão disponíveis por meio dos logs de diagnóstico do Azure em logs de Azure Monitor, hubs de eventos e conta de armazenamento. Para saber mais sobre registro em log, visite a página [logs do servidor](concepts-server-logs.md) .
 
 ## <a name="query-store"></a>Arquivo de Consultas
 
-[Consulta Store](concepts-query-store.md) é uma funcionalidade de pré-visualização pública que mantém o controle da consulta de desempenho ao longo do tempo incluindo estatísticas de tempo de execução de consulta e eventos de espera. A funcionalidade de persistir informações de desempenho de tempo de execução de consulta no **mysql** esquema. Pode controlar a coleção e o armazenamento de dados por meio de vários botões de configuração.
+[Repositório de consultas](concepts-query-store.md) controla o desempenho da consulta ao longo do tempo, incluindo estatísticas de tempo de execução de consulta e eventos de espera. O recurso persiste as informações de desempenho de tempo de execução de consulta no esquema **MySQL** . Você pode controlar a coleta e o armazenamento de dados por meio de vários botões de configuração.
 
 ## <a name="query-performance-insight"></a>Query Performance Insight
 
-[Query Performance Insight](concepts-query-performance-insight.md) funciona em conjunto com Store de consulta para fornecer visualizações acessíveis a partir do portal do Azure. Estes gráficos permitem identificar consultas principais que um impacto no desempenho. O Query Performance Insight está em pré-visualização pública e está acessível a **desempenho inteligente** secção da base de dados do Azure para a página do portal do servidor de MariaDB.
+[Análise de desempenho de consultas](concepts-query-performance-insight.md) trabalha em conjunto com repositório de consultas para fornecer visualizações acessíveis do portal do Azure. Esses gráficos permitem que você identifique as principais consultas que afetam o desempenho. Análise de Desempenho de Consultas é acessível na seção de **desempenho inteligente** da página do portal do banco de dados do Azure para o MariaDB Server.
 
 ## <a name="performance-recommendations"></a>Recomendações de Desempenho
 
-O [recomendações de desempenho](concepts-performance-recommendations.md) funcionalidade identifica oportunidades para melhorar o desempenho da carga de trabalho. A versão de pré-visualização pública de recomendações de desempenho fornece recomendações para a criação de índices novo que têm o potencial de melhorar o desempenho das suas cargas de trabalho. Para produzir recomendações de índice, a funcionalidade leva em consideração várias características de base de dados, incluindo o respetivo esquema e a carga de trabalho, conforme comunicado pelo Store de consulta. Depois de implementar quaisquer recomendações de desempenho, os clientes devem testar o desempenho para avaliar o impacto dessas alterações.
+O recurso de [recomendações de desempenho](concepts-performance-recommendations.md) identifica oportunidades para melhorar o desempenho da carga de trabalho. As recomendações de desempenho fornecem recomendações para a criação de novos índices que têm o potencial de melhorar o desempenho de suas cargas de trabalho. Para produzir recomendações de índice, o recurso leva em consideração várias características de banco de dados, incluindo seu esquema e a carga de trabalho conforme relatado pelo Repositório de Consultas. Depois de implementar qualquer recomendação de desempenho, os clientes devem testar o desempenho para avaliar o impacto dessas alterações.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações sobre como aceder e exportar métricas com o portal do Azure, a REST API ou a CLI, consulte a [descrição geral das métricas do Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
-  - Ver [como posso configurar alertas](howto-alert-metric.md) para obter orientações sobre como criar um alerta na métrica.
+- Para obter mais informações sobre como acessar e exportar métricas usando o portal do Azure, a API REST ou a CLI, consulte a [visão geral das métricas do Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+  - Consulte [como configurar alertas](howto-alert-metric.md) para obter orientação sobre como criar um alerta em uma métrica.

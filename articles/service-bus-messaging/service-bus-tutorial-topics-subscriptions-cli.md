@@ -1,24 +1,24 @@
 ---
-title: Tutorial – Atualizar variedade de inventário de comércio a retalho utilizando canais de publicação/subscrição e filtros de tópico com a CLI do Azure | Microsoft Docs
-description: Neste tutorial, aprende a enviar e receber mensagens de um tópico e subscrição e como adicionar e utilizar regras de filtro utilizando a CLI do Azure
+title: 'Tutorial: atualizar o sortimento de estoque de varejo usando canais de publicação/assinatura e filtros de tópico com CLI do Azure'
+description: 'Tutorial: neste tutorial, você aprende a enviar e receber mensagens de um tópico e assinatura e como adicionar e usar regras de filtro usando o CLI do Azure'
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.author: spelluru
-ms.date: 09/22/2018
+ms.date: 11/05/2019
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: e55c8c6a579489c8ed5a13ccb93f0e72c286ab13
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0bd0d8eb8abe6f320f73e35b1e3b08e1d8dc1de3
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991948"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718920"
 ---
-# <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutorial: Atualizar inventário utilizando a CLI e tópicos/subscrições
+# <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutorial: atualizar inventários utilizando a CLI e tópicos/subscrições
 
-O Microsoft Azure Service Bus é um serviço de mensagens na cloud multi-inquilino que envia informações entre aplicações e serviços. As operações assíncronas permitem o envio flexível de mensagens mediadas, juntamente com mensagens FIFO (first in, first out) e funcionalidades de publicação/subscrição. Este tutorial mostra como utilizar tópicos e subscrições do Service Bus num cenário de inventário de comércio a retalho, com canais de publicação/subscrição utilizando a CLI do Azure e Java.
+O Microsoft Azure Service Bus é um serviço de mensagens na cloud multi-inquilino que envia informações entre aplicações e serviços. As operações assíncronas permitem o envio flexível de mensagens, juntamente com mensagens FIFO (first in, first out) e funcionalidades de publicação/subscrição. Este tutorial mostra como utilizar tópicos e subscrições do Service Bus num cenário de inventário de comércio a retalho, com canais de publicação/subscrição utilizando a CLI do Azure e Java.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -50,7 +50,7 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execu�
 
 Cada [subscrição de um tópico](service-bus-messaging-overview.md#topics) pode receber uma cópia de cada mensagem. Os tópicos são totalmente compatíveis no que diz respeito a protocolo e semântica com as filas do Service Bus. Os tópicos do Service Bus suportam uma vasta gama de regras de seleção com condições de filtro, com ações opcionais que definem ou modificam propriedades de mensagem. Sempre que uma regra tem correspondência, é criada uma mensagem. Para saber mais sobre regras, filtros e ações, clique nesta [hiperligação](topic-filters.md).
 
-## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Assim que a CLI estiver instalada, abra uma linha de comandos e indique os seguintes comandos para iniciar sessão no Azure. Estes passos não serão necessários se estiver a utilizar a Cloud Shell:
 
@@ -132,7 +132,7 @@ Depois do aprovisionamento do espaço de nomes e tópico/subscrições e de ter 
 
 1. Certifique-se de que a Cloud Shell está aberta e apresenta a linha de comandos do Bash.
 
-2. Clone o [repositório do GitHub do Service Bus](https://github.com/Azure/azure-service-bus/) ao emitir o seguinte comando:
+2. Clone o [repositório do GitHub do Service Bus](https://github.com/Azure/azure-service-bus/) ao indicar o comando seguinte:
 
    ```shell
    git clone https://github.com/Azure/azure-service-bus.git
@@ -326,14 +326,14 @@ public CompletableFuture<Void> receiveAllMessageFromSubscription(String subscrip
 ```
 
 > [!NOTE]
-> Pode gerir recursos do Service Bus com [Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). O Explorador do Service Bus permite aos utilizadores ligar a um espaço de nomes do Service Bus e administrar as entidades de mensagens de uma forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de teste tópico, filas, subscrições, serviços de reencaminhamento, os hubs de notificação e os hubs de eventos. 
+> Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem a um namespace do barramento de serviço e administrem entidades de mensagens de maneira fácil. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprovisionou recursos utilizando a CLI do Azure e enviou e recebeu mensagens de um tópico do Service Bus e respetivas subscrições. Aprendeu a:
 
 > [!div class="checklist"]
-> * Criar um tópico e uma ou mais subscrições do Service Bus para esse tópico com o portal do Azure
+> * Criar um tópico e uma ou mais subscrições do Service Bus para esse tópico utilizando o portal do Azure
 > * Adicionar filtros de tópico com o código .NET
 > * Criar duas mensagens com conteúdo diferente
 > * Enviar as mensagens e verificar que chegaram nas subscrições previstas

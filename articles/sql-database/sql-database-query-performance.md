@@ -1,5 +1,5 @@
 ---
-title: Análise de Desempenho de Consultas para o banco de dados SQL do Azure | Microsoft Docs
+title: Análise de Desempenho de Consultas para o banco de dados SQL do Azure
 description: O monitoramento de desempenho de consulta identifica a maioria das consultas de consumo de CPU para um banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/03/2019
-ms.openlocfilehash: 659022f625604fe31c2ce47978d1132b20b7ffc8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: eb6827669829dc7aeeb6758a07218a29955b3682
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567034"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687589"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Análise de Desempenho de Consultas para o banco de dados SQL do Azure
 
@@ -52,13 +52,13 @@ Você precisa das seguintes permissões de [controle de acesso baseado em funç�
 Análise de Desempenho de Consultas é fácil de usar:
 
 1. Abra o [portal do Azure](https://portal.azure.com/) e localize um banco de dados que você deseja examinar.
-2. No menu do lado esquerdo, abra**análise de desempenho de consultas**de **desempenho** > inteligente.
+2. No menu do lado esquerdo, abra o > de **desempenho inteligente** **análise de desempenho de consultas**.
   
    ![Análise de Desempenho de Consultas no menu](./media/sql-database-query-performance/tile.png)
 
 3. Na primeira guia, examine a lista de principais consultas que consomem recursos.
 4. Selecione uma consulta individual para exibir seus detalhes.
-5. Abra**recomendações de desempenho** de **desempenho** > inteligente e verifique se há recomendações de desempenho disponíveis. Para obter mais informações sobre recomendações de desempenho internas, consulte [Assistente do banco de dados SQL](sql-database-advisor.md).
+5. Abra o **desempenho inteligente** > **recomendações de desempenho** e verifique se há recomendações de desempenho disponíveis. Para obter mais informações sobre recomendações de desempenho internas, consulte [Assistente do banco de dados SQL](sql-database-advisor.md).
 6. Use controles deslizantes ou ícones de zoom para alterar o intervalo observado.
 
    ![Painel de desempenho](./media/sql-database-query-performance/performance.png)
@@ -83,7 +83,7 @@ Por padrão, Análise de Desempenho de Consultas mostra as cinco principais cons
    >
    > Para uma comparação mais refinada (até um minuto), considere criar um gráfico de utilização de DTU personalizado:
    >
-   > 1. No portal do Azure, selecione > **monitoramento** **do banco de dados SQL do Azure**.
+   > 1. No portal do Azure, selecione **banco de dados SQL do Azure** > **monitoramento**.
    > 2. Selecione **Métricas**.
    > 3. Selecione **+ Adicionar gráfico**.
    > 4. Selecione a porcentagem de DTU no gráfico.
@@ -175,7 +175,7 @@ Para identificar consultas de execução longa:
    >
    > Para entender o consumo de DTU do banco de dados com mais detalhes (até um minuto), considere criar um gráfico personalizado na portal do Azure:
    >
-   > 1. Selecione > **monitoramento** **do banco de dados SQL do Azure**.
+   > 1. Selecione o **monitoramento**de > **do banco de dados SQL do Azure** .
    > 2. Selecione **Métricas**.
    > 3. Selecione **+ Adicionar gráfico**.
    > 4. Selecione a porcentagem de DTU no gráfico.
@@ -236,14 +236,14 @@ O segundo caso ocorre quando Repositório de Consultas não está habilitado ou 
 
 Há dois tipos de políticas de retenção:
 
-* **Baseado em tamanho**: Se essa política for definida como **automática**, ela limpará os dados automaticamente quando o tamanho máximo for atingido.
-* **Baseado em tempo**: Por padrão, essa política é definida como 30 dias. Se Repositório de Consultas ficar sem espaço, ele excluirá informações de consulta com mais de 30 dias.
+* **Baseado em tamanho**: se essa política for definida como **automática**, ela limpará os dados automaticamente quando o tamanho máximo for atingido.
+* **Baseado em tempo**: por padrão, essa política é definida como 30 dias. Se Repositório de Consultas ficar sem espaço, ele excluirá informações de consulta com mais de 30 dias.
 
 Você pode definir a política de captura para:
 
-* **Todos**: Repositório de Consultas captura todas as consultas.
-* **Automático**: Repositório de Consultas ignora consultas e consultas infrequentes com duração de compilação e execução insignificante. Os limites para contagem de execução, duração da compilação e duração do tempo de execução são determinados internamente. Essa é a opção padrão.
-* **Nenhum**: Repositório de Consultas para de capturar novas consultas, mas as estatísticas de tempo de execução para consultas já capturadas ainda são coletadas.
+* **Todos**: repositório de consultas captura todas as consultas.
+* **Automático**: repositório de consultas ignora consultas e consultas incomuns com duração de compilação e execução insignificante. Os limites para contagem de execução, duração da compilação e duração do tempo de execução são determinados internamente. Essa é a opção padrão.
+* **Nenhum**: repositório de consultas interrompe a captura de novas consultas, mas as estatísticas de tempo de execução para consultas já capturadas ainda são coletadas.
 
 É recomendável definir todas as políticas para **automático** e a política de limpeza para 30 dias executando os comandos a seguir do [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou do portal do Azure. (Substitua `YourDB` pelo nome do banco de dados.)
 
@@ -278,7 +278,7 @@ A aplicação dessas configurações eventualmente fará Repositório de Consult
 
 Análise de Desempenho de Consultas ajuda a entender o impacto da carga de trabalho de consulta e como ela se relaciona com o consumo de recursos do banco de dados. Com esse recurso, você aprenderá sobre as consultas que mais consomem em seu banco de dados e encontrará consultas a serem otimizadas antes de se tornarem um problema.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter recomendações de desempenho de banco de dados, selecione [recomendações](sql-database-advisor.md) na folha de navegação análise de desempenho de consultas.
 

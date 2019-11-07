@@ -1,5 +1,5 @@
 ---
-title: Resultados de teste para replicação de VMs do Hyper-V em nuvens do VMM para um site secundário com Azure Site Recovery | Microsoft Docs
+title: Testar a replicação de VM do Hyper-V em um site secundário com o VMM usando Azure Site Recovery
 description: Este artigo fornece informações sobre o teste de desempenho para a replicação de VMs do Hyper-V em nuvens do VMM para um site secundário usando Azure Site Recovery.
 author: sujayt
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: a7413b2dcb24a42092eb2af9816b1d29a8306e19
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68377220"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663177"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Resultados de teste para replicação do Hyper-V para um site secundário
 
@@ -108,7 +108,7 @@ Os resultados mostram claramente que Site Recovery, juntamente com a réplica do
 
 | Servidor | RAM | Modelo | Processador | Número de processadores | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Servidores Hyper-V no cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128<br />ESTLAB-HOST25 tem 256 |Dell ™ PowerEdge ™ R820 |Intel (r) Xeon (r) CPU E5-4620 0 \@ 2,20 GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
+| Servidores Hyper-V no cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128<br />ESTLAB-HOST25 tem 256 |Dell™ PowerEdge™ R820 |Intel (R) Xeon (R) CPU E5-4620 0 \@ 2,20 GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
 | Servidor do VMM |2 | | |2 |1 Gbps |Banco de dados do Windows Server 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="secondary-site"></a>Site secundário
@@ -120,9 +120,9 @@ Os resultados mostram claramente que Site Recovery, juntamente com a réplica do
 
 | Servidor | RAM | Modelo | Processador | Número de processadores | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Servidores Hyper-V no cluster: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel (r) Xeon (r) CPU E5-2630 0 \@ 2,30 GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
-| ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel (r) Xeon (r) CPU E5-4620 0 \@ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
-| ESTLAB-HOST24 |256 |Dell ™ PowerEdge ™ R820 |Intel (r) Xeon (r) CPU E5-4620 0 \@ 2,20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
+| Servidores Hyper-V no cluster: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell™ PowerEdge™ R720 |Intel (R) Xeon (R) CPU E5-2630 0 \@ 2,30 GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
+| ESTLAB-HOST17 |128 |Dell™ PowerEdge™ R820 |Intel (R) Xeon (R) CPU E5-4620 0 \@ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
+| ESTLAB-HOST24 |256 |Dell™ PowerEdge™ R820 |Intel (R) Xeon (R) CPU E5-4620 0 \@ 2,20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
 | Servidor do VMM |2 | | |2 |1 Gbps |Banco de dados do Windows Server 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="server-workloads"></a>Cargas de trabalho do servidor
@@ -131,11 +131,11 @@ Os resultados mostram claramente que Site Recovery, juntamente com a réplica do
 * Usamos o [Iometer](http://www.iometer.org) com a característica de carga de trabalho resumida na tabela para simulação.
 * Todos os perfis do IOMeter são definidos para gravar bytes aleatórios para simular padrões de gravação de pior caso para cargas de trabalho.
 
-| Carga de trabalho | Tamanho de e/s (KB) | % De acesso | %Read | E/SS pendentes | Padrão de e/s |
+| Carga de trabalho | Tamanho de e/s (KB) | % De acesso | % De leitura | E/SS pendentes | Padrão de e/s |
 | --- | --- | --- | --- | --- | --- |
 | Servidor de Ficheiros |4<br />8<br />16<br />32<br />64 |60%<br />20%<br />5%<br />5%<br />10% |80%<br />80%<br />80%<br />80%<br />80% |8<br />8<br />8<br />8<br />8 |Todos os 100% aleatórios |
 | SQL Server (volume 1)<br />SQL Server (volume 2) |8<br />64 |100%<br />100% |70%<br />0% |8<br />8 |100% aleatório<br />100% sequencial |
-| Exchange |32 |100% |67% |8 |100% aleatório |
+| Troca |32 |100% |67% |8 |100% aleatório |
 | Estação de trabalho/VDI |4<br />64 |66%<br />34% |70%<br />95% |1<br />1 |Ambos 100% aleatórios |
 | Servidor de arquivos da Web |4<br />8<br />64 |33%<br />34%<br />33% |95%<br />95%<br />95% |8<br />8<br />8 |Todos os 75% aleatórios |
 
@@ -145,14 +145,14 @@ Os resultados mostram claramente que Site Recovery, juntamente com a réplica do
 * Todas as VMs com disco VHDX.
 * VMs que executam cargas de trabalho resumidas na tabela. Todos foram criados com modelos do VMM.
 
-| Carga de trabalho | N º de VMs | RAM mínima (GB) | RAM máxima (GB) | Tamanho do disco lógico (GB) por VM | IOPS máximo |
+| Carga de trabalho | N.º de VMs | RAM mínima (GB) | RAM máxima (GB) | Tamanho do disco lógico (GB) por VM | IOPS máximo |
 | --- | --- | --- | --- | --- | --- |
 | SQL Server |51 |1 |4 |167 |10 |
 | Exchange Server |71 |1 |4 |552 |10 |
 | Servidor de Ficheiros |50 |1 |2 |552 |22 |
-| VDI |149 |.5 |1 |80 |6 |
-| Servidor Web |149 |.5 |1 |80 |6 |
-| TOTAL |470 | | |96,83 TB |4108 |
+| VDI |149 |5 |1 |80 |6 |
+| Servidor Web |149 |5 |1 |80 |6 |
+| COMPLETA |470 | | |96,83 TB |4108 |
 
 ### <a name="site-recovery-settings"></a>Configurações de Site Recovery
 
@@ -161,7 +161,7 @@ Os resultados mostram claramente que Site Recovery, juntamente com a réplica do
 
 | Nuvem do VMM primário | VMs protegidas | Frequência de replicação | Pontos de recuperação adicionais |
 | --- | --- | --- | --- |
-| PrimaryCloudRpo15m |142 |15 minutos |Nenhuma |
+| PrimaryCloudRpo15m |142 |15 minutos |Nenhum |
 | PrimaryCloudRpo30s |47 |30 segundos |Nenhum |
 | PrimaryCloudRpo30sArp1 |47 |30 segundos |1 |
 | PrimaryCloudRpo5m |235 |5 mins |Nenhum |
@@ -170,15 +170,15 @@ Os resultados mostram claramente que Site Recovery, juntamente com a réplica do
 
 A tabela resume as métricas de desempenho e os contadores que foram medidos na implantação.
 
-| Métrica | Contador |
+| Métrica | Neutraliza |
 | --- | --- |
 | CPU |\Processor(_Total)\% Processor Time |
 | Memória disponível |\ Mbytes Mbytes |
-| IOPS |\PhysicalDisk (_ total) \Bytes transferências de segundos/s |
-| Operações de leitura de VM (IOPS)/s |\Dispositivo do dispositivo de armazenamento\<virtual (VHD >) \ operações/s |
-| Operações de gravação de VM (IOPS)/s |\Dispositivo do dispositivo de armazenamento\<virtual (VHD >) \ operações/S |
-| Taxa de transferência de leitura da VM |Dispositivo de armazenamento virtual \dispositivo\<(VHD >) \ Bytes/s |
-| Taxa de transferência de gravação da VM |Dispositivo de armazenamento virtual \dispositivo\<(VHD >) \ Bytes/s |
+| IOPS |\PhysicalDisk (_Total) \Bytes Transfers/s |
+| Operações de leitura de VM (IOPS)/s |Dispositivo de armazenamento virtual \Dispositivo (\<VHD >) operações \/s |
+| Operações de gravação de VM (IOPS)/s |\Dispositivo do dispositivo de armazenamento virtual (\<VHD >) operações de \/S |
+| Taxa de transferência de leitura da VM |Dispositivo de armazenamento virtual \Dispositivo (\<VHD >) \ Bytes/s |
+| Taxa de transferência de gravação da VM |Dispositivo de armazenamento virtual \Dispositivo (\<VHD >) \ Bytes/s |
 
 ## <a name="next-steps"></a>Passos seguintes
 

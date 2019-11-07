@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 85a3a9f7afac8250b225d42462f6b29042e34a2a
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 91469f27e1ca86650cf94fde5cff5d1864300183
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330361"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606355"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerenciar laboratórios de sala de aula em Azure Lab Services 
 Este artigo descreve como criar e excluir um laboratório de sala de aula. Ele também mostra como exibir todos os laboratórios de sala de aula em uma conta de laboratório. 
@@ -28,7 +28,7 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 
 ## <a name="create-a-classroom-lab"></a>Criar um laboratório de sala de aula
 
-1. Navegue para o [site do Azure Lab Services](https://labs.azure.com). Observe que o Internet Explorer 11 ainda não tem suporte. 
+1. Navegue para o [site do Azure Lab Services](https://labs.azure.com). O Internet Explorer 11 ainda não tem suporte. 
 2. Selecione **Iniciar sessão** e introduza as suas credenciais. Selecione ou insira uma **ID de usuário** que seja membro da função de **criador de laboratório** na conta de laboratório e digite a senha. O Azure Lab Services suporta contas organizacionais e contas Microsoft. 
 3. Selecione **novo laboratório**. 
     
@@ -123,6 +123,10 @@ Para alternar para outro laboratório de sala de aula do atual, selecione a list
 
 Você também pode criar um novo laboratório usando o **novo laboratório** nesta lista suspensa. 
 
+> [!NOTE]
+> Você também pode usar o módulo do PowerShell AZ. LabServices (versão prévia) para gerenciar laboratórios. Para obter mais informações, consulte [AZ. LabServices Home Page no GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
+
+Para alternar para uma conta de laboratório diferente, selecione a lista suspensa ao lado da conta de laboratório e selecione a outra conta de laboratório. 
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: eb48afb15e1314dcf670ba04afd9609876dc9539
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 3790511bf3f71cdeb01853e4051a013719502d9f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472835"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605094"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Criar um cluster AKS (serviço de kubernetes do Azure) que usa Zonas de Disponibilidade
 
@@ -34,7 +34,7 @@ Atualmente, os clusters AKS podem ser criados usando zonas de disponibilidade na
 * EUA Leste 2
 * EUA Leste
 * França Central
-* Este do Japão
+* Leste do Japão
 * Europa do Norte
 * Sudeste Asiático
 * Sul do Reino Unido
@@ -72,9 +72,9 @@ Em uma interrupção de zona, os nós podem ser rebalanceados manualmente ou usa
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>Criar um cluster AKS entre zonas de disponibilidade
 
-Quando você cria um cluster usando o comando [AZ AKs Create][az-aks-create] , o parâmetro `--zones` define em quais nós de agente de zonas são implantados. Os componentes do plano de controle AKS para seu cluster também são distribuídos entre zonas na configuração mais alta disponível quando você cria um cluster especificando o parâmetro `--zones`.
+Quando você cria um cluster usando o comando [AZ AKs Create][az-aks-create] , o parâmetro `--zones` define em quais nós de agente de zonas são implantados. Os componentes do plano de controle AKS para seu cluster também são distribuídos entre zonas na configuração mais alta disponível quando você define o parâmetro `--zones` no momento da criação do cluster.
 
-Se você não definir zonas para o pool de agente padrão ao criar um cluster AKS, os componentes do plano de controle AKS para o cluster não usarão zonas de disponibilidade. Você pode adicionar pools de nós adicionais usando o comando [AZ AKs nodepool Add][az-aks-nodepool-add] e especificar `--zones` para esses novos nós de agente, no entanto, os componentes do plano de controle permanecem sem reconhecimento de zona de disponibilidade. Você não pode alterar o reconhecimento de zona para um pool de nós ou os componentes do plano de controle AKS depois que eles são implantados.
+Se você não definir zonas para o pool de agente padrão ao criar um cluster AKS, os componentes do plano de controle AKS para o cluster não usarão zonas de disponibilidade. Você pode adicionar pools de nós adicionais usando o comando [AZ AKs nodepool Add][az-aks-nodepool-add] e especificar `--zones` para esses novos nós, no entanto, os componentes do plano de controle permanecem sem reconhecimento de zona de disponibilidade. Você não pode alterar o reconhecimento de zona para um pool de nós ou os componentes do plano de controle AKS depois que eles são implantados.
 
 O exemplo a seguir cria um cluster AKS chamado *myAKSCluster* no grupo de recursos chamado *MyResource*Group. Um total de *3* nós são criados-um agente na zona *1*, um em *2*e, em seguida, um em *3*. Os componentes do plano de controle AKS também são distribuídos entre zonas na configuração mais alta disponível, já que elas são definidas como parte do processo de criação do cluster.
 

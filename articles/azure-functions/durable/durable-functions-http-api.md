@@ -9,18 +9,18 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/07/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 094ae511337556ef0c67c86f6d8692cae005430a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: ad2b1b9236f88f99542f8705372af664cc299ee0
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033953"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614829"
 ---
 # <a name="http-api-reference"></a>Referência de API HTTP
 
 A extensão Durable Functions expõe um conjunto de APIs HTTP internas que podem ser usadas para executar tarefas de gerenciamento em [orquestrações](durable-functions-types-features-overview.md#orchestrator-functions), [entidades](durable-functions-types-features-overview.md#entity-functions)e hubs de [tarefas](durable-functions-task-hubs.md). Essas APIs HTTP são WebHooks de extensibilidade que são autorizadas pelo host Azure Functions, mas manipuladas diretamente pela extensão Durable Functions.
 
-Todas as APIs HTTP implementadas pela extensão exigem os seguintes parâmetros. O tipo de dados de todos os `string`parâmetros é.
+Todas as APIs HTTP implementadas pela extensão exigem os seguintes parâmetros. O tipo de dados de todos os parâmetros é `string`.
 
 | Parâmetro        | Tipo de parâmetro  | Descrição |
 |------------------|-----------------|-------------|
@@ -28,7 +28,7 @@ Todas as APIs HTTP implementadas pela extensão exigem os seguintes parâmetros.
 | **`connection`** | Cadeia de consulta    | O **nome** da cadeia de conexão para a conta de armazenamento. Se não for especificado, a cadeia de conexão padrão para o aplicativo de funções será assumida. |
 | **`systemKey`**  | Cadeia de consulta    | A chave de autorização necessária para invocar a API. |
 
-`systemKey`é uma chave de autorização gerada automaticamente pelo host Azure Functions. Ele concede especificamente acesso às APIs de extensão de tarefa durável e pode ser gerenciado da mesma forma que [outras chaves de autorização](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Você pode gerar URLs que contêm os valores `taskHub`corretos, `systemKey` `connection`e de cadeia de caracteres de consulta usando APIs de associação de cliente `CreateCheckStatusResponse` de `CreateHttpManagementPayload` [orquestração](durable-functions-bindings.md#orchestration-client) , como as APIs `createCheckStatusResponse` e no .net, ou o e o `createHttpManagementPayload` APIs em JavaScript.
+`systemKey` é uma chave de autorização gerada automaticamente pelo host Azure Functions. Ele concede especificamente acesso às APIs de extensão de tarefa durável e pode ser gerenciado da mesma forma que [outras chaves de autorização](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Você pode gerar URLs que contêm os valores corretos de cadeia de caracteres de consulta `taskHub`, `connection`e `systemKey` usando APIs de [Associação de cliente de orquestração](durable-functions-bindings.md#orchestration-client) , como as APIs `CreateCheckStatusResponse` e `CreateHttpManagementPayload` no .net, ou as APIs `createCheckStatusResponse` e `createHttpManagementPayload` em JavaScript.
 
 As próximas seções abrangem as APIs HTTP específicas com suporte da extensão e fornecem exemplos de como elas podem ser usadas.
 
@@ -60,18 +60,18 @@ Os parâmetros de solicitação para essa API incluem o conjunto padrão mencion
 
 | Campo              | Tipo de parâmetro  | Descrição |
 |--------------------|-----------------|-------------|
-| **`functionName`** | URL             | O nome da função de orquestrador a ser iniciada. |
-| **`instanceId`**   | URL             | Parâmetro opcional. A ID da instância de orquestração. Se não for especificado, a função de orquestrador será iniciada com uma ID de instância aleatória. |
+| **`functionName`** | do IdP             | O nome da função de orquestrador a ser iniciada. |
+| **`instanceId`**   | do IdP             | Parâmetro opcional. A ID da instância de orquestração. Se não for especificado, a função de orquestrador será iniciada com uma ID de instância aleatória. |
 | **`{content}`**    | Conteúdo da solicitação | Opcional. A entrada da função de orquestrador formatada em JSON. |
 
 ### <a name="response"></a>Resposta
 
 Vários valores de código de status possíveis podem ser retornados.
 
-* **HTTP 202 (aceito)** : A função de orquestrador especificada foi agendada para iniciar a execução. O `Location` cabeçalho de resposta contém uma URL para sondar o status de orquestração.
-* **HTTP 400 (solicitação inadequada)** : A função de orquestrador especificada não existe, a ID de instância especificada não era válida ou o conteúdo da solicitação não era um JSON válido.
+* **HTTP 202 (aceito)** : a função de orquestrador especificada foi agendada para iniciar a execução. O cabeçalho de resposta `Location` contém uma URL para sondar o status de orquestração.
+* **HTTP 400 (solicitação inválida)** : a função de orquestrador especificada não existe, a ID de instância especificada não era válida ou o conteúdo da solicitação não era um JSON válido.
 
-Veja a seguir um exemplo de solicitação que inicia `RestartVMs` uma função de orquestrador e inclui a carga do objeto JSON:
+Veja a seguir um exemplo de solicitação que inicia uma função de orquestrador `RestartVMs` e inclui a carga do objeto JSON:
 
 ```http
 POST /runtime/webhooks/durabletask/orchestrators/RestartVMs?code=XXX
@@ -95,9 +95,9 @@ A carga de resposta para os casos **HTTP 202** é um objeto JSON com os seguinte
 | **`purgeHistoryDeleteUri`** |A URL "limpar histórico" da instância de orquestração. |
 | **`rewindPostUri`**         |apresentação A URL de "retrocesso" da instância de orquestração. |
 
-O tipo de dados de todos os `string`campos é.
+O tipo de dados de todos os campos é `string`.
 
-Aqui está um exemplo de carga de resposta para uma instância de `abc123` orquestração com como sua ID (formatada para legibilidade):
+Aqui está um exemplo de carga de resposta para uma instância de orquestração com `abc123` como sua ID (formatada para legibilidade):
 
 ```http
 {
@@ -111,8 +111,8 @@ Aqui está um exemplo de carga de resposta para uma instância de `abc123` orque
 
 A resposta http é destinada a ser compatível com o *padrão de consumidor de sondagem*. Ele também inclui os seguintes cabeçalhos de resposta notáveis:
 
-* **Local**: A URL do ponto de extremidade de status. Essa URL contém o mesmo valor que o `statusQueryGetUri` campo.
-* **Tentar novamente**: O número de segundos de espera entre as operações de sondagem. O valor predefinido é `10`.
+* **Location**: a URL do ponto de extremidade de status. Essa URL contém o mesmo valor que o campo `statusQueryGetUri`.
+* **Tentar novamente**: o número de segundos de espera entre as operações de sondagem. O valor padrão é `10`.
 
 Para obter mais informações sobre o padrão de sondagem HTTP assíncrona, consulte a documentação de [rastreamento de operação](durable-functions-http-features.md#async-operation-tracking) assíncrona http.
 
@@ -150,7 +150,7 @@ Os parâmetros de solicitação para essa API incluem o conjunto padrão mencion
 
 | Campo                   | Tipo de parâmetro  | Descrição |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | URL             | A ID da instância de orquestração. |
+| **`instanceId`**        | do IdP             | A ID da instância de orquestração. |
 | **`showInput`**         | Cadeia de consulta    | Parâmetro opcional. Se definido como `false`, a entrada da função não será incluída na carga de resposta.|
 | **`showHistory`**       | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução de orquestração será incluído na carga de resposta.|
 | **`showHistoryOutput`** | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, as saídas de função serão incluídas no histórico de execução de orquestração.|
@@ -162,23 +162,23 @@ Os parâmetros de solicitação para essa API incluem o conjunto padrão mencion
 
 Vários valores de código de status possíveis podem ser retornados.
 
-* **HTTP 200 (OK)** : A instância especificada está em um estado concluído.
-* **HTTP 202 (aceito)** : A instância especificada está em andamento.
-* **HTTP 400 (solicitação inadequada)** : A instância especificada falhou ou foi encerrada.
-* **HTTP 404 (não encontrado)** : A instância especificada não existe ou não iniciou a execução.
-* **HTTP 500 (erro interno do servidor)** : A instância especificada falhou com uma exceção sem tratamento.
+* **HTTP 200 (OK)** : a instância especificada está em um estado concluído.
+* **HTTP 202 (aceito)** : a instância especificada está em andamento.
+* **HTTP 400 (solicitação inadequada)** : a instância especificada falhou ou foi encerrada.
+* **HTTP 404 (não encontrado)** : a instância especificada não existe ou não iniciou a execução.
+* **HTTP 500 (erro de servidor interno)** : a instância especificada falhou com uma exceção sem tratamento.
 
 A carga de resposta para os casos **http 200** e **http 202** é um objeto JSON com os seguintes campos:
 
-| Campo                 | Tipo de dados | Descrição |
+| Campo                 | Data type | Descrição |
 |-----------------------|-----------|-------------|
-| **`runtimeStatus`**   | Cadeia de caracteres    | O status de tempo de execução da instância. Os valores incluem *execução*, *pendente*, *falha*, *cancelado*, *encerrado*, *concluído*. |
-| **`input`**           | JSON      | Os dados JSON usados para inicializar a instância. Esse campo é `null` se o `showInput` parâmetro da cadeia de caracteres de `false`consulta for definido como.|
-| **`customStatus`**    | JSON      | Os dados JSON usados para o status de orquestração personalizado. Esse campo é `null` se não estiver definido. |
-| **`output`**          | JSON      | A saída JSON da instância. Esse campo é `null` se a instância não estiver em um estado concluído. |
-| **`createdTime`**     | Cadeia de caracteres    | A hora em que a instância foi criada. Usa a notação estendida ISO 8601. |
-| **`lastUpdatedTime`** | Cadeia de caracteres    | A hora em que a instância foi persistida pela última vez. Usa a notação estendida ISO 8601. |
-| **`historyEvents`**   | JSON      | Uma matriz JSON que contém o histórico de execução de orquestração. Esse campo é `null` a menos `showHistory` que o parâmetro de cadeia de `true`caracteres de consulta seja definido como. |
+| **`runtimeStatus`**   | string    | O status de tempo de execução da instância. Os valores incluem *execução*, *pendente*, *falha*, *cancelado*, *encerrado*, *concluído*. |
+| **`input`**           | JSON      | Os dados JSON usados para inicializar a instância. Esse campo será `null` se o parâmetro `showInput` cadeia de caracteres de consulta for definido como `false`.|
+| **`customStatus`**    | JSON      | Os dados JSON usados para o status de orquestração personalizado. Esse campo será `null` se não estiver definido. |
+| **`output`**          | JSON      | A saída JSON da instância. Esse campo será `null` se a instância não estiver em um estado concluído. |
+| **`createdTime`**     | string    | A hora em que a instância foi criada. Usa a notação estendida ISO 8601. |
+| **`lastUpdatedTime`** | string    | A hora em que a instância foi persistida pela última vez. Usa a notação estendida ISO 8601. |
+| **`historyEvents`**   | JSON      | Uma matriz JSON que contém o histórico de execução de orquestração. Esse campo é `null`, a menos que o parâmetro de cadeia de caracteres de consulta `showHistory` seja definido como `true`. |
 
 Aqui está um exemplo de conteúdo de resposta, incluindo o histórico de execução de orquestração e saídas de atividade (formatado para facilitar a leitura):
 
@@ -235,13 +235,13 @@ Aqui está um exemplo de conteúdo de resposta, incluindo o histórico de execu�
 }
 ```
 
-A resposta **http 202** também inclui um cabeçalho de resposta de **local** que faz referência à mesma `statusQueryGetUri` URL que o campo mencionado anteriormente.
+A resposta **HTTP 202** também inclui um cabeçalho de resposta de **local** que faz referência à mesma URL que o campo `statusQueryGetUri` mencionado anteriormente.
 
 ## <a name="get-all-instances-status"></a>Obter status de todas as instâncias
 
-Você também pode consultar o status de todas as instâncias removendo `instanceId` o da solicitação ' obter status da instância '. Nesse caso, os parâmetros básicos são os mesmos que o ' obter status da instância '. Também há suporte para parâmetros de cadeia de caracteres de consulta para filtragem.
+Você também pode consultar o status de todas as instâncias removendo o `instanceId` da solicitação ' obter status da instância '. Nesse caso, os parâmetros básicos são os mesmos que o ' obter status da instância '. Também há suporte para parâmetros de cadeia de caracteres de consulta para filtragem.
 
-Uma coisa a ser lembrada `connection` é `code` que e são opcionais. Se você tiver a autenticação anônima na função, `code` não será necessário.
+Uma coisa a ser lembrada é que `connection` e `code` são opcionais. Se você tiver a autenticação anônima na função, `code` não será necessário.
 Se você não quiser usar uma cadeia de conexão de armazenamento diferente da definida na configuração de aplicativo AzureWebJobsStorage, poderá ignorar com segurança o parâmetro de cadeia de caracteres de consulta de conexão.
 
 ### <a name="request"></a>Pedir
@@ -278,7 +278,7 @@ Os parâmetros de solicitação para essa API incluem o conjunto padrão mencion
 
 | Campo                   | Tipo de parâmetro  | Descrição |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | URL             | A ID da instância de orquestração. |
+| **`instanceId`**        | do IdP             | A ID da instância de orquestração. |
 | **`showInput`**         | Cadeia de consulta    | Parâmetro opcional. Se definido como `false`, a entrada da função não será incluída na carga de resposta.|
 | **`showHistory`**       | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução de orquestração será incluído na carga de resposta.|
 | **`showHistoryOutput`** | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, as saídas de função serão incluídas no histórico de execução de orquestração.|
@@ -346,7 +346,7 @@ Aqui está um exemplo de cargas de resposta, incluindo o status de orquestraçã
 
 Se houver mais resultados, um token de continuação será retornado no cabeçalho de resposta.  O nome do cabeçalho é `x-ms-continuation-token`.
 
-Se você definir o valor do token de continuação no próximo cabeçalho de solicitação, poderá obter a próxima página de resultados. O nome do cabeçalho da solicitação também `x-ms-continuation-token`é.
+Se você definir o valor do token de continuação no próximo cabeçalho de solicitação, poderá obter a próxima página de resultados. O nome do cabeçalho da solicitação também é `x-ms-continuation-token`.
 
 ## <a name="purge-single-instance-history"></a>Limpar o histórico de instância única
 
@@ -376,20 +376,20 @@ Os parâmetros de solicitação para essa API incluem o conjunto padrão mencion
 
 | Campo             | Tipo de parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | URL             | A ID da instância de orquestração. |
+| **`instanceId`**  | do IdP             | A ID da instância de orquestração. |
 
 ### <a name="response"></a>Resposta
 
 Os valores de código de status HTTP a seguir podem ser retornados.
 
-* **HTTP 200 (OK)** : O histórico de instâncias foi limpo com êxito.
-* **HTTP 404 (não encontrado)** : A instância especificada não existe.
+* **HTTP 200 (OK)** : o histórico de instância foi limpo com êxito.
+* **HTTP 404 (não encontrado)** : a instância especificada não existe.
 
 A carga de resposta para o caso de **HTTP 200** é um objeto JSON com o seguinte campo:
 
-| Campo                  | Tipo de dados | Descrição |
+| Campo                  | Data type | Descrição |
 |------------------------|-----------|-------------|
-| **`instancesDeleted`** | integer   | O número de instâncias excluídas. Para o caso de instância única, esse valor sempre deve `1`ser. |
+| **`instancesDeleted`** | número inteiro   | O número de instâncias excluídas. Para o caso de instância única, esse valor sempre deve ser `1`. |
 
 Aqui está um exemplo de carga de resposta (formatada para facilitar a leitura):
 
@@ -401,7 +401,7 @@ Aqui está um exemplo de carga de resposta (formatada para facilitar a leitura):
 
 ## <a name="purge-multiple-instance-histories"></a>Limpar históricos de várias instâncias
 
-Você também pode excluir o histórico e os artefatos relacionados para várias instâncias em um hub de tarefas `{instanceId}` removendo o da solicitação ' limpar o histórico de instância única '. Para limpar seletivamente o histórico de instância, use os mesmos filtros descritos na solicitação "obter status de todas as instâncias".
+Você também pode excluir o histórico e os artefatos relacionados para várias instâncias em um hub de tarefas removendo a `{instanceId}` da solicitação ' limpar o histórico de instância única '. Para limpar seletivamente o histórico de instância, use os mesmos filtros descritos na solicitação "obter status de todas as instâncias".
 
 ### <a name="request"></a>Pedir
 
@@ -444,14 +444,14 @@ Os parâmetros de solicitação para essa API incluem o conjunto padrão mencion
 
 Os valores de código de status HTTP a seguir podem ser retornados.
 
-* **HTTP 200 (OK)** : O histórico de instâncias foi limpo com êxito.
-* **HTTP 404 (não encontrado)** : Não foram encontradas instâncias que correspondam à expressão de filtro.
+* **HTTP 200 (OK)** : o histórico de instância foi limpo com êxito.
+* **HTTP 404 (não encontrado)** : nenhuma instância encontrada corresponde à expressão de filtro.
 
 A carga de resposta para o caso de **HTTP 200** é um objeto JSON com o seguinte campo:
 
-| Campo                   | Tipo de dados | Descrição |
+| Campo                   | Data type | Descrição |
 |-------------------------|-----------|-------------|
-| **`instancesDeleted`**  | integer   | O número de instâncias excluídas. |
+| **`instancesDeleted`**  | número inteiro   | O número de instâncias excluídas. |
 
 Aqui está um exemplo de carga de resposta (formatada para facilitar a leitura):
 
@@ -489,20 +489,20 @@ Os parâmetros de solicitação para essa API incluem o conjunto padrão mencion
 
 | Campo             | Tipo de parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | URL             | A ID da instância de orquestração. |
-| **`eventName`**   | URL             | O nome do evento que a instância de orquestração de destino está aguardando. |
+| **`instanceId`**  | do IdP             | A ID da instância de orquestração. |
+| **`eventName`**   | do IdP             | O nome do evento que a instância de orquestração de destino está aguardando. |
 | **`{content}`**   | Conteúdo da solicitação | A carga do evento em formato JSON. |
 
 ### <a name="response"></a>Resposta
 
 Vários valores de código de status possíveis podem ser retornados.
 
-* **HTTP 202 (aceito)** : O evento gerado foi aceito para processamento.
-* **HTTP 400 (solicitação inadequada)** : O conteúdo da solicitação não era do `application/json` tipo ou não era um JSON válido.
-* **HTTP 404 (não encontrado)** : A instância especificada não foi encontrada.
-* **HTTP 410 (ausente)** : A instância especificada foi concluída ou falhou e não pode processar nenhum evento gerado.
+* **HTTP 202 (aceito)** : o evento gerado foi aceito para processamento.
+* **HTTP 400 (solicitação inválida)** : o conteúdo da solicitação não era do tipo `application/json` ou não era um JSON válido.
+* **HTTP 404 (não encontrado)** : a instância especificada não foi encontrada.
+* **HTTP 410 (ausente)** : a instância especificada foi concluída ou falhou e não pode processar nenhum evento gerado.
 
-Aqui está um exemplo de solicitação que envia a cadeia `"incr"` de caracteres JSON para uma instância que aguarda um evento chamado **Operation**:
+Aqui está um exemplo de solicitação que envia a cadeia de caracteres JSON `"incr"` a uma instância aguardando um evento chamado **Operation**:
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
@@ -544,16 +544,16 @@ Os parâmetros de solicitação para essa API incluem o conjunto padrão mencion
 
 | Campo             | Tipo de parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | URL             | A ID da instância de orquestração. |
+| **`instanceId`**  | do IdP             | A ID da instância de orquestração. |
 | **`reason`**      | Cadeia de consulta    | Opcional. O motivo para encerrar a instância de orquestração. |
 
 ### <a name="response"></a>Resposta
 
 Vários valores de código de status possíveis podem ser retornados.
 
-* **HTTP 202 (aceito)** : A solicitação de encerramento foi aceita para processamento.
-* **HTTP 404 (não encontrado)** : A instância especificada não foi encontrada.
-* **HTTP 410 (ausente)** : A instância especificada foi concluída ou falhou.
+* **HTTP 202 (aceito)** : a solicitação de término foi aceita para processamento.
+* **HTTP 404 (não encontrado)** : a instância especificada não foi encontrada.
+* **HTTP 410 (ausente)** : a instância especificada foi concluída ou falhou.
 
 Aqui está um exemplo de solicitação que encerra uma instância em execução e especifica um motivo de **bugs**:
 
@@ -593,16 +593,16 @@ Os parâmetros de solicitação para essa API incluem o conjunto padrão mencion
 
 | Campo             | Tipo de parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | URL             | A ID da instância de orquestração. |
+| **`instanceId`**  | do IdP             | A ID da instância de orquestração. |
 | **`reason`**      | Cadeia de consulta    | Opcional. O motivo para retroceder a instância de orquestração. |
 
 ### <a name="response"></a>Resposta
 
 Vários valores de código de status possíveis podem ser retornados.
 
-* **HTTP 202 (aceito)** : A solicitação de retrocesso foi aceita para processamento.
-* **HTTP 404 (não encontrado)** : A instância especificada não foi encontrada.
-* **HTTP 410 (ausente)** : A instância especificada foi concluída ou foi encerrada.
+* **HTTP 202 (aceito)** : a solicitação de retrocesso foi aceita para processamento.
+* **HTTP 404 (não encontrado)** : a instância especificada não foi encontrada.
+* **HTTP 410 (ausente)** : a instância especificada foi concluída ou encerrada.
 
 Aqui está um exemplo de solicitação que rebobina uma instância com falha e especifica um motivo de **fixo**:
 
@@ -635,12 +635,12 @@ Os parâmetros de solicitação para essa API incluem o conjunto padrão mencion
 
 | Campo             | Tipo de parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`entityType`**  | URL             | O tipo da entidade. |
-| **`entityKey`**   | URL             | O nome exclusivo da entidade. |
+| **`entityType`**  | do IdP             | O tipo da entidade. |
+| **`entityKey`**   | do IdP             | O nome exclusivo da entidade. |
 | **`op`**          | Cadeia de consulta    | Opcional. O nome da operação definida pelo usuário a ser invocada. |
 | **`{content}`**   | Conteúdo da solicitação | A carga do evento em formato JSON. |
 
-Aqui está uma solicitação de exemplo que envia uma mensagem de "adição" definida pelo usuário `Counter` a uma `steps`entidade chamada. O conteúdo da mensagem é o valor `5`. Se a entidade ainda não existir, ela será criada por essa solicitação:
+Aqui está uma solicitação de exemplo que envia uma mensagem de "adição" definida pelo usuário a uma entidade `Counter` chamada `steps`. O conteúdo da mensagem é o valor `5`. Se a entidade ainda não existir, ela será criada por essa solicitação:
 
 ```http
 POST /runtime/webhooks/durabletask/entities/Counter/steps?op=Add
@@ -653,9 +653,9 @@ Content-Type: application/json
 
 Esta operação tem várias respostas possíveis:
 
-* **HTTP 202 (aceito)** : A operação de sinal foi aceita para processamento assíncrono.
-* **HTTP 400 (solicitação inadequada)** : O conteúdo da solicitação não era do `application/json`tipo, não era um JSON válido ou tinha um `entityKey` valor inválido.
-* **HTTP 404 (não encontrado)** : O especificado `entityType` não foi encontrado.
+* **HTTP 202 (aceito)** : a operação de sinal foi aceita para processamento assíncrono.
+* **HTTP 400 (solicitação inválida)** : o conteúdo da solicitação não era do tipo `application/json`, não era um JSON válido ou tinha um valor de `entityKey` inválido.
+* **HTTP 404 (não encontrado)** : o `entityType` especificado não foi encontrado.
 
 Uma solicitação HTTP bem-sucedida não contém nenhum conteúdo na resposta. Uma solicitação HTTP com falha pode conter informações de erro formatadas em JSON no conteúdo da resposta.
 
@@ -678,19 +678,19 @@ GET /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
 
 Esta operação tem duas respostas possíveis:
 
-* **HTTP 200 (OK)** : A entidade especificada existe.
-* **HTTP 404 (não encontrado)** : A entidade especificada não foi encontrada.
+* **HTTP 200 (OK)** : a entidade especificada existe.
+* **HTTP 404 (não encontrado)** : a entidade especificada não foi encontrada.
 
 Uma resposta bem-sucedida contém o estado serializado em JSON da entidade como seu conteúdo.
 
 ### <a name="example"></a>Exemplo
-A solicitação HTTP de exemplo a seguir obtém o estado de `Counter` uma entidade `steps`existente chamada:
+A solicitação HTTP de exemplo a seguir obtém o estado de uma entidade de `Counter` existente chamada `steps`:
 
 ```http
 GET /runtime/webhooks/durabletask/entities/Counter/steps
 ```
 
-Se a `Counter` entidade contiver simplesmente uma série de etapas salvas `currentValue` em um campo, o conteúdo da resposta poderá ser semelhante ao seguinte (formatado para facilitar a leitura):
+Se a entidade `Counter` simplesmente contivesse várias etapas salvas em um campo `currentValue`, o conteúdo da resposta poderá ser semelhante ao seguinte (formatado para facilitar a leitura):
 
 ```json
 {
@@ -698,7 +698,7 @@ Se a `Counter` entidade contiver simplesmente uma série de etapas salvas `curre
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como usar Application Insights para monitorar suas funções duráveis](durable-functions-diagnostics.md)

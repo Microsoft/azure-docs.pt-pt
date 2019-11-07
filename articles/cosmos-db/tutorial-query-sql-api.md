@@ -1,19 +1,19 @@
 ---
-title: Como fazer consultas com SQL na Azure Cosmos DB?
-description: Saiba como fazer consultas com SQL na Azure Cosmos DB
+title: 'Tutorial: como consultar com o SQL no Azure Cosmos DB?'
+description: 'Tutorial: Aprenda a consultar com o SQL no Azure Cosmos DB'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
-ms.date: 05/21/2019
+ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: ffebdb0a46fdae981ca73a4569344365459dd7b8
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 295b4168d858238a94e737b1abc3a38e2419370f
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756826"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720737"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: consultar a Azure Cosmos DB utilizando a API do SQL
 
@@ -65,7 +65,7 @@ Para obter mais informações sobre as consultas SQL, consulte:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial parte do princípio de que tem uma conta e coleção da Azure Cosmos DB. Não tem qualquer um destes? Conclua o [guia de início rápido de 5 minutos](create-cosmosdb-resources-portal.md).
+Este tutorial parte do princípio de que tem uma conta e coleção da Azure Cosmos DB. Não tem qualquer um destas? Conclua o [guia de início rápido de 5 minutos](create-cosmosdb-resources-portal.md).
 
 ## <a name="example-query-1"></a>Consulta de exemplo 1
 

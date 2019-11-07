@@ -1,5 +1,5 @@
 ---
-title: Exemplo do PowerShell Restore backup geográfico-banco de dados SQL do Azure | Microsoft Docs
+title: Exemplo do PowerShell Restore backup geográfico-banco de dados SQL do Azure
 description: Azure PowerShell script de exemplo para restaurar um banco de dados SQL Instância Gerenciada do Azure de um backup com redundância geográfica.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: b6ad93d3b711726edd6891e5f6da2c8eef99d531
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9de8819e82db12cb5625a449e4ea5bf2f028a44d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569708"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691413"
 ---
 # <a name="use-powershell-to-restore-a-managed-instance-database-to-another-geo-region"></a>Usar o PowerShell para restaurar um banco de dados Instância Gerenciada para outra região geográfica
 
@@ -78,7 +78,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/Restore-AzSqlInstanceDatabase) | Cria um banco de dados em um Instância Gerenciada do backup geográfico. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o PowerShell, consulte a [documentação do Azure PowerShell](/powershell/azure/overview).
 

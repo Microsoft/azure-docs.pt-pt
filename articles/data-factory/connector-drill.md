@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do Drill usando Azure Data Factory | Microsoft Docs
+title: Copiar dados do Drill usando Azure Data Factory
 description: Saiba como copiar dados de análise para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: bdbb5742c74ff2b8871b00c7251af03ec8e026ad
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3d91e8df3f0ecafc133b82dcb0172dbbba966e27
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931128"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681033"
 ---
 # <a name="copy-data-from-drill-using-azure-data-factory"></a>Copiar dados do Drill usando Azure Data Factory
 
@@ -48,7 +48,7 @@ As seções a seguir fornecem detalhes sobre as propriedades que são usadas par
 
 As propriedades a seguir têm suporte para o serviço de análise detalhada:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type deve ser definida como: **Drill** | Sim |
 | connectionString | Uma cadeia de conexão ODBC para se conectar ao Drill. <br/>Marque este campo como uma SecureString para armazená-lo com segurança em Data Factory. Você também pode colocar a senha em Azure Key Vault e extrair a configuração de `pwd` da cadeia de conexão. Consulte os exemplos a seguir e [armazene as credenciais no artigo Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
@@ -111,12 +111,12 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Drill, defina a propriedade Type do conjunto de dado como **drilltable**. As propriedades a seguir têm suporte:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **drilltable** | Sim |
-| Esquema | Nome do esquema. |Não (se "Query" na origem da atividade for especificada)  |
-| Tabela | Nome da tabela. |Não (se "Query" na origem da atividade for especificada)  |
-| tableName | Nome da tabela com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Use `schema` e `table` para uma nova carga de trabalho. | Não (se "Query" na origem da atividade for especificada) |
+| schema | Nome do esquema. |Não (se for especificada "query" na origem de atividade)  |
+| tabela | Nome da tabela. |Não (se for especificada "query" na origem de atividade)  |
+| tableName | Nome da tabela com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Use `schema` e `table` para uma nova carga de trabalho. | Não (se for especificada "query" na origem de atividade) |
 
 **Exemplo**
 
@@ -143,7 +143,7 @@ Para obter uma lista completa de seções e propriedades disponíveis para defin
 
 Para copiar dados do Drill, defina o tipo de origem na atividade de cópia como **drillname**. As propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como: **drillname** | Sim |
 | consulta | Use a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "TableName" no DataSet for especificado) |

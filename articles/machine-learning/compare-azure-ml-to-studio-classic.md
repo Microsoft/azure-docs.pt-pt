@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: dae708a417a1bf8ca4b118f218e353a28e5675c1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: HT
+ms.openlocfilehash: 721f730aa78be39b91f7d8368655dbbd5878903b
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684968"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73716686"
 ---
 # <a name="how-azure-machine-learning-differs-from-ml-studio-classic"></a>Como Azure Machine Learning difere de ML Studio (clássico)
 
@@ -40,7 +40,7 @@ Aqui está uma comparação rápida.
 ||O designer está em versão prévia, Azure Machine Learning é GA|Disponibilidade geral (GA) | 
 |Interface do tipo "arrastar e soltar"| Sim | Sim|
 |Testes| Dimensionar com destino de computação|Escala (limite de dados de treinamento de 10 GB) | 
-|Módulos para interface|  Muitos módulos populares|Muitos |
+|Módulos para interface| [Muitos módulos populares](algorithm-module-reference/module-reference.md) | Muitos |
 |Treinamento de destinos de computação| Computação AML (GPU/CPU)|Destino de computação proprietário, somente CPU|
 |Destinos de computação do inferência| Serviço kubernetes do Azure para inferência em tempo real <br/>Computação AML para inferência de lote|Formato de serviço da Web proprietário, não personalizável | 
 |Pipeline ML| Criação de pipeline <br/> pipeline publicado <br/> Ponto de extremidade do pipeline <br/> [Saiba mais sobre o pipeline do ML](service/concept-ml-pipelines.md)|Não suportado | 
@@ -48,7 +48,7 @@ Aqui está uma comparação rápida.
 |Modelo| O formato padrão, vários depende do trabalho de treinamento|Formato proprietário e não portátil.| 
 |Treinamento de modelo automatizado|Ainda não no designer, mas possível por meio da interface e dos SDKs.| Não | 
 
-## <a name="get-started-with-azure-machine-learning-designer"></a>Introdução ao designer de Azure Machine Learning
+## <a name="get-started-with-azure-machine-learning"></a>Introdução ao Azure Machine Learning
 
 Os recursos a seguir podem ajudá-lo a começar a usar o Azure Machine Learning
 
@@ -56,12 +56,11 @@ Os recursos a seguir podem ajudá-lo a começar a usar o Azure Machine Learning
 
 - [Crie seu primeiro pipeline de designer](service/tutorial-designer-automobile-price-train-score.md) para prever preços automáticos.
 
-
 ![Exemplo de designer de Azure Machine Learning](service/media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Além dos recursos de arrastar-n-soltar no designer, Azure Machine Learning tem outras ferramentas disponíveis:  
+Além dos recursos do tipo "arrastar e soltar" no designer, Azure Machine Learning tem outras ferramentas disponíveis:  
   + [Usar blocos de anotações do Python para treinar & implantar modelos de ML](./service/tutorial-1st-experiment-sdk-setup.md)
   + [Usar R Markdown para treinar & implantar modelos de ML](./service/tutorial-1st-r-experiment.md) 
   + [Usar o Machine Learning automatizado para treinar & implantar modelos de ML](./service/tutorial-designer-automobile-price-train-score.md) 

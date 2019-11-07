@@ -1,5 +1,5 @@
 ---
-title: Criando, atualizando estatísticas – Azure SQL Data Warehouse | Microsoft Docs
+title: Criando, atualizando estatísticas
 description: Recomendações e exemplos para criar e atualizar estatísticas de otimização de consulta em tabelas no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,13 +10,13 @@ ms.subservice: development
 ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seoapril2019
-ms.openlocfilehash: 00643e303b3352ce9ce39e5a27fd8b42246aac51
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: c995358fc0135a1f9b504b57b23ecb3f6b41d6da
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479170"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692407"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Estatísticas de tabela no Azure SQL Data Warehouse
 
@@ -28,16 +28,16 @@ Quanto mais SQL Data Warehouse do Azure souber sobre seus dados, mais rápido el
 
 ## <a name="automatic-creation-of-statistic"></a>Criação automática de estatística
 
-Quando a opção AUTO_CREATE_STATISTICS do banco de dados estiver ativada, SQL Data Warehouse analisará as consultas de usuário recebidas quanto a estatísticas ausentes. Se as estatísticas estiverem ausentes, o otimizador de consulta criará estatísticas em colunas individuais no predicado de consulta ou condição de junção para melhorar as estimativas de cardinalidade para o plano de consulta. A criação automática de estatísticas está atualmente ativada por padrão.
+Quando a opção de AUTO_CREATE_STATISTICS do banco de dados está ativada, SQL Data Warehouse analisa as consultas de usuário de entrada para obter as estatísticas ausentes. Se as estatísticas estiverem ausentes, o otimizador de consulta criará estatísticas em colunas individuais no predicado de consulta ou condição de junção para melhorar as estimativas de cardinalidade para o plano de consulta. A criação automática de estatísticas está atualmente ativada por padrão.
 
-Você pode verificar se o data warehouse tem o AUTO_CREATE_STATISTICS configurado executando o seguinte comando:
+Você pode verificar se o data warehouse tem AUTO_CREATE_STATISTICS configurado executando o seguinte comando:
 
 ```sql
 SELECT name, is_auto_create_stats_on
 FROM sys.databases
 ```
 
-Se seu data warehouse não tiver o AUTO_CREATE_STATISTICS configurado, recomendamos que você habilite essa propriedade executando o seguinte comando:
+Se o data warehouse não tiver AUTO_CREATE_STATISTICS configurado, recomendamos que você habilite essa propriedade executando o seguinte comando:
 
 ```sql
 ALTER DATABASE <yourdatawarehousename>
@@ -59,9 +59,9 @@ Essas instruções irão disparar a criação automática de estatísticas:
 A criação automática de estatísticas é feita de forma síncrona para que você possa incorrer em um desempenho de consulta ligeiramente degradado se suas colunas estiverem com estatísticas ausentes. O tempo para criar estatísticas para uma única coluna depende do tamanho da tabela. Para evitar degradação de desempenho mensurável, especialmente em benchmarking de desempenho, você deve garantir que as estatísticas tenham sido criadas primeiro executando a carga de trabalho de parâmetro de comparação antes de criar o perfil do sistema.
 
 > [!NOTE]
-> A criação de estatísticas será registrada em [Sys. dm _pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) em um contexto de usuário diferente.
+> A criação de estatísticas será registrada em [Sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) em um contexto de usuário diferente.
 
-Quando as estatísticas automáticas são criadas, elas terão o formato: _WA_Sys_< ID de coluna de 8 dígitos em Hex > _ < ID da tabela de 8 dígitos em Hex >. Você pode exibir estatísticas que já foram criadas executando o comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) :
+Quando as estatísticas automáticas são criadas, elas assumem o formato: _WA_Sys_< ID de coluna de 8 dígitos em Hex > _ < 8 dígitos ID de tabela em hexadecimal >. Você pode exibir estatísticas que já foram criadas executando o comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) :
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -77,7 +77,7 @@ A seguir estão as recomendações atualizando as estatísticas:
 
 |||
 |-|-|
-| **Frequência de atualizações de estatísticas**  | Conservador Diariamente </br> Depois de carregar ou transformar seus dados |
+| **Frequência de atualizações de estatísticas**  | Conservador: diariamente </br> Depois de carregar ou transformar seus dados |
 | **Amostragem** |  Menos de 1.000.000.000 linhas, use amostragem padrão (20 por cento). </br> Com mais de 1.000.000.000 linhas, use a amostragem de dois por cento. |
 
 Uma das primeiras perguntas a serem feitas quando você está Solucionando problemas de uma consulta é, **"as estatísticas estão atualizadas?"**
@@ -134,7 +134,7 @@ Os seguintes princípios de orientação são fornecidos para atualizar suas est
 
 Para obter mais informações, consulte [estimativa de cardinalidade](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
-## <a name="examples-create-statistics"></a>Exemplos: Criar estatísticas
+## <a name="examples-create-statistics"></a>Exemplos: CREATE STATISTICS
 
 Esses exemplos mostram como usar várias opções para criar estatísticas. As opções que você usa para cada coluna dependem das características de seus dados e de como a coluna será usada em consultas.
 
@@ -210,13 +210,13 @@ Para criar um objeto de estatísticas de várias colunas, basta usar os exemplos
 > [!NOTE]
 > O histograma, que é usado para estimar o número de linhas no resultado da consulta, está disponível somente para a primeira coluna listada na definição do objeto de estatísticas.
 
-Neste exemplo, o histograma está na *categoria de\_produto*. As estatísticas entre colunas são calculadas *na\_categoria do produto* e *sub_category do produto\_* :
+Neste exemplo, o histograma está no *produto\_categoria*. As estatísticas entre colunas são calculadas no *produto\_categoria* e *\_do produto sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Como há uma correlação entre a *categoria\_de produto* e a *\_\_subcategoria de produto*, um objeto de estatísticas de várias colunas poderá ser útil se essas colunas forem acessadas ao mesmo tempo.
+Como há uma correlação entre o *produto\_categoria* e o *produto\_sub\_categoria*, um objeto de estatísticas de várias colunas poderá ser útil se essas colunas forem acessadas ao mesmo tempo.
 
 ### <a name="create-statistics-on-all-columns-in-a-table"></a>Criar estatísticas em todas as colunas em uma tabela
 
@@ -242,7 +242,7 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 
 ### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>Usar um procedimento armazenado para criar estatísticas em todas as colunas de um banco de dados
 
-SQL Data Warehouse não tem um procedimento armazenado do sistema equivalente a sp_create_stats em SQL Server. Esse procedimento armazenado cria um objeto de estatísticas de coluna única em cada coluna do banco de dados que ainda não tem estatísticas.
+SQL Data Warehouse não tem um procedimento armazenado do sistema equivalente a sp_create_stats no SQL Server. Esse procedimento armazenado cria um objeto de estatísticas de coluna única em cada coluna do banco de dados que ainda não tem estatísticas.
 
 O exemplo a seguir ajudará você a começar a usar seu design de banco de dados. Sinta-se à vontade para adaptá-lo às suas necessidades:
 
@@ -352,7 +352,7 @@ EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 
 Para criar estatísticas de amostra em todas as colunas
 
-## <a name="examples-update-statistics"></a>Exemplos: Atualizar estatísticas
+## <a name="examples-update-statistics"></a>Exemplos: atualizar estatísticas
 
 Para atualizar as estatísticas, você pode:
 
@@ -394,7 +394,7 @@ A instrução UPDATE STATISTICs é fácil de usar. Apenas lembre-se de que ele a
 > [!NOTE]
 > Ao atualizar todas as estatísticas em uma tabela, SQL Data Warehouse faz uma verificação para obter uma amostra da tabela para cada objeto de estatísticas. Se a tabela for grande e tiver muitas colunas e muitas estatísticas, poderá ser mais eficiente atualizar as estatísticas individuais com base na necessidade.
 
-Para obter uma implementação de `UPDATE STATISTICS` um procedimento, consulte [tabelas temporárias](sql-data-warehouse-tables-temporary.md). O método de implementação é ligeiramente diferente do procedimento `CREATE STATISTICS` anterior, mas o resultado é o mesmo.
+Para obter uma implementação de um procedimento de `UPDATE STATISTICS`, consulte [tabelas temporárias](sql-data-warehouse-tables-temporary.md). O método de implementação é ligeiramente diferente do procedimento de `CREATE STATISTICS` anterior, mas o resultado é o mesmo.
 
 Para obter a sintaxe completa, consulte [atualizar estatísticas](/sql/t-sql/statements/update-statistics-transact-sql).
 
@@ -406,15 +406,15 @@ Há várias exibições e funções do sistema que você pode usar para encontra
 
 Essas exibições do sistema fornecem informações sobre estatísticas:
 
-| Exibição do catálogo | Descrição |
+| exibição do catálogo | Descrição |
 |:--- |:--- |
-| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |Uma linha para cada coluna. |
-| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Uma linha para cada objeto no banco de dados. |
-| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Uma linha para cada esquema no banco de dados. |
-| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |Uma linha para cada objeto de estatísticas. |
-| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |Uma linha para cada coluna no objeto de estatísticas. Retorna links para sys. Columns. |
-| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |Uma linha para cada tabela (inclui tabelas externas). |
-| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |Uma linha para cada tipo de dados. |
+| [sys. Columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |Uma linha para cada coluna. |
+| [sys. Objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Uma linha para cada objeto no banco de dados. |
+| [sys. schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Uma linha para cada esquema no banco de dados. |
+| [sys. stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |Uma linha para cada objeto de estatísticas. |
+| [sys. stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |Uma linha para cada coluna no objeto de estatísticas. Retorna links para sys. Columns. |
+| [sys. Tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |Uma linha para cada tabela (inclui tabelas externas). |
+| [sys. table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |Uma linha para cada tipo de dados. |
 
 ### <a name="system-functions-for-statistics"></a>Funções do sistema para estatísticas
 
@@ -465,7 +465,7 @@ AND     st.[user_created] = 1
 ;
 ```
 
-## <a name="dbcc-showstatistics-examples"></a>Exemplos de DBCC SHOW_STATISTICS ()
+## <a name="dbcc-show_statistics-examples"></a>Exemplos de DBCC SHOW_STATISTICS ()
 
 DBCC SHOW_STATISTICS () mostra os dados mantidos em um objeto de estatísticas. Esses dados são fornecidos em três partes:
 
@@ -489,9 +489,9 @@ Por exemplo:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
-### <a name="show-one-or-more-parts-of-dbcc-showstatistics"></a>Mostrar uma ou mais partes de DBCC SHOW_STATISTICS ()
+### <a name="show-one-or-more-parts-of-dbcc-show_statistics"></a>Mostrar uma ou mais partes do DBCC SHOW_STATISTICS ()
 
-Se você estiver interessado apenas em exibir partes específicas, use a `WITH` cláusula e especifique quais partes deseja ver:
+Se você estiver interessado apenas em exibir partes específicas, use a cláusula `WITH` e especifique quais partes deseja ver:
 
 ```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
@@ -503,18 +503,18 @@ Por exemplo:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-## <a name="dbcc-showstatistics-differences"></a>Diferenças de DBCC SHOW_STATISTICS ()
+## <a name="dbcc-show_statistics-differences"></a>Diferenças do DBCC SHOW_STATISTICS ()
 
-DBCC SHOW_STATISTICS () é implementado mais estritamente em SQL Data Warehouse em comparação com SQL Server:
+O DBCC SHOW_STATISTICS () é mais estritamente implementado em SQL Data Warehouse em comparação com SQL Server:
 
 - Não há suporte para recursos não documentados.
 - Não é possível usar Stats_stream.
-- Não é possível unir resultados para subconjuntos específicos de dados de estatísticas. Por exemplo, STAT_HEADER JOIN DENSITY_VECTOR.
-- NO_INFOMSGS não pode ser definido para supressão de mensagem.
+- Não é possível unir resultados para subconjuntos específicos de dados de estatísticas. Por exemplo, STAT_HEADER INGRESSAr DENSITY_VECTOR.
+- NO_INFOMSGS não pode ser definida para supressão de mensagem.
 - Não é possível usar colchetes em nomes de estatísticas.
 - Não é possível usar nomes de coluna para identificar objetos de estatísticas.
 - Não há suporte para o erro personalizado 2767.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para melhorar ainda mais o desempenho da consulta, consulte [monitorar sua carga de trabalho](sql-data-warehouse-manage-monitor.md)

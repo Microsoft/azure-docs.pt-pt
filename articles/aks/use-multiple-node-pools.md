@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 8a78c854e9c842915700d4a20c1a57e4f1594a2e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 3495d62c7447ba50d9ffe48e68b15dbe36867ac9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472455"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73662585"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerenciar vários pools de nós para um cluster no serviço de kubernetes do Azure (AKS)
 
@@ -33,19 +33,20 @@ As seguintes limitações se aplicam quando você cria e gerencia clusters AKS q
 
 * Não é possível excluir o pool de nós padrão (primeiro).
 * O complemento de roteamento de aplicativo HTTP não pode ser usado.
+* O cluster AKS deve usar o balanceador de carga SKU padrão para usar vários pools de nós, o recurso não tem suporte com balanceadores de carga de SKU básicos.
+* O cluster AKS deve usar conjuntos de dimensionamento de máquinas virtuais para os nós.
 * Você não pode adicionar ou excluir pools de nós usando um modelo do Resource Manager existente como a maioria das operações. Em vez disso, [use um modelo do Resource Manager separado](#manage-node-pools-using-a-resource-manager-template) para fazer alterações em pools de nós em um cluster AKs.
 * O nome de um pool de nós deve começar com uma letra minúscula e só pode conter caracteres alfanuméricos. Para pools de nós do Linux, o comprimento deve ter entre 1 e 12 caracteres, para pools de nó do Windows o comprimento deve ter entre 1 e 6 caracteres.
 * O cluster AKS pode ter um máximo de oito pools de nós.
 * O cluster AKS pode ter um máximo de 400 nós entre esses oito pools de nós.
 * Todos os pools de nós devem residir na mesma sub-rede.
-* O cluster AKS deve usar conjuntos de dimensionamento de máquinas virtuais para os nós.
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
 Para começar, crie um cluster AKS com um único pool de nós. O exemplo a seguir usa o comando [AZ Group Create][az-group-create] para criar um grupo de recursos chamado *MyResource* Group na região *eastus* . Um cluster AKS chamado *myAKSCluster* é então criado usando o comando [AZ AKs Create][az-aks-create] . A *--kubernetes-Version* de *1.13.10* é usada para mostrar como atualizar um pool de nós em uma etapa seguinte. Você pode especificar qualquer [versão do kubernetes com suporte][supported-versions].
 
 > [!NOTE]
-> Não há suporte para o SKU de carregamento balanacer *básico* ao usar vários pools de nós. Por padrão, os clusters AKS são criados com a SKU *padrão* do loadbalacer.
+> Não há suporte para o SKU de carregamento balanacer *básico* ao usar vários pools de nós. Por padrão, os clusters AKS são criados com o SKU do Load Balancer *Standard* de CLI do Azure e portal do Azure.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -321,7 +322,7 @@ Nos exemplos anteriores para criar um pool de nós, um tamanho de VM padrão foi
 
 No exemplo a seguir, crie um pool de nós baseado em GPU que usa o tamanho da VM *Standard_NC6* . Essas VMs são alimentadas pelo cartão NVIDIA Tesla K80. Para obter informações sobre tamanhos de VM disponíveis, consulte [tamanhos de máquinas virtuais do Linux no Azure][vm-sizes].
 
-Crie um pool de nós usando o comando [AZ AKs node pool Add][az-aks-nodepool-add] novamente. Desta vez, especifique o nome *gpunodepool*e use o parâmetro `--node-vm-size` para especificar o tamanho de *Standard_NC6* :
+Crie um pool de nós usando o comando [AZ AKs node pool Add][az-aks-nodepool-add] novamente. Desta vez, especifique o nome *gpunodepool*e use o parâmetro `--node-vm-size` para especificar o tamanho do *Standard_NC6* :
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -547,20 +548,7 @@ Os nós AKS não exigem seus próprios endereços IP públicos para comunicaçã
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-Após o registro bem-sucedido, implante um modelo de Azure Resource Manager seguindo as mesmas instruções [acima](#manage-node-pools-using-a-resource-manager-template) e adicionando a propriedade de valor booliano a seguir "enableNodePublicIP" no agentPoolProfiles. Defina isso para `true` como por padrão é definido como `false` se não for especificado. Esta é uma propriedade somente de tempo de criação e requer uma versão de API mínima de 2019-06-01. Isso pode ser aplicado a pools de nós do Linux e do Windows.
-
-```
-"agentPoolProfiles":[  
-    {  
-      "maxPods": 30,
-      "osDiskSizeGB": 0,
-      "agentCount": 3,
-      "agentVmSize": "Standard_DS2_v2",
-      "osType": "Linux",
-      "vnetSubnetId": "[parameters('vnetSubnetId')]",
-      "enableNodePublicIP":true
-    }
-```
+Após o registro bem-sucedido, implante um modelo de Azure Resource Manager seguindo as mesmas instruções [acima](#manage-node-pools-using-a-resource-manager-template) e adicione a propriedade valor booliano `enableNodePublicIP` a agentPoolProfiles. Defina o valor como `true`, como por padrão, ele será definido como `false` se não for especificado. Esta é uma propriedade somente de tempo de criação e requer uma versão de API mínima de 2019-06-01. Isso pode ser aplicado a pools de nós do Linux e do Windows.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

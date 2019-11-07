@@ -1,5 +1,5 @@
 ---
-title: Guia de instruções sobre o ajuste automático de notificações por email – banco de dados SQL do Azure | Microsoft Docs
+title: Guia de instruções sobre o ajuste automático de notificações por email – banco de dados SQL do Azure
 description: Habilitar notificações por email para o ajuste automático de consulta do banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: df9390c00c34fce82de8cc17efb5cc3bce2e4e3d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e1478ab6abc9705a67f2d47bc076d3c2fe54ccd4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569437"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691142"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificações por email para ajuste automático
 
@@ -195,7 +195,7 @@ O pré-requisito para esta etapa é inscrever-se para [Microsoft Flow](https://f
 - Acessar o item de menu "**meus fluxos**"
 - Dentro de meus fluxos, selecione o link " **+ criar de branco**" na parte superior da página
 - Clique no link "**Pesquisar por centenas de conectores e gatilhos**" na parte inferior da página
-- No campo de pesquisa, digite"recorrência" e selecione "**agenda-recorrência**" nos resultados da pesquisa para agendar a execução do trabalho de entrega de email.
+- No campo de pesquisa, digite "**recorrência**" e selecione "**agenda-recorrência**" nos resultados da pesquisa para agendar a execução do trabalho de entrega de email.
 - No painel de recorrência no campo frequência, selecione a frequência de agendamento para execução deste fluxo, como enviar email automatizado a cada minuto, hora, dia, semana, etc.
 
 A próxima etapa é adicionar três trabalhos (criar, obter saída e enviar email) ao fluxo recorrente recém-criado. Para realizar a adição dos trabalhos necessários ao fluxo, siga estas etapas:

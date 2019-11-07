@@ -1,6 +1,6 @@
 ---
 title: Trabalhos do serviço de lote do Azure
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Visão geral dos serviços do lote do Azure para trabalhos Machine Learning Studio (clássico). O processamento do pool do lote permite que você crie pools nos quais você pode enviar trabalhos em lotes.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 1de7ad10a54c34595f69a543843097cee1377067
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a0e829f61117df25f8643301a0acdadeafd7c267
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493035"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684809"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Serviço do lote do Azure para trabalhos Azure Machine Learning Studio (clássico)
 
@@ -43,7 +43,7 @@ Crie pools chamando a operação criar pool na URL do serviço de pool que o CSS
 
 Você pode usar qualquer serviço Web baseado no novo Resource Manager, mas lembre-se de que a cobrança dos trabalhos é cobrada em relação ao plano de cobrança associado a esse serviço. Talvez você queira criar um serviço Web e um novo plano de cobrança especificamente para executar trabalhos de pool do lote.
 
-Para obter mais informações sobre como criar serviços Web, consulte [implantar um serviço web Azure Machine Learning](publish-a-machine-learning-web-service.md).
+Para obter mais informações sobre como criar serviços Web, consulte [implantar um serviço web Azure Machine Learning](deploy-a-machine-learning-web-service.md).
 
 Depois de criar um pool, você envia o trabalho BES usando a URL de solicitações em lote para o serviço Web. Você pode optar por enviá-lo para um pool ou para o processamento em lotes clássico. Para enviar um trabalho para o processamento do pool do lote, adicione o seguinte parâmetro ao corpo da solicitação de envio do trabalho:
 

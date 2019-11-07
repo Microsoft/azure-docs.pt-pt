@@ -1,5 +1,5 @@
 ---
-title: Configuração de segurança de divisão/mesclagem | Microsoft Docs
+title: Configuração de segurança de divisão/mesclagem
 description: Configure certificados do X409 para criptografia com o serviço de divisão/mesclagem para escala elástica.
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: ada794807f980854c203b56874e452713ecef6ea
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 98d645fc76010d96bc016a63b4882979f3489698
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568359"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690138"
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança de divisão/mesclagem
 
-Para usar o serviço de divisão/mesclagem, você deve configurar corretamente a segurança. O serviço faz parte do recurso de escala elástica do Banco de Dados SQL do Microsoft Azure. Para obter mais informações, consulte [tutorial de divisão de escala elástica e serviço](sql-database-elastic-scale-configure-deploy-split-and-merge.md)de mesclagem.
+Para usar o serviço de divisão/mesclagem, você deve configurar corretamente a segurança. O serviço faz parte do recurso de escala elástica do Banco de Dados SQL do Microsoft Azure. Para obter mais informações, consulte [tutorial de divisão de escala elástica e serviço de mesclagem](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 
 ## <a name="configuring-certificates"></a>Configurando certificados
 
@@ -33,12 +33,12 @@ Os certificados são configurados de duas maneiras.
 
 Os certificados podem ser obtidos de CAs (autoridades de certificação) públicas ou do [serviço de certificado do Windows](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Esses são os métodos preferenciais para obter certificados.
 
-Se essas opções não estiverem disponíveis, você poderá gerar **certificados**autoassinados.
+Se essas opções não estiverem disponíveis, você poderá gerar **certificados autoassinados**.
 
 ## <a name="tools-to-generate-certificates"></a>Ferramentas para gerar certificados
 
-* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [MakeCert. exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
+* [Pvk2pfx. exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>Para executar as ferramentas
 
@@ -47,7 +47,7 @@ Se essas opções não estiverem disponíveis, você poderá gerar **certificado
     Se estiver instalado, vá para:
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* Obtenha o WDK de [Windows 8.1: Baixar kits e ferramentas](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Obtenha o WDK de [Windows 8.1: Baixe kits e ferramentas](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>Para configurar o certificado SSL
 
@@ -120,7 +120,7 @@ A configuração padrão nega todo o acesso ao ponto de extremidade HTTP. Essa �
 A configuração padrão permite todo o acesso ao ponto de extremidade HTTPS. Essa configuração pode ser mais restrita.
 
 ### <a name="changing-the-configuration"></a>Alterando a configuração
-O grupo de regras de controle de acesso que se aplicam ao e ao ponto de extremidade são configurados na  **\<seção EndpointAcls >** no **arquivo de configuração de serviço**.
+O grupo de regras de controle de acesso que se aplicam ao e ao ponto de extremidade são configurados na seção **\<EndpointAcls >** no **arquivo de configuração de serviço**.
 
 ```xml
 <EndpointAcls>
@@ -129,7 +129,7 @@ O grupo de regras de controle de acesso que se aplicam ao e ao ponto de extremid
 </EndpointAcls>
 ```
 
-As regras em um grupo de controle de acesso são configuradas em um \<nome de AccessControl = "" > seção do arquivo de configuração de serviço. 
+As regras em um grupo de controle de acesso são configuradas em uma seção \<AccessControl Name = "" > do arquivo de configuração de serviço. 
 
 O formato é explicado na documentação das listas de controle de acesso à rede.
 Por exemplo, para permitir que somente IPs no intervalo 100.100.0.0 a 100.100.255.255 acessem o ponto de extremidade HTTPS, as regras teriam a seguinte aparência:

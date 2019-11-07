@@ -1,5 +1,5 @@
 ---
-title: Concedendo acesso ao banco de dados SQL do Azure e SQL Data Warehouse | Microsoft Docs
+title: Concedendo acesso ao banco de dados SQL do Azure e SQL Data Warehouse
 description: Saiba como conceder acesso a Banco de Dados SQL do Microsoft Azure e SQL Data Warehouse.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: 1292dbf43b5246fe3da95ead4d5d9113b4bc84f9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c115cd7e4d531bfdc7ddbacd4f6eff2a892ea3c3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569038"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690748"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Banco de dados SQL do Azure e controle de acesso de SQL Data Warehouse
 
@@ -33,7 +33,7 @@ O serviço da Base de Dados SQL do Azure só está disponível através da porta
 
 Como parte do processo de ligação, as ligações a partir de máquinas virtuais do Azure são redirecionadas para um endereço IP diferente e a porta exclusiva para cada função de trabalho. O número de porta está no intervalo de 11000 a 11999. Para obter mais informações sobre portas TCP, consulte [portas além de 1433 para ADO.NET 4,5 e SQL Database2](sql-database-develop-direct-route-ports-adonet-v12.md).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 A Base de Dados SQL suporta dois tipos de autenticação:
 

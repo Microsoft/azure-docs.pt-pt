@@ -1,5 +1,5 @@
 ---
-title: Criar pipelines de dados de previsão usando Azure Data Factory | Microsoft Docs
+title: Criar pipelines de dados de previsão usando Azure Data Factory
 description: Descreve como criar pipelines de previsão usando Azure Data Factory e Azure Machine Learning
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: e7c48c1d91ae08be29531f4a99ea75ab7a928f34
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: eba5df587d6bd6dda6083314cfb94836c6669393
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140491"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683147"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Criar pipelines preditivas usando Azure Machine Learning e Azure Data Factory
 
@@ -74,7 +74,7 @@ Você usa Azure Data Factory para orquestrar a movimentação e o processamento 
 
       ![URI do lote](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
 
-### <a name="scenario-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Cenário: Experimentos usando entradas/saídas do serviço Web que se referem aos dados no armazenamento de BLOBs do Azure
+### <a name="scenario-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Cenário: experimentos usando entradas/saídas do serviço Web que se referem aos dados no armazenamento de BLOBs do Azure
 Nesse cenário, o serviço Web Azure Machine Learning faz previsões usando dados de um arquivo em um armazenamento de BLOBs do Azure e armazena os resultados da previsão no armazenamento de BLOBs. O JSON a seguir define um pipeline de Data Factory com uma atividade AzureMLBatchExecution. A atividade tem o conjunto de dados **DecisionTreeInputBlob** como entrada e **DecisionTreeResultBlob** como a saída. O **DecisionTreeInputBlob** é passado como uma entrada para o serviço Web usando a propriedade JSON **webServiceInput** . O **DecisionTreeResultBlob** é passado como uma saída para o serviço Web usando a propriedade JSON **webServiceOutputs** .
 
 > [!IMPORTANT]
@@ -192,7 +192,7 @@ Recomendamos que você passe pelo tutorial [criar seu primeiro pipeline com data
     }
     ```
 
-    Se o arquivo CSV não tiver a linha de cabeçalho, você poderá ver o seguinte erro: **Erro na atividade: Erro ao ler a cadeia de caracteres. Token inesperado: StartObject. Caminho ' ', linha 1, posição 1**.
+    Se o arquivo CSV não tiver a linha de cabeçalho, você poderá ver o seguinte erro: **erro na atividade: erro ao ler a cadeia de caracteres. Token inesperado: StartObject. Caminho ' ', linha 1, posição 1**.
 3. Crie o **conjunto**de Azure data Factory de **saída** . Este exemplo usa o particionamento para criar um caminho de saída exclusivo para cada execução de fatia. Sem o particionamento, a atividade substituiria o arquivo.
 
     ```JSON
@@ -234,7 +234,7 @@ Recomendamos que você passe pelo tutorial [criar seu primeiro pipeline com data
       }
     }
     ```
-4. Criar um **serviço vinculado** do tipo: **AzureMLLinkedService**, fornecendo a chave de API e a URL de execução em lote de modelo.
+4. Crie um **serviço vinculado** do tipo: **AzureMLLinkedService**, fornecendo a chave de API e a URL de execução de lote do modelo.
 
     ```JSON
     {
@@ -308,7 +308,7 @@ Recomendamos que você passe pelo tutorial [criar seu primeiro pipeline com data
       >
       >
 
-### <a name="scenario-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Cenário: Experimentos usando módulos de leitor/gravador para se referir a dados em vários armazenamentos
+### <a name="scenario-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Cenário: experimentos usando módulos de leitor/gravador para se referir a dados em vários armazenamentos
 Outro cenário comum na criação de experimentos Azure Machine Learning Studio é usar módulos de leitor e gravador. O módulo leitor é usado para carregar dados em um experimento e o módulo gravador é para salvar dados de seus experimentos. Para obter detalhes sobre os módulos de leitor e gravador, consulte os tópicos de [leitor](https://msdn.microsoft.com/library/azure/dn905997.aspx) e [gravador](https://msdn.microsoft.com/library/azure/dn905984.aspx) na biblioteca MSDN.
 
 Ao usar os módulos leitor e gravador, é uma boa prática usar um parâmetro de serviço Web para cada propriedade desses módulos de leitor/gravador. Esses parâmetros da Web permitem que você configure os valores durante o tempo de execução. Por exemplo, você pode criar um experimento com um módulo leitor que usa um banco de dados SQL do Azure: XXX.database.windows.net. Depois que o serviço Web for implantado, você deseja habilitar os consumidores do serviço Web para especificar outro SQL Server do Azure chamado YYY.database.windows.net. Você pode usar um parâmetro de serviço Web para permitir que esse valor seja configurado.
@@ -318,7 +318,7 @@ Ao usar os módulos leitor e gravador, é uma boa prática usar um parâmetro de
 >
 >
 
-Vejamos um cenário para usar parâmetros de serviço Web. Você tem um serviço Web Azure Machine Learning implantado que usa um módulo leitor para ler dados de uma das fontes de dados com suporte no Azure Machine Learning (por exemplo: Banco de dados SQL do Azure). Depois que a execução do lote é executada, os resultados são gravados usando um módulo gravador (banco de dados SQL do Azure).  Nenhuma entrada e saída de serviço Web é definida nos experimentos. Nesse caso, recomendamos que você configure os parâmetros de serviço Web relevantes para os módulos leitor e gravador. Essa configuração permite que os módulos de leitor/gravador sejam configurados ao usar a atividade AzureMLBatchExecution. Você especifica parâmetros de serviço Web na seção globalparameters na atividade JSON da seguinte maneira.
+Vejamos um cenário para usar parâmetros de serviço Web. Você tem um serviço Web Azure Machine Learning implantado que usa um módulo leitor para ler dados de uma das fontes de dados com suporte do Azure Machine Learning (por exemplo: banco de dado SQL do Azure). Depois que a execução do lote é executada, os resultados são gravados usando um módulo gravador (banco de dados SQL do Azure).  Nenhuma entrada e saída de serviço Web é definida nos experimentos. Nesse caso, recomendamos que você configure os parâmetros de serviço Web relevantes para os módulos leitor e gravador. Essa configuração permite que os módulos de leitor/gravador sejam configurados ao usar a atividade AzureMLBatchExecution. Você especifica parâmetros de serviço Web na seção **globalparameters** na atividade JSON da seguinte maneira.
 
 ```JSON
 "typeProperties": {
@@ -404,7 +404,7 @@ Ao usar o módulo leitor em um experimento Azure Machine Learning, você pode es
 
 No exemplo de JSON acima:
 
-* O serviço Web Azure Machine Learning implantado usa um módulo leitor e gravador para ler/gravar dados de/para um banco de dado SQL do Azure. Este serviço Web expõe os quatro parâmetros a seguir:  Nome do servidor de banco de dados, nome do banco de dados, nome da conta de usuário do servidor e senha da conta de usuário
+* O serviço Web Azure Machine Learning implantado usa um módulo leitor e gravador para ler/gravar dados de/para um banco de dado SQL do Azure. Esse serviço Web expõe os quatro parâmetros a seguir: nome do servidor de banco de dados, nome do banco de dados, nome da conta de usuário do servidor e senha da conta de usuário do servidor.
 * Os DateTimes de **início** e **término** devem estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **término** é opcional. Se você não especificar o valor para a propriedade **end** , ele será calculado como "**Start + 48 hours".** Para executar o pipeline de forma indefinida, especifique **9999-09-09** como o valor da propriedade **end**. Veja [Referência de Processamento de Scripts JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter mais detalhes sobre as propriedades de JSON.
 
 ### <a name="other-scenarios"></a>Outros cenários
@@ -602,7 +602,7 @@ Se você quiser continuar usando a atividade AzureMLBatchScoring, continue lendo
 ```
 
 ### <a name="web-service-parameters"></a>Parâmetros de serviço Web
-Para especificar valores para parâmetros de serviço Web, adicione uma seção typeproperties à seção **AZUREMLBATCHSCORINGACTIVITY** no pipeline JSON, conforme mostrado no exemplo a seguir:
+Para especificar valores para parâmetros de serviço Web, adicione uma seção **typeproperties** à seção **AZUREMLBATCHSCORINGACTIVITY** no pipeline JSON, conforme mostrado no exemplo a seguir:
 
 ```JSON
 "typeProperties": {
@@ -627,8 +627,8 @@ Você também pode usar [Data Factory funções](data-factory-functions-variable
 >
 >
 
-## <a name="see-also"></a>Consultar Também
-* [Postagem no blog do Azure: Introdução ao Azure Data Factory e Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
+## <a name="see-also"></a>Veja também
+* [Postagem do blog do Azure: introdução ao Azure Data Factory e Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 

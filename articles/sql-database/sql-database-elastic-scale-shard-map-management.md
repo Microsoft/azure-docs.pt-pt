@@ -1,5 +1,5 @@
 ---
-title: Escalar horizontalmente um banco de dados SQL do Azure | Microsoft Docs
+title: Escalar horizontalmente um banco de dados SQL do Azure
 description: Como usar o ShardMapManager, a biblioteca de cliente do banco de dados elástico
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 3e7e2294938179da83fb5ad03db177c1142ad096
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d704e22dcd9ce4442ed16ae901c9c447fc025ebd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568333"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690168"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Expandir bancos de dados com o Gerenciador de mapa de fragmentos
 
-Para dimensionar facilmente os bancos de dados no SQL Azure, use um Gerenciador de mapa de fragmentos. O Gerenciador de mapa de fragmentos é um banco de dados especial que mantém informações de mapeamento global sobre todos os fragmentos (bancos de dados) em um conjunto de fragmentos. Os metadados permitem que um aplicativo se conecte ao banco de dados correto com base no valor da **chave**de fragmentação. Além disso, cada fragmento no conjunto contém mapas que acompanham os dados do fragmento local (conhecidos como **shardlets**).
+Para dimensionar facilmente os bancos de dados no SQL Azure, use um Gerenciador de mapa de fragmentos. O Gerenciador de mapa de fragmentos é um banco de dados especial que mantém informações de mapeamento global sobre todos os fragmentos (bancos de dados) em um conjunto de fragmentos. Os metadados permitem que um aplicativo se conecte ao banco de dados correto com base no valor da **chave de fragmentação**. Além disso, cada fragmento no conjunto contém mapas que acompanham os dados do fragmento local (conhecidos como **shardlets**).
 
 ![Gerenciamento de mapa de fragmentos](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
 
@@ -53,13 +53,13 @@ A escala elástica dá suporte aos seguintes tipos como chaves de fragmentação
 
 | .NET | Java |
 | --- | --- |
-| integer |integer |
-| long |long |
-| volume |uuid |
-| byte[]  |byte[] |
-| datetime | timestamp |
-| TimeSpan | duration|
-| datetimeoffset |offsetdatetime |
+| número inteiro |número inteiro |
+| Longas |Longas |
+| guid |uuid |
+| Byte []  |Byte [] |
+| datetime | carimbo de data/hora |
+| período | Permanência|
+| DateTimeOffset |offsetdatetime |
 
 ### <a name="list-and-range-shard-maps"></a>Mapas de fragmentos de lista e intervalo
 
@@ -67,7 +67,7 @@ Mapas de fragmento podem ser construídos usando **listas de valores de chave de
 
 ### <a name="list-shard-maps"></a>Listar mapas de fragmentos
 
-Os **fragmentos** contêm **shardlets** e o mapeamento de shardlets para fragmentos é mantido por um mapa de fragmentos. Um **mapa de fragmentos de lista** é uma associação entre os valores de chave individuais que identificam o shardlets e os bancos de dados que servem como fragmentos.  Os mapeamentos de **lista** são explícitos e valores de chave diferentes podem ser mapeados para o mesmo banco de dados. Por exemplo, o valor de chave 1 é mapeado para o banco de dados A e os valores de chave 3 e 6 são mapeados para o banco de dados B.
+Os **fragmentos** contêm **shardlets** e o mapeamento de shardlets para fragmentos é mantido por um mapa de fragmentos. Um **mapa de fragmentos de lista** é uma associação entre os valores de chave individuais que identificam o shardlets e os bancos de dados que servem como fragmentos.  Os **mapeamentos de lista** são explícitos e valores de chave diferentes podem ser mapeados para o mesmo banco de dados. Por exemplo, o valor de chave 1 é mapeado para o banco de dados A e os valores de chave 3 e 6 são mapeados para o banco de dados B.
 
 | Chave | Localização do fragmento |
 | --- | --- |
@@ -85,10 +85,10 @@ Por exemplo, **[0, 100)** inclui todos os inteiros maiores ou iguais a 0 e menor
 
 | Chave | Localização do fragmento |
 | --- | --- |
-| [1,50) |Database_A |
-| [50,100) |Database_B |
-| [100,200) |Database_C |
-| [400,600) |Database_C |
+| [1, 50) |Database_A |
+| [50.100) |Database_B |
+| [100.200) |Database_C |
+| [400.600) |Database_C |
 | ... |... |
 
 Cada uma das tabelas mostradas acima é um exemplo conceitual de um objeto **ShardMap** . Cada linha é um exemplo simplificado de um **PointMapping** individual (para o mapa de fragmentos de lista) ou o objeto **RangeMapping** (para o mapa de fragmentos de intervalo).
@@ -97,15 +97,15 @@ Cada uma das tabelas mostradas acima é um exemplo conceitual de um objeto **Sha
 
 Na biblioteca de cliente, o Gerenciador de mapa de fragmentos é uma coleção de mapas de fragmentos. Os dados gerenciados por uma instância de **ShardMapManager** são mantidos em três locais:
 
-1. **GSM (mapa de fragmentos global)** : Você especifica um banco de dados para servir como o repositório de todos os mapas e mapeamentos de fragmentos. As tabelas especiais e os procedimentos armazenados são criados automaticamente para gerenciar as informações. Normalmente, isso é um pequeno banco de dados e levemente acessado, e não deve ser usado para outras necessidades do aplicativo. As tabelas estão em um esquema especial chamado **__ShardManagement**.
-2. **Mapa de fragmentos local (LSM)** : Cada banco de dados que você especifica para ser um fragmento é modificado para conter várias tabelas pequenas e procedimentos armazenados especiais que contêm e gerenciam informações de mapa de fragmentos específicas para esse fragmento. Essas informações são redundantes com as informações no GSM e permitem que o aplicativo valide informações de mapa de fragmentos em cache sem fazer nenhuma carga no GSM; o aplicativo usa o LSM para determinar se um mapeamento em cache ainda é válido. As tabelas correspondentes ao LSM em cada fragmento também estão no esquema **__ShardManagement**.
-3. **Cache de aplicativos**: Cada instância do aplicativo que acessa um objeto **ShardMapManager** mantém um cache na memória local de seus mapeamentos. Ele armazena informações de roteamento que foram recuperadas recentemente.
+1. **GSM (mapa de fragmentos global)** : você especifica um banco de dados para servir como o repositório de todos os mapas e mapeamentos de fragmentos. As tabelas especiais e os procedimentos armazenados são criados automaticamente para gerenciar as informações. Normalmente, isso é um pequeno banco de dados e levemente acessado, e não deve ser usado para outras necessidades do aplicativo. As tabelas estão em um esquema especial chamado **__ShardManagement**.
+2. **LSM (mapa de fragmentos local)** : cada banco de dados que você especifica para ser um fragmento é modificado para conter várias tabelas pequenas e procedimentos armazenados especiais que contêm e gerenciam informações de mapa de fragmentos específicas para esse fragmento. Essas informações são redundantes com as informações no GSM e permitem que o aplicativo valide informações de mapa de fragmentos em cache sem fazer nenhuma carga no GSM; o aplicativo usa o LSM para determinar se um mapeamento em cache ainda é válido. As tabelas correspondentes ao LSM em cada fragmento também estão no **__ShardManagement**de esquema.
+3. **Cache de aplicativo**: cada instância do aplicativo que acessa um objeto **ShardMapManager** mantém um cache na memória local de seus mapeamentos. Ele armazena informações de roteamento que foram recuperadas recentemente.
 
 ## <a name="constructing-a-shardmapmanager"></a>Construindo um ShardMapManager
 
 Um objeto **ShardMapManager** é construído usando um padrão de fábrica ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory)). O método **ShardMapManagerFactory. GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)) usa as credenciais (incluindo o nome do servidor e o nome do banco de dados que contém o GSM) na forma de um **ConnectionString** e retorna uma instância de um  **ShardMapManager**.  
 
-**Atenção:** O **ShardMapManager** deve ser instanciado apenas uma vez por domínio de aplicativo, dentro do código de inicialização de um aplicativo. A criação de instâncias adicionais do ShardMapManager no mesmo domínio de aplicativo resulta em maior utilização de memória e CPU do aplicativo. Um **ShardMapManager** pode conter qualquer número de mapas de fragmentos. Embora um único mapa de fragmentos possa ser suficiente para muitos aplicativos, há ocasiões em que diferentes conjuntos de bancos de dados são usados para um esquema diferente ou para fins exclusivos; nesses casos, vários mapas de fragmentos podem ser preferíveis.
+**Observação:** O **ShardMapManager** deve ser instanciado apenas uma vez por domínio de aplicativo, dentro do código de inicialização de um aplicativo. A criação de instâncias adicionais do ShardMapManager no mesmo domínio de aplicativo resulta em maior utilização de memória e CPU do aplicativo. Um **ShardMapManager** pode conter qualquer número de mapas de fragmentos. Embora um único mapa de fragmentos possa ser suficiente para muitos aplicativos, há ocasiões em que diferentes conjuntos de bancos de dados são usados para um esquema diferente ou para fins exclusivos; nesses casos, vários mapas de fragmentos podem ser preferíveis.
 
 Nesse código, um aplicativo tenta abrir um **ShardMapManager** existente com o método TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.trygetsqlshardmapmanager), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) . Se os objetos que representam um **ShardMapManager** global (GSM) ainda não existirem no banco de dados, a biblioteca de cliente os criará usando o método CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.createsqlshardmapmanager), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)).
 
@@ -220,9 +220,9 @@ Consulte [as credenciais usadas para acessar a biblioteca de cliente do banco de
 
 ### <a name="only-metadata-affected"></a>Somente metadados afetados
 
-Os métodos usados para popular ou alterar os dados do **ShardMapManager** não alteram os dados do usuário armazenados nos próprios fragmentos. Por exemplo, métodos como createfragment **,** **DeleteShard**, **UpdateMapping**, etc. afetam apenas os metadados do mapa do fragmento. Eles não removem, adicionam ou alteram os dados do usuário contidos nos fragmentos. Em vez disso, esses métodos são projetados para serem usados em conjunto com operações separadas que você executa para criar ou Remover bancos de dados reais ou que movem linhas de um fragmento para outro para reequilibrar um ambiente fragmentado.  (A ferramenta de **divisão/mesclagem** incluída com ferramentas de banco de dados elástico usa essas APIs juntamente com a movimentação de movimentações reais entre os fragmentos.) Consulte [dimensionamento usando a ferramenta de divisão/mesclagem do banco de dados elástico](sql-database-elastic-scale-overview-split-and-merge.md).
+Os métodos usados para popular ou alterar os dados do **ShardMapManager** não alteram os dados do usuário armazenados nos próprios fragmentos. Por exemplo, **métodos como createfragment,** **DeleteShard**, **UpdateMapping**, etc. afetam apenas os metadados do mapa do fragmento. Eles não removem, adicionam ou alteram os dados do usuário contidos nos fragmentos. Em vez disso, esses métodos são projetados para serem usados em conjunto com operações separadas que você executa para criar ou Remover bancos de dados reais ou que movem linhas de um fragmento para outro para reequilibrar um ambiente fragmentado.  (A ferramenta de **divisão/mesclagem** incluída com ferramentas de banco de dados elástico usa essas APIs juntamente com a movimentação de movimentações reais entre os fragmentos.) Consulte [dimensionamento usando a ferramenta de divisão/mesclagem do banco de dados elástico](sql-database-elastic-scale-overview-split-and-merge.md).
 
-## <a name="data-dependent-routing"></a>Encaminhamento dependente de dados
+## <a name="data-dependent-routing"></a>Data Dependent Routing
 
 O Gerenciador de mapa de fragmentos é usado em aplicativos que exigem conexões de banco de dados para executar as operações específicas do aplicativo. Essas conexões devem ser associadas ao banco de dados correto. Isso é conhecido como **Roteamento Dependente de dados**. Para esses aplicativos, crie uma instância de um objeto do Gerenciador de mapa de fragmentos da fábrica usando as credenciais que têm acesso somente leitura no banco de dados GSM. Solicitações individuais para conexões posteriores fornecem credenciais necessárias para se conectar ao banco de dados de fragmento apropriado.
 

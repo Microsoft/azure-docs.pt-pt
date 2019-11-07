@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 5d21d3800655cc0be78a2b63d13a3616b1d0f2f8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e4f1797d600a226eb152a464efe4da8ddbdb6207
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372708"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606237"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usar o roteamento de mensagens do Hub IoT para enviar mensagens do dispositivo para a nuvem para diferentes pontos de extremidade
 
@@ -41,15 +41,15 @@ O Hub IoT atualmente dá suporte aos seguintes serviços como pontos de extremid
 
 Você pode usar a [integração de hubs de eventos padrão e SDKs](iot-hub-devguide-messages-read-builtin.md) para receber mensagens do dispositivo para a nuvem do ponto de extremidade interno (**mensagens/eventos**). Depois que uma rota é criada, os dados param de fluir para o ponto de extremidade interno, a menos que uma rota seja criada para esse ponto de extremidade.
 
-### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
+### <a name="azure-storage"></a>Storage do Azure
 
-O Hub IoT dá suporte à gravação de dados no armazenamento de BLOBs do Azure no formato [Apache Avro](https://avro.apache.org/) , bem como no formato JSON. A capacidade de codificar o formato JSON está geralmente disponível em todas as regiões em que o Hub IoT está disponível. O padrão é AVRO. O formato de codificação só pode ser definido quando o ponto de extremidade do armazenamento de BLOBs é configurado. O formato não pode ser editado para um ponto de extremidade existente. Ao usar a codificação JSON, você deve definir o contentType como **Application/JSON** e ContentEncoding como **UTF-8** nas [Propriedades do sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)de mensagens. Esses dois valores não diferenciam maiúsculas de minúsculas. Se a codificação de conteúdo não estiver definida, o Hub IoT gravará as mensagens no formato codificado 64 base. Você pode selecionar o formato de codificação usando o Hub IoT criar ou atualizar a API REST, especificamente o [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), o portal do Azure, o [CLI do Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)ou o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). O diagrama a seguir mostra como selecionar o formato de codificação no portal do Azure.
+Há dois serviços de armazenamento que o Hub IoT pode rotear mensagens para as contas-- [armazenamento de BLOBs do Azure](../storage/blobs/storage-blobs-introduction.md) e [Azure data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2). Contas de Azure Data Lake Storage são contas de armazenamento [hierárquicas habilitadas para namespaces](../storage/blobs/data-lake-storage-namespace.md)criadas com base no armazenamento de BLOBs. Ambos usam BLOBs para seu armazenamento.
+
+O Hub IoT dá suporte à gravação de dados no armazenamento do Azure no formato [Apache Avro](https://avro.apache.org/) , bem como no formato JSON. O padrão é AVRO. O formato de codificação só pode ser definido quando o ponto de extremidade do armazenamento de BLOBs é configurado. O formato não pode ser editado para um ponto de extremidade existente. Ao usar a codificação JSON, você deve definir o contentType como **Application/JSON** e ContentEncoding como **UTF-8** nas [Propriedades do sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)de mensagens. Esses dois valores não diferenciam maiúsculas de minúsculas. Se a codificação de conteúdo não estiver definida, o Hub IoT gravará as mensagens no formato codificado 64 base. Você pode selecionar o formato de codificação usando o Hub IoT criar ou atualizar a API REST, especificamente o [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), o portal do Azure, o [CLI do Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)ou o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). O diagrama a seguir mostra como selecionar o formato de codificação no portal do Azure.
 
 ![Codificação de ponto de extremidade de armazenamento de BLOB](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
-O Hub IoT também dá suporte a mensagens de roteamento para contas de [Azure data Lake Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) (ADLS) Gen2, que são contas de armazenamento [hierárquicas habilitadas para namespaces](../storage/blobs/data-lake-storage-namespace.md)criadas com base no armazenamento de BLOBs. Essa funcionalidade está em visualização pública e disponível para novas contas de ADLS Gen2 no oeste dos EUA 2 e no Oeste EUA Central. [Inscreva-se](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u) para visualizar isso. Em breve, iremos distribuir esse recurso para todas as regiões de nuvem. 
-
-O Hub IoT faz o lote de mensagens e grava dados em um blob sempre que o lote atinge um determinado tamanho ou um determinado período de tempo decorrido. O Hub IoT usa como padrão a seguinte convenção de nomenclatura de arquivo: 
+O Hub IoT armazena em lotes mensagens e grava dados no armazenamento sempre que o lote atinge um determinado tamanho ou um determinado período de tempo decorrido. O Hub IoT usa como padrão a seguinte convenção de nomenclatura de arquivo: 
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
@@ -57,29 +57,34 @@ O Hub IoT faz o lote de mensagens e grava dados em um blob sempre que o lote ati
 
 Você pode usar qualquer Convenção de nomenclatura de arquivo, no entanto, deve usar todos os tokens listados. O Hub IoT será gravado em um blob Vazio se não houver dados a serem gravados.
 
-Ao rotear para o armazenamento de BLOBs, é recomendável inlistar os BLOBs e, em seguida, iterar sobre eles, para garantir que todos os contêineres sejam lidos sem fazer nenhuma suposição de partição. O intervalo de partição pode ser alterado durante um failover [manual](iot-hub-ha-dr.md#manual-failover)ou de [failover iniciado pela Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover) . Você pode usar a [API listar BLOBs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) para enumerar a lista de BLOBs. Consulte o exemplo a seguir como orientação.
+É recomendável enlistar os contêineres de armazenamento e iterar sobre eles, para garantir que todos os contêineres sejam lidos sem fazer nenhuma suposição de partição. O intervalo de partição pode ser alterado durante um failover [manual](iot-hub-ha-dr.md#manual-failover)ou de [failover iniciado pela Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover) . Você pode usar a [API listar BLOBs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) para enumerar a lista de BLOBs. Consulte o exemplo a seguir como orientação.
 
-   ```csharp
-        public void ListBlobsInContainer(string containerName, string iothub)
+```csharp
+public void ListBlobsInContainer(string containerName, string iothub)
+{
+    var storageAccount = CloudStorageAccount.Parse(this.blobConnectionString);
+    var cloudBlobContainer = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
+    if (cloudBlobContainer.Exists())
+    {
+        var results = cloudBlobContainer.ListBlobs(prefix: $"{iothub}/");
+        foreach (IListBlobItem item in results)
         {
-            var storageAccount = CloudStorageAccount.Parse(this.blobConnectionString);
-            var cloudBlobContainer = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
-            if (cloudBlobContainer.Exists())
-            {
-                var results = cloudBlobContainer.ListBlobs(prefix: $"{iothub}/");
-                foreach (IListBlobItem item in results)
-                {
-                    Console.WriteLine(item.Uri);
-                }
-            }
+            Console.WriteLine(item.Uri);
         }
-   ```
+    }
+}
+```
+
+Para criar um Azure Data Lake conta de armazenamento compatível com Gen2, crie uma nova conta de armazenamento V2 e selecione *habilitado* no campo *namespace hierárquico* na guia **avançado** , conforme mostrado na imagem a seguir:
+
+![Selecione Azure data Lake armazenamento Gen2](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
+
 
 ### <a name="service-bus-queues-and-service-bus-topics"></a>Tópicos de filas do barramento de serviço e barramento de serviço
 
 As filas e os tópicos do barramento de serviço usados como pontos de extremidade do Hub IoT não devem ter **sessões** ou **detecção de duplicidades** habilitadas. Se qualquer uma dessas opções estiver habilitada, o ponto de extremidade aparecerá como **inacessível** no portal do Azure.
 
-### <a name="event-hubs"></a>Hubs de Eventos
+### <a name="event-hubs"></a>Event Hubs
 
 Além do ponto de extremidade compatível com os hubs de eventos internos, você também pode rotear dados para pontos de extremidade personalizados do tipo hubs de eventos. 
 

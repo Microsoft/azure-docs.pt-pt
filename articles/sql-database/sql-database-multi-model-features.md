@@ -1,5 +1,5 @@
 ---
-title: Funcionalidades de vários modelos do banco de dados SQL do Azure | Microsoft Docs
+title: Funcionalidades de vários modelos do banco de dados SQL do Azure
 description: O banco de dados SQL do Azure permite que você trabalhe com vários modelos de data no mesmo banco de dado.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: e319daf322d688828c7d05d78dacd2359273223f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7156b9923c9cb98ae3dde143c98eb32a6eb11a9c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567131"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687726"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Funcionalidades de vários modelos do banco de dados SQL do Azure
 
@@ -29,12 +29,12 @@ Você deve considerar o uso de recursos de vários modelos do banco de dados SQL
 - Você tem algumas informações ou estruturas que são mais adequadas para modelos NoSQL e não deseja usar um banco de dados NoSQL separado.
 - A maioria dos seus dados é adequada para o modelo relacional e você precisa modelar algumas partes de seus dados no estilo NoSQL.
 - Você deseja aproveitar a rica linguagem Transact-SQL para consultar e analisar dados relacionais e NoSQL e integrá-los a uma variedade de ferramentas e aplicativos que podem usar a linguagem SQL.
-- Você deseja aplicar recursos de banco de dados, como [tecnologias na memória](sql-database-in-memory.md) , para melhorar o desempenho de seu processo analítico ou de processamento de seus data strucutress NoSQL, usar a [replicação](sql-database-managed-instance-transactional-replication.md) transacional ou [réplicas legíveis](sql-database-read-scale-out.md) para criar uma cópia dos dados em o outro local e descarregar algumas cargas de trabalho analíticas do banco de dados primário.
+- Você deseja aplicar recursos de banco de dados, como [tecnologias na memória](sql-database-in-memory.md) , para melhorar o desempenho de seu processo analítico ou de processamento de seus data strucutress NoSQL, usar a [replicação transacional](sql-database-managed-instance-transactional-replication.md) ou [réplicas legíveis](sql-database-read-scale-out.md) para criar uma cópia dos dados em o outro local e descarregar algumas cargas de trabalho analíticas do banco de dados primário.
 
 ## <a name="overview"></a>Descrição geral
 
 O SQL do Azure fornece os seguintes recursos de vários modelos:
-- Os [recursos do Graph](#graph-features) permitem que você represente seus dados como um conjunto de nós e bordas e use consultas Transact-SQL padrão `MATCH` aprimoradas com o operador de grafo para consultar os dados do grafo.
+- Os [recursos do Graph](#graph-features) permitem que você represente seus dados como conjunto de nós e bordas e use consultas TRANSACT-SQL padrão aprimoradas com o operador de `MATCH` do grafo para consultar os dados do grafo.
 - Os [recursos JSON](#json-features) permitem que você coloque documentos JSON em tabelas, transforme dados relacionais em documentos JSON e vice-versa. Você pode usar a linguagem Transact-SQL padrão aprimorada com funções JSON para analisar documentos e usar índices não clusterizados, índices columnstore ou tabelas com otimização de memória, para otimizar suas consultas.
 - Os [recursos espaciais](#spatial-features) permitem armazenar dados geométricos e geométricas, indexá-los usando os índices espaciais e recuperar os dados usando consultas espaciais.
 - Os [recursos XML](#xml-features) permitem que você armazene e indexe dados XML em seu banco de dado e use operações XQuery/XPath nativas para trabalhar com dados XML. O banco de dados SQL do Azure tem um mecanismo de consulta XML interno especializado que processa os dados XML.
@@ -74,7 +74,7 @@ O banco de dados SQL do Azure permite que você trabalhe facilmente com o JSON e
 
 ![Funções JSON](./media/sql-database-json-features/image_1.png)
 
-Se você tiver texto JSON, poderá extrair dados do JSON ou verificar se o JSON está formatado corretamente usando as funções internas [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx)e isjson. [](https://msdn.microsoft.com/library/dn921896.aspx) A função [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) permite que você atualize o valor dentro do texto JSON. Para consulta e análise mais avançadas, a função [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) pode transformar uma matriz de objetos JSON em um conjunto de linhas. Qualquer consulta SQL pode ser executada no conjunto de resultados retornado. Por fim, há uma cláusula [for JSON](https://msdn.microsoft.com/library/dn921882.aspx) que permite que você formate os dados armazenados em suas tabelas relacionais como texto JSON.
+Se você tiver texto JSON, poderá extrair dados do JSON ou verificar se o JSON está formatado corretamente usando as funções internas [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx)e [isjson](https://msdn.microsoft.com/library/dn921896.aspx). A função [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) permite que você atualize o valor dentro do texto JSON. Para consulta e análise mais avançadas, a função [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) pode transformar uma matriz de objetos JSON em um conjunto de linhas. Qualquer consulta SQL pode ser executada no conjunto de resultados retornado. Por fim, há uma cláusula [for JSON](https://msdn.microsoft.com/library/dn921882.aspx) que permite que você formate os dados armazenados em suas tabelas relacionais como texto JSON.
 
 Para obter mais informações, confira [como trabalhar com dados JSON no Azure SQL Database](sql-database-json-features.md).
 O [JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) é o recurso de Mecanismo de Banco de Dados de SQL Server principal, para que você possa encontrar mais informações sobre o recurso JSON lá.
@@ -132,11 +132,11 @@ CREATE TABLE Collection (
 )
 ```
 
-Você pode personalizar essa estrutura de chave-valor para atender às suas necessidades sem nenhuma restrição. Por exemplo, o valor pode ser documento XML em vez de `nvarchar(max)` tipo, se o valor for documento JSON, você poderá colocar `CHECK` a restrição que verifica a validade do conteúdo JSON. Você pode colocar qualquer número de valores relacionados a uma chave nas colunas adicionais, adicionar colunas computadas e índices para simplificar e otimizar o acesso a dados, definir a tabela como tabela de somente esquema de memória/otimizada para obter melhor desempenho, etc.
+Você pode personalizar essa estrutura de chave-valor para atender às suas necessidades sem nenhuma restrição. Por exemplo, o valor pode ser documento XML em vez de `nvarchar(max)` tipo, se o valor for documento JSON, você poderá colocar `CHECK` restrição que verifica a validade do conteúdo JSON. Você pode colocar qualquer número de valores relacionados a uma chave nas colunas adicionais, adicionar colunas computadas e índices para simplificar e otimizar o acesso a dados, definir a tabela como tabela de somente esquema de memória/otimizada para obter melhor desempenho, etc.
 
 Veja [como o bwin está usando o OLTP na memória para obter desempenho e escala sem precedentes](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) para sua solução de cache ASP.NET que alcançou lotes de 1.200.000 por segundo, como um exemplo de como o modelo relacional pode ser efetivamente usado como solução de par chave-valor no Bom.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Os recursos multimodelo em bancos de dados SQL do Azure também são os recursos principais de Mecanismo de Banco de Dados de SQL Server que são compartilhados entre o banco de dados SQL do Azure e o SQL Server. Para saber mais detalhes sobre esses recursos, visite as páginas de documentação do banco de dados relacional do SQL:
 
 * [Processamento de grafo](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview)

@@ -1,5 +1,5 @@
 ---
-title: Gerenciamento de Dados gateway para Data Factory | Microsoft Docs
+title: Gerenciamento de Dados gateway para Data Factory
 description: Configure um gateway de dados para mover dados entre o local e a nuvem. Use Gerenciamento de Dados gateway no Azure Data Factory para mover seus dados.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0e4cf8802f9f12774f03199b76b58cb494f1c439
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 41d8a5d3569d0b38ff569f9ccfa28a4b2af1d959
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162726"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682716"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -38,7 +38,7 @@ Você pode escalar horizontalmente um gateway de gerenciamento de dados associan
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 ### <a name="capabilities-of-data-management-gateway"></a>Recursos do gateway de gerenciamento de dados
 O gateway de gerenciamento de dados fornece os seguintes recursos:
 
@@ -263,7 +263,7 @@ Você verá a hora de atualização agendada nos seguintes locais:
 
 A guia início do Gerenciamento de Dados gateway Configuration Manager exibe a agenda de atualização e a última vez em que o gateway foi instalado/atualizado.
 
-![Atualizações agendadas](media/data-factory-data-management-gateway/UpdateSection.png)
+![Agendar atualizações](media/data-factory-data-management-gateway/UpdateSection.png)
 
 Você pode instalar a atualização imediatamente ou aguardar até que o gateway seja atualizado automaticamente no horário agendado. Por exemplo, a imagem a seguir mostra a mensagem de notificação mostrada no Configuration Manager do gateway junto com o botão atualizar, no qual você pode clicar para instalá-lo imediatamente.
 

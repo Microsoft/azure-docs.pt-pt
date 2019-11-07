@@ -1,5 +1,5 @@
 ---
-title: Monitorar Sincronização de Dados SQL do Azure com logs de Azure Monitor | Microsoft Docs
+title: 'Monitorar Sincronização de Dados SQL do Azure com logs de Azure Monitor '
 description: Saiba como monitorar Sincronização de Dados SQL do Azure usando logs de Azure Monitor
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 26dc1ebef1c627ed2b20eb0fda68b2ca2d01b82a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9e89ad8e6ac556df87a674efdf2d3bbc2041c38b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791748"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687026"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Monitorar Sincronização de Dados SQL com logs de Azure Monitor 
 

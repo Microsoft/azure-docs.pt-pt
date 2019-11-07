@@ -1,5 +1,5 @@
 ---
-title: Indexando tabelas no Azure SQL Data Warehouse | Microsoft Azure
+title: Indexando tabelas
 description: Recomendações e exemplos para indexação de tabelas no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,13 +10,13 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seoapril2019
-ms.openlocfilehash: 4d51bd6906a8299a25fe50ca817b1a2b6082ab91
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 079891824bf71caf1ebfa575833de650a55ed5be
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479846"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685445"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexando tabelas no SQL Data Warehouse
 
@@ -24,7 +24,7 @@ Recomendações e exemplos para indexação de tabelas no Azure SQL Data Warehou
 
 ## <a name="index-types"></a>Tipos de índice
 
-O SQL Data Warehouse oferece várias opções de indexação, incluindo [índices columnstore clusterizados](/sql/relational-databases/indexes/columnstore-indexes-overview), [índices clusterizados e índices](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described)não clusterizados, além de uma opção que não é de índice, também conhecida como [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
+O SQL Data Warehouse oferece várias opções de indexação, incluindo [índices columnstore clusterizados](/sql/relational-databases/indexes/columnstore-indexes-overview), [índices clusterizados e índices não clusterizados](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described), além de uma opção que não é de índice, também conhecida como [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
 
 Para criar uma tabela com um índice, consulte a documentação [CREATE TABLE (Azure SQL data warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) .
 
@@ -154,7 +154,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 
 Depois de executar a consulta, você pode começar a examinar os dados e analisar os resultados. Esta tabela explica o que procurar em sua análise de grupo de linhas.
 
-| Coluna | Como usar esses dados |
+| Column | Como usar esses dados |
 | --- | --- |
 | [table_partition_count] |Se a tabela for particionada, talvez você espere ver as contagens de grupos de linhas abertas mais altas. Cada partição na distribuição poderia, teoricamente, ter um grupo de linhas aberto associado a ela. Considerar isso em sua análise. Uma pequena tabela que foi particionada poderia ser otimizada removendo o particionamento completamente, pois isso melhoraria a compactação. |
 | [row_count_total] |Contagem total de linhas da tabela. Por exemplo, você pode usar esse valor para calcular a porcentagem de linhas no estado compactado. |
@@ -216,7 +216,7 @@ Depois que as tabelas tiverem sido carregadas com alguns dados, siga as etapas a
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Recriando índices para melhorar a qualidade do segmento
 
-### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Passo 1: Identificar ou criar um usuário que usa a classe de recurso correta
+### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Etapa 1: identificar ou criar um usuário que usa a classe de recurso correta
 
 Uma maneira rápida de melhorar imediatamente a qualidade do segmento é recompilar o índice.  O SQL retornado pela exibição acima retorna uma instrução ALTER INDEX REBUILD, que pode ser usada para recriar os índices. Ao recriar os índices, certifique-se de alocar memória suficiente para a sessão que recria o índice.  Para fazer isso, aumente a classe de recurso de um usuário que tem permissões para recriar o índice nessa tabela para o mínimo recomendado.
 
@@ -226,7 +226,7 @@ Abaixo está um exemplo de como alocar mais memória para um usuário, aumentand
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
-### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Passo 2: Recompilar índices columnstore clusterizados com maior usuário da classe de recursos
+### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Etapa 2: recompilar índices columnstore clusterizados com maior usuário da classe de recursos
 
 Entre como o usuário da etapa 1 (por exemplo, loaduser), que agora está usando uma classe de recurso mais alta e execute as instruções ALTER INDEX. Certifique-se de que esse usuário tenha a permissão ALTER para as tabelas em que o índice está sendo recriado. Esses exemplos mostram como recriar o índice columnstore inteiro ou como recriar uma única partição. Em tabelas grandes, é mais prático recriar índices uma única partição por vez.
 
@@ -252,9 +252,9 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-A recriação de um índice no SQL Data Warehouse é uma operação offline.  Para obter mais informações sobre a recompilação de índices, consulte a seção ALTER INDEX REBUILD em desfragmentação de [índices Columnstore](/sql/relational-databases/indexes/columnstore-indexes-defragmentation)e [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
+A recriação de um índice no SQL Data Warehouse é uma operação offline.  Para obter mais informações sobre a recompilação de índices, consulte a seção ALTER INDEX REBUILD em [desfragmentação de índices Columnstore](/sql/relational-databases/indexes/columnstore-indexes-defragmentation)e [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
 
-### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Passo 3: Verifique se a qualidade do segmento columnstore clusterizado foi aprimorada
+### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Etapa 3: verificar se a qualidade do segmento columnstore clusterizado foi aprimorada
 
 Execute novamente a consulta que identificou a tabela com qualidade de segmento ruim e verifique se a qualidade do segmento foi aprimorada.  Se a qualidade do segmento não melhorou, pode ser que as linhas em sua tabela tenham uma largura extra.  Considere usar uma classe de recurso mais alta ou DWU ao recriar os índices.
 
@@ -285,6 +285,6 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 
 Para obter mais detalhes sobre como recriar partições usando o CTAS, consulte [usando partições no SQL data warehouse](sql-data-warehouse-tables-partition.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como desenvolver tabelas, consulte [desenvolvendo tabelas](sql-data-warehouse-tables-overview.md).

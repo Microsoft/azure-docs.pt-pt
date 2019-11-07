@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/26/2019
-ms.openlocfilehash: 5d42b9fc2dfd7cbee230b65f7d9844c9e7332147
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.date: 11/06/2019
+ms.openlocfilehash: adb89c04a83bbfbd5bddd5c23b0fa88019a88991
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680504"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721380"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acesso aos recursos de rede virtual do Azure de aplicativos lógicos do Azure usando ambientes de serviço de integração (ISEs)
 
@@ -28,9 +28,9 @@ Depois de criar o ISE, quando você for criar seu aplicativo lógico ou conta de
 
 Seu aplicativo lógico agora pode acessar diretamente os sistemas que estão dentro ou conectados à sua rede virtual usando qualquer um destes itens:
 
-* Um conector com rótulo de **ISE**para esse sistema, como SQL Server
+* Um conector com rótulo do **ISE**para esse sistema
 * Um gatilho ou ação interna de rótulo de **núcleo**, como o gatilho ou a ação de http
-* um conector personalizado
+* Um conector personalizado
 
 Esta visão geral descreve mais detalhes sobre como um ISE fornece aos seus aplicativos lógicos e contas de integração acesso direto à sua rede virtual do Azure e compara as diferenças entre um ISE e o serviço de aplicativos lógicos globais.
 
@@ -51,7 +51,7 @@ Os aplicativos lógicos em um ISE fornecem as mesmas experiências de usuário e
 * Armazenamento de BLOBs, armazenamento de arquivos e armazenamento de tabelas do Azure
 * Filas do Azure, barramento de serviço do Azure, hubs de eventos do Azure e IBM MQ
 * FTP e SFTP-SSH
-* SQL Server, SQL Data Warehouse, Azure Cosmos DB
+* SQL Server, SQL Data Warehouse do Azure, Azure Cosmos DB
 * AS2, X12 e EDIFACT
 
 A diferença entre os conectores ISE e não ISE está nos locais onde os gatilhos e as ações são executados:
@@ -92,6 +92,7 @@ Para obter taxas de preços, consulte [preços dos aplicativos lógicos](https:/
 Ao criar o ISE, você pode optar por usar pontos de extremidade de acesso internos ou externos. Esses pontos de extremidade determinam se os gatilhos de solicitação ou webhook em aplicativos lógicos no ISE podem receber chamadas de fora de sua rede virtual. Esses pontos de extremidade também afetam o acesso a entradas e saídas no histórico de execução do aplicativo lógico.
 
 * **Interno**: pontos de extremidade privados que permitem chamadas para aplicativos lógicos em seu ISE, além de acesso a entradas e saídas no histórico de execução somente *de dentro de sua rede virtual*
+
 * **Externo**: pontos de extremidade públicos que permitem chamadas para aplicativos lógicos em seu ISE, além de acesso a entradas e saídas no histórico *de execução de fora de sua rede virtual*
 
 > [!IMPORTANT]
@@ -103,15 +104,20 @@ Ao criar o ISE, você pode optar por usar pontos de extremidade de acesso intern
 
 Para sistemas locais conectados a uma rede virtual do Azure, insira um ISE nessa rede para que seus aplicativos lógicos possam acessar diretamente esses sistemas usando qualquer um destes itens:
 
-* ISE-conector de versão para esse sistema, por exemplo, SQL Server
 * Ação HTTP
+
+* ISE-conector rotulado para esse sistema
+
+  > [!IMPORTANT]
+  > Para usar a autenticação do Windows com o conector de SQL Server, você deve usar o [Gateway de dados local](../logic-apps/logic-apps-gateway-install.md). O conector de SQL Server não dá suporte à autenticação do Windows para um aplicativo lógico em um ISE.
+
 * Conector personalizado
 
   * Se você tiver conectores personalizados que exigem o gateway de dados local e tiver criado esses conectores fora de um ISE, os aplicativos lógicos em um ISE também poderão usar esses conectores.
   
   * Os conectores personalizados criados em um ISE não funcionam com o gateway de dados local. No entanto, esses conectores podem acessar diretamente fontes de dados locais que estão conectadas à rede virtual que hospeda o ISE. Portanto, os aplicativos lógicos em um ISE provavelmente não precisam do gateway de dados ao se comunicar com esses recursos.
 
-Para sistemas locais que não estão conectados a uma rede virtual ou não têm conectores ISE-Version, primeiro você deve [Configurar o gateway de dados local](../logic-apps/logic-apps-gateway-install.md) antes que seus aplicativos lógicos possam se conectar a esses sistemas.
+Para sistemas locais que não estão conectados a uma rede virtual ou que não têm conectores do ISE, você deve primeiro [Configurar o gateway de dados local](../logic-apps/logic-apps-gateway-install.md) antes que seus aplicativos lógicos possam se conectar a esses sistemas.
 
 <a name="create-integration-account-environment"></a>
 

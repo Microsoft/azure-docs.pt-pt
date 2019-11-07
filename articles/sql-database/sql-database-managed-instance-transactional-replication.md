@@ -1,5 +1,5 @@
 ---
-title: Replicação transacional com o banco de dados SQL do Azure | Microsoft Docs "
+title: Replicação transacional com o banco de dados SQL do Azure "
 description: Saiba mais sobre o uso de SQL Server replicação transacional com bancos de dados únicos, em pool e de instância no Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 02/08/2019
-ms.openlocfilehash: 86bd479eff48a7feb42557eb1d175345728f0a69
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 016b4f2ee191443cf608af18d1be6a94b6d53a39
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879059"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687828"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replicação transacional com bancos de dados únicos, em pool e de instância no banco de dados SQL do Azure
 
@@ -43,13 +43,13 @@ O **Publicador** é uma instância ou um servidor que publica as alterações fe
 - SQL Server 2014 RTM CU10 (12.00.2556)
 - SQL Server 2012 SP3 ou superior (11.0.6020)
 - SQL Server 2012 SP2 CU8 (11.0.5634.0)
-- Para outras versões do SQL Server que não dão suporte à publicação em objetos no Azure, é possível utilizar o método de republicação de [dados](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) para mover dados para versões mais recentes do SQL Server. 
+- Para outras versões do SQL Server que não dão suporte à publicação em objetos no Azure, é possível utilizar o método de [republicação de dados](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) para mover dados para versões mais recentes do SQL Server. 
 
 O **distribuidor** é uma instância ou um servidor que coleta alterações nos artigos de um Publicador e os distribui aos assinantes. O distribuidor pode ser uma instância gerenciada do banco de dados SQL do Azure ou SQL Server (qualquer versão, desde que seja igual ou superior à versão do editor). 
 
 O **assinante** é uma instância ou um servidor que está recebendo as alterações feitas no Publicador. Os assinantes podem ser de bancos de dados únicos, em pool e de instância no banco de dados SQL do Azure ou em bancos de SQL Server. Um assinante em um banco de dados único ou em pool deve ser configurado como Push-Subscriber. 
 
-| Role | Bancos de dados individuais e em pool | Bancos de dados de instância |
+| Função | Bancos de dados individuais e em pool | Bancos de dados de instância |
 | :----| :------------- | :--------------- |
 | **Publicador** | Não | Sim | 
 | **Distribuidor** | Não | Sim|
@@ -74,7 +74,7 @@ Há diferentes [tipos de replicação](https://docs.microsoft.com/sql/relational
 | &nbsp; | &nbsp; | &nbsp; |
 
   >[!NOTE]
-  > - A tentativa de configurar a replicação usando uma versão mais antiga pode resultar no número de erro MSSQL_REPL20084 (o processo não pôde se conectar ao Assinante.) e \<MSSQ_REPL40532 (não é possível abrir o nome do servidor > solicitado pelo logon. Falha no logon.)
+  > - A tentativa de configurar a replicação usando uma versão mais antiga pode resultar em um número de erro MSSQL_REPL20084 (o processo não pôde se conectar ao Assinante.) e MSSQ_REPL40532 (não é possível abrir o servidor \<nome > solicitado pelo logon. Falha no logon.)
   > - Para usar todos os recursos do banco de dados SQL do Azure, você deve usar as versões mais recentes do [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
   
   ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>Matriz de suporte para bancos de dados de instância e sistemas locais
@@ -105,7 +105,7 @@ Há diferentes [tipos de replicação](https://docs.microsoft.com/sql/relational
 
 | | Sincronização de Dados | Replicação Transacional |
 |---|---|---|
-| Vantagens | -Suporte ativo-ativo<br/>-Bidirecional entre o local e o banco de dados SQL do Azure | -Latência mais baixa<br/>-Consistência transacional<br/>-Reutilizar a topologia existente após a migração |
+| Principais | -Suporte ativo-ativo<br/>-Bidirecional entre o local e o banco de dados SQL do Azure | -Latência mais baixa<br/>-Consistência transacional<br/>-Reutilizar a topologia existente após a migração |
 | Desvantagens | -5 min ou mais latência<br/>-Sem consistência transacional<br/>-Maior impacto no desempenho | -Não é possível publicar no banco de dados de banco de dados SQL ou banco de dados em pool<br/>-Custo de manutenção alta |
 | | | |
 
@@ -138,22 +138,22 @@ O Publicador e o distribuidor são configurados em duas instâncias gerenciadas.
 Nessa configuração, um banco de dados SQL do Azure (banco de dados único, em pool e de instância) é um assinante. Essa configuração dá suporte à migração do local para o Azure. Se um Assinante estiver em um banco de dados único ou em pool, ele deverá estar no modo de push.  
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 1. [Configure a replicação entre duas instâncias gerenciadas](replication-with-sql-database-managed-instance.md). 
 1. [Crie uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
-1. [Crie uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) usando o nome do servidor do banco de dados SQL do Azure como o `N'azuresqldbdns.database.windows.net` assinante (por exemplo, e o nome do banco de dados SQL do Azure como o banco de dados de destino (por exemplo, **AdventureWorks**. )
+1. [Crie uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) usando o nome do servidor do banco de dados SQL do Azure como o assinante (por exemplo `N'azuresqldbdns.database.windows.net` e o nome do banco de dados SQL do Azure como o banco de dados de destino (por exemplo, **AdventureWorks**. )
 1. Saiba mais sobre as [limitações da replicação transacional para uma instância gerenciada](sql-database-managed-instance-transact-sql-information.md#replication)
 
 
 
-## <a name="see-also"></a>Consultar Também  
+## <a name="see-also"></a>Veja também  
 
 - [Replicação com um MI e um grupo de failover](sql-database-managed-instance-transact-sql-information.md#replication)
 - [Replicação para a Base de Dados SQL](replication-to-sql-database.md)
 - [Replicação para instância gerenciada](replication-with-sql-database-managed-instance.md)
 - [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Criar uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Tipos de replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
+- [Types of Replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication) (Tipos de Replicação)
 - [Monitoramento (replicação)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
 - [Inicializar uma assinatura](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  

@@ -1,5 +1,5 @@
 ---
-title: Formato ORC no Azure Data Factory | Microsoft Docs
+title: Formato ORC no Azure Data Factory
 description: Este tópico descreve como lidar com o formato ORC no Azure Data Factory.
 author: linda33wj
 manager: craigg
@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: beff81b7e8d207a2173497d039b915b7614fc30e
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a5125b53d960ddead063435666de5b26ce0bc291
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952280"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674766"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC no Azure Data Factory
 
@@ -26,10 +26,10 @@ O formato ORC tem suporte para os seguintes conectores: [Amazon S3](connector-am
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte pelo conjunto de ORC.
 
-| Propriedade         | Descrição                                                  | Obrigatório |
+| Propriedade         | Descrição                                                  | Necessário |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | tipo             | A propriedade Type do conjunto de conjuntos deve ser definida como **Orc**. | Sim      |
-| localização         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e as propriedades com suporte em `location`. **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | Sim      |
+| localização         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location`. **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | Sim      |
 
 Veja abaixo um exemplo de conjunto de ORC no armazenamento de BLOBs do Azure:
 
@@ -68,7 +68,7 @@ Para obter uma lista completa de seções e propriedades disponíveis para defin
 
 As propriedades a seguir têm suporte na seção ***\*de origem*** da atividade de cópia\*.
 
-| Propriedade      | Descrição                                                  | Obrigatório |
+| Propriedade      | Descrição                                                  | Necessário |
 | ------------- | ------------------------------------------------------------ | -------- |
 | tipo          | A propriedade Type da fonte da atividade de cópia deve ser definida como **OrcSource**. | Sim      |
 | storeSettings | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de leitura com suporte em `storeSettings`. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
@@ -77,7 +77,7 @@ As propriedades a seguir têm suporte na seção ***\*de origem*** da atividade 
 
 As propriedades a seguir têm suporte na seção de ***\*do coletor*** de atividade de cópia\*.
 
-| Propriedade      | Descrição                                                  | Obrigatório |
+| Propriedade      | Descrição                                                  | Necessário |
 | ------------- | ------------------------------------------------------------ | -------- |
 | tipo          | A propriedade Type da fonte da atividade de cópia deve ser definida como **OrcSink**. | Sim      |
 | storeSettings | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de gravação com suporte em `storeSettings`. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
@@ -90,14 +90,14 @@ As propriedades a seguir têm suporte na seção de ***\*do coletor*** de ativid
 Para a cópia em execução no IR auto-hospedado com serialização/desserialização de arquivo ORC, o ADF localiza o tempo de execução do Java verificando primeiro o registro *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* para o JRE, se não for encontrado, verificando a variável do sistema *`JAVA_HOME`* para OpenJDK.
 
 - **Para usar o JRE**: o IR de 64 bits requer o jre de 64 bits. Você pode encontrá-lo [aqui](https://go.microsoft.com/fwlink/?LinkId=808605).
-- **Para usar OpenJDK**: tem suporte desde a versão de ir 3,13. Empacote o JVM. dll com todos os outros assemblies necessários de OpenJDK no computador IR auto-hospedado e defina a variável de ambiente do sistema JAVA_HOME de acordo.
+- **Para usar OpenJDK**: tem suporte desde a versão de ir 3,13. Empacote o JVM. dll com todos os outros assemblies necessários do OpenJDK no computador IR auto-hospedado e defina a variável de ambiente do sistema JAVA_HOME de acordo.
 
 > [!TIP]
 > Se você copiar dados de/para o formato ORC usando o autohospedado Integration Runtime e erro de ocorrência indicando "ocorreu um erro ao invocar Java, mensagem: **Java. lang. OutOfMemoryError: espaço de heap Java**", você pode adicionar uma variável de ambiente `_JAVA_OPTIONS` no computador que hospeda o IR auto-hospedado para ajustar o tamanho de heap mínimo/máximo para a JVM para capacitar essa cópia, em seguida, execute novamente o pipeline.
 
 ![Definir o tamanho do heap JVM no IR auto-hospedado](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
-Exemplo: definir a variável `_JAVA_OPTIONS` com o valor `-Xms256m -Xmx16g`. O sinalizador `Xms` especifica o pool de alocação de memória inicial para um Máquina Virtual Java (JVM), enquanto `Xmx` especifica o pool de alocação de memória máximo. Isso significa que a JVM será iniciada com a quantidade `Xms` de memória e poderá usar uma quantidade máxima de `Xmx` de memória. Por padrão, o ADF usa mín. de 64MB e Max 1G.
+Exemplo: definir a variável `_JAVA_OPTIONS` com o valor `-Xms256m -Xmx16g`. O sinalizador `Xms` especifica o pool de alocação de memória inicial para um Máquina Virtual Java (JVM), enquanto `Xmx` especifica o pool de alocação de memória máximo. Isso significa que a JVM será iniciada com `Xms` quantidade de memória e poderá usar um máximo de `Xmx` quantidade de memória. Por padrão, o ADF usa mín. de 64MB e Max 1G.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,5 +1,5 @@
 ---
-title: Pontos de extremidade públicos de instância gerenciada segura-instância gerenciada do banco de dados SQL do Azure | Microsoft Docs
+title: Pontos de extremidade públicos de instância gerenciada segura-instância gerenciada do banco de dados SQL do Azure
 description: Usar pontos de extremidade públicos com segurança no Azure com uma instância gerenciada
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: c7f57a636e95bb137dd4285b8f9ce8343b27d2a0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3d97eb16ee2a8b3203b187dca7b2a17974473098
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567364"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687942"
 ---
 # <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>Usar uma instância gerenciada do banco de dados SQL do Azure com segurança com pontos de extremidade públicos
 
@@ -49,8 +49,8 @@ Para garantir que o tráfego para a instância gerenciada seja proveniente de fo
 
 Quando os clientes precisarem iniciar uma conexão de uma rede local, verifique se o endereço de origem está traduzido para um conjunto conhecido de endereços IP. Se você não puder fazer isso (por exemplo, uma força de equipe móvel sendo um cenário típico), recomendamos que você use [conexões VPN ponto a site e um ponto de extremidade privado](sql-database-managed-instance-configure-p2s.md).
 
-Se as conexões forem iniciadas no Azure, recomendamos que o tráfego venha de um [endereço IP virtual](../virtual-network/virtual-networks-reserved-public-ip.md) atribuído conhecido (por exemplo, uma máquina virtual). Para facilitar o gerenciamento de endereços VIP (IP virtual), talvez você queira usar prefixos de [endereço IP público](../virtual-network/public-ip-address-prefix.md).
+Se as conexões forem iniciadas no Azure, recomendamos que o tráfego venha de um [endereço IP virtual](../virtual-network/virtual-networks-reserved-public-ip.md) atribuído conhecido (por exemplo, uma máquina virtual). Para facilitar o gerenciamento de endereços VIP (IP virtual), talvez você queira usar [prefixos de endereço IP público](../virtual-network/public-ip-address-prefix.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como configurar o ponto de extremidade público para gerenciar instâncias: [Configurar ponto de extremidade público](sql-database-managed-instance-public-endpoint-configure.md)

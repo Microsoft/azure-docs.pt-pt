@@ -1,5 +1,5 @@
 ---
-title: 'Exemplo de designer #3: regressão para algoritmos de preço e comparação'
+title: 'Designer: prever os preços do carro (regressão)'
 titleSuffix: Azure Machine Learning
 description: Este artigo mostra como criar um pipeline de aprendizado de máquina complexo sem escrever uma única linha de código usando o designer (versão prévia). Saiba como treinar e comparar vários modelos de regressão para prever o preço de um carro com base nos recursos técnicos
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 4fb2e4c5c96c0c4c1b4d8ef14de65e470d545638
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d73f6d67afff13696de78d026ff65228fd68fb28
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515437"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647960"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Exemplo 2-regressão: prever o preço e comparar algoritmos
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]

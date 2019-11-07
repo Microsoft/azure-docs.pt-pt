@@ -8,51 +8,51 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 802fd444c953c69dfa99fbd49fdf9541cda372ba
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 3c9bface359df020cea0bfff8f82e25e25efbc47
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989831"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585237"
 ---
 # <a name="time-series-model"></a>Modelo de Série de Tempo
 
-Este documento descreve o modelo de série temporal, seus recursos e como começar a criar e atualizar seu próprio ambiente de Time Series Insights.
+Este artigo descreve o modelo de série temporal, os recursos e como começar a criar e atualizar seus próprios modelos no ambiente de visualização de Azure Time Series Insights.
 
 > [!TIP]
->  * Navegue até o ambiente de [demonstração do farm de vento da Contoso](https://insights.timeseries.azure.com/preview/samples) para obter um exemplo de modelo de série temporal em tempo real.
-> * Leia sobre o [Gerenciador de visualização Time Series insights](time-series-insights-update-explorer.md) para saber como navegar pela interface do usuário do modelo de série temporal.
+>  * Vá para o ambiente de [demonstração do farm de vento da Contoso](https://insights.timeseries.azure.com/preview/samples) para obter um exemplo de modelo de série temporal em tempo real.
+> * Leia sobre o [Gerenciador de visualização Azure Time Series insights](time-series-insights-update-explorer.md) para saber como navegar pela interface do usuário do modelo de série temporal.
 
 ## <a name="summary"></a>Resumo
 
-Tradicionalmente, os dados coletados de dispositivos IoT não têm informações contextuais, o que dificulta a localização e a análise rápida de sensores. A principal motivação para o modelo de série temporal é simplificar a localização e a análise de dados de séries IoT/temporais. Ele alcança esse objetivo ao habilitar a consulta, a manutenção e o enriquecimento de dados de série temporal para ajudar a preparar conjuntos de os clientes prontos para o consumidor para análise.
+Tradicionalmente, os dados coletados de dispositivos IoT não têm informações contextuais, o que dificulta a localização e a análise rápida de sensores. A principal motivação para o modelo de série temporal é simplificar a localização e a análise de dados IoT ou de série temporal. Ele alcança esse objetivo ao habilitar a consulta, a manutenção e o enriquecimento de dados de série temporal para ajudar a preparar conjuntos de os clientes prontos para o consumidor para análise.
 
 ## <a name="scenario-contosos-new-smart-oven"></a>Cenário: novo forno inteligente da contoso
 
-**Considere o cenário fictício de um novo forno inteligente da contoso.** Neste cenário, suponha que cada forno inteligente da Contoso tenha cinco sensores de temperatura, um para cada um dos quatro gravadores principais e outro para o próprio forno. Até recentemente, cada sensor de temperatura da Contoso enviou, armazenou e visualizou seus dados individualmente. Para o monitoramento do seu dispositivo de cozinha, a contoso dependia de gráficos básicos, um para cada sensor individual.
+**Considere o cenário fictício de um forno inteligente da contoso.** Neste cenário, suponha que cada forno inteligente da Contoso tenha cinco sensores de temperatura, um para cada um dos quatro gravadores principais e outro para o próprio forno. Até recentemente, cada sensor de temperatura da Contoso enviou, armazenou e visualizou seus dados individualmente. Para o monitoramento do seu dispositivo de cozinha, a contoso dependia de gráficos básicos, um para cada sensor individual.
 
 Embora a contoso esteja satisfeita com sua solução inicial de dados e visualização, várias limitações se tornaram aparentes:
 
-* Os clientes queriam saber o quanto o forno geral ficaria quando a maioria dos principais gravadores estavam, e a Contoso tinha mais dificuldade em analisar e apresentar uma resposta unificada sobre as condições do forno geral.
-* Os engenheiros da Contoso queriam verificar se os principais gravadores que estão sendo executados simultaneamente não resultarão em um consumo de energia ineficiente, e houve dificuldade em fazer referência cruzada que sensores de temperatura e voltagem estavam associados entre si e como localizá-los em o repositório.
-* A equipe do contoso Quality Assurance queria auditar e comparar o histórico entre duas versões de sensor, e houve dificuldade em determinar quais dados pertenciam a qual versão do sensor.
+* Os clientes queriam saber o quanto o forno geral obteria quando a maioria dos principais gravadores estivesse. A contoso teve mais dificuldade em analisar e apresentar uma resposta unificada sobre as condições do forno geral.
+* Os engenheiros da Contoso queriam verificar se os principais gravadores que estão sendo executados simultaneamente não resultarão em um consumo de energia ineficiente. Houve dificuldade em fazer referência cruzada que sensores de temperatura e voltagem foram associados entre si e como localizá-los na loja.
+* A equipe de garantia de qualidade da Contoso queria auditar e comparar o histórico entre duas versões de sensor. Houve dificuldade em determinar quais dados pertenciam a qual versão do sensor.
 
-Sem a capacidade de estruturar, organizar e definir o modelo de série temporal de forno inteligente abrangente, cada sensor de temperatura manteve pontos de dados desalocados, isolados e menos informativos. É mais difícil transformar esses pontos de dados em informações acionáveis, pois cada conjunto de dados se encontrava independentemente dos outros.
+Sem a capacidade de estruturar, organizar e definir o modelo de série temporal de forno inteligente abrangente, cada sensor de temperatura manteve pontos de dados desalocados, isolados e menos informativos. A desativação desses pontos de dados em informações acionáveis era mais difícil, pois cada um deles se vida independentemente dos outros.
 
 Essas limitações revelaram a importância da agregação de dados inteligentes e das ferramentas de visualização para acompanhar o novo forno da Contoso:
 
-* A visualização de dados comprova-se útil quando você é capaz de associar e combinar dados em uma exibição conveniente. Por exemplo, mostrando sensores de tensão junto com sensores de temperatura.
-* É difícil realizar o gerenciamento de dados multidimensionais para várias entidades juntamente com as funcionalidades de comparação, zoom e intervalo de tempo.
+* A visualização de dados comprova-se útil quando você é capaz de associar e combinar dados em uma exibição conveniente. Um exemplo é mostrar sensores de tensão junto com sensores de temperatura.
+* O gerenciamento de dados multidimensionais para várias entidades juntamente com a comparação, o zoom e as funcionalidades de intervalo de tempo podem ser difíceis de realizar.
 
-O **modelo de série temporal fornece uma solução conveniente** para muitos dos cenários encontrados no exemplo fictício acima:
+O **modelo de série temporal fornece uma solução conveniente** para muitos dos cenários encontrados neste exemplo fictício:
 
-[gráfico de modelo de série temporal![](media/v2-update-tsm/tsi-charting.png)](media/v2-update-tsm/tsi-charting.png#lightbox)
+[gráfico de modelo de série temporal ![](media/v2-update-tsm/tsi-charting.png)](media/v2-update-tsm/tsi-charting.png#lightbox)
 
 * O modelo de série temporal exerce um papel vital em consultas e navegação porque ele contextualiza dados, permitindo que as comparações sejam desenhadas entre intervalos de tempo e entre os tipos de sensor e de dispositivo.
-* Os dados são mais contextuais porque os dados persistidos em um modelo de série temporal preservam as computações de consulta de série temporal como variáveis e as usam no momento da consulta.
-* O modelo de série temporal organiza e agrega dados para recursos aprimorados de visualização e gerenciamento.
+* Os dados são mais contextuais porque os dados persistentes no modelo de série temporal preservam as computações de consulta de série temporal como variáveis e as usam no momento da consulta.
+* O modelo de série temporal organiza e agrega dados para recursos aprimorados de gerenciamento e visualização.
 
 ### <a name="key-capabilities"></a>Principais capacidades
 
@@ -60,7 +60,7 @@ Com o objetivo de tornar simples e fácil gerenciar a congestão de séries temp
 
 * Crie e gerencie cálculos ou fórmulas que aproveitam funções escalares, operações de agregação e assim por diante.
 * Defina relações pai-filho para habilitar a navegação, pesquisa e referência.
-* Defina as propriedades associadas às instâncias, definidas como campos de *instância* e use-as para criar hierarquias.
+* Defina as propriedades associadas às instâncias, definidas como campos de *instância*, e use-as para criar hierarquias.
 
 ### <a name="components"></a>Componentes
 
@@ -72,25 +72,25 @@ O modelo de série temporal tem três componentes principais:
 
 Esses componentes são combinados para especificar um modelo de série temporal e para organizar seus dados de Azure Time Series Insights.
 
-[Visão geral do modelo de série temporal![](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
+[Visão geral do modelo de série temporal ![](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
 
-O modelo de série temporal pode ser criado e gerenciado por meio da interface de [visualização Time Series insights](time-series-insights-update-how-to-tsm.md) . As configurações do modelo de série temporal podem ser gerenciadas por meio da [API de configurações do modelo](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
+Um modelo de série temporal pode ser criado e gerenciado por meio da interface de [visualização Time Series insights](time-series-insights-update-how-to-tsm.md) . As configurações do modelo de série temporal podem ser gerenciadas por meio da [API de configurações do modelo](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
 
 ## <a name="time-series-model-instances"></a>Instâncias de modelo de série temporal
 
 *Instâncias* de modelo de série temporal são representações virtuais da própria série temporal.
 
-Na maioria dos casos, as instâncias são identificadas exclusivamente por **DeviceID** ou **AssetID**, elas são salvas como IDs de série temporal.
+Na maioria dos casos, as instâncias são identificadas exclusivamente por **DeviceID** ou **AssetID**, que são salvas como IDs de série temporal.
 
-As instâncias têm informações descritivas associadas a elas chamadas *Propriedades de instância* , como uma ID de série temporal, tipo, nome, descrição, hierarquias e campos de instância. No mínimo, as propriedades de instância incluem informações de hierarquia.
+As instâncias têm informações descritivas associadas a elas chamadas *Propriedades de instância*, como uma ID de série temporal, tipo, nome, descrição, hierarquias e campos de instância. No mínimo, as propriedades de instância incluem informações de hierarquia.
 
-Os campos de instância são uma coleção de informações descritivas que podem incluir valores para níveis de hierarquia, bem como fabricante, operador, etc.
+Os *campos de instância* são uma coleção de informações descritivas que podem incluir valores para níveis de hierarquia, bem como fabricante, operador e assim por diante.
 
-Depois que uma fonte de evento é configurada para Time Series Insights ambiente, as instâncias são automaticamente descobertas e criadas no modelo de série temporal. As instâncias podem ser criadas ou atualizadas por meio do Time Series Insights Explorer usando consultas de modelo de série temporal.
+Depois que uma fonte de evento é configurada para o ambiente de Time Series Insights, as instâncias são descobertas automaticamente e criadas em um modelo de série temporal. As instâncias podem ser criadas ou atualizadas por meio do Time Series Insights Explorer usando consultas de modelo de série temporal.
 
 A [demonstração do farm de vento da Contoso](https://insights.timeseries.azure.com/preview/samples) fornece vários exemplos de instância ao vivo.
 
-[instâncias do modelo de série temporal![](media/v2-update-tsm/instance.png)](media/v2-update-tsm/instance.png#lightbox)
+[instâncias do modelo de série temporal ![](media/v2-update-tsm/instance.png)](media/v2-update-tsm/instance.png#lightbox)
 
 ### <a name="instance-properties"></a>Propriedades da instância
 
@@ -99,14 +99,14 @@ As instâncias são definidas por **Timeseriesid**, **typeId**, **Name**, **Desc
 | Propriedade | Descrição |
 | --- | ---|
 | Série temporal | O UUID da série temporal à qual a instância está associada. |
-| Identificação | O UUID do tipo de modelo de série temporal ao qual a instância está associada. Por padrão, todas as novas instâncias descobertas são associadas a um tipo padrão|
-| nome | A propriedade *Name* é opcional e diferencia maiúsculas de minúsculas. Se o *nome* não estiver disponível, ele usará como padrão *timeseriesid*. Se um *nome* for fornecido, a *timeseriesid* ainda estará disponível no [bem](time-series-insights-update-explorer.md#preview-well). |
+| Identificação | O UUID do tipo de modelo de série temporal ao qual a instância está associada. Por padrão, todas as novas instâncias descobertas são associadas a um tipo padrão.
+| nome | A propriedade **Name** é opcional e diferencia maiúsculas de minúsculas. Se o **nome** não estiver disponível, o padrão será **timeseriesid**. Se um nome for fornecido, **Timeseriesid** ainda estará disponível no [bem](time-series-insights-update-explorer.md#preview-well). |
 | descrição | Uma descrição de texto da instância. |
 | hierarchyIds | Define a quais hierarquias a instância pertence. |
-| instanceFields | *instanceFields* são propriedades de uma instância e de quaisquer dados estáticos que definem uma instância. Eles definem valores de propriedades de hierarquia ou de não hierarquia, além de oferecer suporte à indexação para executar operações de pesquisa. |
+| instanceFields | **instanceFields** são propriedades de uma instância e de quaisquer dados estáticos que definem uma instância. Eles definem valores de propriedades de hierarquia ou de não hierarquia, além de oferecer suporte à indexação para executar operações de pesquisa. |
 
 > [!NOTE]
-> As hierarquias são criadas usando **campos de instância**, e **instanceFields** adicionais podem ser adicionados para uma definição de propriedade de instância adicional.
+> As hierarquias são criadas usando campos de instância. **InstanceFields** adicionais podem ser adicionados para outras definições de propriedade de instância.
 
 As instâncias têm a seguinte representação JSON:
 
@@ -128,7 +128,7 @@ As instâncias têm a seguinte representação JSON:
 ```
 
 > [!TIP]
-> Para obter Time Series Insights API de instância e suporte CRUD, consulte o artigo [consulta de dados](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e a [documentação REST da API de instância](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
+> Para Time Series Insights API de instância e suporte para criar, ler, atualizar e excluir (CRUD), consulte o artigo [consulta de dados](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e a [documentação REST da API de instância](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
 
 ## <a name="time-series-model-hierarchies"></a>Hierarquias de modelo de série temporal
 
@@ -138,7 +138,7 @@ Você pode configurar várias hierarquias em um determinado ambiente de Time Ser
 
 A interface do cliente de [demonstração do farm de vento da Contoso](https://insights.timeseries.azure.com/preview/samples) exibe uma instância padrão e uma hierarquia de tipos.
 
-[hierarquias de modelo de série temporal![](media/v2-update-tsm/hierarchy.png)](media/v2-update-tsm/hierarchy.png#lightbox)
+[hierarquias de modelo de série temporal ![](media/v2-update-tsm/hierarchy.png)](media/v2-update-tsm/hierarchy.png#lightbox)
 
 ### <a name="hierarchy-definition"></a>Definição de hierarquia
 
@@ -146,9 +146,9 @@ As hierarquias são definidas por **ID**de hierarquia, **nome**e **origem**.
 
 | Propriedade | Descrição |
 | ---| ---|
-| ID | O identificador exclusivo para a hierarquia – usado, por exemplo, ao definir uma instância. |
+| ID | O identificador exclusivo da hierarquia, que é usado, por exemplo, quando você define uma instância. |
 | nome | Uma cadeia de caracteres usada para fornecer um nome para a hierarquia. |
-| source | Especifica a hierarquia organizacional ou o caminho, que é uma ordem pai-filho de cima para baixo da hierarquia que os usuários desejam criar. As propriedades pai-filho mapeiam *campos de instância*. |
+| source | Especifica a hierarquia organizacional ou o caminho, que é uma ordem pai-filho de cima para baixo da hierarquia que os usuários desejam criar. As propriedades pai-filho mapeiam campos de instância. |
 
 As hierarquias são representadas em JSON como:
 
@@ -179,17 +179,17 @@ As hierarquias são representadas em JSON como:
 }
 ```
 
-Anel
+No exemplo de JSON anterior:
 
-* `Location` define uma hierarquia com `states` pai e `cities`filho. Cada `location` pode ter vários `states` que, por sua vez, podem ter vários `cities`.
-* `ManufactureDate` define uma hierarquia com `year` pai e `month`filho. Cada `ManufactureDate` pode ter vários `years` que, por sua vez, podem ter vários `months`.
+* `Location` define uma hierarquia com `states` pai e `cities`filho. Cada `location` pode ter vários `states`, que, por sua vez, podem ter vários `cities`.
+* `ManufactureDate` define uma hierarquia com `year` pai e `month`filho. Cada `ManufactureDate` pode ter vários `years`, que, por sua vez, podem ter vários `months`.
 
 > [!TIP]
 > Para obter Time Series Insights API de instância e suporte CRUD, consulte o artigo [consulta de dados](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e a [documentação REST da API de hierarquia](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Exemplo de hierarquia
 
-Considere um exemplo em que a hierarquia **H1** tem *prédio*, *andar*e *sala* como parte de sua definição de **instanceFieldNames** :
+Considere um exemplo em que a hierarquia **H1** tem `building`, `floor`e `room` como parte de sua definição de **instanceFieldNames** :
 
 ```JSON
 {
@@ -205,7 +205,7 @@ Considere um exemplo em que a hierarquia **H1** tem *prédio*, *andar*e *sala* c
 }
 ```
 
-Considerando os **campos de instância** usados na definição acima e várias séries temporais, os atributos e valores de hierarquia serão exibidos conforme mostrado na tabela a seguir:
+Considerando os campos de instância usados na definição anterior e várias séries temporais, os valores e atributos de hierarquia aparecem conforme mostrado na tabela a seguir:
 
 | ID da série temporal | Campos de instância |
 | --- | --- |
@@ -213,11 +213,11 @@ Considerando os **campos de instância** usados na definição acima e várias s
 | ID2 | "criando" = "1000", "sala" = "55" |
 | VERSÕES | "Floor" = "10" |
 | ID4 | "criando" = "1000", "Floor" = "10"  |
-| ID5 | Nenhum de "prédio", "andar" ou "sala" está definido |
+| ID5 | Nenhum de "prédio", "andar" ou "sala" é definido. |
 
-A série temporal **ID1** e **ID4** serão exibidas como parte da hierarquia **H1** no [Azure Time Series insights Explorer](time-series-insights-update-explorer.md) , já que elas têm total definição e correta *classificação,* *piso*e *espaço* parâmetro.
+A série temporal **ID1** e **ID4** são exibidos como parte da hierarquia **H1** no [Azure Time Series insights Explorer](time-series-insights-update-explorer.md) porque eles têm total definido e corretamente ordenado de *compilação*, *piso*e *sala* parâmetro.
 
-Os outros serão classificados em *instâncias não pais* , pois não estão em conformidade com a hierarquia de dados especificada.
+Os outros são classificados em *instâncias sem pai* porque não estão em conformidade com a hierarquia de dados especificada.
 
 ## <a name="time-series-model-types"></a>Tipos de modelo de série temporal
 
@@ -230,11 +230,11 @@ A [demonstração do farm de vento da Contoso](https://insights.timeseries.azure
 [![tipos de modelo de série temporal](media/v2-update-tsm/types.png)](media/v2-update-tsm/types.png#lightbox)
 
 > [!TIP]
-> Para a API de instância do Time Series Insights e o suporte CRUD, consulte o artigo [consulta de dados](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e a [documentação do tipo API REST](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
+> Para obter Time Series Insights API de instância e suporte CRUD, consulte o artigo [consulta de dados](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e a [documentação do tipo API REST](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
 ### <a name="type-properties"></a>Propriedades do tipo
 
-Os tipos de modelo de série temporal são definidos por uma **ID**, **nome**, **Descrição**e **variáveis**.
+Os tipos de modelo de série temporal são definidos por **ID**, **nome**, **Descrição**e **variáveis**.
 
 | Propriedade | Descrição |
 | ---| ---|
@@ -243,7 +243,7 @@ Os tipos de modelo de série temporal são definidos por uma **ID**, **nome**, *
 | descrição | Uma descrição de cadeia de caracteres para o tipo. |
 | As | Especifique as variáveis associadas ao tipo. |
 
-Os tipos estarão de acordo com o seguinte exemplo de JSON:
+Os tipos estão em conformidade com o seguinte exemplo de JSON:
 
 ```JSON
 {
@@ -285,13 +285,13 @@ Os tipos estarão de acordo com o seguinte exemplo de JSON:
 
 ### <a name="variables"></a>Variáveis
 
-Os tipos de Time Series Insights podem ter muitas variáveis que especificam fórmulas e regras de computação em eventos.
+Tipos de Time Series Insights podem ter muitas variáveis que especificam fórmulas e regras de computação em eventos.
 
 Cada variável pode ser um dos três *tipos*: *numeric*, *categórico*e *Aggregate*.
 
-* Os tipos *numéricos* funcionam com valores contínuos. 
-* Os tipos *categóricos* funcionam com um conjunto definido de valores discretos.
-* Os valores de *agregação* combinam várias variáveis de tipo único (todos *numéricos* ou todos *categóricos*).
+* Os tipos **numéricos** funcionam com valores contínuos. 
+* Os tipos **categóricos** funcionam com um conjunto definido de valores discretos.
+* Valores de **agregação** combinam várias variáveis de um único tipo (todos numéricos ou todos categóricos).
 
 A tabela a seguir exibe quais propriedades são relevantes para cada tipo de variável.
 
@@ -302,7 +302,7 @@ A tabela a seguir exibe quais propriedades são relevantes para cada tipo de var
 | Propriedade Variable | Descrição |
 | --- | ---|
 | Filtro de variável | Os filtros são cláusulas condicionais opcionais para restringir o número de linhas que estão sendo consideradas para computação. |
-| Valor da variável | Valores de telemetria usados para computação provenientes do dispositivo/sensores ou transformados usando expressões de série temporal. Variáveis de tipo numérico devem ser do tipo *Double*.|
+| Valor da variável | Valores de telemetria usados para computação provenientes do dispositivo ou sensores ou transformados usando expressões de série temporal. Variáveis de tipo numérico devem ser do tipo *Double*.|
 | Interpolação de variável | Interpolação especifica como reconstruir um sinal usando dados existentes. As opções de interpolação de *etapa* e *linear* estão disponíveis para variáveis numéricas. |
 | Agregação de variável | Suporte a computação por meio dos operadores *AVG*, *min*, *Max*, *sum*, *Count*, *primeiro*, *último* e Timed (*AVG*, *min*, *Max*, *sum*e *Left*). |
 
@@ -332,9 +332,9 @@ As variáveis estão em conformidade com o seguinte exemplo de JSON:
 | Propriedade Variable | Descrição |
 | --- | ---|
 | Filtro de variável | Os filtros são cláusulas condicionais opcionais para restringir o número de linhas que estão sendo consideradas para computação. |
-| Valor da variável | Valores de telemetria usados para computação provenientes do dispositivo/sensores. As variáveis de tipo categórico devem ser *longas* ou de *cadeia de caracteres*. |
+| Valor da variável | Valores de telemetria usados para computação provenientes do dispositivo ou dos sensores. As variáveis de tipo categórico devem ser *longas* ou de *cadeia de caracteres*. |
 | Interpolação de variável | Interpolação especifica como reconstruir um sinal usando dados existentes. A opção de interpolação de *etapa* está disponível para variáveis categóricas. |
-| Categorias de variáveis | Categorias crie um mapeamento entre os valores provenientes do dispositivo/sensores para um rótulo. |
+| Categorias de variáveis | Categorias crie um mapeamento entre os valores provenientes do dispositivo ou dos sensores para um rótulo. |
 | Categoria padrão da variável | A categoria padrão é para todos os valores que não estão sendo mapeados na propriedade "Categories". |
 
 As variáveis estão em conformidade com o seguinte exemplo de JSON:
@@ -389,7 +389,5 @@ As variáveis são armazenadas na definição de tipo de um modelo de série tem
 ## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [Azure Time Series insights visualização de armazenamento e entrada](./time-series-insights-update-storage-ingress.md).
-
 - Saiba mais sobre operações de modelo de série temporal comuns na [modelagem de dados na visualização Azure Time Series insights](./time-series-insights-update-how-to-tsm.md)
-
 - Leia a nova documentação de referência do [modelo de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) .

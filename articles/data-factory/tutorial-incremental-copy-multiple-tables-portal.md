@@ -1,5 +1,5 @@
 ---
-title: Copiar várias tabelas de forma incremental com o Azure Data Factory | Microsoft Docs
+title: 'Copiar várias tabelas incrementalmente usando Azure Data Factory '
 description: Neste tutorial, vai criar um pipeline do Azure Data Factory, que copia dados delta de forma incremental de várias tabelas numa base de dados do SQL Server local para uma base de dados SQL do Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: a93b9249bde19c9ac902adbb7fc2b5469942f366
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 3129a0629c4de69e6e3d65f2f74da97e8d39a467
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595769"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683412"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar dados de forma incremental a partir de várias tabelas no SQL Server para uma base de dados SQL do Azure
 Neste tutorial, vai criar um pipeline do Azure Data Factory que carrega dados delta a partir de várias tabelas no SQL Server local para uma base de dados SQL do Azure.    
@@ -27,16 +27,16 @@ Vai executar os seguintes passos neste tutorial:
 > * Prepare os arquivos de dados de origem e de destino.
 > * Criar uma fábrica de dados.
 > * Criar um integration runtime autoalojado.
-> * Instalou o integration runtime. 
+> * Instalar o integration runtime. 
 > * Criar serviços ligados. 
-> * Crie conjuntos de dados de origem, de sink e de limite de tamanho.
+> * Criou conjuntos de dados de origem, de sink e de limite de tamanho.
 > * Criar, executar e monitorizar um pipeline.
 > * Reveja os resultados.
 > * Adicionou ou atualizou os dados nas tabelas de origem.
 > * Voltou a executar e a monitorizar o pipeline.
 > * Rever os resultados finais.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 Eis os passos importantes para criar esta solução: 
 
 1. **Selecionar a coluna de limite de tamanho**.
@@ -45,7 +45,7 @@ Eis os passos importantes para criar esta solução:
 
 1. **Preparar um arquivo de dados para armazenar o valor de limite de tamanho**.   
     
-    Neste tutorial, vai armazenar o valor de limite superior numa base de dados SQL.
+    Neste tutorial, vai armazenar o valor do limite de tamanho numa base de dados SQL.
 
 1. **Criar um pipeline com as seguintes atividades:** 
     
@@ -57,7 +57,7 @@ Eis os passos importantes para criar esta solução:
 
     d. Crie uma atividade StoredProcedure, que atualiza o valor de marca d'água do pipeline que vai ser executado da próxima vez. 
 
-    Eis o diagrama da solução de alto nível: 
+    Eis o diagrama de nível elevado da solução: 
 
     ![Carregar dados de forma incremental](media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png)
 
@@ -66,7 +66,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **SQL Server**. Neste tutorial, vai utilizar uma base de dados do SQL Server no local como o arquivo de dados de origem. 
-* **Base de Dados SQL do Azure**. Vai ulizar uma base de dados SQL como o arquivo de dados de sink. Se não tiver uma base de dados SQL, veja [Criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para seguir os passos para criar uma. 
+* **Base de Dados SQL do Azure**. Vai ulizar uma base de dados SQL como o arquivo de dados de sink. Se não tiver uma base de dados SQL, veja[Criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para obter os passos para criar uma. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Criar tabelas de origem na base de dados do SQL Server
 
@@ -351,7 +351,7 @@ Neste passo, vai criar conjuntos de dados para representar a origem de dados, o 
     
 1. Na janela **adicionar conteúdo dinâmico** , selecione **SinkTableName** na seção **parâmetros** . 
  
-1. Depois de clicar em **concluir**, você verá "@dataset (). SinkTableName "como o nome da tabela.
+1. Depois de clicar em **concluir**, você verá "@dataset(). SinkTableName "como o nome da tabela.
 
    ![Conjunto de Dados de Sink - ligação](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
@@ -673,9 +673,9 @@ Neste tutorial, executou os passos seguintes:
 > * Prepare os arquivos de dados de origem e de destino.
 > * Criar uma fábrica de dados.
 > * Criou um integration runtime autoalojado (IR).
-> * Instalou o integration runtime.
+> * Instalar o integration runtime.
 > * Criar serviços ligados. 
-> * Crie conjuntos de dados de origem, de sink e de limite de tamanho.
+> * Criou conjuntos de dados de origem, de sink e de limite de tamanho.
 > * Criar, executar e monitorizar um pipeline.
 > * Reveja os resultados.
 > * Adicionou ou atualizou os dados nas tabelas de origem.

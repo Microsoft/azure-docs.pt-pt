@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/30/2019
-ms.openlocfilehash: 9b70a9c364768322a3eae6ef5b92c87b6839c540
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.date: 11/04/2019
+ms.openlocfilehash: b0839cf418cd30f62623e046960c32d41537609a
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242079"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614383"
 ---
 # <a name="tutorial-configure-azure-kubernetes-service-aks-clusters-in-azure-using-ansible"></a>Tutorial: configurar clusters do AKS (serviço kubernetes do Azure) no Azure usando o Ansible
 
@@ -54,7 +54,8 @@ Guarde o manual de procedimentos seguinte como `azure_create_aks.yml`:
     ssh_key: "your_ssh_key"
     client_id: "your_client_id"
     client_secret: "your_client_secret"
-  tasks:
+    aks_version: aks_version
+tasks:
   - name: Create resource group
     azure_rm_resourcegroup:
       name: "{{ resource_group }}"
@@ -65,6 +66,7 @@ Guarde o manual de procedimentos seguinte como `azure_create_aks.yml`:
       location: "{{ location }}"
       resource_group: "{{ resource_group }}"
       dns_prefix: "{{ aks_name }}"
+      kubernetes_version: "{{aks_version}}"
       linux_profile:
         admin_username: "{{ username }}"
         ssh_key: "{{ ssh_key }}"
@@ -81,9 +83,10 @@ Guarde o manual de procedimentos seguinte como `azure_create_aks.yml`:
 
 Antes de executar o guia estratégico, consulte as seguintes observações:
 
-- A primeira seção dentro de `tasks` define um grupo de recursos denominado `myResourceGroup` dentro do local `eastus`.
+- A primeira seção dentro de `tasks` define um grupo de recursos chamado `myResourceGroup` dentro do local `eastus`.
 - A segunda seção dentro de `tasks` define um cluster AKS chamado `myAKSCluster` dentro do grupo de recursos `myResourceGroup`.
 - Para o espaço reservado `your_ssh_key`, insira sua chave pública RSA no formato de linha única-começando com "ssh-RSA" (sem as aspas).
+- Para o espaço reservado `aks_version`, use o comando [AZ AKs Get-Versions](/cli/azure/aks?view=azure-cli-latest#az-aks-get-versions) .
 
 Execute o guia estratégico usando o comando `ansible-playbook`:
 
@@ -111,7 +114,7 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0
 
 ## <a name="scale-aks-nodes"></a>Dimensionar nós do AKS
 
-O manual de procedimentos de exemplo na secção anterior define dois nós. Você ajusta o número de nós modificando o valor `count` no bloco `agent_pool_profiles`.
+O manual de procedimentos de exemplo na secção anterior define dois nós. Você ajusta o número de nós modificando o valor de `count` no bloco de `agent_pool_profiles`.
 
 Guarde o manual de procedimentos seguinte como `azure_configure_aks.yml`:
 
