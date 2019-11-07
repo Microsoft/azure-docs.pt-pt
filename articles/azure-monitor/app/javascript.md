@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 17765910b379bd4212d171cce6643de561db23ad
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 177d8e6e9d4393df785f2caf55bf6cbe895bc640
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819374"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667915"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 
@@ -49,7 +49,7 @@ Se seu aplicativo não usar o NPM, você poderá instrumentar diretamente suas p
 
 ```html
 <script type="text/javascript">
-var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
+var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("addTelemetryInitializer"),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),t.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4},!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
 {
   instrumentationKey:"INSTRUMENTATION_KEY"
 }
@@ -59,7 +59,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Enviando telemetria para o portal do Azure
 
-Por padrão, o SDK do JavaScript Application Insights coleta a um número de itens de telemetria que são úteis para determinar a integridade do seu aplicativo e a experiência do usuário subjacente. As regiões incluem:
+Por padrão, o SDK do JavaScript Application Insights coleta a um número de itens de telemetria que são úteis para determinar a integridade do seu aplicativo e a experiência do usuário subjacente. Estas incluem:
 
 - **Exceções não capturadas** em seu aplicativo, incluindo informações sobre
     - Rastreamento de pilha
@@ -80,7 +80,7 @@ Por padrão, o SDK do JavaScript Application Insights coleta a um número de ite
 ### <a name="telemetry-initializers"></a>Inicializadores de telemetria
 Inicializadores de telemetria são usados para modificar o conteúdo da telemetria coletada antes de ser enviada do navegador do usuário. Eles também podem ser usados para impedir que determinada telemetria seja enviada, retornando `false`. Vários inicializadores de telemetria podem ser adicionados à sua instância de Application Insights e são executados para adicioná-los.
 
-O argumento de entrada para `addTelemetryInitializer` é um retorno de chamada que usa um [`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API.md#addTelemetryInitializer) como um argumento e retorna um `boolean` ou `void`. Se retornar `false`, o item de telemetria não será enviado, caso contrário, ele prosseguirá para o próximo inicializador de telemetria, se houver, ou será enviado para o ponto de extremidade da coleção de telemetria.
+O argumento de entrada para `addTelemetryInitializer` é um retorno de chamada que usa um [`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#addTelemetryInitializer) como um argumento e retorna um `boolean` ou `void`. Se retornar `false`, o item de telemetria não será enviado, caso contrário, ele prosseguirá para o próximo inicializador de telemetria, se houver, ou será enviado para o ponto de extremidade da coleção de telemetria.
 
 Um exemplo de como usar inicializadores de telemetria:
 ```ts
@@ -136,7 +136,7 @@ A maioria dos campos de configuração são nomeados de modo que eles podem ser 
 | enableAutoRouteTracking | false | Rastreie automaticamente as alterações de rota em SPA (aplicativos de página única). Se for true, cada alteração de rota enviará um novo Pageview para Application Insights. As alterações de rota de hash (`example.com/foo#bar`) também são registradas como novas exibições de página.
 | enableRequestHeaderTracking | false | Se verdadeiro, os cabeçalhos de solicitação de busca do AJAX & são rastreados, o padrão é false.
 | enableResponseHeaderTracking | false | Se verdadeiro, os cabeçalhos de resposta da solicitação de busca do AJAX & são rastreados, o padrão é false.
-| distributedTracingMode | `DistributedTracingModes.AI` | Define o modo de rastreamento distribuído. Se o modo AI_AND_W3C ou o modo W3C estiver definido, os cabeçalhos de contexto de rastreamento do W3C (traceparent/tracestate) serão gerados e incluídos em todas as solicitações de saída. O AI_AND_W3C é fornecido para compatibilidade com os serviços instrumentados Application Insightss herdados.
+| distributedTracingMode | `DistributedTracingModes.AI` | Define o modo de rastreamento distribuído. Se o modo de AI_AND_W3C ou o modo W3C for definido, os cabeçalhos de contexto de rastreamento do W3C (traceparent/tracestate) serão gerados e incluídos em todas as solicitações de saída. AI_AND_W3C é fornecida para compatibilidade com os serviços instrumentados Application Insightss herdados.
 
 ## <a name="single-page-applications"></a>Aplicativos de página única
 
@@ -194,7 +194,7 @@ dataset
 
 A pilha de chamadas reduzidos da sua telemetria de exceção pode ser unminified no portal do Azure. Todas as integrações existentes no painel detalhes da exceção funcionarão com o unminified pilha de chamadas recentemente. Arrastar e soltar o mapa de origem unminifying dá suporte a todos os SDKs do JS existentes e futuros (+ Node. JS), portanto, não é necessário atualizar sua versão do SDK. Para exibir o unminified pilha de chamadas,
 1. Selecione um item de telemetria de exceção no portal do Azure para exibir seus "detalhes de transação de ponta a ponta"
-2. Identifique quais mapas de origem correspondem a esta pilha de chamadas. O mapa de origem deve corresponder ao arquivo de origem de um quadro de pilha, mas com o sufixo `.map`
+2. Identifique quais mapas de origem correspondem a esta pilha de chamadas. O mapa de origem deve corresponder ao arquivo de origem de um quadro de pilha, mas com o sufixo com `.map`
 3. Arraste e solte os mapas de origem na pilha de chamadas no portal do Azure ![](https://i.imgur.com/Efue9nU.gif)
 
 ### <a name="application-insights-web-basic"></a>Application Insights Web Basic
@@ -214,7 +214,7 @@ Para obter exemplos de executáveis, consulte [Application insights exemplos de 
 Alterações recentes na versão do SDK v2:
 - Para permitir melhores assinaturas de API, algumas das chamadas à API, como trackPageView, trackexception foram atualizadas. Não há suporte para execução no IE8 ou em versões anteriores do navegador.
 - O envelope de telemetria tem alterações de estrutura e nome de campo devido a atualizações de esquema de dados.
-- Movido `context.operation` para `context.telemetryTrace`. Alguns campos também foram alterados (`operation.id` --> `telemetryTrace.traceID`)
+- `context.operation` movido para `context.telemetryTrace`. Alguns campos também foram alterados (`operation.id` --> `telemetryTrace.traceID`)
   - Se você quiser atualizar manualmente a ID de Pageview atual (por exemplo, em aplicativos de SPA), isso pode ser feito com `appInsights.properties.context.telemetryTrace.traceID = Util.newId()`
 
 Se você estiver usando o 1.0.20 (SDK de produção do Application insights) atual e quiser ver se o novo SDK funciona em tempo de execução, atualize a URL dependendo do seu cenário de carregamento do SDK atual.

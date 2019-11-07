@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/04/2019
-ms.openlocfilehash: 85346a2334d240eceb0daa4519ce69b4eb4906cc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: f1b061e92ce0650da4d5b95643eb6e9df917e3b8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497464"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671564"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são pipelines Azure Machine Learning?
 
@@ -119,7 +119,7 @@ Os desenvolvedores que preferem uma superfície de Design Visual podem usar o de
 
 Quando você cria pipelines visualmente, as entradas e saídas de uma etapa são exibidas visivelmente. Você pode arrastar e soltar conexões de dados, permitindo que você entenda rapidamente e modifique o fluxo de armazenamento de seu pipeline.
  
-![Exemplo de designer de Azure Machine Learning](./media/concept-ml-pipelines/visual-design-surface.gif)
+![Exemplo de designer de Azure Machine Learning](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
 ### <a name="understanding-the-execution-graph"></a>Compreendendo o grafo de execução
 

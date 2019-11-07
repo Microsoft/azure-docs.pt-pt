@@ -1,5 +1,5 @@
 ---
-title: 'Azure Resource Manager: Criar um banco de dados individual – banco de dados SQL do Azure | Microsoft Docs'
+title: 'Azure Resource Manager: criar um banco de dados individual – banco de dados SQL do Azure '
 description: Crie um banco de dados individual no banco de dados SQL do Azure usando o modelo Azure Resource Manager.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
 ms.date: 06/28/2019
-ms.openlocfilehash: f3e9bb0e9a2c4c58a205798441ddc2208019e7d2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3c46dbe5cac4407eda8b4198613eda1c1742ed35
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566568"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687199"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Início rápido: Criar um banco de dados individual no banco de dados SQL do Azure usando o modelo de Azure Resource Manager
+# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Início rápido: criar um banco de dados individual no banco de dados SQL do Azure usando o modelo de Azure Resource Manager
 
 Criar um [banco de dados individual](sql-database-single-database.md) é a opção de implantação mais rápida e mais simples para criar um banco de dados no banco de dados SQL do Azure. Este guia de início rápido mostra como criar um banco de dados individual usando o modelo de Azure Resource Manager. Para obter mais informações, consulte a [documentação do Azure Resource Manager](/azure/azure-resource-manager/).
 

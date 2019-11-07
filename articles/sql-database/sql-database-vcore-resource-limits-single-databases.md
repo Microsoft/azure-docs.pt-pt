@@ -1,5 +1,5 @@
 ---
-title: Limites de recursos vCore do banco de dados SQL do Azure-banco de dados individual | Microsoft Docs
+title: Limites de recursos vCore do banco de dados SQL do Azure-banco de dados individual
 description: Esta página descreve alguns limites de recursos vCore comuns para um único banco de dados no banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/04/2019
-ms.openlocfilehash: 55b0b28f3081cfe643645683a9773b4c97b9caef
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b3b55b3542eb0dd8c3c61d7a82c8ce2e9d271113
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495940"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686859"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra vCore
 
@@ -44,7 +44,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Memória mín. máx. (GB)|2.02-3|2.05-6|2.10-12|2,25-18|3,00-24|
 |Mínimo de atraso de pausa automática (minutos)|60|60|60|60|60|
 |Suporte a Columnstore|Sim|Sim|Sim|Sim|Sim|
-|Armazenamento OLTP na memória (GB)|N/A|N/A|N/A|N/A|N/A|
+|Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (GB)|512|1024|1024|1024|1536|
 |Tamanho máximo do log (GB)|154|307|307|307|461|
 |Tamanho máximo de dados de TempDB (GB)|32|64|128|192|256|
@@ -55,8 +55,8 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Máximo de trabalhos simultâneos (solicitações)|75|150|300|450|600|
 |Sessões simultâneas máx.|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|
-|Expansão de leitura|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|N/D|N/D|N/D|N/D|N/D|
+|Expansão de leitura|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
 
 ### <a name="gen5-compute-generation-part-2"></a>Geração de computação Gen5 (parte 2)
@@ -68,7 +68,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Memória mín. máx. (GB)|3,75-30|4.50-36|5,25-42|6.00-48|
 |Mínimo de atraso de pausa automática (minutos)|60|60|60|60|
 |Suporte a Columnstore|Sim|Sim|Sim|Sim|
-|Armazenamento OLTP na memória (GB)|N/A|N/A|N/A|N/A|
+|Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (GB)|1536|1536|1536|3072|
 |Tamanho máximo do log (GB)|461|461|461|922|
 |Tamanho máximo de dados de TempDB (GB)|320|384|448|512|
@@ -79,8 +79,8 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Máximo de trabalhos simultâneos (solicitações)|750|900|1050|1200|
 |Sessões simultâneas máx.|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|N/A|
-|Expansão de leitura|N/A|N/A|N/A|N/A|
+|Multi-AZ|N/D|N/D|N/D|N/D|
+|Expansão de leitura|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
 
 
@@ -95,7 +95,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Memória (GB)|10.2|20,4|40,8|81,6|122,4|163,2|204|408|
 |[RBPEX](sql-database-service-tier-hyperscale.md#compute) Tamanho|3X de memória|3X de memória|3X de memória|3X de memória|3X de memória|3X de memória|3X de memória|3X de memória|
 |Suporte a Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
-|Armazenamento OLTP na memória (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
 |Tamanho máximo do log (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |Tamanho máximo de dados de TempDB (GB)|64|128|256|384|384|384|384|384|
@@ -105,7 +105,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Máximo de trabalhos simultâneos (solicitações)|200|400|800|1600|2400|3200|4000|8000|
 |Sessões simultâneas máx.|30000|30000|30000|30000|30000|30000|30000|30000|
 |Réplicas secundárias|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Expansão de leitura|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Retenção de armazenamento de backup|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|
 |||
@@ -131,7 +131,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |vCores|1|2|3|4|5|6|
 |Memória (GB)|7|14|21|28|35|42|
 |Suporte a Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
-|Armazenamento OLTP na memória (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
+|Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (GB)|1024|1024|1536|1536|1536|3072|
 |Tamanho máximo do log (GB)|307|307|461|461|461|922|
 |Tamanho máximo de dados de TempDB (GB)|32|64|96|128|160|192|
@@ -142,8 +142,8 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1200|
 |Sessões simultâneas máx.|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
-|Expansão de leitura|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|
+|Expansão de leitura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
 
 ### <a name="gen4-compute-generation-part-2"></a>Geração de computação Gen4 (parte 2)
@@ -154,7 +154,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |vCores|7|8|9|10|16|24|
 |Memória (GB)|49|56|63|70|112|168|
 |Suporte a Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
-|Armazenamento OLTP na memória (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
+|Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (GB)|3072|3072|3072|3072|4096|4096|
 |Tamanho máximo do log (GB)|922|922|922|922|1229|1229|
 |Tamanho máximo de dados de TempDB (GB)|224|256|288|320|384|384|
@@ -165,8 +165,8 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Máximo de trabalhos simultâneos (solicitações)|1400|1600|1800|2000|3200|4800|
 |Sessões simultâneas máx.|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
-|Expansão de leitura|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|
+|Expansão de leitura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
 
 ## <a name="general-purpose---provisioned-compute---gen5"></a>Computação provisionada de uso geral-Gen5
@@ -179,7 +179,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |vCores|2|4|6|8|10|12|14|
 |Memória (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
 |Suporte a Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
-|Armazenamento OLTP na memória (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (GB)|1024|1024|1536|1536|1536|3072|3072|
 |Tamanho máximo do log (GB)|307|307|461|461|461|922|922|
 |Tamanho máximo de dados de TempDB (GB)|64|128|192|256|320|384|384|
@@ -190,8 +190,8 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1200|1400|
 |Sessões simultâneas máx.|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Expansão de leitura|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Expansão de leitura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
 
 ### <a name="gen5-compute-generation-part-2"></a>Geração de computação Gen5 (parte 2)
@@ -202,7 +202,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |vCores|16|18|20|24|32|40|80|
 |Memória (GB)|81,6|91,8|102|122,4|163,2|204|408|
 |Suporte a Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
-|Armazenamento OLTP na memória (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Tamanho máximo do log (GB)|922|922|922|1229|1229|1229|1229|
 |Tamanho máximo de dados de TempDB (GB)|384|384|384|384|384|384|384|
@@ -213,8 +213,8 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Máximo de trabalhos simultâneos (solicitações)|1600|1800|2000|2400|3200|4000|8000|
 |Sessões simultâneas máx.|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Expansão de leitura|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Expansão de leitura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
 
 ## <a name="general-purpose---provisioned-compute---fsv2-series"></a>Computação provisionada de uso geral-série Fsv2
@@ -227,7 +227,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |vCores|72|
 |Memória (GB)|136|
 |Suporte a Columnstore|Sim|
-|Armazenamento OLTP na memória (GB)|N/A|
+|Armazenamento OLTP na memória (GB)|N/D|
 |Tamanho máximo de dados (GB)|4096|
 |Tamanho máximo do log (GB)|1024|
 |Tamanho máximo de dados de TempDB (GB)|333|
@@ -238,8 +238,8 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Máximo de trabalhos simultâneos (quests)|3600|
 |Sessões simultâneas máx.|30000|
 |Número de réplicas|1|
-|Multi-AZ|N/A|
-|Expansão de leitura|N/A|
+|Multi-AZ|N/D|
+|Expansão de leitura|N/D|
 |Armazenamento de backup incluído|tamanho do banco de BD 1X|
 
 
@@ -281,7 +281,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |vCores|7|8|9|10|16|24|
 |Memória (GB)|49|56|63|70|112|168|
 |Suporte a Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
-|Armazenamento OLTP na memória (GB)|7|8|9,5|11|20|36|
+|Armazenamento OLTP na memória (GB)|7|8|9.5|11|20|36|
 |Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
 |Tamanho máximo do log (GB)|307|307|307|307|307|307|

@@ -1,5 +1,5 @@
 ---
-title: Usando as opções agrupar por no Azure SQL Data Warehouse | Microsoft Docs
+title: Usando opções agrupar por
 description: Dicas para implementar as opções agrupar por no Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: query
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f6614f32c31338c9cf4f00307c475db4e02f553
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 8d5d0f28fa210a56460ced25323b96a68f245895
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479642"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685845"
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>Opções de agrupar por no SQL Data Warehouse
 Dicas para implementar as opções agrupar por no Azure SQL Data Warehouse para desenvolver soluções.
@@ -50,8 +51,8 @@ GROUP BY ROLLUP (
 Usando ROLLUP, o exemplo anterior solicita as seguintes agregações:
 
 * País e região
-* Country
-* Total geral
+* País
+* Total Geral
 
 Para substituir o ROLLUP e retornar os mesmos resultados, você pode usar UNION ALL e especificar explicitamente as agregações necessárias:
 
@@ -180,6 +181,6 @@ ORDER BY 1,2,3
 
 Ao dividir o código em seções e gerar uma construção de loop, o código torna-se mais gerenciável e passível de manutenção.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais dicas de desenvolvimento, consulte [visão geral de desenvolvimento](sql-data-warehouse-overview-develop.md).
 

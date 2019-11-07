@@ -1,6 +1,6 @@
 ---
-title: Configurar o contentor personalizado - serviço de aplicações do Azure | Documentos da Microsoft
-description: Saiba como configurar aplicações node. js a funcionar no serviço de aplicações do Azure
+title: Configurar o contêiner personalizado – serviço de Azure App | Microsoft Docs
+description: Saiba como configurar aplicativos node. js para trabalhar no serviço Azure App
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -13,22 +13,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 02231f86d4ceddd6cde53fd242c2c91158d744a9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 7290e2b09c316a97bfb88744307e185aef72852a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480752"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668972"
 ---
-# <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurar um contentor personalizado do Linux para o serviço de aplicações do Azure
+# <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurar um contêiner personalizado do Linux para o serviço Azure App
 
-Este artigo mostra-lhe como configurar um contentor personalizado do Linux para executar no serviço de aplicações do Azure.
+Este artigo mostra como configurar um contêiner personalizado do Linux para ser executado no serviço Azure App.
 
-Este guia fornece os conceitos chave e instruções para contentores de aplicações do Linux no serviço de aplicações. Se nunca tiver utilizado o serviço de aplicações do Azure, siga os [guia de introdução do contentor personalizado](quickstart-docker-go.md) e [tutorial](tutorial-custom-docker-image.md) primeiro. Há também uma [início rápido para aplicações de vários contentores](quickstart-multi-container.md) e [tutorial](tutorial-multi-container-app.md).
+Este guia fornece os principais conceitos e instruções para a Containerização de aplicativos do Linux no serviço de aplicativo. Se você nunca usou Azure App serviço, siga primeiro o [início rápido](quickstart-docker-go.md) e o [tutorial](tutorial-custom-docker-image.md) do contêiner personalizado. Há também um início rápido e [tutorial](tutorial-multi-container-app.md)de [aplicativo de vários contêineres](quickstart-multi-container.md) .
 
-## <a name="configure-port-number"></a>Configurar o número de porta
+## <a name="configure-port-number"></a>Configurar número da porta
 
-O servidor web na sua imagem personalizada, pode utilizar uma porta diferente da 80. Dizer ao Azure a porta que utiliza o seu contentor personalizado utilizando o `WEBSITES_PORT` definição de aplicação. A página do GitHub para o [exemplo de Python neste tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) mostra que tem de definir `WEBSITES_PORT` como _8000_. Pode configurá-lo, executando [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando no Cloud Shell. Por exemplo:
+O servidor Web em sua imagem personalizada pode usar uma porta diferente de 80. Você informa ao Azure sobre a porta que seu contêiner personalizado usa usando a configuração de aplicativo `WEBSITES_PORT`. A página do GitHub para o [exemplo de Python neste tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) mostra que tem de definir `WEBSITES_PORT` como _8000_. Você pode defini-lo executando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando no Cloud Shell. Por exemplo:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -36,46 +36,46 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="configure-environment-variables"></a>Configurar as variáveis de ambiente
 
-Seu contentor personalizado, pode utilizar variáveis de ambiente que tem de ser fornecida externamente. Poderá passá-los no executando [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando no Cloud Shell. Por exemplo:
+Seu contêiner personalizado pode usar variáveis de ambiente que precisam ser fornecidas externamente. Você pode passá-los no executando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando no Cloud Shell. Por exemplo:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WORDPRESS_DB_HOST="myownserver.mysql.database.azure.com"
 ```
 
-Este método funciona para aplicações de contentor único ou aplicações de vários contentores, onde as variáveis de ambiente estão especificadas na *docker-Compose* ficheiro.
+Esse método funciona tanto para aplicativos de contêiner único quanto para aplicativos de vários contêineres, onde as variáveis de ambiente são especificadas no arquivo *Docker-Compose. yml* .
 
-## <a name="use-persistent-shared-storage"></a>Utilizar o armazenamento partilhado persistente
+## <a name="use-persistent-shared-storage"></a>Usar armazenamento compartilhado persistente
 
-Pode utilizar o */home* diretório no sistema de ficheiros da sua aplicação para manter os ficheiros entre reinícios e partilhá-los entre instâncias. O `/home` na sua aplicação é fornecida para ativar a sua aplicação de contentor para aceder ao armazenamento persistente.
+Você pode usar o diretório */Home* no sistema de arquivos do seu aplicativo para manter os arquivos entre as reinicializações e compartilhá-los entre instâncias. O `/home` em seu aplicativo é fornecido para permitir que seu aplicativo de contêiner acesse o armazenamento persistente.
 
-Quando armazenamento persistente está desabilitado, em seguida, escreve o `/home` diretório não são mantidos em reinícios da aplicação ou em várias instâncias. A única exceção é o `/home/LogFiles` diretório, que é utilizado para armazenar os registos de Docker e do contentor. Quando o armazenamento persistente estiver ativado, todas as escritas para o `/home` directory são mantidas e pode ser acedido por todas as instâncias de uma aplicação de escalamento horizontal.
+Quando o armazenamento persistente está desabilitado, as gravações no diretório `/home` não são mantidas entre reinicializações de aplicativo ou entre várias instâncias. A única exceção é o diretório `/home/LogFiles`, que é usado para armazenar os logs do Docker e do contêiner. Quando o armazenamento persistente está habilitado, todas as gravações no diretório `/home` são mantidas e podem ser acessadas por todas as instâncias de um aplicativo expandido.
 
-Por predefinição, o armazenamento persistente é *ativada* e a definição não é exibida nas definições da aplicação. Para desativá-lo, defina o `WEBSITES_ENABLE_APP_SERVICE_STORAGE` definição de aplicação executando [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando no Cloud Shell. Por exemplo:
+Por padrão, o armazenamento persistente é *habilitado* e a configuração não é exposta nas configurações do aplicativo. Para desabilitá-lo, defina a configuração do aplicativo `WEBSITES_ENABLE_APP_SERVICE_STORAGE` executando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando no Cloud Shell. Por exemplo:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
 ```
 
 > [!NOTE]
-> Também pode [configurar o seu próprio armazenamento persistente](how-to-serve-content-from-azure-storage.md).
+> Você também pode [configurar seu próprio armazenamento persistente](how-to-serve-content-from-azure-storage.md).
 
-## <a name="enable-ssh"></a>Ativar o SSH
+## <a name="enable-ssh"></a>Habilitar SSH
 
-O SSH permite a comunicação segura entre um contentor e um cliente. Por ordem para um contentor personalizado suportar o SSH, tem de adicioná-lo para o Dockerfile em si.
+O SSH permite a comunicação segura entre um contentor e um cliente. Para que um contêiner personalizado dê suporte ao SSH, você deve adicioná-lo no próprio Dockerfile.
 
 > [!TIP]
-> Todos os contentores de Linux incorporados adicionou as instruções do SSH em seus repositórios de imagem. Pode seguir as instruções seguintes com o [repositório de node. js 10.14](https://github.com/Azure-App-Service/node/blob/master/10.14) para ver como está ativado lá.
+> Todos os contêineres internos do Linux adicionaram as instruções de SSH em seus repositórios de imagem. Você pode percorrer as instruções a seguir com o [repositório node. js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14) para ver como ele está habilitado lá.
 
-- Utilize o [execute](https://docs.docker.com/engine/reference/builder/#run) instruções para instalar o servidor SSH e definir a palavra-passe da conta de raiz para `"Docker!"`. Por exemplo, para uma imagem com base numa [Alpine Linux](https://hub.docker.com/_/alpine), terá dos seguintes comandos:
+- Use a instrução [Run](https://docs.docker.com/engine/reference/builder/#run) para instalar o servidor SSH e defina a senha da conta raiz como `"Docker!"`. Por exemplo, para uma imagem baseada em [Alpine Linux](https://hub.docker.com/_/alpine), você precisa dos seguintes comandos:
 
     ```Dockerfile
     RUN apk add openssh \
          && echo "root:Docker!" | chpasswd 
     ```
 
-    Esta configuração não permite ligações externas ao contentor. SSH está disponível apenas através de `https://<app-name>.scm.azurewebsites.net` e autenticado com as credenciais de publicação.
+    Essa configuração não permite conexões externas com o contêiner. O SSH está disponível somente por meio de `https://<app-name>.scm.azurewebsites.net` e autenticado com as credenciais de publicação.
 
-- Adicione [neste ficheiro sshd_config](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) para o repositório de imagens e use o [cópia](https://docs.docker.com/engine/reference/builder/#copy) instruções para copiar o ficheiro para o */etc/ssh/* diretório. Para obter mais informações sobre *sshd_config* arquivos, consulte [OpenBSD documentação](https://man.openbsd.org/sshd_config).
+- Adicione [este arquivo de sshd_config](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) ao seu repositório de imagens e use a instrução de [cópia](https://docs.docker.com/engine/reference/builder/#copy) para copiar o arquivo para o diretório */etc/ssh/* Para obter mais informações sobre *sshd_config* arquivos, consulte a [documentação do OpenBSD](https://man.openbsd.org/sshd_config).
 
     ```Dockerfile
     COPY sshd_config /etc/ssh/
@@ -86,41 +86,41 @@ O SSH permite a comunicação segura entre um contentor e um cliente. Por ordem 
     > - `Ciphers` tem de incluir, pelo menos, um item na lista `aes128-cbc,3des-cbc,aes256-cbc`.
     > - `MACs` tem de incluir, pelo menos, um item na lista `hmac-sha1,hmac-sha1-96`.
 
-- Utilize o [expor](https://docs.docker.com/engine/reference/builder/#expose) instruções para abrir a porta 2222 no contentor. Embora a palavra-passe de raiz é conhecida, porta 2222 não está acessível a partir da internet. É acessível apenas por contêineres dentro da rede de ponte de uma rede virtual privada.
+- Use a instrução de [exposição](https://docs.docker.com/engine/reference/builder/#expose) para abrir a porta 2222 no contêiner. Embora a senha raiz seja conhecida, a porta 2222 não pode ser acessada pela Internet. Ele é acessível somente por contêineres dentro da rede de ponte de uma rede virtual privada.
 
     ```Dockerfile
     EXPOSE 80 2222
     ```
 
-- No script de arranque para o seu contentor, inicie o servidor SSH.
+- No script de inicialização do seu contêiner, inicie o servidor SSH.
 
     ```bash
     /usr/sbin/sshd
     ```
 
-    Por exemplo, veja como a predefinição [node. js 10.14 contentor](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) inicia o servidor SSH.
+    Para obter um exemplo, consulte como o [contêiner padrão node. js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) inicia o servidor SSH.
 
 ## <a name="access-diagnostic-logs"></a>Aceder aos registos de diagnósticos
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
-## <a name="configure-multi-container-apps"></a>Configurar aplicações de vários contentores
+## <a name="configure-multi-container-apps"></a>Configurar aplicativos de vários contêineres
 
-- [Utilizar o armazenamento persistente no Docker Compose](#use-persistent-storage-in-docker-compose)
-- [Limitações de pré-visualização](#preview-limitations)
-- [Opções do docker Compose](#docker-compose-options)
+- [Usar armazenamento persistente no Docker Compose](#use-persistent-storage-in-docker-compose)
+- [Limitações de visualização](#preview-limitations)
+- [Opções de Docker Compose](#docker-compose-options)
 
-### <a name="use-persistent-storage-in-docker-compose"></a>Utilizar o armazenamento persistente no Docker Compose
+### <a name="use-persistent-storage-in-docker-compose"></a>Usar armazenamento persistente no Docker Compose
 
-Aplicações de vários contentores, como o WordPress precisam de armazenamento persistente para funcionar corretamente. Para ativá-la, a configuração do Docker Compose tem de apontar para uma localização de armazenamento *fora* seu contentor. Localizações de armazenamento no interior do contentor não mantêm as alterações para além de reiniciar a aplicação.
+Aplicativos de vários contêineres, como o WordPress, precisam de armazenamento persistente para funcionar corretamente. Para habilitá-lo, sua configuração de Docker Compose deve apontar para um local de armazenamento *fora* do contêiner. Os locais de armazenamento dentro de seu contêiner não mantêm as alterações além da reinicialização do aplicativo.
 
-Ativar o armazenamento persistente, definindo a `WEBSITES_ENABLE_APP_SERVICE_STORAGE` aplicação configuração, utilizando o [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando no Cloud Shell.
+Habilite o armazenamento persistente definindo a configuração do aplicativo `WEBSITES_ENABLE_APP_SERVICE_STORAGE`, usando o comando [AZ webapp config appSettings Set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
-No seu *docker-Compose* de arquivos, mapear os `volumes` a opção de `${WEBAPP_STORAGE_HOME}`. 
+No arquivo *Docker-Compose. yml* , mapeie a opção `volumes` para `${WEBAPP_STORAGE_HOME}`. 
 
 `WEBAPP_STORAGE_HOME` é uma variável de ambiente no Serviço de Aplicações, que está mapeado para um armazenamento persistente para a sua aplicação. Por exemplo:
 
@@ -133,16 +133,16 @@ wordpress:
   - ${WEBAPP_STORAGE_HOME}/LogFiles:/var/log
 ```
 
-### <a name="preview-limitations"></a>Limitações de pré-visualização
+### <a name="preview-limitations"></a>Limitações de visualização
 
-Com vários contentores estão atualmente em pré-visualização. As seguintes funcionalidades de plataforma do serviço de aplicações não são suportadas:
+No momento, vários contêineres estão em versão prévia. Os seguintes recursos da plataforma do serviço de aplicativo não têm suporte:
 
-- Autenticação / autorização
-- Identidades geridas
+- Autenticação/autorização
+- Identidades gerenciadas
 
-### <a name="docker-compose-options"></a>Opções do docker Compose
+### <a name="docker-compose-options"></a>Opções de Docker Compose
 
-As listas seguintes mostram suportadas e não suportadas Docker Compose as opções de configuração:
+As listas a seguir mostram opções de configuração com e sem suporte Docker Compose:
 
 #### <a name="supported-options"></a>Opções suportadas
 
@@ -161,15 +161,19 @@ As listas seguintes mostram suportadas e não suportadas Docker Compose as opç�
 - depends_on (ignorada)
 - networks (ignorada)
 - secrets (ignorada)
-- portas que não seja a 80 e 8080 (ignorados)
+- portas diferentes de 80 e 8080 (ignoradas)
 
 > [!NOTE]
-> Quaisquer outras opções não explicitamente chamadas são ignoradas em pré-visualização pública.
+> Quaisquer outras opções não explicitamente chamadas são ignoradas na visualização pública.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="configure-vnet-integration"></a>Configurar integração VNet
+
+Usar um contêiner personalizado com integração VNet pode exigir configuração de contêiner adicional. Consulte [integrar seu aplicativo a uma rede virtual do Azure](../web-sites-integrate-with-vnet.md).
+
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Implemente a partir do repositório de contentor privado](tutorial-custom-docker-image.md)
+> [Tutorial: implantar do repositório de contêiner privado](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Aplicação do WordPress com vários contentores](tutorial-multi-container-app.md)
+> [Tutorial: aplicativo WordPress com vários contêineres](tutorial-multi-container-app.md)

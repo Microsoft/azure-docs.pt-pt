@@ -1,7 +1,7 @@
 ---
 title: Examinar usuário declarações-LUIS
 titleSuffix: Azure Cognitive Services
-description: O aprendizado ativo captura consultas de ponto de extremidade e seleciona o ponto de extremidade do usuário declarações que não tem certeza de. Revise essas declarações para selecionar as entidades de intenção e marca para essas declarações de leitura do mundo. Aceite essas alterações em seu exemplo declarações, em seguida, treine e publique. LUIS, em seguida, identifica declarações com mais precisão.
+description: Examine o declarações capturado pelo aprendizado ativo para selecionar entidades de intenção e marca para declarações do mundo de leitura; aceitar alterações, treinar e publicar.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: d5652857f2f35e392d3f512001044fd06bc0a0c9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4a77ac26076fc1b1e4e94ee24dafb28a0e88c858
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499077"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669365"
 ---
 # <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Como examinar o ponto de extremidade declarações no LUIS portal for active Learning
 

@@ -1,6 +1,6 @@
 ---
 title: Como um modelo se torna um serviço Web
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Uma visão geral da mecânica de como seu modelo de Azure Machine Learning Studio (clássico) progride de um experimento de desenvolvimento para um serviço Web.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: c82e636b06d33140ca6dae606d39855084aac04d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 24a2c31271d123d6378732bd9f85f6341a78d65c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496837"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671239"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Como um modelo de Machine Learning Studio (clássico) progride de um experimento para um serviço Web
 Azure Machine Learning Studio (clássico) fornece uma tela interativa que permite desenvolver, executar, testar e iterar um ***experimento*** que representa um modelo de análise preditiva. Há uma ampla variedade de módulos disponíveis que podem:
@@ -108,7 +108,7 @@ Se você quiser fazer alterações em seu experimento de previsão original, com
 Para obter mais detalhes sobre o processo de desenvolvimento e teste, consulte os seguintes artigos:
 
 * convertendo o experimento- [como preparar seu modelo para implantação no Azure Machine Learning Studio (clássico)](convert-training-experiment-to-scoring-experiment.md)
-* Implantando o serviço Web- [implantar um serviço web Azure Machine Learning](publish-a-machine-learning-web-service.md)
+* Implantando o serviço Web- [implantar um serviço web Azure Machine Learning](deploy-a-machine-learning-web-service.md)
 * retreinando o modelo- [readaptação de modelos de Machine Learning de forma programática](/azure/machine-learning/studio/retrain-machine-learning-model)
 
 Para obter exemplos de todo o processo, consulte:

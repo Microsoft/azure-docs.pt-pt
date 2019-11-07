@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: c3791946ee31183e4b3c5131a8e62934bf87dfee
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 75e789ac1f9c161bc67ba90062be39f986f5b140
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497474"
+ms.locfileid: "73580586"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning? 
 
@@ -46,22 +46,11 @@ Saiba [onde e como implantar seu modelo em um destino de computação](how-to-de
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Computação Azure Machine Learning (gerenciada)
 
-Um recurso de computação gerenciado é criado e gerenciado pelo Azure Machine Learning. Essa computação é otimizada para cargas de trabalho de Machine Learning. Azure Machine Learning clusters de computação e [instâncias de computação](concept-compute-instance.md) são as únicas computações gerenciadas. Recursos de computação gerenciados adicionais podem ser adicionados no futuro.
+Um recurso de computação gerenciado é criado e gerenciado pelo Azure Machine Learning. Essa computação é otimizada para cargas de trabalho de Machine Learning. Azure Machine Learning clusters de computação. Recursos de computação gerenciados adicionais podem ser adicionados no futuro.
 
-Você pode criar Azure Machine Learning instâncias de computação ou clusters de computação no:
-
-| | Azure Machine Learning studio | Portal do Azure | SDK | Modelo do Resource Manager | CLI |
-|---| ----- | ----- | ----- | ----- | ----- |
-| Instância de computação | sim | sim | sim | sim |  |
-| Cluster de computação | sim | sim | sim | sim | sim |
+Você pode criar Azure Machine Learning clusters de computação no Azure Machine Learning Studio, portal do Azure, o SDK, um modelo do Resource Manager ou a CLI.
 
 Quando criados, esses recursos de computação são automaticamente parte do seu espaço de trabalho, ao contrário de outros tipos de destinos de computação.
-
-> [!NOTE]
-> As instâncias de computação estão disponíveis somente para espaços de trabalho com uma região de **EUA Central norte** ou **sul do Reino Unido**.
->Se o seu espaço de trabalho estiver em qualquer outra região, você poderá continuar a criar e usar uma [VM do bloco de anotações](concept-compute-instance.md#notebookvm) . 
-
-### <a name="compute-clusters"></a>Clusters de computação
 
 Você pode usar Azure Machine Learning clusters de computação para treinamento e inferência do lote (versão prévia).  Com esse recurso de computação, você tem:
 

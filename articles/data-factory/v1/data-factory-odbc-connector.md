@@ -1,6 +1,6 @@
 ---
-title: Mover dados de arquivos de dados ODBC | Documentos da Microsoft
-description: Saiba mais sobre como mover dados de arquivos de dados ODBC com o Azure Data Factory.
+title: Mover dados de armazenamentos de dados ODBC
+description: Saiba mais sobre como mover dados de armazenamentos de dados ODBC usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,67 +13,67 @@ ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 885fb18e6f582caba2e90bbe3f535b9c763aff85
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 62847746ddf6f2f2f244df34ac340f54d271ff7a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839341"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666832"
 ---
-# <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Mover dados de ODBC os arquivos de dados com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
+# <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Mover dados de armazenamentos de dados ODBC usando Azure Data Factory
+> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](data-factory-odbc-connector.md)
 > * [Versão 2 (versão atual)](../connector-odbc.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [conector do ODBC no V2](../connector-odbc.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço de Data Factory, consulte [conector ODBC na v2](../connector-odbc.md).
 
 
-Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para mover dados de um arquivo de dados ODBC no local. Ele se baseia no [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo, que apresenta uma visão geral do movimento de dados com a atividade de cópia.
+Este artigo explica como usar a atividade de cópia no Azure Data Factory para mover dados de um armazenamento de dados ODBC local. Ele se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md) , que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
 
-Pode copiar dados de um arquivo de dados ODBC para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados suportados como sinks a atividade de cópia, consulte a [arquivos de dados suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabela. O Data factory suporta, atualmente, apenas mover dados de um arquivo de dados ODBC para outros arquivos de dados, mas não para mover dados de outros arquivos de dados para um arquivo de dados ODBC.
+Você pode copiar dados de um armazenamento de dados ODBC para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como coletores pela atividade de cópia, consulte a tabela [armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Atualmente, o data Factory dá suporte apenas à movimentação de dados de um armazenamento de dados ODBC para outros armazenamentos de dados, mas não para a movimentação de dados de outros armazenamentos de dados para um armazenamento de dados ODBC.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="enabling-connectivity"></a>Ativar a conectividade
-Serviço do Data Factory suporta a ligação a origens de ODBC no local com o Data Management Gateway. Ver [mover dados entre localizações no local e na cloud](data-factory-move-data-between-onprem-and-cloud.md) artigo para saber mais sobre o Gateway de gestão de dados e instruções passo a passo sobre como configurar o gateway. Utilize o gateway para ligar a um arquivo de dados do ODBC, mesmo que ele está hospedado numa VM de IaaS do Azure.
+## <a name="enabling-connectivity"></a>Habilitando a conectividade
+Data Factory serviço dá suporte à conexão com fontes ODBC locais usando o gateway de Gerenciamento de Dados. Confira o artigo [movendo dados entre locais e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para saber mais sobre gerenciamento de dados gateway e instruções passo a passo sobre como configurar o gateway. Use o gateway para se conectar a um armazenamento de dados ODBC, mesmo se ele estiver hospedado em uma VM IaaS do Azure.
 
-Pode instalar o gateway no mesmo computador no local ou VM do Azure como o arquivo de dados ODBC. No entanto, recomendamos que instale o gateway num máquina/do Azure IaaS VM para evitar a contenção de recursos e para um melhor desempenho. Ao instalar o gateway numa máquina separada, a máquina deve ser capaz de acessar a máquina com o arquivo de dados ODBC.
+Você pode instalar o gateway no mesmo computador local ou na VM do Azure como o armazenamento de dados ODBC. No entanto, recomendamos que você instale o gateway em um computador separado/VM IaaS do Azure para evitar a contenção de recursos e para melhorar o desempenho. Quando você instala o gateway em um computador separado, o computador deve ser capaz de acessar o computador com o armazenamento de dados ODBC.
 
-Para além dos Data Management Gateway, também tem de instalar o controlador ODBC para o arquivo de dados no computador gateway.
+Além do gateway de Gerenciamento de Dados, você também precisa instalar o driver ODBC para o armazenamento de dados no computador do gateway.
 
 > [!NOTE]
-> Ver [resolver problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para obter sugestões sobre resolução de problemas do gateway de ligação/problemas relacionados com.
+> Consulte [solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para obter dicas sobre como solucionar problemas relacionados à conexão/gateway.
 
 ## <a name="getting-started"></a>Introdução
-Pode criar um pipeline com uma atividade de cópia que move os dados de um arquivo de dados ODBC ao utilizar ferramentas/APIs diferentes.
+Você pode criar um pipeline com uma atividade de cópia que mova dados de um armazenamento de dados ODBC usando diferentes ferramentas/APIs.
 
-A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
+A maneira mais fácil de criar um pipeline é usar o **Assistente de cópia**. Consulte [tutorial: criar um pipeline usando o assistente de cópia](data-factory-copy-data-wizard-tutorial.md) para obter uma explicação rápida sobre como criar um pipeline usando o assistente para copiar dados.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**, e **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net**e **API REST**. Confira o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções detalhadas para criar um pipeline com uma atividade de cópia.
 
-Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
+Se você usar as ferramentas ou APIs, execute as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
-1. Crie **serviços ligados** para ligar a dados de entrada e saídos armazena à fábrica de dados.
-2. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia.
-3. Criar uma **pipeline** com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída.
+1. Crie **Serviços vinculados** para vincular armazenamentos de dados de entrada e saída ao seu data Factory.
+2. Crie **conjuntos** de dados para representar o dado de entrada e saída para a operação de cópia.
+3. Crie um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto como uma saída.
 
-Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON. Para obter um exemplo com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de um arquivo de dados do ODBC, consulte [exemplo de JSON: Copiar dados de arquivo de dados ODBC para Blob do Azure](#json-example-copy-data-from-odbc-data-store-to-azure-blob) seção deste artigo.
+Quando você usa o assistente, as definições de JSON para essas entidades de Data Factory (serviços vinculados, conjuntos de valores e o Pipeline) são criadas automaticamente para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades de Data Factory usando o formato JSON. Para obter um exemplo com definições de JSON para Data Factory entidades usadas para copiar dados de um armazenamento de dados ODBC, confira a seção [exemplo de JSON: copiar dados do repositório de dados ODBC para o blob do Azure](#json-example-copy-data-from-odbc-data-store-to-azure-blob) deste artigo.
 
-As secções seguintes fornecem detalhes sobre as propriedades JSON, que são utilizadas para definir entidades do Data Factory específicas ao arquivo de dados do ODBC:
+As seções a seguir fornecem detalhes sobre as propriedades JSON que são usadas para definir Data Factory entidades específicas para o armazenamento de dados ODBC:
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
-A tabela seguinte fornece uma descrição para elementos JSON específicos ao ODBC de serviço ligado.
+## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
+A tabela a seguir fornece a descrição para elementos JSON específicos do serviço vinculado ODBC.
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| type |A propriedade de tipo tem de ser definida como: **OnPremisesOdbc** |Sim |
-| connectionString |A credencial de acesso de leitura não parte de cadeia de ligação e uma credencial encriptada opcional. Veja exemplos nas seções a seguir. <br/><br/>Pode especificar a cadeia de ligação com o padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou usar o sistema de DSN (nome da origem de dados), configurado no computador gateway com `"DSN=<name of the DSN>;"` (precisa ainda especificar a parte da credencial no serviço ligado em conformidade). |Sim |
-| credential |A parte de credencial de acesso da cadeia de ligação especificada no formato de valores de propriedade específicos de driver. Exemplo: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Não |
-| authenticationType |Tipo de autenticação utilizado para ligar ao arquivo de dados ODBC. Os valores possíveis são: Anónimo e básico. |Sim |
-| userName |Especifique o nome de utilizador, se estiver usando autenticação básica. |Não |
-| password |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
-| gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar ao arquivo de dados ODBC. |Sim |
+| tipo |A propriedade Type deve ser definida como: **OnPremisesOdbc** |Sim |
+| connectionString |A parte de credencial de não acesso da cadeia de conexão e uma credencial criptografada opcional. Consulte os exemplos nas seções a seguir. <br/><br/>Você pode especificar a cadeia de conexão com um padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`ou usar o DSN do sistema (nome da fonte de dados) configurado no computador do gateway com `"DSN=<name of the DSN>;"` (você ainda precisa especificar a parte da credencial no serviço vinculado adequadamente). |Sim |
+| credencial |A parte de credencial de acesso da cadeia de conexão especificada no formato de valor de propriedade específico do driver. Exemplo: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Não |
+| authenticationType |Tipo de autenticação usado para se conectar ao armazenamento de dados ODBC. Os valores possíveis são: Anonymous e Basic. |Sim |
+| Usu |Especifique o nome de usuário se você estiver usando a autenticação básica. |Não |
+| palavra-passe |Especifique a senha para a conta de usuário que você especificou para o nome para usuário. |Não |
+| gatewayName |Nome do gateway que o serviço de Data Factory deve usar para se conectar ao armazenamento de dados ODBC. |Sim |
 
 ### <a name="using-basic-authentication"></a>Usando a autenticação básica
 
@@ -94,8 +94,8 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao OD
     }
 }
 ```
-### <a name="using-basic-authentication-with-encrypted-credentials"></a>Usando a autenticação básica com as credenciais encriptadas
-Pode criptografar as credenciais a utilizar o [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) cmdlet (1.0 versão do Azure PowerShell) ou [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 ou anterior versão do Azure PowerShell).
+### <a name="using-basic-authentication-with-encrypted-credentials"></a>Usando a autenticação básica com credenciais criptografadas
+Você pode criptografar as credenciais usando o cmdlet [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) (versão 1,0 do Azure PowerShell) ou [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0,9 ou versão anterior do Azure PowerShell).
 
 ```json
 {
@@ -113,7 +113,7 @@ Pode criptografar as credenciais a utilizar o [New-AzDataFactoryEncryptValue](ht
 }
 ```
 
-### <a name="using-anonymous-authentication"></a>Utilizar a autenticação anónima
+### <a name="using-anonymous-authentication"></a>Usando a autenticação anônima
 
 ```json
 {
@@ -132,43 +132,43 @@ Pode criptografar as credenciais a utilizar o [New-AzDataFactoryEncryptValue](ht
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [criar conjuntos de dados](data-factory-create-datasets.md) artigo. Seções, como a estrutura, disponibilidade e a política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (Azure SQL, BLOBs do Azure, tabela do Azure, etc.).
+## <a name="dataset-properties"></a>Propriedades de DataSet
+Para obter uma lista completa das seções & propriedades disponíveis para definir os conjuntos de valores, consulte o artigo [criando conjuntos](data-factory-create-datasets.md) de itens. As seções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (SQL do Azure, BLOB do Azure, tabela do Azure, etc.).
 
-O **typeProperties** secção é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados no arquivo de dados. Os typeProperties secção para o conjunto de dados do tipo **RelationalTable** (que inclui o conjunto de dados do ODBC) tem as seguintes propriedades
+A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção typeproperties para o conjunto de um do tipo **RelationalTable** (que inclui o conjunto de um ODBC) tem as seguintes propriedades
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tableName |Nome da tabela no arquivo de dados ODBC. |Sim |
+| tableName |Nome da tabela no repositório de dados ODBC. |Sim |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [criar Pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição, entrada e saída de tabelas e as políticas estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa das seções & propriedades disponíveis para definir as atividades, consulte o artigo [criando pipelines](data-factory-create-pipelines.md) . Propriedades como nome, descrição, tabelas de entrada e saída e políticas estão disponíveis para todos os tipos de atividades.
 
-Propriedades disponíveis no **typeProperties** secção da atividade variar por outro lado, com cada tipo de atividade. Para a atividade de cópia, elas variam consoante os tipos de origens e sinks.
+As propriedades disponíveis na seção **typeproperties** da atividade, por outro lado, variam de acordo com cada tipo de atividade. Para a atividade de cópia, elas variam de acordo com os tipos de fontes e coletores.
 
-Na atividade de cópia, quando a origem é do tipo **RelationalSource** (que inclui o ODBC), as seguintes propriedades estão disponíveis na secção typeProperties:
+Na atividade de cópia, quando a fonte é do tipo **RelationalSource** (que inclui o ODBC), as seguintes propriedades estão disponíveis na seção typeproperties:
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| query |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: selecionar * de MyTable. |Sim |
+| consulta |Use a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: selecione * em MyTable. |Sim |
 
 
-## <a name="json-example-copy-data-from-odbc-data-store-to-azure-blob"></a>Exemplo JSON: Copiar dados de arquivo de dados ODBC para Blob do Azure
-Este exemplo fornece definições de JSON que pode utilizar para criar um pipeline com [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ele mostra como copiar dados de uma fonte de ODBC para um armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.
+## <a name="json-example-copy-data-from-odbc-data-store-to-azure-blob"></a>Exemplo de JSON: copiar dados do armazenamento de dados ODBC para o blob do Azure
+Este exemplo fornece definições de JSON que você pode usar para criar um pipeline usando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ele mostra como copiar dados de uma fonte ODBC para um armazenamento de BLOBs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure data Factory.
 
-O exemplo possui as seguintes entidades do data factory:
+O exemplo tem as seguintes entidades de data factory:
 
-1. Um serviço ligado do tipo [OnPremisesOdbc](#linked-service-properties).
-2. Um serviço ligado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-3. Entrada [conjunto de dados](data-factory-create-datasets.md) do tipo [RelationalTable](#dataset-properties).
-4. Uma saída [conjunto de dados](data-factory-create-datasets.md) do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-5. R [pipeline](data-factory-create-pipelines.md) com a atividade de cópia que utiliza [RelationalSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+1. Um serviço vinculado do tipo [OnPremisesOdbc](#linked-service-properties).
+2. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. Um [conjunto](data-factory-create-datasets.md) de dados de entrada do tipo [RelationalTable](#dataset-properties).
+4. Um [conjunto](data-factory-create-datasets.md) de uma saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. Um [pipeline](data-factory-create-pipelines.md) com atividade de cópia que usa [RelationalSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-O exemplo copia dados de um resultado de consulta num arquivo de dados ODBC para um blob a cada hora. As propriedades JSON utilizadas nestes exemplos são descritas nas seções a seguir os exemplos.
+O exemplo copia dados de um resultado de consulta em um armazenamento de dados ODBC para um blob a cada hora. As propriedades JSON usadas nesses exemplos são descritas em seções após os exemplos.
 
-Como primeiro passo, configure o gateway de gestão de dados. As instruções estão no [mover dados entre localizações no local e na cloud](data-factory-move-data-between-onprem-and-cloud.md) artigo.
+Como uma primeira etapa, configure o gateway de gerenciamento de dados. As instruções estão no artigo [movendo dados entre os locais e a nuvem do local](data-factory-move-data-between-onprem-and-cloud.md) .
 
-**Serviço ligado do ODBC** este exemplo utiliza a autenticação básica. Ver [serviço ligado do ODBC](#linked-service-properties) secção para diferentes tipos de autenticação, pode utilizar.
+**Serviço vinculado de ODBC** Este exemplo usa a autenticação básica. Consulte a seção [serviço vinculado ODBC](#linked-service-properties) para diferentes tipos de autenticação que você pode usar.
 
 ```json
 {
@@ -202,11 +202,11 @@ Como primeiro passo, configure o gateway de gestão de dados. As instruções es
 }
 ```
 
-**Conjunto de dados de entrada de ODBC**
+**Conjunto de dados de entrada ODBC**
 
-O exemplo pressupõe que criou uma tabela "MyTable" numa base de dados ODBC e contém uma coluna chamada "timestampcolumn" para dados de séries de tempo.
+O exemplo supõe que você tenha criado uma tabela "MyTable" em um banco de dados ODBC e que ela contenha uma coluna chamada "timestampcolumn" para data de série temporal.
 
-A definição "externo": "true" informa o serviço Data Factory que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade na fábrica de dados.
+A configuração "external": "true" informa ao serviço de Data Factory que o conjunto de os é externo ao data factory e não é produzido por uma atividade no data factory.
 
 ```json
 {
@@ -234,7 +234,7 @@ A definição "externo": "true" informa o serviço Data Factory que o conjunto d
 
 **Conjunto de dados dos Blobs do Azure**
 
-Os dados são escritos para um blob novo a cada hora (frequência: hora, intervalo: 1). O caminho da pasta para o blob é avaliado dinamicamente com base na hora de início do setor que está a ser processado. O caminho da pasta utiliza ano, mês, dia e partes de horas da hora de início.
+Os dados são gravados em um novo BLOB a cada hora (frequência: hora, intervalo: 1). O caminho da pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e horas da hora de início.
 
 ```json
 {
@@ -292,9 +292,9 @@ Os dados são escritos para um blob novo a cada hora (frequência: hora, interva
 }
 ```
 
-**Atividade de cópia num pipeline com a origem ODBC (RelationalSource) e de sink do Blob (BlobSink)**
+**Atividade de cópia em um pipeline com origem ODBC (RelationalSource) e coletor de BLOB (BlobSink)**
 
-O pipeline contém uma atividade de cópia que está configurado para utilizar estes conjuntos de dados de entrada e saídos e é agendada para ser executada a cada hora. No pipeline de definição de JSON, o **origem** tipo está definido como **RelationalSource** e **sink** tipo está definido como **BlobSink**. A consulta SQL especificada para o **consulta** propriedade seleciona os dados na hora anterior para copiar.
+O pipeline contém uma atividade de cópia que é configurada para usar esses conjuntos de dados de entrada e saída e está agendada para ser executada a cada hora. Na definição de JSON do pipeline, o tipo de **origem** é definido como **RelationalSource** e o tipo de **coletor** está definido como **BlobSink**. A consulta SQL especificada para a propriedade de **consulta** seleciona os dados na última hora a serem copiados.
 
 ```json
 {
@@ -341,32 +341,32 @@ O pipeline contém uma atividade de cópia que está configurado para utilizar e
     }
 }
 ```
-### <a name="type-mapping-for-odbc"></a>Mapeamento do tipo de ODBC
-Conforme mencionado na [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo, a atividade de cópia executa conversões de tipos automáticas de tipos de origem para o sink de tipos com a abordagem de dois passos seguintes:
+### <a name="type-mapping-for-odbc"></a>Mapeamento de tipo para ODBC
+Conforme mencionado no artigo sobre as [atividades de movimentação de dados](data-factory-data-movement-activities.md) , a atividade de cópia executa conversões automáticas dos tipos de origem nos tipos de coletor com a seguinte abordagem de duas etapas:
 
-1. Converter entre tipos de origem nativas para o tipo de .NET
-2. Converter de tipo de .NET para o tipo de sink nativo
+1. Converter de tipos de origem nativos em tipo .NET
+2. Converter do tipo .NET para o tipo de coletor nativo
 
-Ao mover dados de arquivos de dados ODBC, tipos de dados ODBC são mapeados para tipos .NET, conforme mencionado na [mapeamentos de tipo de dados de ODBC](https://msdn.microsoft.com/library/cc668763.aspx) tópico.
+Ao mover dados de armazenamentos de dados ODBC, os tipos de dados ODBC são mapeados para tipos .NET, conforme mencionado no tópico [mapeamentos de tipo de dados ODBC](https://msdn.microsoft.com/library/cc668763.aspx) .
 
-## <a name="map-source-to-sink-columns"></a>Origem do mapa para colunas de sink
-Para saber mais sobre as colunas de mapeamento no conjunto de dados de origem para colunas no conjunto de dados de sink, veja [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
+## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas do coletor
+Para saber mais sobre como mapear colunas no conjunto de informações de origem para colunas no conjunto de informações do coletor, confira [mapeando colunas Azure data Factory do conjunto de](data-factory-map-columns.md)informações
 
-## <a name="repeatable-read-from-relational-sources"></a>Leitura passível de repetição de fontes relacionais
-Quando armazena a cópia de dados de dados relacionais, tenha a capacidade de repetição em mente para evitar resultados indesejados. No Azure Data Factory, pode voltar a executar um setor manualmente. Também pode configurar a política de repetição para um conjunto de dados para que um setor será novamente executado quando ocorre uma falha. Quando um setor será novamente executado de qualquer forma, terá de certificar-se de que os mesmos dados é de leitura não questão número de vezes que um setor é executado. Ver [Repeatable ler a partir de origens relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+## <a name="repeatable-read-from-relational-sources"></a>Leitura repetida de fontes relacionais
+Ao copiar dados de armazenamentos de dados relacionais, tenha em mente a capacidade de repetição para evitar resultados indesejados. No Azure Data Factory, você pode executar novamente uma fatia manualmente. Você também pode configurar a política de repetição para um conjunto de uma para que uma fatia seja executada novamente quando ocorrer uma falha. Quando uma fatia é executada novamente de qualquer forma, você precisa garantir que os mesmos dados sejam lidos, independentemente de quantas vezes uma fatia é executada. Consulte [leitura repetida de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
-## <a name="troubleshoot-connectivity-issues"></a>Resolver problemas de conectividade
-Para resolver problemas de ligação, utilize o **diagnóstico** separador de **Gestor de configuração do Data Management Gateway**.
+## <a name="troubleshoot-connectivity-issues"></a>Solucionar problemas de conectividade
+Para solucionar problemas de conexão, use a guia **diagnóstico** do **Gerenciamento de dados gateway Configuration Manager**.
 
-1. Inicie **Gestor de configuração do Data Management Gateway**. Pode optar por executar "C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe" diretamente (ou) a pesquisa para **Gateway** para encontrar uma ligação para **Microsoft Data Management Gateway** aplicação, conforme mostrado na imagem seguinte.
+1. Iniciar **Configuration Manager do gateway de gerenciamento de dados**. Você pode executar "C:\Program Files\Microsoft Gerenciamento de Dados Gateway\1.0\Shared\ConfigManager.exe" diretamente (ou) Pesquisar por **Gateway** para encontrar um link para o aplicativo de **gateway do Microsoft gerenciamento de dados** , conforme mostrado na imagem a seguir.
 
     ![Gateway de pesquisa](./media/data-factory-odbc-connector/search-gateway.png)
-2. Mude para o **diagnóstico** separador.
+2. Alterne para a guia **diagnóstico** .
 
-    ![Diagnóstico do gateway](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
-3. Selecione o **tipo** de dados armazenar (serviço ligado).
-4. Especifique **autenticação** e introduza **credenciais** (ou) introduza **cadeia de ligação** que é utilizada para ligar ao arquivo de dados.
-5. Clique em **Testar ligação** para testar a ligação ao arquivo de dados.
+    ![Diagnóstico de gateway](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
+3. Selecione o **tipo** de armazenamento de dados (serviço vinculado).
+4. Especifique a **autenticação** e insira **as credenciais** (ou) Insira a **cadeia de conexão** que é usada para se conectar ao armazenamento de dados.
+5. Clique em **testar conexão** para testar a conexão com o armazenamento de dados.
 
-## <a name="performance-and-tuning"></a>Desempenho e Otimização
-Ver [desempenho de atividade de cópia e guia de ajuste](data-factory-copy-activity-performance.md) para saber mais sobre os fatores chave a que um impacto no desempenho de movimento de dados (atividade de cópia) no Azure Data Factory e diversas maneiras para otimizá-lo.
+## <a name="performance-and-tuning"></a>Desempenho e ajuste
+Consulte [Guia de ajuste do desempenho de atividade de cópia &](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (atividade de cópia) no Azure data Factory e várias maneiras de otimizá-lo.

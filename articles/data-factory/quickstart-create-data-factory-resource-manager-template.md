@@ -1,5 +1,5 @@
 ---
-title: Criar uma fábrica de dados do Azure com o modelo do Resource Manager | Microsoft Docs
+title: Criar um data factory do Azure usando o modelo do Resource Manager
 description: Neste tutorial, vai criar um exemplo de pipeline do Azure Data Factory com um modelo do Azure Resource Manager.
 services: data-factory
 documentationcenter: ''
@@ -11,20 +11,20 @@ ms.date: 02/20/2019
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 8766ff461227a749a432771dfe7dbe96a291109a
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 6bba764060c243417711205083bf02f84a68fed1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008733"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684518"
 ---
-# <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar um data factory do Azure usando o modelo Azure Resource Manager
+# <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar uma fábrica de dados do Azure com o modelo do Azure Resource Manager
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Versão atual](quickstart-create-data-factory-resource-manager-template.md)
 
-Este início rápido descreve como utilizar um modelo do Azure Resource Manager para criar uma fábrica de dados do Azure. O pipeline que criar nesta fábrica de dados **copia** dados de uma pasta para outra pasta num armazenamento de blobs do Azure. Para obter um tutorial sobre como **transformar** dados usando Azure data Factory, consulte [o tutorial: Transforme dados usando](transform-data-using-spark.md)o Spark.
+Este início rápido descreve como utilizar um modelo do Azure Resource Manager para criar uma fábrica de dados do Azure. O pipeline que criar nesta fábrica de dados **copia** dados de uma pasta para outra pasta num armazenamento de blobs do Azure. Para ter acesso a um tutorial sobre como **transformar** dados com o Azure Data Factory, veja [Tutorial: Transformar dados com o Spark](transform-data-using-spark.md).
 
 > [!NOTE]
 > Este artigo não disponibiliza uma introdução detalhada do serviço Data Factory. Para obter uma introdução ao serviço Azure Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).
@@ -435,16 +435,16 @@ O acionador implementado está no estado parado. Uma das maneiras de iniciar o g
 
 3. Na página data Factory, clique em **criar &** bloco de monitor.
 
-4. Na página **vamos** começar, selecione a **guia Monitor**.  ![Monitorar execução de pipeline](media/doc-common-process/get-started-page-monitor-button.png)
+4. Na página **vamos** começar, selecione a **guia Monitor**. ](media/doc-common-process/get-started-page-monitor-button.png) de ![monitorar execução de pipeline
 
     > [!IMPORTANT]
-    > Você verá o pipeline é executado somente no relógio de hora (por exemplo: 4 AM, 17:00, 18:00, etc.). Clique em **Atualizar**, na barra de ferramentas, para atualizar a lista quando a for atingida a hora seguinte.
+    > Só vai ver as execuções do pipeline à hora certa (por exemplo, 4:00, 5:00, 6:00, etc.). Clique em **Atualizar**, na barra de ferramentas, para atualizar a lista quando a for atingida a hora seguinte.
 
 5. Clique no link **Exibir execuções de atividade** na coluna **ações** .
 
     ![Ligação de ações do pipeline](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
 
-6. Verá as execuções de atividade associadas à execução do pipeline. Neste guia de início rápido, o pipeline tem apenas uma atividade do tipo: CopiarObjeto. Por conseguinte, verá uma execução dessa atividade.
+6. Verá as execuções de atividade associadas à execução do pipeline. Neste início rápido, o pipeline só tem uma atividade do tipo Cópia. Por conseguinte, verá uma execução dessa atividade.
 
     ![Execuções de atividade](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
 7. Clique no link **saída** na coluna ações. Verá a saída da operação de cópia numa janela de **Saída**. Clique no botão de maximizar para ver a saída completa. Pode fechar a janela de saída maximizada ou fechar a saída.
@@ -696,6 +696,6 @@ Tenha em atenção que o primeiro comando utiliza o ficheiro de parâmetro para 
 
 Também pode reutilizar o modelo para efetuar tarefas repetidas. Por exemplo, crie muitas fábricas de dados com um ou mais pipelines que implementem a mesma lógica, mas em que cada uma destas utiliza diferentes contas de armazenamento do Azure. Neste cenário, utilize o mesmo modelo no mesmo ambiente (programação, teste ou produção) com os diferentes ficheiros de parâmetro para criar fábricas de dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 O pipeline neste exemplo copia dados de uma localização para outra localização num armazenamento de blobs do Azure. Leia os [tutoriais](tutorial-copy-data-dot-net.md) para saber como utilizar o Data Factory em mais cenários.

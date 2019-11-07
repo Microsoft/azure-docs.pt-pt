@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: 26b0f710590496875521e0dd8577a35841fbd3dd
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7c757ef8508f9364a46116e6ddf19207f23a4b6f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657011"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583660"
 ---
 # <a name="set-or-reset-password-for-virtual-machines-in-classroom-labs-students"></a>Definir ou redefinir a senha para máquinas virtuais em laboratórios de sala de aula (estudantes)
 Este artigo mostra como os alunos podem definir/redefinir a senha para suas VMs. 
@@ -39,5 +39,5 @@ O aluno também pode definir a senha clicando no menu de estouro (**três pontos
 ![Redefinir senha mais tarde](../media/how-to-set-virtual-machine-passwords/student-set-password-2.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre outras opções de uso de aluno que um proprietário de laboratório pode configurar, consulte o seguinte artigo: [Configure o uso do aluno](how-to-configure-student-usage.md).
+## <a name="next-steps"></a>Passos seguintes
+Para saber mais sobre outras opções de uso de alunos que um proprietário de laboratório pode configurar, consulte o seguinte artigo: [Configurar o uso de alunos](how-to-configure-student-usage.md).

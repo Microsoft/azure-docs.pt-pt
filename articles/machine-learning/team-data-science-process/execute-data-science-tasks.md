@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e74277af8bf0912c418bc169209180195ceb8d8f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a6b463c4a1d0e640cc6c2a380ee978fcafa2877e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492409"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670342"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Executar tarefas de ciência de dados: exploração, modelagem e implantação
 
@@ -98,7 +98,7 @@ Há várias abordagens e plataformas para colocar os modelos em produção. Aqui
 Outros exemplos estão disponíveis em passo a passos que demonstram todas as etapas no processo para **cenários específicos**. Eles são listados e vinculados a descrições em miniatura no artigo [passo a passos de exemplo](walkthroughs.md) . Eles ilustram como combinar a nuvem, as ferramentas locais e os serviços em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente.
 
 > [!NOTE]
-> Para a implantação usando o Azure Machine Learning Studio, consulte [implantar um serviço web Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
+> Para a implantação usando o Azure Machine Learning Studio, consulte [implantar um serviço web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
 >
 >
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: carregar dados de dos táxis de Nova York no Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Tutorial: carregar dados de dos táxis de Nova York'
 description: O tutorial usa portal do Azure e SQL Server Management Studio para carregar dados de dos táxis de Nova York de um blob global do Azure para o Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2e799d84aee9ba4d3bfb00ddfad358c9b90c3d59
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 5bf1a600bf57ecb598aac485e11f3618dda7244e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482395"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686087"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: carregar dados de dos táxis de Nova York no Azure SQL Data Warehouse
 
@@ -44,7 +45,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Criar um SQL Data Warehouse em branco
 
-Uma SQL Data Warehouse do Azure é criada com um conjunto definido de [recursos de computação](memory-and-concurrency-limits.md). A base de dados é criada num [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e num [servidor lógico SQL do Azure](../sql-database/sql-database-features.md). 
+Uma SQL Data Warehouse do Azure é criada com um conjunto definido de [recursos de computação] memória-Concurrency-limits.md). A base de dados é criada num [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e num [servidor lógico SQL do Azure](../sql-database/sql-database-features.md). 
 
 Siga estas etapas para criar um SQL Data Warehouse em branco. 
 

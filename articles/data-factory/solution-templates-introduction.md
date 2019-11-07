@@ -1,5 +1,5 @@
 ---
-title: Visão geral dos modelos para Azure Data Factory | Microsoft Docs
+title: Visão geral dos modelos para Azure Data Factory
 description: Saiba como usar um modelo predefinido para começar rapidamente com o Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/04/2019
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: eb7a7eb8e1bdacae4b74e3a0019a376c440fe4d5
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7895fedd0f68ae1c8ea4808c54a18a4e73b57b2c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091966"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684060"
 ---
 # <a name="templates"></a>Modelos
 
@@ -30,11 +30,11 @@ Você pode começar a criar um pipeline de Data Factory de um modelo das duas ma
 
     ![Abra a Galeria de modelos na página Visão geral](media/solution-templates-introduction/templates-intro-image1.png)
 
-1.  Na guia autor do Gerenciador de recursos, selecione **+** e, em seguida, **pipeline de modelo** para abrir a Galeria de modelos.
+1.  Na guia autor do Gerenciador de recursos, selecione **+** e **pipeline de modelo** para abrir a Galeria de modelos.
 
     ![Abrir a Galeria de modelos na guia autor](media/solution-templates-introduction/templates-intro-image2.png)
 
-## <a name="template-gallery"></a>Galeria de Modelos
+## <a name="template-gallery"></a>Galeria de modelos
 
 ![A Galeria de modelos](media/solution-templates-introduction/templates-intro-image3.png)
 
@@ -54,7 +54,7 @@ Data Factory usa modelos de Azure Resource Manager para salvar data factory mode
 
     -   [Cópia Delta do banco de dados](solution-template-delta-copy-with-control-table.md)
 
-    -   Copiar da \<origem\> para \<o destino\>
+    -   Copiar do\> de origem \<para \<destino\>
 
         -   [Do Amazon S3 para Azure Data Lake Store Gen 2](solution-template-migration-s3-azure.md)
 
@@ -72,7 +72,7 @@ Data Factory usa modelos de Azure Resource Manager para salvar data factory mode
 
 -   Modelos SSIS
 
-    -   Agendar Integration Runtime do Azure-SSIS para executar pacotes do SSIS
+    -   Agendar Azure-SSIS Integration Runtime para executar pacotes SSIS
 
 -   Transformar modelos
 

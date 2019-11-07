@@ -1,5 +1,5 @@
 ---
-title: Mover arquivos entre o armazenamento baseado em arquivo usando Azure Data Factory | Microsoft Docs
+title: Mover arquivos entre o armazenamento baseado em arquivo usando Azure Data Factory
 description: Saiba como usar um modelo de solução para mover arquivos entre o armazenamento baseado em arquivo usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.openlocfilehash: 9eb82a23aac5a98a521976118c1e859d0be253d0
-ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
+ms.openlocfilehash: f6f83917e84a880fb86b5f592c4d51b03462753d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67881246"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684179"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Mover arquivos com Azure Data Factory
 
-Este artigo descreve um modelo de solução que você pode usar para mover arquivos de uma pasta para outra entre repositórios baseados em arquivo. Um dos cenários comuns de uso deste modelo: Os arquivos são continuamente descartados para uma pasta de aterrissagem do seu armazenamento de origem. Ao criar um gatilho de agendamento, o pipeline do ADF pode mover periodicamente esses arquivos da origem para o repositório de destino.  A maneira como o pipeline do ADF atinge "movendo arquivos" está obtendo os arquivos da pasta de aterrissagem, copiando cada um deles para outra pasta no repositório de destino e, em seguida, excluindo os mesmos arquivos da pasta de aterrissagem no repositório de origem.
+Este artigo descreve um modelo de solução que você pode usar para mover arquivos de uma pasta para outra entre repositórios baseados em arquivo. Um dos cenários comuns de uso deste modelo: os arquivos são continuamente descartados para uma pasta de aterrissagem do seu repositório de origem. Ao criar um gatilho de agendamento, o pipeline do ADF pode mover periodicamente esses arquivos da origem para o repositório de destino.  A maneira como o pipeline do ADF atinge "movendo arquivos" está obtendo os arquivos da pasta de aterrissagem, copiando cada um deles para outra pasta no repositório de destino e, em seguida, excluindo os mesmos arquivos da pasta de aterrissagem no repositório de origem.
 
 > [!NOTE]
 > Lembre-se de que esse modelo foi projetado para mover arquivos em vez de mover pastas.  Se você quiser mover a pasta alterando o conjunto de um para que ela contenha apenas um caminho de pasta e, em seguida, usando a atividade de cópia e excluir a referência ao mesmo conjunto de um que representa uma pasta, você precisa ter muito cuidado. É porque você precisa certificar-se de que não haverá novos arquivos chegando à pasta entre a operação de cópia e a operação de exclusão. Se houver novos arquivos chegando à pasta no momento em que a atividade de cópia acabou de concluir o trabalho de cópia, mas a atividade de exclusão não tiver sido feita, é possível que a atividade de exclusão exclua esse novo arquivo de chegada que não foi copiado para o destinati no entanto, excluindo a pasta inteira.
@@ -32,7 +32,7 @@ Este modelo obtém os arquivos do armazenamento baseado em arquivo de origem. Em
 
 O modelo contém cinco atividades:
 - **GetMetadata** Obtém a lista de objetos, incluindo os arquivos e subpastas de sua pasta no repositório de origem. Ele não recuperará os objetos recursivamente. 
-- Filtro filtrar a lista de objetos da atividade **GetMetadata** para selecionar apenas os arquivos. 
+- **Filtro filtrar** a lista de objetos da atividade **GetMetadata** para selecionar apenas os arquivos. 
 - **Foreach** Obtém a lista de arquivos da atividade de **filtro** e, em seguida, itera na lista e passa cada arquivo para a atividade de cópia e a atividade de exclusão.
 - **Copiar** copia um arquivo da origem para o repositório de destino.
 - **Excluir** exclui o mesmo arquivo do repositório de origem.
@@ -53,7 +53,7 @@ O modelo define dois parâmetros:
 
 3. Selecione **usar este modelo**.
 
-    ![Utilizar este modelo](media/solution-template-move-files/move-files3.png)
+    ![Usar este modelo](media/solution-template-move-files/move-files3.png)
     
 4. Você verá o pipeline, como no exemplo a seguir:
 

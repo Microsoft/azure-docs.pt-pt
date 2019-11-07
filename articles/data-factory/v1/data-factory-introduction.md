@@ -1,6 +1,6 @@
 ---
-title: Introdução ao Data Factory, um serviço de integração de dados | Microsoft Docs
-description: 'Saiba o que Azure Data Factory é: Um serviço de integração de dados de nuvem que orquestra e automatiza a movimentação e a transformação de dados.'
+title: Introdução ao Data Factory, um serviço de integração de dados
+description: 'Saiba o que o Azure Data Factory é: um serviço de integração de dados em nuvem que orquestra e automatiza o movimento e a transformação de dados.'
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 2e508839cd343820a36cc715ebde0f47c2ac4ab1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 30578f204ff05443de82015627d67d3d4d357dce
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139515"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666808"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introdução ao Azure Data Factory 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -118,7 +118,7 @@ Os serviços ligados são utilizados por dois motivos no Data Factory:
 
 ### <a name="relationship-between-data-factory-entities"></a>Relação entre as entidades do Data Factory
 
-![Organograma Data Factory, um serviço de integração de dados de nuvem-conceitos principais](./media/data-factory-introduction/data-integration-service-key-concepts.png)
+![Diagrama: Data Factory, um serviço de integração de dados na cloud – principais conceitos](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 ## <a name="supported-regions"></a>Regiões suportadas
 Atualmente, pode criar fábricas de dados nas regiões E.U.A. Oeste, E.U.A. Leste e Europa do Norte. No entanto, uma fábrica de dados pode aceder aos arquivos de dados e serviços de computação noutras regiões do Azure para mover dados entre os arquivos de dados ou processar dados com serviços de computação.

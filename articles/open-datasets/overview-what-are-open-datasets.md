@@ -7,12 +7,12 @@ ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 11/04/2019
-ms.openlocfilehash: b8633bd91abc1f336870158f54d75829ed5cf6a0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: fd5697f9c325dc4ad866c333ce1b20e008ebfa24
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496594"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606160"
 ---
 # <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>O que são conjuntos de valores abertos do Azure e como você pode usá-los?
 
@@ -25,7 +25,7 @@ DataSets incluem dados de domínio público para clima, censo, feriados, seguran
 ## <a name="curated-prepared-datasets"></a>Conjuntos de coletados e preparados
 Os conjuntos de valores públicos abertos estruturados nos conjuntos de valores abertos do Azure são otimizados para consumo em fluxos de trabalho de aprendizado de máquina. 
 
-Os cientistas de dados geralmente passam a maior parte do tempo de limpeza e preparação de dados para análise avançada. Os conjuntos de valores abertos são copiados para a nuvem do Azure e pré-processados para poupar tempo. Em intervalos regulares, os dados são extraídos das fontes, como por uma conexão de FTP para a NOAA (National Oceanic and atmosférica Administration), analisados em um formato estruturado e, em seguida, aprimorados conforme apropriado com recursos como CEP ou local do a estação do clima mais próxima.
+Os cientistas de dados geralmente passam a maior parte do tempo de limpeza e preparação de dados para análise avançada. Os conjuntos de valores abertos são copiados para a nuvem do Azure e pré-processados para poupar tempo. Em intervalos regulares, os dados são extraídos das fontes, como por uma conexão de FTP para a NOAA (National Oceanic and atmosférica Administration). Em seguida, os dados são analisados em um formato estruturado e, em seguida, aprimorados conforme apropriado com recursos como CEP ou local da estação meteorológico mais próxima.
 
 Os conjuntos de itens são cohospedados com computação em nuvem no Azure, facilitando o acesso e a manipulação.  
 
@@ -57,5 +57,5 @@ Se você não encontrar os dados desejados, envie-nos um email para [solicitar u
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Bloco de anotações de exemplo](samples.md)
-* [Tutorial: modelagem de regressão com dados de táxi de NY](tutorial-opendatasets-automl.md)
+* [Tutorial: modelagem de regressão com dados de táxi de NY](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
 * [SDK do Python para conjuntos de valores abertos](/python/api/azureml-opendatasets/?view=azure-ml-py)

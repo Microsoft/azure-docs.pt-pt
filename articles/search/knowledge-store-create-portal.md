@@ -8,12 +8,12 @@ ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 16dd63e22182dedb4af97c2ef6238e6628778467
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 689b5aa0cd8a5fb310925b2c52baeec6860af0d5
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485166"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607084"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Início rápido: criar um repositório de conhecimento do Azure Pesquisa Cognitiva no portal do Azure
 
@@ -87,7 +87,7 @@ Nesta etapa do assistente, você criará um configurador de habilidades com apri
 1. Expanda **anexar serviços cognitivas**. **Gratuito (aprimoramentos limitados)** é selecionado por padrão. Você pode usar esse recurso porque o número de registros em HotelReviews-Free. csv é 19 e esse recurso gratuito permite até 20 transações por dia.
 1. Expanda **Adicionar habilidades cognitivas**.
 1. Para o **nome do skillset**, insira `hotel-reviews-ss`.
-1. Em **campo de dados de origem**, selecione **reviews_text*.
+1. Em **campo de dados de origem**, selecione **reviews_text**.
 1. Para **nível de granularidade de enriquecimento**, selecione **páginas (partes de 5000 caracteres)**
 1. Selecione essas habilidades cognitivas:
     + **Extrair expressões-chave**

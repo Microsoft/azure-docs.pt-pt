@@ -1,20 +1,17 @@
 ---
 title: Guia de solução de problemas do Azure Spring Cloud | Microsoft Docs
 description: Guia de solução de problemas do Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
-ms.date: 10/07/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 546c97421fdb3a581a22e34f6110986a1a0732b6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.topic: troubleshooting
+ms.date: 11/04/2019
+ms.author: jeconnoc
+ms.openlocfilehash: 9603f4a687b55f45be2875ccaa7b801c0c5589c9
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72929154"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607615"
 ---
 # <a name="troubleshooting-guide-for-common-problems"></a>Guia de solução de problemas comuns
 
@@ -31,7 +28,7 @@ Encontrar o seguinte erro em seus logs indica um dos dois prováveis problemas:
 `org.springframework.context.ApplicationContextException: Unable to start web server`
 
 * Um dos Beans ou uma de suas dependências está ausente.
-* Uma das propriedades do bean está em falta ou é inválida. Você provavelmente verá `java.lang.IllegalArgumentException`, nesse caso.
+* Uma das propriedades do bean está em falta ou é inválida. Você provavelmente verá `java.lang.IllegalArgumentException` nesse caso.
 
 As associações de serviço também podem causar falhas de início do aplicativo. Utilize palavras-chave relacionadas com os serviços vinculados para consultar os registos.  Por exemplo, suponha que seu aplicativo tenha uma associação a uma instância do MySQL definida como hora do sistema local. Se o aplicativo falhar ao iniciar, você poderá encontrar o seguinte erro no log:
 
@@ -194,7 +191,7 @@ Localize o nó filho chamado `systemEnvironment`.  Esse nó contém as variávei
 
 Vá para _Gerenciamento de aplicativo_ para verificar se o aplicativo está _em execução e em funcionamento_ .
 
-Se você puder ver as métricas da _JVM_ , mas nenhuma métrica do _tomcat_, verifique se a dependência de `spring-boot-actuator` está habilitada no pacote do aplicativo e se foi inicializada com êxito.
+Se você puder ver as métricas da _JVM_ , mas nenhuma métrica do _tomcat_, verifique se a dependência de`spring-boot-actuator` está habilitada no pacote do aplicativo e se foi inicializada com êxito.
 
 ```xml
 <dependency>

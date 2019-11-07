@@ -1,6 +1,6 @@
 ---
 title: Prever respostas com modelos de regressão
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Como criar um modelo de regressão simples para prever um preço no vídeo ciência de dados para iniciantes 4. Inclui uma regressão linear com dados de destino.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 028422dd710f7e8d9021c6435250a05c73c76c42
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2148938323ed3f819f14be88590723da40462453
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493110"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619525"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prever uma resposta com um modelo simples
 ## <a name="video-4-data-science-for-beginners-series"></a>Vídeo 4: série de ciência de dados para iniciantes

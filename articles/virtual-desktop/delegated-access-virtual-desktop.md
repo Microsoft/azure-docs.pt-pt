@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: e8d1ba00043f43f626043d78ce0ab8953a0b3fbe
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: ad8dc610d15742844b8bec630d7bc3e08fb46973
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679553"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606889"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Acesso delegado ao Windows Virtual Desktop
 
@@ -22,14 +22,14 @@ O acesso delegado da área de trabalho virtual do Windows oferece suporte aos se
 
 * Principal de segurança
     * Utilizadores
-    * Principais de serviço
+    * Entidades de serviço
 * Definição de função
     * Funções incorporadas
-* Scope
+* Âmbito
     * Grupos de locatários
-    * locatários
+    * Locatários
     * Pools de hosts
-    * Grupos de aplicações
+    * Grupos de aplicativos
 
 ## <a name="built-in-roles"></a>Funções incorporadas
 

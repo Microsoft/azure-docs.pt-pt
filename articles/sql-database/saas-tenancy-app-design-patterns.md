@@ -1,5 +1,5 @@
 ---
-title: Padrões de SaaS de vários locatários-banco de dados SQL do Azure | Microsoft Docs
+title: 'Padrões de SaaS multilocatário-banco de dados SQL do Azure '
 description: Saiba mais sobre os requisitos e padrões comuns de arquitetura de dados de aplicativos de banco de dado SaaS (software como serviço) multilocatários executados no ambiente de nuvem do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 8cbf0e45ac368f0d2dd1678984bd14392452e63a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ecbcf2cdfea2714e46d0c9cff4066befabddeeb8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570191"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691924"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de locação de banco de dados SaaS multilocatário
 
@@ -24,7 +24,7 @@ Este artigo descreve os vários modelos de locação disponíveis para um aplica
 
 Ao criar um aplicativo SaaS multilocatário, você deve escolher cuidadosamente o modelo de aluguel que melhor atenda às necessidades do seu aplicativo.  Um modelo de locação determina como os dados de cada locatário são mapeados para o armazenamento.  Sua escolha de modelo de locação afeta o design e o gerenciamento de aplicativos.  Às vezes, alternar para um modelo diferente é dispendioso.
 
-## <a name="a-saas-concepts-and-terminology"></a>R. Conceitos e terminologia de SaaS
+## <a name="a-saas-concepts-and-terminology"></a>A. Conceitos e terminologia de SaaS
 
 No modelo SaaS (software como serviço), sua empresa não vende *licenças* para seu software. Em vez disso, cada cliente faz o aluguel de pagamentos para sua empresa, tornando cada cliente um *locatário* de sua empresa.
 
@@ -32,8 +32,8 @@ Em retorno para o aluguel de pagamento, cada locatário recebe acesso aos compon
 
 O termo *modelo de aluguel* refere-se à forma como os dados armazenados dos locatários são organizados:
 
-- *Locação única:* &nbsp; Cada Database armazena dados de apenas um locatário.
-- *Multilocação:* &nbsp; Cada Database armazena dados de vários locatários separados (com mecanismos para proteger a privacidade de dados).
+- *Locação única:* o&nbsp; cada banco de dados armazena apenas um locatário.
+- *Multi-locação:* &nbsp; cada banco de dados armazena os dados de vários locatários separados (com mecanismos para proteger a privacidade de dados).
 - Os modelos de aluguel híbrido também estão disponíveis.
 
 ## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Como escolher o modelo de aluguel apropriado
@@ -46,9 +46,9 @@ Em geral, o modelo de locação não afeta a função de um aplicativo, mas prov
     - Armazenamento em agregação.
     - Pico.
 
-- **Isolamento de locatário:** &nbsp; Isolamento de dados e desempenho (se a carga de trabalho de um locatário impacta outras pessoas).
+- **Isolamento de locatário:** isolamento de dados de&nbsp; e desempenho (se a carga de trabalho de um locatário impacta outras pessoas).
 
-- **Custo por locatário:** &nbsp; Custos do banco de dados.
+- **Custo por locatário:** &nbsp; custos de banco de dados.
 
 - **Complexidade de desenvolvimento:**
     - Alterações no esquema.
@@ -60,7 +60,7 @@ Em geral, o modelo de locação não afeta a função de um aplicativo, mas prov
     - Restaurando um locatário.
     - Recuperação após desastre.
 
-- **Personalização**&nbsp; Facilidade de suporte a personalizações de esquema que são específicas de locatário ou específicos de classe de locatário.
+- Personalização **:** &nbsp; facilidade de dar suporte a personalizações de esquema que são específicas de locatário ou de locatário específicos da classe.
 
 A discussão sobre locação se concentra na camada de *dados* .  Mas considere por um momento a camada de *aplicativo* .  A camada de aplicativo é tratada como uma entidade monolítica.  Se você dividir o aplicativo em muitos componentes pequenos, sua escolha de modelo de locação poderá ser alterada.  Você pode tratar alguns componentes de forma diferente dos outros em relação à locação e à tecnologia de armazenamento ou à plataforma usada.
 
@@ -125,9 +125,9 @@ Outro padrão disponível é armazenar vários locatários em um banco de dados 
 
 #### <a name="tenant-isolation-is-sacrificed"></a>Isolamento de locatário é sacrificado
 
-*Dado*&nbsp; Um banco de dados multilocatário necessariamente sacrifica o isolamento de locatário.  Os dados de vários locatários são armazenados juntos em um banco de dado.  Durante o desenvolvimento, certifique-se de que as consultas nunca exponham dados de mais de um locatário.  O banco de dados SQL dá suporte à [segurança em nível de linha][docu-sql-svr-db-row-level-security-947w], o que pode impor que os dados retornados de uma consulta sejam delimitados para um único locatário.
+*Data:* &nbsp; um banco de dados multilocatário necessariamente sacrificar o isolamento do locatário.  Os dados de vários locatários são armazenados juntos em um banco de dado.  Durante o desenvolvimento, certifique-se de que as consultas nunca exponham dados de mais de um locatário.  O banco de dados SQL dá suporte à [segurança em nível de linha][docu-sql-svr-db-row-level-security-947w], o que pode impor que os dados retornados de uma consulta sejam delimitados para um único locatário.
 
-*Processamento*&nbsp; Um banco de dados multilocatário compartilha recursos de computação e armazenamento em todos os seus locatários.  O banco de dados como um todo pode ser monitorado para garantir que ele esteja sendo executado de forma aceitável.  No entanto, o sistema do Azure não tem uma maneira interna de monitorar ou gerenciar o uso desses recursos por um locatário individual.  Portanto, o banco de dados multilocatário tem um risco maior de encontrar vizinhos ruidosas, em que a carga de trabalho de um locatário superativo afeta a experiência de desempenho de outros locatários no mesmo banco de dados.  O monitoramento em nível de aplicativo adicional pode monitorar o desempenho no nível do locatário.
+*Processamento:* &nbsp; um banco de dados multilocatário compartilha recursos de computação e armazenamento em todos os seus locatários.  O banco de dados como um todo pode ser monitorado para garantir que ele esteja sendo executado de forma aceitável.  No entanto, o sistema do Azure não tem uma maneira interna de monitorar ou gerenciar o uso desses recursos por um locatário individual.  Portanto, o banco de dados multilocatário tem um risco maior de encontrar vizinhos ruidosas, em que a carga de trabalho de um locatário superativo afeta a experiência de desempenho de outros locatários no mesmo banco de dados.  O monitoramento em nível de aplicativo adicional pode monitorar o desempenho no nível do locatário.
 
 #### <a name="lower-cost"></a>Custo mais reduzido
 
@@ -135,13 +135,13 @@ Em geral, bancos de dados multilocatários têm o menor custo por locatário.  O
 
 Duas variações de um modelo de banco de dados multilocatário são discutidas da seguinte maneira, com o modelo multilocatário fragmentado sendo o mais flexível e escalonável.
 
-## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F. Aplicativo multilocatário com um único banco de dados de vários locatários
+## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>fixo. Aplicativo multilocatário com um único banco de dados de vários locatários
 
 O padrão mais simples de banco de dados multilocatário usa um banco de dados individual para hospedar o dado para todos os locatários.  À medida que mais locatários são adicionados, o banco de dados é dimensionado com mais recursos de armazenamento e computação.  Essa escala vertical pode ser tudo o que é necessário, embora sempre haja um limite de escala final.  No entanto, muito antes que esse limite seja atingido, o banco de dados torna-se difícil de gerenciar.
 
 As operações de gerenciamento que se concentram em locatários individuais são mais complexas de implementar em um banco de dados de vários locatários.  E em escala, essas operações podem se tornar lentas inaceitáveis.  Um exemplo é uma restauração pontual dos dados para apenas um locatário.
 
-## <a name="g-multi-tenant-app-with-sharded-multi-tenant-databases"></a>G. Aplicativo multilocatário com bancos de dados de vários locatários fragmentados
+## <a name="g-multi-tenant-app-with-sharded-multi-tenant-databases"></a>m. Aplicativo multilocatário com bancos de dados de vários locatários fragmentados
 
 A maioria dos aplicativos SaaS acessa os dados de apenas um locatário por vez.  Esse padrão de acesso permite que os dados de locatário sejam distribuídos em vários bancos de dados ou fragmentos, em que todos os todos os dado de um locatário estão contidos em um fragmento.  Combinado com um padrão de banco de dados multilocatário, um modelo fragmentado permite uma escala quase ilimitada.
 
@@ -165,7 +165,7 @@ Dependendo da abordagem de fragmentação usada, restrições adicionais podem s
 
 Bancos de dados de vários locatários fragmentados podem ser colocados em pools elásticos.  Em geral, ter muitos bancos de dados de locatário único em um pool é tão econômico quanto ter muitos locatários em alguns bancos de dados de vários locatários.  Bancos de dados multilocatários são vantajosos quando há um grande número de locatários relativamente inativos.
 
-## <a name="h-hybrid-sharded-multi-tenant-database-model"></a>H. Modelo de banco de dados multilocatário fragmentado híbrido
+## <a name="h-hybrid-sharded-multi-tenant-database-model"></a>t. Modelo de banco de dados multilocatário fragmentado híbrido
 
 No modelo híbrido, todos os bancos de dados têm o identificador de locatário em seu esquema.  Os bancos de dados são todos capazes de armazenar mais de um locatário, e os bancos de dados podem ser fragmentados.  Portanto, no sentido do esquema, eles são todos os bancos de dados multilocatários.  Ainda na prática, alguns desses bancos de dados contêm apenas um locatário.  Independentemente, a quantidade de locatários armazenados em um determinado banco de dados não tem efeito sobre o esquema de banco de dados.
 
@@ -185,8 +185,8 @@ A tabela a seguir resume as diferenças entre os principais modelos de aluguel.
 
 | Medida | Aplicação autónoma | Banco de dados por locatário | Multilocatário fragmentado |
 | :---------- | :------------- | :------------------ | :------------------- |
-| Escala | Médio<br />1-100s | Muito alta<br />1-100, mil | Ilimitado<br />1-1, 000, mil |
-| Isolamento de locatário | Muito alta | Alta | Pequena exceto para qualquer locatário único (que é sozinho em um MT DB). |
+| Escala | Médio<br />1-100s | Muito alto<br />1-100, mil | Ilimitado<br />1-1, 000, mil |
+| Isolamento de locatário | Muito alto | Elevado | Pequena exceto para qualquer locatário único (que é sozinho em um MT DB). |
 | Custo do banco de dados por locatário | Elevada é dimensionado para picos. | Pequena pools usados. | Mais baixo, para locatários pequenos em bancos de los MT. |
 | Monitoramento e gerenciamento de desempenho | Somente por locatário | Agregar + por locatário | Tais Embora seja por locatário somente para singles. |
 | Complexidade de desenvolvimento | Baixa | Baixa | Médio devido à fragmentação. |

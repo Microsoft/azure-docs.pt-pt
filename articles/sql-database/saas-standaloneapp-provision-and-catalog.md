@@ -1,5 +1,5 @@
 ---
-title: Tutorial de SaaS de vários locatários-banco de dados SQL do Azure | Microsoft Docs
+title: Tutorial de SaaS de vários locatários-banco de dados SQL do Azure
 description: Provisionar e catalogar novos locatários usando o padrão de aplicativo autônomo
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/24/2018
-ms.openlocfilehash: f9087ff33bccb54497ec8d781a47469553683d65
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: de1007aac3988f2ea78b9d1b7b1de19b862f196a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570268"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691947"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Provisionar e catalogar novos locatários usando o aplicativo por padrão de SaaS de locatário
 
@@ -44,7 +44,7 @@ O catálogo de locatários contém um mapeamento entre um identificador de locat
 
 ## <a name="elastic-database-client-library"></a>Biblioteca de Clientes da Base de Dados Elástica
 
-No aplicativo de exemplo Wingtip, o catálogo é implementado pelos recursos de gerenciamento de fragmentos da EDCL ( [biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md) ).  A biblioteca permite que um aplicativo crie, gerencie e use um mapa de fragmentos que é armazenado em um banco de dados. No exemplo de tíquetes Wingtip, o catálogo é armazenado no banco de dados do *Catálogo* de locatários.  O fragmento mapeia uma chave de locatário para o fragmento (banco de dados) no qual são armazenados o dado do locatário.  As funções EDCL gerenciam um *mapa de fragmentos global* armazenado em tabelas no banco de dados do *Catálogo* de locatários e um *mapa de fragmentos local* armazenado em cada fragmento.
+No aplicativo de exemplo Wingtip, o catálogo é implementado pelos recursos de gerenciamento de fragmentos da EDCL ( [biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md) ).  A biblioteca permite que um aplicativo crie, gerencie e use um mapa de fragmentos que é armazenado em um banco de dados. No exemplo de tíquetes Wingtip, o catálogo é armazenado no banco de dados do *Catálogo de locatários* .  O fragmento mapeia uma chave de locatário para o fragmento (banco de dados) no qual são armazenados o dado do locatário.  As funções EDCL gerenciam um *mapa de fragmentos global* armazenado em tabelas no banco de dados do *Catálogo de locatários* e um *mapa de fragmentos local* armazenado em cada fragmento.
 
 As funções EDCL podem ser chamadas de aplicativos ou scripts do PowerShell para criar e gerenciar as entradas no mapa de fragmentos. Outras funções EDCL podem ser usadas para recuperar o conjunto de fragmentos ou conectar-se ao banco de dados correto para determinada chave de locatário. 
 
@@ -81,10 +81,10 @@ Nesta tarefa, você aprenderá a provisionar o catálogo usado para registrar to
 * **Provisione o banco de dados de catálogo** usando um modelo de gerenciamento de recursos do Azure. O banco de dados é inicializado importando um arquivo bacpac.  
 * **Registre os aplicativos de locatário de exemplo** que você implantou anteriormente.  Cada locatário é registrado usando uma chave construída com base em um hash do nome do locatário.  O nome do locatário também é armazenado em uma tabela de extensão no catálogo.
 
-1. No ISE do PowerShell, abra *. ..\Learning Modules\UserConfig.PSM* e atualize o valor do **\<usuário\>** para o valor usado ao implantar os três aplicativos de exemplo.  **Salve o arquivo**.  
+1. No ISE do PowerShell, abra *. ..\Learning Modules\UserConfig.PSM* e atualize a **\<usuário\>** valor para o valor usado ao implantar os três aplicativos de exemplo.  **Salve o arquivo**.  
 1. No ISE do PowerShell, abra *. ..\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* e defina **$Scenario = 1**. Implante o catálogo de locatários e registre os locatários predefinidos.
 
-1. Adicione um ponto de interrupção, colocando o cursor em qualquer lugar na linha `& $PSScriptRoot\New-Catalog.ps1`que diz, e pressione **F9**.
+1. Adicione um ponto de interrupção colocando o cursor em qualquer lugar na linha que diz, `& $PSScriptRoot\New-Catalog.ps1`e pressione **F9**.
 
     ![definindo um ponto de interrupção para rastreamento](media/saas-standaloneapp-provision-and-catalog/breakpoint.png)
 
@@ -97,14 +97,14 @@ Quando o script for concluído, o catálogo existirá e todos os locatários de 
 
 Agora, examine os recursos que você criou.
 
-1. Abra o [portal do Azure](https://portal.azure.com/) e procure os grupos de recursos.  Abra o grupo de recursos **Wingtip-SA\<-\> Catalog-User** e anote o servidor de catálogo e o banco de dados.
-1. Abra o banco de dados no portal e selecione *Data Explorer* no menu à esquerda.  Clique no comando de logon e insira a senha = **P\@ssword1**.
+1. Abra o [portal do Azure](https://portal.azure.com/) e procure os grupos de recursos.  Abra o grupo de recursos do **usuário do Wingtip-SA-Catalog-\<\>** e anote o servidor de catálogo e o banco de dados.
+1. Abra o banco de dados no portal e selecione *Data Explorer* no menu à esquerda.  Clique no comando de logon e digite a senha = **P\@ssword1**.
 
 
 1. Explore o esquema do banco de dados *tenantcatalog* .  
-   * Os objetos no `__ShardManagement` esquema são todos fornecidos pela biblioteca de cliente do banco de dados elástico.
-   * A `Tenants` tabela e `TenantsExtended` a exibição são extensões adicionadas no exemplo que demonstram como você pode estender o catálogo para fornecer valor adicional.
-1. Execute a consulta, `SELECT * FROM dbo.TenantsExtended`.          
+   * Os objetos no esquema de `__ShardManagement` são todos fornecidos pela biblioteca de cliente do banco de dados elástico.
+   * A tabela de `Tenants` e `TenantsExtended` exibição são extensões adicionadas no exemplo que demonstram como você pode estender o catálogo para fornecer valor adicional.
+1. Execute a consulta `SELECT * FROM dbo.TenantsExtended`.          
 
    ![Data Explorer](media/saas-standaloneapp-provision-and-catalog/data-explorer-tenantsextended.png)
 
@@ -124,7 +124,7 @@ Nesta tarefa, você aprenderá a provisionar um aplicativo de locatário único.
 
 1. No ISE do PowerShell, abra *. ..\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* e defina **$Scenario = 2**. Implantar o catálogo de locatários e registrar os locatários predefinidos
 
-1. Adicione um ponto de interrupção no script, colocando o cursor em qualquer lugar na linha 49 `& $PSScriptRoot\New-TenantApp.ps1`que diz, e pressione **F9**.
+1. Adicione um ponto de interrupção no script, colocando o cursor em qualquer lugar na linha 49 que diz, `& $PSScriptRoot\New-TenantApp.ps1`e pressione **F9**.
 1. Execute o script pressionando **F5**. 
 1.  Após a execução do script parar no ponto de interrupção, pressione **F11** para entrar no script New-Catalog. ps1.
 1.  Rastreie a execução do script usando as opções do menu Depurar, F10 e F11, para depurar ou entrar em funções chamadas.
@@ -144,7 +144,7 @@ Quando terminar de explorar o exemplo, exclua todos os grupos de recursos que vo
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- Para saber mais sobre os aplicativos de banco de dados SaaS multilocatário, consulte [padrões de design para aplicativos SaaS](saas-tenancy-app-design-patterns.md)multilocatários.
+- Para saber mais sobre os aplicativos de banco de dados SaaS multilocatário, consulte [padrões de design para aplicativos SaaS multilocatários](saas-tenancy-app-design-patterns.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

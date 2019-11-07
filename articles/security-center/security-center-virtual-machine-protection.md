@@ -1,5 +1,5 @@
 ---
-title: Protegendo seus computadores e aplicativos na central de segurança do Azure | Microsoft Docs
+title: Proteger seus computadores e aplicativos na central de segurança do Azure
 description: Este documento aborda as recomendações na central de segurança que ajudam a proteger suas máquinas virtuais e computadores e seus aplicativos Web e ambientes de serviço de aplicativo.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 2317d0206e3fc4a342606d17c172ac42cbe82870
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 803e64c9df1b52a33a1b50714f77b005032bf200
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520680"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686352"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protegendo seus computadores e aplicativos na central de segurança do Azure
 A central de segurança do Azure analisa o estado de segurança de seus recursos do Azure, servidores não Azure e máquinas virtuais. Quando a central de segurança identifica possíveis vulnerabilidades de segurança, ele cria recomendações que o orientam durante o processo de configuração dos controles necessários. As recomendações se aplicam aos tipos de recursos do Azure: máquinas virtuais (VMs) e computadores, aplicativos, rede, SQL e identidade e acesso.
@@ -153,7 +153,7 @@ Há três tipos de ícones representados nesta lista:
 
 2. Selecione uma recomendação para ver uma descrição da recomendação e uma lista de recursos não íntegros, recursos íntegros e recursos não verificados.
 
-   - Na coluna **avaliações passadas** , há uma lista de avaliações aprovadas.  A severidade dessas avaliações é sempre verde.
+   - Na coluna **avaliações passadas** , há uma lista de avaliações aprovadas. A severidade dessas avaliações é sempre verde.
 
    - Selecione uma avaliação aprovada na lista para obter uma descrição da avaliação, uma lista de recursos não íntegros e íntegros e uma lista de recursos não verificados. Há uma guia para recursos não íntegros, mas essa lista está sempre vazia desde a avaliação aprovada.
 
@@ -186,7 +186,7 @@ Se você quiser definir todos os conjuntos de dimensionamento existentes para in
 |Serviço de aplicativo|5|Os logs de diagnóstico nos serviços de aplicativos devem ser habilitados|Habilite os logs e mantenha-os em um ano. Isso permite que você recrie trilhas de atividade para fins de investigação quando ocorrer um incidente de segurança ou se sua rede estiver comprometida. |
 |Serviço de aplicativo|10|A depuração remota deve ser desativada para o aplicativo Web|Desative a depuração de aplicativos Web se você não precisar mais usá-lo. A depuração remota requer que as portas de entrada sejam abertas em um Aplicativo de funções.|
 |Serviço de aplicativo|10|A depuração remota deve ser desativada para o aplicativo de funções|Desative a depuração para Aplicativo de funções se você não precisar mais usá-la. A depuração remota requer que as portas de entrada sejam abertas em um Aplicativo de funções.|
-|Serviço de aplicativo|10|Não permitir que todos os recursos (' * ') acessem seu aplicativo| Não permita o conjunto do parâmetro WEBSITE_LOAD_CERTIFICATES como "". Definir o parâmetro como ' ' significa que todos os certificados são carregados no repositório de certificados pessoal de seus aplicativos Web. Isso pode levar ao abuso do princípio de menos privilégios, pois é improvável que o site precise de acesso a todos os certificados em tempo de execução.|
+|Serviço de aplicativo|10|Não permitir que todos os recursos (' * ') acessem seu aplicativo| Não permita o conjunto de WEBSITE_LOAD_CERTIFICATES parâmetro como "". Definir o parâmetro como ' ' significa que todos os certificados são carregados no repositório de certificados pessoal de seus aplicativos Web. Isso pode levar ao abuso do princípio de menos privilégios, pois é improvável que o site precise de acesso a todos os certificados em tempo de execução.|
 |Serviço de aplicativo|20|O CORS não deve permitir que todos os recursos acessem seus aplicativos Web|Permitir que somente os domínios necessários interajam com seu aplicativo Web. O CORS (compartilhamento de recursos entre origens) não deve permitir que todos os domínios acessem seu aplicativo Web.|
 |Serviço de aplicativo|20|O CORS não deve permitir que todos os recursos acessem seu Aplicativo de funções| Permitir que somente os domínios necessários interajam com seu aplicativo de funções. O CORS (compartilhamento de recursos entre origens) não deve permitir que todos os domínios acessem seu aplicativo de funções.|
 |Recursos de computação (lote)|1|As regras de alerta de métrica devem ser configuradas em contas do lote|Configure as regras de alerta de métrica na conta do lote e habilite os eventos completos de exclusão do pool de métricas e eventos de início de exclusão de pool|
@@ -198,7 +198,7 @@ Se você quiser definir todos os conjuntos de dimensionamento existentes para in
 |Recursos de computação (lote)|5|Habilitar logs de diagnóstico em contas do lote|Habilite os logs e mantenha-os em um ano. Isso permite que você recrie trilhas de atividade para fins de investigação quando ocorrer um incidente de segurança ou se sua rede estiver comprometida. |
 |Recursos de computação (Hub de eventos)|5|Os logs de diagnóstico no Hub de eventos devem ser habilitados|Habilite os logs e mantenha-os em um ano. Isso permite que você recrie trilhas de atividade para fins de investigação quando ocorrer um incidente de segurança ou se sua rede estiver comprometida. |
 |Recursos de computação (aplicativos lógicos)|5|Habilitar logs de diagnóstico em aplicativos lógicos|Habilite os logs e mantenha-os em um ano. Isso permite que você recrie trilhas de atividade para fins de investigação quando ocorrer um incidente de segurança ou se sua rede estiver comprometida. |
-|Recursos de computação (Service Fabric)|15|Defina a propriedade ClusterProtectionLevel como EncryptAndSign em Service Fabric|Service Fabric fornece três níveis de proteção (None, Sign e EncryptAndSign) para comunicação de nó para nó usando um certificado de cluster primário.  Defina o nível de proteção para garantir que todas as mensagens de nó para nó sejam criptografadas e assinadas digitalmente. |
+|Recursos de computação (Service Fabric)|15|Defina a propriedade ClusterProtectionLevel como EncryptAndSign em Service Fabric|Service Fabric fornece três níveis de proteção (None, Sign e EncryptAndSign) para comunicação de nó para nó usando um certificado de cluster primário. Defina o nível de proteção para garantir que todas as mensagens de nó para nó sejam criptografadas e assinadas digitalmente. |
 |Recursos de computação (barramento de serviço)|1|Remover todas as regras de autorização, exceto RootManageSharedAccessKey do namespace do barramento de serviço |Os clientes do barramento de serviço não devem usar uma política de acesso no nível de namespace que forneça acesso a todas as filas e tópicos em um namespace. Para alinhar com o modelo de segurança de privilégios mínimos, você deve criar políticas de acesso no nível de entidade para filas e tópicos para fornecer acesso apenas à entidade específica.|
 |Recursos de computação (Hub de eventos)|1|Todas as regras de autorização, exceto RootManageSharedAccessKey, devem ser removidas do namespace do hub de eventos|Os clientes do hub de eventos não devem usar uma política de acesso no nível de namespace que forneça acesso a todas as filas e tópicos em um namespace. Para alinhar com o modelo de segurança de privilégios mínimos, você deve criar políticas de acesso no nível de entidade para filas e tópicos para fornecer acesso apenas à entidade específica.|
 |Recursos de computação (Hub de eventos)|5|As regras de autorização na entidade do hub de eventos devem ser definidas|Auditar regras de autorização na entidade do hub de eventos para conceder acesso com privilégios mínimos.|

@@ -1,28 +1,27 @@
 ---
 title: Início Rápido - Criar uma VM do Linux no portal do Azure | Microsoft Docs
-description: Neste início rápido, vai aprender a utilizar o portal do Azure para criar uma máquina virtual do Linux
+description: Neste guia de início rápido, você aprende a usar o portal do Azure para criar uma máquina virtual do Linux.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 8/20/2019
+ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0c05eb59c42700394f755f226405f16a47edc73c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8dbe8e43122fb7fa00129dec0d9961bd70e5a784
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091555"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693280"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Início rápido: Criar uma máquina virtual do Linux no portal do Azure
+# <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Linux no portal do Azure
 
 As máquinas virtuais do Azure (VMs) podem ser criadas através do portal do Azure. O portal do Azure é uma interface do usuário baseada em navegador para criar recursos do Azure. Este guia de início rápido mostra como usar o portal do Azure para implantar uma VM (máquina virtual) do Linux que executa o Ubuntu 18, 4 LTS. Para ver a VM em ação, estabeleça o SSH para a VM e instale o servidor Web NGINX.
 
@@ -35,13 +34,13 @@ Precisa de um par de chaves SSH para concluir este início rápido. Se já tiver
 Abra uma shell do Bash e utilize [ssh-keygen](https://www.ssh.com/ssh/keygen/) para criar um par de chaves SSH. Se não tiver uma shell do Bash no computador local, pode utilizar o [Azure Cloud Shell](https://shell.azure.com/bash).
 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. No menu na parte superior da página, selecione o `>_` ícone para abrir Cloud Shell.
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. No menu na parte superior da página, selecione o ícone de `>_` para abrir Cloud Shell.
 1. Verifique se o CloudShell diz **bash** no canto superior esquerdo. Se ele disser PowerShell, use a lista suspensa para selecionar **bash** e selecione **confirmar** para alterar para o shell bash.
 1. Digite `ssh-keygen -t rsa -b 2048` para criar a chave SSH. 
 1. Você será solicitado a inserir um arquivo no qual salvar o par de chaves. Basta pressionar **Enter** para salvar no local padrão, listado entre colchetes. 
 1. Você será solicitado a inserir uma frase secreta. Você pode digitar uma frase secreta para a chave SSH ou pressionar **Enter** para continuar sem uma frase secreta.
-1. O `ssh-keygen` comando gera chaves públicas e privadas com o nome padrão de `id_rsa` no `~/.ssh directory`. O comando devolve o caminho completo para a chave pública. Use o caminho para a chave pública para exibir seu conteúdo `cat` digitando. `cat ~/.ssh/id_rsa.pub`
+1. O comando `ssh-keygen` gera chaves públicas e privadas com o nome padrão de `id_rsa` no `~/.ssh directory`. O comando devolve o caminho completo para a chave pública. Use o caminho para a chave pública para exibir seu conteúdo com `cat` digitando `cat ~/.ssh/id_rsa.pub`.
 1. Copie a saída desse comando e salve-o em algum lugar para usar posteriormente neste artigo. Essa é sua chave pública e você precisará dela ao configurar sua conta de administrador para fazer logon em sua VM.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -50,15 +49,14 @@ Entre no [portal do Azure](https://portal.azure.com) se ainda não tiver feito i
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
 
-1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
-
-1. Em **popular**, selecione **Ubuntu Server 18, 4 LTS**.
-
-1. No separador **Informações básicas**, em **Detalhes do projeto**, certifique-se de que está selecionada a subscrição correta e, em seguida, selecione **Criar novo** em **Grupo de recursos**. Digite *MyResource* Group para o nome do grupo de recursos e escolha **OK**. 
+1. Digite as **máquinas virtuais** na pesquisa.
+1. Em **Serviços**, selecione **máquinas virtuais**.
+1. Na página **máquinas virtuais** , selecione **Adicionar**. A página **criar uma máquina virtual** é aberta.
+1. No separador **Noções básicas**, em **Detalhes do projeto**, certifique-se de que está selecionada a subscrição correta e, em seguida, selecione **Criar novo** no grupo de recursos. Digite *Myresourceship* para o nome. *. 
 
     ![Criar um novo grupo de recursos para a VM](./media/quick-create-portal/project-details.png)
 
-1. Em **Detalhes da instância**, escreva *myVM* para o **Nome da máquina virtual** e selecione *E.U.A. Leste* para a **Região**. Mantenha as restantes predefinições inalteradas.
+1. Em **detalhes da instância**, *digite myVM* para o **nome da máquina virtual**, escolha *leste dos eua* para sua **região**e escolha *Ubuntu 18, 4 LTS* para sua **imagem**. Mantenha as restantes predefinições inalteradas.
 
     ![Secção de detalhes da instância](./media/quick-create-portal/instance-details.png)
 
@@ -91,7 +89,7 @@ Crie uma ligação SSH à VM.
     ssh azureuser@10.111.12.123
     ```
 
-3. Usando o mesmo Shell de bash que você usou para criar o par de chaves SSH (você pode reabrir o `>_` Cloud Shell selecionando novamente https://shell.azure.com/bash) ou indo para, Cole o comando de conexão SSH no Shell para criar uma sessão SSH.
+3. Usando o mesmo Shell de bash que você usou para criar o par de chaves SSH (você pode reabrir o Cloud Shell selecionando `>_` novamente ou indo para https://shell.azure.com/bash), Cole o comando de conexão SSH no Shell para criar uma sessão SSH.
 
 ## <a name="install-web-server"></a>Instalar o servidor Web
 
@@ -115,7 +113,7 @@ Utilize um browser à sua escolha para ver a página predefinida de boas-vindas 
 
 Quando já não forem necessários, pode eliminar o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para tal, selecione o grupo de recursos para a máquina virtual, selecione **Eliminar** e confirme o nome do grupo de recursos a eliminar.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, implementou uma máquina virtual simples, criou um Grupo de Segurança de Rede e uma regra e instalou um servidor Web básico. Para saber mais sobre as máquinas virtuais do Azure, continue para o tutorial das VMs do Linux.
 

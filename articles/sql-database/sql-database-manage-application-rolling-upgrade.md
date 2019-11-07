@@ -1,5 +1,5 @@
 ---
-title: Atualizações de aplicativo sem interrupção – banco de dados SQL do Azure | Microsoft Docs
+title: Atualizações de aplicativo sem interrupção – banco de dados SQL do Azure
 description: Saiba como usar a replicação geográfica do banco de dados SQL do Azure para dar suporte a atualizações online do seu aplicativo de nuvem.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
-ms.openlocfilehash: 55b23b8d8e03a79aa0806a68306017f89c747760
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 253a10e75832cf6ee8294405e34fa93b801c1b49
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567767"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689492"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gerenciar atualizações sem interrupção de aplicativos de nuvem usando a replicação geográfica ativa do banco de dados SQL
 
@@ -31,7 +31,7 @@ Ao avaliar as opções de atualização, considere estes fatores:
 
 ## <a name="upgrade-applications-that-rely-on-database-backups-for-disaster-recovery"></a>Atualizar aplicativos que dependem de backups de banco de dados para recuperação de desastre
 
-Se seu aplicativo depender de backups automáticos de banco de dados e usar a restauração geográfica para recuperação de desastre, ele será implantado em uma única região do Azure. Para minimizar a interrupção do usuário, crie um ambiente de preparo nessa região com todos os componentes do aplicativo envolvidos na atualização. O primeiro diagrama ilustra o ambiente operacional antes do processo de atualização. O ponto `contoso.azurewebsites.net` de extremidade representa um ambiente de produção do aplicativo Web. Para poder reverter a atualização, você deve criar um ambiente de preparo com uma cópia totalmente sincronizada do banco de dados. Siga estas etapas para criar um ambiente de preparo para a atualização:
+Se seu aplicativo depender de backups automáticos de banco de dados e usar a restauração geográfica para recuperação de desastre, ele será implantado em uma única região do Azure. Para minimizar a interrupção do usuário, crie um ambiente de preparo nessa região com todos os componentes do aplicativo envolvidos na atualização. O primeiro diagrama ilustra o ambiente operacional antes do processo de atualização. O ponto de extremidade `contoso.azurewebsites.net` representa um ambiente de produção do aplicativo Web. Para poder reverter a atualização, você deve criar um ambiente de preparo com uma cópia totalmente sincronizada do banco de dados. Siga estas etapas para criar um ambiente de preparo para a atualização:
 
 1. Crie um banco de dados secundário na mesma região do Azure. Monitore o secundário para ver se o processo de propagação está concluído (1).
 2. Crie um novo ambiente para seu aplicativo Web e chame-o de ' preparo '. Ele será registrado no DNS do Azure com a URL `contoso-staging.azurewebsites.net` (2).
@@ -79,13 +79,13 @@ Se seu aplicativo usar a replicação geográfica ativa ou grupos de failover au
 * O aplicativo permanece protegido contra falhas catastróficas em todos os momentos durante o processo de atualização.
 * Os componentes com redundância geográfica do aplicativo são atualizados em paralelo com os componentes ativos.
 
-Para atingir essas metas, além de usar os ambientes de aplicativos Web, você aproveitará o Gerenciador de tráfego do Azure usando um perfil de failover com um ponto de extremidade ativo e um ponto de extremidade de backup. O próximo diagrama ilustra o ambiente operacional antes do processo de atualização. Os sites `contoso-1.azurewebsites.net` da Web `contoso-dr.azurewebsites.net` e representam um ambiente de produção do aplicativo com redundância geográfica total. O ambiente de produção inclui os seguintes componentes:
+Para atingir essas metas, além de usar os ambientes de aplicativos Web, você aproveitará o Gerenciador de tráfego do Azure usando um perfil de failover com um ponto de extremidade ativo e um ponto de extremidade de backup. O próximo diagrama ilustra o ambiente operacional antes do processo de atualização. Os sites `contoso-1.azurewebsites.net` e `contoso-dr.azurewebsites.net` representam um ambiente de produção do aplicativo com redundância geográfica total. O ambiente de produção inclui os seguintes componentes:
 
-* O ambiente de produção do aplicativo `contoso-1.azurewebsites.net` Web na região primária (1)
+* O ambiente de produção do aplicativo Web `contoso-1.azurewebsites.net` na região primária (1)
 * O banco de dados primário na região primária (2)
 * Uma instância em espera do aplicativo Web na região de backup (3)
 * O banco de dados secundário replicado geograficamente na região de backup (4)
-* Um perfil de desempenho do Gerenciador de tráfego com um `contoso-1.azurewebsites.net` ponto de extremidade online chamado e um ponto de extremidade offline chamado`contoso-dr.azurewebsites.net`
+* Um perfil de desempenho do Gerenciador de tráfego com um ponto de extremidade online chamado `contoso-1.azurewebsites.net` e um ponto de extremidade offline chamado `contoso-dr.azurewebsites.net`
 
 Para tornar possível reverter a atualização, você deve criar um ambiente de preparo com uma cópia totalmente sincronizada do aplicativo. Como você precisa garantir que o aplicativo possa se recuperar rapidamente caso ocorra uma falha catastrófica durante o processo de atualização, o ambiente de preparo também deve ser com redundância geográfica. As etapas a seguir são necessárias para criar um ambiente de preparo para a atualização:
 
@@ -117,7 +117,7 @@ ALTER DATABASE <Prod_DB>
 REMOVE SECONDARY ON SERVER <Partner-Server>
 ```
 
-3. Execute o script de atualização `contoso-1-staging.azurewebsites.net`em `contoso-dr-staging.azurewebsites.net`relação ao, e ao banco de dados primário de preparo (12). As alterações no banco de dados serão replicadas automaticamente para o secundário de preparo.
+3. Execute o script de atualização para `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net`e o banco de dados primário de preparo (12). As alterações no banco de dados serão replicadas automaticamente para o secundário de preparo.
 
 ![Configuração de replicação geográfica do banco de dados SQL para recuperação de desastre na nuvem.](media/sql-database-manage-application-rolling-upgrade/option2-2.png)
 
@@ -148,9 +148,9 @@ A principal desvantagem é que ele requer redundância dupla de cada componente 
 
 Os dois métodos de atualização descritos no artigo diferem na complexidade e no custo de dólar, mas ambos se concentram na minimização de quanto tempo o usuário está limitado a operações somente leitura. Essa hora é definida diretamente pela duração do script de atualização. Ele não depende do tamanho do banco de dados, da camada de serviço escolhida, da configuração do site ou de outros fatores que você não pode controlar facilmente. Todas as etapas de preparação são dissociadas das etapas de atualização e não afetam o aplicativo de produção. A eficiência do script de atualização é um fator fundamental que determina a experiência do usuário durante as atualizações. Portanto, a melhor maneira de melhorar essa experiência é concentrar seus esforços em tornar o script de atualização o mais eficiente possível.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma visão geral e cenários de continuidade de negócios, consulte [visão geral](sql-database-business-continuity.md)da continuidade de negócios
+* Para obter uma visão geral e cenários de continuidade de negócios, consulte [visão geral da continuidade de negócios](sql-database-business-continuity.md)
 * Para saber mais sobre a replicação geográfica ativa do banco de dados SQL do Azure, confira [criar bancos de dados secundários legíveis usando a replicação geográfica ativa](sql-database-active-geo-replication.md).
 * Para saber mais sobre grupos de failover automático do banco de dados SQL do Azure, confira [usar grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados](sql-database-auto-failover-group.md).
 * Para saber mais sobre ambientes de preparo no serviço Azure App, confira [configurar ambientes de preparo no serviço Azure app](../app-service/deploy-staging-slots.md).

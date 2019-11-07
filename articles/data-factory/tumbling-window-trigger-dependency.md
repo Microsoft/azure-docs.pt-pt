@@ -1,5 +1,5 @@
 ---
-title: Criar as dependências de gatilho de janela em cascata no Azure Data Factory | Microsoft Docs
+title: Criar as dependências de gatilho de janela em cascata no Azure Data Factory
 description: Saiba como criar uma dependência em um gatilho de janela do em cascata no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: daperlov
-ms.openlocfilehash: 24a1a5d132990db2aa10b7860774eecafb4b4edb
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 3780a50429b95c402459866b7e3c87e8a91207d3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "73520534"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683699"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Criar uma dependência de acionamento de janela em cascata
 
@@ -80,7 +80,7 @@ A tabela a seguir fornece a lista de atributos necessários para definir uma dep
 |---|---|---|---|
 | tipo  | Todos os gatilhos de janela em cascata existentes são exibidos nessa lista suspensa. Escolha o gatilho para assumir a dependência.  | TumblingWindowTriggerDependencyReference ou SelfDependencyTumblingWindowTriggerReference | Sim |
 | desvio | Deslocamento do gatilho de dependência. Forneça um valor no formato de intervalo de tempo e deslocamentos negativos e positivos são permitidos. Essa propriedade será obrigatória se o gatilho estiver dependendo de si mesmo e em todos os outros casos for opcional. A autodependência sempre deve ser um deslocamento negativo. Se nenhum valor for especificado, a janela será igual ao próprio gatilho. | Timespan<br/>(hh: mm: SS) | Dependência automática: Sim<br/>Outro: não |
-| Tamanho | Tamanho da janela em cascata de dependência. Forneça um valor de TimeSpan positivo. Esta propriedade é opcional. | Timespan<br/>(hh: mm: SS) | Não  |
+| tamanho | Tamanho da janela em cascata de dependência. Forneça um valor de TimeSpan positivo. Esta propriedade é opcional. | Timespan<br/>(hh: mm: SS) | Não  |
 
 > [!NOTE]
 > Um gatilho de janela em cascata pode depender de um máximo de dois outros gatilhos.

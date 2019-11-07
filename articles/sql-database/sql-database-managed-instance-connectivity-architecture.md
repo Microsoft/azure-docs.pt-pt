@@ -1,5 +1,5 @@
 ---
-title: Arquitetura de conectividade para uma instância gerenciada no banco de dados SQL do Azure | Microsoft Docs
+title: Arquitetura de conectividade para uma instância gerenciada no banco de dados SQL do Azure
 description: Saiba mais sobre a arquitetura de conectividade e comunicação da instância gerenciada do banco de dados SQL do Azure, bem como os componentes direcionam o tráfego para a instância gerenciada.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: 7e32cb302322f7a80154a3f2a246d7d4f1743c09
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 881f116988ae0c9a6a33c8454cd1e4012580bfab
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249372"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688197"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para uma instância gerenciada no banco de dados SQL do Azure
 
@@ -66,7 +66,7 @@ Vamos aprofundar-se na arquitetura de conectividade para instâncias gerenciadas
 
 ![Arquitetura de conectividade do cluster virtual](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Os clientes se conectam a uma instância gerenciada usando um nome de host que tem o formato `<mi_name>.<dns_zone>.database.windows.net`. Esse nome de host é resolvido para um endereço IP privado, embora esteja registrado em uma zona DNS (sistema de nomes de domínio) público e possa ser resolvido publicamente. O `zone-id` é gerado automaticamente quando você cria o cluster. Se um cluster recém-criado hospedar uma instância gerenciada secundária, ele compartilhará sua ID de zona com o cluster primário. Para obter mais informações, consulte [usar grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
+Os clientes se conectam a uma instância gerenciada usando um nome de host que tem o formulário `<mi_name>.<dns_zone>.database.windows.net`. Esse nome de host é resolvido para um endereço IP privado, embora esteja registrado em uma zona DNS (sistema de nomes de domínio) público e possa ser resolvido publicamente. O `zone-id` é gerado automaticamente quando você cria o cluster. Se um cluster recém-criado hospedar uma instância gerenciada secundária, ele compartilhará sua ID de zona com o cluster primário. Para obter mais informações, consulte [usar grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
 
 Esse endereço IP privado pertence ao balanceador de carga interno da instância gerenciada. O balanceador de carga direciona o tráfego para o gateway da instância gerenciada. Como várias instâncias gerenciadas podem ser executadas dentro do mesmo cluster, o gateway usa o nome de host da instância gerenciada para redirecionar o tráfego para o serviço de mecanismo do SQL correto.
 
@@ -81,7 +81,7 @@ Quando as conexões são iniciadas dentro da instância gerenciada (como com bac
 > [!NOTE]
 > O tráfego que vai para os serviços do Azure que estão dentro da região da instância gerenciada é otimizado e, por esse motivo, não é NATe para o endereço IP público do ponto de extremidade de gerenciamento de instância gerenciada. Por esse motivo, se você precisar usar regras de firewall baseadas em IP, mais comumente para armazenamento, o serviço precisa estar em uma região diferente da instância gerenciada.
 
-## <a name="network-requirements"></a>Requisitos de rede
+## <a name="network-requirements"></a>Requisitos da rede
 
 Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtual. A sub-rede deve ter estas características:
 
@@ -98,7 +98,7 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 
 | Nome       |Porta                        |Protocolo|Origem           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|móveis  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |SUB-REDE MI  |Permitir |
+|gestão  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |SUB-REDE MI  |Permitir |
 |mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE MI        |SUB-REDE MI  |Permitir |
 |health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|SUB-REDE MI  |Permitir |
 
@@ -106,13 +106,13 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 
 | Nome       |Porta          |Protocolo|Origem           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
-|móveis  |443, 12000    |TCP     |SUB-REDE MI        |AzureCloud |Permitir |
+|gestão  |443, 12000    |TCP     |SUB-REDE MI        |AzureCloud |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |SUB-REDE MI        |SUB-REDE MI  |Permitir |
 
 > [!IMPORTANT]
 > Verifique se há apenas uma regra de entrada para as portas 9000, 9003, 1438, 1440, 1452 e uma regra de saída para as portas 80, 443, 12000. Instância Gerenciada provisionamento por meio de implantações de Azure Resource Manager falhará se as regras de entrada e saída forem configuradas separadamente para cada porta. Se essas portas estiverem em regras separadas, a implantação falhará com o código de erro `VnetSubnetConflictWithIntendedPolicy`
 
-\* sub-rede MI refere-se ao intervalo de endereços IP para a sub-rede na forma 10. x. x. x/y. Você pode encontrar essas informações na portal do Azure, em Propriedades da sub-rede.
+\* sub-rede MI refere-se ao intervalo de endereços IP para a sub-rede no formato 10. x. x/y. Você pode encontrar essas informações na portal do Azure, em Propriedades da sub-rede.
 
 > [!IMPORTANT]
 > Embora as regras de segurança de entrada necessárias permitam o tráfego de _qualquer_ fonte nas portas 9000, 9003, 1438, 1440 e 1452, essas portas são protegidas por um firewall interno. Para obter mais informações, consulte [determinar o endereço do ponto de extremidade de gerenciamento](sql-database-managed-instance-find-management-endpoint-ip-address.md).
@@ -240,7 +240,7 @@ Com o usuário de configuração de sub-rede auxiliada por serviço está no con
 Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtual. A sub-rede deve ter estas características:
 
 - **Sub-rede dedicada:** A sub-rede da instância gerenciada não pode conter nenhum outro serviço de nuvem associado a ela e não pode ser uma sub-rede de gateway. A sub-rede não pode conter nenhum recurso, mas a instância gerenciada, e você não pode adicionar outros tipos de recursos na sub-rede posteriormente.
-- **Delegação de sub-rede:** A sub-rede da instância gerenciada precisa ser delegada para o provedor de recursos `Microsoft.Sql/managedInstances`.
+- **Delegação de sub-rede:** A sub-rede da instância gerenciada precisa ser delegada para `Microsoft.Sql/managedInstances` provedor de recursos.
 - **NSG (grupo de segurança de rede):** Um NSG precisa ser associado à sub-rede da instância gerenciada. Você pode usar um NSG para controlar o acesso ao ponto de extremidade de dados da instância gerenciada filtrando o tráfego na porta 1433 e as portas 11000-11999 quando a instância gerenciada estiver configurada para conexões de redirecionamento. O serviço adicionará automaticamente [as regras](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) necessárias para permitir o fluxo ininterrupto do tráfego de gerenciamento.
 - **Tabela de rota definida pelo usuário (UDR):** Uma tabela UDR precisa ser associada à sub-rede da instância gerenciada. Você pode adicionar entradas à tabela de rotas para rotear o tráfego que tem intervalos IP privados locais como um destino por meio do gateway de rede virtual ou do NVA (dispositivo de rede virtual). O serviço adicionará automaticamente [as entradas](#user-defined-routes-with-service-aided-subnet-configuration) necessárias para permitir o fluxo ininterrupto do tráfego de gerenciamento.
 - **Pontos de extremidade de serviço:** Os pontos de extremidade de serviço podem ser usados para configurar regras de rede virtual em contas de armazenamento que mantêm backups/logs de auditoria.
@@ -253,7 +253,7 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 
 | Nome       |Porta                        |Protocolo|Origem           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|móveis  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |SUB-REDE MI  |Permitir |
+|gestão  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |SUB-REDE MI  |Permitir |
 |            |9000, 9003                  |TCP     |CorpnetSaw       |SUB-REDE MI  |Permitir |
 |            |9000, 9003                  |TCP     |65.55.188.0/24, 167.220.0.0/16, 131.107.0.0/16|SUB-REDE MI  |Permitir |
 |mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE MI        |SUB-REDE MI  |Permitir |
@@ -263,7 +263,7 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 
 | Nome       |Porta          |Protocolo|Origem           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
-|móveis  |443, 12000    |TCP     |SUB-REDE MI        |AzureCloud |Permitir |
+|gestão  |443, 12000    |TCP     |SUB-REDE MI        |AzureCloud |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |SUB-REDE MI        |SUB-REDE MI  |Permitir |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Rotas definidas pelo usuário com configuração de sub-rede auxiliada por serviço 
@@ -425,7 +425,7 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 |Mi-216-220-208-20-nexthop-Internet|216.220.208.0/20|Internet|
 ||||
 
-\* sub-rede MI refere-se ao intervalo de endereços IP para a sub-rede na forma 10. x. x. x/y. Você pode encontrar essas informações na portal do Azure, em Propriedades da sub-rede.
+\* sub-rede MI refere-se ao intervalo de endereços IP para a sub-rede no formato 10. x. x/y. Você pode encontrar essas informações na portal do Azure, em Propriedades da sub-rede.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -436,4 +436,4 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
   - Do [portal do Azure](sql-database-managed-instance-get-started.md).
   - Usando o [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - Usando [um modelo de Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - Usando [um modelo de Azure Resource Manager (usando Jumpbox, com o SSMS incluído)](https://azure.microsoft.com/en-us/resources/templates/201-sqlmi-new-vnet-w-jumpbox/). 
+  - Usando [um modelo de Azure Resource Manager (usando Jumpbox, com o SSMS incluído)](https://azure.microsoft.com/resources/templates/201-sqlmi-new-vnet-w-jumpbox/). 

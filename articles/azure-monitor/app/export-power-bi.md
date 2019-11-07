@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/10/2018
-ms.openlocfilehash: 04848f763fe8246f8e10f563169c04ea37b0ed37
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 3ec20f82bc12b60e5b88a02bb92a4a0ada4dcae7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677305"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668015"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Power BI de feed de Application Insights
 [Power bi](https://www.powerbi.com/) é um conjunto de ferramentas de negócios que ajuda você a analisar dados e compartilhar informações. Os painéis avançados estão disponíveis em todos os dispositivos. Você pode combinar dados de várias fontes, incluindo consultas de análise de [aplicativo Azure insights](../../azure-monitor/app/app-insights-overview.md).
@@ -40,7 +40,7 @@ Instale o [Power bi desktop](https://powerbi.microsoft.com/en-us/desktop/).
 3. No menu **Exportar** , escolha **Power bi (M)** . Salve o arquivo de texto.
    
     ![Captura de tela da análise, com o menu exportar realçado](./media/export-power-bi/analytics-export-power-bi.png)
-4. Em Power BI Desktop, selecione **obter dados**  > **consulta em branco**. Em seguida, no editor de consultas, em **Exibir**, selecione **Editor avançado**.
+4. Em Power BI Desktop, selecione **obter dados** > **consulta em branco**. Em seguida, no editor de consultas, em **Exibir**, selecione **Editor avançado**.
 
     Cole o script de linguagem M exportado no Editor Avançado.
 
@@ -65,7 +65,7 @@ Instale o [Power bi desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    ![Captura de tela do botão de Power BI](./media/export-power-bi/button.png)
 
-3. Em Power BI Desktop, selecione **obter dados**  > **consulta em branco**. Em seguida, no editor de consultas, em **Exibir**, selecione **Editor avançado**.
+3. Em Power BI Desktop, selecione **obter dados** > **consulta em branco**. Em seguida, no editor de consultas, em **Exibir**, selecione **Editor avançado**.
 
    ![Captura de tela de Power BI Desktop, com o botão de consulta em branco realçado](./media/export-power-bi/blankquery.png)
 
@@ -90,6 +90,8 @@ Isso pode acontecer se o token de atualização não tiver sido atualizado. Tent
 
 1. Entre no portal do Azure e verifique se você pode acessar o recurso.
 2. Tente atualizar as credenciais para o painel.
+3. Tente limpar o cache de sua área de trabalho do PowerBI.
+
 
    Se você tiver acesso e a atualização das credenciais não funcionar, abra um tíquete de suporte.
 
@@ -100,8 +102,8 @@ Se a redução do conjunto de DataSet proveniente da consulta de análise não a
 
 1. Crie uma [chave de API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Atualize o script de Power BI M que você exportou do Analytics, substituindo a URL de Azure Resource Manager pela API do Application Insights.
-   * Substituir **https: \//Management.Azure.com/subscriptions/...**
-   * com, **https: \//API.applicationinsights.Io/beta/apps/...**
+   * Substituir **https:\//Management.Azure.com/subscriptions/...**
+   * com, **https:\//API.applicationinsights.Io/beta/apps/...**
 3. Por fim, atualize as credenciais para básico e use sua chave de API.
 
 **Script existente**
@@ -121,7 +123,7 @@ Esse método cria um painel completo de telemetria para você. O DataSet inicial
 
 ### <a name="get-the-adapter"></a>Obter o adaptador
 1. Entre no [Power bi](https://app.powerbi.com/).
-2. Abra **obter dados** ![Screenshot do ícone GetData no canto inferior esquerdo ](./media/export-power-bi/001.png), **Serviços**.
+2. Abra **obter dados** ![captura de tela do ícone GetData no canto inferior esquerdo](./media/export-power-bi/001.png), **Serviços**.
 
     ![Capturas de tela de obter da fonte de dados de Application Insights](./media/export-power-bi/002.png)
 

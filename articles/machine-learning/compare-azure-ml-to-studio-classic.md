@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: 44fe7d4e51e50cdb3d1f1ed598f760113fb623bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: dae708a417a1bf8ca4b118f218e353a28e5675c1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502080"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684968"
 ---
 # <a name="how-azure-machine-learning-differs-from-ml-studio-classic"></a>Como Azure Machine Learning difere de ML Studio (clássico)
 
@@ -57,7 +57,7 @@ Os recursos a seguir podem ajudá-lo a começar a usar o Azure Machine Learning
 - [Crie seu primeiro pipeline de designer](service/tutorial-designer-automobile-price-train-score.md) para prever preços automáticos.
 
 
-![Exemplo de designer de Azure Machine Learning](service/media/concept-ml-pipelines/visual-design-surface.gif)
+![Exemplo de designer de Azure Machine Learning](service/media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
 ## <a name="next-steps"></a>Passos seguintes
 

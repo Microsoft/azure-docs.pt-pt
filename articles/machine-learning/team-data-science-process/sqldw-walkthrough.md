@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fc70e2e6475620bfb8842fc740772e326f8ee8d0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 76afafb59de762776b7d2614e383320b7d8f79e4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480333"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669411"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>O processo de ciência de dados de equipe em ação: usando SQL Data Warehouse
 Neste tutorial, orientaremos você na criação e implantação de um modelo de aprendizado de máquina usando o SQL Data Warehouse (SQL DW) para um conjunto de informações publicamente disponível – o conjunto de NYC de corridas de [táxi](https://www.andresmh.com/nyctaxitrips/) . O modelo de classificação binária construído prevê se uma gorjeta é paga ou não por uma corrida, e modelos para classificação e regressão multiclasse também são discutidos para prever a distribuição para os valores de gorjeta pagos.
@@ -377,7 +377,7 @@ Este exemplo de consulta identifica o medalhões (números de táxi) que conclu�
 **Saída:** A consulta deve retornar uma tabela com linhas especificando o 13.369 medalhões (táxis) e o número de corridas concluídas por eles em 2013. A última coluna contém a contagem do número de viagens concluídas.
 
 ### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>Exploração: distribuição de viagens por Medallion e hack_license
-Este exemplo identifica o medalhões (números de táxi) e os números de hack_license (drivers) que concluíram mais de 100 corridas em um período de tempo especificado.
+Este exemplo identifica o medalhões (números de táxi) e números de hack_license (drivers) que concluíram mais de 100 corridas em um período de tempo especificado.
 
     SELECT medallion, hack_license, COUNT(*)
     FROM <schemaname>.<nyctaxi_fare>
@@ -839,7 +839,7 @@ Neste exercício, já exploramos e projetamos os dados em SQL Data Warehouse e d
 5. Insira o *nome de usuário do SQL* no **nome da conta de usuário do servidor**e a *senha* na senha da conta de **usuário do servidor**.
 7. Na área de texto Editar **consulta de banco de dados** , Cole a consulta que extrai os campos de banco de dados necessários (incluindo quaisquer campos computados, como os rótulos) e reduza os data para o tamanho de amostra desejado.
 
-Um exemplo de um experimento de classificação binária com a leitura de dados diretamente do banco de SQL Data Warehouse está na figura abaixo (Lembre-se de substituir os nomes de tabela nyctaxi_trip e nyctaxi_fare pelo nome do esquema e os nomes de tabela que você usou no seu tutorial). Experimentos semelhantes podem ser construídos para problemas de classificação e regressão de multiclasse.
+Um exemplo de um experimento de classificação binária com a leitura de dados diretamente do banco de SQL Data Warehouse está na figura abaixo (Lembre-se de substituir os nomes de tabela nyctaxi_trip e nyctaxi_fare pelo nome do esquema e os nomes de tabela que você usou em seu walkthrough). Experimentos semelhantes podem ser construídos para problemas de classificação e regressão de multiclasse.
 
 ![Treinamento do ML do Azure][10]
 
@@ -851,7 +851,7 @@ Um exemplo de um experimento de classificação binária com a leitura de dados 
 >
 
 ## <a name="mldeploy"></a>Implantar modelos no Azure Machine Learning
-Quando seu modelo estiver pronto, você poderá implantá-lo facilmente como um serviço Web diretamente do experimento. Para obter mais informações sobre a implantação de serviços Web do Azure ML, consulte [implantar um serviço web Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
+Quando seu modelo estiver pronto, você poderá implantá-lo facilmente como um serviço Web diretamente do experimento. Para obter mais informações sobre a implantação de serviços Web do Azure ML, consulte [implantar um serviço web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
 
 Para implantar um novo serviço Web, você precisa:
 

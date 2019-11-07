@@ -1,5 +1,5 @@
 ---
-title: Implantar uma máquina virtual do Windows 7 na área de trabalho virtual do Windows – Azure
+title: Implantar a máquina virtual do Windows 7 Windows Desktop-Azure
 description: Como configurar e implantar uma máquina virtual do Windows 7 na área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: helohr
-ms.openlocfilehash: 3a6fb67ce531ed8cc028d2d0a8dfc3022544efe0
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 90b871c2b75f7ed40c290231ef822258c6b4e6d4
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947576"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606879"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Implementar uma máquina virtual do Windows 7 no Windows Virtual Desktop
 
@@ -35,7 +35,7 @@ Para configurar uma VM do Windows 7 na área de trabalho virtual do Windows:
 5. Vá para Windows Update em sua VM.
 6. Instale todas as atualizações do Windows na categoria importante.
 7. Instale todas as atualizações do Windows na categoria opcional (excluindo os pacotes de idiomas). Isso instala a atualização do protocolo RDP 8,0 ([KB2592687](https://www.microsoft.com/download/details.aspx?id=35393)) que você precisa para concluir estas instruções.
-8. Abra o Editor de Política de Grupo Local e navegue até **configuração do computador**@no__t-**1 modelos administrativos** > **componentes do Windows** > **serviços de área de trabalho remota** > **host da sessão da área de trabalho remota** **ambiente de sessão remota** > .
+8. Abra o Editor de Política de Grupo Local e navegue até **configuração do computador** > **modelos administrativos** > **componentes do Windows** ** > serviços de área de trabalho remota > host da sessão da área de trabalho remota** > **ambiente de sessão remota**.
 9. Habilite a política protocolo RDP 8,0.
 10. Reinicie a máquina virtual executando o seguinte comando:
     

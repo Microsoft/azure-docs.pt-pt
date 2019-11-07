@@ -1,5 +1,5 @@
 ---
-title: Configurar uma rede virtual existente para o Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
+title: Configurar uma rede virtual existente para Instância Gerenciada do Banco de Dados SQL do Azure
 description: Este artigo descreve como configurar uma rede virtual e uma sub-rede existentes onde você pode implantar Instância Gerenciada do Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 01/15/2019
-ms.openlocfilehash: 509a08705d87e8f789e26ebbcec295a31f99f416
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0f6ababa9d25798f4b150c322d48d4c7af04a511
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567636"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689375"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Configurar uma rede virtual existente para Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -52,12 +52,12 @@ Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepar
 
 O script prepara a sub-rede em três etapas:
 
-1. Verifica Ele valida a rede virtual e a sub-rede selecionadas para Instância Gerenciada requisitos de rede.
-2. Veja Ele mostra ao usuário um conjunto de alterações que precisam ser feitas para preparar a sub-rede para Instância Gerenciada implantação. Ele também pede consentimento.
-3. Deixar Ele configura corretamente a rede virtual e a sub-rede.
+1. Validar: valida a rede virtual e a sub-rede selecionadas para Instância Gerenciada requisitos de rede.
+2. Confirmar: mostra ao usuário um conjunto de alterações que precisam ser feitas para preparar a sub-rede para Instância Gerenciada implantação. Ele também pede consentimento.
+3. Preparar: configura corretamente a rede virtual e a sub-rede.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral, consulte [o que é um instância gerenciada?](sql-database-managed-instance.md).
 - Para obter um tutorial que mostra como criar uma rede virtual, criar um Instância Gerenciada e restaurar um banco de dados de um backup de banco de dados, consulte [criar um instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-get-started.md).
-- Para problemas de DNS, consulte Configurando [um DNS personalizado](sql-database-managed-instance-custom-dns.md).
+- Para problemas de DNS, consulte [Configurando um DNS personalizado](sql-database-managed-instance-custom-dns.md).

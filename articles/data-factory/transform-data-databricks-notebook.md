@@ -1,5 +1,5 @@
 ---
-title: Transformar dados com o databricks Notebook-Azure | Microsoft Docs
+title: Transformar dados com o databricks Notebook-Azure
 description: Saiba como processar ou transformar dados executando um notebook do databricks.
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 23166a4a0110629674db6ccc9d225118264b3c15
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 685a7863af74bf90c819453b41078b48ab6d2045
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233055"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683923"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformar dados executando um notebook do databricks
 
-A atividade de Azure Databricks notebook em um [pipeline de data Factory](concepts-pipelines-activities.md) executa um notebook do databricks em seu espaço de trabalho do Azure Databricks. Este artigo se baseia no artigo [atividades](transform-data.md) de transformação de dados, que apresenta uma visão geral da transformação de dados e das atividades de transformação com suporte. Azure Databricks é uma plataforma gerenciada para executar o Apache Spark.
+A atividade de Azure Databricks notebook em um [pipeline de data Factory](concepts-pipelines-activities.md) executa um notebook do databricks em seu espaço de trabalho do Azure Databricks. Este artigo se baseia nas [atividades de transformação de dados](transform-data.md) artigo, que apresenta uma visão geral da transformação de dados e das atividades de transformação com suporte. Azure Databricks é uma plataforma gerenciada para executar o Apache Spark.
 
 ## <a name="databricks-notebook-activity-definition"></a>Definição da atividade do databricks Notebook
 
@@ -57,15 +57,15 @@ Aqui está a definição de JSON de exemplo de uma atividade do databricks noteb
 
 A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 
-|Propriedade|Descrição|Requerido|
+|Propriedade|Descrição|Necessário|
 |---|---|---|
-|name|Nome da atividade no pipeline.|Sim|
-|description|Texto que descreve o que a atividade faz.|Não|
-|type|Para a atividade databricks notebook, o tipo de atividade é DatabricksNotebook.|Sim|
-|linkedServiceName|Nome do serviço vinculado do databricks no qual o notebook do databricks é executado. Para saber mais sobre esse serviço vinculado, consulte o artigo [Serviços](compute-linked-services.md) vinculados de computação.|Sim|
+|nome|Nome da atividade no pipeline.|Sim|
+|descrição|Texto que descreve o que a atividade faz.|Não|
+|tipo|Para a atividade databricks notebook, o tipo de atividade é DatabricksNotebook.|Sim|
+|linkedServiceName|Nome do serviço vinculado do databricks no qual o notebook do databricks é executado. Para saber mais sobre esse serviço vinculado, consulte o artigo [Serviços vinculados de computação](compute-linked-services.md) .|Sim|
 |notebookPath|O caminho absoluto do bloco de anotações a ser executado no espaço de trabalho do databricks. Esse caminho deve começar com uma barra.|Sim|
-|baseparameters|Uma matriz de pares chave-valor. Os parâmetros de base podem ser usados para cada execução de atividade. Se o notebook usar um parâmetro que não é especificado, o valor padrão do notebook será usado. Encontre mais sobre parâmetros em [notebooks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair)do databricks.|Não|
-|DLLs|Uma lista de bibliotecas a serem instaladas no cluster que executará o trabalho. Pode ser uma matriz de cadeia \<de caracteres, > de objeto.|Não|
+|baseparameters|Uma matriz de pares chave-valor. Os parâmetros de base podem ser usados para cada execução de atividade. Se o notebook usar um parâmetro que não é especificado, o valor padrão do notebook será usado. Encontre mais sobre parâmetros em [notebooks do databricks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Não|
+|DLLs|Uma lista de bibliotecas a serem instaladas no cluster que executará o trabalho. Pode ser uma matriz de cadeia de caracteres de \<, > de objeto.|Não|
 
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas com suporte para atividades do databricks
@@ -110,17 +110,17 @@ Na definição da atividade do databricks acima, você especifica esses tipos de
 
 ```
 
-Para obter mais detalhes, consulte a [documentação](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) do databricks para tipos de biblioteca.
+Para obter mais detalhes, consulte a [documentação do databricks](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) para tipos de biblioteca.
 
 ## <a name="passing-parameters-between-notebooks-and-data-factory"></a>Passando parâmetros entre blocos de anotações e Data Factory
 
-Você pode passar data factory parâmetros para blocos de anotações usando a propriedade baseparameters na atividade do databricks. 
+Você pode passar data factory parâmetros para blocos de anotações usando a propriedade *baseparameters* na atividade do databricks. 
 
 Em determinados casos, talvez seja necessário repassar determinados valores do bloco de anotações para data factory, que pode ser usado para o fluxo de controle (verificações condicionais) no data factory ou ser consumido pelas atividades downstream (o limite de tamanho é 2MB). 
 
 1. No bloco de anotações, você pode chamar [dbutils. notebook. Exit ("ReturnValue")](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) e o "ReturnValue" correspondente será retornado para data Factory.
 
-2. Você pode consumir a saída em data factory usando expressão como `'@activity('databricks notebook activity name').output.runOutput'`. 
+2. Você pode consumir a saída em data factory usando uma expressão como `'@activity('databricks notebook activity name').output.runOutput'`. 
 
    > [!IMPORTANT]
    > Se você estiver passando um objeto JSON, poderá recuperar valores acrescentando nomes de propriedade. Exemplo: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
@@ -129,9 +129,9 @@ Em determinados casos, talvez seja necessário repassar determinados valores do 
 
 #### <a name="using-databricks-workspace-uihttpsdocsazuredatabricksnetuser-guidelibrarieshtmlcreate-a-library"></a>[Usando a interface do usuário do databricks Workspace](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
 
-Para obter o caminho de dBFS da biblioteca adicionada usando a interface do usuário, você pode usar a CLI do databricks [(instalação)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
+Para obter o caminho de dBFS da biblioteca adicionada usando a interface do usuário, você pode usar a [CLI do databricks (instalação)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
 
-Normalmente, as bibliotecas jar são armazenadas em dBFS:/filestore/jars ao usar a interface do usuário. Você pode listar tudo por meio da CLI: databricks *FS ls dBFS:/filestore/jars*.
+Normalmente, as bibliotecas jar são armazenadas em dBFS:/filestore/jars ao usar a interface do usuário. Você pode listar tudo por meio da CLI: *databricks FS ls dBFS:/filestore/jars*.
 
 
 

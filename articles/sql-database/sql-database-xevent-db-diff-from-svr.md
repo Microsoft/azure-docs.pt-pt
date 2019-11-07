@@ -1,5 +1,5 @@
 ---
-title: Eventos estendidos no banco de dados SQL | Microsoft Docs
+title: Eventos estendidos no banco de dados SQL
 description: Descreve os eventos estendidos (XEvents) no banco de dados SQL do Azure e como as sessões de evento diferem ligeiramente das sessões de evento no Microsoft SQL Server.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: f9af487e2eb35e7dc94e1b70945d5c03ffdde2ba
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 64cfcd9451416a6eb35301268b285bd00cf0cad4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566067"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686773"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventos estendidos no banco de dados SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -31,7 +31,7 @@ Este tópico explica como a implementação de eventos estendidos no banco de da
 
 Informações adicionais sobre eventos estendidos, para o banco de dados SQL do Azure e o Microsoft SQL Server, estão disponíveis em:
 
-- [Início Rápido: Eventos estendidos no SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
+- [Início Rápido: eventos estendidos em SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
 - [Extended Events (Eventos Expandidos)](https://msdn.microsoft.com/library/bb630282.aspx)
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -58,7 +58,7 @@ Os tópicos relacionados fornecem dois exemplos de código:
 
 - [Código de destino do buffer de anéis para eventos estendidos no banco de dados SQL](sql-database-xevent-code-ring-buffer.md)
     - Pequeno script Transact-SQL simples.
-    - Vamos enfatizar o tópico de exemplo de código que, quando você terminar com um destino de buffer de anéis, você deverá liberar seus recursos executando uma instrução `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` ALTER-DROP. Posteriormente, você pode adicionar outra instância do buffer de `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`anéis pelo.
+    - Enfatizamos o tópico de exemplo de código que, quando você conclui um destino de buffer de anel, você deve liberar seus recursos executando uma instrução ALTER-DROP `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;`. Posteriormente, você pode adicionar outra instância do buffer de anéis por `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
 
 
 - [Código de destino do arquivo de evento para eventos estendidos no banco de dados SQL](sql-database-xevent-code-event-file.md)
@@ -79,41 +79,41 @@ Os tópicos relacionados fornecem dois exemplos de código:
 
 ## <a name="new-catalog-views"></a>Novas exibições de catálogo
 
-O recurso de eventos estendidos tem suporte em várias exibições de [Catálogo](https://msdn.microsoft.com/library/ms174365.aspx). Exibições de catálogo informam sobre *metadados ou definições* de sessões de evento criadas pelo usuário no banco de dados atual. As exibições não retornam informações sobre instâncias de sessões de evento ativas.
+O recurso de eventos estendidos tem suporte em várias [exibições de catálogo](https://msdn.microsoft.com/library/ms174365.aspx). Exibições de catálogo informam sobre *metadados ou definições* de sessões de evento criadas pelo usuário no banco de dados atual. As exibições não retornam informações sobre instâncias de sessões de evento ativas.
 
 | Nome de<br/>exibição do catálogo | Descrição |
 |:--- |:--- |
-| **sys.database_event_session_actions** |Retorna uma linha para cada ação em cada evento de uma sessão de evento. |
-| **sys.database_event_session_events** |Retorna uma linha para cada evento em uma sessão de evento. |
-| **sys.database_event_session_fields** |Retorna uma linha para cada coluna que pode ser personalizada definida explicitamente em eventos e destinos. |
-| **sys.database_event_session_targets** |Retorna uma linha para cada destino de evento para uma sessão de evento. |
-| **sys.database_event_sessions** |Retorna uma linha para cada sessão de evento no banco de dados do banco de dados SQL. |
+| **sys. database_event_session_actions** |Retorna uma linha para cada ação em cada evento de uma sessão de evento. |
+| **sys. database_event_session_events** |Retorna uma linha para cada evento em uma sessão de evento. |
+| **sys. database_event_session_fields** |Retorna uma linha para cada coluna que pode ser personalizada definida explicitamente em eventos e destinos. |
+| **sys. database_event_session_targets** |Retorna uma linha para cada destino de evento para uma sessão de evento. |
+| **sys. database_event_sessions** |Retorna uma linha para cada sessão de evento no banco de dados do banco de dados SQL. |
 
-No Microsoft SQL Server, exibições de catálogo semelhantes têm nomes que incluem *. Server\_*  em vez de *. Database\_* . O padrão de nome é como **Sys. server_event_%** .
+No Microsoft SQL Server, exibições de catálogo semelhantes têm nomes que incluem *. Server\_* em vez de *.\_de banco de dados* . O padrão de nome é como **Sys. server_event_%** .
 
 ## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Novas [DMVs (](https://msdn.microsoft.com/library/ms188754.aspx) exibições de gerenciamento dinâmico)
 
-O banco de dados SQL do Azure tem [DMVs (exibições de gerenciamento dinâmico)](https://msdn.microsoft.com/library/bb677293.aspx) que dão suporte a eventos estendidos. DMVs informam sobre sessões de evento ativas.
+O banco de dados SQL do Azure tem [DMVs (exibições de gerenciamento dinâmico)](https://msdn.microsoft.com/library/bb677293.aspx) que dão suporte a eventos estendidos. DMVs informam sobre sessões de evento *ativas* .
 
 | Nome do DMV | Descrição |
 |:--- |:--- |
-| **sys.dm_xe_database_session_event_actions** |Retorna informações sobre ações de sessão de evento. |
-| **sys.dm_xe_database_session_events** |Retorna informações sobre eventos de sessão. |
-| **sys.dm_xe_database_session_object_columns** |Mostra os valores de configuração para objetos associados a uma sessão. |
-| **sys.dm_xe_database_session_targets** |Retorna informações sobre destinos de sessão. |
-| **sys.dm_xe_database_sessions** |Retorna uma linha para cada sessão de evento que tem o escopo do banco de dados atual. |
+| **sys. dm_xe_database_session_event_actions** |Retorna informações sobre ações de sessão de evento. |
+| **sys. dm_xe_database_session_events** |Retorna informações sobre eventos de sessão. |
+| **sys. dm_xe_database_session_object_columns** |Mostra os valores de configuração para objetos associados a uma sessão. |
+| **sys. dm_xe_database_session_targets** |Retorna informações sobre destinos de sessão. |
+| **sys. dm_xe_database_sessions** |Retorna uma linha para cada sessão de evento que tem o escopo do banco de dados atual. |
 
-No Microsoft SQL Server, exibições de catálogo semelhantes são nomeadas sem a  *\_* parte do banco de dados do nome, como:
+No Microsoft SQL Server, exibições de catálogo semelhantes são nomeadas sem a parte *\_banco de dados* do nome, como:
 
-- **Sys. dm _xe_sessions**, em vez do nome<br/>**sys.dm_xe_database_sessions**.
+- **Sys. dm_xe_sessions**, em vez de nome<br/>**Sys. dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>DMVs comuns a ambos
 Para eventos estendidos, há DMVs adicionais que são comuns ao banco de dados SQL do Azure e Microsoft SQL Server:
 
-- **sys.dm_xe_map_values**
-- **sys.dm_xe_object_columns**
-- **sys.dm_xe_objects**
-- **sys.dm_xe_packages**
+- **sys. dm_xe_map_values**
+- **sys. dm_xe_object_columns**
+- **sys. dm_xe_objects**
+- **sys. dm_xe_packages**
 
   <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 
@@ -186,7 +186,7 @@ Se você receber uma mensagem de erro informando que um máximo de memória foi 
 
 O destino do **arquivo de evento** pode experimentar latência de rede ou falhas ao persistir dados para BLOBs de armazenamento do Azure. Outros eventos no banco de dados SQL podem ser atrasados enquanto esperam a conclusão da comunicação de rede. Esse atraso pode reduzir a carga de trabalho.
 
-- Para atenuar esse risco de desempenho, evite definir a opção **EVENT_RETENTION_MODE** como **NO_EVENT_LOSS** em suas definições de sessão de evento.
+- Para atenuar esse risco de desempenho, evite definir a opção de **EVENT_RETENTION_MODE** para **NO_EVENT_LOSS** em suas definições de sessão de evento.
 
 ## <a name="related-links"></a>Ligações relacionadas
 
@@ -195,7 +195,7 @@ O destino do **arquivo de evento** pode experimentar latência de rede ou falhas
 - [Usando o Azure PowerShell com o armazenamento do Azure](../storage/common/storage-powershell-guide-full.md) – fornece informações abrangentes sobre o PowerShell e o serviço de armazenamento do Azure.
 - [Como usar o armazenamento de BLOBs do .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
-- [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
+- [CRIAR sessão de evento (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
 - [Postagens do blog Jonathan Kehayias sobre eventos estendidos no Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 

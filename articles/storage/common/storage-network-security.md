@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: e7f4d58ceab78aea7031d2c706504bdcb99434c6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a02e690e344678b512503f8c3beb57023a838ac0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520641"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686653"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls de armazenamento do Azure
 
@@ -364,35 +364,34 @@ As regras de rede ajudam a criar um ambiente seguro para conexões entre seus ap
 
 Alguns serviços da Microsoft operam de redes que não podem ser incluídas em suas regras de rede. Você pode conceder a um subconjunto desses serviços confiáveis da Microsoft acesso à conta de armazenamento, mantendo as regras de rede para outros aplicativos. Esses serviços confiáveis podem usar a autenticação forte para se conectar à sua conta de armazenamento com segurança. Habilitamos dois tipos de acesso confiável para serviços da Microsoft.
 
-- Os recursos de alguns serviços, **se registrados em sua assinatura**, podem acessar contas de armazenamento **na mesma assinatura** somente para operações SELECT, como gravar logs ou para backup.
-- As instâncias de recurso de alguns serviços podem receber acesso explícito à sua conta de armazenamento [**atribuindo uma função de RBAC**](storage-auth-aad.md#assign-rbac-roles-for-access-rights) à instância de recurso.
+- Os recursos de alguns serviços, **quando registrados em sua assinatura**, podem acessar sua conta de armazenamento **na mesma assinatura** para operações SELECT, como gravar logs ou backup.
+- Os recursos de alguns serviços podem receber acesso explícito à sua conta de armazenamento [**atribuindo uma função de RBAC**](storage-auth-aad.md#assign-rbac-roles-for-access-rights) à instância de recurso.
 
 
-Quando você habilita a exceção **permitir serviços confiáveis da Microsoft...** , esses serviços (se registrados em sua assinatura) recebem acesso à conta de armazenamento para operações SELECT, conforme descrito:
+Quando você habilita a configuração **permitir serviços confiáveis da Microsoft...** , os recursos dos seguintes serviços registrados na mesma assinatura que sua conta de armazenamento recebem acesso a um conjunto limitado de operações, conforme descrito:
 
-| Serviço                  | Nome do provedor de recursos     | Objetivo                            |
+| Serviço                  | Nome do provedor de recursos     | Operações permitidas                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
 | Azure Backup             | Microsoft. Recoveryservices | Execute backups e restaurações de discos não gerenciados em máquinas virtuais IAAS. (não é necessário para discos gerenciados). [Saiba mais](/azure/backup/backup-introduction-to-azure-backup). |
 | Azure Data Box           | Microsoft. Data Box          | Permite a importação de dados para o Azure usando Data Box. [Saiba mais](/azure/databox/data-box-overview). |
 | Azure DevTest Labs       | Microsoft. DevTestLab       | Criação de imagem personalizada e instalação de artefato. [Saiba mais](/azure/devtest-lab/devtest-lab-overview). |
 | Azure Event Grid         | Microsoft. EventGrid        | Habilite a publicação de eventos do armazenamento de BLOBs e permita que a grade de eventos publique nas filas de armazenamento. Saiba mais sobre [eventos de armazenamento de BLOBs](/azure/event-grid/event-sources) e [publicação em filas](/azure/event-grid/event-handlers). |
 | Azure Event Hubs         | Microsoft. EventHub         | Arquive dados com a captura de hubs de eventos. [Saiba Mais](/azure/event-hubs/event-hubs-capture-overview). |
-| Azure File Sync          | Microsoft. StorageSync      | Permite transformar seu servidor de arquivos local em um cache para compartilhamentos de arquivos do Azure. Permitir a sincronização de vários sites, recuperação rápida de desastres e backup no lado da nuvem. [Saber mais](../files/storage-sync-files-planning.md) |
-| Azure HDInsight          | Microsoft. HDInsight        | Provisione o conteúdo inicial do sistema de arquivos padrão para um novo cluster HDInsight. [Saiba mais](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/). |
-| Azure Machine Learning | Microsoft.MachineLearningServices | Os espaços de trabalho Azure Machine Learning autorizados gravam a saída, os modelos e os logs do experimento no armazenamento de BLOBs. [Saiba mais](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace).   
+| Azure File Sync          | Microsoft. StorageSync      | Permite transformar seu servidor de arquivos local em um cache para compartilhamentos de arquivos do Azure. Permitir a sincronização de vários sites, recuperação rápida de desastres e backup no lado da nuvem. [Saiba mais](../files/storage-sync-files-planning.md) |
+| Azure HDInsight          | Microsoft. HDInsight        | Provisione o conteúdo inicial do sistema de arquivos padrão para um novo cluster HDInsight. [Saiba mais](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
 | Azure Monitor            | Microsoft. insights         | Permite gravar dados de monitoramento em uma conta de armazenamento protegida [saiba mais](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
 | Redes do Azure         | Microsoft.Network          | Armazene e analise os logs de tráfego de rede. [Saiba mais](/azure/network-watcher/network-watcher-packet-capture-overview). |
 | Azure Site Recovery      | Microsoft. SiteRecovery     | Habilite a replicação para recuperação de desastre de máquinas virtuais IaaS do Azure ao usar as contas de armazenamento de cache, origem ou destino habilitadas para firewall.  [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
-A exceção **permitir serviços confiáveis da Microsoft...** permite que uma instância específica dos serviços abaixo acesse a conta de armazenamento, se você atribuir explicitamente uma função RBAC à [identidade gerenciada atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para essa instância de recurso.
+A configuração **permitir serviços Microsoft confiáveis...** permite que uma instância específica dos serviços abaixo acesse a conta de armazenamento, se você atribuir explicitamente uma função RBAC à [identidade gerenciada atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para essa instância de recurso.
 
 | Serviço                        | Nome do provedor de recursos          | Objetivo                            |
 | :----------------------------- | :------------------------------ | :--------------------------------- |
 | Azure Data Factory             | Microsoft. datafactory/fábricas | Permite o acesso a contas de armazenamento por meio do tempo de execução do ADF. |
-| Azure Logic Apps               | Microsoft. Logic/workflows       | Permite que os aplicativos lógicos acessem contas de armazenamento. |
+| Azure Logic Apps               | Microsoft. Logic/workflows       | Permite que os aplicativos lógicos acessem contas de armazenamento. [Saiba mais](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity.md). |
 | Serviço Azure Machine Learning | Microsoft.MachineLearningServices | Os espaços de trabalho Azure Machine Learning autorizados gravam a saída, os modelos e os logs do experimento no armazenamento de BLOBs. [Saiba mais](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | Azure SQL Data Warehouse       | Microsoft.Sql                   | Permite a importação e a exportação de dados de instâncias específicas do banco do dados SQL usando o polybase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
-| Azure Stream Analytics         | Microsoft. StreamAnalytics       | Permite que os dados de um trabalho de streaming sejam gravados no armazenamento de BLOBs. Esta funcionalidade encontra-se em pré-visualização. [Saiba mais](../../stream-analytics/blob-output-managed-identity.md). |
+| Azure Stream Analytics         | Microsoft. StreamAnalytics       | Permite que os dados de um trabalho de streaming sejam gravados no armazenamento de BLOBs. Esta funcionalidade encontra-se em pré-visualização. [Saiba mais](/azure/stream-analytics/blob-output-managed-identity.md). |
 
 
 ### <a name="storage-analytics-data-access"></a>Acesso a dados da análise de armazenamento

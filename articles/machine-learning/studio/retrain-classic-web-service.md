@@ -1,6 +1,6 @@
 ---
-title: Preparar novamente e implementar um serviço Web clássico
-titleSuffix: Azure Machine Learning Studio (classic)
+title: Treinar novamente um serviço Web clássico
+titleSuffix: ML Studio (classic) Azure
 description: Saiba como treinar novamente um modelo e atualizar um serviço Web clássico para usar o modelo treinado recentemente no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 477e099bb759e09402a245b693d95f3b3980699e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 17d15de3df73592c3ce410535235559c8c6fb584
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480208"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670523"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Readaptação e implantação de um serviço Web clássico do Studio (clássico)
 
@@ -131,7 +131,7 @@ O *apiKey* e o *endpointUrl* para a chamada podem ser obtidos no painel do ponto
 
 O valor do parâmetro *Name* nos *recursos* deve corresponder ao nome do recurso do modelo treinado salvo no experimento de previsão. Para obter o nome do recurso:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. No menu à esquerda, clique em **Machine Learning**.
 1. Em nome, clique em seu espaço de trabalho e clique em **Serviços Web**.
 1. Em nome, clique em **modelo de censo [EXP de previsão.]** .

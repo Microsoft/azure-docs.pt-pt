@@ -1,5 +1,5 @@
 ---
-title: Bem-vindo ao aplicativo wingtips – banco de dados SQL do Azure | Microsoft Docs
+title: 'Bem-vindo ao aplicativo wingtips – banco de dados SQL do Azure '
 description: Saiba mais sobre modelos de aluguel de banco de dados e sobre o exemplo de aplicativo SaaS wingtips para o banco de dados SQL do Azure no ambiente de nuvem.
 keywords: tutorial de base de dados sql
 services: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
-ms.openlocfilehash: ca534d3ffcfd1d4caeb9cf755934a846fafae26e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6b8cb9bed2f5fdd0b246e73c84731081d0f2e41e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570112"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691832"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>O aplicativo Wingtip tickets SaaS
 
@@ -51,7 +51,7 @@ Esse padrão também permite um modelo *híbrido* no qual você pode otimizar o 
 
 Confira os [tutoriais][docs-tutorials-for-wingtip-mt] e o código no GitHub [. ../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 #### <a name="conceptual-descriptions"></a>Descrições conceituais
 

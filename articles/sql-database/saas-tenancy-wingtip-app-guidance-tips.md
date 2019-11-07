@@ -1,5 +1,5 @@
 ---
-title: Diretrizes para exemplo de aplicativo multilocatário do banco de dados SQL – Wingtip SaaS | Microsoft Docs
+title: 'Diretrizes para exemplo de aplicativo multilocatário do banco de dados SQL – Wingtip SaaS '
 description: Fornece etapas e orientações para instalar e executar o aplicativo de multilocatário de exemplo que usa o banco de dados SQL do Azure, o exemplo de SaaS do Wingtip tickets.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 6c14fd69521be85dbda5ec4ceda991dfdff54ae0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9258e1e8219300c47e77ea8164e54edd5855bb39
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570072"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691806"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Diretrizes gerais para trabalhar com aplicativos SaaS de exemplo do Wingtip tickets
 
@@ -27,17 +27,17 @@ Este artigo contém diretrizes gerais para executar os aplicativos SaaS de exemp
 Conteúdos executáveis (scripts, DLLs) podem ser bloqueados pelo Windows quando arquivos zip são baixados de uma fonte externa e extraídos. Ao extrair os scripts de um arquivo zip, **siga as etapas abaixo para desbloquear o arquivo. zip antes de extrair**. Isso garante que os scripts tenham permissão para serem executados.
 
 1. Navegue até o repositório GitHub do Wingtip tickets SaaS para o padrão de aluguel de banco de dados que você deseja explorar: 
-    - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
-    - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
-    - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
+    - [Repositório wingtipticketssaas-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
+    - [Repositório wingtipticketssaas-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
+    - [Repositório wingtipticketssaas-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
 2. Clique em **clonar ou baixar**.
 3. Clique em **baixar zip** e salve o arquivo.
-4. Clique com o botão direito do mouse no arquivo zip e selecione **Propriedades**. O nome do arquivo zip corresponderá ao nome do repositório. Estendi. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
+4. Clique com o botão direito do mouse no arquivo zip e selecione **Propriedades**. O nome do arquivo zip corresponderá ao nome do repositório. Estendi. _WingtipTicketsSaaS-DbPerTenant-Master. zip_)
 5. Na guia **geral** , selecione **desbloquear**.
 6. Clique em **OK**.
 7. Extraia os arquivos.
 
-Os scripts estão localizados no *.. Pasta\\de módulos de aprendizado* .
+Os scripts estão localizados na pasta *..\\módulos de aprendizado* .
 
 
 ## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>Trabalhando com os scripts do PowerShell do Wingtip tickets
@@ -48,7 +48,7 @@ Para obter o máximo do exemplo, você precisa se aprofundar nos scripts forneci
 
 Edite o arquivo **userconfig. psm1** com o grupo de recursos e o valor do usuário que você definiu durante a implantação:
 
-1. Abra o *ISE do PowerShell* e carregue... Módulos de aprendizado*userconfig. psm1* \\\\ 
+1. Abra o *ISE do PowerShell* e carregue...\\módulos de aprendizado\\*userconfig. psm1* 
 2. Atualize *ResourceGroupName* e *nomeie* com os valores específicos para sua implantação (somente nas linhas 10 e 11).
 3. Salve as alterações!
 
@@ -78,32 +78,32 @@ Use o [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/
 
 A implantação inicialmente tem locatários e servidores de banco de dados SQL de catálogo para se conectar. A nomenclatura dos servidores depende do padrão de aluguel do banco de dados (veja abaixo os detalhes específicos). 
 
-   - **Aplicativo autônomo:** servidores para cada locatário (por exemplo, *contosoconcerthall-&lt;servidor&gt; de usuário* ) e *Catalog-SA&lt;-&gt; User*
-   - **Banco de dados por locatário:** servidores *tenants1-DPT&lt;-&gt; User* e *Catalog-DPT&lt;-&gt; User*
-   - **Banco de dados de vários locatários:** servidores *tenants1-MT&lt;-&gt; User* e *Catalog-MT&lt;-&gt; User*
+   - **Aplicativo autônomo:** servidores para cada locatário (por exemplo, *contosoconcerthall-&lt;servidor de&gt;de usuário* ) e o *usuário Catalog-sa-&lt;&gt;*
+   - **Banco de dados por locatário:** *tenants1-dpt-&lt;&gt;* de usuário e *Catálogo-DPT-&lt;usuário&gt;* servidores
+   - **Banco de dados multilocatário:** *tenants1-mt-&lt;&gt;* do usuário e *Catalog-MT-&lt;usuários&gt;* servidores
 
 Para garantir uma conexão de demonstração bem-sucedida, todos os servidores têm uma [regra de firewall](sql-database-firewall-configure.md) que permite todos os IPs por meio do.
 
 
 1. Abra o *SSMS* e conecte-se aos locatários. O nome do servidor depende do padrão de aluguel de banco de dados que você selecionou (veja abaixo as especificações):
-    - **Aplicativo autônomo:** servidores de locatários individuais (por exemplo, *contosoconcerthall-&lt;User&gt;.database.windows.net*) 
-    - **Banco de dados por locatário:** *tenants1-DPT-&lt;user&gt;. Database.Windows.net*
-    - **Banco de dados de vários locatários:** *tenants1-MT-&lt;user&gt;. Database.Windows.net* 
+    - **Aplicativo autônomo:** servidores de locatários individuais (por exemplo, *contosoconcerthall-&lt;&gt;do usuário. Database.Windows.net*) 
+    - **Banco de dados por locatário:** *tenants1-DPT-&lt;usuário&gt;. Database.Windows.net*
+    - **Banco de dados multilocatário:** *tenants1-MT-&lt;usuário&gt;. Database.Windows.net* 
 2. Clique em **Ligar** > **Motor de Base de Dados...** :
 
    ![servidor de catálogo](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. As credenciais de demonstração são: Logon = *desenvolvedor*, senha = *P\@ssword1*
+3. As credenciais de demonstração são: login = *Developer*, password = *P\@ssword1*
 
     A imagem abaixo demonstra o logon do padrão de *banco de dados por locatário* . 
-    ![ligação](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
+    ](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png) ![conexão
     
    
 
 4. Repita as etapas 2-3 e conecte-se ao servidor de catálogo (veja abaixo os nomes de servidor específicos com base no padrão de aluguel de banco de dados selecionado)
-    - **Aplicativo autônomo:** *Catalog-SA-&lt;user&gt;. Database.Windows.net*
-    - **Banco de dados por locatário:** *Catalog-DPT-&lt;user&gt;. Database.Windows.net*
-    - **Banco de dados de vários locatários:** *Catalog-MT-&lt;user&gt;. Database.Windows.net*
+    - **Aplicativo autônomo:** *Catalog-SA-&lt;usuário&gt;. Database.Windows.net*
+    - **Banco de dados por locatário:** *Catalog-DPT-&lt;usuário&gt;. Database.Windows.net*
+    - **Banco de dados multilocatário:** *Catalog-MT-&lt;usuário&gt;. Database.Windows.net*
 
 
 Depois de se conectar com êxito, você deverá ver todos os servidores. Sua lista de bancos de dados pode ser diferente, dependendo dos locatários que você provisionou.
@@ -114,7 +114,7 @@ A imagem abaixo demonstra o logon para o padrão de *banco de dados por locatár
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Implantar o aplicativo autônomo SaaS Wingtip tickets](saas-standaloneapp-get-started-deploy.md)
 - [Implantar o aplicativo de banco de dados por locatário SaaS Wingtip tickets](saas-dbpertenant-get-started-deploy.md)
 - [Implantar o aplicativo de banco de dados multilocatário SaaS Wingtip tickets](saas-multitenantdb-get-started-deploy.md)
