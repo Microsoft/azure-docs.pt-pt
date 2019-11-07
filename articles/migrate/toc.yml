@@ -32,16 +32,10 @@
           href: tutorial-migrate-hyper-v.md
     - name: Avaliar e migrar servidores físicos
       items:
-        - name: Preparar servidores físicos para avaliação e migração
+        - name: Preparar servidores físicos para migração
           href: tutorial-prepare-physical.md
-        - name: Avaliar servidores físicos
-          href: tutorial-assess-physical.md
         - name: Migrar servidores físicos
           href: tutorial-migrate-physical-virtual-machines.md
-    - name: Avaliar servidores importados para migração
-      items:
-        - name: Avaliar servidores importados para migração
-          href: tutorial-assess-import.md
 - name: Conceitos
   items:
     - name: Perguntas comuns
@@ -80,8 +74,6 @@
       href: how-to-set-up-appliance-hyper-v.md
     - name: Implementar um dispositivo de servidor físico
       href: how-to-set-up-appliance-physical.md
-    - name: Detetar aplicações/funções/funcionalidades
-      href: how-to-discover-applications.md
     - name: Adicionar uma ferramenta pela primeira vez
       href: how-to-add-tool-first-time.md
     - name: Adicionar ferramentas de avaliação
@@ -90,8 +82,6 @@
       href: how-to-create-a-group.md
     - name: Agrupar máquinas com a visualização de dependências
       href: how-to-create-group-machine-dependencies.md
-    - name: Agrupar computadores com visualização de dependências sem agente
-      href: how-to-create-group-machine-dependencies-agentless.md
     - name: Criar uma avaliação
       href: how-to-create-assessment.md
     - name: Avaliar uma base de dados do SQL Server

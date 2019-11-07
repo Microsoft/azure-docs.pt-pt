@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentação de Visão Personalizada
-summary: A Visão Personalizada é um serviço cognitivo que lhe permite criar, implementar e melhorar os seus classificadores de imagens. Um classificador de imagem é um serviço de IA que aplica etiquetas (que representam classes) a imagens, de acordo com suas características visuais.
+summary: A Visão Personalizada permite-lhe criar, implementar e melhorar os seus próprios classificadores de imagens. Um classificador de imagens é um serviço de IA que aplica etiquetas (que representam classes) a imagens, com base nas respetivas características visuais.
 metadata:
   title: Documentação da Visão Personalizada – Inícios Rápidos, Tutoriais, Referência da API – Serviços Cognitivos do Azure | Microsoft Docs
-  description: A Visão Personalizada é um serviço cognitivo que lhe permite criar, implementar e melhorar os seus classificadores de imagens. Um classificador de imagem é um serviço de IA que aplica etiquetas (que representam classes) a imagens, de acordo com suas características visuais.
+  description: A Visão Personalizada permite-lhe criar, implementar e melhorar os seus próprios classificadores de imagens. Um classificador de imagens é um serviço de IA que aplica etiquetas (que representam classes) a imagens, com base nas respetivas características visuais.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: custom-vision
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 21e4c324b947cb863614f50bb2ee0bfe09246372
-  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.openlocfilehash: 2ef22176b64638dc43a4a45096cf072a7c79931e
+  ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72931647"
+  ms.lasthandoff: 11/06/2019
+  ms.locfileid: "73647586"
 landingContent:
 - title: Sobre a Visão Personalizada
   linkLists:
@@ -80,7 +80,7 @@ landingContent:
       url: test-your-model.md
     - text: Melhore o seu modelo
       url: getting-started-improving-your-classifier.md
-    - text: Utilizar as etiquetas sugeridas
+    - text: Utilizar a Etiquetadora Inteligente
       url: suggested-tags.md
 - title: Exportar modelos
   linkLists:

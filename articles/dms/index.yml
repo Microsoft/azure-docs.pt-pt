@@ -8,12 +8,12 @@ metadata:
   ms.date: 10/25/2019
   ms.service: dms
   ms.topic: landing-page
-  ms.openlocfilehash: 747879433bb9badc9a9a37f0826f78f6dd4c53fe
-  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.openlocfilehash: 1d064144d040a45fbc655879a6869da4ceaa4b79
+  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72934123"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73583998"
 landingContent:
 - title: Acerca do Azure Database Migration Service
   linkLists:
@@ -31,6 +31,8 @@ landingContent:
     links:
     - text: Criar serviço - Portal
       url: quickstart-create-data-migration-service-portal.md
+    - text: Criar serviço no modo híbrido – Portal
+      url: quickstart-create-data-migration-service-hybrid-portal.md
   - linkListType: video
     links:
     - text: Introdução ao Azure Database Migration Service

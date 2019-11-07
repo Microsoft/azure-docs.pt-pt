@@ -26,6 +26,8 @@
       href: cdn-custom-ssl.md
     - name: Configurar regras de colocação em cache
       href: cdn-caching-rules-tutorial.md
+    - name: Impor HTTPS com o Motor de Regras Standard
+      href: cdn-standard-rules-engine.md
 - name: Amostras
   items:
     - name: Exemplos de código
@@ -134,6 +136,13 @@
           href: cdn-troubleshoot-allowed-ca.md
 - name: Referência
   items:
+    - name: Referência do Motor de regras standard da Microsoft
+      href: cdn-standard-rules-engine-reference.md
+      items:
+        - name: Condições de correspondência do Motor de regras standard
+          href: cdn-standard-rules-engine-match-conditions.md
+        - name: Ações do Motor de regras standard
+          href: cdn-standard-rules-engine-actions.md
     - name: Referência do motor de regras Premium da Verizon
       href: cdn-verizon-premium-rules-engine-reference.md
       items:

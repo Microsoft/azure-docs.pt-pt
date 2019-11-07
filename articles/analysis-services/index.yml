@@ -2,7 +2,7 @@
 title: Documentação do Azure Analysis Services
 summary: Saiba como configurar a modelação de dados com o Analysis Services na cloud de dados. A documentação mostra-lhe como criar uma solução de BI empresarial mediante a utilização de modelos de dados tabulares.
 metadata:
-  title: Documentação do Azure Analysis Services - conceitos, guias de instruções, tutoriais, referência à API
+  title: Documentação do Azure Analysis Services | Microsoft Docs
   description: O Azure Analysis Services é uma plataforma como serviço (PaaS) totalmente gerida que fornece modelos de dados de nível empresarial na cloud.
   ms.service: analysis-services
   ms.topic: landing-page
@@ -10,13 +10,13 @@ metadata:
   author: minewiskan
   ms.author: owend
   manager: mtillman
-  ms.date: 08/28/2019
-  ms.openlocfilehash: 5dfa0e502eb069a7d1a9dc4ef2310ae722ff4bb9
-  ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+  ms.date: 10/30/2019
+  ms.openlocfilehash: db43da63ab9382d71c812c97dcef6048b89a9626
+  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/29/2019
-  ms.locfileid: "70143021"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73572195"
 landingContent:
 - title: Sobre o Azure Analysis Services
   linkLists:

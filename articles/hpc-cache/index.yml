@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentação da Pré-visualização do Azure HPC Cache
+title: Documentação do Azure HPC Cache
 summary: Utilizar o Azure HPC Cache para agilizar o acesso a ficheiros para cargas de trabalho de computação de alto desempenho (HPC) com utilização intensiva de leitura
 metadata:
   title: Microsoft Azure HPC Cache
@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: ekpgh
   ms.author: rohogue
-  ms.date: 10/21/2019
-  ms.openlocfilehash: 28e120f271fd6d700649125f86d5d8569cccd7df
-  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.date: 10/30/2019
+  ms.openlocfilehash: 5bccf917762845df962e5bbb35b597739bae6d2e
+  ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72930865"
+  ms.lasthandoff: 11/05/2019
+  ms.locfileid: "73620175"
 landingContent:
 - title: Acerca do Azure HPC Cache
   linkLists:
@@ -49,6 +49,8 @@ landingContent:
     links:
     - text: Abrir um pedido de suporte
       url: hpc-cache-support-ticket.md
+    - text: Editar um destino de armazenamento
+      url: hpc-cache-edit-storage.md
   - linkListType: concept
     links:
     - text: Recuperar de uma falha regional

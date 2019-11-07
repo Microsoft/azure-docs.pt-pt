@@ -174,7 +174,7 @@
 - name: Erros de arranque
   href: boot-error-troubleshoot.md
   items:
-    - name: Erro de arranque de Máquina Virtual do Azure
+    - name: Grub Rescue
       href: troubleshoot-vm-boot-error.md
     - name: Diagnósticos de arranque
       href: boot-diagnostics.md

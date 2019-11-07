@@ -41,7 +41,7 @@
         - name: Apresenta a Ação e Contexto
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set, ID, guid, event id,'
-        - name: Aprendizagem ativa
+        - name: Eventos ativos e inativos
           href: concept-active-learning.md
           displayName: 'active, inactive'
         - name: Recompensas

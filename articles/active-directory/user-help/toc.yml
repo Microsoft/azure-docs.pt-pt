@@ -54,18 +54,22 @@
       href: user-help-auth-app-backup-recovery.md
     - name: FAQ
       href: user-help-auth-app-faq.md
-- name: Ajuda do portal O Meu Perfil (pré-visualização)
+- name: Ajuda do portal A Minha Conta
   items:
     - name: Descrição geral
-      href: myprofile-portal-overview.md
+      href: my-account-portal-overview.md
     - name: Gerir as suas informações de segurança
       href: user-help-security-info-overview.md
-    - name: Gerir as suas organizações
-      href: myprofile-portal-organizations-page.md
     - name: Gerir os seus dispositivos ligados
-      href: myprofile-portal-devices-page.md
+      href: my-account-portal-devices-page.md
+    - name: Alterar a palavra-passe
+      href: my-account-change-password-page.md
+    - name: Gerir as suas organizações
+      href: my-account-portal-organizations-page.md
     - name: Ver as suas informações relacionadas com a privacidade
-      href: myprofile-portal-privacy-page.md
+      href: my-account-portal-privacy-page.md
+    - name: Ver a sua atividade de início de sessão recente
+      href: my-account-portal-sign-ins-page.md
 - name: Ajuda de informações de segurança (pré-visualização)
   items:
     - name: Descrição geral

@@ -97,6 +97,8 @@
           href: stream-analytics-power-bi-dashboard.md
         - name: Parar ou eliminar uma tarefa
           href: stream-analytics-clean-up-your-job.md
+        - name: Copiar ou fazer a cópia de segurança de uma tarefa
+          href: copy-job.md
         - name: Emparelhar tarefas para obter fiabilidade
           href: stream-analytics-job-reliability.md
         - name: Autenticar com identidade gerida - saída Gen 1 ADLS

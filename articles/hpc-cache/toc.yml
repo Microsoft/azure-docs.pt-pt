@@ -30,6 +30,8 @@
                   href: hpc-cache-ingest-msrsync.md
                 - name: Povoar a cache através da cópia manual de ficheiros
                   href: hpc-cache-ingest-manual.md
+        - name: Adicionar destinos de armazenamento
+          href: hpc-cache-edit-storage.md
     - name: Ligar à cache
       href: hpc-cache-mount.md
     - name: Gerir a cache

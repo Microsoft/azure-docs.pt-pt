@@ -1,10 +1,10 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação da Pesquisa Personalizada do Bing
+summary: Saiba como utilizar o portal e a API da Pesquisa Personalizada do Bing para criar uma experiência de pesquisa personalizada.
 metadata:
-  title: 'Documentação da API da Pesquisa Personalizada do Bing – Tutoriais, inícios rápidos, referência da API'
+  title: Documentação da API da Pesquisa Personalizada do Bing – Tutoriais, inícios rápidos, referência da API
   titleSuffix: Azure Cognitive Services
-  description: Saiba como utilizar o portal e a API de Pesquisa Personalizada do Bing para criar uma experiência de pesquisa personalizada
+  description: Utilize a API de Pesquisa Personalizada do Bing para criar uma instância de pesquisa para os tópicos que lhe interessam. Especifique os domínios e as páginas Web a pesquisar e ajuste as classificações de pesquisa para personalizar totalmente a sua experiência de pesquisa.
   services: cognitive-services
   author: aahill
   manager: nitinme
@@ -12,72 +12,94 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: bing-custom-search
   ms.topic: landing-page
-  ms.date: 07/25/2019
+  ms.date: 10/31/2019
   ms.author: aahill
-abstract:
-  description: Utilize a API de Pesquisa Personalizada do Bing para criar uma instância de pesquisa para os tópicos que lhe interessam. Especifique os domínios e as páginas Web a pesquisar e ajuste as classificações de pesquisa para personalizar totalmente a sua experiência de pesquisa.
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/bing-custom-search/overview
-            html: <p>Saiba mais sobre a API de Pesquisa Personalizada do Bing</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: O que é a API de Pesquisa Personalizada do Bing?
-          - href: /azure/cognitive-services/bing-custom-search/quick-start
-            html: <p>Saiba como personalizar a sua experiência de pesquisa para criar uma vista personalizada da Web.</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: Criar uma instância de pesquisa personalizada do Bing
-          - href: /azure/cognitive-services/bing-custom-search/hosted-ui
-            html: <p>Saiba como integrar facilmente uma IU alojada em páginas e aplicações Web.</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: Configurar uma experiência de IU alojada
-  - title: Inícios rápidos de cinco minutos
-    items:
-      - type: paragraph
-        text: 'Pesquise a sua vista personalizada da Web usando:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/logo_Csharp.svg
-            href: sdk-csharp-quick-start
-            text: 'C&#35;'
-          - image:
-              src: media/logo_java.svg
-            href: call-endpoint-java
-            text: Java
-          - image:
-              src: media/logo_nodejs.svg
-            href: call-endpoint-nodejs
-            text: Node.js
-          - image:
-              src: media/logo_python.svg
-            href: call-endpoint-python
-            text: Python
-  - title: Tutorial passo a passo
-    items:
-      - type: paragraph
-        text: 'Saiba como desenvolver aplicativos usando a API de Pesquisa Personalizada do Bing:'
-      - type: paragraph
-        text: <a href="tutorials/custom-search-web-page">Criar uma página Web de Pesquisa Personalizada</a>
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: APIs
-            html: '<p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference">API de Pesquisa Personalizada v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference">API de Sugestão Automática Personalizada v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference">API de Pesquisa de Imagens Personalizada v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference">API de Pesquisa de Vídeos Personalizada v7</a></p>'
-          - title: SDKs
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable">Java - Pesquisa Personalizada</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch?view=azure-java-stable">Java - Pesquisa de Imagens Personalizada</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-customsearch?view=azure-node-latest">Node.js</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch">Go - Pesquisa Personalizada</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customimagesearch">Go - Pesquisa de Imagens Personalizada</a></p>'
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">O Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI do Azure</a></p>'
+  ms.openlocfilehash: 5555aca9308b9854b7189b483e996792c24852c5
+  ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 11/07/2019
+  ms.locfileid: "73746059"
+landingContent:
+- title: Sobre a API da Pesquisa Personalizada do Bing
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é a API de Pesquisa Personalizada do Bing?
+      url: overview.md
+    - text: Comparar as aplicações da Pesquisa do Bing
+      url: ../bing-web-search/bing-api-comparison.md
+- title: Integrar a sua vista personalizada da Web
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configurar a sua instância de pesquisa personalizada
+      url: define-your-custom-view.md
+    - text: Obter resultados da pesquisa de imagens
+      url: get-images-from-instance.md
+    - text: Obter resultados da pesquisa de vídeos
+      url: get-videos-from-instance.md
+    - text: Chamar a sua instância de pesquisa personalizada
+      url: search-your-custom-view.md
+    - text: Paginação dos resultados da pesquisa
+      url: ../bing-web-search/paging-search-results.md
+    - text: Processar o detetor de ocorrências
+      url: ../bing-web-search/hit-highlighting.md
+    - text: Configurar e integrar uma IU alojada
+      url: hosted-ui.md
+    - text: Definir sugestões automáticas personalizadas
+      url: define-custom-suggestions.md
+    - text: Partilhar a sua instância de pesquisa personalizada
+      url: share-your-custom-search.md
+- title: Referência do SDK
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: .NET
+      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet
+    - text: Python
+      url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python
+    - text: Go - Pesquisa Personalizada
+      url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch
+    - text: Go - Imagem Personalizada
+      url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customimagesearch
+    - text: Java - Pesquisa Personalizada
+      url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable
+    - text: Java - Pesquisa de Imagens Personalizada
+      url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch?view=azure-java-stable
+    - text: Node.js
+      url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customsearch/?view=azure-node-latest
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+    - text: CLI do Azure
+      url: /cli/azure/cognitiveservices#az-cognitiveservices-list
+- title: Obter resultados de pesquisa personalizados da Web
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Criar uma instância de pesquisa personalizada
+      url: quick-start.md
+  - linkListType: quickstart
+    links:
+    - text: Utilizar C#
+      url: sdk-csharp-quick-start.md
+    - text: Utilizar o Python
+      url: sdk-python-quickstart.md
+    - text: Utilizar o Java
+      url: sdk-java-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: Criar uma página Web de pesquisa personalizada
+      url: tutorials/custom-search-web-page.md
+- title: Referência da API REST
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API REST v7 da Pesquisa Personalizada
+      url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference
+    - text: API REST v7 da Sugestão Automática Personalizada
+      url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference
+    - text: API REST v7 da Pesquisa de Imagens Personalizada
+      url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference
+    - text: API REST v7 da Pesquisa de Vídeos Personalizada
+      url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference

@@ -26,15 +26,31 @@
         - name: Programar com blobs
           items:
             - name: .NET
-              href: storage-quickstart-blobs-dotnet.md
+              items:
+                - name: .NET (SDK v12)
+                  href: storage-quickstart-blobs-dotnet.md
+                - name: .NET (SDK v11)
+                  href: storage-quickstart-blobs-dotnet-legacy.md
             - name: Java
-              href: storage-quickstart-blobs-java.md
+              items:
+                - name: Java (SDK v12)
+                  href: storage-quickstart-blobs-java.md
+                - name: Java (SDK v8)
+                  href: storage-quickstart-blobs-java-legacy.md
             - name: Python
-              href: storage-quickstart-blobs-python.md
-            - name: Javascript (Node.js)
-              href: storage-quickstart-blobs-nodejs-v10.md
-            - name: Javascript (browser)
-              href: storage-quickstart-blobs-javascript-client-libraries-v10.md
+              items:
+                - name: Python (SDK v12)
+                  href: storage-quickstart-blobs-python.md
+                - name: Python (SDK v2.1)
+                  href: storage-quickstart-blobs-python-legacy.md
+            - name: JavaScript
+              items:
+                - name: JavaScript (SDK v12 para Node.js)
+                  href: storage-quickstart-blobs-nodejs.md
+                - name: JavaScript (SDK v10 para Node.js)
+                  href: storage-quickstart-blobs-nodejs-v10.md
+                - name: JavaScript (SDK v10 para browser)
+                  href: storage-quickstart-blobs-javascript-client-libraries-v10.md
             - name: Ir
               href: storage-quickstart-blobs-go.md
             - name: PHP
@@ -147,7 +163,7 @@
               href: storage-blob-performance-tiers.md
             - name: Gerir o ciclo de vida do Armazenamento de Blobs do Azure
               href: storage-lifecycle-management-concepts.md
-        - name: Desempenho e dimensionamento
+        - name: 'Desempenho, dimensionamento e otimização de custos'
           items:
             - name: Metas de escalabilidade e desempenho
               href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -155,8 +171,16 @@
               href: storage-performance-checklist.md
             - name: Latência no Armazenamento de blobs
               href: storage-blobs-latency.md
+            - name: Capacidade reservada do Armazenamento do Azure
+              href: storage-blob-reserved-capacity.md
         - name: Simultaneidade
           href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Procurar e compreender dados de blob
+          items:
+            - name: Utilizar a IA para compreender os dados de blob
+              href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Pesquisa em texto completo para dados de blob
+              href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Migração de dados
           items:
             - name: Comparar soluções de transferência de dados
@@ -384,9 +408,9 @@
               href: storage-xamarin-blob-storage.md
             - name: Versões anteriores do SDK
               items:
-                - name: Javascript (Node.js) (SDK de Armazenamento v2)
-                  href: storage-quickstart-blobs-nodejs.md
-                - name: Javascript (browser) (SDK de Armazenamento v2)
+                - name: JavaScript (Node.js) (SDK de Armazenamento v2)
+                  href: storage-quickstart-blobs-nodejs-legacy.md
+                - name: JavaScript (browser) (SDK de Armazenamento v2)
                   href: storage-quickstart-blobs-javascript-client-libraries.md
         - name: Gerir blobs
           items:
@@ -600,7 +624,7 @@
         - name: Processar macrodados
           href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Integrar com os serviços do Azure
-          href: ../blobs/data-lake-store-integrate-with-azure-services.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: ../blobs/data-lake-storage-integrate-with-azure-services.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Controlador do Sistema de Ficheiros de Blobs do Azure para o Hadoop
           href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: URI do Sistema de Ficheiros de Blobs do Azure

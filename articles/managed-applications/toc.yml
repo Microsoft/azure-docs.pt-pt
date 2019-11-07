@@ -31,6 +31,8 @@
       href: publish-marketplace-app.md
     - name: Criar a aplicação gerida com fornecedor personalizado
       href: tutorial-create-managed-app-with-custom-provider.md
+    - name: Integração de recursos com fornecedores personalizados
+      href: tutorial-custom-providers-resource-onboarding.md
 - name: Amostras
   items:
     - name: A CLI do Azure
@@ -45,6 +47,10 @@
       href: custom-providers-overview.md
     - name: Artefacto de definição de vista
       href: concepts-view-definition.md
+    - name: Artefacto de definição de função
+      href: concepts-custom-role-definition.md
+    - name: Integração de recursos
+      href: concepts-custom-providers-resourceonboarding.md
 - name: Guias de procedimentos
   items:
     - name: Fornecedores personalizados

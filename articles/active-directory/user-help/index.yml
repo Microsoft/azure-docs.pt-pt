@@ -12,12 +12,12 @@ metadata:
   author: eross-msft
   ms.author: lizross
   ms.date: 08/26/2019
-  ms.openlocfilehash: 96fd0f6612b6c91ce4021b50ffe121b571a5032b
-  ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+  ms.openlocfilehash: c60b536c43b8a82a46ef9176eb077b212da529c0
+  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/30/2019
-  ms.locfileid: "73161005"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73574218"
 landingContent:
 - title: Configurar e utilizar a aplicação Microsoft Authenticator
   linkLists:
@@ -73,18 +73,20 @@ landingContent:
       url: security-info-add-update-methods-overview.md
     - text: Adicionar informações durante o pedido de início de sessão
       url: security-info-setup-signin.md
-- title: Gerir as informações no portal O Meu Perfil (pré-visualização)
+- title: Gerir as suas informações no portal A Minha Conta
   linkLists:
   - linkListType: overview
     links:
-    - text: O que é o portal O Meu Perfil (pré-visualização)?
-      url: myprofile-portal-overview.md
+    - text: O que é o portal A Minha Conta?
+      url: my-account-portal-overview.md
   - linkListType: how-to-guide
     links:
-    - text: Gerir as suas organizações
-      url: myprofile-portal-organizations-page.md
     - text: Gerir os seus dispositivos ligados
-      url: myprofile-portal-devices-page.md
+      url: my-account-portal-devices-page.md
+    - text: Gerir as suas organizações
+      url: my-account-portal-organizations-page.md
+    - text: Ver a sua atividade de início de sessão recente
+      url: my-account-portal-sign-ins-page.md
 - title: Repor a sua própria palavra-passe
   linkLists:
   - linkListType: overview

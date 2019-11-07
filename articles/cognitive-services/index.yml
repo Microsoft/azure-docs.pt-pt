@@ -10,13 +10,13 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 09/16/2019
-  ms.openlocfilehash: f360150a06bd7cf0d41ebb193ab91823ea815dfc
-  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 4f9c17fabdcb333d172e7a983921ef89d879fce7
+  ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73466224"
+  ms.lasthandoff: 11/05/2019
+  ms.locfileid: "73622737"
 highlightedContent:
   items:
   - title: O que são os Serviços Cognitivos?
@@ -25,15 +25,21 @@ highlightedContent:
   - title: Serviços Cognitivos e aprendizagem automática
     itemType: concept
     url: ./cognitive-services-and-machine-learning.md
-  - title: Criar um recurso dos Serviços Cognitivos
-    itemType: how-to-guide
-    url: ./cognitive-services-apis-create-account.md
   - title: Suporte de linguagens nos Serviços Cognitivos
     itemType: reference
     url: ./language-support.md
+  - title: Criar um recurso dos Serviços Cognitivos
+    itemType: how-to-guide
+    url: ./cognitive-services-apis-create-account.md
   - title: Utilizar os Serviços Cognitivos nos Contentores
     itemType: concept
     url: ./cognitive-services-container-support.md
+  - title: Redes virtuais para os Serviços Cognitivos
+    itemType: architecture
+    url: cognitive-services-virtual-networks.md
+  - title: Subdomínios personalizados para os Serviços Cognitivos
+    itemType: how-to-guide
+    url: cognitive-services-custom-subdomains.md
   - title: Autenticar um pedido
     itemType: how-to-guide
     url: ./authentication.md
@@ -101,7 +107,7 @@ conceptualContent:
       text: Content Moderator
     - url: ./personalizer/index.yml
       itemType: overview
-      text: Personalizador (Pré-visualização)
+      text: Personalizador
   - title: Pesquisa
     summary: Adicione APIs da Pesquisa do Bing às suas aplicações e tire partida da capacidade de lidar com milhares de milhões de páginas Web, imagens, vídeos e notícias com uma única chamada à API.
     links:

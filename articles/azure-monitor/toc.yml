@@ -295,7 +295,7 @@
                 - name: Exceções
                   href: app/asp-net-exceptions.md
                 - name: Rastreios de pedido
-                  href: app/java-trace-logs.md
+                  href: app/asp-net-trace-logs.md
                 - name: Métricas do Unix
                   href: app/java-collectd.md
                 - name: Dependências
@@ -318,6 +318,8 @@
                   href: app/opencensus-python.md
                 - name: Dependências
                   href: app/opencensus-python-dependency.md
+                - name: Pedidos
+                  href: app/opencensus-python-request.md
             - name: Páginas Web
               items:
                 - name: JavaScript do lado do cliente
@@ -593,26 +595,39 @@
         - name: Registos do recurso
           items:
             - name: Descrição geral
+              displayname: Resource logs
               href: platform/resource-logs-overview.md
             - name: Recolher nos Registos do Azure Monitor
+              displayname: Resource logs
               href: platform/resource-logs-collect-workspace.md
             - name: Arquivar no armazenamento
+              displayname: Resource logs
               href: platform/resource-logs-collect-storage.md
             - name: Transmitir em Fluxo para os Hubs de Eventos
+              displayname: Resource logs
               href: platform/resource-logs-stream-event-hubs.md
         - name: Registo de atividades
           items:
             - name: Descrição geral
+              displayname: Activity log
               href: platform/activity-logs-overview.md
+            - name: Recolher com a definição de diagnóstico
+              displayname: Activity log
+              href: platform/diagnostic-settings-subscription.md
             - name: Ver e obter
+              displayname: Activity log
               href: platform/activity-log-view.md
             - name: Recolher e analisar
+              displayname: Activity log
               href: platform/activity-log-collect.md
             - name: Recolher entre inquilinos
+              displayname: Activity log
               href: platform/activity-log-collect-tenants.md
             - name: Exportar
+              displayname: Activity log
               href: platform/activity-log-export.md
             - name: Esquema
+              displayname: Activity log
               href: platform/activity-log-schema.md
         - name: Definições de diagnóstico
           items:
@@ -621,6 +636,7 @@
             - name: Criar definição de diagnóstico com o Resource Manager
               href: platform/diagnostic-settings-template.md
             - name: Alterar para o formato de armazenamento de blobs
+              displayname: Diagnostic settings
               href: platform/resource-logs-blob-format.md
         - name: Transmitir dados para os Hubs de Eventos
           href: platform/stream-monitoring-data-event-hubs.md

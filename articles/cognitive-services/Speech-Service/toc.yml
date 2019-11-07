@@ -65,6 +65,10 @@
               href: rest-speech-to-text.md
             - name: APIs REST de transcrição em lote
               href: batch-transcription.md
+    - name: Recursos
+      items:
+        - name: FAQ da conversão de voz em texto
+          href: faq-stt.md
 - name: Conversão de texto em voz
   exanded: false
   items:
@@ -112,6 +116,10 @@
           items:
             - name: API REST de conversão de texto em voz
               href: rest-text-to-speech.md
+    - name: Recursos
+      items:
+        - name: FAQ da conversão de texto em voz
+          href: faq-text-to-speech.md
 - name: Reconhecimento de intenção
   exanded: false
   items:
@@ -182,6 +190,10 @@
               href: 'https://aka.ms/csspeech/pythonref'
             - name: Notas de versão
               href: releasenotes.md
+    - name: Recursos
+      items:
+        - name: FAQ da tradução de voz
+          href: 'https://www.microsoft.com/translator/faq.aspx'
 - name: Transcrição de conversas
   expanded: false
   items:
@@ -254,7 +266,7 @@
       items:
         - name: Dê voz ao seu bot com o SDK de Voz
           href: tutorial-voice-enable-your-bot-speech-sdk.md
-    - name: Referência
+    - name: Recursos
       items:
         - name: FAQ dos assistentes de voz
           href: faq-voice-assistants.md
@@ -368,6 +380,8 @@
           href: scenario-availability.md
     - name: Inícios rápidos
       items:
+        - name: Criar um projeto
+          href: quickstarts/create-project.md
         - name: 'Configurar o SDK de Voz com C#'
           href: quickstarts/setup-platform.md?pivots=programming-language-csharp
         - name: Configurar o SDK de Voz com C++

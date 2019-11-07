@@ -88,10 +88,6 @@
           href: ingest-data-logstash.md
         - name: Copiar dados com o Azure Data Factory
           href: data-factory-load-data.md
-    - name: Implementação
-      items:
-        - name: Tarefa de DevOps
-          href: devops.md
     - name: Consultar dados
       items:
         - name: Escrever consultas
@@ -136,6 +132,8 @@
           href: tableau.md
         - name: Sisense
           href: sisense.md
+        - name: Redash
+          href: redash.md
     - name: Gerir
       items:
         - name: Cluster
@@ -166,6 +164,10 @@
               href: delete-data.md
             - name: Lidar com dados duplicados
               href: dealing-with-duplicates.md
+    - name: Implementação
+      items:
+        - name: Implementar o cluster na sua VNet
+          href: vnet-deployment.md
     - name: Monitorizar
       items:
         - name: Utilizar registos de diagnósticos para monitorizar a ingestão
@@ -186,6 +188,8 @@
           href: connect-from-databricks.md
         - name: Analisar dados no Jupyter Notebook e Kqlmagic
           href: kqlmagic.md
+        - name: Pipelines do Azure
+          href: devops.md
     - name: Resolução de problemas
       items:
         - name: Criar um cluster
@@ -220,9 +224,13 @@
           href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto'
     - name: Comentários sobre o produto
       href: 'https://aka.ms/adefeedback'
-    - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/data-explorer/'
-    - name: Simulador de Custos
-      href: 'https://aka.ms/adecostestimator'
+    - name: Preços e faturação
+      items:
+        - name: Página de preços
+          href: 'https://azure.microsoft.com/pricing/details/data-explorer/'
+        - name: Simulador de custos
+          href: 'https://aka.ms/adecostestimator'
+        - name: Capacidade reservada
+          href: pricing-reserved-capacity.md
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?product=data-explorer'
