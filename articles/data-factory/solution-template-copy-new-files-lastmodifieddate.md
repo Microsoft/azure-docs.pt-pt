@@ -1,5 +1,5 @@
 ---
-title: Copiar arquivos novos e alterados por LastModifiedDate com Azure Data Factory | Microsoft Docs
+title: Copiar arquivos novos e alterados por LastModifiedDate com Azure Data Factory
 description: Saiba como usar um modelo de solução para copiar arquivos novos e alterados por LastModifiedDate com Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
-ms.openlocfilehash: a2a8f0478d1ae4fb19cb911b02572145ff59839b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: aaa7114113d5f0330d2dc7d656b0d91963931512
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030068"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684229"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copiar arquivos novos e alterados por LastModifiedDate com Azure Data Factory
 
@@ -32,7 +32,7 @@ O modelo contém uma atividade:
 - **Copiar** para copiar arquivos novos e alterados somente por LastModifiedDate de um repositório de arquivos para um repositório de destino.
 
 O modelo define quatro parâmetros:
--  *FolderPath_Source* é o caminho da pasta onde você pode ler os arquivos do repositório de origem. Você precisa substituir o valor padrão pelo seu próprio caminho de pasta.
+-  *FolderPath_Source* é o caminho da pasta em que você pode ler os arquivos do repositório de origem. Você precisa substituir o valor padrão pelo seu próprio caminho de pasta.
 -  *FolderPath_Destination* é o caminho da pasta onde você deseja copiar os arquivos para o repositório de destino. Você precisa substituir o valor padrão pelo seu próprio caminho de pasta.
 -  *LastModified_From* é usado para selecionar os arquivos cujo atributo LastModifiedDate é posterior ou igual a esse valor DateTime.  Para selecionar somente os novos arquivos, que não foram copiados pela última vez, esse valor DateTime pode ser o horário em que o pipeline foi disparado pela última vez. Você pode substituir o valor padrão ' 2019-02-01T00:00:00Z ' para o seu LastModifiedDate esperado no fuso horário UTC. 
 -  *LastModified_To* é usado para selecionar os arquivos cujo atributo LastModifiedDate é anterior a esse valor DateTime. Para selecionar somente os novos arquivos, que não foram copiados pela última vez, esse valor DateTime pode ser o tempo atual.  Você pode substituir o valor padrão ' 2019-02-01T00:00:00Z ' para o seu LastModifiedDate esperado no fuso horário UTC. 
@@ -61,7 +61,7 @@ O modelo define quatro parâmetros:
 
 6. Selecione **depurar**, grave o valor para os **parâmetros** e selecione **concluir**.  Na imagem abaixo, definimos os parâmetros como a seguir.
    - **FolderPath_Source** =  **/Source/**
-   - **FolderPath_Destination** =  **/destination/**
+   - **FolderPath_Destination** =  **/Destination/**
    - **LastModified_From** =  **2019-02-01T00:00:00Z**
    - **LastModified_To** = **2019-03-01T00:00:00Z**
     
@@ -88,8 +88,8 @@ O modelo define quatro parâmetros:
 11. Grave o valor para os **parâmetros de execução do gatilho** conforme a seguir e selecione **concluir**.
     - **FolderPath_Source** =  **/Source/** .  Você pode substituir por sua pasta no armazenamento de dados de origem.
     - **FolderPath_Destination** =  **/Destination/** .  Você pode substituir por sua pasta no armazenamento de dados de destino.
-    - **LastModified_From** =   **\@trigger (). Outputs. windowStartTime**.  É uma variável de sistema do gatilho que determina a hora em que o pipeline foi disparado pela última vez.
-    - **LastModified_To** =  **\@trigger (). Outputs. windowEndTime**.  É uma variável de sistema do gatilho que determina a hora em que o pipeline é disparado desta vez.
+    - **LastModified_From** =   **\@Trigger (). Outputs. windowStartTime**.  É uma variável de sistema do gatilho que determina a hora em que o pipeline foi disparado pela última vez.
+    - **LastModified_To** =  **\@Trigger (). Outputs. windowEndTime**.  É uma variável de sistema do gatilho que determina a hora em que o pipeline é disparado desta vez.
     
     ![Parâmetros de entrada](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     

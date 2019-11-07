@@ -1,5 +1,5 @@
 ---
-title: Atividade until in Azure Data Factory | Microsoft Docs
+title: Atividade until no Azure Data Factory
 description: A atividade until executa um conjunto de atividades em um loop até que a condição associada à atividade seja avaliada como true ou o tempo limite expire.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 80eebf0813b6403d5e1e8ff510003f7f0f57c821
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: ab24b4f3a819e2b44c68d052c355f10219eb1dc4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142454"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679345"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Atividade until no Azure Data Factory
 A atividade until fornece a mesma funcionalidade que uma estrutura de loop do-until fornece em linguagens de programação. Executa um conjunto de atividades num ciclo até que a condição associada às atividades seja avaliada como verdadeira. Pode especificar um valor de tempo limite para a atividade Until no Data Factory. 
@@ -51,13 +51,13 @@ A atividade until fornece a mesma funcionalidade que uma estrutura de loop do-un
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-Propriedade | Descrição | Valores permitidos | Requerido
+Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da `Until` atividade. | Cadeia | Sim
-type | Deve ser definido como **até**. | Cadeia | Sim
-expression | Expressão que deve ser avaliada como verdadeira ou falsa | Expressão.  | Sim
-timeout | O loop do-until atinge o tempo limite após a hora especificada aqui. | Strings. `d.hh:mm:ss`or `hh:mm:ss`. O valor padrão é 7 dias. O valor máximo é: 90 dias. | Não
-Atividades | Conjunto de atividades que são executadas até que a expressão seja `true`avaliada como. | Matriz de atividades. |  Sim
+nome | Nome da atividade de `Until`. | String | Sim
+tipo | Deve ser definido como **até**. | String | Sim
+expressão | Expressão que deve ser avaliada como verdadeira ou falsa | Expressão.  | Sim
+tempo limite | O loop do-until atinge o tempo limite após a hora especificada aqui. | Strings. `d.hh:mm:ss` (ou) `hh:mm:ss`. O valor padrão é 7 dias. O valor máximo é: 90 dias. | Não
+Atividades | Conjunto de atividades que são executadas até que a expressão seja avaliada como `true`. | Matriz de atividades. |  Sim
 
 ## <a name="example-1"></a>Exemplo 1
 
@@ -65,7 +65,7 @@ Atividades | Conjunto de atividades que são executadas até que a expressão se
 > Esta seção fornece definições de JSON e comandos do PowerShell de exemplo para executar o pipeline. Para obter instruções passo a passo de como criar um pipeline de Data Factory usando definições de Azure PowerShell e JSON, consulte [tutorial: criar um data Factory usando Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="pipeline-with-until-activity"></a>Pipeline com atividade until
-Neste exemplo, o pipeline tem duas atividades: **Até** e **aguardar**. A atividade Wait aguarda o período de tempo especificado antes de executar a atividade da Web no loop. Para saber mais sobre expressões e funções no Data Factory, consulte [linguagem e funções de expressão](control-flow-expression-language-functions.md). 
+Neste exemplo, o pipeline tem duas atividades: **until** e **Wait**. A atividade Wait aguarda o período de tempo especificado antes de executar a atividade da Web no loop. Para saber mais sobre expressões e funções no Data Factory, consulte [linguagem e funções de expressão](control-flow-expression-language-functions.md). 
 
 ```json
 {
@@ -249,7 +249,7 @@ O pipeline define **FolderPath** como o valor do parâmetro **outputPath1** ou *
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Esses comandos pressupõem que você salvou os arquivos JSON na pasta: C:\ADF,. 
+Esses comandos pressupõem que você salvou os arquivos JSON na pasta: C:\ADF. 
 
 ```powershell
 Connect-AzAccount
@@ -288,7 +288,7 @@ while ($True) {
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)

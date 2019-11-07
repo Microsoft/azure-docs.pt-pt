@@ -1,5 +1,5 @@
 ---
-title: Agendamentos de manutenção do Azure (versão prévia) | Microsoft Docs
+title: Agendamentos de manutenção do Azure
 description: O agendamento de manutenção permite que os clientes planejem os eventos de manutenção agendados necessários que o serviço de SQL Data Warehouse do Azure usa para distribuir novos recursos, atualizações e patches.
 services: sql-data-warehouse
 author: antvgski
@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 07/16/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0e5df583112bbb6db9651004e5deaceb6b5b9d12
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 91b202f8a5df841fa3d6aa1f0903999b395f8137
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958895"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686061"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Usar agendamentos de manutenção para gerenciar atualizações de serviço e manutenção
 
@@ -56,7 +56,7 @@ Por predefinição, todas as instâncias do Azure SQL Data Warehouse recém-cria
 
 Para ver a agenda de manutenção que foi aplicada ao seu armazém de dados, conclua os seguintes passos:
 
-1.  Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1.  Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2.  Selecione o data warehouse que você deseja exibir. 
 3.  O data warehouse selecionado é aberto na folha visão geral. O agendamento de manutenção que é aplicado ao data warehouse aparece abaixo do **agendamento de manutenção**.
 
@@ -72,7 +72,7 @@ Uma agenda de manutenção pode ser atualizada ou alterada a qualquer momento. S
 As janelas primária e secundária devem ter intervalos de dias separados. Um exemplo é uma janela principal de terça-feira e um secundário da janela de sábado – domingo.
 
 Para alterar o agendamento de manutenção do seu data warehouse, conclua as seguintes etapas:
-1.  Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1.  Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2.  Selecione o data warehouse que você deseja atualizar. A página é aberta na folha visão geral. 
 3.  Abra a página para configurações de agendamento de manutenção selecionando o link de **Resumo agendamento de manutenção (versão prévia)** na folha visão geral. Ou então, selecione a opção **agendamento de manutenção** no menu de recursos do lado esquerdo.  
 
@@ -83,9 +83,9 @@ Para alterar o agendamento de manutenção do seu data warehouse, conclua as seg
    ![Folha configurações de manutenção](media/sql-data-warehouse-maintenance-scheduling/maintenance-settings-page.png)
 
 5. Escolha suas janelas de manutenção primárias e secundárias preferenciais usando as caixas de listagem suspensas:
-   - **Dia**: Dia preferencial para executar a manutenção durante a janela selecionada.
-   - **Hora de início**: Hora de início preferencial para a janela de manutenção.
-   - **Janela de tempo**: Duração preferida da janela de tempo.
+   - **Day**: dia preferencial para executar a manutenção durante a janela selecionada.
+   - **Hora de início**: hora de início preferencial para a janela de manutenção.
+   - **Janela de tempo**: duração preferida da janela de tempo.
 
    A área de **Resumo da agenda** na parte inferior da folha é atualizada com base nos valores que você selecionou. 
   

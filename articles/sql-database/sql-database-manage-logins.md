@@ -1,5 +1,5 @@
 ---
-title: Inícios de sessão e utilizadores do SQL do Azure | Microsoft Docs
+title: Logons e usuários do SQL Azure
 description: Saiba mais sobre o gerenciamento de segurança do banco de dados SQL e do SQL Data Warehouse, especificamente como gerenciar o acesso ao banco de dados e a segurança de logon por meio da conta de entidade do servidor
 keywords: segurança de base de dados sql,gestão de segurança da base de dados,segurança de início de sessão,segurança de base de dados,acesso de base de dados
 services: sql-database
@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/26/2019
-ms.openlocfilehash: 9dae1e3864f5f1cf745bfe9b0872f15f61471a1c
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 501df95b80bd651020fa044970f6bc701959a6a5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014490"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689474"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controlando e concedendo acesso ao banco de dados SQL e SQL Data Warehouse
 
@@ -49,11 +49,11 @@ As contas administrador do **servidor** e **administrador do Azure ad** têm as 
 
 - São as únicas contas que podem se conectar automaticamente a qualquer banco de dados SQL no servidor. (Para ligar a uma base de dados de utilizador, as outras contas têm de ser o proprietário da base de dados ou ter uma conta de utilizador na base de dados de utilizador.)
 - Estas contas introduzem bases de dados de utilizador como o utilizador `dbo` e têm todas as permissões nas bases de dados de utilizador. (O proprietário de uma base de dados de utilizador também introduz a base de dados como o utilizador `dbo`.) 
-- Não insira o `master` banco de dados como `dbo` o usuário e tenha permissões limitadas no mestre. 
-- **Não** são membros da função de servidor `sysadmin` fixa SQL Server padrão, que não está disponível no banco de dados SQL.  
+- Não insira o banco de dados `master` como o usuário `dbo` e tenha permissões limitadas no mestre. 
+- **Não** são membros do SQL Server padrão `sysadmin` função de servidor fixa, que não está disponível no banco de dados SQL.  
 - Pode criar, alterar e Remover bancos de dados, logons, usuários no mestre e regras de firewall de IP de nível de servidor.
-- Pode adicionar e remover membros às `dbmanager` funções e. `loginmanager`
-- Pode exibir a `sys.sql_logins` tabela do sistema.
+- Pode adicionar e remover membros das funções `dbmanager` e `loginmanager`.
+- Pode exibir a tabela do sistema `sys.sql_logins`.
 
 ### <a name="configuring-the-firewall"></a>Configurar a firewall
 
@@ -83,9 +83,9 @@ Para além das funções administrativas ao nível do servidor abordadas anterio
 
 ### <a name="database-creators"></a>Criadores de base de dados
 
-Uma destas funções administrativas é a função **dbmanager**. Os membros desta função podem criar novas bases de dados. Para utilizar esta função, crie um utilizador na base de dados `master` e, em seguida, adicione o utilizador à função de base de dados **dbmanager**. Para criar um banco de dados, o usuário deve ser um usuário com base em um SQL Server `master` logon no banco de dados ou em um usuário de banco de dados independente com base em um usuário de Azure Active Directory.
+Uma destas funções administrativas é a função **dbmanager**. Os membros desta função podem criar novas bases de dados. Para utilizar esta função, crie um utilizador na base de dados `master` e, em seguida, adicione o utilizador à função de base de dados **dbmanager**. Para criar um banco de dados, o usuário deve ser um usuário baseado em um SQL Server logon no banco de dados `master` ou em um usuário de banco de dados independente com base em um usuário Azure Active Directory.
 
-1. Usando uma conta de administrador, conecte- `master` se ao banco de dados.
+1. Usando uma conta de administrador, conecte-se ao banco de dados do `master`.
 2. Crie um logon de autenticação SQL Server, usando a instrução [Create login](https://msdn.microsoft.com/library/ms189751.aspx) . Instrução de exemplo:
 
    ```sql
@@ -97,7 +97,7 @@ Uma destas funções administrativas é a função **dbmanager**. Os membros des
 
    Para melhorar o desempenho, os início de sessão (principais ao nível do servidor) são temporariamente colocados em cache ao nível da base de dados. Para atualizar a cache de autenticação, veja [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
-3. No banco `master` de dados, crie um usuário usando a instrução [Create User](https://msdn.microsoft.com/library/ms173463.aspx) . O utilizador pode ser um utilizador de base de dados contido do Azure Active Directory (se tiver configurado o ambiente para autenticação do Azure AD), um utilizador de base de dados contido de autenticação do SQL Server ou um utilizador de autenticação do SQL Server com base num início de sessão de autenticação do SQL Server (criado no passo anterior). Instruções de exemplo:
+3. No banco de dados `master`, crie um usuário usando a instrução [Create User](https://msdn.microsoft.com/library/ms173463.aspx) . O usuário pode ser um usuário de banco de dados independente de autenticação Azure Active Directory (se você tiver configurado seu ambiente para a autenticação do Azure AD) ou um usuário de banco de dados independente de autenticação SQL Server ou um usuário de autenticação SQL Server com base em um SQL Server logon de autenticação (criado na etapa anterior). Instruções de exemplo:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -105,7 +105,7 @@ Uma destas funções administrativas é a função **dbmanager**. Os membros des
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Adicione o novo usuário à função de banco de dados DBManager `master` no usando a instrução [ALTER role](https://msdn.microsoft.com/library/ms189775.aspx) . Instruções de exemplo:
+4. Adicione o novo usuário à função de banco de dados **DBManager** no `master` usando a instrução [ALTER role](https://msdn.microsoft.com/library/ms189775.aspx) . Instruções de exemplo:
 
    ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
@@ -117,7 +117,7 @@ Uma destas funções administrativas é a função **dbmanager**. Os membros des
 
 5. Se for necessário, configure uma regra de firewall para permitir que o novo utilizador se ligue. (O novo utilizador poderá ser abrangido por uma regra de firewall existente.)
 
-Agora, o usuário pode se conectar `master` ao banco de dados e pode criar novos bancos. A conta que cria a base de dados torna-se na proprietária da base de dados.
+Agora, o usuário pode se conectar ao banco de dados do `master` e criar novos banco de dados. A conta que cria a base de dados torna-se na proprietária da base de dados.
 
 ### <a name="login-managers"></a>Gestores de início de sessão
 
@@ -125,7 +125,7 @@ A outra função administrativa é a função de gestor de início de sessão. O
 
 ## <a name="non-administrator-users"></a>Utilizadores não administradores
 
-Geralmente, as contas de não administrador não precisam de acesso à base de dados mestra. Utilize a instrução [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) para criar os utilizadores de base de dados contidos na base de dados ao nível da base de dados. O utilizador pode ser um utilizador de base de dados contido do Azure Active Directory (se tiver configurado o ambiente para autenticação do Azure AD), um utilizador de base de dados contido de autenticação do SQL Server ou um utilizador de autenticação do SQL Server com base num início de sessão de autenticação do SQL Server (criado no passo anterior). Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos - Tornar a Sua Base de Dados Portátil)](https://msdn.microsoft.com/library/ff929188.aspx). 
+Geralmente, as contas de não administrador não precisam de acesso à base de dados mestra. Utilize a instrução [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) para criar os utilizadores de base de dados contidos na base de dados ao nível da base de dados. O usuário pode ser um usuário de banco de dados independente de autenticação Azure Active Directory (se você tiver configurado seu ambiente para a autenticação do Azure AD) ou um usuário de banco de dados independente de autenticação SQL Server ou um usuário de autenticação SQL Server com base em um SQL Server logon de autenticação (criado na etapa anterior). Para obter mais informações, consulte [usuários de banco de dados independente – tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx). 
 
 Para criar utilizadores, ligue à base de dados e execute instruções semelhantes aos exemplos seguintes:
 
@@ -142,13 +142,13 @@ GRANT ALTER ANY USER TO Mary;
 
 Para conceder a usuários adicionais o controle total do banco de dados, torne-os membros da função de banco de dados fixa **db_owner** .
 
-No banco de dados SQL do `ALTER ROLE` Azure, use a instrução.
+No banco de dados SQL do Azure, use a instrução `ALTER ROLE`.
 
 ```sql
 ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
-No Azure SQL Data Warehouse use [exec sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+No Azure SQL Data Warehouse use o [Sp_addrolemember exec](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
 ```sql
 EXEC sp_addrolemember 'db_owner', 'Mary';
 ```
@@ -194,7 +194,7 @@ Ao gerir inícios de sessão e utilizadores na Base de Dados SQL, considere o se
 - Para ligar a uma base de dados do utilizador, tem de fornecer o nome da base de dados na cadeia de ligação.
 - Apenas o início de sessão principal ao nível do servidor e os membros da função de base de dados **loginmanager** na base de dados **mestra** têm permissão para executar as instruções `CREATE LOGIN`, `ALTER LOGIN`, e `DROP LOGIN`.
 - Ao executar as instruções `CREATE/ALTER/DROP LOGIN` e `CREATE/ALTER/DROP DATABASE` numa aplicação ADO.NET, não deve utilizar comandos parametrizados. Para obter mais informações, consulte [Comandos e Parâmetros](https://msdn.microsoft.com/library/ms254953.aspx).
-- Ao executar as instruções `CREATE/ALTER/DROP DATABASE` e `CREATE/ALTER/DROP LOGIN`, cada uma das seguintes declarações tem de ser a única instrução num batch do Transact-SQL. Caso contrário, será apresentado um erro. Por exemplo, o Transact-SQL seguinte verifica se a base de dados existe. Se existir, é chamada uma instrução `DROP DATABASE` para remover a base de dados. Uma vez que a instrução `DROP DATABASE` não é a única instrução no batch, executar a seguinte instrução do Transact-SQL ocorre um erro.
+- Ao executar as instruções `CREATE/ALTER/DROP DATABASE` e `CREATE/ALTER/DROP LOGIN`, cada uma das seguintes declarações tem de ser a única instrução num batch do Transact-SQL. Caso contrário, ocorrerá um erro. Por exemplo, o Transact-SQL seguinte verifica se a base de dados existe. Se existir, é chamada uma instrução `DROP DATABASE` para remover a base de dados. Uma vez que a instrução `DROP DATABASE` não é a única instrução no batch, executar a seguinte instrução do Transact-SQL ocorre um erro.
 
   ```sql
   IF EXISTS (SELECT [name]
@@ -213,10 +213,10 @@ Ao gerir inícios de sessão e utilizadores na Base de Dados SQL, considere o se
 - Ao executar a `CREATE USER` com a opção `FOR/FROM LOGIN`, tem de ser a única instrução num batch do Transact-SQL.
 - Ao executar a `ALTER USER` com a opção `WITH LOGIN`, tem de ser a única instrução num batch do Transact-SQL.
 - Para `CREATE/ALTER/DROP`, um utilizador necessita da permissão `ALTER ANY USER` na base de dados.
-- Quando o proprietário de uma função de banco de dados tenta adicionar ou remover outro usuário de banco de dados de ou para essa função de banco de dados, o seguinte erro pode ocorrer: **O usuário ou função ' name ' não existe neste banco de dados.** Este erro ocorre porque o utilizador não está visível para o proprietário. Para resolver este problema, conceda uma permissão de `VIEW DEFINITION` ao proprietário da função. 
+- Quando o proprietário de uma função de base de dados tenta adicionar ou remover outro utilizador de base de dados de ou para essa função de base de dados, pode ocorrer o seguinte erro: **o utilizador ou a função "Nome" não existe nesta base de dados.** Este erro ocorre porque o utilizador não está visível para o proprietário. Para resolver este problema, conceda uma permissão de `VIEW DEFINITION` ao proprietário da função. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre regras de firewall, veja [Firewall da Base de Dados SQL do Azure](sql-database-firewall-configure.md).
 - Para obter uma descrição geral de todas as funcionalidades de segurança da Base de Dados SQL, veja a [Descrição geral da segurança de SQL](sql-database-security-overview.md).

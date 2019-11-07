@@ -1,7 +1,7 @@
 ---
 title: Tipo de entidade simples-LUIS
 titleSuffix: Azure Cognitive Services
-description: Uma entidade simples é uma entidade genérica que descreve um único conceito e é aprendida do contexto aprendido pelo computador. Como as entidades simples são geralmente nomes como nomes de empresa, nomes de produtos ou outras categorias de nomes, adicione uma lista de frases ao usar uma entidade simples para aumentar o sinal dos nomes usados.
+description: Uma entidade simples descreve um único conceito do contexto aprendido por máquina. Adicione uma lista de frases ao usar uma entidade simples para melhorar os resultados.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: 2eb3ff847f9bfc162adfb281d2ac1fad6f8c5093
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 27eb4d827c1488b0d051505e62286fd66d6a286b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695134"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671507"
 ---
 # <a name="simple-entity"></a>Entidade simples 
 
@@ -25,15 +25,15 @@ Uma entidade simples é uma entidade genérica que descreve um único conceito e
 
 * Os dados não são formatados consistentemente, mas indicam a mesma coisa. 
 
-![entidade Simple](./media/luis-concept-entities/simple-entity.png)
+![entidade simples](./media/luis-concept-entities/simple-entity.png)
 
-## <a name="example-json"></a>JSON de exemplo
+## <a name="example-json"></a>Exemplo de JSON
 
 `Bob Jones wants 3 meatball pho`
 
-Na expressão anterior, `Bob Jones` é identificado como um simples `Customer` entidade.
+Na expressão anterior, `Bob Jones` é rotulada como uma entidade de `Customer` simples.
 
-Os dados devolvidos a partir do ponto final incluem o nome da entidade, o texto detetado da expressão, a localização do texto detetado e a pontuação:
+Os dados retornados do ponto de extremidade incluem o nome da entidade, o texto descoberto do expressão, o local do texto descoberto e a Pontuação:
 
 #### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
 
@@ -90,7 +90,7 @@ This is the JSON if `verbose=true` is set in the query string:
 
 |Objeto de dados|Nome da entidade|Valor|
 |--|--|--|
-|Entidade Simple|`Customer`|`bob jones`|
+|Entidade simples|`Customer`|`bob jones`|
 
 ## <a name="next-steps"></a>Passos seguintes
 

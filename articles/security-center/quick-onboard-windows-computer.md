@@ -1,5 +1,5 @@
 ---
-title: Início Rápido do Centro de Segurança do Azure - Incluir os computadores Windows no Centro de Segurança | Microsoft Docs
+title: Integrar computadores Windows à central de segurança do Azure
 description: Este guia de introdução mostra-lhe como aprovisionar o MMA (Microsoft Monitoring Agent) num computador Windows.
 services: security-center
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 46fffc40b315109c348247ac09f02f9bb8dbb3b7
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 417d8379d019a9ef0da41638cba4a1f9cb7b8bc2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202792"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686499"
 ---
-# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início rápido: Integrar computadores Windows à central de segurança do Azure
+# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início Rápido: Incluir computadores Windows no Centro de Segurança do Azure
 Depois de incluir as subscrições do Azure, pode ativar o Centro de Segurança para os recursos em execução fora do Azure, por exemplo, no local ou em outras clouds, ao aprovisionar o MMA.
 
 Este início rápido mostra-lhe como instalar o MMA num computador Windows.
@@ -33,7 +33,7 @@ Tem de estar no escalão de preço Standard do Centro de Segurança antes de com
 
 ## <a name="add-new-windows-computer"></a>Adicionar novo computador Windows
 
-1. Inicie sessão no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
+1. Inicie sessão no [portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 2. No menu **Microsoft Azure**, selecione **Centro de Segurança**. **Centro de Segurança - Descrição Geral** é aberto.
 
    ![Descrição geral do Centro de Segurança][2]
@@ -64,7 +64,7 @@ Agora tem de instalar o ficheiro transferido no computador de destino.
 4. Na página **Pasta de Destino**, altere ou mantenha a pasta de instalação predefinida e selecione **Seguinte**.
 5. Na página **Opções de Configuração do Agente**, escolha ligar o agente ao Azure Log Analytics e selecione **Seguinte**.
 6. Na página **Azure Log Analytics**, cole o **ID da Área de Trabalho** e a **Chave da Área de Trabalho (Chave Primária)** que copiou para o Bloco de Notas no procedimento anterior.
-7. Caso o computador deva reportar a uma área de trabalho do Log Analytics na cloud do Azure Government, selecione **Azure US Government**, na lista pendente **Azure Cloud**.  Se o computador tiver de comunicar através de um servidor proxy com o serviço do Log Analytics, selecione **Avançadas** e forneça o URL e o número da porta do servidor proxy.
+7. Caso o computador deva reportar a uma área de trabalho do Log Analytics na cloud do Azure Government, selecione **Azure US Government**, na lista pendente **Azure Cloud**. Se o computador tiver de comunicar através de um servidor proxy com o serviço do Log Analytics, selecione **Avançadas** e forneça o URL e o número da porta do servidor proxy.
 8. Selecione **Seguinte**, depois de indicar as definições de configuração necessárias.
 
    ![Instalar o agente][5]
@@ -84,7 +84,7 @@ Estão representados dois tipos de ícone no painel **Computação**:
 
 ![icon1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) Computador não pertencente ao Azure
 
-![icon2](./media/quick-onboard-windows-computer/security-center-monitoring-icon2.png) Azure VM
+![icon2](./media/quick-onboard-windows-computer/security-center-monitoring-icon2.png) VM do Azure
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando já não for necessário, pode remover o agente do computador Windows.
@@ -99,7 +99,7 @@ Para remover o agente:
 Neste início rápido, aprovisionou o MMA num computador Windows. Para saber mais sobre como utilizar o Centro de Segurança, avance para o tutorial para configurar uma política de segurança e avaliar a segurança dos seus recursos.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Definir e avaliar políticas de segurança](tutorial-security-policy.md)
+> [Tutorial: definir e avaliar as políticas de segurança](tutorial-security-policy.md)
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png

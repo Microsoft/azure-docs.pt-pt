@@ -1,5 +1,5 @@
 ---
-title: O OLTP na memória melhora o desempenho do SQL TXN | Microsoft Docs
+title: O OLTP na memória melhora o desempenho do SQL TXN
 description: Adote o OLTP na memória para melhorar o desempenho transacional em um banco de dados SQL existente.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 11/07/2018
-ms.openlocfilehash: e869b2bba3bd64b58d9063e9445889ef709efdc3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 82b24b51a103d31bf20bbb7a9fc304095be523d5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567952"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689834"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Usar o OLTP na memória para melhorar o desempenho do aplicativo no banco de dados SQL
 
@@ -28,7 +28,7 @@ O [OLTP na memória](sql-database-in-memory.md) pode ser usado para aprimorar o 
 
 Siga estas etapas para adotar o OLTP na memória em seu banco de dados existente.
 
-## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Passo 1: Verifique se você está usando um banco de dados da camada Premium e Comercialmente Crítico
+## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Etapa 1: Verifique se você está usando um banco de dados de camada Premium e Comercialmente Crítico
 
 O OLTP na memória tem suporte apenas em bancos de dados da camada Premium e Comercialmente Crítico. Na memória, haverá suporte se o resultado retornado for 1 (não 0):
 
@@ -36,21 +36,21 @@ O OLTP na memória tem suporte apenas em bancos de dados da camada Premium e Com
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 ```
 
-*XTP* significa *processamento de transações* extremas
+*XTP* significa *processamento de transações extremas*
 
 
 
-## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>Passo 2: Identificar objetos para migrar para o OLTP na memória
+## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>Etapa 2: identificar objetos para migrar para o OLTP na memória
 O SSMS inclui um relatório de **visão geral da análise de desempenho de transação** que você pode executar em um banco de dados com uma carga de trabalho ativa. O relatório identifica tabelas e procedimentos armazenados que são candidatos à migração para o OLTP na memória.
 
 No SSMS, para gerar o relatório:
 
 * No Pesquisador de **objetos**, clique com o botão direito do mouse no nó do banco de dados.
-* Clique em **relatórios** > **padrão relatórios** > **análise de desempenho da transação visão geral**.
+* Clique em **relatórios** > **relatórios padrão** > **visão geral da análise de desempenho da transação**.
 
 Para obter mais informações, consulte [determinando se uma tabela ou um procedimento armazenado deve ser movido para o OLTP na memória](https://msdn.microsoft.com/library/dn205133.aspx).
 
-## <a name="step-3-create-a-comparable-test-database"></a>Passo 3: Criar um banco de dados de teste comparável
+## <a name="step-3-create-a-comparable-test-database"></a>Etapa 3: criar um banco de dados de teste comparável
 Suponha que o relatório indique que seu banco de dados tem uma tabela que se beneficiaria de ser convertido em uma tabela com otimização de memória. É recomendável que você primeiro teste para confirmar a indicação testando.
 
 Você precisa de uma cópia de teste do seu banco de dados de produção. O banco de dados de teste deve estar no mesmo nível de camada de serviço que o banco de dados de produção.
@@ -66,7 +66,7 @@ Para facilitar o teste, ajuste o banco de dados de teste da seguinte maneira:
         MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
    ```
 
-## <a name="step-4-migrate-tables"></a>Passo 4: Migrar tabelas
+## <a name="step-4-migrate-tables"></a>Etapa 4: migrar tabelas
 Você deve criar e preencher uma cópia com otimização de memória da tabela que deseja testar. Você pode criá-lo usando:
 
 * O prático assistente de otimização de memória no SSMS.
@@ -81,7 +81,7 @@ Para usar essa opção de migração:
    * O assistente do **supervisor de otimização de memória da tabela** é exibido.
 3. No assistente, clique em **validação de migração** (ou no botão **Avançar** ) para ver se a tabela tem algum recurso sem suporte que não tenha suporte em tabelas com otimização de memória. Para obter mais informações, consulte:
    
-   * A *lista de verificação de otimização de memória* no Orientador de [otimização de memória](https://msdn.microsoft.com/library/dn284308.aspx).
+   * A *lista de verificação de otimização de memória* no [Orientador de otimização de memória](https://msdn.microsoft.com/library/dn284308.aspx).
    * [Construções Transact-SQL sem suporte pelo OLTP na memória](https://msdn.microsoft.com/library/dn246937.aspx).
    * [Migrando para o OLTP na memória](https://msdn.microsoft.com/library/dn247639.aspx).
 4. Se a tabela não tiver recursos sem suporte, o supervisor poderá executar o esquema real e a migração de dados para você.
@@ -93,7 +93,7 @@ Para usar essa opção de migração:
 2. Obtenha o script T-SQL completo para sua tabela e seus índices.
    
    * No SSMS, clique com o botão direito do mouse no nó da tabela.
-   * Clique em **tabela de script como** > **criar para a** > **nova janela de consulta**.
+   * Clique em **tabela de script como** > **criar para** > **nova janela de consulta**.
 3. Na janela de script, adicione WITH (MEMORY_OPTIMIZED = ON) à instrução CREATE TABLE.
 4. Se houver um índice CLUSTERIZAdo, altere-o para não CLUSTERIZAdo.
 5. Renomeie a tabela existente usando SP_RENAME.
@@ -106,7 +106,7 @@ INSERT INTO <new_memory_optimized_table>
 ```
 
 
-## <a name="step-5-optional-migrate-stored-procedures"></a>Etapa 5 (opcional): Migrar procedimentos armazenados
+## <a name="step-5-optional-migrate-stored-procedures"></a>Etapa 5 (opcional): migrar procedimentos armazenados
 O recurso na memória também pode modificar um procedimento armazenado para melhorar o desempenho.
 
 ### <a name="considerations-with-natively-compiled-stored-procedures"></a>Considerações com procedimentos armazenados compilados nativamente
@@ -150,7 +150,7 @@ As etapas de migração são:
 4. Renomeie o antigo procedimento armazenado usando SP_RENAME. Ou simplesmente solte-o.
 5. Execute o script T-SQL de criar procedimento editado.
 
-## <a name="step-6-run-your-workload-in-test"></a>Passo 6: Executar sua carga de trabalho em teste
+## <a name="step-6-run-your-workload-in-test"></a>Etapa 6: executar sua carga de trabalho em teste
 Execute uma carga de trabalho em seu banco de dados de teste que seja semelhante à carga de trabalho que é executada em seu banco de dados de produção. Isso deve revelar o benefício de desempenho obtido pelo uso do recurso na memória para tabelas e procedimentos armazenados.
 
 Os principais atributos da carga de trabalho são:
@@ -162,7 +162,7 @@ Para adaptar e executar a carga de trabalho de teste, considere o uso da ferrame
 
 Para minimizar a latência de rede, execute o teste na mesma região geográfica do Azure em que o banco de dados existe.
 
-## <a name="step-7-post-implementation-monitoring"></a>Passo 7: Monitoramento pós-implementação
+## <a name="step-7-post-implementation-monitoring"></a>Etapa 7: monitoramento pós-implementação
 Considere monitorar os efeitos de desempenho de suas implementações na memória em produção:
 
 * [Monitorar o armazenamento na memória](sql-database-in-memory-oltp-monitoring.md).

@@ -1,5 +1,5 @@
 ---
-title: Script do PowerShell – transformar dados na nuvem usando Data Factory | Microsoft Docs
+title: 'Script do PowerShell – Transforme dados na nuvem usando Data Factory '
 description: Esse script do PowerShell transforma os dados na nuvem executando o programa Spark em um cluster Azure HDInsight Spark.
 author: djpmsft
 ms.author: daperlov
@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/12/2017
-ms.openlocfilehash: 973efe90ea1da68e4c4e4b0dbbb4c191be18213d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 53f64103819476e4efe918bd7a7be4ee2a1bcca3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140880"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684316"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Script do PowerShell – Transforme dados na nuvem usando Azure Data Factory
 
@@ -62,7 +62,7 @@ Este script do PowerShell de exemplo cria um pipeline que transforma os dados na
 
 ### <a name="upload-the-input-file"></a>Carregue o ficheiro de entrada
 1. Crie um ficheiro com o nome **minecraftstory.txt** com algum texto. O programa Spark conta o número de palavras neste texto. 
-2. Crie uma subpasta `inputfiles` chamada `spark` na pasta do contêiner de BLOBs. 
+2. Crie uma subpasta chamada `inputfiles` na pasta `spark` do contêiner de BLOBs. 
 3. Carregue o ficheiro `minecraftstory.txt` para a subpasta `inputfiles`. 
 
 ## <a name="sample-script"></a>Script de exemplo

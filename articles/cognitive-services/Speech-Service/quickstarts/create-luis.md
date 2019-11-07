@@ -1,21 +1,21 @@
 ---
 title: 'Início rápido: criar uma chave LUIS'
 titleSuffix: Azure Cognitive Services
-description: Neste tutorial, você aprenderá a criar rapidamente um aplicativo LUIS.
+description: Neste guia de início rápido, você aprenderá a criar um aplicativo LUIS e a obter uma chave.
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 11/04/2019
 ms.author: wolfma
-ms.openlocfilehash: 95becb2574a45536610aef87f8045b3dad5a5003
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ee2b25958feac2387779d9e60734a6600b60a2e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504082"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682074"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>Início rápido: obtendo uma chave de ponto de extremidade LUIS
 
@@ -54,7 +54,7 @@ Na página **configurações de ponto de extremidade e chaves** :
    * Em **nome da assinatura**, escolha a assinatura do Azure que contém o recurso Luis que você deseja usar.
    * Em **chave**, escolha o recurso Luis que você deseja usar com o aplicativo.
 
-   Passados alguns momentos, a subscrição nova aparece na tabela, na parte inferior da página. 
+   Passados alguns momentos, a subscrição nova aparece na tabela, na parte inferior da página.
 
 1. Selecione o ícone ao lado de uma chave para copiá-lo para a área de transferência. (Pode utilizar uma chave qualquer.)
 

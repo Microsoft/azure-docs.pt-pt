@@ -1,5 +1,5 @@
 ---
-title: Alertas e notificações de instalação usando o portal do Azure | Microsoft Docs
+title: Configurar alertas e notificações usando o portal do Azure
 description: Use o portal do Azure para criar alertas de banco de dados SQL, que podem disparar notificações ou automação quando as condições especificadas são atendidas.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/02/2018
-ms.openlocfilehash: 3103b556098d0b9ccbfca7348ab70c183a69753d
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: d68055bc64ea36bd3ad024123a8d5b7b239858dc
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262233"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689745"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Criar alertas para o banco de dados SQL do Azure e data warehouse usando portal do Azure
 
@@ -39,7 +39,7 @@ Você pode configurar um alerta para fazer o seguinte quando ele disparar:
 
 Você pode configurar e obter informações sobre regras de alerta usando o
 
-* [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [Portal do Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
 * [CLI (interface de linha de comando)](../azure-monitor/platform/alerts-classic-portal.md)
 * [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
@@ -50,7 +50,7 @@ Você pode configurar e obter informações sobre regras de alerta usando o
    
      ![Monitorização](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **SOMENTE SQL DW**: Clique no grafo de **uso do DWU** . Selecione **exibir alertas clássicos**
+   - **Somente SQL DW**: clique no grafo de **uso do DWU** . Selecione **exibir alertas clássicos**
 
 3. Selecione o botão **adicionar alerta de métrica (clássico)** e preencha os campos.
    
@@ -58,7 +58,7 @@ Você pode configurar e obter informações sobre regras de alerta usando o
 4. **Nomeie** sua regra de alerta e escolha uma **Descrição**, que também é mostrada em emails de notificação.
 5. Selecione a **métrica** que você deseja monitorar e escolha uma **condição** e um valor de **limite** para a métrica. Escolha também o **período** de tempo que a regra de métrica deve ser satisfeita antes que o alerta seja disparado. Por exemplo, se você usar o período "PT5M" e seu alerta procurar pela CPU acima de 80%, o alerta será disparado quando a CPU **média** estiver acima de 80% por 5 minutos. Depois que o primeiro gatilho ocorrer, ele será disparado novamente quando a CPU média estiver abaixo de 80% em 5 minutos. A medição de CPU ocorre a cada 1 minuto. Consulte a tabela abaixo para obter as janelas de tempo com suporte e o tipo de agregação que cada alerta usa; nem todos os alertas usam o valor médio.   
 6. Verifique os **proprietários dos emails...** se você quiser que os administradores e os coadministradores sejam enviados por email quando o alerta for disparado.
-7. Se você quiser que emails adicionais recebam uma notificação quando o alerta for disparado, adicione-os no campo **email (s) de administrador adicional** . Separe vários emails com ponto e vírgula – *envie\@um email para contoso.\@com; EMAIL2 contoso.com*
+7. Se você quiser que emails adicionais recebam uma notificação quando o alerta for disparado, adicione-os no campo **email (s) de administrador adicional** . Separe vários emails com ponto-e-vírgulas- *email\@contoso. com; email2\@contoso.com*
 8. Coloque um URI válido no campo **webhook** se desejar que ele seja chamado quando o alerta for disparado.
 9. Selecione **OK** quando terminar para criar o alerta.   
 
@@ -74,44 +74,44 @@ Depois de criar um alerta, você pode selecioná-lo e:
 
 ## <a name="sql-database-alert-values"></a>Valores de alerta do banco de dados SQL
 
-| Tipo de Recurso | Nome da Métrica | Nome Amigável | Tipo de Agregação | Janela de tempo de alerta mínimo|
+| Tipo de Recurso | Nome da métrica | Nome amigável | Tipo de agregação | Janela de tempo de alerta mínimo|
 | --- | --- | --- | --- | --- |
-| Base de dados SQL | cpu_percent | Percentagem de CPU | Average | 5 minutos |
-| Base de dados SQL | physical_data_read_percent | Percentagem de E/S de dados | Average | 5 minutos |
-| Base de dados SQL | log_write_percent | Percentagem de E/S de registo | Average | 5 minutos |
-| Base de dados SQL | dtu_consumption_percent | Percentagem de DTU | Average | 5 minutos |
+| Base de dados SQL | cpu_percent | Percentagem de CPU | Média | 5 minutos |
+| Base de dados SQL | physical_data_read_percent | Percentagem de ES de Dados | Média | 5 minutos |
+| Base de dados SQL | log_write_percent | Percentual de e/s de log | Média | 5 minutos |
+| Base de dados SQL | dtu_consumption_percent | Percentagem de DTU | Média | 5 minutos |
 | Base de dados SQL | armazenamento | Tamanho total do banco de dados | Máximo | 30 minutos |
 | Base de dados SQL | connection_successful | Conexões com êxito | Total | 10 minutos |
-| Base de dados SQL | connection_failed | Ligações Falhadas | Total | 10 minutos |
+| Base de dados SQL | connection_failed | Ligações com Falhas | Total | 10 minutos |
 | Base de dados SQL | blocked_by_firewall | Bloqueado pelo firewall | Total | 10 minutos |
-| Base de dados SQL | Bloqueado | Impasses | Total | 10 minutos |
+| Base de dados SQL | Bloqueado | Deadlocks | Total | 10 minutos |
 | Base de dados SQL | storage_percent | Percentagem de tamanho da Base de Dados | Máximo | 30 minutos |
-| Base de dados SQL | xtp_storage_percent | Porcentagem de armazenamento OLTP na memória (visualização) | Average | 5 minutos |
-| Base de dados SQL | workers_percent | Percentagem de funcionários | Average | 5 minutos |
-| Base de dados SQL | sessions_percent | Porcentagem de sessões | Average | 5 minutos |
-| Base de dados SQL | dtu_limit | Limite de DTU | Average | 5 minutos |
-| Base de dados SQL | dtu_used | DTU usado | Average | 5 minutos |
+| Base de dados SQL | xtp_storage_percent | Porcentagem de armazenamento OLTP na memória (visualização) | Média | 5 minutos |
+| Base de dados SQL | workers_percent | Porcentagem de trabalhadores | Média | 5 minutos |
+| Base de dados SQL | sessions_percent | Porcentagem de sessões | Média | 5 minutos |
+| Base de dados SQL | dtu_limit | Limite de DTU | Média | 5 minutos |
+| Base de dados SQL | dtu_used | DTU usado | Média | 5 minutos |
 ||||||
-| Conjunto elástico | cpu_percent | Percentagem de CPU | Average | 10 minutos |
-| Conjunto elástico | physical_data_read_percent | Percentagem de E/S de dados | Average | 10 minutos |
-| Conjunto elástico | log_write_percent | Percentagem de E/S de registo | Average | 10 minutos |
-| Conjunto elástico | dtu_consumption_percent | Percentagem de DTU | Average | 10 minutos |
-| Conjunto elástico | storage_percent | Porcentagem de armazenamento | Average | 10 minutos |
-| Conjunto elástico | workers_percent | Percentagem de funcionários | Average | 10 minutos |
-| Conjunto elástico | eDTU_limit | limite de eDTU | Average | 10 minutos |
-| Conjunto elástico | storage_limit | Limite de armazenamento | Average | 10 minutos |
-| Conjunto elástico | eDTU_used | eDTU usado | Average | 10 minutos |
-| Conjunto elástico | storage_used | Armazenamento utilizado | Average | 10 minutos |
+| Conjunto elástico | cpu_percent | Percentagem de CPU | Média | 10 minutos |
+| Conjunto elástico | physical_data_read_percent | Percentagem de ES de Dados | Média | 10 minutos |
+| Conjunto elástico | log_write_percent | Percentual de e/s de log | Média | 10 minutos |
+| Conjunto elástico | dtu_consumption_percent | Percentagem de DTU | Média | 10 minutos |
+| Conjunto elástico | storage_percent | Porcentagem de armazenamento | Média | 10 minutos |
+| Conjunto elástico | workers_percent | Porcentagem de trabalhadores | Média | 10 minutos |
+| Conjunto elástico | eDTU_limit | limite de eDTU | Média | 10 minutos |
+| Conjunto elástico | storage_limit | Limite de armazenamento | Média | 10 minutos |
+| Conjunto elástico | eDTU_used | eDTU usado | Média | 10 minutos |
+| Conjunto elástico | storage_used | Armazenamento utilizado | Média | 10 minutos |
 ||||||               
-| Armazém de dados SQL | cpu_percent | Percentagem de CPU | Average | 10 minutos |
-| Armazém de dados SQL | physical_data_read_percent | Percentagem de E/S de dados | Average | 10 minutos |
-| Armazém de dados SQL | connection_successful | Conexões com êxito | Total | 10 minutos |
-| Armazém de dados SQL | connection_failed | Ligações Falhadas | Total | 10 minutos |
-| Armazém de dados SQL | blocked_by_firewall | Bloqueado pelo firewall | Total | 10 minutos |
-| Armazém de dados SQL | service_level_objective | Camada de serviço do banco de dados | Total | 10 minutos |
-| Armazém de dados SQL | dwu_limit | limite de DWU | Máximo | 10 minutos |
-| Armazém de dados SQL | dwu_consumption_percent | Porcentagem de DWU | Average | 10 minutos |
-| Armazém de dados SQL | dwu_used | DWU usado | Average | 10 minutos |
+| data warehouse do SQL | cpu_percent | Percentagem de CPU | Média | 10 minutos |
+| data warehouse do SQL | physical_data_read_percent | Percentagem de ES de Dados | Média | 10 minutos |
+| data warehouse do SQL | connection_successful | Conexões com êxito | Total | 10 minutos |
+| data warehouse do SQL | connection_failed | Ligações com Falhas | Total | 10 minutos |
+| data warehouse do SQL | blocked_by_firewall | Bloqueado pelo firewall | Total | 10 minutos |
+| data warehouse do SQL | service_level_objective | Camada de serviço do banco de dados | Total | 10 minutos |
+| data warehouse do SQL | dwu_limit | limite de DWU | Máximo | 10 minutos |
+| data warehouse do SQL | dwu_consumption_percent | Porcentagem de DWU | Média | 10 minutos |
+| data warehouse do SQL | dwu_used | DWU usado | Média | 10 minutos |
 ||||||
 
 

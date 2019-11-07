@@ -1,5 +1,5 @@
 ---
-title: Código do arquivo de evento XEvent para o banco de dados SQL | Microsoft Docs
+title: Código do arquivo de evento XEvent para o banco de dados SQL
 description: Fornece o PowerShell e o Transact-SQL para um exemplo de código de duas fases que demonstra o destino do arquivo de evento em um evento estendido no banco de dados SQL do Azure. O armazenamento do Azure é uma parte necessária deste cenário.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 03/12/2019
-ms.openlocfilehash: f0994f92444da338b18447eb1b248c74df9aa2d2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ea5c90433a4d2928e5fb88df149631c80df9dacf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566111"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686828"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Código de destino do arquivo de evento para eventos estendidos no banco de dados SQL
 
@@ -53,7 +53,7 @@ Este tópico apresenta um exemplo de código de duas fases:
   
   * Os módulos fornecem comandos como- **New-AzStorageAccount**.
 
-## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: Código do PowerShell para o contêiner de armazenamento do Azure
+## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: código do PowerShell para o contêiner de armazenamento do Azure
 
 Este PowerShell é a fase 1 do exemplo de código de duas fases.
 
@@ -233,7 +233,7 @@ Now shift to the Transact-SQL portion of the two-part code sample!';
 
 Anote os poucos valores nomeados que o script do PowerShell imprime quando termina. Você deve editar esses valores no script Transact-SQL que segue a fase 2.
 
-## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Fase 2: Código Transact-SQL que usa o contêiner de armazenamento do Azure
+## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Fase 2: código Transact-SQL que usa o contêiner de armazenamento do Azure
 
 * Na fase 1 deste exemplo de código, você executou um script do PowerShell para criar um contêiner de armazenamento do Azure.
 * Em seguida, na fase 2, o script Transact-SQL a seguir deve usar o contêiner.
@@ -461,11 +461,11 @@ GO
 ```
 
 
-## <a name="output"></a>Output
+## <a name="output"></a>Saída
 
-Quando o script Transact-SQL for concluído, clique em uma célula sob o cabeçalho de coluna **event_data_XML** . É exibido um  **\<evento >** elemento que mostra uma instrução UPDATE.
+Quando o script Transact-SQL for concluído, clique em uma célula sob o cabeçalho da coluna **event_data_XML** . Um **\<elemento > de evento** é exibido, que mostra uma instrução UPDATE.
 
-Aqui está um  **\<evento >** elemento que foi gerado durante o teste:
+Aqui está um **\<** elemento de > de evento que foi gerado durante o teste:
 
 
 ```xml
@@ -510,7 +510,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 O script Transact-SQL anterior usou a seguinte função do sistema para ler o event_file:
 
-* [sys.fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
+* [sys. fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
 
 Uma explicação das opções avançadas para a exibição de dados de eventos estendidos está disponível em:
 
@@ -522,7 +522,7 @@ Uma explicação das opções avançadas para a exibição de dados de eventos e
 Suponha que você quisesse executar o exemplo anterior de Transact-SQL em Microsoft SQL Server.
 
 * Para simplificar, você desejaria substituir completamente o uso do contêiner de armazenamento do Azure por um arquivo simples, como **C:\myeventdata.xel**. O arquivo seria gravado no disco rígido local do computador que hospeda SQL Server.
-* Você não precisaria de nenhum tipo de instrução Transact-SQL para **criar a chave mestra** e **criar**a credencial.
+* Você não precisaria de nenhum tipo de instrução Transact-SQL para **criar a chave mestra** e **criar a credencial**.
 * Na instrução **Create Event Session** , em sua cláusula **Add Target** , você substituiria o valor http atribuído a **filename =** por uma cadeia de caracteres de caminho completo como **C:\MyFile.xel**.
   
   * Nenhuma conta de armazenamento do Azure precisa estar envolvida.
@@ -534,8 +534,8 @@ Para obter mais informações sobre contas e contêineres no serviço de armazen
 * [Como usar o armazenamento de BLOBs do .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [Nomenclatura e Referência para Contentores, Blobs e Metadados](https://msdn.microsoft.com/library/azure/dd135715.aspx)
 * [Trabalhando com o contêiner raiz](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-* [Lição 1: Criar uma política de acesso armazenado e uma assinatura de acesso compartilhado em um contêiner do Azure](https://msdn.microsoft.com/library/dn466430.aspx)
-  * [Lição 2: Criar uma credencial de SQL Server usando uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/dn466435.aspx)
+* [Lição 1: criar uma política de acesso armazenado e uma assinatura de acesso compartilhado em um contêiner do Azure](https://msdn.microsoft.com/library/dn466430.aspx)
+  * [Lição 2: criar uma credencial de SQL Server usando uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/dn466435.aspx)
 * [Eventos estendidos para Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
 
 <!--

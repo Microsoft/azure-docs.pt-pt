@@ -1,5 +1,5 @@
 ---
-title: Atividade de acréscimo de variável no Azure Data Factory | Microsoft Docs
+title: Atividade acrescentar variável no Azure Data Factory
 description: Saiba como definir a atividade de variável de acréscimo para adicionar um valor a uma variável de matriz existente definida em um pipeline de Data Factory
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
 ms.date: 10/09/2018
-ms.openlocfilehash: 24808c9ed4bda5e8d3b0ce23ab93bc59eb260374
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: bcecd3411b6e6e751032f33862a671d8adbca046
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141731"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679978"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Atividade acrescentar variável no Azure Data Factory
 
@@ -24,15 +24,15 @@ Use a atividade acrescentar variável para adicionar um valor a uma variável de
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-Propriedade | Descrição | Requerido
+Propriedade | Descrição | Necessário
 -------- | ----------- | --------
-name | Nome da atividade no pipeline | Sim
-description | Texto que descreve o que a atividade faz | não
-type | O tipo de atividade é AppendVariable | sim
-value | Literal de cadeia de caracteres ou valor de objeto de expressão usado para acrescentar à variável especificada | sim
+nome | Nome da atividade no pipeline | Sim
+descrição | Texto que descreve o que a atividade faz | não
+tipo | O tipo de atividade é AppendVariable | sim
+valor | Literal de cadeia de caracteres ou valor de objeto de expressão usado para acrescentar à variável especificada | sim
 variableName | Nome da variável que será modificada pela atividade, a variável deve ser do tipo ' array ' | sim
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre uma atividade de fluxo de controle relacionada com suporte pelo Data Factory: 
 
 - [Definir atividade variável](control-flow-set-variable-activity.md)

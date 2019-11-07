@@ -1,5 +1,5 @@
 ---
-title: Auditoria de instância gerenciada do banco de dados SQL do Azure | Microsoft Docs
+title: Auditoria de instância gerenciada do banco de dados SQL do Azure
 description: Saiba como começar a usar a auditoria de instância gerenciada do banco de dados SQL do Azure usando o T-SQL
 services: sql-database
 ms.service: sql-database
@@ -13,12 +13,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 04/08/2019
-ms.openlocfilehash: 23e3a15ac26cdf0950ee31fddad2af4a3b7414c2
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 915d804cd3ae67848b4b9aa2f50fb5f1b4f1f092
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025388"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689437"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução à auditoria de instância gerenciada do banco de dados SQL do Azure
 

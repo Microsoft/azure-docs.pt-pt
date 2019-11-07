@@ -1,5 +1,5 @@
 ---
-title: Atividade de espera no Azure Data Factory | Microsoft Docs
+title: Atividade de espera no Azure Data Factory
 description: A atividade Wait pausa a execução do pipeline para o período especificado.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 48a722979e61209a855dd1fec22fcdcc756ae1ce
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f9dd53fded06eec169219d00993620a0f2aa2bf0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142424"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678247"
 ---
 # <a name="execute-wait-activity-in-azure-data-factory"></a>Executar atividade de espera no Azure Data Factory
 Quando utiliza uma atividade Aguardar num pipeline, este aguarda o período de tempo especificado antes de continuar a execução das atividades subsequentes. 
@@ -36,11 +36,11 @@ Quando utiliza uma atividade Aguardar num pipeline, este aguarda o período de t
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-Propriedade | Descrição | Valores permitidos | Requerido
+Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da `Wait` atividade. | Cadeia | Sim
-type | Deve ser definido como **aguardar**. | Cadeia | Sim
-waitTimeInSeconds | O número de segundos que o pipeline aguarda antes de continuar com o processamento. | Integer | Sim
+nome | Nome da atividade de `Wait`. | String | Sim
+tipo | Deve ser definido como **aguardar**. | String | Sim
+waitTimeInSeconds | O número de segundos que o pipeline aguarda antes de continuar com o processamento. | Número inteiro | Sim
 
 ## <a name="example"></a>Exemplo
 
@@ -48,7 +48,7 @@ waitTimeInSeconds | O número de segundos que o pipeline aguarda antes de contin
 > Esta seção fornece definições de JSON e comandos do PowerShell de exemplo para executar o pipeline. Para obter instruções passo a passo de como criar um pipeline de Data Factory usando definições de Azure PowerShell e JSON, consulte [tutorial: criar um data Factory usando Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="pipeline-with-wait-activity"></a>Pipeline com atividade de espera
-Neste exemplo, o pipeline tem duas atividades: **Até** e **aguardar**. A atividade Wait está configurada para aguardar um segundo. O pipeline executa a atividade da Web em um loop com um segundo tempo de espera entre cada execução. 
+Neste exemplo, o pipeline tem duas atividades: **until** e **Wait**. A atividade Wait está configurada para aguardar um segundo. O pipeline executa a atividade da Web em um loop com um segundo tempo de espera entre cada execução. 
 
 ```json
 {
@@ -98,7 +98,7 @@ Neste exemplo, o pipeline tem duas atividades: **Até** e **aguardar**. A ativid
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)

@@ -1,5 +1,5 @@
 ---
-title: Usar o PowerShell para carregar a central de segurança do Azure e proteger sua rede | Microsoft Docs
+title: Integração à central de segurança do Azure com o PowerShell
 description: Este documento orienta você pelo processo de integração da central de segurança do Azure usando cmdlets do PowerShell.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: 8e2f7b87efe89166175748cec310f24575b7f102
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b20b3c1e4216fe8065fbc8ac24c7d8097903fc5a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201216"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686366"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizar a integração da central de segurança do Azure usando o PowerShell
 
@@ -31,13 +31,13 @@ Este artigo fornece um exemplo de script do PowerShell que pode ser modificado e
 
 Neste exemplo, Habilitaremos a central de segurança em uma assinatura com ID: d07c0080-170C-4C24-861d-9c817742786c e aplicaremos as configurações recomendadas que fornecem um alto nível de proteção, implementando a camada Standard da central de segurança, que fornece proteção avançada contra ameaças e recursos de detecção:
 
-1. Defina o [nível de proteção padrão ASC](https://azure.microsoft.com/pricing/details/security-center/). 
+1. Defina o [nível de proteção padrão da central de segurança](https://azure.microsoft.com/pricing/details/security-center/). 
  
 2. Defina o espaço de trabalho Log Analytics ao qual o Microsoft Monitoring Agent enviará os dados coletados pelas VMs associadas à assinatura – neste exemplo, um espaço de trabalho definido pelo usuário existente (MyWorkspace).
 
 3. Ative o provisionamento automático de agente da central de segurança, que [implanta o Microsoft Monitoring Agent](security-center-enable-data-collection.md#auto-provision-mma).
 
-5. Defina o ciso da organização [como o contato de segurança para alertas ASC e eventos notáveis](security-center-provide-security-contact-details.md).
+5. Defina o ciso da organização [como o contato de segurança para alertas da central de segurança e eventos notáveis](security-center-provide-security-contact-details.md).
 
 6. Atribua [as políticas de segurança padrão](tutorial-security-policy.md)da central de segurança.
 
@@ -58,7 +58,7 @@ Essas etapas devem ser executadas antes de executar os cmdlets da central de seg
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security' 
 
-2.  Opcional: Defina o nível de cobertura (tipo de preço) das assinaturas (se não definido, o tipo de preço é definido como livre):
+2.  Opcional: defina o nível de cobertura (tipo de preço) das assinaturas (se não estiver definido, o tipo de preço é definido como livre):
 
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Set-AzSecurityPricing -Name "default" -PricingTier "Standard"
@@ -78,7 +78,7 @@ Essas etapas devem ser executadas antes de executar os cmdlets da central de seg
     > É recomendável habilitar o provisionamento automático para garantir que suas máquinas virtuais do Azure sejam protegidas automaticamente pela central de segurança do Azure.
     >
 
-5.  Opcional: É altamente recomendável que você defina os detalhes de contato de segurança para as assinaturas que você carregar, que serão usadas como os destinatários de alertas e notificações gerados pela central de segurança:
+5.  Opcional: é altamente recomendável que você defina os detalhes de contato de segurança para as assinaturas que você carregar, que serão usadas como os destinatários de alertas e notificações gerados pela central de segurança:
 
         Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert 
 
@@ -97,7 +97,7 @@ Agora você pode usar esses cmdlets do PowerShell com scripts de automação par
 
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consultar também
 Para saber mais sobre como você pode usar o PowerShell para automatizar a integração à central de segurança, consulte o seguinte artigo:
 
 * [AZ. Security](https://docs.microsoft.com/powershell/module/az.security).

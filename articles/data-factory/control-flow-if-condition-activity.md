@@ -1,5 +1,5 @@
 ---
-title: Atividade de condição if em Azure Data Factory | Microsoft Docs
+title: Atividade de condição if no Azure Data Factory
 description: A atividade If Condition permite controlar o fluxo de processamento com base em uma condição.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: fc6318b5033ff1297f917ab95b28f8ed9285e930
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 562e84b4fe51603ae32884057578541f5536ebd4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142494"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679835"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Atividade de condição if no Azure Data Factory
 A atividade Se Condição disponibiliza a mesma funcionalidade que as instruções “se” fornecem nas linguagens de programação. Avalia um conjunto de atividades quando a condição é avaliada como `true` e outro conjunto de atividades quando é avaliada como `false`. 
@@ -63,13 +63,13 @@ A atividade Se Condição disponibiliza a mesma funcionalidade que as instruçõ
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-Propriedade | Descrição | Valores permitidos | Requerido
+Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da atividade If-Condition. | Cadeia | Sim
-type | Deve ser definido como **IfCondition** | Cadeia | Sim
-expression | Expressão que deve ser avaliada como verdadeira ou falsa | Expressão com tipo de resultado booliano | Sim
-ifTrueActivities | Conjunto de atividades que são executadas quando a expressão é avaliada `true`como. | Array | Sim
-ifFalseActivities | Conjunto de atividades que são executadas quando a expressão é avaliada `false`como. | Array | Sim
+nome | Nome da atividade If-Condition. | String | Sim
+tipo | Deve ser definido como **IfCondition** | String | Sim
+expressão | Expressão que deve ser avaliada como verdadeira ou falsa | Expressão com tipo de resultado booliano | Sim
+ifTrueActivities | Conjunto de atividades que são executadas quando a expressão é avaliada como `true`. | Array | Sim
+ifFalseActivities | Conjunto de atividades que são executadas quando a expressão é avaliada como `false`. | Array | Sim
 
 ## <a name="example"></a>Exemplo
 O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de saída. A pasta de saída é determinada pelo valor do parâmetro de pipeline: routeSelection. Se o valor de routeSelection for true, os dados serão copiados para outputPath1. E, se o valor de routeSelection for false, os dados serão copiados para outputPath2. 
@@ -247,7 +247,7 @@ O pipeline define **FolderPath** como o valor do parâmetro **outputPath1** ou *
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Esses comandos pressupõem que você salvou os arquivos JSON na pasta: C:\ADF,. 
+Esses comandos pressupõem que você salvou os arquivos JSON na pasta: C:\ADF. 
 
 ```powershell
 Connect-AzAccount
@@ -288,7 +288,7 @@ Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
 $result.Error -join "`r`n"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
 
 - [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)

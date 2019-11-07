@@ -1,5 +1,5 @@
 ---
-title: Definir atividade de variável no Azure Data Factory | Microsoft Docs
+title: Definir atividade de variável no Azure Data Factory
 description: Saiba como usar a atividade definir variável para definir o valor de uma variável existente definida em um pipeline Data Factory
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
-ms.openlocfilehash: cfe6dd63234a7750fe01614d6f1b38bb7cce1adb
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 2589e56d3170b235f31d07f902eb75c749e8573f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142431"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679305"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Definir atividade de variável no Azure Data Factory
 
@@ -25,16 +25,16 @@ Use a atividade definir variável para definir o valor de uma variável existent
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-Propriedade | Descrição | Requerido
+Propriedade | Descrição | Necessário
 -------- | ----------- | --------
-name | Nome da atividade no pipeline | Sim
-description | Texto que descreve o que a atividade faz | não
-type | O tipo de atividade é setvariance | sim
-value | Literal de cadeia de caracteres ou valor de objeto de expressão usado para definir a variável especificada | sim
+nome | Nome da atividade no pipeline | Sim
+descrição | Texto que descreve o que a atividade faz | não
+tipo | O tipo de atividade é setvariance | sim
+valor | Literal de cadeia de caracteres ou valor de objeto de expressão usado para definir a variável especificada | sim
 variableName | Nome da variável que será definida por esta atividade | sim
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre uma atividade de fluxo de controle relacionada com suporte pelo Data Factory: 
 
 - [Atividade de acréscimo de variável](control-flow-append-variable-activity.md)

@@ -1,5 +1,5 @@
 ---
-title: Alternar atividade no Azure Data Factory | Microsoft Docs
+title: Alternar atividade no Azure Data Factory
 description: A atividade switch permite controlar o fluxo de processamento com base em uma condição.
 services: data-factory
 author: djpmsft
@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 3f60965ad54fb94e7f69b69c161b482f0b953c5a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 582e0c6b9f6a51f97e8d4990634ceac61c6d9f23
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293946"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679408"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Alternar atividade no Azure Data Factory
 
@@ -65,7 +65,7 @@ A atividade switch fornece a mesma funcionalidade que uma instrução switch for
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-Propriedade | Descrição | Valores permitidos | Obrigatório
+Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
 nome | Nome da atividade do comutador. | String | Sim
 tipo | Deve ser definido como *Switch** | String | Sim

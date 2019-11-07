@@ -1,5 +1,5 @@
 ---
-title: Trabalhando com dados JSON no banco de dados SQL do Azure | Microsoft Docs
+title: Trabalhando com dados JSON no banco de dado SQL do Azure
 description: O banco de dados SQL do Azure permite que você analise, consulte e formato a notação JavaScript Object Notation (JSON).
 services: sql-database
 ms.service: sql-database
@@ -11,19 +11,19 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 01/15/2019
-ms.openlocfilehash: 3a09fba3f01eec6c712bad67ef10b8b5c55fb33e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2fe760e3792b5540b18946fd9dbcc5d571b50ee9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567838"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689658"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Introdução aos recursos JSON no banco de dados SQL do Azure
 O banco de dados SQL do Azure permite que você analise e consulte as consultas representadas no formato JavaScript Object Notation [(JSON)](https://www.json.org/) e exporte os dados relacionais como texto JSON. Os seguintes cenários JSON estão disponíveis no banco de dados SQL do Azure:
-- [Formatação de dados relacionais no formato JSON](#formatting-relational-data-in-json-format) usando `FOR JSON` a cláusula.
+- [Formatação de dados relacionais no formato JSON](#formatting-relational-data-in-json-format) usando a cláusula `FOR JSON`.
 - [Trabalhando com dados JSON](#working-with-json-data)
 - [Consultando dados JSON](#querying-json-data) usando funções escalares JSON.
-- [Transformando JSON em formato](#transforming-json-into-tabular-format) tabular `OPENJSON` usando a função.
+- [Transformando JSON em formato tabular](#transforming-json-into-tabular-format) usando `OPENJSON` função.
 
 ## <a name="formatting-relational-data-in-json-format"></a>Formatando dados relacionais no formato JSON
 Se você tiver um serviço Web que obtém dados da camada do banco de dados e fornece uma resposta no formato JSON ou estruturas ou bibliotecas JavaScript do lado do cliente que aceitam dados formatados como JSON, você pode formatar o conteúdo do banco de dados como JSON diretamente em uma consulta SQL. Você não precisa mais escrever o código do aplicativo que formata os resultados do banco de dados SQL do Azure como JSON ou incluir uma biblioteca de serialização JSON para converter os resultados da consulta de tabela e, em seguida, serializar objetos no formato JSON. Em vez disso, você pode usar a cláusula FOR JSON para formatar os resultados da consulta SQL como JSON no banco de dados SQL do Azure e usá-lo diretamente em seu aplicativo.
@@ -69,9 +69,9 @@ A saída dessa consulta é parecida com esta:
 }
 ```
 
-Neste exemplo, retornamos um único objeto JSON em vez de uma matriz especificando a opção [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) . Você pode usar essa opção se souber que está retornando um único objeto como resultado da consulta.
+Neste exemplo, retornamos um único objeto JSON em vez de uma matriz, especificando a opção [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) . Você pode usar essa opção se souber que está retornando um único objeto como resultado da consulta.
 
-O valor principal da cláusula FOR JSON é que ele permite que você retorne dados hierárquicos complexos do banco de dados formatados como matrizes ou objetos JSON aninhados. O exemplo a seguir mostra como incluir as linhas da `Orders` tabela que pertencem `Customer` ao como uma matriz aninhada de `Orders`:
+O valor principal da cláusula FOR JSON é que ele permite que você retorne dados hierárquicos complexos do banco de dados formatados como matrizes ou objetos JSON aninhados. O exemplo a seguir mostra como incluir as linhas da tabela `Orders` que pertencem ao `Customer` como uma matriz aninhada de `Orders`:
 
 ```
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,
@@ -166,7 +166,7 @@ OPENJSON é uma função de valor de tabela que analisa texto JSON, localiza uma
 
 No exemplo acima, podemos especificar onde localizar a matriz JSON que deve ser aberta (no $. Orders Path), quais colunas devem ser retornadas como resultado e onde encontrar os valores JSON que serão retornados como células.
 
-Podemos transformar uma matriz JSON na @orders variável em um conjunto de linhas, analisar esse conjunto de resultados ou inserir linhas em uma tabela padrão:
+Podemos transformar uma matriz JSON na variável @orders em um conjunto de linhas, analisar esse conjunto de resultados ou inserir linhas em uma tabela padrão:
 
 ```
 CREATE PROCEDURE InsertOrders(@orders nvarchar(max))
@@ -193,5 +193,5 @@ Para saber como integrar o JSON em seu aplicativo, confira estes recursos:
 * [Documentação do MSDN](https://msdn.microsoft.com/library/dn921897.aspx)
 * [Vídeo do Channel 9](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 
-Para saber mais sobre vários cenários para integrar o JSON em seu aplicativo, Confira as demonstrações neste [vídeo do canal 9](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) ou encontre um cenário que corresponda ao seu caso de uso em Postagens de [blog JSON](https://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
+Para saber mais sobre vários cenários para integrar o JSON em seu aplicativo, Confira as demonstrações neste [vídeo do canal 9](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) ou encontre um cenário que corresponda ao seu caso de uso em [Postagens de blog JSON](https://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
 

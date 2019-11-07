@@ -1,5 +1,5 @@
 ---
-title: Integração e entrega contínuas no Azure Data Factory | Microsoft Docs
+title: Integração e entrega contínuas no Azure Data Factory
 description: Saiba como usar a integração e a entrega contínuas para mover Data Factory pipelines de um ambiente (desenvolvimento, teste, produção) para outro.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: ff1d34852890a8d5005153ebdfa2fa0f9749d129
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7c5c1e91e97087bf28b03629659e5194f67c22b3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030616"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680034"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>CI/CD (integração e entrega contínuas) no Azure Data Factory
 
@@ -122,7 +122,7 @@ Veja abaixo um guia para configurar uma versão Azure Pipelines, que automatiza 
 
     f.  Selecionar **...** no **campo parâmetros do modelo.** para escolher o arquivo de parâmetros. Escolha o arquivo correto dependendo se você criou uma cópia ou se está usando o arquivo padrão *ARMTemplateParametersForFactory. JSON*.
 
-    g.  Selecionar **...** ao lado do campo **Substituir parâmetros do modelo** e preencha as informações do data Factory de destino. Para credenciais provenientes do Key Vault, insira o nome do segredo entre aspas duplas. Por exemplo, se o nome do segredo for `cred1`, insira `"$(cred1)"`Para seu valor.
+    g.  Selecionar **...** ao lado do campo **Substituir parâmetros do modelo** e preencha as informações do data Factory de destino. Para credenciais provenientes do Key Vault, insira o nome do segredo entre aspas duplas. Por exemplo, se o nome do segredo for `cred1`, insira `"$(cred1)"`para seu valor.
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
@@ -335,14 +335,14 @@ Sob essas condições, para substituir o modelo de parametrização padrão, cri
 
 Aqui estão algumas diretrizes para usar ao criar o arquivo de parâmetros personalizados. O arquivo consiste em uma seção para cada tipo de entidade: gatilho, pipeline, serviço vinculado, conjunto de serviços, tempo de execução de integração e assim por diante.
 * Insira o caminho da propriedade sob o tipo de entidade relevante.
-* Quando você define um nome de propriedade como ' \* ' ', você indica que deseja parametrizar todas as propriedades abaixo dele (somente até o primeiro nível, não recursivamente). Você também pode fornecer qualquer exceção a isso.
-* Quando você define o valor de uma propriedade como uma cadeia de caracteres, você indica que deseja parametrizar a propriedade. Use o formato @ no__t-0.
-   *  `<action>` @ no__t-1can ser um dos seguintes caracteres:
-      * `=` @ no__t-1means manter o valor atual como o valor padrão para o parâmetro.
-      * `-` @ no__t-1means não mantém o valor padrão para o parâmetro.
-      * `|` @ no__t-1is um caso especial para segredos de Azure Key Vault para cadeias de conexão ou chaves.
-   * `<name>` @ no__t-1is o nome do parâmetro. Se estiver em branco, ele usará o nome da propriedade. Se o valor começar com um caractere `-`, o nome será reduzido. Por exemplo, `AzureStorage1_properties_typeProperties_connectionString` seria reduzido para `AzureStorage1_connectionString`.
-   * `<stype>` @ no__t-1is o tipo de parâmetro. Se @ no__t-0 @ no__t-1is em branco, o tipo padrão será `string`. Valores com suporte: `string`, `bool`, `number`, `object` e `securestring`.
+* Ao definir um nome de propriedade como '\*' ', você indica que deseja parametrizar todas as propriedades abaixo dele (somente até o primeiro nível, não recursivamente). Você também pode fornecer qualquer exceção a isso.
+* Quando você define o valor de uma propriedade como uma cadeia de caracteres, você indica que deseja parametrizar a propriedade. Use o formato `<action>:<name>:<stype>`.
+   *  `<action>` pode ser um dos seguintes caracteres:
+      * `=` significa manter o valor atual como o valor padrão para o parâmetro.
+      * `-` significa não manter o valor padrão para o parâmetro.
+      * `|` é um caso especial para segredos de Azure Key Vault para cadeias de conexão ou chaves.
+   * `<name>` é o nome do parâmetro. Se estiver em branco, ele usará o nome da propriedade. Se o valor começar com um caractere `-`, o nome será reduzido. Por exemplo, `AzureStorage1_properties_typeProperties_connectionString` seria reduzido para `AzureStorage1_connectionString`.
+   * `<stype>` é o tipo de parâmetro. Se `<stype>` estiver em branco, o tipo padrão será `string`. Valores com suporte: `string`, `bool`, `number`, `object` e `securestring`.
 * Ao especificar uma matriz no arquivo de definição, você indica que a propriedade correspondente no modelo é uma matriz. Data Factory itera através de todos os objetos na matriz usando a definição especificada no objeto Integration Runtime da matriz. O segundo objeto, uma cadeia de caracteres, torna-se o nome da propriedade, que é usado como o nome do parâmetro para cada iteração.
 * Não é possível ter uma definição específica para uma instância de recurso. Qualquer definição se aplica a todos os recursos desse tipo.
 * Por padrão, todas as cadeias de caracteres seguras, como segredos de Key Vault e cadeias de caracteres seguras, como cadeias de conexão, chaves e tokens, são parametrizadas.
@@ -419,11 +419,11 @@ Abaixo está uma explicação de como o modelo acima é construído, dividido po
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-* Todas as propriedades no caminho `typeProperties` são parametrizadas com seus respectivos valores padrão. Por exemplo, há duas propriedades em Propriedades do tipo **IntegrationRuntimes** : `computeProperties` e `ssisProperties`. Ambos os tipos de propriedade são criados com seus respectivos valores e tipos padrão (objeto).
+* Todas as propriedades no caminho `typeProperties` são parametrizadas com seus respectivos valores padrão. Por exemplo, há duas propriedades em Propriedades de tipo **IntegrationRuntimes** : `computeProperties` e `ssisProperties`. Ambos os tipos de propriedade são criados com seus respectivos valores e tipos padrão (objeto).
 
 #### <a name="triggers"></a>Acionadores
 
-* Em `typeProperties`, duas propriedades são parametrizadas. O primeiro é `maxConcurrency`, que é especificado para ter um valor padrão e é do tipo @ no__t-1. Ele tem o nome de parâmetro padrão de `<entityName>_properties_typeProperties_maxConcurrency`.
+* Em `typeProperties`, duas propriedades são parametrizadas. O primeiro é `maxConcurrency`, que é especificado para ter um valor padrão e é do tipo`string`. Ele tem o nome de parâmetro padrão de `<entityName>_properties_typeProperties_maxConcurrency`.
 * A propriedade `recurrence` também é parametrizada. Sob ele, todas as propriedades nesse nível são especificadas para serem parametrizadas como cadeias de caracteres, com valores padrão e nomes de parâmetro. Uma exceção é a propriedade `interval`, que é parametrizada como um tipo numérico, e com o nome do parâmetro sufixado com `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Da mesma forma, a propriedade `freq` é uma cadeia de caracteres e é parametrizada como uma cadeia de caracteres. No entanto, a propriedade `freq` é parametrizada sem um valor padrão. O nome é reduzido e sufixado. Por exemplo, `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
@@ -685,7 +685,7 @@ Se você implantar uma fábrica na produção e perceber que há um bug que prec
 
 7.  Faça check-in manual dessa compilação para a ramificação adf_publish.
 
-8.  Se você tiver configurado seu pipeline de liberação para disparar automaticamente com base em check-ins do adf_publish, uma nova versão será iniciada automaticamente. Caso contrário, enfileirar manualmente uma versão.
+8.  Se você configurou o pipeline de liberação para disparar automaticamente com base em adf_publish check-ins, uma nova versão será iniciada automaticamente. Caso contrário, enfileirar manualmente uma versão.
 
 9.  Implante a versão de Hot Fix para as fábricas de teste e produção. Esta versão contém a carga de produção anterior mais a correção feita na etapa 5.
 

@@ -1,6 +1,6 @@
 ---
 title: Tutorial – atualizar um aplicativo de malha de Service Fabric do Azure | Microsoft Docs
-description: Saiba como atualizar um aplicativo Service Fabric usando o Visual Studio
+description: Este tutorial é a parte quatro de uma série e mostra como atualizar um aplicativo de malha de Service Fabric do Azure diretamente do Visual Studio.
 services: service-fabric-mesh
 documentationcenter: .net
 author: dkkapur
@@ -14,14 +14,14 @@ ms.workload: NA
 ms.date: 11/29/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 20aa65f0a8e47485e71fd03d73ff144f5290bcb7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 81f155d5708a2fca2fc1145feb20af12d2fd151e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036091"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686208"
 ---
-# <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Tutorial: Saiba como atualizar um aplicativo Service Fabric usando o Visual Studio
+# <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Tutorial: saiba como atualizar um aplicativo Service Fabric usando o Visual Studio
 
 Este tutorial é a parte quatro de uma série e mostra como atualizar um aplicativo de malha de Service Fabric do Azure diretamente do Visual Studio. A atualização incluirá uma atualização de código e uma atualização de configuração. Você verá que as etapas para atualizar e publicar de dentro do Visual Studio são as mesmas.
 
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 Nesta série de tutoriais, ficará a saber como:
 > [!div class="checklist"]
 > * [Criar uma aplicação do Service Fabric Mesh no Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * [Depurar uma aplicação do Service Fabric Mesh em execução no seu cluster de desenvolvimento local](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Depurar uma aplicação do Azure Service Fabric Mesh em execução no cluster de desenvolvimento local](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
 > * [Implementar uma aplicação do Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
 > * Atualizar um aplicativo de malha Service Fabric
 > * [Limpar os recursos do Service Fabric Mesh](service-fabric-mesh-tutorial-cleanup-resources.md)
@@ -47,33 +47,33 @@ Antes de começar este tutorial:
 
 ## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Atualizar um serviço de malha Service Fabric usando o Visual Studio
 
-Este artigo mostra como atualizar um microserviço em um aplicativo. Neste exemplo, modificaremos o `WebFrontEnd` serviço para exibir uma categoria de tarefa e aumentarei a quantidade de CPU fornecida. Em seguida, atualizaremos o serviço implantado.
+Este artigo mostra como atualizar um microserviço em um aplicativo. Neste exemplo, modificaremos o serviço de `WebFrontEnd` para exibir uma categoria de tarefa e aumentar a quantidade de CPU fornecida. Em seguida, atualizaremos o serviço implantado.
 
 ## <a name="modify-the-config"></a>Modificar a configuração
 
-Quando você cria um aplicativo de malha Service Fabric, o Visual Studio adiciona um arquivo Parameters **. YAML** para cada ambiente de implantação (nuvem e local). Nesses arquivos, você pode definir parâmetros e seus valores que podem ser referenciados de seus arquivos de malha *. YAML, como Service. YAML ou Network. YAML.  O Visual Studio fornece algumas variáveis para você, como a quantidade de CPU que o serviço pode usar.
+Quando você cria um aplicativo de malha Service Fabric, o Visual Studio adiciona um arquivo **Parameters. YAML** para cada ambiente de implantação (nuvem e local). Nesses arquivos, você pode definir parâmetros e seus valores que podem ser referenciados de seus arquivos de malha *. YAML, como Service. YAML ou Network. YAML.  O Visual Studio fornece algumas variáveis para você, como a quantidade de CPU que o serviço pode usar.
 
-Atualizaremos o `WebFrontEnd_cpu` parâmetro para atualizar os recursos de CPU para `1.5` antecipação de que o serviço de WebFrontEnd será muito usado.
+Atualizaremos o parâmetro `WebFrontEnd_cpu` para atualizar os recursos da CPU para `1.5` de previsão de que o serviço de **WebFrontEnd** será muito usado.
 
-1. No projeto **apldelistadetarefas** , em **ambientes** > **nuvem**, abra o arquivo Parameters **. YAML** . Modifique o `WebFrontEnd_cpu`valor, para `1.5`. O nome do parâmetro é precedido pelo nome `WebFrontEnd_` do serviço como uma prática recomendada para distingui-lo dos parâmetros do mesmo nome que se aplicam a diferentes serviços.
+1. No projeto **apldelistadetarefas** , em **ambientes** > **nuvem**, abra o arquivo **Parameters. YAML** . Modifique o `WebFrontEnd_cpu`, o valor para `1.5`. O nome do parâmetro é precedido pelo nome do serviço `WebFrontEnd_` como uma prática recomendada para distingui-lo dos parâmetros do mesmo nome que se aplicam a diferentes serviços.
 
     ```xml
     WebFrontEnd_cpu: 1.5
     ```
 
-2. Abra o arquivo **Service. YAML** do projeto de WebFrontEnd em**recursos do serviço**de WebFrontEnd. > 
+2. Abra o arquivo **Service. YAML** do projeto de **WebFrontEnd** em **WebFrontEnd** > **recursos do serviço**.
 
-    Observe que a `cpu:` seção `resources:` in é definida como. `"[parameters('WebFrontEnd_cpu')]"` Se o projeto estiver sendo compilado para a nuvem, o valor para `'WebFrontEnd_cpu` será obtido do arquivo Parameters de**nuvem** > de **ambientes** >  **. YAML** e será `1.5`. Se o projeto estiver sendo criado para ser executado localmente, o valor será obtido do arquivo Parameters **. YAML** de **ambientes** > **locais** > e será ' 0,5 '.
+    Observe que, na seção `resources:`, `cpu:` é definido como `"[parameters('WebFrontEnd_cpu')]"`. Se o projeto estiver sendo compilado para a nuvem, o valor de `'WebFrontEnd_cpu` será obtido dos **ambientes** > arquivo. YAML do **Cloud** > **parameters** e será `1.5`. Se o projeto estiver sendo criado para ser executado localmente, o valor será obtido dos **ambientes** > arquivo **local** > **Parameters. YAML** e será ' 0,5 '.
 
 > [!Tip]
 > Por padrão, o arquivo de parâmetro que é um par do arquivo Profile. YAML será usado para fornecer os valores para esse arquivo Profile. YAML.
 > Por exemplo, ambientes > parâmetros de > de nuvem. YAML fornece os valores de parâmetro para ambientes > Cloud > Profile. YAML.
 >
-> Você pode substituir isso adicionando o seguinte ao arquivo Profile. YAML:`parametersFilePath=”relative or full path to the parameters file”` Por exemplo, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` ou `parametersFilePath=”..\CommonParameters.yaml”`
+> Você pode substituir isso adicionando o seguinte ao arquivo Profile. YAML:`parametersFilePath=”relative or full path to the parameters file”` por exemplo, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` ou `parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Modificar o modelo
 
-Para introduzir uma alteração de código, adicione `Category` uma propriedade `ToDoItem` à classe no `ToDoItem.cs` arquivo.
+Para introduzir uma alteração de código, adicione uma propriedade `Category` à classe `ToDoItem` no arquivo `ToDoItem.cs`.
 
 ```csharp
 public class ToDoItem
@@ -83,7 +83,7 @@ public class ToDoItem
 }
 ```
 
-Em seguida, `Load()` atualize o método, no mesmo arquivo, para definir a categoria como uma cadeia de caracteres padrão:
+Em seguida, atualize o método `Load()`, no mesmo arquivo, para definir a categoria como uma cadeia de caracteres padrão:
 
 ```csharp
 public static ToDoItem Load(string description, int index, bool completed)
@@ -101,7 +101,7 @@ public static ToDoItem Load(string description, int index, bool completed)
 
 ## <a name="modify-the-service"></a>Modificar o serviço
 
-O `WebFrontEnd` projeto é um aplicativo ASP.NET Core com uma página da Web que mostra itens de lista de tarefas pendentes. No projeto, abra `Index.cshtml` e adicione as duas linhas a seguir, indicadas abaixo, para exibir a categoria da tarefa: `WebFrontEnd`
+O projeto `WebFrontEnd` é um aplicativo ASP.NET Core com uma página da Web que mostra itens de lista de tarefas pendentes. No projeto `WebFrontEnd`, abra `Index.cshtml` e adicione as duas linhas a seguir, indicadas abaixo, para exibir a categoria da tarefa:
 
 ```HTML
 <div>
@@ -135,7 +135,7 @@ Se você estiver fazendo uma atualização de código ou uma atualização de co
 
 Em seguida, verá a caixa de diálogo **Publish Service Fabric Application** (Publicar Aplicação do Service Fabric).
 
-Use o menu suspenso **perfil de destino** para selecionar o arquivo Profile. YAML a ser usado para essa implantação. Estamos atualizando o aplicativo na nuvem, portanto, selecionamos o **Cloud. YAML** na lista suspensa, que usará `WebFrontEnd_cpu` o valor de 1,0 definido nesse arquivo.
+Use o menu suspenso **perfil de destino** para selecionar o arquivo Profile. YAML a ser usado para essa implantação. Estamos atualizando o aplicativo na nuvem, portanto, selecionamos o **Cloud. YAML** na lista suspensa, que usará o valor `WebFrontEnd_cpu` de 1,0 definido nesse arquivo.
 
 ![Caixa de diálogo de publicação do Service Fabric Mesh do Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 
@@ -159,7 +159,7 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 Abra um browser e navegue para o URL para ver o site em execução no Azure. Agora você deve ver uma página da Web que contém uma coluna de categoria.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Nesta parte do tutorial, ficou a saber como:
 > [!div class="checklist"]

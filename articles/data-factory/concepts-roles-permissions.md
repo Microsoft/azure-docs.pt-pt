@@ -1,5 +1,5 @@
 ---
-title: Funções e permissões para Azure Data Factory | Microsoft Docs
+title: Funções e permissões para Azure Data Factory
 description: Descreve as funções e permissões necessárias para criar fábricas de dados e trabalhar com recursos filho.
 ms.date: 11/5/2018
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 9df65322958bffd3182aaa8d734e8b29717d939d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f5b4cbc670a429a84f42be79adb00057656a5483
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142531"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681431"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Funções e permissões para Azure Data Factory
 
@@ -46,7 +46,7 @@ A associação na função **colaborador de data Factory** permite que os usuár
 
 Para obter mais informações sobre essa função, consulte [Data Factory colaborador role](../role-based-access-control/built-in-roles.md#data-factory-contributor).
 
-### <a name="resource-manager-template-deployment"></a>Implementação de modelo do Resource Manager
+### <a name="resource-manager-template-deployment"></a>Implantação do modelo do Resource Manager
 
 A função **colaborador do data Factory** , no nível do grupo de recursos ou acima, permite que os usuários implantem modelos do Resource Manager. Como resultado, os membros da função podem usar modelos do Resource Manager para implantar data factories e seus recursos filho, incluindo conjuntos de dados, serviços vinculados, pipelines, gatilhos e tempos de execução de integração. No entanto, a associação nessa função não permite que o usuário crie outros recursos.
 
@@ -88,7 +88,7 @@ Aqui estão alguns exemplos que demonstram o que você pode obter com funções 
 
   Atribua a função **colaborador** interna no recurso de data Factory para o usuário. Essa função permite que o usuário veja os recursos na portal do Azure, mas o usuário não pode acessar os botões **publicar** e **publicar todos** .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre as funções no Azure – [entender as definições de função](../role-based-access-control/role-definitions.md)
 

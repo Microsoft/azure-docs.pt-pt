@@ -1,5 +1,5 @@
 ---
-title: Log de diagnóstico de desempenho do Intelligent Insights-banco de dados SQL do Azure | Microsoft Docs
+title: Log de diagnóstico de desempenho do Intelligent Insights-banco de dados SQL do Azure
 description: Intelligent Insights fornece um log de diagnóstico de problemas de desempenho do banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: c25d37a4d1695ab94cc0667a13e36e4da640e12a
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 86381f5670f09b5e6a215793dc1ea4eab7ecbb8e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262139"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689695"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Usar o Intelligent Insights log de diagnóstico de desempenho do banco de dados SQL do Azure
 
@@ -40,7 +40,7 @@ O cabeçalho do log é comum e consiste no carimbo de data/hora (TimeGenerated) 
 
 A propriedade de identificação do problema (issueId_d) fornece uma maneira de controlar com exclusividade os problemas de desempenho até que sejam resolvidos. Vários registros de eventos no status do relatório de log do mesmo problema compartilharão a mesma ID de problema.
 
-Junto com a ID do problema, o log de diagnóstico relata os carimbos de data/hora de início (intervalStartTime_t) e término (intervalEndTme_t) do evento específico relacionado a um problema relatado no log de diagnóstico.
+Junto com a ID do problema, o log de diagnóstico relata os carimbos de data/hora de início (intervalStartTime_t) e fim (intervalEndTme_t) do evento específico relacionado a um problema relatado no log de diagnóstico.
 
 A propriedade pool elástico (elasticPoolName_s) indica a qual pool elástico o banco de dados com um problema pertence. Se o banco de dados não fizer parte de um pool elástico, essa propriedade não terá nenhum valor. O banco de dados no qual um problema foi detectado é divulgado na propriedade nome do banco de dados (databaseName_s).
 
@@ -84,7 +84,7 @@ Dependendo do problema de desempenho detectado, os detalhes enviados no arquivo 
 | Maior MAXDOP | <li>Hashes de consulta</li><li>CXP tempos de espera</li><li>Tempos de espera</li> |
 | Contenção de Pagelatch | <li>Hashes de consulta de consultas causando contenção</li> |
 | Índice ausente | <li>Hashes de consulta</li> |
-| Nova Consulta | <li>Hash de consulta das novas consultas</li> |
+| Nova consulta | <li>Hash de consulta das novas consultas</li> |
 | Estatística de espera incomum | <li>Tipos de espera incomum</li><li>Hashes de consulta</li><li>Tempos de espera da consulta</li> |
 | Contenção de TempDB | <li>Hashes de consulta de consultas causando contenção</li><li>Atribuição de consulta ao tempo de espera de contenção de pagelatch do banco de dados geral [%]</li> |
 | Escassez de DTU do pool elástico | <li>Conjunto elástico</li><li>Banco de dados de consumo de DTU principal</li><li>Porcentagem de DTU de pool usada pelo consumidor superior</li> |
@@ -99,9 +99,9 @@ A propriedade impacto (impacto) descreve o quanto um comportamento detectado con
 
 ### <a name="impacted-queries"></a>Consultas afetadas
 
-A próxima seção do log de Intelligent Insights fornece informações sobre as consultas específicas que foram afetadas pelos problemas de desempenho detectados. Essas informações são divulgadas como uma matriz de objetos inseridos na propriedade impact_s. A propriedade Impact consiste em entidades e métricas. As entidades referem-se a uma consulta específica (tipo: Consulta). O hash de consulta exclusivo é divulgado na propriedade valor (valor). Além disso, cada uma das consultas divulgadas é seguida por uma métrica e um valor, que indicam um problema de desempenho detectado.
+A próxima seção do log de Intelligent Insights fornece informações sobre as consultas específicas que foram afetadas pelos problemas de desempenho detectados. Essas informações são divulgadas como uma matriz de objetos inseridos na propriedade impact_s. A propriedade Impact consiste em entidades e métricas. As entidades referem-se a uma consulta específica (tipo: consulta). O hash de consulta exclusivo é divulgado na propriedade valor (valor). Além disso, cada uma das consultas divulgadas é seguida por uma métrica e um valor, que indicam um problema de desempenho detectado.
 
-No exemplo de log a seguir, a consulta com o hash 0x9102EXZ4 foi detectada para ter uma duração maior de execução (métrica: DurationIncreaseSeconds). O valor de 110 segundos indica que essa consulta específica levou 110 segundos mais para ser executada. Como várias consultas podem ser detectadas, essa seção de log específica pode incluir várias entradas de consulta.
+No exemplo de log a seguir, a consulta com o hash 0x9102EXZ4 foi detectada tendo uma duração maior de execução (Metric: DurationIncreaseSeconds). O valor de 110 segundos indica que essa consulta específica levou 110 segundos mais para ser executada. Como várias consultas podem ser detectadas, essa seção de log específica pode incluir várias entradas de consulta.
 
 ```json
 "impact" : [{
@@ -126,7 +126,7 @@ A propriedade DurationIncreaseSeconds fornece a unidade de medida em segundos. A
 
 ## <a name="root-cause-analysis-and-improvement-recommendations"></a>Análise da causa raiz e recomendações de aperfeiçoamento
 
-A última parte do log de desempenho Intelligent Insights pertence à análise de causa raiz automatizada do problema de degradação de desempenho identificado. As informações são exibidas em argumentação amigáveis para o homem na propriedade rootCauseAnalysis_s (análise da causa raiz). As recomendações de aprimoramento são incluídas no log sempre que possível.
+A última parte do log de desempenho Intelligent Insights pertence à análise de causa raiz automatizada do problema de degradação de desempenho identificado. As informações são exibidas em argumentação amigáveis para o homem na propriedade de análise da causa raiz (rootCauseAnalysis_s). As recomendações de aprimoramento são incluídas no log sempre que possível.
 
 ```json
 // example of reported root cause analysis of the detected performance issue, in a human-readable format

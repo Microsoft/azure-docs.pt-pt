@@ -1,5 +1,5 @@
 ---
-title: Guia de início rápido da central de segurança do Azure-integração de suas máquinas virtuais Azure Stack à central de segurança | Microsoft Docs
+title: Integrar máquinas virtuais Azure Stack à central de segurança do Azure
 description: Este guia de início rápido mostra como provisionar a extensão da máquina virtual de gerenciamento de Azure Monitor, atualização e configuração em uma Azure Stack máquinas virtuais.
 services: security-center
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: fiseraci
-ms.openlocfilehash: 1772fd34a2d79b725b2b5ccaa66adb0b251b7e1d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: c186dcb2d7d7d423f5c001bdb4d3f3503beebd9c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202863"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686519"
 ---
-# <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>Início rápido:  Integre suas máquinas virtuais Azure Stack à central de segurança
+# <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Início rápido: integrar suas máquinas virtuais Azure Stack à central de segurança
 Depois de integrar sua assinatura do Azure, você pode habilitar a central de segurança para proteger suas máquinas virtuais em execução no Azure Stack adicionando a extensão de máquina virtual de **Gerenciamento de Azure monitor, atualização e configuração** do Azure Stack Comunidade.
 
 Este guia de início rápido mostra como adicionar a extensão de máquina virtual de **Gerenciamento de Azure monitor, atualização e configuração** em uma máquina virtual (com suporte do Linux e do Windows) em Azure Stack.
@@ -33,7 +33,7 @@ Você deve ter uma assinatura do Azure na camada Standard da central de seguran�
 
 ## <a name="select-your-workspace-in-azure-security-center"></a>Selecione seu espaço de trabalho na central de segurança do Azure
 
-1. Inicie sessão no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
+1. Inicie sessão no [portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 2. No menu **Microsoft Azure**, selecione **Centro de Segurança**. **Centro de Segurança - Descrição Geral** é aberto. 
 
    ![Descrição geral do Centro de Segurança][2]
@@ -69,7 +69,7 @@ Agora você deve adicionar a extensão de máquina virtual de **Gerenciamento de
 > Se você não vir a extensão de **Azure monitor, atualização e gerenciamento de configuração** listada em seu Marketplace, entre em contato com seu operador de Azure Stack para disponibilizá-lo.
 
 6. Na folha **instalar** configuração de extensão, Cole a **ID do espaço de trabalho** e a **chave do espaço de trabalho (chave primária)** que você copiou no bloco de notas no procedimento anterior.
-7.  Quando terminar de fornecer as definições de configuração necessárias, clique em **OK**.
+7. Quando terminar de fornecer as definições de configuração necessárias, clique em **OK**.
 8. Depois que a instalação da extensão for concluída, seu status será exibido como **provisionamento bem-sucedido**. Pode levar até uma hora para que a máquina virtual apareça no portal da central de segurança.
 
 Para obter mais informações sobre como instalar e configurar o agente para Windows, consulte [conectar computadores Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
@@ -100,7 +100,7 @@ Para remover a extensão:
 Neste guia de início rápido, você provisionou a extensão de Azure Monitor, atualização e gerenciamento de configuração em uma máquina virtual em execução no Azure Stack. Para saber mais sobre como utilizar o Centro de Segurança, avance para o tutorial para configurar uma política de segurança e avaliar a segurança dos seus recursos.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Definir e avaliar políticas de segurança](tutorial-security-policy.md)
+> [Tutorial: definir e avaliar as políticas de segurança](tutorial-security-policy.md)
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png
