@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1b056ce8afe86fcd6629aff23ac95acae02ed9ba
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d7e77907e2d394d2a4c1679ec50af8d4f72fa6f1
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299874"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615058"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Associações para Durable Functions (Azure Functions)
 
@@ -24,9 +24,9 @@ A extensão [Durable Functions](durable-functions-overview.md) introduz duas nov
 
 O gatilho de orquestração permite que você crie [funções de orquestrador duráveis](durable-functions-types-features-overview.md#orchestrator-functions). Esse gatilho dá suporte à inicialização de novas instâncias de função de orquestrador e à retomada das instâncias de função de orquestrador existentes que estão "aguardando" uma tarefa.
 
-Quando você usa as ferramentas do Visual Studio para Azure Functions, o gatilho Orchestration é configurado usando o atributo .NET [OrchestrationTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationTriggerAttribute.html) .
+Quando você usa as ferramentas do Visual Studio para Azure Functions, o gatilho Orchestration é configurado usando o atributo .NET [OrchestrationTriggerAttribute](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.OrchestrationTriggerAttribute?view=azure-dotnet) .
 
-Quando você escreve funções de orquestrador em linguagens de script (por exemplo, C# JavaScript ou scripts), o gatilho Orchestration é definido pelo seguinte objeto JSON na matriz `bindings` do arquivo *Function. JSON* :
+Quando você escreve funções de orquestrador em linguagens de script (por exemplo, C# JavaScript ou scripts), o gatilho de orquestração é definido pelo seguinte objeto JSON na matriz de `bindings` do arquivo *Function. JSON* :
 
 ```json
 {
@@ -37,7 +37,7 @@ Quando você escreve funções de orquestrador em linguagens de script (por exem
 }
 ```
 
-* `orchestration` é o nome da orquestração. Esse é o valor que os clientes devem usar quando desejarem iniciar novas instâncias dessa função de orquestrador. Esta propriedade é opcional. Se não for especificado, o nome da função será usado.
+* `orchestration` é o nome da orquestração que os clientes devem usar quando desejarem iniciar novas instâncias dessa função de orquestrador. Esta propriedade é opcional. Se não for especificado, o nome da função será usado.
 
 Internamente, essa associação de gatilho sonda uma série de filas na conta de armazenamento padrão para o aplicativo de funções. Essas filas são detalhes de implementação interna da extensão, que é o motivo pelo qual elas não são configuradas explicitamente nas propriedades de associação.
 
@@ -60,8 +60,8 @@ Aqui estão algumas observações sobre o gatilho de orquestração:
 
 A associação de gatilho de orquestração dá suporte a entradas e saídas. Aqui estão algumas coisas que você precisa saber sobre o tratamento de entrada e saída:
 
-* **entradas** – as funções de orquestração do .NET dão suporte apenas a [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) como um tipo de parâmetro. Não há suporte para a desserialização de entradas diretamente na assinatura de função. O código deve usar o método [getinput @ no__t-1T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1)(.net) ou `getInput` (JavaScript) para buscar entradas de função de orquestrador. Essas entradas devem ser tipos serializáveis em JSON.
-* **saídas** – os gatilhos de orquestração dão suporte a valores de saída, bem como entradas. O valor de retorno da função é usado para atribuir o valor de saída e deve ser serializável por JSON. Se uma função do .NET retornar `Task` ou `void`, um valor `null` será salvo como a saída.
+* **entradas** – as funções de orquestração do .NET dão suporte apenas `DurableOrchestrationContext` como um tipo de parâmetro. Não há suporte para a desserialização de entradas diretamente na assinatura de função. O código deve usar o método `GetInput<T>` (.NET) ou `getInput` (JavaScript) para buscar entradas de função de orquestrador. Essas entradas devem ser tipos serializáveis em JSON.
+* **saídas** – os gatilhos de orquestração dão suporte a valores de saída, bem como entradas. O valor de retorno da função é usado para atribuir o valor de saída e deve ser serializável por JSON. Se uma função do .NET retornar `Task` ou `void`, um valor de `null` será salvo como a saída.
 
 ### <a name="trigger-sample"></a>Exemplo de gatilho
 
@@ -71,14 +71,16 @@ O código de exemplo a seguir mostra como a função de orquestrador "Olá, Mund
 
 ```csharp
 [FunctionName("HelloWorld")]
-public static string Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static string Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string name = context.GetInput<string>();
     return $"Hello {name}!";
 }
 ```
+> [!NOTE]
+> O código anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
+#### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -90,10 +92,10 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> O objeto `context` em JavaScript não representa o DurableOrchestrationContext, mas o [contexto de função como um todo](../functions-reference-node.md#context-object). Você pode acessar os métodos de orquestração por meio da propriedade `df` do objeto `context`.
+> O objeto `context` no JavaScript não representa o DurableOrchestrationContext, mas o [contexto de função como um todo](../functions-reference-node.md#context-object). Você pode acessar os métodos de orquestração por meio da propriedade `df` do objeto de `context`.
 
 > [!NOTE]
-> Os orquestradores de JavaScript devem usar `return`. A biblioteca `durable-functions` cuida da chamada do método `context.done`.
+> Os orquestradores de JavaScript devem usar `return`. A biblioteca de `durable-functions` cuida da chamada do método `context.done`.
 
 A maioria das funções de orquestrador chamam funções de atividade, portanto, aqui está um exemplo de "Olá, Mundo" que demonstra como chamar uma função de atividade:
 
@@ -102,7 +104,7 @@ A maioria das funções de orquestrador chamam funções de atividade, portanto,
 ```csharp
 [FunctionName("HelloWorld")]
 public static async Task<string> Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string name = context.GetInput<string>();
     string result = await context.CallActivityAsync<string>("SayHello", name);
@@ -110,7 +112,10 @@ public static async Task<string> Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
+> [!NOTE]
+> O código anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+
+#### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -126,9 +131,9 @@ module.exports = df.orchestrator(function*(context) {
 
 O gatilho de atividade permite que você crie funções que são chamadas por funções de orquestrador, conhecidas como [funções de atividade](durable-functions-types-features-overview.md#activity-functions).
 
-Se você estiver usando o Visual Studio, o gatilho de atividade será configurado usando o atributo .NET [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .
+Se você estiver usando o Visual Studio, o gatilho de atividade será configurado usando o atributo `ActivityTriggerAttribute` .NET.
 
-Se você estiver usando VS Code ou o portal do Azure para desenvolvimento, o gatilho de atividade será definido pelo seguinte objeto JSON na matriz `bindings` de *Function. JSON*:
+Se você estiver usando VS Code ou o portal do Azure para desenvolvimento, o gatilho de atividade será definido pelo seguinte objeto JSON na matriz de `bindings` de *Function. JSON*:
 
 ```json
 {
@@ -159,8 +164,8 @@ Aqui estão algumas observações sobre o gatilho de atividade:
 
 A associação de gatilho de atividade dá suporte a entradas e saídas, assim como o gatilho de orquestração. Aqui estão algumas coisas que você precisa saber sobre o tratamento de entrada e saída:
 
-* **entradas** – as funções de atividade do .NET usam nativamente o [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) como um tipo de parâmetro. Como alternativa, uma função de atividade pode ser declarada com qualquer tipo de parâmetro que seja serializável por JSON. Ao usar `DurableActivityContext`, você pode chamar [getinput @ no__t-2t >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) para buscar e desserializar a entrada da função de atividade.
-* **Outputs** -as funções de atividade dão suporte a valores de saída, bem como entradas. O valor de retorno da função é usado para atribuir o valor de saída e deve ser serializável por JSON. Se uma função do .NET retornar `Task` ou `void`, um valor `null` será salvo como a saída.
+* **entradas** – as funções de atividade do .NET usam nativamente `DurableActivityContext` como um tipo de parâmetro. Como alternativa, uma função de atividade pode ser declarada com qualquer tipo de parâmetro que seja serializável por JSON. Ao usar `DurableActivityContext`, você pode chamar `GetInput<T>` para buscar e desserializar a entrada da função de atividade.
+* **Outputs** -as funções de atividade dão suporte a valores de saída, bem como entradas. O valor de retorno da função é usado para atribuir o valor de saída e deve ser serializável por JSON. Se uma função do .NET retornar `Task` ou `void`, um valor de `null` será salvo como a saída.
 * **metadados** -as funções de atividade .net podem ser associadas a um parâmetro `string instanceId` para obter a ID da instância da orquestração pai.
 
 ### <a name="trigger-sample"></a>Exemplo de gatilho
@@ -171,14 +176,17 @@ O código de exemplo a seguir mostra como uma função de atividade "Olá, Mundo
 
 ```csharp
 [FunctionName("SayHello")]
-public static string SayHello([ActivityTrigger] DurableActivityContext helloContext)
+public static string SayHello([ActivityTrigger] IDurableActivityContext helloContext)
 {
     string name = helloContext.GetInput<string>();
     return $"Hello {name}!";
 }
 ```
 
-O tipo de parâmetro padrão para a associação .NET `ActivityTriggerAttribute` é `DurableActivityContext`. No entanto, os gatilhos de atividade do .NET também dão suporte à associação diretamente a tipos serializados em JSON (incluindo tipos primitivos), portanto, a mesma função pode ser simplificada da seguinte maneira:
+> [!NOTE]
+> O código anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableActivityContext` em vez de `IDurableActivityContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+
+O tipo de parâmetro padrão para a associação .NET `ActivityTriggerAttribute` é `IDurableActivityContext`. No entanto, os gatilhos de atividade do .NET também dão suporte à associação diretamente a tipos serializados em JSON (incluindo tipos primitivos), portanto, a mesma função pode ser simplificada da seguinte maneira:
 
 ```csharp
 [FunctionName("SayHello")]
@@ -188,7 +196,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
+#### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2,0)
 
 ```javascript
 module.exports = async function(context) {
@@ -244,9 +252,9 @@ A associação de cliente de orquestração permite que você grave funções qu
 * Enviar eventos para eles enquanto eles estiverem em execução.
 * Limpar o histórico de instância.
 
-Se você estiver usando o Visual Studio, poderá associar ao cliente Orchestration usando o atributo [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .net para Durable Functions 1,0. A partir da versão prévia do Durable Functions 2,0, você pode associar ao cliente Orchestration usando o atributo `DurableClientAttribute` .NET.
+Se você estiver usando o Visual Studio, poderá associar ao cliente Orchestration usando o atributo `OrchestrationClientAttribute` .NET para Durable Functions 1,0. A partir do Durable Functions 2,0, você pode associar ao cliente de orquestração usando o atributo `DurableClientAttribute` .NET.
 
-Se você estiver usando linguagens de script (por exemplo, arquivos *. CSX* ou *. js* ) para desenvolvimento, o gatilho de orquestração será definido pelo seguinte objeto JSON na matriz `bindings` de *Function. JSON*:
+Se você estiver usando linguagens de script (por exemplo, arquivos *. CSX* ou *. js* ) para desenvolvimento, o gatilho de orquestração será definido pelo seguinte objeto JSON na `bindings` matriz de *Function. JSON*:
 
 ```json
 {
@@ -258,7 +266,7 @@ Se você estiver usando linguagens de script (por exemplo, arquivos *. CSX* ou *
 }
 ```
 
-* `taskHub`-usado em cenários em que vários aplicativos de funções compartilham a mesma conta de armazenamento, mas precisam ser isolados uns dos outros. Se não for especificado, o valor padrão de `host.json` será usado. Esse valor deve corresponder ao valor usado pelas funções de orquestrador de destino.
+* `taskHub`-usados em cenários em que vários aplicativos de funções compartilham a mesma conta de armazenamento, mas precisam ser isolados uns dos outros. Se não for especificado, o valor padrão de `host.json` será usado. Esse valor deve corresponder ao valor usado pelas funções de orquestrador de destino.
 * `connectionName`-o nome de uma configuração de aplicativo que contém uma cadeia de conexão da conta de armazenamento. A conta de armazenamento representada por essa cadeia de conexão deve ser a mesma usada pelas funções de orquestrador de destino. Se não for especificado, a cadeia de conexão de conta de armazenamento padrão para o aplicativo de funções será usada.
 
 > [!NOTE]
@@ -266,19 +274,19 @@ Se você estiver usando linguagens de script (por exemplo, arquivos *. CSX* ou *
 
 ### <a name="client-usage"></a>Uso do cliente
 
-Em funções do .NET, você normalmente se associa a `DurableOrchestrationClient`, que fornece acesso completo a todas as APIs de cliente com suporte do Durable Functions. A partir do Durable Functions 2,0, você associa à interface `IDurableOrchestrationClient`. No JavaScript, as mesmas APIs são expostas pelo objeto retornado de `getClient`. As APIs no objeto de cliente incluem:
+Em funções do .NET, você normalmente se associa a `IDurableOrchestrationClient`, que fornece acesso completo a todas as APIs de cliente de orquestração suportadas pelo Durable Functions. Nas versões mais antigas Durable Functions 2. x, em vez disso, você faz a ligação com a classe `DurableOrchestrationClient`. No JavaScript, as mesmas APIs são expostas pelo objeto retornado de `getClient`. As APIs no objeto de cliente incluem:
 
-* [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)
-* [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_)
-* [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_)
-* [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_)
-* [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_)
-* [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_)
-* [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_)
+* `StartNewAsync`
+* `GetStatusAsync`
+* `TerminateAsync`
+* `RaiseEventAsync`
+* `PurgeInstanceHistoryAsync`
+* `CreateCheckStatusResponse`
+* `CreateHttpManagementPayload`
 
-Como alternativa, as funções do .NET podem se associar a `IAsyncCollector<T>`, em que `T` é [StartOrchestrationArgs](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.StartOrchestrationArgs.html) ou `JObject`.
+Como alternativa, as funções do .NET podem ser associadas a `IAsyncCollector<T>` onde `T` é `StartOrchestrationArgs` ou `JObject`.
 
-Para obter mais informações sobre essas operações, consulte a documentação da API do [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) .
+Para obter mais informações sobre essas operações, consulte a documentação da API do `IDurableOrchestrationClient`.
 
 ### <a name="client-sample-visual-studio-development"></a>Exemplo de cliente (desenvolvimento do Visual Studio)
 
@@ -288,12 +296,15 @@ Aqui está um exemplo de função disparada por fila que inicia uma orquestraç�
 [FunctionName("QueueStart")]
 public static Task Run(
     [QueueTrigger("durable-function-trigger")] string input,
-    [OrchestrationClient] DurableOrchestrationClient starter)
+    [DurableClient] IDurableOrchestrationClient starter)
 {
     // Orchestration input comes from the queue message content.
     return starter.StartNewAsync("HelloWorld", input);
 }
 ```
+
+> [!NOTE]
+> O código C# anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar o atributo `OrchestrationClient` em vez do atributo `DurableClient`, e deve usar o tipo de parâmetro `DurableOrchestrationClient` em vez de `IDurableOrchestrationClient`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
 ### <a name="client-sample-not-visual-studio"></a>Exemplo de cliente (não Visual Studio)
 
@@ -310,27 +321,35 @@ Se você não estiver usando o Visual Studio para desenvolvimento, poderá criar
     },
     {
       "name": "starter",
-      "type": "orchestrationClient",
+      "type": "durableClient",
       "direction": "in"
     }
   ]
 }
 ```
 
+> [!NOTE]
+> O JSON anterior é para o Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `orchestrationClient` em vez do `durableClient` como o tipo de gatilho. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+
 Veja a seguir exemplos específicos de idioma que iniciam novas instâncias de função de orquestrador.
 
-#### <a name="c-sample"></a>C#Nova
+#### <a name="c-script-sample"></a>C#Exemplo de script
 
-O exemplo a seguir mostra como usar a associação de cliente de orquestração durável para iniciar uma nova instância de C# função de uma função de script:
+O exemplo a seguir mostra como usar a associação de cliente de orquestração durável para iniciar uma nova instância de função de uma C# função disparada por fila:
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
 
-public static Task<string> Run(string input, DurableOrchestrationClient starter)
+using Microsoft.Azure.WebJobs.Extensions.DurableTask;
+
+public static Task Run(string input, IDurableOrchestrationClient starter)
 {
     return starter.StartNewAsync("HelloWorld", input);
 }
 ```
+
+> [!NOTE]
+> O código anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar o tipo de parâmetro `DurableOrchestrationClient` em vez de `IDurableOrchestrationClient`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
 #### <a name="javascript-sample"></a>Exemplo de JavaScript
 
@@ -354,7 +373,7 @@ Os gatilhos de entidade permitem que você crie [funções de entidade](durable-
 Quando você usa as ferramentas do Visual Studio para Azure Functions, o gatilho de entidade é configurado usando o atributo `EntityTriggerAttribute` .NET.
 
 > [!NOTE]
-> Os gatilhos de entidade estão disponíveis no Durable Functions 2,0 e superior. Os gatilhos de entidade ainda não estão disponíveis para JavaScript.
+> Os gatilhos de entidade estão disponíveis a partir do Durable Functions 2. x.
 
 Internamente, essa associação de gatilho sonda uma série de filas na conta de armazenamento padrão para o aplicativo de funções. Essas filas são detalhes de implementação interna da extensão, que é o motivo pelo qual elas não são configuradas explicitamente nas propriedades de associação.
 
@@ -378,20 +397,20 @@ Cada função de entidade tem um tipo de parâmetro de `IDurableEntityContext`, 
 * **EntityId**: a ID da entidade em execução no momento.
 * **OperationName**: o nome da operação atual.
 * **HasState**: se a entidade existe, ou seja, tem algum estado. 
-* **GetState @ no__t-1TState > ()** : Obtém o estado atual da entidade. Se ele ainda não existir, ele será criado e inicializado para `default<TState>`. O parâmetro `TState` deve ser um tipo primitivo ou serializável por JSON. 
-* **GetState @ no__t-1TState > (initfunction)** : Obtém o estado atual da entidade. Se ele ainda não existir, ele será criado chamando o parâmetro `initfunction` fornecido. O parâmetro `TState` deve ser um tipo primitivo ou serializável por JSON. 
+* **GetState\<TState > ()** : Obtém o estado atual da entidade. Se ele ainda não existir, ele será criado e inicializado para `default<TState>`. O parâmetro `TState` deve ser um tipo primitivo ou serializável por JSON. 
+* **GetState\<TState > (initfunction)** : Obtém o estado atual da entidade. Se ele ainda não existir, ele será criado chamando o parâmetro de `initfunction` fornecido. O parâmetro `TState` deve ser um tipo primitivo ou serializável por JSON. 
 * **SetState (ARG)** : cria ou atualiza o estado da entidade. O parâmetro `arg` deve ser um objeto serializável em JSON ou primitivo.
 * **Deletestate ()** : exclui o estado da entidade. 
-* **Getinput @ no__t-1TInput > ()** : Obtém a entrada para a operação atual. O parâmetro de tipo `TInput` deve ser um tipo primitivo ou serializável por JSON.
-* **Return (ARG)** : retorna um valor para a orquestração que chamou a operação. O parâmetro `arg` deve ser um objeto primitivo ou serializável em JSON.
-* **SignalEntity (EntityId, operação, entrada)** : envia uma mensagem unidirecional para uma entidade. O parâmetro `operation` deve ser uma cadeia de caracteres não nula e o parâmetro `input` deve ser um objeto primitivo ou serializável por JSON.
-* **CreateNewOrchestration (orchestratorFunctionName, entrada)** : inicia uma nova orquestração. O parâmetro `input` deve ser um objeto primitivo ou serializável em JSON.
+* **Getinput\<TInput > ()** : Obtém a entrada para a operação atual. O parâmetro de tipo de `TInput` deve ser um tipo primitivo ou serializável por JSON.
+* **Return (ARG)** : retorna um valor para a orquestração que chamou a operação. O parâmetro `arg` deve ser um objeto primitivo ou serializável por JSON.
+* **SignalEntity (EntityId, operação, entrada)** : envia uma mensagem unidirecional para uma entidade. O parâmetro `operation` deve ser uma cadeia de caracteres não nula e o parâmetro `input` deve ser um objeto primitivo ou serializável em JSON.
+* **CreateNewOrchestration (orchestratorFunctionName, entrada)** : inicia uma nova orquestração. O parâmetro `input` deve ser um objeto primitivo ou serializável por JSON.
 
-O objeto `IDurableEntityContext` passado para a função de entidade pode ser acessado usando a propriedade local Async-1 @no__t. Essa abordagem é conveniente ao usar o modelo de programação baseado em classe.
+O objeto `IDurableEntityContext` passado para a função de entidade pode ser acessado usando a propriedade `Entity.Current` Async-local. Essa abordagem é conveniente ao usar o modelo de programação baseado em classe.
 
-### <a name="trigger-sample-function-based-syntax"></a>Exemplo de gatilho (sintaxe baseada em função)
+### <a name="trigger-sample-c-function-based-syntax"></a>Exemplo de gatilhoC# (sintaxe baseada em função)
 
-O código a seguir é um exemplo de uma entidade de *contador* simples implementada como uma função durável. Essa função define três operações, `add`, `reset` e `get`, cada uma operando em um estado inteiro.
+O código a seguir é um exemplo de uma entidade de *contador* simples implementada como uma função durável. Essa função define três operações, `add`, `reset`e `get`, cada uma operando em um estado de inteiro.
 
 ```csharp
 [FunctionName("Counter")]
@@ -414,7 +433,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 
 Para obter mais informações sobre a sintaxe baseada em função e como usá-la, consulte [sintaxe baseada em função](durable-functions-dotnet-entities.md#function-based-syntax).
 
-### <a name="trigger-sample-class-based-syntax"></a>Exemplo de gatilho (sintaxe baseada em classe)
+### <a name="trigger-sample-c-class-based-syntax"></a>Exemplo de gatilhoC# (sintaxe baseada em classe)
 
 O exemplo a seguir é uma implementação equivalente da entidade `Counter` usando classes e métodos.
 
@@ -446,6 +465,48 @@ Para obter mais informações sobre a sintaxe baseada em classe e como usá-la, 
 
 As classes de entidade têm mecanismos especiais para interagir com associações e injeção de dependência do .NET. Para obter mais informações, consulte [construção de entidade](durable-functions-dotnet-entities.md#entity-construction).
 
+### <a name="trigger-sample-javascript"></a>Exemplo de gatilho (JavaScript)
+
+O código a seguir é um exemplo de uma entidade de *contador* simples implementada como uma função durável escrita em JavaScript. Essa função define três operações, `add`, `reset`e `get`, cada uma operando em um estado de inteiro.
+
+**function. JSON**
+```json
+{
+  "bindings": [
+    {
+      "name": "context",
+      "type": "entityTrigger",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+**index. js**
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.entity(function(context) {
+    const currentValue = context.df.getState(() => 0);
+    switch (context.df.operationName) {
+        case "add":
+            const amount = context.df.getInput();
+            context.df.setState(currentValue + amount);
+            break;
+        case "reset":
+            context.df.setState(0);
+            break;
+        case "get":
+            context.df.return(currentValue);
+            break;
+    }
+});
+```
+
+> [!NOTE]
+> As entidades duráveis estão disponíveis em JavaScript, começando com a versão **1.3.0** do pacote do `durable-functions` NPM.
+
 ## <a name="entity-client"></a>Cliente de entidade
 
 A associação de cliente de entidade permite que você dispare de forma assíncrona [funções de entidade](#entity-trigger). Essas funções são, às vezes, chamadas de [funções de cliente](durable-functions-types-features-overview.md#client-functions).
@@ -455,7 +516,7 @@ Se você estiver usando o Visual Studio, poderá associar ao cliente da entidade
 > [!NOTE]
 > O `[DurableClientAttribute]` também pode ser usado para associar ao [cliente de orquestração](#orchestration-client).
 
-Se você estiver usando linguagens de script (por exemplo, arquivos *. CSX* ou *. js* ) para desenvolvimento, o gatilho de entidade será definido pelo seguinte objeto JSON na matriz `bindings` de *Function. JSON*:
+Se você estiver usando linguagens de script (por exemplo, arquivos *. CSX* ou *. js* ) para desenvolvimento, o gatilho de entidade será definido pelo seguinte objeto JSON na `bindings` matriz de *Function. JSON*:
 
 ```json
 {
@@ -467,7 +528,7 @@ Se você estiver usando linguagens de script (por exemplo, arquivos *. CSX* ou *
 }
 ```
 
-* `taskHub`-usado em cenários em que vários aplicativos de funções compartilham a mesma conta de armazenamento, mas precisam ser isolados uns dos outros. Se não for especificado, o valor padrão de `host.json` será usado. Esse valor deve corresponder ao valor usado pelas funções de entidade de destino.
+* `taskHub`-usados em cenários em que vários aplicativos de funções compartilham a mesma conta de armazenamento, mas precisam ser isolados uns dos outros. Se não for especificado, o valor padrão de `host.json` será usado. Esse valor deve corresponder ao valor usado pelas funções de entidade de destino.
 * `connectionName`-o nome de uma configuração de aplicativo que contém uma cadeia de conexão da conta de armazenamento. A conta de armazenamento representada por essa cadeia de conexão deve ser a mesma usada pelas funções de entidade de destino. Se não for especificado, a cadeia de conexão de conta de armazenamento padrão para o aplicativo de funções será usada.
 
 > [!NOTE]
@@ -475,17 +536,17 @@ Se você estiver usando linguagens de script (por exemplo, arquivos *. CSX* ou *
 
 ### <a name="entity-client-usage"></a>Uso de cliente de entidade
 
-Em funções do .NET, você normalmente se associa a `IDurableEntityClient`, que fornece acesso completo a todas as APIs de cliente com suporte de entidades duráveis. Você também pode associar à interface `IDurableClient`, que fornece acesso a APIs de cliente para entidades e orquestrações. As APIs no objeto de cliente incluem:
+Em funções do .NET, você normalmente se associa a `IDurableEntityClient`, que fornece acesso completo a todas as APIs de cliente com suporte de entidades duráveis. Você também pode associar à interface `IDurableOrchestrationClient`, que fornece acesso a APIs de cliente para entidades e orquestrações. As APIs no objeto de cliente incluem:
 
-* **ReadEntityStateAsync @ no__t-1T >** : lê o estado de uma entidade. Ele retorna uma resposta que indica se a entidade de destino existe e, em caso afirmativo, qual é seu estado.
+* **ReadEntityStateAsync\<t >** : lê o estado de uma entidade. Ele retorna uma resposta que indica se a entidade de destino existe e, em caso afirmativo, qual é seu estado.
 * **SignalEntityAsync**: envia uma mensagem unidirecional para uma entidade e aguarda que ela seja enfileirada.
 
 Não é necessário criar a entidade de destino antes de enviar um sinal-o estado da entidade pode ser criado de dentro da função de entidade que manipula o sinal.
 
 > [!NOTE]
-> É importante entender que os "sinais" enviados do cliente são simplesmente enfileirados, para serem processados de forma assíncrona em um momento posterior. Em particular, o `SignalEntityAsync` geralmente retorna antes que a entidade inicie a operação, e não é possível retornar o valor de retorno ou observar as exceções. Se forem necessárias garantias mais fortes (por exemplo, para fluxos de trabalho), as *funções de orquestrador* deverão ser usadas, o que pode esperar que as operações de entidade sejam concluídas e pode processar valores de retorno e observar exceções.
+> É importante entender que os "sinais" enviados do cliente são simplesmente enfileirados, para serem processados de forma assíncrona em um momento posterior. Em particular, a `SignalEntityAsync` geralmente retorna antes que a entidade inicie a operação, e não é possível retornar o valor de retorno ou observar as exceções. Se forem necessárias garantias mais fortes (por exemplo, para fluxos de trabalho), as *funções de orquestrador* deverão ser usadas, o que pode esperar que as operações de entidade sejam concluídas e pode processar valores de retorno e observar exceções.
 
-### <a name="example-client-signals-entity-directly"></a>Exemplo: cliente sinaliza a entidade diretamente
+### <a name="example-client-signals-entity-directly---c"></a>Exemplo: cliente sinaliza a entidade diretamente-C#
 
 Aqui está um exemplo de função disparada por fila que invoca uma entidade "Counter".
 
@@ -502,7 +563,7 @@ public static Task Run(
 }
 ```
 
-### <a name="example-client-signals-entity-via-interface"></a>Exemplo: o cliente sinaliza a entidade por meio da interface
+### <a name="example-client-signals-entity-via-interface---c"></a>Exemplo: o cliente sinaliza a entidade via interface-C#
 
 Sempre que possível, é recomendável [acessar entidades por meio de interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) porque ela fornece mais verificação de tipo. Por exemplo, suponha que a entidade `Counter` mencionada anteriormente implementou uma interface `ICounter`, definida da seguinte maneira:
 
@@ -520,7 +581,7 @@ public class Counter : ICounter
 }
 ```
 
-Em seguida, o código do cliente pode usar `SignalEntityAsync<ICounter>` para gerar um proxy de tipo seguro:
+O código do cliente pode usar `SignalEntityAsync<ICounter>` para gerar um proxy de tipo seguro:
 
 ```csharp
 [FunctionName("UserDeleteAvailable")]
@@ -537,9 +598,47 @@ public static async Task AddValueClient(
 O parâmetro `proxy` é uma instância gerada dinamicamente de `ICounter`, que converte internamente a chamada para `Add` na chamada equivalente (não tipada) para `SignalEntityAsync`.
 
 > [!NOTE]
-> As APIs `SignalEntityAsync` representam operações unidirecionais. Se uma interface de entidade retornar `Task<T>`, o valor do parâmetro `T` será sempre nulo ou `default`.
+> As APIs de `SignalEntityAsync` representam operações unidirecionais. Se uma interface de entidade retornar `Task<T>`, o valor do parâmetro `T` será sempre nulo ou `default`.
 
-Em particular, não faz sentido sinalizar a operação `Get`, uma vez que nenhum valor é retornado. Em vez disso, os clientes podem usar o `ReadStateAsync` para acessar o estado do contador diretamente ou podem iniciar uma função de orquestrador que chama a operação `Get`. 
+Em particular, não faz sentido sinalizar a operação de `Get`, uma vez que nenhum valor é retornado. Em vez disso, os clientes podem usar qualquer `ReadStateAsync` para acessar o estado do contador diretamente ou podem iniciar uma função de orquestrador que chama a operação de `Get`.
+
+### <a name="example-client-signals-entity---javascript"></a>Exemplo: entidade de sinais de cliente-JavaScript
+
+Aqui está um exemplo de função disparada por fila que sinaliza uma entidade "Counter" em JavaScript.
+
+**function. JSON**
+```json
+{
+    "bindings": [
+      {
+        "name": "input",
+        "type": "queueTrigger",
+        "queueName": "durable-entity-trigger",
+        "direction": "in",
+      },
+      {
+        "name": "starter",
+        "type": "durableClient",
+        "direction": "in"
+      }
+    ],
+    "disabled": false
+  }
+```
+
+**index. js**
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const entityId = new df.EntityId("Counter", "myCounter");
+    await context.df.signalEntity(entityId, "add", 1);
+};
+```
+
+> [!NOTE]
+> As entidades duráveis estão disponíveis em JavaScript, começando com a versão **1.3.0** do pacote do `durable-functions` NPM.
 
 <a name="host-json"></a>
 ## <a name="hostjson-settings"></a>configurações de host. JSON

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66102a92ce279b594d61c8b2d484c89a8532057a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 50af82e79e7ba8b979ab28a1b3f608ec7e41bfb2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73171995"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603438"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Habilitar entrada de chave de segurança sem senha (visualização)
 
@@ -50,7 +50,7 @@ Os recursos de registro para métodos de autenticação com senha contam com a v
 
 ### <a name="enable-fido2-security-key-method"></a>Habilitar o método de chave de segurança FIDO2
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Navegue até **Azure Active Directory** > **segurança** > **métodos de autenticação** > **diretiva de método de autenticação (versão prévia)** .
 1. Na chave de **segurança**do método FIDO2, escolha as seguintes opções:
    1. **Habilitar** -Sim ou não
@@ -95,7 +95,7 @@ O provisionamento e desprovisionamento de chaves de segurança do administrador 
 
 ### <a name="upn-changes"></a>Alterações de UPN
 
-Estamos trabalhando para dar suporte a um recurso que permita a alteração de UPN em dispositivos ingressados no Azure AD híbrido e no Azure AD. Se o UPN de um usuário for alterado, você não poderá mais modificar as chaves de segurança FIDO2 para considerar a alteração. A resolução é redefinir o dispositivo e o usuário precisa registrá-lo novamente.
+Se o UPN de um usuário for alterado, você não poderá mais modificar as chaves de segurança FIDO2 para considerar a alteração. A resolução é redefinir o dispositivo e o usuário precisa registrar novamente suas chaves de segurança do FIDO2.
 
 ## <a name="next-steps"></a>Passos seguintes
 

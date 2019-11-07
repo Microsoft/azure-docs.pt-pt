@@ -1,5 +1,5 @@
 ---
-title: Criar uma rede virtual para Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
+title: Criar uma rede virtual para Instância Gerenciada do Banco de Dados SQL do Azure
 description: Este artigo descreve como criar uma rede virtual na qual você pode implantar Instância Gerenciada do Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
-ms.openlocfilehash: 2fd4055f1a2ec7b5b29d1a303f1c9ac3260f4cca
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ae18671000a2bfd3bedef7805ba5db964fe0cf95
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958477"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688168"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Criar uma rede virtual para Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -58,10 +58,10 @@ A maneira mais fácil de criar e configurar uma rede virtual é usar um modelo d
 
    Você pode alterar os nomes da rede virtual e sub-redes e ajustar os intervalos de IP associados aos seus recursos de rede. Depois de selecionar o botão **comprar** , este formulário criará e configurará seu ambiente. Se você não precisar de duas sub-redes, poderá excluir a padrão.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral, consulte [o que é um instância gerenciada?](sql-database-managed-instance.md).
 - Saiba mais sobre a [arquitetura de conectividade em instância gerenciada](sql-database-managed-instance-connectivity-architecture.md).
 - Saiba como [modificar uma rede virtual existente para instância gerenciada](sql-database-managed-instance-configure-vnet-subnet.md).
 - Para obter um tutorial que mostra como criar uma rede virtual, criar um Instância Gerenciada e restaurar um banco de dados de um backup de banco de dados, consulte [criar um instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-get-started.md).
-- Para problemas de DNS, consulte Configurando [um DNS personalizado](sql-database-managed-instance-custom-dns.md).
+- Para problemas de DNS, consulte [Configurando um DNS personalizado](sql-database-managed-instance-custom-dns.md).

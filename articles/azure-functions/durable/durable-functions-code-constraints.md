@@ -6,14 +6,14 @@ manager: gwallace
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 08/18/2019
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 66e33874c3cfe8f9d2594489b3165f81b2ce84ab
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 5fc4a7e4256e405ff1a91b88b2b001048cc832fc
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694828"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614995"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Restrições de código de função do Orchestrator
 
@@ -31,20 +31,20 @@ As funções de orquestrador podem chamar qualquer API em seus idiomas de destin
 
 A tabela a seguir mostra exemplos de APIs que você deve evitar porque elas *não* são determinísticas. Essas restrições se aplicam somente a funções de orquestrador. Outros tipos de função não têm essas restrições.
 
-| Categoria da API | Reason | Solução |
+| Categoria da API | Razão | Solução |
 | ------------ | ------ | ---------- |
-| Datas e horas  | As APIs que retornam a data ou hora atual são não determinísticas porque o valor retornado é diferente para cada repetição. | Use a API do [**CurrentUtcDateTime**](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) no .net ou a API do **CurrentUtcDateTime** em JavaScript, que é segura para reprodução. |
-| GUIDs e UUIDs  | As APIs que retornam um GUID aleatório ou UUID são não determinísticas porque o valor gerado é diferente para cada repetição. | Use [**NewGuid**](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) no .net ou **NewGuid** no JavaScript para gerar com segurança GUIDs aleatórios. |
+| Datas e horas  | As APIs que retornam a data ou hora atual são não determinísticas porque o valor retornado é diferente para cada repetição. | Use a API`CurrentUtcDateTime` no .NET ou a API `currentUtcDateTime` em JavaScript, que é segura para reprodução. |
+| GUIDs e UUIDs  | As APIs que retornam um GUID aleatório ou UUID são não determinísticas porque o valor gerado é diferente para cada repetição. | Use `NewGuid` no .NET ou `newGuid` em JavaScript para gerar GUIDs aleatórios com segurança. |
 | Números aleatórios | As APIs que retornam números aleatórios são não determinísticas porque o valor gerado é diferente para cada repetição. | Use uma função de atividade para retornar números aleatórios para uma orquestração. Os valores de retorno das funções de atividade são sempre seguros para reprodução. |
 | Enlaces | As associações de entrada e saída normalmente fazem e/s e não são determinísticas. Uma função de orquestrador não deve usar diretamente as associações [cliente de orquestração](durable-functions-bindings.md#orchestration-client) e [cliente de entidade](durable-functions-bindings.md#entity-client) . | Use associações de entrada e saída dentro de funções de cliente ou atividade. |
 | Rede | As chamadas de rede envolvem sistemas externos e não são determinísticas. | Use funções de atividade para fazer chamadas de rede. Se você precisar fazer uma chamada HTTP de sua função de orquestrador, também poderá usar as [APIs de http duráveis](durable-functions-http-features.md#consuming-http-apis). |
-| APIs de bloqueio | Bloqueando APIs como **Thread. Suspensão @ no__t-0 no .NET e APIs semelhantes podem causar problemas de desempenho e escalação para funções de orquestrador e devem ser evitadas. No plano de consumo de Azure Functions, eles podem até mesmo resultar em encargos de tempo de execução desnecessários. | Use alternativas para bloquear APIs quando elas estiverem disponíveis. Por exemplo, use **CreateTimer** para introduzir atrasos na execução de orquestração. Os atrasos de [temporizadores duráveis](durable-functions-timers.md) não contam para o tempo de execução de uma função de orquestrador. |
-| APIs assíncronas | O código do Orchestrator nunca deve iniciar nenhuma operação assíncrona, exceto usando a API [**DurableOrchestrationContext**](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) ou a API do objeto **Context. DF** . Por exemplo, você não pode usar **Task. Run**, **Task. Delay**e **HttpClient. SendAsync** em .net ou **setTimeout** e **setInterval** em JavaScript. O Framework de tarefa durável executa o código do Orchestrator em um único thread. Ele não pode interagir com nenhum outro thread que possa ser chamado por outras APIs assíncronas. | Uma função de orquestrador deve fazer apenas chamadas assíncronas duráveis. As funções de atividade devem fazer outras chamadas de API assíncronas. |
-| Funções assíncronas de JavaScript | Não é possível declarar funções de orquestrador JavaScript como **Async** porque o tempo de execução do node. js não garante que as funções assíncronas sejam determinísticas. | Declare as funções de orquestrador JavaScript como funções de gerador síncrono. |
+| APIs de bloqueio | O bloqueio de APIs como `Thread.Sleep` no .NET e APIs semelhantes pode causar problemas de desempenho e escala para funções de orquestrador e deve ser evitado. No plano de consumo de Azure Functions, eles podem até mesmo resultar em encargos de tempo de execução desnecessários. | Use alternativas para bloquear APIs quando elas estiverem disponíveis. Por exemplo, use `CreateTimer` para introduzir atrasos na execução de orquestração. Os atrasos de [temporizadores duráveis](durable-functions-timers.md) não contam para o tempo de execução de uma função de orquestrador. |
+| APIs assíncronas | O código do Orchestrator nunca deve iniciar nenhuma operação assíncrona, exceto usando a API `IDurableOrchestrationContext` ou a API do objeto `context.df`. Por exemplo, você não pode usar `Task.Run`, `Task.Delay`e `HttpClient.SendAsync` no .NET ou `setTimeout` e `setInterval` em JavaScript. O Framework de tarefa durável executa o código do Orchestrator em um único thread. Ele não pode interagir com nenhum outro thread que possa ser chamado por outras APIs assíncronas. | Uma função de orquestrador deve fazer apenas chamadas assíncronas duráveis. As funções de atividade devem fazer outras chamadas de API assíncronas. |
+| Funções assíncronas de JavaScript | Não é possível declarar funções de orquestrador JavaScript como `async` porque o tempo de execução do node. js não garante que as funções assíncronas sejam determinísticas. | Declare as funções de orquestrador JavaScript como funções de gerador síncrono. |
 | APIs de Threading | O Framework de tarefa durável executa o código do Orchestrator em um único thread e não pode interagir com outros threads. A introdução de novos threads à execução de uma orquestração pode resultar em execução não determinística ou deadlocks. | Funções de orquestrador quase nunca devem usar APIs de Threading. Se essas APIs forem necessárias, limite seu uso apenas às funções de atividade. |
 | Variáveis estáticas | Evite usar variáveis estáticas não constantes em funções de orquestrador porque seus valores podem mudar ao longo do tempo, resultando em um comportamento de tempo de execução não determinístico. | Use constantes ou limite o uso de variáveis estáticas para funções de atividade. |
 | Variáveis de ambiente | Não use variáveis de ambiente em funções de orquestrador. Seus valores podem mudar ao longo do tempo, resultando em um comportamento de tempo de execução não determinístico. | As variáveis de ambiente devem ser referenciadas somente de dentro de funções de cliente ou funções de atividade. |
-| Loops infinitos | Evite loops infinitos em funções de orquestrador. Como o Framework de tarefa durável salva o histórico de execução à medida que a função de orquestração progride, um loop infinito pode fazer com que uma instância de orquestrador fique sem memória. | Para cenários de loop infinito, use APIs como [**ContinueAsNew**](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) no .net ou **ContinueAsNew** no JavaScript para reiniciar a execução da função e para descartar o histórico de execução anterior. |
+| Loops infinitos | Evite loops infinitos em funções de orquestrador. Como o Framework de tarefa durável salva o histórico de execução à medida que a função de orquestração progride, um loop infinito pode fazer com que uma instância de orquestrador fique sem memória. | Para cenários de loop infinito, use APIs como `ContinueAsNew` no .NET ou `continueAsNew` em JavaScript para reiniciar a execução da função e para descartar o histórico de execução anterior. |
 
 Embora a aplicação dessas restrições possa parecer difícil em primeiro lugar, na prática, elas são fáceis de acompanhar.
 
@@ -61,11 +61,11 @@ Uma orquestração durável pode ser executada continuamente por dias, meses, an
 
 As tarefas que podem esperar com segurança nas funções de orquestrador são ocasionalmente chamadas de *tarefas duráveis*. A estrutura de tarefa durável cria e gerencia essas tarefas. Os exemplos são as tarefas retornadas por **CallActivityAsync**, **WaitForExternalEvent**e **CreateTimer** nas funções do orquestrador do .net.
 
-Essas tarefas duráveis são gerenciadas internamente por uma lista de objetos **TaskCompletionSource** no .net. Durante a repetição, essas tarefas são criadas como parte da execução do código do Orchestrator. Elas são concluídas à medida que o Dispatcher enumera os eventos de histórico correspondentes.
+Essas tarefas duráveis são gerenciadas internamente por uma lista de objetos `TaskCompletionSource` no .NET. Durante a repetição, essas tarefas são criadas como parte da execução do código do Orchestrator. Elas são concluídas à medida que o Dispatcher enumera os eventos de histórico correspondentes.
 
 As tarefas são executadas de forma síncrona usando um único thread até que todo o histórico tenha sido reproduzido. As tarefas duráveis que não são concluídas pelo fim da reprodução do histórico têm as ações apropriadas executadas. Por exemplo, uma mensagem pode ser enfileirada para chamar uma função de atividade.
 
-A descrição desta seção de comportamento de tempo de execução deve ajudá-lo a entender por que uma função de orquestrador não pode usar **Await** ou **yield** em uma tarefa não durável. Há dois motivos: o thread do Dispatcher não pode aguardar a conclusão da tarefa e qualquer retorno de chamada por essa tarefa pode corromper o estado de controle da função de orquestrador. Algumas verificações de tempo de execução estão em vigor para ajudar a detectar essas violações.
+A descrição desta seção de comportamento de tempo de execução deve ajudá-lo a entender por que uma função de orquestrador não pode usar `await` ou `yield` em uma tarefa não durável. Há dois motivos: o thread do Dispatcher não pode aguardar a conclusão da tarefa e qualquer retorno de chamada por essa tarefa pode corromper o estado de controle da função de orquestrador. Algumas verificações de tempo de execução estão em vigor para ajudar a detectar essas violações.
 
 Para saber mais sobre como o Framework de tarefa durável executa funções de orquestrador, consulte o [código-fonte de tarefa durável no GitHub](https://github.com/Azure/durabletask). Em particular, consulte [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) e [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs).
 

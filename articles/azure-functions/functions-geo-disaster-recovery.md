@@ -1,6 +1,6 @@
 ---
-title: Azure Functions a recuperação de desastres em área geográfica | Microsoft Docs
-description: Como usar regiões geográficas para fazer failover e usar a recuperação de desastre em Azure Functions.
+title: Azure Functions recuperação de desastres geograficamente e alta disponibilidade | Microsoft Docs
+description: Como usar regiões geográficas para redundância e para fazer failover em Azure Functions.
 services: functions
 documentationcenter: na
 author: wesmc7777
@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: jehollan
-ms.openlocfilehash: 87f8b2fac3a123f2b92f77a70535f952b25557e0
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 1d75d58a6df622ffb1b277f75ceedc2c2a66369d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310272"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576266"
 ---
 # <a name="azure-functions-geo-disaster-recovery"></a>Azure Functions recuperação de desastres geograficamente
 

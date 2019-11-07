@@ -1,7 +1,7 @@
 ---
-title: Utilizar a API do Video Indexer - Azure
+title: Utilizar a API do Video Indexer
 titlesuffix: Azure Media Services
-description: Este artigo mostra como pode começar a utilizar a API do Video Indexer.
+description: Um tutorial para introdução aos serviços de mídia do Azure Video Indexer API.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,18 +10,18 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: ce04e19022a9902c228079e866c192985694134c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6aeb594498b9866796ad5879b4d12b5df16769c8
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799253"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583989"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Utilizar a API do Video Indexer
 
-O Video Indexer combina várias tecnologias de inteligência artificial (IA) de áudio e vídeo disponibilizadas pela Microsoft num serviço integrado, o que facilita a programação. As APIs foram concebidas para permitir que os programadores se foquem no consumo de tecnologias de IA multimédia sem se preocuparem com a escala, o alcance global, a disponibilidade e a fiabilidade da plataforma na cloud. Pode utilizar a API para carregar ficheiros, obter informações de vídeo detalhadas, obter URLs de widgets de informações e de leitor para incorporá-los na sua aplicação, entre outras tarefas.
+O Video Indexer consolida várias tecnologias de ia (inteligência artificial de áudio e vídeo) oferecidas pela Microsoft em um serviço integrado, tornando o desenvolvimento mais simples. As APIs são projetadas para permitir que os desenvolvedores se consumam em tecnologias de ia de mídia sem se preocupar com a escala, o alcance global, a disponibilidade e a confiabilidade das plataformas de nuvem. Você pode usar a API para carregar seus arquivos, obter informações detalhadas sobre o vídeo, obter URLs de ideias inseridas e widgets do jogador e muito mais.
 
-Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com a avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com uma opção paga, cria uma conta do Video Indexer que seja [ligado à sua subscrição do Azure e uma conta de Media Services do Azure](connect-to-azure.md). Irá pagar pelos minutos de indexação e pelas cobranças relacionadas com a conta dos Serviços de Multimédia do Azure. 
+Ao criar uma conta de Video Indexer, você pode escolher uma conta de avaliação gratuita (onde você obtém um determinado número de minutos de indexação gratuita) ou uma opção paga (onde você não está limitado pela cota). Com uma avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita para os usuários do site e até 2400 minutos de indexação gratuita para usuários de API. Com uma opção paga, você cria uma conta de Video Indexer que está [conectada à sua assinatura do Azure e uma conta dos serviços de mídia do Azure](connect-to-azure.md). Irá pagar pelos minutos de indexação e pelas cobranças relacionadas com a conta dos Serviços de Multimédia do Azure.
 
 Este artigo mostra como os programadores podem tirar partido da [API do Video Indexer](https://api-portal.videoindexer.ai/).
 
@@ -29,50 +29,50 @@ Este artigo mostra como os programadores podem tirar partido da [API do Video In
 
 1. Inicie sessão no [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
     
-    ![Iniciar sessão](./media/video-indexer-use-apis/video-indexer-api01.png)
+    ![Entrar no portal do desenvolvedor Video Indexer](./media/video-indexer-use-apis/video-indexer-api01.png)
 
    > [!Important]
    > * Tem de utilizar o mesmo fornecedor que utilizou quando se inscreveu no Video Indexer.
-   > * Só é possível utilizar contas Google e Microsoft (Outlook/Live) pessoais no caso das contas de avaliação. As contas ligadas ao Azure necessitam do Azure AD.
-   > * Só pode existir uma conta ativa por e-mail. Se um utilizador tentar iniciar sessão com o endereço de e-mail user@gmail.com no LinkedIn e, em seguida, com o mesmo endereço user@gmail.com no Google, será apresentada uma página de erro no Google a indicar que o utilizador já existe.
+   > * Contas pessoais do Google e Microsoft (Outlook/Live) só podem ser usadas para contas de avaliação. As contas ligadas ao Azure necessitam do Azure AD.
+   > * Pode haver apenas uma conta ativa por email. Se um usuário tentar entrar com user@gmail.com para o LinkedIn e posterior com user@gmail.com para o Google, o último exibirá uma página de erro, dizendo que o usuário já existe.
 
 2. Subscreva.
 
-    Selecione o separador [Products](https://api-portal.videoindexer.ai/products) (Produtos). Em seguida, selecione Authorization (Autorização) e subscreva. 
+    Selecione a guia [produtos](https://api-portal.videoindexer.ai/products) . Em seguida, selecione autorização e assinar.
     
-    ![Inscrever-se](./media/video-indexer-use-apis/video-indexer-api02.png)
+    ![Guia produtos no portal do desenvolvedor Video Indexer](./media/video-indexer-use-apis/video-indexer-api02.png)
 
     > [!NOTE]
     > Os utilizadores novos estão automaticamente subscritos em Autorização.
     
-    Após subscrever, poderá ver a sua subscrição e as suas chaves primárias e secundárias. As chaves devem ser protegidas. As chaves só devem ser utilizadas pelo seu código do servidor. As chaves não devem estar disponíveis do lado do cliente (.js, .html, etc.).
+    Depois de assinar, você pode ver sua assinatura e suas chaves primárias e secundárias. As chaves devem ser protegidas. As chaves só devem ser utilizadas pelo seu código do servidor. Eles não devem estar disponíveis no lado do cliente (. js,. html e assim por diante).
 
-    ![Inscrever-se](./media/video-indexer-use-apis/video-indexer-api03.png)
+    ![Assinatura e chaves no portal Video Indexer Developer](./media/video-indexer-use-apis/video-indexer-api03.png)
 
 > [!TIP]
 > O utilizador do Video Indexer pode utilizar uma chave de subscrição individual para ligar a várias contas do Video Indexer. Em seguida, pode associar estas contas do Video Indexer a diferentes contas dos Serviços de Multimédia.
 
 ## <a name="obtain-access-token-using-the-authorization-api"></a>Obter o token de acesso com a API de Autorização
 
-Depois de subscrever a API de Autorização, poderá obter tokens de acesso. Utilizam-se estes tokens de acesso para efetuar a autenticação na API de Operações. 
+Depois de assinar a API de autorização, você pode obter tokens de acesso. Utilizam-se estes tokens de acesso para efetuar a autenticação na API de Operações.
 
 Cada chamada efetuada para a API de Operações deve estar associada a um token de acesso que corresponda ao âmbito de autorização da chamada.
 
-- Nível de utilizador – os tokens de acesso de nível de utilizador permitem realizar operações ao nível de **utilizador**. Permitem, por exemplo, obter contas associadas.
-- Nível de conta – os tokens de acesso de nível de conta permitem realizar operações ao nível de **conta** ou de **vídeo**. Permitem, por exemplo, carregar vídeos, listar todos os vídeos, obter informações de vídeo, etc.
-- Nível de vídeo – os tokens de acesso de nível de vídeo permitem realizar operações num **vídeo** específico. Permitem, por exemplo, obter informações de vídeo, transferir legendas, obter widgets, etc. 
+- Nível de usuário: os tokens de acesso no nível do usuário permitem executar operações no nível do **usuário** . Permitem, por exemplo, obter contas associadas.
+- Nível da conta: os tokens de acesso no nível da conta permitem executar operações no nível da **conta** ou do **vídeo** . Por exemplo, carregar vídeo, listar todos os vídeos, obter informações de vídeo e assim por diante.
+- Nível de vídeo: os tokens de acesso no nível do vídeo permitem executar operações em um **vídeo**específico. Por exemplo, obtenha informações sobre o vídeo, baixe legendas, receba widgets e assim por diante.
 
-Pode controlar se estes tokens são só de leitura ou se permitem a edição ao especificar **allowEdit=true/false**.
+Você pode controlar se esses tokens são somente leitura ou se eles permitem a edição especificando **allowEdit = true/false**.
 
-Na maioria dos cenários de servidor a servidor, provavelmente utilizará o mesmo token de **conta**, uma vez que este token abrange tanto as operações de **conta** como de **vídeo**. No entanto, se estiver a prever efetuar chamadas do lado do cliente para o Video Indexer (por exemplo, a partir de javascript), recomenda-se a utilização de um token de **vídeo** para impedir que os clientes obtenham acesso a toda a conta. Este também é o motivo pelo qual tem de fornecer um token de acesso de **vídeo** quando incorporar o código de cliente do Video Indexer no seu cliente (por exemplo, através da API **Get Insights Widget** [Obter Widget de Informações] ou **Get Player Widget** [Obter Widget de Leitor]).
+Para a maioria dos cenários de servidor para servidor, você provavelmente usará o mesmo token de **conta** , pois ele abrange operações de **conta** e operações de **vídeo** . No entanto, se você estiver planejando fazer chamadas do lado do cliente para Video Indexer (por exemplo, do JavaScript), convém usar um token de acesso de **vídeo** para impedir que os clientes obtenham acesso a toda a conta. Isso também é o motivo pelo qual, ao inserir Video Indexer código de cliente em seu cliente (por exemplo, usando o **widget obter insights** ou o **widget Get Player**), você deve fornecer um token de acesso de **vídeo** .
 
 Para facilitar o processo, pode aceder a APIS > **Authorization** (Autorização) > **Get Accounts** (Obter Contas) para obter as suas contas sem ter de obter primeiro um token de utilizador. Também pode pedir para obter as contas com tokens válidos, o que evita a realização de uma chamada adicional para obter um token de conta.
 
-Os tokens de acesso expiram após uma hora. Certifique-se de que o seu token de acesso é válido antes de utilizar a API de Operações. Se o token expirar, chame novamente a API de Autorização para obter um token de acesso novo.
- 
-Está pronto para começar a integrar com a API. Veja [a descrição detalhada de cada API REST do Video Indexer](https://api-portal.videoindexer.ai/).
+Os tokens de acesso expiram após uma hora. Certifique-se de que o seu token de acesso é válido antes de utilizar a API de Operações. Se ele expirar, chame a API de autorização novamente para obter um novo token de acesso.
 
-## <a name="account-id"></a>ID da Conta 
+Você está pronto para começar a integração com a API. Veja [a descrição detalhada de cada API REST do Video Indexer](https://api-portal.videoindexer.ai/).
+
+## <a name="account-id"></a>ID da Conta
 
 O parâmetro de ID da Conta é necessário em todas as chamadas à API operacionais. O ID da Conta é um GUID que pode ser obtido de uma das seguintes formas:
 
@@ -82,15 +82,15 @@ O parâmetro de ID da Conta é necessário em todas as chamadas à API operacion
     2. Navegue para a página **Settings** (Definições).
     3. Copie o ID da Conta.
 
-        ![ID da Conta](./media/video-indexer-use-apis/account-id.png)
+        ![Configurações de Video Indexer e ID da conta](./media/video-indexer-use-apis/account-id.png)
 
 * Utilize o **Video Indexer Developer Portal** para obter o ID da Conta através de programação.
 
     Utilize a API [Get Accounts](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?) (Obter Contas).
-    
+
     > [!TIP]
     > Pode gerar tokens de acesso para as contas ao definir `generateAccessTokens=true`.
-    
+
 * Obtenha o ID da Conta a partir do URL de uma página do leitor na sua conta.
 
     Quando vê um vídeo, o ID aparece a seguir à secção `accounts` e antes da secção `videos`.
@@ -103,10 +103,10 @@ O parâmetro de ID da Conta é necessário em todas as chamadas à API operacion
 
 Esta secção lista algumas recomendações que deve ter em conta durante a utilização da API do Video Indexer.
 
-- Se tencionar carregar um vídeo, recomenda-se que coloque o ficheiro numa localização de rede pública (por exemplo, no OneDrive). Obtenha a ligação do vídeo e forneça o URL enquanto parâmetro de carregamento de ficheiro. 
+- Se você estiver planejando carregar um vídeo, é recomendável colocá-lo em algum local de rede pública (por exemplo, OneDrive). Obtenha a ligação do vídeo e forneça o URL enquanto parâmetro de carregamento de ficheiro.
 
-    O URL fornecido ao Video Indexer tem de apontar para um ficheiro de multimédia (áudio ou vídeo). Algumas das ligações geradas pelo OneDrive encaminham para uma página HTML que contém o ficheiro. Para confirmar facilmente que não existe nenhum problema com o URL, pode colá-lo num browser. Se o ficheiro começar a ser transferido, é provável que o URL esteja a funcionar. Se o browser apresentar algum elemento visual, é provável que não seja uma ligação para um ficheiro, mas sim uma página HTML.
-    
+    O URL fornecido ao Video Indexer tem de apontar para um ficheiro de multimédia (áudio ou vídeo). Algumas das ligações geradas pelo OneDrive encaminham para uma página HTML que contém o ficheiro. Uma verificação fácil para a URL é colá-la em um navegador — se o arquivo começar a ser baixado, provavelmente será uma boa URL. Se o navegador estiver renderizando alguma visualização, provavelmente não é um link para um arquivo, mas para uma página HTML.
+
 - Quando chama a API que obtém informações de vídeo para o vídeo especificado, obtém uma saída JSON detalhada como conteúdo de resposta. [Veja informações detalhadas sobre o JSON devolvido neste tópico](video-indexer-output-json-v2.md).
 
 ## <a name="code-sample"></a>Exemplo de código
@@ -154,7 +154,7 @@ var videoId = JsonConvert.DeserializeObject<dynamic>(uploadResult)["id"];
 Debug.WriteLine("Uploaded");
 Debug.WriteLine("Video ID: " + videoId);           
 
-// obtain video access token            
+// obtain video access token
 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", apiKey);
 var videoTokenRequestResult = client.GetAsync($"{apiUrl}/auth/{location}/Accounts/{accountId}/Videos/{videoId}/AccessToken?allowEdit=true").Result;
 var videoAccessToken = videoTokenRequestResult.Content.ReadAsStringAsync().Result.Replace("\"", "");
@@ -207,12 +207,11 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consultar também
 
 - [Descrição geral do Video Indexer](video-indexer-overview.md)
 - [Regiões](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Analise os detalhes da saída JSON](video-indexer-output-json-v2.md).
-

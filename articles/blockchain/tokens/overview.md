@@ -5,15 +5,15 @@ services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
 ms.date: 11/04/2019
-ms.topic: article
+ms.topic: overview
 ms.service: azure-blockchain
 ms.reviewer: brendal
-ms.openlocfilehash: d04c4202f89e58185465669c3da0f7d5e4d7b9bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: cd41d52e06a5c1833dca9669881cbe48f362d81d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518648"
+ms.locfileid: "73579757"
 ---
 # <a name="what-is-azure-blockchain-tokens"></a>O que são tokens de Blockchain do Azure?
 

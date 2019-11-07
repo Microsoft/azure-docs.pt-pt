@@ -1,5 +1,5 @@
 ---
-title: Configurar P2S-Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
+title: 'Configurar P2S-Instância Gerenciada do Banco de Dados SQL do Azure '
 description: Conecte-se a um Instância Gerenciada do Banco de Dados SQL do Azure usando SQL Server Management Studio usando uma conexão ponto a site de um computador cliente local.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: 3ba5190050d45385ad17a87f6dce88ffd601e83d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3b3a0ce28c4a936e185ac5f07ba3810c93f4c866
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567698"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689411"
 ---
-# <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Início rápido: Configurar uma conexão ponto a site com um Instância Gerenciada do Banco de Dados SQL do Azure local
+# <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Início rápido: configurar uma conexão ponto a site com um Instância Gerenciada do Banco de Dados SQL do Azure local
 
 Este guia de início rápido demonstra como se conectar a um Instância Gerenciada do Banco de Dados SQL do Azure usando o SSMS ( [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) ) de um computador cliente local em uma conexão ponto a site. Para obter informações sobre conexões ponto a site, consulte [sobre VPN ponto a site](../vpn-gateway/point-to-site-about.md)
 
@@ -63,11 +63,11 @@ Este guia de início rápido:
 
 ## <a name="create-a-vpn-connection-to-your-managed-instance"></a>Criar uma conexão VPN com seu Instância Gerenciada
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. Abra o grupo de recursos no qual você criou o gateway de rede virtual e, em seguida, abra o recurso de gateway de rede virtual.
 3. Selecione **configuração ponto a site** e, em seguida, selecione **baixar cliente VPN**.
 
-    ![Transferir cliente VPN](./media/sql-database-managed-instance-configure-p2s/download-vpn-client.png)  
+    ![Baixar cliente VPN](./media/sql-database-managed-instance-configure-p2s/download-vpn-client.png)  
 4. No computador cliente local, extraia os arquivos do arquivo zip e, em seguida, abra a pasta com os arquivos extraídos.
 5. Abra a pasta '**WindowsAmd64** ' e abra o arquivo **VpnClientSetupAmd64. exe** .
 6. Se você receber uma mensagem **do computador protegido pelo Windows** , clique em **mais informações** e, em seguida, clique em **executar mesmo assim**.
@@ -92,11 +92,11 @@ Este guia de início rápido:
 
     ![Ligação VPN](./media/sql-database-managed-instance-configure-p2s/vpn-connection-succeeded.png)  
 
-## <a name="use-ssms-to-connect-to-the-managed-instance"></a>Utilizar o SSMS para ligar à instância gerida
+## <a name="use-ssms-to-connect-to-the-managed-instance"></a>Use o SSMS para se conectar ao Instância Gerenciada
 
 1. No computador cliente local, abra SQL Server Management Studio (SSMS).
-2. Na **ligar ao servidor** caixa de diálogo, introduza o completamente qualificado **nome de anfitrião** da sua instância gerida no **nome do servidor** caixa.
-3. Selecione **autenticação do SQL Server**, forneça o seu nome de utilizador e palavra-passe e, em seguida, selecione **Connect**.
+2. Na caixa de diálogo **conectar ao servidor** , insira o nome de **host** totalmente qualificado para seu instância gerenciada na caixa **nome do servidor** .
+3. Selecione **SQL Server autenticação**, forneça seu nome de usuário e senha e, em seguida, selecione **conectar**.
 
     ![ligação SSMS](./media/sql-database-managed-instance-configure-vm/ssms-connect.png)  
 

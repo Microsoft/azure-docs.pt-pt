@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 5e8dc6629cfbbc3e42aeeb4dc94f33d13867ca9f
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 8c9258f099587ba4dbdfe3a7e46f72cd7a825024
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024799"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603826"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Fontes de eventos na grade de eventos do Azure
 
@@ -32,7 +32,7 @@ Assine os eventos de assinaturas do Azure para responder às alterações nos re
 | [PowerShell: assinar eventos para uma assinatura do Azure](./scripts/event-grid-powershell-azure-subscription.md)| Script de exemplo que cria uma assinatura de grade de eventos para uma assinatura do Azure e envia eventos para um webhook. |
 | [Esquema de evento](event-schema-subscriptions.md) | Mostra os campos nos eventos de assinatura do Azure. |
 
-## <a name="container-registry"></a>Container Registry
+## <a name="container-registry"></a>Registo de Contentor
 
 Assine os eventos de registro de contêiner para responder às alterações nas imagens.
 
@@ -61,7 +61,7 @@ Assine tópicos personalizados para responder a eventos do aplicativo.
 | [Modelo do Resource Manager: ponto de extremidade do tópico personalizado e dos hubs de eventos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Um modelo do Resource Manager que cria uma assinatura para um tópico personalizado. Ele envia eventos para um hub de eventos do Azure. |
 | [Esquema de evento](event-schema.md) | Mostra os campos em eventos personalizados. |
 
-## <a name="event-hubs"></a>Hubs de Eventos
+## <a name="event-hubs"></a>Event Hubs
 
 Assine eventos de hubs de eventos para responder a eventos de captura de arquivo. Os hubs de eventos podem atuar como um manipulador de eventos ou origem de evento. Os artigos a seguir mostram como usar os hubs de eventos como uma origem.
 
@@ -72,7 +72,7 @@ Assine eventos de hubs de eventos para responder a eventos de captura de arquivo
 
 Para obter exemplos de hubs de eventos como um manipulador, consulte [manipulador de hubs de eventos](event-handlers.md#event-hubs).
 
-## <a name="iot-hub"></a>Hub IoT
+## <a name="iot-hub"></a>IoT Hub
 
 Assine eventos do Hub IoT para responder a eventos criados, excluídos, conectados, desconectados e de telemetria do dispositivo.
 
@@ -129,7 +129,7 @@ Assinar eventos do barramento de serviço para responder a mensagens sem um ouvi
 | [Visão geral: barramento de serviço do Azure para integração da grade de eventos](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Visão geral da integração do barramento de serviço com a grade de eventos. |
 | [Esquema de evento](event-schema-service-bus.md) | Mostra os campos nos eventos do barramento de serviço. |
 
-## <a name="storage"></a>Armazenamento
+## <a name="storage"></a>Storage
 
 Assinar eventos de armazenamento de BLOBs para responder a eventos de blob criados e excluídos.
 
@@ -144,7 +144,7 @@ Assinar eventos de armazenamento de BLOBs para responder a eventos de blob criad
 | [Visão geral: reagindo a eventos de armazenamento de BLOBs](../storage/blobs/storage-blob-event-overview.md) | Visão geral da integração do armazenamento de BLOBs com a grade de eventos. |
 | [Esquema de evento](event-schema-blob-storage.md) | Mostra os campos em eventos de armazenamento de BLOBs. |
 
-## <a name="maps"></a>Mapas
+## <a name="maps"></a>Maps
 Assinar eventos do Azure Maps para responder a eventos de limite geográfico. Por exemplo, um aplicativo pode entregar uma notificação por email toda vez que um dispositivo entra ou sai de uma cerca geográfica.
 
 |Título  |Descrição  |
@@ -153,7 +153,7 @@ Assinar eventos do Azure Maps para responder a eventos de limite geográfico. Po
 | [Tutorial: configurar uma cerca geográfica](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Este tutorial orienta você pelas etapas básicas para configurar a cerca geográfica usando o Azure Maps. Você usa a grade de eventos do Azure para transmitir os resultados de cerca geográfica e configurar uma notificação com base nos resultados de cerca geográfica. |
 | [Esquema de evento](event-schema-azure-maps.md) | Mostra os campos nos eventos do Azure Maps. |
 
-## <a name="app-configuration"></a>Configuração da Aplicação
+## <a name="app-configuration"></a>App Configuration
 Assine Azure App eventos de configuração para responder a eventos de modificação de chave-valor.
 
 |Título | Descrição |
@@ -171,7 +171,14 @@ Assine os eventos do serviço de Signaler do Azure para responder aos eventos de
 | [Como enviar eventos do serviço de Signaler do Azure para a grade de eventos](../azure-signalr/signalr-howto-event-grid-integration.md) | Mostra como enviar eventos do serviço de Signaler do Azure para um aplicativo por meio da grade de eventos. |
 | [Esquema de evento](event-schema-azure-signalr.md) | Mostra os campos nos eventos do serviço de Signaler do Azure. |
 
+## <a name="azure-machine-learning"></a>Azure Machine Learning
 
+Assine Azure Machine Learning eventos de espaço de trabalho para responder ao registro de modelo.
+
+| Título | Descrição |
+| ----- | ----- |
+| [Consumir Azure Machine Learning eventos](../machine-learning/service/concept-event-grid-integration.md) | Visão geral da integração de Azure Machine Learning com a grade de eventos. |
+| [Esquema de evento da grade de eventos do Azure para Azure Machine Learning](event-schema-machine-learning.md) | Mostra os campos na Azure Machine Learning eventos. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

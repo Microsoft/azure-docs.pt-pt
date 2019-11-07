@@ -4,15 +4,15 @@ description: Este artigo fornece uma visão geral do WAF (firewall do aplicativo
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/16/2019
+ms.date: 11/05/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 3cc0af122143d2ee702f1f16ee26c010befa1155
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 6d073648dc908cbbe40962f7ba079abcfe85ce45
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502346"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607291"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Firewall do aplicativo Web do Azure no gateway de Aplicativo Azure
 
@@ -20,10 +20,10 @@ O WAF (firewall do aplicativo Web) do Azure no gateway Aplicativo Azure fornece 
 
 O WAF no gateway de aplicativo baseia-se no [CRS (Core Rule Set)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,1, 3,0 ou 2.2.9 do projeto de segurança de aplicativo Web aberto (OWASP). O WAF é atualizado automaticamente para incluir proteção contra novas vulnerabilidades, sem necessidade de configuração adicional. 
 
-Todos os recursos de WAF listados abaixo existem dentro de uma política de WAF. Você pode criar quantas políticas desejar, e elas podem ser associadas a um gateway de aplicativo, a ouvintes individuais ou a regras de roteamento com base em caminhos em um gateway de aplicativo. Dessa forma, você pode ter políticas separadas para cada site por trás do seu gateway de aplicativo, se necessário. Para obter mais informações sobre políticas de WAF, consulte [criar uma política de WAF](create-waf-policy-ag.md).
+Todos os recursos de WAF listados abaixo existem dentro de uma política de WAF. Você pode criar várias políticas e elas podem ser associadas a um gateway de aplicativo, a ouvintes individuais ou a regras de roteamento com base em caminhos em um gateway de aplicativo. Dessa forma, você pode ter políticas separadas para cada site por trás do seu gateway de aplicativo, se necessário. Para obter mais informações sobre políticas de WAF, consulte [criar uma política de WAF](create-waf-policy-ag.md).
 
    > [!NOTE]
-   > As políticas de WAF por site e por URI estão em visualização pública. Isso significa que esse recurso está sujeito aos termos de uso suplementares da Microsoft. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
+   > As políticas de WAF por site e por URI estão em visualização pública. Isso significa que esse recurso está sujeito aos termos de uso suplementares da Microsoft. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Diagrama de WAF do gateway de aplicativo](../media/ag-overview/waf1.png)
 
@@ -31,7 +31,7 @@ O gateway de aplicativo funciona como um ADC (controlador de entrega de aplicati
 
 Os aprimoramentos de segurança do gateway de aplicativo incluem o gerenciamento de política SSL e o suporte a SSL de ponta a ponta. A segurança do aplicativo é reforçada pela integração do WAF ao gateway de aplicativo. A combinação protege seus aplicativos Web contra vulnerabilidades comuns. E fornece um local central fácil de configurar para gerenciar o.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 Esta seção descreve os principais benefícios que o WAF no gateway de aplicativo fornece.
 
@@ -39,9 +39,11 @@ Esta seção descreve os principais benefícios que o WAF no gateway de aplicati
 
 * Proteja seus aplicativos Web contra vulnerabilidades e ataques da Web sem modificações no código de back-end.
 
-* Proteja vários aplicativos Web ao mesmo tempo. Uma instância do gateway de aplicativo pode hospedar de até 100 sites que são protegidos por um firewall do aplicativo Web.
+* Proteja vários aplicativos Web ao mesmo tempo. Uma instância do gateway de aplicativo pode hospedar de até 40 sites que são protegidos por um firewall do aplicativo Web.
 
-* Proteja seus aplicativos Web contra bots mal-intencionados com o conjunto de regras de reputação de IP
+* Criar políticas de WAF personalizadas para sites diferentes por trás do mesmo WAF 
+
+* Proteger seus aplicativos Web contra bots mal-intencionados com o conjunto de regras de reputação de IP (versão prévia)
 
 ### <a name="monitoring"></a>Monitorização
 
@@ -51,9 +53,11 @@ Esta seção descreve os principais benefícios que o WAF no gateway de aplicati
 
 ### <a name="customization"></a>Personalização
 
-* Você pode personalizar regras de WAF e grupos de regras para atender aos requisitos do seu aplicativo e eliminar falsos positivos.
+* Personalize regras de WAF e grupos de regras para atender aos requisitos do seu aplicativo e eliminar falsos positivos.
 
-* Você pode associar uma política de WAF para cada site por trás de seu WAF para permitir a configuração específica do site
+* Associar uma política de WAF para cada site por trás de seu WAF para permitir a configuração específica do site
+
+* Crie regras personalizadas para atender às necessidades do seu aplicativo
 
 ## <a name="features"></a>Funcionalidades
 
@@ -62,10 +66,13 @@ Esta seção descreve os principais benefícios que o WAF no gateway de aplicati
 - Proteção contra outros ataques comuns da Web, como injeção de comando, indesejada de solicitação HTTP, divisão de resposta HTTP e inclusão de arquivo remoto.
 - Proteção contra violações de protocolo HTTP.
 - Proteção contra anomalias de protocolo HTTP, como o agente de usuário de host ausente e os cabeçalhos de aceitação.
-- Proteção contra bots, rastreadores e scanners.
+- Proteção contra rastreadores e scanners.
 - Detecção de incorretas configurações de aplicativo comuns (por exemplo, Apache e IIS).
 - Limites de tamanho de solicitação configuráveis com limites inferiores e superiores.
 - As listas de exclusão permitem omitir determinados atributos de solicitação de uma avaliação do WAF. Um exemplo comum são os tokens inseridos Active Directory que são usados para os campos de autenticação ou senha.
+- Crie regras personalizadas para atender às necessidades específicas de seus aplicativos.
+- O tráfego de filtro geográfico para permitir ou impedir que determinados países obtenham acesso aos seus aplicativos. (pré-visualização)
+- Proteja seus aplicativos de bots com o conjunto de regras de mitigação de bot. (pré-visualização)
 
 ## <a name="waf-policy"></a>Política de WAF
 
@@ -79,7 +86,7 @@ Para obter mais informações, consulte [regras e grupos de regras CRS do firewa
 
 ### <a name="custom-rules"></a>Regras personalizadas
 
-O gateway de aplicativo também oferece suporte a regras personalizadas. Com as regras personalizadas, você pode criar suas próprias regras, que são avaliadas para cada solicitação que passa pelo WAF. Essas regras têm uma prioridade mais alta do que o restante das regras nos conjuntos de regras gerenciadas. Se um conjunto de condições for atendido, será executada uma ação para permitir ou bloquear. 
+O gateway de aplicativo também dá suporte a regras personalizadas. Com as regras personalizadas, você pode criar suas próprias regras, que são avaliadas para cada solicitação que passa pelo WAF. Essas regras têm uma prioridade mais alta do que o restante das regras nos conjuntos de regras gerenciadas. Se um conjunto de condições for atendido, será executada uma ação para permitir ou bloquear. 
 
 Para obter mais informações, consulte [Custom Rules for Application Gateway.](custom-waf-rules-overview.md)
 
@@ -138,6 +145,15 @@ A [central de segurança](../../security-center/security-center-intro.md) ajuda 
 
 ![Janela Visão geral da central de segurança](../media/ag-overview/figure1.png)
 
+#### <a name="azure-sentinel"></a>Azure Sentinel
+
+Microsoft Azure Sentinel é uma solução de disparar (gerenciamento de eventos de informações de segurança) escalonável, nativa de nuvem e de ingestão de segurança (SIEM). O Azure Sentinel fornece análise de segurança inteligente e inteligência contra ameaças em toda a empresa, fornecendo uma solução única para detecção de alertas, visibilidade de ameaças, busca proativa e resposta a ameaças.
+
+Com a pasta de trabalho interna de eventos do firewall WAF do Azure, você pode obter uma visão geral dos eventos de segurança em seu WAF. Isso inclui eventos, regras de correspondência e bloqueadas e todo o resto que é registrado nos logs do firewall. Veja mais sobre registro em log abaixo. 
+
+
+![Sentinel](../media/ag-overview/sentinel.png)
+
 #### <a name="logging"></a>Registo
 
 O WAF do gateway de aplicativo fornece relatórios detalhados sobre cada ameaça detectada. O registro em log é integrado a logs de Diagnóstico do Azure. Os alertas são registrados no formato. JSON. Esses logs podem ser integrados a [logs de Azure monitor](../../azure-monitor/insights/azure-networking-analytics.md).
@@ -186,4 +202,8 @@ Os modelos de preços são diferentes para as SKUs WAF_v1 e WAF_v2. Consulte a p
 
 ## <a name="next-steps"></a>Passos seguintes
 
+- Comece [criando uma política de WAF](create-waf-policy-ag.md)
+- Saiba mais sobre [as regras gerenciadas do WAF](application-gateway-crs-rulegroups-rules.md)
+- Saiba mais sobre [regras personalizadas](custom-waf-rules-overview.md)
 - Saiba mais sobre o [Firewall do aplicativo Web na porta frontal do Azure](../afds/afds-overview.md)
+

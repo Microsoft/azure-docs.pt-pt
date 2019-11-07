@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Biblioteca de cliente de criação de Reconhecimento vocal (LUIS) para Python'
+title: 'Início rápido: Reconhecimento vocal (LUIS) biblioteca de cliente de criação para Python'
 titleSuffix: Azure Cognitive Services
-description: Introdução à biblioteca de cliente do Reconhecimento vocal (LUIS) para Python. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas.  O Reconhecimento vocal (LUIS) permite que você aplique inteligência de aprendizado de máquina personalizada ao texto de linguagem natural de um usuário para prever o significado geral e extrair informações relevantes e detalhadas.
+description: Introdução à biblioteca de cliente do LUIS para Python. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 08/07/2019
 ms.author: diberry
-ms.openlocfilehash: f8149372e0a96cda81ef38558ee0bcf87eb53bb3
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1b586af569a9406d7fe9fa3d05c198f62f32744f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258754"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672009"
 ---
-# <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>Início rápido: Biblioteca de cliente de criação de Reconhecimento vocal (LUIS) para Python
+# <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>Início rápido: Reconhecimento vocal (LUIS) biblioteca de cliente de criação para Python
 
 Introdução à biblioteca de cliente de criação de Reconhecimento vocal (LUIS) para Python. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas.  O Reconhecimento vocal (LUIS) permite que você aplique inteligência de aprendizado de máquina personalizada ao texto de linguagem natural de um usuário para prever o significado geral e extrair informações relevantes e detalhadas. 
 
@@ -28,18 +28,18 @@ Use a biblioteca de cliente de criação de Reconhecimento vocal (LUIS) para Pyt
 * Adicione recursos, como uma lista de frases.
 * Treine e publique um aplicativo.
 
-[](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py) [de documentação de biblioteca de criação de](https://pypi.org/project/azure-cognitiveservices-language-luis/) |  | [código-fonte](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis)(PyPI) do source library de referência
+[Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [PyPI (pacote de criação)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [amostras](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conta do portal do Reconhecimento vocal (LUIS): [Crie um gratuitamente](https://www.luis.ai).
+* Conta do portal do Reconhecimento vocal (LUIS): [crie um gratuitamente](https://www.luis.ai).
 * [Python 3. x](https://www.python.org/)
 
 ## <a name="setting-up"></a>Configurando
 
 ### <a name="get-your-language-understanding-luis-starter-key"></a>Obter sua chave de início do Reconhecimento vocal (LUIS)
 
-Obtenha a [chave inicial](luis-how-to-azure-subscription.md#starter-key)e [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave, nomeada `LUIS_AUTHORING_KEY` e uma variável de ambiente para a região da chave,. `LUIS_REGION`
+Obtenha a [chave inicial](luis-how-to-azure-subscription.md#starter-key)e [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave, denominada `LUIS_AUTHORING_KEY` e uma variável de ambiente para a região da chave, `LUIS_REGION`.
 
 ### <a name="install-the-python-library-for-luis"></a>Instalar a biblioteca do Python para LUIS
 
@@ -91,7 +91,7 @@ Crie um objeto [CognitiveServicesCredentials](https://docs.microsoft.com/python/
 
 [!code-python[Create LUIS client object](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=Client)]
 
-## <a name="create-a-luis-app"></a>Criar uma aplicação LUIS
+## <a name="create-a-luis-app"></a>Criar um aplicativo LUIS
 
 1. Crie um aplicativo LUIS para conter o modelo de NLP (processamento de idioma natural) que contém tentativas, entidades e declarações de exemplo. 
 
@@ -101,17 +101,17 @@ Crie um objeto [CognitiveServicesCredentials](https://docs.microsoft.com/python/
 
 
 ## <a name="create-intent-for-the-app"></a>Criar intenção para o aplicativo
-O objeto principal no modelo de um aplicativo LUIS é a intenção. A intenção se alinha com um agrupamento de _intenções_de expressão do usuário. Um usuário pode fazer uma pergunta ou fazer uma instrução procurando uma resposta pretendida específica de um bot (ou outro aplicativo cliente). Exemplos de intenções estão reservando um vôo, perguntando o clima em uma cidade de destino e solicitando informações de contato para o atendimento ao cliente.   
+O objeto principal no modelo de um aplicativo LUIS é a intenção. A intenção se alinha com um agrupamento de _intenções_de expressão do usuário. Um usuário pode fazer uma pergunta ou fazer uma instrução procurando uma resposta _pretendida_ específica de um bot (ou outro aplicativo cliente). Exemplos de intenções estão reservando um vôo, perguntando o clima em uma cidade de destino e solicitando informações de contato para o atendimento ao cliente.   
 
-Use o método [modelo. Add _intent](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.modeloperations?view=azure-python#add-intent-app-id--version-id--name-none--custom-headers-none--raw-false----operation-config-) com o nome da intenção exclusiva e, em seguida, passe a ID do aplicativo, a ID da versão e o nome da nova tentativa. 
+Use o método [Model. add_intent](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.modeloperations?view=azure-python#add-intent-app-id--version-id--name-none--custom-headers-none--raw-false----operation-config-) com o nome da intenção exclusiva e, em seguida, passe a ID do aplicativo, a ID da versão e o nome da nova tentativa. 
 
 [!code-python[Create LUIS client app](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=addIntents)]
 
 ## <a name="create-entities-for-the-app"></a>Criar entidades para o aplicativo
 
-Embora as entidades não sejam necessárias, elas são encontradas na maioria dos aplicativos. A entidade extrai informações do expressão do usuário, necessárias para fullfilr a intenção do usuário. Há vários tipos de entidades [](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.modeloperations?view=azure-python#add-prebuilt-app-id--version-id--prebuilt-extractor-names--custom-headers-none--raw-false----operation-config-) predefinidas e personalizadas, cada uma com seus próprios modelos de DTO (objeto de transformação de dados).  Entidades predefinidas comuns para adicionar ao seu aplicativo incluem [Number](luis-reference-prebuilt-number.md), [datetimeV2](luis-reference-prebuilt-datetimev2.md), [geographyV2](luis-reference-prebuilt-geographyv2.md), [ordinal](luis-reference-prebuilt-ordinal.md). 
+Embora as entidades não sejam necessárias, elas são encontradas na maioria dos aplicativos. A entidade extrai informações do expressão do usuário, necessárias para fullfilr a intenção do usuário. Há vários tipos de entidades [predefinidas](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.modeloperations?view=azure-python#add-prebuilt-app-id--version-id--prebuilt-extractor-names--custom-headers-none--raw-false----operation-config-) e personalizadas, cada uma com seus próprios modelos de DTO (objeto de transformação de dados).  Entidades predefinidas comuns para adicionar ao seu aplicativo incluem [Number](luis-reference-prebuilt-number.md), [datetimeV2](luis-reference-prebuilt-datetimev2.md), [geographyV2](luis-reference-prebuilt-geographyv2.md), [ordinal](luis-reference-prebuilt-ordinal.md). 
 
-Esse método **add_entities** criou uma `Location` entidade simples com duas funções, uma `Class` entidade simples, uma `Flight` entidade composta e adiciona várias entidades predefinidas.
+Esse método **add_entities** criou uma entidade `Location` simples com duas funções, uma `Class` entidade simples, uma entidade composta `Flight` e adiciona várias entidades predefinidas.
 
 É importante saber que as entidades não estão marcadas com uma intenção. Em geral, eles podem se aplicar a muitas intenções. Somente os declarações de usuário de exemplo são marcados para uma única intenção específica.
 
@@ -147,7 +147,7 @@ Publique o aplicativo LUIS usando o método [app. publish](https://docs.microsof
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute o aplicativo com o `python` comando no seu arquivo de início rápido.
+Execute o aplicativo com o comando `python` em seu arquivo de início rápido.
 
 ```console
 python quickstart-file.py
@@ -160,12 +160,12 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 * [Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
 * [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources) 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 >[Criar um aplicativo LUIS para determinar as intenções do usuário](luis-quickstart-intents-only.md)
 
 * [O que é a API de Reconhecimento vocal (LUIS)?](what-is-luis.md)
 * [Novidades](whats-new.md)
-* [Intenções](luis-concept-intent.md), [entidades](luis-concept-entity-types.md)e [declarações de exemplo](luis-concept-utterance.md)e [entidades](luis-reference-prebuilt-entities.md) predefinidas
+* [Intenções](luis-concept-intent.md), [entidades](luis-concept-entity-types.md)e [declarações de exemplo](luis-concept-utterance.md)e [entidades predefinidas](luis-reference-prebuilt-entities.md)
 * O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py).

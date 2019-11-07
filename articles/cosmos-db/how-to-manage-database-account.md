@@ -4,14 +4,14 @@ description: Saiba como gerir contas de base de dados no Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: f67487f6da5c9be028703d7890e16ffab0c858c6
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 049be390403fe984ed4f8f38a4cdc86e24060e49
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812533"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582624"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gerir uma conta do Azure Cosmos
 
@@ -33,19 +33,19 @@ Consulte [criar uma conta de Azure Cosmos DB com o PowerShell](manage-with-power
 
 ### <a id="create-database-account-via-arm-template"></a>Modelo de Azure Resource Manager
 
-Este modelo de Azure Resource Manager criará uma conta do Azure Cosmos para qualquer API com suporte configurada com duas regiões e opções para selecionar nível de consistência, failover automático e vários mestres. Para implantar esse modelo, clique em implantar no Azure na página Leiame, [criar conta do Azure Cosmos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)
+Este modelo de Azure Resource Manager criará uma conta do Azure Cosmos para a API do SQL configurada com duas regiões e opções para selecionar nível de consistência, failover automático e vários mestres. Para implantar esse modelo, clique em implantar no Azure na página Leiame, [criar conta do Azure Cosmos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql)
 
 ## <a name="addremove-regions-from-your-database-account"></a>Adicionar/remover regiões da conta de base de dados
 
 ### <a id="add-remove-regions-via-portal"></a>Portal do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Acesse sua conta do Azure Cosmos e abra o menu **replicar dados globalmente** .
 
-1. Para adicionar regiões, selecione os hexágonos no mapa com o **+** rótulo que corresponde às regiões desejadas. Como alternativa, para adicionar uma região, selecione a opção **+ Adicionar região** e escolha uma região no menu suspenso.
+1. Para adicionar regiões, selecione os hexágonos no mapa com o rótulo de **+** que corresponde às regiões desejadas. Como alternativa, para adicionar uma região, selecione a opção **+ Adicionar região** e escolha uma região no menu suspenso.
 
-1. Para remover regiões, desmarque uma ou mais regiões do mapa selecionando os hexágonos azuis com marcas de seleção. Ou selecione o ícone "lixeira"🗑() ao lado da região no lado direito.
+1. Para remover regiões, desmarque uma ou mais regiões do mapa selecionando os hexágonos azuis com marcas de seleção. Ou selecione o ícone "lixeira" (🗑) ao lado da região no lado direito.
 
 1. Para salvar as alterações, selecione **OK**.
 
@@ -81,7 +81,7 @@ Consulte [habilitar regiões de várias gravações com o PowerShell](manage-wit
 
 ### <a id="configure-multiple-write-regions-arm"></a>Modelo do Resource Manager
 
-Uma conta pode ser migrada de um mestre único para vários mestres implantando o modelo do Resource Manager usado para criar a conta e a `enableMultipleWriteLocations: true`configuração. O modelo de Azure Resource Manager a seguir é um modelo mínimo que implantará uma conta do Azure Cosmos para a API do SQL com duas regiões e vários locais de gravação habilitados.
+Uma conta pode ser migrada de um mestre único para vários mestres implantando o modelo do Resource Manager usado para criar a conta e a configuração `enableMultipleWriteLocations: true`. O modelo de Azure Resource Manager a seguir é um modelo mínimo que implantará uma conta do Azure Cosmos para a API do SQL com duas regiões e vários locais de gravação habilitados.
 
 ```json
 {
@@ -113,7 +113,7 @@ Uma conta pode ser migrada de um mestre único para vários mestres implantando 
             "type": "Microsoft.DocumentDb/databaseAccounts",
             "kind": "GlobalDocumentDB",
             "name": "[parameters('name')]",
-            "apiVersion": "2015-04-08",
+            "apiVersion": "2019-08-01",
             "location": "[parameters('location')]",
             "tags": {},
             "properties": {
@@ -123,11 +123,13 @@ Uma conta pode ser migrada de um mestre único para vários mestres implantando 
                 [
                     {
                         "locationName": "[parameters('primaryRegion')]",
-                        "failoverPriority": 0
+                        "failoverPriority": 0,
+                        "isZoneRedundant": false
                     },
                     {
                         "locationName": "[parameters('secondaryRegion')]",
-                        "failoverPriority": 1
+                        "failoverPriority": 1,
+                        "isZoneRedundant": false
                     }
                 ],
                 "enableMultipleWriteLocations": true

@@ -1,5 +1,5 @@
 ---
-title: Unir um tempo de execução de integração do Azure-SSIS a uma rede virtual | Microsoft Docs
+title: Unir um tempo de execução de integração do Azure-SSIS a uma rede virtual
 description: Saiba como unir um tempo de execução de integração do Azure-SSIS a uma rede virtual do Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 065f69cc98f05fcb19648f190a7dba4b43da1a9a
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: d36900a1ce05eaf022637a6ef6b866fe0d190b17
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326626"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672739"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unir um tempo de execução de integração do Azure-SSIS a uma rede virtual
 Ao usar o SQL Server Integration Services (SSIS) no Azure Data Factory, você deve unir seu IR (Integration Runtime) do Azure-SSIS a uma rede virtual do Azure nos seguintes cenários: 
@@ -62,7 +62,7 @@ As seções a seguir fornecem mais detalhes.
 
 Configure sua rede virtual para atender a estes requisitos: 
 
--   Verifique se `Microsoft.Batch` é um provedor registrado na assinatura da sub-rede da sua rede virtual que hospeda o Azure-SSIS IR. Se você usar uma rede virtual clássica, também ingresse `MicrosoftAzureBatch` na função de colaborador da máquina virtual clássica para essa rede virtual. 
+-   Verifique se `Microsoft.Batch` é um provedor registrado na assinatura da sub-rede da sua rede virtual que hospeda o Azure-SSIS IR. Se você usar uma rede virtual clássica, adicione também `MicrosoftAzureBatch` à função de colaborador da máquina virtual clássica para essa rede virtual. 
 
 -   Verifique se você tem as permissões necessárias. Para obter mais informações, consulte [configurar permissões](#perms).
 
@@ -105,7 +105,7 @@ Ao escolher uma sub-rede:
 -   Não use uma sub-rede que esteja exclusivamente ocupada por outros serviços do Azure (por exemplo, instância gerenciada do banco de dados SQL, serviço de aplicativo e assim por diante). 
 
 ### <a name="dns_server"></a>Configurar o servidor DNS 
-Se você precisar usar seu próprio servidor DNS em uma rede virtual unida pelo seu Azure-SSIS IR, verifique se ele pode resolver nomes de host do Azure globais (por exemplo, um blob de armazenamento do Azure denominado `<your storage account>.blob.core.windows.net`). 
+Se você precisar usar seu próprio servidor DNS em uma rede virtual unida pelo seu Azure-SSIS IR, verifique se ele pode resolver nomes de host do Azure globais (por exemplo, um blob de armazenamento do Azure chamado `<your storage account>.blob.core.windows.net`). 
 
 As etapas a seguir são recomendadas: 
 
@@ -139,7 +139,7 @@ Você pode aplicar uma rota 0.0.0.0/0 com o tipo do próximo salto como **Intern
 
 Se estiver preocupado em perder a capacidade de inspecionar o tráfego de Internet de saída dessa sub-rede, você poderá definir UDRs específicos para rotear o tráfego somente entre os serviços de gerenciamento do lote do Azure e o Azure-SSIS IR com um tipo de próximo salto como **Internet**.
 
-Por exemplo, se o Azure-SSIS IR estiver localizado em `UK South`, você obterá uma lista de intervalos IP de marca de serviço `BatchNodeManagement.UKSouth` no [link de download do intervalo IP das marcas de serviço](https://www.microsoft.com/en-us/download/details.aspx?id=56519) ou por meio da API de descoberta de marca de [serviço](https://aka.ms/discoveryapi). Em seguida, aplique os seguintes UDRs de rotas de intervalo de IP relacionadas com o tipo do próximo salto como **Internet**.
+Por exemplo, se o seu Azure-SSIS IR estiver localizado em `UK South`, você obterá uma lista de intervalos IP de marca de serviço `BatchNodeManagement.UKSouth` do [link de download do intervalo IP de marcas de serviço](https://www.microsoft.com/en-us/download/details.aspx?id=56519) ou por meio da API de descoberta de marca de [serviço](https://aka.ms/discoveryapi). Em seguida, aplique os seguintes UDRs de rotas de intervalo de IP relacionadas com o tipo do próximo salto como **Internet**.
 
 ![Configurações de UDR do lote do Azure](media/join-azure-ssis-integration-runtime-virtual-network/azurebatch-udr-settings.png)
 
@@ -187,7 +187,7 @@ Use o portal para configurar uma rede virtual Azure Resource Manager antes de te
 
 1. Inicie o Microsoft Edge ou o Google Chrome. Atualmente, somente esses navegadores da Web dão suporte à interface do usuário do Data Factory. 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
 
 1. Selecione **mais serviços**. Filtre e selecione **redes virtuais**. 
 
@@ -216,7 +216,7 @@ Use o portal para configurar uma rede virtual clássica antes de tentar ingressa
 
 1. Inicie o Microsoft Edge ou o Google Chrome. Atualmente, somente esses navegadores da Web dão suporte à interface do usuário do Data Factory. 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
 
 1. Selecione **mais serviços**. Filtre e selecione **redes virtuais (clássicas)** . 
 
@@ -422,5 +422,5 @@ Para obter mais informações sobre Azure-SSIS IR, consulte os seguintes artigos
 - [Azure-SSIS ir](concepts-integration-runtime.md#azure-ssis-integration-runtime). Este artigo fornece informações conceituais gerais sobre o IRs, incluindo Azure-SSIS IR. 
 - [Tutorial: implantar pacotes do SSIS no Azure](tutorial-create-azure-ssis-runtime-portal.md). Este tutorial fornece instruções passo a passo para criar seu Azure-SSIS IR. Ele usa o banco de dados SQL do Azure para hospedar o catálogo do SSIS. 
 - [Crie um Azure-SSIS ir](create-azure-ssis-integration-runtime.md). Este artigo se expande no tutorial. Ele fornece instruções sobre como usar o banco de dados SQL do Azure com pontos de extremidade de serviço de rede virtual ou instância gerenciada em uma rede virtual para hospedar o catálogo do SSIS. Ele mostra como unir seu Azure-SSIS IR a uma rede virtual. 
-- [Monitorizar um Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). Este artigo mostra como obter informações sobre seu Azure-SSIS IR. Ele fornece descrições de status para as informações retornadas. 
+- [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime) (Monitorizar um IR Azure-SSIS) Este artigo mostra como obter informações sobre seu Azure-SSIS IR. Ele fornece descrições de status para as informações retornadas. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gerir um IR Azure-SSIS). Este artigo mostra como parar, iniciar ou excluir seu Azure-SSIS IR. Ele também mostra como escalar horizontalmente sua Azure-SSIS IR adicionando nós.

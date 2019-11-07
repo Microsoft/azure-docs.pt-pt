@@ -1,17 +1,17 @@
 ---
-title: Gerenciar e atualizar o cache do HPC do Azure (visualização)
+title: Gerenciar e atualizar o cache HPC do Azure
 description: Como gerenciar e atualizar o cache HPC do Azure usando o portal do Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: b5607f1d97e4e240a86ba8e7800af7cb21083217
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 62b54bfe120acdde1fd22c4a0d04165ea7243b50
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952020"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582205"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Gerenciar seu cache do portal do Azure
 

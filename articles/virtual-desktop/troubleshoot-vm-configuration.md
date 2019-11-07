@@ -1,5 +1,5 @@
 ---
-title: Configuração de máquina virtual do host de sessão-Azure
+title: Solucionar problemas do host de sessão de área de trabalho virtual do Windows
 description: Como resolver problemas quando estiver configurando máquinas virtuais do host de sessão de área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: a847ba7d782b332d9cae7f83bc1278fea58b8811
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 1470bb049cffce52ae921057bdaece40f3d3161c
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330826"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607400"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do anfitrião da sessão
 
@@ -80,7 +80,7 @@ A maneira recomendada para provisionar VMs é usar a Azure Resource Manager **cr
 
 Siga estas instruções para confirmar se os componentes estão instalados e para verificar se há mensagens de erro.
 
-1. Confirme se os dois componentes estão instalados, fazendo check-in no **painel de controle** > **programas** > **programas e recursos**. Se o **agente de área de trabalho virtual do Windows** e o carregador de inicialização do **Windows Virtual Desktop Agent** não estiverem visíveis, eles não serão instalados na VM.
+1. Confirme se os dois componentes estão instalados verificando no **painel de controle** > **programas** > **programas e recursos**. Se o **agente de área de trabalho virtual do Windows** e o carregador de inicialização do **Windows Virtual Desktop Agent** não estiverem visíveis, eles não serão instalados na VM.
 2. Abra o **Explorador de arquivos** e navegue até **C:\Windows\Temp\scriptlogs.log**. Se o arquivo estiver ausente, isso indica que a DSC do PowerShell que instalou os dois componentes não pôde ser executada no contexto de segurança fornecido.
 3. Se o arquivo **C:\Windows\Temp\scriptlogs.log** estiver presente, abra-o e verifique se há mensagens de erro.
 
@@ -201,7 +201,7 @@ Examine as entradas de registro listadas abaixo e confirme se seus valores corre
 
 ### <a name="error-o_reverse_connect_stack_failure"></a>Erro: O_REVERSE_CONNECT_STACK_FAILURE
 
-![Código de erro O_REVERSE_CONNECT_STACK_FAILURE.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![O_REVERSE_CONNECT_STACK_FAILURE código de erro.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Causa:** A pilha lado a lado não está instalada na VM host da sessão.
 
@@ -233,7 +233,7 @@ A VM usada para executar a correção deve estar na mesma sub-rede e domínio qu
 Siga estas instruções para executar a correção da mesma sub-rede e domínio:
 
 1. Conecte-se com o protocolo RDP padrão (RDP) à VM de onde a correção será aplicada.
-2. Baixe o PsExec do https://docs.microsoft.com/sysinternals/downloads/psexec.
+2. Baixe o PsExec de https://docs.microsoft.com/sysinternals/downloads/psexec.
 3. Descompacte o arquivo baixado.
 4. Inicie o prompt de comando como administrador local.
 5. Navegue até a pasta em que o PsExec foi descompactado.
@@ -309,7 +309,7 @@ Se você vir uma dessas mensagens, isso significa que a imagem não tem as atual
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Desabilitar a configuração de política de grupo do modo de licenciamento Área de Trabalho Remota
 
-Verifique a configuração da política de grupo abrindo o editor de Política de Grupo na VM e navegando para **modelos administrativos** **componentes do Windows** >   > **serviços de área de trabalho remota** > **host da sessão da área de trabalho remota**@no o**Licenciamento**__t-7  > **define o modo de licenciamento área de trabalho remota**. Se a configuração política de grupo estiver **habilitada**, altere-a para **desabilitado**. Se ele já estiver desabilitado, deixe-o como está.
+Verifique a configuração da política de grupo abrindo o editor de Política de Grupo na VM e navegando até **Modelos Administrativos** > **componentes do Windows** > **serviços de área de trabalho remota** ** > host da sessão da área de trabalho remota** > **licenciamento** > **defina o modo de licenciamento área de trabalho remota**. Se a configuração política de grupo estiver **habilitada**, altere-a para **desabilitado**. Se ele já estiver desabilitado, deixe-o como está.
 
 >[!NOTE]
 >Se você definir a política de grupo por meio de seu domínio, desabilite essa configuração em políticas direcionadas a essas VMs de várias sessões do Windows 10 Enterprise.

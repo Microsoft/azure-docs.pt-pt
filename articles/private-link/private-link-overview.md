@@ -5,14 +5,14 @@ services: private-link
 author: KumudD
 ms.service: private-link
 ms.topic: overview
-ms.date: 09/16/2019
+ms.date: 11/04/2019
 ms.author: kumud
-ms.openlocfilehash: 9e6206e6f7e09ebe03659eb6e515a9b26d3469bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: aa176cb5ffc67ebba826cf13a1a66608301af5e5
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475937"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601521"
 ---
 # <a name="what-is-azure-private-link-preview"></a>O que é a Ligação Privada do Azure? (Pré-visualização)
 O link privado do Azure permite que você acesse os serviços de PaaS do Azure (por exemplo, armazenamento do Azure, Azure Cosmos DB e banco de dados SQL) e os serviços hospedados de cliente/parceiro do Azure por meio de um [ponto de extremidade privado](private-endpoint-overview.md) em sua rede virtual. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Você também pode criar seu próprio [serviço de vínculo privado](private-link-service-overview.md) em sua rede virtual (VNet) e fornecê-lo de forma privada aos seus clientes. A experiência de configuração e consumo usando o link privado do Azure é consistente entre os serviços de parceiro de PaaS do Azure, de Propriedade do cliente e de parceiros compartilhados.
@@ -40,12 +40,12 @@ O link privado do Azure oferece os seguintes benefícios:
 
 |Cenário  |Serviços com suporte   |Regiões disponíveis | Estado   |
 |---------|---------|---------|---------|
-|Link privado para serviços de Propriedade do cliente|Serviços de vínculo privado por trás Standard Load Balancer |EUA Central ocidental; WestUS EUA Central do Sul; Leste dos EUA; EUA Central norte  |  Pré-visualização  |
-|Link privado para os serviços de PaaS do Azure   | Armazenamento do Azure        |  Leste dos EUA, oeste dos EUA, Oeste EUA Central       | Pré-visualização         |
-|  | Armazenamento do Azure Data Lake Ger2        |  Leste dos EUA, oeste dos EUA, Oeste EUA Central       | Pré-visualização         |
-|  |  Base de Dados SQL do Azure         | EUA Central ocidental; WestUS EUA Central do Sul; Leste dos EUA; EUA Central norte      |   Pré-visualização      |
-||Azure SQL Data Warehouse| EUA Central ocidental; WestUS EUA Central do Sul; Leste dos EUA; EUA Central norte |Pré-visualização|
-||Azure Cosmos DB| EUA Central ocidental; WestUS EastUS EUA Central norte; Lesteus 2; Westus 2 |Pré-visualização|
+|Link privado para serviços de Propriedade do cliente|Serviços de vínculo privado por trás Standard Load Balancer | Todas as regiões públicas  |  Pré-visualização  |
+|Link privado para os serviços de PaaS do Azure   | Armazenamento do Azure        |  Todas as regiões públicas      | Pré-visualização         |
+|  | Armazenamento do Azure Data Lake Ger2        |  Todas as regiões públicas      | Pré-visualização         |
+|  |  Base de Dados SQL do Azure         | Todas as regiões públicas      |   Pré-visualização      |
+||Azure SQL Data Warehouse| Todas as regiões públicas |Pré-visualização|
+||Azure Cosmos DB| Oeste EUA Central, Westus, norte EUA Central |Pré-visualização|
 
 Para obter as notificações mais atualizadas, verifique a [página atualizações de rede virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

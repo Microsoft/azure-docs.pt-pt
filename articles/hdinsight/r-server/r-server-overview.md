@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: bd9b9edde0f4c5e3bea6e31342298f2df5a2b5fe
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 782c860ca50c1ef12eda1ec33f29c5103b396349
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241866"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73665295"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>O que são os serviços do ML no Azure HDInsight
 
@@ -23,7 +23,7 @@ Os serviços de ML no HDInsight fornecem os recursos mais recentes para análise
 
 O nó de borda de um cluster fornece um local conveniente para se conectar ao cluster e executar os scripts do R. Com um nó de borda, você tem a opção de executar as funções distribuídas paralelizadas do scaler nos núcleos do servidor do nó de borda. Você também pode executá-los em todos os nós do cluster usando a redução de mapa do Hadoop do scaler ou Apache Spark contextos de computação.
 
-Os modelos ou previsões que resultam da análise podem ser baixados para uso local. Eles também podem ser operados em outro lugar no Azure, particularmente por meio do [serviço web](../../machine-learning/studio/publish-a-machine-learning-web-service.md) [Azure Machine Learning Studio (clássico)](https://studio.azureml.net) .
+Os modelos ou previsões que resultam da análise podem ser baixados para uso local. Eles também podem ser operados em outro lugar no Azure, particularmente por meio do [serviço web](../../machine-learning/studio/deploy-a-machine-learning-web-service.md) [Azure Machine Learning Studio (clássico)](https://studio.azureml.net) .
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Introdução aos serviços de ML no HDInsight
 

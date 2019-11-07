@@ -1,70 +1,70 @@
 ---
-title: Serviço Azure SignalR perguntas mais frequentes
-description: Perguntas frequentes para o serviço Azure SignalR.
+title: Perguntas frequentes sobre o serviço Signaler do Azure
+description: Perguntas frequentes sobre o serviço de Signaler do Azure.
 author: sffamily
 ms.service: signalr
 ms.topic: overview
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: e9e41ffa335aa95b139a5d5658424c1c5915b569
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 771124d0b8ca15bf72501fdeff8c31d0a43050b8
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64914940"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73578674"
 ---
-# <a name="azure-signalr-service-faq"></a>FAQ do serviço Azure SignalR
+# <a name="azure-signalr-service-faq"></a>Perguntas frequentes sobre o serviço do Azure Signalr
 
-## <a name="is-azure-signalr-service-ready-for-production-use"></a>É o serviço Azure SignalR pronto para uso em produção?
+## <a name="is-azure-signalr-service-ready-for-production-use"></a>O serviço Signaler do Azure está pronto para uso em produção?
 
 Sim.
-Para o nosso anúncio da disponibilidade geral, consulte [serviço Azure SignalR agora em disponibilidade geral](https://azure.microsoft.com/blog/azure-signalr-service-now-generally-available/). 
+Para nosso anúncio de disponibilidade geral, consulte o [serviço Azure signalr agora está disponível para o público geral](https://azure.microsoft.com/blog/azure-signalr-service-now-generally-available/). 
 
-[ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction) é totalmente suportado.
+O [sinal de ASP.NET Core](https://docs.microsoft.com/aspnet/core/signalr/introduction) é totalmente suportado.
 
-Suporte para o ASP.NET SignalR é ainda na *pré-visualização pública*. Aqui está uma [exemplo de código](https://github.com/aspnet/AzureSignalR-samples/tree/master/aspnet-samples/ChatRoom).
+O suporte para o Signalr ASP.NET ainda está na *Visualização pública*. Aqui está um [exemplo de código](https://github.com/aspnet/AzureSignalR-samples/tree/master/aspnet-samples/ChatRoom).
 
-## <a name="the-client-connection-closes-with-the-error-message-no-server-available-what-does-it-mean"></a>Não fecha a ligação de cliente com a mensagem de erro "Nenhum servidor disponível". O que significa?
+## <a name="the-client-connection-closes-with-the-error-message-no-server-available-what-does-it-mean"></a>A conexão de cliente fecha com a mensagem de erro "nenhum servidor disponível". O que isso significa?
 
-Este erro ocorre apenas quando os clientes estão a enviar mensagens para o serviço de SignalR.
+Esse erro ocorre somente quando os clientes estão enviando mensagens para o serviço Signalr.
 
-Se não tiver qualquer servidor de aplicação e utilizar apenas a API de REST do SignalR serviço, esse comportamento é **propositado**.
-Arquitetura sem servidor, as ligações de cliente estão na **ESCUTAR** modo e irá não enviar as mensagens para o serviço SignalR.
-Leia mais em [REST API](./signalr-quickstart-rest-api.md).
+Se você não tiver nenhum servidor de aplicativos e usar apenas a API REST do serviço Signalr, esse comportamento será **por design**.
+Na arquitetura sem servidor, as conexões de cliente estão no modo de **escuta** e não enviarão nenhuma mensagem para o serviço signalr.
+Leia mais sobre a [API REST](./signalr-quickstart-rest-api.md).
 
-Se tiver servidores de aplicações, esta mensagem de erro significa que nenhum servidor de aplicativo está ligado à sua instância de serviço SignalR.
+Se você tiver servidores de aplicativos, essa mensagem de erro significa que nenhum servidor de aplicativos está conectado à sua instância de serviço do Signalr.
 
-As causas possíveis são:
-- Nenhum servidor de aplicativo está ligado com o serviço SignalR. Verifique os registos do servidor de aplicação para erros de ligação possíveis. Neste caso, é raro na definição de elevada disponibilidade com mais do que um servidores de aplicativos.
-- Existem problemas de conectividade com instâncias de serviço SignalR. Este problema é transitório e vai recuperar automaticamente.
-Se isto persistir durante mais de uma hora, [abra um problema no GitHub](https://github.com/Azure/azure-signalr/issues/new) ou [criar um pedido de suporte no Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+As possíveis causas são:
+- Nenhum servidor de aplicativos está conectado com o serviço de sinalização. Verifique os logs do servidor de aplicativos para obter possíveis erros de conexão. Esse caso é raro na configuração de alta disponibilidade com mais de um servidor de aplicativos.
+- Há problemas de conectividade com instâncias de serviço do Signalr. Esse problema é transitório e será recuperado automaticamente.
+Se persistir por mais de uma hora, [abra um problema no GitHub](https://github.com/Azure/azure-signalr/issues/new) ou [crie uma solicitação de suporte no Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
-## <a name="when-there-are-multiple-application-servers-are-client-messages-sent-to-all-servers-or-just-one-of-them"></a>Quando há vários servidores de aplicações, são o cliente mensagens enviadas para todos os servidores ou apenas um deles?
+## <a name="when-there-are-multiple-application-servers-are-client-messages-sent-to-all-servers-or-just-one-of-them"></a>Quando há vários servidores de aplicativos, as mensagens do cliente são enviadas a todos os servidores ou apenas um deles?
 
-Ele é o mapeamento entre o servidor de cliente e a aplicação. As mensagens de um cliente sempre são enviadas para o mesmo servidor de aplicação.
+É um mapeamento de um-para-um entre o cliente e o servidor de aplicativos. As mensagens de um cliente são sempre enviadas para o mesmo servidor de aplicativos.
 
-O mapeamento entre o servidor de cliente e a aplicação será mantido até que o aplicativo cliente ou servidor desliga.
+O mapeamento entre cliente e servidor de aplicativos será mantido até que o cliente ou servidor de aplicativos se desconecte.
 
-## <a name="if-one-of-my-application-servers-is-down-how-can-i-find-it-and-get-notified"></a>Se um dos meus servidores de aplicação estiver em baixo, como posso encontrá-lo e obter notificado?
+## <a name="if-one-of-my-application-servers-is-down-how-can-i-find-it-and-get-notified"></a>Se um dos meus servidores de aplicativos estiver inativo, como posso encontrá-lo e ser notificado?
 
-Serviço SignalR monitoriza os heartbeats do servidores de aplicações.
-Se heartbeats não são recebidos para um período de tempo especificado, o servidor de aplicações é considerado offline. Todas as ligações de cliente mapeadas para este servidor de aplicações serão desligadas.
+O serviço signalr monitora as pulsações dos servidores de aplicativos.
+Se as pulsações não forem recebidas por um período de tempo especificado, o servidor de aplicativos será considerado offline. Todas as conexões de cliente mapeadas para este servidor de aplicativos serão desconectadas.
 
-## <a name="why-does-my-custom-iuseridprovider-throw-exception-when-switching-from-aspnet-core-signalr--sdk-to-azure-signalr-service-sdk"></a>Por que motivo faz meu personalizado `IUserIdProvider` lançar a exceção, quando a mudança do SDK do SignalR do ASP.NET Core para o SDK do serviço Azure SignalR?
+## <a name="why-does-my-custom-iuseridprovider-throw-exception-when-switching-from-aspnet-core-signalr--sdk-to-azure-signalr-service-sdk"></a>Por que o meu `IUserIdProvider` personalizado gera exceções ao alternar do SDK do Signalr ASP.NET Core para o SDK do serviço de Signaler do Azure?
 
-O parâmetro `HubConnectionContext context` é diferente entre o SDK de SignalR do ASP.NET Core e o SDK do serviço Azure SignalR quando `IUserIdProvider` é chamado.
+O parâmetro `HubConnectionContext context` é diferente entre o SDK do Signalr ASP.NET Core e o SDK do serviço de Signaler do Azure quando `IUserIdProvider` é chamado.
 
-No ASP.NET Core SignalR, `HubConnectionContext context` é o contexto da ligação de cliente físicos com valores válidos para todas as propriedades.
+No ASP.NET Core Signalr, `HubConnectionContext context` é o contexto da conexão de cliente físico com valores válidos para todas as propriedades.
 
-No SDK do serviço Azure SignalR, `HubConnectionContext context` é o contexto de conexão com a lógica de cliente. A ligação de cliente físico está ligada à instância do serviço SignalR, portanto, apenas um número limitado de propriedades é fornecido.
+No SDK do serviço de Signaler do Azure, `HubConnectionContext context` é o contexto da conexão de cliente lógica. A conexão do cliente físico é conectada à instância do serviço Signalr, portanto, apenas um número limitado de propriedades é fornecido.
 
-Por enquanto, apenas `HubConnectionContext.GetHttpContext()` e `HubConnectionContext.User` estão disponíveis para acesso.
-Pode verificar o código-fonte [aqui](https://github.com/Azure/azure-signalr/blob/kevinzha/faq/src/Microsoft.Azure.SignalR/ServiceHubConnectionContext.cs).
+Por enquanto, somente `HubConnectionContext.GetHttpContext()` e `HubConnectionContext.User` estão disponíveis para acesso.
+Você pode verificar o código-fonte [aqui](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR/HubHost/ServiceHubConnectionContext.cs).
 
-## <a name="can-i-configure-the-transports-available-in-signalr-service-as-configuring-it-on-server-side-with-aspnet-core-signalr-for-example-disable-websocket-transport"></a>Pode configurar os transportes disponíveis no serviço SignalR como configurá-lo no lado do servidor com o SignalR do ASP.NET Core? Por exemplo, desativar o transporte de WebSocket?
+## <a name="can-i-configure-the-transports-available-in-signalr-service-as-configuring-it-on-server-side-with-aspnet-core-signalr-for-example-disable-websocket-transport"></a>Posso configurar os transportes disponíveis no serviço Signalr como configurá-los no lado do servidor com ASP.NET Core Signalr? Por exemplo, desabilitar o transporte WebSocket?
 
 Não.
 
-Serviço Azure SignalR fornece todos os três transportes que suporta o SignalR do ASP.NET Core por predefinição. Não é configurável. Serviço SignalR processará as ligações e transportes para todas as ligações de cliente.
+O serviço de Signaler do Azure fornece todos os três transportes que ASP.NET Core Signalr dá suporte por padrão. Ele não é configurável. O serviço signalr tratará conexões e transportes para todas as conexões de cliente.
 
-Pode configurar transportes de lado do cliente, conforme documentado [aqui](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1#configure-allowed-transports).
+Você pode configurar transportes do lado do cliente conforme documentado [aqui](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1#configure-allowed-transports).

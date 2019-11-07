@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: panosper
-ms.openlocfilehash: 1f934bc5627331cc92ad3f497f1f7e4e0e5526cd
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 3b957181015cba06eb361272ca1004ba3e7a7008
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595328"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579685"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre fala para texto
 
@@ -91,7 +91,7 @@ ou
   - Selecione `Cognitive Services` na caixa de pesquisa,
   - nos serviços exibidos, escolha o serviço de fala para o qual você deseja aumentar a simultaneidade,
   - exibir as propriedades deste serviço,
-  - Copie o `Resource ID` completo.
+  - Copie o `Resource ID`completo.
 
 **P: posso baixar meu modelo e executá-lo localmente?**
 
@@ -175,6 +175,18 @@ ou
 **P: posso simplesmente carregar uma lista de palavras?**
 
 **R**: carregar uma lista de palavras adicionará as palavras ao vocabulário, mas não ensinará ao sistema como as palavras normalmente são usadas. Ao fornecer declarações totais ou parciais (frases ou frases de coisas que os usuários têm probabilidade de dizer), o modelo de linguagem pode aprender as novas palavras e como elas são usadas. O modelo de linguagem personalizado é bom não apenas para adicionar novas palavras ao sistema, mas também para ajustar a probabilidade de palavras conhecidas para seu aplicativo. Fornecer declarações completo ajuda o sistema a aprender melhor. 
+
+## <a name="tenant-model-custom-speech-with-office-365-data"></a>Modelo de locatário (Fala Personalizada com dados do Office 365)
+
+**P: quais informações estão incluídas no modelo de locatário e como elas são criadas?**
+
+**R:** Um modelo de locatário é criado usando emails de [grupo público](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) e documentos que podem ser vistos por qualquer pessoa em sua organização. 
+ 
+**P: quais experiências de fala foram aprimoradas pelo modelo de locatário?**
+
+**R:** Quando o modelo de locatário é habilitado, criado e publicado, ele é usado para melhorar o reconhecimento de qualquer aplicativo empresarial criado usando o serviço de fala; Isso também passa um token AAD do usuário que indica a associação à empresa. 
+ 
+As experiências de fala incorporadas ao Office 365, como ditado e legendas do PowerPoint, não são alteradas quando você cria um modelo de locatário para seus aplicativos de serviço de fala.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 10/24/2019
-ms.openlocfilehash: da0c4d6cd4b923033761a275e93c5a4d8a184647
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 25d6d1aa1cf7db0f448ec22ed7b5c84d840af3f5
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990933"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579654"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Início rápido: explorar o ambiente de demonstração do Azure Time Series Insights Preview
 
@@ -30,7 +30,7 @@ Neste guia de início rápido, você aprende a usar Time Series Insights para en
 
 ## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>Explorar o Time Series Insights Explorer em um ambiente de demonstração
 
-O Time Series Insights Preview Explorer demonstra dados históricos e análise de causas raiz. Para começar:
+O Time Series Insights Preview Explorer demonstra dados históricos e análise da causa raiz. Para começar:
 
 1. Vá para o ambiente de [demonstração do farm de vento da Contoso](https://insights.timeseries.azure.com/preview/samples) .  
 
@@ -71,22 +71,22 @@ O Time Series Insights Preview Explorer demonstra dados históricos e análise d
 
       [![procurar padrões de histórico](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
 
-Usando Time Series Insights e nossa telemetria de sensor, descobrimos uma tendência de longo prazo e problemática oculta nos dados históricos. Com essas novas informações, podemos:
+Ao usar a telemetria Time Series Insights e sensor, descobrimos uma tendência de longo prazo oculta nos dados históricos. Com essas novas informações, podemos:
 
 * Explique o que realmente ocorreu.
 * Corrija o problema.
-* Coloque sistemas de notificação de alerta superiores em vigor.
+* Coloque melhores sistemas de notificação de alerta em vigor.
 
 ## <a name="root-cause-analysis"></a>Análise da origem do problema
 
-1. Alguns cenários exigem uma análise sofisticada para revelar pistas sutis nos dados. Selecione Windmill **W6** na data **6/25**.
+1. Alguns cenários exigem uma análise sofisticada para revelar pistas de dados. Selecione Windmill **W6** na data **6/25**.
 
     1. Altere o intervalo de exibição para **6/1/17 20:00:00.00 para 7/1/17 20:00:00.00 (UTC)** .
     1. Selecione **contoso Plant 1** > **W6** > **segurança System** > **VoltageActuatorSwitchWarning**.
 
        [![alterar o intervalo de exibição e selecionar W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
 
-1. O aviso indica um problema com a tensão sendo saída pelo gerador. A saída geral de energia do gerador está operando dentro dos parâmetros normais no intervalo atual. Ao aumentar nosso intervalo, surge outro padrão. Uma queda definitiva é evidente.
+1. O aviso indica um problema com a tensão do gerador. A saída geral de energia do gerador está dentro dos parâmetros normais no intervalo atual. Ao aumentar nosso intervalo, vemos outro padrão surgindo. Uma queda é evidente.
 
     1. Remova o sensor **VoltageActuatorSwitchWarning** .
     1. Selecione **sistema gerador** > **ActivePower**.
@@ -117,9 +117,9 @@ Usando Time Series Insights e nossa telemetria de sensor, descobrimos uma tendê
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Agora que você concluiu o tutorial, limpe os recursos que criou:
+Agora que você concluiu o início rápido, limpe os recursos que criou:
 
-1. No menu à esquerda na [portal do Azure](https://portal.azure.com), selecione **todos os recursos**, localize o grupo de recursos Azure Time Series insights.
+1. No menu à esquerda na [portal do Azure](https://portal.azure.com), selecione **todos os recursos**e localize o grupo de recursos Azure Time Series insights.
 1. Exclua todo o grupo de recursos (e todos os recursos contidos nele) selecionando **excluir** ou remover cada recurso individualmente.
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -129,7 +129,7 @@ Você está pronto para criar seu próprio ambiente de visualização de Time Se
 > [!div class="nextstepaction"]
 > [Planejar seu ambiente de Time Series Insights Preview](time-series-insights-update-plan.md)
 
-Saiba como navegar na demonstração e seus recursos:
+Aprenda a usar a demonstração e seus recursos:
 
 > [!div class="nextstepaction"]
 > [O Gerenciador de visualização do Time Series Insights](time-series-insights-update-explorer.md)

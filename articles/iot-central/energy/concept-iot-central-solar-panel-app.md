@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: bf109d91582bc08a3922d8c84e9ffab904dbb94c
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: b2b0fff225eee52f8ffe308317f06793728e5d1f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026782"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585330"
 ---
 # <a name="azure-iot-central---solar-panel-app-architecture"></a>Azure IoT Central-arquitetura de aplicativo de painel solar
 
@@ -22,8 +22,8 @@ ms.locfileid: "73026782"
 
 Este artigo fornece uma visão geral da arquitetura do modelo de aplicativo de monitoramento do painel solar. O diagrama a seguir mostra uma arquitetura comumente usada para o aplicativo de painel solar no Azure usando IoT Central plataforma.
 
-[!div class="mx-imgBorder"]
-![arquitetura de medidor inteligente](media/concept-iot-central-solar-panel/solar-panel-app-architecture.png)
+> [!div class="mx-imgBorder"]
+> ![arquitetura de medidor inteligente](media/concept-iot-central-solar-panel/solar-panel-app-architecture.png)
 
 Esta arquitetura é composta pelos seguintes componentes. Algumas aplicações podem não requerer todos os componentes listados aqui.
 

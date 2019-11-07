@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d050385bb76817c8aeada1bef4c4697a1f58d09
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: c70226ef58ed60a7be556b88366953796ed6fff1
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497272"
+ms.locfileid: "73580570"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizados em Python
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ Se preferir uma experiência sem código, você também poderá [criar experiên
 
 ## <a name="select-your-experiment-type"></a>Selecione seu tipo de experimento
 
-Antes de começar seu experimento, você deve determinar o tipo de problema de aprendizado de máquina que está resolvendo. O aprendizado de máquina automatizado dá suporte a tipos de tarefas de classificação, regressão e previsão.
+Antes de começar seu experimento, você deve determinar o tipo de problema de aprendizado de máquina que está resolvendo. O aprendizado de máquina automatizado dá suporte a tipos de tarefas de classificação, regressão e previsão. Saiba mais sobre os [tipos de tarefa](how-to-define-task-type.md).
 
 O aprendizado de máquina automatizado dá suporte aos seguintes algoritmos durante o processo de automação e ajuste. Como usuário, não é necessário especificar o algoritmo.
 
@@ -57,10 +57,10 @@ Classificação | Regressão | Previsão de série temporal
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
 [Classificador DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[Regressor DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [Regressor DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
 [Classificador linear DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Regressor linear](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[Regressor linear](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|[Regressor linear rápido](https://docs.microsoft.com/en-us/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[ARIMA automático](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[Descendente estocástico Grading (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|[Regressor descendente de gradiente online](https://docs.microsoft.com/en-us/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
-|[Classificação média de perceptron](https://docs.microsoft.com/en-us/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)||ForecastTCN
-|[Classificador SVM linear](https://docs.microsoft.com/en-us/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)||
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|[Regressor linear rápido](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[ARIMA automático](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[Descendente estocástico Grading (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|[Regressor descendente de gradiente online](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+|[Classificação média de perceptron](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)||ForecastTCN
+|[Classificador SVM linear](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)||
 
 Use o parâmetro `task` no Construtor `AutoMLConfig` para especificar o tipo de experimento.
 
@@ -326,7 +326,7 @@ Qualquer modelo produzido usando o ML automatizado inclui as seguintes etapas:
 + Engenharia automatizada de recursos (se pré-processar = true)
 + Dimensionamento/normalização e algoritmo com valores de hiperparâmetro
 
-Tornamos transparente para obter essas informações da saída do fitted_model do ML automatizado.
+Tornamos transparente para obter essas informações da fitted_model saída do ML automatizado.
 
 ```python
 automl_config = AutoMLConfig(…)
@@ -341,7 +341,7 @@ Consulte a lista de pré-processamento e [engenharia automatizada de recursos](c
 Considere este exemplo:
 + Há quatro recursos de entrada: A (numérico), B (numérico), C (numérico), D (DateTime)
 + O recurso numérico C é Descartado porque é uma coluna de ID com todos os valores exclusivos
-+ Os recursos numéricos A e B têm valores ausentes e, portanto, são imputados por média
++ Os recursos numéricos A e B têm valores ausentes e, portanto, são imputadosdos pela média
 + O recurso DateTime D é destacados em 11 recursos de engenharia diferentes
 
 Use essas duas APIs na primeira etapa do modelo ajustado para entender mais.  Consulte [este bloco de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).

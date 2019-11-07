@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 647edcab5ec2925016e8a099ae43b6133037f8de
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: efb2fd8fd6b77a27130b834c2b192c1e88eec97c
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491144"
+ms.locfileid: "73578390"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalar e executar contêineres de serviço de fala
 
@@ -43,7 +43,7 @@ Os seguintes pré-requisitos antes de usar os contêineres de fala:
 |--|--|
 | Mecanismo do Docker | Você precisa do mecanismo do Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [MacOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/)e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter uma introdução sobre o Docker e noções básicas de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres se conectem e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br> |
 | Familiaridade com o Docker | Você deve ter uma compreensão básica dos conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como o conhecimento de comandos básicos de `docker`. |
-| Recurso de fala | Para usar esses contêineres, você deve ter:<br><br>Um recurso de _fala_ do Azure para obter a chave de API e o URI de ponto de extremidade associados. Ambos os valores estão disponíveis nas páginas visão geral de **fala** e chaves de portal do Azure. Eles são necessários para iniciar o contêiner.<br><br>**{Api_key}** : uma das duas chaves de recurso disponíveis na página de **chaves**<br><br>**{ENDPOINT_URI}** : o ponto de extremidade conforme fornecido na página **visão geral** |
+| Recurso de fala | Para usar esses contêineres, você deve ter:<br><br>Um recurso de _fala_ do Azure para obter a chave de API e o URI de ponto de extremidade associados. Ambos os valores estão disponíveis nas páginas visão geral de **fala** e chaves de portal do Azure. Eles são necessários para iniciar o contêiner.<br><br>**{Api_key}** : uma das duas chaves de recurso disponíveis na página **chaves**<br><br>**{ENDPOINT_URI}** : o ponto de extremidade conforme fornecido na página **visão geral** |
 
 ## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao registro de contêiner
 
@@ -167,19 +167,7 @@ A marca a seguir é um exemplo do formato:
 2.0.0-amd64-en-us-preview
 ```
 
-A tabela a seguir lista as localidades com suporte para a **conversão de fala em texto** na versão 2.0.0 do contêiner:
-
-| Localidade do idioma | Etiquetas |
-|--|--|
-| Chinês | `zh-CN` |
-| Português | `en-US`<br>`en-GB`<br>`en-AU`<br>`en-IN` |
-| Francês | `fr-CA`<br>`fr-FR` |
-| Alemão | `de-DE` |
-| Italiano | `it-IT` |
-| Japonês | `ja-JP` |
-| Coreano | `ko-KR` |
-| Português | `pt-BR` |
-| Espanhol | `es-ES`<br>`es-MX` |
+Para todas as localidades com suporte na versão 2.0.0 do contêiner de **fala a texto** , a concessão vê a coluna **suporte de contêiner** da tabela de [suporte do idioma de fala para texto](language-support.md#speech-to-text) .
 
 # <a name="custom-speech-to-texttabcstt"></a>[Fala Personalizada para texto](#tab/cstt)
 
@@ -221,24 +209,7 @@ A marca a seguir é um exemplo do formato:
 1.3.0-amd64-en-us-jessarus-preview
 ```
 
-A tabela a seguir lista as localidades com suporte para **conversão de texto em fala** na versão 1.3.0 do contêiner:
-
-| Localidade do idioma | Etiquetas | Vozes com suporte |
-|--|--|--|
-| Chinês | `zh-CN` | huihuirus<br>kangkang-Apollo<br>yaoyao-Apollo |
-| Português | `en-AU` | catherine<br>hayleyrus |
-| Português | `en-GB` | George-Apollo<br>hazelrus<br>Susan-Apollo |
-| Português | `en-IN` | Heera-Apollo<br>priyarus<br>Ravi-Apollo<br> |
-| Português | `en-US` | jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus |
-| Francês | `fr-CA` | Carolina<br>harmonierus |
-| Francês | `fr-FR` | hortenserus<br>Julie-Apollo<br>Paul-Apollo |
-| Alemão | `de-DE` | hedda<br>heddarus<br>Stefan-Apollo |
-| Italiano | `it-IT` | Cosimo-Apollo<br>luciarus |
-| Japonês | `ja-JP` | Ayumi-Apollo<br>harukarus<br>Ichiro-Apollo |
-| Coreano | `ko-KR` | heamirus |
-| Português | `pt-BR` | Daniel-Apollo<br>heloisarus |
-| Espanhol | `es-ES` | elenarus<br>Laura-Apollo<br>Pablo-Apollo<br> |
-| Espanhol | `es-MX` | hildarus<br>Ricardo-Apollo |
+Para todas as localidades com suporte e as vozes correspondentes na versão 1.3.0 do contêiner de **conversão de texto em fala** , consulte a coluna **suporte de contêiner** da tabela de suporte de [idiomas vozes padrão](language-support.md#standard-voices) .
 
 > [!IMPORTANT]
 > Ao construir um HTTP POST *padrão de conversão de texto em fala* , a mensagem de [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md) requer um elemento `voice` com um atributo `name`. O valor é a localidade de contêiner correspondente e voz, também conhecido como ["nome curto"](language-support.md#standard-voices). Por exemplo, a marca de `latest` teria um nome de voz de `en-US-JessaRUS`.

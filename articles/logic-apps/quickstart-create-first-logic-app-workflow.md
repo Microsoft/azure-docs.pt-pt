@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 246bd7935bf5aaaae569e589e4efa0ea7d39c90a
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: d5ac23da7b4460211100f1140c24f6ed28ab3e39
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821181"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584351"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Início Rápido: Criar o primeiro fluxo de trabalho automatizado com o Azure Logic Apps – portal do Azure
 
@@ -24,7 +24,7 @@ Este início rápido mostra como criar o primeiro fluxo de trabalho automatizado
 
 ![Fluxo de trabalho do aplicativo lógico de exemplo de alto nível](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-Para seguir este início rápido, precisa de uma conta de e-mail de um fornecedor suportado pelo Logic Apps, como o Outlook do Office 365, Outlook.com ou Gmail. Para outros fornecedores, [consulte a lista de conectores aqui](https://docs.microsoft.com/connectors/). Esta aplicação lógica utiliza uma conta do Outlook do Office 365. Se utilizar outra conta de e-mail, os passos gerais são os mesmos, mas a IU poderá ser ligeiramente diferente.
+Para seguir este início rápido, você precisa de uma conta de email de um provedor com suporte dos aplicativos lógicos do Azure, como o Office 365 Outlook, Outlook.com ou gmail. Para outros fornecedores, [consulte a lista de conectores aqui](https://docs.microsoft.com/connectors/). Esta aplicação lógica utiliza uma conta do Outlook do Office 365. Se você usar outra conta de email, as etapas gerais serão as mesmas, mas a interface do usuário poderá ser ligeiramente diferente.
 
 Além disso, se não tiver uma subscrição do Azure, [inscreva-se numa conta do Azure gratuita](https://azure.microsoft.com/free/).
 
@@ -42,20 +42,20 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais
 
    ![Adicionar novo aplicativo lógico](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
-1. Em **Criar aplicação lógica**, forneça detalhes sobre a sua aplicação lógica, conforme aqui apresentado. Depois de terminar, selecione **criar**.
+1. No painel aplicativo lógico, forneça detalhes sobre seu aplicativo lógico, conforme mostrado abaixo. Depois de terminar, selecione **criar**.
 
    ![Fornecer detalhes para o novo aplicativo lógico](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
-   | **Nome** | <*Logic-app-name*> | O nome do aplicativo lógico, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) e pontos (`.`). Este exemplo usa "My-First-Logic-app". |
+   | **Nome** | <*lógica-nome do aplicativo*> | O nome do aplicativo lógico, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) e pontos (`.`). Este exemplo usa "My-First-Logic-app". |
    | **Subscrição** | <*Azure-subscription-name*> | O nome da sua assinatura do Azure |
-   | **Grupo de recursos** | <*Azure-Resource-Group-name* > | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usado para organizar os recursos relacionados. Este exemplo usa "My-First-LA-RG". |
-   | **Localização** | <*Azure-region*> | A região onde armazenar as informações do aplicativo lógico. Este exemplo usa "oeste dos EUA". |
+   | **Grupo de recursos** | <*Azure-Resource-Group-name*> | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usado para organizar os recursos relacionados. Este exemplo usa "My-First-LA-RG". |
+   | **Localização** | <*do Azure-region*> | A região onde armazenar as informações do aplicativo lógico. Este exemplo usa "oeste dos EUA". |
    | **Log Analytics** | Desativado | Mantenha a definição **Desativado** para o registo de diagnósticos. |
    ||||
 
-1. Depois que o Azure implantar seu aplicativo, na barra de ferramentas do Azure, selecione **notificações**  > **ir para o recurso** para seu aplicativo lógico implantado.
+1. Depois que o Azure implantar seu aplicativo, na barra de ferramentas do Azure, selecione **notificações** > **ir para o recurso** para seu aplicativo lógico implantado.
 
    ![Ir para o recurso de aplicativo lógico recém-criado](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
 
@@ -65,15 +65,15 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais
 
    ![Selecionar modelo em branco para o aplicativo lógico](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
-Em seguida, adicione um [acionador](../logic-apps/logic-apps-overview.md#logic-app-concepts) que é desencadeado quando um novo item do feed RSS é apresentado. Todas as aplicações lógicas têm de iniciar com um acionador, que é desencadeado quando um evento específico acontece ou quando uma condição específica é cumprida. Sempre que o acionador é acionado, o motor do Logic Apps cria uma instância da aplicação lógica que inicia e executa o fluxo de trabalho.
+Em seguida, adicione um [acionador](../logic-apps/logic-apps-overview.md#logic-app-concepts) que é desencadeado quando um novo item do feed RSS é apresentado. Todas as aplicações lógicas têm de iniciar com um acionador, que é desencadeado quando um evento específico acontece ou quando uma condição específica é cumprida. Cada vez que o gatilho é acionado, o mecanismo de aplicativos lógicos do Azure cria uma instância de aplicativo lógico que inicia e executa o fluxo de trabalho.
 
 <a name="add-rss-trigger"></a>
 
 ## <a name="check-rss-feed-with-a-trigger"></a>Verificar o feed RSS com um acionador
 
-1. No designer de aplicativo lógico, na caixa de pesquisa, selecione **tudo**.
+1. No **Designer de aplicativo lógico**, na caixa de pesquisa, selecione **tudo**.
 
-1. Na caixa de pesquisa, introduza `rss`. Na lista de gatilhos, selecione este gatilho: **quando um item de feed é publicado**
+1. Na caixa de pesquisa, introduza `rss`. Na lista de gatilhos, selecione este gatilho: **quando um item de feed é publicado**.
 
    ![Selecione o gatilho "quando um item de feed é publicado"](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
@@ -100,7 +100,7 @@ A sua aplicação lógica está agora ativa, mas não faz mais nada que não ver
 
 ## <a name="send-email-with-an-action"></a>Enviar mensagens de e-mail com uma ação
 
-Agora, adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) que envia uma mensagem de e-mail quando um novo item aparece no feed RSS.
+Agora, adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) que envia um email quando um novo item é exibido no RSS feed.
 
 1. No gatilho **quando um item do feed é publicado** , selecione **nova etapa**.
 
@@ -121,7 +121,7 @@ Agora, adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conc
 
 1. Na ação **Enviar uma mensagem de e-mail**, especifique os dados que pretende que a mensagem inclua.
 
-   1. Na caixa **Para**, introduza o endereço de e-mail do destinatário. Para fins de teste, pode utilizar o seu próprio endereço de e-mail.
+   1. Na caixa **Para**, introduza o endereço de e-mail do destinatário. Para fins de teste, você pode usar seu endereço de email.
 
       Por agora, ignore a lista **Adicionar conteúdo dinâmico** que é apresentada. Quando clica no interior de algumas caixas de edição, esta lista aparece e mostra os parâmetros disponíveis do passo anterior que pode incluir como entradas no fluxo de trabalho.
 
@@ -156,13 +156,13 @@ Em seguida, teste a aplicação lógica.
 
 ## <a name="run-your-logic-app"></a>Executar a aplicação lógica
 
-Para iniciar manualmente seu aplicativo lógico, na barra da barra de ferramentas do designer, selecione **executar**. Em alternativa, aguarde que a aplicação lógica verifique o feed RSS de acordo com o agendamento especificado (a cada minuto). Se o feed RSS tiver itens novos, a sua aplicação lógica envia um e-mail para cada item novo. Caso contrário, a aplicação lógica aguarda até o intervalo seguinte antes de realizar uma nova consulta. Se não receber nenhum e-mail, veja a pasta de e-mail de lixo.
+Para iniciar manualmente seu aplicativo lógico, na barra da barra de ferramentas do designer, selecione **executar**. Em alternativa, aguarde que a aplicação lógica verifique o feed RSS de acordo com o agendamento especificado (a cada minuto). Se o feed RSS tiver itens novos, a sua aplicação lógica envia um e-mail para cada item novo. Caso contrário, a aplicação lógica aguarda até o intervalo seguinte antes de verificar novamente. Se não receber nenhum e-mail, veja a pasta de e-mail de lixo.
 
 Por exemplo, eis um exemplo de uma mensagem de e-mail enviada por esta aplicação lógica.
 
 ![Email de exemplo enviado quando um novo item de RSS feed é exibido](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
-Em termos técnicos, quando o acionador consulta o feed RSS e encontra itens novos, este é acionado e o motor do Logic Apps cria uma instância do fluxo de trabalho da aplicação lógica que executa as ações no fluxo de trabalho. Se o acionador não encontrar itens novos, este não é acionado e "ignora" a criação de instâncias do fluxo de trabalho.
+Tecnicamente, quando o gatilho verifica o RSS feed e localiza novos itens, o gatilho é acionado e o mecanismo de aplicativos lógicos do Azure cria uma instância do fluxo de trabalho do aplicativo lógico que executa as ações no fluxo de trabalho. Se o acionador não encontrar itens novos, este não é acionado e "ignora" a criação de instâncias do fluxo de trabalho.
 
 Parabéns, você agora criou e executou com êxito seu primeiro aplicativo lógico com o portal do Azure.
 

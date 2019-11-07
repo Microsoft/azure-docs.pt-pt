@@ -6,16 +6,16 @@ keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 09/05/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: d50ee0fa06f34167cd4be9e787f6e351d3ef7e3b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 4613d441fd0d363654073d4832de19139a7781e7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845208"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579728"
 ---
 # <a name="azure-blockchain-workbench-preview-architecture"></a>Arquitetura de visualização do Azure Blockchain Workbench
 

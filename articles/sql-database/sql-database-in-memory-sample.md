@@ -1,5 +1,5 @@
 ---
-title: Amostra na memória do banco de dados SQL do Azure | Microsoft Docs
+title: Exemplo na memória do banco de dados SQL do Azure
 description: Experimente as tecnologias na memória do banco de dados SQL do Azure com OLTP e o exemplo columnstore.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: e3e819fc90e8900219ebc7809adb293369084a72
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 8526236afdb0a312879cb3c1635a7fd85985278f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828216"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689816"
 ---
 # <a name="in-memory-sample"></a>Exemplo na memória
 
@@ -34,7 +34,7 @@ Para obter mais informações, consulte:
 
 &nbsp;
 
-## <a name="1-install-the-in-memory-oltp-sample"></a>1. Instalar o exemplo de OLTP na memória
+## <a name="1-install-the-in-memory-oltp-sample"></a>1. instalar o exemplo de OLTP na memória
 
 Você pode criar o banco de dados de exemplo AdventureWorksLT com alguns cliques na [portal do Azure](https://portal.azure.com/). Em seguida, as etapas nesta seção explicam como você pode enriquecer seu banco de dados AdventureWorksLT com objetos OLTP na memória e demonstrar os benefícios de desempenho.
 
@@ -51,7 +51,7 @@ Para uma demonstração de desempenho mais simplista, mas mais visualmente atrae
 
 3. Copie o [script Transact-SQL OLTP na memória](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) para a área de transferência. O script T-SQL cria os objetos na memória necessários no banco de dados de exemplo AdventureWorksLT que você criou na etapa 1.
 
-4. Cole o script T-SQL no SSMS e, em seguida, execute o script. A cláusula `MEMORY_OPTIMIZED = ON` CREATE TABLE instruções são cruciais. Por exemplo:
+4. Cole o script T-SQL no SSMS e, em seguida, execute o script. A cláusula de `MEMORY_OPTIMIZED = ON` CREATE TABLE instruções são cruciais. Por exemplo:
 
 
 ```sql
@@ -78,16 +78,16 @@ Um resultado de **0** significa que a memória não tem suporte e **1** signific
 
 #### <a name="about-the-created-memory-optimized-items"></a>Sobre os itens criados com otimização de memória
 
-**Tabelas**: O exemplo contém as seguintes tabelas com otimização de memória:
+**Tabelas**: o exemplo contém as seguintes tabelas com otimização de memória:
 
-- SalesLT.Product_inmem
-- SalesLT.SalesOrderHeader_inmem
-- SalesLT.SalesOrderDetail_inmem
-- Demo.DemoSalesOrderHeaderSeed
-- Demo.DemoSalesOrderDetailSeed
+- Tabela SalesLT. Product_inmem
+- Tabela SalesLT. SalesOrderHeader_inmem
+- Tabela SalesLT. SalesOrderDetail_inmem
+- Demo. DemoSalesOrderHeaderSeed
+- Demo. DemoSalesOrderDetailSeed
 
 
-Você pode inspecionar tabelas com otimização de memória por meio do pesquisador de **objetos** no SSMS. Clique com o botão direito do mouse em **tabelas** > **Filtrar** **configurações de filtro** >   > **é otimizado para memória**. O valor é igual a 1.
+Você pode inspecionar tabelas com otimização de memória por meio do pesquisador de **objetos** no SSMS. Clique com o botão direito do mouse em **tabelas** > **Filtrar** > **configurações de filtro** > **é otimizado para memória**. O valor é igual a 1.
 
 
 Ou você pode consultar as exibições do catálogo, como:
@@ -100,7 +100,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 ```
 
 
-**Procedimento armazenado compilado nativamente**: Você pode inspecionar tabela SalesLT. USP _InsertSalesOrder_inmem por meio de uma consulta de exibição de catálogo:
+**Procedimento armazenado compilado nativamente**: você pode inspecionar tabela saleslt. usp_InsertSalesOrder_inmem por meio de uma consulta de exibição de catálogo:
 
 
 ```sql
@@ -116,8 +116,8 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 A única diferença entre os dois *procedimentos armazenados* a seguir é que o primeiro procedimento usa versões com otimização de memória das tabelas, enquanto o segundo procedimento usa as tabelas regulares em disco:
 
-- SalesLT **.** usp_InsertSalesOrder **_inmem**
-- SalesLT **.** usp_InsertSalesOrder **_ondisk**
+- Tabela SalesLT **.** usp_InsertSalesOrder **_inmem**
+- Tabela SalesLT **.** usp_InsertSalesOrder **_ondisk**
 
 
 Nesta seção, você verá como usar o prático utilitário **ostress. exe** para executar os dois procedimentos armazenados em níveis de estressação. Você pode comparar quanto tempo leva para que as duas execuções de estresse sejam concluídas.
@@ -140,8 +140,8 @@ Esta seção exibe o script T-SQL que é inserido em nossa linha de comando ostr
 
 O script a seguir insere um exemplo de ordem de venda com cinco itens de linha nas seguintes *tabelas*com otimização de memória:
 
-- SalesLT.SalesOrderHeader_inmem
-- SalesLT.SalesOrderDetail_inmem
+- Tabela SalesLT. SalesOrderHeader_inmem
+- Tabela SalesLT. SalesOrderDetail_inmem
 
 
 ```sql
@@ -171,7 +171,7 @@ end
 Para tornar a versão *_ondisk* do script T-SQL anterior para ostress. exe, você substituiria as duas ocorrências da subcadeia de caracteres *_inmem* por *_ondisk*. Essas substituições afetam os nomes de tabelas e procedimentos armazenados.
 
 
-### <a name="install-rml-utilities-and-ostress"></a>Instalar utilitários RML e `ostress`
+### <a name="install-rml-utilities-and-ostress"></a>Instalar utilitários e `ostress` do RML
 
 
 O ideal é que você planeje executar o ostress. exe em uma VM (máquina virtual) do Azure. Você criaria uma [VM do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/) na mesma região geográfica do Azure em que o banco de dados AdventureWorksLT reside. No entanto, você pode executar o ostress. exe em seu laptop.
@@ -198,7 +198,7 @@ whereas for SQL 2016+
 
 
 
-### <a name="run-the-_inmem-stress-workload-first"></a>Executar a carga de trabalho de estresse *_inmem* primeiro
+### <a name="run-the-_inmem-stress-workload-first"></a>Executar a carga de trabalho de *_inmem* estresse primeiro
 
 
 Você pode usar uma janela de *prompt de cmd do RML* para executar nossa linha de comando do ostress. exe. Os parâmetros de linha de comando direcionam `ostress` para:
@@ -231,15 +231,15 @@ Para executar a linha de comando ostress. exe anterior:
 #### <a name="result-is-a-duration"></a>O resultado é uma duração
 
 
-Quando `ostress.exe` é concluído, ele grava a duração da execução como sua linha final de saída na janela cmd RML. Por exemplo, uma execução de teste mais curta duração cerca de 1,5 minutos:
+Quando `ostress.exe` é concluído, ele grava a duração da execução como sua linha final de saída na janela cmd do RML. Por exemplo, uma execução de teste mais curta duração cerca de 1,5 minutos:
 
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
 
-#### <a name="reset-edit-for-_ondisk-then-rerun"></a>Redefina, edite para *_ondisk*e execute novamente
+#### <a name="reset-edit-for-_ondisk-then-rerun"></a>Redefinir, editar para *_ondisk*e executar novamente
 
 
-Depois de ter o resultado da execução do *_inmem* , execute as seguintes etapas para a execução do *_ondisk* :
+Depois de ter o resultado da execução do *_inmem* , execute as seguintes etapas para a *_ondisk* executar:
 
 
 1. Redefina o banco de dados executando o comando a seguir no SSMS para excluir todos aqueles que foram inseridos pela execução anterior:
@@ -247,7 +247,7 @@ Depois de ter o resultado da execução do *_inmem* , execute as seguintes etapa
    EXECUTE Demo.usp_DemoReset;
    ```
 
-2. Edite a linha de comando ostress. exe para substituir todos os *_inmem* com *_ondisk*.
+2. Edite a linha de comando ostress. exe para substituir todos os *_inmem* por *_ondisk*.
 
 3. Execute novamente o ostress. exe pela segunda vez e Capture o resultado da duração.
 
@@ -262,7 +262,7 @@ Nossos testes na memória mostraram que o desempenho foi melhorado em **nove vez
 
 &nbsp;
 
-## <a name="2-install-the-in-memory-analytics-sample"></a>2. Instalar o exemplo de análise na memória
+## <a name="2-install-the-in-memory-analytics-sample"></a>2. instalar o exemplo de análise na memória
 
 
 Nesta seção, você compara os resultados de e/s e estatísticas quando está usando um índice columnstore versus um índice de árvore b tradicional.
@@ -309,7 +309,7 @@ Há [vários tipos de consulta T-SQL que você pode executar](https://raw.github
 - `FROM FactResellerSalesXL_CCI a`
 
 
-Um índice columnstore clusterizado está na tabela FactResellerSalesXL @ no__t-0CCI.
+Um índice columnstore clusterizado está na tabela FactResellerSalesXL\_CCI.
 
 O trecho de script T-SQL a seguir imprime estatísticas para e/s e hora para a consulta de cada tabela.
 
@@ -382,7 +382,7 @@ Em um banco de dados com o tipo de preço P2, você pode esperar aproximadamente
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Quickstart 1: Tecnologias OLTP na memória para um desempenho mais rápido do T-SQL @ no__t-0
+- [Início rápido 1: tecnologias OLTP em memória para um desempenho mais rápido do T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
 
 - [Usar o OLTP na memória em um aplicativo SQL do Azure existente](sql-database-in-memory-oltp-migration.md)
 
@@ -413,7 +413,7 @@ Em um banco de dados com o tipo de preço P2, você pode esperar aproximadamente
 
 #### <a name="tools"></a>Ferramentas
 
-- [Azure portal](https://portal.azure.com/)
+- [Portal do Azure](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

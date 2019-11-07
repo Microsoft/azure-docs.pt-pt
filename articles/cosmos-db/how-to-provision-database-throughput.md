@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 93961b44f1c0d063774395ab384cb84b1aa05d99
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 64a8bc9f4c9f5192dad22cb55cb4d2c4816d4fa5
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812497"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575148"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Provisione a taxa de transferência em um banco de dados no Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Este artigo explica como provisionar a taxa de transferência em um banco de dad
 
 ### <a id="portal-sql"></a>API de SQL (Core)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta do Azure Cosmos](create-sql-api-dotnet.md#create-account)ou selecione uma conta existente do Azure Cosmos.
 
@@ -68,12 +68,12 @@ await client.CreateDatabaseIfNotExistsAsync(
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs?name=DatabaseCreateWithThroughput)]
 
 ### <a id="dotnet-cassandra"></a>API para Cassandra
-
+Um comando semelhante pode ser executado por meio de qualquer driver compatível com CQL. 
 ```csharp
 // Create a Cassandra keyspace and provision throughput of 400 RU/s
-session.Execute(CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400);
+session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400");
 ```
-
+ 
 ## <a name="next-steps"></a>Passos seguintes
 
 Consulte os artigos a seguir para saber mais sobre a taxa de transferência provisionada no Azure Cosmos DB:

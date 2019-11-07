@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1985c596b9f4b9b78b0055bfe1eab9888c30e201
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9e3915a2f55680fc2e24ac63d5e7170ada026c2e
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489753"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615192"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Criar e gerenciar espaços de trabalho de Azure Machine Learning no portal do Azure
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,13 +30,13 @@ Para criar um espaço de trabalho, você precisa de uma assinatura do Azure. Se 
 
 1. No canto superior esquerdo da portal do Azure, selecione **+ criar um recurso**.
 
-      ![Criar um novo recurso](../../../includes/media/aml-create-in-portal/portal-create-resource.png)
+      ![Criar um novo recurso](../../../includes/media/aml-create-in-portal/create-workspace.gif)
 
-1. Use a barra de pesquisa para localizar **Machine Learning espaço de trabalho de serviço**.
+1. Use a barra de pesquisa para localizar **Machine Learning**.
 
-1. Selecione **Machine Learning espaço de trabalho de serviço**.
+1. Selecione **Machine Learning**.
 
-1. No painel **Machine Learning espaço de trabalho do serviço** , selecione **criar** para começar.
+1. No painel **Machine Learning** , selecione **criar** para começar.
 
 1. Forneça as seguintes informações para configurar seu novo espaço de trabalho:
 
@@ -89,18 +89,15 @@ Você pode atualizar seu espaço de trabalho de edição básica para Enterprise
 
 ## <a name="view"></a>Localizar um espaço de trabalho
 
-1. No canto superior esquerdo do portal, selecione **todos os serviços**.
+1. No campo de pesquisa superior, digite **Machine Learning**.  
 
-1. No campo filtro **todos os serviços** , digite **Machine Learning**.  
+1. Selecione **Machine Learning**.
 
-1. Selecione **Azure Machine Learning**.
-
-   ![Procurar Azure Machine Learning espaço de trabalho](media/how-to-manage-workspace/all-services.png)
+   ![Procurar Azure Machine Learning espaço de trabalho](media/how-to-manage-workspace/find-workspaces.png)
 
 1. Veja a lista de espaços de trabalho encontrados. Você pode filtrar com base na assinatura, nos grupos de recursos e nos locais.  
 
 1. Selecione um espaço de trabalho para exibir suas propriedades.
-   Propriedades do espaço de trabalho ![](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## <a name="delete-a-workspace"></a>Eliminar uma área de trabalho
 

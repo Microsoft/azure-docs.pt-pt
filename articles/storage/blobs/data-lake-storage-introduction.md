@@ -8,12 +8,12 @@ ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: d843e288297db656cca6e2a07f2e1f3322ebfa89
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 99863f68c20a2f95dfc744e13a977bf3ccbbf639
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299644"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580435"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introdução ao Azure Data Lake Storage Gen2
 
@@ -63,8 +63,8 @@ A seguir estão as entidades equivalentes, conforme descrito por diferentes conc
 
 | Conceito                                | Organização de nível superior | Organização de nível inferior                                            | Contêiner de dados |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
-| BLOBs – armazenamento de objeto de uso geral | Contentor              | Diretório virtual (somente SDK – não fornece manipulação atômica) | Blob           |
-| Azure Data Lake Storage Gen2 – armazenamento de análise          | Contentor            | Diretório                                                           | Ficheiros           |
+| BLOBs – armazenamento de objeto de uso geral | Contentor              | Diretório virtual (somente SDK – não fornece manipulação atômica) | Blobs           |
+| Azure Data Lake Storage Gen2 – armazenamento de análise          | Contentor            | Diretório                                                           | Ficheiro           |
 
 ## <a name="supported-open-source-platforms"></a>Plataformas de software livre com suporte
 
@@ -83,7 +83,7 @@ Várias plataformas de software livre dão suporte a Data Lake Storage Gen2. Ess
 
 ## <a name="supported-azure-services"></a>Serviços do Azure com suporte
 
-Data Lake Storage Gen2 dá suporte a vários serviços do Azure que você pode usar para ingerir dados, executar análises e criar representações visuais. Para obter uma lista de serviços do Azure com suporte, consulte [integrar Azure data Lake Storage com os serviços do Azure](data-lake-store-integrate-with-azure-services.md).
+Data Lake Storage Gen2 dá suporte a vários serviços do Azure que você pode usar para ingerir dados, executar análises e criar representações visuais. Para obter uma lista de serviços do Azure com suporte, consulte [integrar Azure data Lake Storage com os serviços do Azure](data-lake-storage-integrate-with-azure-services.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -92,4 +92,4 @@ Os artigos a seguir descrevem alguns dos principais conceitos de Data Lake Stora
 - [Namespace hierárquico](data-lake-storage-namespace.md)
 - [Criar uma conta de armazenamento](data-lake-storage-quickstart-create-account.md)
 - [Acesso de vários protocolos no Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
-- [Integre Azure data Lake Storage com os serviços do Azure](data-lake-store-integrate-with-azure-services.md);
+- [Integre Azure data Lake Storage com os serviços do Azure](data-lake-storage-integrate-with-azure-services.md);

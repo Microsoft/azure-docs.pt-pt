@@ -1,19 +1,19 @@
 ---
-title: Pré-requisitos de cache do HPC do Azure (versão prévia)
+title: Pré-requisitos de cache do Azure HPC
 description: Pré-requisitos para usar o cache HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: cfaa8f94dbb836a61b7f024c9426625d874dc524
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: ca7a12f45f8d907ee65df85e349883e4c14af47a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709964"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582155"
 ---
-# <a name="prerequisites-for-azure-hpc-cache-preview"></a>Pré-requisitos para o cache do Azure HPC (versão prévia)
+# <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para o cache HPC do Azure
 
 Antes de usar o portal do Azure para criar um novo cache do Azure HPC, verifique se o seu ambiente atende a esses requisitos.
 
@@ -22,7 +22,7 @@ Antes de usar o portal do Azure para criar um novo cache do Azure HPC, verifique
 Uma assinatura paga é recomendada.
 
 > [!NOTE]
-> Durante a versão de visualização, a equipe de cache do Azure HPC deve adicionar sua assinatura à lista de acesso antes de poder ser usada para criar uma instância de cache. Esse procedimento ajuda a garantir que cada cliente obtenha uma capacidade de resposta de alta qualidade de seus caches de teste. Preencha [este formulário](https://aka.ms/onboard-hpc-cache) para solicitar acesso.
+> Durante os primeiros meses da versão GA, a equipe de cache do Azure HPC deve adicionar sua assinatura à lista de acesso antes de poder ser usada para criar uma instância de cache. Esse procedimento ajuda a garantir que cada cliente obtenha capacidade de resposta de alta qualidade de seus caches. Preencha [este formulário](https://aka.ms/onboard-hpc-cache) para solicitar acesso.
 
 ## <a name="network-infrastructure"></a>Infraestrutura de rede
 
@@ -58,7 +58,7 @@ Verifique esses pré-requisitos relacionados à permissão antes de começar a c
 
 * A instância de cache precisa ser capaz de criar NICs (interfaces de rede virtual). O usuário que cria o cache deve ter privilégios suficientes na assinatura para criar NICs.
 
-* Se estiver usando o armazenamento de BLOB, o cache HPC do Azure precisará de autorização para acessar sua conta de armazenamento. Você pode usar o RBAC (controle de acesso baseado em função) para conceder ao cache acesso ao armazenamento de BLOBs. São necessárias duas funções: Colaborador de conta de armazenamento e colaborador de dados de blob de armazenamento. Siga as instruções em [Adicionar destinos de armazenamento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para adicionar as funções.
+* Se estiver usando o armazenamento de BLOB, o cache HPC do Azure precisará de autorização para acessar sua conta de armazenamento. Você pode usar o RBAC (controle de acesso baseado em função) para conceder ao cache acesso ao armazenamento de BLOBs. São necessárias duas funções: colaborador de conta de armazenamento e colaborador de dados de blob de armazenamento. Siga as instruções em [Adicionar destinos de armazenamento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para adicionar as funções.
 
 ## <a name="storage-infrastructure"></a>Infraestrutura de armazenamento
 
@@ -80,13 +80,13 @@ Crie a conta e o contêiner antes de tentar adicioná-lo como um destino de arma
 
 Para criar uma conta de armazenamento compatível, use estas configurações:
 
-* Desempenho **Standard**
+* Desempenho: **Standard**
 * Tipo de conta: **StorageV2 (uso geral v2)**
-* Replicação **Armazenamento localmente redundante (LRS)**
-* Camada de acesso (padrão): **acesso frequente**
+* Replicação: **armazenamento com redundância local (LRS)**
+* Camada de acesso (padrão): **quente**
 
 É uma boa prática usar uma conta de armazenamento no mesmo local que o cache.
-<!-- need to clarify location - same region or same resource group or same virtual network? -->
+<!-- clarify location - same region or same resource group or same virtual network? -->
 
 Você também deve conceder ao aplicativo de cache acesso à sua conta de armazenamento do Azure. Siga a descrição em [Adicionar destinos de armazenamento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para fornecer ao cache o colaborador de conta de armazenamento de funções de acesso e o contribuidor de dados do armazenamento de BLOBs. Se você não for o proprietário da conta de armazenamento, faça com que o proprietário execute esta etapa.
 

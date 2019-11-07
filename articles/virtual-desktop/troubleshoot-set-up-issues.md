@@ -1,5 +1,5 @@
 ---
-title: Criação de locatário de área de trabalho virtual do Windows e pool de hosts-Azure
+title: Criação do pool de hosts do locatário do Windows Virtual Desktop-Azure
 description: Como solucionar e resolver problemas de locatário e pool de hosts durante a instalação de um ambiente de locatário de área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: e2d2da5e2c8c0236a4f42bc69a521891616df0d4
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b53bf80774a0715c7a02d837975284e985958635
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163298"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607441"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Criação de inquilinos e conjuntos de anfitriões
 

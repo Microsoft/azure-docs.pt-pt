@@ -4,14 +4,15 @@ description: Um tutorial do modelo de aplicativo de gerenciamento de inventário
 author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
+ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 7c8b2379ccb7562a79077df026a7083831e5415b
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 8360db3e31899dc7ca0a2b502d0036358f0858d6
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027272"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615232"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Tutorial: implantar e percorrer um modelo de aplicativo de gerenciamento de inventário inteligente
 

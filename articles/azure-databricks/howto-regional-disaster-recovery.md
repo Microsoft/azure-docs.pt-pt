@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 06ab1783a6e0f4884ab46d3f00a26c47f28d02b0
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 410b945f1a9a8d659f55668e272e2d9d08482bde
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596904"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601752"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperação de desastre regional para clusters de Azure Databricks
 
@@ -47,7 +47,7 @@ Para criar sua própria topologia de recuperação de desastre regional, siga es
 
    Este artigo mostra vários exemplos de código que usam a interface de linha de comando para a maioria das etapas automatizadas, pois é um wrapper fácil para o usuário em Azure Databricks API REST.
 
-   Antes de executar qualquer etapa de migração, instale o databricks-CLI no computador desktop ou em uma máquina virtual na qual você planeja fazer o trabalho. Para obter mais informações, consulte [instalar o databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)
+   Antes de executar qualquer etapa de migração, instale o databricks-CLI no computador desktop ou em uma máquina virtual na qual você planeja fazer o trabalho. Para obter mais informações, consulte [instalar o databricks CLI](/azure/databricks/dev-tools/databricks-cli)
 
    ```bash
    pip install databricks-cli
@@ -286,7 +286,7 @@ Para criar sua própria topologia de recuperação de desastre regional, siga es
 
 8. **Migrar o armazenamento de BLOBs do Azure e montagens de Azure Data Lake Storage**
 
-   Remonte manualmente todos os pontos de montagem [do armazenamento de BLOBs do Azure e do](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) [Azure data Lake Storage (Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) usando uma solução baseada em bloco de anotações. Os recursos de armazenamento teriam sido montados no espaço de trabalho primário e precisam ser repetidos no espaço de trabalho secundário. Não há API externa para montagens.
+   Remonte manualmente todos os pontos de montagem [do armazenamento de BLOBs do Azure e do](/azure/databricks/data/data-sources/azure/azure-storage.html) [Azure data Lake Storage (Gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2.html) usando uma solução baseada em bloco de anotações. Os recursos de armazenamento teriam sido montados no espaço de trabalho primário e precisam ser repetidos no espaço de trabalho secundário. Não há API externa para montagens.
 
 9. **Migrar scripts de inicialização de cluster**
 
@@ -302,7 +302,7 @@ Para criar sua própria topologia de recuperação de desastre regional, siga es
 
 10. **Reconfigure e reaplique manualmente o controle de acesso.**
 
-    Se o espaço de trabalho primário existente estiver configurado para usar a SKU (camada Premium), é provável que você também esteja usando o [recurso de controle de acesso](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
+    Se o espaço de trabalho primário existente estiver configurado para usar a SKU (camada Premium), é provável que você também esteja usando o [recurso de controle de acesso](/azure/databricks/administration-guide/access-control/index).
 
     Se você usar o recurso de controle de acesso, reaplique manualmente o controle de acesso aos recursos (blocos de anotações, clusters, trabalhos, tabelas).
 
@@ -312,4 +312,4 @@ Se você estiver usando outros serviços do Azure, certifique-se de implementar 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, consulte a [documentação do Azure Databricks](https://docs.azuredatabricks.net/user-guide/index.html).
+Para obter mais informações, consulte a [documentação do Azure Databricks](index.yml).

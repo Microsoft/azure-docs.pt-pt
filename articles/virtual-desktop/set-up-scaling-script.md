@@ -1,5 +1,5 @@
 ---
-title: Dimensionar automaticamente hosts de sessão de área de trabalho virtual do Windows-Azure
+title: Escala dinâmica hosts de sessão de área de trabalho virtual do Windows – Azure
 description: Descreve como configurar o script de dimensionamento automático para hosts de sessão de área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 932fbe6814df8ec324dd3360bcacfcbcf1c19b62
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 744f7d5c191180757620e87d926422c9f1e0baba
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71842777"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607445"
 ---
-# <a name="scale-session-hosts-dynamically"></a>Dimensionar hosts de sessão dinamicamente
+# <a name="scale-session-hosts-dynamically"></a>Dimensionar os anfitriões de sessão de forma dinâmica
 
 Para muitas implantações de área de trabalho virtual do Windows no Azure, os custos da máquina virtual representam uma parte significativa do custo total de implantação de área de trabalho virtual do Windows. Para reduzir os custos, é melhor desligar e desalocar VMs (máquinas virtuais) do host de sessão fora do horário de pico de uso e, em seguida, reiniciá-las durante o horário de pico de uso.
 
@@ -49,7 +49,7 @@ Os procedimentos a seguir lhe dirão como implantar o script de dimensionamento.
 Primeiro, prepare seu ambiente para o script de dimensionamento:
 
 1. Entre na VM (VM de escalar) que executará a tarefa agendada com uma conta administrativa de domínio.
-2. Crie uma pasta na VM scaler para manter o script de dimensionamento e sua configuração (por exemplo, **C: \\scaling-HostPool1**).
+2. Crie uma pasta na VM scaler para manter o script de dimensionamento e sua configuração (por exemplo, **C:\\Scale-HostPool1**).
 3. Baixe os arquivos **basicScale. ps1**, **config. xml**e **Functions-PSStoredCredentials. ps1** , e a pasta **PowershellModules** do repositório de [script de dimensionamento](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) e copie-os para a pasta que você criou na etapa 2. Há duas maneiras principais de obter os arquivos antes de copiá-los para a VM do scaler:
     - Clone o repositório git em seu computador local.
     - Exiba a versão **bruta** de cada arquivo, copie e cole o conteúdo de cada arquivo em um editor de texto e, em seguida, salve os arquivos com o nome de arquivo e o tipo de arquivo correspondentes. 
@@ -72,7 +72,7 @@ Em seguida, você precisará criar as credenciais armazenadas com segurança:
     Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>
     ```
     
-    Por exemplo, **set-variable-name-caminho-de-escopo global-Value "c: \\scaling-HostPool1"**
+    Por exemplo, **set-variable-name-caminho KeyPath-scope global-valor "c:\\Scaling-HostPool1"**
 5. Execute o cmdlet **New-StoredCredential-KeyPath \$KeyPath** . Quando solicitado, insira suas credenciais de área de trabalho virtual do Windows com permissões para consultar o pool de hosts (o pool de hosts é especificado no **arquivo config. xml**).
     - Se você usar entidades de serviço ou conta padrão diferentes, execute o cmdlet **New-StoredCredential-KeyPath \$KeyPath** uma vez para cada conta para criar credenciais armazenadas locais.
 6. Execute **Get-StoredCredential-List** para confirmar que as credenciais foram criadas com êxito.
@@ -89,7 +89,7 @@ Insira os valores relevantes nos campos a seguir para atualizar as configuraçõ
 | currentAzureSubscriptionId    | A ID da assinatura do Azure em que as VMs host de sessão são executadas                        |
 | tenantName                    | Nome do locatário da área de trabalho virtual do Windows                                                    |
 | hostPoolName                  | Nome do pool de hosts da área de trabalho virtual Windows                                                 |
-| RDBroker                      | URL para o serviço WVD, valor padrão https: \//rdbroker. WVD. Microsoft. com             |
+| RDBroker                      | URL para o serviço WVD, valor padrão https:\//rdbroker.wvd.microsoft.com             |
 | Nome de utilizador                      | A ID do aplicativo da entidade de serviço (é possível ter a mesma entidade de serviço que no AADApplicationId) ou usuário padrão sem autenticação multifator |
 | isServicePrincipal            | Os valores aceitos são **true** ou **false**. Indica se o segundo conjunto de credenciais que está sendo usado é uma entidade de serviço ou uma conta padrão. |
 | BeginPeakTime                 | Quando o horário de pico de uso começa                                                            |
@@ -111,7 +111,7 @@ Depois de configurar o arquivo Configuration. xml, você precisará configurar o
 4. Vá para a guia **gatilhos** e selecione **novo...**
 5. Na caixa de diálogo **novo gatilho** , em **Configurações avançadas**, marque **repetir tarefa a cada** e selecione o período e a duração apropriados (por exemplo, **15 minutos** ou **indefinidamente**).
 6. Selecione a guia **ações** e **novo...**
-7. Na caixa de diálogo **nova ação** , insira **PowerShell. exe** no campo **programa/script** e, em seguida, digite **C: \\Scaling @ no__t-5basicScale. ps1** no campo **adicionar argumentos (opcional)** .
+7. Na caixa de diálogo **nova ação** , insira **PowerShell. exe** no campo **programa/script** e, em seguida, digite **C:\\dimensionamento\\basicScale. ps1** no campo **adicionar argumentos (opcional)** .
 8. Vá para as guias **condições** e **configurações** e selecione **OK** para aceitar as configurações padrão de cada uma.
 9. Insira a senha da conta administrativa na qual você planeja executar o script de dimensionamento.
 

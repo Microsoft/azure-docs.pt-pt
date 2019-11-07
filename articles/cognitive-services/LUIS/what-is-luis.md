@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 10/23/2019
+ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: c24b62ac729a0c52efb78f612c53c8844cf23b12
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ee22a2a8a12eb85439e191bc21e6cf391bea3f8
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500022"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73612855"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é o Language Understanding (LUIS)?
 
@@ -114,7 +114,7 @@ Ferramentas para utilizar o LUIS de forma rápida e fácil com um bot:
 * [LUISGen](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen)– O LUISGen é uma ferramenta para gerar código fonte TypeScript e em C# com tipos de dados inflexíveis a partir de um modelo exportado do LUIS.
 * O [Dispatch](https://aka.ms/dispatch-tool) permite utilizar uma variedade de aplicações do LUIS e de Criador de FAQ a partir de uma aplicação principal através da utilização do modelo de dispatcher.
 * [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) – O LUDown é uma ferramenta de linha de comandos que ajuda a gerir modelos de linguagem para o bot.
-* [Bot Framework – Composer](https://github.com/microsoft/BotFramework-Composer)
+* [Bot Framework-Composer](https://github.com/microsoft/BotFramework-Composer) -uma ferramenta de desenvolvimento integrada para desenvolvedores e equipes multidisciplinares para criar bots e experiências de conversa com o Microsoft bot Framework
 
 Outros Serviços Cognitivos utilizados com o LUIS:
 * [QnA Maker][qnamaker] permite que vários tipos de texto sejam combinados em uma base de dados de conhecimento de perguntas e respostas.

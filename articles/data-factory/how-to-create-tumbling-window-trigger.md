@@ -1,5 +1,5 @@
 ---
-title: Criar gatilhos de janela em cascata no Azure Data Factory | Microsoft Docs
+title: Criar gatilhos de janela em cascata no Azure Data Factory
 description: Saiba como criar um gatilho no Azure Data Factory que executa um pipeline em uma janela do em cascata.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 940b3010713f2f32b2c4d9880c425b1e88820729
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: f9e31b8f0fce1af8408b80afb1049dae8c8ecf1c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374517"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673700"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Criar um gatilho que executa um pipeline em uma janela do em cascata
 Este artigo fornece etapas para criar, iniciar e monitorar um gatilho de janela em cascata. Para obter informações gerais sobre gatilhos e os tipos com suporte, consulte [execução de pipeline e gatilhos](concepts-pipeline-execution-triggers.md).
@@ -92,21 +92,21 @@ Uma janela em cascata tem as seguintes propriedades de tipo de gatilho:
 
 A tabela a seguir fornece uma visão geral de alto nível dos principais elementos JSON relacionados à recorrência e ao agendamento de um gatilho de janela em cascata:
 
-| Elemento JSON | Descrição | Tipo | Valores permitidos | Obrigatório |
+| Elemento JSON | Descrição | Tipo | Valores permitidos | Necessário |
 |:--- |:--- |:--- |:--- |:--- |
 | **tipo** | O tipo do gatilho. O tipo é o valor fixo "TumblingWindowTrigger". | String | TumblingWindowTrigger | Sim |
-| **tempo de execuçãostate** | O estado atual do tempo de execução do gatilho.<br/>**Observação**: esse elemento é \<readOnly >. | String | "Iniciado," "interrompido," "desabilitado" | Sim |
+| **tempo de execuçãostate** | O estado atual do tempo de execução do gatilho.<br/>**Observação**: esse elemento é \<> ReadOnly. | String | "Iniciado," "interrompido," "desabilitado" | Sim |
 | **frequency** | Uma cadeia de caracteres que representa a unidade de frequência (minutos ou horas) na qual o gatilho se repete. Se os valores de data de **iníciotime** forem mais granulares do que o valor de **frequência** , as datas de **iníciotime** serão consideradas quando os limites da janela forem computados. Por exemplo, se o valor de **Frequency** for por hora e o valor de **StartTime** for 2017-09-01T10:10:10z, a primeira janela será (2017-09-01T10:10:10z, 2017-09-01T11:10:10z). | String | "minuto", "hora"  | Sim |
 | **interval** | Um valor inteiro positivo que indica o intervalo do valor **frequency**, que determina o número de vezes que o acionador é executado. Por exemplo, se o **intervalo** for 3 e a **frequência** for "hora", o gatilho se repetirá a cada 3 horas. <br/>**Observação**: o intervalo mínimo da janela é de 15 minutos. | Número inteiro | Um inteiro positivo. | Sim |
-| **startTime**| A primeira ocorrência, que pode estar no passado. O primeiro intervalo de gatilho é (**StartTime**, **StartTime** + **intervalo**). | DateTime | Um valor DateTime. | Sim |
+| **startTime**| A primeira ocorrência, que pode estar no passado. O primeiro intervalo de gatilho é (**StartTime**, **StartTime** + **Interval**). | DateTime | Um valor DateTime. | Sim |
 | **endTime**| A última ocorrência, que pode estar no passado. | DateTime | Um valor DateTime. | Sim |
 | **retardo** | A quantidade de tempo para atrasar o início do processamento de dados para a janela. A execução do pipeline é iniciada após o tempo de execução esperado mais a quantidade de **atraso**. O **atraso** define por quanto tempo o gatilho espera após o disparo de uma nova execução. O **atraso** não altera a janela **StartTime**. Por exemplo, um valor de **atraso** de 00:10:00 implica um atraso de 10 minutos. | Timespan<br/>(hh: mm: SS)  | Um valor TimeSpan em que o padrão é 00:00:00. | Não |
 | **maxConcurrency** | O número de execuções de gatilho simultâneas que são acionadas para o Windows que estão prontas. Por exemplo, para fazer o preenchimento das execuções por hora dos resultados ontem em 24 janelas. Se **maxConcurrency** = 10, os eventos de gatilho serão acionados somente para as primeiras 10 janelas (00:00-01:00-09:00-10:00). Depois que as 10 primeiras execuções de pipeline disparadas forem concluídas, as execuções de gatilho serão acionadas para as 10 próximas janelas (10:00-11:00-19:00-20:00). Continuando com este exemplo de **maxConcurrency** = 10, se houver 10 janelas prontas, haverá 10 execuções de pipeline totais. Se houver apenas 1 janela pronta, haverá apenas 1 execução de pipeline. | Número inteiro | Um inteiro entre 1 e 50. | Sim |
 | **retryPolicy: contagem** | O número de repetições antes de a execução do pipeline ser marcada como "falha".  | Número inteiro | Um inteiro, onde o padrão é 0 (sem repetições). | Não |
 | **retryPolicy: intervalInSeconds** | O atraso entre as tentativas de repetição especificadas em segundos. | Número inteiro | O número de segundos, em que o padrão é 30. | Não |
-| **depende: tipo** | O tipo de TumblingWindowTriggerReference. Necessário se uma dependência for definida. | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | Não |
-| **depende: tamanho** | O tamanho da janela de dependência em cascata. | Timespan<br/>(hh: mm: SS)  | Um valor de TimeSpan positivo em que o padrão é o tamanho da janela do gatilho filho  | Não |
-| **depende: deslocamento** | O deslocamento do gatilho de dependência. | Timespan<br/>(hh: mm: SS) |  Um valor TimeSpan que deve ser negativo em uma autodependência. Se nenhum valor for especificado, a janela será igual ao próprio gatilho. | Dependência automática: Sim<br/>Outro: não  |
+| **depende: type** | O tipo de TumblingWindowTriggerReference. Necessário se uma dependência for definida. | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | Não |
+| **depende: size** | O tamanho da janela de dependência em cascata. | Timespan<br/>(hh: mm: SS)  | Um valor de TimeSpan positivo em que o padrão é o tamanho da janela do gatilho filho  | Não |
+| **depende: offset** | O deslocamento do gatilho de dependência. | Timespan<br/>(hh: mm: SS) |  Um valor TimeSpan que deve ser negativo em uma autodependência. Se nenhum valor for especificado, a janela será igual ao próprio gatilho. | Dependência automática: Sim<br/>Outro: não  |
 
 ### <a name="windowstart-and-windowend-system-variables"></a>Variáveis de sistema WindowStart e WindowEnd
 

@@ -7,12 +7,12 @@ ms.date: 07/05/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6d5247454fe65e5539a2401330192f1db9a65114
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6d8e0e9e675b88c69b74cdad261280f5dcaf7161
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880569"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581614"
 ---
 # <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>Guia do desenvolvedor de modelagem da visualização do IoT Plug and Play
 
@@ -65,7 +65,7 @@ Há outros campos opcionais que você pode usar para adicionar mais detalhes ao 
 
 ## <a name="interface"></a>Interface
 
-Com o DTDL, você descreve os recursos do seu dispositivo usando interfaces. As interfaces descrevem as _Propriedades_, a telemetria e os _comandos_ que uma parte do seu dispositivo implementa:
+Com o DTDL, você descreve os recursos do seu dispositivo usando interfaces. As interfaces descrevem as _Propriedades_, a _telemetria_e os _comandos_ que uma parte do seu dispositivo implementa:
 
 - `Properties`. As propriedades são campos de dados que representam o estado do seu dispositivo. Use Propriedades para representar o estado durável do dispositivo, como o estado ligado de uma bomba refrigeração. As propriedades também podem representar as propriedades básicas do dispositivo, como a versão do firmware do dispositivo. Você pode declarar propriedades como somente leitura ou gravável.
 - `Telemetry`. Campos de telemetria representam medições de sensores. Sempre que o dispositivo toma uma medida de sensor, ele deve enviar um evento de telemetria contendo os dados do sensor.
@@ -84,7 +84,7 @@ O exemplo a seguir mostra a interface para um dispositivo termostato:
       "schema": "double"
     }
   ],
-  "@context": "http://azureiot.com/v1/contexts/Interface.json"
+  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
 }
 ```
 
@@ -103,7 +103,7 @@ Neste exemplo simples, há apenas um único campo de telemetria. Uma descrição
 
 Outros campos opcionais, como nome de exibição e descrição, permitem que você adicione mais detalhes à interface e aos recursos.
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Propriedades
 
 Por padrão, as propriedades são somente leitura. Propriedades somente leitura significam que o valor da propriedade relatórios de dispositivo é atualizado para o Hub IoT. O Hub IoT não pode definir o valor de uma propriedade somente leitura.
 
@@ -111,13 +111,13 @@ Você também pode marcar uma propriedade como gravável em uma interface. Um di
 
 Os dispositivos não precisam estar conectados para definir valores de propriedade. Os valores atualizados são transferidos quando o dispositivo se conecta ao Hub. Esse comportamento se aplica a propriedades somente leitura e graváveis.
 
-Não use Propriedades para enviar telemetria do seu dispositivo. Por exemplo, uma propriedade ReadOnly, como `temperatureSetting=80` deveria significar que a temperatura do dispositivo foi definida como 80, e o dispositivo está tentando chegar ou permanecer nessa temperatura.
+Não use Propriedades para enviar telemetria do seu dispositivo. Por exemplo, uma propriedade ReadOnly, como `temperatureSetting=80`, deve significar que a temperatura do dispositivo foi definida como 80, e o dispositivo está tentando chegar ou permanecer nessa temperatura.
 
 Para propriedades graváveis, o aplicativo do dispositivo retorna um código de status de estado desejado, versão e descrição para indicar se ele recebeu e aplicou o valor da propriedade.
 
 ### <a name="telemetry"></a>Telemetria
 
-Por padrão, o Hub IoT roteia todas as mensagens de telemetria de dispositivos para seu ponto de extremidade voltado para o [serviço interno (**mensagens/eventos**)](../iot-hub/iot-hub-devguide-messages-read-builtin.md) que é compatível com os [hubs de eventos](https://azure.microsoft.com/documentation/services/event-hubs/).
+Por padrão, o Hub IoT roteia todas as mensagens de telemetria de dispositivos para seu [ponto de extremidade voltado para o serviço interno (**mensagens/eventos**)](../iot-hub/iot-hub-devguide-messages-read-builtin.md) que é compatível com os [hubs de eventos](https://azure.microsoft.com/documentation/services/event-hubs/).
 
 Você pode usar os [pontos de extremidade personalizados do Hub IOT e as regras de roteamento](../iot-hub/iot-hub-devguide-messages-d2c.md) para enviar telemetria para outros destinos, como o armazenamento de BLOBs ou outros hubs de eventos. As regras de roteamento usam Propriedades de mensagem para selecionar mensagens.
 
@@ -127,9 +127,9 @@ Os comandos são síncronos ou assíncronos. Um comando síncrono deve ser execu
 
 Use comandos assíncronos para operações de longa execução. O dispositivo envia informações de progresso usando mensagens de telemetria. Essas mensagens de progresso têm as seguintes propriedades de cabeçalho:
 
-- `iothub-command-name`: o nome do comando, por `UpdateFirmware`exemplo.
+- `iothub-command-name`: o nome do comando, por exemplo, `UpdateFirmware`.
 - `iothub-command-request-id`: a ID da solicitação gerada no lado do servidor e enviada para o dispositivo na chamada inicial.
-- `iothub-interface-id`:  A ID da interface em que esse comando é definido, por exemplo `urn:example:AssetTracker:1`.
+- `iothub-interface-id`: a ID da interface em que esse comando é definido, por exemplo `urn:example:AssetTracker:1`.
  `iothub-interface-name`: o nome da instância dessa interface, por exemplo `myAssetTracker`.
 - `iothub-command-statuscode`: o código de status retornado do dispositivo, por exemplo `202`.
 
@@ -184,15 +184,15 @@ O Plug and Play IoT permite usar dispositivos que registraram seus recursos com 
 
 Para usar um dispositivo de Plug and Play IoT conectado ao seu hub IoT, use a API REST do Hub IoT ou um dos SDKs da linguagem IoT. Os exemplos a seguir usam a API REST do Hub IoT.
 
-Para obter o valor de uma propriedade de dispositivo, como a versão do firmware`fwVersion`() `DeviceInformation` na interface no termostato, use a API REST do digital gêmeos.
+Para obter o valor de uma propriedade de dispositivo, como a versão do firmware (`fwVersion`) na interface `DeviceInformation` no termostato, use a API REST do digital gêmeos.
 
-Se o dispositivo termostato for chamado `t-123`, você obterá todas as propriedades implementadas por seu dispositivo com uma chamada Get da API REST:
+Se o dispositivo termostato for chamado `t-123`, você obterá todas as propriedades implementadas pelo dispositivo com uma API REST GET Call:
 
 ```REST
 GET /digitalTwins/t-123/interfaces
 ```
 
-Em geral, todas as propriedades são acessadas com esse modelo `{device-id}` de API REST, em que é o identificador do dispositivo:
+Em geral, todas as propriedades são acessadas com esse modelo de API REST, onde `{device-id}` é o identificador do dispositivo:
 
 ```REST
 GET /digitalTwins/{device-id}/interfaces
@@ -204,13 +204,13 @@ Se você souber o nome da interface e quiser obter propriedades para essa interf
 GET /digitalTwins/t-123/interfaces/info
 ```
 
-Mais geralmente, as propriedades de uma interface específica podem ser acessadas por meio desse `device-id` modelo de API REST, em que `{interface-name}` é o identificador do dispositivo e é o nome da interface:
+Mais geralmente, as propriedades de uma interface específica podem ser acessadas por meio desse modelo de API REST, em que `device-id` é o identificador do dispositivo e `{interface-name}` é o nome da interface:
 
 ```REST
 GET /digitalTwins/{device-id}/interfaces/{interface-name}
 ```
 
-Você pode chamar os comandos do dispositivo IoT Plug and Play diretamente. Se a `Thermostat` interface `t-123` no dispositivo tiver um `restart` comando, você poderá chamá-lo com uma pós-chamada à API REST:
+Você pode chamar os comandos do dispositivo IoT Plug and Play diretamente. Se a interface `Thermostat` no dispositivo `t-123` tiver um comando `restart`, você poderá chamá-lo com uma API REST POST:
 
 ```REST
 POST /digitalTwins/t-123/interfaces/thermostat/commands/restart
@@ -226,7 +226,7 @@ Em geral, os comandos podem ser chamados por meio desse modelo de API REST:
 /digitalTwins/{device-id}/interfaces/{interface-name}/commands/{command-name}
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você aprendeu sobre a modelagem de dispositivo, aqui estão alguns recursos adicionais:
 

@@ -8,18 +8,20 @@ manager: jeconnoc
 keywords: funções do azure, funções, processamento de eventos, computação, arquitetura sem servidor
 ms.service: azure-functions
 ms.topic: quickstart
-ms.date: 07/19/2019
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1579a4dfbab1ec9d9aa6bb3995bd88d948d6d5e2
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 563412fbc5e8d9af3c399b1f75696053549143c4
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933960"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615014"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Criar sua primeira função durável em C\#
 
 *Durable Functions* é uma extensão de [Azure Functions](../functions-overview.md) que permite que você escreva funções com estado em um ambiente sem servidor. A extensão gere o estado, os pontos de verificação e os reinícios por si.
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 Neste artigo, você aprenderá a usar o Visual Studio 2019 para criar e testar localmente uma função durável "Olá, mundo".  Essa função orquestra e encadeia chamadas para outras funções. Em seguida, publique o código de função no Azure. Essas ferramentas estão disponíveis como parte da carga de trabalho de desenvolvimento do Azure no Visual Studio 2019.
 
@@ -53,8 +55,8 @@ O modelo de Azure Functions cria um projeto que pode ser publicado em um aplicat
 
     | Definição      | Valor sugerido  | Descrição                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Versão** | Funções do Azure 2.x <br />(.NET Core) | Cria um projeto de função que usa o tempo de execução da versão 2. x de Azure Functions, que dá suporte ao .NET Core. As Funções do Azure 1.x suportam o .NET Framework. Para obter mais informações, veja [How to target Azure Functions runtime version](../functions-versions.md) (Como segmentar a versão do runtime das Funções do Azure).   |
-    | **Modelo** | Vazio | Cria um aplicativo de funções vazio. |
+    | **Versão** | Azure Functions 2,0 <br />(.NET Core) | Cria um projeto de função que usa o tempo de execução da versão 2,0 do Azure Functions, que dá suporte ao .NET Core. Azure Functions 1,0 dá suporte ao .NET Framework. Para obter mais informações, veja [How to target Azure Functions runtime version](../functions-versions.md) (Como segmentar a versão do runtime das Funções do Azure).   |
+    | **Modelo** | esvaziá | Cria um aplicativo de funções vazio. |
     | **Conta de armazenamento**  | Emulador do Armazenamento | Uma conta de armazenamento é necessária para o gerenciamento de estado de função durável. |
 
 4. Selecione **criar** para criar um projeto de função vazio. Este projeto tem os arquivos de configuração básicos necessários para executar suas funções.
@@ -63,7 +65,7 @@ O modelo de Azure Functions cria um projeto que pode ser publicado em um aplicat
 
 As etapas a seguir usam um modelo para criar o código de função durável em seu projeto.
 
-1. Clique com o botão direito do mouse no projeto no Visual Studio e selecione **Adicionar** > **nova função do Azure**.
+1. Clique com o botão direito do mouse no projeto no Visual Studio e selecione **adicionar** > **nova função do Azure**.
 
     ![Adicionar nova função](./media/durable-functions-create-first-csharp/functions-vs-add-new-function.png)
 
@@ -73,12 +75,15 @@ As etapas a seguir usam um modelo para criar o código de função durável em s
 
     ![Selecionar modelo durável](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 
+> [!NOTE]
+> Atualmente, este modelo cria uma função durável usando uma versão 1. x mais antiga da extensão. Consulte o artigo [Durable Functions versões](durable-functions-versions.md) para obter informações sobre como atualizar para as versões 2. x mais recentes do Durable functions.
+
 Uma nova função durável é adicionada ao aplicativo.  Abra o novo arquivo. cs para exibir o conteúdo. Essa função durável é um exemplo simples de encadeamento de funções com os seguintes métodos:  
 
-| Método | FunctionName | Descrição |
+| Método | functionName | Descrição |
 | -----  | ------------ | ----------- |
 | **`RunOrchestrator`** | `<file-name>` | Gerencia a orquestração durável. Nesse caso, a orquestração inicia, cria uma lista e adiciona o resultado de três chamadas de funções à lista.  Quando as três chamadas de função são concluídas, ela retorna a lista. |
-| **`SayHello`** | `<file-name>_Hello` | A função retorna uma saudação. Essa é a função que contém a lógica de negócios que está sendo orquestrada. |
+| **`SayHello`** | `<file-name>_Hello` | A função retorna uma saudação. É a função que contém a lógica de negócios que está sendo orquestrada. |
 | **`HttpStart`** | `<file-name>_HttpStart` | Uma [função disparada por http](../functions-bindings-http-webhook.md) que inicia uma instância da orquestração e retorna uma resposta de verificação de status. |
 
 Agora que você criou seu projeto de função e uma função durável, você pode testá-lo em seu computador local.
@@ -99,9 +104,9 @@ As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projet
 
     A resposta é o resultado inicial da função HTTP que nos permite saber que a orquestração durável foi iniciada com êxito.  Ainda não é o resultado final da orquestração.  A resposta inclui algumas URLs úteis.  Por enquanto, vamos consultar o status da orquestração.
 
-4. Copie o valor da URL `statusQueryGetUri` para e cole-o na barra de endereços do navegador e execute a solicitação.
+4. Copie o valor da URL para `statusQueryGetUri` e cole-o na barra de endereços do navegador e execute a solicitação.
 
-    A solicitação consultará a instância de orquestração do status. Você deve obter uma resposta eventual semelhante à seguinte.  Isso nos mostra que a instância foi concluída e inclui as saídas ou os resultados da função durável.
+    A solicitação consultará a instância de orquestração do status. Você deve obter uma resposta eventual semelhante à seguinte.  Essa saída mostra que a instância foi concluída e inclui as saídas ou os resultados da função durável.
 
     ```json
     {
@@ -114,8 +119,8 @@ As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projet
             "Hello Seattle!",
             "Hello London!"
         ],
-        "createdTime": "2018-11-08T07:07:40Z",
-        "lastUpdatedTime": "2018-11-08T07:07:52Z"
+        "createdTime": "2019-11-02T07:07:40Z",
+        "lastUpdatedTime": "2019-11-02T07:07:52Z"
     }
     ```
 

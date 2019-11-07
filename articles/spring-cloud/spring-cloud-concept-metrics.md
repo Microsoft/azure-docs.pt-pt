@@ -1,20 +1,17 @@
 ---
 title: Noções básicas sobre métricas para o Azure Spring Cloud
 description: Saiba como examinar as métricas na nuvem do Azure Spring
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 10/06/2019
-ms.author: v-vasuke
-ms.openlocfilehash: d9c6f14b7ecfc2929dc48c11e0df1fe80303c8b1
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.author: jeconnoc
+ms.openlocfilehash: 952dfc1c707df3b7fa61443ea6ea18630352f0dc
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72039127"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607816"
 ---
 # <a name="metrics-for-azure-spring-cloud"></a>Métricas para o Azure Spring Cloud
 
@@ -26,11 +23,11 @@ A página **visão geral do aplicativo** de cada aplicativo apresenta um gráfic
 
 Fornecemos 5 gráficos com métricas atualizadas a cada minuto para o seguinte:
 
-* **Erros do servidor http**: Contagem de erros para solicitações HTTP para seu aplicativo.
-* **Dados em**: Bytes recebidos pelo seu aplicativo.
-* **Saída de dados**: Bytes enviados ao seu aplicativo.
-* **Solicitações**: Solicitações recebidas pelo seu aplicativo.
-* **Tempo médio de resposta**: Tempo médio de resposta do seu aplicativo.
+* **Erros do servidor http**: contagem de erros para solicitações HTTP para seu aplicativo.
+* **Dados em**: bytes recebidos pelo seu aplicativo.
+* **Saída de dados**: bytes enviados ao seu aplicativo.
+* **Solicitações**: solicitações recebidas pelo seu aplicativo.
+* **Tempo médio de resposta**: tempo médio de resposta do seu aplicativo.
 
 Você pode selecionar um intervalo de tempo para o gráfico entre 1 hora e até 7 dias.
 
@@ -44,9 +41,9 @@ Para examinar os dados de métrica, você selecionará sua métrica, sua **agreg
 
 O Azure sonda e atualiza as métricas a cada minuto. O Azure fornece três maneiras de agregar dados por um período de tempo escolhido:
 
-* **Total**: Some todas as métricas como saída de destino.
+* **Total**: soma todas as métricas como saída de destino.
 * **Média**: Use o valor médio no período como saída de destino.
-* **Máx./mín**.: Use o valor max/min no período como saída de destino.
+* **Max/min**: Use o valor max/min no período como saída de destino.
 
 ### <a name="time-range"></a>Intervalo de tempo
 

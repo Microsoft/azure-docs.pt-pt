@@ -1,20 +1,17 @@
 ---
 title: CI/CD para o Azure Spring Cloud
 description: CI/CD para o Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 96795315fcb0dd9b90cd55e8baa46c6a394882ce
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.author: jeconnoc
+ms.openlocfilehash: c19d32f0be2eb817f9f7d73e6c6eaad8d90ce350
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038837"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607787"
 ---
 # <a name="cicd-for-azure-spring-cloud"></a>CI/CD para o Azure Spring Cloud
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: aaf591bcc75521cb83d8c74f5220d37f77f1f349
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 8c7d2481fe3ef361386bacc652d87744c1c790bb
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027661"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581509"
 ---
 # <a name="build-energy-solutions-with-iot-central"></a>Crie soluções de energia com IoT Central 
 
@@ -40,8 +40,8 @@ Você pode experimentar o [aplicativo de monitoramento do medidor inteligente gr
 
 Depois de implantar o aplicativo, você verá os dados de medidor simulados no painel, conforme mostrado na figura abaixo. Este modelo é um aplicativo de exemplo que você pode estender e personalizar facilmente para seus casos de uso específicos.
 
-[!div class="mx-imgBorder"]
-![painel do aplicativo de medidor inteligente](media/overview-iot-central-energy/smart-meter-app-dashboard.png)
+> [!div class="mx-imgBorder"]
+> ![painel do aplicativo de medidor inteligente](media/overview-iot-central-energy/smart-meter-app-dashboard.png)
 
 
 ## <a name="what-is-the-solar-panel-monitoring-application"></a>O que é o aplicativo de monitoramento do painel solar?

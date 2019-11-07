@@ -4,14 +4,15 @@ description: Uma arquitetura de modelo de aplicativo de logística conectada a I
 author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
+ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: e462d879ea1c7756021cd3a241920fb0028a2e4f
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 1940f02fdf9badcf99ef85a2ab02ac9099cc1775
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026390"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615384"
 ---
 # <a name="architecture-of-iot-central-connected-logistics-application-template"></a>Arquitetura do modelo de aplicativo de logística conectado IoT Central
 

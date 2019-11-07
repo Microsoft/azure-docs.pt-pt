@@ -13,12 +13,12 @@ ms.date: 10/30/2019
 ms.author: lizross
 ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3c9e047db48e12f6ce797c034a6b40084542c8e
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 38fe0b0ff3bcb38133444819200254a684f08d44
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73178096"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573790"
 ---
 # <a name="access-and-use-workspaces-on-the-my-apps-preview-portal"></a>Acessar e usar espaços de trabalho no portal meus aplicativos (versão prévia)
 
@@ -49,8 +49,8 @@ Depois de organizar seus aplicativos em várias categorias no portal **meus apli
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-- [Atualize suas informações de perfil e conta](myprofile-portal-overview.md). Instruções sobre como atualizar suas informações pessoais que aparecem no portal **meu perfil** (versão prévia).
+- [Atualize suas informações de perfil e conta](my-account-portal-overview.md). Instruções sobre como atualizar suas informações pessoais que aparecem no portal **meu perfil** (versão prévia).
 
-- [Gerencie suas organizações](myprofile-portal-organizations-page.md). Instruções sobre como exibir e gerenciar suas informações relacionadas à organização na página **organizações** do meu portal do **meu perfil** .
+- [Gerencie suas organizações](my-account-portal-organizations-page.md). Instruções sobre como exibir e gerenciar suas informações relacionadas à organização na página **organizações** do meu portal do **meu perfil** .
 
-- [Gerencie seus dispositivos conectados](myprofile-portal-devices-page.md). Instruções sobre como gerenciar os dispositivos aos quais você está conectado usando sua conta corporativa ou de estudante, na página **dispositivos** do meu portal do **meu perfil** .
+- [Gerencie seus dispositivos conectados](my-account-portal-devices-page.md). Instruções sobre como gerenciar os dispositivos aos quais você está conectado usando sua conta corporativa ou de estudante, na página **dispositivos** do meu portal do **meu perfil** .

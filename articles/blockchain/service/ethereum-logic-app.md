@@ -6,16 +6,16 @@ keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 10/14/2019
-ms.topic: tutorial
+ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
 manager: femila
-ms.openlocfilehash: cff1085d14f2f849134b0b6f602e272fbb5bc561
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: bb23d6b9b42e1c51646765255870a14a1b5d39f7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329266"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579947"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Usar o conector Ethereum Blockchain com aplicativos lógicos do Azure
 
@@ -138,7 +138,7 @@ Por exemplo, as etapas a seguir geram um aplicativo lógico de microserviço bas
 
     ![Painel designer de aplicativos lógicos com a URL HTTP POST](./media/ethereum-logic-app/post-url.png)
 
-1. Use a rotação para criar uma solicitação HTTP POST. Substitua o texto do espaço reservado *\<http URL de post @ no__t-2* pela URL da etapa anterior.
+1. Use a rotação para criar uma solicitação HTTP POST. Substitua o texto do espaço reservado *\<URL HTTP POST\>* pela URL da etapa anterior.
 
     ``` bash
     curl -d "{}" -H "Content-Type: application/json" -X POST "<HTTP POST URL>"
@@ -182,7 +182,7 @@ O endereço do ponto de extremidade RPC do serviço Blockchain do Azure é neces
 
 **Para usar o portal do Azure:**
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Vá para o membro do serviço Blockchain do Azure. Selecione **nós de transação** e o link do nó de transação padrão.
 
     ![Página nós de transação com a seleção (nó padrão)](./media/ethereum-logic-app/transaction-nodes.png)
@@ -267,7 +267,7 @@ Se você usou o kit de desenvolvimento ou o Truffle para criar seu contrato inte
 
 **Para usar o compilador de solidez:**
 
-Use o comando `solc --bin <smart contract>.sol` para gerar o código de bytes do contrato.
+Use o `solc --bin <smart contract>.sol` de comando para gerar o código de bytes do contrato.
 
 ## <a name="get-the-contract-address"></a>Obter o endereço do contrato
 

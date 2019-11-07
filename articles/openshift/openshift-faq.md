@@ -7,27 +7,17 @@ ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 8f7349310f72c8cccc7b1906239ece3038dd7861
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.date: 11/04/2019
+ms.openlocfilehash: d8707e2edccf144cbe58a530bcfe2c176e656915
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249221"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582409"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Perguntas frequentes sobre o Azure Red Hat OpenShift
 
 Este artigo aborda perguntas frequentes (FAQs) sobre Microsoft Azure Red Hat OpenShift.
-
-## <a name="how-do-i-get-started"></a>Como começo?
-
-Antes de usar o Azure Red Hat OpenShift, você precisará comprar um mínimo de 4 nós de aplicativos reservados para o Red Hat OpenShift do Azure.
-
-Se você for um cliente do Azure,[adquira as instâncias reservadas do Red Hat OpenShift do Azure](https://aka.ms/openshift/buy) por meio do portal do Azure. Após a compra, sua assinatura será ativada dentro de 24 horas, após a qual você poderá provisionar clusters.
-
-Se você não for um cliente do Azure, [entre em contato com as vendas](https://aka.ms/openshift/contact-sales) e preencha o formulário de vendas na parte inferior da página para iniciar o processo.
-
-Consulte a [página de preços do Azure Red Hat OpenShift](https://aka.ms/openshift/pricing) para obter mais informações.
 
 ## <a name="which-azure-regions-are-supported"></a>Quais regiões do Azure têm suporte?
 
@@ -39,7 +29,7 @@ Não. Mas você pode conectar um cluster do Azure Red Hat OpenShift a uma VNET e
 
 ## <a name="what-cluster-operations-are-available"></a>Quais operações de cluster estão disponíveis?
 
-Você só pode escalar ou reduzir verticalmente o número de nós de computação. Nenhuma outra modificação é permitida para o recurso `Microsoft.ContainerService/openShiftManagedClusters` após a criação. O número máximo de nós de computação é limitado a 20.
+Você só pode escalar ou reduzir verticalmente o número de nós de computação. Nenhuma outra modificação é permitida ao recurso de `Microsoft.ContainerService/openShiftManagedClusters` após a criação. O número máximo de nós de computação é limitado a 20.
 
 ## <a name="what-virtual-machine-sizes-can-i-use"></a>Quais tamanhos de máquina virtual posso usar?
 
@@ -59,11 +49,11 @@ Não, não na hora atual.
 
 ## <a name="is-the-docker-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>O registro do Docker está disponível externamente para que eu possa usar ferramentas como Jenkins?
 
-O registro do Docker está disponível no `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` no entanto, uma garantia de durabilidade de armazenamento forte não é fornecida. Você também pode usar o [registro de contêiner do Azure](https://azure.microsoft.com/services/container-registry/).
+O registro do Docker está disponível em `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` no entanto, uma garantia de durabilidade de armazenamento forte não é fornecida. Você também pode usar o [registro de contêiner do Azure](https://azure.microsoft.com/services/container-registry/).
 
 ## <a name="is-cross-namespace-networking-supported"></a>Há suporte para a rede de namespace cruzado?
 
-Os administradores de projeto individual e de cliente podem personalizar a rede de namespace cruzado (incluindo sua negação) por projeto usando objetos `NetworkPolicy`.
+Administradores de projeto individual e cliente podem personalizar a rede de namespace cruzado (incluindo sua negação) por projeto usando objetos `NetworkPolicy`.
 
 ## <a name="can-an-admin-manage-users-and-quotas"></a>Um administrador pode gerenciar usuários e cotas?
 
@@ -85,9 +75,9 @@ Não. Todos os recursos, incluindo o mestre de cluster, são executados na sua a
 
 Sim. Você pode usar o OSBA com o Azure Red Hat OpenShift. Consulte [abrir Service Broker para o Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) para obter mais informações.
 
-## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Estou tentando emparelhar em uma rede virtual em uma assinatura diferente, mas obter `Failed to get vnet CIDR` erro.
+## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Estou tentando emparelhar uma rede virtual em uma assinatura diferente, mas obter `Failed to get vnet CIDR` erro.
 
-Na assinatura que tem a rede virtual, certifique-se de registrar o provedor `Microsoft.ContainerService` com `az provider register -n Microsoft.ContainerService --wait` 
+Na assinatura que tem a rede virtual, certifique-se de registrar o provedor de `Microsoft.ContainerService` com `az provider register -n Microsoft.ContainerService --wait` 
 
 ## <a name="what-is-the-azure-red-hat-openshift-aro-maintenance-process"></a>O que é o processo de manutenção da toa (Red Hat OpenShift) do Azure?
 

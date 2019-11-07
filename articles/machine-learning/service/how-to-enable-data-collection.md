@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 845d271c60762177ea88912f2100f3b47aedde46
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 2ca091a1bbf56e2d2850a464d0109020b06483d0
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489997"
+ms.locfileid: "73576697"
 ---
 # <a name="collect-data-for-models-in-production"></a>Coletar dados para modelos em produção
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -124,7 +124,7 @@ Se você já tiver um serviço com as dependências instaladas em seu **arquivo 
 
    ![Editar serviço](media/how-to-enable-data-collection/EditService.PNG)
 
-1. Em **Configurações avançadas**, desmarque **habilitar coleta de dados de modelo**. 
+1. Em **Configurações avançadas**, selecione **habilitar coleta de dados de modelo**. 
 
     [![verificar coleta de dados](media/how-to-enable-data-collection/CheckDataCollection.png)](./media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
 

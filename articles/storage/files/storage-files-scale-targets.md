@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 766dacb69a3f1857197684f552d05a1376e94509
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 267a63eba90c74b79078a7c04c1d2d8929cf2a44
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514858"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615781"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de desempenho e escalabilidade de arquivos do Azure
 
@@ -79,7 +79,7 @@ Para ajudá-lo a planejar sua implantação para cada um dos estágios, abaixo e
 |-|-|
 | CPU | 64 núcleos virtuais com 64 MiB L3 cache |
 | Memória | 128 GiB |
-| Discos | Discos SAS com RAID 10 com cache com bateria reserva |
+| Disco | Discos SAS com RAID 10 com cache com bateria reserva |
 | Rede | Rede de 1 Gbps |
 | Carga de trabalho | Uso Geral servidor de arquivos|
 
@@ -98,7 +98,7 @@ Para ajudá-lo a planejar sua implantação para cada um dos estágios, abaixo e
 | Número de objetos sincronizados| 125.000 objetos (cerca de 1% de variação) |
 | Tamanho do conjunto de um| 50 GiB |
 | Tamanho médio do arquivo | ~ 500 KiB |
-| Carregar taxa de transferência | 30 objetos por segundo |
+| Carregar taxa de transferência | 20 objetos por segundo |
 | Taxa de transferência de download completo * | 60 objetos por segundo |
 
 \* Se a disposição em camadas da nuvem estiver habilitada, você provavelmente observará melhor desempenho, já que apenas alguns dos dados do arquivo são baixados. Sincronização de Arquivos do Azure apenas baixa os dados de arquivos armazenados em cache quando eles são alterados em qualquer um dos pontos de extremidade. Para qualquer arquivo em camadas ou recém-criados, o agente não baixa os dados do arquivo e sincroniza apenas o namespace para todos os pontos de extremidade do servidor. O agente também dá suporte a downloads parciais de arquivos em camadas conforme eles são acessados pelo usuário. 
@@ -111,7 +111,7 @@ Como um guia geral para sua implantação, você deve ter algumas coisas em ment
 - A taxa de transferência do objeto aproximadamente é dimensionada em proporção ao número de grupos de sincronização no servidor. A divisão de dados em vários grupos de sincronização em um servidor produz uma melhor taxa de transferência, que também é limitada pelo servidor e pela rede.
 - A taxa de transferência do objeto é inversamente proporcional à taxa de transferência MiB por segundo. Para arquivos menores, você passará por uma taxa de transferência mais alta em termos do número de objetos processados por segundo, mas com uma taxa de transferência de MiB por segundo mais baixa. Por outro lado, para arquivos maiores, você obterá menos objetos processados por segundo, mas taxa de transferência de MiB por segundo superior. A taxa de transferência de MiB por segundo é limitada pelos destinos de escala de arquivos do Azure.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consultar também
 
 - [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)

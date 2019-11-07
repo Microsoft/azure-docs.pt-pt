@@ -1,6 +1,6 @@
 ---
 title: Obtenha suporte & treinamento
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Obtenha suporte e treinamento e forneça comentários para Azure Machine Learning Studio (clássico)
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: peterclu
 ms.author: amlstudiodocs
 ms.date: 01/18/2019
-ms.openlocfilehash: c2919a77e66603883f993ff19f2f397e3eb5e8d6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1c9a502afb89623ae2f7765d874355b22a78f336
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496743"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618789"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Obtenha suporte e treinamento para Azure Machine Learning Studio (clássico)
 

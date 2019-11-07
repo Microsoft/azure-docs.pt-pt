@@ -1,23 +1,20 @@
 ---
 title: Automatizar a implantação de recursos para um aplicativo de funções no Azure Functions | Microsoft Docs
 description: Saiba como criar um modelo de Azure Resource Manager que implanta seu aplicativo de funções.
-services: Functions
-documtationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 keywords: Azure functions, funções, arquitetura sem servidor, infraestrutura como código, Azure Resource Manager
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.service: azure-functions
-ms.server: functions
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
-ms.openlocfilehash: ff5b104c9fa1bedf1f710c06761b6449b20bbf05
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 8435aab65d26627de26fb8b5ad0510fcd7c57c33
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263192"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575942"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implantação de recursos para seu aplicativo de funções no Azure Functions
 
@@ -29,17 +26,14 @@ Para modelos de exemplo, consulte:
 - [Aplicativo de funções no plano de consumo]
 - [Aplicativo de funções no plano de serviço Azure App]
 
-> [!NOTE]
-> O plano Premium para hospedagem de Azure Functions está atualmente em visualização. Para obter mais informações, consulte [Azure Functions plano Premium](functions-premium-plan.md).
-
 ## <a name="required-resources"></a>Recursos necessários
 
 Uma implantação Azure Functions normalmente consiste nesses recursos:
 
 | Recurso                                                                           | Requisito | Referência de sintaxe e propriedades                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
-| Um aplicativo de funções                                                                     | Obrigatório    | [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)                             |   |
-| Uma conta de [armazenamento do Azure](../storage/index.yml)                                   | Obrigatório    | [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
+| Um aplicativo de funções                                                                     | Necessário    | [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)                             |   |
+| Uma conta de [armazenamento do Azure](../storage/index.yml)                                   | Necessário    | [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
 | Um componente [Application insights](../azure-monitor/app/app-insights-overview.md) | Opcional    | [Microsoft. insights/Components](/azure/templates/microsoft.insights/components)         |   |
 | Um [plano de hospedagem](./functions-scale.md)                                             | Opcional<sup>1</sup>    | [Microsoft. Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 
@@ -70,7 +64,7 @@ Além disso, a propriedade `AzureWebJobsStorage` deve ser especificada como uma 
 
 O tempo de execução de Azure Functions usa a cadeia de conexão `AzureWebJobsStorage` para criar filas internas.  Quando Application Insights não está habilitado, o tempo de execução usa a cadeia de conexão `AzureWebJobsDashboard` para fazer logon no armazenamento de tabelas do Azure e ligar a guia **Monitor** no Portal.
 
-Essas propriedades são especificadas na coleção `appSettings` no objeto `siteConfig`:
+Essas propriedades são especificadas na coleção de `appSettings` no objeto `siteConfig`:
 
 ```json
 "appSettings": [
@@ -85,7 +79,7 @@ Essas propriedades são especificadas na coleção `appSettings` no objeto `site
 ]
 ```
 
-### <a name="application-insights"></a>Estatísticas das Aplicações
+### <a name="application-insights"></a>Application Insights
 
 Application Insights é recomendado para monitorar seus aplicativos de funções. O recurso Application Insights é definido com o tipo **Microsoft. insights/Components** e o tipo **Web**:
 
@@ -106,7 +100,7 @@ Application Insights é recomendado para monitorar seus aplicativos de funções
         },
 ```
 
-Além disso, a chave de instrumentação precisa ser fornecida ao aplicativo de funções usando a configuração de aplicativo `APPINSIGHTS_INSTRUMENTATIONKEY`. Essa propriedade é especificada na coleção `appSettings` no objeto `siteConfig`:
+Além disso, a chave de instrumentação precisa ser fornecida ao aplicativo de funções usando a configuração `APPINSIGHTS_INSTRUMENTATIONKEY` aplicativo. Essa propriedade é especificada na coleção de `appSettings` no objeto `siteConfig`:
 
 ```json
 "appSettings": [
@@ -150,10 +144,10 @@ Um aplicativo de funções deve incluir estas configurações de aplicativo:
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | Uma cadeia de conexão para uma conta de armazenamento que o tempo de execução do Functions para a fila interna | Consulte a [conta de armazenamento](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | A versão do Azure Functions Runtime                                                | `~2`                                  |
-| FUNCTIONS_WORKER_RUNTIME     | A pilha de idiomas a ser usada para funções neste aplicativo                                   | `dotnet`, `node`, `java` ou `python` |
+| FUNCTIONS_WORKER_RUNTIME     | A pilha de idiomas a ser usada para funções neste aplicativo                                   | `dotnet`, `node`, `java`ou `python` |
 | WEBSITE_NODE_DEFAULT_VERSION | Necessário apenas se estiver usando a pilha de idiomas `node`, especifica a versão a ser usada              | `10.14.1`                             |
 
-Essas propriedades são especificadas na coleção `appSettings` na propriedade `siteConfig`:
+Essas propriedades são especificadas na coleção de `appSettings` na propriedade `siteConfig`:
 
 ```json
 "properties": {
@@ -270,7 +264,7 @@ No Windows, um plano de consumo requer duas configurações adicionais na config
 
 #### <a name="linux"></a>Linux
 
-No Linux, o aplicativo de funções deve ter seu `kind` definido como `functionapp,linux` e deve ter a propriedade `reserved` definida como `true`:
+No Linux, o aplicativo de funções deve ter seu `kind` definido como `functionapp,linux`e deve ter a propriedade `reserved` definida como `true`:
 
 ```json
 {
@@ -314,11 +308,11 @@ No Linux, o aplicativo de funções deve ter seu `kind` definido como `functiona
 
 ## <a name="deploy-on-premium-plan"></a>Implantar no plano Premium
 
-O plano Premium oferece o mesmo dimensionamento do plano de consumo, mas inclui recursos dedicados e recursos adicionais. Para saber mais, confira [Azure Functions plano Premium (versão prévia)](./functions-premium-plan.md).
+O plano Premium oferece o mesmo dimensionamento do plano de consumo, mas inclui recursos dedicados e recursos adicionais. Para saber mais, confira [Azure Functions plano Premium](./functions-premium-plan.md).
 
 ### <a name="create-a-premium-plan"></a>Criar um plano Premium
 
-Um plano Premium é um tipo especial de recurso "ServerFarm". Você pode especificá-lo usando `EP1`, `EP2` ou `EP3` para o valor da propriedade `sku`.
+Um plano Premium é um tipo especial de recurso "ServerFarm". Você pode especificá-lo usando `EP1`, `EP2`ou `EP3` para o valor da propriedade `sku`.
 
 ```json
 {
@@ -655,7 +649,7 @@ Você pode usar qualquer uma das seguintes maneiras para implantar seu modelo:
 
 ### <a name="deploy-to-azure-button"></a>Botão implantar no Azure
 
-Substitua ```<url-encoded-path-to-azuredeploy-json>``` por uma versão [codificada em URL](https://www.bing.com/search?q=url+encode) do caminho bruto do arquivo `azuredeploy.json` no github.
+Substitua ```<url-encoded-path-to-azuredeploy-json>``` por uma versão [codificada por URL](https://www.bing.com/search?q=url+encode) do caminho bruto do arquivo de `azuredeploy.json` no github.
 
 Veja um exemplo que usa a redução:
 
@@ -669,7 +663,7 @@ Aqui está um exemplo que usa HTML:
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"></a>
 ```
 
-### <a name="deploy-using-powershell"></a>Implantar usando o PowerShell
+### <a name="deploy-using-powershell"></a>Implementar com o PowerShell
 
 Os comandos do PowerShell a seguir criam um grupo de recursos e implantam um modelo que cria um aplicativo de funções com seus recursos necessários. Para executar localmente, você deve ter o [Azure PowerShell](/powershell/azure/install-az-ps) instalado. Execute [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) para entrar.
 

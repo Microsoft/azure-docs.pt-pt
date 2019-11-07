@@ -1,5 +1,5 @@
 ---
-title: Início Rápido do Centro de Segurança do Azure - Carregar os computadores Linux para o Centro de Segurança | Microsoft Docs
+title: Carregar computadores Linux na central de segurança do Azure | Microsoft Docs
 description: Este início rápido mostra como carregar os computadores Linux para o Centro de Segurança.
 services: security-center
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: memildin
-ms.openlocfilehash: 82ce466f12acef529b5e45e5dd94c64b94be0f7e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 9f49b858a23d0a1f58505d9f9971a31e8c9167e9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202883"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664498"
 ---
-# <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Início rápido: Integrar computadores Linux à central de segurança do Azure
+# <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Início Rápido: Carregar computadores Linux para o Centro de Segurança do Azure
 Depois de integrar suas assinaturas do Azure, você pode habilitar a central de segurança para recursos do Linux em execução fora do Azure, por exemplo, no local ou em outras nuvens, provisionando um agente. O agente é chamado de Microsoft Monitoring Agent (MMA), mas também é conhecido como agente do OMS.
 
 Este guia de início rápido mostra como instalar o agente em um computador Linux.
@@ -33,13 +33,13 @@ Tem de estar no escalão de preço Standard do Centro de Segurança antes de com
 
 ## <a name="add-new-linux-computer"></a>Adicionar um novo computador Linux
 
-1. Inicie sessão no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
+1. Inicie sessão no [portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 2. No menu **Microsoft Azure**, selecione **Centro de Segurança**. **Centro de Segurança - Descrição Geral** é aberto.
 
    ![Descrição geral do Centro de Segurança][2]
 
 3. No menu principal do Centro de Segurança, selecione **Introdução**.
-4. Selecione o separador **Introdução**. ![Introdução][3]
+4. Selecione a **guia introdução.** ![introdução][3]
 
 5. Clique em **Configurar** em **Adicionar novos computadores não Azure** e será apresentada uma lista das áreas de trabalho do Log Analytics. A lista inclui, se aplicável, a área de trabalho predefinida criada para si pelo Centro de Segurança quando o aprovisionamento automático foi ativado. Selecione esta área de trabalho ou outra área de trabalho que queira utilizar.
 
@@ -56,7 +56,7 @@ Tem de estar no escalão de preço Standard do Centro de Segurança antes de com
 
    ![Instalar o agente][5]
 
-Os logs do agente podem ser encontrados em: */var/opt/Microsoft/omsagent/\<espaço de trabalho de ID >/log/*
+Os logs do agente podem ser encontrados em: */var/opt/microsoft/omsagent/\<espaço de trabalho id >/log/*
 
   ![Registos para o agente][6]
 
@@ -68,7 +68,7 @@ Agora, pode monitorizar as VMs do Azure e os computadores não pertencentes ao A
 
   ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Computador não pertencente ao Azure
 
-  ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
+  ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) VM do Azure
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando já não for necessário, pode remover o agente do computador Linux.
@@ -84,7 +84,7 @@ Para remover o agente:
 Neste guia de início rápido, você provisionou o agente em um computador Linux. Para saber mais sobre como utilizar o Centro de Segurança, avance para o tutorial para configurar uma política de segurança e avaliar a segurança dos seus recursos.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Definir e avaliar políticas de segurança](tutorial-security-policy.md)
+> [Tutorial: definir e avaliar as políticas de segurança](tutorial-security-policy.md)
 
 <!--Image references-->
 [1]: ./media/quick-onboard-linux-computer/portal.png

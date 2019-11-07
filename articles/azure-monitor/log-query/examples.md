@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
-ms.openlocfilehash: a5a19910d101f3f30afcafa049056c78cd976f75
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 8850aef8b5d45f236385551a1455e6fe7b540340
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933068"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614448"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exemplos de consulta de log de Azure Monitor
 Este artigo inclui vários exemplos de [consultas](log-query-overview.md) que usam a [linguagem de consulta Kusto](/azure/kusto/query/) para recuperar diferentes tipos de dados de log de Azure monitor. Métodos diferentes são usados para consolidar e analisar dados, para que você possa usar esses exemplos para identificar estratégias diferentes que podem ser usadas para seus próprios requisitos.  
@@ -175,7 +175,6 @@ let EndTime = now()-4d;
 Perf
 | where CounterName == "% Processor Time"  
 | where TimeGenerated > StartTime and TimeGenerated < EndTime
-and TimeGenerated < EndTime
 | project TimeGenerated, Computer, cpu=CounterValue 
 | join kind= inner (
    Perf
@@ -231,7 +230,7 @@ protection_data | join (heartbeat_data) on Computer, round_time
 ### <a name="count-security-events-by-activity-id"></a>Contar eventos de segurança por ID de atividade
 
 
-Este exemplo se baseia na estrutura fixa da coluna **atividade** : \<ID\>-nome\<\>.
+Este exemplo se baseia na estrutura fixa da coluna **atividade** : \<ID\>-nome \<\>.
 Ele analisa o valor da **atividade** em duas novas colunas e conta a ocorrência de cada **ActivityId**.
 
 ```Kusto
@@ -272,7 +271,7 @@ SecurityEvent
 ```
 
 ### <a name="parse-activity-name-and-id"></a>Nome e ID da atividade de análise
-Os dois exemplos abaixo dependem da estrutura fixa da coluna **atividade** : \<ID\>-nome\<\>. O primeiro exemplo usa o operador **Parse** para atribuir valores a duas novas colunas: **ActivityId** e **activityDesc**.
+Os dois exemplos abaixo dependem da estrutura fixa da coluna **atividade** : \<ID\>-nome \<\>. O primeiro exemplo usa o operador **Parse** para atribuir valores a duas novas colunas: **ActivityId** e **activityDesc**.
 
 ```Kusto
 SecurityEvent

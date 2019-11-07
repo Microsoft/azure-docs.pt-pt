@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
-ms.openlocfilehash: b41241d3f0223e7c96dce4a9e98262b403cb0660
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7c7011991deb632110264233ea0e7aeabe793fbb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495065"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670475"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Referência rápida para um pipeline de dados automático para predições do Azure Machine Learning
 A **folha de dicas Microsoft Azure Machine Learning pipeline de dados automatizado** ajuda você a navegar pela tecnologia que você pode usar para obter seus dados para o serviço web do Machine Learning, no qual ele pode ser pontuado por seu modelo de análise preditiva.
@@ -36,6 +36,6 @@ Baixe a folha de consulta aqui: Microsoft Azure Machine Learning folha de consul
 
 ## <a name="more-help-with-machine-learning-studio"></a>Mais ajuda no Machine Learning Studio
 * Para obter uma visão geral do Microsoft Azure Machine Learning, consulte [introdução ao aprendizado de máquina no Microsoft Azure](../studio/what-is-machine-learning.md).
-* Para obter uma explicação de como implantar um serviço Web de pontuação, consulte [implantar um serviço web Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
+* Para obter uma explicação de como implantar um serviço Web de pontuação, consulte [implantar um serviço web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
 * Para obter uma discussão sobre como consumir um serviço Web de pontuação, consulte [como consumir um serviço web Azure Machine Learning](../studio/consume-web-services.md).
 

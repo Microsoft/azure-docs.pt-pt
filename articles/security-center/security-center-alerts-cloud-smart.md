@@ -1,5 +1,5 @@
 ---
-title: Correlação de alertas inteligentes na nuvem na central de segurança do Azure (incidentes) | Microsoft Docs
+title: Incidentes da central de segurança do Azure – correlação inteligente de alertas
 description: Este tópico explica como o Fusion usa a correlação de alertas inteligentes na nuvem para gerar incidentes de segurança na central de segurança do Azure.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: 4c2f084fe03271b29a12aa6906f5e36612d50674
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b26f0bab073ce248ca23bb8a815fa3e293ddba51
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202701"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686483"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Correlação de alertas inteligentes na nuvem na central de segurança do Azure (incidentes)
 
@@ -30,7 +30,7 @@ A análise de fusão é a tecnologia e o back-end analítico que capacita os inc
 
 O Fusion Analytics combina o conhecimento do domínio de segurança com o ia para analisar alertas, descobrindo novos padrões de ataque conforme eles ocorrem. 
 
-A central de segurança aproveita a matriz de ataques MITRE para associar alertas à sua intenção percebida, ajudando a formalizar o conhecimento do domínio de segurança. Além disso, usando as informações coletadas para cada etapa de um ataque, a central de segurança pode eliminar a atividade que parece ser uma das etapas de um ataque, mas, na verdade, não é.  
+A central de segurança aproveita a matriz de ataques MITRE para associar alertas à sua intenção percebida, ajudando a formalizar o conhecimento do domínio de segurança. Além disso, usando as informações coletadas para cada etapa de um ataque, a central de segurança pode eliminar a atividade que parece ser uma das etapas de um ataque, mas, na verdade, não é.
 
 Como os ataques geralmente ocorrem em diferentes locatários, a central de segurança pode combinar algoritmos de ia para analisar as sequências de ataque que são relatadas em cada assinatura. Essa técnica identifica as sequências de ataque como padrões de alerta predominantes, em vez de apenas ser associada incidentalmente entre si.
 

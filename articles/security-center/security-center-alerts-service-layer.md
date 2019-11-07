@@ -1,5 +1,5 @@
 ---
-title: Detecção de ameaças para a camada de serviço do Azure na central de segurança do Azure | Microsoft Docs
+title: Detecção de ameaças da camada de serviço do Azure – central de segurança do Azure
 description: Este tópico apresenta os alertas da camada de serviço do Azure disponíveis na central de segurança do Azure.
 services: security-center
 documentationcenter: na
@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: memildin
-ms.openlocfilehash: 9a600b6b45dbef49f600a5e9e913c9d1839eff93
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b82eab9d20966ddd0678c9213bf25a14b5313f58
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202439"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686446"
 ---
 # <a name="threat-detection-for-the-azure-service-layer-in-azure-security-center"></a>Detecção de ameaças para a camada de serviço do Azure na central de segurança do Azure
 
@@ -66,8 +66,8 @@ A central de segurança oferece uma camada adicional de proteção usando evento
 |**Sessão de gerenciamento suspeito usando uma conta inativa**|A análise de logs de atividade de assinatura detectou um comportamento suspeito. Uma entidade de segurança que não está em uso por um longo período de tempo agora está executando ações que podem proteger a persistência de um invasor.|
 |**Sessão de gerenciamento suspeito usando o PowerShell**|A análise de logs de atividade de assinatura detectou um comportamento suspeito. Uma entidade que não usa regularmente o PowerShell para gerenciar o ambiente de assinatura agora está usando o PowerShell e executando ações que podem proteger a persistência de um invasor.|
 |**Uso de técnicas avançadas de persistência do Azure**|A análise de logs de atividade de assinatura detectou um comportamento suspeito. As funções personalizadas recebem entidades de identidade legitimized. Isso pode levar o invasor a obter persistência em um ambiente do cliente do Azure.|
-|**Atividade de país pouco frequente**|A atividade de um local que não foi recentemente ou visitado por qualquer usuário na organização ocorreu.<br/>Esta deteção considera-se em localizações de atividade para determinar localizações novas e pouco frequentes. O motor de deteção de anomalias armazena informações sobre localizações anteriores utilizadas por utilizadores na organização. 
-|**Atividade a partir de endereços IP anónimos**|A atividade de usuários de um endereço IP que foi identificada como um endereço IP de proxy anônimo foi detectada. <br/>Esses proxies são usados por pessoas que desejam ocultar o endereço IP do dispositivo e podem ser usados para uma intenção mal-intencionada. Essa detecção usa um algoritmo de aprendizado de máquina que reduz os falsos positivos, como endereços IP com marca de tipo incorreta que são amplamente usados por usuários na organização.|
+|**Atividade de um país infrequente**|A atividade de um local que não foi recentemente ou visitado por qualquer usuário na organização ocorreu.<br/>Essa detecção considera os locais de atividades anteriores para determinar locais novos e infrequentes. O mecanismo de detecção de anomalias armazena informações sobre os locais anteriores usados pelos usuários na organização. 
+|**Atividade de endereços IP anônimos**|A atividade de usuários de um endereço IP que foi identificada como um endereço IP de proxy anônimo foi detectada. <br/>Esses proxies são usados por pessoas que desejam ocultar o endereço IP do dispositivo e podem ser usados para uma intenção mal-intencionada. Essa detecção usa um algoritmo de aprendizado de máquina que reduz os falsos positivos, como endereços IP com marca de tipo incorreta que são amplamente usados por usuários na organização.|
 |**Viagem impossível detectada**|Duas atividades do usuário (em uma única ou várias sessões) ocorreram, provenientes de locais geograficamente distantes. Isso ocorre dentro de um período de tempo menor do que o tempo que levaria o usuário a viajar do primeiro local para o segundo. Isso indica que um usuário diferente está usando as mesmas credenciais. <br/>Essa detecção usa um algoritmo de aprendizado de máquina que ignora os falsos positivos óbvios que contribuem para as condições de viagem impossíveis, como VPNs e locais usados regularmente por outros usuários na organização. A detecção tem um período de aprendizado inicial de sete dias, durante o qual ele aprende o padrão de atividade de um novo usuário.|
 
 >[!NOTE]

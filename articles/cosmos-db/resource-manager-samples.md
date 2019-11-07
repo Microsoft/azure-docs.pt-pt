@@ -4,14 +4,14 @@ description: Use modelos de Azure Resource Manager para criar e configurar Azure
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: 7861196daf3b04430200096a0d42bdcc6e6d5cf9
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: ecdfe89e899e0d416784ae32a0d66b335c09e2b6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053228"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582813"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Modelos de Azure Resource Manager para Azure Cosmos DB
 
@@ -21,12 +21,10 @@ As tabelas a seguir incluem links para modelos de Azure Resource Manager para Az
 
 |**Modelo**|**Descrição**|
 |---|---|
-|[Criar uma conta do Azure Cosmos, um banco de dados, um contêiner](manage-sql-with-resource-manager.md#create-resource) | Este modelo cria uma conta de API do SQL (núcleo) em duas regiões com vários mestres habilitados. A conta do Azure Cosmos terá dois contêineres que compartilham a taxa de transferência no nível do banco de dados. |
+|[Criar uma conta do Azure Cosmos, um banco de dados, um contêiner](manage-sql-with-resource-manager.md#create-resource) | Este modelo cria uma conta de API do SQL (núcleo) em duas regiões com dois contêineres com taxa de transferência de banco de dados compartilhada e um contêiner com taxa de transferência dedicada. A taxa de transferência pode ser atualizada reenviando o modelo com o valor da propriedade de produtividade atualizado. |
 |[Criar uma conta do Azure Cosmos, um banco de dados e um contêiner com um procedimento armazenado, um gatilho e um UDF](manage-sql-with-resource-manager.md#create-sproc) | Este modelo cria uma conta de API do SQL (núcleo) em duas regiões com um procedimento armazenado, Trigger e UDF para um contêiner. |
-|[Atualizar taxa de transferência (RU/s) para um banco de dados](manage-sql-with-resource-manager.md#database-ru-update) | Este modelo atualiza a taxa de transferência de um banco de dados em uma conta de API do SQL (núcleo). |
-|[Atualizar taxa de transferência (RU/s) para um contêiner](manage-sql-with-resource-manager.md#container-ru-update) | Este modelo atualiza a taxa de transferência para um contêiner em uma conta de API do SQL (núcleo). |
 
-## <a name="mongodb-api"></a>API MongoDB
+## <a name="mongodb-api"></a>API do MongoDB
 
 |**Modelo**|**Descrição**|
 |---| ---|
@@ -34,7 +32,7 @@ As tabelas a seguir incluem links para modelos de Azure Resource Manager para Az
 |[Atualizar taxa de transferência (RU/s) para um banco de dados](manage-mongodb-with-resource-manager.md#database-ru-update) | Este modelo atualiza a taxa de transferência para um banco de dados em uma conta de API do MongoDB. |
 |[Atualizar taxa de transferência (RU/s) para uma coleção](manage-mongodb-with-resource-manager.md#collection-ru-update) | Este modelo atualiza a taxa de transferência para um contêiner em uma conta de API do MongoDB. |
 
-## <a name="cassandra-api"></a>API para Cassandra
+## <a name="cassandra-api"></a>API de Cassandra
 
 |**Modelo**|**Descrição**|
 |---| ---|

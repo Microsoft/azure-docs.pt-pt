@@ -1,18 +1,18 @@
 ---
 title: Backup e restauração de banco de dados Azure Analysis Services | Microsoft Docs
-description: Descreve como fazer backup e restaurar um banco de dados Azure Analysis Services.
+description: Este artigo descreve como fazer backup e restaurar dados e metadados do modelo de um banco de Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fde545f3764f5910d00da5a8ce7f0e8c1772c7ea
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 3f63ecf560a14248fed6dea53c30a27acdf9a938
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295410"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573437"
 ---
 # <a name="backup-and-restore"></a>Cópia de segurança e restauro
 
@@ -49,13 +49,13 @@ Antes de fazer backup, você precisa definir as configurações de armazenamento
 
     ![Salvar configurações de backup](./media/analysis-services-backup/aas-backup-save.png)
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Cópia de segurança
 
 ### <a name="to-backup-by-using-ssms"></a>Para fazer backup usando o SSMS
 
 1. No SSMS, clique com o botão direito do mouse em um banco de dados > **backup**.
 
-2. No **banco de dados de backup** > **arquivo de backup**, clique em **procurar**.
+2. Em **banco de dados de backup** > **arquivo de backup**, clique em **procurar**.
 
 3. Na caixa de diálogo **salvar arquivo como** , verifique o caminho da pasta e digite um nome para o arquivo de backup. 
 

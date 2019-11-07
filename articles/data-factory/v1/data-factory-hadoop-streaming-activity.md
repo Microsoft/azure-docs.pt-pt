@@ -1,5 +1,5 @@
 ---
-title: Transformar dados usando a atividade de streaming do Hadoop – Azure | Microsoft Docs
+title: Transformar dados usando a atividade de streaming do Hadoop – Azure
 description: Saiba como você pode usar a atividade de streaming do Hadoop em uma data factory do Azure para transformar dados executando programas de streaming do Hadoop em um cluster sob demanda/seu próprio HDInsight.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: fd9512f4ede8d9b8b1a8fd69b7120303fe6a0ad5
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c56961b28750f3ba6450c26c897c1ef6c54b3ed8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139550"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667508"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados usando a atividade de streaming do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Atividades de transformação"]
@@ -41,7 +41,7 @@ Você pode usar a atividade HDInsightStreamingActivity para invocar um trabalho 
 A atividade de streaming do HDInsight em um [pipeline](data-factory-create-pipelines.md) data Factory executa programas de streaming do Hadoop em [seu próprio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster do HDInsight baseado em Windows/Linux [sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) . Este artigo se baseia no artigo [atividades de transformação de dados](data-factory-data-transformation-activities.md) , que apresenta uma visão geral da transformação de dados e das atividades de transformação com suporte.
 
 > [!NOTE] 
-> Se você for novo no Azure Data Factory, leia a [introdução ao Azure data Factory](data-factory-introduction.md) e faça o tutorial: [Crie seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md) antes de ler este artigo. 
+> Se você for novo no Azure Data Factory, leia a [introdução ao Azure data Factory](data-factory-introduction.md) e faça o tutorial: [criar seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md) antes de ler este artigo. 
 
 ## <a name="json-sample"></a>Exemplo de JSON
 O cluster HDInsight é preenchido automaticamente com programas de exemplo (WC. exe e Cat. exe) e dados (DaVinci. txt). Por padrão, o nome do contêiner que é usado pelo cluster HDInsight é o nome do próprio cluster. Por exemplo, se o nome do cluster for myhdicluster, o nome do contêiner de blob associado seria myhdicluster. 
@@ -102,11 +102,11 @@ Tenha em atenção os seguintes pontos:
 6. Para a propriedade tipo de **saída** , especifique o arquivo de saída (incluindo o local) para o redutor. A saída do trabalho de streaming do Hadoop é gravada no local especificado para essa propriedade.
 7. Na seção arquivos de **caminho** , especifique os caminhos para os executáveis do mapeador e do redutor. No exemplo: "adfsample/example/apps/WC. exe", adfsample é o contêiner de BLOB, example/apps é a pasta e WC. exe é o executável.
 8. Para a propriedade **fileLinkedService** , especifique o serviço vinculado do armazenamento do Azure que representa o armazenamento do Azure que contém os arquivos especificados na seção filePaths.
-9. Para a Propriedade Arguments, especifique os argumentos para o trabalho de streaming.
+9. Para a propriedade **arguments** , especifique os argumentos para o trabalho de streaming.
 10. A propriedade **getDebugInfo** é um elemento opcional. Quando definido como falha, os logs são baixados apenas em caso de falha. Quando definido como sempre, os logs são sempre baixados, independentemente do status de execução.
 
 > [!NOTE]
-> Conforme mostrado no exemplo, você especifica um conjunto de uma saída para a atividade de streaming do Hadoop para a propriedade Outputs. Esse conjunto de e é apenas um conjunto de uma fictício que é necessário para direcionar a agenda do pipeline. Você não precisa especificar nenhum conjunto de dados de entrada para a atividade da propriedade **entradas** .  
+> Conforme mostrado no exemplo, você especifica um conjunto de uma saída para a atividade de streaming do Hadoop para a propriedade **Outputs** . Esse conjunto de e é apenas um conjunto de uma fictício que é necessário para direcionar a agenda do pipeline. Você não precisa especificar nenhum conjunto de dados de entrada para a atividade da propriedade **entradas** .  
 > 
 > 
 
@@ -222,7 +222,7 @@ O cluster HDInsight é preenchido automaticamente com programas de exemplo (WC. 
     }
 }
 ```
-## <a name="see-also"></a>Consultar Também
+## <a name="see-also"></a>Veja também
 * [Atividade do hive](data-factory-hive-activity.md)
 * [Atividade Pig](data-factory-pig-activity.md)
 * [Atividade MapReduce](data-factory-map-reduce.md)
