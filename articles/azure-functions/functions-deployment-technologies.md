@@ -1,21 +1,19 @@
 ---
 title: Tecnologias de implantação no Azure Functions | Microsoft Docs
 description: Conheça as diferentes maneiras como você pode implantar código para Azure Functions.
-services: functions
-documentationcenter: .net
 author: ColbyTresness
-manager: dariac
+manager: gwallace
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 4d32a652219d48a2cc101259ea6b76fbfa910821
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: ce8287626b390d6eac4a3461d928c24f515f4023
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674953"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576130"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação no Azure Functions
 
@@ -31,7 +29,7 @@ O Azure Functions dá suporte ao desenvolvimento local de plataforma cruzada e �
 
 Cada plano tem comportamentos diferentes. Nem todas as tecnologias de implantação estão disponíveis para cada tipo de Azure Functions. O gráfico a seguir mostra quais tecnologias de implantação têm suporte para cada combinação de sistema operacional e plano de hospedagem:
 
-| Tecnologia de implantação | Consumo do Windows | Windows Premium (versão prévia) | Windows dedicado  | Consumo do Linux | Linux Premium (versão prévia) | Linux dedicado |
+| Tecnologia de implantação | Consumo do Windows | Windows Premium | Windows dedicado  | Consumo do Linux | Linux Premium | Linux dedicado |
 |-----------------------|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|:---------------:|
 | URL do pacote externo<sup>1</sup> |✔|✔|✔|✔|✔|✔|
 | Implantação de zip |✔|✔|✔|✔|✔|✔|
@@ -86,7 +84,7 @@ Quando os aplicativos são criados remotamente no Linux, eles são [executados a
 
 Os aplicativos de funções do Linux em execução no plano de consumo não têm um site SCM/kudu, que limita as opções de implantação. No entanto, os aplicativos de funções no Linux em execução no plano de consumo oferecem suporte a compilações remotas.
 
-##### <a name="dedicated-and-premium-preview-plans"></a>Planos dedicado e Premium (visualização)
+##### <a name="dedicated-and-premium-plans"></a>Planos dedicado e Premium
 
 Os aplicativos de funções em execução no Linux no [plano dedicado (serviço de aplicativo)](functions-scale.md#app-service-plan) e no [plano Premium](functions-scale.md#premium-plan) também têm um site do SCM/kudu limitado.
 
@@ -183,13 +181,13 @@ No editor baseado em portal, você pode editar diretamente os arquivos que estã
 
 A tabela a seguir mostra os sistemas operacionais e idiomas que dão suporte à edição do portal:
 
-| | Consumo do Windows | Windows Premium (versão prévia) | Windows dedicado | Consumo do Linux | Linux Premium (versão prévia)| Linux dedicado |
-|-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
+| | Consumo do Windows | Windows Premium | Windows dedicado | Consumo do Linux | Linux Premium | Linux dedicado |
+|-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
-| C#Prescritiva |✔|✔|✔| |✔<sup> \*</sup> |✔<sup> \*</sup>|
+| C#Prescritiva |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
 | F# | | | | | | |
 | Java | | | | | | |
-| JavaScript (Node.js) |✔|✔|✔| |✔<sup> \*</sup>|✔<sup> \*</sup>|
+| JavaScript (Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
 | Python (Pré-visualização) | | | | | | |
 | PowerShell (visualização) |✔|✔|✔| | | |
 | TypeScript (Node. js) | | | | | | |

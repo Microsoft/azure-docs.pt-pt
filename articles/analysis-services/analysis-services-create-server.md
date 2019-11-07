@@ -1,18 +1,18 @@
 ---
-title: Início Rápido - Criar um servidor do Analysis Services com o portal do Azure | Microsoft Docs
-description: Saiba como criar uma instância de servidor do Analysis Services no Azure.
+title: Início rápido-criar um servidor de Analysis Services no portal do Azure | Microsoft Docs
+description: Saiba como criar rapidamente uma instância do Azure Analysis Services Server usando o portal do Azure.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 07/02/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c104af3bcfddb4b0863f69b6571d4cd62ca9c2b8
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: cfd624ce49add0f8fd04bfccca9d6b7c3f1f71bd
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147110"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573071"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Início Rápido: Criar um servidor - Portal
 

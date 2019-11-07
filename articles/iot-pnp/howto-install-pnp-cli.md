@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 41a626ba602ad33f22c3ea4acc39dd4f3438cbd0
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: eb4f607672c39d45b7791ccaeeb6f7cff9393cb9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935693"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571007"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Instalar e usar a extensão do Azure IoT para o CLI do Azure
 
@@ -62,7 +62,7 @@ Para usar a extensão de IoT do Azure para o CLI do Azure, você precisa de:
     > [!NOTE]
     > Durante a visualização pública, os recursos de Plug and Play de IoT só estão disponíveis em hubs IoT criados nas regiões **EUA Central**, **Europa setentrional**e **leste do Japão** .
 
-- Um dispositivo registrado em seu hub IoT. Você pode usar o seguinte comando CLI do Azure para registrar um dispositivo, certifique-se de substituir `{YourIoTHubName}` os `{YourDeviceID}` espaços reservados e pelos seus valores:
+- Um dispositivo registrado em seu hub IoT. Você pode usar o comando CLI do Azure a seguir para registrar um dispositivo, não se esqueça de substituir os espaços reservados `{YourIoTHubName}` e `{YourDeviceID}` pelos seus valores:
 
     ```cmd/sh
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
@@ -88,7 +88,7 @@ Listar todas as interfaces registradas por um dispositivo de Plug and Play IoT:
 az iot dt list-interfaces --hub-name {YourIoTHubName} --device-id {YourDeviceID}
 ```
 
-#### <a name="properties"></a>properties
+#### <a name="properties"></a>Propriedades
 
 Listar todas as propriedades e valores de propriedade para uma interface em um dispositivo:
 
@@ -126,31 +126,31 @@ Listar todos os comandos para uma interface em um dispositivo:
 az iot dt list-commands --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString}
 ```
 
-Sem o `--repo-login` parâmetro, esse comando usa o repositório de modelo público.
+Sem o parâmetro `--repo-login`, esse comando usa o repositório de modelo público.
 
 Invocar um comando:
 
 ```cmd/sh
-az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --command-name {CommandName} --command-payload {CommandPayload or FilePath}
+az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --cn {CommandName} --command-payload {CommandPayload or FilePath}
 ```
 
-#### <a name="telemetry"></a>Telemetria
+#### <a name="digital-twin-events"></a>Eventos de entrelaçamento digital
 
-Monitore todas as telemetrias de Plug and Play IoT de um dispositivo e interface específicos indo para o ponto de extremidade do hub de eventos **$Default** :
+Monitore todos os eventos de Plug and Play de informações digitais de IoT de um dispositivo e interface específicos indo para o grupo de consumidores do hub de eventos **$Default** :
 
 ```cmd/sh
-az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString}
+az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID}
 ```
 
-Monitore todas as telemetrias de Plug and Play IoT de um dispositivo específico e uma interface que vai passar por um grupo de consumidores específico:
+Monitorar todos os eventos de Plug and Play de informações digitais de IoT de um dispositivo específico e uma interface que vai passar por um grupo de consumidores específico:
 
 ```cmd/sh
-az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString} --consumer-group {YourConsumerGroup}
+az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --consumer-group {YourConsumerGroup}
 ```
 
 ### <a name="manage-interfaces-in-a-model-repository"></a>Gerenciar interfaces em um repositório de modelos
 
-Os comandos a seguir usam o repositório de modelo de Plug and Play de IoT público. Para usar um repositório de modelo da empresa, `--login` adicione o argumento com a cadeia de conexão do repositório de modelos.
+Os comandos a seguir usam o repositório de modelo de Plug and Play de IoT público. Para usar um repositório de modelo da empresa, adicione o argumento `--login` com a cadeia de conexão do repositório de modelos.
 
 Listar interfaces no repositório de modelo de Plug and Play de IoT público:
 
@@ -190,7 +190,7 @@ Somente os parceiros da Microsoft podem publicar interfaces no repositório de m
 
 ### <a name="manage-device-capability-models-in-a-model-repository"></a>Gerenciar modelos de capacidade de dispositivo em um repositório de modelos
 
-Os comandos a seguir usam o repositório de modelo de Plug and Play de IoT público. Para usar um repositório de modelo da empresa, `--login` adicione o argumento com a cadeia de conexão do repositório de modelos.
+Os comandos a seguir usam o repositório de modelo de Plug and Play de IoT público. Para usar um repositório de modelo da empresa, adicione o argumento `--login` com a cadeia de conexão do repositório de modelos.
 
 Listar modelos de capacidade de dispositivo no repositório de modelo público do Plug and Play IoT:
 

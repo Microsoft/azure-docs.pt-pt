@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: d52cb4d7b8e29838338baddd45a175661801b19b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 744958fc44a8d10bbc8ca5d44af8c473548ae5ca
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844671"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669170"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas no Azure Monitor
 
@@ -29,16 +29,16 @@ Métricas personalizadas podem ser enviadas para Azure Monitor por meio de vári
 
 Quando você envia métricas personalizadas para Azure Monitor, cada ponto de dados, ou valor, relatado deve incluir as informações a seguir.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 Para enviar métricas personalizadas para Azure Monitor, a entidade que envia a métrica precisa de um token de Azure Active Directory (Azure AD) válido no cabeçalho do **portador** da solicitação. Há algumas maneiras com suporte para adquirir um token de portador válido:
 1. [Identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Fornece uma identidade para um recurso do Azure em si, como uma VM. O Identidade de Serviço Gerenciada (MSI) foi projetado para fornecer permissões de recursos para realizar determinadas operações. Um exemplo é permitir que um recurso emita métricas sobre si mesmo. Um recurso, ou seu MSI, pode receber as permissões de **Editor de métricas de monitoramento** em outro recurso. Com essa permissão, o MSI também pode emitir métricas para outros recursos.
 2. [Entidade de serviço do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). Nesse cenário, um aplicativo ou serviço do Azure AD pode receber permissões para emitir métricas sobre um recurso do Azure.
 Para autenticar a solicitação, Azure Monitor valida o token do aplicativo usando as chaves públicas do Azure AD. A função de **Publicador de métricas de monitoramento** existente já tem essa permissão. Ele está disponível na portal do Azure. A entidade de serviço, dependendo dos recursos para os quais ele emite métricas personalizadas, pode receber a função de **Editor de métricas de monitoramento** no escopo necessário. Os exemplos são uma assinatura, um grupo de recursos ou um recurso específico.
 
 > [!NOTE]  
-> Quando você solicita um token do Azure AD para emitir métricas personalizadas, certifique-se de que o público ou recurso para o https://monitoring.azure.com/ qual o token é solicitado seja. Certifique-se de incluir o '/' à direita.
+> Quando você solicita um token do Azure AD para emitir métricas personalizadas, certifique-se de que o público ou recurso para o qual o token é solicitado esteja https://monitoring.azure.com/. Certifique-se de incluir o '/' à direita.
 
-### <a name="subject"></a>Subject
+### <a name="subject"></a>Assunto
 Essa propriedade captura a qual ID de recurso do Azure a métrica personalizada é relatada. Essas informações serão codificadas na URL da chamada à API que está sendo feita. Cada API só pode enviar valores de métrica para um único recurso do Azure.
 
 > [!NOTE]  
@@ -54,13 +54,13 @@ Essa propriedade captura em qual região do Azure o recurso para o qual você es
 >
 >
 
-### <a name="timestamp"></a>Timestamp
+### <a name="timestamp"></a>Carimbo de data/hora
 Cada ponto de dados enviado para Azure Monitor deve ser marcado com um carimbo de data/hora. Esse carimbo de data/hora captura o DateTime no qual o valor da métrica é medido ou coletado. Azure Monitor aceita dados de métrica com carimbos de data/hora até 20 minutos no passado e cinco minutos no futuro. O carimbo de data/hora deve estar no formato ISO 8601.
 
-### <a name="namespace"></a>Espaço de Nomes
-Os namespaces são uma maneira de categorizar ou agrupar métricas semelhantes juntas. Ao usar namespaces, você pode obter isolamento entre grupos de métricas que podem coletar diferentes informações ou indicadores de desempenho. Por exemplo, você pode ter um namespace chamado **ContosoMemoryMetrics** que controla as métricas de uso de memória cujo perfil é seu aplicativo. Outro namespace chamado **ContosoAppTransaction** pode rastrear todas as métricas sobre transações de usuário em seu aplicativo.
+### <a name="namespace"></a>Namespace
+Os namespaces são uma maneira de categorizar ou agrupar métricas semelhantes juntas. Ao usar namespaces, você pode obter isolamento entre grupos de métricas que podem coletar diferentes informações ou indicadores de desempenho. Por exemplo, você pode ter um namespace chamado **contosomemorymetrics** que controla as métricas de uso de memória cujo perfil é seu aplicativo. Outro namespace chamado **contosoapptransaction** pode rastrear todas as métricas sobre transações de usuário em seu aplicativo.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 **Nome** é o nome da métrica que está sendo relatada. Normalmente, o nome é descritivo o suficiente para ajudar a identificar o que é medido. Um exemplo é uma métrica que mede o número de bytes de memória usados em uma determinada VM. Ele pode ter um nome de métrica como **bytes de memória em uso**.
 
 ### <a name="dimension-keys"></a>Chaves de dimensão
@@ -80,29 +80,29 @@ As dimensões são opcionais, nem todas as métricas podem ter dimensões. Se um
 ### <a name="metric-values"></a>Valores de métrica
 Azure Monitor armazena todas as métricas em intervalos de granularidade de um minuto. Entendemos que, durante um determinado minuto, uma métrica pode precisar ser amostrada várias vezes. Um exemplo é a utilização da CPU. Ou pode precisar ser medido para muitos eventos discretos. Um exemplo é as latências de transação de entrada. Para limitar o número de valores brutos que você precisa emitir e pagar em Azure Monitor, você pode pré-configurar localmente e emitir os valores:
 
-* **Mín**.: O valor mínimo observado de todos os exemplos e medidas durante o minuto.
-* **Máx**.: O valor máximo observado de todos os exemplos e medidas durante o minuto.
-* **Soma**: A soma de todos os valores observados de todos os exemplos e medidas durante o minuto.
-* **Contagem**: O número de amostras e medidas realizadas durante o minuto.
+* **Min**: o valor mínimo observado de todos os exemplos e medidas durante o minuto.
+* **Max**: o valor máximo observado de todos os exemplos e medidas durante o minuto.
+* **Sum**: a soma de todos os valores observados de todos os exemplos e medidas durante o minuto.
+* **Contagem**: o número de amostras e medições feitas durante o minuto.
 
 Por exemplo, se houvesse quatro transações de entrada para seu aplicativo durante um determinado minuto, as latências medidas resultantes de cada uma delas podem ser as seguintes:
 
 |Transação 1|Transação 2|Transação 3|Transação 4|
 |---|---|---|---|
-|7 ms|4 ms|13 ms|16 ms|
+|7 MS|4 MS|13 MS|16 MS|
 |
 
 Em seguida, a publicação de métrica resultante para Azure Monitor seria a seguinte:
-* Min 4
-* Maximizar 16
-* Quantia 40
-* Contar 4
+* Mín.: 4
+* Máx.: 16
+* Soma: 40
+* Contagem: 4
 
 Se seu aplicativo não puder agregar-se localmente e precisar emitir cada amostra ou evento discreto imediatamente na coleção, você poderá emitir os valores de medida brutos. Por exemplo, sempre que uma transação de entrada ocorre em seu aplicativo, você publica uma métrica para Azure Monitor com apenas uma única medida. Portanto, para uma transação de entrada que demorou 12 MS, a publicação de métrica seria a seguinte:
-* Min 12
-* Maximizar 12
-* Quantia 12
-* Contar 1
+* Mín.: 12
+* Máx.: 12
+* Soma: 12
+* Contagem: 1
 
 Com esse processo, você pode emitir vários valores para a mesma métrica e combinação de dimensão durante um determinado minuto. Azure Monitor, em seguida, pega todos os valores brutos emitidos por um determinado minuto e os agrega em conjunto.
 
@@ -171,46 +171,46 @@ Durante a visualização pública, a capacidade de publicar métricas personaliz
 |Região do Azure |Prefixo do ponto de extremidade regional|
 |---|---|
 | **EUA e Canadá** | |
-|EUA Centro-Oeste | https:\//westcentralus.Monitoring.Azure.com/ |
-|EUA Oeste 2       | https:\//westus2.Monitoring.Azure.com/ |
-|EUA Centro-Norte | https:\//northcentralus.Monitoring.Azure.com
-|EUA Centro-Sul| https:\//southcentralus.Monitoring.Azure.com/ |
-|EUA Central      | https:\//centralus.Monitoring.Azure.com |
+|EUA Centro-Oeste | https:\//westcentralus.monitoring.azure.com/ |
+|EUA Oeste 2       | https:\//westus2.monitoring.azure.com/ |
+|EUA Centro-Norte | https:\//northcentralus.monitoring.azure.com
+|EUA Centro-Sul| https:\//southcentralus.monitoring.azure.com/ |
+|EUA Central      | https:\//centralus.monitoring.azure.com |
 |Canadá Central | https:\//canadacentral.Monitoring.Azure.comc
-|East US| https:\//eastus.Monitoring.Azure.com/ |
+|EUA Leste| https:\//eastus.monitoring.azure.com/ |
 | **Europa** | |
-|Europa do Norte    | https:\//northeurope.Monitoring.Azure.com/ |
-|Europa Ocidental     | https:\//westeurope.Monitoring.Azure.com/ |
-|Reino Unido Sul | https:\//uksouth.Monitoring.Azure.com
-|França Central | https:\//francecentral.Monitoring.Azure.com |
+|Europa do Norte    | https:\//northeurope.monitoring.azure.com/ |
+|Europa Ocidental     | https:\//westeurope.monitoring.azure.com/ |
+|Reino Unido Sul | https:\//uksouth.monitoring.azure.com
+|França Central | https:\//francecentral.monitoring.azure.com |
 | **Oriental** | |
-|Norte da África do Sul | https:\//southafricanorth.Monitoring.Azure.com
+|Norte da África do Sul | https:\//southafricanorth.monitoring.azure.com
 | **Ásia** | |
-|Índia Central | https:\//centralindia.Monitoring.Azure.com
-|Leste da Austrália | https:\//australiaeast.Monitoring.Azure.com
-|Leste do Japão | https:\//japaneast.Monitoring.Azure.com
-|Sudeste Asiático  | https:\//southeastasia.Monitoring.Azure.com |
-|Ásia Oriental | https:\//eastasia.Monitoring.Azure.com
-|Coreia do Sul Central   | https:\//koreacentral.Monitoring.Azure.com
+|Índia Central | https:\//centralindia.monitoring.azure.com
+|Leste da Austrália | https:\//australiaeast.monitoring.azure.com
+|Leste do Japão | https:\//japaneast.monitoring.azure.com
+|Sudeste Asiático  | https:\//southeastasia.monitoring.azure.com |
+|Ásia Oriental | https:\//eastasia.monitoring.azure.com
+|Coreia do Sul Central   | https:\//koreacentral.monitoring.azure.com
 
 
 ## <a name="quotas-and-limits"></a>Quotas e limites
 Azure Monitor impõe os seguintes limites de uso em métricas personalizadas:
 
-|Category|Limite|
+|Categoria|Limite|
 |---|---|
-|Série temporal/assinaturas/região ativas|50,000|
+|Série temporal/assinaturas/região ativas|50 000|
 |Chaves de dimensão por métrica|10|
 |Comprimento da cadeia de caracteres para namespaces de métrica, nomes de métrica, chaves de dimensão e valores de dimensão|256 caracteres|
 
 Uma série temporal ativa é definida como qualquer combinação exclusiva de métrica, chave de dimensão ou valor de dimensão que tenha valores de métrica publicados nas últimas 12 horas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Use métricas personalizadas de serviços diferentes: 
  - [Máquinas Virtuais](collect-custom-metrics-guestos-resource-manager-vm.md)
  - [Conjunto de dimensionamento de máquinas virtuais](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Máquinas virtuais do Azure (clássico)](collect-custom-metrics-guestos-vm-classic.md)
  - [Máquina virtual do Linux usando o agente Telegraf](collect-custom-metrics-linux-telegraf.md)
- - [REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
+ - [API REST](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
  - [Serviços de nuvem clássicos](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  

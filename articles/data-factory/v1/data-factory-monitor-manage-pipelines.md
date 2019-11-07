@@ -1,5 +1,5 @@
 ---
-title: Monitorar e gerenciar pipelines usando o portal do Azure e o PowerShell | Microsoft Docs
+title: Monitorar e gerenciar pipelines usando o portal do Azure e o PowerShell
 description: Saiba como usar o portal do Azure e Azure PowerShell para monitorar e gerenciar as fábricas de dados e os pipelines do Azure que você criou.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 8e8215d9737087cf1a5632dc8514c12988ff999f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139664"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666968"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorar e gerenciar pipelines de Azure Data Factory usando o portal do Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Usando o portal do Azure, você pode:
 Esta seção também descreve como uma fatia de conjunto de um DataSet faz a transição de um estado para outro Estado.   
 
 ### <a name="navigate-to-your-data-factory"></a>Navegue até o data factory
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Clique em **Data factories** no menu à esquerda. Se você não o vir, clique em **mais serviços >** e, em seguida, clique em **Data factories** na categoria **inteligência + análise** .
 
    ![Procurar todos os > data factories](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -87,7 +87,7 @@ As fatias do conjunto de os data factory podem ter um dos seguintes status:
 
 <table>
 <tr>
-    <th align="left">State</th><th align="left">Subestado</th><th align="left">Descrição</th>
+    <th align="left">Estado</th><th align="left">Subestado</th><th align="left">Descrição</th>
 </tr>
 <tr>
     <td rowspan="8">A aguardar</td><td>Agendatime</td><td>A hora não chegou à execução da fatia.</td>
@@ -115,7 +115,7 @@ As fatias do conjunto de os data factory podem ter um dos seguintes status:
 </tr>
 <tr>
 <tr>
-<td rowspan="2">Em curso</td><td>A Validar</td><td>A validação está em andamento.</td>
+<td rowspan="2">InProgress</td><td>Verificar</td><td>A validação está em andamento.</td>
 </tr>
 <td>-</td>
 <td>A fatia está sendo processada.</td>
@@ -148,11 +148,11 @@ Você pode exibir os detalhes sobre uma fatia clicando em uma entrada de fatia n
 
 ![Detalhes da fatia](./media/data-factory-monitor-manage-pipelines/slice-details.png)
 
-Se a fatia tiver sido executada várias vezes, você verá várias linhas na lista de execuções de **atividade** . Você pode exibir detalhes sobre uma execução de atividade clicando na entrada de execução na lista execuções de **atividade** . A lista mostra todos os arquivos de log, juntamente com uma mensagem de erro, se houver um. Esse recurso é útil para exibir e depurar logs sem precisar sair do data factory.
+Se a fatia tiver sido executada várias vezes, você verá várias linhas na lista de **execuções de atividade** . Você pode exibir detalhes sobre uma execução de atividade clicando na entrada de execução na lista **execuções de atividade** . A lista mostra todos os arquivos de log, juntamente com uma mensagem de erro, se houver um. Esse recurso é útil para exibir e depurar logs sem precisar sair do data factory.
 
-![Detalhes de execução da atividade](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
+![Detalhes da execução da atividade](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-Se a fatia não estiver no estado **pronto** , você poderá ver as fatias de upstream que não estão prontas e que estão bloqueando a execução da fatia atual nas fatias **upstream que não estão prontas** . Esse recurso é útil quando sua fatia está em estado de **espera** e você deseja entender as dependências de upstream em que a fatia está aguardando.
+Se a fatia não estiver no estado **pronto** , você poderá ver as fatias de upstream que não estão prontas e que estão bloqueando a execução da fatia atual nas **fatias upstream que não estão prontas** . Esse recurso é útil quando sua fatia está em estado de **espera** e você deseja entender as dependências de upstream em que a fatia está aguardando.
 
 ![Fatias de upstream que não estão prontas](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -161,7 +161,7 @@ Depois que você implantar um data factory e os pipelines tiverem um período at
 
 ![Diagrama de estado](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-O fluxo de transição de estado do conjunto de data factory é o seguinte: Aguardando > em andamento/em andamento (Validando)-> pronto/com falha.
+O fluxo de transição de estado do conjunto de data factory é o seguinte: Wait-> em andamento/em andamento (Validando)-> pronto/com falha.
 
 A fatia começa em um estado de **espera** , aguardando que as pré-condições sejam atendidas antes de serem executadas. Em seguida, a atividade começa a ser executada e a fatia entra em um estado **em andamento** . A execução da atividade pode ter êxito ou falhar. A fatia é marcada como **pronta** ou **com falha**, com base no resultado da execução.
 
@@ -290,7 +290,7 @@ Caso a fatia tenha falhado na validação devido a uma falha de política (por e
 ### <a name="use-azure-powershell"></a>Utilizar o Azure PowerShell
 Você pode executar novamente as falhas usando o cmdlet **set-AzDataFactorySliceStatus** . Consulte o tópico [set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) para obter a sintaxe e outros detalhes sobre o cmdlet.
 
-**Example:**
+**Exemplo:**
 
 O exemplo a seguir define o status de todas as fatias para a tabela ' DAWikiAggregatedData ' como ' Wait ' no Azure data factory ' WikiADF '.
 

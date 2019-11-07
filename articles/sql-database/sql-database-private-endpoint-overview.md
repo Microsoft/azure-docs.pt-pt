@@ -1,5 +1,5 @@
 ---
-title: Link privado para o banco de dados SQL do Azure e data warehouse | Microsoft Docs
+title: Link privado para o banco de dados SQL do Azure e data warehouse
 description: Visão geral do recurso de ponto de extremidade privado
 author: rohitnayakmsft
 ms.author: rohitna
@@ -7,12 +7,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 09/17/2019
-ms.openlocfilehash: 3adcccde89823f865535c9e1350ac4c3e541eef6
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: a056c4beeeb05886d4b4ed492a05d1963372b366
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "71066260"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687604"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Link privado para o banco de dados SQL do Azure e data warehouse (visualização)
 
@@ -60,16 +60,16 @@ Depois que o administrador de rede cria o ponto de extremidade privado (PE), o a
 
     - (1) selecione as conexões de ponto de extremidade privado no painel esquerdo
     - (2) mostra uma lista de todas as conexões de ponto de extremidade privado (PECs)
-    - (3) o ponto de extremidade particular correspondente (PE) criado ![Screenshot de todos os PECs @ no__t-1
+    - (3) o ponto de extremidade particular correspondente (PE) criado ![captura de tela de todos os PECs][3]
 
 1. Selecione um PEC individual na lista selecionando-o.
-![Screenshot o PEC selecionado @ no__t-1
+![captura de tela selecionada][6] do PEC
 
 1. O administrador do SQL pode optar por aprovar ou rejeitar um PEC e, opcionalmente, adicionar uma resposta de texto curto.
-![Screenshot da aprovação de PEC @ no__t-1
+Captura de tela ![da aprovação do PEC][4]
 
 1. Após a aprovação ou rejeição, a lista refletirá o estado apropriado junto com o texto de resposta.
-![Screenshot de todas as PECs após a aprovação @ no__t-1
+![captura de tela de todos os PECs após a aprovação][5]
 
 ## <a name="use-cases-of-private-link-for-azure-sql-database"></a>Casos de uso de link privado para o banco de dados SQL do Azure 
 

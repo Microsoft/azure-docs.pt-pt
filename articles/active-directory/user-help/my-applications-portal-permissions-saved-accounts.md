@@ -13,12 +13,12 @@ ms.date: 10/30/2019
 ms.author: lizross
 ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70a0e65b3c73e05af08c69fde55542e803691515
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 9fa8bc27f014b794059f30a62d47f298096df2f1
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73178117"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573806"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-preview-portal"></a>Editar ou revogar permissões de aplicativo no portal meus aplicativos (versão prévia)
 
@@ -51,8 +51,8 @@ Depois de gerenciar as permissões do aplicativo e as contas salvas no portal **
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-- [Atualize suas informações de perfil e conta](myprofile-portal-overview.md). Instruções sobre como atualizar suas informações pessoais que aparecem no portal **meu perfil** (versão prévia).
+- [Atualize suas informações de perfil e conta](my-account-portal-overview.md). Instruções sobre como atualizar suas informações pessoais que aparecem no portal **meu perfil** (versão prévia).
 
-- [Gerencie suas organizações](myprofile-portal-organizations-page.md). Instruções sobre como exibir e gerenciar suas informações relacionadas à organização na página **organizações** do meu portal do **meu perfil** .
+- [Gerencie suas organizações](my-account-portal-organizations-page.md). Instruções sobre como exibir e gerenciar suas informações relacionadas à organização na página **organizações** do meu portal do **meu perfil** .
 
-- [Gerencie seus dispositivos conectados](myprofile-portal-devices-page.md). Instruções sobre como gerenciar os dispositivos aos quais você está conectado usando sua conta corporativa ou de estudante, na página **dispositivos** do meu portal do **meu perfil** .
+- [Gerencie seus dispositivos conectados](my-account-portal-devices-page.md). Instruções sobre como gerenciar os dispositivos aos quais você está conectado usando sua conta corporativa ou de estudante, na página **dispositivos** do meu portal do **meu perfil** .

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: 536f3ab506dcbe2b8997f2c1870f25244b6c070f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: eddfddc994482bcb6e60604703e7f306fee9c32b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489666"
+ms.locfileid: "73574345"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Detectar descompasso de dados (versão prévia) em modelos implantados no serviço kubernetes do Azure (AKS)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -98,7 +98,7 @@ print('Details of Datadrift Object:\n{}'.format(datadrift))
 
 ## <a name="submit-a-datadriftdetector-run"></a>Enviar uma execução do DataDriftDetector
 
-Com o objeto `DataDriftDetector` configurado, você pode enviar uma [execução de descompasso de dados](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) em uma determinada data para o modelo. Como parte da execução, habilite alertas do DataDriftDetector definindo o parâmetro `drift_threshold`. Se o [datadrift_coefficient](#metrics) estiver acima do determinado `drift_threshold`, um email será enviado.
+Com o objeto `DataDriftDetector` configurado, você pode enviar uma [execução de descompasso de dados](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) em uma determinada data para o modelo. Como parte da execução, habilite alertas do DataDriftDetector definindo o parâmetro `drift_threshold`. Se o [datadrift_coefficient](#metrics) estiver acima da `drift_threshold`especificada, um email será enviado.
 
 ```python
 # adhoc run today
@@ -152,7 +152,7 @@ drift_figures = datadrift.show(with_details=True)
 
 ## <a name="schedule-data-drift-scans"></a>Agendar verificações de descompasso de dados 
 
-Quando você habilita a detecção de descompasso de dados, um DataDriftDetector é executado na frequência especificada, agendada. Se o datadrift_coefficient atingir o `drift_threshold`fornecido, um email será enviado com cada execução agendada. 
+Quando você habilita a detecção de descompasso de dados, um DataDriftDetector é executado na frequência especificada, agendada. Se o datadrift_coefficient atingir o `drift_threshold`especificado, um email será enviado com cada execução agendada. 
 
 ```python
 datadrift.enable_schedule()
@@ -161,14 +161,13 @@ datadrift.disable_schedule()
 
 A configuração do detector de descompasso de dados pode ser vista em **modelos** na guia **detalhes** em seu espaço de trabalho no [Azure Machine Learning Studio](https://ml.azure.com).
 
-![Descompasso de dados do Azure Machine Learning Studio](media/how-to-monitor-data-drift/drift-config.png)
+[descompasso de dados do ![Azure Machine Learning Studio](media/how-to-monitor-data-drift/drift-config.png)](media/how-to-monitor-data-drift/drift-config-expanded.png)
 
 ## <a name="view-results-in-your-azure-machine-learning-studio"></a>Exibir resultados em seu Azure Machine Learning Studio
 
 Para exibir os resultados em seu espaço de trabalho no [Azure Machine Learning Studio](https://ml.azure.com), navegue até a página modelo. Na guia detalhes do modelo, a configuração de descompasso de dados é mostrada. Uma guia **descompasso de dados** agora está disponível visualizando as métricas de descompasso de dados. 
 
 [descompasso de dados do ![Azure Machine Learning Studio](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
-
 
 ## <a name="receiving-drift-alerts"></a>Recebendo alertas de descompasso
 

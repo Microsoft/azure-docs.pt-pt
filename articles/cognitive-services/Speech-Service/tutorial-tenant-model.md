@@ -1,7 +1,7 @@
 ---
 title: Criar um modelo de locatário (versão prévia) – serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Gere automaticamente um modelo de fala personalizado que aproveita seus dados do Office365 para fornecer reconhecimento de fala ideal para termos específicos da organização que sejam seguros e compatíveis.
+description: Gere automaticamente um modelo de locatário (Fala Personalizada com dados do Office 365) que aproveita seus dados do Office 365 para fornecer o reconhecimento de fala ideal para termos específicos da organização que são seguros e compatíveis.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: 85b9291ee24c024ebc8ce81ddba46d04f7744081
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: c8a2855ce9cd320be3aea8b3b4a05f3b3eb39976
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502661"
+ms.locfileid: "73578226"
 ---
 # <a name="create-a-tenant-model-preview"></a>Criar um modelo de locatário (visualização)
 
-O modelo de locatário é um serviço de aceitação para clientes do Office365 Enterprise que gera automaticamente um modelo de reconhecimento de fala personalizado dos dados do Office365 da sua organização. O modelo criado é otimizado para termos técnicos, nomes de jargão e de pessoas, tudo de maneira segura e em conformidade.
+O modelo de locatário (Fala Personalizada com dados do Office 365) é um serviço de aceitação para clientes do Office 365 Enterprise que gera automaticamente um modelo de reconhecimento de fala personalizado dos dados do Office365 da sua organização. O modelo criado é otimizado para termos técnicos, nomes de jargão e de pessoas, tudo de maneira segura e em conformidade.
 
 > [!IMPORTANT]
-> Se sua organização se registrar com o modelo de locatário, o serviço de fala poderá acessar o modelo de linguagem da sua organização, que é gerado pelos recursos do Office 365, como emails e documentos. O administrador do Office 365 da sua organização pode ativar/desativar o uso do modelo de linguagem em toda a organização usando o portal de administração do Office 365.
+> Se sua organização registrar-se com o modelo de locatário, o serviço de fala poderá acessar o modelo de linguagem da sua organização, que é gerado a partir de emails e documentos do grupo público do Office 365 que podem ser vistos por qualquer pessoa em sua organização. O administrador do Office 365 da sua organização pode ativar/desativar o uso do modelo de linguagem em toda a organização usando o portal de administração do Office 365.
 
 Neste tutorial, ficará a saber como:
 
@@ -33,8 +33,6 @@ Neste tutorial, ficará a saber como:
 > * Implantar um modelo de locatário
 > * Usar um modelo de locatário com o SDK de fala
 
-![Diagrama de modelo de locatário](media/tenant-language-model/tenant-language-model-diagram.png)
-
 ## <a name="enroll-using-the-microsoft-365-admin-center"></a>Registrar-se usando o centro de administração Microsoft 365
 
 Antes de implantar seu modelo de locatário, primeiro é necessário registrá-lo usando o centro de administração Microsoft 365. Essa tarefa só pode ser concluída pelo administrador do Microsoft 365.
@@ -42,11 +40,11 @@ Antes de implantar seu modelo de locatário, primeiro é necessário registrá-l
 1. Entre no [centro de administração do Microsoft 365](https://admin.microsoft.com ).
 2. No painel esquerdo, selecione **configurações** e, em seguida, **aplicativos**.
 
-   ![Diagrama de modelo de locatário](media/tenant-language-model/tenant-language-model-enrollment.png)
+   ![Registro de modelo de locatário](media/tenant-language-model/tenant-language-model-enrollment.png)
 
 3. Localize e selecione **serviços de fala do Azure**.
 
-   ![Diagrama de modelo de locatário](media/tenant-language-model/tenant-language-model-enrollment-2.png)
+   ![Registro de modelo de locatário 2](media/tenant-language-model/tenant-language-model-enrollment-2.png)
 
 4. Clique na caixa de seleção e salve.
 
@@ -56,7 +54,7 @@ Se você precisar desativar o modelo de locatário, navegue de volta para esta t
 
 Para usar um modelo de locatário com o SDK de fala, você precisará de um recurso de fala e sua chave de assinatura associada.
 
-1. Inicie sessão no [portal do Azure](https://aka.ms/azureportal).
+1. Inicie sessão no [Portal do Azure](https://aka.ms/azureportal).
 2. Selecione **criar um recurso**.
 3. Na barra de pesquisa, digite: **fala**.
 4. Selecione **fala**e clique em **criar**.
@@ -77,9 +75,10 @@ Depois que o administrador tiver habilitado o modelo de locatário para sua orga
 
 3. Neste ponto, você verá uma mensagem informando que você sabe se está qualificado para criar um modelo de locatário.
    > [!NOTE]
-   > Os clientes do Office 365 Enterprise no América do Norte estão qualificados para criar um modelo de locatário (inglês). Se você for um cliente de Sistema de Proteção de Dados do Cliente (CLB) ou de chave do cliente (CK), esse recurso não estará disponível. Para determinar se você é um cliente de Sistema de Proteção de Dados do Cliente ou chave do cliente, siga estas instruções:
+   > Os clientes do Office 365 Enterprise no América do Norte estão qualificados para criar um modelo de locatário (inglês). Se você for um Sistema de Proteção de Dados do Cliente (CLB), chave do cliente (CK) ou cliente do governo do Office 365, esse recurso não estará disponível. Para determinar se você é um cliente de Sistema de Proteção de Dados do Cliente ou chave do cliente, siga estas instruções:
    > * [Sistema de Proteção de Dados do Cliente](https://docs.microsoft.com/office365/securitycompliance/controlling-your-data-using-customer-key#FastTrack)
    > * [Chave do cliente](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
+   > * [Governo do Office 365](https://www.microsoft.com/microsoft-365/government)
 
 4. Em seguida, selecione **aceitar**. Você receberá um email com instruções quando seu modelo de locatário estiver pronto.
 

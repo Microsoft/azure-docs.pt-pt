@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: b4be715bd910326b3d06837508e7a07ac853189f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 78f29bacaadac5f01e4a8dd26bf03b2bda84f2bf
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322648"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577569"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar um pool do lote do Azure em uma rede virtual
 
@@ -41,10 +41,10 @@ Um pool do lote do Azure tem configurações para permitir que nós de computaç
 Depois de criar sua VNet e atribuir uma sub-rede a ela, você poderá criar um pool do lote com essa VNet. Siga estas etapas para criar um pool do portal do Azure: 
 
 1. No portal do Azure, navegue para a sua conta do Batch. Essa conta deve estar na mesma assinatura e região que o grupo de recursos que contém a VNet que você pretende usar. 
-2. Na janela **configurações** à esquerda, selecione o item de  menu pools.
+2. Na janela **configurações** à esquerda, selecione o item de menu **pools** .
 3. Na janela **pools** , selecione o comando **Adicionar** .
 4. Na janela **Adicionar pool** , selecione a opção que você pretende usar na lista suspensa **tipo de imagem** . 
-5. Selecione o Publicador/ **oferta/SKU** correto para sua imagem personalizada.
+5. Selecione o **Publicador/oferta/SKU** correto para sua imagem personalizada.
 6. Especifique as configurações necessárias restantes, incluindo o **tamanho do nó**, os **nós dedicados de destino**e os **nós de baixa prioridade**, bem como as configurações opcionais desejadas.
 7. Em **rede virtual**, selecione a rede virtual e a sub-rede que você deseja usar.
   
@@ -56,15 +56,15 @@ Você pode ter requisitos em sua organização para redirecionar (forçar) o tr�
 
 Para garantir que os nós de computação do pool do lote do Azure funcionem em uma VNet com túnel forçado habilitado, você deve adicionar as seguintes [rotas definidas pelo usuário](../virtual-network/virtual-networks-udr-overview.md) para essa sub-rede:
 
-* O serviço de lote precisa se comunicar com nós de computação de pool para tarefas de agendamento. Para habilitar essa comunicação, adicione uma rota definida pelo usuário para cada endereço IP usado pelo serviço de lote na região em que sua conta do lote existe. Para saber como obter a lista de endereços IP do serviço de lote, consulte [marcas de serviço no local](../virtual-network/security-overview.md#service-tags-in-on-premises)
+* O serviço de lote precisa se comunicar com nós de computação de pool para tarefas de agendamento. Para habilitar essa comunicação, adicione uma rota definida pelo usuário para cada endereço IP usado pelo serviço de lote na região em que sua conta do lote existe. Para saber como obter a lista de endereços IP do serviço de lote, consulte [marcas de serviço no local](../virtual-network/service-tags-overview.md)
 
-* Verifique se o tráfego de saída para o armazenamento do Azure (especificamente, `<account>.table.core.windows.net`as `<account>.queue.core.windows.net`URLs do `<account>.blob.core.windows.net`formulário, e) não está bloqueado por meio de seu dispositivo de rede local.
+* Verifique se o tráfego de saída para o armazenamento do Azure (especificamente, as URLs do formato `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`e `<account>.blob.core.windows.net`) não está bloqueado por meio de seu dispositivo de rede local.
 
 Quando você adiciona uma rota definida pelo usuário, defina a rota para cada prefixo de endereço IP do lote relacionado e defina o **tipo do próximo salto** como **Internet**. Veja o seguinte exemplo:
 
 ![Rota definida pelo utilizador](./media/batch-virtual-network/user-defined-route.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral detalhada do lote, consulte [desenvolver soluções de computação paralela em larga escala com o lote](batch-api-basics.md).
 - Para saber mais sobre como criar uma rota definida pelo usuário, confira [criar uma portal do Azure de rota definida pelo usuário](../virtual-network/tutorial-create-route-table-portal.md).

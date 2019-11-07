@@ -1,5 +1,5 @@
 ---
-title: Filtrar atividade em Azure Data Factory | Microsoft Docs
+title: Filtrar atividade no Azure Data Factory
 description: A atividade de filtro filtra as entradas.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.openlocfilehash: c0f5d3264d953498af61c6e8d36dadee7dd61931
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 5794a2c754e2082fdf45ad689bdb89ea494541c2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915519"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679864"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Filtrar atividade no Azure Data Factory
 Você pode usar uma atividade de filtro em um pipeline para aplicar uma expressão de filtro a uma matriz de entrada. 
@@ -36,12 +36,12 @@ Você pode usar uma atividade de filtro em um pipeline para aplicar uma express�
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-Propriedade | Descrição | Valores permitidos | Requerido
+Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da `Filter` atividade. | Cadeia | Sim
-type | Deve ser definido como **filtro**. | Cadeia | Sim
-condition | Condição a ser usada para filtrar a entrada. | Expressão | Sim
-items | Matriz de entrada na qual o filtro deve ser aplicado. | Expressão | Sim
+nome | Nome da atividade de `Filter`. | String | Sim
+tipo | Deve ser definido como **filtro**. | String | Sim
+problema | Condição a ser usada para filtrar a entrada. | Expressão | Sim
+los | Matriz de entrada na qual o filtro deve ser aplicado. | Expressão | Sim
 
 ## <a name="example"></a>Exemplo
 

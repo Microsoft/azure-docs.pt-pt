@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de gerenciamento de Integration Runtime do SSIS no Azure Data Factory | Microsoft Docs
+title: 'Solucionar problemas de gerenciamento de Integration Runtime do SSIS no Azure Data Factory '
 description: Este artigo fornece orientação para a solução de problemas de gerenciamento do SSIS Integration Runtime (SSIS IR)
 services: data-factory
 documentationcenter: ''
@@ -12,18 +12,18 @@ author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: d16267e104d753770dc40ce99b0f56e5c749b2d0
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 3452fc2274eb646acb19c0e6a203ebadcb81cad5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752157"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684018"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Solucionar problemas de gerenciamento de Integration Runtime do SSIS no Azure Data Factory
 
 Este artigo fornece orientação para a solução de problemas de gerenciamento no SSIS (Azure-SQL Server Integration Services) Integration Runtime (IR), também conhecido como IR do SSIS.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Se você tiver algum problema ao provisionar ou desprovisionar o SSIS IR, verá uma mensagem de erro no portal do Microsoft Azure Data Factory ou um erro retornado de um cmdlet do PowerShell. O erro sempre aparece no formato de um código de erro com uma mensagem de erro detalhada.
 
@@ -77,7 +77,7 @@ Para outros problemas, verifique a Mensagem de erro de exceção do SQL e corrij
 
 ### <a name="invalidcatalogdb"></a>InvalidCatalogDb
 
-Esse tipo de mensagem de erro é semelhante a: "nome de objeto inválido ' Catalog. catalog_properties '." Nessa situação, você já tem um banco de dados chamado SSISDB, mas ele não foi criado pelo IR do SSIS ou o banco de dados está em um estado inválido causado por erros no último provisionamento de IR do SSIS. Pode remover a base de dados existente com o nome SSISDB ou pode configurar um novo servidor da Base de Dados SQL do Azure ou uma instância gerida para o runtime de integração.
+Esse tipo de mensagem de erro é semelhante a: "nome do objeto inválido ' Catalog. catalog_properties '." Nessa situação, você já tem um banco de dados chamado SSISDB, mas ele não foi criado pelo IR do SSIS ou o banco de dados está em um estado inválido causado por erros no último provisionamento de IR do SSIS. Pode remover a base de dados existente com o nome SSISDB ou pode configurar um novo servidor da Base de Dados SQL do Azure ou uma instância gerida para o runtime de integração.
 
 ## <a name="custom-setup-issues"></a>Problemas de instalação personalizada
 

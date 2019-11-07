@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 05bae18d35eafc47eddc7c1450eb06af5bbe5562
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: e1bb84c142fb24086cf6c11a7b1070bdd29ae3f2
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497208"
+ms.locfileid: "73581301"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Crie, explore e implante experimentos automatizados de aprendizado de máquina com o Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -68,7 +68,7 @@ Caso contrário, você verá uma lista de experiências de aprendizado de máqui
         ----|----
         Formato de arquivo| Define o layout e o tipo de dados armazenados em um arquivo.
         Delimitador| Um ou mais caracteres para especificar o limite entre regiões separadas e independentes em texto sem formatação ou outros fluxos de dados.
-        Encoding| Identifica o bit para a tabela de esquema de caractere a ser usada para ler seu conjunto de seus.
+        Codificação| Identifica o bit para a tabela de esquema de caractere a ser usada para ler seu conjunto de seus.
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de uma, se houver, serão tratados.
         Ignorar linhas | Indica quantas linhas, se houver, são ignoradas no conjunto de registros.
     
@@ -104,7 +104,7 @@ Caso contrário, você verá uma lista de experiências de aprendizado de máqui
 
     Selecione **Seguinte**.
 
-1. No formulário **tipo de tarefa e configurações** , selecione o tipo de tarefa: classificação, regressão ou previsão. 
+1. No formulário **tipo de tarefa e configurações** , selecione o tipo de tarefa: classificação, regressão ou previsão. Consulte [como definir tipos de tarefa](how-to-define-task-type.md) para obter mais informações.
 
     1. Para classificação, você também pode habilitar o aprendizado profundo, que é usado para featurizations de texto.
 
@@ -205,12 +205,17 @@ O ML automatizado ajuda você a implantar o modelo sem escrever código:
 
     Campo| Valor
     ----|----
-    Nome da implantação| Insira um nome exclusivo para sua implantação.
-    Descrição da implantação| Insira uma descrição para identificar melhor a finalidade dessa implantação.
-    Script de Pontuação| Gerar automaticamente ou carregar seu próprio arquivo de pontuação. [Saiba mais sobre o script de Pontuação](how-to-deploy-and-where.md#script).
-    Script de ambiente| Gerar automaticamente ou carregar seu próprio arquivo de ambiente.
+    Nome| Insira um nome exclusivo para sua implantação.
+    Descrição| Insira uma descrição para identificar melhor a finalidade dessa implantação.
+    Tipo de computação| Selecione o tipo de ponto de extremidade que você deseja implantar: *AKs (serviço kubernetes do Azure)* ou *instância de contêiner do Azure (ACI)* .
+    Nome| *Aplica-se somente a AKs:* Selecione o nome do cluster AKS no qual você deseja implantar.
+    Ativar autenticação | Selecione para permitir a autenticação baseada em token ou baseada em chave.
+    Usar ativos de implantação personalizados| Habilite esse recurso se você quiser carregar seu próprio script de Pontuação e arquivo de ambiente. [Saiba mais sobre scripts de Pontuação](how-to-deploy-and-where.md#script).
+
     >[!Important]
     > Os nomes de arquivo devem ter menos de 32 caracteres e devem começar e terminar com alfanuméricos. Pode incluir traços, sublinhados, pontos e alfanuméricos entre. Não são permitidos espaços.
+
+    O menu *avançado* oferece recursos de implantação padrão, tais como a coleta de dados e as configurações de utilização de recursos. Se você quiser substituir esses padrões, faça isso neste menu.
 
 1. Selecione **Implementar**. A implantação pode levar cerca de 20 minutos para ser concluída.
 

@@ -1,20 +1,17 @@
 ---
 title: Como usar o armazenamento persistente no Azure Spring Cloud | Microsoft Docs
 description: Como usar o armazenamento persistente no Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: jeconnoc
-ms.openlocfilehash: f14da7d8e64c58a54a9da4d851ac22fd710ea8ca
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d70e7ff747b80b661e848f1c208f0d1c2c928248
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163722"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607774"
 ---
 # <a name="how-to-use-persistent-storage-in-azure-spring-cloud"></a>Como usar o armazenamento persistente no Azure Spring Cloud
 
@@ -53,6 +50,12 @@ O armazenamento persistente é um contêiner de compartilhamento de arquivos ger
 Quando o armazenamento persistente está habilitado, seu tamanho e caminho são mostrados nessa página.
 
 ## <a name="use-the-azure-cli-to-modify-persistent-storage"></a>Usar o CLI do Azure para modificar o armazenamento persistente
+
+Se necessário, instale a extensão Spring Cloud para o CLI do Azure:
+
+```azurecli
+az extension add --name spring-cloud
+```
 
 Criar um aplicativo com o disco persistente habilitado:
  

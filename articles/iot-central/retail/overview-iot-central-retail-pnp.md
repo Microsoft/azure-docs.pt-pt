@@ -6,13 +6,14 @@ ms.author: nandab
 ms.date: 10/22/2019
 ms.topic: overview
 ms.service: iot-central
+ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: d91784201b3e8745459dada3790ec0eebaef9caf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7da5d7b80dfd07b742af5ff6225f26207747e58c
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495161"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615331"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Criando soluções de varejo com o Azure IoT Central
 

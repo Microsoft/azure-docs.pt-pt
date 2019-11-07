@@ -1,5 +1,5 @@
 ---
-title: Atividade de validação no Azure Data Factory | Microsoft Docs
+title: Atividade de validação no Azure Data Factory
 description: A atividade de validação não continua a execução do pipeline até que ele valide o conjunto de dado anexado com determinados critérios que o usuário especifica.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 77fdab04e03429d135875cb2ef223e8c23d312a2
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f63c78c59d7d6be3c66ea0785389eff73e3bff60
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141612"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678372"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Atividade de validação no Azure Data Factory
 Você pode usar uma validação em um pipeline para garantir que o pipeline continue a execução apenas depois de ter validado a referência do conjunto de entrada anexado, que ele atende aos critérios especificados ou que o tempo limite tenha sido atingido.
@@ -58,18 +58,18 @@ Você pode usar uma validação em um pipeline para garantir que o pipeline cont
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-Propriedade | Descrição | Valores permitidos | Requerido
+Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da atividade de ' validação ' | Cadeia | Sim |
-type | Deve ser definido como **validação**. | Cadeia | Sim |
+nome | Nome da atividade de ' validação ' | String | Sim |
+tipo | Deve ser definido como **validação**. | String | Sim |
 DataSet | A atividade bloqueará a execução até que tenha validado essa referência de conjunto de e que ele atenda aos critérios especificados ou que o tempo limite tenha sido atingido. O conjunto de conjuntos fornecido deve dar suporte à propriedade "MinimumSize" ou "ChildItems". | Referência de DataSet | Sim |
-timeout | Especifica o tempo limite para a execução da atividade. Se nenhum valor for especificado, o valor padrão será 7 dias ("7.00:00:00"). O formato é d. hh: mm: SS | Cadeia | Não |
-num | Um atraso em segundos entre as tentativas de validação. Se nenhum valor for especificado, o valor padrão será 10 segundos. | Integer | Não |
-childItems | Verifica se a pasta tem itens filhos. Pode ser definido como-true: Valide se a pasta existe e se ela tem itens. Bloqueia até que pelo menos um item esteja presente na pasta ou o valor de tempo limite seja atingido.-falso: Valide se a pasta existe e se está vazia. Bloqueia até a pasta estar vazia ou até que o valor de tempo limite seja atingido. Se nenhum valor for especificado, a atividade será bloqueada até que a pasta exista ou até que o tempo limite seja atingido. | Booleano | Não |
-minimumSize | Tamanho mínimo de um arquivo em bytes. Se nenhum valor for especificado, o valor padrão será 0 bytes | Integer | Não |
+tempo limite | Especifica o tempo limite para a execução da atividade. Se nenhum valor for especificado, o valor padrão será 7 dias ("7.00:00:00"). O formato é d. hh: mm: SS | String | Não |
+num | Um atraso em segundos entre as tentativas de validação. Se nenhum valor for especificado, o valor padrão será 10 segundos. | Número inteiro | Não |
+childItems | Verifica se a pasta tem itens filhos. Pode ser definido como-true: valide se a pasta existe e se ela tem itens. Bloqueia até que pelo menos um item esteja presente na pasta ou o valor de tempo limite seja atingido.-false: valide se a pasta existe e se está vazia. Bloqueia até a pasta estar vazia ou até que o valor de tempo limite seja atingido. Se nenhum valor for especificado, a atividade será bloqueada até que a pasta exista ou até que o tempo limite seja atingido. | Booleano | Não |
+minimumSize | Tamanho mínimo de um arquivo em bytes. Se nenhum valor for especificado, o valor padrão será 0 bytes | Número inteiro | Não |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory:
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 24ce6de63d06402e24abdeb33996a3853175ce91
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 4e04ae7d9594ac064c9f3707c797fb2709a79cb6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954412"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582993"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo MXChip IoT DevKit ao aplicativo IoT Central do Azure
 
@@ -119,7 +119,7 @@ Agite o dispositivo para enviar uma propriedade relatada. O dispositivo envia um
 
 Você pode exibir as medidas de telemetria e os valores de propriedade relatados e definir as configurações no Azure IoT Central:
 
-1. Use **Device Explorer** para navegar até a página de **medidas** do dispositivo real MXChip que você adicionou:
+1. Use **dispositivos** para navegar até a página de **medidas** do dispositivo real MXChip que você adicionou:
 
     ![Navegar para o dispositivo real](media/howto-connect-devkit/realdevicenew.png)
 
@@ -241,14 +241,14 @@ Alternar configurações
 | --------------- | ------------ | ---------- | --------- |
 | Propriedade do dispositivo | Número do chip   | dieNumber  | número    |
 | Propriedade do dispositivo | Local do dispositivo   | localização  | localização    |
-| Texto            | Fabricado em     | fabricado   | N/A       |
+| Texto            | Fabricado em     | fabricado   | N/D       |
 
 ### <a name="commands"></a>Comandos
 
 | Nome a apresentar | Nome do campo | Tipo de retorno | Nome de exibição do campo de entrada | Nome do campo de entrada | Tipo de campo de entrada |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
 | Eco         | echo       | texto        | valor a ser exibido         | disreproduçãovalue   | texto             |
-| Contagem regressiva    | contagem regressiva  | número      | Contar de               | countFrom        | número           |
+| Contagem regressiva    | Contagem regressiva  | número      | Contar de               | countFrom        | número           |
 
 ## <a name="next-steps"></a>Passos seguintes
 

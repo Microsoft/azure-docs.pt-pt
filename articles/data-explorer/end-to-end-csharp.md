@@ -1,27 +1,29 @@
 ---
-title: Ingestão de blob de ponta a ponta no Azure Data Explorer usandoC#
-description: Neste artigo, você aprende a ingerir BLOBs no Azure Data Explorer com um exemplo de ponta a ponta usando C#o.
+title: Ingestão de blob de ponta a ponta no Azure Data Explorer por meio doC#
+description: Neste artigo, você aprende a ingerir BLOBs no Azure Data Explorer com um exemplo de ponta a ponta que usa C#o.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 7d737319c9ddc8040a7cae6f7a9991c625cc4fcd
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: e22621083a44555cb3eda615c610f673cd841ec1
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809604"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581842"
 ---
-# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-using-c"></a>Ingestão de blob de ponta a ponta no Azure Data Explorer usandoC#
+# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-c"></a>Ingestão de blob de ponta a ponta no Azure Data Explorer por meio doC#
 
 > [!div class="op_single_selector"]
 > * [C#](end-to-end-csharp.md)
 > * [Python](end-to-end-python.md)
 >
 
-O Azure Data Explorer é um serviço de exploração de dados rápido e escalonável para dados de log e telemetria. Este artigo fornece um exemplo de ponta a ponta sobre como ingerir dados do armazenamento de BLOBs para o Azure Data Explorer. Você aprenderá como criar programaticamente um grupo de recursos, uma conta de armazenamento e um contêiner, um hub de eventos e um cluster de Data Explorer do Azure e um banco de dados. Você também aprenderá como configurar programaticamente o Data Explorer do Azure para ingerir dados da nova conta de armazenamento.
+O Azure Data Explorer é um serviço de exploração de dados rápido e escalonável para dados de log e telemetria. Este artigo fornece um exemplo de ponta a ponta de como ingerir dados do armazenamento de BLOBs do Azure para o Azure Data Explorer. 
+
+Você aprenderá como criar programaticamente um grupo de recursos, uma conta de armazenamento e um contêiner, um hub de eventos e um cluster de Data Explorer do Azure e um banco de dados. Você também aprenderá como configurar programaticamente o Data Explorer do Azure para ingerir dados da nova conta de armazenamento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,11 +31,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](http
 
 ## <a name="install-c-nuget"></a>Instalar C# o NuGet
 
-* Instale o [Microsoft. Azure. Management. Kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
-* Instale o [Microsoft. Azure. Management. ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
-* Instale o [Microsoft. Azure. Management. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/).
-* Instale o [Microsoft. Azure. Storage. blob](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/).
-* Instale o [Microsoft. REST. ClientRuntime. Azure. Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication) para autenticação.
+* Instale [Microsoft. Azure. Management. Kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
+* Instale [o Microsoft. Azure. Management. ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
+* Instale [Microsoft. Azure. Management. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/).
+* Instale [o Microsoft. Azure. Storage. blob](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/).
+* Instale [Microsoft. REST. ClientRuntime. Azure. Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication) para autenticação.
 
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
@@ -41,16 +43,18 @@ Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](http
 
 ## <a name="code-example"></a>Exemplo de código 
 
-O exemplo de código a seguir fornece um processo passo a passo que resulta na ingestão de dados no Azure Data Explorer. Primeiro, você cria um grupo de recursos e recursos do Azure, como uma conta de armazenamento e um contêiner, um hub de eventos e um cluster de Data Explorer do Azure e um banco de dados. Em seguida, você cria uma assinatura de grade de eventos e um mapeamento de tabela e coluna no banco de dados Data Explorer do Azure. Por fim, você cria a conexão de dados para configurar o Azure Data Explorer para ingerir dados da nova conta de armazenamento. 
+O exemplo de código a seguir fornece um processo passo a passo que resulta na ingestão de dados no Azure Data Explorer. 
+
+Primeiro, você cria um grupo de recursos. Você também cria recursos do Azure, como uma conta de armazenamento e um contêiner, um hub de eventos e um cluster de Data Explorer do Azure e um banco de dados. Em seguida, você cria uma assinatura da grade de eventos do Azure, juntamente com um mapeamento de tabela e coluna, no banco de dados Data Explorer do Azure. Por fim, você cria a conexão de dados para configurar o Azure Data Explorer para ingerir dados da nova conta de armazenamento. 
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
 var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
-var clientSecret = "xxxxxxxxxxxxxx";//Client Secret
+var clientSecret = "xxxxxxxxxxxxxx";//Client secret
 var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 string location = "West Europe";
 string locationSmallCase = "westeurope";
-string azureResourceTemplatePath = @"xxxxxxxxx\template.json";//path to the Azure Resource Manager template json from the previous section
+string azureResourceTemplatePath = @"xxxxxxxxx\template.json";//Path to the Azure Resource Manager template JSON from the previous section
 
 string deploymentName = "e2eexample";
 string resourceGroupName = deploymentName + "resourcegroup";
@@ -147,14 +151,14 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 ```
 | **Definição** | **Descrição do campo** |
 |---|---|---|
-| tenantId | Sua ID de locatário. Também conhecida como ID de diretório.|
+| tenantId | Sua ID de locatário. Ele também é conhecido como uma ID de diretório.|
 | subscriptionId | A ID da assinatura que você usa para a criação de recursos.|
 | clientId | A ID do cliente do aplicativo que pode acessar recursos em seu locatário.|
 | clientSecret | O segredo do cliente do aplicativo que pode acessar recursos em seu locatário. |
 
 ## <a name="test-the-code-example"></a>Testar o exemplo de código
 
-1. Carregar um arquivo na conta de armazenamento
+1. Carregue um arquivo na conta de armazenamento.
 
     ```csharp
     string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=xxxxxxxxxxxxxx;AccountKey=xxxxxxxxxxxxxx;EndpointSuffix=core.windows.net";
@@ -170,7 +174,7 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
     |---|---|---|
     | storageConnectionString | A cadeia de conexão da conta de armazenamento criada programaticamente.|
 
-2. Executar uma consulta de teste no Azure Data Explorer
+2. Executar uma consulta de teste no Azure Data Explorer.
 
     ```csharp
     var kustoUri = $"https://{kustoClusterName}.{locationSmallCase}.kusto.windows.net";
@@ -205,7 +209,7 @@ await resourceManagementClient.ResourceGroups.DeleteAsync(resourceGroupName);
 
 ## <a name="next-steps"></a>Passos seguintes
 
-*  [Crie um cluster de data Explorer do Azure e um banco de dados](create-cluster-database-csharp.md) para saber mais sobre outras maneiras de criar um cluster e um banco de dados.
-* O [Azure data Explorer ingestão de dados](ingest-data-overview.md) para saber mais sobre os métodos de ingestão.
-* [Início rápido: consultar dados no Azure data Explorer](web-query-data.md) Interface do usuário da Web.
+*  Para saber mais sobre outras maneiras de criar um cluster e um banco de dados, consulte [criar um cluster de data Explorer do Azure e um banco de dados](create-cluster-database-csharp.md).
+* Para saber mais sobre os métodos de ingestão, confira [ingestão de dados do Azure data Explorer](ingest-data-overview.md).
+* Para saber mais sobre o aplicativo Web, consulte [início rápido: consultar dados na interface do usuário da Web do Azure data Explorer](web-query-data.md).
 * [Escreva consultas](write-queries.md) com linguagem de consulta Kusto.

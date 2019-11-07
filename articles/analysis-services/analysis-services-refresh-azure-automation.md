@@ -1,17 +1,17 @@
 ---
 title: Atualizar modelos de Azure Analysis Services com a automação do Azure | Microsoft Docs
-description: Saiba como codificar atualizações de modelo usando a automação do Azure.
+description: Este artigo descreve como codificar atualizações de modelo para Azure Analysis Services usando a automação do Azure.
 author: chrislound
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: ed1634ef1009149dc2937174b20248eab9cd335f
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: a79123d57f80474e1871ef68f9a92ea9417089ac
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294789"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572359"
 ---
 # <a name="refresh-with-azure-automation"></a>Atualizar com a Automatização do Azure
 
@@ -101,7 +101,7 @@ Isso pode ser configurado da seguinte maneira:
  
     ![Criar agenda](./media/analysis-services-refresh-azure-automation/14.png)
 
-2. Clique em **agendar** > **crie uma nova agenda**e preencha os detalhes.
+2. Clique em **agendar** > **criar uma nova agenda**e preencha os detalhes.
 
     ![Configurar agendamento](./media/analysis-services-refresh-azure-automation/15.png)
 
@@ -147,7 +147,7 @@ O **corpo** é um documento JSON que deve conter as seguintes propriedades:
 |Propriedade  |Valor  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |O nome do banco de dados Azure Analysis Services <br/> Exemplo: AdventureWorksDB         |
-|**AnalysisServicesServer**     |O nome do servidor de Azure Analysis Services. <br/> Exemplo: https: \//westus. asazure. Windows. net/servers/meuservidor/Models/AdventureWorks/         |
+|**AnalysisServicesServer**     |O nome do servidor de Azure Analysis Services. <br/> Exemplo: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
 |**DatabaseRefreshType**     |O tipo de atualização a ser executada. <br/> Exemplo: completo         |
 
 Exemplo de corpo JSON:
@@ -175,7 +175,7 @@ Uma máquina virtual do Azure com um endereço IP público estático pode ser us
 >
 >Para saber mais sobre como configurar os trabalhos híbridos de automação do Azure, confira [automatizar recursos em seu datacenter ou nuvem usando Hybrid runbook Worker](../automation/automation-hybrid-runbook-worker.md#install-a-hybrid-runbook-worker).
 
-Quando uma Hybrid Worker estiver configurada, crie um webhook conforme descrito na seção [consumir com data Factory](#consume-with-data-factory).  A única diferença aqui é selecionar a opção **executar em** > **Hybrid Worker** ao configurar o webhook.
+Quando uma Hybrid Worker estiver configurada, crie um webhook conforme descrito na seção [consumir com data Factory](#consume-with-data-factory).  A única diferença aqui é selecionar a opção **executar no** > **Hybrid Worker** ao configurar o webhook.
 
 Webhook de exemplo usando Hybrid Worker:
 

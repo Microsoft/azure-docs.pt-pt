@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: d85688d297eb0df00e71f388b2a3350eabe5f6d5
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 69aaa61bb0be9a5f07de85ff4ef81b28a86aefaa
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817194"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575621"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorar o diagnóstico de & com latência de 1 segundo
 
@@ -29,7 +29,7 @@ Com Live Metrics Stream, você pode:
 * Monitore qualquer contador de desempenho do Windows Live.
 * Identifique facilmente um servidor que está tendo problemas e filtre todo o KPI/feed ao vivo para apenas esse servidor.
 
-[vídeo de Live Metrics Stream de![](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+[vídeo de Live Metrics Stream de ![](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
 Atualmente, há suporte para métricas em tempo real para aplicativos ASP.NET, ASP.NET Core, Azure Functions, Java e node. js.
 
@@ -45,13 +45,9 @@ Atualmente, há suporte para métricas em tempo real para aplicativos ASP.NET, A
 
 4. [Proteja o canal de controle](#secure-the-control-channel) se você puder usar dados confidenciais, como nomes de clientes em seus filtros.
 
-### <a name="nodejs"></a>Node.js
+### <a name="no-data-check-your-server-firewall"></a>Não existem dados? Verifique o Firewall do servidor
 
-Para usar métricas em tempo real com node. js, você deve atualizar para a versão 1,30 ou superior do SDK. Por padrão, as métricas ao vivo são desabilitadas no SDK do node. js. Para habilitar as métricas em tempo real, adicione `setSendLiveMetrics(true)` aos seus [métodos de configuração](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) à medida que você inicializar o SDK.
-
-### <a name="no-data-check-your-server-firewall"></a>Não tem dados? Verifique o Firewall do servidor
-
-Verifique se as [portas de saída para Live Metrics Stream](../../azure-monitor/app/ip-addresses.md#outgoing-ports) estão abertas no firewall dos servidores. 
+Verifique se as [portas de saída para Live Metrics Stream](../../azure-monitor/app/ip-addresses.md#outgoing-ports) estão abertas no firewall dos servidores.
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>Como Live Metrics Stream diferem da Metrics Explorer e da análise?
 
@@ -62,13 +58,13 @@ Verifique se as [portas de saída para Live Metrics Stream](../../azure-monitor/
 |A pedido|Os dados são transmitidos enquanto você abre as métricas ao vivo|Os dados são enviados sempre que o SDK é instalado e habilitado|
 |Gratuito|Não há nenhum custo para Live Stream dados|Sujeito a [preços](../../azure-monitor/app/pricing.md)
 |Amostragem|Todas as métricas e contadores selecionados são transmitidos. As falhas e os rastreamentos de pilha são amostrados. TelemetryProcessors não são aplicadas.|Os eventos podem ser [amostrados](../../azure-monitor/app/api-filtering-sampling.md)|
-|Canal de controle|Os sinais de controle de filtro são enviados para o SDK. Recomendamos que você proteja esse canal.|A comunicação é unidirecional para o portal|
+|Canal de controle|Os sinais de controle de filtro são enviados para o SDK. Recomendamos que você proteja esse canal.|A comunicação é de uma maneira para o portal|
 
 ## <a name="select-and-filter-your-metrics"></a>Selecionar e filtrar suas métricas
 
 (Disponível com ASP.NET, ASP.NET Core e Azure Functions (v2).)
 
-Você pode monitorar o KPI personalizado em tempo real aplicando filtros arbitrários em qualquer telemetria de Application Insights do Portal. Clique no controle de filtro que aparece quando você passa o mouse sobre qualquer um dos gráficos. O gráfico a seguir está plotando um KPI de contagem de solicitação personalizada com filtros nos atributos URL e Duration. Valide seus filtros com a seção visualização de fluxo que mostra um feed ao vivo de telemetria que corresponde aos critérios que você especificou em qualquer ponto no tempo. 
+Você pode monitorar o KPI personalizado em tempo real aplicando filtros arbitrários em qualquer telemetria de Application Insights do Portal. Clique no controle de filtro que aparece quando você passa o mouse sobre qualquer um dos gráficos. O gráfico a seguir está plotando um KPI de contagem de solicitação personalizada com filtros nos atributos URL e Duration. Valide seus filtros com a seção visualização de fluxo que mostra um feed ao vivo de telemetria que corresponde aos critérios que você especificou em qualquer ponto no tempo.
 
 ![KPI de solicitação personalizada](./media/live-stream/live-stream-filteredMetric.png)
 
@@ -100,14 +96,6 @@ Consulte os detalhes de um item no feed ao vivo clicando nele. Você pode pausar
 Se você quiser monitorar uma instância de função de servidor específica, poderá filtrar por servidor.
 
 ![Amostras de falhas ao vivo](./media/live-stream/live-stream-filter.png)
-
-## <a name="sdk-requirements"></a>Requisitos do SDK
-
-### <a name="net"></a>.NET
-O Live Metrics Stream personalizado está disponível com a versão 2.4.0-beta2 ou mais recente do [SDK do Application insights para Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/). Lembre-se de selecionar a opção "incluir pré-lançamento" do Gerenciador de pacotes NuGet.
-
-### <a name="nodejs"></a>Node.js
-Live Metrics Stream está disponível com a versão 1.3.0 ou mais recente do [SDK do Application insights para node. js](https://npmjs.com/package/applicationinsights). Lembre-se de usar `setSendLiveMetrics(true)` ao configurar o SDK em seu código.
 
 ## <a name="secure-the-control-channel"></a>Proteger o canal de controle
 Os critérios de filtros personalizados especificados são enviados de volta ao componente de métricas em tempo real no SDK do Application Insights. Potencialmente, os filtros podem conter informações confidenciais, como customerIDs. Você pode tornar o canal seguro com uma chave de API secreta além da chave de instrumentação.
@@ -165,7 +153,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 ### <a name="azure-function-apps"></a>Aplicativos de funções do Azure
 
-Para aplicativos de funções do Azure (v2) a proteção do canal com uma chave de API pode ser realizada com uma variável de ambiente. 
+Para os aplicativos de funções do Azure (v2), a proteção do canal com uma chave de API pode ser realizada com uma variável de ambiente.
 
 Crie uma chave de API de dentro de seu Application Insights recurso e vá para **configurações de aplicativo** para seu aplicativo de funções. Selecione **Adicionar nova configuração** e insira um nome de `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` e um valor que corresponda à sua chave de API.
 
@@ -193,11 +181,30 @@ No entanto, se você reconhecer e confiar em todos os servidores conectados, pod
 >É altamente recomendável que você configure o canal autenticado antes de inserir informações potencialmente confidenciais, como CustomerID, nos critérios de filtro.
 >
 
+## <a name="supported-features-table"></a>Tabela de recursos com suporte
+
+| Idioma                         | Métricas básicas       | Métricas de desempenho | Filtragem personalizada    | Telemetria de exemplo    | Divisão de CPU por processo |
+|----------------------------------|:--------------------|:--------------------|:--------------------|:--------------------|:---------------------|
+| .NET                             | Com suporte (V 2.7.2 +) | Com suporte (V 2.7.2 +) | Com suporte (V 2.7.2 +) | Com suporte (V 2.7.2 +) | Com suporte (V 2.7.2 +)  |
+| .NET Core (Target =. NET Framework)| Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +)  |
+| .NET Core (Target =. NET Core)     | Com suporte (V 2.4.1 +) | Suportado*          | Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +) | **Não Suportado**    |
+| Azure Functions v2               | Suportado           | Suportado           | Suportado           | Suportado           | **Não Suportado**    |
+| Java                             | Com suporte (V 2.0.0 +) | Com suporte (V 2.0.0 +) | **Não Suportado**   | **Não Suportado**   | **Não Suportado**    |
+| Node.js                          | Com suporte (V 1.3.0 +) | Com suporte (V 1.3.0 +) | **Não Suportado**   | Com suporte (V 1.3.0 +) | **Não Suportado**    |
+
+As métricas básicas incluem solicitação, dependência e taxa de exceção. As métricas de desempenho (contadores de desempenho) incluem memória e CPU. A telemetria de exemplo mostra um fluxo de informações detalhadas para solicitações e dependências com falha, exceções, eventos e rastreamentos.
+
+ \* suporte a PerfCounters varia ligeiramente entre as versões do .NET Core que não têm como alvo o .NET Framework:
+
+- Há suporte para métricas PerfCounters ao executar no serviço Azure App para Windows. (AspNetCore SDK versão 2.4.1 ou superior)
+- PerfCounters têm suporte quando o aplicativo está em execução em qualquer computador Windows (VM ou serviço de nuvem ou local, etc.) (AspNetCore SDK versão 2.7.1 ou superior), mas para aplicativos destinados ao .NET Core 2,0 ou superior.
+- Há suporte para PerfCounters quando o aplicativo está em execução em qualquer lugar (Linux, Windows, serviço de aplicativo para Linux, contêineres, etc.) na versão beta mais recente (ou seja, AspNetCore SDK versão 2.8.0-beta1 ou superior), mas para aplicativos destinados ao .NET Core 2,0 ou superior.
+
+Por padrão, as métricas ao vivo são desabilitadas no SDK do node. js. Para habilitar as métricas em tempo real, adicione `setSendLiveMetrics(true)` aos seus [métodos de configuração](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) à medida que você inicializar o SDK.
+
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Não tem dados? Se seu aplicativo estiver em uma rede protegida: Live Metrics Stream usará endereços IP diferentes dos outros Application Insights telemetria. Verifique se [esses endereços IP](../../azure-monitor/app/ip-addresses.md) estão abertos no firewall.
-
-
+Não existem dados? Se seu aplicativo estiver em uma rede protegida: Live Metrics Stream usa endereços IP diferentes dos outros Application Insights telemetria. Verifique se [esses endereços IP](../../azure-monitor/app/ip-addresses.md) estão abertos no firewall.
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Monitorando o uso com Application Insights](../../azure-monitor/app/usage-overview.md)

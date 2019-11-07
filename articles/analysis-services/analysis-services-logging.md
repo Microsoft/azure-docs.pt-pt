@@ -1,18 +1,18 @@
 ---
 title: Log de diagnóstico para Azure Analysis Services | Microsoft Docs
-description: Saiba mais sobre como configurar o log de diagnóstico para Azure Analysis Services.
+description: Descreve como configurar o log de diagnóstico de recursos do Azure para monitorar seu servidor de Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/31/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a9684042a76c9c906a75334c319b4ca8ee0b727b
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b8ae2c529bebebae4ebc2d7b0b8a7e420fe9bcc7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298620"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572780"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurar registo de diagnósticos
 
@@ -90,7 +90,7 @@ A categoria de métricas registra as mesmas [métricas de servidor](analysis-ser
 
 3. Clique em **Guardar**.
 
-    Se você receber um erro que diz "falha ao atualizar o diagnóstico para o nome \<workspace >. A ID da assinatura \<subscription > não está registrada para usar o Microsoft. insights. " Siga as instruções de [diagnóstico do Azure de solução de problemas](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) para registrar a conta e repita esse procedimento.
+    Se você receber um erro que diz "falha ao atualizar o diagnóstico para \<nome do espaço de trabalho >. A assinatura \<ID de assinatura > não está registrada para usar o Microsoft. insights. " Siga as instruções de [diagnóstico do Azure de solução de problemas](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) para registrar a conta e repita esse procedimento.
 
     Se desejar alterar o modo como os logs de diagnóstico são salvos em qualquer ponto no futuro, você pode retornar a esta página para modificar as configurações.
 
@@ -158,13 +158,13 @@ Para exibir os dados de diagnóstico, em Log Analytics espaço de trabalho, abra
 
 ![Opções de pesquisa de log no portal do Azure](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-No construtor de consultas, expanda **LogManagement** > **AzureDiagnostics**. O AzureDiagnostics inclui eventos de mecanismo e serviço. Observe que uma consulta é criada imediatamente. O campo EventClass @ no__t-0s contém nomes de xEvent, que poderão parecer familiares se você tiver usado xEvents para registro em log local. Clique em **EventClass @ no__t-1s** ou em um dos nomes de evento e log Analytics espaço de trabalho continua construindo uma consulta. Certifique-se de salvar suas consultas para reutilizá-las mais tarde.
+No construtor de consultas, expanda **LogManagement** > **AzureDiagnostics**. O AzureDiagnostics inclui eventos de mecanismo e serviço. Observe que uma consulta é criada imediatamente. O campo EventClass\_s contém nomes de xEvent, que podem parecer familiares se você tiver usado o xEvents para registro em log local. Clique em **EventClass\_s** ou em um dos nomes de evento e log Analytics espaço de trabalho continua construindo uma consulta. Certifique-se de salvar suas consultas para reutilizá-las mais tarde.
 
 ### <a name="example-queries"></a>Exemplos de consultas
 
 #### <a name="example-1"></a>Exemplo 1
 
-A consulta a seguir retorna durações para cada evento end/atualizar end da consulta para um banco de dados modelo e um servidor. Se for expandido, os resultados serão divididos por réplica porque o número da réplica está incluído em ServerName_s. O agrupamento por RootActivityId_g reduz a contagem de linhas recuperadas da API REST Diagnóstico do Azure e ajuda a permanecer dentro dos limites, conforme descrito em [limites de taxa de log Analytics](https://dev.loganalytics.io/documentation/Using-the-API/Limits).
+A consulta a seguir retorna durações para cada evento end/atualizar end da consulta para um banco de dados modelo e um servidor. Se for expandido, os resultados serão divididos por réplica porque o número da réplica está incluído no ServerName_s. O agrupamento por RootActivityId_g reduz a contagem de linhas recuperadas da API REST Diagnóstico do Azure e ajuda a permanecer dentro dos limites, conforme descrito em [limites de taxa de log Analytics](https://dev.loganalytics.io/documentation/Using-the-API/Limits).
 
 ```Kusto
 let window = AzureDiagnostics
@@ -179,7 +179,7 @@ window
 
 #### <a name="example-2"></a>Exemplo 2
 
-A consulta a seguir retorna a memória e o consumo de QPU para um servidor. Se for expandido, os resultados serão divididos por réplica porque o número da réplica está incluído em ServerName_s.
+A consulta a seguir retorna a memória e o consumo de QPU para um servidor. Se for expandido, os resultados serão divididos por réplica porque o número da réplica está incluído no ServerName_s.
 
 ```Kusto
 let window = AzureDiagnostics
@@ -220,7 +220,7 @@ Para concluir este tutorial, você deve ter os seguintes recursos:
 
 * Um servidor de Azure Analysis Services existente. Para obter instruções sobre como criar um recurso de servidor, consulte [criar um servidor em portal do Azure](analysis-services-create-server.md)ou [criar um servidor de Azure Analysis Services usando o PowerShell](analysis-services-create-powershell.md).
 
-### <a name="aconnect-to-your-subscriptions"></a></a>Connect às suas assinaturas
+### <a name="aconnect-to-your-subscriptions"></a></a>conectar-se às suas assinaturas
 
 Abra uma sessão no Azure PowerShell e inicie sessão na sua conta do Azure com o seguinte comando:  
 
@@ -251,7 +251,7 @@ Set-AzContext -SubscriptionId <subscription ID>
 
 Você pode usar uma conta de armazenamento existente para seus logs, desde que ela esteja na mesma assinatura que o servidor. Para este tutorial, você cria uma nova conta de armazenamento dedicada a logs de Analysis Services. Para facilitar, você está armazenando os detalhes da conta de armazenamento em uma variável chamada **SA**.
 
-Você também usa o mesmo grupo de recursos que o que contém o servidor de Analysis Services. Substitua valores para `awsales_resgroup`, `awsaleslogs` e `West Central US` pelos seus próprios valores:
+Você também usa o mesmo grupo de recursos que o que contém o servidor de Analysis Services. Valores substitutos para `awsales_resgroup`, `awsaleslogs`e `West Central US` com seus próprios valores:
 
 ```powershell
 $sa = New-AzStorageAccount -ResourceGroupName awsales_resgroup `

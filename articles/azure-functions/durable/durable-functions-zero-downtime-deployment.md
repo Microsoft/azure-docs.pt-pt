@@ -8,17 +8,21 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5e6e51d2a058f89a04a81800b81f3c316be4eab7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b47604f2c8703ba587e98d68dc30552e5944f562
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301493"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614492"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Implantação sem tempo de inatividade para Durable Functions
+
 O [modelo de execução confiável](durable-functions-checkpointing-and-replay.md) do Durable Functions exige que as orquestrações sejam determinísticas, o que cria um desafio adicional a ser considerado ao implantar atualizações. Quando uma implantação contém alterações nas assinaturas da função de atividade ou na lógica do Orchestrator, as instâncias de orquestração em andamento falham. Essa situação é especialmente um problema para instâncias de orquestrações de longa execução, que podem representar horas ou dias de trabalho.
 
 Para evitar que essas falhas ocorram, você deve atrasar a implantação até que todas as instâncias de orquestração em execução tenham sido concluídas ou certificar-se de que todas as instâncias de orquestração em execução usem as versões existentes de suas funções. Para obter mais informações sobre o controle de versão, consulte [controle de versão em Durable Functions](durable-functions-versioning.md).
+
+> [!NOTE]
+> Este artigo fornece diretrizes para aplicativos de funções direcionados a Durable Functions 1. x. Ele ainda não foi atualizado para considerar as alterações introduzidas no Durable Functions 2. x. Para obter mais informações sobre as diferenças entre as versões de extensão, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
 O gráfico a seguir compara as três estratégias principais para obter uma implantação de tempo de inatividade zero para Durable Functions: 
 
@@ -29,6 +33,7 @@ O gráfico a seguir compara as três estratégias principais para obter uma impl
 | **[Roteamento de aplicativos](#application-routing)** | Um sistema que não tem períodos de tempo em que as orquestrações não estão em execução, como aquelas com orquestrações duradouras mais de 24 horas ou com orquestrações com sobreposição frequentes. | Lida com novas versões de sistemas com orquestrações continuamente em execução que têm alterações significativas. | Requer um roteador de aplicativo inteligente.<br/>Pode ser o número máximo de aplicativos de funções permitidos pela sua assinatura (padrão 100). |
 
 ## <a name="versioning"></a>Controlo de versões
+
 Defina novas versões de suas funções e deixe as versões antigas em seu aplicativo de funções. Como você pode ver no diagrama, a versão da função se torna parte do seu nome. Como as versões anteriores das funções são preservadas, as instâncias de orquestração em andamento podem continuar a referenciá-las. Enquanto isso, as solicitações para novas instâncias de orquestração chamam a versão mais recente, à qual sua função de cliente de orquestração pode fazer referência a partir de uma configuração de aplicativo.
 
 ![Estratégia de controle de versão](media/durable-functions-zero-downtime-deployment/versioning-strategy.png)
@@ -62,7 +67,7 @@ O diagrama a seguir mostra ilustra a configuração descrita de Slots de implant
 
 Os fragmentos JSON a seguir são exemplos da configuração da cadeia de conexão no arquivo host. JSON.
 
-#### <a name="functions-2x"></a>Funções 2.x
+#### <a name="functions-20"></a>Funções 2,0
 
 ```json
 {
@@ -160,7 +165,7 @@ O roteador monitora o status de orquestrações na versão 1.0.1 e remove os apl
 
 ### <a name="tracking-store-settings"></a>Configurações do repositório de rastreamento
 
-Cada aplicativo de funções deve usar filas de agendamento separadas, possivelmente em contas de armazenamento separadas. No entanto, se você quiser consultar todas as instâncias de orquestrações em todas as versões do seu aplicativo, poderá compartilhar as tabelas de instâncias e de histórico em seus aplicativos de funções. Você pode compartilhar tabelas Configurando o `trackingStoreConnectionStringName` e o `trackingStoreNamePrefix` no arquivo de [configurações do host. JSON](durable-functions-bindings.md#host-json) para que todos usem os mesmos valores.
+Cada aplicativo de funções deve usar filas de agendamento separadas, possivelmente em contas de armazenamento separadas. No entanto, se você quiser consultar todas as instâncias de orquestrações em todas as versões do seu aplicativo, poderá compartilhar as tabelas de instâncias e de histórico em seus aplicativos de funções. Você pode compartilhar tabelas Configurando o `trackingStoreConnectionStringName` e `trackingStoreNamePrefix` no arquivo de [configurações do host. JSON](durable-functions-bindings.md#host-json) para que todos usem os mesmos valores.
 
 Para obter mais detalhes, [gerencie instâncias no Durable Functions no Azure](durable-functions-instance-management.md).
 

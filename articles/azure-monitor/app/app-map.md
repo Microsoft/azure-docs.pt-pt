@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 49efad50b988da263a715c1aba9d53ad4b4a7121
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 65a257cc4613fb9e4dece09a2544de2e78779ab4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678395"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577065"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicativos: triagem de aplicativos distribuídos
 
@@ -180,13 +180,22 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 
 ### <a name="java"></a>Java
 
+A partir do Application Insights SDK do Java 2.5.0, você pode especificar o nome da função de nuvem adicionando `<RoleName>` ao arquivo de `ApplicationInsights.xml`, por exemplo,
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+   <RoleName>** Your role name **</RoleName>
+   ...
+</ApplicationInsights>
+```
+
 Se você usar o Spring boot com o iniciador do Spring boot Application Insights, a única alteração necessária será definir seu nome personalizado para o aplicativo no arquivo Application. Properties.
 
 `spring.application.name=<name-of-app>`
 
 O iniciador do Spring boot atribuirá automaticamente o nome da função de nuvem ao valor inserido para a propriedade spring.application.name.
-
-Para obter mais informações sobre a correlação de Java e como configurar o nome da função de nuvem para aplicativos não SpringBoot, faça check-in desta [seção](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) na correlação.
 
 ### <a name="clientbrowser-side-javascript"></a>JavaScript do lado do cliente/navegador
 

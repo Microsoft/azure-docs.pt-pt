@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: e41a037e657a8d2b484a3fcb62eb3bc03f53682d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 62210bf480d09ce2a256a44b7554ac53aa06eb0c
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507090"
+ms.locfileid: "73579708"
 ---
 # <a name="custom-commands-preview"></a>Comandos personalizados (versão prévia)
 
 Os [assistentes de voz](voice-assistants.md) ouvem os usuários e tomam uma ação em resposta, geralmente falando de volta. Eles usam a [fala para o texto](speech-to-text.md) para transcrever a fala do usuário e, em seguida, tomar medidas sobre a compreensão do idioma natural do texto. Essa ação geralmente inclui a saída falada do Assistente gerado com [conversão de texto em fala](text-to-speech.md). Os dispositivos se conectam aos assistentes com o objeto `DialogServiceConnector` do SDK de fala.
 
-Os **comandos personalizados (versão prévia)** são uma solução simplificada para a criação de um assistente de voz. Ele fornece uma experiência de criação unificada, um modelo de hospedagem automática e complexidade relativamente menor em relação a outras opções de criação de assistente, como a [Direct line Speech](direct-line-speech.md). No entanto, essa simplificação vem com uma redução na flexibilidade. Assim, os comandos personalizados (versão prévia) são mais adequados para os cenários de conclusão de tarefas ou de comando e controle.
+Os **comandos personalizados (versão prévia)** são uma solução simplificada para a criação de um assistente de voz. Ele fornece uma experiência de criação unificada, um modelo de hospedagem automática e complexidade relativamente menor em relação a outras opções de criação de assistente, como a [Direct line Speech](direct-line-speech.md). No entanto, essa simplificação vem com uma redução na flexibilidade. Assim, os comandos personalizados (versão prévia) são mais adequados para os cenários de conclusão de tarefas ou de comando e controle. Ele é particularmente bem correspondido para dispositivos de Internet das Coisas (IoT) e sem periféricos.
 
 Para interação e integração de conversas complexas com outras soluções, como a [solução de assistente virtual e modelo empresarial](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) , você é incentivado a usar a fala de linha direta.
 

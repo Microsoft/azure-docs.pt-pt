@@ -8,12 +8,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 4f1b8b116cf2a8411a90946dd5801dd1e541323c
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: bcdc6633980ec3684217c8c19b4799befe2af3a3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063956"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576860"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -168,7 +168,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="enable-w3c-distributed-tracing-support-for-web-apps"></a>Habilitar o suporte ao rastreamento distribuído W3C para aplicativos Web
 
-Este recurso está em `Microsoft.ApplicationInsights.JavaScript`. Ele é desabilitado por padrão. Para habilitá-lo, use `distributedTracingMode` config. O AI_AND_W3C é fornecido para compatibilidade com os serviços instrumentados Application Insightss herdados:
+Este recurso está em `Microsoft.ApplicationInsights.JavaScript`. Ele é desabilitado por padrão. Para habilitá-lo, use `distributedTracingMode` config. AI_AND_W3C é fornecida para compatibilidade com os serviços instrumentados Application Insightss herdados:
 
 - **Configuração do NPM (ignorar se estiver usando a configuração de trecho de código)**
 
@@ -203,7 +203,7 @@ Este recurso está em `Microsoft.ApplicationInsights.JavaScript`. Ele é desabil
 
 A [especificação do modelo de dados OpenTracing](https://opentracing.io/) e o Application insights modelos de dados são mapeados da seguinte maneira:
 
-| Estatísticas das Aplicações                  | OpenTracing                                       |
+| Application Insights                  | OpenTracing                                       |
 |------------------------------------   |-------------------------------------------------  |
 | `Request`, `PageView`                 | `Span` com `span.kind = server`                  |
 | `Dependency`                          | `Span` com `span.kind = client`                  |
@@ -213,7 +213,7 @@ A [especificação do modelo de dados OpenTracing](https://opentracing.io/) e o 
 
 Para obter mais informações, consulte o [modelo de dados de telemetria Application insights](../../azure-monitor/app/data-model.md). 
 
-Para obter definições de conceitos de OpenTracing, consulte a [especificação](https://github.com/opentracing/specification/blob/master/specification.md) OpenTracing e [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md).
+Para obter definições de conceitos de OpenTracing, consulte a [especificação](https://github.com/opentracing/specification/blob/master/specification.md) e [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)do OpenTracing.
 
 ## <a name="telemetry-correlation-in-opencensus-python"></a>Correlação de telemetria no OpenCensus Python
 
@@ -248,10 +248,10 @@ Isso executa um aplicativo de `flask` de exemplo em seu computador local, ouvind
 ```
 curl --header "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01" localhost:8080
 ```
-Observando o [formato de cabeçalho de contexto de rastreamento](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format), podemos derivar as seguintes informações: `version`: `00` 
- `trace-id`: `4bf92f3577b34da6a3ce929d0e0e4736` 
- `parent-id/span-id`: `00f067aa0ba902b7` 
- 0: 1
+Observando o [formato de cabeçalho de contexto de rastreamento](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format), podemos derivar as seguintes informações: `version`: `00`
+`trace-id`: `4bf92f3577b34da6a3ce929d0e0e4736`
+`parent-id/span-id`: `00f067aa0ba902b7`
+`trace-flags`: `01`
 
 Se olharmos a entrada de solicitação que foi enviada para Azure Monitor, podemos ver os campos populados com as informações de cabeçalho de rastreamento. Você pode encontrar esses dados em logs (análise) no recurso Azure Monitor Application Insights.
 
@@ -263,7 +263,7 @@ O campo `operation_ParentId` está no formato `<trace-id>.<parent-id>`, onde os 
 
 ### <a name="logs-correlation"></a>Correlação de logs
 
-O OpenCensus Python permite a correlação de logs ao enriquecer registros de log com ID de rastreamento, ID de extensão e sinalizador de amostragem. Isso é feito com a instalação da [integração de log](https://pypi.org/project/opencensus-ext-logging/)do OpenCensus. Os seguintes atributos serão adicionados ao `LogRecord`s do Python: `traceId`, `spanId` e `traceSampled`. Observe que isso só entra em vigor para os agentes criados após a integração.
+O OpenCensus Python permite a correlação de logs ao enriquecer registros de log com ID de rastreamento, ID de extensão e sinalizador de amostragem. Isso é feito com a instalação da [integração de log](https://pypi.org/project/opencensus-ext-logging/)do OpenCensus. Os seguintes atributos serão adicionados ao Python `LogRecord`s: `traceId`, `spanId` e `traceSampled`. Observe que isso só entra em vigor para os agentes criados após a integração.
 Veja abaixo um exemplo de aplicativo que demonstra isso.
 
 ```python
@@ -334,31 +334,28 @@ Para correlacionar a telemetria no aplicativo de Spring boot assíncrono, siga [
 
 Às vezes, talvez você queira personalizar a maneira como os nomes de componentes são exibidos no [mapa do aplicativo](../../azure-monitor/app/app-map.md). Para fazer isso, você pode definir manualmente o `cloud_RoleName` seguindo um destes procedimentos:
 
+- A partir do Application Insights SDK do Java 2.5.0, você pode especificar o nome da função de nuvem adicionando `<RoleName>` ao arquivo de `ApplicationInsights.xml`, por exemplo,
+
+  ```XML
+  <?xml version="1.0" encoding="utf-8"?>
+  <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+     <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+     <RoleName>** Your role name **</RoleName>
+     ...
+  </ApplicationInsights>
+  ```
+
 - Se você usar o Spring boot com o iniciador do Spring boot Application Insights, a única alteração necessária será definir seu nome personalizado para o aplicativo no arquivo Application. Properties.
 
   `spring.application.name=<name-of-app>`
 
   O iniciador do Spring boot atribui automaticamente `cloudRoleName` ao valor inserido para a propriedade `spring.application.name`.
 
-- Se você estiver usando o `WebRequestTrackingFilter`, o `WebAppNameContextInitializer` definirá o nome do aplicativo automaticamente. Adicione o seguinte ao seu arquivo de configuração (ApplicationInsights. xml):
-
-  ```XML
-  <ContextInitializers>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebAppNameContextInitializer" />
-  </ContextInitializers>
-  ```
-
-- Se você usar a classe de contexto de nuvem:
-
-  ```Java
-  telemetryClient.getContext().getCloud().setRole("My Component Name");
-  ```
-
 ## <a name="next-steps"></a>Passos seguintes
 
 - Gravar [telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md).
 - Para cenários de correlação avançada em ASP.NET Core e ASP.NET, consulte o artigo [rastrear operações personalizadas](custom-operations-tracking.md) .
-- Saiba mais sobre como [definir cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud-role-name) para outros SDKs.
+- Saiba mais sobre como [configurar cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud-role-name) para outros SDKs.
 - Integre todos os componentes do seu microserviço em Application Insights. Confira as [plataformas com suporte](../../azure-monitor/app/platforms.md).
 - Consulte o [modelo de dados](../../azure-monitor/app/data-model.md) para tipos de Application insights.
 - Saiba como [estender e filtrar a telemetria](../../azure-monitor/app/api-filtering-sampling.md).

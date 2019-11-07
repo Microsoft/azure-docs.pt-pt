@@ -1,22 +1,22 @@
 ---
-title: Usar o gateway de dados local para fontes de dados de rede virtual do Azure | Microsoft Docs
-description: Saiba como configurar um servidor para usar um gateway para fontes de dados na VNet.
+title: Configurar Azure Analysis Services para fontes de dados VNet | Microsoft Docs
+description: Saiba como configurar um servidor de Azure Analysis Services para usar um gateway para fontes de dados na VNet (rede virtual) do Azure.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d1993996c0f982624d6976b50871fa8c4592e2f6
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 384f4c2ee3021678c530aa5c98eaf4dbfd661e95
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301215"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572267"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Usar o gateway para fontes de dados em uma VNet (rede virtual) do Azure
 
-Este artigo descreve a propriedade de servidor **AlwaysUseGateway** para uso quando as fontes de dados estão em uma [VNet (rede virtual) do Azure](../virtual-network/virtual-networks-overview.md).
+Este artigo descreve a propriedade Azure Analysis Services Server **AlwaysUseGateway** para uso quando as fontes de dados estão em uma [VNet (rede virtual) do Azure](../virtual-network/virtual-networks-overview.md).
 
 ## <a name="server-access-to-vnet-data-sources"></a>Acesso do servidor a fontes de dados VNet
 
@@ -35,7 +35,7 @@ Instância Gerenciada do Banco de Dados SQL do Azure fontes de dados são execut
     ![Sempre usar propriedade de gateway](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)
 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consultar também
 [Conectando-se a fontes de dados locais](analysis-services-gateway.md)   
 [Instalar e configurar um gateway de dados local](analysis-services-gateway-install.md)   
 [Rede virtual do Azure (VNET)](../virtual-network/virtual-networks-overview.md)   

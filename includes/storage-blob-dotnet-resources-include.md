@@ -9,11 +9,11 @@ ms.date: 07/11/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: d72915cc8a96dd2593f640045da71d4569efa60c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69011959"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73591197"
 ---
 ## <a name="resources-for-development-with-net"></a>Recursos para desenvolvimento com o .NET
 

@@ -1,5 +1,5 @@
 ---
-title: Aplicativo Instância Gerenciada do Banco de Dados SQL do Azure Connect | Microsoft Docs
+title: Aplicativo Instância Gerenciada do Banco de Dados SQL do Azure Connect
 description: Este artigo discute como conectar seu aplicativo ao Instância Gerenciada do Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 133110d015ac7a26f18f14f6ff957729a4f079b5
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 5dc287ab58636b4921c14ae71f9a62ab36d9c596
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060650"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688240"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Conectar seu aplicativo à instância gerenciada do banco de dados SQL do Azure
 
@@ -96,7 +96,7 @@ Esse cenário é ilustrado no diagrama a seguir:
 Para solucionar problemas de conectividade, examine o seguinte:
 
 - Se você não conseguir se conectar a Instância Gerenciada de uma máquina virtual do Azure na mesma VNet, mas em uma sub-rede diferente, verifique se você tem um grupo de segurança de rede definido na sub-rede VM que pode estar bloqueando o acesso. Além disso, observe que você precisa abrir a conexão de saída na porta SQL 1433, bem como portas no intervalo 11000-11999, já que elas são necessárias para se conectar via redirecionamento dentro do limite do Azure.
-- Verifique se a propagação de BGP está definida como habilitada para a tabela de rotas associada à VNet.
+- Verifique se a propagação de BGP está definida como **habilitada** para a tabela de rotas associada à VNet.
 - Se estiver usando a VPN P2S, verifique a configuração no portal do Azure para ver se você vê números de **entrada/saída** . Números diferentes de zero indicam que o Azure está roteando o tráfego para/do local.
 
    ![números de entrada/egresso](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)
@@ -137,7 +137,7 @@ Para solucionar problemas de conectividade, examine o seguinte:
 
 As seguintes versões mínimas das ferramentas e dos drivers serão recomendadas se você quiser se conectar ao Instância Gerenciada:
 
-| Driver/ferramenta | Version |
+| Driver/ferramenta | Versão |
 | --- | --- |
 |.NET Framework | 4.6.1 (ou .NET Core) |
 |Controlador ODBC| v17 |
@@ -148,7 +148,7 @@ As seguintes versões mínimas das ferramentas e dos drivers serão recomendadas
 |SSMS| 18,0 ou [superior](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 |[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) ou superior |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre a Instância Gerida, veja [What is a Managed Instance](sql-database-managed-instance.md) (O que é uma Instância Gerida?).
 - Para obter um tutorial mostrando como criar um novo Instância Gerenciada, consulte [criar um instância gerenciada](sql-database-managed-instance-get-started.md).

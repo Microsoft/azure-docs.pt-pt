@@ -1,5 +1,5 @@
 ---
-title: Classes de recursos para gerenciamento de carga de trabalho no Azure SQL Data Warehouse | Microsoft Docs
+title: Classes de recursos para gerenciamento de carga de trabalho
 description: Diretrizes para usar classes de recursos para gerenciar simultaneidade e recursos de computação para consultas no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
@@ -7,15 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5ef95faf162a6774e42b7cf258515757fdc9c7eb
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 558a6e3faa207e15000657a17bec99a7b1ac99e4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035073"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685922"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gerenciamento de carga de trabalho com classes de recurso no Azure SQL Data Warehouse
 
@@ -35,7 +36,7 @@ Há dois tipos de classes de recurso:
 
 Classes de recurso usam slots de simultaneidade para medir o consumo de recursos.  Os [Slots de simultaneidade](#concurrency-slots) são explicados posteriormente neste artigo.
 
-- Para exibir a utilização de recursos para as classes de recurso, consulte [limites de memória e simultaneidade](memory-and-concurrency-limits.md#concurrency-maximums).
+- Para exibir a utilização de recursos para as classes de recurso, consulte [limites de memória e simultaneidade] memória-Concurrency-limits.md).
 - Para ajustar a classe de recurso, você pode executar a consulta em um usuário diferente ou [alterar a associação de classe de recurso do usuário atual](#change-a-users-resource-class) .
 
 ### <a name="static-resource-classes"></a>Classes de recursos estáticos
@@ -70,7 +71,7 @@ A alocação de memória para cada classe de recurso é a seguinte, **independen
 |:--------------:|:-----------------:|:----------------------:|
 | smallrc        | Beta                | 32                     |
 | mediumrc       | 10%               | 10                     |
-| largerc        | 22%               | 4                      |
+| largerc        | 22               | 4                      |
 | xlargerc       | 70%               | 1                      |
 
 ### <a name="default-resource-class"></a>Classe de recurso padrão
@@ -124,7 +125,7 @@ As instruções a seguir são isentas das classes de recurso e sempre são execu
 - CRIAR ou descartar exibição
 - INSERIR VALORES
 - SELECIONAR de exibições do sistema e DMVs
-- EXPLICO
+- Explico
 - DBCC
 
 <!--
@@ -249,7 +250,7 @@ EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;
 A instrução a seguir cria Table1 que é usado nos exemplos anteriores.
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
 
-### <a name="stored-procedure-definition"></a>Definição do procedimento armazenado
+### <a name="stored-procedure-definition"></a>Definição de procedimento armazenado
 
 ```sql
 -------------------------------------------------------------------------------
@@ -331,7 +332,7 @@ SELECT 'DW100c' AS DWU,4 AS max_queries,4 AS max_slots,1 AS slots_used_
     SELECT 'DW30000c', 128, 1200, 36, 120, 264, 840, 1, 2, 4, 8, 16, 32, 64, 128 
 )
 -- Creating workload mapping to their corresponding slot consumption and default memory grant.
-,map
+,map  
 AS
 (
   SELECT CONVERT(varchar(20), 'SloDWGroupSmall') AS wg_name, slots_used_smallrc AS slots_used FROM alloc WHERE DWU = @DWU
@@ -580,7 +581,7 @@ SELECT  CASE
 GO
 ```
 
-## <a name="next-step"></a>Passo seguinte
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como gerenciar usuários e segurança de banco de dados, consulte [proteger um banco de dados no SQL data warehouse][Secure a database in SQL Data Warehouse]. Para obter mais informações sobre como as classes de recursos maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [otimizações de memória para compactação columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 

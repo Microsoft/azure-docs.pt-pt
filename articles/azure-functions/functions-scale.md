@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce91d53bec3c74a8a55d46fd53bc3cf0ccd7e28a
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: bf713029f26ac7ec0b6c043fb887fa5190083888
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550634"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576065"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e Hospedagem de Azure Functions
 
@@ -47,8 +47,8 @@ A tabela a seguir indica o nível de suporte atual para os três planos de hospe
 
 | | Plano de consumo | Plano Premium | Plano dedicado |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | GA (Geographic Availability, Disponibilidade Geográfica) | pré-visualização | GA (Geographic Availability, Disponibilidade Geográfica) |
-| Linux | GA (Geographic Availability, Disponibilidade Geográfica) | pré-visualização | GA (Geographic Availability, Disponibilidade Geográfica) |
+| Windows | GA | GA | GA |
+| Linux | GA | GA | GA |
 
 ## <a name="consumption-plan"></a>Plano de consumo
 
@@ -65,7 +65,7 @@ Os aplicativos de funções na mesma região podem ser atribuídos ao mesmo plan
 
 Para saber mais sobre como estimar os custos durante a execução em um plano de consumo, consulte [noções básicas sobre custos do plano de consumo](functions-consumption-costs.md).
 
-## <a name="premium-plan"></a>Plano Premium (visualização)
+## <a name="premium-plan"></a>Plano Premium
 
 Quando você estiver usando o plano Premium, as instâncias do host Azure Functions serão adicionadas e removidas com base no número de eventos de entrada, assim como o plano de consumo.  O plano Premium dá suporte aos seguintes recursos:
 

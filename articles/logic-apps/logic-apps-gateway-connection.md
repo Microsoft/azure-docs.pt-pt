@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/18/2019
-ms.openlocfilehash: 6a01999eff6accf1b8d7f56729d9dce77fbedb0a
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 49ed6eedf55a8a3c0faa2fa1ff60b9894af78285
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988718"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580859"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conectar-se a fontes de dados locais de aplicativos lógicos do Azure
 
@@ -28,8 +28,8 @@ Este artigo mostra como criar seu recurso de gateway do Azure para um [Gateway i
 Para obter informações sobre como usar o gateway com outros serviços, consulte estes artigos:
 
 * [Gateway de dados local do Microsoft Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Microsoft Flow gateway de dados local](https://flow.microsoft.com/documentation/gateway-manage/)
-* [Microsoft PowerApps gateway de dados local](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Automatizar o gateway de dados local de energia](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Gateway de dados local do Microsoft Power apps](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Azure Analysis Services Gateway de dados local](../analysis-services/analysis-services-gateway.md)
 
 <a name="supported-connections"></a>
@@ -140,7 +140,7 @@ Para atualizar as configurações de uma conexão de gateway, você pode editar 
 
 Para localizar todas as conexões de API associadas à sua assinatura do Azure:
 
-* No menu principal do Azure, vá para **todos os serviços**  > **conexões da API**de  > **da Web** .
+* No menu principal do Azure, vá para **todos os serviços** > **conexões da API**de > **da Web** .
 * Ou, no menu principal do Azure, vá para **todos os recursos**. Defina o filtro de **tipo** como **conexão de API**.
 
 <a name="change-delete-gateway-resource"></a>

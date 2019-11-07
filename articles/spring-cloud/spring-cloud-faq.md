@@ -1,20 +1,17 @@
 ---
 title: Perguntas frequentes sobre o Azure Spring Cloud | Microsoft Docs
 description: Examine as perguntas frequentes sobre o Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 10/07/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 12ef5586ac1e7ecf27824f95add3355451cf555a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.author: jeconnoc
+ms.openlocfilehash: 1fb241ab1335e6b9c9be55acbbe2e21378831b69
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163767"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607235"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas Mais Frequentes
 
@@ -39,7 +36,7 @@ Total de instâncias de aplicativo por instância de serviço de nuvem do Azure 
 Instâncias de serviço de nuvem do Azure Spring por região por assinatura | 2
 Volumes persistentes | 10 x 50 GBytes
 
-*_abra um [tíquete de suporte](https://azure.microsoft.com/support/faq/) para aumentar o limite._
+*_abrir um [tíquete de suporte](https://azure.microsoft.com/support/faq/) para aumentar o limite._
 
 Para obter mais detalhes, consulte [perguntas frequentes sobre o suporte do Azure](https://azure.microsoft.com/support/faq/).
 

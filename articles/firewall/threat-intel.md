@@ -1,39 +1,36 @@
 ---
-title: Inteligência de ameaças do Azure do Firewall filtragem com base em
-description: Saiba mais sobre a filtragem de inteligência de ameaças do Firewall do Azure
+title: Filtragem baseada em inteligência de ameaças do firewall do Azure
+description: Saiba mais sobre a filtragem de inteligência contra ameaças do firewall do Azure
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 3/11/2019
+ms.date: 11/05/2019
 ms.author: victorh
-ms.openlocfilehash: 4ef9089c94d9e806cc519c4f8243cdcb7e73953a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f6a60d7c29fc7e482e32233aa86d65a801e3f55c
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60194052"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582258"
 ---
-# <a name="azure-firewall-threat-intelligence-based-filtering---public-preview"></a>Filtragem de baseados em inteligência contra ameaças de Firewall do Azure - pré-visualização pública
+# <a name="azure-firewall-threat-intelligence-based-filtering"></a>Filtragem baseada em inteligência contra ameaças do firewall do Azure
 
-A filtragem com base em informações sobre ameaças pode ser ativada para que a sua firewall alerte e negue tráfego de/para endereços e domínios de IP maliciosos. Os endereços e domínios de IP são obtidos no feed de Informações sobre Ameaças da Microsoft. [Gráfico de segurança inteligente](https://www.microsoft.com/en-us/security/operations/intelligence) alimenta sobre ameaças da Microsoft e é utilizado por vários serviços, incluindo o Centro de segurança do Azure.
+A filtragem com base em informações sobre ameaças pode ser ativada para que a sua firewall alerte e negue tráfego de/para endereços e domínios de IP maliciosos. Os endereços e domínios de IP são obtidos no feed de Informações sobre Ameaças da Microsoft. [Gráfico de segurança inteligente](https://www.microsoft.com/en-us/security/operations/intelligence) capacita a inteligência contra ameaças da Microsoft e é usada por vários serviços, incluindo a central de segurança do Azure.
 
-![Informações de ameaças de firewall](media/threat-intel/firewall-threat.png)
+![Inteligência contra ameaças de firewall](media/threat-intel/firewall-threat.png)
 
-> [!IMPORTANT]
-> Threat intelligence filtragem com base em está atualmente em pré-visualização pública e é fornecido com um contrato de nível de serviço de pré-visualização. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.  Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
+Se você tiver habilitado a filtragem baseada em inteligência contra ameaças, as regras associadas serão processadas antes de qualquer uma das regras de NAT, regras de rede ou regras de aplicativo.
 
-Se a filtragem de baseada em inteligência de ameaças estiver ativada, as regras associadas são processadas antes de qualquer um dos regras NAT, regras de rede ou regras de aplicações. Durante a pré-visualização, apenas registos de confiança de mais altos são incluídos.
+Você pode optar por apenas registrar um alerta quando uma regra é disparada ou pode escolher o modo de alerta e de negação.
 
-Pode optar por apenas um alerta de registo quando é acionada uma regra, ou pode escolher o alerta e negar modo.
+Por padrão, a filtragem baseada em inteligência contra ameaças está habilitada no modo de alerta. Você não pode desativar esse recurso ou alterar o modo até que a interface do portal fique disponível em sua região.
 
-Por predefinição, a filtragem de baseada em inteligência de ameaças está ativada no modo de alerta. Não é possível desativar esta funcionalidade ou altere o modo de até que a interface do portal fica disponível na sua região.
-
-![Interface de portal filtragem com base de informações sobre ameaças](media/threat-intel/threat-intel-ui.png)
+![Interface do portal de filtragem baseada em inteligência contra ameaças](media/threat-intel/threat-intel-ui.png)
 
 ## <a name="logs"></a>Registos
 
-O resumo de log a seguir mostra uma regra acionada:
+O trecho de log a seguir mostra uma regra disparada:
 
 ```
 {
@@ -47,14 +44,14 @@ O resumo de log a seguir mostra uma regra acionada:
 }
 ```
 
-## <a name="testing"></a>Testes
+## <a name="testing"></a>Testar
 
-- **A testar saída** -alertas de tráfego de saída devem ser uma ocorrência rara, pois significa que seu ambiente estiver comprometido. Para ajudar a alertas de saída de teste estiver a trabalhar, um teste FQDN criou que aciona um alerta. Uso **testmaliciousdomain.eastus.cloudapp.azure.com** para seus testes de saída.
+- **Teste de saída** -alertas de tráfego de saída devem ser uma ocorrência rara, pois isso significa que seu ambiente foi comprometido. Para ajudar a testar os alertas de saída estão funcionando, um FQDN de teste foi criado e dispara um alerta. Use **testmaliciousdomain.eastus.cloudapp.Azure.com** para seus testes de saída.
 
-- **Teste de entrada** -pode esperar ver alertas sobre o tráfego de entrada se as regras DNAT estão configuradas na firewall. Isso vale mesmo que apenas as fontes específicas são permitidas na regra DNAT e tráfego caso contrário, é negado. Firewall do Azure não alerta sobre todos os scanners de porta conhecida; apenas em scanners que são conhecidos por também participa em atividades maliciosas.
+- **Teste de entrada** -você pode esperar ver alertas sobre o tráfego de entrada se as regras do DNAT estiverem configuradas no firewall. Isso é verdadeiro mesmo se apenas fontes específicas forem permitidas na regra DNAT e o tráfego for negado. O Firewall do Azure não alerta todos os scanners de porta conhecidos; somente em scanners que também são conhecidos por se envolver em atividades mal-intencionadas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Consulte [exemplos de Firewall do Azure Log Analytics](log-analytics-samples.md)
-- Saiba como [implementar e configurar uma Firewall do Azure](tutorial-firewall-deploy-portal.md)
-- Reveja o [relatório do Microsoft Security intelligence](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)
+- Consulte [exemplos de log Analytics de firewall do Azure](log-analytics-samples.md)
+- Saiba como [implantar e configurar um firewall do Azure](tutorial-firewall-deploy-portal.md)
+- Examinar o [relatório de inteligência de segurança da Microsoft](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)

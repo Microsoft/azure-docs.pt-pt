@@ -1,5 +1,5 @@
 ---
-title: Área de Trabalho Remota conexões de cliente na área de trabalho virtual do Windows – Azure
+title: Solucionar problemas Área de Trabalho Remota área de trabalho virtual do Windows-Azure
 description: Como resolver problemas ao configurar conexões de cliente em um ambiente de locatário de área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 22590a7ecc94efbfad5eefe27f284bdb191e876d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3aae74a4fed499674f015ed0adb59016877583f3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676409"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607376"
 ---
 # <a name="remote-desktop-client-connections"></a>Ligações cliente do Ambiente de Trabalho Remoto
 
@@ -34,23 +34,23 @@ nslookup rdweb.wvd.microsoft.com
 
 Tente se conectar com outro cliente, como Área de Trabalho Remota Client para Windows 7 ou Windows 10, e verifique se você pode abrir o cliente Web.
 
-### <a name="error-opening-another-site-fails"></a>Erro: Falha ao abrir outro site
+### <a name="error-opening-another-site-fails"></a>Erro: falha ao abrir outro site
 
-**Faz** Problemas de rede e/ou interrupções.
+**Causa:** Problemas de rede e/ou interrupções.
 
-**Soluciona** Contate o suporte de rede.
+**Correção:** Contate o suporte de rede.
 
-### <a name="error-nslookup-cannot-resolve-the-name"></a>Erro: Nslookup não pode resolver o nome
+### <a name="error-nslookup-cannot-resolve-the-name"></a>Erro: nslookup não pode resolver o nome
 
-**Faz** Problemas de rede e/ou interrupções.
+**Causa:** Problemas de rede e/ou interrupções.
 
-**Soluciona** Contatar o suporte de rede
+**Correção:** Contatar o suporte de rede
 
-### <a name="error-you-cant-connect-but-other-clients-can-connect"></a>Erro: Você não pode se conectar, mas outros clientes podem se conectar
+### <a name="error-you-cant-connect-but-other-clients-can-connect"></a>Erro: não é possível conectar, mas outros clientes podem se conectar
 
-**Faz** O navegador não está se comportando como esperado e parou de funcionar.
+**Causa:** O navegador não está se comportando como esperado e parou de funcionar.
 
-**Soluciona** Siga estas instruções para solucionar o problema do navegador.
+**Correção:** Siga estas instruções para solucionar o problema do navegador.
 
 1. Reinicie o navegador.
 2. Limpar cookies do navegador. Consulte [como excluir arquivos de cookie no Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
@@ -61,11 +61,11 @@ Tente se conectar com outro cliente, como Área de Trabalho Remota Client para W
 
 Tente se conectar usando outro navegador ou cliente.
 
-### <a name="error-other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>Erro: Outros navegadores e clientes também têm mau funcionamento ou falha ao abrir
+### <a name="error-other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>Erro: outros navegadores e clientes também estão com problemas de funcionamento ou falha ao abrir
 
-**Faz** Problemas ou interrupções de rede e/ou sistema operacional
+**Causa:** Problemas ou interrupções de rede e/ou sistema operacional
 
-**Soluciona** Contate as equipes de suporte.
+**Correção:** Contate as equipes de suporte.
 
 ## <a name="web-client-keeps-prompting-for-credentials"></a>O cliente Web continua solicitando credenciais
 
@@ -135,28 +135,28 @@ Siga estas instruções gerais de solução de problemas para códigos de erro d
     Time              : <Timestampt>
     ```
 
-### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>Erro: O_ADD_USER_TO_GROUP_FAILED/falha ao adicionar User = ≤ username ≥ a Group = Área de Trabalho Remota users. Falha Win32.ERROR_NO_SUCH_MEMBER
+### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>Erro: O_ADD_USER_TO_GROUP_FAILED/falha ao adicionar User = ≤ username ≥ a Group = Área de Trabalho Remota users. Motivo: Win32. ERROR_NO_SUCH_MEMBER
 
-**Faz** A VM não ingressou no domínio em que o objeto de usuário é.
+**Causa:** A VM não ingressou no domínio em que o objeto de usuário é.
 
-**Soluciona** Adicione a VM ao domínio correto. Consulte [ingressar uma máquina virtual do Windows Server em um domínio gerenciado](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
+**Correção:** Adicione a VM ao domínio correto. Consulte [ingressar uma máquina virtual do Windows Server em um domínio gerenciado](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 
-### <a name="error-nslookup-cannot-resolve-the-name"></a>Erro: Nslookup não pode resolver o nome
+### <a name="error-nslookup-cannot-resolve-the-name"></a>Erro: nslookup não pode resolver o nome
 
-**Faz** Problemas de rede ou interrupções.
+**Causa:** Problemas de rede ou interrupções.
 
-**Soluciona** Contatar o suporte de rede
+**Correção:** Contatar o suporte de rede
 
 ### <a name="error-connectionfailedclientprotocolerror"></a>Erro: ConnectionFailedClientProtocolError
 
-**Faz** As VMs às quais o usuário está tentando se conectar não estão associadas ao domínio.
+**Causa:** As VMs às quais o usuário está tentando se conectar não estão associadas ao domínio.
 
-**Soluciona** Ingresse todas as VMs que fazem parte de um pool de hosts no controlador de domínio.
+**Correção:** Ingresse todas as VMs que fazem parte de um pool de hosts no controlador de domínio.
 
 ### <a name="error-connectionfailedusersidinformationmismatch"></a>Erro: ConnectionFailedUserSIDInformationMismatch
-**Faz** O SID do token de Azure Active Directory (AD) do usuário não corresponde ao SID retornado pelo controlador de domínio ao tentar habilitar o usuário para entrada remota. Esse erro normalmente ocorre ao tentar entrar em um ambiente Azure Active Directory Domain Services (Azure AD DS) com um usuário originalmente originado de um AD do Windows Server.
+**Causa:** O SID do token de Azure Active Directory (AD) do usuário não corresponde ao SID retornado pelo controlador de domínio ao tentar habilitar o usuário para entrada remota. Esse erro normalmente ocorre ao tentar entrar em um ambiente Azure Active Directory Domain Services (Azure AD DS) com um usuário originalmente originado de um AD do Windows Server.
 
-**Soluciona** Este cenário não tem suporte no momento. Somente os usuários originados de Azure Active Directory podem entrar em VMs de área de trabalho virtual do Windows conectadas ao Azure AD DS.
+**Correção:** Este cenário não tem suporte no momento. Somente os usuários originados de Azure Active Directory podem entrar em VMs de área de trabalho virtual do Windows conectadas ao Azure AD DS.
 
 ## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>O usuário se conecta, mas nada é exibido (sem feed)
 
@@ -175,7 +175,7 @@ Se o cliente Web estiver sendo usado, confirme se não há problemas de credenci
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
-- Para solucionar problemas ao criar um pool de locatários e de host em um ambiente de área de trabalho virtual do Windows, confira [criação de locatário e pool](troubleshoot-set-up-issues.md)de hosts.
+- Para solucionar problemas ao criar um pool de locatários e de host em um ambiente de área de trabalho virtual do Windows, confira [criação de locatário e pool de hosts](troubleshoot-set-up-issues.md).
 - Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md).
 - Para solucionar problemas ao usar o PowerShell com a área de trabalho virtual do Windows, consulte [PowerShell da área de trabalho virtual do Windows](troubleshoot-powershell.md).
-- Para percorrer um tutorial de solução de problemas [, consulte o tutorial: Solucionar problemas de implantações](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)de modelo do Resource Manager.
+- Para percorrer um tutorial de solução de problemas, consulte [tutorial: solucionar problemas de implantações de modelo do Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).

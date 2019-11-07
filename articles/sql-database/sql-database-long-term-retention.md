@@ -1,5 +1,5 @@
 ---
-title: Armazene backups do banco de dados SQL do Azure por até 10 anos | Microsoft Docs
+title: Armazene backups do banco de dados SQL do Azure por até 10 anos
 description: Saiba como o banco de dados SQL do Azure dá suporte ao armazenamento de backups completos de banco de dados por até 10 anos.
 services: sql-database
 ms.service: sql-database
@@ -11,19 +11,19 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: b43097dee6a3b4e8ec762e193dc2faf006ec796c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5d6f0797802a622ada1916752bc35c1bae2cde9f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567753"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689510"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Armazene backups do banco de dados SQL do Azure por até 10 anos
 
-Muitos aplicativos têm regulamentação, conformidade ou outras finalidades comerciais que exigem que você mantenha backups de banco de dados além dos 7-35 dias fornecidos [](sql-database-automated-backups.md)pelos backups automáticos do banco de dados SQL do Azure. Usando o recurso de retenção de longo prazo (EPD), você pode armazenar backups completos do banco de dados SQL especificado no armazenamento de blob [ra-grs](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) por até 10 anos. Pode, posteriormente, restaurar qualquer cópia de segurança como uma nova base de dados.
+Muitos aplicativos têm regulamentação, conformidade ou outras finalidades comerciais que exigem que você mantenha backups de banco de dados além dos 7-35 dias fornecidos pelos [backups automáticos](sql-database-automated-backups.md)do banco de dados SQL do Azure. Usando o recurso de retenção de longo prazo (EPD), você pode armazenar backups completos do banco de dados SQL especificado no armazenamento de blob [ra-grs](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) por até 10 anos. Pode, posteriormente, restaurar qualquer cópia de segurança como uma nova base de dados.
 
 > [!NOTE]
-> EPD pode ser habilitado para bancos de dados individuais e em pool. Ele ainda não está disponível para bancos de dados de instância em instâncias gerenciadas. Você pode usar trabalhos do SQL Agent para agendar backups de [banco de dados somente cópia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) como uma alternativa a EPD além de 35 dias.
+> EPD pode ser habilitado para bancos de dados individuais e em pool. Ele ainda não está disponível para bancos de dados de instância em instâncias gerenciadas. Você pode usar trabalhos do SQL Agent para agendar [backups de banco de dados somente cópia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) como uma alternativa a EPD além de 35 dias.
 > 
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Como funciona a retenção de longo prazo do banco de dados SQL
@@ -32,19 +32,19 @@ A EPD (retenção de backup de longo prazo) aproveita os backups de banco de dad
 
 Exemplos da política EPD:
 
--  W=0, M=0, Y=5, WeekOfYear=3
+-  W = 0, M = 0, Y = 5, WeekOfYear = 3
 
    O terceiro backup completo de cada ano será mantido por cinco anos.
    
-- W=0, M=3, Y=0
+- W = 0, M = 3, Y = 0
 
    O primeiro backup completo de cada mês será mantido por três meses.
 
-- W=12, M=0, Y=0
+- W = 12, M = 0, Y = 0
 
    Cada backup completo semanal será mantido por 12 semanas.
 
-- W=6, M=12, Y=10, WeekOfYear=16
+- W = 6, M = 12, Y = 10, WeekOfYear = 16
 
    Cada backup completo semanal será mantido por seis semanas. Exceto o primeiro backup completo de cada mês, que será mantido por 12 meses. Exceto o backup completo realizado na 16º semana do ano, que será mantido por 10 anos. 
 
@@ -79,4 +79,4 @@ Para restaurar um banco de dados do armazenamento EPD, você pode selecionar um 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma vez que os backups de banco de dados protegem o dano acidental ou a exclusão, eles são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios. Para saber mais sobre as outras soluções de continuidade de negócios do banco de dados SQL, consulte [visão geral](sql-database-business-continuity.md)da continuidade de negócios.
+Uma vez que os backups de banco de dados protegem o dano acidental ou a exclusão, eles são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios. Para saber mais sobre as outras soluções de continuidade de negócios do banco de dados SQL, consulte [visão geral da continuidade de negócios](sql-database-business-continuity.md).

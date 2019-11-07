@@ -9,16 +9,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/23/2019
+ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 4acf6e4df978ffee6e0f8320bafbb64994aa0639
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 22a37dbd0b76710a14183aec1795639614207d16
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495444"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73613740"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Início Rápido: utilizar a aplicação Home Automation pré-concebida
+
+[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 Neste início rápido, crie uma aplicação LUIS que utiliza o domínio pré-concebido `HomeAutomation` para ligar e desligar as luzes e os eletrodomésticos. Este domínio pré-concebido fornece intenções, entidades e expressões de exemplo. Quando terminar, obterá um ponto final de LUIS em execução na cloud.
 
@@ -28,6 +30,8 @@ Para este artigo, precisa de uma conta de LUIS gratuita criada no portal do LUIS
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
+[!INCLUDE [Select authoring resource](./includes/select-authoring-resource.md)]
+
 ## <a name="create-a-new-app"></a>Criar uma nova aplicação
 Pode criar e gerir as suas aplicações em **My Apps** (As Minhas Aplicações). 
 
@@ -35,7 +39,7 @@ Pode criar e gerir as suas aplicações em **My Apps** (As Minhas Aplicações).
 
     ![No portal do LUIS, na lista meus aplicativos, selecione ' + criar.](./media/create-app-in-portal.png)
 
-1. Na caixa de diálogo, nomeie seu aplicativo `Home Automation`, em seguida, selecione **concluído**. LUIS cria o aplicativo.
+1. Na caixa de diálogo, nomeie seu aplicativo `Home Automation`, em seguida, selecione **concluído**. LUIS cria o aplicativo. A descrição é opcional e não é usada para criação ou previsão. O recurso de previsão também é opcional ao criar um aplicativo LUIS. Ao publicar seu aplicativo para produção, você deve atribuir um recurso de previsão para que seu aplicativo possa lidar com muitas solicitações.  
 
     ![Na caixa de diálogo, nomeie o aplicativo ' Home Automation '](./media/create-new-app-details.png)
 
@@ -65,7 +69,7 @@ Selecione a intenção **HomeAutomation.TurnOff**. Pode ver que a intenção con
 
 ## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
 
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="test-your-app"></a>Testar a aplicação
 Assim que preparar a sua aplicação, pode testá-la. Selecione **testar**. Digite um expressão de teste como `Turn off the lights` no painel de teste interativo e pressione Enter. 
@@ -114,7 +118,25 @@ Selecione **Test** (Testar) novamente para fechar o painel de teste.
             "topIntent": "HomeAutomation.TurnOff",
             "intents": {
                 "HomeAutomation.TurnOff": {
-                    "score": 0.967174649
+                    "score": 0.984315455
+                },
+                "HomeAutomation.QueryState": {
+                    "score": 0.009912962
+                },
+                "HomeAutomation.TurnDown": {
+                    "score": 0.00626645749
+                },
+                "HomeAutomation.TurnUp": {
+                    "score": 0.00572059769
+                },
+                "HomeAutomation.SetDevice": {
+                    "score": 0.00379381469
+                },
+                "HomeAutomation.TurnOn": {
+                    "score": 0.00366983772
+                },
+                "None": {
+                    "score": 0.000623856
                 }
             },
             "entities": {
@@ -138,7 +160,7 @@ Selecione **Test** (Testar) novamente para fechar o painel de teste.
                             "text": "living room",
                             "startIndex": 13,
                             "length": 11,
-                            "score": 0.9494325,
+                            "score": 0.907323956,
                             "modelTypeId": 1,
                             "modelType": "Entity Extractor",
                             "recognitionSources": [

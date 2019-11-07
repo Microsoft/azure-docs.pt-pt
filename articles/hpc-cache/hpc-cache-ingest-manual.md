@@ -1,19 +1,19 @@
 ---
-title: Ingestão de dados de visualização do cache HPC do Azure – cópia manual
+title: Ingestão de dados do cache HPC do Azure-cópia manual
 description: Como usar comandos CP para mover dados para um destino de armazenamento de BLOBs no cache HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 7e29cbd202b32897026bed074743de543d3fd587
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: b2514eaaf70d13d3be63963f24ea7be99c4fbcce
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254465"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582290"
 ---
-# <a name="azure-hpc-cache-preview-data-ingest---manual-copy-method"></a>Ingestão de dados do cache HPC do Azure (visualização)-método de cópia manual
+# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Ingestão de dados do cache HPC do Azure-método de cópia manual
 
 Este artigo fornece instruções detalhadas para copiar manualmente os dados para um contêiner de armazenamento de BLOBs para uso com o cache do HPC do Azure. Ele usa operações paralelas multi-threaded para otimizar a velocidade de cópia.
 
@@ -23,7 +23,7 @@ Para saber mais sobre como mover dados para o armazenamento de BLOBs para o cach
 
 Você pode criar manualmente uma cópia multi-threaded em um cliente executando mais de um comando de cópia de uma vez em segundo plano em relação a conjuntos predefinidos de arquivos ou caminhos.
 
-O comando ``cp`` do Linux/UNIX inclui o argumento ``-p`` para preservar a propriedade e os metadados de mtime. A adição deste argumento aos comandos abaixo é opcional. (Adicionar o argumento aumenta o número de chamadas do sistema de arquivos enviadas do cliente para o sistema de arquivos de destino para modificação de metadados.)
+O comando ``cp`` do Linux/UNIX inclui o argumento ``-p`` para preservar a propriedade e os metadados mtime. A adição deste argumento aos comandos abaixo é opcional. (Adicionar o argumento aumenta o número de chamadas do sistema de arquivos enviadas do cliente para o sistema de arquivos de destino para modificação de metadados.)
 
 Este exemplo simples copia dois arquivos em paralelo:
 
@@ -37,7 +37,7 @@ Depois de emitir esse comando, o comando `jobs` mostrará que dois threads estã
 
 Se os nomes de arquivo forem previsíveis, você poderá usar expressões para criar threads de cópia paralela. 
 
-Por exemplo, se seu diretório contiver 1000 arquivos que são numerados sequencialmente de `0001` a `1000`, você poderá usar as seguintes expressões para criar dez threads paralelos que cada cópia 100 arquivos:
+Por exemplo, se seu diretório contiver 1000 arquivos que são numerados sequencialmente de `0001` para `1000`, você poderá usar as expressões a seguir para criar dez threads paralelos que cada cópia 100 arquivos:
 
 ```bash
 cp /mnt/source/file0* /mnt/destination1/ & \
@@ -56,7 +56,7 @@ cp /mnt/source/file9* /mnt/destination1/
 
 Se a estrutura de nomenclatura de arquivo não for previsível, você poderá agrupar arquivos por nomes de diretório. 
 
-Este exemplo coleta diretórios inteiros para enviar para os comandos ``cp`` executar como tarefas em segundo plano:
+Este exemplo coleta diretórios inteiros para enviar para ``cp`` comandos executados como tarefas em segundo plano:
 
 ```bash
 /root
@@ -92,7 +92,7 @@ Quando isso acontece, você pode adicionar pontos de montagem do lado do cliente
 10.1.1.103:/nfs on /mnt/destination3type nfs (rw,vers=3,proto=tcp,addr=10.1.1.103)
 ```
 
-A adição de pontos de montagem do lado do cliente permite bifurcar os comandos de cópia adicionais para os pontos de montagem `/mnt/destination[1-3]` adicionais, alcançando mais paralelismo.  
+A adição de pontos de montagem do lado do cliente permite bifurcar comandos de cópia adicionais para os pontos de montagem `/mnt/destination[1-3]` adicionais, alcançando mais paralelismo.  
 
 Por exemplo, se os arquivos forem muito grandes, você poderá definir os comandos de cópia para usar caminhos de destino distintos, enviando mais comandos em paralelo do cliente que executa a cópia.
 

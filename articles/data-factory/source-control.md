@@ -1,5 +1,5 @@
 ---
-title: Controle do código-fonte no Azure Data Factory | Microsoft Docs
+title: Controle do código-fonte no Azure Data Factory
 description: Saiba como configurar o controle do código-fonte no Azure Data Factory
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: f3d443eed43cc1e131cd3dc47407ce2dfb023ce8
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 46c983fcf863c6948c6107b2213879c65396ed39
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326387"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684042"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controle do código-fonte no Azure Data Factory
 
@@ -106,9 +106,9 @@ Para obter mais informações sobre como conectar Azure Repos à Active Director
 
 ## <a name="author-with-github-integration"></a>Criar com integração do GitHub
 
-A criação visual com a integração do GitHub dá suporte ao controle do código-fonte e à colaboração para o trabalho em seus pipelines de data factory. Você pode associar um data factory a um repositório de conta do GitHub para controle do código-fonte, colaboração, versionamento. Uma única conta do GitHub pode ter vários repositórios, mas um repositório GitHub pode ser associado a apenas um data factory. Se você não tiver uma conta ou repositório do GitHub, siga [estas instruções](https://github.com/join) to criar seus recursos.
+A criação visual com a integração do GitHub dá suporte ao controle do código-fonte e à colaboração para o trabalho em seus pipelines de data factory. Você pode associar um data factory a um repositório de conta do GitHub para controle do código-fonte, colaboração, versionamento. Uma única conta do GitHub pode ter vários repositórios, mas um repositório GitHub pode ser associado a apenas um data factory. Se você não tiver uma conta ou repositório do GitHub, siga [estas instruções](https://github.com/join) para criar seus recursos.
 
-A integração do GitHub com o Data Factory dá suporte ao GitHub público (ou seja, [https://github.com](https://github.com)) e ao GitHub Enterprise. Você pode usar repositórios GitHub públicos e privados com Data Factory, desde que tenha permissão de leitura e gravação para o repositório no GitHub.
+A integração do GitHub com o Data Factory dá suporte ao GitHub público (ou seja, [https://github.com](https://github.com)) e do GitHub Enterprise. Você pode usar repositórios GitHub públicos e privados com Data Factory, desde que tenha permissão de leitura e gravação para o repositório no GitHub.
 
 Para configurar um repositório GitHub, você deve ter permissões de administrador para a assinatura do Azure que você está usando.
 
@@ -143,7 +143,7 @@ O painel de configuração mostra as seguintes configurações do repositório d
 | **Tipo de repositório** | O tipo do repositório de código de Azure Repos. | GitHub |
 | **Usar o GitHub Enterprise** | Caixa de seleção para selecionar o GitHub empresarial | não selecionado (padrão) |
 | **URL do GitHub Enterprise** | A URL raiz da empresa do GitHub. Por exemplo: https://github.mydomain.com. Necessário somente se **usar o GitHub Enterprise** estiver selecionado | `<your GitHub enterprise url>` |                                                           
-| **Conta do GitHub** | O nome da sua conta do GitHub. Esse nome pode ser encontrado em https: \//github. com/{nome da conta}/{Repository Name}. Navegar até esta página solicita que você insira as credenciais do GitHub OAuth para sua conta do GitHub. | `<your GitHub account name>` |
+| **Conta do GitHub** | O nome da sua conta do GitHub. Esse nome pode ser encontrado em https:\/nome do/github.com/{Account}/{Repository Name}. Navegar até esta página solicita que você insira as credenciais do GitHub OAuth para sua conta do GitHub. | `<your GitHub account name>` |
 | **Nome do repositório**  | O nome do repositório de código do GitHub. As contas do GitHub contêm repositórios git para gerenciar seu código-fonte. Você pode criar um novo repositório ou usar um repositório existente que já esteja em sua conta. | `<your repository name>` |
 | **Branch de colaboração** | Sua ramificação de colaboração do GitHub que é usada para publicação. Por padrão, seu mestre. Altere essa configuração caso você queira publicar recursos de outra ramificação. | `<your collaboration branch>` |
 | **Pasta raiz** | Sua pasta raiz na sua ramificação de colaboração do GitHub. |`<your root folder name>` |
@@ -186,7 +186,7 @@ Quando você estiver pronto para mesclar as alterações do Branch de recursos p
 
 ### <a name="configure-publishing-settings"></a>Definir configurações de publicação
 
-Para configurar o Branch de publicação – ou seja, a ramificação em que os modelos do Resource Manager são salvos-adicione um arquivo `publish_config.json` à pasta raiz no Branch de colaboração. Data Factory lê esse arquivo, procura o campo `publishBranch` e cria uma nova ramificação (se ela ainda não existir) com o valor fornecido. Em seguida, ele salva todos os modelos do Resource Manager no local especificado. Por exemplo:
+Para configurar o Branch de publicação – ou seja, a ramificação em que os modelos do Resource Manager são salvos-adicione um arquivo de `publish_config.json` à pasta raiz na ramificação de colaboração. Data Factory lê esse arquivo, procura o campo `publishBranch`e cria uma nova ramificação (se ela ainda não existir) com o valor fornecido. Em seguida, ele salva todos os modelos do Resource Manager no local especificado. Por exemplo:
 
 ```json
 {
@@ -197,7 +197,7 @@ Para configurar o Branch de publicação – ou seja, a ramificação em que os 
 Quando você especifica uma nova ramificação de publicação, Data Factory não exclui o Branch de publicação anterior. Se você quiser que o Branch de publicação anterior seja remoto, exclua-o manualmente.
 
 > [!NOTE]
-> Data Factory lê apenas o arquivo `publish_config.json` ao carregar a fábrica. Se você já tiver a fábrica carregada no portal, atualize o navegador para fazer suas alterações entrarem em vigor.
+> Data Factory lê apenas o arquivo de `publish_config.json` quando ele carrega a fábrica. Se você já tiver a fábrica carregada no portal, atualize o navegador para fazer suas alterações entrarem em vigor.
 
 ### <a name="publish-code-changes"></a>Publicar alterações de código
 

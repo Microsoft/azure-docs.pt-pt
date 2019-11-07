@@ -1,5 +1,5 @@
 ---
-title: Desenvolvimento iterativo e depuração em Azure Data Factory | Microsoft Docs
+title: Desenvolvimento iterativo e depuração no Azure Data Factory
 description: Saiba como desenvolver e depurar Data Factory pipelines iterativamente no portal do Azure.
 ms.date: 09/26/2018
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: a1c4bf55fbb8242293fc0e30bbe16a6884b901cb
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 38e51e33ef487da8879132eb1ce9cf1e63a814e4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178619"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672832"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desenvolvimento iterativo e depuração com Azure Data Factory
 

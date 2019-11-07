@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aab9d8c2b7993598c602ae6b730baff06d807e1
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 9b6f07e1dd8e9252d2b6e00b85a47ba2e19f8bd8
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151623"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603460"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Concluir uma implantação de autenticação com senha
 
@@ -51,7 +51,7 @@ Os métodos de autenticação com senha da Microsoft permitem diferentes cenári
 
 ### <a name="passwordless-authentication-scenarios"></a>Cenários de autenticação com senha
 
-| Cenário | Autenticação por telefone | Chaves de segurança | Windows Hello para Empresas |
+| Cenário | Autenticação por telefone | Chaves de segurança | Windows Hello para empresas |
 | --- | --- | --- | --- |
 | **Entrada do computador**: <br> Do dispositivo Windows 10 atribuído | **Não** | **Sim** <br> Com biométrica, PIN | **Sim**<br>com reconhecimento biométrico e PIN |
 | **Entrada do computador**: <br> Do dispositivo Windows 10 compartilhado | **Não** | **Sim** <br> Com biométrica, PIN  | **Não** |
@@ -110,15 +110,6 @@ Habilitar a entrada do Windows 10 usando chaves de segurança FIDO2 requer a hab
    - Se a implantação do Intune não for possível, os administradores deverão implantar um pacote em cada computador para habilitar a funcionalidade do provedor de credenciais. A instalação do pacote pode ser executada por uma das seguintes opções:
       - Política de Grupo ou System Center Configuration Manager (SCCM)
       - Instalação local em um computador com Windows 10
-- [Habilitar provedor de credenciais com Política de Grupo](howto-authentication-passwordless-security-key-windows.md#enable-with-group-policy)
-   - Somente com suporte para dispositivos ingressados no Azure AD híbrido.
-
-#### <a name="enable-on-premises-integration"></a>Habilitar a integração local
-
-Siga as etapas no artigo [habilitar a entrada de chave de segurança sem senha para recursos locais (versão prévia)](howto-authentication-passwordless-security-key-on-premises.md) para habilitar o acesso a recursos locais.
-
-> [!IMPORTANT]
-> Essas etapas também devem ser concluídas para qualquer dispositivo ingressado no Azure AD híbrido para utilizar as chaves de segurança do FIDO2 para entrar no Windows 10.
 
 ### <a name="register-security-keys"></a>Registrar chaves de segurança
 
@@ -163,7 +154,7 @@ Suas comunicações com os usuários finais precisarão incluir:
 - [Registrando no aplicativo Microsoft Authenticator](howto-authentication-passwordless-phone.md)
 - [Entrar com seu telefone](../user-help/user-help-auth-app-sign-in.md)
 
-A Microsoft fornece [modelos de comunicação](https://aka.ms/mfatemplates)MFA, [modelos de comunicação](https://www.microsoft.com/download/details.aspx?id=56768)de autoatendimento de redefinição de senha (SSPR) e [documentação do usuário final](../user-help/security-info-setup-signin.md) para ajudar a rascunhar suas comunicações. Você pode enviar os usuários para [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) para registrar-se diretamente, selecionando os links de informações de segurança nessa página.
+A Microsoft fornece [modelos de comunicação](https://aka.ms/mfatemplates)MFA, [modelos de comunicação](https://www.microsoft.com/download/details.aspx?id=56768)de autoatendimento de redefinição de senha (SSPR) e [documentação do usuário final](../user-help/security-info-setup-signin.md) para ajudar a rascunhar suas comunicações. Você pode enviar usuários para [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) registrar-se diretamente, selecionando os links de informações de segurança nessa página.
 
 ### <a name="testing-passwordless"></a>Testando com senha
 

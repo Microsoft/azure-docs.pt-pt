@@ -1,17 +1,17 @@
 ---
-title: Mover dados para um contêiner de nuvem do cache HPC do Azure (visualização)
+title: Mover dados para um contêiner de nuvem do cache HPC do Azure
 description: Como popular o armazenamento de BLOBs do Azure para uso com o cache HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 6c505e6918071b61a4152b0b421ed7cee3282206
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: a206b63b03bcb3bb17e201487f0e00bcb3926151
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024496"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582231"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Mover dados para o armazenamento de BLOBs do Azure
 
@@ -58,7 +58,7 @@ O utilitário avere CLFSLoad precisa das seguintes informações:
 
 Se você não quiser usar o utilitário avere CLFSLoad ou se quiser adicionar uma grande quantidade de dados a um destino de armazenamento de BLOBs existente, poderá copiá-lo por meio do cache. O cache HPC do Azure foi projetado para atender a vários clientes simultaneamente, por isso, para copiar dados por meio do cache, você deve usar gravações paralelas de vários clientes.
 
-![Diagrama mostrando a movimentação de dados multithreads com vários clientes: Na parte superior esquerda, um ícone para o armazenamento de hardware local tem várias setas provenientes dele. As setas apontam para quatro computadores cliente. De cada computador cliente, três setas apontam para o cache do HPC do Azure. No cache do HPC do Azure, várias setas apontam para o armazenamento de BLOBs.](media/hpc-cache-parallel-ingest.png)
+![Diagrama mostrando a movimentação de dados multithreads com vários clientes: na parte superior esquerda, um ícone para o armazenamento de hardware local tem várias setas provenientes dele. As setas apontam para quatro computadores cliente. De cada computador cliente, três setas apontam para o cache do HPC do Azure. No cache do HPC do Azure, várias setas apontam para o armazenamento de BLOBs.](media/hpc-cache-parallel-ingest.png)
 
 Os comandos ``cp`` ou ``copy`` que você normalmente usa para transferir dados de um sistema de armazenamento para outro são processos de thread único que copiam apenas um arquivo por vez. Isso significa que o servidor de arquivos está ingerindo apenas um arquivo por vez, o que é um desperdício dos recursos do cache.
 
@@ -79,9 +79,9 @@ As estratégias para ingestão de dados paralelos com o cache HPC do Azure inclu
 
 * Cópia manual – você pode criar manualmente uma cópia multi-threaded em um cliente executando mais de um comando de cópia de uma vez em segundo plano em relação a conjuntos predefinidos de arquivos ou caminhos. Leia o [método ingestão de dados do cache HPC do Azure – cópia manual](hpc-cache-ingest-manual.md) para obter detalhes.
 
-* A cópia parcialmente automatizada com ``msrsync`` @ no__t-1 @ no__t-2 é um utilitário de wrapper que executa vários processos paralelos de ``rsync``. Para obter detalhes, leia o [método ingestão de dados do cache HPC do Azure-msrsync](hpc-cache-ingest-msrsync.md).
+* Cópia parcialmente automatizada com ``msrsync`` - ``msrsync`` é um utilitário de wrapper que executa vários processos de ``rsync`` paralelos. Para obter detalhes, leia o [método ingestão de dados do cache HPC do Azure-msrsync](hpc-cache-ingest-msrsync.md).
 
-* Cópia com script com ``parallelcp``-saiba como criar e executar um script de cópia paralela no [método de script de cópia de ingestão de dados de cache do HPC do Azure](hpc-cache-ingest-parallelcp.md).
+* Cópia com script com ``parallelcp``-saiba como criar e executar um script de cópia paralela no [método de script de cópia paralela de ingestão de dados do cache HPC do Azure](hpc-cache-ingest-parallelcp.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 540e72a4472fce626822f0b22bfac11a23aea205
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 6ed04c875140f3ecd14eff31829e931efbe84ea2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466769"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606656"
 ---
 # <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Erros comuns e avisos do pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva
 
@@ -224,7 +224,12 @@ A capacidade de retomar um trabalho de indexação não concluído é o predicad
 
 É possível substituir esse comportamento, permitindo o progresso incremental e suprimindo esse aviso usando a propriedade de configuração `assumeOrderByHighWatermarkColumn`.
 
-[Mais informações sobre Cosmos DB progresso incremental e consultas personalizadas.](https://go.microsoft.com/fwlink/?linkid=2099593)
+Para obter mais informações, consulte [progresso incremental e consultas personalizadas](search-howto-index-cosmosdb.md#IncrementalProgress).
+
+### <a name="truncated-extracted-text-to-x-characters"></a>Texto extraído truncado para caracteres X
+Os indexadores limitam a quantidade de texto que pode ser extraída de um documento. Esse limite depende do tipo de preço: 32.000 caracteres para a camada gratuita, 64.000 para básico e 4 milhões para as camadas Standard, Standard S2 e Standard S3. O texto que estava truncado não será indexado. Para evitar esse aviso, tente separar documentos com grandes quantidades de texto em vários documentos menores. 
+
+Para obter mais informações, consulte [limites do indexador](search-limits-quotas-capacity.md#indexer-limits).
 
 ### <a name="could-not-map-output-field-x-to-search-index"></a>Não foi possível mapear o campo de saída ' X ' para o índice de pesquisa
 Os mapeamentos de campo de saída que referenciam dados não existentes/nulos produzirão avisos para cada documento e resultarão em um campo de índice vazio. Para solucionar esse problema, verifique novamente os caminhos de origem do mapeamento de campo de saída para obter possíveis erros de grafia ou defina um valor padrão usando a [habilidade condicional](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).

@@ -1,6 +1,6 @@
 ---
-title: Colocar em pausa, retomar, dimensionar com REST no Azure SQL Data Warehouse | Documentos da Microsoft
-description: Gerir o poder de computação no SQL Data Warehouse através de REST APIs.
+title: Pausar, retomar, dimensionar com APIs REST
+description: Gerenciar poder de computação no Azure SQL Data Warehouse por meio de APIs REST.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,18 +10,19 @@ ms.subservice: implement
 ms.date: 03/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 5b8652a0b08b426e708a909ff988e51eee9c0821
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f72b3fd1024a68a6f48d2e9e676fc7ca23bf2a4f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476069"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686054"
 ---
-# <a name="rest-apis-for-azure-sql-data-warehouse"></a>APIs REST para o armazém de dados SQL do Azure
-APIs REST para gerir a computação do Azure SQL Data Warehouse.
+# <a name="rest-apis-for-azure-sql-data-warehouse"></a>APIs REST para SQL Data Warehouse do Azure
+APIs REST para gerenciar a computação no Azure SQL Data Warehouse.
 
 ## <a name="scale-compute"></a>Dimensionar computação
-Para alterar as unidades de armazém de dados, utilize o [criar ou atualizar banco de dados](/rest/api/sql/databases/createorupdate) REST API. O exemplo seguinte define as unidades de armazém de dados para DW1000 MySQLDW, que está alojado no servidor MyServer da base de dados. O servidor está num grupo de recursos do Azure com o nome ResourceGroup1.
+Para alterar as unidades de data warehouse, use a API REST [criar ou atualizar banco de dados](/rest/api/sql/databases/createorupdate) . O exemplo a seguir define as unidades de data warehouse como DW1000 para o banco de dados MySQLDW, que é hospedado no servidor meuservidor. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1.
 
 ```
 PATCH https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -34,41 +35,41 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-## <a name="pause-compute"></a>Computação em pausa
+## <a name="pause-compute"></a>Pausar computação
 
-Para colocar em pausa uma base de dados, utilize o [colocar em pausa a base de dados](/rest/api/sql/databases/pause) REST API. O exemplo seguinte coloca em pausa uma base de dados com o nome Database02 alojada num servidor com o nome servidor01. O servidor está num grupo de recursos do Azure com o nome ResourceGroup1.
+Para pausar um banco de dados, use a API REST do [banco de dados Pause](/rest/api/sql/databases/pause) . O exemplo a seguir pausa um banco de dados chamado Database02 hospedado em um servidor chamado Server01. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1.
 
 ```
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/pause?api-version=2014-04-01-preview HTTP/1.1
 ```
 
-## <a name="resume-compute"></a>Computação de retomar
+## <a name="resume-compute"></a>Retomar computação
 
-Para iniciar uma base de dados, utilize o [base de dados retomar](/rest/api/sql/databases/resume) REST API. O exemplo seguinte inicia um banco de dados com o nome Database02 alojada num servidor com o nome servidor01. O servidor está num grupo de recursos do Azure com o nome ResourceGroup1. 
+Para iniciar um banco de dados, use a API REST do [banco de dados de retomada](/rest/api/sql/databases/resume) . O exemplo a seguir inicia um banco de dados chamado Database02 hospedado em um servidor chamado Server01. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1. 
 
 ```
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/resume?api-version=2014-04-01-preview HTTP/1.1
 ```
 
-## <a name="check-database-state"></a>Verificar o estado da base de dados
+## <a name="check-database-state"></a>Verificar estado do banco de dados
 
 > [!NOTE]
-> Atualmente o estado da base de dados de verificação pode devolver ONLINE, enquanto a base de dados está a concluir o fluxo de trabalho online, resultando em erros de ligação. Poderá ter de adicionar um atraso de 2 a 3 minutos no código da aplicação, se estiver a utilizar esta chamada à API para acionar as tentativas de ligação.
+> Atualmente, verificar o estado do banco de dados pode retornar ONLINE enquanto o banco de dados estiver concluindo o fluxo de trabalho online, resultando em erros de conexão Talvez seja necessário adicionar um atraso de 2 a 3 minutos no código do aplicativo se você estiver usando essa chamada à API para disparar tentativas de conexão.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01 HTTP/1.1
 ```
 
-## <a name="get-maintenance-schedule"></a>Obter agenda de manutenção
-Verifique a agenda de manutenção tiver sido definida para um armazém de dados. 
+## <a name="get-maintenance-schedule"></a>Obter agendamento de manutenção
+Verifique o agendamento de manutenção que foi definido para um data warehouse. 
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
 
 ```
 
-## <a name="set-maintenance-schedule"></a>Agenda de manutenção do conjunto
-Para definir e atualizar uma agenda de maintnenance num armazém de dados existente.
+## <a name="set-maintenance-schedule"></a>Definir agendamento de manutenção
+Para definir e atualizar um agendamento do maintnenance em um data warehouse existente.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
@@ -93,6 +94,6 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações, consulte [gerir a computação](sql-data-warehouse-manage-compute-overview.md).
+## <a name="next-steps"></a>Passos seguintes
+Para obter mais informações, consulte [gerenciar computação](sql-data-warehouse-manage-compute-overview.md).
 

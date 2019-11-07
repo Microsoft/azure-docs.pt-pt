@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas do Azure Sincronização de Dados SQL | Microsoft Docs
+title: 'Solucionar problemas do Azure Sincronização de Dados SQL '
 description: Saiba como solucionar problemas comuns com o Azure Sincronização de Dados SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: f1345c7de3ef56473b8ebd16cea20cfe76f0380e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 31cf2693ba33461f38ea6361bf2ca8b688f177ff
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566282"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686898"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Solucionar problemas com Sincronização de Dados SQL
 
@@ -25,7 +25,7 @@ Este artigo descreve como solucionar problemas conhecidos com o Azure Sincroniza
 Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> O Azure Sincronização de Dados SQL não **oferece suporte a** instância gerenciada do banco de dados SQL do Azure no momento.
+> O Azure Sincronização de Dados SQL **não oferece suporte a** instância gerenciada do banco de dados SQL do Azure no momento.
 
 ## <a name="sync-issues"></a>Problemas de sincronização
 
@@ -39,7 +39,7 @@ Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincroni
 
 - [Vejo uma degradação significativa no desempenho](#sync-perf)
 
-- [Vejo esta mensagem: "Não é possível inserir o valor NULL na \<coluna de coluna >. A coluna não permite valores nulos. " O que isso significa e como posso corrigi-lo?](#sync-nulls)
+- [Vejo esta mensagem: "não é possível inserir o valor NULL na coluna \<coluna >. A coluna não permite valores nulos. " O que isso significa e como posso corrigi-lo?](#sync-nulls)
 
 - [Como a sincronização de dados lida com referências circulares? Ou seja, quando os mesmos dados são sincronizados em vários grupos de sincronização e continuam sendo alterados como resultado?](#sync-circ)
 
@@ -104,7 +104,7 @@ O desempenho é prejudicado significativamente, possivelmente para o ponto em qu
 
 - **Resolução**. A melhor correção é a prevenção. Verifique se você não tem referências circulares em seus grupos de sincronização. Qualquer linha sincronizada por um grupo de sincronização não pode ser sincronizada por outro grupo de sincronização.
 
-### <a name="sync-nulls"></a>Vejo esta mensagem: "Não é possível inserir o valor NULL na \<coluna de coluna >. A coluna não permite valores nulos. " O que isso significa e como posso corrigi-lo? 
+### <a name="sync-nulls"></a>Vejo esta mensagem: "não é possível inserir o valor NULL na coluna \<coluna >. A coluna não permite valores nulos. " O que isso significa e como posso corrigi-lo? 
 Essa mensagem de erro indica que um dos dois problemas a seguir ocorreu:
 -  Uma tabela não tem uma chave primária. Para corrigir esse problema, adicione uma chave primária a todas as tabelas que você está sincronizando.
 -  Há uma cláusula WHERE em sua instrução CREATE INDEX. A sincronização de dados não lida com essa condição. Para corrigir esse problema, remova a cláusula WHERE ou faça as alterações manualmente em todos os bancos de dados. 
@@ -138,7 +138,7 @@ Para solucionar problemas com o agente cliente, consulte [solucionar problemas d
 
 - **Causa**. A mensagem "disco sem espaço" pode aparecer se arquivos restantes precisarem ser excluídos. Isso pode ser causado por software antivírus, ou arquivos abertos quando são tentadas operações de exclusão.
 
-- **Resolução**. Exclua manualmente os arquivos de sincronização que estão na pasta% temp%`del \*sync\* /s`(). Em seguida, exclua os subdiretórios na pasta% Temp%.
+- **Resolução**. Exclua manualmente os arquivos de sincronização que estão na pasta% temp% (`del \*sync\* /s`). Em seguida, exclua os subdiretórios na pasta% Temp%.
 
 > [!IMPORTANT]
 > Não exclua nenhum arquivo enquanto a sincronização estiver em andamento.
@@ -193,7 +193,7 @@ Falha ao tentar excluir um grupo de sincronização. Qualquer um dos cenários a
 
 - **Resolução**. Conceda credenciais de logon como serviço à conta de usuário:
 
-  1. Vá para **Iniciar** > **painel** > decontrole > ferramentas administrativaspolítica > de**segurança local**usuário**política local**Rights Management. > 
+  1. Vá para **iniciar** > **painel de controle** > **Ferramentas administrativas** > **política de segurança local** > **política local** > **usuário Rights Management**.
   1. Selecione **fazer logon como um serviço**.
   1. Na caixa de diálogo **Propriedades** , adicione a conta de usuário.
   1. Selecione **Apply** (Aplicar) e **OK**.
@@ -201,13 +201,13 @@ Falha ao tentar excluir um grupo de sincronização. Qualquer um dos cenários a
 
 ### <a name="setup-date"></a>Um banco de dados tem um status "desatualizado"
 
-- **Causa**. Sincronização de Dados SQL remove os bancos de dados que ficaram offline do serviço por 45 dias ou mais (contados a partir do momento em que o banco de dados ficou offline). Se um banco de dados estiver offline por 45 dias ou mais e voltar a ficar online, seu **status estará**desatualizado.
+- **Causa**. Sincronização de Dados SQL remove os bancos de dados que ficaram offline do serviço por 45 dias ou mais (contados a partir do momento em que o banco de dados ficou offline). Se um banco de dados estiver offline por 45 dias ou mais e voltar a ficar online, seu **status estará desatualizado.**
 
-- **Resolução**. Você pode **evitar um status** desatualizado garantindo que nenhum dos bancos de dados fique offline por 45 dias ou mais.
+- **Resolução**. Você pode **evitar um status desatualizado** garantindo que nenhum dos bancos de dados fique offline por 45 dias ou mais.
 
-  Se o status de um banco de **dados estiver**desatualizado:
+  Se o status de um banco **de dados estiver**desatualizado:
 
-  1. Remova o banco de dados que **tem um status** desatualizado do grupo de sincronização.
+  1. Remova o banco de dados que **tem um status desatualizado do** grupo de sincronização.
   1. Adicione o banco de dados de volta ao grupo de sincronização.
 
   > [!WARNING]
@@ -217,9 +217,9 @@ Falha ao tentar excluir um grupo de sincronização. Qualquer um dos cenários a
 
 - **Causa**. Se uma ou mais alterações não puderem ser aplicadas durante todo o período de retenção de 45 dias, um grupo de sincronização poderá ficar desatualizado.
 
-- **Resolução**. Para evitar um **status** desatualizado para um grupo de sincronização, examine regularmente os resultados de seus trabalhos de sincronização no Visualizador de histórico. Investigue e resolva as alterações que não forem aplicadas.
+- **Resolução**. Para evitar um **status desatualizado para** um grupo de sincronização, examine regularmente os resultados de seus trabalhos de sincronização no Visualizador de histórico. Investigue e resolva as alterações que não forem aplicadas.
 
-  Se o status de um grupo de **sincronização estiver**desatualizado, exclua o grupo de sincronização e recrie-o.
+  Se o status de um grupo de **sincronização estiver desatualizado,** exclua o grupo de sincronização e recrie-o.
 
 ### <a name="setup-delete2"></a>Um grupo de sincronização não pode ser excluído em até três minutos após a desinstalação ou interrupção do agente
 
@@ -238,16 +238,16 @@ Você não pode excluir um grupo de sincronização em até três minutos após 
 
 Se você restaurar um banco de dados perdido ou corrompido a partir de um backup, poderá haver uma não convergência entre os grupos de sincronização aos quais o banco de dado pertence.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre Sincronização de Dados SQL, consulte:
 
 -   Visão geral – [sincronizar dados entre vários bancos de dados locais e de nuvem com o Azure sincronização de dados SQL](sql-database-sync-data.md)
 -   Configurar a sincronização de dados
-    - No portal- [tutorial: Configurar o Sincronização de Dados SQL para sincronizar dados entre o Azure SQL Database e o SQL Server local](sql-database-get-started-sql-data-sync.md)
+    - No portal- [tutorial: configurar sincronização de dados SQL para sincronizar os dados entre o Azure SQL Database e o SQL Server local](sql-database-get-started-sql-data-sync.md)
     - Com o PowerShell
         -  [Utilizar o PowerShell para sincronizar entre várias bases de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Utilizar o PowerShell para sincronizar entre uma Base de Dados SQL do Azure e uma base de dados do SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md)
--   Agente de - de sincronização de dados [agente de sincronização de dados SQL do Azure de sincronização de dados](sql-database-data-sync-agent.md)
+-   Agente de sincronização de dados- [agente de sincronização de dados para Azure sincronização de dados SQL](sql-database-data-sync-agent.md)
 -   Práticas recomendadas- [práticas recomendadas para o Azure sincronização de dados SQL](sql-database-best-practices-data-sync.md)
 -   Monitorar [sincronização de dados SQL monitorar com Azure monitor logs](sql-database-sync-monitor-oms.md)
 -   Atualizar o esquema de sincronização

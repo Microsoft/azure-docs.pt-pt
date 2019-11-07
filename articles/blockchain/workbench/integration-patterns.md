@@ -6,16 +6,16 @@ keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 10/14/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: b3e7ff18dddeaeb1a42d69b9ed57d163410fbfa1
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 7176cddae6affd19df4fe418afcf420f92d624ab
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329228"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579792"
 ---
 # <a name="smart-contract-integration-patterns"></a>Padrões de integração de contratos inteligentes
 

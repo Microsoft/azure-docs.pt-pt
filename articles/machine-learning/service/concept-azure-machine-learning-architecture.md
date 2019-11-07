@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: ba6d81596cd8a690f5c17e1ca55b91c5ff27b916
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 36c496b77be5bfda83b3ed424a7fdf2b53101aa4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497527"
+ms.locfileid: "73580624"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona a Azure Machine Learning: arquitetura e conceitos
 
@@ -56,7 +56,7 @@ Use estas ferramentas para Azure Machine Learning:
 
 ## <a name="glossary"></a>Glossário
 + <a href="#activities">Atividade</a>
-+ <a href="#compute-instance">Instância de computação</a>
++ <a href="#compute-instance">VM do notebook</a>
 + <a href="#compute-targets">Destinos de computação</a>
 + <a href="#datasets-and-datastores">Repositórios de & de conjunto de armazenamento</a>
 + <a href="#endpoints">Extremidade</a>
@@ -84,15 +84,11 @@ Uma atividade representa uma operação de execução longa. As seguintes opera�
 
 As atividades podem fornecer notificações por meio do SDK ou da interface do usuário da Web para que você possa monitorar facilmente o progresso dessas operações.
 
-### <a name="compute-instance"></a>Instância de computação
+### <a name="compute-instance"></a>VM do notebook
 
-> [!NOTE]
-> As instâncias de computação estão disponíveis somente para espaços de trabalho com uma região de **EUA Central norte** ou **sul do Reino Unido**.
->Se o seu espaço de trabalho estiver em qualquer outra região, você poderá continuar a criar e usar uma [VM do bloco de anotações](concept-compute-instance.md#notebookvm) . 
+Uma **VM Azure Machine Learning Notebook** é uma estação de trabalho totalmente gerenciada baseada em nuvem que inclui várias ferramentas e ambientes instalados para o aprendizado de máquina. As VMs de notebook podem ser usadas como um destino de computação para trabalhos de treinamento e inferência menores. Para tarefas grandes, [Azure Machine Learning clusters de computação](how-to-set-up-training-targets.md#amlcompute) com recursos de dimensionamento de vários nós é uma opção de destino de computação melhor.
 
-Uma **instância de computação de Azure Machine Learning** (antiga VM de notebook) é uma estação de trabalho totalmente gerenciada baseada em nuvem que inclui várias ferramentas e ambientes instalados para aprendizado de máquina. As instâncias de computação podem ser usadas como um destino de computação para trabalhos de treinamento e inferência. Para tarefas grandes, [Azure Machine Learning clusters de computação](how-to-set-up-training-targets.md#amlcompute) com recursos de dimensionamento de vários nós é uma opção de destino de computação melhor.
-
-Saiba mais sobre as [instâncias de computação](concept-compute-instance.md).
+Saiba mais sobre as VMs do notebook.
 
 ### <a name="compute-targets"></a>Destinos de computação
 

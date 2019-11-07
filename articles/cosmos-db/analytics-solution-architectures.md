@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: cosmos-db
 ms.date: 09/26/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d50b946e67bbcc171850b71021165356011f58e3
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: d0b5042c1401a95cc75f4c01ace843659b6babfe
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755206"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681796"
 ---
 # <a name="solutions-using-globally-distributed-analytics-in-azure-cosmos-db"></a>Soluções que usam análises distribuídas globalmente no Azure Cosmos DB
 
@@ -34,12 +34,12 @@ Você pode usar o suporte do Spark no Azure Cosmos DB para fornecer recomendaç�
 
 A imagem a seguir mostra como Azure Cosmos DB suporte do Spark é usado para otimizar o preço e as promoções:
 
-![Suporte ao Spark do Azure Cosmos DB para otimizar o preço e as promoções](./media/spark-api-introduction/optimize-pricing-and-promotions.png)
+![Suporte ao Spark do Azure Cosmos DB para otimizar o preço e as promoções](./media/analytics-solution-architectures/optimize-pricing-and-promotions.png)
 
 
 A imagem a seguir mostra como Azure Cosmos DB suporte do Spark é usado no mecanismo de recomendação em tempo real:
 
-![Suporte ao Azure Cosmos DB Spark no mecanismo de recomendação em tempo real](./media/spark-api-introduction/real-time-recommendation-engine.png)
+![Suporte ao Azure Cosmos DB Spark no mecanismo de recomendação em tempo real](./media/analytics-solution-architectures/real-time-recommendation-engine.png)
 
 ## <a name="manufacturing-and-iot"></a>Manufatura e IoT
 
@@ -49,7 +49,7 @@ A plataforma de análise interna do Azure Cosmos DB permite que você habilite a
 
 A imagem a seguir mostra como o suporte ao Spark do Azure Cosmos DB é usado para ler métricas de dispositivos IoT e aplicar análise de grade inteligente:
 
-![Suporte do Spark do Azure Cosmos DB para ler métricas de dispositivos IoT](./media/spark-api-introduction/read-metrics-from-iot-devices.png)
+![Suporte do Spark do Azure Cosmos DB para ler métricas de dispositivos IoT](./media/analytics-solution-architectures/read-metrics-from-iot-devices.png)
 
 ## <a name="predictive-maintenance"></a>Manutenção preditiva
 
@@ -59,11 +59,11 @@ A imagem a seguir mostra como o suporte ao Spark do Azure Cosmos DB é usado par
 
 A imagem a seguir mostra como o suporte ao Spark do Azure Cosmos DB é usado para criar um sistema de manutenção preditiva:
 
-![O suporte ao Spark do Azure Cosmos DB para criar um sistema de manutenção preditiva](./media/spark-api-introduction/predictive-maintenance-system.png)
+![O suporte ao Spark do Azure Cosmos DB para criar um sistema de manutenção preditiva](./media/analytics-solution-architectures/predictive-maintenance-system.png)
 
 A imagem a seguir mostra como o suporte ao Spark do Azure Cosmos DB é usado para criar um sistema de diagnóstico de veículo em tempo real:
 
-![O suporte ao Spark do Azure Cosmos DB para criar um sistema de diagnóstico de veículo em tempo real](./media/spark-api-introduction/real-time-vehicle-diagnostic-system.png)
+![O suporte ao Spark do Azure Cosmos DB para criar um sistema de diagnóstico de veículo em tempo real](./media/analytics-solution-architectures/real-time-vehicle-diagnostic-system.png)
 
 ## <a name="gaming"></a>Jogos
 
@@ -75,7 +75,7 @@ A imagem a seguir mostra como o suporte ao Spark do Azure Cosmos DB é usado par
 
 A imagem a seguir mostra como o suporte ao Spark do Azure Cosmos DB é usado no Game Analytics:
 
-![Suporte ao Spark do Azure Cosmos DB no Game Analytics](./media/spark-api-introduction/gaming-analytics.png)
+![Suporte ao Spark do Azure Cosmos DB no Game Analytics](./media/analytics-solution-architectures/gaming-analytics.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

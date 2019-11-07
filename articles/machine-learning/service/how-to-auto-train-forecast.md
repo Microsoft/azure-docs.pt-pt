@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d9a879e92f78275f2366ccfc008068afbe208e5a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 276e741a9462c19a3cba9ad1f9ac44e2da7ef1d3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497357"
+ms.locfileid: "73580712"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treinar automaticamente um modelo de previsão de série temporal
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -181,7 +181,7 @@ Consulte o [notebook de demanda de energia](https://github.com/Azure/MachineLear
 
 Para aproveitar o DNNs para previsão, você precisará definir o parâmetro `enable_dnn` no AutoMLConfig como true. 
 
-Para usar o DNNs, é recomendável usar um cluster de computação AML com SKUs de GPU e pelo menos 2 nós como o destino de computação. Consulte a [documentação de computação AML](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute) para obter mais informações. Consulte [tamanhos de máquina virtual otimizada para GPU](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-gpu) para obter mais informações sobre os tamanhos de VM que incluem GPUs.
+Para usar o DNNs, é recomendável usar um cluster de computação AML com SKUs de GPU e pelo menos 2 nós como o destino de computação. Consulte a [documentação de computação AML](how-to-set-up-training-targets.md#amlcompute) para obter mais informações. Consulte [tamanhos de máquina virtual otimizada para GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) para obter mais informações sobre os tamanhos de VM que incluem GPUs.
 
 Para permitir o tempo suficiente para que o treinamento do DNN seja concluído, é recomendável definir o tempo limite do experimento para pelo menos algumas horas.
 

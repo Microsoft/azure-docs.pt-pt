@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 11/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: af8bb24862c05b232b7bb5d831b1eb3b1add3a7f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 26cab7ba3ed864382ae5511755fee09c3826702c
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468801"
+ms.locfileid: "73580184"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Suporte a idiomas e regiões para os serviços de fala
 
@@ -26,47 +26,47 @@ Diferentes idiomas têm suporte para diferentes funções de serviços de fala. 
 
 O SDK do Microsoft Speech e a API REST dão suporte aos seguintes idiomas (localidades). Para melhorar a precisão, a personalização é oferecida para um subconjunto das linguagens por meio do carregamento de áudio + transcrições com rótulo humano ou texto relacionado: frases.  Atualmente, a personalização de pronúncia está disponível apenas para en-US e de-DE. Saiba mais sobre a personalização [aqui](how-to-custom-speech.md).
 
-  Região | Idioma | Suportado | Personalizável
- ------|----------|---------------------|---------------------
- ar-ex. | Árabe (Egito), padrão moderno | Sim | Sim
- ar-SA | Árabe (Arábia Saudita) | Sim | Sim
- ar-AE | Árabe (dos EAU) | Sim | Sim
- ar-KW | Árabe (Kuwait) | Sim | Sim
- ar-QA | Árabe (catar) | Sim | Sim
- CA-ES | Catalão | Sim | Não
- da-DK | Dinamarquês (Dinamarca) | Sim | Não
- de-DE | Alemão (Alemanha) | Sim | Sim
- en-AU | Inglês (Austrália) | Sim | Sim
- EN-AC | Inglês (Canadá) | Sim | Sim
- en-GB | Inglês (Reino Unido) | Sim | Sim
- en-IN | English (India) | Sim | Sim
- en-NZ | Inglês (Nova Zelândia) | Sim | Sim
- en-US | Inglês (Estados Unidos) | Sim | Sim
- es-ES | Espanhol (Espanha) | Sim | Sim
- es-MX | Espanhol (México) | Sim | Sim
- fi-FI | Finlandês (Finlândia) | Sim | Não
- fr-AC | Francês (Canadá) | Sim | Sim
- fr-FR | Francês (França) | Sim | Sim
- Gu-IN | Guzerate (indiano) | Sim | Sim
- hi-IN | Híndi (Índia) | Sim | Sim
- ti-ti | Italiano (Itália) | Sim | Sim
- ja-JP | Japonês (Japão) | Sim | Sim
- ko-KR | Coreano (Coreia) | Sim | Sim
- Mr-IN | Marati (Índia) | Sim | Sim
- NB-não | Norueguês (bokmål) (Noruega) | Sim | Não
- NL-NL | Holandês (Países Baixos) | Sim | Sim
- pl-PL | Polonês (Polônia) | Sim | Não
- pt-BR | Português (Brasil) | Sim | Sim
- pt-PT | Português (Portugal) | Sim | Sim
- RU-RU | Russo (Rússia) | Sim | Sim
- VA-SE | Sueco (Suécia) | Sim | Não
- ta-IN | Tâmil (Índia) | Sim | Sim
- te-IN | Télugo (Índia) | Sim | Sim
- ZH-CN | Chinês (mandarim, simplificado) | Sim | Sim
- ZH-HK | Chinês (Cantonês, tradicional) | Sim | Sim
- zh-TW | Chinês (dólar taiwanês mandarim) | Sim | Sim
- th-ÉSIMO | Tailandês (Tailândia) | Sim | Não
- TR-TR | Turquia | Sim | Sim |
+  Região | Idioma | Suportado | Personalizável | Suporte de Contentor
+ ------|------------|-----------|--------------|--------------
+ ar-ex. | Árabe (Egito), padrão moderno | ✔️ | ✔️ | ✔️
+ ar-SA | Árabe (Arábia Saudita) | ✔️ | ✔️ | ❌
+ ar-AE | Árabe (dos EAU) | ✔️ | ✔️ | ❌
+ ar-KW | Árabe (Kuwait) | ✔️ | ✔️ | ❌
+ ar-QA | Árabe (catar) | ✔️ | ✔️ | ❌
+ CA-ES | Catalão | ✔️ | ❌ | ✔️
+ da-DK | Dinamarquês (Dinamarca) | ✔️ | ❌ | ✔️
+ de-DE | Alemão (Alemanha) | ✔️ | ✔️ | ✔️
+ en-AU | Inglês (Austrália) | ✔️ | ✔️ | ✔️
+ EN-AC | Inglês (Canadá) | ✔️ | ✔️ | ✔️
+ en-GB | Inglês (Reino Unido) | ✔️ | ✔️ | ✔️
+ en-IN | English (India) | ✔️ | ✔️ | ✔️
+ en-NZ | Inglês (Nova Zelândia) | ✔️ | ✔️ | ✔️
+ en-US | Inglês (Estados Unidos) | ✔️ | ✔️ | ✔️
+ es-ES | Espanhol (Espanha) | ✔️ | ✔️ | ✔️
+ es-MX | Espanhol (México) | ✔️ | ✔️ | ✔️
+ fi-FI | Finlandês (Finlândia) | ✔️ | ❌ | ✔️
+ fr-AC | Francês (Canadá) | ✔️ | ✔️ | ✔️
+ fr-FR | Francês (França) | ✔️ | ✔️ | ✔️
+ Gu-IN | Guzerate (indiano) | ✔️ | ✔️ | ❌
+ hi-IN | Híndi (Índia) | ✔️ | ✔️ | ✔️
+ ti-ti | Italiano (Itália) | ✔️ | ✔️ | ✔️
+ ja-JP | Japonês (Japão) | ✔️ | ✔️ | ✔️
+ ko-KR | Coreano (Coreia) | ✔️ | ✔️ | ✔️
+ Mr-IN | Marati (Índia) | ✔️ | ✔️ | ❌
+ NB-não | Norueguês (bokmål) (Noruega) | ✔️ | ❌ | ✔️
+ NL-NL | Holandês (Países Baixos) | ✔️ | ✔️ | ✔️
+ pl-PL | Polonês (Polônia) | ✔️ | ❌ | ✔️
+ pt-BR | Português (Brasil) | ✔️ | ✔️ | ✔️
+ pt-PT | Português (Portugal) | ✔️ | ✔️ | ✔️
+ RU-RU | Russo (Rússia) | ✔️ | ✔️ | ✔️
+ VA-SE | Sueco (Suécia) | ✔️ | ❌ | ✔️
+ ta-IN | Tâmil (Índia) | ✔️ | ✔️ | ❌
+ te-IN | Télugo (Índia) | ✔️ | ✔️ | ❌
+ ZH-CN | Chinês (mandarim, simplificado) | ✔️ | ✔️ | ✔️
+ ZH-HK | Chinês (Cantonês, tradicional) | ✔️ | ✔️ | ✔️
+ zh-TW | Chinês (dólar taiwanês mandarim) | ✔️ | ✔️ | ✔️
+ th-ÉSIMO | Tailandês (Tailândia) | ✔️ | ❌ | ✔️
+ TR-TR | Turquia | ✔️ | ✔️ | ❌
 
 
 ## <a name="text-to-speech"></a>Conversão de texto em voz
@@ -99,89 +99,89 @@ ZH-CN | Chinês (continente) | Feminino | "Microsoft Server Speech Conversão de
 
 Mais de 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades, que permitem converter texto em fala sintetizada. Para obter mais informações sobre a disponibilidade regional, consulte [regiões](regions.md#standard-and-neural-voices).
 
-Região | Idioma | Género | Mapeamento de nome de serviço completo | Nome curto da voz
--------|----------|---------|----------|----------
-ar-ex\* | Árabe (Egito) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (ar-ex, Hoda)" | "ar-ex-Hoda"
-ar-SA | Árabe (Arábia Saudita) | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (ar-SA, Naayf)" | "ar-SA-Naayf"
-bg-BG | Búlgaro | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (bg-BG, Ivan)" | "bg-BG-Ivan"
-CA-ES | Catalão (Espanha) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (CA-ES, HerenaRUS)" | "CA-ES-HerenaRUS"
-CS-CZ | Tcheco | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (CS-CZ, Jakub)" | "CS-CZ-Jakub"
-da-DK | Dinamarquês | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (da-DK, HelleRUS)" | "da-DK-HelleRUS"
-de em | Alemão (Áustria) | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (de-em, Michael)" | "de a Michael"
-de-CH | Alemão (Suíça) | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (de-CH, Karsten)" | "de-CH-Karsten"
-de-DE | Alemão (Alemanha) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (de-DE, Hedda)" | "de-DE-Hedda"
-| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (de-DE, HeddaRUS)" | "de-DE-HeddaRUS"
-| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (de-DE, Rodrigo, Apollo)" | "de-DE-Rodrigo-Apollo"
-El-GR | Grego | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (El-GR, Stefanos)" | "El-GR-Stefanos"
-en-AU | Inglês (Austrália) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-AU, Catherine)" | "en-AU-Catherine"
-| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-AU, HayleyRUS)" | "en-AU-HayleyRUS"
-EN-AC | Inglês (Canadá) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-CA, linda)" | "en-CA-linda"
-| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-CA, HeatherRUS)" | "en-CA-HeatherRUS"
-en-GB | English (UK) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-GB, Susan, Apollo)" | "en-GB-Susan-Apollo"
-| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-GB, HazelRUS)" | "en-GB-HazelRUS"
-| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-GB, George, Apollo)" | "en-GB-George-Apollo"
-EN-IE | Inglês (Irlanda) | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (EN-IE, Sílvio)" | "en-IE-Sílvio"
-en-IN | English (India) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-IN, Heera, Apollo)" | "en-IN-Heera-Apollo"
-| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-IN, PriyaRUS)" | "en-IN-PriyaRUS"
-| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-IN, Ravi, Apollo)" | "en-IN-Ravi-Apollo"
-en-US | English (US) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-US, ZiraRUS)" | "en-US-ZiraRUS"
-| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-US, JessaRUS)" | "en-US-JessaRUS"
-| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-US, BenjaminRUS)" | "en-US-BenjaminRUS"
-| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-US, Jessa24kRUS)" | "en-US-Jessa24kRUS"
-| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-US, Guy24kRUS)" | "en-US-Guy24kRUS"
-es-ES | Espanhol (Espanha) |Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (es-ES, Laura, Apollo)" | "es-ES-Laura-Apollo"
-| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (es-ES, HelenaRUS)" | "es-ES-HelenaRUS"
-| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (es-ES, Pablo, Apollo)" | "es-ES-Pablo-Apollo"
-es-MX | Espanhol (México) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (es-MX, HildaRUS)" | "es-MX-HildaRUS"
-| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (es-MX, Ricardo, Apollo)" | "es-MX-Ricardo-Apollo"
-fi-FI | Finlandês | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (fi-FI, HeidiRUS)" | "fi-FI-HeidiRUS"
-fr-AC | Francês (Canadá) |Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (fr-CA, Carolina)" | "fr-CA-Carolina"
-| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (fr-CA, HarmonieRUS)" | "fr-CA-HarmonieRUS"
-fr-CH | Francês (Suíça)| Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (fr-CH, Guillaume)" | "fr-CH-Guillaume"
-fr-FR | Francês (França)| Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (fr-FR, Julie, Apollo)" | "fr-FR-Julie-Apollo"
-| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (fr-FR, HortenseRUS)" | "fr-FR-HortenseRUS"
-| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (fr-FR, Paul, Apollo)" | "fr-FR-Paul-Apollo"
-ti-IL| Hebraico (Israel) | Masculino| "Microsoft Server Speech Conversão de Texto em Fala voz (he-IL, Asaf)" | "he-IL-Asaf"
-hi-IN | Híndi (Índia) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (Hi-IN, Kalpana, Apollo)" | "hi-IN-Kalpana-Apollo"
-| | |Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (Hi-IN, Kalpana)" | "hi-IN-Kalpana"
-| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (Hi-IN, Hemant)" | "hi-IN-Hemant"
-HR-HR | Croata | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (HR-HR, Matej)" | "HR-HR-Matej"
-hu-HU | Húngaro | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (hu-HU, Szabolcs)" | "hu-HU-Szabolcs"
-ID-ID | Indonésio| Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (ID-ID, andika)" | "ID-ID-andika"
-ti-ti | Italiano | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (IT-IT, Cosimo, Apollo)" | "IT-IT-Cosimo-Apollo"
-| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala Voice (IT-IT, LuciaRUS)" | "IT-IT-LuciaRUS"
-ja-JP | Japonês | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (ja-JP, Ayumi, Apollo)" | "ja-JP-Ayumi-Apollo"
-| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (ja-JP, Ichiro, Apollo)" | "ja-JP-Ichiro-Apollo"
-| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (ja-JP, HarukaRUS)" | "ja-JP-HarukaRUS"
-ko-KR | Coreano | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (ko-KR, HeamiRUS)" | "ko-KR-HeamiRUS"
-MS-MY | Malaio | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (MS-MY, Rizwan)" | "MS-MY-Rizwan"
-NB-não | Norueguês | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (NB-NO, HuldaRUS)" | "NB-NO-HuldaRUS"
-NL-NL | Holandês | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (NL-NL, HannaRUS)" | "nl-NL-HannaRUS"
-pl-PL | Polaco | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (pl-PL, PaulinaRUS)" | "pl-PL-PaulinaRUS"
-pt-BR | Português (Brasil) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (pt-BR, HeloisaRUS)" | "pt-BR-HeloisaRUS"
-| | | Masculino |"Microsoft Server Speech Conversão de Texto em Fala voz (pt-BR, Daniel, Apollo)" | "pt-BR-Daniel-Apollo"
-pt-PT | Português (Portugal) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (pt-PT, HeliaRUS)" | "pt-PT-HeliaRUS"
-RO-RO | Romeno | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (RO-RO, Andrei)" | "RO-RO-Andrei"
-RU-RU |Russo| Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (RU-RU, Irina, Apollo)" | "ru-RU-Irina-Apollo"
-| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (RU-RU, Pavel, Apollo)" | "ru-RU-Pavel-Apollo"
-| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (RU-RU, EkaterinaRUS)" | RU-RU-EkaterinaRUS
-SK-SK | Eslovaco | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (SK-SK, Filip)" | "SK-SK-Filip"
-SL-SI | Esloveno | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (SL-SI, lado)" | "SL-SI-lado"
-VA-SE | Sueco | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (SV-SE, HedvigRUS)" | "SV-SE-HedvigRUS"
-ta-IN | Tâmil (Índia) | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (ta-IN, Valluvar)" | "ta-IN-Valluvar"
-te-IN | Télugo (Índia) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (te-IN, Chitra)" | "Chitra"
-th-ÉSIMO | Tailandês | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (th-TH, Pattara)" | "th-TH-Pattara"
-TR-TR | Turco | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (TR-TR, SedaRUS)" | "tr-TR-SedaRUS"
-vi-VN | Vietnamita | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (vi-VN, a)" | "vi-VN-um"
-ZH-CN | Chinês (continente) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (ZH-CN, HuihuiRUS)" | "zh-CN-HuihuiRUS"
-| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (ZH-CN, Yaoyao, Apollo)" | "zh-CN-Yaoyao-Apollo"
-| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (ZH-CN, Kangkang, Apollo)" | "zh-CN-Kangkang-Apollo"
-ZH-HK | Chinês (Hong Kong) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (ZH-HK, Tracy, Apollo)" | "ZH-HK-Tracy-Apollo"
-| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (ZH-HK, TracyRUS)" | "ZH-HK-TracyRUS"
-| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (ZH-HK, Danny, Apollo)" | "ZH-HK-Danny-Apollo"
-zh-TW | Chinês (Taiwan) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (zh-TW, Yating, Apollo)" | "zh-TW-Yating-Apollo"
-| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (zh-TW, HanHanRUS)" | "zh-TW-HanHanRUS"
-| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (zh-TW, Zhiwei, Apollo)" | "zh-TW-Zhiwei-Apollo"
+Região | Idioma | Género | Mapeamento de nome de serviço completo | Nome abreviado | Suporte de contentor
+-------|----------|---------|----------|----------|------
+ar-ex\* | Árabe (Egito) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (ar-ex, Hoda)" | "ar-ex-Hoda" | ✔️
+ar-SA | Árabe (Arábia Saudita) | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (ar-SA, Naayf)" | "ar-SA-Naayf" | ✔️
+bg-BG | Búlgaro | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (bg-BG, Ivan)" | "bg-BG-Ivan" | ✔️
+CA-ES | Catalão (Espanha) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (CA-ES, HerenaRUS)" | "CA-ES-HerenaRUS" | ✔️
+CS-CZ | Tcheco | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (CS-CZ, Jakub)" | "CS-CZ-Jakub" | ✔️
+da-DK | Dinamarquês | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (da-DK, HelleRUS)" | "da-DK-HelleRUS" | ✔️
+de em | Alemão (Áustria) | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (de-em, Michael)" | "de a Michael" | ✔️
+de-CH | Alemão (Suíça) | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (de-CH, Karsten)" | "de-CH-Karsten" | ✔️
+de-DE | Alemão (Alemanha) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (de-DE, Hedda)" | "de-DE-Hedda" | ❌
+| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (de-DE, HeddaRUS)" | "de-DE-HeddaRUS" | ✔️
+| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (de-DE, Rodrigo, Apollo)" | "de-DE-Rodrigo-Apollo" | ✔️
+El-GR | Grego | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (El-GR, Stefanos)" | "El-GR-Stefanos" | ✔️
+en-AU | Inglês (Austrália) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-AU, Catherine)" | "en-AU-Catherine" | ✔️
+| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-AU, HayleyRUS)" | "en-AU-HayleyRUS" | ✔️
+EN-AC | Inglês (Canadá) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-CA, linda)" | "en-CA-linda" | ✔️
+| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-CA, HeatherRUS)" | "en-CA-HeatherRUS" | ✔️
+en-GB | English (UK) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-GB, Susan, Apollo)" | "en-GB-Susan-Apollo" | ✔️
+| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-GB, HazelRUS)" | "en-GB-HazelRUS" | ✔️
+| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-GB, George, Apollo)" | "en-GB-George-Apollo" | ✔️
+EN-IE | Inglês (Irlanda) | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (EN-IE, Sílvio)" | "en-IE-Sílvio" | ✔️
+en-IN | English (India) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-IN, Heera, Apollo)" | "en-IN-Heera-Apollo" | ✔️
+| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-IN, PriyaRUS)" | "en-IN-PriyaRUS" | ✔️
+| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-IN, Ravi, Apollo)" | "en-IN-Ravi-Apollo" | ✔️
+en-US | English (US) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-US, ZiraRUS)" | "en-US-ZiraRUS" | ✔️
+| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-US, JessaRUS)" | "en-US-JessaRUS" | ✔️
+| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-US, BenjaminRUS)" | "en-US-BenjaminRUS" | ✔️
+| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-US, Jessa24kRUS)" | "en-US-Jessa24kRUS" | ✔️
+| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-US, Guy24kRUS)" | "en-US-Guy24kRUS" | ✔️
+es-ES | Espanhol (Espanha) |Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (es-ES, Laura, Apollo)" | "es-ES-Laura-Apollo" | ✔️
+| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (es-ES, HelenaRUS)" | "es-ES-HelenaRUS" | ✔️
+| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (es-ES, Pablo, Apollo)" | "es-ES-Pablo-Apollo" | ✔️
+es-MX | Espanhol (México) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (es-MX, HildaRUS)" | "es-MX-HildaRUS" | ✔️
+| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (es-MX, Ricardo, Apollo)" | "es-MX-Ricardo-Apollo" | ✔️
+fi-FI | Finlandês | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (fi-FI, HeidiRUS)" | "fi-FI-HeidiRUS" | ✔️
+fr-AC | Francês (Canadá) |Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (fr-CA, Carolina)" | "fr-CA-Carolina" | ✔️
+| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (fr-CA, HarmonieRUS)" | "fr-CA-HarmonieRUS" | ✔️
+fr-CH | Francês (Suíça)| Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (fr-CH, Guillaume)" | "fr-CH-Guillaume" | ✔️
+fr-FR | Francês (França)| Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (fr-FR, Julie, Apollo)" | "fr-FR-Julie-Apollo" | ✔️
+| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (fr-FR, HortenseRUS)" | "fr-FR-HortenseRUS" | ✔️
+| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (fr-FR, Paul, Apollo)" | "fr-FR-Paul-Apollo" | ✔️
+ti-IL| Hebraico (Israel) | Masculino| "Microsoft Server Speech Conversão de Texto em Fala voz (he-IL, Asaf)" | "he-IL-Asaf" | ✔️
+hi-IN | Híndi (Índia) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (Hi-IN, Kalpana, Apollo)" | "hi-IN-Kalpana-Apollo" | ✔️
+| | |Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (Hi-IN, Kalpana)" | "hi-IN-Kalpana" | ✔️
+| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (Hi-IN, Hemant)" | "hi-IN-Hemant" | ✔️
+HR-HR | Croata | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (HR-HR, Matej)" | "HR-HR-Matej" | ✔️
+hu-HU | Húngaro | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (hu-HU, Szabolcs)" | "hu-HU-Szabolcs" | ✔️
+ID-ID | Indonésio| Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (ID-ID, andika)" | "ID-ID-andika" | ✔️
+ti-ti | Italiano | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (IT-IT, Cosimo, Apollo)" | "IT-IT-Cosimo-Apollo" | ✔️
+| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala Voice (IT-IT, LuciaRUS)" | "IT-IT-LuciaRUS" | ✔️
+ja-JP | Japonês | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (ja-JP, Ayumi, Apollo)" | "ja-JP-Ayumi-Apollo" | ✔️
+| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (ja-JP, Ichiro, Apollo)" | "ja-JP-Ichiro-Apollo" | ✔️
+| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (ja-JP, HarukaRUS)" | "ja-JP-HarukaRUS" | ✔️
+ko-KR | Coreano | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (ko-KR, HeamiRUS)" | "ko-KR-HeamiRUS" | ✔️
+MS-MY | Malaio | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (MS-MY, Rizwan)" | "MS-MY-Rizwan" | ✔️
+NB-não | Norueguês | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (NB-NO, HuldaRUS)" | "NB-NO-HuldaRUS" | ✔️
+NL-NL | Holandês | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (NL-NL, HannaRUS)" | "nl-NL-HannaRUS" | ✔️
+pl-PL | Polaco | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (pl-PL, PaulinaRUS)" | "pl-PL-PaulinaRUS" | ✔️
+pt-BR | Português (Brasil) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (pt-BR, HeloisaRUS)" | "pt-BR-HeloisaRUS" | ✔️
+| | | Masculino |"Microsoft Server Speech Conversão de Texto em Fala voz (pt-BR, Daniel, Apollo)" | "pt-BR-Daniel-Apollo" | ✔️
+pt-PT | Português (Portugal) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (pt-PT, HeliaRUS)" | "pt-PT-HeliaRUS" | ✔️
+RO-RO | Romeno | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (RO-RO, Andrei)" | "RO-RO-Andrei" | ✔️
+RU-RU |Russo| Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (RU-RU, Irina, Apollo)" | "ru-RU-Irina-Apollo" | ✔️
+| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (RU-RU, Pavel, Apollo)" | "ru-RU-Pavel-Apollo" | ✔️
+| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (RU-RU, EkaterinaRUS)" | RU-RU-EkaterinaRUS | ✔️
+SK-SK | Eslovaco | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (SK-SK, Filip)" | "SK-SK-Filip" | ✔️
+SL-SI | Esloveno | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (SL-SI, lado)" | "SL-SI-lado" | ✔️
+VA-SE | Sueco | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (SV-SE, HedvigRUS)" | "SV-SE-HedvigRUS" | ✔️
+ta-IN | Tâmil (Índia) | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (ta-IN, Valluvar)" | "ta-IN-Valluvar" | ✔️
+te-IN | Télugo (Índia) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (te-IN, Chitra)" | "Chitra" | ✔️
+th-ÉSIMO | Tailandês | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (th-TH, Pattara)" | "th-TH-Pattara" | ✔️
+TR-TR | Turco | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (TR-TR, SedaRUS)" | "tr-TR-SedaRUS" | ✔️
+vi-VN | Vietnamita | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (vi-VN, a)" | "vi-VN-um" | ✔️
+ZH-CN | Chinês (continente) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (ZH-CN, HuihuiRUS)" | "zh-CN-HuihuiRUS" | ✔️
+| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (ZH-CN, Yaoyao, Apollo)" | "zh-CN-Yaoyao-Apollo" | ✔️
+| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (ZH-CN, Kangkang, Apollo)" | "zh-CN-Kangkang-Apollo" | ✔️
+ZH-HK | Chinês (Hong Kong) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (ZH-HK, Tracy, Apollo)" | "ZH-HK-Tracy-Apollo" | ✔️
+| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (ZH-HK, TracyRUS)" | "ZH-HK-TracyRUS" | ✔️
+| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (ZH-HK, Danny, Apollo)" | "ZH-HK-Danny-Apollo" | ✔️
+zh-TW | Chinês (Taiwan) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (zh-TW, Yating, Apollo)" | "zh-TW-Yating-Apollo" | ✔️
+| | | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (zh-TW, HanHanRUS)" | "zh-TW-HanHanRUS" | ✔️
+| | | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (zh-TW, Zhiwei, Apollo)" | "zh-TW-Zhiwei-Apollo" | ✔️
 
 \* *ar-ex suporta o moderno padrão árabe (MSA).*
 

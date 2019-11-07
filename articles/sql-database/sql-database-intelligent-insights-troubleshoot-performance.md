@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de desempenho do banco de dados SQL do Azure com o Intelligent Insights | Microsoft Docs
+title: Solucionar problemas de desempenho do banco de dados SQL do Azure com Intelligent Insights
 description: Intelligent Insights ajuda a solucionar problemas de desempenho do banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: f884b39db92f44f7cff938e0ac4b9c2e22dc36cb
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: fef1ed386dbf3acccc09b9bba743b6b33492da0e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262196"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689713"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de desempenho do banco de dados SQL do Azure com Intelligent Insights
 
@@ -108,7 +108,7 @@ Você pode otimizar ou remover consultas relacionadas aos auxiliares com o maior
 
 Você também pode reduzir a carga de trabalho otimizando ou distribuindo-a em vários bancos de dados. Ou você pode distribuir sua carga de trabalho entre vários bancos de dados. Se essas soluções não forem possíveis, considere aumentar o tipo de preço da sua assinatura do banco de dados SQL para aumentar a quantidade de recursos de memória disponíveis para o banco de dados.
 
-Para obter sugestões de solução de problemas [adicionais, consulte concessões de memória reflexão sobre: O misterioso SQL Server consumidor de memória com muitos](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/)nomes.
+Para obter sugestões de solução de problemas adicionais, consulte [concessões de memória reflexão sobre: o misterioso SQL Server consumidor de memória com muitos nomes](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
 
 ## <a name="locking"></a>Bloqueio
 
@@ -188,7 +188,7 @@ O log de diagnóstico gera hashes de consulta para as consultas que foram identi
 > Para otimizar o desempenho contínuo do banco de dados SQL, recomendamos que você habilite o [ajuste automático do banco de dados SQL](sql-database-automatic-tuning.md). Esse recurso exclusivo de inteligência interna do banco de dados SQL monitora continuamente o banco de dados SQL e ajusta e cria índices automaticamente para seus bancos.
 >
 
-## <a name="new-query"></a>Nova Consulta
+## <a name="new-query"></a>Nova consulta
 
 ### <a name="what-is-happening"></a>O que está acontecendo
 
@@ -226,7 +226,7 @@ Esse padrão de desempenho detectável indica uma condição de desempenho de ba
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 
-O log de diagnóstico gera detalhes de contenção de tempDB. Você pode usar as informações como o ponto de partida para a solução de problemas. Há duas coisas que você pode buscar para aliviar esse tipo de contenção e aumentar a taxa de transferência da carga de trabalho geral: Você pode parar de usar as tabelas temporárias. Você também pode usar tabelas com otimização de memória. 
+O log de diagnóstico gera detalhes de contenção de tempDB. Você pode usar as informações como o ponto de partida para a solução de problemas. Há duas coisas que você pode buscar para aliviar esse tipo de contenção e aumentar a taxa de transferência da carga de trabalho geral: você pode parar de usar as tabelas temporárias. Você também pode usar tabelas com otimização de memória. 
 
 Para obter mais informações, consulte [Introduction to Memory-Optimized Tables](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
@@ -280,7 +280,7 @@ Para obter mais informações, consulte [saiba como SQL Server impede regressõe
 
 Esse padrão de desempenho detectável indica uma condição em que uma alteração na configuração no escopo do banco de dados causa a regressão de desempenho que é detectada em comparação com o comportamento de carga de trabalho do banco de dados de sete dias anterior. Esse padrão denota que uma alteração recente feita na configuração no escopo do banco de dados não parece ser benéfica ao desempenho do banco de dados.
 
-As alterações de configuração no escopo do banco de dados podem ser definidas para cada banco de dados individual. Essa configuração é usada em uma base caso a caso para otimizar o desempenho individual do banco de dados. As seguintes opções podem ser configuradas para cada banco de dados individual: MAXDOP, LEGACY_CARDINALITY_ESTIMATION, PARAMETER_SNIFFING, QUERY_OPTIMIZER_HOTFIXES e CLEAR PROCEDURE_CACHE.
+As alterações de configuração no escopo do banco de dados podem ser definidas para cada banco de dados individual. Essa configuração é usada em uma base caso a caso para otimizar o desempenho individual do banco de dados. As seguintes opções podem ser configuradas para cada banco de dados individual: MAXDOP, LEGACY_CARDINALITY_ESTIMATION, PARAMETER_SNIFFING, QUERY_OPTIMIZER_HOTFIXES e limpar PROCEDURE_CACHE.
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 
@@ -320,7 +320,7 @@ Se você reduziu o tipo de preço e, portanto, as DTUs disponíveis para o banco
 
 Acesse Intelligent Insights por meio do portal do Azure acessando Análise de SQL do Azure. Tente localizar o alerta de desempenho de entrada e selecione-o. Identifique o que está acontecendo na página detecções. Observe a análise da causa raiz fornecida do problema, o texto da consulta, as tendências do tempo de consulta e a evolução do incidente. Tente resolver o problema usando a recomendação Intelligent Insights para atenuar o problema de desempenho. 
 
-[![Fluxograma de solução de problemas](./media/sql-database-intelligent-insights/intelligent-insights-troubleshooting-flowchart.png)](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/intelligent-insight/Troubleshoot%20Azure%20SQL%20Database%20performance%20issues%20using%20Intelligent%20Insight.pdf)
+[fluxograma de solução de problemas de ![](./media/sql-database-intelligent-insights/intelligent-insights-troubleshooting-flowchart.png)](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/intelligent-insight/Troubleshoot%20Azure%20SQL%20Database%20performance%20issues%20using%20Intelligent%20Insight.pdf)
 
 > [!TIP]
 > Selecione o fluxograma para baixar uma versão em PDF.

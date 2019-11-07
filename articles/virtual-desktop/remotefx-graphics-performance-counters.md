@@ -1,5 +1,5 @@
 ---
-title: Diagnosticando problemas de desempenho de gráficos na área de trabalho remota – Azure
+title: Diagnosticar problemas de desempenho de gráficos Área de Trabalho Remota-Azure
 description: Este artigo descreve como usar os contadores gráficos do RemoteFX em sessões de protocolo de área de trabalho remota para diagnosticar problemas de desempenho com elementos gráficos na área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-ms.openlocfilehash: b6a78fbf2fcb12962b42537965deea6c7912315d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: c41a433ee19969546e1db2aa583c72ed166b7ebf
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676538"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607469"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnosticar problemas de desempenho de gráficos no Área de Trabalho Remota
 
@@ -24,8 +24,8 @@ Você precisará do nome da sessão remota para identificar os contadores de des
 
 1. Abra o prompt de comando do Windows em sua sessão remota.
 2. Execute o comando **Qwinsta** e localize o nome da sessão.
-    - Se sua sessão estiver hospedada em uma VM (máquina virtual) de várias sessões: A instância de cada contador é sufixada pelo mesmo número que sufixos pelo nome da sessão, como "RDP-TCP 37".
-    - Se sua sessão estiver hospedada em uma VM que dá suporte a vGPU (unidades de processamento gráfico virtual): A instância de cada contador é armazenada no servidor em vez de em sua VM. As instâncias do contador incluem o nome da VM em vez do número no nome da sessão, como "VM do win8 Enterprise".
+    - Se sua sessão estiver hospedada em uma VM (máquina virtual) de várias sessões: sua instância de cada contador será sufixada pelo mesmo número que sufixos no nome da sessão, como "RDP-TCP 37".
+    - Se sua sessão estiver hospedada em uma VM que dá suporte a vGPU (unidades de processamento de gráficos virtuais): sua instância de cada contador é armazenada no servidor em vez de em sua VM. As instâncias do contador incluem o nome da VM em vez do número no nome da sessão, como "VM do win8 Enterprise".
 
 >[!NOTE]
 > Embora os contadores tenham o RemoteFX em seus nomes, eles incluem gráficos de área de trabalho remota em cenários de vGPU também.
@@ -34,7 +34,7 @@ Você precisará do nome da sessão remota para identificar os contadores de des
 
 Depois de determinar o nome da sessão remota, siga estas instruções para coletar os contadores de desempenho de gráficos do RemoteFX para sua sessão remota.
 
-1. Selecione **Iniciar** > **ferramentas**administrativas monitor de desempenho. > 
+1. Selecione **iniciar** > **Ferramentas administrativas** > **Monitor de desempenho**.
 2. Na caixa de diálogo **Monitor de desempenho** , expanda **ferramentas de monitoramento**, selecione **Monitor de desempenho**e, em seguida, selecione **Adicionar**.
 3. Na caixa de diálogo **Adicionar contadores** , na lista **contadores disponíveis** , expanda a seção para gráficos do RemoteFX.
 4. Selecione os contadores a serem monitorados.

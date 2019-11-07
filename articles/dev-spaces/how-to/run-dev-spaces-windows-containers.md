@@ -9,22 +9,22 @@ ms.date: 07/25/2019
 ms.topic: conceptual
 description: Saiba como executar Azure Dev Spaces em um cluster existente com contêineres do Windows
 keywords: Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, contêineres do Windows
-ms.openlocfilehash: 6c15534d5d47ba384a0f368f5d212fb1350e5229
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 90d7c8e5fc08405178ab6596b765f289b9bd716f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858590"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582778"
 ---
 # <a name="use-azure-dev-spaces-to-interact-with-windows-containers"></a>Usar Azure Dev Spaces para interagir com contêineres do Windows
 
 Você pode habilitar Azure Dev Spaces em namespaces kubernetes novos e existentes. Azure Dev Spaces será executado e instrumentar serviços que são executados em contêineres do Linux. Esses serviços também podem interagir com aplicativos executados em contêineres do Windows no mesmo namespace. Este artigo mostra como usar espaços de desenvolvimento para executar serviços em um namespace com contêineres do Windows existentes.
 
-## <a name="set-up-your-cluster"></a>Configurar cluster
+## <a name="set-up-your-cluster"></a>Configurar o cluster
 
 Este artigo pressupõe que você já tem um cluster com pools de nós do Linux e do Windows. Se precisar criar um cluster com pools de nós do Linux e do Windows, você poderá seguir as instruções [aqui][windows-container-cli].
 
-Conecte-se ao cluster usando o [kubectl][kubectl], o cliente de linha de comando do kubernetes. Para configurar `kubectl` o para se conectar ao cluster do kubernetes, use o comando [AZ AKs Get-Credentials][az-aks-get-credentials] . Esse comando baixa as credenciais e configura a CLI do kubernetes para usá-las.
+Conecte-se ao cluster usando o [kubectl][kubectl], o cliente de linha de comando do kubernetes. Para configurar `kubectl` para se conectar ao cluster kubernetes, use o comando [AZ AKs Get-Credentials][az-aks-get-credentials] . Esse comando baixa as credenciais e configura a CLI do kubernetes para usá-las.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -57,7 +57,7 @@ kubectl taint node aksnpwin987654 sku=win-node:NoSchedule
 
 Execute o serviço do Windows no cluster AKS e verifique se ele está em estado de *execução* . Este artigo usa um [aplicativo de exemplo][sample-application] para demonstrar um serviço Windows e Linux em execução no cluster.
 
-Clone o aplicativo de exemplo do GitHub e navegue até `dev-spaces/samples/existingWindowsBackend/mywebapi-windows` o diretório:
+Clone o aplicativo de exemplo do GitHub e navegue até o diretório `dev-spaces/samples/existingWindowsBackend/mywebapi-windows`:
 
 ```console
 git clone https://github.com/Azure/dev-spaces
@@ -73,7 +73,7 @@ kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admi
 kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
 ``` 
 
-Navegue até o `charts` diretório e execute o serviço do Windows:
+Navegue até o diretório `charts` e execute o serviço do Windows:
 
 ```console
 cd charts/
@@ -82,7 +82,7 @@ helm install . --namespace dev
 
 O comando acima usa Helm para executar o serviço do Windows no namespace do *dev* . Se você não tiver um namespace chamado *dev*, ele será criado.
 
-Use o `kubectl get pods` comando para verificar se o serviço do Windows está em execução no cluster. 
+Use o comando `kubectl get pods` para verificar se o serviço do Windows está em execução no cluster. 
 
 ```console
 $ kubectl get pods --namespace dev --watch
@@ -102,9 +102,9 @@ az aks use-dev-spaces -g myResourceGroup -n myAKSCluster --space dev --yes
 
 ## <a name="update-your-windows-service-for-dev-spaces"></a>Atualizar seu serviço do Windows para espaços de desenvolvimento
 
-Quando você habilita espaços de desenvolvimento em um namespace existente com contêineres que já estão em execução, por padrão, os espaços de desenvolvimento tentarão criar e instrumentar novos contêineres que são executados nesse namespace. Os espaços de desenvolvimento também tentarão criar e instrumentar novos contêineres criados para o serviço já em execução no namespace. Para evitar que os espaços de desenvolvimento instrumentem um contêiner em execução no namespace, adicione o cabeçalho no *-proxy* ao `deployment.yaml`.
+Quando você habilita espaços de desenvolvimento em um namespace existente com contêineres que já estão em execução, por padrão, os espaços de desenvolvimento tentarão criar e instrumentar novos contêineres que são executados nesse namespace. Os espaços de desenvolvimento também tentarão criar e instrumentar novos contêineres criados para o serviço já em execução no namespace. Para evitar que os espaços do desenvolvedor instrumentem um contêiner em execução no namespace, adicione o cabeçalho *no-proxy* ao `deployment.yaml`.
 
-`azds.io/no-proxy: "true"` Adicione`existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml` ao arquivo:
+Adicione `azds.io/no-proxy: "true"` ao arquivo de `existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml`:
 
 ```yaml
 apiVersion: apps/v1
@@ -131,18 +131,18 @@ NAME            REVISION    UPDATED                     STATUS      CHART       
 gilded-jackal   1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
 ```
 
-No exemplo acima, o nome da sua implantação é *Gilded-Jackal*. Atualize seu serviço do Windows com a nova configuração `helm upgrade`usando:
+No exemplo acima, o nome da sua implantação é *Gilded-Jackal*. Atualize seu serviço do Windows com a nova configuração usando `helm upgrade`:
 
 ```cmd
 $ helm upgrade gilded-jackal . --namespace dev
 Release "gilded-jackal" has been upgraded.
 ```
 
-Como você atualizou `deployment.yaml`o, os espaços de desenvolvimento não tentarão instrumentar seu serviço.
+Como você atualizou seu `deployment.yaml`, os espaços de desenvolvimento não tentarão instrumentar seu serviço.
 
 ## <a name="run-your-linux-application-with-azure-dev-spaces"></a>Execute seu aplicativo Linux com o Azure Dev Spaces
 
-Navegue até o `webfrontend` diretório e use os `azds prep` comandos `azds up` e para executar seu aplicativo Linux no cluster.
+Navegue até o diretório `webfrontend` e use os comandos `azds prep` e `azds up` para executar seu aplicativo Linux no cluster.
 
 ```console
 cd ../../webfrontend-linux/
@@ -150,7 +150,7 @@ azds prep --public
 azds up
 ```
 
-O `azds prep --public` comando gera o gráfico Helm e Dockerfiles para seu aplicativo. O `azds up` comando executa o serviço no namespace.
+O comando `azds prep --public` gera o gráfico Helm e Dockerfiles para seu aplicativo. O comando `azds up` executa o serviço no namespace.
 
 ```console
 $ azds up
@@ -172,7 +172,7 @@ Você pode ver o serviço em execução abrindo a URL pública, que é exibida n
 
 ![Aplicativo de exemplo mostrando a versão do Windows do mywebapi](../media/run-dev-spaces-windows-containers/sample-app.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como Azure Dev Spaces ajuda a desenvolver aplicativos mais complexos em vários contêineres e como você pode simplificar o desenvolvimento colaborativo trabalhando com diferentes versões ou branches do seu código em espaços diferentes.
 
@@ -181,7 +181,7 @@ Saiba como Azure Dev Spaces ajuda a desenvolver aplicativos mais complexos em v�
 
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[helm-installed]: https://github.com/helm/helm/blob/master/docs/install.md
+[helm-installed]: https://helm.sh/docs/using_helm/#installing-helm
 [sample-application]: https://github.com/Azure/dev-spaces/tree/master/samples/existingWindowsBackend
 [sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
 [team-development-qs]: ../quickstart-team-development.md

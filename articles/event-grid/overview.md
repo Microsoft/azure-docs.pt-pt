@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 117c74eac1e234f84af6be2d275637d7b8f4e2a7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 03cf8eb2036a9670dbc75e3efb55e52a70de5c54
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794018"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607273"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é a grade de eventos do Azure?
 
@@ -56,7 +56,7 @@ Para obter detalhes completos sobre as capacidades de cada processador, bem como
 * [Aplicações Lógicas](event-handlers.md#logic-apps)
 * [Microsoft Flow](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
 * [Armazenamento de filas](event-handlers.md#queue-storage)
-* [Barramento de serviço](event-handlers.md#service-bus-queue-preview) (visualização)
+* [Service Bus](event-handlers.md#service-bus-queue)
 * [WebHooks](event-handlers.md#webhooks)
 
 ## <a name="concepts"></a>Conceitos
@@ -71,7 +71,7 @@ Existem cinco conceitos no Azure Event Grid que lhe permitem começar:
 
 Para obter mais informações sobre estes conceitos, veja [Concepts in Azure Event Grid](concepts.md) (Conceitos no Azure Event Grid).
 
-## <a name="capabilities"></a>Funções
+## <a name="capabilities"></a>Capacidades
 
 Seguem-se algumas das principais funcionalidades do Azure Event Grid:
 

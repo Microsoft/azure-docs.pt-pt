@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 5/31/2019
+ms.date: 11/05/2019
 ms.author: victorh
-ms.openlocfilehash: b30b96e6ae931e0df41b60e16f04127e82a068ad
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: a51276cd54a88c5e566afef0d06673f14b5862cf
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469757"
+ms.locfileid: "73572039"
 ---
 # <a name="what-is-azure-application-gateway"></a>O que é o Gateway de Aplicação do Azure?
 
@@ -47,11 +47,11 @@ O VIP do gateway de aplicativo no SKU Standard_v2 ou WAF_v2 dá suporte exclusiv
 
 ## <a name="web-application-firewall"></a>Firewall de aplicação Web
 
-Firewall de aplicações Web (WAF) é uma funcionalidade de Gateway de Aplicação que fornece proteção centralizada das suas aplicações Web a partir de exploits e vulnerabilidades comuns. O WAF é baseado em regras dos [conjuntos de regras principais do OWASP (projeto de segurança de aplicativo Web aberto)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,1 (somente WAF_v2), 3,0 e 2.2.9. 
+O WAF (firewall do aplicativo Web) é um serviço que fornece proteção centralizada de seus aplicativos Web contra explorações e vulnerabilidades comuns. O WAF é baseado em regras dos [conjuntos de regras principais do OWASP (projeto de segurança de aplicativo Web aberto)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,1 (somente WAF_v2), 3,0 e 2.2.9. 
 
 Cada vez mais, as aplicações Web são alvo de ataques maliciosos que exploram vulnerabilidades conhecidas comuns. Destas vulnerabilidades, são frequentes os ataques de injeção de SQL, scripting entre sites, entre muitas outras. Impedir este tipo de ataques ao código das aplicações constitui um desafio e exige uma manutenção, correção e monitorização rigorosas em muitas camadas da topologia da aplicação. Uma firewall de aplicações Web centralizada ajuda a simplificar em muito a gestão da segurança e confere aos administradores de aplicações uma maior garantia de proteção contra as ameaças ou intrusões. Uma solução WAF também pode reagir mais rapidamente a uma ameaça de segurança ao corrigir uma vulnerabilidade conhecida numa localização central, em vez de proteger cada uma das aplicações Web individualmente. Os gateways de aplicações existentes podem ser facilmente convertidos num gateway de aplicação com firewall de aplicações Web ativada.
 
-Para obter mais informações, consulte [Firewall do aplicativo Web (WAF) no gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/waf-overview).
+Para obter mais informações, consulte [o que é o Firewall do aplicativo Web do Azure?](../web-application-firewall/overview.md).
 
 ## <a name="ingress-controller-for-aks"></a>Controlador de entrada para AKS
 O AGIC (controlador de entrada do gateway de aplicativo) permite que você use o gateway de aplicativo como entrada para um cluster do [AKs (serviço de kubernetes do Azure)](https://azure.microsoft.com/services/kubernetes-service/) . 

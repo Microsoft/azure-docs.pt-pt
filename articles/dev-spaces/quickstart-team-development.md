@@ -10,14 +10,14 @@ ms.topic: quickstart
 description: Team kubernetes Development com contêineres e microservices no Azure
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: 15833294e1dd5b75251ad54fa1f33bc4ed5e2c20
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 9bdd52f2c120d338859259b046f7f4b97bbc4eed
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035170"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585201"
 ---
-# <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Início rápido: Desenvolvimento em equipe no kubernetes usando o Azure Dev Spaces
+# <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Início rápido: desenvolvimento de equipe no kubernetes usando Azure Dev Spaces
 
 Neste guia, vai aprender a:
 
@@ -31,7 +31,7 @@ Neste guia, vai aprender a:
 
 - Uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode [criar uma conta gratuita](https://azure.microsoft.com/free).
 - A [CLI do Azure instalada](/cli/azure/install-azure-cli?view=azure-cli-latest).
-- [Helm 2,13 ou superior instalado](https://github.com/helm/helm/blob/master/docs/install.md).
+- [Helm 2,13 ou superior instalado][helm-installed].
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Criar um cluster do serviço kubernetes do Azure
 
@@ -78,7 +78,7 @@ MyAKS               MyResourceGroup   dev       fedcab0987.eus.azds.io
 
 ## <a name="update-the-helm-chart-with-your-hostsuffix"></a>Atualize o gráfico Helm com seu HostSuffix
 
-Abra [Charts/Values. YAML](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/charts/values.yaml) e substitua todas as instâncias de `<REPLACE_ME_WITH_HOST_SUFFIX>` pelo valor HostSuffix recuperado anteriormente. Salve as alterações e feche o arquivo.
+Abra [Charts/Values. YAML](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/charts/values.yaml) e substitua todas as instâncias de `<REPLACE_ME_WITH_HOST_SUFFIX>` pelo valor de HostSuffix recuperado anteriormente. Salve as alterações e feche o arquivo.
 
 ## <a name="run-the-sample-application-in-kubernetes"></a>Executar o aplicativo de exemplo no kubernetes
 
@@ -155,7 +155,7 @@ $ azds space list
 *  dev/azureuser2  True
 ```
 
-Use o `azds list-uris` para exibir as URLs do aplicativo de exemplo no espaço selecionado no momento, que é *dev/azureuser2*.
+Use o `azds list-uris` para exibir as URLs para o aplicativo de exemplo no espaço atualmente selecionado, que é o *dev/azureuser2*.
 
 ```cmd
 $ azds list-uris
@@ -171,7 +171,7 @@ Navegue até o serviço *bikesharingweb* para o espaço de desenvolvimento de *d
 
 ## <a name="update-code"></a>Atualizar código
 
-Abra *BikeSharingWeb/Components/header. js* com um editor de texto e altere o texto no [elemento span com o ClassName `userSignOut`](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/components/Header.js#L16).
+Abra *BikeSharingWeb/Components/header. js* com um editor de texto e altere o texto no [elemento span com o `userSignOut` ClassName](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/components/Header.js#L16).
 
 ```html
 <span className="userSignOut">
@@ -239,5 +239,5 @@ Saiba como os Espaços de Programador do Azure ajudam a desenvolver aplicações
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](multi-service-nodejs.md) (Trabalhar com vários contentores e o desenvolvimento em equipa)
 
-
+[helm-installed]: https://helm.sh/docs/using_helm/#installing-helm
 [supported-regions]: about.md#supported-regions-and-configurations

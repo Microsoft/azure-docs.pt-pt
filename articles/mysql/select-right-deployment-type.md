@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 035a559f27d11a89dba1983f1bcaf406ef6a0d05
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: cab67a9a50d8e9d91897c170ef2cb0884f169c64
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331936"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606662"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Escolha a opção de servidor MySQL correta no Azure
 
@@ -38,7 +38,7 @@ As principais diferenças entre essas opções são listadas na tabela a seguir:
 | Aplicação de patch do MySQL     | Automático  | Gerenciado por clientes |
 | Elevada disponibilidade | O modelo de alta disponibilidade (HA) é baseado em mecanismos de failover internos para quando ocorre uma interrupção no nível do nó. Nesses casos, o serviço cria automaticamente uma nova instância e anexa o armazenamento a essa instância. | Os clientes arquitetam, implementam, testam e mantêm a alta disponibilidade. Os recursos podem incluir clustering de failover Always on, replicação de grupo Always on, envio de logs ou replicação transacional.|
 | Redundância de zona | Atualmente sem suporte | As VMs do Azure podem ser configuradas para serem executadas em diferentes zonas de disponibilidade. Para uma solução local, os clientes devem criar, gerenciar e manter seus próprios data center secundários.|
-| Cenários híbridos | Com o [replicação de dados](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication), você pode sincronizar dados de um servidor MySQL externo no banco de dados do Azure para o serviço mysql. O servidor externo pode ser local, em máquinas virtuais ou em um serviço de banco de dados hospedado por outros provedores de nuvem.<br/><br/> Com o recurso de [réplica de leitura](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) , você pode replicar dados de um servidor mestre do banco de dados do Azure para MySQL para até cinco servidores de réplica somente leitura. As réplicas estão dentro da mesma região do Azure ou entre regiões. Réplicas somente leitura são atualizadas de forma assíncrona usando a tecnologia de replicação binlog.<br/><br/>A replicação de leitura entre regiões está atualmente em visualização pública.| Gerenciado por clientes
+| Cenários híbridos | Com o [replicação de dados](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication), você pode sincronizar dados de um servidor MySQL externo no banco de dados do Azure para o serviço mysql. O servidor externo pode ser local, em máquinas virtuais ou em um serviço de banco de dados hospedado por outros provedores de nuvem.<br/><br/> Com o recurso de [réplica de leitura](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) , você pode replicar dados de um servidor mestre do banco de dados do Azure para MySQL para até cinco servidores de réplica somente leitura. As réplicas estão dentro da mesma região do Azure ou entre regiões. Réplicas somente leitura são atualizadas de forma assíncrona usando a tecnologia de replicação binlog.| Gerenciado por clientes
 | Backup e restauração | O cria automaticamente [backups de servidor](https://docs.microsoft.com/azure/mysql/concepts-backup#backups) e os armazena em um armazenamento configurado pelo usuário que seja localmente redundante ou com redundância geográfica. O serviço usa backups completos, diferenciais e de log de transações | Gerenciado por clientes |
 | Operações de banco de dados de monitoramento | Oferece aos clientes a capacidade de [definir alertas](https://docs.microsoft.com/azure/mysql/concepts-monitoring) na operação de banco de dados e agir sobre o alcance de limites. | Gerenciado por clientes |
 | Proteção Avançada Contra Ameaças | Fornece [proteção avançada contra ameaças](https://docs.microsoft.com/azure/mysql/howto-database-threat-protection-portal). Essa proteção detecta atividades anômalas que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados. | Os clientes devem criar essa proteção para si mesmos.
@@ -80,7 +80,7 @@ A lista a seguir descreve as considerações administrativas para cada opção:
 
 * Com o banco de dados do Azure para MySQL, você pode continuar a administrar seu banco de dados. Mas você não precisa mais gerenciar o mecanismo de banco de dados, o sistema operacional ou o hardware. Exemplos de itens que você pode continuar a administrar incluem:
 
-  - Bases de dados
+  - Bases de Dados
   - Iniciar sessão
   - Otimização de índices
   - Ajuste de consulta
