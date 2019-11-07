@@ -1,6 +1,6 @@
 ---
-title: Criar um modelo de análise de sentimentos
-titleSuffix: Azure Machine Learning Studio (classic)
+title: Caso de uso da análise de sentimentos
+titleSuffix: ML Studio (classic) Azure
 description: Como criar modelos de análise de texto no Azure Machine Learning Studio (clássico) usando módulos para o pré-processamento de texto, N-gramas ou hash de recurso
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: d24e4f98e987cb911a8bc0ffcd1b49e1bed8b920
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 63c1d19f1ab44fa56893c17edd78aeaf54a17314
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467159"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670690"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>Criar um modelo de análise de sentimentos no Azure Machine Learning Studio (clássico)
 
@@ -86,6 +86,6 @@ Inserimos as colunas SELECT no módulo DataSet antes do módulo de texto pré-pr
 
 Agora temos um experimento que pode ser publicado como um serviço Web e chamado usando APIs de solicitação-resposta ou execução em lote.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre os módulos de análise de texto da [documentação do MSDN](https://msdn.microsoft.com/library/azure/dn905886.aspx).
 

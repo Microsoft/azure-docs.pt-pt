@@ -1,5 +1,5 @@
 ---
-title: Criar um contêiner de perfil do FSLogix para um pool de hosts usando um compartilhamento de arquivos baseado em máquina virtual-Azure
+title: Compartilhamento de contêiner de perfil FSLogix da área de trabalho virtual do Windows – Azure
 description: Como configurar um contêiner de perfil FSLogix para um pool de hosts de área de trabalho virtual do Windows usando um compartilhamento de arquivos baseado em máquina virtual.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: 0e7516fc4874e4cbc387f2f494efc6ef745d64f7
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 65d800cc6c1b6818369807ffeae9cd350a34066f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311601"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606997"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Criar um contentor de perfis para um conjunto de anfitriões através de uma partilha de ficheiros
 
@@ -59,9 +59,9 @@ Para configurar as máquinas virtuais com o software FSLogix, faça o seguinte e
 
 1. [Conecte-se à máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) com as credenciais fornecidas ao criar a máquina virtual.
 2. Inicie um navegador da Internet e navegue até [este link](https://go.microsoft.com/fwlink/?linkid=2084562) para baixar o agente do FSLogix.
-3. Navegue até \\ @ no__t-1Win32 @ no__t-2Release ou \\ @ no__t-4X64 @ no__t-5Release no arquivo. zip e execute **FSLogixAppsSetup** para instalar o agente FSLogix.  Para saber mais sobre como instalar o FSLogix, consulte [baixar e instalar o FSLogix](https://docs.microsoft.com/fslogix/install-ht).
+3. Navegue até \\versão \\Win32\\ou \\versão \\x64\\no arquivo. zip e execute **FSLogixAppsSetup** para instalar o agente do FSLogix.  Para saber mais sobre como instalar o FSLogix, consulte [baixar e instalar o FSLogix](https://docs.microsoft.com/fslogix/install-ht).
 4. Navegue até **arquivos de programas** > **FSLogix** > **aplicativos** para confirmar o agente instalado.
-5. No menu Iniciar, execute **regedit** como administrador. Navegue até **computador @ no__t-1HKEY_LOCAL_MACHINE @ no__t-2software @ no__t-3FSLogix**.
+5. No menu Iniciar, execute **regedit** como administrador. Navegue até **computador\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
 6. Crie uma chave chamada **perfis**.
 7. Crie os seguintes valores para a chave de perfis:
 

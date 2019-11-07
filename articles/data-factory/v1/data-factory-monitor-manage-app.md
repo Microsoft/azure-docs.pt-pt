@@ -1,5 +1,5 @@
 ---
-title: Monitorar e gerenciar pipelines de dados – Azure | Microsoft Docs
+title: Monitorar e gerenciar pipelines de dados – Azure
 description: Saiba como usar o aplicativo de monitoramento e gerenciamento para monitorar e gerenciar fábricas e pipelines de dados do Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 052ea99f0489458269adf4dca2c6713535933638
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139577"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666931"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorar e gerenciar pipelines de Azure Data Factory usando o aplicativo de monitoramento e gerenciamento
 > [!div class="op_single_selector"]
@@ -58,9 +58,9 @@ Na lista janelas de atividades no painel central, você vê uma janela de ativid
 Se você não tiver um aplicativo Data Factory para testar essas etapas com o, faça o tutorial: [copiar dados do armazenamento de BLOBs para o banco de dados SQL usando data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="understand-the-monitoring-and-management-app"></a>Entender o aplicativo de monitoramento e gerenciamento
-Há três guias à esquerda: **Gerenciador de recursos**, exibições de **monitoramento**e **alertas**. A primeira guia (**Gerenciador de recursos**) é selecionada por padrão.
+Há três guias à esquerda: Gerenciador de **recursos**, **exibições de monitoramento**e **alertas**. A primeira guia (**Gerenciador de recursos**) é selecionada por padrão.
 
-### <a name="resource-explorer"></a>Explorador de Recursos
+### <a name="resource-explorer"></a>Gerenciador de recursos
 Você verá o seguinte:
 
 * A exibição de **árvore** do Gerenciador de recursos no painel esquerdo.
@@ -75,7 +75,7 @@ No Gerenciador de recursos, você vê todos os recursos (pipelines, conjuntos de
 * As propriedades do objeto selecionado são mostradas na janela Propriedades no painel direito.
 * A definição JSON do objeto selecionado é mostrada, se aplicável. Por exemplo: um serviço vinculado, um conjunto de um DataSet ou um pipeline.
 
-![Explorador de Recursos](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
+![Gerenciador de recursos](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
 Consulte o artigo [agendamento e execução](data-factory-scheduling-and-execution.md) para obter informações conceituais detalhadas sobre janelas de atividades.
 
@@ -108,7 +108,7 @@ Clique na opção **abrir pipeline** para ver todas as atividades no pipeline.
 
 ![Menu Abrir pipeline](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
 
-Na exibição de pipeline aberta, você vê todas as atividades no pipeline. Neste exemplo, há apenas uma atividade: Atividade de cópia. 
+Na exibição de pipeline aberta, você vê todas as atividades no pipeline. Neste exemplo, há apenas uma atividade: atividade de cópia. 
 
 ![Pipeline aberto](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
@@ -144,7 +144,7 @@ No pop-up janelas de atividades e no Gerenciador de janelas de atividades, você
 
 ![Setas à esquerda/direita do Gerenciador de janelas de atividades](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
 
-Na parte inferior do modo de exibição de diagrama, você verá estes botões: Ampliar, reduzir, ajustar zoom, aplicar zoom em 100%, bloquear layout. O botão **Bloquear layout** impede que você mova acidentalmente tabelas e pipelines na exibição de diagrama. Ele está ativado por padrão. Você pode desativá-lo e mover entidades no diagrama. Ao desativá-lo, você pode usar o último botão para posicionar automaticamente as tabelas e os pipelines. Você também pode ampliar ou reduzir usando a roda do mouse.
+Na parte inferior da exibição de diagrama, você verá estes botões: ampliar, reduzir, ajustar nível de zoom, zoom de 100%, bloquear layout. O botão **Bloquear layout** impede que você mova acidentalmente tabelas e pipelines na exibição de diagrama. Ele está ativado por padrão. Você pode desativá-lo e mover entidades no diagrama. Ao desativá-lo, você pode usar o último botão para posicionar automaticamente as tabelas e os pipelines. Você também pode ampliar ou reduzir usando a roda do mouse.
 
 ![Comandos de zoom da exibição de diagrama](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
@@ -159,7 +159,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 
 <table>
 <tr>
-    <th align="left">State</th><th align="left">Substatus</th><th align="left">Descrição</th>
+    <th align="left">Estado</th><th align="left">Substatus</th><th align="left">Descrição</th>
 </tr>
 <tr>
     <td rowspan="8">A aguardar</td><td>Agendatime</td><td>A hora não chegou à execução da janela de atividade.</td>
@@ -187,7 +187,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 </tr>
 <tr>
 <tr>
-<td rowspan="2">Em curso</td><td>A Validar</td><td>A validação está em andamento.</td>
+<td rowspan="2">InProgress</td><td>Verificar</td><td>A validação está em andamento.</td>
 </tr>
 <td>-</td>
 <td>A janela de atividade está sendo processada.</td>
@@ -246,7 +246,7 @@ Você pode usar a guia **script** para exibir a definição de JSON da entidade 
 ## <a name="use-system-views"></a>Usar exibições do sistema
 O aplicativo de monitoramento e gerenciamento inclui exibições de sistema predefinidas (**janelas de atividades recentes**, **janelas de atividades com falha**, **janelas de atividades em andamento**) que permitem que você exiba janelas de atividades recentes/com falha/em andamento para seus dados padrões.
 
-Alterne para a guia exibições de **monitoramento** à esquerda clicando nela.
+Alterne para a guia **exibições de monitoramento** à esquerda clicando nela.
 
 ![Guia exibições de monitoramento](./media/data-factory-monitor-manage-app/MonitoringViewsTab.png)
 
@@ -266,11 +266,11 @@ Altere as configurações de **hora de início** e **hora de término** na barra
 >
 >
 
-Na **lista janelas de atividades**, clique no nome de uma coluna (por exemplo: Status).
+Na **lista janelas de atividades**, clique no nome de uma coluna (por exemplo: status).
 
 ![Menu de coluna da lista de janelas de atividades](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
-Pode fazer o seguinte:
+Você pode fazer o seguinte:
 
 * Classificar em ordem crescente.
 * Classificar em ordem decrescente.
@@ -286,10 +286,10 @@ Você pode usar a mesma janela pop-up para limpar filtros. Para limpar todos os 
 
 ## <a name="perform-batch-actions"></a>Executar ações em lote
 ### <a name="rerun-selected-activity-windows"></a>Executar novamente as janelas de atividades selecionadas
-Selecione uma janela de atividade, clique na seta para baixo do primeiro botão da barra de comandos / e selecione executar**novamente executar novamente com upstream no pipeline**. Quando você seleciona a opção **executar novamente com upstream no pipeline** , ele executa todas as janelas de atividade upstream também.
-    ![Executar novamente uma janela de atividade](./media/data-factory-monitor-manage-app/ReRunSlice.png)
+Selecione uma janela de atividade, clique na seta para baixo do primeiro botão da barra de comandos e selecione **executar novamente** / **executar novamente com upstream no pipeline**. Quando você seleciona a opção **executar novamente com upstream no pipeline** , ele executa todas as janelas de atividade upstream também.
+    ![executar novamente uma janela de atividade](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-Você também pode selecionar várias janelas de atividades na lista e executá-las ao mesmo tempo. Talvez você queira filtrar as janelas de atividades com base no status (por exemplo: **Com falha**) --e, em seguida, execute novamente as janelas de atividades com falha depois de corrigir o problema que faz com que as janelas de atividades falhem. Consulte a seção a seguir para obter detalhes sobre como filtrar janelas de atividades na lista.  
+Você também pode selecionar várias janelas de atividades na lista e executá-las ao mesmo tempo. Talvez você queira filtrar as janelas de atividades com base no status (por exemplo: **falha**) – e, em seguida, executar novamente as janelas de atividades com falha depois de corrigir o problema que faz com que as janelas de atividades falhem. Consulte a seção a seguir para obter detalhes sobre como filtrar janelas de atividades na lista.  
 
 ### <a name="pauseresume-multiple-pipelines"></a>Pausar/retomar vários pipelines
 Você pode selecionar multiseleção dois ou mais pipelines usando a tecla CTRL. Você pode usar os botões da barra de comandos (que são realçados no retângulo vermelho na imagem a seguir) para pausá-los/retomá-los.

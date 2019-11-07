@@ -1,6 +1,6 @@
 ---
-title: Copiar ficheiros de vários contentores através do Azure Data Factory | Documentos da Microsoft
-description: Saiba como utilizar um modelo de solução para copiar ficheiros de vários contentores através do Azure Data Factory.
+title: Copiar arquivos de vários contêineres usando Azure Data Factory
+description: Saiba como usar um modelo de solução para copiar arquivos de vários contêineres usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -12,61 +12,61 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/1/2018
-ms.openlocfilehash: a52729adf8d6df3f4e44e561b45b854db433628c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 004a623f0dfe251da9d452b53c2541e53339d965
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60635213"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684258"
 ---
-# <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Copiar ficheiros de vários contentores com o Azure Data Factory
+# <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Copiar arquivos de vários contêineres com Azure Data Factory
 
-Este artigo descreve um modelo de solução que pode utilizar para copiar ficheiros de vários contentores entre arquivos de ficheiros. Por exemplo, pode utilizá-lo para migrar sua o data lake do AWS S3 para o Azure Data Lake Store. Em alternativa, poderia usar o modelo para replicar tudo de uma conta de armazenamento de Blobs do Azure para outra.
+Este artigo descreve um modelo de solução que você pode usar para copiar arquivos de vários contêineres entre repositórios de arquivos. Por exemplo, você pode usá-lo para migrar seu data Lake do AWS S3 para Azure Data Lake Store. Ou, você pode usar o modelo para replicar tudo de uma conta de armazenamento de BLOBs do Azure para outra.
 
 > [!NOTE]
-> Se pretender copiar ficheiros de um único contentor, é mais eficiente para utilizar o [ferramenta de cópia de dados](copy-data-tool.md) para criar um pipeline com uma atividade de cópia única. O modelo neste artigo é mais do que precisa para esse cenário simple.
+> Se você quiser copiar arquivos de um único contêiner, é mais eficiente usar a [ferramenta copiar dados](copy-data-tool.md) para criar um pipeline com uma única atividade de cópia. O modelo neste artigo é mais do que você precisa para esse cenário simples.
 
 ## <a name="about-this-solution-template"></a>Sobre este modelo de solução
 
-Este modelo enumera os contentores de seu arquivo de armazenamento de origem. Em seguida, copia esses contentores para o arquivo de destino.
+Esse modelo enumera os contêineres do seu armazenamento de origem. Em seguida, ele copia esses contêineres para o repositório de destino.
 
 O modelo contém três atividades:
-- **GetMetadata** analisa o arquivo de armazenamento de origem e obtém a lista de contentores.
-- **ForEach** obtém a lista de contentor a partir de **GetMetadata** atividade e, em seguida, itera sobre a lista e transmite o cada contentor para a atividade de cópia.
-- **Cópia** copia cada contentor a partir da loja de armazenamento de origem para o arquivo de destino.
+- O **GetMetadata** verifica seu armazenamento de origem e obtém a lista de contêineres.
+- **Foreach** Obtém a lista de contêineres da atividade **GetMetadata** e, em seguida, itera na lista e passa cada contêiner para a atividade de cópia.
+- **Copiar** copia cada contêiner do repositório de armazenamento de origem para o repositório de destino.
 
 O modelo define dois parâmetros:
-- *SourceFilePath* é o caminho do seu arquivo de origem de dados, onde pode obter uma lista dos contentores. Na maioria dos casos, o caminho é o diretório de raiz, que contém várias pastas de contentor. O valor padrão desse parâmetro é `/`.
-- *DestinationFilePath* é o caminho onde os ficheiros serão copiados no seu arquivo de destino. O valor padrão desse parâmetro é `/`.
+- *SourceFilePath* é o caminho do seu repositório de fonte de dados, onde você pode obter uma lista dos contêineres. Na maioria dos casos, o caminho é o diretório raiz, que contém várias pastas de contêiner. O valor padrão desse parâmetro é `/`.
+- *DestinationFilePath* é o caminho para o qual os arquivos serão copiados no armazenamento de destino. O valor padrão desse parâmetro é `/`.
 
-## <a name="how-to-use-this-solution-template"></a>Como utilizar este modelo de solução
+## <a name="how-to-use-this-solution-template"></a>Como usar este modelo de solução
 
-1. Vá para o **copiar vários contentores de arquivos entre arquivos de ficheiro** modelo. Criar uma **New** ligação ao seu arquivo de armazenamento de origem. O arquivo de armazenamento de origem é onde pretende copiar ficheiros de vários contentores de.
+1. Vá para o modelo **copiar vários arquivos entre os repositórios** de arquivos. Crie uma **nova** conexão com o repositório de armazenamento de origem. O repositório de armazenamento de origem é onde você deseja copiar arquivos de vários contêineres.
 
-    ![Criar uma nova ligação para a origem](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png)
+    ![Criar uma nova conexão com a origem](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png)
 
-2. Criar uma **New** ligação ao seu arquivo de armazenamento de destino.
+2. Crie uma **nova** conexão com o repositório de armazenamento de destino.
 
-    ![Criar uma nova ligação para o destino](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
+    ![Criar uma nova conexão com o destino](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
 
-3. Selecione **Utilize este modelo**.
+3. Selecione **usar este modelo**.
 
-    ![Utilize este modelo](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
+    ![Usar este modelo](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
     
-4. Verá o pipeline, como no exemplo seguinte:
+4. Você verá o pipeline, como no exemplo a seguir:
 
     ![Mostrar o pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Selecione **depurar**, introduza o **parâmetros**e, em seguida, selecione **concluir**.
+5. Selecione **depurar**, insira os **parâmetros**e, em seguida, selecione **concluir**.
 
     ![Executar o pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 
-6. Reveja o resultado.
+6. Examine o resultado.
 
-    ![O resultado da revisão](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image6.png)
+    ![Examinar o resultado](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image6.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Cópia em massa de uma base de dados através de uma tabela de controle com o Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
+- [Cópia em massa de um banco de dados usando uma tabela de controle com Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
 
-- [Copiar ficheiros de vários contentores com o Azure Data Factory](solution-template-copy-files-multiple-containers.md)
+- [Copiar arquivos de vários contêineres com Azure Data Factory](solution-template-copy-files-multiple-containers.md)

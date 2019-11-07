@@ -1,5 +1,5 @@
 ---
-title: Invocar programas Spark de Azure Data Factory | Microsoft Docs
+title: Invocar programas Spark do Azure Data Factory
 description: Saiba como invocar programas Spark de uma data factory do Azure usando a atividade MapReduce.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 08aa1303aeaa0a80f0825f45e037109b98e9771e
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: d5f5da4811a9551f687fed6ab317bb3d33041622
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135343"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666168"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas Spark de pipelines Azure Data Factory
 
@@ -42,7 +42,7 @@ A atividade do Spark é uma das [atividades de transformação de dados](data-fa
 > - A atividade do Spark não dá suporte a clusters HDInsight Spark que usam Azure Data Lake Store como armazenamento primário.
 > - A atividade do Spark dá suporte apenas a clusters HDInsight Spark existentes (seus próprios). Ele não dá suporte a um serviço vinculado do HDInsight sob demanda.
 
-## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Descrição Passo a Passo: Criar um pipeline com uma atividade Spark
+## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Walkthrough: criar um pipeline com uma atividade do Spark
 Aqui estão as etapas típicas para criar um pipeline de data factory com uma atividade do Spark: 
 
 * Criar uma fábrica de dados.
@@ -56,21 +56,21 @@ Aqui estão as etapas típicas para criar um pipeline de data factory com uma at
 
 1. Crie um cluster Spark no HDInsight seguindo as instruções no tutorial [criar um cluster do Spark no hdinsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associe a conta de armazenamento criada na etapa 1 a este cluster.
 
-1. Baixe e examine o arquivo de script Python **Test.py** localizado [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py)em.
+1. Baixe e examine o arquivo de script Python **Test.py** localizado em [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
 
 1. Carregue o **Test.py** na pasta **pyFiles** no contêiner **adfspark** no armazenamento de BLOBs. Crie o contêiner e a pasta se eles não existirem.
 
 ### <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 Para criar uma fábrica de dados, siga estes passos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 1. Selecione **Novo** > **Dados + Análise** > **Data Factory**.
 
 1. Na folha **novo data Factory** , em **nome**, insira **SparkDF**.
 
    > [!IMPORTANT]
-   > O nome do Azure Data Factory deve ser globalmente exclusivo. Se você vir o erro "o nome do data Factory SparkDF não está disponível", altere o nome do data factory. Por exemplo, use yournameSparkDFdate e crie a data factory novamente. Para obter mais informações sobre regras de nomenclatura [, consulte Data Factory: Regras](data-factory-naming-rules.md)de nomenclatura.
+   > O nome do Azure Data Factory deve ser globalmente exclusivo. Se você vir o erro "o nome do data Factory SparkDF não está disponível", altere o nome do data factory. Por exemplo, use yournameSparkDFdate e crie a data factory novamente. Para obter mais informações sobre regras de nomenclatura, veja [Data Factory: regras de nomenclatura](data-factory-naming-rules.md).
 
 1. Em **Subscrição**, selecione a subscrição do Azure onde pretende que seja criada a fábrica de dados.
 
@@ -99,7 +99,7 @@ Neste passo, vai ligar a sua conta de armazenamento à fábrica de dados. Um con
 
 1. Selecione **Novo arquivo de dados** e escolha **Armazenamento do Azure**.
 
-   ![Novo arquivo de dados](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
+   ![Novo armazenamento de dados](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
 
 1. O script JSON que você usa para criar um serviço vinculado de armazenamento aparece no editor.
 
@@ -112,7 +112,7 @@ Neste passo, vai ligar a sua conta de armazenamento à fábrica de dados. Um con
 #### <a name="create-an-hdinsight-linked-service"></a>Criar um serviço ligado do HDInsight
 Nesta etapa, você cria um serviço vinculado do HDInsight para vincular seu cluster HDInsight Spark ao data factory. O cluster HDInsight é usado para executar o programa Spark especificado na atividade Spark do pipeline neste exemplo. 
 
-1. No editor de data Factory, selecione **mais** > **novo computação** > **cluster HDInsight**.
+1. No editor de Data Factory, selecione **mais** > **novo computação** > **cluster HDInsight**.
 
     ![Criar serviço ligado do HDInsight](media/data-factory-spark/new-hdinsight-linked-service.png)
 
@@ -324,18 +324,18 @@ Aqui está a definição de JSON de exemplo de um pipeline com uma atividade do 
 
 A tabela a seguir descreve as propriedades JSON usadas na definição de JSON.
 
-| Propriedade | Descrição | Requerido |
+| Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
-| name | Nome da atividade no pipeline. | Sim |
-| description | Texto que descreve o que a atividade faz. | Não |
-| type | Essa propriedade deve ser definida como HDInsightSpark. | Sim |
+| nome | Nome da atividade no pipeline. | Sim |
+| descrição | Texto que descreve o que a atividade faz. | Não |
+| tipo | Essa propriedade deve ser definida como HDInsightSpark. | Sim |
 | linkedServiceName | Nome do serviço vinculado do HDInsight no qual o programa Spark é executado. | Sim |
 | rootPath | O contêiner de BLOB e a pasta que contém o arquivo Spark. O nome do arquivo diferencia maiúsculas de minúsculas. | Sim |
 | entryFilePath | Caminho relativo para a pasta raiz do código/pacote do Spark. | Sim |
 | className | Classe principal Java/Spark do aplicativo. | Não |
-| arguments | Uma lista de argumentos de linha de comando para o programa Spark. | Não |
+| argumentos | Uma lista de argumentos de linha de comando para o programa Spark. | Não |
 | proxyUser | A conta de usuário a ser representada para executar o programa Spark. | Não |
-| sparkConfig | Especifique valores para as propriedades de configuração do Spark [listadas na configuração do Spark: Propriedades](https://spark.apache.org/docs/latest/configuration.html#available-properties)do aplicativo. | Não |
+| sparkConfig | Especifique valores para as propriedades de configuração do Spark listadas na [configuração do Spark: propriedades do aplicativo](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Não |
 | getDebugInfo | Especifica quando os arquivos de log do Spark são copiados para o armazenamento usado pelo cluster HDInsight (ou) especificado por sparkJobLinkedService. Os valores permitidos são None, Always ou Failure. O valor padrão é None. | Não |
 | sparkJobLinkedService | O serviço vinculado de armazenamento que contém o arquivo de trabalho do Spark, dependências e logs. Se você não especificar um valor para essa propriedade, o armazenamento associado ao cluster HDInsight será usado. | Não |
 
@@ -344,10 +344,10 @@ A atividade do Spark não dá suporte a um script embutido, pois as atividades P
 
 Crie a seguinte estrutura de pastas no armazenamento de BLOBs referenciado pelo serviço vinculado do HDInsight. Em seguida, carregue os arquivos dependentes nas subpastas apropriadas na pasta raiz representada por **entryFilePath**. Por exemplo, carregue arquivos Python na subpasta pyFiles e nos arquivos jar para a subpasta jars da pasta raiz. Em tempo de execução, o serviço Data Factory espera a seguinte estrutura de pasta no armazenamento de BLOBs: 
 
-| Path | Descrição | Requerido | Type |
+| Caminho | Descrição | Necessário | Tipo |
 | ---- | ----------- | -------- | ---- |
 | . | O caminho raiz do trabalho do Spark no serviço vinculado de armazenamento. | Sim | Pasta |
-| &lt;definido pelo usuário&gt; | O caminho que aponta para o arquivo de entrada do trabalho do Spark. | Sim | Ficheiro |
+| &lt;&gt; definidas pelo usuário | O caminho que aponta para o arquivo de entrada do trabalho do Spark. | Sim | Ficheiro |
 | ./jars | Todos os arquivos nessa pasta são carregados e colocados no classpath Java do cluster. | Não | Pasta |
 | ./pyFiles | Todos os arquivos nessa pasta são carregados e colocados no PYTHONPATH do cluster. | Não | Pasta |
 | ./files | Todos os arquivos nessa pasta são carregados e colocados no diretório de trabalho do executor. | Não | Pasta |

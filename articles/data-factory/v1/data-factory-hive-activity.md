@@ -1,5 +1,5 @@
 ---
-title: Transformar dados usando a atividade do hive – Azure | Microsoft Docs
+title: Transformar dados usando a atividade do hive – Azure
 description: Saiba como você pode usar a atividade do hive em uma data factory do Azure para executar consultas do hive em um cluster do HDInsight sob demanda/.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 8a7e6748f450ae398a05097ac6b192d074f5f1f7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f159f672c999d7877ef89cd78d23c4a608ccf1ab
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139539"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666998"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do hive no Azure Data Factory 
 > [!div class="op_single_selector" title1="Atividades de transformação"]
@@ -38,7 +38,7 @@ ms.locfileid: "70139539"
 A atividade do hive do HDInsight em um [pipeline](data-factory-create-pipelines.md) data Factory executa consultas de Hive em [seu próprio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster do HDInsight baseado em Windows/Linux [sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) . Este artigo se baseia no artigo [atividades de transformação de dados](data-factory-data-transformation-activities.md) , que apresenta uma visão geral da transformação de dados e das atividades de transformação com suporte.
 
 > [!NOTE] 
-> Se você for novo no Azure Data Factory, leia a [introdução ao Azure data Factory](data-factory-introduction.md) e faça o tutorial: [Crie seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md) antes de ler este artigo. 
+> Se você for novo no Azure Data Factory, leia a [introdução ao Azure data Factory](data-factory-introduction.md) e faça o tutorial: [criar seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md) antes de ler este artigo. 
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -72,22 +72,22 @@ A atividade do hive do HDInsight em um [pipeline](data-factory-create-pipelines.
 }
 ```
 ## <a name="syntax-details"></a>Detalhes da sintaxe
-| Propriedade | Descrição | Requerido |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| name |Nome da atividade |Sim |
-| description |Texto que descreve para que a atividade é usada |Não |
-| type |HDinsightHive |Sim |
-| inputs |Entradas consumidas pela atividade de Hive |Não |
-| outputs |Saídas produzidas pela atividade de Hive |Sim |
+| nome |Nome da atividade |Sim |
+| descrição |Texto que descreve para que a atividade é usada |Não |
+| tipo |HDinsightHive |Sim |
+| informações |Entradas consumidas pela atividade de Hive |Não |
+| produz |Saídas produzidas pela atividade de Hive |Sim |
 | linkedServiceName |Referência ao cluster HDInsight registrado como um serviço vinculado no Data Factory |Sim |
-| script |Especificar o script do hive embutido |Não |
+| . |Especificar o script do hive embutido |Não |
 | scriptPath |Armazene o script do hive em um armazenamento de BLOBs do Azure e forneça o caminho para o arquivo. Use a propriedade ' script ' ou ' scriptPath '. Ambos não podem ser usados juntos. O nome do arquivo diferencia maiúsculas de minúsculas. |Não |
-| defines |Especifique parâmetros como pares de chave/valor para referência no script do hive usando ' hiveconf ' |Não |
+| autor |Especifique parâmetros como pares de chave/valor para referência no script do hive usando ' hiveconf ' |Não |
 
 ## <a name="example"></a>Exemplo
 Vamos considerar um exemplo de análise de logs de jogos em que você deseja identificar o tempo gasto pelos usuários que desempenham jogos lançados por sua empresa. 
 
-O log a seguir é um log de jogo de exemplo, que`,`é separado por vírgula () e contém os campos a seguir – ProfileId, SessionStart, Duration, SrcIPAddress e gametype.
+O log a seguir é um log de jogo de exemplo, que é separado por vírgula (`,`) e contém os campos a seguir – ProfileId, SessionStart, Duration, SrcIPAddress e gametype.
 
 ```
 1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
@@ -241,7 +241,7 @@ Para usar o script Hive com parâmetros, faça o seguinte
         SUM(Duration)
     FROM HiveSampleIn Group by ProfileID
     ```
-  ## <a name="see-also"></a>Consultar Também
+  ## <a name="see-also"></a>Veja também
 * [Atividade Pig](data-factory-pig-activity.md)
 * [Atividade MapReduce](data-factory-map-reduce.md)
 * [Atividade de streaming do Hadoop](data-factory-hadoop-streaming-activity.md)

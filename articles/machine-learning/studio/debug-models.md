@@ -1,6 +1,6 @@
 ---
 title: Depurar seu modelo
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Como depurar erros produzidos pelos módulos modelo de treinamento e modelo de pontuação no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2017
-ms.openlocfilehash: 053bb75bb7beea86215397bdfd81a1dbc9d1bcb9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0ab7f041da63731706742547a53df47462bc584a
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493071"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619445"
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio-classic"></a>Depurar seu modelo no Azure Machine Learning Studio (clássico)
 

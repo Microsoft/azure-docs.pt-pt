@@ -1,6 +1,6 @@
 ---
-title: Transformar dados com a atividade de transmissão em fluxo do Hadoop no Azure Data Factory | Documentos da Microsoft
-description: Explica como utilizar a atividade de transmissão em fluxo Hadoop no Azure Data Factory para transformar dados através da execução de programas de transmissão em fluxo do Hadoop num cluster do Hadoop.
+title: Transformar dados usando a atividade de streaming do Hadoop no Azure Data Factory
+description: Explica como usar a atividade de streaming do Hadoop no Azure Data Factory para transformar dados executando programas de streaming do Hadoop em um cluster Hadoop.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,23 +11,23 @@ ms.date: 01/16/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 0d8267f1cd65f78d5e98ae9d288d5fa5c4214420
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6977f7a6ad7fd79a51083bf2ef71c539e04837e5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60848253"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683780"
 ---
-# <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados com a atividade de transmissão em fluxo do Hadoop no Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
+# <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados usando a atividade de streaming do Hadoop no Azure Data Factory
+> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-hadoop-streaming-activity.md)
 > * [Versão atual](transform-data-using-hadoop-streaming.md)
 
-A atividade Streaming do HDInsight numa fábrica de dados [pipeline](concepts-pipelines-activities.md) executa programas de transmissão em fluxo do Hadoop no [seu próprio](compute-linked-services.md#azure-hdinsight-linked-service) ou [sob demanda](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) cluster do HDInsight. Este artigo baseia-se a [atividades de transformação de dados](transform-data.md) artigo, que apresenta uma visão geral de transformação de dados e as atividades de transformação suportados.
+A atividade de streaming do HDInsight em um [pipeline](concepts-pipelines-activities.md) data Factory executa programas de streaming do Hadoop em [seu próprio](compute-linked-services.md#azure-hdinsight-linked-service) cluster HDInsight ou [sob demanda](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) . Este artigo se baseia no artigo [atividades de transformação de dados](transform-data.md) , que apresenta uma visão geral da transformação de dados e das atividades de transformação com suporte.
 
-Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure Data Factory](introduction.md) e faça a [Tutorial: transformar dados](tutorial-transform-data-spark-powershell.md) antes de ler este artigo. 
+Se você for novo no Azure Data Factory, leia a [introdução ao Azure data Factory](introduction.md) e faça o [tutorial: transformar dados](tutorial-transform-data-spark-powershell.md) antes de ler este artigo. 
 
-## <a name="json-sample"></a>Exemplo JSON
+## <a name="json-sample"></a>Exemplo de JSON
 ```json
 {
     "name": "Streaming Activity",
@@ -70,29 +70,29 @@ Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure D
 
 | Propriedade          | Descrição                              | Necessário |
 | ----------------- | ---------------------------------------- | -------- |
-| name              | Nome da atividade                     | Sim      |
-| description       | Texto que descreve o que a atividade é utilizada para | Não       |
-| type              | Para a atividade de transmissão em fluxo do Hadoop, o tipo de atividade é HDInsightStreaming | Sim      |
-| linkedServiceName | Referência para o cluster de HDInsight registado como um serviço ligado no Data Factory. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |
-| Mapeador de pontos            | Especifica o nome do executável o mapeador de pontos | Sim      |
-| reducer           | Especifica o nome do reducer executável | Sim      |
-| combinação          | Especifica o nome da combinação executável | Não       |
-| fileLinkedService | Referência para um serviço ligado de armazenamento do Azure utilizada para armazenar os mapeador de combinação e Reducer a execução de programas. Se não especificar este serviço ligado, o serviço ligado de armazenamento de Azure definido no serviço ligado do HDInsight é utilizado. | Não       |
-| filePath          | Forneça uma matriz de caminho para o mapeador de pontos, combinação, e programas Reducer armazenados no armazenamento do Azure referenciado pela fileLinkedService. O caminho é sensível a maiúsculas e minúsculas. | Sim      |
-| entrada             | Especifica o caminho WASB para o ficheiro de entrada para o mapeador de pontos. | Sim      |
-| saída            | Especifica o caminho WASB para o ficheiro de saída para o Reducer. | Sim      |
-| getDebugInfo      | Especifica quando os arquivos de log são copiados para o armazenamento do Azure utilizado pelo cluster do HDInsight (ou) especificado pelo scriptLinkedService. Valores permitidos: Nenhum, sempre, ou a falha. Valor predefinido: Nenhum. | Não       |
-| arguments         | Especifica uma matriz de argumentos para uma tarefa do Hadoop. Os argumentos são transmitidos como argumentos da linha de comandos para cada tarefa. | Não       |
-| defines           | Especifique parâmetros como pares chave/valor para referenciar a dentro do script do Hive. | Não       | 
+| nome              | Nome da atividade                     | Sim      |
+| descrição       | Texto que descreve para que a atividade é usada | Não       |
+| tipo              | Para a atividade de streaming do Hadoop, o tipo de atividade é HDInsightStreaming | Sim      |
+| linkedServiceName | Referência ao cluster HDInsight registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Serviços vinculados de computação](compute-linked-services.md) . | Sim      |
+| mapea            | Especifica o nome do executável do mapeador | Sim      |
+| redutor           | Especifica o nome do executável redutor | Sim      |
+| combinador          | Especifica o nome do executável do combinador | Não       |
+| fileLinkedService | Referência a um serviço vinculado do armazenamento do Azure usado para armazenar os programas mapeador, combinador e redutor a serem executados. Se você não especificar esse serviço vinculado, o serviço vinculado do armazenamento do Azure definido no serviço vinculado do HDInsight será usado. | Não       |
+| FilePath          | Forneça uma matriz de caminho para os programas mapeador, combinador e redutor armazenados no armazenamento do Azure referenciado por fileLinkedService. O caminho é sensível a maiúsculas e minúsculas. | Sim      |
+| entrada             | Especifica o caminho WASB para o arquivo de entrada para o mapeador. | Sim      |
+| saída            | Especifica o caminho WASB para o arquivo de saída para o redutor. | Sim      |
+| getDebugInfo      | Especifica quando os arquivos de log são copiados para o armazenamento do Azure usado pelo cluster HDInsight (ou) especificado por scriptLinkedService. Valores permitidos: nenhum, sempre ou falha. Valor padrão: nenhum. | Não       |
+| argumentos         | Especifica uma matriz de argumentos para um trabalho do Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | Não       |
+| autor           | Especifique parâmetros como pares de chave/valor para referência no script do hive. | Não       | 
 
-## <a name="next-steps"></a>Passos Seguintes
-Consulte os seguintes artigos que explicam como transformar dados de outras formas: 
+## <a name="next-steps"></a>Passos seguintes
+Consulte os seguintes artigos que explicam como transformar dados de outras maneiras: 
 
-* [Atividade U-SQL](transform-data-using-data-lake-analytics.md)
-* [Atividade do Hive](transform-data-using-hadoop-hive.md)
-* [Atividade PIg](transform-data-using-hadoop-pig.md)
+* [Atividade de U-SQL](transform-data-using-data-lake-analytics.md)
+* [Atividade do hive](transform-data-using-hadoop-hive.md)
+* [Atividade Pig](transform-data-using-hadoop-pig.md)
 * [Atividade MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Atividade do Spark](transform-data-using-spark.md)
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
-* [Atividade de execução de lotes de Aprendizado de máquina](transform-data-using-machine-learning.md)
+* [Atividade de execução de Machine Learning lote](transform-data-using-machine-learning.md)
 * [Atividade de procedimento armazenado](transform-data-using-stored-procedure.md)

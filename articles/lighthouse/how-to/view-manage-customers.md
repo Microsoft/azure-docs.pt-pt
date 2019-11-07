@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 10/23/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: f6c98a67394db8028901f3f1f8e799af4c7a8c5f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d68ac0a1b6a66482a85f7ab79840099a34c731c2
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898900"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615541"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Exibir e gerenciar clientes e recursos delegados
 
@@ -30,6 +30,9 @@ Tenha em mente que a seção superior da página **meus clientes** mostra apenas
 Para exibir os detalhes do cliente, selecione **clientes** no lado esquerdo da página **meus clientes** .
 
 Para cada cliente, você verá o nome do cliente, a ID do cliente (ID do locatário) e a oferta associada ao envolvimento. Na coluna **delegações** , você verá o número de assinaturas delegadas e/ou o número de grupos de recursos delegados.
+
+> [!IMPORTANT]
+> Para ver uma delegação, os usuários devem ter recebido a função [leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) (ou outra função interna que inclua acesso de leitor) no processo de integração.
 
 Os filtros na parte superior da página permitem que você classifique e agrupe suas informações de cliente ou filtre por clientes, ofertas ou palavras-chave específicas.
 

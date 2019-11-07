@@ -1,19 +1,19 @@
 ---
-title: Introdução ao Armazenamento de blobs – Armazenamento de objetos no Azure
+title: Introdução ao armazenamento de BLOB (objeto)-armazenamento do Azure
 description: O Armazenamento de blobs do Azure armazena grandes quantidades de dados de objetos não estruturados, como dados de texto ou binários. O Armazenamento de blobs do Azure é altamente dimensionável e disponível. Os clientes podem aceder a objetos de dados no Armazenamento de blobs do PowerShell ou da CLI do Azure, de forma programática através de bibliotecas de cliente do Armazenamento do Microsoft Azure ou através de REST.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 05/24/2019
+ms.date: 11/04/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b54f69edfebca2786ec996b1ca71cea933179b58
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 51f72011b89656d8f56e996d4654a2714f2f482b
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641031"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615607"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introdução ao Armazenamento de blobs do Azure
 
@@ -55,7 +55,7 @@ Um contêiner organiza um conjunto de BLOBs, semelhante a um diretório em um si
 O armazenamento do Azure dá suporte a três tipos de BLOBs:
 
 * **Blobs de blocos** armazenam texto e dados binários, até cerca de 4,7 TB. Os blobs de blocos são constituídos por blocos de dados que podem ser geridos individualmente.
-* Os blobs de **acréscimo** são compostos de blocos como BLOBs de blocos, mas são otimizados para operações de acréscimo. Os blobs de acréscimo são ideais para cenários como os dados de registo a partir de máquinas virtuais.
+* Os **blobs de acréscimo** são compostos de blocos como BLOBs de blocos, mas são otimizados para operações de acréscimo. Os blobs de acréscimo são ideais para cenários como os dados de registo a partir de máquinas virtuais.
 * **Blobs de páginas** armazenam arquivos de acesso aleatório de até 8 TB de tamanho. Os blobs de páginas armazenam arquivos de disco rígido virtual (VHD) e servem como discos para máquinas virtuais do Azure. Para obter mais informações sobre blobs de página, consulte [visão geral dos BLOBs de páginas do Azure](storage-blob-pageblob-overview.md)
 
 Para obter mais informações sobre os diferentes tipos de BLOBs, consulte [noções básicas sobre blobs de blocos, blobs de acréscimo e blobs de páginas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
@@ -69,9 +69,9 @@ Existem várias soluções para migrar dados existentes para o armazenamento de 
 - O **Azure data Factory** dá suporte à cópia de dados de e para o armazenamento de BLOBs usando a chave de conta, uma assinatura de acesso compartilhado, uma entidade de serviço ou identidades gerenciadas para recursos do Azure. Para obter mais informações, consulte [copiar dados de ou para o armazenamento de BLOBs do Azure usando Azure data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 - **Blobfuse** é um driver de sistema de arquivos virtual para o armazenamento de BLOBs do Azure. Você pode usar o blobfuse para acessar seus dados de blob de blocos existentes em sua conta de armazenamento por meio do sistema de arquivos do Linux. Para obter mais informações, consulte [como montar o armazenamento de BLOBs como um sistema de arquivos com o blobfuse](storage-how-to-mount-container-linux.md).
 - O serviço de **Azure data Box** está disponível para transferir dados locais para o armazenamento de BLOBs quando grandes conjuntos de dados ou restrições de rede fazem o upload do dado pela conexão não real. Dependendo do tamanho dos dados, você pode solicitar [disco do Azure data Box](../../databox/data-box-disk-overview.md), [Azure data Box](../../databox/data-box-overview.md)ou [Azure data Box Heavy](../../databox/data-box-heavy-overview.md) dispositivos da Microsoft. Você pode copiar seus dados para esses dispositivos e enviá-los de volta à Microsoft para serem carregados no armazenamento de BLOBs.
-- O **serviço de importação/exportação do Azure** fornece uma maneira de importar ou exportar grandes quantidades de dados de e para sua conta de armazenamento usando discos rígidos que você fornecer. Para obter mais informações, consulte [usar o serviço de importação/exportação Microsoft Azure para transferir dados para o armazenamento de BLOBs](../common/storage-import-export-service.md).
+- O **serviço de importação/exportação do Azure** fornece uma maneira de importar ou exportar grandes quantidades de dados de e para sua conta de armazenamento usando discos rígidos que você fornecer. Para obter mais informações, consulte [usar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento de BLOBs](../common/storage-import-export-service.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma conta de armazenamento](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Escalabilidade e metas de desempenho do armazenamento do Azure](../common/storage-scalability-targets.md)
