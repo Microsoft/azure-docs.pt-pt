@@ -1,5 +1,5 @@
 ---
-title: 'Portal do Azure: Consultar a Base de Dados SQL do Azure com o Editor de Consultas | Microsoft Docs'
+title: 'Portal do Azure: consultar o banco de dados SQL do Azure usando o editor de consultas '
 description: Saiba como ligar à Base de Dados SQL no portal do Azure através do Editor de Consultas SQL. Em seguida, execute declarações do Transact-SQL (T-SQL) para consultar e editar dados.
 keywords: ligar à base de dados sql, portal do azure, portal, editor de consultas
 services: sql-database
@@ -12,12 +12,12 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 10/24/2019
-ms.openlocfilehash: 433f2a190cf24a7e59dcd1d5a5aba0d3aa4e8588
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 75882b13341c7fc373de141ba12f8806cb106906
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492181"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690923"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Início rápido: usar o editor de consultas SQL do portal do Azure para se conectar e consultar dados
 

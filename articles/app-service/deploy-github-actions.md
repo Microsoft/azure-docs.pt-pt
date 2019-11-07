@@ -3,28 +3,26 @@ title: Implante seu código de um pipeline de CI/CD com ações do GitHub-servi�
 description: Saiba como usar as ações do GitHub para implantar seu código no serviço de aplicativo
 services: app-service
 documentationcenter: ''
-author: jasonfreeberg
-writer: ''
-manager: ''
-editor: ''
-ms.assetid: ''
+author: cephalin
+manager: gwallace
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2019
+ms.date: 10/25/2019
 ms.author: jafreebe
-ms.openlocfilehash: b7ec1ae1d04fb1dbe16fd9f4a2640b2b3d9584c2
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.reviewer: ushan
+ms.openlocfilehash: 9842057a590b08f2207a1ea166e0ce0d457e4381
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809776"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620504"
 ---
-# <a name="github-actions-for-deploying-to-app-service"></a>Ações do GitHub para implantação no serviço de aplicativo
+# <a name="deploy-to-app-service-using-github-actions"></a>Implantar no serviço de aplicativo usando ações do GitHub
 
-As [ações do GitHub](https://help.github.com/en/articles/about-github-actions) oferecem a flexibilidade para criar um fluxo de trabalho de desenvolvimento automatizado do software. Com as ações de serviço Azure App para o GitHub, você pode automatizar o fluxo de trabalho para implantar [aplicativos Web do Azure](https://azure.microsoft.com/services/app-service/web/) usando ações do github.
+As [ações do GitHub](https://help.github.com/en/articles/about-github-actions) oferecem a flexibilidade para criar um fluxo de trabalho de desenvolvimento automatizado do software. Com as ações de serviço Azure App para o GitHub, você pode automatizar o fluxo de trabalho para implantar o [serviço Azure app](overview.md) usando as ações do github.
 
 > [!IMPORTANT]
 > No momento, as ações do GitHub estão em beta. Primeiro, você deve [se inscrever para ingressar na versão prévia](https://github.com/features/actions) usando sua conta do github.
@@ -32,7 +30,7 @@ As [ações do GitHub](https://help.github.com/en/articles/about-github-actions)
 
 Um fluxo de trabalho é definido por um arquivo YAML (. yml) no caminho `/.github/workflows/` em seu repositório. Essa definição contém as várias etapas e parâmetros que compõem o fluxo de trabalho.
 
-Para um fluxo de trabalho do aplicativo Web do Azure, o arquivo tem três seções:
+Para um fluxo de trabalho de serviço Azure App, o arquivo tem três seções:
 
 |Section  |Tarefas  |
 |---------|---------|
@@ -42,25 +40,25 @@ Para um fluxo de trabalho do aplicativo Web do Azure, o arquivo tem três seçõ
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
-Você pode criar uma [entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) usando o comando [AZ ad SP Create-for-RBAC](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) na [CLI do Azure](https://docs.microsoft.com/cli/azure/). Você pode executar esse comando usando [Azure cloud Shell](https://shell.azure.com/) na portal do Azure ou selecionando o botão **experimentar** .
+Você pode criar uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) usando o comando [AZ ad SP Create-for-RBAC](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) na [CLI do Azure](https://docs.microsoft.com/cli/azure/). Você pode executar esse comando usando [Azure cloud Shell](https://shell.azure.com/) na portal do Azure ou selecionando o botão **experimentar** .
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
+az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> --sdk-auth
 ```
 
-Neste exemplo, substitua os espaços reservados no recurso por sua ID de assinatura, grupo de recursos e nome do aplicativo Web. A saída são as credenciais de atribuição de função que fornecem acesso ao seu aplicativo Web. Copie esse objeto JSON, que você pode usar para autenticar do GitHub.
+Neste exemplo, substitua os espaços reservados no recurso por sua ID de assinatura, nome do grupo de recursos e nome do aplicativo. A saída são as credenciais de atribuição de função que fornecem acesso ao aplicativo do serviço de aplicativo. Copie esse objeto JSON, que você pode usar para autenticar do GitHub.
 
 > [!NOTE]
 > Você não precisará criar uma entidade de serviço se decidir usar o perfil de publicação para autenticação.
 
 > [!IMPORTANT]
-> É sempre uma boa prática conceder acesso mínimo. É por isso que o escopo no exemplo anterior é limitado ao aplicativo Web específico e não ao grupo de recursos inteiro.
+> É sempre uma boa prática conceder acesso mínimo. É por isso que o escopo no exemplo anterior é limitado ao aplicativo do serviço de aplicativo específico e não ao grupo de recursos inteiro.
 
 ## <a name="configure-the-github-secret"></a>Configurar o segredo do GitHub
 
 Você também pode usar credenciais de nível de aplicativo, ou seja, publicar perfil para implantação. Siga as etapas para configurar o segredo:
 
-1. Baixe o perfil de publicação para o aplicativo Web no portal usando a opção **obter perfil de publicação** .
+1. Baixe o perfil de publicação para o aplicativo do serviço de aplicativo no portal usando a opção **obter perfil de publicação** .
 
 2. No [GitHub](https://github.com/), procure seu repositório, selecione **configurações > segredos > Adicionar um novo segredo**
 
@@ -80,7 +78,7 @@ Você também pode usar credenciais de nível de aplicativo, ou seja, publicar p
 
     ![confidenciais](media/app-service-github-actions/app-service-secrets.png)
 
-## <a name="setup-the-environment"></a>Configurar o ambiente
+## <a name="set-up-the-environment"></a>Configurar o ambiente
 
 A configuração do ambiente pode ser feita usando uma das ações de instalação.
 
@@ -132,7 +130,7 @@ Os exemplos a seguir mostram a parte do fluxo de trabalho que configura o ambien
 
 ## <a name="build-the-web-app"></a>Compilar o aplicativo Web
 
-Isso depende do idioma e dos idiomas com suporte dos aplicativos Web do Azure, esta seção deve ser as etapas de compilação padrão de cada idioma.
+Isso depende do idioma e dos idiomas com suporte pelo serviço Azure App, esta seção deve ser as etapas de compilação padrão de cada idioma.
 
 Os exemplos a seguir mostram a parte do fluxo de trabalho que cria o aplicativo Web, em vários idiomas com suporte.
 
@@ -189,20 +187,20 @@ Os exemplos a seguir mostram a parte do fluxo de trabalho que cria o aplicativo 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 ```
-## <a name="deploy-the-web-app"></a>Implantar o aplicativo Web
+## <a name="deploy-to-app-service"></a>Implementar no Serviço de Aplicações
 
-Para implantar seu código em um aplicativo Web, será necessário usar a ação `Azure/appservice-actions/webapp@master`. Esta ação tem 4 parâmetros:
+Para implantar seu código em um aplicativo do serviço de aplicativo, use a ação `azure/webapps-deploy@v1 `. Esta ação tem quatro parâmetros:
 
 | **Meter**  | **Explicação**  |
 |---------|---------|
-| **nome do aplicativo** | Necessária Nome do aplicativo Web do Azure | 
+| **nome do aplicativo** | Necessária Nome do aplicativo do serviço de aplicativo | 
 | **publicar perfil** | Adicional Publicar o conteúdo do arquivo de perfil com segredos de Implantação da Web |
 | **agrupa** | Adicional Caminho para o pacote ou a pasta. *. zip, *. War, *. jar ou uma pasta a ser implantada |
 | **nome do slot** | Adicional Insira um slot existente que não seja o slot de produção |
 
 ### <a name="deploy-using-publish-profile"></a>Implantar usando o perfil de publicação
 
-Veja abaixo o fluxo de trabalho de exemplo para criar e implantar um aplicativo Web node. js no Azure usando o perfil de publicação.
+Veja abaixo o fluxo de trabalho de exemplo para criar e implantar um aplicativo node. js no Azure usando o perfil de publicação.
 
 ```yaml
 # File: .github/workflows/workflow.yml
@@ -236,7 +234,7 @@ jobs:
 
 ### <a name="deploy-using-azure-service-principal"></a>Implantar usando a entidade de serviço do Azure
 
-Veja abaixo o fluxo de trabalho de exemplo para criar e implantar um aplicativo Web node. js no Azure usando a entidade de serviço do Azure.
+Veja abaixo o fluxo de trabalho de exemplo para criar e implantar um aplicativo node. js no Azure usando uma entidade de serviço do Azure.
 
 ```yaml
 on: [push]
@@ -281,7 +279,9 @@ jobs:
 
 Você pode encontrar nosso conjunto de ações agrupadas em repositórios diferentes no GitHub, cada uma contendo documentação e exemplos para ajudá-lo a usar o GitHub para CI/CD e implantar seus aplicativos no Azure.
 
-- [Logon do Azure](https://github.com/Azure/actions)
+- [Fluxo de trabalho de ações para implantar no Azure](https://github.com/Azure/actions-workflow-samples)
+
+- [Logon do Azure](https://github.com/Azure/login)
 
 - [WebApp do Azure](https://github.com/Azure/webapps-deploy)
 

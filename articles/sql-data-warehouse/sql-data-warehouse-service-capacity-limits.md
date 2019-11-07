@@ -1,5 +1,5 @@
 ---
-title: Limites de capacidade – Azure Synapse Analytics (anteriormente conhecido como SQL DW) | Microsoft Docs
+title: Limites de capacidade – Azure Synapse Analytics (anteriormente conhecido como SQL DW)
 description: Valores máximos permitidos para vários componentes do SQL Analytics no Azure Synapse.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,25 +10,26 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 702f78f5bae12b2eba6669a344af14f6d1236856
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c4ab9d9cc8007281e0e5729fe883e654107be6fe
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475808"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645295"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limites de capacidade do Azure Synapse Analytics (anteriormente conhecido como SQL DW)
 
 Valores máximos permitidos para vários componentes do Azure Synapse.
 
 ## <a name="workload-management"></a>Gestão de cargas de trabalho
+
 | Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
 | [Unidades de data warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DWU Max para uma única unidade de pool de SQL (data warehouse) | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [Unidades de data warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU padrão por servidor |54.000<br></br>Por padrão, cada SQL Server (por exemplo, myserver.database.windows.net) tem uma cota de DTU de 54.000, que permite até 9 DW6000c. Esta quota é apenas um limite de segurança. Você pode aumentar sua cota [criando um tíquete de suporte](sql-data-warehouse-get-started-create-support-ticket.md) e selecionando *cota* como o tipo de solicitação.  Para calcular suas necessidades de DTU, multiplique o 7,5 pelo total de DWU necessário ou multiplique 9,0 pelo cDWU total necessário. Por exemplo:<br></br>DW6000 x 7,5 = 45.000 DTUs<br></br>DW6000c x 9,0 = 54.000 DTUs.<br></br>Você pode exibir o consumo atual de DTU na opção SQL Server no Portal. Tanto as bases de dados em pausa como as que não estão em pausa contam para a quota de DTU. |
 | Conexão de banco de dados |Máximo de sessões abertas simultâneas |1024<br/><br/>O número de sessões abertas simultâneas irá variar com base no DWU selecionado. O DWU600c e superior dão suporte a um máximo de 1024 sessões abertas. DWU500c e abaixo, dão suporte a um limite máximo de sessão de abertura simultânea de 512. Observe que há limites no número de consultas que podem ser executadas simultaneamente. Quando o limite de simultaneidade for excedido, a solicitação entrará em uma fila interna onde aguardará o processamento. |
 | Conexão de banco de dados |Memória máxima para instruções preparadas |20 MB |
-| [Gestão de cargas de trabalho](resource-classes-for-workload-management.md) |Máximo de consultas simultâneas |128<br/><br/>  Um máximo de 128 consultas simultâneas será executado e as consultas restantes serão enfileiradas.<br/><br/>O número de consultas simultâneas pode diminuir quando os usuários são atribuídos a classes de recursos mais altas ou quando a configuração de [unidade de data warehouse](memory-and-concurrency-limits.md) é reduzida. Algumas consultas, como consultas DMV, sempre podem ser executadas e não afetam o limite de consultas simultâneas. Para obter mais detalhes sobre a execução de consultas simultâneas, consulte o artigo de [máximos de simultaneidade](memory-and-concurrency-limits.md#concurrency-maximums) . |
+| [Gestão de cargas de trabalho](resource-classes-for-workload-management.md) |Máximo de consultas simultâneas |128<br/><br/>  Um máximo de 128 consultas simultâneas será executado e as consultas restantes serão enfileiradas.<br/><br/>O número de consultas simultâneas pode diminuir quando os usuários são atribuídos a classes de recursos mais altas ou quando a configuração de limits.md de memória [unidade de data warehouse]-simultaneidade) é reduzida. Algumas consultas, como consultas DMV, sempre podem ser executadas e não afetam o limite de consultas simultâneas. Para obter mais detalhes sobre a execução de consultas simultâneas, consulte o artigo [concorrentes maximums] Memory-Concurrency-limits.md). |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |GB máximo |399 GB por DW100. Portanto, em DWU1000, o tempdb é dimensionado para 3,99 TB. |
 
 ## <a name="database-objects"></a>Objetos de banco de dados
@@ -76,15 +77,15 @@ Valores máximos permitidos para vários componentes do Azure Synapse.
 ## <a name="metadata"></a>Metadados
 | Exibição do sistema | Máximo de linhas |
 |:--- |:--- |
-| sys. dm _pdw_component_health_alerts |10,000 |
-| sys. dm _pdw_dms_cores |100 |
-| sys. dm _pdw_dms_workers |Número total de trabalhos DMS para as solicitações de 1000 do SQL mais recentes. |
-| sys. dm _pdw_errors |10,000 |
-| sys. dm _pdw_exec_requests |10,000 |
-| sys. dm _pdw_exec_sessions |10,000 |
-| sys. dm _pdw_request_steps |Número total de etapas para as solicitações SQL mais recentes de 1000 que são armazenadas em sys. dm _pdw_exec_requests. |
-| sys. dm _pdw_os_event_logs |10,000 |
-| sys. dm _pdw_sql_requests |As solicitações SQL mais recentes de 1000 que são armazenadas em sys. dm _pdw_exec_requests. |
+| sys. dm_pdw_component_health_alerts |10,000 |
+| sys. dm_pdw_dms_cores |100 |
+| sys. dm_pdw_dms_workers |Número total de trabalhos DMS para as solicitações de 1000 do SQL mais recentes. |
+| sys. dm_pdw_errors |10,000 |
+| sys. dm_pdw_exec_requests |10,000 |
+| sys. dm_pdw_exec_sessions |10,000 |
+| sys. dm_pdw_request_steps |Número total de etapas para as solicitações SQL mais recentes de 1000 que são armazenadas em sys. dm_pdw_exec_requests. |
+| sys. dm_pdw_os_event_logs |10,000 |
+| sys. dm_pdw_sql_requests |As solicitações SQL mais recentes de 1000 que são armazenadas em sys. dm_pdw_exec_requests. |
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter recomendações sobre como usar o Azure Synapse, consulte a [folha](cheat-sheet.md)de consulta.

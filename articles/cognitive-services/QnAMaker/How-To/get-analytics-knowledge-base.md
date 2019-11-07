@@ -9,14 +9,14 @@ displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 11/05/2019
 ms.author: diberry
-ms.openlocfilehash: 5c55084a57e46931049841f5011941b2115e9e69
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 72d2598c1ff17f80fc264e6d547a799ab74a163f
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961506"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621965"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Obter análises da base de dados de conhecimento
 
@@ -33,73 +33,92 @@ QnA Maker armazenará todos os logs de chat e outras telemetrias, se você tiver
     ```kusto
     requests
     | where url endswith "generateAnswer"
-    | project timestamp, id, name, resultCode, duration, performanceBucket
-    | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer"
+    | project timestamp, id, url, resultCode, duration, performanceBucket
+    | parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer"
     | join kind= inner (
     traces | extend id = operation_ParentId
     ) on id
     | extend question = tostring(customDimensions['Question'])
     | extend answer = tostring(customDimensions['Answer'])
     | extend score = tostring(customDimensions['Score'])
-    | project timestamp, resultCode, duration, id, question, answer, score, performanceBucket,KbId 
+    | project timestamp, resultCode, duration, id, question, answer, score, performanceBucket,KbId
     ```
 
     Selecione **executar** para executar a consulta.
 
-    [![Executar a consulta para determinar as perguntas, as respostas e a Pontuação dos usuários](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
+    [![executar a consulta para determinar as perguntas, as respostas e a Pontuação dos usuários](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
 ## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Executar consultas para outras análises em sua base de dados de conhecimento QnA Maker
 
 ### <a name="total-90-day-traffic"></a>Total de tráfego de 90 dias
 
 ```kusto
-    //Total Traffic
-    requests
-    | where url endswith "generateAnswer" and name startswith "POST"
-    | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer" 
-    | summarize ChatCount=count() by bin(timestamp, 1d), KbId
+//Total Traffic
+requests
+| where url endswith "generateAnswer" and name startswith "POST"
+| parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer" 
+| summarize ChatCount=count() by bin(timestamp, 1d), KbId
 ```
 
 ### <a name="total-question-traffic-in-a-given-time-period"></a>Tráfego de pergunta total em um determinado período de tempo
 
 ```kusto
-    //Total Question Traffic in a given time period
-    let startDate = todatetime('2018-02-18');
-    let endDate = todatetime('2018-03-12');
-    requests
-    | where timestamp <= endDate and timestamp >=startDate
-    | where url endswith "generateAnswer" and name startswith "POST" 
-    | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer" 
-    | summarize ChatCount=count() by KbId
+//Total Question Traffic in a given time period
+let startDate = todatetime('2019-01-01');
+let endDate = todatetime('2020-12-31');
+requests
+| where timestamp <= endDate and timestamp >=startDate
+| where url endswith "generateAnswer" and name startswith "POST" 
+| parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer" 
+| summarize ChatCount=count() by KbId
 ```
 
 ### <a name="user-traffic"></a>Tráfego do usuário
 
 ```kusto
-    //User Traffic
-    requests
-    | where url endswith "generateAnswer"
-    | project timestamp, id, name, resultCode, duration
-    | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer"
-    | join kind= inner (
-    traces | extend id = operation_ParentId 
-    ) on id
-    | extend UserId = tostring(customDimensions['UserId'])
-    | summarize ChatCount=count() by bin(timestamp, 1d), UserId, KbId
+//User Traffic
+requests
+| where url endswith "generateAnswer"
+| project timestamp, id, url, resultCode, duration
+| parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer"
+| join kind= inner (
+traces | extend id = operation_ParentId 
+) on id
+| extend UserId = tostring(customDimensions['UserId'])
+| summarize ChatCount=count() by bin(timestamp, 1d), UserId, KbId
 ```
 
 ### <a name="latency-distribution-of-questions"></a>Distribuição de latência de perguntas
 
 ```kusto
-    //Latency distribution of questions
-    requests
-    | where url endswith "generateAnswer" and name startswith "POST"
-    | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer"
-    | project timestamp, id, name, resultCode, performanceBucket, KbId
-    | summarize count() by performanceBucket, KbId
+//Latency distribution of questions
+requests
+| where url endswith "generateAnswer" and name startswith "POST"
+| parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer"
+| project timestamp, id, name, resultCode, performanceBucket, KbId
+| summarize count() by performanceBucket, KbId
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+### <a name="unanswered-questions"></a>Perguntas não respondidas
+
+```kusto
+// Unanswered questions
+requests
+| where url endswith "generateAnswer"
+| project timestamp, id, url
+| parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer"
+| join kind= inner (
+traces | extend id = operation_ParentId
+) on id
+| extend question = tostring(customDimensions['Question'])
+| extend answer = tostring(customDimensions['Answer'])
+| extend score = tostring(customDimensions['Score'])
+| where  score  == "0"
+| project timestamp, KbId, question, answer, score 
+| order  by timestamp  desc
+```
+
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Escolha capactiy](../tutorials/choosing-capacity-qnamaker-deployment.md)

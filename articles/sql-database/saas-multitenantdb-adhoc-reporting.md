@@ -1,5 +1,5 @@
 ---
-title: Executar consultas de relatórios ad hoc em vários bancos de dados SQL do Azure | Microsoft Docs
+title: Executar consultas de relatórios ad hoc em vários bancos de dados SQL do Azure
 description: Execute consultas de relatório ad hoc em vários bancos de dados SQL em um exemplo de aplicativo multilocatário.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
 ms.date: 10/30/2018
-ms.openlocfilehash: 0a6b45db3c8b4071b591ca2b5fc604b986598c0c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3d345e222dac98a63400dd2661ce92674f2534f6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570363"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692082"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Executar consultas de análise ad hoc em vários bancos de dados SQL do Azure
 
@@ -58,7 +58,7 @@ Os scripts de banco de dados multilocatário do Wingtip tickets SaaS e o código
 
 Para executar consultas em um conjunto de dados mais interessante, crie dados de vendas de tíquetes executando o gerador de tíquetes.
 
-1. No *ISE do PowerShell*, abra o... \\ Módulos de aprendizagemanálise\\operacional ad hoc Reporting demo-adhocreporting. ps1 script e defina os seguintes valores:\\ \\
+1. No *ISE do PowerShell*, abra os módulos de aprendizagem...\\\\análise operacional\\relatórios ad hoc\\script *demo-adhocreporting. ps1* e defina os seguintes valores:
    * **$DemoScenario** = 1, **comprar tíquetes para eventos em todos os locais**.
 2. Pressione **F5** para executar o script e gerar vendas de tíquetes. Enquanto o script estiver em execução, continue as etapas neste tutorial. Os dados do tíquete são consultados na seção *executar consultas ad hoc distribuídas* , portanto, aguarde até que o gerador de tíquetes seja concluído.
 
@@ -66,13 +66,13 @@ Para executar consultas em um conjunto de dados mais interessante, crie dados de
 
 No aplicativo de banco de dados multilocatário do Wingtip tickets SaaS, os locatários são armazenados em um modelo de gerenciamento de locatário híbrido, em que os dados de locatário são armazenados em um banco de dados multilocatário ou um banco de dado de locatário único e podem ser movidos entre os dois. Ao consultar em todos os bancos de dados de locatário, é importante que a consulta elástica possa tratar os dados como se ele fosse parte de um único banco de dado lógico fragmentado por locatário. 
 
-Para obter esse padrão, todas as tabelas de locatário incluem uma coluna de foroid que identifica a qual locatário os dados pertencem. O *foroid* é calculado como um hash do nome do local, mas qualquer abordagem pode ser usada para introduzir um valor exclusivo para essa coluna. Essa abordagem é semelhante à forma como a chave de locatário é computada para uso no catálogo. As tabelas que contêm o LocalId são usadas pela consulta elástica para paralelizar consultas e enviá-las por push para o banco de dados de locatário remoto apropriado. Isso reduz drasticamente a quantidade de dados retornados e resulta em um aumento no desempenho, especialmente quando há vários locatários cujos dados são armazenados em bancos de dado de locatário único.
+Para obter esse padrão, todas as tabelas de locatário incluem uma coluna de *foroid* que identifica a qual locatário os dados pertencem. O *foroid* é calculado como um hash do nome do local, mas qualquer abordagem pode ser usada para introduzir um valor exclusivo para essa coluna. Essa abordagem é semelhante à forma como a chave de locatário é computada para uso no catálogo. As tabelas que contêm o *LocalId* são usadas pela consulta elástica para paralelizar consultas e enviá-las por push para o banco de dados de locatário remoto apropriado. Isso reduz drasticamente a quantidade de dados retornados e resulta em um aumento no desempenho, especialmente quando há vários locatários cujos dados são armazenados em bancos de dado de locatário único.
 
 ## <a name="deploy-the-database-used-for-ad-hoc-distributed-queries"></a>Implantar o banco de dados usado para consultas distribuídas ad hoc
 
 Este exercício implanta o banco de dados *adhocreporting* . Esse é o banco de dados principal que contém o esquema usado para consultar em todos os bancos de dados de locatário. O banco de dados é implantado no servidor de catálogo existente, que é o servidor usado para todos os bancos de dados relacionados ao gerenciamento no aplicativo de exemplo.
 
-1. Abrir... \\Módulos\\ de aprendizado análise operacionalrelatórios\\ad hoc demo-adhocreporting. ps1 no ISE do PowerShell e defina os seguintes valores:\\
+1. Abra...\\módulos de aprendizado\\análise operacional\\relatórios ad hoc\\*demo-adhocreporting. ps1* no *ISE do PowerShell* e defina os seguintes valores:
    * **$DemoScenario** = 2, **implantar o banco de dados de análise ad hoc**.
 
 2. Pressione **F5** para executar o script e criar o banco de dados *adhocreporting* .
@@ -91,7 +91,7 @@ Este exercício adiciona o esquema (a fonte de dados externa e as definições d
 
     ![Criar credencial](media/saas-multitenantdb-adhoc-reporting/create-credential.png)
 
-   Ao usar o banco de dados de catálogo como fonte externa, as consultas são distribuídas para todos os bancos de dado registrados no catálogo quando a consulta é executada. Como os nomes de servidor são diferentes para cada implantação, esse script de inicialização Obtém o local do banco de dados de catálogo recuperando o@servernameservidor atual (@) em que o script é executado.
+   Ao usar o banco de dados de catálogo como fonte externa, as consultas são distribuídas para todos os bancos de dado registrados no catálogo quando a consulta é executada. Como os nomes de servidor são diferentes para cada implantação, esse script de inicialização Obtém o local do banco de dados de catálogo recuperando o servidor atual (@@servername) em que o script é executado.
 
     ![criar fonte de dados externa](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
@@ -115,7 +115,7 @@ Agora que o banco de dados *adhocreporting* está configurado, vá em frente e e
 
 Ao inspecionar o plano de execução, passe o mouse sobre os ícones de plano para obter detalhes. 
 
-1. No *SSMS*, abra... \\Módulos\\de aprendizado análise operacionalrelatórios\\ad hoc demo-adhocreportingqueries. Sql.\\
+1. No *SSMS*, abra...\\módulos de aprendizado\\análise operacional\\relatórios ad hoc\\*demo-adhocreportingqueries. SQL*.
 2. Verifique se você está conectado ao banco de dados **adhocreporting** .
 3. Selecione o menu **consulta** e clique em **incluir plano de execução real**
 4. Realce os *locais que estão registrados atualmente?* consulte e pressione **F5**.
@@ -124,7 +124,7 @@ Ao inspecionar o plano de execução, passe o mouse sobre os ícones de plano pa
 
    Inspecione o plano e veja que todo o custo é a consulta remota porque estamos simplesmente indo para cada banco de dados de locatário e selecionando as informações do local.
 
-   ![SELECT * FROM dbo.Venues](media/saas-multitenantdb-adhoc-reporting/query1-plan.png)
+   ![Selecione * de dbo. Locais](media/saas-multitenantdb-adhoc-reporting/query1-plan.png)
 
 5. Selecione a próxima consulta e pressione **F5**.
 
@@ -138,10 +138,10 @@ Ao inspecionar o plano de execução, passe o mouse sobre os ícones de plano pa
 
    Essa consulta faz uma junção e agregação mais complexas. O que é importante observar é que a maior parte do processamento é feita remotamente e, mais uma vez, retornamos apenas as linhas de que precisamos, voltando apenas uma única linha para a contagem de venda de tíquete agregado por dia de cada local.
 
-   ![query](media/saas-multitenantdb-adhoc-reporting/query3-plan.png)
+   ![consulta](media/saas-multitenantdb-adhoc-reporting/query3-plan.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

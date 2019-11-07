@@ -3,28 +3,26 @@ title: Implantar o contêiner de um pipeline de CI/CD com ações do GitHub-serv
 description: Saiba como usar as ações do GitHub para implantar seu contêiner no serviço de aplicativo
 services: app-service
 documentationcenter: ''
-author: jasonfreeberg
-writer: ''
-manager: ''
-editor: ''
-ms.assetid: ''
+author: cephalin
+manager: gwallace
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 10/25/2019
 ms.author: jafreebe
-ms.openlocfilehash: 2341eba2c24c06d654c9d2eeda96788d168fe27c
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.reviewer: ushan
+ms.openlocfilehash: 7fbd7b571f5590ff35d52062cc621069a47b619c
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809815"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620220"
 ---
-# <a name="github-actions-for-deploying-to-web-app-for-containers"></a>Ações do GitHub para implantação no Aplicativo Web para Contêineres
+# <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Implantar um contêiner personalizado no serviço de aplicativo usando as ações do GitHub
 
-As [ações do GitHub](https://help.github.com/en/articles/about-github-actions) oferecem a flexibilidade para criar um fluxo de trabalho de desenvolvimento automatizado do software. Com as ações de serviço Azure App para o GitHub, você pode automatizar o fluxo de trabalho para implantar [aplicativos Web do Azure para contêineres](https://azure.microsoft.com/services/app-service/containers/) usando ações do github.
+As [ações do GitHub](https://help.github.com/en/articles/about-github-actions) oferecem a flexibilidade para criar um fluxo de trabalho de desenvolvimento automatizado do software. Com a [ação de serviço Azure app para contêineres](https://github.com/Azure/webapps-container-deploy), você pode automatizar o fluxo de trabalho para implantar aplicativos como [contêineres personalizados no serviço de aplicativo](https://azure.microsoft.com/services/app-service/containers/) usando ações do github.
 
 > [!IMPORTANT]
 > No momento, as ações do GitHub estão em beta. Primeiro, você deve [se inscrever para ingressar na versão prévia](https://github.com/features/actions) usando sua conta do github.
@@ -32,29 +30,40 @@ As [ações do GitHub](https://help.github.com/en/articles/about-github-actions)
 
 Um fluxo de trabalho é definido por um arquivo YAML (. yml) no caminho `/.github/workflows/` em seu repositório. Essa definição contém as várias etapas e parâmetros que compõem o fluxo de trabalho.
 
-Para um fluxo de trabalho de contêiner do aplicativo Web do Azure, o arquivo tem três seções:
+Para um fluxo de trabalho de contêiner de serviço Azure App, o arquivo tem três seções:
 
 |Section  |Tarefas  |
 |---------|---------|
-|**Autenticação** | 1. definir uma entidade de serviço <br /> 2. criar um segredo do GitHub |
-|**Integrado** | 1. configurar o ambiente <br /> 2. criar a imagem de contêiner |
-|**Implementar** | 1. implantar a imagem de contêiner |
+|**Autenticação** | 1. definir uma entidade de serviço. <br /> 2. Crie um segredo do GitHub. |
+|**Integrado** | 1. configurar o ambiente. <br /> 2. Crie a imagem de contêiner. |
+|**Implementar** | 1. implante a imagem de contêiner. |
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
 Você pode criar uma [entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) usando o comando [AZ ad SP Create-for-RBAC](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) na [CLI do Azure](https://docs.microsoft.com/cli/azure/). Você pode executar esse comando usando [Azure cloud Shell](https://shell.azure.com/) na portal do Azure ou selecionando o botão **experimentar** .
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
+az ad sp create-for-rbac --name "myApp" --role contributor \
+                            --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
+                            --sdk-auth
+                            
+  # Replace {subscription-id}, {resource-group} with the subscription, resource group details of the WebApp
 ```
 
-Neste exemplo, substitua os espaços reservados no recurso por sua ID de assinatura, grupo de recursos e nome do aplicativo Web. A saída são as credenciais de atribuição de função que fornecem acesso ao seu aplicativo Web. Copie esse objeto JSON, que você pode usar para autenticar do GitHub.
+A saída é um objeto JSON com as credenciais de atribuição de função que fornecem acesso ao seu aplicativo do serviço de aplicativo semelhante ao mostrado abaixo. Copie este objeto JSON para autenticar do GitHub.
 
-> [!NOTE]
-> Você não precisará criar uma entidade de serviço se decidir usar o perfil de publicação para autenticação.
+ ```azurecli 
+  {
+    "clientId": "<GUID>",
+    "clientSecret": "<GUID>",
+    "subscriptionId": "<GUID>",
+    "tenantId": "<GUID>",
+    (...)
+  }
+```
 
 > [!IMPORTANT]
-> É sempre uma boa prática conceder acesso mínimo. É por isso que o escopo no exemplo anterior é limitado ao aplicativo Web específico e não ao grupo de recursos inteiro.
+> É sempre uma boa prática conceder acesso mínimo. Você pode restringir o escopo no comando AZ CLI acima para o aplicativo do serviço de aplicativo específico e o registro de contêiner do Azure no qual as imagens de contêiner são enviadas por push.
 
 ## <a name="configure-the-github-secret"></a>Configurar o segredo do GitHub
 
@@ -102,7 +111,7 @@ jobs:
       uses: actions/checkout@master
     
     - name: 'Login via Azure CLI'
-      uses: azure/actions/login@v1
+      uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     
@@ -117,19 +126,19 @@ jobs:
         docker push contoso.azurecr.io/nodejssampleapp:${{ github.sha }}
 ```
 
-## <a name="deploy-to-web-app-container"></a>Implantar no contêiner do aplicativo Web
+## <a name="deploy-to-an-app-service-container"></a>Implantar em um contêiner do serviço de aplicativo
 
-Para implantar a imagem em um contêiner de aplicativo Web, você precisará usar a ação `Azure/appservice-actions/webapp@master`. Esta ação tem 5 parâmetros:
+Para implantar a imagem em um contêiner personalizado no serviço de aplicativo, use a ação `azure/webapps-container-deploy@v1`. Esta ação tem cinco parâmetros:
 
 | **Meter**  | **Explicação**  |
 |---------|---------|
-| **nome do aplicativo** | Necessária Nome do aplicativo Web do Azure | 
+| **nome do aplicativo** | Necessária Nome do aplicativo do serviço de aplicativo | 
 | **nome do slot** | Adicional Insira um slot existente que não seja o slot de produção |
-| **imagens** | Necessária Especifique o nome da (s) imagem (ns) do contêiner totalmente qualificado. Por exemplo, ' myregistry.azurecr.io/nginx:latest ' ou ' Python: 3.7.2-Alpine/'. Para cenários de vários contêineres, vários nomes de imagem de contêiner podem ser fornecidos (separados por várias linhas) |
-| **arquivo de configuração** | Adicional Caminho do arquivo Docker-Compose. Deve ser um caminho totalmente qualificado ou relativo ao diretório de trabalho padrão. Necessário para o cenário de vários contêineres |
+| **imagens** | Necessária Especifique o nome da (s) imagem (ns) do contêiner totalmente qualificado. Por exemplo, ' myregistry.azurecr.io/nginx:latest ' ou ' Python: 3.7.2-Alpine/'. Para um aplicativo de vários contêineres, vários nomes de imagem de contêiner podem ser fornecidos (separados por várias linhas) |
+| **arquivo de configuração** | Adicional Caminho do arquivo Docker-Compose. Deve ser um caminho totalmente qualificado ou relativo ao diretório de trabalho padrão. Necessário para aplicativos de vários contêineres. |
 | **contêiner-comando** | Adicional Insira o comando de inicialização. Por exemplo, dotnet Run ou dotnet nome_do_arquivo. dll |
 
-Veja abaixo o fluxo de trabalho de exemplo para criar e implantar um aplicativo Web node. js no contêiner do aplicativo Web do Azure.
+Veja abaixo o fluxo de trabalho de exemplo para criar e implantar um aplicativo node. js em um contêiner personalizado no serviço de aplicativo.
 
 ```yaml
 on: [push]
@@ -145,7 +154,7 @@ jobs:
       uses: actions/checkout@master
     
     - name: 'Login via Azure CLI'
-      uses: azure/actions/login@v1
+      uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     
@@ -173,7 +182,7 @@ jobs:
 
 Você pode encontrar nosso conjunto de ações agrupadas em repositórios diferentes no GitHub, cada uma contendo documentação e exemplos para ajudá-lo a usar o GitHub para CI/CD e implantar seus aplicativos no Azure.
 
-- [Logon do Azure](https://github.com/Azure/actions)
+- [Logon do Azure](https://github.com/Azure/login)
 
 - [WebApp do Azure](https://github.com/Azure/webapps-deploy)
 
@@ -185,4 +194,6 @@ Você pode encontrar nosso conjunto de ações agrupadas em repositórios difere
 
 - [K8s implantar](https://github.com/Azure/k8s-deploy)
 
-- [Fluxos de trabalho iniciais](https://github.com/actions/starter-workflows)
+- [Fluxos de trabalho de CI inicial](https://github.com/actions/starter-workflows)
+
+- [Fluxos de trabalho iniciais para implantar no Azure](https://github.com/Azure/actions-workflow-samples)

@@ -1,5 +1,5 @@
 ---
-title: Implantar um aplicativo SaaS fragmentado de banco de dados multilocatário que usa o banco de dados SQL do Azure | Microsoft Docs
+title: 'Implantar um aplicativo SaaS fragmentado de banco de dados multilocatário que usa o banco de dados SQL do Azure '
 description: Implante e explore o aplicativo de banco de dados multilocatário SaaS da Wingtip tickets, que demonstra os padrões de SaaS usando o banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
 ms.date: 10/16/2018
-ms.openlocfilehash: 2ddb1fe40507da5caa218f73284a1095035df951
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: aa61c9af2e8fbfbe1caeaffb6231afe5b8be6f3c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570383"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692040"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implantar e explorar um aplicativo multilocatário fragmentado
 
@@ -57,8 +57,8 @@ Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
 ### <a name="plan-the-names"></a>Planejar os nomes
 
 Nas etapas desta seção, você fornece um valor de *usuário* que é usado para garantir que os nomes de recursos sejam globalmente exclusivos e um nome para o *grupo de recursos* que contém todos os recursos criados por uma implantação do aplicativo. Para uma pessoa chamada *Ana alinen*, sugerimos:
-- *Usuário:* **AF1** *(Suas iniciais, mais um dígito.   Use um valor diferente (por exemplo, AF2) se você implantar o aplicativo uma segunda vez.)*
-- *Grupo de recursos:* **Wingtip-MT-AF1** *(Wingtip-MT indica que este é o aplicativo de vários locatários fragmentado. Anexar o nome de usuário AF1 correlaciona o nome do grupo de recursos com os nomes dos recursos que ele contém.)*
+- *Usuário:* **AF1**  *(suas iniciais, mais um dígito. Use um valor diferente (por exemplo, AF2) se você implantar o aplicativo uma segunda vez.)*
+- *Grupo de recursos:* **Wingtip-MT-AF1** *(Wingtip-MT indica que este é o aplicativo multilocatário fragmentado. acrescentar o nome de usuário AF1 correlaciona o nome do grupo de recursos com os nomes dos recursos que ele contém.)*
 
 Escolha seus nomes agora e anote-os. 
 
@@ -103,13 +103,13 @@ Enquanto o aplicativo estiver sendo implantado, baixe o código-fonte do aplicat
 6. Clique em **OK**.
 7. Extraia os arquivos.
 
-Os scripts estão localizados no *.. Repositório wingtipticketssaas-MultiTenantDb-pasta\\módulos\\ de aprendizado mestre. \\*
+Os scripts estão localizados na pasta *..\\repositório wingtipticketssaas-MultiTenantDb-master\\Learning modules\\* .
 
 ## <a name="update-the-configuration-file-for-this-deployment"></a>Atualizar o arquivo de configuração para esta implantação
 
 Antes de executar qualquer script, defina o *grupo de recursos* e os valores de *usuário* em **userconfig. psm1**. Defina essas variáveis com os mesmos valores definidos durante a implantação.
 
-1. Abrir... Módulos de aprendizado*userconfig. psm1* no *ISE do PowerShell.* \\\\
+1. Abra...\\módulos de aprendizado\\*userconfig. psm1* no *ISE do PowerShell*.
 2. Atualize *ResourceGroupName* e *nomeie* com os valores específicos para sua implantação (somente nas linhas 10 e 11).
 3. Guarde as alterações.
 
@@ -124,19 +124,19 @@ Cada local Obtém um aplicativo Web personalizado para listar seus eventos e ven
 Uma página da Web **Hub de eventos** central fornece uma lista de links para os locatários em sua implantação específica. Use as etapas a seguir para experimentar a página da Web **Hub de eventos** e um aplicativo individual:
 
 1. Abra o **Hub de eventos** em seu navegador da Web:
-   - http://events.wingtip-mt.&lt ; user&gt;. trafficmanager.NET &nbsp; *(substitua &lt; o&gt; usuário pelo valor de usuário da sua implantação.)*
+   - http://events.wingtip-mt.&lt; User&gt;. trafficmanager.net &nbsp; *(substitua &lt;usuário&gt; pelo valor de usuário da sua implantação.)*
 
      ![hub de eventos](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
 2. Clique em **Fabrikam Jazz Club** no **Hub de Eventos**.
 
-   ![Events](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
+   ![Eventos](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
-### <a name="azure-traffic-manager"></a>Gestor de Tráfego do Azure
+### <a name="azure-traffic-manager"></a>Traffic Manager do Azure
 
 Para controlar a distribuição de solicitações de entrada, o aplicativo Wingtip usa o [Gerenciador de tráfego do Azure](../traffic-manager/traffic-manager-overview.md). A página de eventos para cada locatário inclui o nome do locatário em sua URL. Cada URL também inclui seu valor de usuário específico. Cada URL obedece ao formato mostrado usando as seguintes etapas:
 
-- http://events.wingtip-mt.&lt ; user&gt;. trafficmanager.NET/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt; usuário&gt;. trafficmanager.net/*fabrikamjazzclub*
 
 1. O aplicativo de eventos analisa o nome do locatário a partir da URL. O nome do locatário é *fabrikamjazzclub* na URL de exemplo anterior.
 2. Em seguida, o aplicativo faz hash do nome do locatário para criar uma chave para acessar um catálogo usando o [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md).
@@ -154,7 +154,7 @@ Em um ambiente de produção, você normalmente cria um registro DNS CNAME para 
 
 Agora que o aplicativo foi implantado, vamos colocá-lo em funcionamento! O script do PowerShell *demo-LoadGenerator* inicia uma carga de trabalho em execução para cada locatário. A carga do mundo real em muitos aplicativos SaaS é normalmente esporádica e imprevisível. Para simular esse tipo de carga, o gerador produz uma carga distribuída entre todos os locatários. A carga inclui intermitências aleatórias em cada locatário que ocorre em intervalos aleatórios. Leva vários minutos para que o padrão de carga surja, portanto, é melhor permitir que o gerador seja executado por pelo menos três ou quatro minutos antes de monitorar a carga.
 
-1. No *ISE do PowerShell*, abra o... Módulos de aprendizagemutilitários\\*demo-LoadGenerator. ps1 script.* \\\\
+1. No *ISE do PowerShell*, abra o...\\módulos de aprendizado\\utilitários\\script *demo-LoadGenerator. ps1* .
 2. Prima **F5** para executar o script e iniciar o gerador de carga (deixe os valores predefinidos do parâmetro por agora).
 
 O script *demo-LoadGenerator. ps1* abre outra sessão do PowerShell em que o gerador de carga é executado. O gerador de carga é executado nessa sessão como uma tarefa em primeiro plano que invoca trabalhos de geração de carga em segundo plano, um para cada locatário.
@@ -169,7 +169,7 @@ Talvez você queira reiniciar a sessão do gerador de carga para usar valores de
 
 A implantação inicial inclui três locatários de exemplo no banco de dados *Tenants1* . Vamos criar outro locatário e observar seus efeitos no aplicativo implantado. Nesta etapa, você pressiona uma tecla para criar um novo locatário:
 
-1. Abrir... \\Módulos de aprendizado provisionar e catalogar provisiontenants. ps1 no ISE do PowerShell.\\ \\
+1. Abra...\\módulos de aprendizado\\provisionar e catalogar\\*provisiontenants. ps1* no *ISE do PowerShell*.
 2. Pressione **F5** (não **F8**) para executar o script (Deixe os valores padrão por enquanto).
 
    > [!NOTE]
@@ -192,7 +192,7 @@ Você pode optar por colocar clientes de avaliação gratuita ou clientes de eco
 
 Em seguida, provisionmos outro locatário, desta vez em seu próprio banco de dados:
 
-1. Em... \\Módulos de aprendizado provisionar e catalogar provisiontenants. ps1, modificar $TenantName para Salix salsa, $VenueType para dança e $Scenario para\\ \\ **2**.
+1. Em...\\módulos de aprendizado\\provisionar e catalogar\\*provisiontenants. ps1*, modifique *$TenantName* para **Salix salsa**, *$VenueType* para **dança** e *$Scenario* para **2**.
 
 2. Pressione **F5** para executar o script novamente.
     - Essa tecla **F5** provisiona o novo locatário em um banco de dados separado. O banco de dados e o locatário são registrados no catálogo. Em seguida, o navegador é aberto na página eventos do locatário.
@@ -211,7 +211,7 @@ Agora, vamos examinar alguns dos recursos que foram implantados:
 
    ![grupo de recursos](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
-2. Clique em **Catalog-&lt;MT&gt; User** Server. O servidor de catálogo contém dois bancos de dados chamados *tenantcatalog* e *basetenantdb*. O banco de dados *basetenantdb* é um banco de dados de modelo vazio. Ele é copiado para criar um novo banco de dados de locatário, seja usado para muitos locatários ou apenas um locatário.
+2. Clique em **Catalog-mt&lt;** servidor de&gt;de usuário. O servidor de catálogo contém dois bancos de dados chamados *tenantcatalog* e *basetenantdb*. O banco de dados *basetenantdb* é um banco de dados de modelo vazio. Ele é copiado para criar um novo banco de dados de locatário, seja usado para muitos locatários ou apenas um locatário.
 
    ![servidor de catálogo](./media/saas-multitenantdb-get-started-deploy/catalog-server.png)
 
@@ -225,13 +225,13 @@ Agora, vamos examinar alguns dos recursos que foram implantados:
 
 Se o gerador de carga estiver em execução por vários minutos, a telemetria suficiente estará disponível para examinar os recursos de monitoramento de banco de dados incorporados ao portal do Azure.
 
-1. Navegue até o servidor de **usuário&lt;&gt; tenants1-MT** e clique em **tenants1** para exibir a utilização de recursos para o banco de dados que tem quatro locatários. Cada locatário está sujeito a uma carga pesada esporádica do gerador de carga:
+1. Navegue até o servidor de **&gt;de usuário do tenants1-mt&lt;** e clique em **tenants1** para exibir a utilização de recursos para o banco de dados que tem quatro locatários nele. Cada locatário está sujeito a uma carga pesada esporádica do gerador de carga:
 
    ![monitorar tenants1](./media/saas-multitenantdb-get-started-deploy/monitor-tenants1.png)
 
    O gráfico de utilização de DTU ilustra bem como um banco de dados multilocatário pode dar suporte a uma carga de trabalho imprevisível em vários locatários. Nesse caso, o gerador de carga está aplicando uma carga esporádica de aproximadamente 30 DTUs a cada locatário. Essa carga equivale à utilização de 60% de um banco de dados de DTU 50. Os picos que excedem 60% são o resultado da aplicação da carga em mais de um locatário ao mesmo tempo.
 
-2. Navegue até o servidor de **usuário&lt;&gt; tenants1-MT** e clique no banco de dados **salixsalsa** . Você pode ver a utilização de recursos nesse banco de dados que contém apenas um locatário.
+2. Navegue até o servidor de **&gt;de usuário do tenants1-mt&lt;** e clique no banco de dados **salixsalsa** . Você pode ver a utilização de recursos nesse banco de dados que contém apenas um locatário.
 
    ![banco de dados salixsalsa](./media/saas-multitenantdb-get-started-deploy/monitor-salix.png)
 
@@ -245,14 +245,14 @@ As cargas de trabalho geradas pelo script do gerador de carga são apenas para f
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- Para saber mais sobre aplicativos SaaS multilocatários, consulte [padrões de design para aplicativos SaaS](saas-tenancy-app-design-patterns.md)multilocatários.
+- Para saber mais sobre aplicativos SaaS multilocatários, consulte [padrões de design para aplicativos SaaS multilocatários](saas-tenancy-app-design-patterns.md).
 
 - Para saber mais sobre pools elásticos, consulte:
 
   - [Os pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados SQL do Azure](sql-database-elastic-pool.md)
   - [Aumentar horizontalmente com a Base de Dados SQL do Azure](sql-database-elastic-scale-introduction.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber:
 

@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: 89709edf085e1c424156fb68bd86fbc66b6ae8a7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 614e02e4ba2599154cd3308d6a4fe222b6f63d3d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934323"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576162"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>referência de host. JSON para Azure Functions 1. x
 
@@ -194,9 +194,9 @@ Definições de configuração do [Monitor de integridade do host](https://githu
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|Habilitado|true|Especifica se o recurso está habilitado. | 
+|enabled|true|Especifica se o recurso está habilitado. | 
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de integridade de segundo plano periódicas. | 
-|healthCheckWindow|2 minutos|Uma janela de tempo deslizante usada em conjunto com a configuração `healthCheckThreshold`.| 
+|healthCheckWindow|2 minutos|Uma janela de tempo deslizante usada em conjunto com a configuração de `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Número máximo de vezes que a verificação de integridade pode falhar antes que uma reciclagem de host seja iniciada.| 
 |comlimite|0,80|O limite no qual um contador de desempenho será considerado não íntegro.| 
 
@@ -215,15 +215,18 @@ Definições de configuração para [gatilhos e associações http](functions-bi
 }
 ```
 
-[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
+|Propriedade  |Predefinição | Descrição |
+|---------|---------|---------| 
+|dynamicThrottlesEnabled|false|Quando habilitado, essa configuração faz com que o pipeline de processamento de solicitações Verifique periodicamente os contadores de desempenho do sistema como conexões/threads/processos/memória/CPU/etc. e, se qualquer um desses contadores estiver acima de um limite alto interno (80%), as solicitações serão rejeitado com uma resposta de 429 "muito ocupado" até que os contadores retornem aos níveis normais.|
+|maxConcurrentRequests|Não associado (`-1`)|O número máximo de funções http que serão executadas em paralelo. Isso permite que você controle a simultaneidade, o que pode ajudar a gerenciar a utilização de recursos. Por exemplo, você pode ter uma função http que usa muitos recursos do sistema (memória/CPU/soquetes), de modo que isso cause problemas quando a simultaneidade for muito alta. Ou você pode ter uma função que faça solicitações de saída para um serviço de terceiros, e essas chamadas precisam ser limitadas por taxa. Nesses casos, a aplicação de uma limitação aqui pode ajudar.|
+|maxOutstandingRequests|Não associado (`-1`)|O número máximo de solicitações pendentes que são mantidas em um determinado momento. Esse limite inclui solicitações que estão na fila, mas não iniciaram a execução, bem como qualquer execução em andamento. Todas as solicitações de entrada acima desse limite são rejeitadas com uma resposta de 429 "muito ocupado". Isso permite que os chamadores empreguem estratégias de repetição baseadas em tempo, além de ajudar você a controlar as latências de solicitação máximas. Isso controla somente o enfileiramento que ocorre no caminho de execução do host de script. Outras filas, como a fila de solicitações ASP.NET, ainda estarão em vigor e não serão afetadas por essa configuração.|
+|routePrefix|api|O prefixo de rota que se aplica a todas as rotas. Use uma cadeia de caracteres vazia para remover o prefixo padrão. |
 
 ## <a name="id"></a>ID
 
-*Somente versão 1. x.*
+A ID exclusiva para um host de trabalho. Pode ser um GUID de caso inferior com traços removidos. Necessário ao executar localmente. Ao executar no Azure, recomendamos que você não defina um valor de ID. Uma ID é gerada automaticamente no Azure quando `id` é omitida. 
 
-A ID exclusiva para um host de trabalho. Pode ser um GUID de caso inferior com traços removidos. Necessário ao executar localmente. Ao executar no Azure, recomendamos que você não defina um valor de ID. Uma ID é gerada automaticamente no Azure quando `id` é omitido. 
-
-Se você compartilhar uma conta de armazenamento em vários aplicativos de funções, certifique-se de que cada aplicativo de funções tem um `id` diferente. Você pode omitir a propriedade `id` ou definir manualmente cada aplicativo de função `id` para um valor diferente. O gatilho de temporizador usa um bloqueio de armazenamento para garantir que haverá apenas uma instância de temporizador quando um aplicativo de funções for dimensionado para várias instâncias. Se dois aplicativos de funções compartilharem o mesmo `id` e cada um usar um gatilho de temporizador, apenas um temporizador será executado.
+Se você compartilhar uma conta de armazenamento em vários aplicativos de funções, certifique-se de que cada aplicativo de funções tem um `id`diferente. Você pode omitir a propriedade `id` ou definir manualmente cada `id` do aplicativo de funções para um valor diferente. O gatilho de temporizador usa um bloqueio de armazenamento para garantir que haverá apenas uma instância de temporizador quando um aplicativo de funções for dimensionado para várias instâncias. Se dois aplicativos de funções compartilharem o mesmo `id` e cada um usar um gatilho de temporizador, somente um temporizador será executado.
 
 ```json
 {
@@ -253,8 +256,8 @@ Controla a filtragem de logs gravados por um [objeto ILogger](functions-monitori
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
 |categoryFilter|n/d|Especifica a filtragem por categoria| 
-|defaultleve|Proteção das|Para todas as categorias não especificadas na matriz `categoryLevels`, envie logs nesse nível e acima para Application Insights.| 
-|categoryLevels|n/d|Uma matriz de categorias que especifica o nível de log mínimo a ser enviado para Application Insights para cada categoria. A categoria especificada aqui controla todas as categorias que começam com o mesmo valor e os valores mais longos têm precedência. No arquivo *host. JSON* de exemplo anterior, todas as categorias que começam com o log "host. agregador" no nível `Information`. Todas as outras categorias que começam com "host", como "host. executor", fazem logon no nível `Error`.| 
+|defaultleve|Informações|Para todas as categorias não especificadas na matriz de `categoryLevels`, envie logs nesse nível e acima para Application Insights.| 
+|categoryLevels|n/d|Uma matriz de categorias que especifica o nível de log mínimo a ser enviado para Application Insights para cada categoria. A categoria especificada aqui controla todas as categorias que começam com o mesmo valor e os valores mais longos têm precedência. No arquivo *host. JSON* de exemplo anterior, todas as categorias que começam com o log "host. agregador" no nível de `Information`. Todas as outras categorias que começam com "host", como "host. executor", fazem logon no nível de `Error`.| 
 
 ## <a name="queues"></a>filas
 
@@ -276,7 +279,7 @@ Definições de configuração para [gatilhos e associações de fila de armazen
 |---------|---------|---------| 
 |maxPollingInterval|60000|O intervalo máximo em milissegundos entre as pesquisas de fila.| 
 |visibilityTimeout|0|O intervalo de tempo entre as repetições quando o processamento de uma mensagem falha.| 
-|batchSize|16|O número de mensagens de fila que o tempo de execução do Functions recupera simultaneamente e processa em paralelo. Quando o número que está sendo processado chega ao `newBatchThreshold`, o tempo de execução Obtém outro lote e começa a processar essas mensagens. Portanto, o número máximo de mensagens simultâneas sendo processadas por função é `batchSize` mais `newBatchThreshold`. Esse limite se aplica separadamente a cada função disparada por fila. <br><br>Se você quiser evitar a execução paralela de mensagens recebidas em uma fila, poderá definir `batchSize` como 1. No entanto, essa configuração elimina a simultaneidade somente contanto que seu aplicativo de funções seja executado em uma única máquina virtual (VM). Se o aplicativo de funções for dimensionado para várias VMs, cada VM poderá executar uma instância de cada função disparada por fila.<br><br>O máximo de `batchSize` é 32. | 
+|batchSize|16|O número de mensagens de fila que o tempo de execução do Functions recupera simultaneamente e processa em paralelo. Quando o número que está sendo processado chega à `newBatchThreshold`, o tempo de execução Obtém outro lote e começa a processar essas mensagens. Portanto, o número máximo de mensagens simultâneas sendo processadas por função é `batchSize` mais `newBatchThreshold`. Esse limite se aplica separadamente a cada função disparada por fila. <br><br>Se você quiser evitar a execução paralela para mensagens recebidas em uma fila, poderá definir `batchSize` como 1. No entanto, essa configuração elimina a simultaneidade somente contanto que seu aplicativo de funções seja executado em uma única máquina virtual (VM). Se o aplicativo de funções for dimensionado para várias VMs, cada VM poderá executar uma instância de cada função disparada por fila.<br><br>O `batchSize` máximo é 32. | 
 |maxDequeueCount|5|O número de vezes para tentar processar uma mensagem antes de movê-la para a fila de suspeitas.| 
 |newBatchThreshold|batchSize/2|Sempre que o número de mensagens sendo processadas simultaneamente chega a esse número, o tempo de execução recupera outro lote.| 
 
@@ -356,8 +359,8 @@ Definições de configuração para logs que você cria usando um objeto `TraceW
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|consoleLevel|detalhes|O nível de rastreamento do log do console. As opções são: `off`, `error`, `warning`, `info` e `verbose`.|
-|filelogmode|debugOnly|O nível de rastreamento para registro em log de arquivo. As opções são `never`, `always`, `debugOnly`.| 
+|consoleLevel|detalhes|O nível de rastreamento do log do console. As opções são: `off`, `error`, `warning`, `info`e `verbose`.|
+|filelogmode|debugOnly|O nível de rastreamento para registro em log de arquivo. As opções são `never`, `always``debugOnly`.| 
 
 ## <a name="watchdirectories"></a>watchDirectories
 

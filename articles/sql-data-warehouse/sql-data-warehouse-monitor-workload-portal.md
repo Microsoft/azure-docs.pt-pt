@@ -1,5 +1,5 @@
 ---
-title: Monitorar carga de trabalho-portal do Azure | Microsoft Docs
+title: Monitorar carga de trabalho-portal do Azure
 description: Monitorar SQL Data Warehouse do Azure usando o portal do Azure
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 176762e0d1c007f924d779a1b77dd52c7ed56e01
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 73d837c34dd5a480cae08a41c89939414899052a
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981493"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645624"
 ---
 # <a name="monitor-workload---azure-portal"></a>Monitorar carga de trabalho-portal do Azure
 
@@ -23,8 +23,8 @@ Este artigo descreve como usar o portal do Azure para monitorar sua carga de tra
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura do Azure: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-- SQL Data Warehouse do Azure: Coletaremos logs para um SQL Data Warehouse. Se você não tiver um SQL Data Warehouse provisionado, consulte as instruções em [criar um SQL data warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
+- Assinatura do Azure: se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+- SQL Data Warehouse do Azure: coletaremos logs para um SQL Data Warehouse. Se você não tiver um SQL Data Warehouse provisionado, consulte as instruções em [criar um SQL data warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
 
 ## <a name="create-a-log-analytics-workspace"></a>Criar um espaço de trabalho Log Analytics
 
@@ -61,7 +61,7 @@ Navegue até o espaço de trabalho Log Analytics onde você pode fazer o seguint
 
 - Analisar logs usando consultas de log e salvar consultas para reutilização
 - Salvar consultas para reutilização
-- Criar alertas de log
+- Criar alertas de registos
 - Fixar resultados da consulta em um painel
 
 Para obter detalhes sobre os recursos das consultas de log, visite a [documentação](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language)a seguir.
@@ -97,6 +97,6 @@ AzureDiagnostics
 | where Type_s == "UserConcurrencyResourceType"
 | summarize totalQueuedQueries = dcount(RequestId_s)
 ```
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você configurou e configurou os logs do Azure monitor, [Personalize os painéis do Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) para compartilhar em sua equipe.

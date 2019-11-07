@@ -1,5 +1,5 @@
 ---
-title: Criar uma função disparada por HTTP no Azure
+title: Criar uma função Python disparada por HTTP no Azure
 description: Saiba como criar sua primeira função Python no Azure usando o Azure Functions Core Tools e o CLI do Azure.
 author: ggailey777
 ms.author: glenga
@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: gwallace
-ms.openlocfilehash: f2602e5a13f83090291656e7062c74c245bc6568
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 791348088d909785b36934c3b9a2ae00fc0acbb7
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693354"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622038"
 ---
-# <a name="create-an-http-triggered-function-in-azure"></a>Criar uma função disparada por HTTP no Azure
+# <a name="create-an-http-triggered-python-function-in-azure"></a>Criar uma função Python disparada por HTTP no Azure
 
 Este artigo mostra como usar as ferramentas de linha de comando para criar um projeto Python que é executado no Azure Functions. Você também cria uma função que é disparada por uma solicitação HTTP. Por fim, você publica seu projeto para executar como uma [função sem servidor](functions-scale.md#consumption-plan) no Azure.
 
@@ -105,7 +105,7 @@ Esses comandos criam uma subpasta chamada _HttpTrigger_. Ele contém os seguinte
 
     Cada associação requer uma direção, um tipo e um nome exclusivo. O gatilho HTTP tem uma associação de entrada do tipo [`httpTrigger`](functions-bindings-http-webhook.md#trigger) e a associação de saída do tipo [`http`](functions-bindings-http-webhook.md#output).
 
-* *\_ \_init \_ \_. py*: arquivo de script que é sua função disparada por http. Observe que esse script tem um `main()` padrão. Os dados HTTP do gatilho passam para a função usando o `req` nomeado `binding parameter`. O `req`, que é definido em function. JSON, é uma instância da [classe Azure. Functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). 
+* *\_\_init\_\_. py*: arquivo de script que é sua função disparada por http. Observe que esse script tem um `main()`padrão. Os dados HTTP do gatilho passam para a função usando o `req` nomeado `binding parameter`. O `req`, que é definido em function. JSON, é uma instância da [classe Azure. Functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). 
 
     O objeto de retorno, definido como `$return` em *Function. JSON*, é uma instância da [classe Azure. Functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Para saber mais, consulte [Azure Functions gatilhos e associações http](functions-bindings-http-webhook.md).
 

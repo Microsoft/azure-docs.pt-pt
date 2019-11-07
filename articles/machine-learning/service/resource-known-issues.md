@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7c52adfb919586fc590ef60215592a5b5c1c1cb3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 3fd97e33c88e7767e1d9b230792aea675a744f27
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476124"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619772"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemas conhecidos e solução de problemas Azure Machine Learning
 
@@ -88,9 +88,19 @@ Os gráficos de classificação binária (recall de precisão, ROC, curva de luc
 
 ## <a name="datasets-and-data-preparation"></a>Conjuntos de dados e preparo
 
+Esses são problemas conhecidos para conjuntos de Azure Machine Learning.
+
 ### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>Falha ao ler o arquivo parquet do HTTP ou ADLS Gen 2
 
-Há um problema conhecido na versão 1.1.25 do AzureML dataprep SDK que causa uma falha ao criar um conjunto de uma leitura de arquivos parquet de HTTP ou ADLS Gen 2. Para corrigir esse problema, atualize para uma versão superior a 1.1.26 ou faça downgrade para uma versão inferior a 1.1.24.
+Há um problema conhecido na versão 1.1.25 do AzureML dataprep SDK que causa uma falha ao criar um conjunto de uma leitura de arquivos parquet de HTTP ou ADLS Gen 2. Ocorrerá uma falha com `Cannot seek once reading started.`. Para corrigir esse problema, atualize `azureml-dataprep` para uma versão superior à 1.1.26 ou faça downgrade para uma versão inferior a 1.1.24.
+
+```python
+pip install --upgrade azureml-dataprep
+```
+
+### <a name="typeerror-mount-got-an-unexpected-keyword-argument-invocation_id"></a>TypeError: Mount () obteve um argumento de palavra-chave inesperado ' invocation_id '
+
+Esse erro ocorrerá se você tiver uma versão incompatível entre `azureml-core` e `azureml-dataprep`. Se você vir esse erro, atualize `azureml-dataprep` pacote para uma versão mais recente (maior ou igual a 1.1.29).
 
 ```python
 pip install --upgrade azureml-dataprep
@@ -146,15 +156,8 @@ Se essas etapas não resolverem o problema, tente reiniciar o cluster.
 Se você vir um erro de `FailToSendFeather` ao ler dados no cluster Azure Databricks, consulte as seguintes soluções:
 
 * Atualize `azureml-sdk[automl]` pacote para a versão mais recente.
-* Adicione `azure-dataprep` versão 1.1.8 ou superior.
+* Adicione `azureml-dataprep` versão 1.1.8 ou superior.
 * Adicione `pyarrow` versão 0,11 ou superior.
-
-
-## <a name="datasets"></a>Conjuntos de dados
-
-Esses são problemas conhecidos para conjuntos de Azure Machine Learning.
-
-+ **Falha ao ler arquivos parquet no Azure data Lake Storage Gen2** A leitura de arquivos parquet de repositórios de Azure Data Lake Storage Gen2 não funcionará se você tiver o `azureml-dataprep==1.1.25` instalado. Ocorrerá uma falha com `Cannot seek once reading started.`. Se você vir esse erro, poderá instalar o `azureml-dataprep<=1.1.24` ou instalar o `azureml-dataprep>=1.1.26`.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -175,7 +178,7 @@ Algumas dessas ações aparecem na área __atividades__ do seu espaço de trabal
 
 ## <a name="resource-quotas"></a>Quotas de recursos
 
-Saiba mais sobre as [cotas de recursos](how-to-manage-quotas.md) que você pode encontrar ao trabalhar com Azure Machine Learning.
+Saiba mais sobre o [quotas de recursos](how-to-manage-quotas.md) que poderá encontrar ao trabalhar com o Azure Machine Learning.
 
 ## <a name="authentication-errors"></a>Erros de autenticação
 
@@ -261,4 +264,24 @@ As dependências específicas à estrutura são listadas no respectivo Framework
 Essa exceção deve vir de seus scripts de treinamento. Você pode examinar os arquivos de log de portal do Azure para obter mais informações sobre o nome específico não definido ou erro de atributo. No SDK, você pode usar `run.get_details()` para examinar a mensagem de erro. Isso também listará todos os arquivos de log gerados para sua execução. Certifique-se de dar uma olhada no script de treinamento, corrija o erro antes de tentar novamente. 
 
 ### <a name="horovod-is-shutdown"></a>Horovod está desligado
-Na maioria dos casos, essa exceção significa que houve uma exceção subjacente em um dos processos que causaram o desligamento de horovod. Cada classificação no trabalho MPI obtém seu próprio arquivo de log dedicado no Azure ML. Esses logs são nomeados `70_driver_logs`. No caso de treinamento distribuído, os nomes de log têm o sufixo `_rank` para facilitar a diferenciação dos logs. Para localizar o erro exato que causou o desligamento de horovod, percorra todos os arquivos de log e procure `Traceback` no final dos arquivos driver_log. Um desses arquivos fornecerá a exceção subjacente real. 
+Na maioria dos casos, essa exceção significa que houve uma exceção subjacente em um dos processos que causaram o desligamento de horovod. Cada classificação no trabalho MPI obtém seu próprio arquivo de log dedicado no Azure ML. Esses logs são nomeados `70_driver_logs`. No caso de treinamento distribuído, os nomes de log têm o sufixo `_rank` para facilitar a diferenciação dos logs. Para localizar o erro exato que causou o desligamento do horovod, percorra todos os arquivos de log e procure `Traceback` no final dos arquivos de driver_log. Um desses arquivos fornecerá a exceção subjacente real. 
+
+## <a name="labeling-projects-issues"></a>Rotulando problemas de projetos
+
+Problemas conhecidos com a rotulagem de projetos.
+
+### <a name="only-datasets-created-on-blob-datastores-can-be-used"></a>Somente conjuntos de linhas criados em armazenamentos de BLOBs podem ser usados
+
+Essa é uma limitação conhecida da versão atual. 
+
+### <a name="after-creation-the-project-shows-initializing-for-a-long-time"></a>Após a criação, o projeto mostrará "Inicializando" por um longo tempo
+
+Atualize manualmente a página. A inicialização deve continuar em aproximadamente 20 pontos de extremidade por segundo. A falta de atualização autoatualizada é um problema conhecido. 
+
+### <a name="bounding-box-cannot-be-drawn-all-the-way-to-right-edge-of-image"></a>A caixa delimitadora não pode ser desenhada até a borda direita da imagem 
+
+Tente redimensionar a janela do navegador. Estamos investigando para determinar a causa desse comportamento. 
+
+### <a name="when-reviewing-images-newly-labeled-images-are-not-shown"></a>Ao revisar imagens, as imagens rotuladas recentemente não são mostradas
+
+Para carregar todas as imagens rotuladas, escolha o **primeiro** botão. O **primeiro** botão o levará de volta à frente da lista, mas carregará todos os dados rotulados.

@@ -1,5 +1,5 @@
 ---
-title: Recomendações de desempenho-banco de dados SQL do Azure | Microsoft Docs
+title: Recomendações de desempenho-banco de dados SQL do Azure
 description: O banco de dados SQL do Azure fornece recomendações para seus bancos de dados SQL que podem melhorar o desempenho de consulta atual.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 08def3ac2fd94f01586bc690d867c04758b8856b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: de6ddd8886f8cadafa57724a5d5e33a3ba4e3c74
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569534"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691242"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Recomendações de desempenho para o banco de dados SQL
 
@@ -52,7 +52,7 @@ As recomendações de drop index também passam pela verificação após a imple
 
 
 ## <a name="parameterize-queries-recommendations"></a>Recomendações de parametrização de consultas
-As recomendações de parametrização de *consultas* aparecem quando você tem uma ou mais consultas que estão constantemente sendo recompiladas, mas terminam com o mesmo plano de execução de consulta. Essa condição cria uma oportunidade de aplicar parametrização forçada. A parametrização forçada, por sua vez, permite que os planos de consulta sejam armazenados em cache e reutilizados no futuro, o que melhora o desempenho e reduz o uso de recursos. 
+As recomendações de *parametrização de consultas* aparecem quando você tem uma ou mais consultas que estão constantemente sendo recompiladas, mas terminam com o mesmo plano de execução de consulta. Essa condição cria uma oportunidade de aplicar parametrização forçada. A parametrização forçada, por sua vez, permite que os planos de consulta sejam armazenados em cache e reutilizados no futuro, o que melhora o desempenho e reduz o uso de recursos. 
 
 Cada consulta emitida em SQL Server inicialmente precisa ser compilada para gerar um plano de execução. Cada plano gerado é adicionado ao cache de planos. As execuções subsequentes da mesma consulta podem reutilizar esse plano do cache, o que elimina a necessidade de compilação adicional. 
 
@@ -76,7 +76,7 @@ As recomendações de **correção de problemas de esquema** aparecem quando o s
 
 A recomendação "corrigir problema do esquema" aparece quando o serviço do banco de dados SQL do Azure observa uma anomalia no número de erros SQL relacionados ao esquema que estão ocorrendo no banco de dados SQL. A tabela a seguir mostra os erros relacionados a problemas de esquema:
 
-| Código de erro SQL | Message |
+| Código de erro do SQL | Mensagem |
 | --- | --- |
 | 201 |O procedimento ou a função ' *' espera o parâmetro '* ', que não foi fornecido. |
 | 207 |Nome de coluna inválido ' * '. |
@@ -85,11 +85,11 @@ A recomendação "corrigir problema do esquema" aparece quando o serviço do ban
 | 2812 |Não foi possível encontrar o procedimento armazenado ' * '. |
 | 8144 |O procedimento ou a função * tem muitos argumentos especificados. |
 
-## <a name="custom-applications"></a>Aplicações personalizadas
+## <a name="custom-applications"></a>Aplicativos personalizados
 
 Os desenvolvedores podem considerar o desenvolvimento de aplicativos personalizados usando recomendações de desempenho para o banco de dados SQL do Azure. Todas as recomendações listadas no portal para um banco de dados podem ser acessadas por meio da API [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Monitore suas recomendações e continue a aplicá-las para refinar o desempenho. As cargas de trabalho de banco de dados são dinâmicas e mudam continuamente. Assistente do Banco de Dados SQL continua a monitorar e fornecer recomendações que podem melhorar o desempenho do seu banco de dados. 
 
 * Para obter mais informações sobre o ajuste automático de índices de banco de dados e planos de execução de consulta, consulte [ajuste automático do banco de dados SQL do Azure](sql-database-automatic-tuning.md).

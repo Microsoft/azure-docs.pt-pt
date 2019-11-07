@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Pausar e retomar a computação no Azure SQL Data Warehouse-portal do Azure | Microsoft Docs'
+title: 'Início rápido: pausar & retomar computação-portal do Azure '
 description: Use o portal do Azure para pausar a computação no Azure SQL Data Warehouse para economizar custos. Retome a computação quando estiver pronto para usar o data warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,14 +10,15 @@ ms.subservice: manage
 ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 46fb1fc6455cd35d8bb1eaf0a1b7ee499f5c1caf
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 14f66f71948f75a723c9fdbed7490d54c2c3e2b2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574881"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692993"
 ---
-# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Início rápido: Pausar e retomar a computação para uma SQL Data Warehouse do Azure no portal do Azure
+# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Início rápido: pausar e retomar a computação para uma SQL Data Warehouse do Azure no portal do Azure
 
 Use o portal do Azure para pausar a computação no Azure SQL Data Warehouse para economizar custos. [Retome a computação](sql-data-warehouse-manage-compute-overview.md) quando estiver pronto para usar o data warehouse.
 
@@ -25,7 +26,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -43,13 +44,13 @@ Siga estas etapas para pausar uma SQL Data Warehouse.
 
     ![Computação online](media/pause-and-resume-compute-portal/compute-online.png)
 
-4. Para pausar a data warehouse, clique no botão Pausar. 
+4. Para pausar a data warehouse, clique no botão **Pausar** . 
 5. Uma pergunta de confirmação é exibida perguntando se você deseja continuar. Clique em **Sim**.
 6. Aguarde alguns instantes e observe que o **status** está sendo **pausando**.
 
-    ![A colocar em pausa](media/pause-and-resume-compute-portal/pausing.png)
+    ![Pausa](media/pause-and-resume-compute-portal/pausing.png)
 
-7. Quando a operação de pausa for concluída, o status será pausado e o botão de opção será **iniciado**.
+7. Quando a operação de pausa for concluída, o status será **pausado** e o botão de opção será **iniciado**.
 8. Os recursos de computação para os data warehouse agora estão offline. Você não será cobrado pela computação até que você retome o serviço.
 
     ![Computação offline](media/pause-and-resume-compute-portal/compute-offline.png)
@@ -67,11 +68,11 @@ Siga estas etapas para retomar uma SQL Data Warehouse.
 
 4. Para retomar o data warehouse, clique em **Iniciar**. 
 5. Uma pergunta de confirmação é exibida perguntando se você deseja iniciar. Clique em **Sim**.
-6. Observe que o **status** é retomado.
+6. Observe que o **status** é **retomado**.
 
-    ![A retomar](media/pause-and-resume-compute-portal/resuming.png)
+    ![Retomar](media/pause-and-resume-compute-portal/resuming.png)
 
-7. Quando o data warehouse está online novamente, o status é **online** e o botão de opçãoé pausar.
+7. Quando o data warehouse está online novamente, o status é **online** e o botão de opção é **Pausar**.
 8. Os recursos de computação para os data warehouse agora estão online e você pode usar o serviço. Os encargos para computação foram retomados.
 
     ![Computação online](media/pause-and-resume-compute-portal/compute-online.png)

@@ -1,5 +1,5 @@
 ---
-title: Exemplo de aplicativo multilocatário do banco de dados SQL do Azure – Wingtip SaaS | Microsoft Docs
+title: Exemplo de aplicativo multilocatário do banco de dados SQL do Azure – Wingtip SaaS
 description: Aprenda usando um aplicativo multilocatário de exemplo que usa o banco de dados SQL do Azure, o exemplo de SaaS Wingtip
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 16f4bb946af4720a327a8755c6bf9187f3b71ba6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1a4931a24802290e0e7e207f32528a1192fd880f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570348"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692071"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introdução a um aplicativo SaaS multilocatário que usa o padrão de banco de dados por locatário com o banco de dados SQL
 
@@ -52,7 +52,7 @@ Depois de implantar o aplicativo, explore os tutoriais a seguir que se baseiam n
 |[Executar análise em dados de locatário extraídos](saas-tenancy-tenant-analytics.md) | Extraia dados de locatário em um banco de dados de análise ou data warehouse para consultas de análise offline. |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Diretrizes gerais e dicas ao implantar e usar o exemplo de aplicativo Wingtip tickets SaaS](saas-tenancy-wingtip-app-guidance-tips.md)
 - [Implantar o aplicativo SaaS Wingtip](saas-dbpertenant-get-started-deploy.md)

@@ -1,5 +1,5 @@
 ---
-title: Usar PHP para consultar o banco de dados SQL do Azure | Microsoft Docs
+title: Usar PHP para consultar o banco de dados SQL do Azure
 description: Como usar o PHP para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-lo usando instruções T-SQL.
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 02/12/2019
-ms.openlocfilehash: a7da65438ffd7db6c43cf2ede7cc52378af056f1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c1c576becc0390a2cb0dfb083755be4e7c772c59
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569228"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690949"
 ---
-# <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Início rápido: Utilizar o PHP para consultar uma base de dados SQL do Azure
+# <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Início Rápido: Utilizar o PHP para consultar uma base de dados SQL do Azure
 
 Este artigo demonstra como usar o [php](https://php.net/manual/en/intro-whatis.php) para se conectar a um banco de dados SQL do Azure. Você pode usar instruções T-SQL para consultar dados.
 
@@ -53,7 +53,7 @@ Para concluir este exemplo, verifique se você tem os seguintes pré-requisitos:
 
 Obtenha as informações de conexão necessárias para se conectar ao banco de dados SQL do Azure. Você precisará do nome do servidor totalmente qualificado ou nome do host, nome do banco de dados e informações de logon para os próximos procedimentos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Navegue até a página **bancos de dados SQL** ou **instâncias gerenciadas do SQL** .
 
@@ -100,7 +100,7 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 1. Verifique se as 20 primeiras linhas são retornadas e feche a janela do aplicativo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar a sua primeira base de dados SQL do Azure](sql-database-design-first-database.md)
 
@@ -108,4 +108,4 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 - [Report issues or ask questions](https://github.com/Microsoft/msphpsql/issues) (Comunicar problemas ou fazer perguntas)
 
-- [Exemplo de lógica de repetição: Conectar-se de forma resiliente ao SQL com PHP](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)
+- [Exemplo de lógica de repetição: conectar-se de forma resiliente ao SQL com PHP](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)

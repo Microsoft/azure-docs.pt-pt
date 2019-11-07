@@ -1,5 +1,5 @@
 ---
-title: Utilizar Ruby para consultar a Base de Dados SQL do Azure | Microsoft Docs
+title: Usar Ruby para consultar o banco de dados SQL do Azure
 description: Este tópico mostra-lhe como utilizar Ruby para criar um programa que se liga a uma base de dados SQL do Azure e a consulta com instruções Transact-SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 5b47ddc2d865108e03b3c649536bfaa700e4a59d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ecfdfa8930858eb02e993688a3ea1a78d2d7fe5f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569116"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690904"
 ---
-# <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Início rápido: Utilizar Ruby para consultar uma base de dados SQL do Azure
+# <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Início Rápido: Utilizar o Ruby para consultar uma base de dados SQL do Azure
 
 Este guia de início rápido demonstra como usar o [Ruby](https://www.ruby-lang.org) para conectar-se a um banco de dados SQL do Azure e consultar os dados com instruções TRANSACT-SQL.
 
@@ -54,7 +54,7 @@ Para concluir este guia de início rápido, você precisa dos seguintes pré-req
 
 Obtenha as informações de conexão necessárias para se conectar ao banco de dados SQL do Azure. Você precisará do nome do servidor totalmente qualificado ou nome do host, nome do banco de dados e informações de logon para os próximos procedimentos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Navegue até a página **bancos de dados SQL** ou **instâncias gerenciadas do SQL** .
 
@@ -64,7 +64,7 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 1. Em um editor de texto ou de código, crie um novo arquivo chamado *sqltest. rb*.
    
-1. Adicione o seguinte código. Substitua os valores do banco de dados SQL do `<server>`Azure `<database>`para `<username>`,, `<password>`e.
+1. Adicione o seguinte código. Substitua os valores do banco de dados SQL do Azure por `<server>`, `<database>`, `<username>`e `<password>`.
    
    >[!IMPORTANT]
    >O código neste exemplo usa os dados AdventureWorksLT de exemplo, que você pode escolher como fonte ao criar o banco de dado. Se o seu banco de dados tiver um dado diferente, use tabelas do seu próprio banco na consulta SELECT. 
@@ -99,7 +99,7 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
    
 1. Verifique se as 20 principais linhas de categoria/produto do banco de dados são retornadas. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Projete seu primeiro banco de dados SQL do Azure](sql-database-design-first-database.md).
 - [Repositório GitHub para função tinytds](https://github.com/rails-sqlserver/tiny_tds).
 - [Relate problemas ou faça perguntas sobre o função tinytds](https://github.com/rails-sqlserver/tiny_tds/issues).

@@ -1,19 +1,19 @@
 ---
-title: Arquitetura de replicação do Azure para o Azure em Azure Site Recovery | Microsoft Docs
-description: Este artigo fornece uma visão geral dos componentes e da arquitetura usada quando você configura a recuperação de desastre entre regiões do Azure para VMs do Azure, usando o serviço Azure Site Recovery.
+title: Arquitetura de recuperação de desastre do Azure para o Azure no Azure Site Recovery
+description: Visão geral da arquitetura usada quando você configura a recuperação de desastre entre regiões do Azure para VMs do Azure, usando o serviço de Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 11/05/2019
 ms.author: raynew
-ms.openlocfilehash: d415f303976ae454cb99f07e8d6e15e338e24d7d
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: e83c14e5ce337e8a3c4c119acc2397b98afd5b56
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231462"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621114"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do Azure para o Azure
 
@@ -63,7 +63,7 @@ Você pode gerenciar os recursos de destino da seguinte maneira:
 
 Quando você habilita a replicação de VM do Azure, por padrão Site Recovery cria uma nova política de replicação com as configurações padrão resumidas na tabela.
 
-**Definição de política** | **Detalhes** | **Predefinição**
+**Configuração de política** | **Detalhes** | **Predefinição**
 --- | --- | ---
 **Retenção do ponto de recuperação** | Especifica por quanto tempo Site Recovery mantém os pontos de recuperação | 24 horas
 **Frequência de instantâneo consistente com o aplicativo** | Com que frequência Site Recovery usa um instantâneo consistente com o aplicativo. | A cada quatro horas
@@ -145,7 +145,7 @@ Observe que os detalhes dos requisitos de conectividade de rede podem ser encont
 
 **Régua** |  **Detalhes** | **Etiqueta de serviço**
 --- | --- | --- 
-Permitir saída HTTPS: porta 443 | Permitir intervalos que correspondem às contas de armazenamento na região de origem | Repositório. \<> de nome de região.
+Permitir saída HTTPS: porta 443 | Permitir intervalos que correspondem às contas de armazenamento na região de origem | Repositório.\<> de nome de região.
 Permitir saída HTTPS: porta 443 | Permitir intervalos que correspondem a Azure Active Directory (Azure AD).<br/><br/> Se os endereços do Azure AD forem adicionados no futuro, você precisará criar novas regras de NSG (grupo de segurança de rede).  | AzureActiveDirectory
 Permitir saída HTTPS: porta 443 | Permitir acesso a [site Recovery pontos de extremidade](https://aka.ms/site-recovery-public-ips) que correspondem ao local de destino. 
 
@@ -153,7 +153,7 @@ Permitir saída HTTPS: porta 443 | Permitir acesso a [site Recovery pontos de ex
 
 **Régua** |  **Detalhes** | **Etiqueta de serviço**
 --- | --- | --- 
-Permitir saída HTTPS: porta 443 | Permitir intervalos que correspondem às contas de armazenamento na região de destino. | Repositório. \<> de nome de região.
+Permitir saída HTTPS: porta 443 | Permitir intervalos que correspondem às contas de armazenamento na região de destino. | Repositório.\<> de nome de região.
 Permitir saída HTTPS: porta 443 | Permitir intervalos que correspondem ao Azure AD.<br/><br/> Se os endereços do Azure AD forem adicionados no futuro, você precisará criar novas regras do NSG.  | AzureActiveDirectory
 Permitir saída HTTPS: porta 443 | Permitir acesso a [site Recovery pontos de extremidade](https://aka.ms/site-recovery-public-ips) que correspondem ao local de origem. 
 
@@ -186,6 +186,6 @@ Quando você inicia um failover, as VMs são criadas no grupo de recursos de des
 
 ![Processo de failover](./media/concepts-azure-to-azure-architecture/failover.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Replique rapidamente](azure-to-azure-quickstart.md) uma VM do Azure para uma região secundária.

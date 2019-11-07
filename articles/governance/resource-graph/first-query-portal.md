@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: abee722e725b55933d7ff1acdcd1e9a2e701502b
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 14615d596c1b673a234ccef541fecfbfce9d5f27
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752155"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622593"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Início rápido: executar sua primeira consulta de grafo de recursos usando o Gerenciador de grafo de recursos do Azure
 
@@ -27,10 +27,10 @@ Abra o [portal do Azure](https://portal.azure.com) para localizar e usar o Geren
 
 1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **Explorador de grafo de recursos**.
 
-1. Na parte da **consulta 1** da janela, insira a consulta `Resources | project name, type | limit 5` e selecione **Executar consulta**.
+1. Na parte **consulta 1** da janela, insira o `Resources | project name, type | limit 5` de consulta e selecione **Executar consulta**.
 
    > [!NOTE]
-   > Como esse exemplo de consulta não fornece um modificador de classificação, como `order by`, a execução dessa consulta várias vezes provavelmente produzirá um conjunto diferente de recursos por solicitação.
+   > Como este exemplo de consulta não fornece um modificador de classificação, como `order by`, executar essa consulta várias vezes provavelmente produzirá um conjunto diferente de recursos por solicitação.
 
 1. Examine a resposta de consulta na guia **resultados** . Selecione a guia **mensagens** para ver detalhes sobre a consulta, incluindo a contagem de resultados e a duração da consulta. Os erros, se houver, são exibidos nessa guia.
 
@@ -39,7 +39,7 @@ Abra o [portal do Azure](https://portal.azure.com) para localizar e usar o Geren
    > [!NOTE]
    > Assim como na primeira consulta, é provável que executar esta consulta várias vezes produza um conjunto diferente de recursos em cada pedido. A ordem dos comandos da consulta é importante. Neste exemplo, `order by` vem depois de `limit`, ou seja, primeiro limita os resultados da consulta e, em seguida, ordena-os.
 
-1. Atualize a consulta para primeiro `order by` a propriedade **Name** e, em seguida, `limit` aos cinco primeiros resultados: `Resources | project name, type | order by name asc | limit 5`. Em seguida, selecione **Executar consulta**.
+1. Atualize a consulta para primeiro `order by` a propriedade **Name** e, em seguida, `limit` os cinco primeiros resultados: `Resources | project name, type | order by name asc | limit 5`. Em seguida, selecione **Executar consulta**.
 
 Quando a consulta final é executada várias vezes, supondo que nada em seu ambiente esteja sendo alterado, os resultados retornados são consistentes e conforme esperado – ordenados pela propriedade **Name** , mas ainda limitados aos cinco primeiros resultados.
 
@@ -48,7 +48,7 @@ Quando a consulta final é executada várias vezes, supondo que nada em seu ambi
 O navegador de esquema está localizado no painel esquerdo do Gerenciador de gráficos de recursos. Esta lista de recursos mostra todos os _tipos_ de recursos dos recursos do Azure com suporte do grafo de recursos do Azure e que existem em um locatário ao qual você tem acesso. Expandir um tipo de recurso ou subpropriedades mostra Propriedades filho que podem ser usadas para criar uma consulta de gráfico de recursos.
 
 Selecionar o tipo de recurso coloca `where type =="<resource type>"` na caixa de consulta. A seleção de uma das propriedades filho adiciona `where <propertyName> == "INSERT_VALUE_HERE"` à caixa de consulta.
-O navegador de esquema é uma ótima maneira de descobrir Propriedades para uso em consultas. Substitua _inserir \_VALUE \_HERE_ pelo seu próprio valor, ajuste a consulta com condições, operadores e funções para atingir os resultados pretendidos.
+O navegador de esquema é uma ótima maneira de descobrir Propriedades para uso em consultas. Certifique-se de substituir _inserir\_valor\_aqui_ pelo seu próprio valor, ajuste a consulta com condições, operadores e funções para atingir os resultados pretendidos.
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Criar um gráfico a partir da consulta de grafo de recursos
 
@@ -91,11 +91,11 @@ Para fornecer exemplos de consultas de grafo de recursos e como o Gerenciador de
 
 - [Gerenciador de gráficos de recursos-Dashboard de exemplo #1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
 
-  [![Example imagem para o painel de exemplo #1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
+  [![exemplo de imagem para o painel de exemplo #1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
 
 - [Gerenciador de gráficos de recursos-Dashboard de exemplo #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  [![Example imagem para o painel de exemplo #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
+  [![exemplo de imagem para o painel de exemplo #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
 
 > [!NOTE]
 > As contagens e os gráficos no exemplo acima capturas de tela do painel variam de acordo com o ambiente do Azure.
@@ -120,9 +120,9 @@ Se você quiser remover os painéis de gráfico de recursos de exemplo de seu am
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Obter mais informações sobre a [linguagem de consulta](./concepts/query-language.md)
-- Aprender a [explorar recursos](./concepts/explore-resources.md)
-- Executar a primeira consulta com a [CLI do Azure](first-query-azurecli.md)
-- Ver exemplos de [Consultas de introdução](./samples/starter.md)
-- Ver exemplos de [Consultas avançadas](./samples/advanced.md)
-- Enviar comentários sobre o [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)
+- Obtenha mais informações sobre a [linguagem de consulta](./concepts/query-language.md).
+- Saiba mais sobre como [explorar recursos](./concepts/explore-resources.md).
+- Execute sua primeira consulta com [CLI do Azure](first-query-azurecli.md).
+- Consulte exemplos de [consultas iniciais](./samples/starter.md).
+- Consulte exemplos de [consultas avançadas](./samples/advanced.md).
+- Forneça comentários sobre o [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).

@@ -1,18 +1,18 @@
 ---
 title: Fontes de dados com suporte no Azure Analysis Services | Microsoft Docs
-description: Descreve as fontes de dados com suporte para modelos de dados no Azure Analysis Services.
+description: Descreve as fontes de dados e conectores com suporte para os modelos de dados tabulares 1200 e superiores no Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: cc47ff50aa7bb6dce58ed83f75f69fb600ad040b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5539d290ea182e24a50a103a762f011202ebf33a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146933"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572964"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -23,7 +23,7 @@ As fontes de dados e conectores mostrados no Assistente para obter dados ou impo
 |Fonte de dados  |Dentro da memória  |DirectQuery  |
 |---------|---------|---------|
 |Banco de dados SQL do Azure<sup>[2](#azsqlmanaged)</sup>     |   Sim      |    Sim      |
-|Armazém de Dados SQL do Azure     |   Sim      |   Sim       |
+|Azure SQL Data Warehouse     |   Sim      |   Sim       |
 |Armazenamento de BLOBs do Azure<sup>[1](#tab1400a)</sup>     |   Sim       |    Não      |
 |Armazenamento de tabelas do Azure<sup>[1](#tab1400a)</sup>    |   Sim       |    Não      |
 |Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Sim        |  Não        |
@@ -99,7 +99,7 @@ Ao migrar um modelo de tabela de SQL Server Analysis Services local para Azure A
 
 1. No Visual Studio > o **Gerenciador de modelos de tabela** > fontes de **dados**, clique com o botão direito do mouse em uma conexão de fonte de dados e clique em **Editar fonte de dados**.
 2. Em **Editar conexão**, clique em **avançado** para abrir a janela Propriedades avançadas.
-3. Em **definir propriedades avançadas** > **provedores**, em seguida, selecione o provedor apropriado.
+3. Em **definir propriedades avançadas** > **provedores**, selecione o provedor apropriado.
 
 ## <a name="impersonation"></a>Representação
 Em alguns casos, pode ser necessário especificar uma conta de representação diferente. A conta de representação pode ser especificada no Visual Studio ou no SSMS.

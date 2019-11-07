@@ -1,5 +1,5 @@
 ---
-title: Recuperação de banco de dados acelerada-banco de dados SQL do Azure | Microsoft Docs
+title: Recuperação de banco de dados acelerada-banco de dados SQL do Azure
 description: O banco de dados SQL do Azure tem um novo recurso que fornece recuperação rápida e consistente de banco de dados, reversão instantânea de transação e truncamento agressivo de log para bancos de dados individuais e bancos de dado em pool no banco de dados SQL do Azure e bancos de dados em SQL data do Azure Armazén.
 ms.service: sql-database
 ms.subservice: high-availability
@@ -10,12 +10,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: d516dc51a25cbef92ff9fa22012773507b528a99
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e66b3e6563d796cc7b59e82233bd1b22bc906c6e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569630"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691349"
 ---
 # <a name="accelerated-database-recovery"></a>Recuperação de banco de dados acelerada
 
@@ -74,7 +74,7 @@ O processo de recuperação ADR tem as mesmas três fases que o processo de recu
 
   O processo permanece o mesmo que hoje com a adição da recriação de sLog e a cópia de registros de log para operações sem controle de versão.
   
-- Fase de refazer
+- Fase de **refazer**
 
   Dividido em duas fases (P)
   - Fase 1
@@ -95,7 +95,7 @@ Os quatro principais componentes de ADR são:
 
 - **Repositório de versão persistente (PVS)**
 
-  O repositório de versão persistente é um novo mecanismo do mecanismo de banco de dados SQL para persistir as versões de linha geradas no próprio `tempdb` banco de dados, em vez do armazenamento de versão tradicional. O PVS habilita o isolamento de recursos, bem como melhora a disponibilidade de secundários legíveis.
+  O repositório de versão persistente é um novo mecanismo do mecanismo de banco de dados SQL para persistir as versões de linha geradas no próprio banco de dados, em vez do armazenamento de versão tradicional `tempdb`. O PVS habilita o isolamento de recursos, bem como melhora a disponibilidade de secundários legíveis.
 
 - **Reverter lógica**
 

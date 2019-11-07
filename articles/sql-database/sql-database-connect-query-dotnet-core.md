@@ -1,5 +1,5 @@
 ---
-title: Utilizar .NET Core para consultar a Base de Dados SQL do Azure | Microsoft Docs
+title: Usar o .NET Core para consultar o banco de dados SQL do Azure
 description: Este tópico mostra como usar o .NET Core para criar um programa que se conecta a um banco de dados SQL do Azure e o consulta usando instruções Transact-SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/29/2019
-ms.openlocfilehash: 1c6fdc6f6d2e642db8b57745573260c819c6c307
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e605b4255d61ff0cb6402b40b099449f0fbafa7a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640921"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691001"
 ---
-# <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Início rápido: Utilizar o .NET Core (C#) para consultar uma base de dados SQL do Azure
+# <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Início Rápido: Utilizar o .NET Core (C#) para consultar uma base de dados SQL do Azure
 
 Neste guia de início rápido, você usará o C# [.NET Core](https://www.microsoft.com/net/) e o código para se conectar a um banco de dados SQL do Azure. Em seguida, você executará uma instrução Transact-SQL para consultar dados.
 
@@ -48,13 +48,13 @@ Para este tutorial, você precisa de:
 - [.NET Core para seu sistema operacional](https://www.microsoft.com/net/core) instalado.
 
 > [!NOTE]
-> Este guia de início rápido usa o banco de dados *mySampleDatabase* . Se você quiser usar um banco de dados diferente, será necessário alterar as referências do banco de dados e `SELECT` modificar a consulta C# no código.
+> Este guia de início rápido usa o banco de dados *mySampleDatabase* . Se você quiser usar um banco de dados diferente, será necessário alterar as referências do banco de dados e modificar a consulta `SELECT` C# no código.
 
 ## <a name="get-sql-server-connection-information"></a>Obter informações de conexão do SQL Server
 
 Obtenha as informações de conexão necessárias para se conectar ao banco de dados SQL do Azure. Você precisará do nome do servidor totalmente qualificado ou nome do host, nome do banco de dados e informações de logon para os próximos procedimentos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Navegue até a página **bancos de dados SQL** ou **instâncias gerenciadas do SQL** .
 
@@ -79,7 +79,7 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
     ```
     Esse comando cria novos arquivos de projeto de aplicativo, incluindo C# um arquivo de código inicial (**Program.cs**), um arquivo de configuração XML (**sqltest. csproj**) e binários necessários.
 
-2. Em um editor de texto, abra sqltest **. csproj** e cole o XML a seguir `<Project>` entre as marcas. Esse XML adiciona `System.Data.SqlClient` como uma dependência.
+2. Em um editor de texto, abra **sqltest. csproj** e cole o seguinte XML entre as marcas de `<Project>`. Esse XML adiciona `System.Data.SqlClient` como uma dependência.
 
     ```xml
     <ItemGroup>
@@ -194,7 +194,7 @@ namespace sqltest
    ```
 3. Escolha **Enter** para fechar a janela do aplicativo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução ao .NET Core com Windows/Linux/macOS, utilizando a linha de comandos](/dotnet/core/tutorials/using-with-xplat-cli).
 - Saiba como [se conectar e consultar um banco de dados SQL do Azure usando o .NET Framework e o Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  

@@ -1,5 +1,5 @@
 ---
-title: Aplicar recomendações de desempenho – banco de dados SQL do Azure | Microsoft Docs
+title: Aplicar recomendações de desempenho-banco de dados SQL do Azure
 description: Use o portal do Azure para encontrar recomendações de desempenho que podem otimizar o desempenho do seu banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: b6bcb2650cd11ed97b6e81fda6aaafe7fca61202
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 24a590a80e768bba2e9b102bdf200e0cd96858f8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569601"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691282"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
 
@@ -28,8 +28,8 @@ Para exibir e aplicar recomendações de desempenho, você precisa das permissõ
 
 Use as etapas a seguir para encontrar recomendações de desempenho no portal do Azure:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Vá para **todos os serviços** > bancos de dados**SQL**e selecione seu banco de dados.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+2. Vá para **todos os serviços** > bancos de dados **SQL**e selecione seu banco de dados.
 3. Navegue até **recomendação de desempenho** para exibir as recomendações disponíveis para o banco de dados selecionado.
 
 As recomendações de desempenho são mostradas na tabela semelhante à mostrada na figura a seguir:
@@ -40,7 +40,7 @@ As recomendações são classificadas por seu impacto potencial no desempenho na
 
 | Impacto | Descrição |
 |:--- |:--- |
-| Alta |Recomendações de alto impacto devem fornecer o impacto de desempenho mais significativo. |
+| Elevado |Recomendações de alto impacto devem fornecer o impacto de desempenho mais significativo. |
 | Médio |As recomendações de impacto médio devem melhorar o desempenho, mas não substancialmente. |
 | Baixa |As recomendações de baixo impacto devem fornecer um desempenho melhor do que sem, mas as melhorias podem não ser significativas. |
 
@@ -81,13 +81,13 @@ A recomendação selecionada é aplicada no banco de dados.
 Se sua lista de recomendações contiver itens que você deseja remover da lista, você poderá descartar a recomendação:
 
 1. Selecione uma recomendação na lista de **recomendações** para abrir os detalhes.
-2. Clique em descartar na página de **detalhes** .
+2. Clique em **descartar** na página de **detalhes** .
 
 Se desejar, você pode adicionar itens descartados de volta à lista de **recomendações** :
 
 1. Na página **recomendações** , clique em **Exibir Descartado**.
 2. Selecione um item descartado na lista para exibir seus detalhes.
-3. Opcionalmente, clique em **desfazer** descartar para adicionar o índice de volta à lista principal de **recomendações**.
+3. Opcionalmente, clique em **desfazer descartar** para adicionar o índice de volta à lista principal de **recomendações**.
 
 > [!NOTE]
 > Observe que, se o [ajuste automático](sql-database-automatic-tuning.md) do banco de dados SQL estiver habilitado e você tiver Descartado manualmente uma recomendação da lista, essa recomendação nunca será aplicada automaticamente. Descartar uma recomendação é uma maneira prática para os usuários terem o ajuste automático habilitado nos casos em que exigirem que uma recomendação específica não deva ser aplicada.
@@ -105,7 +105,7 @@ Você pode definir o banco de dados SQL do Azure para implementar recomendaçõe
     ![Índices recomendados](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Observe que a opção **DROP_INDEX** não é compatível atualmente com aplicativos que usam a alternância de partição e dicas de índice. 
+> Observe que, no momento, a opção **DROP_INDEX** não é compatível com aplicativos que usam a alternância de partição e dicas de índice. 
 >
 
 Depois de selecionar a configuração desejada, clique em aplicar.
@@ -130,11 +130,11 @@ A aplicação de uma recomendação pode não acontecer instantaneamente. O port
 | Estado | Descrição |
 |:--- |:--- |
 | Pendente |O comando aplicar recomendação foi recebido e está agendado para execução. |
-| A executar |A recomendação está sendo aplicada. |
-| A Validar |A recomendação foi aplicada com êxito e o serviço está medindo os benefícios. |
+| Estava |A recomendação está sendo aplicada. |
+| Verificar |A recomendação foi aplicada com êxito e o serviço está medindo os benefícios. |
 | Êxito |A recomendação foi aplicada com êxito e os benefícios foram medidos. |
 | Erro |Ocorreu um erro durante o processo de aplicação da recomendação. Isso pode ser um problema transitório ou, possivelmente, uma alteração de esquema na tabela e o script não é mais válido. |
-| A reverter |A recomendação foi aplicada, mas foi considerada sem desempenho e está sendo revertida automaticamente. |
+| Revertendo |A recomendação foi aplicada, mas foi considerada sem desempenho e está sendo revertida automaticamente. |
 | Revertido |A recomendação foi revertida. |
 
 Clique em uma recomendação em processo da lista para ver mais informações:
@@ -157,7 +157,7 @@ Depois que as recomendações são implementadas com êxito (atualmente, somente
 ## <a name="summary"></a>Resumo
 O banco de dados SQL do Azure fornece recomendações para melhorar o desempenho do banco de dados SQL. Ao fornecer scripts T-SQL, você obtém assistência para otimizar seu banco de dados e, por fim, melhorar o desempenho da consulta.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Monitore suas recomendações e continue a aplicá-las para refinar o desempenho. As cargas de trabalho de banco de dados são dinâmicas e mudam continuamente. O banco de dados SQL do Azure continua a monitorar e fornecer recomendações que podem melhorar o desempenho do seu banco de dados. 
 
 * Consulte [ajuste automático](sql-database-automatic-tuning.md) para saber mais sobre o ajuste automático no banco de dados SQL do Azure.

@@ -1,6 +1,6 @@
 ---
 title: Como escolher algoritmos
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Como escolher algoritmos de Azure Machine Learning Studio (clássico) para aprendizado supervisionado e não supervisionado em experimentos de clustering, classificação ou regressão.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
-ms.openlocfilehash: 02e72286e824de49be4fbfddcdc5d0e68625f5ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e8d296f8752e06e6e47c349be9c900b9d0489ec5
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493523"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619770"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio-classic"></a>Como escolher algoritmos para Azure Machine Learning Studio (clássico)
 
@@ -236,7 +236,7 @@ A versão clássica do Azure Machine Learning Studio também inclui acesso a uma
 VW desafia categorização aqui, já que ela pode aprender problemas de classificação e regressão e pode até mesmo aprender com dados parcialmente não rotulados. Você pode configurá-lo para usar qualquer um dos vários algoritmos de aprendizado, funções de perda e algoritmos de otimização. Ele foi projetado desde o início para ser eficiente, paralelo e extremamente rápido. Ele lida com conjuntos de recursos grandes do absurdamente com pouco esforço aparente.
 Iniciado e liderado pelo próprio John Langford, da Microsoft Research, VW é a fórmula de uma entrada em um campo de algoritmos de carros de ações. Nem todo problema se encaixa VW, mas se o seu tiver, pode valer a pena subir a curva de aprendizado em sua interface. Ele também está disponível como [código-fonte aberto autônomo](https://github.com/JohnLangford/vowpal_wabbit) em várias linguagens.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para baixar uma visão geral de infográfico de fácil compreensão dos conceitos básicos de aprendizado de máquina para saber mais sobre algoritmos populares usados para responder a perguntas comuns de aprendizado de máquina, consulte [noções básicas de aprendizado de máquina com exemplos de algoritmo](basics-infographic-with-algorithm-examples.md).
 

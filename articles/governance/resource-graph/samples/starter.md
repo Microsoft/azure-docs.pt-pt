@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: c2a8c60502aeb75173371d40475b5d2875417791
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 7eef353f45d0387a45fbf8180bc49cae7975dfa9
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808631"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622492"
 ---
 # <a name="starter-resource-graph-queries"></a>Consultas de introdução do Azure Resource Graph
 
@@ -56,7 +56,7 @@ Resources
 az graph query -q "Resources | summarize count()"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | summarize count()"
@@ -86,7 +86,7 @@ Resources
 az graph query -q "Resources | where type =~ 'microsoft.keyvault/vaults' | count"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'microsoft.keyvault/vaults' | count"
@@ -116,7 +116,7 @@ Resources
 az graph query -q "Resources | project name, type, location | order by name asc"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | project name, type, location | order by name asc"
@@ -147,7 +147,7 @@ Resources
 az graph query -q "Resources | project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
@@ -178,7 +178,7 @@ Resources
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
@@ -209,7 +209,7 @@ Resources
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
@@ -238,7 +238,7 @@ Resources
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
@@ -270,7 +270,7 @@ Resources
 az graph query -q "Resources | where type contains 'storage' | distinct type"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type contains 'storage' | distinct type"
@@ -304,7 +304,7 @@ Resources
 az graph query -q "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
@@ -334,7 +334,7 @@ Resources
 az graph query -q "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
@@ -364,7 +364,7 @@ Resources
 az graph query -q "Resources | where tags.environment=~'internal' | project name"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where tags.environment=~'internal' | project name"
@@ -392,7 +392,7 @@ Resources
 az graph query -q "Resources | where tags.environment=~'internal' | project name, tags"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where tags.environment=~'internal' | project name, tags"
@@ -422,7 +422,7 @@ Resources
 az graph query -q "Resources | where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
@@ -456,7 +456,7 @@ Resources
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases" | ConvertTo-Json
@@ -487,7 +487,7 @@ Resources
 az graph query -q "Resources | where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
@@ -518,7 +518,7 @@ Resources
 az graph query -q "Resources | where type =~ 'microsoft.network/networksecuritygroups' and isnull(properties.networkInterfaces) and isnull(properties.subnets) | project name, resourceGroup | sort by name asc"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecuritygroups' and isnull(properties.networkInterfaces) and isnull(properties.subnets) | project name, resourceGroup | sort by name asc"
@@ -534,6 +534,6 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saber mais sobre a [linguagem de consulta](../concepts/query-language.md)
-- Aprender a [explorar recursos](../concepts/explore-resources.md)
-- Ver exemplos de [Consultas avançadas](advanced.md)
+- Saiba mais sobre a [linguagem de consulta](../concepts/query-language.md).
+- Saiba mais sobre como [explorar recursos](../concepts/explore-resources.md).
+- Consulte exemplos de [consultas avançadas](advanced.md).

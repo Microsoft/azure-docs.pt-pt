@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Expandir a computação no Azure SQL Data Warehouse-PowerShell | Microsoft Docs'
+title: 'Início rápido: escala de computação-PowerShell '
 description: Dimensionar a computação do Azure SQL Data Warehouse no PowerShell. Dimensionar a computação para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
 services: sql-data-warehouse
 author: Antvgski
@@ -10,14 +10,15 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 37b5f0a989bb76a9a40529cd11944de40a164156
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f4c2087052e4c3b4fac4d27bb4ecdc2ebf8a42f6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306234"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692959"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-azure-powershell"></a>Início rápido: Dimensionar a computação no SQL Data Warehouse do Azure no Azure PowerShell
+# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-azure-powershell"></a>Início rápido: dimensionar a computação no Azure SQL Data Warehouse no Azure PowerShell
 
 Dimensionar a computação no Azure SQL Data Warehouse usando Azure PowerShell. [Dimensionar a computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
 
@@ -55,7 +56,7 @@ Localize o nome da base de dados, nome do servidor e grupo de recursos para o ar
 
 Siga estes passos para encontrar as informações de localização para o seu armazém de dados.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique em **Armazéns de dados SQL** na página da esquerda do portal do Azure.
 3. Selecione **mySampleDataWarehouse** na página de **Armazéns de dados SQL**. Esta ação abre o armazém de dados.
 
@@ -119,7 +120,7 @@ Para ver o estado por si só, utilize o seguinte comando:
 $database | Select-Object DatabaseName,Status
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora já aprendeu como dimensionar a computação para o seu armazém de dados. Para saber mais sobre o Azure SQL Data Warehouse, avance para o tutorial para carregar dados.
 
 > [!div class="nextstepaction"]

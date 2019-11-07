@@ -1,7 +1,7 @@
 ---
 title: Receitas para contêineres do Docker
 titleSuffix: Azure Cognitive Services
-description: Use essas receitas de contêiner para criar contêineres de serviços cognitivas que podem ser reutilizados. Os contêineres podem ser criados com algumas ou todas as definições de configuração para que não sejam necessárias quando o contêiner for iniciado. Assim que tiver essa nova camada de contêiner (com configurações) e você a tiver testado localmente, você poderá armazenar o contêiner em um registro de contêiner. Quando o contêiner é iniciado, ele só precisará dessas configurações que não estão armazenadas atualmente no contêiner.
+description: Saiba como criar, testar e armazenar contêineres com algumas ou todas as suas definições de configuração para implantação e reutilização.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,14 +10,14 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: a8162f96051a73b9f6e6a6fe3ece020e0a94f08f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: dbe2e288309b6682041bf3db9fe3d39455359806
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70068831"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647287"
 ---
-# <a name="create-containers-for-reuse"></a>Criar contêineres para reutilização
+# <a name="create-containers-for-reuse"></a>Criar contentores para reutilização
 
 Use essas receitas de contêiner para criar contêineres de serviços cognitivas que podem ser reutilizados. Os contêineres podem ser criados com algumas ou todas as definições de configuração para que _não_ sejam necessárias quando o contêiner for iniciado.
 
@@ -25,33 +25,33 @@ Assim que tiver essa nova camada de contêiner (com configurações) e você a t
 
 ## <a name="docker-run-syntax"></a>Sintaxe de execução do Docker
 
-Todos `docker run` os exemplos neste documento pressupõem um console do Windows `^` com um caractere de continuação de linha. Considere o seguinte para seu próprio uso:
+Todos os exemplos de `docker run` neste documento pressupõem um console do Windows com um caractere de continuação de linha `^`. Considere o seguinte para seu próprio uso:
 
-* Não altere a ordem dos argumentos, a menos que está bastante familiarizada com contentores do docker.
+* Não altere a ordem dos argumentos, a menos que você esteja muito familiarizado com contêineres do Docker.
 * Se você estiver usando um sistema operacional diferente do Windows, ou um console diferente do console do Windows, use o console/terminal, a sintaxe de pasta para montagens e o caractere de continuação de linha corretos para seu console e sistema.  Como o contêiner de serviços cognitivas é um sistema operacional Linux, a montagem de destino usa uma sintaxe de pasta em estilo Linux.
-* `docker run`Os exemplos usam o diretório fora `c:` da unidade para evitar conflitos de permissão no Windows. Se precisar de utilizar um diretório específico como a entrada de diretório, poderá ter de conceder o docker permissão de serviço.
+* `docker run` exemplos usam o diretório fora da unidade de `c:` para evitar conflitos de permissão no Windows. Se você precisar usar um diretório específico como o diretório de entrada, talvez seja necessário conceder a permissão de serviço do Docker.
 
 ## <a name="store-no-configuration-settings-in-image"></a>Não armazenar definições de configuração na imagem
 
-Os comandos `docker run` de exemplo para cada serviço não armazenam nenhuma definição de configuração no contêiner. Quando você inicia o contêiner a partir de um console ou serviço de registro, essas definições de configuração precisam ser passadas. O contêiner do registro privado fornece espaço de configuração para você passar essas configurações.
+O exemplo `docker run` comandos para cada serviço não armazenam nenhuma definição de configuração no contêiner. Quando você inicia o contêiner a partir de um console ou serviço de registro, essas definições de configuração precisam ser passadas. O contêiner do registro privado fornece espaço de configuração para você passar essas configurações.
 
 ## <a name="reuse-recipe-store-all-configuration-settings-with-container"></a>Reutilizar receita: armazenar todas as definições de configuração com o contêiner
 
-Para armazenar todas as definições de configuração, crie uma `Dockerfile` com essas configurações.
+Para armazenar todas as definições de configuração, crie um `Dockerfile` com essas configurações.
 
 Problemas com essa abordagem:
 
 * O novo contêiner tem um nome e uma marca separados do contêiner original.
 * Para alterar essas configurações, você precisará alterar os valores de Dockerfile, recriar a imagem e republicar no registro.
 * Se alguém obtiver acesso ao registro de contêiner ou ao host local, ele poderá executar o contêiner e usar os pontos de extremidade de serviços cognitivas.
-* Se seu serviço cognitiva não exigir montagens de entrada, não adicione as `COPY` linhas ao seu Dockerfile.
+* Se seu serviço cognitiva não exigir montagens de entrada, não adicione as linhas de `COPY` ao seu Dockerfile.
 
 Crie Dockerfile, extraindo do contêiner de serviços cognitivas existente que você deseja usar e, em seguida, use os comandos do Docker no Dockerfile para definir ou extrair as informações necessárias para o contêiner.
 
 Este exemplo:
 
-* Define o ponto de extremidade `{BILLING_ENDPOINT}` de cobrança, da chave de ambiente `ENV`do host usando.
-* Define a chave `{ENDPOINT_KEY}` de API de cobrança da chave de ambiente do host usando ' env.
+* Define o ponto de extremidade de cobrança, `{BILLING_ENDPOINT}` da chave de ambiente do host usando `ENV`.
+* Define a chave de API de cobrança, `{ENDPOINT_KEY}` da chave de ambiente do host usando ' ENV.
 
 ### <a name="reuse-recipe-store-billing-settings-with-container"></a>Reutilizar receita: armazenar configurações de cobrança com o contêiner
 
@@ -70,9 +70,9 @@ Compile e execute o contêiner [localmente](#how-to-use-container-on-your-local-
 
 Este exemplo mostra como usar Reconhecimento vocal, salvando a cobrança e os modelos do Dockerfile.
 
-* Copia o arquivo de modelo Reconhecimento vocal (LUIS) do sistema de arquivos do host `COPY`usando o.
-* O contêiner LUIS dá suporte a mais de um modelo. Se todos os modelos estiverem armazenados na mesma pasta, todas as necessidades de `COPY` uma instrução serão necessárias.
-* Execute o arquivo do Docker do pai relativo do diretório de entrada do modelo. Para o exemplo a seguir, execute `docker build` os `docker run` comandos e do pai relativo de `/input`. O primeiro `/input` `COPY` no comando é o diretório do computador host. O segundo `/input` é o diretório do contêiner.
+* Copia o arquivo de modelo Reconhecimento vocal (LUIS) do sistema de arquivos do host usando `COPY`.
+* O contêiner LUIS dá suporte a mais de um modelo. Se todos os modelos estiverem armazenados na mesma pasta, todas as necessidades de um `COPY` serão necessárias.
+* Execute o arquivo do Docker do pai relativo do diretório de entrada do modelo. Para o exemplo a seguir, execute os comandos `docker build` e `docker run` do pai relativo de `/input`. A primeira `/input` no comando `COPY` é o diretório do computador host. A segunda `/input` é o diretório do contêiner.
 
 ```Dockerfile
 FROM <container-registry>/<cognitive-service-container-name>:<tag>
@@ -86,13 +86,13 @@ Compile e execute o contêiner [localmente](#how-to-use-container-on-your-local-
 
 ## <a name="how-to-use-container-on-your-local-host"></a>Como usar o contêiner em seu host local
 
-Para criar o arquivo do Docker, `<your-image-name>` substitua pelo novo nome da imagem e, em seguida, use:
+Para criar o arquivo do Docker, substitua `<your-image-name>` pelo novo nome da imagem e, em seguida, use:
 
 ```console
 docker build -t <your-image-name> .
 ```
 
-Para executar a imagem e removê-la quando o contêiner for interrompido`--rm`():
+Para executar a imagem e removê-la quando o contêiner for interrompido (`--rm`):
 
 ```console
 docker run --rm <your-image-name>
@@ -102,13 +102,13 @@ docker run --rm <your-image-name>
 
 Siga estas etapas para usar o Dockerfile e colocar a nova imagem em seu registro de contêiner privado.  
 
-1. Crie um `Dockerfile` com o texto da reutilização da receita. Um `Dockerfile` não tem uma extensão.
+1. Crie um `Dockerfile` com o texto da reutilização da receita. Uma `Dockerfile` não tem uma extensão.
 
 1. Substitua quaisquer valores nos colchetes angulares pelos seus próprios valores.
 
-1. Crie o arquivo em uma imagem na linha de comando ou no terminal, usando o comando a seguir. Substitua os valores nos colchetes angulares, `<>`, com seu próprio nome de contêiner e marca.  
+1. Crie o arquivo em uma imagem na linha de comando ou no terminal, usando o comando a seguir. Substitua os valores nos colchetes angulares, `<>`, pelo seu próprio nome de contêiner e marca.  
 
-    A opção de marca `-t`,, é uma maneira de adicionar informações sobre o que você alterou para o contêiner. Por exemplo, um nome de `modified-LUIS` contêiner indica que o contêiner original foi colocado em camadas. Um nome de `with-billing-and-model` marca indica como o contêiner de reconhecimento vocal (Luis) foi modificado.
+    A opção de marca, `-t`, é uma maneira de adicionar informações sobre o que você alterou para o contêiner. Por exemplo, um nome de contêiner de `modified-LUIS` indica que o contêiner original foi colocado em camadas. Um nome de marca de `with-billing-and-model` indica como o contêiner de Reconhecimento vocal (LUIS) foi modificado.
 
     ```Bash
     docker build -t <your-new-container-name>:<your-new-tag-name> .
@@ -140,7 +140,7 @@ Siga estas etapas para usar o Dockerfile e colocar a nova imagem em seu registro
     docker tag <your-new-container-name>:<your-new-tag-name> <my-registry>.azurecr.io/<your-new-container-name-in-registry>:<your-new-tag-name>
     ```
 
-    Se você não usar um nome de marca `latest` , o será implícito.
+    Se você não usar um nome de marca, `latest` será implícita.
 
 1. Envie por push a nova imagem para o registro de contêiner privado. Quando você exibir o registro de contêiner privado, o nome do contêiner usado no comando da CLI a seguir será o nome do repositório.
 
@@ -148,7 +148,7 @@ Siga estas etapas para usar o Dockerfile e colocar a nova imagem em seu registro
     docker push <my-registry>.azurecr.io/<your-new-container-name-in-registry>:<your-new-tag-name>
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar e usar a instância de contêiner do Azure](azure-container-instance-recipe.md)

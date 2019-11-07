@@ -1,19 +1,19 @@
 ---
-title: Sobre a migração de máquinas locais e VMs do Azure Azure Site Recovery
-description: Este artigo descreve como migrar VMs de IaaS locais e do Azure para o Azure usando o serviço Azure Site Recovery.
+title: Migrando servidores e VMs para o Azure com Azure Site Recovery
+description: Descreve como migrar VMs de IaaS locais e do Azure para o Azure usando o serviço Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/05/2019
 ms.author: raynew
-ms.openlocfilehash: c043950de9565f96d52c848f96efac80385f2321
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 8e256aac16bb8c2d2f1eca494981458f71cc2e4d
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814485"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620607"
 ---
 # <a name="about-migration"></a>Acerca da migração
 
@@ -21,9 +21,9 @@ Leia este artigo para obter uma visão geral rápida de como o serviço de [Azur
 
 Veja o que você pode migrar usando Site Recovery:
 
-- **Migrar do local para o Azure**: Migre VMs do Hyper-V locais, VMs VMware e servidores físicos para o Azure. Após a migração, as cargas de trabalho em execução nas máquinas no local vão estar em execução em VMs do Azure. 
-- **Migrar no Azure**: Migre VMs do Azure entre regiões do Azure. 
-- **Migrar AWS**: Migre instâncias do Windows AWS para VMs IaaS do Azure. 
+- **Migrar do local para o Azure**: migrar VMs do Hyper-V locais, VMS VMware e servidores físicos para o Azure. Após a migração, as cargas de trabalho em execução nas máquinas no local vão estar em execução em VMs do Azure. 
+- **Migrar no Azure**: migre VMs do Azure entre regiões do Azure. 
+- **Migrar AWS**: migre instâncias do Windows AWS para VMs IaaS do Azure. 
 
 > [!NOTE]
 > Agora você pode migrar do local para o Azure usando o serviço migrações para Azure. [Saiba mais](../migrate/migrate-overview.md).

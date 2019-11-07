@@ -1,5 +1,5 @@
 ---
-title: Executar consultas de relatório em vários bancos de dados SQL do Azure | Microsoft Docs
+title: Executar consultas de relatório em vários bancos de dados SQL do Azure
 description: Relatório entre locatários usando consultas distribuídas.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewers: billgib,ayolubek
 ms.date: 01/25/2019
-ms.openlocfilehash: fa8dbbbb09fbdc14049e168afe6eb4810ccc8254
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f9af2af7893bd908988ee45476ce14a56f9768a9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570246"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691900"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Relatório entre locatários usando consultas distribuídas
 
@@ -58,7 +58,7 @@ Os scripts de banco de dados multilocatário do Wingtip tickets SaaS e o código
 
 Para executar consultas em um conjunto de dados mais interessante, crie dados de vendas de tíquetes executando o gerador de tíquetes.
 
-1. No *ISE do PowerShell*, abra o... \\ Módulos de aprendizagemanálise\\operacional ad hoc Reporting demo-adhocreporting. ps1 script e defina o seguinte valor:\\ \\
+1. No *ISE do PowerShell*, abra os módulos de aprendizagem...\\\\análise operacional\\relatórios ad hoc\\script *demo-adhocreporting. ps1* e defina o seguinte valor:
    * **$DemoScenario** = 1, **comprar tíquetes para eventos em todos os locais**.
 2. Pressione **F5** para executar o script e gerar vendas de tíquetes. Enquanto o script estiver em execução, continue as etapas neste tutorial. Os dados do tíquete são consultados na seção *executar consultas ad hoc distribuídas* , portanto, aguarde até que o gerador de tíquetes seja concluído.
 
@@ -66,9 +66,9 @@ Para executar consultas em um conjunto de dados mais interessante, crie dados de
 
 No aplicativo de banco de dados por locatário SaaS Wingtip tickets, cada locatário recebe um banco de dados. Assim, os dados contidos nas tabelas de banco de dado são incluídos no escopo da perspectiva de um único locatário. No entanto, ao consultar em todos os bancos de dados, é importante que a consulta elástica possa tratar os dados como se ele fosse parte de um único banco de dado lógico fragmentado por locatário. 
 
-Para simular esse padrão, um conjunto de exibições ' globais ' é adicionado ao banco de dados de locatário que projeta uma ID de locatário em cada uma das tabelas que são consultadas globalmente. Por exemplo, a exibição *VenueEvents* adiciona uma foroid computada às colunas projetadas na tabela de *eventos* . Da mesma forma, as exibições *VenueTicketPurchases* e *VenueTickets* adicionam uma coluna de *foroid* computada de suas respectivas tabelas. Essas exibições são usadas pela consulta elástica para paralelizar consultas e enviá-las por push para o banco de dados de locatário remoto apropriado quando uma coluna do LocalId estiver presente. Isso reduz drasticamente a quantidade de dados retornados e resulta em um aumento significativo no desempenho de muitas consultas. Essas exibições globais foram criadas previamente em todos os bancos de dados de locatário.
+Para simular esse padrão, um conjunto de exibições ' globais ' é adicionado ao banco de dados de locatário que projeta uma ID de locatário em cada uma das tabelas que são consultadas globalmente. Por exemplo, a exibição *VenueEvents* adiciona uma *foroid* computada às colunas projetadas na tabela de *eventos* . Da mesma forma, as exibições *VenueTicketPurchases* e *VenueTickets* adicionam uma coluna de *foroid* computada de suas respectivas tabelas. Essas exibições são usadas pela consulta elástica para paralelizar consultas e enviá-las por push para o banco de dados de locatário remoto apropriado quando uma coluna do *LocalId* estiver presente. Isso reduz drasticamente a quantidade de dados retornados e resulta em um aumento significativo no desempenho de muitas consultas. Essas exibições globais foram criadas previamente em todos os bancos de dados de locatário.
 
-1. Abra o SSMS e [Conecte-se ao&lt;servidor&gt; tenants1-User](saas-tenancy-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
+1. Abra o SSMS e [Conecte-se ao servidor de&gt; de usuário do tenants1-&lt;](saas-tenancy-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
 1. Expanda **bancos de dados**, clique com o botão direito do mouse em _Contosoconcerthall_e selecione **nova consulta**.
 1. Execute as consultas a seguir para explorar a diferença entre as tabelas de locatário único e as exibições globais:
 
@@ -86,16 +86,16 @@ Para simular esse padrão, um conjunto de exibições ' globais ' é adicionado 
    SELECT * FROM VenueEvents
    ```
 
-Nesses modos de exibição, o foroid é calculado como um hash do nome do local, mas qualquer abordagem pode ser usada para introduzir um valor exclusivo. Essa abordagem é semelhante à forma como a chave de locatário é computada para uso no catálogo.
+Nesses modos de exibição, o *foroid* é calculado como um hash do nome do local, mas qualquer abordagem pode ser usada para introduzir um valor exclusivo. Essa abordagem é semelhante à forma como a chave de locatário é computada para uso no catálogo.
 
 Para examinar a definição da exibição *locais* :
 
 1. No Pesquisador de **objetos**, expanda **contosoconcerthall** > **exibições**:
 
-   ![visualizações](media/saas-tenancy-cross-tenant-reporting/views.png)
+   ![Modos de exibição](media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Clique com o botão direito do mouse em **dbo. Locais**.
-3. Selecionar **exibição de script como** > **criar para a** > **nova janela do editor de consultas**
+3. Selecione **o modo de exibição de script como** > **criar para** > **nova janela do editor de consultas**
 
 Gerar script de qualquer uma das outras exibições de *local* para ver como elas adicionam o *foroid*.
 
@@ -103,7 +103,7 @@ Gerar script de qualquer uma das outras exibições de *local* para ver como ela
 
 Este exercício implanta o banco de dados _adhocreporting_ . Esse é o banco de dados principal que contém o esquema usado para consultar em todos os bancos de dados de locatário. O banco de dados é implantado no servidor de catálogo existente, que é o servidor usado para todos os bancos de dados relacionados ao gerenciamento no aplicativo de exemplo.
 
-1. no *ISE do PowerShell*, abra... \\Módulos\\de aprendizado análise operacionalrelatórios\\ad hoc demo-adhocreporting. ps1.\\ 
+1. no *ISE do PowerShell*, abra...\\módulos de aprendizado\\análise operacional\\relatórios ad hoc\\*demo-adhocreporting. ps1*. 
 
 1. Defina **$DemoScenario = 2**, _implantar banco de dados de relatórios ad hoc_.
 
@@ -123,7 +123,7 @@ Este exercício adiciona o esquema (a fonte de dados externa e as definições d
 
     ![Criar credencial](media/saas-tenancy-cross-tenant-reporting/create-credential.png)
 
-   Com o banco de dados de catálogo como a fonte externa, as consultas são distribuídas para todos os bancos de dado registrados no catálogo no momento em que a consulta é executada. Como os nomes de servidor são diferentes para cada implantação, esse script Obtém o local do banco de dados de catálogo do servidor@servernameatual (@) em que o script é executado.
+   Com o banco de dados de catálogo como a fonte externa, as consultas são distribuídas para todos os bancos de dado registrados no catálogo no momento em que a consulta é executada. Como os nomes de servidor são diferentes para cada implantação, esse script Obtém o local do banco de dados de catálogo do servidor atual (@@servername) em que o script é executado.
 
     ![criar fonte de dados externa](media/saas-tenancy-cross-tenant-reporting/create-external-data-source.png)
 
@@ -149,7 +149,7 @@ Ao inspecionar o plano de execução, passe o mouse sobre os ícones de plano pa
 
 É importante observar que a configuração de **Distribution = fragmented (foroid)** quando a fonte de dados externa é definida melhora o desempenho para muitos cenários. Como cada *LocalId* é mapeado para um banco de dados individual, a filtragem é facilmente feita remotamente, retornando apenas os dados necessários.
 
-1. Abrir... \\Módulos\\ de aprendizado análise operacionalrelatórios\\ad hoc demo-adhocreportingqueries. SQL no SSMS.\\
+1. Abra...\\módulos de aprendizado\\análise operacional\\relatórios ad hoc\\*demo-adhocreportingqueries. SQL* no SSMS.
 2. Verifique se você está conectado ao banco de dados **adhocreporting** .
 3. Selecione o menu **consulta** e clique em **incluir plano de execução real**
 4. Realce os *locais que estão registrados atualmente?* consulte e pressione **F5**.
@@ -158,7 +158,7 @@ Ao inspecionar o plano de execução, passe o mouse sobre os ícones de plano pa
 
    Inspecione o plano e veja que todo o custo está na consulta remota. Cada banco de dados de locatário executa a consulta remotamente e retorna suas informações de local para o banco de dados principal.
 
-   ![SELECT * FROM dbo.Venues](media/saas-tenancy-cross-tenant-reporting/query1-plan.png)
+   ![Selecione * de dbo. Locais](media/saas-tenancy-cross-tenant-reporting/query1-plan.png)
 
 5. Selecione a próxima consulta e pressione **F5**.
 
@@ -172,10 +172,10 @@ Ao inspecionar o plano de execução, passe o mouse sobre os ícones de plano pa
 
    Essa consulta faz uma junção e agregação mais complexas. A maior parte do processamento ocorre remotamente.  Somente linhas únicas, que contêm a contagem diária de vendas de tíquetes por dia de cada local, são retornadas ao banco de dados principal.
 
-   ![query](media/saas-tenancy-cross-tenant-reporting/query3-plan.png)
+   ![consulta](media/saas-tenancy-cross-tenant-reporting/query3-plan.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

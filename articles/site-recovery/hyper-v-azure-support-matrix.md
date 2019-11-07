@@ -1,18 +1,18 @@
 ---
-title: Matriz de suporte para recuperação de desastre de VMs do Hyper-V locais para o Azure
+title: Suporte para recuperação de desastre de VMs do Hyper-V para o Azure com Azure Site Recovery
 description: Resume os componentes com suporte e os requisitos para a recuperação de desastre de VM do Hyper-V no Azure com Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 11/05/2019
 ms.author: raynew
-ms.openlocfilehash: e34140f9e014cfd41b0c14e980ca74e4d07d0c85
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9af85d8d9b181d619d8895542f142708626649d1
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933849"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620840"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V locais para o Azure
 
@@ -93,7 +93,7 @@ Redes Aceleradas | Não | Não
 
 **Armazenamento** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | --- 
-NFS | N/D | N/D
+NFS | ND | ND
 SMB 3.0 | Sim | Sim
 SAN (ISCSI) | Sim | Sim
 Vários caminhos (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5,7 SP4<br/><br/> EMC PowerPath DSM para CLARiiON | Sim | Sim
@@ -102,15 +102,15 @@ Vários caminhos (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5,7 
 
 **Armazenamento** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | ---
-VMDK | N/D | N/D
+VMDK | ND | ND
 VHD/VHDX | Sim | Sim
 VM de geração 2 | Sim | Sim
 EFI/UEFI| Sim | Sim
 Disco de cluster compartilhado | Não | Não
 Disco criptografado | Não | Não
-NFS | N/D | N/D
+NFS | ND | ND
 SMB 3.0 | Não | Não
-RDM | N/D | N/D
+RDM | ND | ND
 Disco > 1 TB | Sim, até 4.095 GB | Sim, até 4.095 GB
 Disco: setor lógico e físico de 4K | Sem suporte: Gen 1/Gen 2 | Sem suporte: Gen 1/Gen 2
 Disco: 4K lógico e 512 bytes de setor físico | Sim |  Sim
@@ -121,7 +121,7 @@ Adição/remoção de disco quente | Não | Não
 Excluir o disco | Sim | Sim
 Vários caminhos (MPIO) | Sim | Sim
 
-## <a name="azure-storage"></a>Armazenamento do Azure
+## <a name="azure-storage"></a>Storage do Azure
 
 **Componente** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | ---
@@ -144,7 +144,7 @@ Modificar conta de armazenamento | Não. A conta de armazenamento do Azure de de
 --- | --- | ---
 Conjuntos de disponibilidade | Sim | Sim
 82801ER | Sim | Sim  
-Managed Disks | Sim, para failover.<br/><br/> Não há suporte para o failback de discos gerenciados. | Sim, para failover.<br/><br/> Não há suporte para o failback de discos gerenciados.
+Managed disks | Sim, para failover.<br/><br/> Não há suporte para o failback de discos gerenciados. | Sim, para failover.<br/><br/> Não há suporte para o failback de discos gerenciados.
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM do Azure
 

@@ -1,5 +1,5 @@
 ---
-title: Autenticação de Azure Active Directory – SQL do Azure | Microsoft Docs
+title: Autenticação Azure Active Directory-SQL do Azure
 description: Saiba mais sobre como usar Azure Active Directory para autenticação com o banco de dados SQL, Instância Gerenciada e SQL Data Warehouse
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: 848cfc96a7da4e69ff77d16a42226a983153ac63
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4516f75d80345312a6ca3b6dac3e5156d7e239e8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896990"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691359"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Usar a autenticação Azure Active Directory para autenticação com o SQL
 
@@ -44,7 +44,7 @@ Com a autenticação do Azure Active Directory, pode gerir centralmente as ident
 As etapas de configuração incluem os procedimentos a seguir para configurar e usar Azure Active Directory autenticação.
 
 1. Crie e popule o Azure AD.
-2. Opcional: Associe ou altere o Active Directory que está associado atualmente à sua assinatura do Azure.
+2. Opcional: associe ou altere o Active Directory que está associado atualmente à sua assinatura do Azure.
 3. Crie um administrador de Azure Active Directory para o servidor de banco de dados SQL do Azure, o Instância Gerenciada ou o [SQL data warehouse do Azure](https://azure.microsoft.com/services/sql-data-warehouse/).
 4. Configure seus computadores cliente.
 5. Crie usuários de banco de dados independente em seu banco de dados mapeado para identidades do Azure AD.
@@ -71,7 +71,7 @@ Ao usar a autenticação do Azure AD, há duas contas de administrador para o se
 
 ## <a name="permissions"></a>Permissões
 
-Para criar novos usuários, você deve ter a `ALTER ANY USER` permissão no banco de dados. A `ALTER ANY USER` permissão pode ser concedida a qualquer usuário de banco de dados. A `ALTER ANY USER` permissão também é mantida pelas contas de administrador do servidor e usuários de banco de `CONTROL ON DATABASE` dados `ALTER ON DATABASE` com a permissão ou para `db_owner` esse banco de dados e por membros da função de banco de dados.
+Para criar novos usuários, você deve ter a permissão `ALTER ANY USER` no banco de dados. A permissão `ALTER ANY USER` pode ser concedida a qualquer usuário de banco de dados. A permissão `ALTER ANY USER` também é mantida pelas contas de administrador do servidor e usuários de banco de dados com a permissão `CONTROL ON DATABASE` ou `ALTER ON DATABASE` para esse banco de dados e por membros da função de banco de dados `db_owner`.
 
 Para criar um usuário de banco de dados independente no banco de dados SQL do Azure, Instância Gerenciada ou SQL Data Warehouse, você deve se conectar ao banco de dados ou instância usando uma identidade do Azure AD. Para criar o primeiro usuário de banco de dados independente, você deve se conectar ao banco de dados usando um administrador do Azure AD (que é o proprietário do banco de dados). Isso é demonstrado em [configurar e gerenciar a autenticação de Azure Active Directory com o banco de dados SQL ou SQL data warehouse](sql-database-aad-authentication-configure.md). Qualquer autenticação do Azure AD só será possível se o administrador do Azure AD tiver sido criado para o banco de dados SQL do Azure ou o SQL Data Warehouse Server. Se o administrador do Azure Active Directory tiver sido removido do servidor, Azure Active Directory usuários existentes criados anteriormente dentro do SQL Server não poderão mais se conectar ao banco de dados usando suas credenciais Azure Active Directory.
 
@@ -79,16 +79,16 @@ Para criar um usuário de banco de dados independente no banco de dados SQL do A
 
 - Os seguintes membros do Azure AD podem ser provisionados no Azure SQL Server ou SQL Data Warehouse:
 
-  - Membros nativos: Um membro criado no Azure AD no domínio gerenciado ou em um domínio de cliente. Para obter mais informações, consulte [Adicionar seu próprio nome de domínio ao Azure ad](../active-directory/active-directory-domains-add-azure-portal.md).
-  - Membros do domínio federado: Um membro criado no Azure AD com um domínio federado. Para obter mais informações, consulte [Microsoft Azure agora dá suporte à Federação com o Active Directory do Windows Server](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/).
+  - Membros nativos: um membro criado no Azure AD no domínio gerenciado ou em um domínio de cliente. Para obter mais informações, consulte [Adicionar seu próprio nome de domínio ao Azure ad](../active-directory/active-directory-domains-add-azure-portal.md).
+  - Membros do domínio federado: um membro criado no Azure AD com um domínio federado. Para obter mais informações, consulte [Microsoft Azure agora dá suporte à Federação com o Active Directory do Windows Server](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/).
   - Membros importados de outros AD do Azure que são membros de domínio nativos ou federados.
   - Active Directory grupos criados como grupos de segurança.
 
-- Os usuários do Azure AD que fazem parte de um grupo `db_owner` que tem a função de servidor não podem usar a sintaxe de **[credencial CREATE DATABASE no escopo](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)** no banco de dados SQL do Azure e no Azure SQL data warehouse. Você verá o seguinte erro:
+- Os usuários do Azure AD que fazem parte de um grupo que tem a função de servidor `db_owner` não podem usar a sintaxe **[CREATE DATABASE no escopo da credencial](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)** em relação ao banco de dados SQL do Azure e ao Azure SQL data warehouse. Você verá o seguinte erro:
 
     `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 
-    Conceda `db_owner` a função diretamente ao usuário individual do Azure ad para mitigar o problema de criação de credencial de **escopo do banco de dados** .
+    Conceda a `db_owner` função diretamente ao usuário individual do Azure AD para mitigar o problema de **criação de credencial de escopo do banco de dados** .
 
 - Essas funções do sistema retornam valores nulos quando executadas em entidades de segurança do Azure AD:
 
@@ -102,7 +102,7 @@ Para criar um usuário de banco de dados independente no banco de dados SQL do A
 
 - As entidades de segurança do servidor do Azure AD (logons) e os usuários têm suporte como um recurso de visualização para [instâncias gerenciadas](sql-database-managed-instance.md).
 - A definição de entidades de segurança do Azure AD (logons) mapeados para um grupo do Azure AD como proprietário do banco de dados não tem suporte em [instâncias gerenciadas](sql-database-managed-instance.md).
-    - Uma extensão disso é que, quando um grupo é adicionado como parte da função `dbcreator` de servidor, os usuários desse grupo podem se conectar ao instância gerenciada e criar novos bancos de dados, mas não poderão acessar o banco. Isso ocorre porque o novo proprietário do banco de dados é SA e não o usuário do Azure AD. Esse problema não se manifestará se o usuário individual for adicionado à `dbcreator` função de servidor.
+    - Uma extensão disso é que, quando um grupo é adicionado como parte da função de servidor `dbcreator`, os usuários desse grupo podem se conectar ao Instância Gerenciada e criar novos bancos de dados, mas não poderão acessar o banco. Isso ocorre porque o novo proprietário do banco de dados é SA e não o usuário do Azure AD. Esse problema não se manifestará se o usuário individual for adicionado à função de servidor `dbcreator`.
 - A execução de gerenciamento e trabalhos do SQL Agent tem suporte para entidades de segurança do servidor do Azure AD (logons).
 - As operações de backup e restauração do banco de dados podem ser executadas por entidades de segurança do servidor do Azure AD (logons).
 - Há suporte para a auditoria de todas as instruções relacionadas às entidades de segurança do servidor do Azure AD (logons) e aos eventos de autenticação.
@@ -132,7 +132,7 @@ Os seguintes métodos de autenticação têm suporte para entidades de seguranç
 
 - Para melhorar a capacidade de gerenciamento, recomendamos que você provisione um grupo dedicado do Azure AD como administrador.   
 - Somente um administrador do Azure AD (um usuário ou grupo) pode ser configurado para um servidor de banco de dados SQL do Azure ou o Azure SQL Data Warehouse a qualquer momento.
-  - A adição de entidades de segurança do servidor do Azure AD (logons) para instâncias gerenciadas (**Visualização pública**) permite a possibilidade de criar várias entidades de segurança do servidor do Azure AD (logons `sysadmin` ) que podem ser adicionadas à função.
+  - A adição de entidades de segurança de servidor do Azure AD (logons) para instâncias gerenciadas (**Visualização pública**) permite a possibilidade de criar várias entidades de segurança de servidor do Azure AD (logons) que podem ser adicionadas à função de `sysadmin`.
 - Somente um administrador do Azure AD para SQL Server pode inicialmente se conectar ao servidor do banco de dados SQL do Azure, Instância Gerenciada ou Azure SQL Data Warehouse usando uma conta de Azure Active Directory. O administrador de Active Directory pode configurar os usuários de banco de dados do Azure AD subsequentes.   
 - É recomendável definir o tempo limite de conexão para 30 segundos.   
 - SQL Server 2016 Management Studio e SQL Server Data Tools para Visual Studio 2015 (versão 14.0.60311.1 de abril de 2016 ou posterior) dão suporte à autenticação Azure Active Directory. (A autenticação do Azure AD tem suporte pelo **Provedor de Dados .NET Framework para SqlServer**; pelo menos a versão .NET Framework 4,6). Portanto, as versões mais recentes dessas ferramentas e aplicativos da camada de dados (DAC e. BACPAC) pode usar a autenticação do Azure AD.   
@@ -143,7 +143,7 @@ Os seguintes métodos de autenticação têm suporte para entidades de seguranç
 - A autenticação do Azure AD tem suporte para o banco de dados SQL pelas folhas portal do Azure **importar banco de dados** e exportar banco de **dados** . Também há suporte para importar e exportar usando a autenticação do Azure AD no comando do PowerShell.   
 - A autenticação do Azure AD tem suporte para o banco de dados SQL, Instância Gerenciada e SQL Data Warehouse pelo uso da CLI. Para obter mais informações, consulte [configurar e gerenciar a autenticação de Azure Active Directory com o banco de dados SQL ou SQL data warehouse](sql-database-aad-authentication-configure.md) e [SQL Server-AZ SQL Server](https://docs.microsoft.com/cli/azure/sql/server).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber como criar e popular o Azure AD e, em seguida, configurar o Azure AD com o banco de dados SQL do Azure ou o Azure SQL Data Warehouse, consulte [configurar e gerenciar a autenticação Azure Active Directory com o banco de dados SQL, instância gerenciada ou SQL data warehouse](sql-database-aad-authentication-configure.md).
 - Para obter um tutorial de como usar entidades de segurança de servidor do Azure AD (logons) com instâncias gerenciadas, consulte [entidades de segurança do Azure Ad Server (logons) com instâncias gerenciadas](sql-database-managed-instance-aad-security-tutorial.md)

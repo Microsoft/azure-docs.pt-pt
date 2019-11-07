@@ -1,5 +1,5 @@
 ---
-title: 'Portal do Azure: Replicação geográfica do banco de dados SQL | Microsoft Docs'
+title: 'Portal do Azure: replicação geográfica do banco de dados SQL '
 description: Configurar a replicação geográfica para um banco de dados individual ou em pool no banco de dados SQL do Azure usando o portal do Azure e iniciar o failover
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
-ms.openlocfilehash: 049122b97a26e63188142dd5494927c2ae71d852
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 2a9d627cb2b51d0d7d0b07052f18a8dbe1dc2f19
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103233"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691327"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurar a replicação geográfica ativa para o banco de dados SQL do Azure no portal do Azure e iniciar o failover
 
@@ -28,7 +28,7 @@ Para obter informações sobre grupos de failover automático com bancos de dado
 
 Para configurar a replicação geográfica ativa usando o portal do Azure, você precisará do seguinte recurso:
 
-* Um banco de dados SQL do Azure: O banco de dados primário que você deseja replicar para uma região geográfica diferente.
+* Um banco de dados SQL do Azure: o banco de dados primário que você deseja replicar para uma região geográfica diferente.
 
 > [!Note]
 > Ao usar portal do Azure, você só pode criar um banco de dados secundário dentro da mesma assinatura que o primário. Se for necessário que o banco de dados secundário esteja em uma assinatura diferente, use [criar API REST de banco de dados](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) ou [API Transact-SQL ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
@@ -69,7 +69,7 @@ O banco de dados secundário pode ser alternado para se tornar o primário.
 2. Na folha banco de dados SQL, selecione **todas as configurações** > **replicação geográfica**.
 3. Na lista **secundários** , selecione o banco de dados que você deseja tornar o novo primário e clique em **failover**.
 
-    ![ativação pós-falha](./media/sql-database-geo-replication-failover-portal/secondaries.png)
+    ![pós-falha](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Clique em **Sim** para iniciar o failover.
 
 O comando alterna imediatamente o banco de dados secundário para a função primária. Esse processo normalmente deve ser concluído dentro de 30 segundos ou menos.
@@ -91,7 +91,7 @@ Essa operação encerra permanentemente a replicação para o banco de dados sec
     ![Remover secundário](./media/sql-database-geo-replication-portal/remove-secondary.png)
 5. Uma janela de confirmação é aberta. Clique em **Sim** para remover o banco de dados da parceria de replicação geográfica. (Defina-o como um banco de dados de leitura/gravação que não faz parte de qualquer replicação.)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre a replicação geográfica ativa, consulte [replicação geográfica ativa](sql-database-active-geo-replication.md).
 * Para saber mais sobre grupos de failover automático, consulte [grupos de failover automático](sql-database-auto-failover-group.md)

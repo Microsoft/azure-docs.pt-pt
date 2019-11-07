@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar um SQL Data Warehouse do Azure-Azure PowerShell | Microsoft Docs'
+title: 'Início rápido: criar um depósito-Azure PowerShell'
 description: Crie rapidamente um servidor lógico do banco de dados SQL, uma regra de firewall de nível de servidor e data warehouse com Azure PowerShell.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,14 +10,15 @@ ms.subservice: development
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f5ee4227b0aeb53be4512dafc91f814468b50c12
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: cfc427b11944cb81d8bc3d12d13668d53be698b7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574900"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693094"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Início rápido: Criar e consultar uma SQL Data Warehouse do Azure com Azure PowerShell
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Início rápido: criar e consultar uma SQL Data Warehouse do Azure com Azure PowerShell
 
 Crie rapidamente uma SQL Data Warehouse do Azure usando Azure PowerShell.
 
@@ -79,7 +80,7 @@ New-AzResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>Criar um servidor lógico
 
-Crie um [servidor lógico do SQL Azure](../sql-database/sql-database-logical-servers.md) usando o comando [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) . Um servidor lógico contém um grupo de bases de dados geridas como um grupo. O exemplo a seguir cria um servidor nomeado aleatoriamente em seu grupo de recursos com um `ServerAdmin` usuário administrador chamado e `ChangeYourAdminPassword1`uma senha de. Substitua estes valores predefinidos conforme quiser.
+Crie um [servidor lógico do SQL Azure](../sql-database/sql-database-logical-servers.md) usando o comando [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) . Um servidor lógico contém um grupo de bases de dados geridas como um grupo. O exemplo a seguir cria um servidor nomeado aleatoriamente em seu grupo de recursos com um usuário administrador chamado `ServerAdmin` e uma senha de `ChangeYourAdminPassword1`. Substitua estes valores predefinidos conforme quiser.
 
 ```powershell
 New-AzSqlServer -ResourceGroupName $resourcegroupname `
@@ -119,16 +120,16 @@ New-AzSqlDatabase `
 
 Os parâmetros necessários são:
 
-* **RequestedServiceObjectiveName**: A quantidade de [unidades de data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) que você está solicitando. Aumentar essa quantidade aumenta o custo de computação. Para obter uma lista de valores com suporte, consulte [limites de memória e simultaneidade](memory-and-concurrency-limits.md).
-* **DatabaseName**: O nome do SQL Data Warehouse que você está criando.
-* **Nome do Server**: O nome do servidor que você está usando para criação.
-* **ResourceGroupName**: Grupo de recursos que você está usando. Para localizar grupos de recursos disponíveis na sua subscrição, utilize Get-AzureResource.
-* **Edição**: Deve ser "DataWarehouse" para criar um SQL Data Warehouse.
+* **RequestedServiceObjectiveName**: a quantidade de [unidades de data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) que você está solicitando. Aumentar essa quantidade aumenta o custo de computação. Para obter uma lista de valores com suporte, consulte [limites de memória e simultaneidade] memória-Concurrency-limits.md).
+* **DatabaseName**: o nome do SQL data warehouse que você está criando.
+* **ServerName**: o nome do servidor que você está usando para a criação.
+* **ResourceGroupName**: grupo de recursos que você está usando. Para localizar grupos de recursos disponíveis na sua subscrição, utilize Get-AzureResource.
+* **Edição**: tem de ser "DataWarehouse", para criar um SQL Data Warehouse.
 
 Os parâmetros opcionais são:
 
-- **CollationName**: O agrupamento padrão, se não especificado, é SQL_Latin1_General_CP1_CI_AS. O agrupamento não pode ser alterado em um banco de dados.
-- **MaxSizeBytes**: O tamanho máximo padrão de um banco de dados é 240TB. O tamanho máximo limita os dados de armazenagem. Há armazenamento ilimitado para dados de coluna.
+- **CollationName**: o agrupamento predefinido quando não é especificado é SQL_Latin1_General_CP1_CI_AS. O agrupamento não pode ser alterado em um banco de dados.
+- **MaxSizeBytes**: o tamanho máximo padrão de um banco de dados é 240TB. O tamanho máximo limita os dados de armazenagem. Há armazenamento ilimitado para dados de coluna.
 
 Para obter mais informações sobre as opções de parâmetro, consulte [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
 
@@ -145,7 +146,7 @@ Outros inícios rápidos e tutoriais desta coleção têm por base este início 
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora você criou um data warehouse, criou uma regra de firewall, conectou-se à sua data warehouse e executou algumas consultas. Para saber mais sobre o Azure SQL Data Warehouse, avance para o tutorial para carregar dados.
 > [!div class="nextstepaction"]

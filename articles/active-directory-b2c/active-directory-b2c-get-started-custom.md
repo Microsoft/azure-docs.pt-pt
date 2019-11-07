@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b8ce4565a2df3ad5f144508010265c1029a6856d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 411710280a631d341adeb55bc4b587a613ee3c4c
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468859"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643626"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C
 
@@ -73,7 +73,7 @@ Você precisa registrar esses dois aplicativos em seu locatário do Azure AD B2C
 
 ### <a name="register-the-identityexperienceframework-application"></a>Registrar o aplicativo IdentityExperienceFramework
 
-Para registrar um aplicativo em seu locatário Azure AD B2C, você pode usar a experiência de **aplicativos** atual ou nossa nova experiência unificada **de registros de aplicativo (versão prévia)** . [Saiba mais sobre a experiência de visualização](https://aka.ms/b2cappregintro).
+Para registrar um aplicativo em seu locatário Azure AD B2C, você pode usar a experiência de **aplicativos** atual ou nossa nova experiência unificada **de registros de aplicativo (versão prévia)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
 
 #### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
 
@@ -146,7 +146,7 @@ Agora, conceda permissões ao escopo da API que você expôs anteriormente no re
 1. Em **gerenciar**, selecione **permissões de API**.
 1. Em **permissões configuradas**, selecione **Adicionar uma permissão**.
 1. Selecione a guia **minhas APIs** e, em seguida, selecione o aplicativo **IdentityExperienceFramework** .
-1. Em **permissão**, selecione o escopo **user_impersonation** que você definiu anteriormente.
+1. Em **permissão**, selecione o escopo de **user_impersonation** que você definiu anteriormente.
 1. Selecione **adicionar permissões**. Conforme indicado, aguarde alguns minutos antes de prosseguir para a próxima etapa.
 1. Selecione **conceder consentimento de administrador para (seu nome de locatário)** .
 1. Selecione sua conta de administrador conectada no momento ou entre com uma conta em seu locatário Azure AD B2C que tenha sido atribuído pelo menos à função *administrador de aplicativos de nuvem* .

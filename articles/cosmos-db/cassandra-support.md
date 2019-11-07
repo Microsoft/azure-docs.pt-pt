@@ -8,16 +8,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 53c71afc38e7b122a0ae1d066460b8df91132963
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
-ms.translationtype: MT
+ms.openlocfilehash: 0e1a8e47534073f64075540d74d6195abc304fa2
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73152257"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621481"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funcionalidades do Apache Cassandra suportadas pela API para Cassandra do Azure Cosmos DB 
 
-O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode comunicar com a API para Cassandra do Azure Cosmos DB através de [controladores](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) open source de cliente do Cassandra compatíveis com o [protocolo de invocação](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) da Linguagem de Consulta do Cassandra (CQL) v4. 
+O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode comunicar com a API para Cassandra do Azure Cosmos DB através de [controladores](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) open source de cliente do Cassandra compatíveis com o [protocolo de invocação](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) da Linguagem de Consulta do Cassandra (CQL) v4. 
 
 Ao utilizar a API para Cassandra do Azure Cosmos DB, pode desfrutar dos benefícios das APIs para Apache Cassandra, bem como das funcionalidades proporcionadas pelo Azure Cosmos DB. As funcionalidades empresariais incluem [distribuição global](distribute-data-globally.md), [criação automática de partições de aumento horizontal](partition-data.md), garantias de disponibilidade e latência, encriptação de dados inativos, cópias de segurança e mais.
 
@@ -96,13 +96,13 @@ A API para Cassandra do Azure Cosmos DB suporta as seguintes funções de CQL:
 
 ## <a name="cassandra-api-limits"></a>Limites de API do Cassandra
 
-A API para Cassandra do Azure Cosmos DB não tem limites quanto ao tamanho dos dados armazenados nas tabelas. É possível armazenar centenas de terabytes ou de petabytes de dados sem desrespeitar os limites da chave de partição. Da mesma forma, todas as entidades ou linhas equivalentes não têm nenhum limite no número de colunas, no entanto, o tamanho total da entidade não deve exceder 2 MB. Os dados por chave de partição não podem exceder 10 GB como em todas as outras APIs.
+A API para Cassandra do Azure Cosmos DB não tem limites quanto ao tamanho dos dados armazenados nas tabelas. É possível armazenar centenas de terabytes ou de petabytes de dados sem desrespeitar os limites da chave de partição. Da mesma forma, todas as entidades ou linhas equivalentes não têm nenhum limite no número de colunas. No entanto, o tamanho total da entidade não deve exceder 2 MB. Os dados por chave de partição não podem exceder 10 GB como em todas as outras APIs.
 
 ## <a name="tools"></a>Ferramentas 
 
 A API para Cassandra do Azure Cosmos DB é uma plataforma de serviço gerida. Não necessita de gestão nem de utilitários como o Recoletor de Lixo, a Máquina Virtual de Java (JVM) e o nodetool para gerir o cluster. Esta API suporta ferramentas como o cqlsh, que utiliza a compatibilidade com CQLv4 Binária. 
 
-* O explorador de dados, as métricas, o diagnóstico de registos, o PowerShell e a CLI do portal do Azure são outros mecanismos suportados que permitem gerir a conta.
+* O data Explorer, as métricas, o diagnóstico de log, o PowerShell e a CLI do portal do Azure são outros mecanismos com suporte para gerenciar a conta.
 
 ## <a name="cql-shell"></a>Shell de CQL  
 
@@ -136,11 +136,12 @@ O Azure Cosmos DB suporta os seguintes comandos de base de dados nas contas da A
 * USE 
 * INSERT 
 * SELECIONAR 
-* ATUALIZAÇÃO 
+* UPDATE 
 * BATCH – só são suportados comandos arquivados 
 * DELETE
 
-Todas as operações CRUD quando executadas por meio do SDK compatível com CQLV4 retornarão informações adicionais sobre o erro, unidades de solicitação consumidas. Os comandos DELETE e Update precisam ser tratados com a governança de recursos em consideração para garantir o uso correto da taxa de transferência provisionada. 
+Todas as operações CRUD executadas por meio de um SDK compatível com CQL v4 retornarão informações extras sobre as unidades de solicitação e de erro consumidas. Os comandos DELETE e UPDATE devem ser tratados com a governança de recursos levada em consideração para garantir o uso mais eficiente da taxa de transferência provisionada.
+
 * Tenha em atenção que, caso seja especificado, o valor gc_grace_seconds tem de ser zero.
 
 ```csharp
@@ -165,9 +166,9 @@ O Azure Cosmos DB oferece suporte ao controle de acesso baseado em função (RBA
 
 ## <a name="keyspace-and-table-options"></a>Opções de tabela e espaço de keyspace
 
-As opções para nome da região, classe, replication_factor e datacenter no comando "criar keyspace" são ignoradas no momento. O sistema usa o método de replicação de [distribuição global](global-dist-under-the-hood.md) da Azure Cosmos DB subjacente para adicionar as regiões. Se você precisar da presença de dados entre regiões, poderá habilitá-lo no nível da conta com o PowerShell, a CLI ou o portal, para saber mais, consulte o artigo [como adicionar regiões](how-to-manage-database-account.md#addremove-regions-from-your-database-account) . Durable_writes não pode ser desabilitado porque Azure Cosmos DB garante que cada gravação seja durável. Em todas as regiões, Azure Cosmos DB replica os dados no conjunto de réplicas composto por 4 réplicas e essa [configuração](global-dist-under-the-hood.md) de conjunto de réplicas não pode ser modificada.
+As opções para nome da região, classe, replication_factor e datacenter no comando "criar keyspace" são ignoradas no momento. O sistema usa o método de replicação de [distribuição global](global-dist-under-the-hood.md) da Azure Cosmos DB subjacente para adicionar as regiões. Se você precisar da presença de dados entre regiões, poderá habilitá-lo no nível da conta com o PowerShell, a CLI ou o portal para saber mais, consulte o artigo [como adicionar regiões](how-to-manage-database-account.md#addremove-regions-from-your-database-account) . Durable_writes não pode ser desabilitado porque Azure Cosmos DB garante que cada gravação seja durável. Em todas as regiões, Azure Cosmos DB replica os dados em todo o conjunto de réplicas que é composto de quatro réplicas e essa [configuração](global-dist-under-the-hood.md) de conjunto de réplicas não pode ser modificada.
  
-Todas as opções são ignoradas ao criar a tabela, exceto gc_grace_seconds, que deve ser definido como zero.
+Todas as opções são ignoradas ao criar a tabela, exceto gc_grace_seconds, que deve ser definida como zero.
 O keyspace e a tabela têm uma opção extra chamada "cosmosdb_provisioned_throughput" com um valor mínimo de 400 RU/s. A taxa de transferência de keyspace permite o compartilhamento de taxa de transferência em várias tabelas e é útil para cenários quando todas as tabelas não estão utilizando a taxa de transferência provisionada. O comando ALTER TABLE permite alterar a taxa de transferência provisionada entre as regiões. 
 
 ```

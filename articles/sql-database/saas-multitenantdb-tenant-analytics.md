@@ -1,5 +1,5 @@
 ---
-title: Executar consultas de análise em bancos de dados SQL do Azure | Microsoft Docs
+title: 'Executar consultas de análise em bancos de dados SQL do Azure '
 description: Consultas de análise entre locatários usando dados extraídos de vários bancos de dados de banco de dados SQL do Azure em um aplicativo multilocatário.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 ms.date: 09/19/2018
-ms.openlocfilehash: b36911d274a3afb3582d60ea7e85b5afd5f52ece
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2044e72697526a1c757fa13aeffb85260a9b821e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570286"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691996"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Análise entre locatários usando dados extraídos-aplicativo de vários locatários
  
@@ -72,7 +72,7 @@ Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 - O aplicativo de banco de dados multilocatário do Wingtip tickets SaaS é implantado. Para implantar em menos de cinco minutos, consulte [implantar e explorar o aplicativo de banco de dados multilocatário do Wingtip tickets SaaS](saas-multitenantdb-get-started-deploy.md)
 - Os scripts de SaaS do Wingtip e o [código-fonte](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) do aplicativo são baixados do github. Certifique-se de *desbloquear o arquivo zip* antes de extrair seu conteúdo. Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip tickets.
 - O Power BI Desktop está instalado. [Baixar Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-- O lote de locatários adicionais foi provisionado, consulte o [**tutorial**](saas-multitenantdb-provision-and-catalog.md)provisionar locatários.
+- O lote de locatários adicionais foi provisionado, consulte o [**tutorial provisionar locatários**](saas-multitenantdb-provision-and-catalog.md).
 - Um agente de trabalho e um banco de dados do agente de trabalho foram criados. Consulte as etapas apropriadas no [**tutorial de gerenciamento de esquema**](saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Criar dados para a demonstração
@@ -80,7 +80,7 @@ Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 Neste tutorial, a análise é executada em dados de vendas de tíquetes. Na etapa atual, você gera dados de tíquete para todos os locatários.  Posteriormente, esses dados são extraídos para análise. *Verifique se você provisionou o lote de locatários conforme descrito anteriormente, para que você tenha uma quantidade significativa de dados*. Uma quantidade suficientemente grande de dados pode expor um intervalo de diferentes padrões de compra de tíquetes.
 
 1. No **ISE do PowerShell**, abra *. ..\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1*e defina o seguinte valor:
-    - $DemoScenario = **1** comprar tíquetes para eventos em todos os locais
+    - **$DemoScenario** = **1** comprar tíquetes para eventos em todos os locais
 2. Pressione **F5** para executar o script e criar o histórico de compras de tíquetes para cada evento em cada local.  O script é executado por vários minutos para gerar dezenas de milhares de tíquetes.
 
 ### <a name="deploy-the-analytics-store"></a>Implantar o repositório de análise
@@ -91,17 +91,17 @@ Nas etapas a seguir, você implanta o repositório de análise, que é chamado d
 2. Defina a variável $DemoScenario no script para corresponder à sua escolha de repositório de análise. Para fins de aprendizado, o banco de dados SQL sem columnstore é recomendado.
     - Para usar o banco de dados SQL sem columnstore, defina **$DemoScenario** = **2**
     - Para usar o banco de dados SQL com columnstore, defina **$DemoScenario** = **3**  
-3. Pressione **F5** para executar o script de demonstração (que chama o script *Deploy\<-TenantAnalytics XX >. ps1* ) que cria o repositório de análise de locatário. 
+3. Pressione **F5** para executar o script de demonstração (que chama o script *Deploy-TenantAnalytics\<XX >. ps1* ) que cria o repositório de análise de locatário. 
 
-Agora que você implantou o aplicativo e o preencheu com dados de locatário interessantes, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para conectar **tenants1\> -MT-\<User** e **Catalog-MT-\<user\>** servidores usando login = *Developer*, password *=\@P ssword1*.
+Agora que você implantou o aplicativo e o preencheu com dados de locatário interessantes, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para conectar o usuário do **tenants1-mt-\<\>** de usuários e os servidores de **\>do usuário do Catalog-MT-\<** usando Login = *Developer*, password = *P\@ssword1*.
 
 ![architectureOverView](media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
 No Pesquisador de objetos, execute as seguintes etapas:
 
-1. Expanda o servidor *tenants1-\<MT\> -User* .
+1. Expanda o servidor de *\>de usuário tenants1-MT-\<* .
 2. Expanda o nó bancos de dados e consulte *tenants1* Database contendo vários locatários.
-3. Expanda o servidor *Catalog-\<MT\> -User* .
+3. Expanda o servidor de *\>de usuário Catalog-MT-\<* .
 4. Verifique se você vê o repositório de análise e o banco de dados jobaccount.
 
 Consulte os seguintes itens de banco de dados no Pesquisador de objetos do SSMS expandindo o nó do repositório de análise:
@@ -116,11 +116,11 @@ Consulte os seguintes itens de banco de dados no Pesquisador de objetos do SSMS 
 
 ### <a name="create-target-groups"></a>Criar grupos de destino 
 
-Antes de continuar, certifique-se de ter implantado a conta de trabalho e o banco de dados jobaccount. No próximo conjunto de etapas, os trabalhos elásticos são usados para extrair dados do banco de dados de locatários fragmentados e para armazenar os dados no repositório de análise. Em seguida, o segundo trabalho destrói os dados e os armazena em tabelas no esquema em estrela. Esses dois trabalhos são executados em dois grupos de destino diferentes , ou seja, o grupo de locatários e o grupo de **análise**. O trabalho de extração é executado em relação ao usertenant, que contém todos os bancos de dados de locatário. O trabalho de fragmentação é executado no The Analytics, que contém apenas o repositório de análise. Crie os grupos de destino usando as seguintes etapas:
+Antes de continuar, certifique-se de ter implantado a conta de trabalho e o banco de dados jobaccount. No próximo conjunto de etapas, os trabalhos elásticos são usados para extrair dados do banco de dados de locatários fragmentados e para armazenar os dados no repositório de análise. Em seguida, o segundo trabalho destrói os dados e os armazena em tabelas no esquema em estrela. Esses dois trabalhos são executados em dois grupos de destino diferentes, ou seja, o grupo de **locatários** e o grupo de **análise**. O trabalho de extração é executado em relação ao usertenant, que contém todos os bancos de dados de locatário. O trabalho de fragmentação é executado no The Analytics, que contém apenas o repositório de análise. Crie os grupos de destino usando as seguintes etapas:
 
-1. No SSMS, conecte-se ao banco de dados **jobaccount** no Catalog\<-\>MT-User.
+1. No SSMS, conecte-se ao banco de dados **jobaccount** no\>de usuário Catalog-mt-\<.
 2. No SSMS, abra *. ..\Learning Modules\Operational Analytics\Tenant Analytics \ TargetGroups. SQL* 
-3. Modifique a @User variável na parte superior do script, substituindo `<User>` pelo valor de usuário usado quando você implantou o aplicativo de banco de dados multilocatário do Wingtip tickets SaaS.
+3. Modifique a variável @User na parte superior do script, substituindo `<User>` pelo valor de usuário usado quando você implantou o aplicativo de banco de dados multilocatário do Wingtip tickets SaaS.
 4. Pressione **F5** para executar o script que cria os dois grupos de destino.
 
 ### <a name="extract-raw-data-from-all-tenants"></a>Extrair dados brutos de todos os locatários
@@ -132,7 +132,7 @@ As transações podem ocorrer com mais frequência para dados de *tíquete e de 
 
 Cada trabalho extrai seus dados e os publica no repositório de análise. Lá, um trabalho separado destrói os dados extraídos no esquema do Analytics Star.
 
-1. No SSMS, conecte-se ao banco de dados **jobaccount** no servidor\<Catalog\> -MT-User.
+1. No SSMS, conecte-se ao banco de dados **jobaccount** em Catalog-mt-\<\> do usuário.
 2. No SSMS, abra *. ..\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.SQL*.
 3. Modifique @User na parte superior do script e substitua `<User>` pelo nome de usuário usado quando você implantou o aplicativo de banco de dados multilocatário do Wingtip tickets SaaS. 
 4. Pressione **F5** para executar o script que cria e executa o trabalho que extrai os dados de tíquetes e clientes de cada banco de dado de locatário. O trabalho salva os dados no repositório de análise.
@@ -152,11 +152,11 @@ A próxima etapa é destruir os dados brutos extraídos em um conjunto de tabela
 
 Nesta seção do tutorial, você define e executa um trabalho que mescla os dados brutos extraídos com os dados nas tabelas de esquema em estrela. Depois que o trabalho de mesclagem for concluído, os dados brutos serão excluídos, deixando as tabelas prontas para serem preenchidas pelo próximo trabalho de extração de dados de locatário.
 
-1. No SSMS, conecte-se ao banco de dados **jobaccount** no Catalog\<-\>MT-User.
+1. No SSMS, conecte-se ao banco de dados **jobaccount** no\>de usuário Catalog-mt-\<.
 2. No SSMS, abra *. ..\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.SQL*.
 3. Pressione **F5** para executar o script para definir um trabalho que chama o procedimento armazenado sp_ShredRawExtractedData no repositório de análise.
 4. Aguarde tempo suficiente para que o trabalho seja executado com êxito.
-    - Verifique a coluna de **ciclo de vida** da tabela Jobs. jobs_execution para o status do trabalho. Verifique se o trabalho **foi bem-sucedido** antes de continuar. Uma execução bem-sucedida exibe dados semelhantes ao seguinte gráfico:
+    - Verifique a coluna **ciclo de vida** dos trabalhos. jobs_execution tabela para o status do trabalho. Verifique se o trabalho **foi bem-sucedido** antes de continuar. Uma execução bem-sucedida exibe dados semelhantes ao seguinte gráfico:
 
 ![shreddingJob](media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
 
@@ -171,7 +171,7 @@ Use as etapas a seguir para se conectar ao Power BI e importar os modos de exibi
 1. Inicie o Power BI desktop.
 2. Na faixa de opções página inicial, selecione **obter dados**e selecione **mais...** no menu.
 3. Na janela **obter dados** , selecione Azure SQL Database.
-4. Na janela de logon do banco de dados, insira o nome do servidor (\<Catalog\>-MT-User. Database.Windows.net). Selecione **importar** para o **modo de conectividade de dados**e clique em OK. 
+4. Na janela de logon do banco de dados, insira o nome do servidor (Catalog-MT-\<usuário\>. database.windows.net). Selecione **importar** para o **modo de conectividade de dados**e clique em OK. 
 
     ![powerBISignIn](media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
@@ -179,7 +179,7 @@ Use as etapas a seguir para se conectar ao Power BI e importar os modos de exibi
 
     ![DatabaseSignIn](media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 
-6. No painel **navegador** , no banco de dados de análise, selecione as tabelas de esquema em estrela: Fact_Tickets, Dim_Events, Dim_Venues, Dim_Customers e dim_Dates. Em seguida, selecione **carregar**. 
+6. No painel **navegador** , no banco de dados de análise, selecione as tabelas de esquema em estrela: fact_Tickets, dim_Events, dim_Venues, dim_Customers e dim_Dates. Em seguida, selecione **carregar**. 
 
 Parabéns! Você carregou os dados com êxito em Power BI. Agora você pode começar a explorar visualizações interessantes para ajudar a obter informações sobre seus locatários. Em seguida, você percorre como a análise pode permitir que você forneça recomendações controladas por dados para a equipe de negócios da Wingtip tickets. As recomendações podem ajudar a otimizar o modelo de negócios e a experiência do cliente.
 
@@ -225,7 +225,7 @@ Anteriormente, você aprofundau sua análise para descobrir que as vendas de ing
 
 Você observou tendências em dados de locatário do aplicativo de banco de dados multilocatário do Wingtip tickets SaaS. Você pode contemplar outras maneiras pelas quais o aplicativo pode informar decisões de negócios para fornecedores de aplicativos SaaS. Os fornecedores podem atender melhor às necessidades de seus locatários. Espero que este tutorial tenha equipado com ferramentas necessárias para executar a análise de dados de locatário para capacitar seus negócios a tomar decisões controladas por dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

@@ -1,6 +1,6 @@
 ---
 title: Otimizar algoritmos
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Explica como escolher o conjunto de parâmetros ideal para um algoritmo no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 74775550054fc3b4fdbed5cc006d14a913c369c5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1a0434b0f0768447f9922e651297924ad86f63c8
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493514"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621927"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Escolha os parâmetros para otimizar seus algoritmos no Azure Machine Learning Studio (clássico)
 

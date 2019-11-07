@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: c4faa29e092c7cbb550bca1daa87ce369bf03a14
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 1a3d917775f6ba5b0b7f62d19de2b970a8b36838
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73099532"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571222"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Início rápido: Adicionar sinalizadores de recurso a um aplicativo ASP.NET Core
 
@@ -81,7 +81,7 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conectar-se a um repositório de configuração de aplicativo
 
-1. Adicione referência ao `Microsoft.Azure.AppConfiguration.AspNetCore` e aos pacotes NuGet `Microsoft.FeatureManagement.AspNetCore` executando os seguintes comandos:
+1. Adicione referência aos pacotes NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` e `Microsoft.FeatureManagement.AspNetCore` executando os seguintes comandos:
 
     ```
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
@@ -127,7 +127,10 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+                config.AddAzureAppConfiguration(options => {
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                            .UseFeatureFlags();
+                });
             })
             .UseStartup<Startup>();
     ```
@@ -141,7 +144,8 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
         webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
         {
             var settings = config.Build();
-            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"])
+                .UseFeatureFlags();
         })
         .UseStartup<Startup>());
     ```
@@ -153,7 +157,7 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
     using Microsoft.FeatureManagement;
     ```
 
-1. Atualize o método de `ConfigureServices` para adicionar suporte ao sinalizador de recurso chamando o método `services.AddFeatureManagement()`. Opcionalmente, você pode incluir qualquer filtro a ser usado com sinalizadores de recurso chamando `services.AddFeatureFilter<FilterType>()`:
+1. Atualize o método `ConfigureServices` para adicionar suporte ao sinalizador de recurso chamando o método `services.AddFeatureManagement()`. Opcionalmente, você pode incluir qualquer filtro a ser usado com sinalizadores de recurso chamando `services.AddFeatureFilter<FilterType>()`:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -162,7 +166,7 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
     }
     ```
 
-1. Atualize o método de `Configure` para adicionar um middleware para permitir que os valores de sinalizador de recurso sejam atualizados em um intervalo recorrente enquanto o aplicativo Web ASP.NET Core continua a receber solicitações.
+1. Atualize o método `Configure` para adicionar um middleware para permitir que os valores de sinalizador de recurso sejam atualizados em um intervalo recorrente enquanto o aplicativo Web ASP.NET Core continua a receber solicitações.
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -276,7 +280,7 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
 
     ![Local de inicialização do aplicativo de início rápido](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **todos os recursos**e selecione a instância do repositório de configuração de aplicativo que você criou no guia de início rápido.
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Selecione **todos os recursos**e selecione a instância do repositório de configuração de aplicativo que você criou no guia de início rápido.
 
 1. Selecione **Gerenciador de recursos**e altere o estado da chave **beta** para **ativado**:
 

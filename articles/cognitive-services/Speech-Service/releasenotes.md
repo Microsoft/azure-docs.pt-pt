@@ -11,14 +11,38 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: 353e0478172ed03cde848d8c5127d2ee41724963
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b40df5878d08b222d145531bfdad1e30b2fe989d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73481234"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647406"
 ---
 # <a name="release-notes"></a>Notas de versão
+
+## <a name="speech-sdk-180-2019-november-release"></a>SDK de fala 1.8.0:2019 – versão de novembro
+
+**Novos recursos**
+*   Adicionada uma API FromHost () para facilitar o uso com contêineres locais e nuvens soberanas.
+*   Detecção de Idioma de origem automática adicionada para reconhecimento de fala (em C++Java e)
+*   Adicionado o objeto SourceLanguageConfig para reconhecimento de fala, usado para especificar os idiomas de origem esperados (em Java e C++)
+*   Adicionado suporte a KeywordRecognizer no Windows (UWP), Android e iOS por meio dos pacotes NuGet e Unity
+*   API Java de conversa remota adicionada para fazer a transcrição de conversa em lotes assíncronos.
+
+**Alterações recentes**
+*   Funcionalidades de transistores de conversa movidas no namespace Microsoft. Cognitivaservices. Speech. transcrição.
+*   Parte dos métodos de transistores de conversa são movidos para a nova classe de conversa.
+*   Suporte removido para iOS de 32 bits (ARMv7 e x86) 
+
+**Correções de bugs**
+*   Correção de falha se KeywordRecognizer local for usado sem uma chave de assinatura de serviço de fala válida
+
+**Amostras**
+*   Exemplo do Xamarin para KeywordRecognizer
+*   Exemplo de Unity para KeywordRecognizer
+*   C++e exemplos de Java para Detecção de Idioma de origem automática.
+
+
 ## <a name="speech-sdk-170-2019-september-release"></a>SDK de fala 1.7.0:2019 – versão de setembro
 
 **Novos recursos**
@@ -37,7 +61,6 @@ ms.locfileid: "73481234"
 *   Corrigido o problema com UUIDs que não são exclusivos em algumas propriedades de conexão
 *   Correção de alguns avisos sobre especificadores de nulidade nas associações Swift (pode exigir pequenas alterações de código)
 *   Correção de um bug que fazia com que as conexões WebSocket fosse fechadas de acordo com a carga de rede
-*   iOS: suporte Descartado para a arquitetura arm7s
 *   Correção de um problema no Android que às vezes resulta em IDs de impressão duplicadas usadas pelo DialogServiceConnector
 *   Melhorias na estabilidade de conexões entre interativações de várias transformações e o relatório de falhas (por meio de eventos cancelados) quando ocorrem com DialogServiceConnector
 *   A sessão DialogServiceConnector começará agora a fornecer eventos, inclusive ao chamar ListenOnceAsync () durante um StartKeywordRecognitionAsync ativo ()

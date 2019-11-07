@@ -8,14 +8,14 @@ ms.custom: include file
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
-ms.date: 10/23/2019
+ms.date: 11/05/2019
 ms.author: diberry
-ms.openlocfilehash: f833ded4467da1f129b1ea7f858ae8bdd9c2048e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b65bf177d98d5b0bcbaf9e9eaf06707b43ed7032
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495387"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647431"
 ---
 Para obter uma predição do LUIS num chatbot ou noutra aplicação-cliente, tem de publicar a aplicação no ponto final. 
 
@@ -31,4 +31,4 @@ Para obter uma predição do LUIS num chatbot ou noutra aplicação-cliente, tem
 
     ![Publicação no ponto final do LUIS](../media/howto-publish/publish-endpoint-success.png)
 
-4. Selecione a ligação de **pontos finais** na barra de estado verde para aceder à página **Chaves e pontos finais**. Os URLs de ponto final são apresentados na parte inferior.
+4. Selecione o link **acessar suas URLs de ponto de extremidade** na notificação para ir para a página **recursos do Azure** . As URLs de ponto de extremidade são listadas como a **consulta de exemplo**.

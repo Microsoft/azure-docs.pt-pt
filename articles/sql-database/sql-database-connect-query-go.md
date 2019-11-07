@@ -1,5 +1,5 @@
 ---
-title: Utilizar o Go para consultar a Base de Dados SQL do Azure | Microsoft Docs
+title: Usar o Go para consultar o banco de dados SQL do Azure
 description: Utilize o Go para criar um programa que se liga a uma Base de Dados SQL do Azure utilize declarações Transact-SQL para consultar e modificar dados.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: David-Engel
 ms.author: craigg
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
-ms.openlocfilehash: baa43a93ff0c1e814478bdc195b2fd525d4dbbf3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 510f5e0fe62043d592306d2d689174c0d87e129d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569249"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690952"
 ---
-# <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Início rápido: Usar o Golang para consultar um banco de dados SQL do Azure
+# <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Início rápido: usar Golang para consultar um banco de dados SQL do Azure
 
 Neste guia de início rápido, você usará a linguagem de programação [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) para se conectar a um banco de dados SQL do Azure. Em seguida, você executará instruções Transact-SQL para consultar e modificar dados. O [Golang](https://golang.org/) é uma linguagem de programação de software livre que facilita a criação de softwares simples, confiáveis e eficientes.  
 
@@ -45,14 +45,14 @@ Para concluir este tutorial, precisa de:
 - Golang e software relacionado para o seu sistema operacional instalado:
 
   - **MacOS**: Instale o homebrew e o Golang. Veja o [Passo 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
-  - **Ubuntu**:  Instale o Golang. Veja o [Passo 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
+  - **Ubuntu**: Instale o Golang. Veja o [Passo 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
   - **Windows**: Instale o Golang. Veja o [Passo 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).
 
 ## <a name="get-sql-server-connection-information"></a>Obter informações de conexão do SQL Server
 
 Obtenha as informações de conexão necessárias para se conectar ao banco de dados SQL do Azure. Você precisará do nome do servidor totalmente qualificado ou nome do host, nome do banco de dados e informações de logon para os próximos procedimentos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Navegue até a página **bancos de dados SQL** ou **instâncias gerenciadas do SQL** .
 
@@ -305,13 +305,13 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 ## <a name="run-the-code"></a>Executar o código
 
-1. No prompt de comando, execute o seguinte comando.
+1. No prompt de comando, execute o comando a seguir.
 
    ```bash
    go run sample.go
    ```
 
-2. Verificar a saída.
+2. Verifique a saída.
 
    ```text
    Connected!
@@ -325,7 +325,7 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
    Deleted 1 row(s) successfully.
    ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar a sua primeira base de dados SQL do Azure](sql-database-design-first-database.md)
 - [Driver Golang para Microsoft SQL Server](https://github.com/denisenkom/go-mssqldb)

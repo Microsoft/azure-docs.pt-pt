@@ -1,5 +1,5 @@
 ---
-title: Introdução à auditoria do banco de dados SQL do Azure | Microsoft Docs
+title: Introdução à auditoria do banco de dados SQL do Azure
 description: Use a auditoria do banco de dados SQL do Azure para acompanhar eventos de banco de dados em um log de auditoria.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 1171a3b6d38fe04a4213513e934be258d79a1aa0
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 9a154e677a7308553bbef16837efae39006d3dae
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045195"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691192"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -220,7 +220,7 @@ Em produção, é provável que você atualize suas chaves de armazenamento peri
 3. Volte para a página de configuração de auditoria, alterne a chave de acesso de armazenamento de secundária para primária e clique em **OK**. Em seguida, clique em **salvar** na parte superior da página de configuração de auditoria.
 4. Volte para a página de configuração de armazenamento e regenere a chave de acesso secundária (em preparação para o ciclo de atualização da próxima chave).
 
-## <a name="additional-information"></a>Informação Adicional
+## <a name="additional-information"></a>Informações adicionais
 
 - Para obter detalhes sobre o formato de log, hierarquia da pasta de armazenamento e convenções de nomenclatura, consulte a [referência de formato de log de auditoria de blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
