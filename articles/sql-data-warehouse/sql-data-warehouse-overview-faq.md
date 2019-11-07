@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes sobre o Azure Synapse Analytics (anteriormente conhecido como SQL DW) | Microsoft Docs
+title: Perguntas frequentes sobre o Azure Synapse Analytics (anteriormente conhecido como SQL DW)
 description: Este artigo lista as perguntas frequentes sobre o Azure Synapse Analytics (anteriormente conhecido como SQL DW) de clientes e desenvolvedores
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 4db84ed69979713d613679e94d50cdb73475e2be
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: f7b4f926bb9611d87c67276f754a6b596850b59d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520858"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645596"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Synapse Analytics (anteriormente conhecido como SQL DW)
 
@@ -47,7 +47,7 @@ A. Visite a página de [conformidade da Microsoft] para várias ofertas de confo
 
 P. Posso conectar Power BI?
 
-A. Sim! Embora Power BI ofereça suporte à consulta direta com o Azure Synapse, ele não se destina a um grande número de usuários ou dados em tempo real. Para uso em produção de Power BI, é recomendável usar Power BI sobre Azure Analysis Services ou IaaS do Analysis Service. 
+A. Sim! Embora Power BI ofereça suporte à consulta direta com o Azure Synapse, ele não se destina a um grande número de usuários ou dados em tempo real. Para otimizar ainda mais o desempenho do Power BI, considere usar Power BI sobre o Azure Analysis Services ou o IaaS do Analysis Service.
 
 P. Quais são os limites de capacidade da análise de SQL?
 

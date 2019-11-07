@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar um classificador de carga de trabalho-T-SQL | Microsoft Docs'
+title: 'Início rápido: criar um classificador de carga de trabalho-T-SQL '
 description: Use o T-SQL para criar um classificador de carga de trabalho com alta importância.
 services: sql-data-warehouse
 author: ronortloff
@@ -10,14 +10,14 @@ ms.subservice: workload-management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea2e0a3bb55d16c0b413b114fca9da7f95f5c053
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 1375605b6dab385b53af9212023767003e686e60
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574861"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646296"
 ---
-# <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Início rápido: Criar um classificador de carga de trabalho usando o T-SQL
+# <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Início rápido: criar um classificador de carga de trabalho usando o T-SQL
 
 Neste guia de início rápido, você criará rapidamente um classificador de carga de trabalho com alta importância para o CEO da sua organização. Esse classificador de carga de trabalho permitirá que as consultas do CEO tenham precedência sobre outras consultas com menor importância na fila.
 
@@ -34,11 +34,11 @@ Este início rápido pressupõe que você já tem um SQL Data Warehouse e que te
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-login-for-theceo"></a>Criar logon para TheCEO
 
-Crie um logon de autenticação SQL Server no `master` banco de dados usando [Create login](/sql/t-sql/statements/create-login-transact-sql) para ' TheCEO '.
+Crie um logon de autenticação SQL Server no banco de dados `master` usando [Create login](/sql/t-sql/statements/create-login-transact-sql) para ' TheCEO '.
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.sql_logins WHERE name = 'TheCEO')
@@ -48,7 +48,7 @@ END
 ;
 ```
 
-## <a name="create-user"></a>Criar utilizador
+## <a name="create-user"></a>Criar usuário
 
 [Criar usuário](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest), "TheCEO", em mySampleDataWarehouse
 
@@ -97,13 +97,13 @@ Siga estas etapas para limpar os recursos.
 
     ![Limpar recursos](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Para pausar a computação, selecione o botão Pausar. Quando o armazém de dados estiver em pausa, verá um botão **Iniciar**.  Para retomar a computação, selecione **Iniciar**.
+2. Para pausar a computação, selecione o botão **Pausar** . Quando o armazém de dados estiver em pausa, verá um botão **Iniciar**.  Para retomar a computação, selecione **Iniciar**.
 
 3. Para remover o data warehouse para que você não seja cobrado pela computação ou pelo armazenamento, selecione **excluir**.
 
 4. Para remover o SQL Server que você criou, selecione **mynewserver-20180430.Database.Windows.net** na imagem anterior e, em seguida, selecione **excluir**.  Tenha cuidado com esta eliminação, uma vez que eliminar o servidor também elimina todas as bases de dados atribuídas ao mesmo.
 
-5. Para remover o grupo de recursos,selecione MyResource Group e, em seguida, selecione **excluir grupo de recursos**.
+5. Para remover o grupo de recursos, selecione **MyResource**Group e, em seguida, selecione **excluir grupo de recursos**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

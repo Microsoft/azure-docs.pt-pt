@@ -1,5 +1,5 @@
 ---
-title: Melhores práticas de carregamento de dados - Azure SQL Data Warehouse | Microsoft Docs
+title: Melhores práticas de carregamento de dados
 description: Recomendações e otimizações de desempenho para carregar dados para o Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,13 +10,13 @@ ms.subservice: load-data
 ms.date: 08/08/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seoapril2019
-ms.openlocfilehash: a1433139695eb59fa3fd721852fae3181b8f892b
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 01bb53488bf63f32d2bae804e4844400a7fd2d31
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882485"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686093"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Melhores práticas de carregamento de dados para o Azure SQL Data Warehouse
 
@@ -141,8 +141,8 @@ ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SE
 
 Não é preciso fazer outras alterações às origens de dados externas subjacentes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre o PolyBase e como estruturar um processo de Extração, Carregamento e Transformação (ELT), veja [Design ELT for SQL Data Warehouse](design-elt-data-loading.md) (Estruturar o ELT para o SQL Data Warehouse).
-- Para obter um tutorial relativo ao carregamento, veja [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md) (Utilizar o PolyBase para carregar dados do armazenamento de Blobs do Azure para o Azure SQL Data Warehouse).
+- Veja o tutorial relativo ao carregamento em [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
 - Para monitorizar o carregamento de dados, veja [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor.md) (Monitorizar a sua carga de trabalho com redes de perímetro).

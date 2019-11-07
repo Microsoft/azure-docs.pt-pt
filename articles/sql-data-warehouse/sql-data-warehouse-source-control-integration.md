@@ -1,5 +1,5 @@
 ---
-title: Integração de controle do código-fonte | Microsoft Docs
+title: Integração do Controlo de Origem
 description: Experiência de DevOps de banco de dados de classe empresarial para SQL Data Warehouse com integração de controle do código-fonte nativo usando Azure Repos (git e GitHub).
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,12 @@ ms.subservice: integration
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 10a10882efe05ef9e6bb86e54fcfcf8c5d73d225
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 82d366b3f807e21e3531da00da78520fed90bc66
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70098748"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645251"
 ---
 # <a name="source-control-integration-for-azure-sql-data-warehouse"></a>Integração de controle do código-fonte para o Azure SQL Data Warehouse
 

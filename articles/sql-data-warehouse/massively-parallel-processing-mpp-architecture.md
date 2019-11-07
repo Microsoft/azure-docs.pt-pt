@@ -1,5 +1,5 @@
 ---
-title: Arquitetura do Azure Synapse Analytics (anteriormente conhecido como SQL DW) | Microsoft Docs
+title: Arquitetura do Azure Synapse Analytics (anteriormente conhecido como SQL DW)
 description: Saiba como o Azure Synapse Analytics (anteriormente conhecido como SQL DW) combina o processamento paralelo maciço (MPP) com o armazenamento do Azure para obter alto desempenho e escalabilidade.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b463b0806d39ba20ae714c8785e5c0d227ce481b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ea9629c63fcab97ba8ba83cd88592c37ae41818a
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466393"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646394"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Arquitetura do Azure Synapse Analytics (anteriormente conhecido como SQL DW) 
 
@@ -64,7 +64,7 @@ O nó de controle é o cérebro da arquitetura. É o front-end que interage com 
 
 Os nós de computação fornecem a potência computacional. As distribuições são mapeadas para nós de computação para processamento. À medida que você paga mais recursos de computação, a análise do SQL mapeia novamente as distribuições para os nós de computação disponíveis. O número de nós de computação varia de 1 a 60 e é determinado pelo nível de serviço para análise de SQL.
 
-Cada nó de computação tem uma ID de nó visível nas exibições do sistema. Você pode ver a ID do nó de computação procurando a coluna node_id nas exibições do sistema cujos nomes começam com sys. PDW _nodes. Para obter uma lista dessas exibições do sistema, consulte [exibições do sistema MPP](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7).
+Cada nó de computação tem uma ID de nó visível nas exibições do sistema. Você pode ver a ID do nó de computação procurando a coluna node_id nas exibições do sistema cujos nomes começam com sys. pdw_nodes. Para obter uma lista dessas exibições do sistema, consulte [exibições do sistema MPP](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7).
 
 ### <a name="data-movement-service"></a>Serviço de movimentação de dados
 O serviço de movimentação de dados (DMS) é a tecnologia de transporte de dados que coordena a movimentação de dados entre os nós de computação. Algumas consultas exigem a movimentação de dados para garantir que as consultas paralelas retornem resultados precisos. Quando a movimentação de dados é necessária, DMS garante que os dados corretos cheguem ao local certo. 

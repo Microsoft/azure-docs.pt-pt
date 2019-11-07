@@ -1,5 +1,5 @@
 ---
-title: Código do buffer de anéis do XEvent para o banco de dados SQL | Microsoft Docs
+title: Código do buffer de anéis do XEvent para o banco de dados SQL
 description: Fornece um exemplo de código Transact-SQL que é facilitado e rápido pelo uso do destino do buffer de anéis, no banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: f1ec9cd3a4256597ade409fb3e04d44171277554
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8fd04cac394f05a9db18e84117a8647c1a17ba30
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566160"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686803"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Código de destino do buffer de anéis para eventos estendidos no banco de dados SQL
 
@@ -27,7 +27,7 @@ Você deseja um exemplo de código completo para a maneira mais fácil de captur
 Este tópico apresenta um exemplo de código Transact-SQL que:
 
 1. Cria uma tabela com dados para demonstrar com.
-2. Cria uma sessão para um evento estendido existente, especificamente **SqlServer. SQL _statement_starting**.
+2. Cria uma sessão para um evento estendido existente, ou seja, **SqlServer. sql_statement_starting**.
    
    * O evento é limitado a instruções SQL que contêm uma cadeia de atualização específica: **instrução como '% Update tabEmployee% '** .
    * Opta por enviar a saída do evento para um destino do tipo buffer de anel, a saber **package0. ring_buffer**.
@@ -35,7 +35,7 @@ Este tópico apresenta um exemplo de código Transact-SQL que:
 4. Emite algumas instruções simples de atualização do SQL.
 5. Emite uma instrução SQL SELECT para recuperar a saída do evento do buffer de anéis.
    
-   * **Sys. dm _xe_database_session_targets** e outras exibições de gerenciamento dinâmico (DMVs) são unidas.
+   * **Sys. dm_xe_database_session_targets** e outras DMVs (exibições de gerenciamento dinâmico) são unidas.
 6. Interrompe a sessão de evento.
 7. Descarta o destino do buffer de anéis para liberar seus recursos.
 8. Descarta a sessão de evento e a tabela de demonstração.
@@ -56,8 +56,8 @@ Este tópico apresenta um exemplo de código Transact-SQL que:
 
 Com uma modificação muito pequena, o exemplo de código de buffer de anéis a seguir pode ser executado no banco de dados SQL do Azure ou Microsoft SQL Server. A diferença é a presença do nó ' _database ' no nome de algumas DMVs (exibições de gerenciamento dinâmico), usadas na cláusula FROM na etapa 5. Por exemplo:
 
-* sys.dm_xe<strong>_database</strong>_session_targets
-* sys.dm_xe_session_targets
+* <strong>_database</strong>sys. dm_xe _session_targets
+* sys. dm_xe_session_targets
 
 &nbsp;
 
@@ -222,7 +222,7 @@ Para exibir os resultados, clicamos na célula sob o cabeçalho da coluna **targ
 
 Em seguida, no painel de resultados, clicamos na célula sob o cabeçalho da coluna **target_data_XML**. Esse clique criou outra guia de arquivo no SSMS. exe, na qual o conteúdo da célula de resultado foi exibido, como XML.
 
-A saída é mostrada no bloco a seguir. Parece longo, mas é apenas dois  **\<** elementos de > de eventos.
+A saída é mostrada no bloco a seguir. Parece longo, mas é apenas duas\<elementos de **> de evento** .
 
 &nbsp;
 
@@ -347,7 +347,7 @@ O tópico primário para eventos estendidos no banco de dados SQL do Azure é:
 
 Outros tópicos de exemplo de código para eventos estendidos estão disponíveis nos links a seguir. No entanto, você deve verificar rotineiramente qualquer exemplo para ver se o exemplo tem como alvo Microsoft SQL Server versus o banco de dados SQL do Azure. Em seguida, você pode decidir se são necessárias pequenas alterações para executar o exemplo.
 
-* Exemplo de código para o banco de dados SQL do Azure: [Código de destino do arquivo de evento para eventos estendidos no banco de dados SQL](sql-database-xevent-code-event-file.md)
+* Exemplo de código para banco de dados SQL do Azure: [código de destino do arquivo de evento para eventos estendidos no banco de dados SQL](sql-database-xevent-code-event-file.md)
 
 <!--
 ('lock_acquired' event.)

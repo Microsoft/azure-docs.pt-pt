@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 06/25/2019
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 52f682f7c7f06056be122b33d27592a55a01be94
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: fbde3c939a23e4023c0403c27433717a11762b08
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70744077"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622065"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Criar a sua primeira função com o Visual Studio Code
 
@@ -26,7 +26,7 @@ Neste artigo, vai aprender a utilizar a [Extensão das Funções do Azure para o
 
 ![Código de funções do Azure num projeto do Visual Studio](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-Atualmente, a extensão C#dá suporte a funções JavaScript, Java e Python. As etapas neste artigo e o artigo a seguir dão suporte apenas a JavaScript C# e funções. Para saber como usar Visual Studio Code para criar e publicar funções Python, consulte [implantar Python no Azure Functions](https://code.visualstudio.com/docs/python/tutorial-azure-functions). Para saber como usar Visual Studio Code para criar e publicar funções do PowerShell, consulte [criar sua primeira função do PowerShell no Azure](functions-create-first-function-powershell.md). 
+Atualmente, a extensão C#dá suporte a funções JavaScript, Java e Python. As etapas neste artigo e o artigo a seguir dão suporte apenas a JavaScript C# e funções. Para saber como usar Visual Studio Code para criar e publicar funções Python, consulte [criar e implantar Azure Functions sem servidor no Python com Visual Studio Code](/azure/python/tutorial-vs-code-serverless-python-01). Para saber como usar Visual Studio Code para criar e publicar funções do PowerShell, consulte [criar sua primeira função do PowerShell no Azure](functions-create-first-function-powershell.md). 
 
 A extensão está atualmente em pré-visualização. Para obter mais informações, veja a página de extensão [Extensão das Funções do Azure para o Visual Studio Code].
 
@@ -43,9 +43,9 @@ Para concluir este guia de início rápido:
     | Idioma | Requisito |
     | -------- | --------- |
     | **C#** | [C#extensão](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)  |
-    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> | 
+    | **JavaScript** | <sup>*</sup> do [node. js](https://nodejs.org/) | 
  
-    <sup>*</sup>Active LTS e manutenção LTS versões (8.11.1 e 10.14.1 recomendado).
+    <sup>*</sup> Active LTS e manutenção LTS versões (8.11.1 e 10.14.1 recomendado).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -63,7 +63,7 @@ Depois de verificar que a função é executada corretamente no computador local
 
 ## <a name="run-the-function-in-azure"></a>Executar a função no Azure
 
-1. Copie o URL do acionador de HTTP no painel **Resultados**. Essa URL inclui a chave de função, que é passada para `code` o parâmetro de consulta. Tal como antes, certifique-se de que adiciona a cadeia de consulta `?name=<yourname>` ao final deste URL e execute o pedido.
+1. Copie o URL do acionador de HTTP no painel **Resultados**. Essa URL inclui a chave de função, que é passada para o `code` parâmetro de consulta. Tal como antes, certifique-se de que adiciona a cadeia de consulta `?name=<yourname>` ao final deste URL e execute o pedido.
 
     O URL que chama a função acionada por HTTP deve estar no seguinte formato:
 
@@ -73,7 +73,7 @@ Depois de verificar que a função é executada corretamente no computador local
 
     ![Resposta da função no browser](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Utilizou o Visual Studio Code para criar uma aplicação de funções com uma função simples acionada por HTTP. No próximo artigo, você expande essa função adicionando uma associação de saída. Essa associação grava a cadeia de caracteres da solicitação HTTP para uma mensagem em uma fila de armazenamento de filas do Azure. O próximo artigo também mostra como limpar esses novos recursos do Azure removendo o grupo de recursos que você criou.
 

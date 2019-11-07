@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: overview
 ms.service: resource-graph
-ms.openlocfilehash: c113719d304aa4ed9c13df1fe0264d22aacb5002
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 41663ec04e194bcc4380f46f1e5cc5a6867e53fc
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499146"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622541"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Visão geral do serviço de grafo de recursos do Azure
 
@@ -92,7 +92,7 @@ O grafo de recursos dá suporte a CLI do Azure, Azure PowerShell, SDK do Azure p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Execute sua primeira consulta no [portal do Azure](first-query-portal.md).
+- Execute sua primeira consulta usando o [portal do Azure](first-query-portal.md).
 - Execute sua primeira consulta com [CLI do Azure](first-query-azurecli.md).
 - Execute sua primeira consulta com [Azure PowerShell](first-query-powershell.md).
 - Obtenha mais informações sobre a [linguagem de consulta](./concepts/query-language.md).

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 52e9fd986973c15d30790b981a5c2ccd1e6974d6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 2c1e6ef84a472ccec5116b12e18ad80c92b68960
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507695"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681888"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Início rápido: síntese assíncrona para áudio de forma longa em Python (versão prévia)
 
@@ -27,7 +27,7 @@ Este início rápido requer:
 
 * Python 2.7. x ou 3. x.
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download)ou seu editor de texto favorito.
-* Uma assinatura do Azure e uma chave de assinatura do serviço de fala. [Crie uma conta](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+* Uma assinatura do Azure e uma chave de assinatura do serviço de fala. [Crie uma conta do Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account) e [crie um recurso de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) para obter a chave. Ao criar o recurso de fala, verifique se o tipo de preço está definido como **S0**e se o local está definido como uma [região com suporte](../../regions.md#standard-and-neural-voices).
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos exigidos
 
@@ -47,7 +47,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 ```
 
 > [!NOTE]
-> Se ainda não utilizou estes módulos, terá de instalá-los antes de executar o seu programa. Para instalar estes pacotes, execute: `pip install requests`.
+> Se ainda não utilizou estes módulos, terá de instalá-los antes de executar o seu programa. Para instalar estes pacotes, execute: `pip install requests urllib3`.
 
 Esses módulos são usados para analisar argumentos, construir a solicitação HTTP e chamar a API REST de áudio longo de conversão de texto em fala.
 

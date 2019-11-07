@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 07/01/2019
 ms.author: moderakh
-ms.openlocfilehash: 61824d1f979d54f49d23f3805ff249c75a62baa4
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 05f597093c27f84d7f20cf0abd5858f44645b88d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063929"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73574919"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB o SDK Java assíncrono para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -37,15 +37,15 @@ O SDK Java assíncrono de API do SQL difere do SDK Java da API do SQL, fornecend
 | **Download do SDK** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) |
 |**Documentação da API** |[Documentação de referência da API do Java](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient?view=azure-java-stable) | 
 |**Contribuir para o SDK** | [GitHub](https://github.com/Azure/azure-cosmosdb-java) | 
-|**Get started** | [Introdução ao SDK do Java assíncrono](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started) | 
+|**Introdução** | [Introdução ao SDK do Java assíncrono](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started) | 
 |**Exemplo de código** | [GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)| 
 | **Sugestões de desempenho**| [Leiame do GitHub](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)| 
 | **Tempo de execução mínimo com suporte**|[JDK 8](https://aka.ms/azure-jdks) | 
 
-[!INCLUDE[Release notes](~/azure-cosmosdb-java-v2/changelog/README.md)]
+[!INCLUDE [Release notes](~/azure-cosmosdb-java-v2/changelog/README.md)]
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consultar também
 Para saber mais sobre Cosmos DB, consulte [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) página de serviço.
 

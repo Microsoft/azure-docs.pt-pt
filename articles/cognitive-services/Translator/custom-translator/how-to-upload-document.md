@@ -1,7 +1,7 @@
 ---
 title: Como carregar um documento-Tradutor personalizado
 titleSuffix: Azure Cognitive Services
-description: Usando o recurso de upload de documento, você pode carregar um documento paralelo para seus treinamentos. Os documentos paralelos são pares de documentos em que um é a tradução do outro. Um documento no par contém sentenças no idioma de origem e o outro documento contém essas frases traduzidas para o idioma de destino.
+description: O recurso de upload de documento carrega documentos paralelos (dois documentos em que um é a origem e o outro é a tradução) no serviço.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f2bd6103c27d455265ee967554fb27513f78a472
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b2a249a40d8c782d54a12df43d33655f3409753c
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595642"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647389"
 ---
 # <a name="upload-a-document"></a>Carregar um documento
 
@@ -37,11 +37,11 @@ No portal do [Tradutor personalizado](https://portal.customtranslator.azure.ai) 
 
     a.  Tipo de documento:
 
-    -  Preparação: Estes documentos serão usados para o conjunto de treinamento.
-    -  Orienta Estes documentos serão usados para conjunto de ajuste.
-    -  Testado Estes documentos serão usados para o conjunto de testes.
-    -  Dicionário de frases: Esses documentos serão usados para o dicionário de frases.
-    -  Dicionário de sentenças: Estes documentos serão usados para o dicionário de sentenças
+    -  Treinamento: esses documentos serão usados para o conjunto de treinamento.
+    -  Ajuste: esses documentos serão usados para conjunto de ajuste.
+    -  Teste: esses documentos serão usados para o conjunto de testes.
+    -  Dicionário de frases: esses documentos serão usados para o dicionário de frases.
+    -  Dicionário de sentenças: esses documentos serão usados para o dicionário de sentenças
 
     b.  Par de idiomas
 
@@ -50,12 +50,12 @@ No portal do [Tradutor personalizado](https://portal.customtranslator.azure.ai) 
     d.  Preencha a seção relevante para dados paralelos ou dados de combinação.
 
     -  Dados paralelos:
-        -  Arquivo de origem: Selecione o arquivo de idioma de origem em seu computador local.
-        -  Arquivo de destino: Selecione o arquivo de idioma de destino em seu computador local.
-        -  Nome do documento: Usado somente se você estiver carregando arquivos paralelos.
+        -  Arquivo de origem: selecione o arquivo de idioma de origem do seu computador local.
+        -  Arquivo de destino: selecione o arquivo de idioma de destino no computador local.
+        -  Nome do documento: usado somente se você estiver carregando arquivos paralelos.
 
     - Dados de combinação:
-        -  Arquivo de combinação: Selecione o arquivo de combinação do seu computador local. O arquivo de combinação tem as duas frases de linguagem de origem e de destino. A [Convenção de nomenclatura](document-formats-naming-convention.md) é importante para arquivos de combinação.
+        -  Arquivo de combinação: selecione o arquivo de combinação do seu computador local. O arquivo de combinação tem as duas frases de linguagem de origem e de destino. A [Convenção de nomenclatura](document-formats-naming-convention.md) é importante para arquivos de combinação.
 
     e.  Clique em carregar
 

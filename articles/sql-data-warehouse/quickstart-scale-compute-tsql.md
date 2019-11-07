@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Expandir a computação no Azure SQL Data Warehouse-T-SQL | Microsoft Docs'
+title: 'Início rápido: dimensionar a computação-T-SQL '
 description: Dimensionar a computação no Azure SQL Data Warehouse com T-SQL e SQL Server Management Studio (SSMS). Dimensionar a computação para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
 services: sql-data-warehouse
 author: Antvgski
@@ -10,14 +10,15 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 9a2a11c2263500970e2f4294dd5d3711a57be349
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 6729552262d7bea619948ddba406418b80cf69dc
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574574"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685954"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Início rápido: Dimensionar a computação no Azure SQL Data Warehouse usando o T-SQL
+# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Início Rápido: Dimensionar computação no Azure SQL Data Warehouse utilizando T-SQL
 
 Dimensionar a computação no Azure SQL Data Warehouse com T-SQL e SQL Server Management Studio (SSMS). [Dimensionar a computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou a escalar a computação novamente para reduzir os custos. 
 
@@ -43,8 +44,8 @@ Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-se
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Tipo de servidor | Motor de base de dados | Este valor é obrigatório |
    | Nome do servidor | O nome de servidor completamente qualificado | Segue-se um exemplo: **mynewserver-20171113.database.windows.net**. |
-   | Authentication | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação configurado neste tutorial. |
-   | Iniciar sessão | A conta de administrador do servidor | A conta que especificou quando criou o servidor. |
+   | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação configurado neste tutorial. |
+   | Início de Sessão | A conta de administrador do servidor | A conta que especificou quando criou o servidor. |
    | Palavra-passe | A palavra-passe da sua conta de administrador do servidor | Esta é a palavra-passe que especificou quando criou o servidor. |
 
     ![ligar ao servidor](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
@@ -146,7 +147,7 @@ AND
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora já aprendeu como dimensionar a computação para o seu armazém de dados. Para saber mais sobre o Azure SQL Data Warehouse, avance para o tutorial para carregar dados.
 
 > [!div class="nextstepaction"]

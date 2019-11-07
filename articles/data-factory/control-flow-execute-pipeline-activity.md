@@ -1,5 +1,5 @@
 ---
-title: Atividade de execução de pipeline no Azure Data Factory | Microsoft Docs
+title: Atividade de execução de pipeline no Azure Data Factory
 description: Saiba como você pode usar a atividade executar pipeline para invocar um pipeline de Data Factory de outro pipeline Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 1611f740f6b55ecf9f15ecd234d63b5e95baeba1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 093050952ed826a540c35b2b73acd107fafc45ab
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141712"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679927"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Atividade de execução de pipeline no Azure Data Factory
 A atividade executar pipeline permite que um pipeline de Data Factory invoque outro pipeline.
@@ -59,19 +59,19 @@ A atividade executar pipeline permite que um pipeline de Data Factory invoque ou
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-Propriedade | Descrição | Valores permitidos | Requerido
+Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da atividade executar pipeline. | Cadeia | Sim
-type | Deve ser definido como: **ExecutePipeline**. | Cadeia | Sim
-pipeline | Referência de pipeline para o pipeline dependente que esse pipeline invoca. Um objeto de referência de pipeline tem duas Propriedades: referencename e **Type**. A propriedade referencename especifica o nome do pipeline de referência. A propriedade Type deve ser definida como PipelineReference. | PipelineReference | Sim
-parameters | Parâmetros a serem passados para o pipeline invocado | Um objeto JSON que mapeia nomes de parâmetro para valores de argumento | Não
+nome | Nome da atividade executar pipeline. | String | Sim
+tipo | Deve ser definido como: **ExecutePipeline**. | String | Sim
+Tubula | Referência de pipeline para o pipeline dependente que esse pipeline invoca. Um objeto de referência de pipeline tem duas propriedades: **referencename** e **Type**. A propriedade referencename especifica o nome do pipeline de referência. A propriedade Type deve ser definida como PipelineReference. | PipelineReference | Sim
+parâmetros | Parâmetros a serem passados para o pipeline invocado | Um objeto JSON que mapeia nomes de parâmetro para valores de argumento | Não
 waitOnCompletion | Define se a execução da atividade aguarda a conclusão da execução do pipeline dependente. A predefinição é falso. | Booleano | Não
 
-## <a name="sample"></a>Exemplo
+## <a name="sample"></a>Sample
 Esse cenário tem dois pipelines:
 
 - **Pipeline mestre** -esse pipeline tem uma atividade executar pipeline que chama o pipeline invocado. O pipeline mestre usa dois parâmetros: `masterSourceBlobContainer`, `masterSinkBlobContainer`.
-- **Pipeline invocado** -esse pipeline tem uma atividade de cópia que copia dados de uma origem de blob do Azure para o coletor de BLOBs do Azure. O pipeline invocado usa dois parâmetros `sourceBlobContainer`: `sinkBlobContainer`,.
+- **Pipeline invocado** -esse pipeline tem uma atividade de cópia que copia dados de uma origem de blob do Azure para o coletor de BLOBs do Azure. O pipeline invocado usa dois parâmetros: `sourceBlobContainer`, `sinkBlobContainer`.
 
 ### <a name="master-pipeline-definition"></a>Definição de pipeline mestre
 
@@ -254,7 +254,7 @@ O pipeline mestre encaminha esses valores para o pipeline invocado, conforme mos
 }
 
 ```
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
 
 - [Para cada atividade](control-flow-for-each-activity.md)

@@ -1,18 +1,18 @@
 ---
-title: Matriz de suporte para recuperação de desastre de VMs do Hyper-V em nuvens do VMM para um site secundário com Azure Site Recovery
+title: Suporte à matriz-recuperação de desastre do Hyper-V em um site secundário do VMM com Azure Site Recovery
 description: Resume o suporte para replicação de VM do Hyper-V em nuvens do VMM para um site secundário com Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 46d6cba1d702773639420a3bc5ac74b9c16ce706
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7711ebaaddccd68d4322c1d3ebdd049a57bc709b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933818"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686163"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V em um site secundário
 
@@ -67,13 +67,13 @@ VM convidada-Windows/Linux-endereço IP estático | Sim
 VM convidada-multi-NIC | Sim
 
 
-## <a name="storage"></a>Armazenamento
+## <a name="storage"></a>Storage
 
 ### <a name="host-storage"></a>Armazenamento de host
 
 **Armazenamento (host)** | **Suportado**
 --- | --- 
-NFS | N/A
+NFS | N/D
 SMB 3.0 |  Sim
 SAN (ISCSI) | Sim
 Vários caminhos (MPIO) | Sim
@@ -82,15 +82,15 @@ Vários caminhos (MPIO) | Sim
 
 **Configuração** | **Suportado**
 --- | --- | 
-VMDK |  N/A
+VMDK |  N/D
 VHD/VHDX | Sim (até 16 discos)
 VM de Gen 2 | Sim
 Disco de cluster compartilhado | Não
 Disco criptografado | Não
-UEFI| N/A
+UEFI| N/D
 NFS | Não
 SMB 3.0 | Não
-RDM | N/A
+RDM | N/D
 Disco > 1 TB | Sim
 Volume com disco distribuído > 1 TB<br/><br/> LVM | Sim
 Espaços de armazenamento | Sim

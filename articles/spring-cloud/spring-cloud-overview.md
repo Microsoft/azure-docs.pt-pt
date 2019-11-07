@@ -4,14 +4,14 @@ description: Conheça os recursos e os benefícios do Azure Spring Cloud para im
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: overview
-ms.date: 10/04/2019
+ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: d79ad88cf87e0ac8a08245558233eb92008f11e2
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
-ms.translationtype: MT
+ms.openlocfilehash: 5b5b5d9eba0e643357054cfd1b0c514a159282a1
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163661"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646808"
 ---
 # <a name="what-is-azure-spring-cloud"></a>O que é o Azure Spring Cloud?
 
@@ -19,7 +19,7 @@ O Azure Spring Cloud facilita a implantação de aplicativos de microatendimento
 
 Como parte do ecossistema do Azure, o Azure Spring Cloud permite uma ligação fácil com outros serviços do Azure, incluindo armazenamento, bancos de dados, monitoramento e muito mais.
 
-O Azure Spring Cloud está atualmente em versão prévia.  Para obter acesso a esse serviço enquanto estiver em versão prévia, [preencha este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u).  Embora o Azure Spring Cloud esteja em versão prévia, a Microsoft oferece suporte limitado sem um SLA.  Para obter mais informações sobre o suporte durante as visualizações, consulte este [FAQ de suporte](https://azure.microsoft.com/support/faq/).
+Atualmente, o Azure Spring Cloud é oferecido como uma visualização pública. As ofertas de visualização pública permitem que os clientes experimentem os novos recursos antes do lançamento oficial.  Serviços e recursos de visualização pública não são destinados ao uso em produção.  Para obter mais informações sobre o suporte durante as visualizações, registre um [solicitação de suporte](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
 Para começar, conclua o início rápido do Spring Cloud usando o [CLI do Azure](spring-cloud-quickstart-launch-app-cli.md), o [portal do Azure](spring-cloud-quickstart-launch-app-portal.md)ou o [Maven](spring-cloud-quickstart-launch-app-maven.md).
 

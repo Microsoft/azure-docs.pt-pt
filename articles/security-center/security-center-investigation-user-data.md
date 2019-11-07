@@ -1,5 +1,5 @@
 ---
-title: Gerenciar dados de usuário encontrados em uma investigação da central de segurança do Azure | Microsoft Docs
+title: Gerenciar dados de usuário encontrados em uma investigação da central de segurança do Azure
 description: " Saiba como gerenciar dados de usuário encontrados no recurso de investigação da central de segurança do Azure. "
 services: operations-management-suite
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: memildin
-ms.openlocfilehash: 8b6bde69f233fee9fe20b260e392966298f13a9a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 059ca2a26e50128d6bc4313dad9f995e97c06378
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202031"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686403"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Gerenciar dados de usuário encontrados em uma investigação da central de segurança do Azure
 Este artigo fornece informações sobre como gerenciar os dados de usuário encontrados no recurso de investigação da central de segurança do Azure. Os dados de investigação são armazenados em [logs de Azure monitor](../log-analytics/log-analytics-overview.md) e expostos na central de segurança. O gerenciamento de dados do usuário inclui a capacidade de excluir ou exportar dados.
@@ -35,24 +35,24 @@ Um usuário da central de segurança atribuiu a função de leitor, proprietári
 
 Consulte [funções internas para o controle de acesso baseado em função do Azure](../role-based-access-control/built-in-roles.md) para saber mais sobre as funções de leitor, proprietário e colaborador. Consulte [Administradores de assinatura do Azure](../billing/billing-add-change-azure-subscription-administrator.md) para saber mais sobre a função de administrador da conta.
 
-## <a name="deleting-personal-data"></a>A eliminar os dados pessoais
+## <a name="deleting-personal-data"></a>Excluindo dados pessoais
 Um usuário da central de segurança que atribuiu a função de proprietário, colaborador ou administrador da conta pode excluir as informações de investigação.
 
-Para excluir uma investigação, você pode enviar uma `DELETE` solicitação para a API REST do Azure Resource Manager:
+Para excluir uma investigação, você pode enviar uma solicitação de `DELETE` para a API REST do Azure Resource Manager:
 
 ```HTTP
 DELETE
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/features/security/incidents/{incidentName}
 ```
 
-A `incidentName` entrada pode ser encontrada listando todos os incidentes usando `GET` uma solicitação:
+A entrada `incidentName` pode ser encontrada listando todos os incidentes usando uma solicitação `GET`:
 
 ```HTTP
 GET
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/features/security/incidents
 ```
 
-## <a name="exporting-personal-data"></a>Exportar os dados pessoais
+## <a name="exporting-personal-data"></a>Exportando dados pessoais
 Um usuário da central de segurança que atribuiu a função de proprietário, colaborador ou administrador da conta pode exportar as informações de investigação. Para exportar informações de investigação, vá para a guia **entidades** para copiar e colar as informações relevantes.
 
 ## <a name="next-steps"></a>Passos seguintes

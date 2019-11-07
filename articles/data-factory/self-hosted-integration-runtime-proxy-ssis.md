@@ -1,5 +1,5 @@
 ---
-title: Configurar o tempo de execução de integração auto-hospedado como um proxy para SSIS no Azure Data Factory | Microsoft Docs
+title: Configurar o tempo de execução de integração auto-hospedado como um proxy para SSIS no Azure Data Factory
 description: Saiba como configurar o Integration Runtime auto-hospedado como um proxy para Azure-SSIS Integration Runtime.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2ade270011ad5c1e1e5f5940ca305687e52bba86
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 178628db11b95fbd345e94111ebf15809da3fc35
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200313"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684294"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>Configurar o IR auto-hospedado como um proxy para Azure-SSIS IR no ADF
 Este artigo descreve como executar pacotes do SQL Server Integration Services (SSIS) em Azure-SSIS Integration Runtime (IR) no Azure Data Factory (ADF) com o IR auto-hospedado configurado como um proxy.  Esse recurso permite que você acesse dados localmente sem [ingressar seu Azure-SSIS ir em uma rede virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).  Isso é útil quando sua rede corporativa tem uma política de configuração/restritiva muito complexa para você injetar sua Azure-SSIS IR.
@@ -40,7 +40,7 @@ Por fim, você precisará baixar e instalar a versão mais recente do IR auto-ho
 Crie um serviço vinculado do armazenamento de BLOBs do Azure no mesmo ADF em que o Azure-SSIS IR for provisionado, se você ainda não tiver feito isso, seguindo o artigo [como criar um serviço vinculado do ADF](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-linked-service) .  Verifique o seguinte:
 - O **armazenamento de BLOBs do Azure** está selecionado para **armazenamento de dados**
 - **AutoResolveIntegrationRuntime** é selecionado para **conectar via Integration Runtime**
-- A**entidade de serviço** do**URI**/SAS da **chave**/de conta está selecionada para o **método de autenticação**
+- A **chave de conta**/**URI de SAS**/entidade de **serviço** está selecionada para o método de **autenticação**
 
 ![Preparar o serviço vinculado do armazenamento de BLOBs do Azure para preparo](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -59,7 +59,7 @@ Ao criar novos pacotes que contenham tarefas de fluxo de dados com fontes de arq
 ![Habilitar Propriedade ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-manager-properties.png)
 
 Você também pode habilitar essa propriedade ao executar pacotes existentes sem precisar alterá-los manualmente um por um.  Há duas opções:
-- Abrir, recompilar e reimplantar o projeto que contém os pacotes com os SSDT mais recentes para executar em seu Azure-SSIS IR: Em seguida, a propriedade pode ser habilitada definindo-a como **true** para os gerenciadores de conexões relevantes que aparecem na guia **gerenciadores de conexões** da janela pop-up executar pacote ao executar pacotes do SSMS.
+- Abrindo, recriando e reimplantando o projeto que contém os pacotes com o SSDT mais recente a ser executado no seu Azure-SSIS IR: a propriedade pode ser habilitada definindo-a como **true** para os gerenciadores de conexões relevantes que aparecem na **conexão Guia gerentes** da janela pop-up executar pacote ao executar pacotes do SSMS.
 
   ![Habilitar ConnectByProxy Property2](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)
 
@@ -67,16 +67,16 @@ Você também pode habilitar essa propriedade ao executar pacotes existentes sem
   
   ![Habilitar ConnectByProxy property3](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
 
-- Reimplantando o projeto que contém os pacotes a serem executados em seu IR do SSIS: Em seguida, a propriedade pode ser habilitada fornecendo seu caminho `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`de propriedade, e definindo-a como **true** como uma substituição de propriedade na guia **avançado** da janela pop-up executar pacote ao executar pacotes do SSMS.
+- Reimplantando o projeto que contém os pacotes a serem executados em seu IR do SSIS: a propriedade pode ser habilitada fornecendo seu caminho de propriedade, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`e definindo-a como **true** como uma substituição de propriedade na guia **avançado** da janela pop-up executar pacote ao executar pacotes do SSMS.
 
   ![Habilitar ConnectByProxy property4](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png)
 
-  A propriedade também pode ser habilitada fornecendo seu caminho de propriedade `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`, e definindo-a como **true** como uma substituição de propriedade na guia **substituições de propriedades** da [atividade executar pacote SSIS](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) ao executar pacotes em pipelines do ADF.
+  A propriedade também pode ser habilitada fornecendo seu caminho de propriedade, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`e definindo-a como **true** como uma substituição de propriedade na guia **substituições de propriedade** da [atividade executar pacote SSIS](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) ao executar pacotes em pipelines do ADF.
   
   ![Habilitar ConnectByProxy property5](media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png)
 
 ## <a name="debug-the-first-and-second-staging-tasks"></a>Depurar a primeira e a segunda tarefas de preparo
-Em seu ir auto-hospedado, você pode encontrar os logs de tempo `C:\ProgramData\SSISTelemetry` de execução na pasta e os logs de execução das primeiras `C:\ProgramData\SSISTelemetry\ExecutionLog` tarefas de preparo na pasta.  Os logs de execução de segundo tarefas de preparo podem ser encontrados nos caminhos do SSISDB ou do log especificado, dependendo de você armazenar seus pacotes no SSISDB ou no sistema de arquivos/compartilhamentos de arquivos/arquivos do Azure, respectivamente.  As IDs exclusivas das primeiras tarefas de preparo também podem ser encontradas nos logs de execução de segundo tarefas de preparo, por exemplo, 
+Em seu IR auto-hospedado, você pode encontrar os logs de tempo de execução na pasta `C:\ProgramData\SSISTelemetry` e os logs de execução das primeiras tarefas de preparo na pasta `C:\ProgramData\SSISTelemetry\ExecutionLog`.  Os logs de execução de segundo tarefas de preparo podem ser encontrados nos caminhos do SSISDB ou do log especificado, dependendo de você armazenar seus pacotes no SSISDB ou no sistema de arquivos/compartilhamentos de arquivos/arquivos do Azure, respectivamente.  As IDs exclusivas das primeiras tarefas de preparo também podem ser encontradas nos logs de execução de segundo tarefas de preparo, por exemplo, 
 
 ![ID exclusiva da primeira tarefa de preparo](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
 
@@ -88,7 +88,7 @@ As segunda tarefas de preparo em execução no seu Azure-SSIS IR não serão cob
 ## <a name="current-limitations"></a>Limitações atuais
 
 - No momento, somente os gerenciadores de conexões de arquivo simples/OleDb e OLEDB/fontes de arquivo simples têm suporte. 
-- Somente os serviços vinculados do armazenamento de BLOBs do Azure configurados com a **chave**/de conta autenticação da**entidade de serviço** do**URI**/do
+- Somente os serviços vinculados do armazenamento de BLOBs do Azure configurados com **chave de conta**/**URI de SAS**/autenticação de entidade de **serviço** atualmente têm suporte
 - Somente o IR de hospedagem interna provisionado no mesmo ADF em que o Azure-SSIS IR é provisionado tem suporte no momento.
 - Não há suporte para o uso de parâmetros/variáveis do SSIS nas propriedades de fontes de arquivo OLEDB/Flat e gerenciadores de conexões.
 

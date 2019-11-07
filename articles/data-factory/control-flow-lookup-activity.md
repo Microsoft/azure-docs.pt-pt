@@ -1,5 +1,5 @@
 ---
-title: Atividade de pesquisa no Azure Data Factory | Microsoft Docs
+title: Atividade de pesquisa no Azure Data Factory
 description: Saiba como usar a atividade de pesquisa para pesquisar um valor de uma fonte externa. Essa saída pode ser referenciada por atividades com sucesso.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 9658987092027b38ab0cab1feb3df4be0a91e350
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 04285de6fa7ef678e36767b7336f732ed9b45329
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141652"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679710"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
 
@@ -25,7 +25,7 @@ A atividade de pesquisa pode recuperar um conjunto de dados de qualquer uma das 
 
 A atividade de pesquisa lê e retorna o conteúdo de um arquivo de configuração ou tabela. Ele também retorna o resultado da execução de uma consulta ou um procedimento armazenado. A saída da atividade de pesquisa pode ser usada em uma atividade de cópia ou transformação subsequente se for um valor singleton. A saída poderá ser usada em uma atividade ForEach se for uma matriz de atributos.
 
-## <a name="supported-capabilities"></a>Capacidades suportadas
+## <a name="supported-capabilities"></a>Recursos com suporte
 
 As fontes de dados a seguir têm suporte para a atividade de pesquisa. O maior número de linhas que podem ser retornadas pela atividade de pesquisa é 5.000, com até 2 MB de tamanho. Atualmente, a duração mais longa para a atividade de pesquisa antes do tempo limite é de uma hora.
 
@@ -53,7 +53,7 @@ As fontes de dados a seguir têm suporte para a atividade de pesquisa. O maior n
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-Name | Descrição | Type | Obrigatório?
+Nome | Descrição | Tipo | Necessário?
 ---- | ----------- | ---- | --------
 DataSet | Fornece a referência de DataSet para a pesquisa. Obtenha detalhes da seção de **Propriedades do conjunto** de informações em cada artigo do conector correspondente. | Par chave/valor | Sim
 source | Contém propriedades de origem específicas do conjunto de informações, o mesmo que a origem da atividade de cópia. Obtenha detalhes da seção **Propriedades da atividade de cópia** em cada artigo de conector correspondente. | Par chave/valor | Sim
@@ -63,13 +63,13 @@ firstRowOnly | Indica se a primeira linha ou todas as linhas devem ser retornada
 > 
 > * Não há suporte para colunas de origem com tipo **ByteArray** .
 > * Não há suporte para a **estrutura** em definições de conjunto de dados. Para arquivos de formato de texto, use a linha de cabeçalho para fornecer o nome da coluna.
-> * Se sua fonte de pesquisa for um arquivo JSON, `jsonPathDefinition` a configuração para remodelar o objeto JSON não terá suporte. Todos os objetos serão recuperados.
+> * Se sua fonte de pesquisa for um arquivo JSON, a configuração `jsonPathDefinition` para remodelar o objeto JSON não terá suporte. Todos os objetos serão recuperados.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Usar o resultado da atividade de pesquisa em uma atividade subsequente
 
-O resultado da pesquisa é retornado na `output` seção do resultado da execução da atividade.
+O resultado da pesquisa é retornado na seção `output` do resultado da execução da atividade.
 
-* **Quando`firstRowOnly` é definido como `true` (padrão)** , o formato de saída é como mostrado no código a seguir. O resultado da pesquisa está abaixo de `firstRow` uma chave fixa. Para usar o resultado na atividade subsequente, use o padrão de `@{activity('MyLookupActivity').output.firstRow.TableName}`.
+* **Quando `firstRowOnly` é definido como `true` (padrão)** , o formato de saída é como mostrado no código a seguir. O resultado da pesquisa está abaixo de uma chave de `firstRow` fixa. Para usar o resultado na atividade subsequente, use o padrão de `@{activity('MyLookupActivity').output.firstRow.TableName}`.
 
     ```json
     {
@@ -81,7 +81,7 @@ O resultado da pesquisa é retornado na `output` seção do resultado da execuç
     }
     ```
 
-* **Quando`firstRowOnly` é definido como `false`** , o formato de saída é como mostrado no código a seguir. Um `count` campo indica quantos registros são retornados. Os valores detalhados são exibidos em `value` uma matriz fixa. Nesse caso, a atividade de pesquisa é seguida por uma [atividade ForEach](control-flow-for-each-activity.md). Você passa a `value` matriz para o campo atividade `items` foreach usando o padrão de `@activity('MyLookupActivity').output.value`. Para acessar elementos na `value` matriz, use a seguinte sintaxe:. `@{activity('lookupActivity').output.value[zero based index].propertyname}` Um exemplo é `@{activity('lookupActivity').output.value[0].tablename}`.
+* **Quando `firstRowOnly` é definido como `false`** , o formato de saída é mostrado no código a seguir. Um campo `count` indica quantos registros são retornados. Os valores detalhados são exibidos em uma matriz de `value` fixa. Nesse caso, a atividade de pesquisa é seguida por uma [atividade ForEach](control-flow-for-each-activity.md). Você passa a matriz de `value` para o campo de `items` atividade ForEach usando o padrão de `@activity('MyLookupActivity').output.value`. Para acessar elementos na matriz de `value`, use a seguinte sintaxe: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Um exemplo é `@{activity('lookupActivity').output.value[0].tablename}`.
 
     ```json
     {
@@ -105,7 +105,7 @@ Neste exemplo, a atividade de cópia copia dados de uma tabela SQL em sua instâ
 Este exemplo demonstra a pesquisa apenas para a primeira linha. Para pesquisa de todas as linhas e para encadear os resultados com a atividade ForEach, consulte os exemplos em [copiar várias tabelas em massa usando Azure data Factory](tutorial-bulk-copy.md).
 
 ### <a name="pipeline"></a>Pipeline
-Esse pipeline contém duas atividades: Pesquisa e cópia. 
+Esse pipeline contém duas atividades: Lookup e Copy. 
 
 - A atividade de pesquisa é configurada para usar **LookupDataset**, que se refere a um local no armazenamento de BLOBs do Azure. A atividade de pesquisa lê o nome da tabela SQL de um arquivo JSON neste local. 
 - A atividade de cópia usa a saída da atividade de pesquisa, que é o nome da tabela SQL. A propriedade **TableName** no **SourceDataset** é configurada para usar a saída da atividade de pesquisa. A atividade de cópia copia dados da tabela SQL para um local no armazenamento de BLOBs do Azure. O local é especificado pela propriedade **SinkDataset** . 
@@ -207,7 +207,7 @@ O conjunto de **fonte de origem** usa a saída da atividade de pesquisa, que é 
 }
 ```
 
-### <a name="sink-dataset-for-copy-activity"></a>Conjunto de coletores para atividade de cópia
+### <a name="sink-dataset-for-copy-activity"></a>Conjunto de **coletores** para atividade de cópia
 A atividade de cópia copia dados da tabela SQL para o arquivo **filebylookup. csv** na pasta **CSV** no armazenamento do Azure. O arquivo é especificado pela propriedade **AzureStorageLinkedService** . 
 
 ```json
@@ -267,7 +267,7 @@ Esta instância do banco de dados SQL do Azure contém os dados a serem copiados
 }
 ```
 
-### <a name="sourcetablejson"></a>sourcetable.json
+### <a name="sourcetablejson"></a>SourceTable. JSON
 
 #### <a name="set-of-objects"></a>Conjunto de objetos
 
@@ -306,7 +306,7 @@ Aqui estão algumas limitações da atividade de pesquisa e soluções alternati
 | A atividade de pesquisa tem um máximo de 5.000 linhas e um tamanho máximo de 2 MB. | Projete um pipeline de dois níveis em que o pipeline externo itera em um pipeline interno, que recupera dados que não excedem o tamanho ou as linhas máximos. |
 | | |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
 
 - [Atividade de execução de pipeline](control-flow-execute-pipeline-activity.md)

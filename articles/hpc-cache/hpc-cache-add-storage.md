@@ -1,17 +1,17 @@
 ---
-title: Adicionar armazenamento a um cache do HPC do Azure (visualização)
+title: Adicionar armazenamento a um cache HPC do Azure
 description: Como definir destinos de armazenamento para que o cache HPC do Azure possa usar seu sistema NFS local ou contêineres de blob do Azure para o armazenamento de arquivos de longo prazo
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: dbcc68bacf8a11a7a85d5fad7fb4435fd03c7f93
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: b10692e352007ee2b0fd18543d8ae2ad8f9819dc
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024569"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621455"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -65,7 +65,7 @@ Etapas para adicionar as funções de RBAC:
 
 1. Abra a página **controle de acesso (iam)** para a conta de armazenamento. (O link na página **Adicionar destino de armazenamento** abre automaticamente esta página para a conta selecionada.)
 
-1. Clique no **+** na parte superior da página e escolha **Adicionar uma atribuição de função**.
+1. Clique na **+** na parte superior da página e escolha **Adicionar uma atribuição de função**.
 
 1. Selecione a função "colaborador da conta de armazenamento" na lista.
 
@@ -74,7 +74,7 @@ Etapas para adicionar as funções de RBAC:
 1. No campo **selecionar** , procure "HPC".  Essa cadeia de caracteres deve corresponder a uma entidade de serviço, denominada "provedor de recursos de cache do HPC". Clique nessa entidade para selecioná-la.
 
    > [!NOTE]
-   > Se uma pesquisa por "HPC" não funcionar, tente usar a cadeia de caracteres "storagecache" em vez disso. Os usuários que ingressaram na visualização antecipada talvez precisem usar o nome mais antigo para a entidade de serviço.
+   > Se uma pesquisa por "HPC" não funcionar, tente usar a cadeia de caracteres "storagecache" em vez disso. Os usuários que ingressaram nas visualizações (antes do GA) talvez precisem usar o nome mais antigo para a entidade de serviço.
 
 1. Clique no botão **salvar** para adicionar a atribuição de função à conta de armazenamento.
 
@@ -134,3 +134,5 @@ Depois de criar destinos de armazenamento, considere uma destas tarefas:
 
 * [Montar o cache HPC do Azure](hpc-cache-mount.md)
 * [Mover dados para o armazenamento de BLOBs do Azure](hpc-cache-ingest.md)
+
+Se você precisar alterar um destino de armazenamento, leia [Editar destinos de armazenamento](hpc-cache-edit-storage.md) para saber como.

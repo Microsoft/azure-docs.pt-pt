@@ -1,5 +1,5 @@
 ---
-title: Integração e implantação contínuas | Microsoft Docs
+title: Integração e implementação contínua
 description: Experiência de DevOps de banco de dados de classe empresarial para SQL Data Warehouse com suporte interno para integração e implantação contínua usando o Azure Pipelines.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,12 @@ ms.subservice: integration
 ms.date: 08/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 7afb616fffaf01b1efa4f5d5a4af9dddd9683781
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: fd03072f4e69fac43874e822ebb06063436ef72c
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70143150"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646137"
 ---
 # <a name="continuous-integration-and-deployment-for-azure-sql-data-warehouse"></a>Integração e implantação contínuas para o Azure SQL Data Warehouse
 

@@ -1,7 +1,7 @@
 ---
-title: Como migrar seu projeto para a API 3,0
+title: Como atualizar seu projeto para a API 3,0
 titleSuffix: Azure Cognitive Services
-description: Saiba como migrar projetos Visão Personalizada da versão anterior da API para a API 3,0.
+description: Saiba como atualizar Visão Personalizada projetos da versão anterior da API para a API 3,0.
 services: cognitive-services
 author: areddish
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: areddish
-ms.openlocfilehash: 353fc0a2d8396def17b8e23d9a1c685c755349c5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c134f30b124113a23df0e73cd1bbc8209e335183
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560887"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647504"
 ---
-# <a name="migrate-to-the-30-api"></a>Migrar para a API 3,0
+# <a name="update-to-the-30-api"></a>Atualizar para a API 3,0
 
 Agora Visão Personalizada atingiu a disponibilidade geral e passou por uma atualização de API.
 Essa atualização inclui alguns recursos novos e, mais importante, algumas alterações significativas:
@@ -53,14 +53,7 @@ Depois que uma iteração é treinada, você pode torná-la disponível para pre
 
 Depois que a iteração for publicada, os aplicativos poderão usá-lo para previsão especificando o nome em sua chamada à API de previsão. Para tornar uma iteração indisponível para chamadas de previsão, use a API **[UnpublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b81a)** .
 
-## <a name="additional-export-options"></a>Opções de exportação adicionais
-
-Com as APIs 3,0, estamos expondo dois destinos de exportação adicionais: Kit de desenvolvedor de ia e visão da arquitetura do ARM.
-
-* Para usar o ARM, você só precisa escolher um domínio compacto e, em seguida, escolher DockerFile e, em seguida, ARM como as opções de exportação.
-* Para o kit de desenvolvimento de ia de visão, o projeto deve ser criado com o domínio __geral (compacto)__ , bem como especificando VAIDK no argumento de plataformas de exportação de destino.
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Documentação de referência da API de treinamento (REST)](https://go.microsoft.com/fwlink/?linkid=865446)
 * [Documentação de referência da API de previsão (REST)](https://go.microsoft.com/fwlink/?linkid=865445)

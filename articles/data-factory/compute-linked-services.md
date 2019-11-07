@@ -1,5 +1,5 @@
 ---
-title: Ambientes de computação com suporte pelo Azure Data Factory | Microsoft Docs
+title: Ambientes de computação com suporte pelo Azure Data Factory
 description: Saiba mais sobre os ambientes de computação que você pode usar em Azure Data Factory pipelines (como o Azure HDInsight) para transformar ou processar dados.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: fd874776e5be94831322bce839a502ebc43e1958
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 59e31f0c280687dfd2a79b3a40d8474c82b794d4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73481193"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681585"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte pelo Azure Data Factory
 Este artigo explica diferentes ambientes de computação que você pode usar para processar ou transformar dados. Ele também fornece detalhes sobre configurações diferentes (sob demanda versus traga a sua própria) com suporte pelo Data Factory ao configurar serviços vinculados vinculando esses ambientes de computação a uma data factory do Azure.
@@ -235,7 +235,7 @@ Você pode especificar os tamanhos dos nós de cabeçalho, dados e Zookeeper usa
 #### <a name="specifying-node-sizes"></a>Especificando tamanhos de nó
 Consulte o artigo [tamanhos de máquinas virtuais](../virtual-machines/linux/sizes.md) para obter valores de cadeia de caracteres que você precisa especificar para as propriedades mencionadas na seção anterior. Os valores precisam estar em conformidade com os **cmdlets & APIs** referenciadas no artigo. Como você pode ver no artigo, o nó de dados do tamanho grande (padrão) tem 7 GB de memória, o que pode não ser bom o suficiente para seu cenário. 
 
-Se você quiser criar nós de cabeçalho de tamanho D4 e nós de trabalho, especifique **Standard_D4** como o valor para as propriedades das e datanodes. 
+Se você quiser criar nós de cabeçalho de tamanho D4 e nós de trabalho, especifique **Standard_D4** como o valor para as propriedades das e datanodeize. 
 
 ```json
 "headNodeSize": "Standard_D4",    
@@ -540,7 +540,7 @@ Você pode criar **Azure Databricks serviço vinculado** para registrar o espaç
 | existingClusterId    | ID de cluster de um cluster existente para executar todos os trabalhos. Esse deve ser um cluster interativo já criado. Talvez seja necessário reiniciar o cluster manualmente se ele parar de responder. O databricks sugere trabalhos em execução em novos clusters para maior confiabilidade. Você pode encontrar a ID do cluster de um cluster interativo no espaço de trabalho do databricks – clusters >-> nome do cluster interativo-> Configuration-> Tags. [Mais detalhes](https://docs.databricks.com/user-guide/clusters/tags.html) | Não 
 | instancePoolId    | ID do pool de instâncias de um pool existente no espaço de trabalho do databricks.  | Não  |
 | newClusterVersion    | A versão do Spark do cluster. Ele criará um cluster de trabalho no databricks. | Não  |
-| newClusterNumOfWorker| Número de nós de trabalho que esse cluster deve ter. Um cluster tem um driver Spark e executores num_workers para um total de num_workers + 1 nós Spark. Um Int32 formatado por cadeia de caracteres, como "1" significa que numOfWorker é 1 ou "1:10" significa dimensionamento automático de 1 como mínimo e 10 como máximo.  | Não                |
+| newClusterNumOfWorker| Número de nós de trabalho que esse cluster deve ter. Um cluster tem um driver Spark e num_workers executores para um total de num_workers nós Spark + 1. Um Int32 formatado por cadeia de caracteres, como "1" significa que numOfWorker é 1 ou "1:10" significa dimensionamento automático de 1 como mínimo e 10 como máximo.  | Não                |
 | newClusterNodeType   | Esse campo codifica, por meio de um único valor, os recursos disponíveis para cada um dos nós do Spark neste cluster. Por exemplo, os nós do Spark podem ser provisionados e otimizados para a memória ou cargas de trabalho com uso intensivo de computação. Este campo é necessário para o novo cluster                | Não               |
 | newClusterSparkConf  | um conjunto de pares chave-valor de configuração do Spark opcional especificado pelo usuário. Os usuários também podem passar uma cadeia de caracteres de opções adicionais da JVM para o driver e os executores por meio do Spark. driver. extraJavaOptions e do Spark. executor. extraJavaOptions, respectivamente. | Não  |
 | newClusterInitScripts| um conjunto de scripts de inicialização opcionais definidos pelo usuário para o novo cluster. Especificando o caminho DBFS para os scripts init. | Não  |

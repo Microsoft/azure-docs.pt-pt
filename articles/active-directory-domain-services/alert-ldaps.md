@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: iainfou
 ms.openlocfilehash: 06b0fa1979f18981ec5cf78dc9a9dbad8b196394
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 11/05/2019
 ms.locfileid: "71258056"
 ---
 # <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>Problemas conhecidos: LDAP Seguro alertas no Azure Active Directory Domain Services
@@ -24,7 +24,7 @@ Os aplicativos e serviços que usam o protocolo LDAP para se comunicar com Azure
 
 Este artigo ajuda você a entender e resolver alertas comuns com acesso LDAP seguro no Azure AD DS.
 
-## <a name="aadds101-secure-ldap-network-configuration"></a>AADDS101: Configuração de rede LDAP Seguro
+## <a name="aadds101-secure-ldap-network-configuration"></a>AADDS101: configuração de rede LDAP Seguro
 
 ### <a name="alert-message"></a>Mensagem de alerta
 

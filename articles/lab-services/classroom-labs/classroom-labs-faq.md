@@ -1,5 +1,5 @@
 ---
-title: Laboratórios de sala de aula em Azure Lab Services-perguntas frequentes | Microsoft Docs
+title: Laboratórios de sala de aula em Azure Lab Services – perguntas frequentes | Microsoft Docs
 description: Encontre respostas para perguntas comuns sobre os laboratórios de sala de aula em Azure Lab Services.
 services: lab-services
 documentationcenter: na
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 411037dd97350d877aff4e2d094c3408f168f9fd
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 91c5c1480669829bad7f8d89ce360bb806d6c997
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648567"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646859"
 ---
-# <a name="classroom-labs-in-azure-lab-services---frequently-asked-questions-faq"></a>Laboratórios de sala de aula em Azure Lab Services-perguntas frequentes
+# <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratórios da sala de aula em Azure Lab Services – perguntas frequentes (FAQ)
 Obtenha respostas para algumas das perguntas mais comuns sobre os laboratórios de sala de aula em Azure Lab Services. 
 
 ## <a name="quotas"></a>Quotas
@@ -40,7 +40,14 @@ Os laboratórios de sala de aula podem criar VMs de laboratório dentro de um in
 
 Por exemplo, se você tiver um bloco de/19-10.0.0.0/19, esse intervalo de endereços acomoda 8192 endereços IP e 16 laboratórios (8192/512 = 16 laboratórios). Nesse caso, a criação de laboratório falha na criação de 17 laboratórios.
 
-## <a name="blog-post"></a>Mensagem do blogue
+### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Quais intervalos de porta devo abrir na configuração de firewall da minha organização para se conectar a máquinas virtuais de laboratório via RDP/SSH?
+
+As portas são: 49152 – 65535. Os laboratórios de sala de aula ficam atrás de um balanceador de carga, portanto, todas as máquinas virtuais em um laboratório têm um único endereço IP e cada máquina virtual no laboratório tem uma porta exclusiva. Os números de porta e o endereço IP público podem ser alterados toda vez que o laboratório for republicado.
+
+### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Qual intervalo de endereços IP públicos devo abrir nas configurações de firewall da minha organização para se conectar às máquinas virtuais do laboratório via RDP/SSH?
+Consulte [intervalos de IP do Azure e marcas de serviço – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519), que fornece o intervalo de endereços IP públicos para data centers no Azure. Você pode abrir os endereços IP para as regiões nas quais suas contas de laboratório estão.
+
+## <a name="blog-post"></a>Postagem no blog
 Assine o [blog do Azure Lab Services](https://azure.microsoft.com/blog/tag/azure-lab-services/).
 
 ## <a name="update-notifications"></a>Notificações de atualização
@@ -51,6 +58,6 @@ Assine [as atualizações do Lab Services](https://azure.microsoft.com/updates/?
 Se sua pergunta não estiver listada aqui, informe-nos, para que possamos ajudá-lo a encontrar uma resposta.
 
 - Poste uma pergunta no final das perguntas frequentes. 
-- Para alcançar um público mais amplo, poste uma pergunta no [Fórum de Azure Lab Services Stack Overflow](https://stackoverflow.com/questions/tagged/azure-lab-services). 
-- Para solicitações de recursos, envie suas solicitações e ideias para [Azure Lab Services voz do usuário](https://feedback.azure.com/forums/320373-lab-services?category_id=352774).
+- Para alcançar um público mais amplo, poste uma pergunta sobre o [Azure Lab Services – Stack Overflow Fórum](https://stackoverflow.com/questions/tagged/azure-lab-services). 
+- Para solicitações de recursos, envie suas solicitações e ideias para [Azure Lab Services – User Voice](https://feedback.azure.com/forums/320373-lab-services?category_id=352774).
 

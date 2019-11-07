@@ -1,6 +1,6 @@
 ---
-title: Hiperligações do tópico do conector personalizado - Azure Logic Apps | Documentos da Microsoft
-description: Ligações para tópicos sobre como criar, utilizar, partilhar e certificar conectores personalizados
+title: Links de tópico do conector personalizado-aplicativos lógicos do Azure | Microsoft Docs
+description: Links para tópicos sobre como criar, usar, compartilhar e certificar conectores personalizados
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,20 +9,20 @@ ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 1/30/2018
-ms.openlocfilehash: 6b02954f9f89074c5eff7e3b7fad2bc6afb29540
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c4cc0201b8ac61c54aadcc59b549877238b95e54
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689782"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73574464"
 ---
-# <a name="custom-connectors-in-logic-apps"></a>Conectores personalizados no Logic Apps
+# <a name="custom-connectors-in-logic-apps"></a>Conectores personalizados em aplicativos lógicos
 
-Sem escrever qualquer código, pode criar fluxos de trabalho e aplicações com o [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps), [Microsoft Flow](https://flow.microsoft.com) e [PowerApps](https://powerapps.microsoft.com). Para ajudar a integrar aplicações, dados e processos de negócios, estes serviços oferecem [~ 200 conectores](https://docs.microsoft.com/connectors/) – para serviços da Microsoft e produtos, bem como outros serviços, como o GitHub, Salesforce, Twitter e muito mais.
+Sem escrever nenhum código, você pode criar fluxos de trabalho e aplicativos com [aplicativos lógicos do Azure](https://azure.microsoft.com/services/logic-apps), [automatização](https://flow.microsoft.com)e Power [apps](https://powerapps.microsoft.com). Para ajudá-lo a integrar aplicativos, dados e processos de negócios, esses serviços oferecem [cerca de 200 conectores](https://docs.microsoft.com/connectors/) -para serviços e produtos da Microsoft, bem como outros serviços, como GitHub, Salesforce, Twitter e muito mais.
 
-No entanto, por vezes, poderá querer chamar APIs, serviços e sistemas que não estejam disponíveis como conectores criados previamente. Para suportar cenários mais personalizados, pode criar *conectores personalizados* com acionadores e ações próprios. O site de documentação de conectores tem completas tutoriais básicos e avançados sobre conectores personalizados. Pode começar com o [descrição geral do conector personalizado](https://docs.microsoft.com/connectors/custom-connectors/), mas pode também aceder diretamente a estes tópicos para obter detalhes sobre uma área específica:
+No entanto, por vezes, poderá querer chamar APIs, serviços e sistemas que não estejam disponíveis como conectores criados previamente. Para suportar cenários mais personalizados, pode criar *conectores personalizados* com acionadores e ações próprios. O site de documentação de conectores tem tutoriais básicos e avançados completos sobre conectores personalizados. Você pode começar com a [visão geral do conector personalizado](https://docs.microsoft.com/connectors/custom-connectors/), mas também pode ir diretamente para estes tópicos para obter detalhes sobre uma área específica:
 
-* [Criar um conector do Logic Apps](https://docs.microsoft.com/connectors/custom-connectors/create-logic-apps-connector)
+* [Criar um conector de aplicativos lógicos](https://docs.microsoft.com/connectors/custom-connectors/create-logic-apps-connector)
 
 * [Create a custom connector from an OpenAPI definition](https://docs.microsoft.com/connectors/custom-connectors/define-openapi-definition) (Criar um conector personalizado a partir de uma definição OpenAPI)
 
@@ -30,8 +30,8 @@ No entanto, por vezes, poderá querer chamar APIs, serviços e sistemas que não
 
 * [Use a custom connector from a logic app](https://docs.microsoft.com/connectors/custom-connectors/use-custom-connector-logic-apps) (Utilizar um conector personalizado a partir de uma aplicação lógica)
 
-* [Partilhar conectores personalizados na sua organização](https://docs.microsoft.com/connectors/custom-connectors/share)
+* [Compartilhar conectores personalizados em sua organização](https://docs.microsoft.com/connectors/custom-connectors/share)
 
-* [Submeter os conectores para certificação da Microsoft](https://docs.microsoft.com/connectors/custom-connectors/submit-certification)
+* [Enviar seus conectores para certificação da Microsoft](https://docs.microsoft.com/connectors/custom-connectors/submit-certification)
 
 * [Custom connector FAQ](https://docs.microsoft.com/connectors/custom-connectors/faq) (FAQ dos conectores personalizados)

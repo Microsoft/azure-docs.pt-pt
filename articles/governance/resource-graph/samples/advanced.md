@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: 9701aa5d924e82d26ad373f8c94d0391a4dc6ba2
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6310e13508c1c789c410f1954a2ac0dbf480a2b8
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800171"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622510"
 ---
 # <a name="advanced-resource-graph-queries"></a>Consultas avançadas do Azure Resource Graph
 
@@ -56,7 +56,7 @@ Resources
 az graph query -q "Resources | distinct type, apiVersion | where isnotnull(apiVersion) | order by type asc"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | distinct type, apiVersion | where isnotnull(apiVersion) | order by type asc"
@@ -88,7 +88,7 @@ Resources
 az graph query -q "Resources | where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
@@ -104,7 +104,7 @@ Search-AzGraph -Query "Resources | where type=~ 'microsoft.compute/virtualmachin
 
 ## <a name="a-nameremove-column-remove-columns-from-results"></a><a name="remove-column" />remover colunas dos resultados
 
-A consulta a seguir usa `summarize` para contar recursos por assinatura, `join` para combiná-lo com detalhes da assinatura da tabela _ResourceContainers_ e, em seguida, `project-away` para remover algumas das colunas.
+A consulta a seguir usa `summarize` para contar recursos por assinatura, `join` para combiná-lo com detalhes da assinatura da tabela _ResourceContainers_ e, em seguida, `project-away` remover algumas das colunas.
 
 ```kusto
 Resources
@@ -119,7 +119,7 @@ Resources
 az graph query -q "Resources | summarize resourceCount=count() by subscriptionId | join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId| project-away subscriptionId, subscriptionId1"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | summarize resourceCount=count() by subscriptionId | join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId| project-away subscriptionId, subscriptionId1"
@@ -149,7 +149,7 @@ Resources
 az graph query -q "Resources | project tags | summarize buildschema(tags)"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | project tags | summarize buildschema(tags)"
@@ -192,7 +192,7 @@ Resources
 az graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
@@ -208,7 +208,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 
 ## <a name="a-namemvexpand-cosmosdb-list-cosmos-db-with-specific-write-locations"></a><a name="mvexpand-cosmosdb" />listar Cosmos DB com locais de gravação específicos
 
-A consulta a seguir limita-se a Cosmos DB recursos, usa `mv-expand` para expandir o recipiente de propriedades para **Properties. writeLocations**, os campos específicos do projeto e limitar os resultados para **Propriedades. writeLocations. LocationName** valores correspondendo a ' leste dos EUA ' ou ' oeste dos EUA '.
+A consulta a seguir limita-se a Cosmos DB recursos, usa `mv-expand` para expandir o recipiente de propriedades para **Properties. writeLocations**, os campos específicos do projeto e limitar os resultados a **Propriedades. writeLocations. LocationName** correspondendo a ' leste dos EUA ' ou ' oeste dos EUA '.
 
 ```kusto
 Resources
@@ -226,7 +226,7 @@ Resources
 az graph query -q "Resources | where type =~ 'microsoft.documentdb/databaseaccounts' | project id, name, writeLocations = (properties.writeLocations) | mv-expand writeLocations | project id, name, writeLocation = tostring(writeLocations.locationName) | where writeLocation in ('East US', 'West US') | summarize by id, name"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'microsoft.documentdb/databaseaccounts' | project id, name, writeLocations = (properties.writeLocations) | mv-expand writeLocations | project id, name, writeLocation = tostring(writeLocations.locationName) | where writeLocation in ('East US', 'West US') | summarize by id, name"
@@ -242,7 +242,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.documentdb/databasea
 
 ## <a name="a-namejoin-key-vault-with-subscription-name"></a><a name="join" />cofre de chaves com o nome da assinatura
 
-A consulta a seguir mostra um uso complexo de `join`. A consulta limita a tabela unida aos recursos de assinaturas e com `project` para incluir apenas o campo original _SubscriptionId_ e o campo de _nome_ renomeado como _subnomear_. A renomeação do campo evita `join` adicioná-lo como _Nome1_ , pois o campo já existe nos _recursos_. A tabela original é filtrada com `where` e o seguinte `project` inclui colunas de ambas as tabelas. O resultado da consulta é um único cofre de chaves que exibe o tipo, o nome do cofre de chaves e o nome da assinatura em que ele está.
+A consulta a seguir mostra um uso complexo de `join`. A consulta limita a tabela unida aos recursos de assinaturas e com `project` para incluir apenas o campo original _SubscriptionId_ e o campo de _nome_ renomeado como _subnome_. A renomeação do campo evita `join` adicioná-lo como _Nome1_ , pois o campo já existe nos _recursos_. A tabela original é filtrada com `where` e o `project` a seguir inclui colunas de ambas as tabelas. O resultado da consulta é um único cofre de chaves que exibe o tipo, o nome do cofre de chaves e o nome da assinatura em que ele está.
 
 ```kusto
 Resources
@@ -258,7 +258,7 @@ Resources
 az graph query -q "Resources | join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId | where type == 'microsoft.keyvault/vaults' | project type, name, SubName| limit 1"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId | where type == 'microsoft.keyvault/vaults' | project type, name, SubName| limit 1"
@@ -274,7 +274,7 @@ Search-AzGraph -Query "Resources | join (ResourceContainers | where type=='micro
 
 ## <a name="a-namejoin-sql-list-sql-databases-and-their-elastic-pools"></a><a name="join-sql" />listar bancos de dados SQL e seus pools elásticos
 
-A consulta a seguir usa o **leftouter** `join` para reunir os recursos do banco de dados SQL e seus pools elásticos relacionados, se eles tiverem algum.
+A consulta a seguir usa o **leftouter** `join` para reunir recursos do banco de dados SQL e seus pools elásticos relacionados, se eles tiverem algum.
 
 ```kusto
 Resources
@@ -294,7 +294,7 @@ on elasticPoolId
 az graph query -q "Resources | where type =~ 'microsoft.sql/servers/databases' | project databaseId = id, databaseName = name, elasticPoolId = tolower(tostring(properties.elasticPoolId)) | join kind=leftouter ( Resources | where type =~ 'microsoft.sql/servers/elasticpools' | project elasticPoolId = tolower(id), elasticPoolName = name, elasticPoolState = properties.state) on elasticPoolId | project-away elasticPoolId1"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'microsoft.sql/servers/databases' | project databaseId = id, databaseName = name, elasticPoolId = tolower(tostring(properties.elasticPoolId)) | join kind=leftouter ( Resources | where type =~ 'microsoft.sql/servers/elasticpools' | project elasticPoolId = tolower(id), elasticPoolName = name, elasticPoolState = properties.state) on elasticPoolId | project-away elasticPoolId1"
@@ -310,7 +310,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.sql/servers/database
 
 ## <a name="a-namejoin-vmpip-list-virtual-machines-with-their-network-interface-and-public-ip"></a><a name="join-vmpip" />listar máquinas virtuais com a interface de rede e o IP público
 
-Essa consulta usa dois comandos `join` **leftouter** para reunir máquinas virtuais, suas interfaces de rede relacionadas e qualquer endereço IP público relacionado a essas interfaces de rede.
+Essa consulta usa dois comandos **leftouter** `join` para reunir máquinas virtuais, suas interfaces de rede relacionadas e qualquer endereço IP público relacionado a essas interfaces de rede.
 
 ```kusto
 Resources
@@ -340,10 +340,10 @@ on publicIpId
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli-interactive
-azure graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines' | extend nics=array_length(properties.networkProfile.networkInterfaces) | mvexpand nic=properties.networkProfile.networkInterfaces | where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic) | project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id) | join kind=leftouter ( Resources | where type =~ 'microsoft.network/networkinterfaces' | extend ipConfigsCount=array_length(properties.ipConfigurations) | mvexpand ipconfig=properties.ipConfigurations | where ipConfigsCount == 1 or ipconfig.properties.primary =~ 'true' | project nicId = id, publicIpId = tostring(ipconfig.properties.publicIPAddress.id)) on nicId | project-away nicId1 | summarize by vmId, vmName, vmSize, nicId, publicIpId | join kind=leftouter ( Resources | where type =~ 'microsoft.network/publicipaddresses' | project publicIpId = id, publicIpAddress = properties.ipAddress) on publicIpId | project-away publicIpId1"
+az graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines' | extend nics=array_length(properties.networkProfile.networkInterfaces) | mvexpand nic=properties.networkProfile.networkInterfaces | where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic) | project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id) | join kind=leftouter ( Resources | where type =~ 'microsoft.network/networkinterfaces' | extend ipConfigsCount=array_length(properties.ipConfigurations) | mvexpand ipconfig=properties.ipConfigurations | where ipConfigsCount == 1 or ipconfig.properties.primary =~ 'true' | project nicId = id, publicIpId = tostring(ipconfig.properties.publicIPAddress.id)) on nicId | project-away nicId1 | summarize by vmId, vmName, vmSize, nicId, publicIpId | join kind=leftouter ( Resources | where type =~ 'microsoft.network/publicipaddresses' | project publicIpId = id, publicIpAddress = properties.ipAddress) on publicIpId | project-away publicIpId1"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachines' | extend nics=array_length(properties.networkProfile.networkInterfaces) | mvexpand nic=properties.networkProfile.networkInterfaces | where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic) | project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id) | join kind=leftouter ( Resources | where type =~ 'microsoft.network/networkinterfaces' | extend ipConfigsCount=array_length(properties.ipConfigurations) | mvexpand ipconfig=properties.ipConfigurations | where ipConfigsCount == 1 or ipconfig.properties.primary =~ 'true' | project nicId = id, publicIpId = tostring(ipconfig.properties.publicIPAddress.id)) on nicId | project-away nicId1 | summarize by vmId, vmName, vmSize, nicId, publicIpId | join kind=leftouter ( Resources | where type =~ 'microsoft.network/publicipaddresses' | project publicIpId = id, publicIpAddress = properties.ipAddress) on publicIpId | project-away publicIpId1"
@@ -379,7 +379,7 @@ on subscriptionId, resourceGroup
 az graph query -q "Resources | where type =~ 'microsoft.storage/storageaccounts' | join kind=inner ( ResourceContainers | where type =~ 'microsoft.resources/subscriptions/resourcegroups' | where tags['key1'] == 'value1' | project subscriptionId, resourceGroup) on subscriptionId, resourceGroup | project-away subscriptionId1, resourceGroup1"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'microsoft.storage/storageaccounts' | join kind=inner ( ResourceContainers | where type =~ 'microsoft.resources/subscriptions/resourcegroups' | where tags['key1'] == 'value1' | project subscriptionId, resourceGroup) on subscriptionId, resourceGroup | project-away subscriptionId1, resourceGroup1"
@@ -395,7 +395,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.storage/storageaccou
 
 ## <a name="a-nameunionresults-combine-results-from-two-queries-into-a-single-result"></a><a name="unionresults" />combinar resultados de duas consultas em um único resultado
 
-A consulta a seguir usa `union` para obter os resultados da tabela _ResourceContainers_ e adicioná-los aos resultados da tabela de _recursos_ .
+A consulta a seguir usa `union` para obter resultados da tabela _ResourceContainers_ e adicioná-los aos resultados da tabela de _recursos_ .
 
 ```kusto
 ResourceContainers
@@ -409,7 +409,7 @@ ResourceContainers
 az graph query -q "ResourceContainers | where type=='microsoft.resources/subscriptions/resourcegroups' | project name, type  | limit 5 | union  (Resources | project name, type | limit 5)"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[O Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "ResourceContainers | where type=='microsoft.resources/subscriptions/resourcegroups' | project name, type  | limit 5 | union  (Resources | project name, type | limit 5)"
@@ -441,6 +441,6 @@ Search-AzGraph -Query "limit 1" -Include DisplayNames
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Ver exemplos de [Consultas de introdução](starter.md)
-- Saber mais sobre a [linguagem de consulta](../concepts/query-language.md)
-- Aprender a [explorar recursos](../concepts/explore-resources.md)
+- Consulte exemplos de [consultas iniciais](starter.md).
+- Saiba mais sobre a [linguagem de consulta](../concepts/query-language.md).
+- Saiba mais sobre como [explorar recursos](../concepts/explore-resources.md).

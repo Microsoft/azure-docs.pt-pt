@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Crie um aplicativo Flask para traduzir, sintetizar e analisar o texto API de Tradução de Texto'
+title: 'Tutorial: criar um aplicativo Flask para traduzir, sintetizar e analisar o texto API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
-description: Neste tutorial, você criará um aplicativo Web baseado em Flask que usa os serviços cognitivas do Azure para traduzir texto, analisar sentimentos e sintetizar texto traduzido em fala. Nosso foco é o código Python e as rotas Flask que habilitam nosso aplicativo. Não gastaremos muito tempo no JavaScript que controla o aplicativo, mas fornecemos todos os arquivos para você inspecionar.
+description: Neste tutorial, você criará um aplicativo Web baseado em Flask para traduzir texto, analisar sentimentos e sintetizar texto traduzido em fala.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 8d85db0e9aa9da48713ca0c119a12160cc99dbff
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 7b9f1cfeb6ebcbc693135d83ad167092e16f478d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671845"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647336"
 ---
-# <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutorial: Criar um aplicativo Flask com os serviços cognitivas do Azure
+# <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutorial: criar um aplicativo Flask com os serviços cognitivas do Azure
 
 Neste tutorial, você criará um aplicativo Web Flask que usa os serviços cognitivas do Azure para traduzir texto, analisar sentimentos e sintetizar texto traduzido em fala. Nosso foco é o código Python e as rotas Flask que habilitam nosso aplicativo, no entanto, vamos ajudá-lo com o HTML e o JavaScript que efetuam o Pull do aplicativo. Se você encontrar algum problema, informe-nos usando o botão de comentários abaixo.
 
@@ -106,7 +106,7 @@ Vamos criar um ambiente virtual para nosso aplicativo Flask usando `virtualenv`.
    | Plataforma | Shell | Comando |
    |----------|-------|---------|
    | macOS/Linux | bash/zsh | `source venv/bin/activate` |
-   | Windows | Raso | `source venv/Scripts/activate` |
+   | Windows | raso | `source venv/Scripts/activate` |
    | | Linha de Comandos | `venv\Scripts\activate.bat` |
    | | PowerShell | `venv\Scripts\Activate.ps1` |
 
@@ -128,7 +128,7 @@ Solicitações é um módulo popular que é usado para enviar solicitações HTT
    ```
 
 > [!NOTE]
-> Se você quiser saber mais sobre solicitações, consulte [Requests: HTTP para seres humanos @ no__t-0.
+> Se você quiser saber mais sobre solicitações, consulte [solicitações: http para seres humanos](http://docs.python-requests.org/en/master/).
 
 ### <a name="install-and-configure-flask"></a>Instalar e configurar o Flask
 
@@ -146,7 +146,7 @@ Em seguida, precisamos instalar o Flask. O Flask lida com o roteamento de nosso 
 
 2. Para executar o aplicativo Flask, você pode usar o comando Flask ou a opção-m do Python com Flask. Antes de fazer isso, você precisa informar ao seu terminal qual aplicativo trabalhar exportando a variável de ambiente `FLASK_APP`:
 
-   **macOS/Linux**:
+   **MacOS/Linux**:
    ```
    export FLASK_APP=app.py
    ```
@@ -162,7 +162,7 @@ Nesta seção, você criará um aplicativo básicas Flask que retorna um arquivo
 
 ### <a name="what-is-a-flask-route"></a>O que é uma rota Flask?
 
-Vamos levar um minuto para falar sobre "[rotas](http://flask.pocoo.org/docs/1.0/api/#flask.Flask.route)". O roteamento é usado para associar uma URL a uma função específica. O Flask usa decoradores de rota para registrar funções em URLs específicas. Por exemplo, quando um usuário navega para a raiz (`/`) de nosso aplicativo Web, `index.html` é renderizado.  
+Vamos levar um minuto para falar sobre "[rotas](http://flask.pocoo.org/docs/1.0/api/#flask.Flask.route)". O roteamento é usado para associar uma URL a uma função específica. O Flask usa decoradores de rota para registrar funções em URLs específicas. Por exemplo, quando um usuário navega para a raiz (`/`) do nosso aplicativo Web, `index.html` é renderizado.  
 
 ```python
 @app.route('/')
@@ -178,7 +178,7 @@ def about():
     return render_template('about.html')
 ```
 
-Esse código garante que quando um usuário navega para `http://your-web-app.com/about` que o arquivo `about.html` é renderizado.
+Esse código garante que quando um usuário navegar para `http://your-web-app.com/about` que o arquivo de `about.html` seja renderizado.
 
 Embora esses exemplos ilustrem como renderizar páginas HTML para um usuário, as rotas também podem ser usadas para chamar APIs quando um botão é pressionado ou executar qualquer número de ações sem precisar navegar para fora da página inicial. Você verá isso em ação ao criar rotas para tradução, sentimentos e síntese de fala.
 
@@ -252,7 +252,7 @@ Agora que você tem uma ideia de como um aplicativo Flask simples funciona, vamo
 
 ### <a name="call-the-translator-text-api"></a>Chamar o API de Tradução de Texto
 
-A primeira coisa que você precisa fazer é escrever uma função para chamar o API de Tradução de Texto. Essa função usará dois argumentos: `text_input` e `language_output`. Essa função é chamada sempre que um usuário pressiona o botão traduzir em seu aplicativo. A área de texto no HTML é enviada como o `text_input`, e o valor de seleção de idioma no HTML é enviado como `language_output`.
+A primeira coisa que você precisa fazer é escrever uma função para chamar o API de Tradução de Texto. Essa função usará dois argumentos: `text_input` e `language_output`. Essa função é chamada sempre que um usuário pressiona o botão traduzir em seu aplicativo. A área de texto no HTML é enviada como a `text_input`, e o valor de seleção de idioma no HTML é enviado como `language_output`.
 
 1. Vamos começar criando um arquivo chamado `translate.py` na raiz do seu diretório de trabalho.
 2. Em seguida, adicione este código a `translate.py`. Essa função usa dois argumentos: `text_input` e `language_output`.
@@ -290,22 +290,22 @@ A primeira coisa que você precisa fazer é escrever uma função para chamar o 
    ```
 3. Adicione sua chave de assinatura do Tradução de Texto e salve.
 
-### <a name="add-a-route-to-apppy"></a>Adicionar uma rota a `app.py`
+### <a name="add-a-route-to-apppy"></a>Adicionar uma rota para `app.py`
 
 Em seguida, você precisará criar uma rota em seu aplicativo Flask que chama `translate.py`. Essa rota será chamada cada vez que um usuário pressionar o botão traduzir em seu aplicativo.
 
-Para esse aplicativo, sua rota vai aceitar solicitações `POST`. Isso ocorre porque a função espera que o texto seja convertido e um idioma de saída para a tradução.
+Para esse aplicativo, sua rota vai aceitar `POST` solicitações. Isso ocorre porque a função espera que o texto seja convertido e um idioma de saída para a tradução.
 
-O Flask fornece funções auxiliares para ajudá-lo a analisar e gerenciar cada solicitação. No código fornecido, `get_json()` retorna os dados da solicitação `POST` como JSON. Em seguida, usando `data['text']` e `data['to']`, os valores de linguagem de texto e saída são passados para a função `get_translation()` disponível em `translate.py`. A última etapa é retornar a resposta como JSON, já que você precisará exibir esses dados em seu aplicativo Web.
+O Flask fornece funções auxiliares para ajudá-lo a analisar e gerenciar cada solicitação. No código fornecido, `get_json()` retorna os dados da solicitação `POST` como JSON. Em seguida, usando `data['text']` e `data['to']`, os valores de idioma de texto e saída são passados para `get_translation()` função disponível no `translate.py`. A última etapa é retornar a resposta como JSON, já que você precisará exibir esses dados em seu aplicativo Web.
 
 Nas seções a seguir, você repetirá esse processo ao criar rotas para análise de sentimentos e síntese de fala.
 
-1. Abra `app.py` e localize a instrução de importação na parte superior de `app.py` e adicione a seguinte linha:
+1. Abra `app.py` e localize a instrução de importação na parte superior da `app.py` e adicione a seguinte linha:
 
    ```python
    import translate
    ```
-   Agora, nosso aplicativo Flask pode usar o método disponível via `translate.py`.
+   Agora, nosso aplicativo Flask pode usar o método disponível por meio de `translate.py`.
 
 2. Copie este código para o final de `app.py` e salve:
 
@@ -412,7 +412,7 @@ A próxima etapa é escrever algum JavaScript. Essa é a ponte entre a rota de H
 
 ### <a name="create-mainjs"></a>Criar `main.js`  
 
-O arquivo `main.js` é a ponte entre a rota de HTML e Flask. Seu aplicativo usará uma combinação de jQuery, Ajax e XMLHttpRequest para renderizar conteúdo e fazer solicitações `POST` para suas rotas Flask.
+O arquivo de `main.js` é a ponte entre a rota HTML e Flask. Seu aplicativo usará uma combinação de jQuery, Ajax e XMLHttpRequest para renderizar conteúdo e fazer `POST` solicitações para suas rotas Flask.
 
 No código a seguir, o conteúdo do HTML é usado para construir uma solicitação para sua rota do Flask. Especificamente, o conteúdo da área de texto e do seletor de idioma são atribuídos a variáveis e, em seguida, passados na solicitação para `translate-text`.
 
@@ -485,7 +485,7 @@ Nesta seção, você vai fazer algumas coisas:
 
 ### <a name="call-the-text-analytics-api"></a>Chamar a API de Análise de Texto
 
-Vamos escrever uma função para chamar o API de Análise de Texto. Essa função usará quatro argumentos: `input_text`, `input_language`, `output_text` e `output_language`. Essa função é chamada sempre que um usuário pressiona o botão executar análise de sentimentos em seu aplicativo. Os dados fornecidos pelo usuário na área de texto e no seletor de idioma, bem como o idioma detectado e a saída de tradução são fornecidos com cada solicitação. O objeto de resposta inclui pontuações de sentimentos para a origem e a tradução. Nas seções a seguir, você vai escrever algum JavaScript para analisar a resposta e usá-la em seu aplicativo. Por enquanto, vamos nos concentrar em chamar o API de Análise de Texto.
+Vamos escrever uma função para chamar o API de Análise de Texto. Essa função usará quatro argumentos: `input_text`, `input_language`, `output_text`e `output_language`. Essa função é chamada sempre que um usuário pressiona o botão executar análise de sentimentos em seu aplicativo. Os dados fornecidos pelo usuário na área de texto e no seletor de idioma, bem como o idioma detectado e a saída de tradução são fornecidos com cada solicitação. O objeto de resposta inclui pontuações de sentimentos para a origem e a tradução. Nas seções a seguir, você vai escrever algum JavaScript para analisar a resposta e usá-la em seu aplicativo. Por enquanto, vamos nos concentrar em chamar o API de Análise de Texto.
 
 1. Vamos criar um arquivo chamado `sentiment.py` na raiz do seu diretório de trabalho.
 2. Em seguida, adicione este código a `sentiment.py`.
@@ -532,16 +532,16 @@ Vamos escrever uma função para chamar o API de Análise de Texto. Essa funçã
    ```
 3. Adicione sua chave de assinatura do Análise de Texto e salve.
 
-### <a name="add-a-route-to-apppy"></a>Adicionar uma rota a `app.py`
+### <a name="add-a-route-to-apppy"></a>Adicionar uma rota para `app.py`
 
-Vamos criar uma rota em seu aplicativo Flask que chama `sentiment.py`. Essa rota será chamada cada vez que um usuário pressionar o botão executar análise de sentimentos em seu aplicativo. Como a rota para a tradução, essa rota vai aceitar solicitações `POST`, pois a função espera argumentos.
+Vamos criar uma rota em seu aplicativo Flask que chama `sentiment.py`. Essa rota será chamada cada vez que um usuário pressionar o botão executar análise de sentimentos em seu aplicativo. Assim como a rota para a tradução, essa rota vai aceitar `POST` solicitações, pois a função espera argumentos.
 
 1. Abra `app.py` e localize a instrução de importação na parte superior de `app.py` e atualize-a:
 
    ```python
    import translate, sentiment
    ```
-   Agora, nosso aplicativo Flask pode usar o método disponível via `sentiment.py`.
+   Agora, nosso aplicativo Flask pode usar o método disponível por meio de `sentiment.py`.
 
 2. Copie este código para o final de `app.py` e salve:
    ```python
@@ -583,7 +583,7 @@ Agora que você tem uma função para executar a análise de sentimentos e uma r
 
 ### <a name="update-mainjs"></a>Atualizar `main.js`
 
-No código a seguir, o conteúdo do HTML é usado para construir uma solicitação para sua rota do Flask. Especificamente, o conteúdo da área de texto e do seletor de idioma são atribuídos a variáveis e, em seguida, passados na solicitação para a rota `sentiment-analysis`.
+No código a seguir, o conteúdo do HTML é usado para construir uma solicitação para sua rota do Flask. Especificamente, o conteúdo da área de texto e do seletor de idioma são atribuídos a variáveis e, em seguida, passados na solicitação para a rota de `sentiment-analysis`.
 
 Em seguida, o código faz a iteração pela resposta e atualiza o HTML com as pontuações de sentimentos.
 
@@ -726,16 +726,16 @@ Vamos escrever uma função para converter conversão de texto em fala. Essa fun
    ```
 3. Adicione sua chave de assinatura dos serviços de fala e salve.
 
-### <a name="add-a-route-to-apppy"></a>Adicionar uma rota a `app.py`
+### <a name="add-a-route-to-apppy"></a>Adicionar uma rota para `app.py`
 
-Vamos criar uma rota em seu aplicativo Flask que chama `synthesize.py`. Essa rota será chamada cada vez que um usuário pressionar o botão converter conversão de texto em fala em seu aplicativo. Assim como as rotas para a análise de informações e de tradução, essa rota vai aceitar solicitações `POST`, pois a função espera dois argumentos: o texto a ser sintetizado e a fonte de voz para reprodução.
+Vamos criar uma rota em seu aplicativo Flask que chama `synthesize.py`. Essa rota será chamada cada vez que um usuário pressionar o botão converter conversão de texto em fala em seu aplicativo. Assim como as rotas de conversão e análise de sentimentos, essa rota vai aceitar `POST` solicitações, uma vez que a função espera dois argumentos: o texto a ser sintetizado e a fonte de voz para reprodução.
 
 1. Abra `app.py` e localize a instrução de importação na parte superior de `app.py` e atualize-a:
 
    ```python
    import translate, sentiment, synthesize
    ```
-   Agora, nosso aplicativo Flask pode usar o método disponível via `synthesize.py`.
+   Agora, nosso aplicativo Flask pode usar o método disponível por meio de `synthesize.py`.
 
 2. Copie este código para o final de `app.py` e salve:
 
@@ -836,7 +836,7 @@ Agora que você tem uma função para converter conversão de texto em fala e um
 
 ### <a name="update-mainjs"></a>Atualizar `main.js`
 
-No código a seguir, o conteúdo do HTML é usado para construir uma solicitação para sua rota do Flask. Especificamente, a conversão e a fonte de voz são atribuídas a variáveis e, em seguida, passadas na solicitação para a rota `text-to-speech`.
+No código a seguir, o conteúdo do HTML é usado para construir uma solicitação para sua rota do Flask. Especificamente, a conversão e a fonte de voz são atribuídas a variáveis e, em seguida, passadas na solicitação para a rota de `text-to-speech`.
 
 Em seguida, o código faz a iteração pela resposta e atualiza o HTML com as pontuações de sentimentos.
 

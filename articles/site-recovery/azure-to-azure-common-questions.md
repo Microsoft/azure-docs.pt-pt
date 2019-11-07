@@ -1,5 +1,5 @@
 ---
-title: Perguntas comuns sobre a recuperação de desastre do Azure para o Azure com o Azure Site Recovery
+title: Perguntas comuns sobre a recuperação de desastres de VM do Azure com o Azure Site Recovery
 description: Este artigo responde a perguntas comuns sobre a recuperação de desastre de VMs do Azure para outra região do Azure usando Azure Site Recovery
 author: asgang
 manager: rochakm
@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: cd1c6cf0ff5a963720df7420a5d983d24e7b4d3e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 5ed501a9f11e790bcc2196d57c6479beb54f1a17
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861384"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621074"
 ---
-# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas comuns: Recuperação após desastre de Azure para o Azure
+# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas comuns: recuperação de desastre do Azure para o Azure
 
 Este artigo fornece respostas a perguntas comuns sobre a recuperação de desastre de VMs do Azure para outra região do Azure usando [site Recovery](site-recovery-overview.md). 
 
@@ -24,7 +24,7 @@ Este artigo fornece respostas a perguntas comuns sobre a recuperação de desast
 ### <a name="how-is-site-recovery-priced"></a>Como o preço é Site Recovery?
 Examine [Azure site Recovery](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) detalhes de preços.
 ### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Como funciona o escalão gratuito do Azure Site Recovery?
-Todas as instâncias protegidas pelo Azure Site Recovery são gratuitas nos primeiros 31 dias de proteção. A partir do 32.º dia, a proteção para a instância é cobrada aos preços acima.
+Cada uma das instâncias que está protegida pelo Azure Site Recovery é gratuíta nos primeiros 31 dias de proteção. A partir do 32.º dia, a proteção para a instância é cobrada aos preços acima.
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante os primeiros 31 dias, terei quaisquer outros custos com o Azure?
 Sim, embora o Azure Site Recovery seja gratuito durante os primeiros 31 dias de uma instância protegida, pode incorrer em custos de Armazenamento do Azure, de transações de armazenamento e de transferência de dados. Uma máquina virtual recuperada também pode ter custos de computação do Azure. Obtenha detalhes completos sobre os preços [aqui](https://azure.microsoft.com/pricing/details/site-recovery)
 
@@ -137,7 +137,7 @@ O ponto de recuperação mais antigo que você pode usar é de 72 horas.
 Não, Site Recovery manterá todos os pontos de recuperação anteriores. Dependendo da janela de retenção dos pontos de recuperação, 24 horas nesse caso, Site Recovery substituirá o ponto mais antigo somente se houver uma geração de novos pontos. Nesse caso, como não haverá nenhum novo ponto de recuperação gerado devido a algum problema, todos os pontos antigos permanecerão intactos quando chegarmos à janela de retenção.
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Depois que a replicação é habilitada em uma VM, como altero a política de replicação?
-Vá para **site Recovery cofre** > **site Recovery** > **políticas de replicação**de infraestrutura. Selecione a política que você deseja editar e salve as alterações. Qualquer alteração também será aplicada a todas as replicações existentes.
+Vá para **site Recovery cofre** > **site Recovery infraestrutura** > **políticas de replicação**. Selecione a política que você deseja editar e salve as alterações. Qualquer alteração também será aplicada a todas as replicações existentes.
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>Todos os pontos de recuperação são uma cópia completa da VM ou um diferencial?
 O primeiro ponto de recuperação gerado tem a cópia completa. Quaisquer pontos de recuperação sucessivos têm alterações delta.
@@ -195,7 +195,7 @@ A opção **mais recente (RPO mais baixo)** primeiro processa todos os dados que
 Sim. O Site Recovery processa todos os dados pendentes antes do failover; portanto, essa opção tem um RTO (objetivo de tempo de recuperação) maior em comparação com outras opções.
 
 ### <a name="what-does-the-latest-processed-option-in-recovery-points-mean"></a>O que significa a opção **mais recente processada** nos pontos de recuperação?
-A **última** opção processada faz failover em todas as VMs no plano para o último ponto de recuperação que site Recovery processado. Para ver o ponto de recuperação mais recente de uma VM específica, verifique os **pontos de recuperação mais recentes** nas configurações da VM. Essa opção fornece um RTO baixo, porque nenhum tempo é gasto no processamento de dados não processados.
+A **última opção processada** faz failover em todas as VMs no plano para o último ponto de recuperação que site Recovery processado. Para ver o ponto de recuperação mais recente de uma VM específica, verifique os **pontos de recuperação mais recentes** nas configurações da VM. Essa opção fornece um RTO baixo, porque nenhum tempo é gasto no processamento de dados não processados.
 
 ### <a name="what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>O que acontece se minha região primária apresentar uma interrupção inesperada?
 Você pode disparar um failover após a interrupção. Site Recovery não precisa de conectividade da região primária para executar o failover.
@@ -230,7 +230,7 @@ Sim, você pode integrar runbooks de automação do Azure em seu plano de recupe
 ## <a name="reprotection-and-failback"></a>Nova proteção e failback
 
 ### <a name="after-a-failover-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>Após um failover da região primária para uma região de recuperação de desastre, as VMs em uma região de DR são protegidas automaticamente?
-Não. Quando você [faz](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) failover de VMs do Azure de uma região para outra, as VMs são iniciadas na região de recuperação de desastres em um estado desprotegido. Para fazer failback das VMs para a região primária, você precisa [proteger](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) novamente as VMs na região secundária.
+Não. Quando você [faz failover de](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) VMs do Azure de uma região para outra, as VMs são iniciadas na região de recuperação de desastres em um estado desprotegido. Para fazer failback das VMs para a região primária, você precisa [proteger](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) novamente as VMs na região secundária.
 
 ### <a name="at-the-time-of-reprotection-does-site-recovery-replicate-complete-data-from-the-secondary-region-to-the-primary-region"></a>No momento da nova proteção, o Site Recovery replicar dados completos da região secundária para a região primária?
 Depende da situação. Por exemplo, se a VM da região de origem existir, somente as alterações entre o disco de origem e o disco de destino serão sincronizadas. Site Recovery computa os diferenciais comparando os discos e, em seguida, transfere os dados. Esse processo geralmente leva algumas horas. Para obter mais informações sobre o que acontece durante a nova proteção, consulte [proteger novamente as VMs do Azure com failover para a região primária]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
@@ -244,7 +244,7 @@ Após a nova proteção, a quantidade de tempo para o failback geralmente é sem
 A equipe de Site Recovery trabalha com a equipe de gerenciamento de capacidade do Azure para planejar a capacidade de infraestrutura suficiente, para ajudar a garantir que as VMs habilitadas para recuperação de desastres serão implantadas com êxito na região de destino quando o failover for iniciado.
 
 ### <a name="does-site-recovery-work-with-reserved-instances"></a>Site Recovery funciona com instâncias reservadas?
-Sim, você pode comprar [instâncias de reserva](https://azure.microsoft.com/pricing/reserved-vm-instances/) na região de recuperação de desastre e site Recovery operações de failover as usarão. </br> Não é necessária nenhuma configuração adicional.
+Sim, você pode comprar [instâncias de reserva](https://azure.microsoft.com/pricing/reserved-vm-instances/) na região de recuperação de desastre e site Recovery operações de failover as usarão. </br> Nenhuma configuração adicional é necessária.
 
 
 ## <a name="security"></a>Segurança

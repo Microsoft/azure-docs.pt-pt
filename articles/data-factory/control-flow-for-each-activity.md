@@ -1,5 +1,5 @@
 ---
-title: Atividade ForEach no Azure Data Factory | Microsoft Docs
+title: Atividade ForEach no Azure Data Factory
 description: A atividade for each define um fluxo de controle repetitivo em seu pipeline. Ele é usado para iterar em uma coleção e executar atividades especificadas.
 services: data-factory
 documentationcenter: ''
@@ -11,18 +11,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: 319f4e722184ce840d43b8f23e61711851a6d4a0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: b8f95f22553a3b4639b1aba6576ce844116ae20b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142469"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679881"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade ForEach no Azure Data Factory
 A atividade ForEach define um fluxo de controle repetitivo em seu pipeline. Esta atividade é utilizada para iterar uma coleção e executa atividades especificadas em ciclo. A implementação de ciclo desta atividade é semelhante à estrutura de ciclo Foreach nas linguagens de programação.
 
 ## <a name="syntax"></a>Sintaxe
-As propriedades são descritas posteriormente neste artigo. A propriedade Items é a coleção e cada item na coleção é referenciado usando o `@item()` , conforme mostrado na seguinte sintaxe:  
+As propriedades são descritas posteriormente neste artigo. A propriedade Items é a coleção e cada item na coleção é referenciado usando o `@item()`, conforme mostrado na seguinte sintaxe:  
 
 ```json
 {  
@@ -68,23 +68,23 @@ As propriedades são descritas posteriormente neste artigo. A propriedade Items 
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-Propriedade | Descrição | Valores permitidos | Requerido
+Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da atividade for-each. | Cadeia | Sim
-type | Deve ser definido como **foreach** | Cadeia | Sim
-isSequential | Especifica se o loop deve ser executado em sequência ou em paralelo.  O máximo de 20 iterações de loop pode ser executado de uma vez em paralelo). Por exemplo, se você tiver uma atividade ForEach Iterando em uma atividade de cópia com 10 conjuntos de fontes de origem e de coletor diferentes com issequencial definido como false, todas as cópias serão executadas ao mesmo tempo. O padrão é false. <br/><br/> Se "issequential" for definido como false, verifique se há uma configuração correta para executar vários executáveis. Caso contrário, essa propriedade deve ser usada com cuidado para evitar incorrer em conflitos de gravação. Para obter mais informações, consulte a seção [execução paralela](#parallel-execution) . | Booleano | Não. O padrão é false.
+nome | Nome da atividade for-each. | String | Sim
+tipo | Deve ser definido como **foreach** | String | Sim
+isSequential | Especifica se o loop deve ser executado em sequência ou em paralelo.  O máximo de 20 iterações de loop pode ser executado de uma vez em paralelo). Por exemplo, se você tiver uma atividade ForEach Iterando em uma atividade de cópia com 10 conjuntos de fontes de origem e de coletor diferentes com **Issequencial** definido como false, todas as cópias serão executadas ao mesmo tempo. O padrão é false. <br/><br/> Se "issequential" for definido como false, verifique se há uma configuração correta para executar vários executáveis. Caso contrário, essa propriedade deve ser usada com cuidado para evitar incorrer em conflitos de gravação. Para obter mais informações, consulte a seção [execução paralela](#parallel-execution) . | Booleano | Não. O padrão é false.
 batchCount | Contagem de lote a ser usada para controlar o número de execuções paralelas (quando issequencial é definido como false). | Inteiro (máximo de 50) | Não. O padrão é 20.
 Itens | Uma expressão que retorna uma matriz JSON a ser iterada. | Expressão (que retorna uma matriz JSON) | Sim
 Atividades | As atividades a serem executadas. | Lista de atividades | Sim
 
 ## <a name="parallel-execution"></a>Execução paralela
-Se issequencial for definido como false, a atividade será iterada em paralelo com um máximo de 20 iterações simultâneas. Essa configuração deve ser usada com cautela. Se as iterações simultâneas estiverem gravando na mesma pasta, mas em arquivos diferentes, essa abordagem será boa. Se as iterações simultâneas estiverem gravando simultaneamente no mesmo arquivo exato, essa abordagem provavelmente causará um erro. 
+Se **Issequencial** for definido como false, a atividade será iterada em paralelo com um máximo de 20 iterações simultâneas. Essa configuração deve ser usada com cautela. Se as iterações simultâneas estiverem gravando na mesma pasta, mas em arquivos diferentes, essa abordagem será boa. Se as iterações simultâneas estiverem gravando simultaneamente no mesmo arquivo exato, essa abordagem provavelmente causará um erro. 
 
 ## <a name="iteration-expression-language"></a>Linguagem de expressão de iteração
 Na atividade ForEach, forneça uma matriz a ser iterada para os **itens**de propriedade. " Use `@item()` para iterar em uma única enumeração na atividade ForEach. Por exemplo, se **itens** for uma matriz: [1, 2, 3], `@item()` retornará 1 na primeira iteração, 2 na segunda iteração e 3 na terceira iteração.
 
 ## <a name="iterating-over-a-single-activity"></a>Iterando em uma única atividade
-**Cenário** Copie do mesmo arquivo de origem no blob do Azure para vários arquivos de destino no blob do Azure.
+**Cenário:** Copie do mesmo arquivo de origem no blob do Azure para vários arquivos de destino no blob do Azure.
 
 ### <a name="pipeline-definition"></a>Definição de pipeline
 
@@ -236,7 +236,7 @@ Na atividade ForEach, forneça uma matriz a ser iterada para os **itens**de prop
 ```
 
 ### <a name="example"></a>Exemplo
-**Cenário** Iterar em um InnerPipeline dentro de uma atividade ForEach com a atividade executar pipeline. O pipeline interno é copiado com definições de esquema parametrizadas.
+**Cenário:** Iterar em um InnerPipeline dentro de uma atividade ForEach com a atividade executar pipeline. O pipeline interno é copiado com definições de esquema parametrizadas.
 
 #### <a name="master-pipeline-definition"></a>Definição de pipeline mestre
 
@@ -475,7 +475,7 @@ Na atividade ForEach, forneça uma matriz a ser iterada para os **itens**de prop
 
 Para agregar saídas da atividade __foreach__ , utilize _variáveis_ e _acrescente atividade Variable_ .
 
-Primeiro, declare uma `array` _variável_ no pipeline. Em seguida, invoque a atividade de _acréscimo de variável_ dentro de cada loop __foreach__ . Subsequentemente, você pode recuperar a agregação de sua matriz.
+Primeiro, declare uma _variável_ `array` no pipeline. Em seguida, invoque a atividade de _acréscimo de variável_ dentro de cada loop __foreach__ . Subsequentemente, você pode recuperar a agregação de sua matriz.
 
 ## <a name="limitations-and-workarounds"></a>Limitações e soluções alternativas
 
@@ -484,10 +484,10 @@ Aqui estão algumas limitações da atividade ForEach e soluções alternativas 
 | Limitação | Solução |
 |---|---|
 | Não é possível aninhar um loop ForEach dentro de outro loop ForEach (ou um loop Until). | Projete um pipeline de dois níveis em que o pipeline externo com o loop ForEach externo itera em um pipeline interno com o loop aninhado. |
-| A atividade ForEach tem um máximo `batchCount` de 50 para processamento paralelo e um máximo de 100.000 itens. | Projete um pipeline de dois níveis em que o pipeline externo com a atividade ForEach itera em um pipeline interno. |
+| A atividade ForEach tem um `batchCount` máximo de 50 para processamento paralelo e um máximo de 100.000 itens. | Projete um pipeline de dois níveis em que o pipeline externo com a atividade ForEach itera em um pipeline interno. |
 | | |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
 
 - [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)

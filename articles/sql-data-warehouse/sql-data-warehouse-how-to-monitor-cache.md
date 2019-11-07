@@ -1,6 +1,6 @@
 ---
-title: Otimizar a sua cache de geração 2 | Documentos da Microsoft
-description: Saiba como monitorizar a cache de geração 2 no portal do Azure.
+title: Otimizar o cache Gen2
+description: Saiba como monitorar o cache Gen2 usando o portal do Azure.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,47 +10,47 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 26791aecb2ca57b31358d3385d07230c73c84904
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b33f7cedca4ef130eefa28c1dbaaedd82d11a9e4
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61474424"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645775"
 ---
-# <a name="how-to-monitor-the-gen2-cache"></a>Como monitorizar a cache de geração 2
-A arquitetura de armazenamento de geração 2 nivela automaticamente seus segmentos de columnstore consultados com mais frequência numa cache que reside no NVMe baseada em SSD concebida para armazéns de dados de geração 2. Melhor desempenho é percebido quando suas consultas obtêm segmentos são que residem na cache. Este artigo descreve como monitorizar e resolver problemas de desempenho de consulta lenta por determinar se a carga de trabalho ideal está aproveitando o cache de geração 2.  
-## <a name="troubleshoot-using-the-azure-portal"></a>Resolver problemas com o portal do Azure
-Pode utilizar o Azure Monitor para visualizar as métricas da cache de geração 2 para resolver problemas de desempenho de consulta. Primeiro, aceda ao portal do Azure e clique no Monitor:
+# <a name="how-to-monitor-the-gen2-cache"></a>Como monitorar o cache Gen2
+A arquitetura de armazenamento Gen2 automaticamente coloca em camadas os segmentos columnstore consultados com mais frequência em um cache que reside em SSDs com base em NVMe projetado para Gen2 data warehouses. Um desempenho maior é percebido quando suas consultas recuperam segmentos que residem no cache. Este artigo descreve como monitorar e solucionar problemas de desempenho de consulta lento determinando se sua carga de trabalho está aproveitando o cache Gen2 de forma ideal.  
+## <a name="troubleshoot-using-the-azure-portal"></a>Solucionar problemas usando o portal do Azure
+Você pode usar Azure Monitor para exibir as métricas de cache Gen2 para solucionar problemas de desempenho de consulta. Primeiro, acesse a portal do Azure e clique em monitorar:
 
 ![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache_0.png)
 
-Selecione o botão de métricas e preencha a **subscrição**, **recurso** **grupo**, **tipo de recurso**, e **recursos nome** do seu armazém de dados.
+Selecione o botão métricas e preencha a **assinatura**, o **grupo**de recursos, o **tipo de recurso**e o **nome do recurso** do seu data warehouse.
 
-As principais métricas para resolução de problemas a cache de geração 2 são **porcentagem de acertos na Cache** e **Cache utilizada percentagem**. Configure o gráfico de métricas do Azure para exibir essas duas métricas.
+As principais métricas para a solução de problemas do cache Gen2 são **percentual de impacto de cache** e percentual de **cache usado**. Configure o gráfico de métrica do Azure para exibir essas duas métricas.
 
-![Métricas da cache](./media/sql-data-warehouse-cache-portal/cache_1.png)
+![Métricas de cache](./media/sql-data-warehouse-cache-portal/cache_1.png)
 
 
-## <a name="cache-hit-and-used-percentage"></a>Cache de acessos e utilizado de percentagem
-A matriz a seguir descreve cenários com base nos valores das métricas de cache:
+## <a name="cache-hit-and-used-percentage"></a>Percentual de impacto de cache e usado
+A matriz a seguir descreve os cenários com base nos valores das métricas de cache:
 
-|                                | **Percentagem de acerto na Cache elevada** | **Percentagem de acerto na Cache de baixa** |
+|                                | **Porcentagem alta de sucesso de cache** | **Percentual de impacto de cache baixo** |
 | :----------------------------: | :---------------------------: | :--------------------------: |
-| **Elevada percentagem de Cache utilizada** |          Cenário 1           |          Cenário 2          |
-| **Percentagem de baixa de Cache utilizada**  |          Cenário 3           |          Cenário de 4          |
+| **Percentual de alto cache usado** |          Cenário 1           |          Cenário 2          |
+| **Percentual de uso de cache baixo**  |          Cenário 3           |          Cenário 4          |
 
-**Cenário 1:** Idealmente está a utilizar a cache. [Resolver problemas de](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) outras áreas que podem ser lentos suas consultas.
+**Cenário 1:** Você está usando o cache de forma ideal. [Solucione](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) outras áreas que podem estar atrasando suas consultas.
 
-**Cenário 2:** Seu conjunto de dados de trabalho atual não pode caber no cache que faz com que uma baixa percentagem devido a leituras físicas de acertos na cache. Considere aumentar seu nível de desempenho e volte a executar a carga de trabalho para povoar a cache.
+**Cenário 2:** O conjunto de dados de trabalho atual não pode se ajustar ao cache, o que causa uma baixa porcentagem de acesso ao cache devido a leituras físicas. Considere escalar verticalmente o nível de desempenho e executar novamente a carga de trabalho para preencher o cache.
 
-**Cenário 3:** É provável que a consulta está em execução lenta por razões não relacionado com a cache. [Resolver problemas de](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) outras áreas que podem ser lentos suas consultas. Também pode considerar [reduzir verticalmente a sua instância](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) para reduzir o tamanho da cache para reduzir os custos. 
+**Cenário 3:** É provável que sua consulta esteja em execução lenta devido a motivos não relacionados ao cache. [Solucione](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) outras áreas que podem estar atrasando suas consultas. Você também pode considerar [o dimensionamento de sua instância](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) para reduzir o tamanho do cache para economizar custos. 
 
-**Cenário 4:** Tinha uma cache de fria que poderia ser o motivo por que a consulta foi lenta. Considere a reexecução sua consulta, como o conjunto de dados de trabalho deve agora ser em armazenado em cache. 
+**Cenário 4:** Você tinha um cache frio que poderia ser o motivo pelo qual a consulta estava lenta. Considere a execução da sua consulta novamente, já que seu conjunto de trabalho em funcionamento deve estar armazenado em cache. 
 
-**Importante: Se a cache de acessos percentagem ou percentagem utilizada de cache não está a ser atualizada depois de executar novamente a sua carga de trabalho, o conjunto de trabalho pode já estar que reside na memória. Tenha em atenção columnstore em cluster apenas tabelas são colocadas em cache.**
+**Importante: se a porcentagem de acesso ao cache ou o percentual de cache usado não estiver atualizando após a reexecução da carga de trabalho, seu conjunto de trabalhos já poderá estar residindo na memória. Observação somente as tabelas columnstore clusterizadas são armazenadas em cache.**
 
-## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre ajuste de desempenho de consulta geral, consulte [monitorizar a execução da consulta](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor#monitor-query-execution).
+## <a name="next-steps"></a>Passos seguintes
+Para obter mais informações sobre o ajuste de desempenho de consulta geral, consulte [monitorar a execução da consulta](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor#monitor-query-execution).
 
 
 <!--Image references-->

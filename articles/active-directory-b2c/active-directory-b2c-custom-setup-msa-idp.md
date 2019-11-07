@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c04f578e73b81000fa605283a4afa4103655bcf4
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 1f068b624b5a8f580f61e9eb2ed0d197f05aa1b0
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71826987"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643651"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com um conta Microsoft usando políticas personalizadas no Azure Active Directory B2C
 
@@ -28,17 +28,17 @@ Este artigo mostra como habilitar a entrada para usuários de um conta Microsoft
 - Conclua as etapas em introdução [às políticas personalizadas no Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Se você ainda não tiver uma conta Microsoft, crie uma em [https://www.live.com/](https://www.live.com/).
 
-## <a name="add-an-application"></a>Adicionar uma Aplicação
+## <a name="add-an-application"></a>Adicionar uma aplicação
 
 Para habilitar a entrada para usuários com um conta Microsoft, você precisa registrar um aplicativo no locatário do Azure AD. O locatário do Azure AD não é o mesmo que seu Azure AD B2C locatário.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Verifique se você está usando o diretório que contém o locatário do Azure AD selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário do Azure AD.
 1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **registros de aplicativo**.
 1. Selecione **novo registro**.
 1. Insira um **nome** para seu aplicativo. Por exemplo, *MSAapp1*.
 1. Em **tipos de conta com suporte**, selecione **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** .
-1. Em **URI de redirecionamento (opcional)** , selecione `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` **Web** e insira na caixa de texto. Substitua `your-tenant-name` pelo nome do locatário do Azure ad B2C.
+1. Em **URI de redirecionamento (opcional)** , selecione **Web** e insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` na caixa de texto. Substitua `your-tenant-name` pelo nome do locatário do Azure AD B2C.
 1. Selecionar **registro**
 1. Registre a **ID do aplicativo (cliente)** mostrada na página Visão geral do aplicativo. Você precisará disso quando configurar o provedor de declarações em uma seção posterior.
 1. Selecionar **certificados & segredos**
@@ -50,7 +50,7 @@ Para habilitar a entrada para usuários com um conta Microsoft, você precisa re
 
 Agora que você criou o aplicativo em seu locatário do Azure AD, você precisa armazenar o segredo do cliente do aplicativo em seu locatário Azure AD B2C.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o diretório que contém seu locatário.
 1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 1. Na página Visão geral, selecione **Identity Experience Framework**.
@@ -58,7 +58,7 @@ Agora que você criou o aplicativo em seu locatário do Azure AD, você precisa 
 1. Para **Opções**, escolha `Manual`.
 1. Insira um **nome** para a chave de política. Por exemplo, `MSASecret`. O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave.
 1. Em **segredo**, insira o segredo do cliente que você registrou na seção anterior.
-1. Para **uso de chave**, `Signature`selecione.
+1. Para **uso de chave**, selecione `Signature`.
 1. Clique em **Criar**.
 
 ## <a name="add-a-claims-provider"></a>Adicionar um provedor de declarações
@@ -159,7 +159,7 @@ Agora que você tem um botão em vigor, é necessário vinculá-lo a uma ação.
     <ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
     ```
 
-    Atualize o valor de **TechnicalProfileReferenceId** para corresponder `Id` ao valor no elemento **TechnicalProfile** do provedor de declarações que você adicionou anteriormente. Por exemplo, `MSA-OIDC`.
+    Atualize o valor de **TechnicalProfileReferenceId** para corresponder ao valor de `Id` no elemento **TechnicalProfile** do provedor de declarações que você adicionou anteriormente. Por exemplo, `MSA-OIDC`.
 
 1. Salve o arquivo *TrustFrameworkExtensions. xml* e carregue-o novamente para verificação.
 
@@ -181,7 +181,7 @@ Atualize o arquivo RP (terceira parte confiável) que inicia o percurso do usuá
 1. Verifique se Azure AD B2C aplicativo que você criou na seção anterior (ou concluindo os pré-requisitos, por exemplo, *webapp1* ou *testapp1*) está selecionado no campo **Selecionar aplicativo** e, em seguida, teste-o clicando em **executar agora** .
 1. Selecione o botão **conta da Microsoft** e entre.
 
-    Se a operação de entrada for bem-sucedida, você será redirecionado para `jwt.ms` o qual exibirá o token decodificado, semelhante a:
+    Se a operação de entrada for bem-sucedida, você será redirecionado para `jwt.ms` que exibe o token decodificado, semelhante a:
 
     ```json
     {

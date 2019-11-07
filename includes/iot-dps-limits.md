@@ -4,23 +4,23 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: e427a7b80b28f1cc70a02890152f9f2247a8bcd2
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 4bd890adcaa4982c52366faed0f2975729290360
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "68360277"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73612144"
 ---
 A tabela a seguir lista os limites que se aplicam aos recursos do serviço de provisionamento de dispositivos no Hub IoT do Azure.
 
-| Resource | Limite |
+| Recurso | Limite |
 | --- | --- |
 | Serviços de provisionamento máximo de dispositivos por assinatura do Azure | 10 |
 | Número máximo de registros | 1 000 000 |
 | Número máximo de registros | 1 000 000 |
 | Número máximo de grupos de registro | 100 |
 | Número máximo de CAs | 25 |
-| Número máximo de hubs IoT vinculados | 10 |
+| Número máximo de hubs IoT vinculados | 50 |
 | Tamanho máximo da mensagem | 96 KB|
 
 

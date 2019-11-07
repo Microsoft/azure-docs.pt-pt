@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: a7d65d975d43a63a38863721273debab46115045
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 9e41ca2e7c6d789b3d18fa98c4845118fa6538ef
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389715"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622555"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Início rápido: executar sua primeira consulta de grafo de recursos usando Azure PowerShell
 
@@ -53,7 +53,7 @@ O módulo do grafo de recursos para o PowerShell é **AZ. ResourceGraph**.
 
 ## <a name="run-your-first-resource-graph-query"></a>Executar a primeira consulta do Resource Graph
 
-Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura de experimentar uma consulta simples do Resource Graph. A consulta devolverá os cinco primeiros recursos do Azure com o **Nome** e **Tipo de Recurso** de cada recurso.
+Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura de experimentar uma consulta simples do Resource Graph. A consulta devolverá os cinco primeiros recursos do Azure com o **Nome** e o **Tipo de Recurso** de cada recurso.
 
 1. Execute a primeira consulta do Azure Resource Graph com o cmdlet `Search-AzGraph`:
 
@@ -87,7 +87,7 @@ Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura d
 Quando a consulta final é executada várias vezes, partindo do princípio de que nada no seu ambiente está a mudar, os resultados devolvidos serão consistentes e conforme o esperado – ordenados pela propriedade **Nome**, mas continuam a ser limitados aos cinco resultados principais.
 
 > [!NOTE]
-> Se a consulta não retornar resultados de uma assinatura à qual você já tem acesso, observe que o cmdlet `Search-AzGraph` usa como padrão as assinaturas no contexto padrão. Para ver a lista de IDs de assinatura que fazem parte do contexto padrão, execute este `(Get-AzContext).Account.ExtendedProperties.Subscriptions` se desejar pesquisar em todas as assinaturas às quais você tem acesso, uma pode definir o PSDefaultParameterValues para o cmdlet `Search-AzGraph` executando `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
+> Se a consulta não retornar resultados de uma assinatura à qual você já tem acesso, observe que `Search-AzGraph` cmdlet usa como padrão assinaturas no contexto padrão. Para ver a lista de IDs de assinatura que fazem parte do contexto padrão, execute este `(Get-AzContext).Account.ExtendedProperties.Subscriptions` se desejar pesquisar em todas as assinaturas às quais você tem acesso, é possível definir o PSDefaultParameterValues para `Search-AzGraph` cmdlet executando `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
    
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -106,9 +106,10 @@ Uninstall-Module -Name 'Az.ResourceGraph'
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Obter mais informações sobre a [linguagem de consulta](./concepts/query-language.md)
-- Aprender a [explorar recursos](./concepts/explore-resources.md)
-- Executar a primeira consulta com a [CLI do Azure](first-query-azurecli.md)
-- Ver exemplos de [Consultas de introdução](./samples/starter.md)
-- Ver exemplos de [Consultas avançadas](./samples/advanced.md)
-- Enviar comentários sobre o [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)
+- Obtenha mais informações sobre a [linguagem de consulta](./concepts/query-language.md).
+- Saiba mais sobre como [explorar recursos](./concepts/explore-resources.md).
+- Execute sua primeira consulta usando o [portal do Azure](first-query-portal.md).
+- Execute sua primeira consulta com [CLI do Azure](first-query-azurecli.md).
+- Consulte exemplos de [consultas iniciais](./samples/starter.md).
+- Consulte exemplos de [consultas avançadas](./samples/advanced.md).
+- Forneça comentários sobre o [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).

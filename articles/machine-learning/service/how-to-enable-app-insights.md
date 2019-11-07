@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 10/11/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 9da057683f3da41f077b309db79271a10738b59d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: c02c502dc2ab85a6ae1c602c53723e9b5a758250
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490006"
+ms.locfileid: "73576746"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorar e coletar dados de pontos de extremidade de serviço Web do ML
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -112,39 +112,6 @@ Para desabilitar o Aplicativo Azure insights, use o seguinte código:
 ## replace <service_name> with the name of the web service
 <service_name>.update(enable_app_insights=False)
 ```
-    
-## <a name="use-studio-to-configure"></a>Usar o Studio para configurar
-
-Você pode habilitar e desabilitar Application Insights no Azure Machine Learning Studio.
-
-1. No [Azure Machine Learning Studio](https://ml.azure.com), abra seu espaço de trabalho.
-
-1. Na guia **implantações** , selecione o serviço no qual você deseja habilitar Application insights.
-
-   [![lista de serviços na guia implantações](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
-
-3. Selecione **Editar**.
-
-   [botão Editar ![](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-4. Em **Configurações avançadas**, marque a caixa de seleção **habilitar diagnóstico de AppInsights** .
-
-   [![caixa de seleção selecionada para habilitar o diagnóstico](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
-
-1. Selecione **Atualizar** na parte inferior da tela para aplicar as alterações. 
-
-### <a name="disable"></a>Desativar
-1. No [Azure Machine Learning Studio](https://ml.azure.com), abra seu espaço de trabalho.
-1. Selecione **implantações**, selecione o serviço e selecione **Editar**.
-
-   [![usar o botão Editar](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-1. Em **Configurações avançadas**, desmarque a caixa de seleção **habilitar diagnóstico de AppInsights** . 
-
-   [![caixa de seleção desmarcada para habilitar o diagnóstico](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
-
-1. Selecione **Atualizar** na parte inferior da tela para aplicar as alterações. 
- 
 
 ## <a name="evaluate-data"></a>Avaliar dados
 Os dados do serviço são armazenados em sua conta do Aplicativo Azure insights, dentro do mesmo grupo de recursos que Azure Machine Learning.

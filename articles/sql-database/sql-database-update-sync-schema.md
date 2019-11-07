@@ -1,5 +1,5 @@
 ---
-title: Automatizar a replicação de alterações de esquema no Azure Sincronização de Dados SQL | Microsoft Docs
+title: Automatizar a replicação de alterações de esquema no Azure Sincronização de Dados SQL
 description: Saiba como automatizar a replicação de alterações de esquema no Azure Sincronização de Dados SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 11/14/2018
-ms.openlocfilehash: b1c3f49808a59576f02178dee1107b4019e34b5e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 01cc82a2ada1f4ac8f26b223b7168b2cca157793
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566268"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686876"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatizar a replicação de alterações de esquema no Azure Sincronização de Dados SQL
 
@@ -84,11 +84,11 @@ INSERT INTO SchemaChanges (SqlStmt, Description)
 
 O gatilho insere um registro na tabela de controle de alterações de esquema para cada comando ALTER TABLE. Este exemplo adiciona um filtro para evitar a replicação de alterações de esquema feitas sob o esquema de **sincronização**de dados, pois elas são mais provavelmente feitas pelo serviço de sincronização. Adicione mais filtros se você quiser replicar determinados tipos de alterações de esquema.
 
-Você também pode adicionar mais gatilhos para replicar outros tipos de alterações de esquema. Por exemplo, crie gatilhos CREATE_PROCEDURE, ALTER_PROCEDURE e DROP_PROCEDURE para replicar as alterações em procedimentos armazenados.
+Você também pode adicionar mais gatilhos para replicar outros tipos de alterações de esquema. Por exemplo, crie CREATE_PROCEDURE, ALTER_PROCEDURE e gatilhos DROP_PROCEDURE para replicar as alterações em procedimentos armazenados.
 
 ### <a name="create-a-trigger-on-other-endpoints-to-apply-schema-changes-during-insertion"></a>Criar um gatilho em outros pontos de extremidade para aplicar alterações de esquema durante a inserção
 
-Esse gatilho executa o comando de alteração de esquema quando ele é sincronizado com outros pontos de extremidade. Você precisa criar esse gatilho em todos os pontos de extremidade, exceto aquele em que as alterações de esquema são feitas (ou seja, no banco de dados em que `AlterTableDDLTrigger` o gatilho DDL é criado na etapa anterior).
+Esse gatilho executa o comando de alteração de esquema quando ele é sincronizado com outros pontos de extremidade. Você precisa criar esse gatilho em todos os pontos de extremidade, exceto aquele em que as alterações de esquema são feitas (ou seja, no banco de dados em que o gatilho DDL `AlterTableDDLTrigger` é criado na etapa anterior).
 
 ```sql
 CREATE TRIGGER SchemaChangesTrigger
@@ -161,7 +161,7 @@ Depois que as alterações de esquema forem replicadas para todos os pontos de e
 
 1.  Atualize o esquema de banco de dados.
 
-1.  Se os tipos de dados novos e antigos não forem totalmente compatíveis, por exemplo, se você alterar `int` de `bigint` para-Sync, poderá haver falha antes das etapas que criam os gatilhos serem concluídas. A sincronização é realizada com sucesso após uma nova tentativa.
+1.  Se os tipos de dados novos e antigos não forem totalmente compatíveis, por exemplo, se você alterar de `int` para `bigint`-Sync poderá falhar antes que as etapas que criam os gatilhos sejam concluídas. A sincronização é realizada com sucesso após uma nova tentativa.
 
 #### <a name="rename-columns-or-tables"></a>Renomear colunas ou tabelas
 
@@ -223,11 +223,11 @@ Para obter mais informações sobre a Sincronização de Dados SQL, veja:
 
 -   Visão geral – [sincronizar dados entre vários bancos de dados locais e de nuvem com o Azure sincronização de dados SQL](sql-database-sync-data.md)
 -   Configurar a sincronização de dados
-    - No portal- [tutorial: Configurar o Sincronização de Dados SQL para sincronizar dados entre o Azure SQL Database e o SQL Server local](sql-database-get-started-sql-data-sync.md)
+    - No portal- [tutorial: configurar sincronização de dados SQL para sincronizar os dados entre o Azure SQL Database e o SQL Server local](sql-database-get-started-sql-data-sync.md)
     - Com o PowerShell
         -  [Utilizar o PowerShell para sincronizar entre várias bases de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Utilizar o PowerShell para sincronizar entre uma Base de Dados SQL do Azure e uma base de dados do SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md)
--   Agente de - de sincronização de dados [agente de sincronização de dados SQL do Azure de sincronização de dados](sql-database-data-sync-agent.md)
+-   Agente de sincronização de dados- [agente de sincronização de dados para Azure sincronização de dados SQL](sql-database-data-sync-agent.md)
 -   Práticas recomendadas- [práticas recomendadas para o Azure sincronização de dados SQL](sql-database-best-practices-data-sync.md)
 -   Monitorar [sincronização de dados SQL monitorar com Azure monitor logs](sql-database-sync-monitor-oms.md)
 -   Solucionar problemas- [solucionar problema com o Azure sincronização de dados SQL](sql-database-troubleshoot-data-sync.md)

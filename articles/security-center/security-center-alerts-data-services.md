@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: memildin
-ms.openlocfilehash: 7e45dffd15cdf2acf15c7d46ed0cf42fc5997a6a
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: c69352b8ff11edfce8bd800a0d3aad4584557572
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244562"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621351"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Detecção de ameaças para serviços de dados na central de segurança do Azure
 
@@ -40,7 +40,7 @@ A detecção de ameaças do SQL identifica atividades anormais que indicam tenta
 
 Para obter mais informações sobre alertas de detecção de ameaças do SQL, consulte [detecção de ameaças do banco de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview). Em particular, examine a seção alertas de detecção de ameaças. Veja também [como a central de segurança do Azure ajuda a revelar um cyberattack](https://azure.microsoft.com/blog/how-azure-security-center-helps-reveal-a-cyberattack/) para exibir um exemplo de como a central de segurança usou a detecção de atividades mal-INTENCIONADAS do SQL para descobrir um ataque.
 
-## Repositório<a name="azure-storage"></a>
+## Armazenamento do Azure<a name="azure-storage"></a>
 
 >[!NOTE]
 > A proteção avançada contra ameaças para armazenamento está disponível no momento apenas para armazenamento de BLOBs.
@@ -53,7 +53,7 @@ A central de segurança analisa os logs de diagnóstico de solicitações de lei
 
 |Alerta|Descrição|
 |---|---|
-|**Anomalias de acesso à localização incomum**|A análise de tráfego de rede de amostra detectou comunicação de saída anômala protocolo RDP (RDP), originando-se de um recurso em sua implantação. Essa atividade é considerada anormal para esse ambiente. Ele pode indicar que o recurso foi comprometido e agora é usado para atacar a força bruta de um ponto de extremidade RDP externo. Observe que esse tipo de atividade pode fazer com que o IP seja sinalizado como mal-intencionado por entidades externas.|
+|**Anomalias de acesso à localização incomum**|A análise de tráfego de rede de amostra detectou comunicação de saída anômala protocolo RDP (RDP), originando-se de um recurso em sua implantação. Essa atividade é considerada anormal para esse ambiente. Ele pode indicar que o recurso foi comprometido e agora é usado para atacar a força bruta de um ponto de extremidade RDP externo. Esse tipo de atividade pode fazer com que o IP seja sinalizado como mal-intencionado por entidades externas.|
 |**Anomalias de acesso ao aplicativo**|Indica que um aplicativo incomum acessou essa conta de armazenamento. Uma causa potencial é que um invasor acessou sua conta de armazenamento usando um novo aplicativo.|
 |**Anomalias de acesso anônimo**|Indica que há uma alteração no padrão de acesso para uma conta de armazenamento. Por exemplo, a conta foi acessada anonimamente (sem nenhuma autenticação), o que é inesperado em comparação com o padrão de acesso recente nessa conta. Uma causa potencial é que um invasor explorou o acesso de leitura público a um contêiner que mantém o armazenamento de BLOBs.|
 |**Anomalia de Tor**|Indica que essa conta foi acessada com êxito de um endereço IP que é conhecido como um nó de saída ativo de Tor (um proxy de anonimato). A severidade desse alerta considera o tipo de autenticação usado (se houver) e se este é o primeiro caso desse acesso. As possíveis causas podem ser um invasor que tenha acessado sua conta de armazenamento usando o Tor ou um usuário legítimo que tenha acessado sua conta de armazenamento usando o Tor.|
@@ -63,6 +63,7 @@ A central de segurança analisa os logs de diagnóstico de solicitações de lei
 |**Anomalia de acesso de permissão**|Indica que as permissões de acesso deste contêiner de armazenamento foram alteradas de maneira incomum. Uma causa potencial é que um invasor alterou as permissões de contêiner para enfraquecer sua postura de segurança ou para obter persistência.|
 |**Anomalias de acesso de inspeção**|Indica que as permissões de acesso de uma conta de armazenamento foram inspecionadas de forma incomum, em comparação com a atividade recente nessa conta. Uma causa potencial é que um invasor executou o reconhecimento para um ataque futuro.|
 |**Anomalias de exploração de dados**|Indica que os BLOBs ou contêineres em uma conta de armazenamento foram enumerados de forma anormal, em comparação com a atividade recente nessa conta. Uma causa potencial é que um invasor executou o reconhecimento para um ataque futuro.|
+|**Possível upload de malware**|Indica que um blob que contém o malware potencial foi carregado em uma conta de armazenamento. As possíveis causas podem incluir um upload de malware intencional por um invasor ou um upload não intencional, de um blob potencialmente mal-intencionado, por um usuário legítimo.|
 
 >[!NOTE]
 >A proteção avançada contra ameaças para armazenamento não está disponível no momento nas regiões do Azure governamental e do soberanas Cloud.

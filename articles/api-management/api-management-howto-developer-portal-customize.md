@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 62fb5552d86a802c3ba0213d99be2f91f21025e2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7547db502056304307094541dcfd2474eda999d8
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472130"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620428"
 ---
 # <a name="access-and-customize-developer-portal"></a>Acessar e personalizar o portal do desenvolvedor
 
@@ -125,7 +125,7 @@ Para tornar seu portal e suas alterações mais recentes disponíveis para os vi
 
 ## <a name="visit-the-published-portal"></a>Visite o portal publicado
 
-Depois de publicar o portal, você pode acessá-lo na mesma URL do painel administrativo, por exemplo `https://contoso-api.portal.azure-api.net`. Abra-o em uma nova guia do navegador para exibi-lo como um visitante externo.
+Depois de publicar o portal, você pode acessá-lo na mesma URL do painel administrativo, por exemplo `https://contoso-api.developer.azure-api.net`. Exiba-o em uma sessão de navegador separada (modo de navegação Incognito/privada) como um visitante externo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
