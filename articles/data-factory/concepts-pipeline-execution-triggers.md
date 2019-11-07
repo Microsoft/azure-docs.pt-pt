@@ -1,5 +1,5 @@
 ---
-title: Execução de pipelines e acionadores no Azure Data Factory | Microsoft Docs
+title: Execução de pipelines e acionadores no Azure Data Factory
 description: Este artigo disponibiliza informações sobre como executar um pipeline no Azure Data Factory a pedido ou mediante a criação de um acionador.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: adc7b65b4e079c55b9400b06603625971efc3ea3
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 20a5a9c5513c165cd5add2e97f019a741dfd0b03
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177669"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681477"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Execução de pipelines e acionadores no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -77,10 +77,10 @@ Por exemplo, digamos que tem um pipeline básico chamado **copyPipeline** e quer
 Na definição JSON, o pipeline utiliza dois parâmetros: **sourceBlobContainer** e **sinkBlobContainer**. Transmita os valores para estes parâmetros no runtime.
 
 Pode executar manualmente o pipeline através de um dos métodos que se seguem:
-- .NET SDK
+- SDK .NET
 - Módulo do Azure PowerShell
 - API REST
-- Python SDK
+- SDK Python
 
 ### <a name="rest-api"></a>API REST
 O comando de exemplo que se segue mostra como executar manualmente o pipeline com a API REST:
@@ -121,7 +121,7 @@ O payload de resposta é um ID exclusivo da execução de pipeline:
 
 Para obter um exemplo completo, veja [Início Rápido: criar uma fábrica de dados com o Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="net-sdk"></a>.NET SDK
+### <a name="net-sdk"></a>SDK .NET
 A chamada de exemplo que se segue mostra como executar manualmente o pipeline com o SDK de .NET:
 
 ```csharp
@@ -228,7 +228,7 @@ Para que o acionador de agenda desencadeie uma execução de pipeline, inclua um
 > A propriedade **parameters** é uma propriedade obrigatória do elemento **pipelines**. Se o seu pipeline não utiliza parâmetros, deve incluir uma definição JSON vazia para a propriedade **parameters**.
 
 ### <a name="schema-overview"></a>Descrição geral do esquema
-A tabela que se segue mostra uma descrição geral de alto nível dos principais elementos do esquema relacionados com a periodicidade e o agendamento de um acionador:
+A tabela que se segue fornece uma descrição geral de alto nível dos principais elementos do esquema relacionados com a periodicidade e o agendamento de um acionador:
 
 | Propriedade JSON | Descrição |
 |:--- |:--- |
@@ -276,13 +276,13 @@ A tabela que se segue mostra uma descrição geral de alto nível dos principais
 
 ### <a name="schema-defaults-limits-and-examples"></a>Predefinições, limites e exemplos do esquema
 
-| Propriedade JSON | Tipo | Obrigatório | Valor predefinido | Valores válidos | Exemplo |
+| Propriedade JSON | Tipo | Necessário | Valor predefinido | Valores válidos | Exemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | string | Sim | Nenhuma | Data-horas no formato ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | objeto | Sim | Nenhuma | Um objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | string | Sim | Nenhum | Data-horas no formato ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | objeto | Sim | Nenhum | Um objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | número | Não | 1 | 1 a 1000 | `"interval":10` |
-| **endTime** | string | Sim | Nenhuma | Um valor de data/hora que representa uma hora no futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | objeto | Não | Nenhuma | Um objeto de agenda | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **endTime** | string | Sim | Nenhum | Um valor de data/hora que representa uma hora no futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **schedule** | objeto | Não | Nenhum | Um objeto de agenda | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propriedade startTime
 A tabela que se segue mostra o modo como a propriedade **startTime** controla a execução de um acionador:

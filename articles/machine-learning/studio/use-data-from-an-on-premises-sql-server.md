@@ -1,6 +1,6 @@
 ---
 title: SQL Server local
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Use dados de um banco de dado SQL Server local para executar análises avançadas com a versão clássica do Azure Machine Learning Studio.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 78b50ac5f0c39a38815b01ab7510d17eda941425
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7f525a2a81d6cda52b363d1fb808327c9d3c1fb1
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492536"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622090"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-an-on-premises-sql-server-database"></a>Executar análise com Azure Machine Learning Studio (clássico) usando um banco de dados SQL Server local
 
@@ -43,7 +43,7 @@ O Integration Runtime de Data Factory auto-hospedado tem os seguintes pré-requi
 * O Data Factory integração auto-hospedado requer um sistema operacional de 64 bits com .NET Framework 4.6.1 ou superior.
 * As versões do sistema operacional Windows com suporte são Windows 10, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016. 
 * A configuração recomendada para o computador IR é pelo menos 2 GHz, 4 núcleos de CPU, 8 GB de RAM e disco de 80GB.
-* Se o computador host hibernar, o IR não responderá às solicitações de dados. Portanto, configure um plano de energia apropriado no computador antes de instalar o IR. Se o computador estiver configurado para hibernar, a instalação do IR exibirá uma mensagem.
+* Se a máquina de anfitrião hiberna, o runtime de integração não responde a pedidos de dados. Portanto, configure um plano de energia apropriado no computador antes de instalar o IR. Se o computador estiver configurado para hibernar, a instalação do IR exibirá uma mensagem.
 * Como a atividade de cópia ocorre em uma frequência específica, o uso de recursos (CPU, memória) no computador também segue o mesmo padrão com horários de pico e ocioso. A utilização de recursos também depende muito da quantidade de dados que estão sendo movidos. Quando vários trabalhos de cópia estiverem em andamento, você observará que o uso do recurso é acumulado durante horários de pico. Embora a configuração mínima listada acima seja tecnicamente suficiente, talvez você queira ter uma configuração com mais recursos do que a configuração mínima, dependendo de sua carga específica para a movimentação de dados.
 
 Considere o seguinte ao configurar e usar um Integration Runtime Data Factory auto-hospedado:

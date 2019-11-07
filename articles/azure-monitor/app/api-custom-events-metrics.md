@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/27/2019
-ms.openlocfilehash: 515d1da5333bb29237baa4bd941275f32ba754d3
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 8bb144c78c5346f3351a6ada779a808410dbb30d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161568"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667994"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para métricas e eventos personalizados
 
@@ -20,7 +20,7 @@ Insira algumas linhas de código em seu aplicativo para descobrir o que os usuá
 
 ## <a name="api-summary"></a>Resumo da API
 
-A API principal é uniforme em todas as plataformas, além de algumas variações, como `GetMetric` (somente .NET).
+A API principal é uniforme em todas as plataformas, além de algumas variações, como `GetMetric`(somente .NET).
 
 | Método | Utilizado para |
 | --- | --- |
@@ -104,7 +104,7 @@ telemetry.getContext().getUser().setId("...");
 telemetry.getContext().getDevice().setId("...");
 ```
 
-Em projetos node. js, você pode usar `new applicationInsights.TelemetryClient(instrumentationKey?)` para criar uma nova instância, mas isso é recomendado apenas para cenários que exigem configuração isolada da `defaultClient` singleton.
+Em projetos node. js, você pode usar `new applicationInsights.TelemetryClient(instrumentationKey?)` para criar uma nova instância, mas isso é recomendado apenas para cenários que exigem configuração isolada da `defaultClient`singleton.
 
 ## <a name="trackevent"></a>TrackEvent
 
@@ -569,7 +569,7 @@ telemetry.trackTrace({
 *JavaScript do lado do cliente/navegador*
 
 ```javascript
-trackTrace(message: string, properties?: {[string]:string}, severityLevel?: AI.SeverityLevel)
+trackTrace(message: string, properties?: {[string]:string}, severityLevel?: SeverityLevel)
 ```
 
 Registre um evento de diagnóstico, como inserir ou sair de um método.
@@ -1189,13 +1189,13 @@ Para determinar por quanto tempo os dados são mantidos, consulte [retenção de
 * [ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Pacotes do Windows Server](https://github.com/Microsoft/applicationInsights-dotnet-server)
 * [SDK Java](https://github.com/Microsoft/ApplicationInsights-Java)
-* [SDK Node.js](https://github.com/Microsoft/ApplicationInsights-Node.js)
+* [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)
 * [SDK JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 
 
 ## <a name="questions"></a>Dúvidas
 
-* *Quais exceções podem Track_ () chamar throws?*
+* *Quais exceções podem Track_ () chamadas throw?*
 
     Nenhum. Você não precisa encapsulá-los em cláusulas try-catch. Se o SDK encontrar problemas, ele registrará mensagens na saída do console de depuração e--se as mensagens forem passadas--na pesquisa de diagnóstico.
 * *Há uma API REST para obter dados do portal?*

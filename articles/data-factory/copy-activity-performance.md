@@ -1,5 +1,5 @@
 ---
-title: Guia de desempenho e escalabilidade da atividade de cópia no Azure Data Factory | Microsoft Docs
+title: Guia de desempenho e escalabilidade da atividade de cópia no Azure Data Factory
 description: Saiba mais sobre os principais fatores que afetam o desempenho da movimentação de dados em Azure Data Factory quando você usa a atividade de cópia.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: ba08bbdca059b3e14281a3c26827d07f7b196d1c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 701eaad8d36b352e946ae8d74204876b41ecb53d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72930948"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678270"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guia de desempenho e escalabilidade da atividade de cópia
 > [!div class="op_single_selector" title1="Selecione a versão do Azure Data Factory que você está usando:"]
@@ -41,7 +41,7 @@ Depois de ler este artigo, você poderá responder às seguintes perguntas:
 
 O ADF oferece uma arquitetura sem servidor que permite paralelismo em diferentes níveis, o que permite aos desenvolvedores criar pipelines para utilizar totalmente a largura de banda da rede, bem como IOPS de armazenamento e largura de banda para maximizar a taxa de transferência de movimentação de dados para o seu ambiente.  Isso significa que a taxa de transferência que você pode obter pode ser estimada medindo a taxa de transferência mínima oferecida pelo armazenamento de dados de origem, o armazenamento de dados de destino e a largura de banda de rede entre a origem e o destino.  A tabela a seguir calcula a duração da cópia com base no tamanho dos dados e no limite de largura de banda do seu ambiente. 
 
-| Tamanho dos dados/ <br/> Larga | 50 Mbps    | 100 Mbps  | 500 Mbps  | 1 Gbps   | 5 Gbps   | 10 Gbps  | 50 Gbps   |
+| Tamanho dos dados/ <br/> Larga | 50 Mbps    | 100 Mbps  | 500 Mbps  | 1 Gbps   | 5 Gbps   | 10 Gbps  | 50 Gbps   |
 | --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
 | **1 GB**                    | mínimo de 2,7    | mínimo de 1,4   | mínimo de 0,3   | mínimo de 0,1  | mínimo de 0, 3 | mínimo de 0, 1 | mínimo de 0,0   |
 | **10 GB**                   | mínimo de 27,3   | mínimo de 13,7  | mínimo de 2,7   | mínimo de 1,3  | mínimo de 0,3  | mínimo de 0,1  | mínimo de 0, 3  |
@@ -223,7 +223,7 @@ Para controlar a carga em computadores que hospedam seus armazenamentos de dados
 
 Ao copiar dados de um armazenamento de dados de origem para um armazenamento de dados de coletor, você pode optar por usar o armazenamento de BLOBs como um armazenamento de preparo provisório. O preparo é especialmente útil nos seguintes casos:
 
-- **Você deseja ingerir dados de vários armazenamentos de dados para SQL Data Warehouse por meio do polybase.** O SQL Data Warehouse usa o polybase como um mecanismo de alta taxa de transferência para carregar uma grande quantidade de dados em SQL Data Warehouse. Os dados de origem devem estar no armazenamento de BLOBs ou Azure Data Lake Store e devem atender a critérios adicionais. Ao carregar dados de um armazenamento de dados diferente do armazenamento de BLOBs ou Azure Data Lake Store, você pode ativar a cópia de dados por meio do armazenamento de blobs de preparo provisório. Nesse caso, Azure Data Factory executa as transformações de dados necessárias para garantir que ele atenda aos requisitos do polybase. Em seguida, ele usa o polybase para carregar dados em SQL Data Warehouse com eficiência. Para obter mais informações, consulte [usar o polybase para carregar dados no Azure SQL data warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
+- **Você deseja ingerir dados de vários armazenamentos de dados para SQL Data Warehouse por meio do polybase.** O SQL Data Warehouse usa o polybase como um mecanismo de alta taxa de transferência para carregar uma grande quantidade de dados em SQL Data Warehouse. Os dados de origem devem estar no armazenamento de BLOBs ou Azure Data Lake Store e devem atender a critérios adicionais. Ao carregar dados de um armazenamento de dados diferente do armazenamento de BLOBs ou Azure Data Lake Store, você pode ativar a cópia de dados por meio do armazenamento de blobs de preparo provisório. Nesse caso, Azure Data Factory executa as transformações de dados necessárias para garantir que ele atenda aos requisitos do polybase. Em seguida, ele usa o polybase para carregar dados em SQL Data Warehouse com eficiência. Para obter mais informações, veja [Use PolyBase to load data into Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) (Utilizar o PolyBase para carregar dados para o Azure SQL Data Warehouse).
 - **Às vezes, demora um pouco para executar uma movimentação de dados híbrido (ou seja, copiar de um armazenamento de dados local para um armazenamento de dados de nuvem) em uma conexão de rede lenta.** Para melhorar o desempenho, você pode usar cópia em etapas para compactar os dados locais, de modo que leve menos tempo para mover dados para o armazenamento de dados de preparo na nuvem. Em seguida, você pode descompactar os dados no armazenamento de preparo antes de carregar no armazenamento de dados de destino.
 - **Você não quer abrir portas que não sejam a porta 80 e a porta 443 em seu firewall devido a políticas corporativas de ti.** Por exemplo, ao copiar dados de um armazenamento de dados local para um coletor de banco de dados SQL do Azure ou um coletor de SQL Data Warehouse do Azure, você precisa ativar a comunicação TCP de saída na porta 1433 para o Firewall do Windows e o firewall corporativo. Nesse cenário, a cópia preparada pode aproveitar o tempo de execução de integração auto-hospedado para primeiro copiar dados para uma instância de preparo de armazenamento de BLOBs por HTTP ou HTTPS na porta 443. Em seguida, ele pode carregar os dados no banco de dados SQL ou SQL Data Warehouse do preparo do armazenamento de BLOBs. Nesse fluxo, você não precisa habilitar a porta 1433.
 
@@ -241,11 +241,11 @@ No momento, não é possível copiar dados entre dois armazenamentos de dados qu
 
 Defina a configuração **enableStaging** na atividade de cópia para especificar se deseja que os dados sejam preparados no armazenamento de BLOBs antes de carregá-los em um armazenamento de dados de destino. Ao definir **enableStaging** como `TRUE`, especifique as propriedades adicionais listadas na tabela a seguir. Você também precisa criar um armazenamento do Azure ou um serviço vinculado à assinatura de acesso compartilhado de armazenamento para preparação, se você não tiver um.
 
-| Propriedade | Descrição | Valor predefinido | Obrigatório |
+| Propriedade | Descrição | Valor predefinido | Necessário |
 | --- | --- | --- | --- |
 | enableStaging |Especifique se deseja copiar dados por meio de um repositório de preparo provisório. |Falso |Não |
-| linkedServiceName |Especifique o nome de um serviço vinculado [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) , que se refere à instância de armazenamento que você usa como um armazenamento de preparo provisório. <br/><br/> Você não pode usar o armazenamento com uma assinatura de acesso compartilhado para carregar dados em SQL Data Warehouse por meio do polybase. Você pode usá-lo em todos os outros cenários. |N/A |Sim, quando **enableStaging** é definido como true |
-| Multi-Path |Especifique o caminho de armazenamento de BLOBs que você deseja que contenha os dados preparados. Se você não fornecer um caminho, o serviço criará um contêiner para armazenar dados temporários. <br/><br/> Especifique um caminho somente se você usar o armazenamento com uma assinatura de acesso compartilhado ou se precisar que dados temporários estejam em um local específico. |N/A |Não |
+| linkedServiceName |Especifique o nome de um serviço vinculado [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) , que se refere à instância de armazenamento que você usa como um armazenamento de preparo provisório. <br/><br/> Você não pode usar o armazenamento com uma assinatura de acesso compartilhado para carregar dados em SQL Data Warehouse por meio do polybase. Você pode usá-lo em todos os outros cenários. |N/D |Sim, quando **enableStaging** é definido como true |
+| Multi-Path |Especifique o caminho de armazenamento de BLOBs que você deseja que contenha os dados preparados. Se você não fornecer um caminho, o serviço criará um contêiner para armazenar dados temporários. <br/><br/> Especifique um caminho somente se você usar o armazenamento com uma assinatura de acesso compartilhado ou se precisar que dados temporários estejam em um local específico. |N/D |Não |
 | enableCompression |Especifica se os dados devem ser compactados antes de serem copiados para o destino. Essa configuração reduz o volume de dados que está sendo transferido. |Falso |Não |
 
 >[!NOTE]

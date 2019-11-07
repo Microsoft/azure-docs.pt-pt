@@ -1,18 +1,18 @@
 ---
-title: Identificar problemas com o recurso de diagnóstico de área de trabalho virtual do Windows – Azure
-description: Descreve o recurso de diagnóstico de área de trabalho virtual do Windows e como usá-lo.
+title: Problemas de diagnóstico de área de trabalho virtual do Windows – Azure
+description: Como usar o recurso de diagnóstico de área de trabalho virtual do Windows para diagnosticar problemas.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 5401260921aee5fc54b50c1222188a6b244a0c5a
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 0e04b075259ed1d003df4a03686d46b1adf694d3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840134"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606849"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identificar e diagnosticar problemas
 
@@ -32,7 +32,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 ## <a name="diagnose-issues-with-powershell"></a>Diagnosticar problemas com o PowerShell
 
-O diagnóstico de área de trabalho virtual do Windows usa apenas um cmdlet do PowerShell, mas contém muitos parâmetros opcionais para ajudar a restringir e isolar problemas. As seções a seguir listam os cmdlets que você pode executar para diagnosticar problemas. A maioria dos filtros pode ser aplicada em conjunto. Os valores listados entre colchetes, `<tenantName>`como, devem ser substituídos pelos valores que se aplicam à sua situação.
+O diagnóstico de área de trabalho virtual do Windows usa apenas um cmdlet do PowerShell, mas contém muitos parâmetros opcionais para ajudar a restringir e isolar problemas. As seções a seguir listam os cmdlets que você pode executar para diagnosticar problemas. A maioria dos filtros pode ser aplicada em conjunto. Os valores listados entre colchetes, como `<tenantName>`, devem ser substituídos pelos valores que se aplicam à sua situação.
 
 ### <a name="retrieve-diagnostic-activities-in-your-tenant"></a>Recuperar atividades de diagnóstico em seu locatário
 

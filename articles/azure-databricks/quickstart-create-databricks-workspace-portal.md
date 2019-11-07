@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: f7f8c94504eef1023939ed41aa6124baef354e39
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 16de2054864a42d978d149353a89d65e8de7d155
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "72791593"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605678"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: Executar uma tarefa do Spark no Azure Databricks com o portal do Azure
 
@@ -27,7 +27,7 @@ Neste guia de início rápido, você usa o portal do Azure para criar um espaço
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
 > [!Note]
 > Este tutorial não pode ser executado usando a **assinatura de avaliação gratuita do Azure**.
@@ -85,7 +85,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
     
      Selecione **Criar cluster**. Depois de o cluster estar em execução, pode anexar blocos de notas ao cluster e executar tarefas do Spark.
 
-Para obter mais informações sobre a criação de clusters, veja [Criar um cluster do Spark no Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
+Para obter mais informações sobre a criação de clusters, veja [Criar um cluster do Spark no Azure Databricks](/azure/databricks/clusters/create).
 
 ## <a name="run-a-spark-sql-job"></a>Executar uma tarefa SQL do Spark
 
@@ -164,7 +164,7 @@ Se você não encerrar manualmente o cluster, ele será interrompido automaticam
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você criou um cluster Spark no Azure Databricks e executou um trabalho do Spark usando dados de conjuntos de dados abertos do Azure. Também pode ver a página [Origens de dados do Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) para saber como importar dados de outras origens de dados para o Azure Databricks. Avance para o artigo seguinte para saber como executar uma operação de ETL (extração, transformação e carregamento de dados) com o Azure Databricks.
+Neste artigo, você criou um cluster Spark no Azure Databricks e executou um trabalho do Spark usando dados de conjuntos de dados abertos do Azure. Também pode ver a página [Origens de dados do Spark](/azure/databricks/data/data-sources/index.html) para saber como importar dados de outras origens de dados para o Azure Databricks. Avance para o artigo seguinte para saber como executar uma operação de ETL (extração, transformação e carregamento de dados) com o Azure Databricks.
 
 > [!div class="nextstepaction"]
 >[Extrair, transformar e carregar dados com o Azure Databricks](databricks-extract-load-sql-data-warehouse.md)

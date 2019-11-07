@@ -1,18 +1,18 @@
 ---
 title: Azure Analysis Services nomes de servidor de alias | Microsoft Docs
-description: Descreve como criar e usar aliases de nome de servidor.
+description: Saiba como criar Azure Analysis Services aliases de nome de servidor. Os usuários podem, então, se conectar ao seu servidor com um nome de alias mais curto em vez do nome do servidor.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ea618ecb29451650cbb01e9c95d263f42d406555
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5e7017fad90e32cb8c4b952987fe248e463e4d03
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146345"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572280"
 ---
 # <a name="alias-server-names"></a>Nomes de servidor de alias
 
@@ -43,7 +43,7 @@ Neste exemplo, um aplicativo ASP.NET Web Forms é criado no Visual Studio. A ref
 <%@ Page Title="Home Page" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FriendlyRedirect._Default" %>
 ```
 
-O evento Page_Load em Default.aspx.cs usa o método Response. Write () para retornar o nome do servidor de Azure Analysis Services.
+O evento Page_Load em Default.aspx.cs usa o método Response. Write () para retornar o nome do servidor Azure Analysis Services.
 
 ```
 protected void Page_Load(object sender, EventArgs e)
@@ -52,7 +52,7 @@ protected void Page_Load(object sender, EventArgs e)
 }
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consultar também
 
 [Bibliotecas de cliente](analysis-services-data-providers.md)   
 [Conectar de Power BI Desktop](analysis-services-connect-pbi.md)

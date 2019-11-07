@@ -1,18 +1,18 @@
 ---
-title: Bibliotecas de cliente necessárias para se conectar ao Azure Analysis Services | Microsoft Docs
+title: Azure Analysis Services bibliotecas de cliente | Microsoft Docs
 description: Descreve as bibliotecas de cliente necessárias para que os aplicativos cliente e as ferramentas se conectem Azure Analysis Services
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8ce5083d444aa05b59677fb46e7aa80200835412
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f78ac8686f23c47995cab9686c2ca3f6cf88fa6b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147090"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573060"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para conexão com o Azure Analysis Services
 
@@ -20,7 +20,7 @@ As bibliotecas de cliente são necessárias para que aplicativos cliente e ferra
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>Baixar as bibliotecas de cliente mais recentes (Windows Installer)  
 
-|Transferir  |Versão do produto  | 
+|Transferência  |Versão do produto  | 
 |---------|---------|
 |[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.5.15    |
 |[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.5.15       |
@@ -54,11 +54,11 @@ As bibliotecas de cliente para conexões de cliente são diferentes dos provedor
   
  O Provedor Analysis Services OLE DB é instalado automaticamente pela maioria das ferramentas e aplicativos cliente usados para acessar bancos de dados do Analysis Services. Ele deve ser instalado em computadores usados para acessar Analysis Services dados.  
   
- Os provedores de OLE DB geralmente são especificados em cadeias de conexão. Uma cadeia de conexão Analysis Services usa um nomenclatura diferente para fazer referência ao provedor de OLE DB: MSOLAP. \<version >. dll.
+ Os provedores de OLE DB geralmente são especificados em cadeias de conexão. Uma cadeia de conexão Analysis Services usa um nomenclatura diferente para fazer referência ao provedor de OLE DB: MSOLAP.\<versão >. dll.
 
 ### <a name="amo"></a>AMO  
 
- O AMO é uma biblioteca de cliente gerenciada usada para administração de servidor e definição de dados. Ele é instalado e usado por ferramentas e aplicativos cliente. Por exemplo, SQL Server Management Studio (SSMS) usa o AMO para se conectar ao Analysis Services. Uma conexão usando AMO normalmente é mínima, consistindo em `"data source=\<servername>"`. Depois que uma conexão é estabelecida, você usa a API para trabalhar com coleções de banco de dados e objetos principais. O Visual Studio e o SSMS usam o AMO para se conectar a uma instância de Analysis Services.  
+ O AMO é uma biblioteca de cliente gerenciada usada para administração de servidor e definição de dados. Ele é instalado e usado por ferramentas e aplicativos cliente. Por exemplo, SQL Server Management Studio (SSMS) usa o AMO para se conectar ao Analysis Services. Uma conexão usando o AMO normalmente é mínima, consistindo em `"data source=\<servername>"`. Depois que uma conexão é estabelecida, você usa a API para trabalhar com coleções de banco de dados e objetos principais. O Visual Studio e o SSMS usam o AMO para se conectar a uma instância de Analysis Services.  
 
   
 ### <a name="adomd"></a>ADOMD

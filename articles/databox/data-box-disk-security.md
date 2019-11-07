@@ -1,21 +1,21 @@
 ---
-title: Descrição geral do Microsoft Azure Data Box Disk | Microsoft Docs em dados
-description: Descreve o Azure Data Box Disk, uma solução cloud que permite transferir grandes quantidades de dados para o Azure
+title: Recursos de segurança do Microsoft Azure Disco do Data Box | Microsoft Docs em dados
+description: Descreve os recursos de segurança implementados para Disco do Azure Data Box, uma solução de nuvem que permite transferir grandes quantidades de dados para o Azure
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: overview
-ms.date: 01/09/2019
+ms.topic: conceptual
+ms.date: 11/04/2019
 ms.author: alkohli
-ms.openlocfilehash: afb344418f843e54c3172c17d28bde7055e101b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5db65ab6f1c96ff816252ecaba2170adf358001c
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327940"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606560"
 ---
-# <a name="azure-data-box-disk-security-and-data-protection"></a>Proteção do Azure de dados e segurança de disco Data Box
+# <a name="azure-data-box-disk-security-and-data-protection"></a>Disco do Azure Data Box segurança e proteção de dados
 
 Este artigo descreve as funcionalidades de segurança do Azure Data Box Disk que ajudam a proteger todos os componentes da solução Data Box e os respetivos dados armazenados. 
 
@@ -90,7 +90,7 @@ O Azure Data Box Disk recolhe e apresenta informações pessoais nas seguintes i
 Para obter mais informações, reveja a política de privacidade da Microsoft no [Centro de Fidedignidade](https://www.microsoft.com/trustcenter).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os [Requisitos do Data Box Disk](data-box-disk-system-requirements.md).
 - Compreenda os [Limites do Data Box Disk](data-box-disk-limits.md).

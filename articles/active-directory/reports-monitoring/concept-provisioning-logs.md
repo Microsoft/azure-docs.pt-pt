@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/29/2019
+ms.date: 11/04/2019
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d48aa3ead28ab0b0a22478a0c4183995483058a
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: c6e0c697f9ab9796feade9b4d5c2a64794f3980b
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70983506"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73612806"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisionando relatórios no portal de Azure Active Directory (versão prévia)
 
@@ -30,7 +30,7 @@ A arquitetura de relatórios no Azure Active Directory (Azure AD) consiste nos s
 
 - **Atividade** 
     - **Entradas** – informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
-    - Os **logs de auditoria**  -  logs de[auditoria](concept-audit-logs.md) fornecem informações de atividade do sistema sobre gerenciamento de usuários e de grupos, aplicativos gerenciados e atividades de diretório.
+    - Os **logs de auditoria** - logs de [auditoria](concept-audit-logs.md) fornecem informações de atividade do sistema sobre gerenciamento de usuários e de grupos, aplicativos gerenciados e atividades de diretório.
     - **Logs de provisionamento** – forneça a atividade do sistema sobre usuário, grupos e funções que são provisionadas pelo serviço de provisionamento do Azure AD. 
 
 - **Segurança** 
@@ -85,7 +85,7 @@ Isto permite-lhe apresentar campos adicionais ou remover campos que já são apr
 
 Selecione um item na exibição de lista para obter informações mais detalhadas.
 
-![Informações detalhadas](./media/concept-provisioning-logs/steps.png "Filtrar")
+![Informações detalhadas](./media/concept-provisioning-logs/steps.png "Filtro")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrar atividades de provisionamento
@@ -100,7 +100,7 @@ Para restringir os dados relatados a um nível que funciona para você, você po
 - Date
 
 
-![Sem](./media/concept-provisioning-logs/filter.png "Filtrar")
+![Sem](./media/concept-provisioning-logs/filter.png "Filtro")
 
 O filtro de **identidade** permite que você especifique o nome ou a identidade sobre a qual você se preocupa. Essa identidade pode ser um usuário, grupo, função ou outro objeto. Você pode Pesquisar pelo nome ou ID do objeto. A ID varia de acordo com o cenário. Por exemplo, ao provisionar um objeto do Azure AD para o SalesForce, a ID de origem é a ID de objeto do usuário no Azure AD, enquanto a TargetId é a ID do usuário no Salesforce. Ao provisionar do WORKDAY para Active Directory, a ID de origem é a ID de funcionário do workday Worker. Observe que o nome do usuário talvez nem sempre esteja presente na coluna de identidade. Sempre haverá uma ID. 
 
@@ -110,14 +110,14 @@ O filtro do **sistema de destino** permite especificar para onde a identidade es
 
 O filtro de **status** permite que você selecione:
 
-- Tudo
+- Todos
 - Êxito
 - Falha
 - Ignorada
 
 O filtro de **ação** permite filtrar o:
 
-- Create 
+- Criar 
 - Atualizar
 - Eliminar
 - Desativar
@@ -176,7 +176,7 @@ A guia **etapas** descreve as etapas executadas para provisionar um objeto. O pr
 
 
 
-![Sem](./media/concept-provisioning-logs/steps.png "Filtrar")
+![Sem](./media/concept-provisioning-logs/steps.png "Filtro")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Solução de problemas e recomendações
@@ -205,6 +205,29 @@ A guia **Resumo** fornece uma visão geral do que aconteceu e identificadores pa
 - No momento, não há suporte para o log Analytics.
 
 - Quando você acessa os logs de provisionamento do contexto de um aplicativo, ele não filtra automaticamente os eventos para o aplicativo específico, como faz os logs de auditoria.
+
+## <a name="error-codes"></a>Códigos de Erro
+
+Use a tabela a seguir para entender melhor como resolver erros que podem ser encontrados nos logs de provisionamento. Para quaisquer códigos de erro ausentes, forneça comentários usando o link na parte inferior desta página. 
+
+|Código de erro|Descrição|
+|---|---|
+|Conflito, EntryConflict|Corrija os valores de atributo conflitantes no Azure AD ou no aplicativo ou revise a configuração de atributo correspondente se a conta de usuário conflitante deveria ser correspondida e assumida. Examine a [documentação](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) a seguir para obter mais informações sobre como configurar atributos correspondentes.|
+|TooManyRequests|O aplicativo de destino rejeitou essa tentativa de atualizar o usuário porque ele está sobrecarregado e recebendo muitas solicitações. Não há nada a fazer. Essa tentativa será desativada automaticamente. A Microsoft também foi notificada desse problema.|
+|InternalServerError |O aplicativo de destino retornou um erro inesperado. Pode haver um problema de serviço com o aplicativo de destino que está impedindo que isso funcione. Essa tentativa será desativada automaticamente em 40 minutos.|
+|InsufficientRights, MethodNotAllowed, não permitido, não autorizado| O Azure AD foi capaz de autenticar com o aplicativo de destino, mas não foi autorizado a executar a atualização. Examine todas as instruções fornecidas pelo aplicativo de destino, bem como o respectivo [tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)de aplicativo.|
+|UnprocessableEntity|O aplicativo de destino retornou uma resposta inesperada. A configuração do aplicativo de destino pode não estar correta, ou pode haver um problema de serviço com o aplicativo de destino que está impedindo que isso funcione.|
+|WebExceptionProtocolError |Ocorreu um erro de protocolo HTTP durante a conexão com o aplicativo de destino. Não há nada a fazer. Essa tentativa será desativada automaticamente em 40 minutos.|
+|InvalidAnchor|Um usuário que foi criado ou correspondido anteriormente pelo serviço de provisionamento não existe mais. Verifique se o usuário existe. Para forçar uma nova correspondência de todos os usuários, use o MS API do Graph para [reiniciar o trabalho](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Observe que a reinicialização do provisionamento disparará um ciclo inicial, o que pode levar tempo para ser concluído. Ele também exclui o cache que o serviço de provisionamento usa para operar, o que significa que todos os usuários e grupos no locatário terão que ser avaliados novamente e determinados eventos de provisionamento poderão ser descartados.|
+|Não implementado | O aplicativo de destino retornou uma resposta inesperada. A configuração do aplicativo pode não estar correta ou pode haver um problema de serviço com o aplicativo de destino que está impedindo que isso funcione. Examine todas as instruções fornecidas pelo aplicativo de destino, bem como o respectivo [tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)de aplicativo. |
+|MandatoryFieldsMissing, MissingValues |Não foi possível criar o usuário porque os valores necessários estão ausentes. Corrija os valores de atributo ausentes no registro de origem ou examine a configuração de atributo correspondente para garantir que os campos obrigatórios não sejam omitidos. [Saiba mais](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) sobre como configurar atributos correspondentes.|
+|SchemaAttributeNotFound |Não foi possível executar a operação porque foi especificado um atributo que não existe no aplicativo de destino. Consulte a [documentação](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) sobre personalização de atributo e verifique se a configuração está correta.|
+|InternalError |Ocorreu um erro de serviço interno no serviço de provisionamento do Azure AD. Não há nada a fazer. Essa tentativa será repetida automaticamente em 40 minutos.|
+|InvalidDomain |A operação não pôde ser executada devido a um valor de atributo que contém um nome de domínio inválido. Atualize o nome de domínio no usuário ou adicione-o à lista de permitidos no aplicativo de destino. |
+|cedido |A operação não pôde ser concluída porque o aplicativo de destino demorou muito tempo para responder. Não há nada a fazer. Essa tentativa será repetida automaticamente em 40 minutos.|
+|LicenseLimitExceeded|Não foi possível criar o usuário no aplicativo de destino porque não há licenças disponíveis para esse usuário. Adquira licenças adicionais para o aplicativo de destino ou examine as atribuições de usuário e a configuração de mapeamento de atributo para garantir que os usuários corretos sejam atribuídos com os atributos corretos.|
+|DuplicateTargetEntries  |A operação não pôde ser concluída porque mais de um usuário no aplicativo de destino foi encontrado com os atributos correspondentes configurados. Remova o usuário duplicado do aplicativo de destino ou RECONFIGURE os mapeamentos de atributo conforme descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|DuplicateSourceEntries | A operação não pôde ser concluída porque mais de um usuário foi encontrado com os atributos correspondentes configurados. Remova o usuário duplicado ou RECONFIGURE os mapeamentos de atributo conforme descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
 
 ## <a name="next-steps"></a>Passos seguintes
 

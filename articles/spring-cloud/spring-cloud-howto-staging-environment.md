@@ -1,22 +1,19 @@
 ---
 title: Configurar um ambiente de preparo no Azure Spring Cloud | Microsoft Docs
 description: Saiba como usar a implantação azul-verde com o Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
-ms.date: 10/07/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 454eeaa2568891ec35fe698cdb20c5448e10887e
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.topic: conceptual
+ms.date: 10/31/2019
+ms.author: jeconnoc
+ms.openlocfilehash: 24ce4dee04e4daf3eaee4144f8dc56de5867bbca
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038987"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607215"
 ---
-# <a name="how-to-set-up-a-staging-environment"></a>Como configurar um ambiente de preparo
+# <a name="how-to-set-up-a-staging-environment"></a>Como configurar um ambiente de teste
 
 Este artigo mostrará como aproveitar uma implantação de preparo usando o padrão de implantação azul-verde no Azure Spring Cloud. Ele também mostrará como colocar essa implantação de preparo em produção sem alterar diretamente a implantação de produção.
 
@@ -26,26 +23,18 @@ Este artigo pressupõe que você já tenha implantado o aplicativo PiggyMetrics 
 
 Se você tiver um aplicativo diferente que gostaria de usar para este exemplo, precisará fazer uma alteração simples em uma parte voltada ao público do aplicativo.  Essa alteração diferencia a implantação de preparo da produção.
 
->[!NOTE]
-> Antes de iniciar este guia de início rápido, verifique se sua assinatura do Azure tem acesso ao Azure Spring Cloud.  Como um serviço de visualização, pedimos que você entre em contato conosco para que possamos adicionar sua assinatura à nossa lista de permissões.  Se você quiser explorar os recursos do Azure Spring Cloud, entre em contato conosco por email: azure-spring-cloud@service.microsoft.com.
-
 >[!TIP]
 > O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo.  Ele tem ferramentas comuns do Azure pré-instalados, incluindo as versões mais recentes do git, JDK, Maven e o CLI do Azure. Se você estiver conectado à sua assinatura do Azure, inicie o [Azure cloud Shell](https://shell.azure.com) do Shell.Azure.com.  Você pode saber mais sobre Azure Cloud Shell [lendo nossa documentação](../cloud-shell/overview.md)
 
 Para concluir este artigo:
 
-1. [Instalar o Git](https://git-scm.com/)
-1. [Instalar o JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
-1. [Instalar o Maven 3,0 ou superior](https://maven.apache.org/download.cgi)
-1. [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-1. [Inscrever-se para uma assinatura do Azure](https://azure.microsoft.com/free/)
 
 ## <a name="install-the-azure-cli-extension"></a>Instalar a extensão de CLI do Azure
 
 Instale a extensão do Azure Spring Cloud para o CLI do Azure usando o comando a seguir
 
 ```azurecli
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
     
 ## <a name="view-all-deployments"></a>Exibir todas as implantações
@@ -79,10 +68,10 @@ Vá para sua instância de serviço no portal do Azure e selecione **Gerenciamen
 
 >[!TIP]
 > * Confirme se o ponto de extremidade de teste termina com "/" para garantir que o CSS seja carregado corretamente.  
-> * Se seu navegador exigir que você insira credenciais de logon para exibir a página, use a [decodificação de URL](https://www.urldecoder.org/) para decodificar o ponto de extremidade de teste. A decodificação de URL retorna uma URL no formato "https://\<username >: \<Password > @ \<cluster-Name >. Test. azureapps. Io/gateway/Green".  Use isso para acessar seu ponto de extremidade.
+> * Se seu navegador exigir que você insira credenciais de logon para exibir a página, use a [decodificação de URL](https://www.urldecoder.org/) para decodificar o ponto de extremidade de teste. A decodificação de URL retorna uma URL no formato "https://\<nome de usuário >:\<senha > @\<cluster-Name >. Test. azureapps. Io/gateway/Green".  Use isso para acessar seu ponto de extremidade.
 
 >[!NOTE]    
-> As configurações do servidor de configuração se aplicam ao ambiente de preparo, bem como à produção. Por exemplo, se você definir o caminho do contexto (`server.servlet.context-path`) para seu gateway de aplicativo no servidor de configuração como *somepath*, o caminho para suas alterações de implantação verdes: "https://\<username >: \<password > @ \<cluster-Name >. Test. azureapps. Io/ Gateway/verde/somepath/... "
+> As configurações do servidor de configuração se aplicam ao ambiente de preparo, bem como à produção. Por exemplo, se você definir o caminho do contexto (`server.servlet.context-path`) para o gateway de aplicativo no servidor de configuração como *somepath*, o caminho para as alterações de implantação verdes: "https://\<nome de usuário >:\<senha > @\<nome do cluster >. test.azureapps.io/gateway/green/somepath/... "
  
  Se você visitar seu gateway de aplicativo voltado para o público neste ponto, verá a página antiga sem a nova alteração.
     

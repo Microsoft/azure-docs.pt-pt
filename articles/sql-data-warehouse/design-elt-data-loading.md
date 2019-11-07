@@ -1,5 +1,5 @@
 ---
-title: Em vez de ETL, design de ELT para Azure SQL Data Warehouse | Microsoft Docs
+title: Em vez de ETL, design ELT
 description: Em vez de ETL, crie um processo ELT (extração, carregamento e transformação) para carregar dados ou SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: load-data
 ms.date: 07/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: c248a2e3e6724388fa6402a70ac3bcb51f0f9ef3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: seo-lt-2019
+ms.openlocfilehash: a23b785d7699022f8508d3ca90d0ff0f60d6a5c7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492246"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686125"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Criando uma estratégia de carregamento de dados do polybase para o Azure SQL Data Warehouse
 

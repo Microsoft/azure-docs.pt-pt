@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: db700c1c06b89e1a3287b5eee1a11fc8877dedde
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
-ms.translationtype: HT
+ms.openlocfilehash: 93e52b393db288f5b19afde4a31e08d0bb91b471
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520816"
+ms.locfileid: "73571566"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Segurança de dados avançada para servidores SQL em máquinas virtuais do Azure (versão prévia)
 A segurança de dados avançada para servidores SQL em máquinas virtuais do Azure é um pacote unificado para recursos avançados de segurança do SQL. Esse recurso de visualização inclui a funcionalidade para identificar e reduzir possíveis vulnerabilidades de banco de dados e detectar atividades anormais que podem indicar ameaças ao seu banco de dados. 
@@ -63,7 +63,7 @@ Para conectar o host do SQL Server a um espaço de trabalho, siga as instruçõe
 
 ## <a name="set-up-email-notification-for-atp-alerts"></a>Configurar notificação por email para alertas ATP 
 
-Você pode definir uma lista de destinatários para receber uma notificação por email quando os alertas de ASC são gerados. O email contém um link direto para o alerta na central de segurança do Azure com todos os detalhes relevantes. 
+Você pode definir uma lista de destinatários para receber uma notificação por email quando os alertas da central de segurança são gerados. O email contém um link direto para o alerta na central de segurança do Azure com todos os detalhes relevantes. 
 
 1. Vá para a **central de segurança** > **preços & configurações** e clique na assinatura relevante
 

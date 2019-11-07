@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 93695e0bbcb81a570519a6f74cfdeab4ef85f076
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 7f8789076b00cd2b5a0694cf1f52e5dfe1569aee
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489396"
+ms.locfileid: "73571331"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Entender os resultados automatizados do Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -50,11 +50,11 @@ Depois de executar um experimento de aprendizado de máquina automatizado, um hi
 
    [lista de experimentos do ![](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list-expanded.png)
 
-1. Na tabela inferior, selecione o **número de execução**.
+1. Na tabela inferior, selecione a **execução**.
 
    [![execução do experimento](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png))
 
-1. Na tabela iterações, selecione o **número de iteração** para o modelo que você deseja explorar ainda mais.
+1. Nos modelos, selecione o **nome do algoritmo** para o modelo que você deseja explorar ainda mais.
 
    [modelo de experimento ![](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
 
@@ -91,12 +91,12 @@ f1_score_micro|A pontuação F1 é a média harmônica de precisão e RECALL. O 
 f1_score_weighted|A pontuação F1 é a média harmônica de precisão e RECALL. Média ponderada por frequência de classe de Pontuação F1 para cada classe|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|média = "ponderado"|
 log_loss|Essa é a função de perda usada em regressão logística (multinomial) e extensões de ti, como redes neurais, definidas como a probabilidade negativa de log dos rótulos verdadeiros, dadas as previsões de um classificador probabilística. Para um único exemplo com verdadeiro rótulo YT em {0,1} e a probabilidade estimada YP que YT = 1, a perda de log é-log&#124;P (YT YP) =-(YT log (YP) + (1-YT) log (1-YP)).|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Nenhum|
 norm_macro_recall|A recall de macro normalizada é recall de macro normalizado para que o desempenho aleatório tenha uma pontuação de 0 e o desempenho perfeito tenha uma pontuação de 1. Isso é obtido por norm_macro_recall: = (recall_score_macro-R)/(1-R), em que R é o valor esperado de recall_score_macro para previsões aleatórias (ou seja, R = 0,5 para classificação binária e R = (1/C) para problemas de classificação de classe C).|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Average = "macro" |
-precision_score_macro|Precisão é a porcentagem de elementos rotulados como uma determinada classe que realmente estão nessa classe. Macro é a média aritmética de precisão para cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|Average = "macro"|
-precision_score_micro|Precisão é a porcentagem de elementos rotulados como uma determinada classe que realmente estão nessa classe. O micro é computado globalmente, contando os verdadeiros positivos totais e os falsos positivos.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|Average = "micro"|
-precision_score_weighted|Precisão é a porcentagem de elementos rotulados como uma determinada classe que realmente estão nessa classe. Ponderado é a média aritmética de precisão para cada classe, ponderada pelo número de instâncias verdadeiras em cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|média = "ponderado"|
-recall_score_macro|Recall é a porcentagem de elementos na verdade em uma determinada classe que é rotulada corretamente. Macro é a média aritmética de recall para cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Average = "macro"|
-recall_score_micro|Recall é a porcentagem de elementos na verdade em uma determinada classe que é rotulada corretamente. O micro é calculado globalmente contando o total de positivos verdadeiros, falsos negativos e falsos positivos|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Average = "micro"|
-recall_score_weighted|Recall é a porcentagem de elementos na verdade em uma determinada classe que é rotulada corretamente. Ponderado é a média aritmética de recall para cada classe, ponderada pelo número de instâncias true em cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|média = "ponderado"|
+precision_score_macro|Precisão é a porcentagem de elementos previstos de forma positiva que são rotulados corretamente. Macro é a média aritmética de precisão para cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|Average = "macro"|
+precision_score_micro|Precisão é a porcentagem de elementos previstos de forma positiva que são rotulados corretamente. O micro é computado globalmente, contando os verdadeiros positivos totais e os falsos positivos.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|Average = "micro"|
+precision_score_weighted|Precisão é a porcentagem de elementos previstos de forma positiva que são rotulados corretamente. Ponderado é a média aritmética de precisão para cada classe, ponderada pelo número de instâncias verdadeiras em cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|média = "ponderado"|
+recall_score_macro|Recall é a porcentagem de elementos rotulados corretamente de uma determinada classe. Macro é a média aritmética de recall para cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Average = "macro"|
+recall_score_micro|Recall é a porcentagem de elementos rotulados corretamente de uma determinada classe. O micro é calculado globalmente contando o total de positivos verdadeiros, falsos negativos e falsos positivos|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Average = "micro"|
+recall_score_weighted|Recall é a porcentagem de elementos rotulados corretamente de uma determinada classe. Ponderado é a média aritmética de recall para cada classe, ponderada pelo número de instâncias true em cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|média = "ponderado"|
 weighted_accuracy|A precisão ponderada é a precisão em que o peso dado a cada exemplo é igual à proporção de instâncias verdadeiras na classe verdadeira do exemplo.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight é um vetor igual à proporção dessa classe para cada elemento no destino|
 
 ### <a name="confusion-matrix"></a>Matriz de confusão

@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 11/05/2019
 ms.author: victorh
-ms.openlocfilehash: 3e19a2a45dde8a951e0ae3a4bd3c8d019609a5e1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: df649eab1f0e2946078f8efd3cdd6ab68c3b7938
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502381"
+ms.locfileid: "73580200"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>O que é a versão prévia do Gerenciador de firewall do Azure?
 
@@ -20,7 +20,7 @@ ms.locfileid: "73502381"
 
 A versão prévia do Gerenciador de firewall do Azure é um serviço de gerenciamento de segurança que fornece política de segurança central e gerenciamento de rotas para perímetros de segurança baseados em nuvem. Ele funciona com o [Hub de WAN virtual do Azure](../virtual-wan/virtual-wan-about.md#resources), um recurso gerenciado pela Microsoft que permite criar facilmente arquiteturas de Hub e spoke. Quando as políticas de segurança e roteamento são associadas a esse Hub, ele é conhecido como um *[Hub virtual protegido](secured-virtual-hub.md)* . 
 
-![Gerenciador de firewall](media/overview/firewall-manager-conceptual.png)
+![Gerenciador de firewall](media/overview/firewallmanagerv3.png)
 
 ## <a name="azure-firewall-manager-preview-features"></a>Recursos de visualização do Azure firewall Manager
 
@@ -70,7 +70,7 @@ A versão prévia do Gerenciador de firewall do Azure tem os seguintes problemas
 
 |Problema  |Descrição  |Mitigação  |
 |---------|---------|---------|
-|Não há suporte para VNets central criadas manualmente|Atualmente, o Gerenciador de firewall do Azure dá suporte a redes criadas com hubs virtuais. O uso de sua própria VNet de Hub criada manualmente ainda não tem suporte.|Por enquanto, use o Gerenciador de firewall do Azure com redes de Hub e spoke criadas com hubs virtuais<br>Investigando atualmente.
+|Não há suporte para VNets central criadas manualmente|Atualmente, o Gerenciador de firewall do Azure dá suporte a redes criadas com hubs virtuais. O uso de sua própria VNet de Hub criada manualmente ainda não tem suporte.|Por enquanto, use o Gerenciador de firewall do Azure com redes de Hub e spoke criadas com hubs virtuais.<br>Investigando atualmente.
 |Limitações de filtragem de terceiros|Não há suporte para a filtragem de tráfego V2I com provedores de terceiros com o Firewall do Azure B2V e V2V.|Investigando atualmente.|
 |Divisão de tráfego sem suporte no momento|O Office 365 e a divisão de tráfego de PaaS público do Azure não têm suporte no momento. Dessa forma, a seleção de um provedor de terceiros para V2I ou B2I também envia todo o tráfego de PaaS público do Azure e do Office 365 por meio do serviço de parceiro.|Investigando atualmente a divisão de tráfego no Hub.
 |Um hub por região|Você não pode ter mais de um hub por região|Crie várias WANs virtuais em uma região.|

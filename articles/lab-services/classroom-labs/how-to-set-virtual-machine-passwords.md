@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: 40cdd0adf7bf100e1dbca64dbba68db3bc59a4fe
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: d89d506d8912706bbdb802801b16d01036ecb8e2
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331505"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583555"
 ---
-# <a name="set-up-and-manage-virtual-machine-pool"></a>Configurar e gerenciar o pool de máquinas virtuais 
+# <a name="set-up-and-manage-virtual-machine-pool"></a>Configurar e gerir o conjunto de máquinas virtuais 
 Este artigo mostra como realizar as seguintes tarefas:
 
 - Aumentar o número de máquinas virtuais (VMs) no laboratório
@@ -30,12 +30,12 @@ Este artigo mostra como realizar as seguintes tarefas:
 ## <a name="update-the-lab-capacity"></a>Atualizar a capacidade do laboratório
 Para aumentar ou diminuir a capacidade do laboratório (número de máquinas virtuais em um laboratório), execute as seguintes etapas:
 
-1. Na página **pool de máquinas virtuais** , selecione **capacidade do laboratório: &lt;Number @ no__t-3 máquinas**.
+1. Na página **pool de máquinas virtuais** , selecione **capacidade do laboratório: &lt;número&gt; computadores**.
 2. Insira o novo **número de VMs** que você deseja no laboratório. Esse número deve ser maior ou igual ao número de usuários registrados no laboratório. 
 3. Em seguida, selecione **Guardar**. 
 
     ![Botão iniciar tudo](../media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
-4. Se você aumentou a capacidade, poderá ver a VM ou as VMs que estão sendo criadas. 
+4. Se você aumentou a capacidade, poderá ver a VM ou as VMs que estão sendo criadas. Se você não vir a nova VM na lista, atualize a página. 
 
     ![VM sendo criada](../media/how-to-set-virtual-machine-passwords/vm-being-created.png)
 
@@ -51,11 +51,13 @@ Para aumentar ou diminuir a capacidade do laboratório (número de máquinas vir
     ![Botão parar tudo](../media/how-to-set-virtual-machine-passwords/stop-all-vms-button.png)
 
 ### <a name="start-selected-vms"></a>Iniciar VMs selecionadas
-Há duas maneiras de iniciar as VMs selecionadas (uma ou mais). A primeira maneira é selecionar a VM ou as VMs na lista e, em seguida, selecionar **Iniciar** na barra de ferramentas. A segunda maneira é selecionar a VM ou as VMs na lista, selecionar lista suspensa na coluna **estado** em uma das linhas e, em seguida, selecionar **Iniciar**. 
+Há duas maneiras de iniciar as VMs selecionadas (uma ou mais). A primeira maneira é selecionar a VM ou as VMs na lista e, em seguida, selecionar **Iniciar** na barra de ferramentas. 
+
+A segunda maneira é selecionar uma ou mais VMs na lista e alternar o botão na coluna **estado** . 
 
 ![Iniciar VMs selecionadas](../media/how-to-set-virtual-machine-passwords/start-selected-vms.png)
 
-Da mesma forma, você pode interromper uma ou mais VMs usando a lista suspensa na coluna **estado** ou **parar** na barra de ferramentas. 
+Da mesma forma, você pode interromper uma ou mais VMs alternando o botão na coluna **estado** ou selecionando **parar** na barra de ferramentas. 
 
 ## <a name="reset-vms"></a>Redefinir VMs
 Para redefinir uma ou mais VMs, selecione-as na lista e, em seguida, selecione **Redefinir** na barra de ferramentas. 
@@ -81,11 +83,19 @@ Ao habilitar/desabilitar a opção **usar a mesma senha para todas as máquinas 
 ### <a name="reset-password-later"></a>Redefinir senha mais tarde
 
 1. Na página **modelo** do laboratório, selecione **Redefinir senha** na barra de ferramentas. 
-
-    ![Menu Redefinir senha na home page](../media/how-to-set-virtual-machine-passwords/reset-password-menu-dashboard.png)
 1. Na caixa de diálogo **Redefinir senha** , insira uma senha e selecione **Redefinir senha**.
     
     ![Caixa de diálogo Definir senha](../media/how-to-set-virtual-machine-passwords/set-password.png)
+
+## <a name="connect-to-student-vms"></a>Conectar-se às VMs dos alunos
+O criador de laboratório (instrutor/professor) pode se conectar a uma VM de aluno se as seguintes condições forem atendidas: 
+
+- A opção **usar a mesma senha para todas as máquinas virtuais** foi selecionada ao criar o laboratório
+- A VM está em execução 
+
+ Para se conectar à VM do aluno, passe o mouse sobre a VM na lista e selecione o botão computador.  
+
+![Botão conectar ao aluno da VM](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre as outras opções de uso do aluno que você (como proprietário do laboratório) podem configurar, consulte o seguinte artigo: [Configurar o uso do aluno](how-to-configure-student-usage.md).

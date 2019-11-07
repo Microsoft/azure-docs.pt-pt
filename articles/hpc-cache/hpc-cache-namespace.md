@@ -1,21 +1,21 @@
 ---
-title: Criar um cache do HPC do Azure (versão prévia)
+title: Criar um cache HPC do Azure
 description: Como criar uma instância de cache do HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: fa6408d33504c6ac73eacec079e9c08acd4cece2
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: aaa939051a1aeafdb0650119772fc7214506aa8d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255260"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582184"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planear o espaço de nomes agregado
 
-O cache do HPC do Azure (visualização) permite que os clientes acessem uma variedade de sistemas de armazenamento por meio de um namespace virtual que oculta os detalhes do sistema de armazenamento de back-end.
+O cache HPC do Azure permite que os clientes acessem uma variedade de sistemas de armazenamento por meio de um namespace virtual que oculta os detalhes do sistema de armazenamento de back-end.
 
 Ao adicionar um destino de armazenamento, você define o caminho do arquivo voltado para o cliente. Os computadores cliente montam esse caminho de arquivo e podem fazer solicitações de leitura de arquivo para o cache em vez de montar o sistema de armazenamento diretamente.
 
@@ -57,7 +57,7 @@ Como os caminhos de origem do NFS são subdiretórios da mesma exportação, voc
 | *Endereço IP ou nome do host* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
 | *Endereço IP ou nome do host* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
 
-Um aplicativo cliente pode montar o cache e acessar facilmente os caminhos de arquivo de namespace agregados ``/source``, ``/templates/sku798`` e ``/templates/sku980``.
+Um aplicativo cliente pode montar o cache e acessar facilmente os caminhos de arquivo de namespace agregados ``/source``, ``/templates/sku798``e ``/templates/sku980``.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,18 +1,18 @@
 ---
 title: Instalar o gateway de dados local para Azure Analysis Services | Microsoft Docs
-description: Saiba como instalar e configurar um gateway de dados local.
+description: Saiba como instalar e configurar um gateway de dados local para se conectar a fontes de dados locais de um servidor Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 99b5a0ff9cc0fd7fdc3b8a0e453ed287c45e1c60
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 37658ea6b94d6369d282c49f79947a1f183b61c7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147121"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572842"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados no local
 
@@ -127,7 +127,7 @@ Depois de instalar e registrar seu gateway, você precisará criar um recurso de
 
     ![Êxito ao conectar o servidor ao recurso de gateway](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
-E já está. Se você precisar abrir portas ou executar qualquer solução de problemas, não deixe de conferir o [Gateway de dados local](analysis-services-gateway.md).
+Já está. Se você precisar abrir portas ou executar qualquer solução de problemas, não deixe de conferir o [Gateway de dados local](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

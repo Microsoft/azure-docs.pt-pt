@@ -3,15 +3,15 @@ title: Aprenda a auditar o conteúdo de máquinas virtuais
 description: Saiba como o Azure Policy usa a configuração de convidado para auditar as configurações dentro de um computador do Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/20/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: efe929a6ea38a8df7ad9fe37a92c181e3d409b25
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 0e5592f629646db3132ffd65fd56b1a0d5d5be39
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464072"
+ms.locfileid: "73581433"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a configuração de convidado de Azure Policy
 
@@ -77,7 +77,7 @@ A tabela a seguir mostra uma lista de sistemas operacionais com suporte em image
 
 |Publicador|Nome|Versões|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04, 16.04, 18.04|
+|Canónico|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|2012 datacenter, 2012 R2 Datacenter, 2016 Data Center, 2019 datacenter|
 |Microsoft|Cliente Windows|Windows 10|
@@ -121,30 +121,27 @@ Azure Policy usa a propriedade **complianceStatus** dos provedores de recursos d
 > [!NOTE]
 > A política **DeployIfNotExists** é necessária para que a política **AuditIfNotExists** retorne os resultados. Sem o **DeployIfNotExists**, a política **AuditIfNotExists** mostra "0 de 0" recursos como status.
 
-Todas as políticas internas para a configuração de convidado são incluídas em uma iniciativa para agrupar as definições para uso em atribuições. A iniciativa interna chamada *[Preview]: auditoria de configurações de segurança de senha dentro de computadores Linux e Windows* contém 18 políticas. Há seis pares de **DeployIfNotExists** e **AuditIfNotExists** para o Windows e três pares para Linux. A lógica de [definição de política](definition-structure.md#policy-rule) valida que apenas o sistema operacional de destino é avaliado.
+Todas as políticas internas para a configuração de convidado são incluídas em uma iniciativa para agrupar as definições para uso em atribuições. A iniciativa interna chamada _\[Preview\]: auditoria de configurações de segurança de senha dentro de computadores Linux e Windows_ contém 18 políticas. Há seis pares de **DeployIfNotExists** e **AuditIfNotExists** para o Windows e três pares para Linux. A lógica de [definição de política](definition-structure.md#policy-rule) valida que apenas o sistema operacional de destino é avaliado.
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Auditando configurações do sistema operacional seguindo linhas de base do setor
 
-Uma das iniciativas disponíveis no Azure Policy fornece a capacidade de auditar configurações do sistema operacional dentro de máquinas virtuais após uma "linha de base" da Microsoft.  A definição, *[Preview]: auditar VMs do Windows que não correspondem às configurações de linha de base de segurança do Azure* inclui um conjunto completo de regras de auditoria com base nas configurações de Active Directory política de grupo.
+Uma das iniciativas disponíveis no Azure Policy fornece a capacidade de auditar configurações do sistema operacional dentro de máquinas virtuais após uma "linha de base" da Microsoft. A definição, _\[visualização\]: auditar VMs do Windows que não correspondem às configurações de linha de base de segurança do Azure_ inclui um conjunto completo de regras de auditoria com base nas configurações de Active Directory política de grupo.
 
-A maioria das configurações está disponível como parâmetros.  Essa funcionalidade permite que você personalize o que será auditado para alinhar a política com seus requisitos organizacionais ou para mapear a política para informações de terceiros, como padrões regulatórios do setor.
+A maioria das configurações está disponível como parâmetros. Essa funcionalidade permite que você personalize o que é auditado para alinhar a política com seus requisitos organizacionais ou mapear a política para informações de terceiros, como padrões regulatórios do setor.
 
-Alguns parâmetros dão suporte a um intervalo de valores inteiros.  Por exemplo, o parâmetro duração máxima da senha pode ser definido usando um operador de intervalo para dar flexibilidade aos proprietários do computador.  Você pode auditar que a configuração de Política de Grupo efetiva que exige que o usuário altere suas senhas não deve ter mais de 70 dias, mas não deve ser inferior a 1 dia.  Conforme descrito na bolha de informações do parâmetro, para tornar esse o valor de auditoria efetivo, defina o valor como "1, 70".
+Alguns parâmetros dão suporte a um intervalo de valores inteiros. Por exemplo, o parâmetro duração máxima da senha pode ser definido usando um operador de intervalo para dar flexibilidade aos proprietários do computador. Você pode auditar que a configuração de Política de Grupo efetiva que exige que os usuários alterem suas senhas não deve ter mais de 70 dias, mas não deve ser inferior a um dia. Conforme descrito na bolha de informações do parâmetro, para tornar essa política de negócios o valor de auditoria efetivo, defina o valor como "1, 70".
 
-Se você atribuir a política usando um modelo de Azure Resource Manager dployment, poderá usar um arquivo de parâmetros para gerenciar essas configurações do controle do código-fonte.
-O uso de uma ferramenta como o Git para gerenciar as alterações nas políticas de auditoria com comentários em cada check-in, documentará as evidências quanto à razão pela qual uma atribuição deve estar em exceção ao valor esperado.
+Se você atribuir a política usando um modelo de implantação Azure Resource Manager, poderá usar um arquivo de parâmetros para gerenciar essas configurações do controle do código-fonte. Usar uma ferramenta como o Git para gerenciar alterações em políticas de auditoria com comentários em cada verificação de documentos de check-in, por que uma atribuição deve ser uma exceção para o valor esperado.
 
 #### <a name="applying-configurations-using-guest-configuration"></a>Aplicando configurações usando a configuração de convidado
 
-O recurso mais recente do Azure Policy define as configurações dentro de computadores.
-A definição *Configurar o fuso horário em computadores Windows* fará alterações no computador Configurando o fuso horário.
+O recurso mais recente do Azure Policy define as configurações dentro de computadores. A definição _Configurar o fuso horário em computadores Windows_ faz alterações no computador Configurando o fuso horário.
 
-Ao atribuir definições que começam com *Configure*, você também deve atribuir os pré-requisitos de implantação de definição *para habilitar a política de configuração de convidado em VMs do Windows.*
-Você pode combinar essas definições em uma iniciativa se escolher.
+Ao atribuir definições que começam com _Configure_, você também deve atribuir os pré-requisitos de implantação de definição _para habilitar a política de configuração de convidado em VMs do Windows_. Você pode combinar essas definições em uma iniciativa se escolher.
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Atribuindo políticas a computadores fora do Azure
 
-As políticas de auditoria disponíveis para a configuração de convidado incluem o tipo de recurso **Microsoft. HybridCompute/Machines** .  Todos os computadores integrados ao arco do Azure que estão no escopo da atribuição serão incluídos automaticamente.
+As políticas de auditoria disponíveis para a configuração de convidado incluem o tipo de recurso **Microsoft. HybridCompute/Machines** . Todos os computadores integrados ao [Azure ARC para servidores](../../../azure-arc/servers/overview.md) que estão no escopo da atribuição de política são incluídos automaticamente.
 
 ### <a name="multiple-assignments"></a>Várias atribuições
 
@@ -152,8 +149,7 @@ Atualmente, as políticas de configuração de convidado só dão suporte à atr
 
 ## <a name="built-in-resource-modules"></a>Módulos de recursos internos
 
-Ao instalar a extensão de configuração de convidado, o módulo do PowerShell ' GuestConfiguration ' é incluído com a versão mais recente dos módulos de recursos de DSC. Esse módulo pode ser baixado do Galeria do PowerShell usando o link ' download manual ' na página do módulo [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/).
-O formato de arquivo '. nupkg ' pode ser renomeado para '. zip ' para descompactar e examinar.
+Ao instalar a extensão de configuração de convidado, o módulo do PowerShell ' GuestConfiguration ' é incluído com a versão mais recente dos módulos de recursos de DSC. Esse módulo pode ser baixado do Galeria do PowerShell usando o link ' download manual ' na página do módulo [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/). O formato de arquivo '. nupkg ' pode ser renomeado para '. zip ' para descompactar e examinar.
 
 ## <a name="client-log-files"></a>Arquivos de log do cliente
 

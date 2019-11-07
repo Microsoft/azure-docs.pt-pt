@@ -1,18 +1,18 @@
 ---
 title: Atualização assíncrona para modelos de Azure Analysis Services | Microsoft Docs
-description: Saiba como codificar a atualização assíncrona usando a API REST.
+description: Descreve como usar a API REST do Azure Analysis Services para codificar a atualização assíncrona de dados de modelo.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5fbb3f2cbc0e53ab1bc04d57b583802e26b92a60
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7c6fba10264939335cdef26f288973f8217f340b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147363"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573400"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 
@@ -110,7 +110,7 @@ CommitMode é igual a partialBatch. Ele é usado ao fazer uma carga inicial de c
 > [!NOTE]
 > No momento da gravação, o tamanho do lote é o valor de MaxParallelism, mas esse valor pode ser alterado.
 
-## <a name="get-refreshesrefreshid"></a>OBTER/refreshes/\<refreshId >
+## <a name="get-refreshesrefreshid"></a>OBTER/refreshes/\<renovaid >
 
 Para verificar o status de uma operação de atualização, use o verbo GET na ID de atualização. Aqui está um exemplo do corpo da resposta. Se a operação estiver em andamento, **InProgress** será retornado no status.
 
@@ -160,7 +160,7 @@ Para obter uma lista de operações de atualização históricas para um modelo,
 ]
 ```
 
-## <a name="delete-refreshesrefreshid"></a>EXCLUIR/refreshes/\<refreshId >
+## <a name="delete-refreshesrefreshid"></a>EXCLUIR/refreshes/\<renovaid >
 
 Para cancelar uma operação de atualização em andamento, use o verbo DELETE na ID de atualização.
 
@@ -207,11 +207,11 @@ O exemplo de código usa a autenticação de [entidade de serviço](#service-pri
 Consulte [criar entidade de serviço-portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md) e [Adicionar uma entidade de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md) para obter mais informações sobre como configurar uma entidade de serviço e atribuir as permissões necessárias no Azure as. Depois de concluir as etapas, conclua as seguintes etapas adicionais:
 
 1.  No exemplo de código, Find **String Authority =...** , substitua **Common** pela ID de locatário da sua organização.
-2.  Comentar/remover marca de comentário para que a classe ClientCredential seja usada para instanciar o objeto cred. Verifique se a ID de \<App > e os valores da chave \<App > são acessados de forma segura ou use a autenticação baseada em certificado para entidades de serviço.
+2.  Comentar/remover marca de comentário para que a classe ClientCredential seja usada para instanciar o objeto cred. Certifique-se de que a ID do aplicativo \<> e \<valores de > de chave de aplicativo sejam acessados de forma segura ou use a autenticação baseada em certificado para entidades de serviço.
 3.  Execute o exemplo.
 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consultar também
 
 [Exemplos](analysis-services-samples.md)   
 [API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   

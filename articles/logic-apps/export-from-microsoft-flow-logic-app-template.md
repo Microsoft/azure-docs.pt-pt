@@ -1,6 +1,6 @@
 ---
-title: Exportar fluxos de Microsoft Flow para aplicativos lógicos do Azure
-description: Migrar fluxos de Microsoft Flow para aplicativos lógicos do Azure exportando-os como modelos de Azure Resource Manager
+title: Exportar fluxos da energia automatizada para o aplicativo lógico do Azure
+description: Migrar fluxos da Power mate para o aplicativo lógico do Azure exportando-os como modelos de Azure Resource Manager
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,31 +9,31 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 82c4e55eff36a7da70e0304fc8152491a8030e04
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: e0dda5c2097243143d18851c47e7006c81769c87
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441013"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583259"
 ---
-# <a name="export-flows-from-microsoft-flow-and-deploy-to-azure-logic-apps"></a>Exportar fluxos do Microsoft Flow e implementá-los no Azure Logic Apps
+# <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportar fluxos de energia automatizar e implantar no aplicativo lógico do Azure
 
-Para estender e expandir os recursos do seu fluxo, você pode migrar esse fluxo de [Microsoft Flow](https://flow.microsoft.com) para os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md). Você pode exportar seu fluxo como um modelo de Azure Resource Manager para um aplicativo lógico, implantar esse modelo de aplicativo lógico em um grupo de recursos do Azure e, em seguida, abrir esse aplicativo lógico no designer de aplicativo lógico.
+Para estender e expandir os recursos do seu fluxo, você pode migrar esse fluxo de [Power mate](https://flow.microsoft.com) para [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md). Você pode exportar seu fluxo como um modelo de Azure Resource Manager para um aplicativo lógico, implantar esse modelo de aplicativo lógico em um grupo de recursos do Azure e, em seguida, abrir esse aplicativo lógico no designer de aplicativo lógico.
 
 > [!NOTE]
-> Nem todos os conectores de Microsoft Flow estão disponíveis nos aplicativos lógicos do Azure. Você pode importar fluxos que têm [conectores equivalentes](../connectors/apis-list.md) em aplicativos lógicos do Azure. Por exemplo, o gatilho de botão, o conector de aprovação e o conector de notificação são específicos para Microsoft Flow.
+> Nem todos os conectores de energia automatizada estão disponíveis nos aplicativos lógicos do Azure. Você pode importar fluxos que têm [conectores equivalentes](../connectors/apis-list.md) em aplicativos lógicos do Azure. Por exemplo, o gatilho de botão, o conector de aprovação e o conector de notificação são específicos para a automatização de energia.
 >
-> Fluxos baseados em OpenAPI exportados de Microsoft Flow atualmente não têm suporte para implantação como modelos de aplicativo lógico. 
+> Os fluxos com base em OpenAPI exportados da energia automatizada atualmente não têm suporte para implantação como modelos de aplicativos lógicos. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* O fluxo do qual você deseja exportar Microsoft Flow
+* O fluxo que você deseja exportar da energia automatizada
 
 ## <a name="export-a-flow"></a>Exportar um fluxo
 
-1. Entre no [Microsoft Flow](https://flow.microsoft.com)e selecione **meus fluxos**. Localize e selecione seu fluxo. Na barra de ferramentas, selecione o botão de reticências ( **...** ). Selecione **Exportar** > **modelo de aplicativos lógicos (. JSON)** .
+1. Entre para [automatizar a energia](https://flow.microsoft.com)e selecione **meus fluxos**. Localize e selecione seu fluxo. Na barra de ferramentas, selecione o botão de reticências ( **...** ). Selecione **exportar** > **modelo de aplicativos lógicos (. JSON)** .
 
    ![Fluxo de exportação](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
 
@@ -53,13 +53,13 @@ Para obter mais informações, consulte [aumentar até os aplicativos lógicos d
 
    ![Selecione "criar seu próprio modelo no editor"](./media/export-from-microsoft-flow-logic-app-template/build-template-in-editor.png)
 
-1. Na barra de ferramentas **Editar modelo** , selecione **carregar arquivo**. Localize e selecione o modelo JSON que você exportou de Microsoft Flow e selecione **abrir**.
+1. Na barra de ferramentas **Editar modelo** , selecione **carregar arquivo**. Localize e selecione o modelo JSON que você exportou da energia automatizada e selecione **abrir**.
 
    ![Selecione "carregar arquivo"](./media/export-from-microsoft-flow-logic-app-template/load-file.png)
 
 1. Depois que o editor mostrar o JSON, os parâmetros e os recursos em seu modelo, selecione **salvar**.
   
-   ![Guardar modelo](./media/export-from-microsoft-flow-logic-app-template/save-template.png)
+   ![Guardar o modelo](./media/export-from-microsoft-flow-logic-app-template/save-template.png)
 
 1. Agora, especifique estes parâmetros de entrada para o modelo:
 
@@ -76,7 +76,7 @@ Para obter mais informações, consulte [aumentar até os aplicativos lógicos d
   
    ![Especificar parâmetros de entrada para o modelo](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
-   O Azure implanta seu modelo como um aplicativo lógico para o grupo de recursos especificado. Todos os aplicativos lógicos que você migra do Microsoft Flow são implantados em um estado desabilitado.
+   O Azure implanta seu modelo como um aplicativo lógico para o grupo de recursos especificado. Todos os aplicativos lógicos que você migra da energia automatizada são implantados em um estado desabilitado.
 
 1. Antes de ativar seu aplicativo lógico, autorize as novas conexões seguindo estas etapas:
 
@@ -102,9 +102,9 @@ Para obter mais informações, consulte [aumentar até os aplicativos lógicos d
 
 Se você tiver configurado o Visual Studio com os [pré-requisitos](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites) para criar aplicativos lógicos, poderá implantar o modelo exportado do Visual Studio para os aplicativos lógicos do Azure.
 
-1. No Visual Studio, abra o arquivo de modelo que você exportou do Microsoft Flow.
+1. No Visual Studio, abra o arquivo de modelo que você exportou da energia automatizada.
 
-1. No Visual Studio, crie um projeto de grupo de recursos do Azure e selecione o modelo **aplicativo lógico** seguindo as [etapas em início rápido: Crie tarefas, processos e fluxos de trabalho automatizados com aplicativos lógicos do Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)– Visual Studio, por exemplo:
+1. No Visual Studio, crie um projeto de grupo de recursos do Azure e selecione o modelo **aplicativo lógico** seguindo as etapas em [início rápido: criar tarefas, processos e fluxos de trabalho automatizados com aplicativos lógicos do Azure – Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md), por exemplo:
 
    ![Criar projeto do Grupo de Recursos do Azure](./media/export-from-microsoft-flow-logic-app-template/create-azure-resource-group-project.png)
 
@@ -134,7 +134,7 @@ Se você tiver configurado o Visual Studio com os [pré-requisitos](../logic-app
 
    1. Salve sua solução antes de implantar o aplicativo lógico.
 
-1. No Gerenciador de soluções, abra o menu de atalho projeto e selecione **implantar** > **novo**. Se tal lhe for pedido, inicie sessão com a sua conta do Azure.
+1. No Gerenciador de Soluções, abra o menu de atalho projeto e selecione **implantar** > **novo**. Se tal lhe for pedido, inicie sessão com a sua conta do Azure.
 
 1. Quando solicitado, confirme a assinatura do Azure, o grupo de recursos do Azure e todas as outras configurações que você deseja usar para a implantação, como um [arquivo de parâmetros](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) a ser usado para passar os valores de parâmetro de modelo e, em seguida, selecione **implantar**.
 
@@ -158,9 +158,9 @@ Se você tiver configurado o Visual Studio com os [pré-requisitos](../logic-app
 
 1. Para evitar a execução de fluxos de trabalho duplicados, certifique-se de desativar ou excluir o fluxo original.
 
-Para obter mais informações sobre essas etapas de implantação [, consulte início rápido: Criar tarefas, processos e fluxos de trabalho automatizados com aplicativos lógicos do Azure-Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-to-Azure)
+Para obter mais informações sobre essas etapas de implantação, consulte [início rápido: criar tarefas, processos e fluxos de trabalho automatizados com aplicativos lógicos do Azure – Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-to-Azure)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [conectores para aplicativos lógicos do Azure](../connectors/apis-list.md)
 * Saiba mais sobre os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md)

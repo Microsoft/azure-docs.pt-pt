@@ -6,20 +6,20 @@ keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 05/02/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: 00d4911c0f2541ea5c64eccca3ab1b1505e06390
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 63e61844ddb5bd0f0ed52b67e26ea5bf1857fd2b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608540"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579926"
 ---
 # <a name="azure-blockchain-service-security"></a>Segurança do serviço Blockchain do Azure
 
-O serviço Blockchain do Azure usa vários recursos do Azure para manter seus dados seguros e disponíveis. Os dados são protegidos usando isolamento, criptografia e autenticação.
+O Azure Blockchain Service utiliza várias capacidades do Azure para manter os seus dados seguros e disponíveis. Os dados são protegidos com isolamento, encriptação e autenticação.
 
 ## <a name="isolation"></a>Isolamento
 
@@ -29,9 +29,9 @@ Os recursos do serviço Blockchain do Azure são isolados em uma rede virtual pr
 
 ## <a name="encryption"></a>Encriptação
 
-Os dados do usuário são armazenados no armazenamento do Azure. Os dados do usuário são criptografados em movimento e em repouso para segurança e confidencialidade. Para obter mais informações, consulte: [Guia de segurança do Armazenamento do Microsoft Azure](../../storage/common/storage-security-guide.md).
+Os dados do usuário são armazenados no armazenamento do Azure. Os dados do usuário são criptografados em movimento e em repouso para segurança e confidencialidade. Para obter mais informações, consulte: [Guia de segurança do armazenamento do Azure](../../storage/common/storage-security-guide.md).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 As transações podem ser enviadas para nós blockchain por meio de um ponto de extremidade RPC. Os clientes se comunicam com um nó de transação usando um servidor proxy reverso que manipula a autenticação do usuário e criptografa os dados por SSL.
 

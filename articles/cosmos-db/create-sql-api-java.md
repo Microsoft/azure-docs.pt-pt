@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 05/21/2019
+ms.date: 10/31/2019
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: ab3d2c0e73a5fd52e4659e38cb80c5e18d334caa
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: d5a32780f8598c0843958b99f02cd18aa33bea2e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466210"
+ms.locfileid: "73582853"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Início rápido: compilar um aplicativo Java para gerenciar Azure Cosmos DB dados da API do SQL
 
@@ -69,92 +69,36 @@ Agora, vamos trabalhar com código. Vamos clonar uma aplicação da SQL API a pa
 1. Execute o seguinte comando para clonar o repositório de exemplo. Este comando cria uma cópia da aplicação de exemplo no seu computador.
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started
+    git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
     ```
 
 ## <a name="review-the-code"></a>Rever o código
 
 Este passo é opcional. Se estiver interessado em aprender de que forma os recursos da base de dados são criados no código, pode consultar os seguintes fragmentos. Caso contrário, pode avançar para [Executar a aplicação](#run-the-app). 
 
-* `AsyncDocumentClient` inicialização. O [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) fornece a representação lógica do lado do cliente para o serviço de banco de dados Cosmos do Azure. Este cliente serve para configurar e executar pedidos contra o serviço.
-
-    ```java
-    client = new AsyncDocumentClient.Builder()
-             .withServiceEndpoint(YOUR_COSMOS_DB_ENDPOINT)
-             .withMasterKeyOrResourceToken(YOUR_COSMOS_DB_MASTER_KEY)
-             .withConnectionPolicy(ConnectionPolicy.GetDefault())
-             .withConsistencyLevel(ConsistencyLevel.Eventual)
-             .build();
-    ```
-
-* Criação da [base de dados](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.database).
-
-    ```java
-    Database databaseDefinition = new Database();
-    databaseDefinition.setId(databaseName);
+* `CosmosClient` inicialização. O `CosmosClient` fornece a representação lógica do lado do cliente para o serviço de banco de dados Cosmos do Azure. Este cliente serve para configurar e executar pedidos contra o serviço.
     
-    client.createDatabase(databaseDefinition, null)
-            .toCompletable()
-            .await();
-    ```
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateSyncClient)]
 
-* Criação de [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.documentcollection).
+* Criação de CosmosDatabase.
 
-    ```java
-    DocumentCollection collectionDefinition = new DocumentCollection();
-    collectionDefinition.setId(collectionName);
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateDatabaseIfNotExists)]
 
-    //...
+* Criação de CosmosContainer.
 
-    client.createCollection(databaseLink, collectionDefinition, requestOptions)
-            .toCompletable()
-            .await();
-    ```
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateContainerIfNotExists)]
 
-* Criação de documentos com o método [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.document).
+* Criação de item usando o método `createItem`.
 
-    ```java
-    // Any Java object within your code
-    // can be serialized into JSON and written to Azure Cosmos DB
-    Family andersenFamily = new Family();
-    andersenFamily.setId("Andersen.1");
-    andersenFamily.setLastName("Andersen");
-    // More properties
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateItem)]
+   
+* As leituras de ponto são executadas usando `getItem` e `read` método
 
-    String collectionLink = String.format("/dbs/%s/colls/%s", databaseName, collectionName);
-    client.createDocument(collectionLink, family, null, true)
-            .toCompletable()
-            .await();
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=ReadItem)]
 
-    ```
+* Consultas SQL sobre JSON são executadas usando o método `queryItems`.
 
-* As consultas SQL sobre JSON são realizadas com o método [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient.querydocuments?view=azure-java-stable).
-
-    ```java
-    FeedOptions queryOptions = new FeedOptions();
-    queryOptions.setPageSize(-1);
-    queryOptions.setEnableCrossPartitionQuery(true);
-    queryOptions.setMaxDegreeOfParallelism(-1);
-
-    String collectionLink = String.format("/dbs/%s/colls/%s",
-            databaseName,
-            collectionName);
-    Iterator<FeedResponse<Document>> it = client.queryDocuments(
-            collectionLink,
-            "SELECT * FROM Family WHERE Family.lastName = 'Andersen'",
-            queryOptions).toBlocking().getIterator();
-
-    System.out.println("Running SQL query...");
-    while (it.hasNext()) {
-        FeedResponse<Document> page = it.next();
-        System.out.println(
-                String.format("\tRead a page of results with %d items",
-                        page.getResults().size()));
-        for (Document doc : page.getResults()) {
-            System.out.println(String.format("\t doc %s", doc));
-        }
-    }
-    ```    
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=QueryItems)]
 
 ## <a name="run-the-app"></a>Executar a aplicação
 
@@ -164,7 +108,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 1. Na janela de terminal do git, `cd` para a pasta de código de exemplo.
 
     ```bash
-    cd azure-cosmos-db-sql-api-async-java-getting-started/azure-cosmosdb-get-started
+    cd azure-cosmos-java-getting-started
     ```
 
 2. Na janela de terminal do git, utilize o seguinte comando para instalar os pacotes Java necessários.
@@ -182,18 +126,12 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
     A janela do terminal apresenta uma notificação que a base de dados FamilyDB tinha criado. 
     
-4. Prima uma tecla para criar a base de dados e, em seguida, outra tecla para criar a coleção. 
-
-    Mude outra vez para o Data Explorer no seu browser para ver que contém agora uma base de dados FamilyDB e uma coleção FamilyCollection.
-
-5. Mude para a janela da consola e prima uma tecla para criar o primeiro documento e, em seguida, outra tecla para criar o segundo documento. Em seguida, mude novamente para o Data Explorer para vê-los. 
-
-6. Prima uma tecla para executar uma consulta e ver o resultado na janela da consola. 
+4. O aplicativo cria um banco de dados com o nome `AzureSampleFamilyDB`
+5. O aplicativo cria um contêiner com o nome `FamilyContainer`
+6. O aplicativo executará leituras de ponto usando IDs de objeto e valor de chave de partição (que é lastName em nosso exemplo). 
+7. O aplicativo consultará itens para recuperar todas as famílias com o sobrenome em (' Andersen ', ' Barros ', ' Johnson ')
 
 7. A aplicação não elimina os recursos criados. Mude novamente para o portal para [limpar os recursos](#clean-up-resources).  da sua conta, para que não incorra em custos.
-
-    ![Exibir a saída na janela do console](./media/create-sql-api-java/rxjava-console-output.png)
-
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 

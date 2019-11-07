@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 0262be687b74ec1b97cb508f6da1b95cd5d7a533
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 639a3f89e470a832279add8d2ed7cf49441611f4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596918"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571789"
 ---
 # <a name="azure-security-center-for-iot-frequently-asked-questions"></a>Central de segurança do Azure para perguntas frequentes sobre IoT  
 
@@ -66,11 +66,11 @@ A central de segurança do Azure para o agente de IoT fornece cobertura de amea�
 
 ## <a name="where-can-i-get-the-azure-security-center-for-iot-security-agent"></a>Onde posso obter a central de segurança do Azure para o agente de segurança de IoT?
 
-A central de segurança do Azure para o agente de segurança de IoT é de software livre e está disponível no GitHub nas versões do Windows e https://github.com/Azure/Azure-Security-IoT do Linux de 32 bits e 64 bits:.
+A central de segurança do Azure para o agente de segurança de IoT é de software livre e está disponível no GitHub nas versões do Windows e do Linux de 32 bits e 64 bits: https://github.com/Azure/Azure-Security-IoT.
 
 ## <a name="where-does-the-azure-security-center-for-iot-agent-get-installed"></a>Onde a central de segurança do Azure para o agente de IoT é instalada? 
 
-Informações detalhadas de instalação e de implantação de agente podem ser encontradas https://github.com/Azure/Azure-Security-IoT no github:.
+Informações detalhadas de instalação e de implantação de agente podem ser encontradas no GitHub: https://github.com/Azure/Azure-IoT-Security.
 
 ## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>Quais são as dependências e os pré-requisitos do agente?
 
@@ -92,7 +92,7 @@ A central de segurança do Azure para IoT fornece verificações de agente confi
 
 Sim. Os dados transmitidos pelo agente são contados em sua cota do Hub IoT. 
 
-## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>O que se segue? Instalei um agente e não vejo atividades ou logs...
+## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>O que vem a seguir? Instalei um agente e não vejo atividades ou logs...
 
 1. Verifique [se o tipo de agente se ajusta à plataforma de sistema operacional designada do seu dispositivo](how-to-deploy-agent.md)
 
@@ -139,13 +139,13 @@ Sim. Você pode definir um alerta personalizado no conjunto predeterminado de co
 O módulo central de segurança do Azure para IoT é usado para configuração e gerenciamento do agente.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como começar a usar a central de segurança do Azure para IoT, consulte os seguintes artigos:
 
 
 - Leia a [visão geral](overview.md) da central de segurança do Azure para IOT
 - Verificar os [pré-requisitos do serviço](service-prerequisites.md)
-- Saiba mais sobre como começar [](getting-started.md)
+- Saiba mais sobre [como começar](getting-started.md)
 - Entender [a central de segurança do Azure para alertas de segurança de IOT](concept-security-alerts.md)
 

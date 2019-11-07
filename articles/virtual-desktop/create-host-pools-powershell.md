@@ -1,5 +1,5 @@
 ---
-title: Criar um pool de hosts da área de trabalho virtual do Windows com o PowerShell-Azure
+title: Criar pool de hosts da área de trabalho virtual do Windows PowerShell – Azure
 description: Como criar um pool de hosts na área de trabalho virtual do Windows com cmdlets do PowerShell.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 8ed0e1b1406eca6dd55e9e9faf184152a190da94
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: a50a7966af8f6453441ac19c9dafac064015f9a2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757506"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607088"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Criar um conjunto de anfitriões com o PowerShell
 

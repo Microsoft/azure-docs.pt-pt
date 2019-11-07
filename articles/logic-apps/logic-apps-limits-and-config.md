@@ -9,16 +9,16 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: e2b866ddd888261e7d8817c73952d4830a4f8147
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: cd7b8c3de46cb88833f27cbebb7d07f944a711e4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464016"
+ms.locfileid: "73580843"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para aplicativos lógicos do Azure
 
-Este artigo descreve os limites e os detalhes de configuração para criar e executar fluxos de trabalho automatizados com aplicativos lógicos do Azure. Para Microsoft Flow, consulte [limites e configuração no Microsoft Flow](https://docs.microsoft.com/flow/limits-and-config).
+Este artigo descreve os limites e os detalhes de configuração para criar e executar fluxos de trabalho automatizados com aplicativos lógicos do Azure. Para a automatização de energia, consulte [limites e configuração no Power Automate](https://docs.microsoft.com/flow/limits-and-config).
 
 <a name="definition-limits"></a>
 
@@ -267,7 +267,7 @@ Quando elimina uma aplicação lógica, não são instanciadas novas execuções
 Os endereços IP que o aplicativo lógico do Azure usa para chamadas de entrada e saída dependem da região em que seu aplicativo lógico existe. *Todos os* aplicativos lógicos que estão na mesma região usam os mesmos intervalos de endereços IP.
 
 > [!NOTE]
-> Algumas chamadas Microsoft Flow, como solicitações **http** e **http + openapi** , vão diretamente por meio do serviço aplicativos lógicos do Azure e vêm dos endereços IP listados aqui. Para obter mais informações sobre os endereços IP usados pelo Microsoft Flow, consulte [limites e configuração no Microsoft Flow](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
+> Algumas chamadas de automatização de energia, como solicitações **http** e **http + openapi** , vão diretamente por meio do serviço de aplicativos lógicos do Azure e vêm dos endereços IP listados aqui. Para obter mais informações sobre os endereços IP usados pela automatização de energia, consulte [limites e configuração no Power Automate](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
 
 * Para dar suporte às chamadas que seus aplicativos lógicos fazem diretamente com [http](../connectors/connectors-native-http.md), [http + Swagger](../connectors/connectors-native-http-swagger.md)e outras solicitações HTTP, configure seu firewall com *todos* os endereços IP de [entrada](#inbound) *e* [saída](#outbound) que são usados pelos aplicativos lógicos serviço, com base nas regiões em que os seus aplicativos lógicos existem. Esses endereços aparecem sob os cabeçalhos de **entrada** e **saída** nesta seção e são classificados por região.
 
@@ -302,21 +302,21 @@ Os endereços IP que o aplicativo lógico do Azure usa para chamadas de entrada 
 | EUA Leste 2 | 40.70.27.253, 40.79.44.7, 40.84.25.234, 40.84.59.136 |
 | França Central | 52.143.162.83, 20.188.33.169, 52.143.156.55, 52.143.158.203 |
 | Sul de França | 52.136.131.145, 52.136.129.121, 52.136.130.89, 52.136.131.4 |
-| Este do Japão | 13.71.146.140, 13.78.43.164, 13.78.62.130, 13.78.84.187 |
+| Leste do Japão | 13.71.146.140, 13.78.43.164, 13.78.62.130, 13.78.84.187 |
 | Oeste do Japão | 40.74.68.85, 40.74.81.13, 40.74.85.215, 40.74.140.173 |
 | Coreia do Sul Central | 52.231.14.182, 52.231.103.142, 52.231.39.29, 52.231.14.42 |
 | Coreia do Sul | 52.231.166.168, 52.231.163.55, 52.231.163.150, 52.231.192.64 |
-| E.U.A. Centro-Norte | 65.52.9.64, 65.52.211.164, 168.62.249.81, 157.56.12.202 |
+| EUA Centro-Norte | 65.52.9.64, 65.52.211.164, 168.62.249.81, 157.56.12.202 |
 | Europa do Norte | 13.79.173.49, 40.112.90.39, 52.169.218.253, 52.169.220.174 |
 | EUA Centro-Sul | 13.65.98.39, 13.84.41.46, 13.84.43.45, 40.84.138.132 |
 | Sul da Índia | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Sudeste Asiático | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
-| E.U.A. Centro-Oeste | 13.78.137.247, 52.161.8.128, 52.161.19.82, 52.161.26.172 |
+| EUA Centro-Oeste | 13.78.137.247, 52.161.8.128, 52.161.19.82, 52.161.26.172 |
 | Europa Ocidental | 13.95.155.53, 52.174.54.218, 52.174.49.6, 51.144.176.185 |
 | Oeste da Índia | 104.211.157.237, 104.211.164.25, 104.211.164.112, 104.211.165.81 |
-| Oeste dos E.U.A. | 13.91.252.184, 52.160.90.237, 138.91.188.137, 157.56.160.212 |
+| EUA Oeste | 13.91.252.184, 52.160.90.237, 138.91.188.137, 157.56.160.212 |
 | EUA Oeste 2 | 13.66.128.68, 13.66.224.169, 52.183.30.10, 52.183.39.67 |
-| Sul do Reino Unido | 51.140.78.71, 51.140.79.109, 51.140.84.39, 51.140.155.81 |
+| Reino Unido Sul | 51.140.78.71, 51.140.79.109, 51.140.84.39, 51.140.155.81 |
 | Reino Unido Oeste | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
 | | |
 
@@ -338,21 +338,21 @@ Os endereços IP que o aplicativo lógico do Azure usa para chamadas de entrada 
 | EUA Leste 2 | 40.70.26.154, 40.70.27.236, 40.70.29.214, 40.70.131.151, 40.84.30.147, 104.208.140.40, 104.208.155.200, 104.208.158.174 | 40.70.146.208 - 40.70.146.223, 52.232.188.154 |
 | França Central | 52.143.164.80, 52.143.164.15, 40.89.186.30, 20.188.39.105, 40.89.191.161, 40.89.188.169, 40.89.186.28,40.89.190.104 | 40.89.135.2, 40.79.130.208 - 40.79.130.223 |
 | Sul de França | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51 | 52.136.133.184, 40.79.178.240 - 40.79.178.255 |
-| Este do Japão | 13.71.158.3, 13.71.158.120, 13.73.4.207, 13.78.18.168, 13.78.20.232, 13.78.21.155, 13.78.35.229, 13.78.42.223 | 13.78.108.0 - 13.78.108.15, 13.71.153.19 |
+| Leste do Japão | 13.71.158.3, 13.71.158.120, 13.73.4.207, 13.78.18.168, 13.78.20.232, 13.78.21.155, 13.78.35.229, 13.78.42.223 | 13.78.108.0 - 13.78.108.15, 13.71.153.19 |
 | Oeste do Japão | 40.74.64.207, 40.74.68.85, 40.74.74.21, 40.74.76.213, 40.74.77.205, 40.74.140.4, 104.214.137.243, 138.91.26.45 | 40.74.100.224 - 40.74.100.239, 104.215.61.248 |
 | Coreia do Sul Central | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39 | 52.141.36.214, 52.231.18.208 - 52.231.18.223 |
 | Coreia do Sul | 52.231.204.74, 52.231.188.115, 52.231.189.221, 52.231.203.118, 52.231.166.28, 52.231.153.89, 52.231.155.206, 52.231.164.23 | 52.231.163.10, 52.231.147.0 - 52.231.147.15 |
-| E.U.A. Centro-Norte | 52.162.208.216, 52.162.213.231, 65.52.8.225, 65.52.9.96, 65.52.10.183, 157.55.210.61, 157.55.212.238, 168.62.248.37 | 52.162.107.160 - 52.162.107.175, 52.162.242.161 |
+| EUA Centro-Norte | 52.162.208.216, 52.162.213.231, 65.52.8.225, 65.52.9.96, 65.52.10.183, 157.55.210.61, 157.55.212.238, 168.62.248.37 | 52.162.107.160 - 52.162.107.175, 52.162.242.161 |
 | Europa do Norte | 40.112.92.104, 40.112.95.216, 40.113.1.181, 40.113.3.202, 40.113.4.18, 40.113.12.95, 52.178.165.215, 52.178.166.21 | 13.69.227.208 - 13.69.227.223, 52.178.150.68 |
 | EUA Centro-Sul | 13.65.82.17, 13.66.52.232, 23.100.124.84, 23.100.127.172, 23.101.183.225, 70.37.54.122, 70.37.50.6, 104.210.144.48 | 104.214.19.48 - 104.214.19.63, 13.65.86.57 |
 | Sul da Índia | 52.172.50.24, 52.172.52.0, 52.172.55.231, 104.211.227.229, 104.211.229.115, 104.211.230.126, 104.211.230.129, 104.211.231.39 | 40.78.194.240 - 40.78.194.255, 13.71.125.22 |
 | Sudeste Asiático | 13.67.91.135, 13.67.107.128, 13.67.110.109, 13.76.4.194, 13.76.5.96, 13.76.133.155, 52.163.228.93, 52.163.230.166 | 13.67.8.240 - 13.67.8.255, 52.187.68.19 |
-| E.U.A. Centro-Oeste | 13.78.129.20, 13.78.137.179, 13.78.141.75, 13.78.148.140, 13.78.151.161, 52.161.18.218, 52.161.9.108, 52.161.27.190 | 13.71.195.32 - 13.71.195.47, 52.161.102.22 |
+| EUA Centro-Oeste | 13.78.129.20, 13.78.137.179, 13.78.141.75, 13.78.148.140, 13.78.151.161, 52.161.18.218, 52.161.9.108, 52.161.27.190 | 13.71.195.32 - 13.71.195.47, 52.161.102.22 |
 | Europa Ocidental | 40.68.222.65, 40.68.209.23, 13.95.147.65, 23.97.218.130, 51.144.182.201, 23.97.211.179, 104.45.9.52, 23.97.210.126 | 13.69.64.208 - 13.69.64.223, 40.115.50.13, 52.174.88.118 |
 | Oeste da Índia | 104.211.154.7, 104.211.154.59, 104.211.156.153, 104.211.158.123, 104.211.158.127, 104.211.162.205, 104.211.164.80, 104.211.164.136 | 104.211.146.224 - 104.211.146.239, 104.211.189.218 |
-| Oeste dos E.U.A. | 40.83.164.80, 40.118.244.241, 40.118.241.243, 52.160.92.112, 104.42.38.32, 104.42.49.145, 157.56.162.53, 157.56.167.147 | 40.112.243.160 - 40.112.243.175, 104.42.122.49 |
+| EUA Oeste | 40.83.164.80, 40.118.244.241, 40.118.241.243, 52.160.92.112, 104.42.38.32, 104.42.49.145, 157.56.162.53, 157.56.167.147 | 40.112.243.160 - 40.112.243.175, 104.42.122.49 |
 | EUA Oeste 2 | 13.66.201.169, 13.66.210.167, 13.66.246.219, 13.77.149.159, 52.175.198.132, 52.183.29.132, 52.183.30.169 | 13.66.140.128 - 13.66.140.143, 52.183.78.157 |
-| Sul do Reino Unido | 51.140.28.225, 51.140.73.85, 51.140.74.14, 51.140.78.44, 51.140.137.190, 51.140.142.28, 51.140.153.135, 51.140.158.24 | 51.140.148.0 - 51.140.148.15, 51.140.80.51 |
+| Reino Unido Sul | 51.140.28.225, 51.140.73.85, 51.140.74.14, 51.140.78.44, 51.140.137.190, 51.140.142.28, 51.140.153.135, 51.140.158.24 | 51.140.148.0 - 51.140.148.15, 51.140.80.51 |
 | Reino Unido Oeste | 51.141.45.238, 51.141.47.136, 51.141.54.185, 51.141.112.112, 51.141.113.36, 51.141.114.77, 51.141.118.119, 51.141.119.63 | 51.140.211.0 - 51.140.211.15, 51.141.47.105 |
 ||||
 

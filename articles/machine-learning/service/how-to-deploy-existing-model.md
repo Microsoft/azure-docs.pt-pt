@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 10/25/2019
-ms.openlocfilehash: 60596a8e157ebe1d6423c89e69f1c01b2f130310
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/06/2019
+ms.openlocfilehash: 4e82d52428195797fb5cdc7a54e900fff7d37655
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496915"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671451"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning"></a>Usar um modelo existente com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

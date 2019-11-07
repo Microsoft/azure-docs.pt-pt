@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/25/2019
-ms.openlocfilehash: 1f2380748c4feea6321bd8df1c29bd599f19b089
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 2559a3cbd786c737b316a860e9c75434c6c719a4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489914"
+ms.locfileid: "73576580"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteger trabalhos de experimentação e de inferência do Azure ML em uma rede virtual do Azure
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -46,7 +46,7 @@ Este artigo também fornece informações detalhadas sobre *configurações de s
 
 Para usar uma conta de armazenamento do Azure para o espaço de trabalho em uma rede virtual, faça o seguinte:
 
-1. Crie um recurso de computação (por exemplo, um Machine Learning cluster ou instância de computação) atrás de uma rede virtual ou anexe um recurso de computação ao espaço de trabalho (por exemplo, um cluster HDInsight, uma máquina virtual ou um cluster do serviço kubernetes do Azure). O recurso de computação pode ser para a experimentação ou implantação de modelo.
+1. Crie um recurso de computação (por exemplo, um cluster Machine Learning) atrás de uma rede virtual ou anexe um recurso de computação ao espaço de trabalho (por exemplo, um cluster HDInsight, uma máquina virtual ou um cluster do serviço kubernetes do Azure). O recurso de computação pode ser para a experimentação ou implantação de modelo.
 
    Para obter mais informações, consulte as seções [usar uma Machine Learning computação](#amlcompute), [usar uma máquina virtual ou um cluster HDInsight](#vmorhdi)e [usar o serviço kubernetes do Azure](#aksvnet) neste artigo.
 
@@ -63,7 +63,7 @@ Para usar uma conta de armazenamento do Azure para o espaço de trabalho em uma 
     - Em __redes virtuais__, selecione o link __Adicionar rede virtual existente__ . Essa ação adiciona a rede virtual onde sua computação reside (consulte a etapa 1).
 
         > [!IMPORTANT]
-        > A conta de armazenamento deve estar na mesma rede virtual que as instâncias de computação ou clusters usados para treinamento ou inferência.
+        > A conta de armazenamento deve estar na mesma rede virtual que as VMs do bloco de anotações ou clusters usados para treinamento ou inferência.
 
     - Marque a caixa de seleção __permitir que os serviços confiáveis da Microsoft acessem esta conta de armazenamento__ .
 
@@ -73,12 +73,6 @@ Para usar uma conta de armazenamento do Azure para o espaço de trabalho em uma 
     > Para habilitar o acesso à conta de armazenamento, visite __firewalls e redes virtuais__ para a conta de armazenamento em *um navegador da Web no cliente de desenvolvimento*. Em seguida, use a caixa de seleção __Adicionar seu endereço IP do cliente__ para adicionar o endereço IP do cliente ao __intervalo de endereços__. Você também pode usar o campo __intervalo de endereços__ para inserir manualmente o endereço IP do ambiente de desenvolvimento. Depois que o endereço IP do cliente tiver sido adicionado, ele poderá acessar a conta de armazenamento usando o SDK.
 
    [![painel "firewalls e redes virtuais" no portal do Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
-
-1. Ao __executar experimentos__, no código de experimentação, altere a configuração de execução para usar o armazenamento de BLOBs do Azure:
-
-    ```python
-    run_config.source_directory_data_store = "workspaceblobstore"
-    ```
 
 > [!IMPORTANT]
 > Você pode posicionar a _conta de armazenamento padrão_ para Azure Machine Learning ou _contas de armazenamento não padrão_ em uma rede virtual.
@@ -114,20 +108,16 @@ Para usar Azure Machine Learning recursos de experimentação com Azure Key Vaul
 
 ## <a name="use-a-machine-learning-compute"></a>Usar um Computação do Machine Learning
 
-> [!NOTE]
-> As instâncias de computação estão disponíveis somente para espaços de trabalho com uma região de **EUA Central norte** ou **sul do Reino Unido**.
-> Use uma dessas regiões para criar uma instância de computação que pode ser adicionada à rede virtual.
-
-Para usar uma instância de computação ou cluster de computação Azure Machine Learning em uma rede virtual, os requisitos de rede a seguir devem ser atendidos:
+Para usar uma VM do Azure Machine Learning notebook ou um cluster de computação em uma rede virtual, os seguintes requisitos de rede devem ser atendidos:
 
 > [!div class="checklist"]
 > * A rede virtual deve estar na mesma assinatura e região que o espaço de trabalho Azure Machine Learning.
-> * A sub-rede especificada para a instância ou cluster de computação deve ter endereços IP não atribuídos suficientes para acomodar o número de VMs que são direcionadas. Se a sub-rede não tiver endereços IP não atribuídos suficientes, um cluster de computação será parcialmente alocado.
+> * A sub-rede especificada para o cluster de computação deve ter endereços IP não atribuídos suficientes para acomodar o número de VMs que são direcionadas. Se a sub-rede não tiver endereços IP não atribuídos suficientes, um cluster de computação será parcialmente alocado.
 > * Verifique se as políticas de segurança ou os bloqueios na assinatura ou no grupo de recursos da rede virtual restringem as permissões para gerenciar a rede virtual. Se você planeja proteger a rede virtual restringindo o tráfego, deixe algumas portas abertas para o serviço de computação. Para obter mais informações, consulte a seção [portas necessárias](#mlcports) .
-> * Se você pretende colocar várias instâncias de computação ou clusters em uma rede virtual, talvez seja necessário solicitar um aumento de cota para um ou mais dos seus recursos.
-> * Se as contas de armazenamento do Azure para o espaço de trabalho também estiverem protegidas em uma rede virtual, elas deverão estar na mesma rede virtual que a instância ou cluster de computação Azure Machine Learning.
+> * Se você for colocar vários clusters de computação em uma rede virtual, talvez seja necessário solicitar um aumento de cota para um ou mais dos seus recursos.
+> * Se as contas de armazenamento do Azure para o espaço de trabalho também estiverem protegidas em uma rede virtual, elas deverão estar na mesma rede virtual que o cluster de computação Azure Machine Learning.
 
-A instância ou cluster de computação Machine Learning aloca automaticamente recursos de rede adicionais no grupo de recursos que contém a rede virtual. Para cada instância ou cluster de computação, o serviço aloca os seguintes recursos:
+O cluster de computação Machine Learning aloca automaticamente recursos de rede adicionais no grupo de recursos que contém a rede virtual. Para cada cluster de computação, o serviço aloca os seguintes recursos:
 
 * Um grupo de segurança de rede
 * Um endereço IP público
@@ -166,7 +156,7 @@ Se você não quiser usar as regras de saída padrão e quiser limitar o acesso 
 - Negue a conexão de Internet de saída usando as regras NSG.
 
 - Limite o tráfego de saída para o seguinte:
-   - Armazenamento do Azure, usando a __marca de serviço__ de __Storage. Region_Name__ (por exemplo, Storage. eastus)
+   - Armazenamento do Azure, usando a __marca de serviço__ de __armazenamento. Region_Name__ (por exemplo, Storage. eastus)
    - Registro de contêiner do Azure, usando a __marca de serviço__ de __AzureContainerRegistry. Region_Name__ (por exemplo, AzureContainerRegistry. eastus)
    - Azure Machine Learning, usando a __marca de serviço__ de __AzureMachineLearning__
 

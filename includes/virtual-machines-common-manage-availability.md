@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0879cb33a0796e19724bd143e57780d6ce27bfcf
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7c884d3c7102fc47f6efad86d9fe3704afd0edcf
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657850"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73591202"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Compreender os Reinícios da VM - manutenção vs. período de indisponibilidade
 Há três cenários que podem levar à máquina virtual no Azure ser afetada: manutenção de hardware não planejada, tempo de inatividade inesperado e manutenção planejada.
@@ -21,7 +21,7 @@ Há três cenários que podem levar à máquina virtual no Azure ser afetada: ma
 * Um **Evento de Manutenção de Hardware Não Planeada** ocorre quando a plataforma Azure prevê que o hardware ou um componente da plataforma associado a uma máquina física está prestes a falhar. Quando a plataforma prevê uma falha, emite um evento de manutenção de hardware não planeada para reduzir o impacto sobre as máquinas virtuais alojadas nesse hardware. O Azure usa a tecnologia [migração ao vivo](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) para migrar as máquinas virtuais do hardware com falha para um computador físico íntegro. A Migração em Direto é uma operação que visa conservar a VM e que apenas coloca a Máquina Virtual em pausa durante um curto espaço de tempo. A memória, os ficheiros abertos e as ligações de rede são mantidos, mas pode ocorrer uma redução do desempenho antes e/ou depois do evento. Nos casos em que não é possível utilizar a Migração em Direto, a VM sofre um Período de Indisponibilidade Inesperado, conforme descrito abaixo.
 
 
-* **Um tempo** de inatividade inesperado é quando o hardware ou a infraestrutura física da máquina virtual falha inesperadamente. Isso pode incluir falhas de rede local, falhas no disco local ou outras falhas no nível do rack. Quando detectada, a plataforma do Azure migra automaticamente (repara) sua máquina virtual para um computador físico íntegro no mesmo datacenter. Durante o procedimento de recuperação, as máquinas virtuais sofrem um período de indisponibilidade (reinício) e, em alguns casos, a perda da unidade temporária. O SO anexado e os discos de dados são sempre preservados.
+* **Um tempo de inatividade inesperado** é quando o hardware ou a infraestrutura física da máquina virtual falha inesperadamente. Isso pode incluir falhas de rede local, falhas no disco local ou outras falhas no nível do rack. Quando detectada, a plataforma do Azure migra automaticamente (repara) sua máquina virtual para um computador físico íntegro no mesmo datacenter. Durante o procedimento de recuperação, as máquinas virtuais sofrem um período de indisponibilidade (reinício) e, em alguns casos, a perda da unidade temporária. O SO anexado e os discos de dados são sempre preservados.
 
   As máquinas virtuais também podem ter tempo de inatividade no caso improvável de uma interrupção ou desastre que afete um datacenter inteiro ou até mesmo uma região inteira. Para esses cenários, o Azure fornece opções de proteção, incluindo [zonas de disponibilidade](../articles/availability-zones/az-overview.md) e [regiões emparelhadas](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
@@ -39,7 +39,7 @@ Para reduzir o impacto do período de indisponibilidade devido a um ou mais dest
 
 ## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>Usar zonas de disponibilidade para proteger contra falhas no nível do datacenter
 
-As [zonas de disponibilidade](../articles/availability-zones/az-overview.md) expandem o nível de controle que você precisa para manter a disponibilidade dos aplicativos e dos dados em suas VMs. As zonas de disponibilidade são localizações físicas únicas dentro de uma região do Azure. Cada zona é constituída por um ou mais datacenters equipados com energia, refrigeração e redes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física de Zonas de Disponibilidade dentro de uma região protege aplicativos e dados de falhas do datacenter. Os serviços com redundância de zona replicam seus aplicativos e dados em Zonas de Disponibilidade para proteger contra pontos únicos de falha.
+As [zonas de disponibilidade](../articles/availability-zones/az-overview.md) expandem o nível de controle que você precisa para manter a disponibilidade dos aplicativos e dos dados em suas VMs. As Zonas de Disponibilidade são localizações físicas exclusivas numa região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física de Zonas de Disponibilidade dentro de uma região protege aplicativos e dados de falhas do datacenter. Os serviços com redundância de zona replicam seus aplicativos e dados em Zonas de Disponibilidade para proteger contra pontos únicos de falha.
 
 Uma zona de disponibilidade em uma região do Azure é uma combinação de um **domínio de falha** e um **domínio de atualização**. Por exemplo, se você criar três ou mais VMs em três zonas em uma região do Azure, suas VMs serão efetivamente distribuídas entre três domínios de falha e três domínios de atualização. A plataforma Azure reconhece essa distribuição entre domínios de atualização para garantir que as VMs em diferentes zonas não sejam atualizadas ao mesmo tempo.
 
@@ -60,7 +60,7 @@ A cada máquina virtual no seu conjunto de disponibilidade é atribuído um **do
 Os domínios de falha definem o grupo de máquinas virtuais que partilham a mesma origem de energia e o mesmo comutador de rede física. Por predefinição, as máquinas virtuais configuradas no seu conjunto de disponibilidade estão separadas através de até três domínios de falha para implementações do Resource Manager (dois domínios de falha para o Clássico). Embora a colocação de máquinas virtuais num conjunto de disponibilidade não proteja a sua aplicação de falhas específicas do sistema operativo ou da aplicação, limita o impacto de potenciais falhas de hardware físico, indisponibilidade de rede ou falhas de energia.
 
 <!--Image reference-->
-   ![Desenho conceitual do domínio de atualização e da configuração de domínio de falha](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+   ![desenho conceitual do domínio de atualização e da configuração de domínio de falha](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Utilizar discos geridos para VMs num conjunto de disponibilidade
 Se, neste momento, utiliza VMs com discos não geridos, recomendamos vivamente que [converta as VMs no Conjunto de Disponibilidade de modo a utilizarem Discos Geridos](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
@@ -73,11 +73,18 @@ Os [discos geridos](../articles/virtual-machines/windows/managed-disks-overview.
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
-Se você planeja usar VMs com discos não gerenciados, siga as práticas recomendadas abaixo para contas de armazenamento em que os VHDs (discos rígidos virtuais) das VMs são armazenados como BLOBs de [páginas](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
+> Observação: em determinadas circunstâncias, pode acontecer que 2 VMs que fazem parte do mesmo Availabilityset compartilhem o mesmo FaultDomain. Isso pode ser confirmado entrando em seu Availabilityset e marcando a coluna "domínio de falha".
+> Esse comportamento pode ser observado quando a seguinte sequência ocorreu durante a implantação das VMs:
+> - Implantar a 1ª VM
+> - Parar/desalocar a 1ª VM
+> - Implantar a 2ª VM nessas circunstâncias, o disco do sistema operacional da 2ª VM pode ser criado no mesmo domínio de falha que a primeira VM e, portanto, a 2ª VM também irá para o mesmo FaultDomain. 
+> Para evitar esse problema, é recomendável não parar/desalocar a VM entre suas implantações.
+
+Se você planeja usar VMs com discos não gerenciados, siga as práticas recomendadas abaixo para contas de armazenamento em que os VHDs (discos rígidos virtuais) das VMs são armazenados como [blobs de páginas](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
 1. **Manter todos os discos (SO e dados) associados a uma VM na mesma conta de armazenamento**
 2. **Rever os [limites](../articles/storage/common/storage-scalability-targets.md) do número de discos não geridos numa Conta de armazenamento**  antes de adicionar mais VHDs a uma conta de armazenamento
-3. **Utilize uma conta de armazenamento separada para cada VM num Conjunto de Disponibilidade.** Não partilhe Contas de armazenamento com várias VMs no mesmo Conjunto de Disponibilidade. É aceitável que as VMs em diferentes conjuntos de disponibilidade compartilhem contas de armazenamento, se as práticas ![recomendadas acima forem seguidas de discos não gerenciados FDs](./media/virtual-machines-common-manage-availability/umd-updated.png)
+3. **Utilize uma conta de armazenamento separada para cada VM num Conjunto de Disponibilidade.** Não partilhe Contas de armazenamento com várias VMs no mesmo Conjunto de Disponibilidade. É aceitável que as VMs em diferentes conjuntos de disponibilidade compartilhem contas de armazenamento, se as práticas recomendadas acima forem seguidas ![discos não gerenciados FDs](./media/virtual-machines-common-manage-availability/umd-updated.png)
 
 ## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>Usar eventos agendados para responder proativamente a eventos que afetam a VM
 
@@ -89,7 +96,7 @@ Se suas máquinas virtuais forem praticamente idênticas e atenderem à mesma fi
 Por exemplo, você pode colocar todas as máquinas virtuais no front-end de seu aplicativo executando IIS, Apache e Nginx em uma única zona de disponibilidade ou conjunto. Certifique-se de que apenas as máquinas virtuais de front-end sejam colocadas na mesma zona ou conjunto de disponibilidade. Da mesma forma, verifique se apenas as máquinas virtuais da camada de dados são colocadas em sua própria zona de disponibilidade ou conjunto, como suas máquinas virtuais SQL Server replicadas ou suas máquinas virtuais do MySQL.
 
 <!--Image reference-->
-   ![Camadas de aplicativo](./media/virtual-machines-common-manage-availability/application-tiers.png)
+   ![camadas de aplicativo](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ## <a name="combine-a-load-balancer-with-availability-zones-or-sets"></a>Combinar um balanceador de carga com zonas de disponibilidade ou conjuntos
 Combine o [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) com uma zona de disponibilidade ou defina para obter a maior resiliência do aplicativo. O Balanceador de Carga do Azure distribui tráfego entre várias máquinas virtuais. Para as nossas máquinas virtuais de camada Standard, o Balanceador de Carga do Azure está incluído. Nem todas as camadas de máquina virtual incluem o Balanceador de Carga do Azure. Para mais informações sobre o balanceamento de carga de máquinas virtuais, veja [Balanceamento de Carga de máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-load-balance.md).

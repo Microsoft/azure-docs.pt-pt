@@ -1,5 +1,5 @@
 ---
-title: Como configurar o banco de dados SQL do Azure | Microsoft Docs
+title: Como configurar o banco de dados SQL do Azure
 description: Saiba como configurar e gerenciar o banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 98c522f3d2718691e32b4e78180027b69f28289f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ccdeb883dc9cf2cba499e45e25ff4706bb120463
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568012"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689872"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Como usar o banco de dados SQL do Azure
 
@@ -93,7 +93,7 @@ Nesta seção, você pode encontrar vários guias, scripts e explicações que p
 - [Indexador de vídeo SaaS](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
 - [Segurança de aplicativo SaaS](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre os [guias de instruções para instâncias gerenciadas](sql-database-howto-managed-instance.md).
 - Saiba mais sobre [os guias de instruções para bancos de dados individuais](sql-database-howto-single-database.md).

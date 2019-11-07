@@ -10,18 +10,18 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: 149b83b9aacf23cde06a2b35aed06c164afe9647
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 1e86658422e444cb7104c3e3428a74d31d453a72
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243335"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605979"
 ---
 # <a name="what-is-azure-databricks"></a>O que é o Azure Databricks?
 
 O Azure Databricks é uma plataforma de análise baseada no Apache Spark e otimizada para a plataforma de serviços cloud Microsoft Azure. Concebida com os fundadores do Apache Spark, o Databricks está integrado com o Azure para prestar configurações com um clique, fluxos de trabalho fluídos e uma área de trabalho interativa que permite a colaboração entre cientistas de dados, engenheiros de dados e analistas empresariais.
 
-![O que é o Azure Databricks?](./media/what-is-azure-databricks/azure-databricks-overview.png "O que é o Azure Databricks?")
+![O que é Azure Databricks?](./media/what-is-azure-databricks/azure-databricks-overview.png "O que é o Azure Databricks?")
 
 Azure Databricks é um serviço de análise rápido, fácil e colaborativo com base em Apache Spark. Para um pipeline Big Data, os dados (brutos ou estruturados) são incluídos no Azure por meio de Azure Data Factory em lotes ou transmitidos quase em tempo real usando Kafka, Hub de eventos ou Hub IoT. Esses dados estão em um data Lake para armazenamento persistente de longo prazo, no armazenamento de BLOBs do Azure ou Azure Data Lake Storage. Como parte do seu fluxo de trabalho de análise, use Azure Databricks para ler dados de várias fontes de dados, como o [armazenamento de BLOBs do Azure](../storage/blobs/storage-blobs-introduction.md), [Azure data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml)ou [Azure SQL data warehouse](../sql-data-warehouse/index.yml) e transformá-lo em um processo avançado informações que usam o Spark.
 
@@ -31,7 +31,7 @@ Azure Databricks é um serviço de análise rápido, fácil e colaborativo com b
 
 O Azure Databricks inclui as capacidades e tecnologias completas de cluster do Apache Spark open source. O Spark no Azure Databricks inclui os seguintes componentes:
 
-![Apache Spark no Azure Databricks](./media/what-is-azure-databricks/apache-spark-ecosystem-databricks.png "Apache Spark no Azure Databricks")
+![Apache Spark em Azure Databricks](./media/what-is-azure-databricks/apache-spark-ecosystem-databricks.png "Apache Spark no Azure Databricks")
 
 * **Spark SQL e DataFrames**: o Spark SQL é o módulo do Spark para trabalhar com dados estruturados. Um DataFrame é uma coleção distribuída de dados organizados em colunas com nome. É conceptualmente equivalente a uma tabela numa base de dados relacional ou a um pacote de dados em R/Python.
 
@@ -86,7 +86,7 @@ O Azure Databricks fornece a segurança do Azure de nível empresarial, incluind
 * O acesso baseado em funções do Azure Databricks ativa permissões de utilizador detalhadas para blocos de notas, clusters, tarefas e dados.
 * SLAs de nível empresarial. 
 
-## <a name="integration-with-azure-services"></a>Integração nos serviços do Azure
+## <a name="integration-with-azure-services"></a>Integração com os serviços do Azure
 
 O Azure Databricks integra-se profundamente com as bases de dados e arquivos do Azure: SQL Data Warehouse, Cosmos DB, Data Lake Store e Armazenamento de Blobs. 
 
@@ -96,9 +96,9 @@ Através da forte integração com o Power BI, o Azure Databricks permite-lhe de
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Início rápido: Executar uma tarefa do Spark no Azure Databricks](quickstart-create-databricks-workspace-portal.md)
-* [Trabalhar com clusters do Spark](https://docs.azuredatabricks.net/user-guide/clusters/index.html)
-* [Trabalhar com blocos de notas](https://docs.azuredatabricks.net/user-guide/notebooks/index.html)
-* [Criar tarefas do Spark](https://docs.azuredatabricks.net/user-guide/jobs.html)
+* [Trabalhar com clusters do Spark](/azure/databricks/clusters/index)
+* [Trabalhar com blocos de notas](/azure/databricks/notebooks/index)
+* [Criar tarefas do Spark](/azure/databricks/jobs)
 
  
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f8c049cc8d2b09cb37dbd444427b03c1013da65c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 95fe5471789b66c253aa21d73433f5192cd01e6b
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73523566"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73612152"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos de VM IaaS do Azure e discos Premium gerenciados e não gerenciados
 
@@ -170,15 +170,6 @@ A reserva de discos do Azure é adquirida para uma região e SKU específicos (c
 Você receberá notificações por email 30 dias antes da expiração e novamente na data de expiração. Depois que a reserva expirar, os discos implantados continuarão a ser executados e serão cobrados com as [tarifas pagas pelo uso](https://azure.microsoft.com/pricing/details/managed-disks/)mais recentes.
 
 ## <a name="ultra-disks"></a>Ultra discos
-
-**Quais regiões suportam ultra disks no momento?**
-- EUA Leste 2
-- Sudeste da Ásia
-- Europa do Norte
-
-**Qual série de VMs oferece suporte a ultra discos atualmente?**
-- ESv3
-- DSv3
 
 **Para que devo definir a taxa de transferência de ultra Disk?**
 Se você não tiver certeza sobre o que definir a taxa de transferência do disco como, recomendamos que comece supondo um tamanho de e/s de 16 KiB e ajuste o desempenho a partir daí, enquanto monitora seu aplicativo. A fórmula é: taxa de transferência em MBps = # de IOPS * 16/1000.

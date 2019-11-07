@@ -1,6 +1,6 @@
 ---
-title: Conectar o código do dispositivo de exemplo do IoT Plug and Play preview ao Hub IoT | Microsoft Docs
-description: Compile e execute o código do dispositivo de exemplo de visualização de IoT Plug and Play que se conecta a um hub IoT. Use a ferramenta Azure IoT Explorer para exibir as informações enviadas pelo dispositivo para o Hub.
+title: Conectar o código do dispositivo de exemplo do IoT Plug and Play preview ao Hub IoT (Windows) | Microsoft Docs
+description: Compile e execute o código do dispositivo de exemplo de visualização de IoT Plug and Play no Windows que se conecta a um hub IoT. Use a ferramenta Azure IoT Explorer para exibir as informações enviadas pelo dispositivo para o Hub.
 author: ChrisGMsft
 ms.author: chrisgre
 ms.date: 08/02/2019
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 4802c120f4722796fcad4ea99f25adad368451fd
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: 2dd5d197851b0090ac1af7bbde5a1ad1b951c785
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806530"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569900"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub"></a>Início rápido: Conectar um aplicativo de dispositivo de visualização de IoT Plug and Play de exemplo ao Hub IoT
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-windows-to-iot-hub"></a>Início rápido: conectar um aplicativo de dispositivo de visualização de Plug and Play de IoT de exemplo em execução no Windows para o Hub IoT
 
 Este guia de início rápido mostra como criar um aplicativo de dispositivo de Plug and Play de IoT de exemplo, conectá-lo ao Hub IoT e usar a ferramenta do Azure IoT Explorer para exibir as informações que ele envia para o Hub. O aplicativo de exemplo é escrito em C e está incluído no SDK do dispositivo IoT do Azure para C. Um desenvolvedor de soluções pode usar a ferramenta do Azure IoT Explorer para entender os recursos de um dispositivo de Plug and Play de IoT sem a necessidade de exibir qualquer código de dispositivo.
 
@@ -23,7 +23,7 @@ Este guia de início rápido mostra como criar um aplicativo de dispositivo de P
 
 Para concluir este guia de início rápido, você precisa instalar o seguinte software em seu computador local:
 
-* [Visual Studio (Comunidade, profissional ou empresa)](https://visualstudio.microsoft.com/downloads/) – certifique-se de incluir o componente **Gerenciador de pacotes NuGet** e o **desenvolvimento de desktop C++ com** carga de trabalho ao instalar o Visual Studio.
+* [Ferramentas de Build para Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) com  **C++ ferramentas de compilação** e cargas de trabalho de **componente do Gerenciador de pacotes NuGet** . Ou, se você já tiver o [Visual Studio (Community, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 ou 2015 com as mesmas cargas de trabalho instaladas.
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 
@@ -82,7 +82,7 @@ Esta operação deve demorar vários minutos a ser concluída.
 
 O aplicativo que você cria simula um dispositivo que se conecta a um hub IoT. O aplicativo envia telemetria e propriedades e recebe comandos.
 
-1. Crie um `cmake` subdiretório na pasta raiz do SDK do dispositivo e navegue até essa pasta:
+1. Crie um subdiretório `cmake` na pasta raiz do SDK do dispositivo e navegue até essa pasta:
 
     ```cmd\sh
     cd <root folder>\azure-iot-sdk-c
@@ -142,9 +142,9 @@ O aplicativo do dispositivo começa a enviar dados para o Hub IoT.
 
 1. Vá para o dispositivo simulado para verificar se o comando foi executado conforme o esperado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você aprendeu como conectar um dispositivo de Plug and Play IoT a um hub IoT. Para saber mais sobre como criar uma solução que interage com seus dispositivos de Plug and Play de IoT, confira:
 
 > [!div class="nextstepaction"]
-> [Procedimento: Conectar-se a um dispositivo de visualização de Plug and Play IoT e interagir com ele](howto-develop-solution.md)
+> [Como: conectar-se e interagir com um dispositivo de visualização de Plug and Play de IoT](howto-develop-solution.md)

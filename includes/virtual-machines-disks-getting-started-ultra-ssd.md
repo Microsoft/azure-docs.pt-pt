@@ -5,46 +5,29 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/15/2019
+ms.date: 11/04/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3f910a3d0466153bd60fe23ef2f9f656cac292ee
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 838037804baad9105b4636934de957c2e5f3e810
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70919727"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73612142"
 ---
 # <a name="using-azure-ultra-disks"></a>Usando os ultra discos do Azure
 
 Os ultra discos do Azure oferecem alta taxa de transferência, IOPS alta e armazenamento de disco consistente de baixa latência para VMs (máquinas virtuais) IaaS do Azure. Essa nova oferta fornece a parte superior do desempenho de linha nos mesmos níveis de disponibilidade que nossas ofertas de discos existentes. Um grande benefício dos ultra discos é a capacidade de alterar dinamicamente o desempenho do SSD junto com suas cargas de trabalho sem a necessidade de reiniciar suas VMs. Ultra discos são adequados para cargas de trabalho com uso intensivo de dados, como SAP HANA, bancos de dados de camada superior e cargas de trabalho com transações pesadas.
 
-## <a name="check-if-your-subscription-has-access"></a>Verifique se sua assinatura tem acesso
+## <a name="ga-scope-and-limitations"></a>Limitações e escopo de GA
 
-Se você já se inscreveu para ultra disks e deseja verificar se sua assinatura está habilitada para ultra discos, use um dos seguintes comandos: 
+[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](managed-disks-ultra-disks-GA-scope-and-limitations.md)]
 
-CLI`az feature show --namespace Microsoft.Compute --name UltraSSD`
+## <a name="determine-vm-size-and-region-availability"></a>Determinar a disponibilidade da região e do tamanho da VM
 
-PowerShell: `Get-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName UltraSSD`
+Para aproveitar os ultra discos, você precisa determinar em qual zona de disponibilidade você está. Nem toda região dá suporte a todos os tamanhos de VM com ultra discos. Para determinar se a região, a zona e o tamanho da VM dão suporte a ultra discos, execute um dos seguintes comandos, certifique-se de substituir os valores de **região**, **vmSize**e **assinatura** primeiro:
 
-Se sua assinatura estiver habilitada, a saída deverá ter uma aparência semelhante a esta:
-
-```bash
-{
-  "id": "/subscriptions/<yoursubID>/providers/Microsoft.Features/providers/Microsoft.Compute/features/UltraSSD",
-  "name": "Microsoft.Compute/UltraSSD",
-  "properties": {
-    "state": "Registered"
-  },
-  "type": "Microsoft.Features/providers/features"
-}
-```
-
-## <a name="determine-your-availability-zone"></a>Determinar sua zona de disponibilidade
-
-Depois de aprovado, você precisa determinar em qual zona de disponibilidade você está, para usar ultra disks. Execute um dos seguintes comandos para determinar em qual zona implantar o ultra Disk, substitua primeiro os valores **Region**, **vmSize**e **Subscription** :
-
-CLI:
+CLI
 
 ```bash
 $subscription = "<yourSubID>"
@@ -62,26 +45,26 @@ $vmSize = "Standard_E64s_v3"
 (Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) -and $_.LocationInfo[0].ZoneDetails.Count -gt 0})[0].LocationInfo[0].ZoneDetails
 ```
 
-A resposta será semelhante ao formulário abaixo, em que X é a zona a ser usada para implantação na sua região escolhida. X poderia ser 1, 2 ou 3. Atualmente, apenas três regiões dão suporte a ultra disks, elas são: Leste dos EUA 2, Sudeste Asiático e Europa Setentrional.
+A resposta será semelhante ao formulário abaixo, em que X é a zona a ser usada para implantação na sua região escolhida. X poderia ser 1, 2 ou 3.
 
 Preservar o valor de **zonas** , representa sua zona de disponibilidade e você precisará dela para implantar um ultra Disk.
 
-|ResourceType  |Name  |Location  |Zonas  |Restrição  |Funcionalidade  |Value  |
+|ResourceType  |Nome  |Localização  |Zonas  |Restrição  |Capacidade  |Valor  |
 |---------|---------|---------|---------|---------|---------|---------|
-|discos     |UltraSSD_LRS         |eualeste2         |X         |         |         |         |
+|discos     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
 > [!NOTE]
-> Se não houver resposta do comando, o registro para o recurso ainda estará pendente ou você estará usando uma versão antiga da CLI ou do PowerShell.
+> Se não houver resposta do comando, o tamanho da VM selecionado não terá suporte com ultra discos na região selecionada.
 
 Agora que você sabe em qual zona implantar, siga as etapas de implantação neste artigo para implantar uma VM com um ultra Disk anexado ou anexar um ultra Disk a uma VM existente.
 
 ## <a name="deploy-an-ultra-disk-using-azure-resource-manager"></a>Implantar um ultra Disk usando o Azure Resource Manager
 
-Primeiro, determine o tamanho da VM a ser implantado. Por enquanto, somente as famílias de VM DsV3 e EsV3 dão suporte a ultra disks. Consulte a segunda tabela neste [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) para obter detalhes adicionais sobre esses tamanhos de VM.
+Primeiro, determine o tamanho da VM a ser implantado. Para obter uma lista de tamanhos de VM com suporte, consulte a seção [escopo e limitações do GA](#ga-scope-and-limitations) .
 
 Se você quiser criar uma VM com vários ultra discos, consulte o exemplo [criar uma VM com vários ultra discos](https://aka.ms/ultradiskArmTemplate).
 
-Se você pretende usar seu próprio modelo, certifique-se de que apiVersion `Microsoft.Compute/virtualMachines` para `Microsoft.Compute/Disks` e esteja definido `2018-06-01` como (ou posterior).
+Se você pretende usar seu próprio modelo, verifique se **apiVersion** para `Microsoft.Compute/virtualMachines` e `Microsoft.Compute/Disks` está definido como `2018-06-01` (ou posterior).
 
 Defina a SKU do disco como **UltraSSD_LRS**, em seguida, defina a capacidade do disco, o IOPS, a zona de disponibilidade e a taxa de transferência em Mbps para criar um ultra Disk.
 
@@ -89,11 +72,11 @@ Depois que a VM for provisionada, você poderá particionar e formatar os discos
 
 ## <a name="deploy-an-ultra-disk-using-cli"></a>Implantar um ultra Disk usando a CLI
 
-Primeiro, determine o tamanho da VM a ser implantado. Por enquanto, somente as famílias de VM DsV3 e EsV3 dão suporte a ultra disks. Consulte a segunda tabela neste [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) para obter detalhes adicionais sobre esses tamanhos de VM.
+Primeiro, determine o tamanho da VM a ser implantado. Consulte a seção [escopo e limitações do GA](#ga-scope-and-limitations) para obter uma lista de tamanhos de VM com suporte.
 
 Você deve criar uma VM que seja capaz de usar ultra disks, a fim de anexar um ultra Disk.
 
-Substitua ou defina as **$vmname**, **$rgname**, **$diskname**, **$Location**, **$password**$user **variáveis com** seus próprios valores. Defina **$Zone** para o valor da zona de disponibilidade obtida do [início deste artigo](#determine-your-availability-zone). Em seguida, execute o seguinte comando da CLI para criar uma VM ultra habilitada:
+Substitua ou defina as **$vmname**, **$rgname**, **$diskname**, **$Location**, **$password**$user **variáveis com** seus próprios valores. Defina **$Zone** para o valor da zona de disponibilidade obtida do [início deste artigo](#determine-vm-size-and-region-availability). Em seguida, execute o seguinte comando da CLI para criar uma VM ultra habilitada:
 
 ```azurecli-interactive
 az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location
@@ -152,9 +135,9 @@ az disk update `
 
 ## <a name="deploy-an-ultra-disk-using-powershell"></a>Implantar um ultra Disk usando o PowerShell
 
-Primeiro, determine o tamanho da VM a ser implantado. Por enquanto, somente as famílias de VM DsV3 e EsV3 dão suporte a ultra disks. Consulte a segunda tabela neste [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) para obter detalhes adicionais sobre esses tamanhos de VM.
+Primeiro, determine o tamanho da VM a ser implantado. Consulte a seção [escopo e limitações do GA](#ga-scope-and-limitations) para obter uma lista de tamanhos de VM com suporte. para obter detalhes adicionais sobre esses tamanhos de VM.
 
-Para usar ultra disks, você deve criar uma VM que seja capaz de usar ultra disks. Substitua ou defina as variáveis **$resourcegroup** e **$vmName** com seus próprios valores. Defina **$Zone** para o valor da zona de disponibilidade obtida do [início deste artigo](#determine-your-availability-zone). Em seguida, execute o seguinte comando [New-AzVm](/powershell/module/az.compute/new-azvm) para criar uma VM ultra habilitada:
+Para usar ultra disks, você deve criar uma VM que seja capaz de usar ultra disks. Substitua ou defina as variáveis **$resourcegroup** e **$vmName** com seus próprios valores. Defina **$Zone** para o valor da zona de disponibilidade obtida do [início deste artigo](#determine-vm-size-and-region-availability). Em seguida, execute o seguinte comando [New-AzVm](/powershell/module/az.compute/new-azvm) para criar uma VM ultra habilitada:
 
 ```powershell
 New-AzVm `
@@ -214,6 +197,6 @@ $diskupdateconfig = New-AzDiskUpdateConfig -DiskMBpsReadWrite 2000
 Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate $diskupdateconfig
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você quiser experimentar o novo tipo de disco, [solicite acesso a essa pesquisa](https://aka.ms/UltraDiskSignup).

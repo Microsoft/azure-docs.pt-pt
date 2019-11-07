@@ -6,14 +6,15 @@ ms.author: avneets
 ms.date: 10/13/2019
 ms.topic: overview
 ms.service: iot-central
+ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 1cf4b29274bbd62aa8c78fc2907a20165280ce08
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 728c5dcbf94e030e860a222add6498824c66930d
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026332"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615405"
 ---
 # <a name="in-store-analytics-architecture"></a>Arquitetura da análise na loja
 

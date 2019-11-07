@@ -1,18 +1,18 @@
 ---
 title: O que é o Azure Analysis Services | Microsoft Docs
-description: Veja o enquadramento geral do Analysis Services no Azure.
+description: Saiba mais sobre o Azure Analysis Services, uma PaaS (plataforma como um serviço) totalmente gerenciada que fornece modelos de dados de nível empresarial na nuvem.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/16/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2c7cd377929d1dd6d2e6ed8831597695ae02d21c
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: eb69028a3b5ea232fbafe8286c3067a22f06d455
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146239"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572816"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -40,7 +40,7 @@ O Azure Analysis Services está disponível nos escalões **Programador**, **Bá
 
 Este escalão é recomendado para cenários de avaliação, desenvolvimento e teste. Um único plano inclui as mesmas funcionalidades do escalão standard, mas a capacidade de processamento, as QPUs e o tamanho da memória são limitados. O aumento horizontal de réplicas de consultas *não está disponível* para este escalão. Este escalão não oferece um SLA.
 
-|Plano  |QPUs  |Memória (GB)  |
+|Planear  |QPUs  |Memória (GB)  |
 |---------|---------|---------|
 |D1    |    20     |    3     |
 
@@ -49,7 +49,7 @@ Este escalão é recomendado para cenários de avaliação, desenvolvimento e te
 
 Este escalão é recomendado para soluções de produção com modelos em tabela mais pequenos, simultaneidade de utilizadores limitada e requisitos simples de atualização de dados. O aumento horizontal de réplicas de consultas *não está disponível* para este escalão. As perspetivas, partições múltiplas e funcionalidades de modelos em tabela do DirectQuery *não são suportadas* neste escalão.  
 
-|Plano  |QPUs  |Memória (GB)  |
+|Planear  |QPUs  |Memória (GB)  |
 |---------|---------|---------|
 |B1    |    40     |    10     |
 |B2    |    80     |    16     |
@@ -58,7 +58,7 @@ Este escalão é recomendado para soluções de produção com modelos em tabela
 
 Este escalão destina-se a aplicações de produção críticas para o negócio, que requerem simultaneidade de utilizadores elástica e têm modelos de dados em rápido crescimento. Suporta a atualização de dados avançada para atualizações de modelos de dados quase em tempo real, bem como todas as funcionalidades de modelos em tabela.
 
-|Plano  |QPUs  |Memória (GB)  |
+|Planear  |QPUs  |Memória (GB)  |
 |---------|---------|---------|
 |S0    |    40     |    10     |
 |S1    |    100     |    25     |
@@ -81,12 +81,12 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |---------|---------|:---------:|
 |Sul do Brasil     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canadá Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
-|Este dos E.U.A.     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|Este dos E.U.A. 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Este dos E.U.A. 2     |     S8, S9, S8v2, S9v2   |    1    |
+|EUA Leste     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
+|EUA Leste 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
+|EUA Leste 2     |     S8, S9, S8v2, S9v2   |    1    |
 |E.U.A. Centro-Norte     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Centro dos E.U.A.     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|E.U.A. Centro-Sul     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|EUA Central     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|EUA Centro-Sul     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |E.U.A. Centro-Oeste   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |Oeste dos E.U.A.     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
 |Oeste dos E.U.A.     |    S8, S9, S8v2, S9v2   |    2  |
@@ -114,11 +114,11 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |Sudeste Asiático     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
 |Oeste da Índia     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
-## <a name="scale-to-your-needs"></a>Dimensione de acordo com as suas necessidades
+## <a name="scale-to-your-needs"></a>Dimensionar para as suas necessidades
 
 ### <a name="scale-updown-pause-and-resume"></a>Aumentar/reduzir verticalmente, interromper ou retomar
 
-Aumente ou reduza verticalmente o seu servidor ou interrompa-o. Utilize o portal do Azure ou utilize o PowerShell para ter controlo num instante. Paga apenas o que utilizar.  
+Aumente ou reduza verticalmente o seu servidor ou interrompa-o. Utilize o portal do Azure ou utilize o PowerShell para ter controlo num instante. Só paga o que utilizar.  
 
 ### <a name="scale-out-resources-for-fast-query-responses"></a>Aumente recursos horizontalmente para obter repostas de consultas rápidas
 
@@ -134,7 +134,7 @@ O custo total depende de diversos fatores; por exemplo, a região escolhida, o e
 
 ## <a name="built-on-sql-server-analysis-services"></a>Baseado no SQL Server Analysis Services
 
-O Azure Analysis Services é compatível com inúmeras funcionalidades excelentes já existentes no SQL Server Analysis Services Enterprise Edition. O Azure Analysis Services suporta modelos em tabela nos [níveis de compatibilidade](analysis-services-compat-level.md) 1200 ou superiores. Os modelos em tabela são construções de modelos relacionais (modelos, tabelas, colunas) articulados em definições de objetos de metadados tabulares em Linguagem de Scripting de Modelos Tabulares (TMSL) e código de Modelo de Objetos Tabulares (TOM). Partições, perspectivas, segurança em nível de linha, relações bidirecionais e traduções são todas \* com suporte. *Não* há suporte para modelos multidimensionais e PowerPivot para SharePoint no Azure Analysis Services.
+O Azure Analysis Services é compatível com inúmeras funcionalidades excelentes já existentes no SQL Server Analysis Services Enterprise Edition. O Azure Analysis Services suporta modelos em tabela nos [níveis de compatibilidade](analysis-services-compat-level.md) 1200 ou superiores. Os modelos em tabela são construções de modelos relacionais (modelos, tabelas, colunas) articulados em definições de objetos de metadados tabulares em Linguagem de Scripting de Modelos Tabulares (TMSL) e código de Modelo de Objetos Tabulares (TOM). Partições, perspectivas, segurança em nível de linha, relações bidirecionais e traduções são todas\*com suporte. *Não* há suporte para modelos multidimensionais e PowerPivot para SharePoint no Azure Analysis Services.
 
 Os modelos em tabela nos modos dentro da memória e DirectQuery são suportados. Os modelos em tabela em modo dentro da memória (predefinição) suportam várias origens de dados. Uma vez que os dados de modelos são altamente comprimidos e colocados em cache na memória. Este modo proporciona a resposta de consulta mais rápida em grandes quantidades de dados. Também proporciona a maior flexibilidade para consultas e conjuntos de dados complexos. A criação de partições permite carregamentos incrementais, aumenta a paralelização e reduz o consumo de memória. Outras funcionalidades avançadas de modelação de dados, como tabelas calculadas e todas as funções DAX, são suportadas. Os modelos dentro da memória têm de ser atualizados (processados) para atualizar os dados em cache das origens de dados. Com o suporte da entidade de serviço do Azure, as operações de atualização autônoma usando o PowerShell, TOM, TMSL e REST oferecem flexibilidade para garantir que os dados do modelo estejam sempre atualizados. 
 
@@ -165,7 +165,7 @@ A Firewall do Azure Analysis Services bloqueia todas as ligações de cliente qu
 
 O [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) lida com a autenticação dos utilizadores. Ao iniciar sessão, os utilizadores recorrem a uma identidade de conta da organização, com acesso à base de dados baseado em funções. As identidades de utilizador têm de ser membros do Azure Active Directory predefinido da subscrição em que o servidor se encontra. Para saber mais,v eja [Authentication and user permissions](analysis-services-manage-users.md) (Autenticação e permissões de utilizador).
 
-### <a name="data-security"></a>Segurança dos dados
+### <a name="data-security"></a>Segurança de dados
 
 O Azure Analysis Services utiliza o Armazenamento de blobs do Azure para persistir o armazenamento e os metadados das bases de dados do Analysis Services. Os ficheiros de dados no Blob são encriptados com a [Encriptação do Lado do Servidor (SSE) do Blob do Azure](../storage/common/storage-service-encryption.md). Ao utilizar o modo DirectQuery, só são armazenados os metadados. Os dados propriamente ditos são acedidos através de protocolos encriptados a partir da origem de dados no momento da consulta.
 
@@ -177,7 +177,7 @@ O Analysis Services utiliza a [autorização baseada em funções](https://docs.
   
 Os utilizadores finais não administrativos que consultam dados têm acesso através das funções de base de dados. Uma função de base de dados é criada como um objeto separado na base de dados e aplica-se apenas à base de dados na qual essa função é criada. As funções de base de dados são definidas pelas permissões (de base de dados) de Administrador, Leitura e Leitura e Processo. As contas de utilizadores e grupos são adicionadas através do SQL Server Management Studio ou PowerShell.
 
-### <a name="row-level-security"></a>Segurança ao nível da linha
+### <a name="row-level-security"></a>Segurança ao Nível da Linha
 
 Os modelos em tabela em todos os modelos de compatibilidade suportam a segurança ao nível da linha. A segurança ao nível da linha é configurada no modelo através de expressões DAX que definem as linhas numa tabela e as linhas nas direções de uma tabela relacionada que um utilizador pode consultar. Os filtros de linhas que utilizem expressões DAX são definidos para as permissões de Leitura e Leitura e Processo. 
 

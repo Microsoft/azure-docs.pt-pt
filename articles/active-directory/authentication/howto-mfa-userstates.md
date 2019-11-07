@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ee1d282506b537ed29592ca9008c88a53220d7d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 8a2d22c4a7a8b95f5a200518a3c46fc33f55c66a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554828"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569853"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Como exigir a verificação em duas etapas para um usuário
 
@@ -56,20 +56,20 @@ Todos os usuários iniciam *desabilitados*. Quando você registra os usuários n
 Use as etapas a seguir para acessar a página em que você pode exibir e gerenciar os Estados do usuário:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
-2. Vá para **Azure Active Directory**  > **usuários e grupos**  > **todos os usuários**.
+2. Vá para **Azure Active Directory** > **usuários e grupos** > **todos os usuários**.
 3. Selecione **autenticação multifator**.
-   ![Select a autenticação multifator ](./media/howto-mfa-userstates/selectmfa.png)
+   ![selecionar a autenticação multifator](./media/howto-mfa-userstates/selectmfa.png)
 4. Uma nova página que exibe os Estados do usuário é aberta.
-   status do usuário de autenticação de fator ![multi-captura de tela ](./media/howto-mfa-userstates/userstate1.png)
+   ![o status do usuário da autenticação multifator](./media/howto-mfa-userstates/userstate1.png)
 
 ### <a name="change-the-status-for-a-user"></a>Alterar o status de um usuário
 
 1. Use as etapas anteriores para acessar a página **usuários** da autenticação multifator do Azure.
 2. Localize o usuário que você deseja habilitar para o Azure MFA. Talvez seja necessário alterar a exibição na parte superior.
-   ![Select o usuário para alterar o status da guia usuários ](./media/howto-mfa-userstates/enable1.png)
+   ![selecione o usuário para o qual alterar o status na guia usuários](./media/howto-mfa-userstates/enable1.png)
 3. Marque a caixa ao lado do nome.
 4. À direita, em **etapas rápidas**, escolha **habilitar** ou **desabilitar**.
-   ![Enable usuário selecionado clicando em habilitar no menu etapas rápidas ](./media/howto-mfa-userstates/user1.png)
+   ![habilitar o usuário selecionado clicando em habilitar no menu etapas rápidas](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
    > Os usuários *habilitados* são automaticamente alternados para *imposto* quando se registram no Azure MFA. Não altere manualmente o estado do usuário para *imposto*.
@@ -173,6 +173,9 @@ function Set-MfaState {
 # Disable MFA for all users
 Get-MsolUser -All | Set-MfaState -State Disabled
 ```
+
+> [!NOTE]
+> Alteramos recentemente o comportamento e o script do PowerShell acima de acordo. Anteriormente, o script economizou os métodos de MFA, desabilitou a MFA e restaurei os métodos. Isso não é mais necessário agora que o comportamento padrão para desabilitar não limpa os métodos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

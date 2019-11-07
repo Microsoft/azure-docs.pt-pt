@@ -1,59 +1,69 @@
 ---
-title: Adicionar, remover e ordenar favoritos no portal do Azure | Documentos da Microsoft
-description: Saiba como adicionar ou remover itens da lista de Favoritos e ordenar a ordem dos itens
+title: Adicionar, remover e classificar favoritos no portal do Azure | Microsoft Docs
+description: Saiba como adicionar ou remover itens da lista de favoritos e classificar a ordem dos itens
 services: azure-portal
-keywords: Favoritos
+keywords: favoritas
 author: kfollis
 ms.author: kfollis
-ms.date: 04/03/2019
+ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.openlocfilehash: ff3549ce77a2b691dcaaa94b6a59e9c011ff6e21
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 51228f4a28b5c6e19bf341b5576540d36bcaae64
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60690705"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579622"
 ---
 # <a name="add-remove-and-sort-favorites"></a>Adicionar, remover e ordenar favoritos
 
-Adicionar ou remover itens da sua **Favoritos** lista para que rapidamente pode ir para os serviços que utiliza com mais frequência. Já adicionámos alguns serviços comuns para seus **Favoritos** lista, mas provavelmente desejará personalizá-lo. É o único que vê as alterações efetuadas **Favoritos**.
+Adicione ou remova itens da sua lista de **favoritos** para que você possa ir rapidamente para os serviços que usa com mais frequência. Já adicionamos alguns serviços comuns à sua lista de **favoritos** , mas provavelmente você desejará personalizá-lo. Você é o único que vê as alterações feitas nos **favoritos**.
 
-## <a name="add-or-remove-a-favorite"></a>Adicionar ou remover um favorito
+## <a name="add-a-favorite"></a>Adicionar um favorito
 
-Itens que estão listados na **Favoritos** são selecionadas entre **todos os serviços**. Um ícone de estrela ![ícone de estrela amarela](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-star.png) junto a cada serviço indica se o item é apresentado na lista. Selecione o ícone de estrela para adicionar ou remover um serviço a partir da **Favoritos** lista.
+Os itens listados em **favoritos** são selecionados de **todos os serviços**. Passe o mouse sobre um nome de serviço para exibir informações e recursos relacionados ao serviço. Um ícone de estrela preenchida ![ícone de estrela preenchida](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) ao lado do nome do serviço indica que o item aparece na lista de **favoritos** . Selecione o ícone de estrela para adicionar um serviço à lista de **favoritos** .
 
-### <a name="add-cost-management--billing-to-favorites"></a>Adicionar a gestão de custos + faturação aos Favoritos
+### <a name="add-cost-management--billing-to-favorites"></a>Adicionar gerenciamento de custos + cobrança aos favoritos
 
-1. Selecione **todos os serviços** da seção superior da barra lateral.
+1. Selecione **todos os serviços** no menu portal do Azure.
 
-    ![Captura de ecrã que mostra todos os serviços selecionados](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-all-services.png)
+    ![Captura de tela mostrando todos os serviços selecionados](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-new-all-services.png)
 
-1. Introduza a palavra "Custo" no campo de pesquisa. Apenas os serviços que têm "Custo" no título ou que tenham "Custo" como uma palavra-chave será mostrada.
+1. Insira a palavra "custo" no campo de pesquisa. Os serviços que têm "custo" no título ou que têm "custo" como uma palavra-chave são mostrados.
 
-   ![Captura de ecrã que mostra pesquisa em todos os serviços](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-search.png)
+   ![Captura de tela mostrando a pesquisa em todos os serviços](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-find-service.png)
 
-1. Selecione o ícone de estrela.
+1. Passe o mouse sobre o nome do serviço para exibir o cartão de informações sobre o **Gerenciamento de custos + cobrança** . Selecione o ícone de estrela.
 
-   ![Captura de ecrã que mostra em estrela junto a gestão de custos + faturação selecionado](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-add.png)
+   ![Captura de tela mostrando a estrela ao lado de gerenciamento de custos + cobrança selecionada](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-add.png)
 
-1. **Custo Management + faturação** agora é adicionado como o último item em sua **Favoritos** lista.
+1. O **Gerenciamento de custos + cobrança** agora é adicionado como o último item na sua lista de **favoritos** .
 
-## <a name="sort-favorites"></a>Favoritos de ordenação
+## <a name="remove-an-item-from-favorites"></a>Remover um item de favoritos
 
-Pode alterar a ordem em que seus serviços Favoritos estão listados. Basta arrastar e soltar o item de menu para outra localização sob **Favoritos**.
+Agora você pode remover um item diretamente da lista de **favoritos** .
 
-### <a name="move-cost-management--billing-to-the-top-of-favorites"></a>Mover a gestão de custos + faturação na parte superior dos Favoritos
+1. Na seção **favoritos** do menu do portal, passe o mouse sobre o nome do serviço que você deseja remover.
 
-1. Selecione e mantenha premido o **gestão de custos + faturação** entrada sobre o **Favoritos** lista.
+   ![Captura de tela mostrando o comportamento de focalização em favoritos](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-remove.png)
 
-   ![Captura de ecrã com a gestão de custos + faturação selecionado](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-sort.png)
+2. No cartão de informações, selecione a estrela para que ela seja alterada de preenchida para não preenchida. O serviço é removido da lista de **favoritos** .
 
-1. Continuando a manter, arraste o item na parte superior do **Favoritos** e largue.
+## <a name="sort-favorites"></a>Classificar favoritos
 
-## <a name="next-steps"></a>Passos Seguintes
+Você pode alterar a ordem em que seus serviços favoritos são listados. Basta arrastar e soltar o item de menu em outro local em **favoritos**.
 
-* Para criar uma área de trabalho concentrados em projeto, consulte [criar e partilhar dashboards no portal do Azure](../azure-portal/azure-portal-dashboards.md)
-* Descubra como mais-para [Azure série de vídeos práticos portal](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR)
+### <a name="move-cost-management--billing-to-the-top-of-favorites"></a>Mova o gerenciamento de custos + cobrança para a parte superior dos favoritos
+
+1. Selecione e mantenha a entrada **Gerenciamento de custos + cobrança** na lista **favoritos** .
+
+   ![Captura de tela mostrando gerenciamento de custos + cobrança selecionada](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-sort.png)
+
+1. Enquanto continua a manter, arraste o item para a parte superior dos **favoritos** e solte-o.
+
+## <a name="next-steps"></a>Passos seguintes
+
+* Para criar um espaço de trabalho com foco no projeto, consulte [criar e compartilhar dashboards no portal do Azure](../azure-portal/azure-portal-dashboards.md)
+* Descubra mais instruções na série de vídeos de [instruções portal do Azure](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR)

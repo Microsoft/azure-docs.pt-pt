@@ -1,17 +1,17 @@
 ---
 title: Atualizar com aplicativos lógicos para modelos de Azure Analysis Services | Microsoft Docs
-description: Saiba como codificar a atualização assíncrona usando aplicativos lógicos do Azure.
+description: Este artigo descreve como codificar a atualização assíncrona para Azure Analysis Services usando os aplicativos lógicos do Azure.
 author: chrislound
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: acf31bf3e7e8c3a0835640dee36f8435a1eba625
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: a44aa5b355bea675f5d99761d97b8876a9b2a7d7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294611"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572345"
 ---
 # <a name="refresh-with-logic-apps"></a>Atualizar com o Logic Apps
 
@@ -65,7 +65,7 @@ Configure a atividade HTTP da seguinte maneira:
 |Propriedade  |Valor  |
 |---------|---------|
 |**Método**     |Postar         |
-|**URI**     | https://*sua região do servidor*/Servers/*AAS nome do servidor*/Models/*nome do seu banco de dados*/refreshes <br /> <br /> Por exemplo: https: \//westus. asazure. Windows. net/servers/meuservidor/Models/AdventureWorks/atualizações|
+|**URI**     | https://*sua região do servidor*/Servers/*AAS nome do servidor*/Models/*nome do seu banco de dados*/refreshes <br /> <br /> Por exemplo: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes|
 |**Headers** (Cabeçalhos)     |   Tipo de conteúdo, aplicativo/JSON <br /> <br />  ![Cabeçalhos](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Corpo**     |   Para saber mais sobre como formar o corpo da solicitação, consulte [atualização assíncrona com a API REST – post/refreshes](analysis-services-async-refresh.md#post-refreshes). |
 |**Autenticação**     |Active Directory OAuth         |

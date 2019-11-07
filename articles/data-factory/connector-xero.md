@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do Xero usando o Azure Data Factory | Microsoft Docs
+title: Copiar dados do Xero usando o Azure Data Factory
 description: Saiba como copiar dados do Xero para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 59b9ecb7af53468dc18cf47d2e0510a48d07f925
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d52e536170c649cbc84b6c6dce92afb76ffe3125
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72930963"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680013"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Copiar dados do Xero usando o Azure Data Factory
 
@@ -49,7 +49,7 @@ As seções a seguir fornecem detalhes sobre as propriedades que são usadas par
 
 As propriedades a seguir têm suporte para o serviço vinculado do Xero:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type deve ser definida como: **Xero** | Sim |
 | hospedeira | O ponto de extremidade do servidor Xero (`api.xero.com`).  | Sim |
@@ -95,10 +95,10 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Xero, defina a propriedade Type do conjunto de dado como **XeroObject**. As propriedades a seguir têm suporte:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **XeroObject** | Sim |
-| tableName | Nome da tabela. | Não (se "Query" na origem da atividade for especificada) |
+| tableName | Nome da tabela. | Não (se for especificada "query" na origem de atividade) |
 
 **Exemplo**
 
@@ -125,7 +125,7 @@ Para obter uma lista completa de seções e propriedades disponíveis para defin
 
 Para copiar dados do Xero, defina o tipo de origem na atividade de cópia como **XeroSource**. As propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como: **XeroSource** | Sim |
 | consulta | Use a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Contacts"`. | Não (se "TableName" no DataSet for especificado) |
@@ -183,7 +183,7 @@ As tabelas a seguir têm as mesmas informações no esquema mínimo e completo. 
 - Expense_Claim_Validation_Errors
 - Faturas 
 - Invoices_Credit_Notes
-- Pagamentos antecipados do Invoices_ 
+- Invoices_ pagamentos antecipados 
 - Invoices_Overpayments 
 - Manual_Journals 
 - Pagamentos 
@@ -199,10 +199,10 @@ As tabelas a seguir só podem ser consultadas com o esquema completo:
 - Concluído. Bank_Transaction_Line_Items 
 - Concluído. Bank_Transaction_Line_Item_Tracking 
 - Concluído. Contact_Group_Contacts 
-- Complete. Contacts_Contact_ pessoas 
+- Concluído. Contacts_Contact_ pessoas 
 - Concluído. Credit_Note_Line_Items 
 - Concluído. Credit_Notes_Line_Items_Tracking 
-- Concluir pagamentos de Expense_Claim_ 
+- Concluído. Expense_Claim_ pagamentos 
 - Concluído. Expense_Claim_Receipts 
 - Concluído. Invoice_Line_Items 
 - Concluído. Invoices_Line_Items_Tracking

@@ -16,18 +16,18 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8a2752302e5f6c3428139a0faa30ce347fc21f2
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 71aa999809ba3d3e32d38162dfaba869d9716031
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174923"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602706"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Criar um novo pacote de acesso no gerenciamento de direitos do Azure AD
 
 Um pacote do Access permite que você faça uma configuração única de recursos e políticas que administram automaticamente o acesso para a vida útil do pacote de acesso. Este artigo descreve como criar um novo pacote de acesso.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Todos os pacotes de acesso devem ser colocados em um contêiner chamado catálogo. Um catálogo define quais recursos você pode adicionar ao seu pacote de acesso. Se você não especificar um catálogo, seu pacote de acesso será colocado no catálogo geral. No momento, não é possível mover um pacote do Access existente para um catálogo diferente.
 
@@ -57,14 +57,14 @@ Aqui estão as etapas de alto nível para criar um novo pacote de acesso.
 
 **Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. Clique em **Azure Active Directory** e em **governança de identidade**.
 
 1. No menu à esquerda, clique em **pacotes de acesso**.
 
 1. Clique em **novo pacote de acesso**.
-
+   
     ![Gerenciamento de direitos no portal do Azure](./media/entitlement-management-shared/access-packages-list.png)
 
 ## <a name="basics"></a>Noções básicas

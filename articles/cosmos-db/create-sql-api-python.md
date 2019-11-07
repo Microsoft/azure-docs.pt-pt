@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 05/21/2019
+ms.date: 11/03/2019
 ms.author: sngun
 ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: 9a5e826fd4de3641c4c5ce8ae728d354cb7ba8f7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 92175e3b9776f90bd50e356a700b2a2d475c8a85
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495196"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602446"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Início rápido: criar um aplicativo Python usando uma conta de API do SQL Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Este início rápido demonstra como criar uma conta [API SQL](sql-api-introducti
 
 O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Você pode criar e consultar rapidamente documentos, chave/valor, colunas largas e bancos de dados de gráficos. Todas essas operações se beneficiam da distribuição e da escala de Azure Cosmos DB.
 
-Este guia de início rápido usa a versão 3,0 do [SDK do Python](https://pypi.org/project/azure-cosmos).
+Este guia de início rápido usa a versão 4 do [SDK do Python](https://pypi.org/project/azure-cosmos/#history).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -90,92 +90,50 @@ Agora vamos clonar uma aplicação API SQL a partir do GitHub, definir a cadeia 
 
 Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação.
 
-1. Na [portal do Azure](https://portal.azure.com/), na sua conta do cosmos do Azure, no painel de navegação esquerdo, selecione **chaves**. Irá utilizar os botões de copiar no lado direito do ecrã para copiar o **URI** e a **Chave Primária** para o ficheiro `CosmosGetStarted.py` no passo seguinte.
+1. Na [portal do Azure](https://portal.azure.com/), na sua conta do cosmos do Azure, no painel de navegação esquerdo, selecione **chaves**. Irá utilizar os botões de copiar no lado direito do ecrã para copiar o **URI** e a **Chave Primária** para o ficheiro `cosmos_get_started.py` no passo seguinte.
 
     ![Obter uma chave de acesso e um URI nas configurações de chaves no portal do Azure](./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png)
 
-2. Abra o arquivo `CosmosGetStarted.py` no \git-samples\azure-Cosmos-DB-Python-Getting-Started no Visual Studio Code.
+2. Abra o arquivo `cosmos_get_started.py` no \git-samples\azure-Cosmos-DB-Python-Getting-Started no Visual Studio Code.
 
-3. Copie o valor do **URI** a partir do portal (com o botão de copiar) e faça deste o valor da chave do **ponto final** em ``CosmosGetStarted.py``. 
+3. Copie o valor do **URI** do portal (usando o botão de cópia) e torne-o o valor da variável de **ponto de extremidade** em ``cosmos_get_started.py``. 
 
-    `'ENDPOINT': 'https://FILLME.documents.azure.com',`
+    `endpoint = 'https://FILLME.documents.azure.com',`
 
-4. Em seguida, copie o valor da **CHAVE PRIMÁRIA** a partir do portal e faça deste o valor de **config.PRIMARYKEY** em ``CosmosGetStarted.py``. Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB. 
+4. Em seguida, copie o valor da **chave primária** do portal e transforme-o no valor da **chave** em ``cosmos_get_started.py``. Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB. 
 
-    `'PRIMARYKEY': 'FILLME',`
+    `key = 'FILLME'`
 
-5. Guarde o ficheiro ``CosmosGetStarted.py``.
+5. Guarde o ficheiro ``cosmos_get_started.py``.
 
 ## <a name="review-the-code"></a>Rever o código
 
 Este passo é opcional. Saiba mais sobre os recursos do banco de dados criados no código ou pule para [atualizar sua cadeia de conexão](#update-your-connection-string).
 
-Tenha em conta que, se estiver familiarizado com a versão anterior do SDK de Python, poderá estar habituado a ver os termos "coleção" e "documento". Uma vez que o Azure Cosmos DB suporta múltiplos modelos de API, a versão 3.0+ do SDK de Python utiliza os termos genéricos "contentor", que pode ser uma coleção, um grafo ou uma tabela, e "item" para descrever os conteúdos do contentor.
+Os seguintes fragmentos foram todos retirados do ficheiro `cosmos_get_started.py`.
 
-Os seguintes fragmentos foram todos retirados do ficheiro `CosmosGetStarted.py`.
+* O CosmosClient é inicializado. Certifique-se de atualizar os valores de "ponto de extremidade" e "chave", conforme descrito na seção [atualizar a cadeia de conexão](#update-your-connection-string) . 
 
-* O CosmosClient é inicializado. Certifique-se de atualizar os valores de "ponto de extremidade" e "chave mestra", conforme descrito na seção [atualizar a cadeia de conexão](#update-your-connection-string) . 
-
-    ```python
-    # Initialize the Cosmos client
-    client = cosmos_client.CosmosClient(url_connection=config['ENDPOINT'], auth={'masterKey': config['MASTERKEY']})
-    ```
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_cosmos_client)]
 
 * É criada uma nova base de dados.
 
-    ```python
-    # Create a database
-    db = client.CreateDatabase({ 'id': config['DATABASE'] })
-    ```
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_database_if_not_exists)]
 
-* Um novo contêiner é criado.
+* Um novo contêiner é criado, com 400 RU/s de [taxa de transferência provisionada](request-units.md). Escolhemos `lastName` como a [chave de partição](partitioning-overview.md#choose-partitionkey), o que nos permite fazer consultas eficientes que filtram essa propriedade. 
 
-    ```python
-    # Create container options
-    options = {
-        'offerThroughput': 400
-    }
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_container_if_not_exists)]
 
-    # Create a container
-    container = client.CreateContainer(db['_self'], container_definition, options)
-    ```
+* Alguns itens são adicionados ao contentor. Contêineres são uma coleção de itens (documentos JSON) que podem ter um esquema variado. Os métodos auxiliares ```get_[name]_family_item``` retornam representações de uma família que são armazenadas em Azure Cosmos DB como documentos JSON.
 
-* Alguns itens são adicionados ao contentor.
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_item)]
 
-    ```python
-    # Create and add some items to the container
-    item1 = client.CreateItem(container['_self'], {
-        'serverId': 'server1',
-        'Web Site': 0,
-        'Cloud Service': 0,
-        'Virtual Machine': 0,
-        'message': 'Hello World from Server 1!'
-        }
-    )
+* As leituras de ponto (pesquisas de valor de chave) são executadas usando o método `read_item`. Imprimimos a [cobrança de ru](request-units.md) de cada operação.
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=read_item)]
 
-    item2 = client.CreateItem(container['_self'], {
-        'serverId': 'server2',
-        'Web Site': 1,
-        'Cloud Service': 0,
-        'Virtual Machine': 0,
-        'message': 'Hello World from Server 2!'
-        }
-    )
-    ```
+* Uma consulta é executada usando A sintaxe de consulta SQL. Como estamos usando valores de chave de partição de ```lastName``` na cláusula WHERE, Azure Cosmos DB roteará com eficiência essa consulta para as partições relevantes, melhorando o desempenho.
 
-* É feita uma consulta com SQL.
-
-    ```python
-    query = {'query': 'SELECT * FROM server s'}
-
-    options = {}
-    options['enableCrossPartitionQuery'] = True
-    options['maxItemCount'] = 2
-
-    result_iterable = client.QueryItems(container['_self'], query, options)
-    for item in iter(result_iterable):
-        print(item['message'])
-    ```
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=query_items)]
    
 ## <a name="run-the-app"></a>Executar a aplicação
 
@@ -196,20 +154,48 @@ Os seguintes fragmentos foram todos retirados do ficheiro `CosmosGetStarted.py`.
 5. Execute o seguinte comando para instalar o pacote azure-cosmos. 
 
     ```python
-    pip3 install azure-cosmos
+    pip3 install azure-cosmos==4.0.0b5
     ```
 
     Se obtiver um erro de acesso recusado quando tentar instalar o azure-cosmos, terá de [executar o VS Code como administrador](https://stackoverflow.com/questions/37700536/visual-studio-code-terminal-how-to-run-a-command-with-administrator-rights).
 
-6. Execute o seguinte comando para executar o exemplo e criar e armazenar novos documentos na base de dados do Azure Cosmos.
+6. Execute o comando a seguir para executar o exemplo e criar e armazenar novos documentos no Azure Cosmos DB.
 
     ```python
-    python CosmosGetStarted.py
+    python cosmos_get_started.py
     ```
 
-7. Para confirmar que os novos itens foram criados e guardados, no portal do Azure, selecione **Data Explorer**, expanda **coll**, expanda **Documentos** e, em seguida, selecione o documento **server1**. Os conteúdos dos documentos do servidor1 correspondem ao conteúdo devolvido na janela de terminal integrada. 
+7. Para confirmar se os novos itens foram criados e salvos, na portal do Azure, selecione **Data Explorer** > **AzureSampleFamilyDatabase** > **itens**. Exiba os itens que foram criados. Por exemplo, aqui está um exemplo de documento JSON para a família Andersen:
 
-    ![Ver os novos documentos no portal do Azure](./media/create-sql-api-python/azure-cosmos-db-confirm-documents.png)
+```json
+{
+    "id": "Andersen-1569479288379",
+    "lastName": "Andersen",
+    "district": "WA5",
+    "parents": [
+        {
+            "familyName": null,
+            "firstName": "Thomas"
+        },
+        {
+            "familyName": null,
+            "firstName": "Mary Kay"
+        }
+    ],
+    "children": null,
+    "address": {
+        "state": "WA",
+        "county": "King",
+        "city": "Seattle"
+    },
+    "registered": true,
+    "_rid": "8K5qAIYtZXeBhB4AAAAAAA==",
+    "_self": "dbs/8K5qAA==/colls/8K5qAIYtZXc=/docs/8K5qAIYtZXeBhB4AAAAAAA==/",
+    "_etag": "\"a3004d78-0000-0800-0000-5d8c5a780000\"",
+    "_attachments": "attachments/",
+    "_ts": 1569479288
+}
+```
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 
