@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o esquema do banco de dados SQL do Azure em um aplicativo de locatário único | Microsoft Docs
+title: Gerenciar o esquema do banco de dados SQL do Azure em um aplicativo de locatário único
 description: Gerenciar o esquema para vários locatários em um aplicativo de locatário único que usa o banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/19/2018
-ms.openlocfilehash: 95d13c997d3871815ebd541e5985eb9fef726a76
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 32460feebeb55b2639a237db32dbc3923ba27171
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029755"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691838"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gerenciar o esquema em um aplicativo SaaS usando o padrão de banco de dados por locatário com o banco de dados SQL do Azure
  
@@ -65,37 +65,37 @@ O código-fonte do aplicativo e os scripts de gerenciamento estão disponíveis 
 
 Este tutorial requer que você use o PowerShell para criar um agente de trabalho e seu banco de dados do agente de trabalho de backup. O banco de dados do agente de trabalho contém definições de trabalho, status do trabalho e histórico. Depois que o agente de trabalho e seu banco de dados são criados, você pode criar e monitorar trabalhos imediatamente.
 
-1. **No ISE do PowerShell**, abra... módulos de \\Learning @ No__t-2Schema Management @ no__t-3*demo-schemamanagement. ps1*.
+1. **No ISE do PowerShell**, abra...\\módulos de aprendizado\\gerenciamento de esquema\\*demo-schemamanagement. ps1*.
 1. Prima **F5** para executar o script.
 
 O script *demo-schemamanagement. ps1* chama o script *Deploy-schemamanagement. ps1* para criar um banco de dados SQL chamado *osagent* no servidor de catálogo. Em seguida, ele cria o agente de trabalho, usando o banco de dados como um parâmetro.
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Criar uma tarefa para implementar novos dados de referência para todos os inquilinos
 
-No aplicativo Wingtip tickets, cada banco de dados de locatário inclui um conjunto de tipos de local com suporte. Cada local é de um tipo específico de local, que define o tipo de eventos que podem ser hospedados e determina a imagem de plano de fundo usada no aplicativo. Para que o aplicativo dê suporte a novos tipos de eventos, esses dados de referência devem ser atualizados e novos tipos de local adicionados.  Neste exercício, você implantará uma atualização em todos os bancos de dados de locatário para adicionar dois tipos de local adicionais: *Corrida Motorcycle* e *clube nadare*.
+No aplicativo Wingtip tickets, cada banco de dados de locatário inclui um conjunto de tipos de local com suporte. Cada local é de um tipo específico de local, que define o tipo de eventos que podem ser hospedados e determina a imagem de plano de fundo usada no aplicativo. Para que o aplicativo dê suporte a novos tipos de eventos, esses dados de referência devem ser atualizados e novos tipos de local adicionados.  Neste exercício, vai implementar uma atualização para todas as bases de dados de inquilinos para adicionar dois tipos de local adicionais: *Corrida de Motos* e *Clube de Natação*.
 
 Primeiro, examine os tipos de local incluídos em cada banco de dados de locatário. Conecte-se a um dos bancos de dados de locatário no SQL Server Management Studio (SSMS) e inspecione a tabela VenueTypes.  Você também pode consultar essa tabela no editor de consultas no portal do Azure, acessada na página do banco de dados. 
 
-1. Abra o SSMS e conecte-se ao servidor de locatário: *tenants1-DPT-@no__t -1user&gt;.database.windows.net*
-1. Para confirmar se *a corrida de Motorcycle* e o clube de *nada* mais **não estão** incluídos no momento, navegue até o banco de dados _contosoconcerthall_ no servidor *tenants1-DPT-&lt;user @ no__t-6* e consulte o *VenueTypes* tabela.
+1. Abra o SSMS e conecte-se ao servidor de locatário: *tenants1-DPT-&lt;usuário&gt;. Database.Windows.net*
+1. Para confirmar se *o Motorcycle de corrida* e o *clube* de Altova **não estão** incluídos no momento, navegue até o banco de dados _contosoconcerthall_ no servidor do *tenants1-DPT-&lt;&gt;do usuário* e consulte o *VenueTypes* tabela.
 
 Agora, vamos criar um trabalho para atualizar a tabela *VenueTypes* em todos os bancos de dados de locatário para adicionar os novos tipos de local.
 
 Para criar um novo trabalho, você usa um conjunto de trabalhos de procedimentos armazenados do sistema criados no banco de dados _jobagent_ quando o agente de trabalho foi criado.
 
-1. No SSMS, conecte-se ao servidor de catálogo: *Catalog-DPT-@no__t servidor -1user&gt;.database.windows.net* 
-1. No SSMS, abra os módulos arquivo... \\Learning @ no__t-1Schema Management\\DeployReferenceData.sql
-1. Modifique a instrução: Defina @wtpUser = &lt;user @ no__t-2 e substitua o valor do usuário usado quando você implantou o aplicativo de banco de dados por locatário SaaS Wingtip tickets
+1. No SSMS, conecte-se ao servidor de catálogo: *Catalog-DPT-&lt;usuário&gt;. Database.Windows.net* Server 
+1. No SSMS, abra o arquivo...\\módulos de aprendizado\\gerenciamento de esquema\\DeployReferenceData. SQL
+1. Modifique a instrução: SET @wtpUser = &lt;usuário&gt; e substitua o valor de usuário usado quando você implantou o aplicativo de banco de dados por locatário SaaS Wingtip tickets
 1. Verifique se você está conectado ao banco de dados _jobagent_ e pressione **F5** para executar o script
 
 Observe os seguintes elementos no script *DeployReferenceData. SQL* :
-* **SP @ no__t-1add @ no__t-2target @ no__t-3group** cria o nome do grupo de destino DemoServerGroup.
-* **SP @ no__t-1add @ no__t-2target @ no__t-3group @ no__t-4member** é usado para definir o conjunto de bancos de dados de destino.  Primeiro o servidor _tenants1-DPT-&lt;user @ no__t-2_ é adicionado.  Adicionar o servidor como um destino faz com que os bancos de dados nesse servidor no momento da execução do trabalho sejam incluídos no trabalho. Em seguida, o banco de dados _basetenantdb_ e o banco de dados *adhocreporting* (usado em um tutorial posterior) são adicionados como destinos.
-* **SP @ no__t-1add @ no__t-2job** cria um trabalho chamado _implantação de dados de referência_.
-* **SP @ no__t-1add @ no__t-2jobstep** cria a etapa de trabalho que contém o texto do comando t-SQL para atualizar a tabela de referência, VenueTypes.
+* o **\_do SP adicionar\_destino grupo de\_** cria o nome do grupo de destino DemoServerGroup.
+* **sp\_adicionar\_destino\_grupo\_membro** é usado para definir o conjunto de bancos de dados de destino.  Primeiro o servidor de _&gt;de tenants1-DPT-&lt;_ é adicionado.  Adicionar o servidor como um destino faz com que os bancos de dados nesse servidor no momento da execução do trabalho sejam incluídos no trabalho. Em seguida, o banco de dados _basetenantdb_ e o banco de dados *adhocreporting* (usado em um tutorial posterior) são adicionados como destinos.
+* o **sp\_adicionar\_trabalho** cria um trabalho chamado _implantação de dados de referência_.
+* **sp\_add\_JobStep** cria a etapa de trabalho que contém o texto do comando t-SQL para atualizar a tabela de referência, VenueTypes.
 * As vistas restantes no script mostram a existência dos objetos e monitorizam a execução da tarefa. Use essas consultas para examinar o valor de status na coluna **ciclo de vida** para determinar quando o trabalho foi concluído em todos os bancos de dados de destino.
 
-Depois que o script for concluído, você poderá verificar se os dados de referência foram atualizados.  No SSMS, navegue até o banco de dados *contosoconcerthall* no servidor *tenants1-DPT-&lt;user @ no__t-3* e consulte a tabela *VenueTypes* .  Verifique se a *corrida Motorcycle* e o *clube nadare* **estão** presentes agora.
+Depois que o script for concluído, você poderá verificar se os dados de referência foram atualizados.  No SSMS, navegue até o banco de dados *contosoconcerthall* no servidor *tenants1-DPT-&lt;usuário&gt;* e consulte a tabela *VenueTypes* .  Verifique se a *corrida Motorcycle* e o *clube nadare* **estão** presentes agora.
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Criar uma tarefa para gerir o índice de tabela de referência
@@ -104,14 +104,14 @@ Este exercício usa um trabalho para recriar o índice na chave primária da tab
 
 Crie uma tarefa com os mesmos procedimentos armazenados no “sistema” das tarefas.
 
-1. Abra o SSMS e conecte-se ao _Catálogo-DPT-@no__t servidor -1user&gt;.database.windows.net_
-1. Abra os _módulos arquivo... \\Learning @ no__t-2Schema Management\\OnlineReindex.sql_
-1. Clique com o botão direito, selecione conexão e conecte-se ao _Catálogo-DPT-@no__t servidor -1user&gt;.database.windows.net_ , se ainda não estiver conectado
+1. Abra o SSMS e conecte-se ao _usuário Catalog-DPT-&lt;&gt;servidor. Database.Windows.net_
+1. Abra o arquivo _...\\módulos de aprendizado\\gerenciamento de esquema\\OnlineReindex. SQL_
+1. Clique com o botão direito do mouse, selecione conexão e conecte-se ao _usuário Catalog-DPT-&lt;&gt;servidor. Database.Windows.net_ , se ainda não estiver conectado
 1. Verifique se você está conectado ao banco de dados _jobagent_ e pressione **F5** para executar o script
 
 Observe os seguintes elementos no script _OnlineReindex. SQL_ :
-* **SP @ no__t-1add @ no__t-2job** cria um novo trabalho chamado "online REINDEX CP @ no__t-3 @ No__t-4VenueTyp @ no__t-5 @ NO__T-6265E44FD7FD4C885"
-* **SP @ no__t-1add @ no__t-2jobstep** cria a etapa de trabalho que contém o texto do comando t-SQL para atualizar o índice
+* o **sp\_adicionar\_trabalho** cria um novo trabalho chamado "online REINDEX cp\_\_VenueTyp\_\_265E44FD7FD4C885"
+* **sp\_add\_JobStep** cria a etapa de trabalho que contém o texto do comando t-SQL para atualizar o índice
 * As exibições restantes no script monitoram a execução do trabalho. Use essas consultas para examinar o valor de status na coluna **ciclo de vida** para determinar quando o trabalho foi concluído com êxito em todos os membros do grupo de destino.
 
 

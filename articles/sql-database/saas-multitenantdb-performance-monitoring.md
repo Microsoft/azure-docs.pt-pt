@@ -1,5 +1,5 @@
 ---
-title: Monitorar o desempenho de um banco de dados SQL do Azure multilocatário fragmentado em um aplicativo SaaS multilocatário | Microsoft Docs
+title: Monitorar o desempenho de um banco de dados SQL do Azure multilocatário fragmentado em um aplicativo SaaS multilocatário
 description: Monitorar e gerenciar o desempenho do banco de dados SQL do Azure multilocatário fragmentado em um aplicativo SaaS multilocatário
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 50fab6afe837ad409f05dbb0f3a8a44d089a894e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 03487c7e0e5fd08b6c93f81b733ab5ec1afb5605
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570333"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692031"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorar e gerenciar o desempenho do banco de dados SQL do Azure multilocatário fragmentado em um aplicativo SaaS multilocatário
 
@@ -61,9 +61,9 @@ Os scripts de banco de dados multilocatário do Wingtip tickets SaaS e o código
 
 Para uma boa compreensão de como o monitoramento e gerenciamento de desempenho funciona em escala, este tutorial exige que você tenha vários locatários em um banco de dados multilocatário fragmentado.
 
-Se você já tiver provisionado um lote de locatários em um tutorial anterior, pule para a seção simular o [uso em todos os bancos de dados de locatário](#simulate-usage-on-all-tenant-databases) .
+Se você já tiver provisionado um lote de locatários em um tutorial anterior, pule para a seção [simular o uso em todos os bancos de dados de locatário](#simulate-usage-on-all-tenant-databases) .
 
-1. No **ISE do PowerShell**, abra... Módulos de aprendizado monitoramento e gerenciamento\\de desempenho*demo-performancemonitoringandmanagement. ps1.* \\\\ Mantenha este script aberto, uma vez que vai executar vários cenários durante este tutorial.
+1. No **ISE do PowerShell**, abra...\\módulos de aprendizado\\monitoramento e gerenciamento de desempenho\\*demo-performancemonitoringandmanagement. ps1*. Mantenha este script aberto, uma vez que vai executar vários cenários durante este tutorial.
 1. Defina **$DemoScenario** = **1**, _Aprovisionar um lote de inquilinos_
 1. Prima **F5** para executar o script.
 
@@ -84,20 +84,20 @@ O script *demo-performancemonitoringandmanagement. ps1* é fornecido para simula
 
 O gerador de carga aplica uma carga *sintética* só na CPU para cada base de dados do inquilino. O gerador inicia uma tarefa para cada base de dados de inquilino, que chama um procedimento armazenado que periodicamente gera a carga. Os níveis de carga (em DTUs), duração e intervalos são variados em todos os bancos de dados, simulando atividade de locatário imprevisível.
 
-1. No **ISE do PowerShell**, abra... Módulos de aprendizado monitoramento e gerenciamento\\de desempenho*demo-performancemonitoringandmanagement. ps1.* \\\\ Mantenha este script aberto, uma vez que vai executar vários cenários durante este tutorial.
+1. No **ISE do PowerShell**, abra...\\módulos de aprendizado\\monitoramento e gerenciamento de desempenho\\*demo-performancemonitoringandmanagement. ps1*. Mantenha este script aberto, uma vez que vai executar vários cenários durante este tutorial.
 1. Definir **$DemoScenario** = **2**, _gerar carga de intensidade normal_
 1. Pressione **F5** para aplicar uma carga a todos os seus locatários.
 
 O banco de dados multilocatário SaaS Wingtip tickets é um aplicativo SaaS, e a carga do mundo real em um aplicativo SaaS é normalmente esporádica e imprevisível. Para simular isto, o gerador de carga produz uma carga aleatória distribuída por todos os inquilinos. São necessários vários minutos para que o padrão de carga surja, então execute o gerador de carga por 3-5 minutos antes de tentar monitorar a carga nas seções a seguir.
 
 > [!IMPORTANT]
-> O gerador de carga está sendo executado como uma série de trabalhos em uma nova janela do PowerShell. Se você fechar a sessão, o gerador de carga será interrompido. O gerador de carga permanece em um estado de invocação de *trabalho* onde ele gera carga em qualquer locatário novo provisionado depois que o gerador é iniciado. Use *Ctrl-C* para parar de invocar novos trabalhos e sair do script. O gerador de carga continuará a ser executado, mas somente em locatários existentes.
+> O gerador de carga está sendo executado como uma série de trabalhos em uma nova janela do PowerShell. Se você fechar a sessão, o gerador de carga será interrompido. O gerador de carga permanece em um estado de *invocação de trabalho* onde ele gera carga em qualquer locatário novo provisionado depois que o gerador é iniciado. Use *Ctrl-C* para parar de invocar novos trabalhos e sair do script. O gerador de carga continuará a ser executado, mas somente em locatários existentes.
 
 ## <a name="monitor-resource-usage-using-the-azure-portal"></a>Monitorar o uso de recursos usando o portal do Azure
 
 Para monitorar o uso de recursos que resulta da carga sendo aplicada, abra o portal para o banco de dados multilocatário, **tenants1**, que contém os locatários:
 
-1. Abra o [portal do Azure](https://portal.azure.com) e navegue até o servidor *tenants1-MT-&lt;user&gt;* .
+1. Abra o [portal do Azure](https://portal.azure.com) e navegue até o usuário do servidor *tenants1-mt-&lt;&gt;* .
 1. Role para baixo e localize bancos de dados e clique em **tenants1**. Esse banco de dados multilocatário fragmentado contém todos os locatários criados até o momento.
 
 ![gráfico de banco de dados](./media/saas-multitenantdb-performance-monitoring/multitenantdb.png)
@@ -106,9 +106,9 @@ Observe o gráfico de **DTU** .
 
 ## <a name="set-performance-alerts-on-the-database"></a>Definir alertas de desempenho no banco de dados
 
-Defina um alerta no banco de dados que dispara \>a utilização de 75% da seguinte maneira:
+Defina um alerta no banco de dados que dispare na utilização \>de 75% da seguinte maneira:
 
-1. Abra o banco de dados *tenants1* (no servidor *tenants1-&lt;MT&gt; -User* ) no [portal do Azure](https://portal.azure.com).
+1. Abra o banco de dados *tenants1* (no servidor de *&gt;de usuário do tenants1-MT-&lt;* ) no [portal do Azure](https://portal.azure.com).
 1. Clique em **Regras de Alerta**e, em seguida, clique em **+ Adicionar alerta**:
 
    ![adicionar alerta](media/saas-multitenantdb-performance-monitoring/add-alert.png)
@@ -153,7 +153,7 @@ O modelo multilocatário fragmentado permite que você escolha se deseja provisi
 
 Se você já provisionou um novo locatário em seu próprio banco de dados, pule as próximas etapas.
 
-1. No **ISE do PowerShell**, abra... Módulos de aprendizadoProvisionTenants\\*provisiontenants. ps1.* \\\\ 
+1. No **ISE do PowerShell**, abra...\\módulos de aprendizado\\ProvisionTenants\\*provisiontenants. ps1*. 
 1. Modify **$TenantName = "Salix salsa"** e **$VenueType = "dança"**
 1. Definir **$Scenario** = **2**, _provisionar um locatário em um novo banco de dados de locatário único_
 1. Prima **F5** para executar o script.
@@ -166,12 +166,12 @@ Se um único locatário dentro de um banco de dados multilocatário apresentar u
 
 Este exercício simula o efeito de Salix salsa enfrentando uma alta carga quando os tíquetes passam pela venda para um evento popular.
 
-1. Abra o... Script demo-performancemonitoringandmanagement *. ps1.* \\
+1. Abra o script...\\*demo-performancemonitoringandmanagement. ps1* .
 1. Defina **$DemoScenario = 5**, _gerar uma carga normal mais uma carga alta em um único locatário (aproximadamente 90 DTU)._
 1. Definir **$SingleTenantName = Salix salsa**
 1. Execute o script com **F5**.
 
-Acesse o portal e navegue até **salixsalsa** > **visão geral** para exibir os gráficos de monitoramento. 
+Vá para o portal e navegue até **salixsalsa** > **visão geral** para exibir os gráficos de monitoramento. 
 
 ## <a name="other-performance-management-patterns"></a>Outros padrões de gerenciamento de desempenho
 
@@ -183,7 +183,7 @@ Como o dimensionamento é uma tarefa facilmente chamada por meio da API de geren
 
 Quando o uso agregado de locatário segue padrões de uso previsíveis, você pode usar a automação do Azure para dimensionar um banco de dados para cima e para baixo em um agendamento. Por exemplo, dimensione um banco de dados para baixo depois de 18:00 e para cima novamente antes de 6h em dias da semana quando você sabe que há uma queda nos requisitos de recursos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficará a saber como:
 
