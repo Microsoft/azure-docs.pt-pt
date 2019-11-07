@@ -1,5 +1,5 @@
 ---
-title: Fluxos de dados Wrangling em Azure Data Factory | Microsoft Docs
+title: Fluxos de dados Wrangling em Azure Data Factory
 description: Uma visão geral dos fluxos de dados do Wrangling no Azure Data Factory
 author: djpmsft
 ms.author: daperlov
@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 05119adfa5b254297fd656854a027ede05c5ef26
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7b46b1108246f0b83fcfce69844d19d01b1994c4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518583"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73665651"
 ---
 # <a name="what-are-wrangling-data-flows"></a>O que são fluxos de dados Wrangling?
 

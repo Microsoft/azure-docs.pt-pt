@@ -1,5 +1,5 @@
 ---
-title: Gerenciamento de SQL Data Warehouse do Azure e monitoramento – atividade de consulta, utilização de recursos | Microsoft Docs
+title: Gerenciabilidade e monitoramento – atividade de consulta, utilização de recursos
 description: Saiba quais recursos estão disponíveis para gerenciar e monitorar SQL Data Warehouse do Azure. Use o portal do Azure e as DMVs (exibições de gerenciamento dinâmico) para entender a atividade de consulta e a utilização de recursos do seu data warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 08/09/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 786ae1f18d52c6763b60f5019ecfe365f1cd540a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 1a210e2622212ed59dfa12f9f9a108c6ffe08714
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71334095"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692889"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Monitorando a utilização de recursos e a atividade de consulta no Azure SQL Data Warehouse
 O Azure SQL Data Warehouse fornece uma experiência de monitoramento avançada dentro do portal do Azure para insights de superfície para sua carga de trabalho de data warehouse. O portal do Azure é a ferramenta recomendada ao monitorar seu data warehouse, pois fornece períodos de retenção, alertas, recomendações e gráficos personalizáveis e painéis para métricas e logs configuráveis. O portal também permite que você integre com outros serviços de monitoramento do Azure, como o OMS (Operations Management Suite) e Azure Monitor (logs) para fornecer uma experiência de monitoramento holística para não apenas seus data warehouse, mas também toda a análise do Azure plataforma para uma experiência de monitoramento integrada. Esta documentação descreve quais recursos de monitoramento estão disponíveis para otimizar e gerenciar sua plataforma de análise com o SQL Data Warehouse. 
@@ -24,13 +25,13 @@ O Azure SQL Data Warehouse fornece uma experiência de monitoramento avançada d
 As métricas a seguir estão disponíveis no portal do Azure para SQL Data Warehouse. Essas métricas são apresentadas por meio de [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
 
 
-| Nome da Métrica             | Descrição                                                  | Tipo de Agregação |
+| Nome da métrica             | Descrição                                                  | Tipo de agregação |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
 | Percentagem de CPU          | Utilização da CPU em todos os nós para o data warehouse      | Máximo          |
-| Percentagem de E/S de dados      | Utilização de e/s em todos os nós para o data warehouse       | Máximo          |
-| Percentagem de memória       | Utilização de memória (SQL Server) em todos os nós para o data warehouse | Máximo          |
+| Percentagem de ES de Dados      | Utilização de e/s em todos os nós para o data warehouse       | Máximo          |
+| Porcentagem de memória       | Utilização de memória (SQL Server) em todos os nós para o data warehouse | Máximo          |
 | Conexões com êxito  | Número de conexões bem-sucedidas com os dados                 | Total            |
-| Ligações Falhadas      | Número de conexões com falha para o data warehouse           | Total            |
+| Ligações com Falhas      | Número de conexões com falha para o data warehouse           | Total            |
 | Bloqueado pelo firewall     | Número de logons no data warehouse que foi bloqueado     | Total            |
 | Limite de DWU               | Objetivo de nível de serviço do data warehouse                | Máximo          |
 | Porcentagem de DWU          | Máximo entre percentual de CPU e porcentagem de e/s de dados        | Máximo          |

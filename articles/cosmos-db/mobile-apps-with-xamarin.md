@@ -1,20 +1,20 @@
 ---
-title: Criar aplicações móveis com o Xamarin e o Azure Cosmos DB
-description: Um tutorial para criar uma aplicação Xamarin iOS, Android ou Formulários com o Azure Cosmos DB. O Azure Cosmos DB é uma base de dados na cloud rápida e à escala mundial para aplicações móveis.
+title: 'Tutorial: compilar aplicativos móveis com o Xamarin e o Azure Cosmos DB'
+description: 'Tutorial: um tutorial que cria um aplicativo Xamarin iOS, Android ou Forms usando Azure Cosmos DB. O Azure Cosmos DB é uma base de dados na cloud rápida e à escala mundial para aplicações móveis.'
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: 4a9c0fe09bee553f53c90c9833922746aad35d14
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 40f7de4b4feb2b312705238abd30402edb635ea9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615076"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720885"
 ---
-# <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Criar aplicações móveis com o Xamarin e o Azure Cosmos DB
+# <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Tutorial: compilar aplicativos móveis com o Xamarin e o Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -45,7 +45,7 @@ O Azure Cosmos DB oferece as seguintes funcionalidades principais para os progra
 O seguinte tutorial mostra como pode criar uma aplicação móvel com o Xamarin e o Azure Cosmos DB. O código fonte completo do tutorial encontra-se no [Xamarin e no Azure Cosmos DB no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
 
 ### <a name="get-started"></a>Introdução
-Começar a utilizar o Azure Cosmos DB é fácil. Aceda ao portal do Azure e crie uma nova conta do Azure Cosmos DB. Clique no separador **Início rápido**. Transfira o exemplo de lista de tarefas do Xamarin Forms que já está associado à sua conta do Azure Cosmos DB. 
+Começar a utilizar o Azure Cosmos DB é fácil. Aceda ao portal do Azure e crie uma nova conta do Azure Cosmos DB. Clique na guia **início rápido** . Baixe o exemplo de lista de tarefas pendentes do Xamarin Forms que já está conectado à sua conta do Azure Cosmos DB. 
 
 ![Início rápido do Azure Cosmos DB para aplicações móveis](media/mobile-apps-with-xamarin/cosmos-db-quickstart.png)
 
@@ -101,7 +101,7 @@ O Azure Cosmos DB é uma base de dados como serviço gerida. À medida que a sua
 
 Parabéns! Concluiu a solução e acabou de criar uma aplicação móvel com o Xamarin e o Azure Cosmos DB. Siga passos semelhantes para criar aplicações Cordova com o JavaScript SDK do Azure Cosmos DB e aplicações nativas iOS/Android com APIs REST do Azure Cosmos DB.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Ver o código fonte do [Xamarin e do Azure Cosmos DB no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
 * Transferir o [SDK de .NET Core do Azure Cosmos DB](sql-api-sdk-dotnet-core.md).
 * Encontrar mais exemplos de código para [aplicações .NET](sql-api-dotnet-samples.md).

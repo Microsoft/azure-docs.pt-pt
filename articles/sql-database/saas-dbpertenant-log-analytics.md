@@ -1,5 +1,5 @@
 ---
-title: Usar logs de Azure Monitor com um aplicativo de multilocatário do banco de dados SQL | Microsoft Docs
+title: Usar logs de Azure Monitor com um aplicativo de multilocatário do banco de dados SQL
 description: Configurar e usar logs de Azure Monitor com um aplicativo SaaS multilocatário do banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
-ms.openlocfilehash: 6b9b2239cfdf0f214ed2f2b179978fe2828d1be3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d7b568424d5e33c19efc9d9d9c21d0023459b6c7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570507"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692146"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>Configurar e usar logs de Azure Monitor com um aplicativo SaaS de banco de dados SQL multilocatário
 
@@ -47,7 +47,7 @@ As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Crie dados de diagnóstico de desempenho simulando uma carga de trabalho em seus locatários 
 
-1. No ISE do PowerShell, abra *.. Repositório wingtipticketssaas-MultiTenantDb-Master\\módulos\\de aprendizado monitoramento e gerenciamento\\de desempenho demo-performancemonitoringandmanagement. ps1. \\* Mantenha este script aberto porque talvez você queira executar vários cenários de geração de carga durante este tutorial.
+1. No ISE do PowerShell, abra *..\\os módulos repositório wingtipticketssaas-MultiTenantDb-master\\Learning\\monitoramento e gerenciamento de desempenho\\demo-performancemonitoringandmanagement. ps1*. Mantenha este script aberto porque talvez você queira executar vários cenários de geração de carga durante este tutorial.
 1. Se você ainda não tiver feito isso, provisione um lote de locatários para tornar o contexto de monitoramento mais interessante. Esse processo leva alguns minutos.
 
    a. Defina **$DemoScenario = 1**, _provisionar um lote de locatários_.
@@ -68,7 +68,7 @@ Os scripts de banco de dados multilocatário do Wingtip tickets SaaS e o código
 
 Azure Monitor é um serviço separado que deve ser configurado. Os logs de Azure Monitor coletam dados de log, telemetria e métricas em um espaço de trabalho Log Analytics. Assim como outros recursos no Azure, um espaço de trabalho Log Analytics deve ser criado. O espaço de trabalho não precisa ser criado no mesmo grupo de recursos que os aplicativos monitorados. No entanto, isso geralmente faz mais sentido. Para o aplicativo Wingtip tickets, use um único grupo de recursos para garantir que o espaço de trabalho seja excluído com o aplicativo.
 
-1. No ISE do PowerShell, abra *.. \\\\Repositório wingtipticketssaas-MultiTenantDb-Master\\\\módulos de aprendizado monitoramento e gerenciamento de desempenho log Analytics demo-loganalytics. ps1. \\*
+1. No ISE do PowerShell, abra *..\\repositório wingtipticketssaas-MultiTenantDb-master\\módulos de aprendizagem\\monitoramento e gerenciamento de desempenho\\Log Analytics\\demo-loganalytics. ps1*.
 1. Para executar o script, pressione F5.
 
 Agora você pode abrir logs de Azure Monitor no portal do Azure. Leva alguns minutos para coletar telemetria no espaço de trabalho Log Analytics e torná-lo visível. Quanto mais tempo você deixar o sistema coletando dados de diagnóstico, mais interessante será a experiência. 
@@ -82,7 +82,7 @@ Neste exercício, abra Log Analytics espaço de trabalho no portal do Azure para
 
    ![Abrir Log Analytics espaço de trabalho](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-1. Selecione o espaço de trabalho chamado _wtploganalytics&gt;-&lt;User_.
+1. Selecione o espaço de trabalho chamado _wtploganalytics-&lt;usuário&gt;_ .
 
 1. Selecione **visão geral** para abrir a solução log analytics no portal do Azure.
 
@@ -93,7 +93,7 @@ Neste exercício, abra Log Analytics espaço de trabalho no portal do Azure para
 
 1. Selecione o bloco **análise de SQL do Azure** para abri-lo.
 
-    ![Mosaico de descrição geral](media/saas-dbpertenant-log-analytics/overview.png)
+    ![Bloco de visão geral](media/saas-dbpertenant-log-analytics/overview.png)
 
 1. As exibições na solução rolam para a lateral, com sua própria barra de rolagem interna na parte inferior. Atualize a página, se necessário.
 
@@ -128,7 +128,7 @@ Neste exercício, abra Log Analytics espaço de trabalho no portal do Azure para
 
 1. De volta ao espaço de trabalho Log Analytics, selecione **portal do OMS** para abrir o espaço de trabalho.
 
-    ![Área de trabalho do Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
+    ![Espaço de trabalho Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 
 No espaço de trabalho Log Analytics, você pode explorar ainda mais os dados de log e métrica. 
 
@@ -139,7 +139,7 @@ Para obter mais informações sobre como usar os logs de Azure Monitor para cons
 Azure Monitor logs de encargos do banco de dados SQL com base no volume do espaço de trabalho. Neste tutorial, você criou um espaço de trabalho gratuito, limitado a 500 MB por dia. Depois que esse limite for atingido, os dados não serão mais adicionados ao espaço de trabalho.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

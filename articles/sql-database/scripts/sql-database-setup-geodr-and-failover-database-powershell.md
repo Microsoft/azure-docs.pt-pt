@@ -1,5 +1,5 @@
 ---
-title: Exemplo PowerShell - Georreplicação ativa - Base de dados SQL do Azure única | Microsoft Docs
+title: Exemplo do PowerShell – replicação geográfica ativa-banco de dados SQL do Azure único
 description: Azure PowerShell script de exemplo para configurar a replicação geográfica ativa para um banco de dados individual no banco de dados SQL do Azure e fazer failover dele.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 4319a393382375b080c9d4c0d3c80aa3782c6afd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ddaf9de7fdb09f8c93815c918edac010555bb4d8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569815"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691520"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-single-database-in-azure-sql-database"></a>Usar o PowerShell para configurar a replicação geográfica ativa para um banco de dados individual no banco de dados SQL do Azure
 
@@ -59,7 +59,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

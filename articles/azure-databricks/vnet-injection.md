@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: 0bb3221c201e6dd4dd17cca8ef7e3ed3331de228
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 5eded3217e96ccc45951acae004d1424e16cb098
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72432655"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605671"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network"></a>Implementar o Azure Databricks na sua rede virtual
 
@@ -119,7 +119,7 @@ Se você usar esse modelo sem usar também o modelo de grupos de segurança de r
 
 ## <a name="whitelisting-subnet-traffic"></a>Tráfego de sub-rede de lista de permissões
 
-Se você não usar os modelos de [portal do Azure](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) ou [Azure Resource Manager](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) para criar os grupos de segurança de rede, deverá colocar a lista de permissões manualmente no tráfego a seguir em suas sub-redes.
+Se você não usar os modelos de [portal do Azure](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-portal) ou [Azure Resource Manager](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) para criar os grupos de segurança de rede, deverá colocar a lista de permissões manualmente no tráfego a seguir em suas sub-redes.
 
 |Direção|Protocolo|Origem|Porta de origem|Destino|Porta de destino|
 |---------|--------|------|-----------|-----------|----------------|
@@ -135,29 +135,29 @@ O tráfego de sub-rede da lista de permissões usando os seguintes endereços IP
 
 |Região de Azure Databricks|Serviço|IP público|
 |-----------------------|-------|---------|
-|Este dos E.U.A.|NAT do plano de controle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
-|Este dos E.U.A. 2|NAT do plano de controle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|EUA Leste|NAT do plano de controle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|EUA Leste 2|NAT do plano de controle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |E.U.A. Centro-Norte|NAT do plano de controle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
-|Centro dos E.U.A.|NAT do plano de controle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
-|E.U.A. Centro-Sul|NAT do plano de controle </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
+|EUA Central|NAT do plano de controle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|EUA Centro-Sul|NAT do plano de controle </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
 |Oeste dos E.U.A.|NAT do plano de controle </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
-|E.U.A. Oeste 2|NAT do plano de controle </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
+|EUA Oeste 2|NAT do plano de controle </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
 |Canadá Central|NAT do plano de controle </br></br>Webapp|40.85.223.25/32 </br></br>13.71.184.74/32|
 |Leste do Canadá|NAT do plano de controle </br></br>Webapp|40.85.223.25/32 </br></br>13.71.184.74/32|
-|Oeste do Reino Unido|NAT do plano de controle </br></br>Webapp|51.140.203.27/32 </br></br>51.140.204.4/32|
+|Reino Unido Oeste|NAT do plano de controle </br></br>Webapp|51.140.203.27/32 </br></br>51.140.204.4/32|
 |Sul do Reino Unido|NAT do plano de controle </br></br>Webapp|51.140.203.27/32 </br></br>51.140.204.4/32|
 |Europa Ocidental|NAT do plano de controle </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
 |Europa do Norte|NAT do plano de controle </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
-|Centro da Índia|NAT do plano de controle </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
+|Índia Central|NAT do plano de controle </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
 |Sul da Índia|NAT do plano de controle </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
 |Oeste da Índia|NAT do plano de controle </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
 |Sudeste Asiático|NAT do plano de controle </br></br>Webapp|52.187.0.85/32 </br></br>52.187.145.107/32|
-|Este Asiático|NAT do plano de controle </br></br>Webapp|52.187.0.85/32 </br></br>52.187.145.107/32|
+|Ásia Oriental|NAT do plano de controle </br></br>Webapp|52.187.0.85/32 </br></br>52.187.145.107/32|
 |Leste da Austrália|NAT do plano de controle </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
 |Sudeste da Austrália|NAT do plano de controle </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
 |Austrália Central|NAT do plano de controle </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
 |Austrália Central 2|NAT do plano de controle </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
-|Este do Japão|NAT do plano de controle </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|
+|Leste do Japão|NAT do plano de controle </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|
 |Oeste do Japão|NAT do plano de controle </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|
 
 ## <a name="troubleshooting"></a>Resolução de problemas

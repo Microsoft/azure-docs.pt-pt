@@ -1,25 +1,24 @@
 ---
 title: Trabalhando com projeções em uma loja de conhecimento (visualização)
 titleSuffix: Azure Cognitive Search
-description: Salve e formate seus dados aprimorados do pipeline de indexação de enriquecimento de ia para uso em cenários diferentes da pesquisa de texto completo.
+description: Salve e formate seus dados aprimorados do pipeline de indexação de reutilização de ia em uma loja de conhecimento para uso em cenários diferentes da pesquisa de texto completo. a loja de conhecimento está atualmente em visualização pública.
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8e6c285e8917c4224e2007c565d5ac5447b20853
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: bb6af4be232810c1f5d135e459238e2e4f2cd5d8
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790004"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720036"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Trabalhando com projeções em uma loja de conhecimento no Azure Pesquisa Cognitiva
 
-> [!Note]
-> A loja de conhecimento está em versão prévia e não se destina ao uso em produção. A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Não há suporte para o SDK do .NET no momento.
->
+> [!IMPORTANT] 
+> a loja de conhecimento está atualmente em visualização pública. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de visualização. Atualmente, há suporte ao portal limitado e não há suporte para o SDK do .NET.
 
 O Azure Pesquisa Cognitiva permite o enriquecimento de conteúdo por meio de habilidades cognitivas internas e habilidades personalizadas como parte da indexação. Aprimoramentos adicionam estrutura a seus documentos e tornam a pesquisa mais eficiente. Em muitos casos, os documentos aprimorados são úteis para cenários diferentes de pesquisa, como para a mineração de conhecimento.
 

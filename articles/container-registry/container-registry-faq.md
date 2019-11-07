@@ -8,14 +8,14 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: cfa8efe0b73811474b1e50a7d2fb1e9abe9045c6
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 88c4b2065576bd5bdcb29a266bd564c60b0e537c
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286508"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622697"
 ---
-# <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o registro de contêiner do Azure
+# <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas mais frequentes sobre o Azure Container Registry
 
 Este artigo aborda as perguntas frequentes e problemas conhecidos sobre o registro de contêiner do Azure.
 
@@ -188,7 +188,7 @@ az acr login -n MyRegistry
 
 Sim. Habilite o TLS usando qualquer cliente do Docker recente (versão 18.03.0 e posterior). 
 
-### <a name="does-azure-container-registry-support-content-trust"></a>O registro de contêiner do Azure dá suporte à confiança de conteúdo?
+### <a name="does-azure-container-registry-support-content-trust"></a>O Azure Container Registry suporta o Content Trust?
 
 Sim, você pode usar imagens confiáveis no registro de contêiner do Azure, pois o [Docker Notary](https://docs.docker.com/notary/getting_started/) foi integrado e pode ser habilitado. Para obter detalhes, consulte [confiança de conteúdo no registro de contêiner do Azure](container-registry-content-trust.md).
 
@@ -245,7 +245,7 @@ O destinatário é então capaz de autenticar e acessar imagens no registro.
   docker pull myregistry.azurecr.io/hello-world
   ```
 
-Com o uso apenas da função `AcrPull` ou `AcrPush`, o destinatário não tem a permissão para gerenciar o recurso de registro no Azure. Por exemplo, `az acr list` ou `az acr show -n myRegistry` não mostrará o registro.
+Com o uso somente da função `AcrPull` ou `AcrPush`, o destinatário não tem a permissão para gerenciar o recurso de registro no Azure. Por exemplo, `az acr list` ou `az acr show -n myRegistry` não mostrará o registro.
 
 ### <a name="how-do-i-enable-automatic-image-quarantine-for-a-registry"></a>Como fazer habilitar a quarentena de imagem automática para um registro?
 
@@ -270,8 +270,8 @@ Para solucionar problemas comuns de ambiente e do registro, consulte [verificar 
 ### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>docker pull falha com erro: net/http: solicitação cancelada ao aguardar conexão (o cliente. tempo limite excedido ao aguardar os cabeçalhos)
 
  - Se esse erro for um problema transitório, a nova tentativa terá sucesso.
- - Se `docker pull` falhar continuamente, poderá haver um problema com o daemon do Docker. O problema geralmente pode ser mitigado reiniciando o daemon do Docker. 
- - Se você continuar a ver esse problema após a reinicialização do daemon do Docker, o problema poderá ser de alguns problemas de conectividade de rede com o computador. Para verificar se a rede geral no computador está íntegra, execute o seguinte comando para testar a conectividade do ponto de extremidade. A versão mínima `az acr` que contém esse comando de verificação de conectividade é 2.2.9. Atualize seu CLI do Azure se você estiver usando uma versão mais antiga.
+ - Se `docker pull` falhar continuamente, pode haver um problema com o daemon do Docker. O problema geralmente pode ser mitigado reiniciando o daemon do Docker. 
+ - Se você continuar a ver esse problema após a reinicialização do daemon do Docker, o problema poderá ser de alguns problemas de conectividade de rede com o computador. Para verificar se a rede geral no computador está íntegra, execute o seguinte comando para testar a conectividade do ponto de extremidade. A versão mínima do `az acr` que contém esse comando de verificação de conectividade é 2.2.9. Atualize seu CLI do Azure se você estiver usando uma versão mais antiga.
  
    ```azurecli
     az acr check-health -n myRegistry
@@ -286,7 +286,7 @@ Use [essa](http://www.azurespeed.com/Azure/Upload) ferramenta para testar a velo
 
 ### <a name="docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required"></a>O push do Docker tem êxito, mas docker pull falha com erro: não autorizado: autenticação necessária
 
-Esse erro pode acontecer com a versão do Red Hat do daemon do Docker, onde `--signature-verification` está habilitado por padrão. Você pode verificar as opções do daemon do Docker para Red Hat Enterprise Linux (RHEL) ou Fedora executando o seguinte comando:
+Esse erro pode ocorrer com a versão do Red Hat do daemon do Docker, onde `--signature-verification` está habilitado por padrão. Você pode verificar as opções do daemon do Docker para Red Hat Enterprise Linux (RHEL) ou Fedora executando o seguinte comando:
 
 ```bash
 grep OPTIONS /etc/sysconfig/docker
@@ -298,7 +298,7 @@ Por exemplo, o servidor Fedora 28 tem as seguintes opções de daemon do Docker:
 OPTIONS='--selinux-enabled --log-driver=journald --live-restore'
 ```
 
-Com o `--signature-verification=false` ausente, o `docker pull` falha com um erro semelhante a:
+Com `--signature-verification=false` ausentes, `docker pull` falhará com um erro semelhante a:
 
 ```bash
 Trying to pull repository myregistry.azurecr.io/myimage ...
@@ -382,7 +382,7 @@ Atualmente, o ACR não dá suporte à exclusão da replicação doméstica pelos
 
 ### <a name="authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls"></a>As informações de autenticação não são fornecidas no formato correto em chamadas à API REST diretas
 
-Você pode encontrar um erro `InvalidAuthenticationInfo`, especialmente usando a ferramenta `curl` com a opção `-L`, `--location` (para seguir os redirecionamentos).
+Você pode encontrar um erro de `InvalidAuthenticationInfo`, especialmente usando a ferramenta `curl` com a opção `-L`, `--location` (para seguir os redirecionamentos).
 Por exemplo, buscar o blob usando `curl` com a opção `-L` e a autenticação básica:
 
 ```bash
@@ -398,7 +398,7 @@ RequestId:00000000-0000-0000-0000-000000000000
 Time:2019-01-01T00:00:00.0000000Z</Message></Error>
 ```
 
-A causa raiz é que algumas implementações `curl` seguem os redirecionamentos com os cabeçalhos da solicitação original.
+A causa raiz é que algumas implementações de `curl` seguem redirecionamentos com cabeçalhos da solicitação original.
 
 Para resolver o problema, você precisa seguir os redirecionamentos manualmente sem os cabeçalhos. Imprima os cabeçalhos de resposta com a opção `-D -` de `curl` e, em seguida, extraia: o cabeçalho `Location`:
 
@@ -420,7 +420,7 @@ O navegador pode não ser capaz de enviar a solicitação para buscar repositór
 * Bloqueadores de AD
 * Erros de DNS
 
-Entre em contato com seu administrador de rede ou verifique a configuração de rede e a conectividade. Tente executar `az acr check-health -n yourRegistry` usando sua CLI do Azure para verificar se o seu ambiente é capaz de se conectar ao registro de contêiner. Além disso, você também pode tentar uma sessão Incognito ou privada em seu navegador para evitar nenhum cookie ou cache de navegador obsoleto.
+Entre em contato com seu administrador de rede ou verifique a configuração de rede e a conectividade. Tente executar `az acr check-health -n yourRegistry` usando o CLI do Azure para verificar se o seu ambiente é capaz de se conectar ao registro de contêiner. Além disso, você também pode tentar uma sessão Incognito ou privada em seu navegador para evitar nenhum cookie ou cache de navegador obsoleto.
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Como fazer coletar rastreamentos http no Windows?
 
@@ -448,6 +448,8 @@ Configure o proxy do Docker para a saída do comando anterior e a porta 8888 (po
 
 - [Como fazer o cancelamento da execução do lote?](#how-do-i-batch-cancel-runs)
 - [Como fazer incluir a pasta. git no comando AZ ACR Build?](#how-do-i-include-the-git-folder-in-az-acr-build-command)
+- [As tarefas dão suporte a GitLab para gatilhos de origem?](#does-tasks-support-gitlab-for-source-triggers)
+- [Para qual serviço de gerenciamento de repositório git as tarefas dão suporte?](#what-git-repository-management-service-does-tasks-support)
 
 ### <a name="how-do-i-batch-cancel-runs"></a>Como fazer o cancelamento da execução do lote?
 
@@ -460,13 +462,32 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 ### <a name="how-do-i-include-the-git-folder-in-az-acr-build-command"></a>Como fazer incluir a pasta. git no comando AZ ACR Build?
 
-Se você passar uma pasta de origem local para o comando `az acr build`, a pasta `.git` será excluída do pacote carregado por padrão. Você pode criar um arquivo `.dockerignore` com a configuração a seguir. Ele informa o comando para restaurar todos os arquivos em `.git` no pacote carregado. 
+Se você passar uma pasta de origem local para o comando `az acr build`, a pasta `.git` será excluída do pacote carregado por padrão. Você pode criar um arquivo de `.dockerignore` com a configuração a seguir. Ele informa o comando para restaurar todos os arquivos em `.git` no pacote carregado. 
 
-```
+```sh
 !.git/**
 ```
 
 Essa configuração também se aplica ao comando `az acr run`.
+
+### <a name="does-tasks-support-gitlab-for-source-triggers"></a>As tarefas dão suporte a GitLab para gatilhos de origem?
+
+Atualmente, não há suporte para GitLab para gatilhos de origem.
+
+### <a name="what-git-repository-management-service-does-tasks-support"></a>Para qual serviço de gerenciamento de repositório git as tarefas dão suporte?
+
+| Serviço git | Contexto de origem | Compilação manual | Criar automaticamente o gatilho de confirmação |
+|---|---|---|---|
+| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | Sim | Sim |
+| Repositórios do Azure | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | Sim | Sim |
+| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Sim | Não |
+| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Sim | Não |
+
+## <a name="run-error-message-troubleshooting"></a>Executar solução de problemas de mensagem de erro
+
+| Mensagem de erro | Guia de resolução de problemas |
+|---|---|
+|Nenhum acesso foi configurado para a VM, portanto, nenhuma assinatura foi encontrada|Isso pode acontecer se você estiver usando `az login --identity` em sua tarefa ACR. Esse é um erro transitório e ocorre quando a atribuição de função da sua identidade gerenciada não foi propagada. Aguardando alguns segundos antes de tentar novamente o Works.|
 
 ## <a name="cicd-integration"></a>Integração de CI/CD
 

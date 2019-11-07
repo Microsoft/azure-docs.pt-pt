@@ -6,16 +6,16 @@ ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
-ms.openlocfilehash: 79219b9405f76e7044a4d403b37ba2f1545dfbea
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 780dbf02fbdb0a607f29c710da9a6320a8626f7b
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501891"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643761"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: gerenciar o controle de marca com Azure Policy
 
-As [marcas](../../../azure-resource-manager/resource-group-using-tags.md) são uma parte crucial da organização dos recursos do Azure em uma taxonomia. Ao seguir as [práticas recomendadas para o gerenciamento de marca](/azure/architecture/cloud-adoption/ready/considerations/name-and-tag#metadata-tags), as marcas podem ser a base para aplicar suas políticas de negócios com Azure Policy ou [controlar os custos com o gerenciamento de custos](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources).
+As [marcas](../../../azure-resource-manager/resource-group-using-tags.md) são uma parte crucial da organização dos recursos do Azure em uma taxonomia. Ao seguir as [práticas recomendadas para o gerenciamento de marca](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources), as marcas podem ser a base para aplicar suas políticas de negócios com Azure Policy ou [controlar os custos com o gerenciamento de custos](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources).
 Não importa como ou por que você usa marcas, é importante que você possa adicionar, alterar e remover rapidamente essas marcas nos recursos do Azure.
 
 O efeito de [modificação](../concepts/effects.md#modify) de Azure Policy foi projetado para auxiliar na governança de marcas, independentemente do estágio da governança de recursos em que você está. **Modificar** ajuda quando:

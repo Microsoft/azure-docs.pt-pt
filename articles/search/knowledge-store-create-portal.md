@@ -1,25 +1,24 @@
 ---
-title: Criar uma loja de conhecimento no portal do Azure
+title: Criar uma loja de conhecimento (versão prévia) no portal do Azure
 titleSuffix: Azure Cognitive Search
-description: Use o assistente para importar dados para criar uma loja de conhecimento usada para manter o conteúdo aprimorado. Conecte-se a uma loja de conhecimento para análise de outros aplicativos ou envie conteúdo aprimorado para processos downstream.
+description: Use o assistente para importar dados para criar uma loja de conhecimento usada para manter o conteúdo aprimorado. Conecte-se a uma loja de conhecimento para análise de outros aplicativos ou envie conteúdo aprimorado para processos downstream. Este recurso está atualmente em visualização pública.
 author: lisaleib
 manager: nitinme
 ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 689b5aa0cd8a5fb310925b2c52baeec6860af0d5
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
-ms.translationtype: HT
+ms.openlocfilehash: 56053a942604a6f1cb935e6bddcae85ffc5a9e54
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607084"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720100"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Início rápido: criar um repositório de conhecimento do Azure Pesquisa Cognitiva no portal do Azure
 
-> [!Note]
-> A loja de conhecimento está em versão prévia e não deve ser usada na produção. O portal do Azure e a [API REST de pesquisa versão 2019-05-06-Preview](search-api-preview.md) fornecem esse recurso. Não há suporte para o SDK do .NET no momento.
->
+> [!IMPORTANT] 
+> a loja de conhecimento está atualmente em visualização pública. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 O repositório de conhecimento é um recurso do Azure Pesquisa Cognitiva que persiste a saída de um pipeline de habilidades cognitivas para análises subsequentes ou processamento de downstream. 
 

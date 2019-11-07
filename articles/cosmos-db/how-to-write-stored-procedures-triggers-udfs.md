@@ -4,14 +4,14 @@ description: Saiba como definir procedimentos armazenados, gatilhos e funções 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: bec28874bbd67ece4b29f6975e8c7fdcea457bd5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cdac8321ec4ac7b2e13c5545a2483527118daae3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092825"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606264"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como escrever procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB
 
@@ -21,6 +21,9 @@ Para chamar um procedimento armazenado, um gatilho e uma função definida pelo 
 
 > [!NOTE]
 > Para contêineres particionados, ao executar um procedimento armazenado, um valor de chave de partição deve ser fornecido nas opções de solicitação. Os procedimentos armazenados sempre estão no escopo de uma chave de partição. Os itens que têm um valor de chave de partição diferente não serão visíveis para o procedimento armazenado. Isso também se aplica a gatilhos.
+
+> [!Tip]
+> O cosmos dá suporte à implantação de contêineres com procedimentos armazenados, gatilhos e funções definidas pelo usuário. Para obter mais informações, consulte [criar um contêiner de Azure Cosmos DB com a funcionalidade do lado do servidor.](manage-sql-with-resource-manager.md#create-sproc)
 
 ## <a id="stored-procedures"></a>Como escrever procedimentos armazenados
 
@@ -72,7 +75,7 @@ function createToDoItem(itemToCreate) {
 
 ### <a name="arrays-as-input-parameters-for-stored-procedures"></a>Matrizes como parâmetros de entrada para procedimentos armazenados 
 
-Ao definir um procedimento armazenado no portal do Azure, os parâmetros de entrada são sempre enviados como uma cadeia de caracteres para o procedimento armazenado. Mesmo se passar uma matriz de cadeias de caracteres como entrada, a matriz é convertida em cadeia de caracteres e enviada para o procedimento armazenado. Para solucionar esse erro, você pode definir uma função em seu procedimento armazenado para analisar a cadeia de caracteres como uma matriz. O código a seguir mostra como analisar um parâmetro de entrada de cadeia de caracteres como uma matriz:
+Ao definir um procedimento armazenado no portal do Azure, os parâmetros de entrada são sempre enviados como uma cadeia de caracteres para o procedimento armazenado. Mesmo que você passe uma matriz de cadeias de caracteres como uma entrada, a matriz é convertida em cadeia de caracteres e enviada para o procedimento armazenado. Para solucionar esse erro, você pode definir uma função em seu procedimento armazenado para analisar a cadeia de caracteres como uma matriz. O código a seguir mostra como analisar um parâmetro de entrada de cadeia de caracteres como uma matriz:
 
 ```javascript
 function sample(arr) {
@@ -155,7 +158,7 @@ function tradePlayers(playerId1, playerId2) {
 
 ### <a id="bounded-execution"></a>Execução limitada em procedimentos armazenados
 
-Veja a seguir um exemplo de um procedimento armazenado que importa os itens em massa para um contêiner Cosmos do Azure. O procedimento armazenado manipula a execução vinculada, verificando o valor de `createDocument`retorno booliano de e, em seguida, usa a contagem de itens inseridos em cada invocação do procedimento armazenado para rastrear e retomar o progresso entre os lotes.
+Veja a seguir um exemplo de um procedimento armazenado que importa os itens em massa para um contêiner Cosmos do Azure. O procedimento armazenado lida com a execução limitada, verificando o valor de retorno booliano de `createDocument`e, em seguida, usa a contagem de itens inseridos em cada invocação do procedimento armazenado para rastrear e retomar o progresso entre os lotes.
 
 ```javascript
 function bulkImport(items) {
@@ -235,11 +238,11 @@ function validateToDoItemTimestamp() {
 }
 ```
 
-Pré-acionadores não podem ter parâmetros de entrada. O objeto de solicitação no gatilho é usado para manipular a mensagem de solicitação associada à operação. No exemplo anterior, o pré-gatilho é executado ao criar um item Cosmos do Azure e o corpo da mensagem de solicitação contém o item a ser criado no formato JSON.
+Os pré-gatilhos não podem ter nenhum parâmetro de entrada. O objeto de solicitação no gatilho é usado para manipular a mensagem de solicitação associada à operação. No exemplo anterior, o pré-gatilho é executado ao criar um item Cosmos do Azure e o corpo da mensagem de solicitação contém o item a ser criado no formato JSON.
 
-Quando os gatilhos são registrados, você pode especificar as operações com as quais ele pode ser executado. Esse gatilho deve ser criado com um `TriggerOperation` valor de `TriggerOperation.Create`, o que significa que usar o gatilho em uma operação de substituição, conforme mostrado no código a seguir, não é permitido.
+Quando os gatilhos são registrados, você pode especificar as operações com as quais ele pode ser executado. Esse gatilho deve ser criado com um valor `TriggerOperation` de `TriggerOperation.Create`, o que significa que usar o gatilho em uma operação de substituição, conforme mostrado no código a seguir, não é permitido.
 
-Para obter exemplos de como registrar e chamar um pré-gatilho, consulte os artigos [pré-gatilhos](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) e [pós-](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) disparadores. 
+Para obter exemplos de como registrar e chamar um pré-gatilho, consulte os artigos [pré-gatilhos](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) e [pós-disparadores](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) . 
 
 ### <a id="post-triggers"></a>Pós-gatilhos
 
@@ -281,7 +284,7 @@ function updateMetadataCallback(err, items, responseOptions) {
 
 Uma coisa importante a ser observada é a execução transacional de gatilhos no Azure Cosmos DB. O post-Trigger é executado como parte da mesma transação para o item subjacente. Uma exceção durante a execução pós-gatilho falhará na transação inteira. Qualquer coisa confirmada será revertida e uma exceção será retornada.
 
-Para obter exemplos de como registrar e chamar um pré-gatilho, consulte os artigos [pré-gatilhos](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) e [pós-](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) disparadores. 
+Para obter exemplos de como registrar e chamar um pré-gatilho, consulte os artigos [pré-gatilhos](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) e [pós-disparadores](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) . 
 
 ## <a id="udfs"></a>Como gravar funções definidas pelo usuário
 
@@ -314,7 +317,7 @@ function tax(income) {
 
 Para obter exemplos de como registrar e usar uma função definida pelo usuário, consulte [como usar funções definidas pelo usuário no Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#udfs) artigo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os conceitos e como escrever ou usar procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB:
 

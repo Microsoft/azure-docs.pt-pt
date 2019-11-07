@@ -1,6 +1,6 @@
 ---
-title: Inscreva-se edições premium - Azure Active Directory | Documentos da Microsoft
-description: Instruções sobre como inscrever-se para as edições do Azure Active Directory Premium.
+title: Inscreva-se para obter as edições Premium-Azure Active Directory | Microsoft Docs
+description: Instruções sobre como se inscrever nas edições do Azure Active Directory Premium.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -13,15 +13,15 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 016fbc8808c11f861dd4388ea5fb062c840187ea
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1a1f4addf9bb1fff34d99867fb3730a9197c9c05
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561976"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721237"
 ---
-# <a name="sign-up-for-azure-active-directory-premium-editions"></a>Inscreva-se para as edições do Azure Active Directory Premium
-Pode comprar e associar as edições Premium do Azure Active Directory (Azure AD) com a sua subscrição do Azure. Se tiver de criar uma subscrição nova do Azure, também terá de ativar o plano de licenciamento e o acesso ao serviço Microsoft Azure AD.
+# <a name="sign-up-for-azure-active-directory-premium-editions"></a>Inscrever-se nas edições Premium do Azure Active Directory
+Você pode comprar e associar as edições Premium do Azure Active Directory (Azure AD) à sua assinatura do Azure. Se tiver de criar uma subscrição nova do Azure, também terá de ativar o plano de licenciamento e o acesso ao serviço Microsoft Azure AD.
 
 > [!NOTE]
 >As edições Premium e Básica do Azure AD estão disponíveis para clientes na China que utilizem a instância mundial do Azure Active Directory. As edições do Azure AD Premium e Básico não são atualmente suportadas pelo serviço do Azure operado pela 21Vianet na China. Para obter mais informações, contacte-nos através do [Fórum do Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
@@ -37,7 +37,7 @@ Para se inscrever no Active Directory Premium 1 ou Premium 2, tem de determina
 Ao inscrever-se com a sua subscrição do Azure com licenças do Microsoft Azure AD anteriormente compradas e ativadas, ativa automaticamente as licenças no mesmo diretório. Se não for esse o caso, ainda terá de ativar o plano de licenciamento e o acesso ao Microsoft Azure AD. Para obter mais informações sobre como ativar o plano de licenciamento, veja [Ativar o novo plano de licença](#activate-your-new-license-plan). Para obter mais informações sobre como ativar o acesso ao Microsoft Azure AD, veja [Ativar o acesso ao Microsoft Azure AD](#activate-your-azure-ad-access). 
 
 ## <a name="sign-up-using-your-existing-azure-or-office-365-subscription"></a>Inscrever-se através da sua subscrição do Azure ou do Office 365 existente
-Na qualidade de subscritor do Azure ou do Office 365, pode comprar as edições do Azure Active Directory Premium online. Para obter os passos detalhados, consulte [Como Comprar o Azure Active Directory Premium – Clientes Existentes](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) ou [Como Comprar o Azure Active Directory Premium – Novos Clientes](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).
+Na qualidade de subscritor do Azure ou do Office 365, pode comprar as edições do Azure Active Directory Premium online. Para obter etapas detalhadas, consulte [como comprar clientes Azure Active Directory Premium novos](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).
 
 ## <a name="sign-up-using-your-enterprise-mobility--security-licensing-plan"></a>Inscrever-se através do seu plano de licenciamento Enterprise Mobility + Security
 Enterprise Mobility + Security é um conjunto, composto de Azure AD Premium, proteção de informações do Azure e Microsoft Intune. Se já tiver uma licença do EMS, poderá começar a utilizar o Microsoft Azure AD, com uma destas opções de licenciamento:
@@ -97,5 +97,5 @@ Depois de as suas licenças compradas serem aprovisionadas no diretório, recebe
 
 Normalmente, o processo de ativação demora apenas alguns minutos e, em seguida, pode utilizar o inquilino do Microsoft Azure AD. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora que tem o Azure AD Premium, pode [personalizar o seu domínio](add-custom-domain.md), adicionar a sua [imagem corporativa](customize-branding.md), [criar um inquilino](active-directory-access-create-new-tenant.md) e [adicionar grupos](active-directory-groups-create-azure-portal.md) e [utilizadores](add-users-azure-active-directory.md).

@@ -1,22 +1,22 @@
 ---
-title: 'Tutorial: Criar uma aplicação web de node. js com o SDK de JavaScript para gerir os dados do Azure Cosmos DB SQL API'
+title: 'Tutorial: Criar uma aplicação Web Node.js com o JavaScript SDK para gerir os dados da API SQL do Azure Cosmos DB'
 description: Este tutorial do node. js explora como usar Microsoft Azure Cosmos DB para armazenar e acessar dados de um aplicativo Web node. js Express hospedado no recurso aplicativos Web do serviço de aplicativo do Microsoft Azure.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 08/06/2019
+ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 0f410e06e1f5b9ae3b5319c4ff63f9632a2159dc
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 8390520320566907e8aaef709a085a71e8c8e4d6
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989439"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720819"
 ---
-# <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: Criar um aplicativo Web node. js usando o SDK do JavaScript para gerenciar uma conta da API do SQL no Azure Cosmos DB 
+# <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: criar um aplicativo Web node. js usando o SDK do JavaScript para gerenciar uma conta da API do SQL no Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -51,7 +51,7 @@ Antes de seguir as instruções deste artigo, certifique-se de que tem os seguin
 * Instale o [git][Git] em sua estação de trabalho local.
 
 ## <a name="_Toc395637761"></a>Criar uma conta de Azure Cosmos DB
-Comecemos por criar uma conta do Azure Cosmos DB. Se você já tiver uma conta ou se estiver usando o emulador de Azure Cosmos DB para este tutorial, poderá pular para [a etapa 2: Crie um novo aplicativo](#_Toc395783178)node. js.
+Comecemos por criar uma conta do Azure Cosmos DB. Se já tiver uma conta ou se estiver a utilizar o Emulador do Azure Cosmos DB para este tutorial, pode avançar para o [Passo 2: Criar uma aplicação Node.js](#_Toc395783178).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -93,7 +93,7 @@ Agora, vamos aprender a criar um projeto de Olá, Mundo do node. js básico usan
 
 O ficheiro **package.json** é um dos ficheiros criados na raiz do projeto. Este ficheiro contém uma lista de módulos adicionais que são necessários para a sua aplicação Node.js. Quando implementar esta aplicação no Azure, este ficheiro servirá para determinar quais os módulos que devem estar instalados no Azure para suportar a sua aplicação. Instale mais dois pacotes para este tutorial.
 
-1. Instale o  **\@módulo Azure/Cosmos** via NPM. 
+1. Instale o módulo **\@Azure/Cosmos** via NPM. 
 
    ```bash
    npm install @azure/cosmos
@@ -272,7 +272,7 @@ Agora que já concluiu a configuração inicial, vai escrever o código de que a
    module.exports = config;
    ```
 
-3. No arquivo **config. js** , atualize os valores de host e AUTH_KEY usando os valores encontrados na página chaves de sua conta de Azure Cosmos DB na [portal do Azure](https://portal.azure.com). 
+3. No arquivo **config. js** , atualize os valores de HOST e AUTH_KEY usando os valores encontrados na página chaves da sua conta de Azure Cosmos DB no [portal do Azure](https://portal.azure.com). 
 
 4. Guarde e feche o ficheiro **config.js**.
 
@@ -437,7 +437,7 @@ O segundo formulário contém dois campos de entrada e um botão que permite cri
 
 Agora que você criou o aplicativo, pode executá-lo localmente usando as seguintes etapas:  
 
-1. Para testar o aplicativo em seu computador local, execute `npm start` no terminal para iniciar o aplicativo e, em seguida, atualize [http://localhost:3000](http://localhost:3000) a página do navegador. A página deve ser agora apresentada conforme mostrado na captura de ecrã seguinte:
+1. Para testar o aplicativo em seu computador local, execute `npm start` no terminal para iniciar o aplicativo e, em seguida, atualize a página do navegador [http://localhost:3000](http://localhost:3000) . A página deve ser agora apresentada conforme mostrado na captura de ecrã seguinte:
    
     ![Captura de ecrã da aplicação MyTodo List numa janela do browser](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
 

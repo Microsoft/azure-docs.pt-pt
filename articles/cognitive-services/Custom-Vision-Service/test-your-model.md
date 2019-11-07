@@ -1,7 +1,7 @@
 ---
 title: Testar e treinar novamente um modelo-Serviço de Visão Personalizada
 titleSuffix: Azure Cognitive Services
-description: Saiba como testar uma imagem e usá-la para treinar novamente o modelo.
+description: Este artigo mostrará como testar uma imagem e, em seguida, usá-la para treinar novamente seu modelo no serviço de Visão Personalizada.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 3f78f0b992581a44b030387f1bd0e37664df4cfd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c6ed8869f6d33609381a42fd22d728e9e5542802
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560904"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721197"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Testar e treinar novamente um modelo com Serviço de Visão Personalizada
 
@@ -44,7 +44,7 @@ Para usar a imagem enviada anteriormente para treinamento, use as seguintes etap
     ![Imagem da guia previsões](./media/test-your-model/predictions-tab.png)
 
     > [!TIP]
-    > O modo de exibição padrão mostra imagens da iteração atual. Você pode usar o  campo suspenso de iteração para exibir imagens enviadas durante as iterações anteriores.
+    > O modo de exibição padrão mostra imagens da iteração atual. Você pode usar o campo suspenso de __iteração__ para exibir imagens enviadas durante as iterações anteriores.
 
 2. Passe o mouse sobre uma imagem para ver as marcas que foram previstas pelo classificador.
 
@@ -57,6 +57,6 @@ Para usar a imagem enviada anteriormente para treinamento, use as seguintes etap
 
 3. Use o botão __treinar__ para treinar novamente o classificador.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Melhorar seu classificador](getting-started-improving-your-classifier.md)

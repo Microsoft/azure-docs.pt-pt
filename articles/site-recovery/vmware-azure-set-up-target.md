@@ -1,6 +1,6 @@
 ---
-title: Preparar o ambiente de destino para replicação de VMware para o Azure | Documentos da Microsoft
-description: Este artigo descreve como preparar o ambiente do Azure para replicação de VMS de VMware para o Azure de destino.
+title: Preparar o destino de replicação de VM VMware no Azure Site Recovery
+description: Este artigo descreve como preparar seu ambiente do Azure de destino para a replicação de VM do VMware para o Azure.
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
@@ -8,37 +8,37 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/03/2019
 ms.author: mayg
-ms.openlocfilehash: e75d4b1701944e206fcf6ded2dcb6d1e1fbc77cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c721234f2e1d806d51d31f3466e441bf8360f6b8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723817"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693163"
 ---
-# <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Preparar o ambiente de destino para recuperação após desastre de VMs de VMware ou servidores físicos no Azure
+# <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Preparar o ambiente de destino para recuperação de desastre de VMs VMware ou servidores físicos para o Azure
 
-Este artigo descreve como preparar o ambiente do Azure para iniciar a replicação de máquinas virtuais VMware ou servidores físicos para o Azure de destino.
+Este artigo descreve como preparar seu ambiente do Azure de destino para iniciar a replicação de máquinas virtuais VMware ou servidores físicos para o Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O artigo supõe:
-- Criou um cofre dos serviços de recuperação [portal do Azure](https://portal.azure.com "portal do Azure") para proteger as suas máquinas de origem
-- Tiver configurado seu ambiente no local para replicar a origem [máquinas virtuais VMware](vmware-azure-set-up-source.md) ou [servidores físicos](physical-azure-set-up-source.md) para o Azure.
+O artigo pressupõe:
+- Você criou um cofre dos serviços de recuperação no [portal do Azure](https://portal.azure.com "Portal do Azure") para proteger seus computadores de origem
+- Você configurou seu ambiente local para replicar as [máquinas virtuais VMware](vmware-azure-set-up-source.md) de origem ou os [servidores físicos](physical-azure-set-up-source.md) para o Azure.
 
-## <a name="prepare-target"></a>Preparar o destino
+## <a name="prepare-target"></a>Preparar destino
 
-Depois de concluir o **passo 1: Selecione objetivo de proteção** e **passo 2: Preparar origem**, é direcionado para **passo 3: Destino**
+Depois de concluir a **etapa 1: selecionar meta de proteção** e **etapa 2: preparar origem**, você será levado para a **etapa 3: destino**
 
-![Preparar o destino](./media/vmware-azure-set-up-target/prepare-target-vmware-to-azure.png)
+![Preparar destino](./media/vmware-azure-set-up-target/prepare-target-vmware-to-azure.png)
 
-1. **Subscrição:** No menu pendente, selecione a subscrição que pretende replicar as máquinas virtuais ou servidores físicos para o.
-2. **Modelo de implementação:** Selecione o modelo de implementação (clássico ou do Resource Manager)
+1. **Assinatura:** No menu suspenso, selecione a assinatura na qual você deseja replicar suas máquinas virtuais ou servidores físicos.
+2. **Modelo de implantação:** Selecione o modelo de implantação (clássico ou Gerenciador de recursos)
 
-Com base no modelo de implementação escolhida, é executada uma validação para garantir que tem pelo menos uma rede virtual na subscrição de destino para replicação e ativação pós-falha sua máquina virtual ou servidor físico para.
+Com base no modelo de implantação escolhido, uma validação é executada para garantir que você tenha pelo menos uma rede virtual na assinatura de destino para replicar e fazer failover de sua máquina virtual ou servidor físico para o.
 
-Assim que as validações concluir com êxito, clique em OK para ir para o passo seguinte.
+Depois que as validações forem concluídas com êxito, clique em OK para ir para a próxima etapa.
 
-Se não tiver uma rede virtual, pode criar uma ao clicar o **+ rede** botão na parte superior da página.
+Se você não tiver uma rede virtual, poderá criar uma clicando no botão **+ rede** na parte superior da página.
 
-## <a name="next-steps"></a>Passos Seguintes
-[Configurar definições de replicação](vmware-azure-set-up-replication.md).
+## <a name="next-steps"></a>Passos seguintes
+[Defina as configurações de replicação](vmware-azure-set-up-replication.md).

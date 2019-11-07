@@ -1,5 +1,5 @@
 ---
-title: 'Exemplo de designer #4: classificação para prever o risco de crédito (sensível ao custo)'
+title: 'Designer: prever o risco de crédito (sensível ao custo)'
 titleSuffix: Azure Machine Learning
 description: Este artigo mostra como criar um pipeline de aprendizado de máquina complexo usando o designer (versão prévia). Você aprenderá a implementar scripts Python personalizados e a comparar vários modelos para escolher a melhor opção.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 92f8acf56d79cd641222fc897bd2c9dba4ed0940
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7af0ee31c7d7e5dae4a38db7f6c74ff3e5f964bb
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515554"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647991"
 ---
 # <a name="sample-4---classification-with-custom-python-script-predict-credit-risk"></a>Exemplo 4-classificação com script Python personalizado: prever risco de crédito
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]

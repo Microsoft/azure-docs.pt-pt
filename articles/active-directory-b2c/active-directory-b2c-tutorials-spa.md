@@ -10,12 +10,12 @@ ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: f6a417e33ac9c60c978d8638539a1e5a0772a034
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: f9e4f25c5750ae5c48130140f49f986e20adc745
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475060"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641781"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>Tutorial: habilitar a autenticação em um aplicativo de página única usando Azure Active Directory B2C (Azure AD B2C)
 
@@ -48,7 +48,7 @@ Além disso, você precisa do seguinte em seu ambiente de desenvolvimento local:
 
 No segundo tutorial que você concluiu como parte dos pré-requisitos, você registrou um aplicativo Web em Azure AD B2C. Para habilitar a comunicação com o exemplo no tutorial, você precisa adicionar um URI de redirecionamento ao aplicativo em Azure AD B2C.
 
-Você pode usar a experiência de **aplicativos** atual ou nossa nova experiência unificada de **registros de aplicativo (versão prévia)** para atualizar o aplicativo. [Saiba mais sobre a experiência de visualização](http://aka.ms/b2cappregintro).
+Você pode usar a experiência de **aplicativos** atual ou nossa nova experiência unificada de **registros de aplicativo (versão prévia)** para atualizar o aplicativo. [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
 
 #### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
 
@@ -135,7 +135,7 @@ O exemplo dá suporte à inscrição, à entrada, à edição de perfil e à red
 > [!WARNING]
 > Depois de inscrever-se ou entrar, você poderá ver um [erro de permissões insuficiente](#error-insufficient-permissions). Devido à implementação atual do código de exemplo, esse erro é esperado. Esse problema será resolvido em uma versão futura do exemplo de código, no momento em que esse aviso será removido.
 
-1. Selecione **logon** para iniciar o fluxo de usuário do *B2C_1_signupsignin1* especificado em uma etapa anterior.
+1. Selecione **logon** para iniciar o *B2C_1_signupsignin1* fluxo de usuário especificado em uma etapa anterior.
 1. O Azure AD B2C apresenta uma página de início de sessão com uma ligação de inscrição. Como você ainda não tem uma conta, selecione o link **inscrever-se agora** .
 1. O fluxo de trabalho de inscrição apresenta uma página para recolher e verificar a identidade do utilizador através de um endereço de e-mail. O fluxo de trabalho de inscrição também coleta a senha do usuário e os atributos solicitados definidos no fluxo do usuário.
 

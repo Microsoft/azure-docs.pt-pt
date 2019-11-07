@@ -4,19 +4,19 @@ description: Descreve como criar um projeto de migrações para Azure e adiciona
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/09/2019
+ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: bd119956ced79b73b0376fe4530c9eafaf870238
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: a4e66175b20552e632702cb2ba46d0ae6c0956d4
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934166"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720238"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Adicionar uma ferramenta de avaliação/migração pela primeira vez
 
 Este artigo descreve como adicionar uma ferramenta de avaliação ou migração a um projeto de [migrações para Azure](migrate-overview.md) pela primeira vez.  
-As migrações para Azure fornecem um hub central para acompanhar a descoberta, avaliação e migração de seus aplicativos e cargas de trabalho locais e VMs de nuvem privada/pública, para o Azure. O Hub fornece as ferramentas de migração do Azure para avaliação e migração, bem como [ofertas](migrate-services-overview.md#isv-integration) de terceiros independentes de fornecedor de software (ISV). 
+As migrações para Azure fornecem um hub central para acompanhar a descoberta, avaliação e migração de seus aplicativos e cargas de trabalho locais e VMs de nuvem privada/pública, para o Azure. O Hub fornece as ferramentas de migração do Azure para avaliação e migração, bem como outras ferramentas e [ofertas](migrate-services-overview.md#isv-integration) de fornecedores independentes de software (ISV). 
 
 ## <a name="create-a-project-and-add-a-tool"></a>Criar um projeto e adicionar uma ferramenta
 
@@ -66,8 +66,8 @@ Configure um novo projeto de migrações para Azure em uma assinatura do Azure e
     > [!NOTE]
     > Ao criar um projeto, você precisa adicionar pelo menos uma ferramenta de avaliação ou migração.
 
-5. Em **selecionar ferramenta de avaliação**, adicione uma ferramenta de avaliação. Se você não precisar de uma ferramenta de avaliação, selecione **ignorar a adição de uma ferramenta de avaliação para agora** > **em seguida**. 
-2. Em **selecionar ferramenta de migração**, adicione uma ferramenta de migração conforme necessário. Se você não precisar de uma ferramenta de migração no momento, selecione **ignorar a adição de uma ferramenta de migração para agora** > **em seguida**.
+5. Em **selecionar ferramenta de avaliação**, adicione uma ferramenta de avaliação. Se você não precisar de uma ferramenta de avaliação, selecione **ignorar a adição de uma ferramenta de avaliação por enquanto** > **em Avançar**. 
+2. Em **selecionar ferramenta de migração**, adicione uma ferramenta de migração conforme necessário. Se você não precisar de uma ferramenta de migração no momento, selecione **ignorar a adição de uma ferramenta de migração por enquanto** > **Avançar**.
 3. Em **examinar + adicionar ferramentas**, examine as configurações e clique em **Adicionar ferramentas**.
 
 Depois de criar o projeto, você pode selecionar ferramentas adicionais para avaliação e migração de servidores e cargas de trabalho, bancos de dados e aplicativos Web.

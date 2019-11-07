@@ -1,7 +1,7 @@
 ---
 title: Limites e cotas-Serviço de Visão Personalizada
 titleSuffix: Azure Cognitive Services
-description: Saiba mais sobre os limites e cotas para o Serviço de Visão Personalizada.
+description: Este artigo explica os diferentes tipos de chaves de licenciamento e sobre os limites e cotas para o Serviço de Visão Personalizada.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
-ms.openlocfilehash: 878e2b03e21c18ef4ee845251e91642037c6c5ff
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: e4fc3555d7d880dcbd4f76d8f507300e98c237db
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114651"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718357"
 ---
 # <a name="limits-and-quotas"></a>Limites e quotas
 
@@ -25,8 +25,8 @@ Espera-se que o número de imagens de treinamento por projeto e marcas por proje
 
 ||**F0**|**S0**|
 |-----|-----|-----|
-|Projetos|2|100|
-|Imagens de treinamento por projeto |5,000|100,000|
+|projeto|2|100|
+|Imagens de treinamento por projeto |5000|100 000|
 |Previsões/mês|10,000 |Ilimitado|
 |Marcas/projeto|50|500|
 |Iterações |10|10|
@@ -35,8 +35,8 @@ Espera-se que o número de imagens de treinamento por projeto e marcas por proje
 |Por quanto tempo as imagens de previsão são armazenadas|30 dias|30 dias|
 |Operações de [previsão](https://go.microsoft.com/fwlink/?linkid=865445) com armazenamento (transações por segundo)|2|10|
 |Operações de [previsão](https://go.microsoft.com/fwlink/?linkid=865445) sem armazenamento (transações por segundo)|2|20|
-|[TrainProject](https://go.microsoft.com/fwlink/?linkid=865446) (Chamadas de API por segundo)|2|10|
-|[Outras chamadas à API](https://go.microsoft.com/fwlink/?linkid=865446) (Transações por segundo)|10|10|
+|[TrainProject](https://go.microsoft.com/fwlink/?linkid=865446) (chamadas de API por segundo)|2|10|
+|[Outras chamadas à API](https://go.microsoft.com/fwlink/?linkid=865446) (transações por segundo)|10|10|
 |Tipos de imagem aceitos|jpg, png, BMP, gif|jpg, png, BMP, gif|
 |Altura/largura da imagem mínima em pixels|256 (consulte a observação)|256 (consulte a observação)|
 |Altura/largura máxima da imagem em pixels|ilimitado|ilimitado|

@@ -1,5 +1,5 @@
 ---
-title: Descrição Geral da Programação de Aplicações de Bases de Dados SQL | Microsoft Docs
+title: Descrição Geral da Programação de Aplicações de Base de Dados SQL
 description: Aprenda sobre as bibliotecas de conetividade disponíveis e as melhores práticas para as aplicações ligarem à Base de Dados SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 02/07/2019
-ms.openlocfilehash: 42fc73b5557fba91cc132a0abe8561f0a72bbb64
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 58f823aad157657de5445b1010a405af01c70171
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568869"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690637"
 ---
 # <a name="sql-database-application-development-overview"></a>Visão geral do desenvolvimento de aplicativos do banco de dados SQL
 
@@ -32,7 +32,7 @@ Você pode usar várias [linguagens e plataformas de programação](sql-database
 
 Você pode aproveitar ferramentas de código-fonte aberto como [Cheetah](https://github.com/wunderlist/cheetah), [sql-CLI](https://www.npmjs.com/package/sql-cli) [vs Code](https://code.visualstudio.com/). Além disso, a Base de Dados SQL do Azure funciona com ferramentas da Microsoft como o [Visual Studio](https://www.visualstudio.com/downloads/) e o [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Você também pode usar as APIs de portal do Azure, PowerShell e REST para ajudá-lo a obter produtividade adicional.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 O acesso ao banco de dados SQL do Azure é protegido com logons e firewalls. O banco de dados SQL do Azure dá suporte a usuários e logons de autenticação SQL Server e [Azure Active Directory (AAD)](sql-database-aad-authentication.md) . Os logons do AAD estão disponíveis somente no Instância Gerenciada. 
 
@@ -54,8 +54,8 @@ Para obter mais informações sobre como se preparar para eventos de manutençã
 
 ## <a name="network-considerations"></a>Considerações de rede
 
-- No computador que aloja o seu programa cliente, certifique-se de que a firewall permite a comunicação TCP de saída na porta 1433.  Mais informações: [Configure um firewall do banco de dados SQL do Azure](sql-database-configure-firewall-settings.md).
-- Se o programa cliente se conectar ao banco de dados SQL enquanto seu cliente for executado em uma VM (máquina virtual) do Azure, você deverá abrir determinados intervalos de porta na VM. Mais informações: [Portas além de 1433 para ADO.NET 4,5 e banco de dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
+- No computador que aloja o seu programa cliente, certifique-se de que a firewall permite a comunicação TCP de saída na porta 1433.  Mais informações: [configurar um firewall do banco de dados SQL do Azure](sql-database-configure-firewall-settings.md).
+- Se o programa cliente se conectar ao banco de dados SQL enquanto seu cliente for executado em uma VM (máquina virtual) do Azure, você deverá abrir determinados intervalos de porta na VM. Mais informações: [portas além de 1433 para ADO.NET 4,5 e banco de dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 - As conexões de cliente ao banco de dados SQL do Azure às vezes ignoram o proxy e interagem diretamente com o banco de dados. As portas que não sejam 1433 tornam-se importantes. Para obter mais informações, [arquitetura de conectividade do banco de dados SQL do Azure](sql-database-connectivity-architecture.md) e [portas além de 1433 para ADO.NET 4,5 e banco de dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Para configuração de rede para uma instância gerenciada, consulte [configuração de rede para instâncias gerenciadas](sql-database-howto-managed-instance.md#network-configuration).
 

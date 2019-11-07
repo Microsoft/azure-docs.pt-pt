@@ -1,20 +1,20 @@
 ---
-title: Executar o Azure Site Recovery Deployment Planner para a recuperação de desastre do VMware para o Azure | Documentos da Microsoft
-description: Este artigo descreve como executar o Azure Site Recovery Deployment Planner para a recuperação de desastre do VMware para o Azure.
+title: Execute o Planejador de Implantações para a recuperação de desastres do VMware usando Azure Site Recovery
+description: Este artigo descreve como executar Planejador de Implantações do Azure Site Recovery para a recuperação de desastres do VMware no Azure.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: 3a6c9e50804db573395984b8ba38838eb15b0792
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 611213f6cf0f51a8b6c6f7f89a795b2daa94a38a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61276740"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693204"
 ---
-# <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Executar o Azure Site Recovery Deployment Planner para a recuperação de desastre do VMware para o Azure
+# <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Executar o Planejador de Implantações do Azure Site Recovery para a recuperação de desastres do VMware no Azure
 Este artigo é o manual do utilizador do Azure Site Recovery Deployment Planner para implementações de produção de VMware para o Azure.
 
 
@@ -42,7 +42,7 @@ Em primeiro lugar, precisa de uma lista das VMs para as quais vão ser criados p
 
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4. Pode, opcionalmente, terá de executar o seguinte comando, se o Connect-VIServer não é reconhecido como o nome do cmdlet.
+4. Opcionalmente, você pode precisar executar o comando a seguir se Connect-VIServer não for reconhecido como o nome do cmdlet.
 
             Add-PSSnapin VMware.VimAutomation.Core
 
@@ -81,7 +81,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Protocol| (Opcional) Protocolo especificado entre "http" ou "https" para ligar ao vCenter. O protocolo predefinido é https.|
 | -StorageAccountName | (Opcional) O nome da conta de armazenamento utilizada para encontrar o débito alcançável para a replicação de dados no local para o Azure. Para calcular o débito, a ferramenta carrega dados de teste para esta conta de armazenamento. A conta de armazenamento tem de ser do tipo Fins gerais v1 (GPv1). |
 | -StorageAccountKey | (Opcional) A chave da conta de armazenamento utilizada para aceder à mesma. Aceda a o portal do Azure > Contas de armazenamento > <*Nome da conta de armazenamento*> > Definições > Chaves de Acesso > Chave1. |
-| -Ambiente | (opcional) Este é o seu ambiente da conta de Armazenamento do Azure de destino. Este pode ser um de três valores - AzureCloud, AzureUSGovernment, AzureChinaCloud. A predefinição é AzureCloud. Utilize o parâmetro quando o região do Azure de destino for Azure US Government ou Azure China 21Vianet. |
+| -Ambiente | (opcional) Este é o seu ambiente da conta de Armazenamento do Azure de destino. Este pode ser um de três valores - AzureCloud, AzureUSGovernment, AzureChinaCloud. A predefinição é AzureCloud. Use o parâmetro quando sua região do Azure de destino for o governo dos EUA do Azure ou o Azure China 21Vianet. |
 
 
 Recomendamos que crie perfis para VMs por mais que 7 dias. Se o volume de alterações alterar durante um mês, recomendamos que crie os perfis durante a semana que vir o volume de alterações máximo. A melhor forma consiste em criar perfis para 31 dias para obter a melhor recomendação. Durante o período de criação de perfis, ASRDeploymentPlanner.exe permanece em execução. A ferramenta aceita a entrada da duração da criação de perfis em dias. Para um teste rápido da ferramenta ou para uma prova de conceito pode criar perfis para algumas horas ou minutos. O período mínimo de criação de perfis são 30 minutos.
@@ -90,12 +90,12 @@ Durante a criação de perfis, pode, opcionalmente, transmitir o nome e a chave 
 
 Pode executar várias instâncias da ferramenta em vários conjuntos de VMs. Confirme que não existem nomes de VMs repetidos em nenhum dos conjuntos de criação de perfis. Por exemplo, se tiver criado perfis para dez VMs (VM1 a VM10) e, ao fim de alguns dias, quiser criar perfis para outras cinco (VM11 a VM15), pode executar a ferramenta noutra consola de linha de comandos para o segundo conjunto de VMs (VM11 a VM15). Assegure-se de que o segundo conjunto não tem nenhum nome de VMs da primeira instância de criação de perfis ou de que utiliza outro diretório de saída para a segunda execução. Se forem utilizadas duas instâncias da ferramenta para criar perfis para as mesmas VMs e o mesmo diretório de saída, o relatório gerado estará incorreto.
 
-Por predefinição, a ferramenta está configurada para criar perfis e gerar relatórios até 1000 VMs. Pode mudar o limite, alterando o valor chave MaxVMsSupported no ficheiro *ASRDeploymentPlanner.exe.config*.
+Por padrão, a ferramenta está configurada para criar um perfil e gerar relatórios de até 1000 VMs. Pode mudar o limite, alterando o valor chave MaxVMsSupported no ficheiro *ASRDeploymentPlanner.exe.config*.
 ```
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-Com as predefinições, para criar um perfil de, por exemplo, 1500 VMs, crie dois ficheiros VMList.txt. Um com 1000 VMs e outro com uma lista de 500 VMs. Execute as duas instâncias do Azure Site Recovery Deployment Planner, uma com o VMList1.txt e outra com o VMList2.txt. Pode utilizar o mesmo caminho de diretório para armazenar os dados de criação de perfis das duas VMs VMList.
+Com as predefinições, para criar um perfil de, por exemplo, 1500 VMs, crie dois ficheiros VMList.txt. Um com 1000 VMs e outro com uma lista de 500 VMs. Execute as duas instâncias do Planejador de Implantações do Azure Site Recovery, uma com VMList1. txt e outra com VMList2. txt. Pode utilizar o mesmo caminho de diretório para armazenar os dados de criação de perfis das duas VMs VMList.
 
 Constatámos que, com base na configuração de hardware, especialmente o tamanho de RAM do servidor a partir do qual a ferramenta é executada para gerar o relatório, a operação poderá falhar com memória insuficiente. Se o hardware for bom, pode alterar o MaxVMsSupported para qualquer valor superior.  
 
@@ -108,23 +108,23 @@ As configurações das VMs sã capturadas uma vez no início da operação de cr
 
 O comando de criação de perfis gera vários ficheiros no diretório de criação de perfis. Não elimine nenhum dos ficheiros, pois tal eliminação afeta a geração de relatórios.
 
-#### <a name="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>Exemplo 1: Criar perfis de VMs durante 30 dias e encontrar o débito no local para o Azure
+#### <a name="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>Exemplo 1: criar perfis para VMs durante 30 dias e encontrar o débito no local para o Azure
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  30  -User vCenterUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
-#### <a name="example-2-profile-vms-for-15-days"></a>Exemplo 2: Criar perfis de VMs durante 15 dias
+#### <a name="example-2-profile-vms-for-15-days"></a>Exemplo 2: criar perfis para VMs durante 15 dias
 
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -NoOfDaysToProfile  15  -User vCenterUser1
 ```
 
-#### <a name="example-3-profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>Exemplo 3: Criar perfis de VMs durante 60 minutos, para um breve teste à ferramenta
+#### <a name="example-3-profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>Exemplo 3: criar perfis para VMs durante 60 minutos, para um breve teste à ferramenta
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfMinutesToProfile 60  -User vCenterUser1
 ```
 
-#### <a name="example-4-profile-vms-for-2-hours-for-a-proof-of-concept"></a>Exemplo 4: Criar perfis de VMs durante 2 horas para uma prova de conceito
+#### <a name="example-4-profile-vms-for-2-hours-for-a-proof-of-concept"></a>Exemplo 4: criar perfis para VMs durante 2 horas para uma prova de conceito
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -NoOfHoursToProfile 2 -User vCenterUser1
 ```
@@ -139,7 +139,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 A ferramenta gera um ficheiro do Microsoft Excel com permissão para macros (ficheiro XLSM) como o resultado do relatório, que resume todas as recomendações de implementação. O relatório é denominado `DeploymentPlannerReport_<unique numeric identifier>.xlsm` e colocado no diretório especificado.
 
 >[!NOTE]
->A geração de relatórios requer um Windows PC ou o Windows Server com o Excel 2013 ou posterior. O símbolo decimal nesta máquina deve ser configurado como "." para produzir as estimativas de custo. No caso de ter o programa de configuração "," como o símbolo decimal, vá para "Alteração de data, hora ou formatos de números" no painel de controlo e aceda a "Definições adicionais" para alterar o símbolo decimal para".".
+>A geração de relatórios requer um computador Windows ou Windows Server com o Excel 2013 ou posterior. O símbolo decimal neste computador deve ser configurado como "." para produzir as estimativas de custo. Caso você tenha configurado "," como símbolo decimal, vá para "alterar a data, a hora ou os formatos de número" no painel de controle e vá para "configurações adicionais" para alterar o símbolo decimal para ".".
 
 Depois de concluída a criação de perfis, pode executar a ferramenta no modo de geração de relatórios. A tabela seguinte contém a lista dos parâmetros obrigatórios e opcionais da ferramenta, para executá-la no modo de geração de relatórios.
 
@@ -163,52 +163,52 @@ Depois de concluída a criação de perfis, pode executar a ferramenta no modo d
 | -EndDate | (Opcional) A data e hora de fim, em MM-DD-AAAA:HH:MM (no formato de 24 horas). *EndDate* tem de ser especificado juntamente com *StartDate*. Se EndDate for especificado, o relatório será gerado para os dados de criação de perfis recolhidos entre StartDate e EndDate. |
 | -GrowthFactor | (Opcional) O fator de crescimento, expresso em percentagem. A predefinição é 30 por cento. |
 | -UseManagedDisks | (Opcional) UseManagedDisks - Sim/Não. A predefinição é Sim. O número de máquinas virtuais para a colocação de uma conta de armazenamento única ser calculada considerando se a Ativação pós-falha/Ativação pós-falha de Teste de máquinas virtuais é realizada no disco gerido, em vez do disco não gerido. |
-|-SubscriptionId |(Opcional) A GUID da subscrição. Tenha em atenção que este parâmetro é necessário quando precisa gerar o relatório de estimativa de custos com o preço mais recente com base na sua subscrição, a oferta está associada à sua subscrição e do destino específico região do Azure no **especificado moeda**.|
+|-SubscriptionId |(Opcional) A GUID da subscrição. Observe que esse parâmetro é necessário quando você precisa gerar o relatório de estimativa de custo com o preço mais recente com base em sua assinatura, a oferta associada à sua assinatura e para sua região do Azure de destino específica na **moeda especificada** .|
 |-TargetRegion|(Opcional) A região do Azure para onde está direcionada a replicação. Dado que o Azure tem custos diferentes por região, para gerar um relatório com uma região de destino do Azure específica, utilize este parâmetro.<br>A predefinição é WestUS2 ou a última região de destino utilizada.<br>Consulte a lista de [regiões de destino suportadas](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Opcional) A oferta associada à subscrição em questão. A Predefinição é MS-AZR-0003P (Pay As You Go).|
 |-Currency|(Opcional) A moeda na qual os custos são mostrados no relatório gerado. A predefinição é o Dólar Norte-Americano ($) ou a última moeda utilizada.<br>Consulte a lista de [moedas suportadas](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
 
-Por predefinição, a ferramenta está configurada para criar perfis e gerar relatórios até 1000 VMs. Pode mudar o limite, alterando o valor chave MaxVMsSupported no ficheiro *ASRDeploymentPlanner.exe.config*.
+Por padrão, a ferramenta está configurada para criar um perfil e gerar relatórios de até 1000 VMs. Pode mudar o limite, alterando o valor chave MaxVMsSupported no ficheiro *ASRDeploymentPlanner.exe.config*.
 ```xml
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
 
-#### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exemplo 1: Gerar um relatório com valores predefinidos quando os dados de criação de perfis estão na unidade local
+#### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exemplo 1: gerar o relatório com valores predefinidos quando os dados de criação de perfis estão na unidade local
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-#### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Exemplo 2: Gerar um relatório quando os dados de criação de perfis estão num servidor remoto
+#### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Exemplo 2: gerar o relatório quando os dados de criação de perfis estão num servidor remoto
 Deve ter acesso de leitura/escrita no diretório remoto.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-#### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Exemplo 3: Gerar um relatório com uma largura de banda específica e objetivos para concluir a replicação inicial no período especificado
+#### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Exemplo 3: gerar um relatório com largura de banda e objetivos específicos para concluir a replicação inicial no período especificado
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -Bandwidth 100 -GoalToCompleteIR 24
 ```
 
-#### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Exemplo 4: Gerar um relatório com um fator de crescimento de 5 por cento, em vez dos 30 por cento predefinidos
+#### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Exemplo 4: gerar um relatório com um fator de crescimento de 5 por cento em vez dos 30 por cento predefinidos
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
-#### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>Exemplo 5: Gerar um relatório com um subconjunto de dados de criação de perfis
+#### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>Exemplo 5: gerar um relatório com um subconjunto de dados de criação de perfis
 Por exemplo, tem 30 dias de dados de criação de perfis e quer gerar um relatório para apenas 20 dias.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
 ```
 
-#### <a name="example-6-generate-a-report-for-5-minute-rpo"></a>Exemplo 6: Gerar um relatório para que o RPO de 5 minutos
+#### <a name="example-6-generate-a-report-for-5-minute-rpo"></a>Exemplo 6: gerar um relatório para um RPO de cinco minutos
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
 
-#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Exemplo 7: Gerar um relatório para a região do Azure do Sul da Índia com a Rúpia indiana e ID de oferta específico
+#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Exemplo 7: gerar um relatório para a região do Azure do Sul da Índia com a Rúpia Indiana e uma ID de oferta específica
 
-Tenha em atenção que o ID de subscrição é necessária para gerar o relatório de custos numa moeda específica.
+Observe que a ID da assinatura é necessária para gerar o relatório de custo em uma moeda específica.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
@@ -240,7 +240,7 @@ Recomendamos vivamente que considere o crescimento durante o planeamento da impl
 
 O relatório do Microsoft Excel gerado contém as seguintes informações:
 
-* [Resumo No Local](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
+* [Resumo no local](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
 * [Recommendations (Recomendações)](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
 * [VM<->Storage Placement (VM<->Colocação de Armazenamento)](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
 * [Compatible VMs (VMs Compatíveis)](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
@@ -265,7 +265,7 @@ Abra uma consola da linha de comandos e aceda à pasta da ferramenta Site Recove
 | -StorageAccountName | O nome da conta de armazenamento utilizado para encontrar a largura de banda consumida para a replicação dos dados no local para o Azure. Para calcular a largura de banda consumida, a ferramenta carrega dados de teste para esta conta de armazenamento. A conta de armazenamento tem de ser do tipo Fins gerais v1 (GPv1).|
 | -StorageAccountKey | A chave da conta de armazenamento utilizada para aceder à mesma. Aceda ao portal do Azure > Contas de armazenamento > <*Nome da conta de armazenamento*> > Definições > Chaves de acesso > Chave1 (ou uma chave de acesso primário para contas de armazenamento clássicas). |
 | -VMListFile | O ficheiro que contém a lista de VMs para as quais criar perfis para calcular a largura de banda consumida. O caminho do ficheiro pode ser absoluto ou relativo. Deve conter um nome/endereço IP de VM por linha. Os nomes das VMs especificados no ficheiro devem ser iguais aos nomes das VMs no vCenter Server/anfitrião ESXi do vSphere.<br>Por exemplo, o ficheiro VMList.txt contém as VMs seguintes:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
-| -Ambiente | (opcional) Este é o seu ambiente da conta de Armazenamento do Azure de destino. Este pode ser um de três valores - AzureCloud, AzureUSGovernment, AzureChinaCloud. A predefinição é AzureCloud. Utilize o parâmetro quando o região do Azure de destino for Azure US Government ou Azure China 21Vianet. |
+| -Ambiente | (opcional) Este é o seu ambiente da conta de Armazenamento do Azure de destino. Este pode ser um de três valores - AzureCloud, AzureUSGovernment, AzureChinaCloud. A predefinição é AzureCloud. Use o parâmetro quando sua região do Azure de destino for o governo dos EUA do Azure ou o Azure China 21Vianet. |
 
 A ferramenta cria vários ficheiros asrvhdfile<#>.vhd (em que # corresponde ao número de ficheiros) de 64 MB no diretório especificado. Para encontrar o débito, a ferramenta carrega os ficheiros para a conta de armazenamento. Depois de o débito ser medido, elimina todos os ficheiros da conta de armazenamento e do servidor local. Se a ferramenta for terminada por qualquer motivo enquanto está a calcular o débito, não elimina os ficheiros do armazenamento nem do servidor local. Tem de eliminá-los manualmente.
 
@@ -290,5 +290,5 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 >
 >  4. Altere as definições do Site Recovery no servidor de processos, para [aumentar a quantidade de largura de banda utilizada para a replicação](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Analisar o relatório gerado](site-recovery-vmware-deployment-planner-analyze-report.md).

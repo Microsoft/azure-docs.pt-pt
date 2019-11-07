@@ -1,5 +1,5 @@
 ---
-title: Introdução com tabelas temporais no banco de dados SQL do Azure | Microsoft Docs
+title: Introdução com tabelas temporais no banco de dados SQL do Azure
 description: Saiba como começar a usar tabelas temporais no banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: 39c19661a71a8b466aa6ff25be9e895189dfbfb3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 44a5589357301f979bb094579626e1c02e582846
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566358"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686981"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introdução com tabelas temporais no banco de dados SQL do Azure
 
@@ -32,7 +32,7 @@ O modelo de banco de dados para esse cenário é muito simples-a métrica de ati
 
 Felizmente, você não precisa colocar nenhum esforço em seu aplicativo para manter essas informações de atividade. Com as tabelas temporais, esse processo é automatizado, proporcionando a você total flexibilidade durante o design do site e mais tempo para se concentrar na análise de dados em si. A única coisa que você precisa fazer é garantir que a tabela **WebSiteInfo** esteja configurada como [versão temporal do sistema](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_0). As etapas exatas para utilizar tabelas temporais neste cenário são descritas abaixo.
 
-## <a name="step-1-configure-tables-as-temporal"></a>Passo 1: Configurar tabelas como temporais
+## <a name="step-1-configure-tables-as-temporal"></a>Etapa 1: configurar tabelas como temporais
 Dependendo se você estiver iniciando um novo desenvolvimento ou atualizando o aplicativo existente, você criará tabelas temporais ou modificará as existentes adicionando atributos temporais. Em geral, seu cenário pode ser uma combinação dessas duas opções. Execute essas ações usando [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (SSMS), [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) (SSDT) ou qualquer outra ferramenta de desenvolvimento Transact-SQL.
 
 > [!IMPORTANT]
@@ -105,7 +105,7 @@ ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
 ```
 
-## <a name="step-2-run-your-workload-regularly"></a>Passo 2: Execute sua carga de trabalho regularmente
+## <a name="step-2-run-your-workload-regularly"></a>Etapa 2: executar sua carga de trabalho regularmente
 A principal vantagem das tabelas temporais é que você não precisa alterar ou ajustar seu site de qualquer forma para executar o controle de alterações. Depois de criadas, as tabelas temporais persistem de forma transparente às versões de linha a cada vez que você realiza modificações em seus dados. 
 
 Para aproveitar o controle de alterações automático para esse cenário específico, vamos apenas atualizar a coluna **PagesVisited** sempre que um usuário terminar sua sessão no site:
@@ -119,8 +119,8 @@ WHERE [UserID] = 1;
 
 ![TemporalArchitecture](./media/sql-database-temporal-tables/AzureTemporal5.png)
 
-## <a name="step-3-perform-historical-data-analysis"></a>Passo 3: Executar análise de dados históricos
-Agora, quando o controle de versão do sistema temporal está habilitado, a análise de dados históricos é apenas uma consulta longe de você. Neste artigo, forneceremos alguns exemplos que abordam cenários comuns de análise – para aprender todos os detalhes, explore várias opções introduzidas com a cláusula [for SYSTEM_TIME](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_3) .
+## <a name="step-3-perform-historical-data-analysis"></a>Etapa 3: executar análise de dados históricos
+Agora, quando o controle de versão do sistema temporal está habilitado, a análise de dados históricos é apenas uma consulta longe de você. Neste artigo, forneceremos alguns exemplos que abordam cenários comuns de análise – para aprender todos os detalhes, explore várias opções introduzidas com a cláusula [FOR SYSTEM_TIME](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_3) .
 
 Para ver os 10 principais usuários ordenados pelo número de páginas da Web visitadas a partir de uma hora atrás, execute esta consulta:
 
@@ -193,7 +193,7 @@ Com as tabelas temporais com controle da versão do sistema, a tabela de histór
 * [Particionamento de tabela](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_2)
 * [Script de limpeza personalizado](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre tabelas temporais, consulte check out [Tables temporal](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables).
 - Visite o Channel 9 para ouvir uma [história real de sucesso de implementação temporal do cliente](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) e assistir a uma [demonstração temporal ao vivo](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).

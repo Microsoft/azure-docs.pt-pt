@@ -1,5 +1,5 @@
 ---
-title: Ajuste de desempenho com exibições materializadas do Azure SQL Data Warehouse | Microsoft Docs
+title: Ajuste de desempenho com exibições materializadas
 description: Recomendações e considerações que você deve saber ao usar exibições materializadas para melhorar o desempenho da consulta.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 593841ac95c4c6f17f33a8d35d6b3f83a6db1124
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.custom: seo-lt-2019
+ms.openlocfilehash: c1cfd3b4c365a04c3d4704f37e4ed4177fa74619
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338905"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692979"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Ajuste de desempenho com exibições materializadas 
 As exibições materializadas no Azure SQL Data Warehouse fornecem um método de baixa manutenção para consultas analíticas complexas para obter um desempenho rápido sem nenhuma alteração de consulta. Este artigo discute as diretrizes gerais sobre como usar exibições materializadas.
@@ -32,12 +33,12 @@ A maioria dos requisitos em uma exibição padrão ainda se aplica a uma exibiç
 
 
 
-| Comparação                     | Vista                                         | Vista materializada             
+| Comparação                     | Ver                                         | Vista materializada             
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------| 
 |Ver definição                 | Armazenados no Azure data warehouse.              | Armazenados no Azure data warehouse.    
 |Exibir conteúdo                    | Gerado toda vez que o modo de exibição é usado.   | Pré-processado e armazenado no Azure data warehouse durante a criação do modo de exibição. Atualizado à medida que os dados são adicionados às tabelas subjacentes.                                             
 |Atualização de dados                    | Sempre atualizado                               | Sempre atualizado                          
-|Velocidade para recuperar dados de exibição de consultas complexas     | prejudicar                                         | Rápido  
+|Velocidade para recuperar dados de exibição de consultas complexas     | Prejudicar                                         | Rápido  
 |Armazenamento extra                   | Não                                           | Sim                             
 |Sintaxe                          | CRIAR MODO DE EXIBIÇÃO                                  | CRIAR EXIBIÇÃO MATERIALIZADA COMO SELECT           
      
@@ -76,7 +77,7 @@ Alterações de esquema e consulta em data warehouses normalmente são mantidas 
 
 **Necessidade de uma estratégia de distribuição de dados diferente para um desempenho de consulta mais rápido**
 
-O Azure data warehouse é um sistema MPP (processamento paralelo maciço) distribuído.   Os dados em uma tabela de data warehouse são distribuídos entre 60 nós usando uma das três [estratégias de distribuição](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute) (hash, round_robin ou replicado).  A distribuição de dados é especificada no momento da criação da tabela e permanece inalterada até que a tabela seja descartada. A exibição materializada, sendo uma tabela virtual em disco, dá suporte a distribuições de dados de hash e round_robin.  Os usuários podem escolher uma distribuição de dados diferente das tabelas base, mas ideal para o desempenho de consultas que usam as exibições mais.  
+O Azure data warehouse é um sistema MPP (processamento paralelo maciço) distribuído.   Os dados em uma tabela de data warehouse são distribuídos entre 60 nós usando uma das três [estratégias de distribuição](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute) (hash, round_robin ou replicadas).  A distribuição de dados é especificada no momento da criação da tabela e permanece inalterada até que a tabela seja descartada. A exibição materializada, sendo uma tabela virtual em disco, dá suporte a distribuições de dados de hash e round_robin.  Os usuários podem escolher uma distribuição de dados diferente das tabelas base, mas ideal para o desempenho de consultas que usam as exibições mais.  
 
 ## <a name="design-guidance"></a>Diretrizes de design 
 
@@ -136,7 +137,7 @@ O otimizador de data warehouse pode usar automaticamente exibições materializa
 
 **Monitorar exibições materializadas** 
 
-Uma exibição materializada é armazenada na data warehouse assim como uma tabela com o CCI (índice columnstore clusterizado).  A leitura de dados de uma exibição materializada inclui a verificação dos segmentos do índice CCI e a aplicação de quaisquer alterações incrementais das tabelas base. Quando o número de alterações incrementais é muito alto, resolver uma consulta de uma exibição materializada pode levar mais tempo do que consultar diretamente as tabelas base.  Para evitar a degradação do desempenho da consulta, é uma boa prática executar [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest) para monitorar o overhead_ratio da exibição (total_rows/Max (1, base_view_row)).  Os usuários devem recriar a exibição materializada se seu overhead_ratio for muito alto. 
+Uma exibição materializada é armazenada na data warehouse assim como uma tabela com o CCI (índice columnstore clusterizado).  A leitura de dados de uma exibição materializada inclui a verificação dos segmentos do índice CCI e a aplicação de quaisquer alterações incrementais das tabelas base. Quando o número de alterações incrementais é muito alto, resolver uma consulta de uma exibição materializada pode levar mais tempo do que consultar diretamente as tabelas base.  Para evitar a degradação do desempenho da consulta, é uma boa prática executar [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest) para monitorar o overhead_ratio da exibição (total_rows/Max (1 base_view_row)).  Os usuários devem recriar a exibição materializada se sua overhead_ratio estiver muito alta. 
 
 **Exibição materializada e cache de conjunto de resultados**
 

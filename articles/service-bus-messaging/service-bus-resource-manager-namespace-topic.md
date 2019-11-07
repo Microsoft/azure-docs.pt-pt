@@ -1,6 +1,6 @@
 ---
-title: Criar subscrição de tópico de espaço de nomes do Service bus do Azure com o modelo Azure Resource Manager | Documentos da Microsoft
-description: Criar um espaço de nomes do Service Bus com o tópico e uma subscrição com o modelo Azure Resource Manager
+title: 'Início rápido: criar assinatura de tópico de namespace do barramento de serviço do Azure usando Azure Resource Manager modelo'
+description: 'Início rápido: criar um namespace do barramento de serviço com tópico e assinatura usando Azure Resource Manager modelo'
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -9,43 +9,43 @@ editor: ''
 ms.assetid: d3d55200-5c60-4b5f-822d-59974cafff0e
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: a63ad846f569f434e1cae33746f61e3a033de66c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a43b945ce11736b16e8e11edbe988a3c48f62d51
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755031"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718776"
 ---
-# <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Criar um espaço de nomes do Service Bus com o tópico e uma subscrição com um modelo Azure Resource Manager
+# <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Início rápido: criar um namespace do barramento de serviço com tópico e assinatura usando um modelo de Azure Resource Manager
 
-Este artigo mostra como utilizar um modelo do Azure Resource Manager que cria um espaço de nomes do Service Bus e um tópico e uma subscrição dentro desse namespace. O artigo explica como especificar quais recursos são implementados e como definir os parâmetros que são especificados quando a implementação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades
+Este artigo mostra como usar um modelo de Azure Resource Manager que cria um namespace do barramento de serviço e um tópico e uma assinatura dentro desse namespace. O artigo explica como especificar quais recursos são implantados e como definir parâmetros que são especificados quando a implantação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades
 
-Para obter mais informações sobre a criação de modelos, consulte [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates] (Criar modelos do Azure Resource Manager).
+Para obter mais informações sobre como criar modelos, consulte Criando [modelos de Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Para o modelo completo, consulte a [espaço de nomes do Service Bus com o tópico e uma subscrição] [ Service Bus namespace with topic and subscription] modelo.
+Para obter o modelo completo, consulte o modelo [namespace do barramento de serviço com tópico e assinatura][Service Bus namespace with topic and subscription] .
 
 > [!NOTE]
-> Os seguintes modelos do Azure Resource Manager estão disponíveis para download e implantação.
+> Os modelos de Azure Resource Manager a seguir estão disponíveis para download e implantação.
 > 
-> * [Criar um espaço de nomes do Service Bus](service-bus-resource-manager-namespace.md)
-> * [Criar um espaço de nomes do Service Bus com a fila](service-bus-resource-manager-namespace-queue.md)
-> * [Criar um espaço de nomes do Service Bus com a regra de autorização e fila](service-bus-resource-manager-namespace-auth-rule.md)
-> * [Criar um espaço de nomes do Service Bus com o tópico, subscrição e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [Criar um namespace do barramento de serviço](service-bus-resource-manager-namespace.md)
+> * [Criar um namespace do barramento de serviço com fila](service-bus-resource-manager-namespace-queue.md)
+> * [Criar um namespace do barramento de serviço com a regra de fila e autorização](service-bus-resource-manager-namespace-auth-rule.md)
+> * [Criar um namespace do barramento de serviço com tópico, assinatura e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Para verificar os modelos mais recentes, visite o [modelos de início rápido do Azure] [ Azure Quickstart Templates] Galeria e procure **do Service Bus**.
+> Para verificar os modelos mais recentes, visite a Galeria de [modelos de início rápido do Azure][Azure Quickstart Templates] e pesquise por **barramento de serviço**.
 > 
 > 
 
-## <a name="what-do-you-deploy"></a>O que implanta?
+## <a name="what-do-you-deploy"></a>O que você implanta?
 
-Com este modelo, implementa um espaço de nomes do Service Bus com o tópico e uma subscrição.
+Com esse modelo, você implanta um namespace do barramento de serviço com tópico e assinatura.
 
-[Subscrições e tópicos do Service Bus](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) oferecem uma forma de um-para-muitos de comunicação, num *publicação/subscrição* padrão.
+Os [Tópicos e as assinaturas do barramento de serviço](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) fornecem uma forma de comunicação de um para muitos, em um padrão de *publicação/assinatura* .
 
 Para executar automaticamente a implementação, clique no seguinte botão:
 
@@ -53,12 +53,12 @@ Para executar automaticamente a implementação, clique no seguinte botão:
 
 ## <a name="parameters"></a>Parâmetros
 
-Com o Azure Resource Manager, define parâmetros para os valores que pretende especificar quando o modelo é implementado. O modelo inclui uma seção chamada `Parameters` que contém todos os valores de parâmetro. Defina um parâmetro para esses valores que variam com base no projeto que estiver a implementar ou com base no ambiente que está a implementar. Não defina parâmetros para valores que permanecem sempre iguais. Cada valor de parâmetro é utilizado no modelo para definir os recursos que são implementados.
+Com o Azure Resource Manager, define parâmetros para os valores que pretende especificar quando o modelo é implementado. O modelo inclui uma seção chamada `Parameters` que contém todos os valores de parâmetro. Defina um parâmetro para os valores que variam de acordo com o projeto que você está implantando ou com base no ambiente no qual você está implantando. Não defina parâmetros para valores que permanecem sempre iguais. Cada valor de parâmetro é utilizado no modelo para definir os recursos que são implementados.
 
 O modelo define os seguintes parâmetros:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
-O nome do espaço de nomes do Service Bus para criar.
+O nome do namespace do barramento de serviço a ser criado.
 
 ```json
 "serviceBusNamespaceName": {
@@ -67,7 +67,7 @@ O nome do espaço de nomes do Service Bus para criar.
 ```
 
 ### <a name="servicebustopicname"></a>serviceBusTopicName
-O nome do tópico criado no espaço de nomes do Service Bus.
+O nome do tópico criado no namespace do barramento de serviço.
 
 ```json
 "serviceBusTopicName": {
@@ -76,7 +76,7 @@ O nome do tópico criado no espaço de nomes do Service Bus.
 ```
 
 ### <a name="servicebussubscriptionname"></a>serviceBusSubscriptionName
-O nome da subscrição criada no espaço de nomes do Service Bus.
+O nome da assinatura criada no namespace do barramento de serviço.
 
 ```json
 "serviceBusSubscriptionName": {
@@ -85,7 +85,7 @@ O nome da subscrição criada no espaço de nomes do Service Bus.
 ```
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
-A versão de API do Service Bus do modelo.
+A versão da API do barramento de serviço do modelo.
 
 ```json
 "serviceBusApiVersion": { 
@@ -96,7 +96,7 @@ A versão de API do Service Bus do modelo.
        }
 ```
 ## <a name="resources-to-deploy"></a>Recursos a implementar
-Cria um espaço de nomes do Service Bus padrão do tipo **Messaging**, com o tópico e uma subscrição.
+Cria um namespace padrão do barramento de serviço do tipo **mensagens**, com o tópico e a assinatura.
 
 ```json
 "resources": [{
@@ -131,7 +131,7 @@ Cria um espaço de nomes do Service Bus padrão do tipo **Messaging**, com o tó
     }]
 ```
 
-Para a sintaxe JSON e propriedades, consulte [espaços de nomes](/azure/templates/microsoft.servicebus/namespaces), [tópicos](/azure/templates/microsoft.servicebus/namespaces/topics), e [subscrições](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions).
+Para sintaxe e propriedades JSON, consulte [namespaces](/azure/templates/microsoft.servicebus/namespaces), [Tópicos](/azure/templates/microsoft.servicebus/namespaces/topics)e [assinaturas](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions).
 
 ## <a name="commands-to-run-deployment"></a>Comandos para executar a implementação
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
@@ -148,11 +148,11 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-Agora que criou e implantou recursos com o Azure Resource Manager, saiba como gerir estes recursos ao visualizar estes artigos:
+## <a name="next-steps"></a>Passos seguintes
+Agora que você criou e implantou recursos usando Azure Resource Manager, saiba como gerenciar esses recursos exibindo estes artigos:
 
 * [Gerir o Service Bus com o PowerShell](service-bus-manage-with-ps.md)
-* [Gerir recursos do Service Bus com o Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* [Gerenciar recursos do barramento de serviço com o Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus

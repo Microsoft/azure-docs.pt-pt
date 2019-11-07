@@ -1,6 +1,6 @@
 ---
-title: Aplicações de Mesh de escalabilidade do Azure Service Fabric | Documentos da Microsoft
-description: Saiba mais sobre o dimensionamento de serviços na malha do Azure Service Fabric.
+title: Escalabilidade de aplicativos de malha de Service Fabric do Azure | Microsoft Docs
+description: Uma das vantagens de implantar aplicativos em Service Fabric malha é a capacidade de dimensionar facilmente seus serviços, seja manualmente ou com políticas de dimensionamento automático.
 services: service-fabric-mesh
 keywords: ''
 author: dkkapur
@@ -9,34 +9,34 @@ ms.date: 10/26/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 1688cac35ea9de43bac529a4994bd4ea55eb0ab7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 59fdf68ed1ead4665ec8944d67f2d5112d370716
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811103"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663002"
 ---
-# <a name="scaling-service-fabric-mesh-applications"></a>Dimensionamento de aplicações de Mesh do Service Fabric
+# <a name="scaling-service-fabric-mesh-applications"></a>Dimensionamento de aplicativos de malha Service Fabric
 
-Uma das principais vantagens da implementação de aplicações no Service Fabric Mesh é a capacidade de reduzir ou aumentar horizontalmente os seus serviços. Deve utilizar a redução ou o aumento para processar quantidades diferentes de carga nos serviços ou melhorar a disponibilidade. Pode dimensionar manualmente suas services in ou out ou políticas de dimensionamento automático de configuração.
+Uma das principais vantagens da implantação de aplicativos em Service Fabric malha é a capacidade de você facilmente dimensionar seus serviços para dentro ou para fora. Isso deve ser usado para lidar com quantidades diferentes de carga em seus serviços ou para melhorar a disponibilidade. Você pode dimensionar manualmente seus serviços para dentro ou para fora ou configurar políticas de dimensionamento automático.
 
-## <a name="manual-scaling-instances"></a>Instâncias de dimensionamento manuais
+## <a name="manual-scaling-instances"></a>Instâncias de dimensionamento manual
 
 No modelo de implementação do recurso da aplicação, cada serviço tem uma propriedade *replicaCount* que pode ser utilizada para definir o número de vezes que pretende que o serviço seja implementado. Uma aplicação pode consistir em vários serviços, cada serviço com um número de *replicaCount* exclusivo, que são implementados e geridos em conjunto. Para dimensionar o número de réplicas do serviço, modifique o valor de *replicaCount* para cada serviço que pretende reduzir horizontalmente no modelo de implementação ou ficheiro de parâmetros. Em seguida, atualize a aplicação.
 
-Para obter exemplos de dimensionar manualmente as instâncias dos serviços, consulte [Dimensionar manualmente os seus serviços dentro ou para fora](service-fabric-mesh-tutorial-template-scale-services.md).
+Para obter exemplos de dimensionamento manual de instâncias de serviços, consulte [dimensionar manualmente os serviços para dentro ou para fora](service-fabric-mesh-tutorial-template-scale-services.md).
 
-## <a name="autoscaling-service-instances"></a>Instâncias de serviço de dimensionamento automático
-Dimensionamento automático é uma capacidade adicional do Service Fabric para dimensionar dinamicamente o número de instâncias de serviço (dimensionamento horizontal). Dimensionamento automático oferece excelente elasticidade e permite o aprovisionamento ou remoção de instâncias de serviço com base na utilização de CPU ou memória.  Dimensionamento automático permite-lhe executar o número certo de instâncias de serviço para a sua carga de trabalho e otimizar o custo.
+## <a name="autoscaling-service-instances"></a>Dimensionamento automático de instâncias de serviço
+O dimensionamento automático é um recurso adicional de Service Fabric para dimensionar dinamicamente o número de suas instâncias de serviço (dimensionamento horizontal). O dimensionamento automático oferece grande elasticidade e permite o provisionamento ou a remoção de instâncias de serviço com base na utilização de CPU ou memória.  O dimensionamento automático permite que você execute o número certo de instâncias de serviço para sua carga de trabalho e otimize o custo.
 
-Uma política de dimensionamento de automática é definida por serviço no arquivo de recursos de serviço. Cada política de dimensionamento consiste em duas partes:
+Uma política de dimensionamento automático é definida por serviço no arquivo de recurso de serviço. Cada política de dimensionamento consiste em duas partes:
 
-- Um acionador de dimensionamento, que descreve quando o dimensionamento do serviço será executado. Existem três fatores que determinam quando o serviço será dimensionada. *Limiar de carregamento inferior* é um valor que determina quando o serviço irá ser reduzido horizontalmente. Se a carga média de todas as instâncias das partições for inferior este valor, em seguida, o serviço irá ser reduzido horizontalmente. *Limiar de carregamento superior* é um valor que determina quando o serviço irá ser aumentado horizontalmente. Se a carga média de todas as instâncias da partição é maior do que este valor, em seguida, o serviço irá ser dimensionado. *Intervalo de dimensionamento* determina com que frequência (em segundos) será verificado o acionador. Assim que o acionador for selecionado, se o dimensionamento é necessário o mecanismo será aplicado. Se não for necessário dimensionamento, irá ser efetuada nenhuma ação. Em ambos os casos, acionador não estará marcado novamente antes de expira o intervalo de dimensionamento.
+- Um gatilho de dimensionamento, que descreve quando o dimensionamento do serviço será executado. Há três fatores que determinam quando o serviço será dimensionado. *Limite de carga inferior* é um valor que determina quando o serviço será dimensionado horizontalmente. Se a carga média de todas as instâncias das partições for menor que esse valor, o serviço será dimensionado no. *Limite de carga superior* é um valor que determina quando o serviço será escalado horizontalmente. Se a carga média de todas as instâncias da partição for maior que esse valor, o serviço será escalado horizontalmente. O *intervalo de dimensionamento* determina com que frequência (em segundos) o gatilho será verificado. Quando o gatilho for verificado, se for necessário dimensionar, o mecanismo será aplicado. Se o dimensionamento não for necessário, nenhuma ação será executada. Em ambos os casos, o gatilho não será verificado novamente antes de o intervalo de dimensionamento expirar.
 
-- Um mecanismo dimensionamento, que descreve como dimensionar será efetuada quando for acionado. *Dimensionar o incremento* determina quantas instâncias serão adicionadas ou removidas quando o mecanismo é acionado. *Número máximo de instâncias* define o limite superior para dimensionamento. Se o número de instâncias atingir este limite, em seguida, o serviço será não ser dimensionado, independentemente da carga. *Contagem de instâncias mínima* define o limite inferior para dimensionamento. Se o número de instâncias da partição atingir este limite, em seguida, serviço será não ser reduzido horizontalmente, independentemente da carga.
+- Um mecanismo de dimensionamento, que descreve como o dimensionamento será executado quando for disparado. O *incremento de escala* determina quantas instâncias serão adicionadas ou removidas quando o mecanismo for disparado. *Contagem máxima de instâncias* define o limite superior para o dimensionamento. Se o número de instâncias atingir esse limite, o serviço não será escalado horizontalmente, independentemente da carga. A *contagem mínima de instâncias* define o limite inferior para o dimensionamento. Se o número de instâncias da partição atingir esse limite, o serviço não será dimensionado, independentemente da carga.
 
-Para saber como definir uma política de dimensionamento automático para o seu serviço, leia [serviços de dimensionamento automático](service-fabric-mesh-howto-auto-scale-services.md).
+Para saber como definir uma política de dimensionamento automático para seu serviço, leia [serviços de dimensionamento automático](service-fabric-mesh-howto-auto-scale-services.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter informações sobre o modelo de aplicativo, consulte [recursos de infraestrutura do serviço](service-fabric-mesh-service-fabric-resources.md)
+Para obter informações sobre o modelo de aplicativo, consulte [recursos de Service Fabric](service-fabric-mesh-service-fabric-resources.md)

@@ -1,25 +1,24 @@
 ---
 title: Introdução à indexação incremental (versão prévia)
 titleSuffix: Azure Cognitive Search
-description: Configure seu pipeline de enriquecimento de ia para direcionar seus dados para a consistência eventual para lidar com quaisquer atualizações de habilidades, habilidades, indexadores ou fontes de dados.
+description: Configure seu pipeline de enriquecimento de ia para direcionar seus dados para a consistência eventual para lidar com quaisquer atualizações de habilidades, habilidades, indexadores ou fontes de dados. Este recurso está atualmente em visualização pública
 manager: nitinme
 author: Vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ea3bcfc25040f09b6871d85412ac64061ec2f9e8
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 94ce056185ff6a804521bf583ac4f6ffaa513fb0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73549121"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715429"
 ---
 # <a name="what-is-incremental-indexing-in-azure-cognitive-search"></a>O que é indexação incremental no Pesquisa Cognitiva do Azure?
 
-> [!Note]
-> A indexação incremental está em visualização e não se destina ao uso em produção. A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Não há suporte para Portal ou SDK do .NET no momento.
->
+> [!IMPORTANT] 
+> A indexação incremental está atualmente em visualização pública. Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Não há suporte para Portal ou SDK do .NET no momento.
 
 A indexação incremental é um novo recurso do Azure Pesquisa Cognitiva que adiciona o cache e o estado ao conteúdo aprimorado em um determinado conhecimento, dando a você controle sobre o processamento e reprocessamento de etapas individuais em um pipeline de enriquecimento. Isso não apenas preserva seu investimento monetário em processamento, mas também torna um sistema mais eficiente. Quando estruturas e conteúdo são armazenados em cache, um indexador pode determinar quais habilidades foram alteradas e executar apenas aquelas que foram modificadas, bem como quaisquer habilidades dependentes de downstream. 
 

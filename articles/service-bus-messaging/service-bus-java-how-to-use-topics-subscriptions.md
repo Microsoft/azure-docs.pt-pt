@@ -1,6 +1,6 @@
 ---
-title: Usar tópicos e assinaturas do barramento de serviço do Azure com Java
-description: Use os tópicos e as assinaturas do barramento de serviço no Azure.
+title: 'Início rápido: usar os tópicos e as assinaturas do barramento de serviço do Azure com o Java'
+description: 'Início rápido: Use os tópicos e as assinaturas do barramento de serviço no Azure.'
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -11,18 +11,18 @@ ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: affd62bd7cae0103b7d2510022fc12a66d26c865
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 8a721d929ff89fd644c78296ae54cee757bf9610
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155596"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720012"
 ---
-# <a name="use-service-bus-topics-and-subscriptions-with-java"></a>Usar tópicos e assinaturas do barramento de serviço com Java
+# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Início rápido: usar tópicos e assinaturas do barramento de serviço com Java
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
@@ -45,11 +45,11 @@ Verifique se você instalou o [SDK do Azure para Java][Azure SDK for Java] antes
 
 Você também precisa adicionar os JARs a seguir ao caminho de compilação do Java:
 
-- gson-2.6.2.jar
-- commons-cli-1.4.jar
-- proton-j-0.21.0.jar
+- Gson-2.6.2. jar
+- Commons-CLI-1.4. jar
+- Proton-j-0.21.0. jar
 
-Adicione uma classe com um método **Main** e, em seguida, adicione `import` as seguintes instruções na parte superior do arquivo Java:
+Adicione uma classe com um método **Main** e, em seguida, adicione as seguintes instruções de `import` na parte superior do arquivo Java:
 
 ```java
 import com.google.gson.reflect.TypeToken;

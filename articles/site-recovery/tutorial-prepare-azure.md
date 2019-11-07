@@ -1,5 +1,5 @@
 ---
-title: Prepare o Azure para a recuperação de desastre de computadores locais com Azure Site Recovery
+title: Preparar o Azure para a recuperação de desastre local com o Azure Site Recovery
 description: Saiba como preparar o Azure para a recuperação após desastre de máquinas no local com o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 32aa2c8f4c97f247bfcff5fc82a3f810b8005591
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1ec668fac087773001ca401eefb5ca8bc10ea2b8
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488533"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620601"
 ---
-# <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparar os recursos do Azure para a recuperação após desastre de máquinas no local
+# <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Preparar o Azure para a recuperação de desastre local no Azure
 
 Este artigo descreve como preparar os recursos e componentes do Azure para que você possa configurar a recuperação de desastre de VMs VMware locais, VMs Hyper-V ou servidores físicos Windows/Linux para o Azure, usando o serviço [Azure site Recovery](site-recovery-overview.md) .
 

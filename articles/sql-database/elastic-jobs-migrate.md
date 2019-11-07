@@ -1,5 +1,5 @@
 ---
-title: Migrar para os novos trabalhos de banco de dados elástico | Microsoft Docs
+title: 'Migrar para os novos trabalhos de banco de dados elástico '
 description: Migre para os novos trabalhos de banco de dados elástico.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: johnpaulkee
 ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 9fa3444244cbd51c3f14abcfef5212a366cadbd2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2cba7ecb4be500a8f7007c8da009e03e6f33dfde
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68550554"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692275"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrar para o novo trabalhos de Banco de Dados Elástico
 
@@ -138,7 +138,7 @@ function Migrate-Credentials ($agent) {
 }
 ```
 
-Para migrar suas credenciais, execute o comando a seguir passando o `$agent` objeto do PowerShell anterior.
+Para migrar suas credenciais, execute o comando a seguir passando o objeto do `$agent` PowerShell anterior.
 
 ```powershell
 Migrate-Credentials $agent
@@ -368,7 +368,7 @@ function Setup-TargetGroup ($tgName, $agent) {
 
 Para migrar seus destinos (servidores, bancos de dados e coleções personalizadas) para o novo banco de dados de trabalho, execute o cmdlet **Migrate-TargetGroups** para executar o seguinte:
 
-- Os destinos de nível raiz que são servidores e bancos de dados serão migrados para um novo grupo de destino denominado\<"\>( \<ServerName, DatabaseName\>)" contendo apenas o destino de nível raiz.
+- Os destinos de nível raiz que são servidores e bancos de dados serão migrados para um novo grupo de destino denominado "(\<ServerName\>, \<databaseName\>)" que contém apenas o destino de nível raiz.
 - Uma coleção personalizada será migrada para um novo grupo de destino que contém todos os destinos filho.
 
 ```powershell
@@ -564,7 +564,7 @@ function Setup-JobStep ($newJob, $job) {
 
 Para migrar seus trabalhos, conteúdo do trabalho, gatilhos de trabalho e agendas de trabalho para o novo banco de dados do agente de trabalho elástico, execute o cmdlet **Migrate-Jobs** passando em seu agente.
 
-- Trabalhos com vários gatilhos com agendas diferentes são separados em vários trabalhos com esquema de\<nomenclatura\> :\<"JobName\>(ScheduleName)".
+- Trabalhos com vários gatilhos com agendas diferentes são separados em vários trabalhos com esquema de nomenclatura: "\<jobName\> (\<Scheduler\>)".
 - O conteúdo do trabalho é migrado para um trabalho, adicionando uma etapa de trabalho padrão chamada JobStep com o texto de comando associado.
 - Os trabalhos são desabilitados por padrão para que você possa validá-los antes de habilitá-los.
 
@@ -627,7 +627,7 @@ Para todos os trabalhos que estavam sendo executados em um agendamento, lembre-s
 $jobs | Set-AzSqlElasticJob -Enable
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar e gerir Tarefas Elásticas com o PowerShell](elastic-jobs-powershell.md)
 - [Criar e gerir Tarefas Elásticas com o Transact-SQL (T-SQL)](elastic-jobs-tsql.md)

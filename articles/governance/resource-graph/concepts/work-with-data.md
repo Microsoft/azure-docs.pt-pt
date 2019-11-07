@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: bcc272a8189ebb175f546f6a50c2c117a7975216
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 44f31a8c9e5b47fdcc62c87f6181a3812697aa4b
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800181"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622615"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhando com grandes conjuntos de dados de recursos do Azure
 
@@ -171,4 +171,4 @@ response = client.resources(request)
 
 - Consulte o idioma em uso em [consultas de início](../samples/starter.md).
 - Consulte usos avançados em [consultas avançadas](../samples/advanced.md).
-- Aprenda a [explorar os recursos](explore-resources.md).
+- Saiba mais sobre como [explorar recursos](explore-resources.md).

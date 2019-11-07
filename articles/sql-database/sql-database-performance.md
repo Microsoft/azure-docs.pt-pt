@@ -1,5 +1,5 @@
 ---
-title: Monitorar e melhorar o desempenho-banco de dados SQL do Azure | Microsoft Docs
+title: Monitorar e melhorar o desempenho-banco de dados SQL do Azure
 description: O banco de dados SQL do Azure fornece ferramentas de desempenho para ajudá-lo a identificar áreas que podem melhorar o desempenho atual da consulta.
 ms.service: sql-database
 ms.subservice: performance
@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 39a100c487588fb717c642036c7713150a95e047
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 483cd9f185cfa626d21fe0a5b86ba782ebb2f612
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567086"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687662"
 ---
 # <a name="monitor-and-improve-performance"></a>Monitorar e melhorar o desempenho
 
@@ -58,7 +58,7 @@ Você também pode encontrar um histórico completo de ações de ajuste que for
 
 Saiba como encontrar as recomendações de aplicar desempenho no artigo [Localizar e aplicar recomendações de desempenho](sql-database-advisor-portal.md) .
 
-## <a name="automatic-tuning"></a>Otimização automática
+## <a name="automatic-tuning"></a>Ajuste automático
 
 Os bancos de dados SQL do Azure podem ajustar automaticamente o desempenho do banco de dados aplicando [recomendações de desempenho](sql-database-advisor.md). Para saber mais, leia o [artigo de ajuste automático](sql-database-automatic-tuning.md). Para habilitá-lo, leia [como habilitar o ajuste automático](sql-database-automatic-tuning-enable.md).
 
@@ -70,7 +70,7 @@ Os bancos de dados SQL do Azure podem ajustar automaticamente o desempenho do ba
 * As principais consultas de consumo de CPU, que podem ser potencialmente ajustadas para melhorar o desempenho. 
 * A capacidade de detalhar os detalhes de uma consulta. 
 
-  ![painel de desempenho](./media/sql-database-query-performance/performance.png)
+  ![Painel de desempenho](./media/sql-database-query-performance/performance.png)
 
 Encontre mais informações sobre esta página no artigo **[como usar análise de desempenho de consultas](sql-database-query-performance.md)** .
 

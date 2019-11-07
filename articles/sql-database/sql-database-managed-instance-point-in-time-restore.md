@@ -1,5 +1,5 @@
 ---
-title: Instância gerenciada do banco de dados SQL – restauração pontual | Microsoft Docs
+title: Instância gerenciada do banco de dados SQL – restauração pontual
 description: Restaurar um banco de dados SQL em uma instância gerenciada para um ponto anterior no tempo.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 61249d8ac21c3bb698deb92e5f46a8998205ced9
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 44f99b6a5201e91e37ace0f5aa4c5c2eb8e3b1db
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529676"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687979"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>Restaurar um banco de dados SQL em uma instância gerenciada para um ponto anterior no tempo
 
@@ -58,7 +58,7 @@ Restaure um banco de dados existente para a mesma instância usando o portal do 
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com). 
 2. Vá para a instância gerenciada e selecione o banco de dados que você deseja restaurar.
 3. Selecione **restaurar** na página do banco de dados:
 

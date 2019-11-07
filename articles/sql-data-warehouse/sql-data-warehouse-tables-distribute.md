@@ -1,5 +1,5 @@
 ---
-title: Diretrizes de design de tabelas distribuídas-Azure SQL Data Warehouse | Microsoft Docs
+title: Diretrizes de design de tabelas distribuídas
 description: Recomendações para a criação de tabelas distribuídas por hash e de Round Robin no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 4b322415592a7202387cb6776d2c040cda765b27
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f05e732e11fb9cd88d4671528d551c68e448a8d7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479358"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685476"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Diretrizes para criar tabelas distribuídas no Azure SQL Data Warehouse
 Recomendações para a criação de tabelas distribuídas por hash e de Round Robin no Azure SQL Data Warehouse.
@@ -112,8 +113,8 @@ Para obter as consultas corretas do resultado da consulta, é possível mover da
 
 Para minimizar a movimentação de dados, selecione uma coluna de distribuição que:
 
-- É usado nas `JOIN`cláusulas `DISTINCT`, `GROUP BY`, `OVER`, `HAVING` e. Quando duas grandes tabelas de fatos têm junções frequentes, o desempenho da consulta melhora quando você distribui ambas as tabelas em uma das colunas de junção.  Quando uma tabela não é usada em junções, considere distribuir a tabela em uma coluna com frequência na `GROUP BY` cláusula.
-- *Não* é usado em `WHERE` cláusulas. Isso poderia restringir a consulta para não ser executada em todas as distribuições. 
+- É usado nas cláusulas `JOIN`, `GROUP BY`, `DISTINCT`, `OVER`e `HAVING`. Quando duas grandes tabelas de fatos têm junções frequentes, o desempenho da consulta melhora quando você distribui ambas as tabelas em uma das colunas de junção.  Quando uma tabela não é usada em junções, considere distribuir a tabela em uma coluna com frequência na cláusula de `GROUP BY`.
+- *Não* é usado em cláusulas `WHERE`. Isso poderia restringir a consulta para não ser executada em todas as distribuições. 
 - *Não* é uma coluna de data. As cláusulas WHERE geralmente filtram por data.  Quando isso acontece, todo o processamento podia ser executado em apenas algumas distribuições.
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>O que fazer quando nenhuma das colunas for uma boa coluna de distribuição
@@ -161,7 +162,7 @@ Para evitar a movimentação de dados durante uma junção:
 - As tabelas envolvidas na junção devem ser distribuídas por hash em **uma** das colunas que participam da junção.
 - Os tipos de dados das colunas de junção devem corresponder entre ambas as tabelas.
 - As colunas devem ser unidas com um operador Equals.
-- O tipo de junção pode não ser `CROSS JOIN`um.
+- O tipo de junção pode não ser um `CROSS JOIN`.
 
 Para ver se as consultas estão passando por movimentação de dados, você pode examinar o plano de consulta.  
 
@@ -212,7 +213,7 @@ RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_ProductKey];
 RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para criar uma tabela distribuída, use uma destas instruções:
 

@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: marsma
-ms.openlocfilehash: 462c1fca0ecd706c1bf04ac5a0ef8561321e05bc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ce49e9e26160017d64d745c9c7ad5402bc3ae2ca
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474839"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641568"
 ---
 #### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
 

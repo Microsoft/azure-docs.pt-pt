@@ -1,5 +1,5 @@
 ---
-title: Restaurar uma SQL Data Warehouse do Azure de um backup geográfico | Microsoft Docs
+title: Restaurar um data warehouse de um backup geográfico
 description: Guia de instruções para a restauração geográfica de uma SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: anumjs
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 768646522c2589c302fd7a58031d4ebdb7fcdc12
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 69eb1221686da61868df8b06ed80664ae76d1627
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68426658"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685497"
 ---
 # <a name="geo-restore-azure-sql-data-warehouse"></a>SQL Data Warehouse do Azure de restauração geográfica
 
@@ -79,10 +80,10 @@ Siga as etapas descritas abaixo para restaurar uma SQL Data Warehouse do Azure d
 1. Clique em **+ criar um recurso** e pesquise SQL data warehouse e clique em **criar**.
 
     ![Novo DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
-1. Preencha as informações solicitadas na guia **noções básicas** e clique **em Avançar: Configurações**adicionais.
+1. Preencha as informações solicitadas na guia **noções básicas** e clique em **Avançar: configurações adicionais**.
 
-    ![Noções Básicas](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
-1. Para usar o parâmetro de **dados existente** , selecione **backup** e selecione o backup apropriado nas opções de rolagem para baixo. Clique em revisar **+ criar**.
+    ![Noções básicas](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+1. Para usar o parâmetro de **dados existente** , selecione **backup** e selecione o backup apropriado nas opções de rolagem para baixo. Clique em **revisar + criar**.
  
    ![cópia de segurança](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 2. Depois que o data warehouse tiver sido restaurado, verifique se o **status** está online.

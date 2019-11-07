@@ -1,5 +1,5 @@
 ---
-title: Como criar um pedido de suporte do Azure SQL Data Warehouse | Documentos da Microsoft
+title: Como criar um tíquete de suporte
 description: Como criar um pedido de suporte no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,30 +10,31 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b3ffc9794967f44708d8330d4dc5d5de11b794d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 12a977e26f458fa8ee8a58c44985d9d1ae47d5c3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61474560"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692735"
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>Como criar um pedido de suporte para o SQL Data Warehouse
 Se estiver a ter problemas com o SQL Data Warehouse, crie um pedido de suporte para que a equipa técnica possa ajudá-lo.
 
 ## <a name="create-a-support-ticket"></a>Criar um pedido de suporte
-1. Abra o [portal do Azure][Azure portal].
+1. Abra o [Portal do Azure][Azure portal].
 2. No ecrã principal, clique no separador **Ajuda + suporte**.
    
     ![Ajuda + suporte](./media/sql-data-warehouse-get-started-create-support-ticket/MainPage.PNG)
 3. No painel Ajuda + Suporte, clique em **Novo pedido de suporte** e preencher no painel **Noções básicas**.
 
-   Selecione o seu [plano de suporte do Azure][Azure support plan].
+   Selecione o seu [Plano de suporte do Azure][Azure support plan].
    
    * O suporte relativo à **faturação, quota e gestão de subscrições** está disponível em todos os níveis de suporte.
-   * O suporte **com garantia de reparação e assistência** é fornecido através de suporte de [Programador][Developer], [Standard][Standard], [Suporte Direto Profissional][Professional Direct] ou [Premier][Premier]. Os problemas de Break-fix são problemas encontrados pelos clientes ao utilizarem o Azure, onde existe uma expetativa razoável de que a Microsoft causou o problema.
+   * O suporte à **correção de** conserto é fornecido por meio do suporte [Developer][Developer], [Standard][Standard], [Professional Direct][Professional Direct]ou [Premier][Premier] . Os problemas de Break-fix são problemas encontrados pelos clientes ao utilizarem o Azure, onde existe uma expetativa razoável de que a Microsoft causou o problema.
    * A **orientação para programadores** e os **serviços de aconselhamento** estão disponíveis nos níveis de [Suporte Direto Profissional][Professional Direct] e [Premier][Premier]. 
      
-     Se tiver um plano de suporte Premier, também pode comunicar problemas relacionados com o SQL Data Warehouse no [Portal online do Microsoft Premier][Microsoft Premier online portal].  Veja os [Planos de suporte do Azure][Azure support plan] para saber mais sobre os vários planos de suporte, incluindo o âmbito, os tempos de resposta, os preços, etc.  Para perguntas mais frequentes sobre o suporte do Azure, veja [FAQ do Suporte do Azure][Azure support FAQs].  
+     Se tiver um plano de suporte Premier, também pode comunicar problemas relacionados com o SQL Data Warehouse no [Portal online do Microsoft Premier][Microsoft Premier online portal].  Consulte [planos de suporte do Azure][Azure support plan] para saber mais sobre os vários planos de suporte, incluindo escopo, tempos de resposta, preços, etc.  Para perguntas frequentes sobre o suporte do Azure, consulte [perguntas frequentes sobre o suporte do Azure][Azure support FAQs].  
         
      ![Painel Noções básicas](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_1.PNG)
      ![Noções básicas blade1](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_2.PNG)
@@ -41,7 +42,7 @@ Se estiver a ter problemas com o SQL Data Warehouse, crie um pedido de suporte p
     ![Problem_blade](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_3.PNG)
    
    > [!NOTE]
-   > Por predefinição, cada SQL Server (por exemplo, myserver.database.windows.net) tem uma **Quota de DTU** de 45.000. Esta quota é apenas um limite de segurança. Pode aumentar a quota ao criar um pedido de suporte e selecionar *Quota* como o tipo de pedido. Para calcular as necessidades de DTU, multiplique 7,5 pelo total de [DWU][DWU] necessários. Por exemplo, se pretende alojar dois DW6000s num SQL Server, então deve pedir uma quota de DTU de 90.000.  Pode ver o consumo de DTU atual a partir do painel SQL Server no portal. Tanto as bases de dados em pausa como as que não estão em pausa contam para a quota de DTU. 
+   > Por predefinição, cada SQL Server (por exemplo, myserver.database.windows.net) tem uma **Quota de DTU** de 45.000. Esta quota é apenas um limite de segurança. Pode aumentar a quota ao criar um pedido de suporte e selecionar *Quota* como o tipo de pedido. Para calcular suas necessidades de DTU, multiplique 7,5 pelo total de [DWU][DWU] necessário. Por exemplo, se pretende alojar dois DW6000s num SQL Server, então deve pedir uma quota de DTU de 90.000.  Pode ver o consumo de DTU atual a partir do painel SQL Server no portal. Tanto as bases de dados em pausa como as que não estão em pausa contam para a quota de DTU. 
    > 
    > 
    

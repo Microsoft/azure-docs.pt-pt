@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 80b33212afa7fed3f87b241d5cf69b43be66574d
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: d0ba3195aef246ff49042f61dcec0b4397b5dde6
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755921"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622643"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do grafo de recursos do Azure
 
@@ -39,7 +39,7 @@ O grafo de recursos fornece várias tabelas para os dados que ele armazena sobre
 
 Use o Gerenciador de grafo de recursos no portal para descobrir quais tipos de recursos estão disponíveis em cada tabela. Como alternativa, use uma consulta como `<tableName> | distinct type` para obter uma lista de tipos de recursos que a tabela de grafo de recursos fornecida dá suporte, que existe em seu ambiente.
 
-A consulta a seguir mostra um `join` simples. O resultado da consulta mistura as colunas e quaisquer nomes de coluna duplicados da tabela unida, _ResourceContainers_ neste exemplo, são acrescentados com **1**. Como a tabela _ResourceContainers_ tem tipos para assinaturas e grupos de recursos, qualquer tipo pode ser usado para ingressar no recurso da tabela de _recursos_ .
+A consulta a seguir mostra uma `join`simples. O resultado da consulta mistura as colunas e quaisquer nomes de coluna duplicados da tabela unida, _ResourceContainers_ neste exemplo, são acrescentados com **1**. Como a tabela _ResourceContainers_ tem tipos para assinaturas e grupos de recursos, qualquer tipo pode ser usado para ingressar no recurso da tabela de _recursos_ .
 
 ```kusto
 Resources
@@ -47,7 +47,7 @@ Resources
 | limit 1
 ```
 
-A consulta a seguir mostra um uso mais complexo de `join`. A consulta limita a tabela unida aos recursos de assinaturas e com `project` para incluir apenas o campo original _SubscriptionId_ e o campo de _nome_ renomeado como _subnomear_. A renomeação do campo evita `join` adicioná-lo como _Nome1_ , pois o campo já existe nos _recursos_. A tabela original é filtrada com `where` e o seguinte `project` inclui colunas de ambas as tabelas. O resultado da consulta é um único cofre de chaves que exibe o tipo, o nome do cofre de chaves e o nome da assinatura em que ele está.
+A consulta a seguir mostra um uso mais complexo de `join`. A consulta limita a tabela unida aos recursos de assinaturas e com `project` para incluir apenas o campo original _SubscriptionId_ e o campo de _nome_ renomeado como _subnome_. A renomeação do campo evita `join` adicioná-lo como _Nome1_ , pois o campo já existe nos _recursos_. A tabela original é filtrada com `where` e o `project` a seguir inclui colunas de ambas as tabelas. O resultado da consulta é um único cofre de chaves que exibe o tipo, o nome do cofre de chaves e o nome da assinatura em que ele está.
 
 ```kusto
 Resources
@@ -58,7 +58,7 @@ Resources
 ```
 
 > [!NOTE]
-> Ao limitar os resultados de `join` com `project`, a propriedade usada por `join` para relacionar as duas tabelas, _SubscriptionId_ no exemplo acima, deve ser incluída em `project`.
+> Ao limitar os resultados de `join` com `project`, a propriedade usada por `join` para relacionar as duas tabelas, _SubscriptionId_ no exemplo acima, deve ser incluída no `project`.
 
 ## <a name="supported-kql-language-elements"></a>Elementos de linguagem KQL com suporte
 
@@ -83,12 +83,12 @@ Aqui está a lista de operadores de tabela KQL com suporte do grafo de recursos 
 |[resumir](/azure/kusto/query/summarizeoperator) |[Contar recursos do Azure](../samples/starter.md#count-resources) |Somente primeira página simplificada |
 |[ter](/azure/kusto/query/takeoperator) |[Listar todos os endereços IP públicos](../samples/starter.md#list-publicip) |Sinônimo de `limit` |
 |[Início](/azure/kusto/query/topoperator) |[Mostrar as primeiras cinco máquinas virtuais por nome e por tipo de SO](../samples/starter.md#show-sorted) | |
-|[unida](/azure/kusto/query/unionoperator) |[Combinar resultados de duas consultas em um único resultado](../samples/advanced.md#unionresults) |Única tabela permitida: _T_ `| union` \[ `kind=` `inner` \| `outer` \] \[ `withsource=`_ColumnName_ 1 _tabela_. Limite de 3 `union` pernas em uma única consulta. A resolução difusa de tabelas de trechos `union` não é permitida. Pode ser usado em uma única tabela ou entre as tabelas de _recursos_ e _ResourceContainers_ . |
+|[union](/azure/kusto/query/unionoperator) |[Combinar resultados de duas consultas em um único resultado](../samples/advanced.md#unionresults) |Única tabela permitida: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_ColumnName_\] _tabela_. Limite de 3 `union` trechos em uma única consulta. A resolução difusa de `union` tabelas de trechos não é permitida. Pode ser usado em uma única tabela ou entre as tabelas de _recursos_ e _ResourceContainers_ . |
 |[posição](/azure/kusto/query/whereoperator) |[Mostrar recursos que contêm armazenamento](../samples/starter.md#show-storage) | |
 
 ## <a name="escape-characters"></a>Caracteres de escape
 
-Alguns nomes de propriedade, como aqueles que incluem um `.` ou `$`, devem ser encapsulados ou ter escape na consulta ou o nome da propriedade é interpretado incorretamente e não fornece os resultados esperados.
+Alguns nomes de propriedade, como aqueles que incluem um `.` ou `$`, devem ser encapsulados ou escapados na consulta ou o nome da propriedade é interpretado incorretamente e não fornece os resultados esperados.
 
 - `.` encapsular o nome da propriedade como tal: `['propertyname.withaperiod']`
   
@@ -98,21 +98,21 @@ Alguns nomes de propriedade, como aqueles que incluem um `.` ou `$`, devem ser e
   where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']
   ```
 
-- `$`-escapar do caractere no nome da propriedade. O caractere de escape usado depende do grafo de recursos do Shell em execução.
+- `$`-escape o caractere no nome da propriedade. O caractere de escape usado depende do grafo de recursos do Shell em execução.
 
-  - `\` **bash**  - 
+  - `\` **bash** - 
 
-    Exemplo de consulta que escapa a propriedade _\$type_ no bash:
+    Exemplo de consulta que escapa a propriedade _\$tipo_ no bash:
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
     ```
 
-  - **cmd** -não escapar do caractere `$`.
+  - **cmd** -não sai do caractere `$`.
 
-  - @No__t_1 do **PowerShell** ``` ` ```
+  -  - do **PowerShell** ``` ` ```
 
-    Exemplo de consulta que escapa a propriedade _\$type_ no PowerShell:
+    Exemplo de consulta que escapa a propriedade _\$tipo_ no PowerShell:
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type
@@ -120,6 +120,6 @@ Alguns nomes de propriedade, como aqueles que incluem um `.` ou `$`, devem ser e
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte o idioma em uso em [consultas de início](../samples/starter.md)
-- Consulte usos avançados em [consultas avançadas](../samples/advanced.md)
-- Aprender a [explorar recursos](explore-resources.md)
+- Consulte o idioma em uso em [consultas de início](../samples/starter.md).
+- Consulte usos avançados em [consultas avançadas](../samples/advanced.md).
+- Saiba mais sobre como [explorar recursos](explore-resources.md).

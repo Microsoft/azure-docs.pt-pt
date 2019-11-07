@@ -1,5 +1,5 @@
 ---
-title: Trabalhando com erros transitórios – banco de dados SQL do Azure | Microsoft Docs
+title: Trabalhando com erros transitórios – banco de dados SQL do Azure
 description: Saiba como solucionar problemas, diagnosticar e impedir um erro de conexão SQL ou um erro transitório no banco de dados SQL do Azure.
 keywords: conexão SQL, Cadeia de conexão, problemas de conectividade, erro transitório, erro de conexão
 services: sql-database
@@ -13,12 +13,12 @@ manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 06/14/2019
-ms.openlocfilehash: aba404842658aaa946a14a3cde03853c2fb3062d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 0191506cab9a54ad3978bfa7387c9ba1112ae815
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792578"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690817"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Trabalhando com problemas de conexão do banco de dados SQL e erros transitórios
 
@@ -215,7 +215,7 @@ Se você usar o ADO.NET 4,0 ou anterior, recomendamos que atualize para o ADO.NE
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 
-## <a name="diagnostics"></a>Diagnósticos
+## <a name="diagnostics"></a>Diagnóstico
 
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
@@ -278,7 +278,7 @@ Aqui estão algumas instruções SELECT do Transact-SQL que consultam logs de er
 | Consulta de log | Descrição |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |A exibição [Sys. event_log](https://msdn.microsoft.com/library/dn270018.aspx) oferece informações sobre eventos individuais, que incluem alguns que podem causar erros transitórios ou falhas de conectividade.<br/><br/>Idealmente, você pode correlacionar os valores de **start_time** ou **end_time** com informações sobre quando o programa cliente enfrentou problemas.<br/><br/>Você deve se conectar ao banco de dados *mestre* para executar esta consulta. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |A exibição [Sys. database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) oferece contagens agregadas de tipos de eventos para diagnósticos adicionais.<br/><br/>Você deve se conectar ao banco de dados *mestre* para executar esta consulta. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |A exibição [Sys. database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) oferece contagens agregadas de tipos de evento para diagnósticos adicionais.<br/><br/>Você deve se conectar ao banco de dados *mestre* para executar esta consulta. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 

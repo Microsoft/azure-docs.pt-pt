@@ -1,5 +1,5 @@
 ---
-title: Proteger um banco de dados individual ou em pool no banco de dados SQL do Azure | Microsoft Docs
+title: Proteger um banco de dados individual ou em pool no banco de dados SQL do Azure
 description: Um tutorial que ensina sobre técnicas e recursos para proteger um banco de dados individual ou em pool no banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,14 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: ba648a2bf563b775c39f11ab8d5c4069c4bf740f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 44fd49c391f4c6cddf24e3fddd7fa85a0d5ea4f2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231188"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687428"
 ---
-# <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: Proteger um banco de dados individual ou em pool
+# <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: proteger um banco de dados individual ou em pool
 
 Neste tutorial, ficará a saber como:
 
@@ -193,7 +193,7 @@ Azure Active Directory autenticação requer que os usuários do banco de dados 
 > Por exemplo, a função *colaborador de SQL Server* não concede acesso para se conectar a um banco de dados ou data warehouse. Essa permissão deve ser concedida no banco de dados usando instruções T-SQL.
 
 > [!IMPORTANT]
-> Não há suporte para `:` caracteres especiais `&` como dois-pontos ou e comercial em nomes de usuário `CREATE LOGIN` nas `CREATE USER` instruções T-SQL e.
+> Não há suporte para caracteres especiais como dois-pontos `:` ou e comercial `&` em nomes de usuário nas instruções T-SQL `CREATE LOGIN` e `CREATE USER`.
 
 Para adicionar um usuário com a autenticação do Azure AD:
 
@@ -201,14 +201,14 @@ Para adicionar um usuário com a autenticação do Azure AD:
 
 1. No Pesquisador de **objetos**, clique com o botão direito do mouse no banco de dados e selecione **nova consulta**.
 
-1. Na janela de consulta, digite o seguinte comando e modifique `<Azure_AD_principal_name>` para o nome principal do usuário do Azure ad ou o nome de exibição do grupo do Azure AD:
+1. Na janela de consulta, insira o comando a seguir e modifique `<Azure_AD_principal_name>` para o nome principal do usuário do Azure AD ou o nome de exibição do grupo do Azure AD:
 
    ```sql
    CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
    ```
 
 > [!NOTE]
-> Os usuários do Azure ad são marcados nos metadados do banco `E (EXTERNAL_USER)` de dados `X (EXTERNAL_GROUPS)` com tipo e tipo para grupos. Para obter mais informações, consulte [Sys. database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql).
+> Os usuários do Azure AD são marcados nos metadados do banco de dados com o tipo `E (EXTERNAL_USER)` e tipo `X (EXTERNAL_GROUPS)` para grupos. Para obter mais informações, consulte [Sys. database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql).
 
 ### <a name="secure-connection-strings"></a>Cadeias de conexão seguras
 
@@ -233,7 +233,7 @@ Para copiar uma cadeia de conexão segura:
 
 O banco de dados SQL do Azure fornece recursos de segurança que são acessados usando o portal do Azure. Esses recursos estão disponíveis tanto para o banco de dados quanto para o servidor, com exceção do mascaramento, que só está disponível no banco de dado. Para saber mais, consulte [segurança de dados avançada](sql-database-advanced-data-security.md), [auditoria](sql-database-auditing.md), [máscara de dados dinâmicos](sql-database-dynamic-data-masking-get-started.md)e [Transparent Data Encryption](transparent-data-encryption-azure-sql.md).
 
-### <a name="advanced-data-security"></a>Advanced Data Security
+### <a name="advanced-data-security"></a>Segurança de dados avançada
 
 O recurso de segurança de dados avançado detecta possíveis ameaças à medida que elas ocorrem e fornece alertas de segurança em atividades anormais. Os usuários podem explorar esses eventos suspeitos usando o recurso de auditoria e determinar se o evento foi para acessar, violar ou explorar dados no banco de dado. Os usuários também recebem uma visão geral de segurança que inclui uma avaliação de vulnerabilidades e a ferramenta de detecção e classificação de dados.
 
@@ -327,16 +327,16 @@ Para habilitar ou verificar a criptografia:
 
 1. Em portal do Azure, selecione **bancos** de dados SQL no menu à esquerda e selecione seu banco de dados na página **bancos SQL** .
 
-1. Na seção **segurança** , selecione Transparent **Data Encryption**.
+1. Na seção **segurança** , selecione **Transparent Data Encryption**.
 
 1. Se necessário, defina **criptografia de dados** como **ativado**. Selecione **Guardar**.
 
     ![Encriptação de Dados Transparente](./media/sql-database-security-tutorial/encryption-settings.png)
 
 > [!NOTE]
-> Para exibir o status de criptografia, conecte-se [](./sql-database-connect-query-ssms.md) ao banco de dados `encryption_state` usando o SSMS e consulte a coluna da exibição [Sys. dm _database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) . Um estado de `3` indica que o banco de dados está criptografado.
+> Para exibir o status de criptografia, conecte-se ao banco de dados usando o [SSMS](./sql-database-connect-query-ssms.md) e consulte a coluna `encryption_state` da exibição [Sys. dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) . Um estado de `3` indica que o banco de dados está criptografado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu a melhorar a segurança do seu banco de dados com apenas algumas etapas simples. Aprendeu a:
 

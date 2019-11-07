@@ -1,21 +1,24 @@
 ---
-title: Habilidade de pesquisa cognitiva de extração de documentos
+title: Habilidade de pesquisa cognitiva de extração de documentos (versão prévia)
 titleSuffix: Azure Cognitive Search
-description: Extrai o conteúdo de um arquivo dentro do pipeline de enriquecimento.
+description: Extrai o conteúdo de um arquivo dentro do pipeline de enriquecimento. Esta habilidade está atualmente em visualização pública.
 manager: nitinme
 author: careyjmac
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: chalton
-ms.openlocfilehash: 8656896fe1a113ab143c43b4d1973e4196c5f087
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e4274f1cb2eacaf78ab83bfb9d637d044d2290bd
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512200"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720121"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Habilidade cognitiva de extração de documentos
+
+> [!IMPORTANT] 
+> Esta habilidade está atualmente em visualização pública. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de visualização. No momento, não há suporte para Portal ou SDK do .NET.
 
 A habilidade de **extração de documentos** extrai o conteúdo de um arquivo dentro do pipeline de enriquecimento. Isso permite que você aproveite a etapa de extração de documentos que normalmente ocorre antes da execução do Configurador de habilidades com arquivos que podem ser gerados por outras habilidades.
 
@@ -63,7 +66,7 @@ Esse objeto de referência de arquivo pode ser gerado de uma das três maneiras:
 
  - Definindo o parâmetro `allowSkillsetToReadFileData` na definição do indexador como "true".  Isso criará um caminho `/document/file_data` que é um objeto que representa os dados do arquivo original baixados da fonte de dados do blob. Esse parâmetro se aplica somente aos dados no armazenamento de BLOBs.
 
- - Definindo o parâmetro `imageAction` na definição do indexador com um valor diferente de `none`.  Isso cria uma matriz de imagens `/document/normalized_images` que seguem a Convenção necessária para a entrada para essa habilidade se for aprovada individualmente (ou seja, `/document/normalized_images/*`).
+ - Definindo o parâmetro `imageAction` na definição do indexador com um valor diferente de `none`.  Isso cria uma matriz de imagens que segue a Convenção necessária para a entrada para essa habilidade se for aprovada individualmente (ou seja, `/document/normalized_images/*`).
 
  - Ter uma habilidade personalizada retorna um objeto JSON definido exatamente como acima.  O parâmetro `$type` deve ser definido como exatamente `file` e o parâmetro `data` deve ser os dados da matriz de bytes codificados 64 base do conteúdo do arquivo.
 

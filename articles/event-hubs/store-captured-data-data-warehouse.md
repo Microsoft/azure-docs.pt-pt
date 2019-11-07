@@ -1,22 +1,22 @@
 ---
-title: Migrar dados de eventos para o SQL Data Warehouse - Event Hubs do Azure | Documentos da Microsoft
-description: Este tutorial mostra como capturar dados do seu hub de eventos para um armazém de dados SQL, através de uma função do Azure acionada por uma grelha de eventos.
+title: 'Tutorial: migrar dados de evento para SQL Data Warehouse-hubs de eventos do Azure'
+description: 'Tutorial: Este tutorial mostra como capturar dados do seu hub de eventos para um data warehouse do SQL usando uma função do Azure disparada por uma grade de eventos.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: ''
 ms.author: shvija
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 90a17839afdddb4d6ad8abfa57963b4c76b100ed
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 92c414afbb8121eb03353c79dfe3a51e0cfa7ec0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604288"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718883"
 ---
-# <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Migrar dados de Hubs de eventos capturados para um SQL Data Warehouse com o Event Grid e as funções do Azure
+# <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Tutorial: migrar dados capturados dos hubs de eventos para um SQL Data Warehouse usando a grade de eventos e Azure Functions
 
 A [Captura](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) de Hubs de Eventos é a forma mais simples de entregar dados transmitidos nos Hubs de Eventos para um armazenamento de Blobs do Azure ou o arquivo do Azure Data Lake. Pode, em seguida, processar e entregar os dados para outros destinos de armazenamento à sua escolha, como o SQL Data Warehouse ou o Cosmos DB. Neste tutorial, irá aprender a capturar dados do seu hub de eventos para um armazém de dados SQL, através de uma função do Azure acionada por uma [grelha de eventos](https://docs.microsoft.com/azure/event-grid/overview).
 
@@ -26,7 +26,7 @@ A [Captura](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overv
 *   Em seguida, vai criar uma subscrição do Azure Event Grid com o espaço de nomes dos Hubs de Eventos como origem e o ponto final de Função do Azure como o seu destino.
 *   Sempre que um novo ficheiro Avro for entregue no blob de Armazenamento do Azure pela funcionalidade de Captura dos Hubs de Eventos, o Event Grid notifica a Função do Azure com o URI de blob. A Função, em seguida, migra dados do blob para um armazém de dados do SQL.
 
-Neste tutorial, irá realizar as seguintes ações: 
+Neste tutorial, vai realizar as seguintes ações: 
 
 > [!div class="checklist"]
 > * Implementar a infraestrutura
@@ -106,7 +106,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 ## <a name="publish-code-to-the-functions-app"></a>Publicar o código na Aplicação de Funções
 
-1. Abra a solução *EventHubsCaptureEventGridDemo.sln* no Visual Studio 2019.
+1. Abra a solução *EventHubsCaptureEventGridDemo. sln* no Visual Studio 2019.
 
 1. No Explorador de Soluções, clique com o botão direito do rato em *FunctionEGDWDumper* e selecione **Publicar**.
 
@@ -174,7 +174,7 @@ Acabou de configurar o seu Hub de Eventos, o armazém de dados SQL, a Function A
 ## <a name="verify-captured-data-in-data-warehouse"></a>Verificar dados recolhidos no armazém de dados
 Após alguns minutos, consulte a tabela no seu armazém de dados SQL. Observe que os dados gerados pelo WindTurbineDataGenerator foram transmitidos para o seu Hub de Eventos, capturados para um contentor de Armazenamento do Azure e, em seguida, migrados para a tabela do SQL Data Warehouse pela Função do Azure.  
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes 
 Pode utilizar ferramentas de visualização de dados avançadas com o armazém de dados para obter informações acionáveis.
 
 Este artigo mostra como utilizar o [Power BI com o SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-integrate-power-bi)

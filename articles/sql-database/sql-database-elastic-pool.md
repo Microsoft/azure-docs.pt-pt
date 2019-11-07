@@ -1,5 +1,5 @@
 ---
-title: Gerenciar vários bancos de dados SQL com pools elásticos – Azure | Microsoft Docs
+title: Gerenciar vários bancos de dados SQL com pools elásticos – Azure
 description: Gerencie e dimensione vários bancos de dados SQL-centenas e milhares-usando pools elásticos. Um preço para os recursos que você pode distribuir quando necessário.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 0b0a6bec7916c056c187ed9e588dd3ac8fea8d84
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 68bb68b47ca240d6c20153af3ed4b0eb42475282
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876412"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690451"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Os pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados SQL do Azure
 
@@ -101,7 +101,7 @@ Tenha em conta que este exemplo não considera a utilização de outras bases de
 
 Uma grande diferença entre o pico e a utilização média das bases de dados indica períodos longos de pouca utilização e curtos períodos de elevada utilização. Este padrão de utilização é ideal para partilhar recursos entre bases de dados. A inclusão de bases de dados num conjunto deve ser considerada quando o pico de utilização for cerca de 1,5 vezes superior à utilização média.
 
-**Exemplo de modelo de compra baseado em DTU**: Uma base de dados S3 que tenha como pico 100 DTUs e utilize, em média, 67 DTUs ou menos, é uma boa candidata para partilhar eDTUs num conjunto. Em alternativa, uma base de dados S1 que tenha como pico 20 DTUs e utilize, em média, 13 DTUs ou menos, é uma boa candidata para um conjunto.
+**Exemplo de modelo de compra baseado em DTU**: um banco de dados S3 que atinge picos de 100 DTUs e em média usa 67 DTUs ou menos é um bom candidato para compartilhar eDTUs em um pool. Em alternativa, uma base de dados S1 que tenha como pico 20 DTUs e utilize, em média, 13 DTUs ou menos, é uma boa candidata para um conjunto.
 
 ## <a name="how-do-i-choose-the-correct-pool-size"></a>Como fazer escolher o tamanho de pool correto
 
@@ -116,11 +116,11 @@ Nos casos em que não pode utilizar as ferramentas, as instruções passo a pass
 
 1. Estime o eDTUs ou o vCores necessário para o pool da seguinte maneira:
 
-   Para o modelo de compra baseado em DTU: Máx. (<*Número Total de DBs* X *utilização média de DTUs por DB*>,<br>  
+   Para o modelo de compra baseado em DTU: MAX (<*número total de banco de bancos* X *utilização média de DTU por BD*>,<br>  
    <*Número de DBs com pico em simultâneo* X *utilização de pico de DTUs por DB*)
 
    Para o modelo de compra baseado em vCore: MAX (<*número total de bancos de* *BD X utilização média de vCore por banco*de >,<br>  
-   <*Número de bancos de os de pico simultâneos* *Pico de utilização de vCore X por BD*)
+   *número de <de bancos de los de pico simultâneo* X *utilização de vCore de pico por BD*)
 
 2. Calcule o espaço de armazenamento necessário para o conjunto ao adicionar o número de bytes de que todas as bases de dados do conjunto precisam. Em seguida, determine o tamanho do conjunto de eDTUs que disponibiliza esta quantidade de armazenamento.
 3. Para o modelo de compra baseado em DTU, tire o maior das estimativas de eDTU da etapa 1 e da etapa 2. Para o modelo de compra baseado em vCore, pegue a estimativa vCore da etapa 1.
@@ -220,9 +220,9 @@ Para obter mais informações, consulte [criar alertas do banco de dados SQL no 
 
    O Daxko/CSI usa pools elásticos com o banco de dados SQL do Azure para acelerar seu ciclo de desenvolvimento e aprimorar seus serviços e desempenho do cliente.   
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para dimensionar pools elásticos [](sql-database-elastic-pool-scale.md) , consulte dimensionar pools elásticos e [dimensionar um pool elástico – código de exemplo](scripts/sql-database-monitor-and-scale-pool-powershell.md)
+- Para dimensionar pools elásticos, consulte dimensionar [pools elásticos](sql-database-elastic-pool-scale.md) e [dimensionar um pool elástico – código de exemplo](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 - Para um vídeo, consulte [curso de vídeo da Microsoft Virtual Academy sobre recursos elásticos do banco de dados SQL do Azure](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 - Para saber mais sobre os padrões de estrutura de aplicações SaaS que utilizam conjuntos elásticos, consulte o artigo [Padrões de Estrutura de Aplicações SaaS Multi-inquilino com a Base de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 - Para obter um tutorial de SaaS usando pools elásticos, consulte [introdução ao aplicativo SaaS Wingtip](sql-database-wtp-overview.md).

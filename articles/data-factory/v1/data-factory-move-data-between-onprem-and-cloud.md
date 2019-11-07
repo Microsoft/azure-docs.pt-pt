@@ -1,6 +1,6 @@
 ---
-title: Mover dados - Data Management Gateway | Documentos da Microsoft
-description: Configure um gateway de dados para mover dados entre locais e na cloud. Utilize o Data Management Gateway no Azure Data Factory para mover seus dados.
+title: Mover Gerenciamento de Dados gateway de dados
+description: Configure um gateway de dados para mover dados entre o local e a nuvem. Use Gerenciamento de Dados gateway no Azure Data Factory para mover seus dados.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -13,175 +13,175 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 4eb881992b7e40e0a9d67bd2cee94f1f09958e9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52bce71abd6ecf30b5a3661c2e6033537357db3a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60826092"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682482"
 ---
-# <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre origens no local e a nuvem com o Data Management Gateway
+# <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre fontes locais e a nuvem com Gerenciamento de Dados gateway
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [copiar dados entre locais e na cloud com o Data Factory](../tutorial-hybrid-copy-powershell.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço de Data Factory, consulte [copiar dados entre o local e a nuvem usando data Factory](../tutorial-hybrid-copy-powershell.md).
 
-Este artigo fornece uma descrição geral da integração de dados entre arquivos de dados no local e os arquivos de dados na cloud com o Data Factory. Ele se baseia no [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo e outros artigos de conceitos de núcleo de fábrica de dados: [conjuntos de dados](data-factory-create-datasets.md) e [pipelines](data-factory-create-pipelines.md).
+Este artigo fornece uma visão geral da integração de dados entre armazenamentos de dados locais e armazenamentos de dados de nuvem usando o Data Factory. Ele se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md) e em outros artigos data Factory conceitos principais: [conjuntos](data-factory-create-datasets.md) e [pipelines](data-factory-create-pipelines.md).
 
 ## <a name="data-management-gateway"></a>Data Management Gateway
-Tem de instalar o Data Management Gateway no seu computador no local para ativar a mover dados de/para um arquivo de dados no local. O gateway pode ser instalado no mesmo computador que o arquivo de dados ou num computador diferente, desde que o gateway consiga estabelecer ligação ao arquivo de dados.
+Você deve instalar Gerenciamento de Dados gateway em seu computador local para habilitar a movimentação de dados de/para um armazenamento de dados local. O gateway pode ser instalado no mesmo computador que o armazenamento de dados ou em um computador diferente, contanto que o gateway possa se conectar ao armazenamento de dados.
 
 > [!IMPORTANT]
-> Ver [Data Management Gateway](data-factory-data-management-gateway.md) artigo para obter detalhes sobre o Data Management Gateway. 
+> Consulte o artigo [Gerenciamento de dados gateway](data-factory-data-management-gateway.md) para obter detalhes sobre o gateway de gerenciamento de dados. 
 
-A instrução a seguir mostra como criar uma fábrica de dados com um pipeline que move os dados no local **SQL Server** base de dados para um armazenamento de Blobs do Azure. Como parte das instruções, vai instalar e configurar o Data Management Gateway no seu computador.
+A instrução a seguir mostra como criar um data factory com um pipeline que move dados de um banco de **SQL Server** local para um armazenamento de BLOBs do Azure. Como parte das instruções, vai instalar e configurar o Data Management Gateway no seu computador.
 
-## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>Passo a passo: copiar dados no local para a cloud
-Nestas instruções, siga os passos abaixo: 
+## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>Walkthrough: copiar dados locais para a nuvem
+Neste passo a passos, você executa as seguintes etapas: 
 
 1. Criar uma fábrica de dados.
-2. Crie um gateway de gestão de dados. 
-3. Crie serviços ligados para arquivos de dados de origem e sink.
-4. Crie conjuntos de dados para representar os dados de entrada e saídos.
+2. Crie um gateway de gerenciamento de dados. 
+3. Crie serviços vinculados para armazenamentos de dados de origem e de coletor.
+4. Crie DataSets para representar dados de entrada e saída.
 5. Criar um pipeline com uma atividade de cópia para mover os dados.
 
 ## <a name="prerequisites-for-the-tutorial"></a>Pré-requisitos para o tutorial
-Antes de iniciar estas instruções, tem de ter os seguintes pré-requisitos:
+Antes de iniciar este passo a passos, você deve ter os seguintes pré-requisitos:
 
-* **Subscrição do Azure**.  Se não tiver uma subscrição, pode criar uma conta gratuita em apenas alguns minutos. Consulte a [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) artigo para obter detalhes.
-* **Conta de armazenamento do Azure**. Utilize o armazenamento de BLOBs como um **destino/sink** do arquivo de dados neste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) para obter os passos para criar uma.
+* **Subscrição do Azure**.  Se não tiver uma subscrição, pode criar uma conta gratuita em apenas alguns minutos. Consulte o artigo [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) para obter detalhes.
+* **Conta de armazenamento do Azure**. Você usa o armazenamento de BLOBs como um armazenamento de dados de **destino/coletor** neste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) para obter os passos para criar uma.
 * **SQL Server**. Neste tutorial, vai utilizar uma base de dados do SQL Server no local como um arquivo de dados de **origem**. 
 
 ## <a name="create-data-factory"></a>Criar fábrica de dados
-Neste passo, vai utilizar o portal do Azure para criar uma instância do Azure Data Factory com o nome **ADFTutorialOnPremDF**.
+Nesta etapa, você usa o portal do Azure para criar uma instância de Azure Data Factory chamada **ADFTutorialOnPremDF**.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Clique em **criar um recurso**, clique em **inteligência + análise**e clique em **Data Factory**.
 
    ![Novo -> DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
-3. Na **nova fábrica de dados** página, introduza **ADFTutorialOnPremDF** para o nome.
+3. Na página **novo data Factory** , digite **ADFTutorialOnPremDF** para o nome.
 
-    ![Adicionar ao Startboard](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
+    ![Adicionar ao quadro inicial](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
 
    > [!IMPORTANT]
-   > O nome do Azure Data Factory deve ser globalmente exclusivo. Se receber o erro: **Nome da fábrica de dados "ADFTutorialOnPremDF" não está disponível**, altere o nome da fábrica de dados (por exemplo, yournameADFTutorialOnPremDF) e tente criar novamente. Utilize este nome em vez de ADFTutorialOnPremDF ao realizar os passos restantes neste tutorial.
+   > O nome do Azure Data Factory deve ser globalmente exclusivo. Se você receber o erro: o **nome do data Factory "ADFTutorialOnPremDF" não está disponível**, altere o nome do data Factory (por exemplo, yournameADFTutorialOnPremDF) e tente criar novamente. Use esse nome no lugar de ADFTutorialOnPremDF ao executar as etapas restantes neste tutorial.
    >
-   > O nome da fábrica de dados pode ser registado como um **DNS** nome no futuro e, por conseguinte, ficar publicamente visível.
+   > O nome do data factory pode ser registrado como um nome **DNS** no futuro e, portanto, se torna publicamente visível.
    >
    >
 4. Selecione a **Subscrição do Azure** onde pretende que seja criada a fábrica de dados.
-5. Selecione o **grupo de recursos** existente ou crie um grupo de recursos. Para este tutorial, crie um grupo de recursos com o nome: **ADFTutorialResourceGroup**.
-6. Clique em **Create** sobre o **nova fábrica de dados** página.
+5. Selecione o **grupo de recursos** existente ou crie um grupo de recursos. Para o tutorial, crie um grupo de recursos chamado: **ADFTutorialResourceGroup**.
+6. Clique em **criar** na página **novo data Factory** .
 
    > [!IMPORTANT]
    > Para criar instâncias do Data Factory, tem de ser um membro da função [Contribuinte do Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) ao nível do grupo de recursos/subscrição.
    >
    >
-7. Depois de concluída a criação, consulte a **fábrica de dados** página conforme mostrado na imagem seguinte:
+7. Após a conclusão da criação, você verá a página **Data Factory** , conforme mostrado na imagem a seguir:
 
-   ![Página inicial da fábrica de dados](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
+   ![Página inicial do Data Factory](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
 
 ## <a name="create-gateway"></a>Criar gateway
-1. Na **Data Factory** página, clique em **autor e implementar** mosaico para iniciar o **Editor** da fábrica de dados.
+1. Na página **Data Factory** , clique no bloco **criar e implantar** para iniciar o **Editor** para o data Factory.
 
     ![Mosaico Criar e Implementar](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
-2. No Editor do Data Factory, clique em **... Obter mais** na barra de ferramentas e clique em **novo gateway de dados**. Em alternativa, pode clicar **Gateways de dados** na vista de árvore e clique em **novo gateway de dados**.
+2. No editor de Data Factory, clique em **... Mais** na barra de ferramentas e clique em **novo gateway de dados**. Como alternativa, você pode clicar com o botão direito do mouse em **gateways de dados** no modo de exibição de árvore e clicar em **novo gateway de dados**.
 
    ![Novo gateway de dados na barra de ferramentas](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
-3. Na **Create** página, introduza **adftutorialgateway** para o **nome**e clique em **OK**.     
+3. Na página **criar** , digite **adftutorialgateway** para o **nome**e clique em **OK**.     
 
-    ![Criar a página de Gateway](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
+    ![Página Criar gateway](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
 
     > [!NOTE]
-    > Nestas instruções, vai criar o gateway lógico com apenas um nó (máquina do Windows no local). Pode aumentar horizontalmente um gateway de gestão de dados através da associação de várias máquinas no local com o gateway. Pode dimensionar até ao aumentar o número de tarefas de movimento de dados que podem ser executadas simultaneamente num nó. Esse recurso também está disponível para um gateway lógico com um único nó. Ver [gateway de gestão de dados de dimensionamento no Azure Data Factory](data-factory-data-management-gateway-high-availability-scalability.md) artigo para obter detalhes.  
-4. Na **configurar** página, clique em **instalar diretamente neste computador**. Esta ação transfere o pacote de instalação para o gateway, instala, configura e registra o gateway no computador.  
+    > Neste tutorial, você cria o gateway lógico com apenas um nó (computador Windows local). Você pode escalar horizontalmente um gateway de gerenciamento de dados associando vários computadores locais ao gateway. Você pode escalar verticalmente aumentando o número de trabalhos de movimentação de dados que podem ser executados simultaneamente em um nó. Esse recurso também está disponível para um gateway lógico com um único nó. Consulte [dimensionar o gateway de gerenciamento de dados no artigo Azure data Factory](data-factory-data-management-gateway-high-availability-scalability.md) para obter detalhes.  
+4. Na página **Configurar** , clique em **instalar diretamente neste computador**. Essa ação baixa o pacote de instalação para o gateway, instala, configura e registra o gateway no computador.  
 
    > [!NOTE]
-   > Utilize o Internet Explorer ou um navegador da web compatível com ClickOnce da Microsoft.
+   > Use o Internet Explorer ou um navegador da Web compatível com o Microsoft ClickOnce.
    >
    > Se estiver a utilizar o Chrome, aceda à [Web Store do Chrome](https://chrome.google.com/webstore/), pesquise com a palavra-chave "ClickOnce", escolha uma das extensões de ClickOnce e instale-a.
    >
-   > Fazer o mesmo no Firefox (instalação suplemento). Clique em **Abrir Menu** na barra de ferramentas (**três linhas horizontais** no canto superior direito), clique em **suplementos**, pesquise com uma palavra-chave "ClickOnce", escolha uma do Extensões de ClickOnce e instale-o.    
+   > Faça o mesmo para o Firefox (instalar suplemento). Clique no botão **abrir menu** na barra de ferramentas (**três linhas horizontais** no canto superior direito), clique em **Complementos**, pesquise com a palavra-chave "ClickOnce", escolha uma das extensões do ClickOnce e instale-a.    
    >
    >
 
-    ![Gateway - Configurar página](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
+    ![Página de configuração de gateway](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
-    Dessa maneira é a maneira mais fácil (um clique) para transferir, instalar, configurar e registar o gateway numa única etapa. Pode ver o **o Gestor de configuração do Microsoft Data Management Gateway** aplicação está instalada no seu computador. Também pode encontrar o executável **ConfigManager.exe** na pasta: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**.
+    Dessa forma, é a maneira mais fácil (com um clique) baixar, instalar, configurar e registrar o gateway em uma única etapa. Você pode ver o aplicativo **Microsoft gerenciamento de dados Gateway Configuration Manager** está instalado no seu computador. Você também pode encontrar o executável **configmanager. exe** na pasta: **C:\Program Files\Microsoft gerenciamento de dados Gateway\2.0\Shared**.
 
-    Também pode transferir e instalar o gateway manualmente ao utilizar as ligações nesta página e registá-lo com a chave mostrada os **nova chave** caixa de texto.
+    Você também pode baixar e instalar o gateway manualmente usando os links nesta página e registrá-lo usando a chave mostrada na caixa de texto **nova chave** .
 
-    Ver [Data Management Gateway](data-factory-data-management-gateway.md) artigo para todos os detalhes sobre o gateway.
+    Consulte o artigo [Gerenciamento de dados gateway](data-factory-data-management-gateway.md) para obter todos os detalhes sobre o gateway.
 
    > [!NOTE]
-   > Tem de ser um administrador no computador local para instalar e configurar o Data Management Gateway com êxito. Pode adicionar utilizadores adicionais para o **utilizadores de Gateway de gestão de dados** grupo local do Windows. Os membros deste grupo podem utilizar a ferramenta de Gestor de configuração do Data Management Gateway para configurar o gateway.
+   > Você deve ser um administrador no computador local para instalar e configurar o gateway de Gerenciamento de Dados com êxito. Você pode adicionar outros usuários ao grupo local do Windows **usuários do gateway de gerenciamento de dados** . Os membros desse grupo podem usar a ferramenta de Configuration Manager de Gerenciamento de Dados gateway para configurar o gateway.
    >
    >
-5. Aguarde alguns minutos ou aguarde até ver a seguinte mensagem de notificação:
+5. Aguarde alguns minutos ou aguarde até que você veja a seguinte mensagem de notificação:
 
-    ![Instalação do gateway com êxito](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
-6. Inicie **Gestor de configuração do Data Management Gateway** aplicação no seu computador. Na **pesquisa** janela, escreva **Data Management Gateway** para acessar esse utilitário. Também pode encontrar o executável **ConfigManager.exe** na pasta: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
+    ![Instalação do gateway bem-sucedida](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
+6. Inicie o **Gerenciamento de dados Gateway Configuration Manager** aplicativo no seu computador. Na janela de **pesquisa** , digite **Gerenciamento de dados gateway** para acessar esse utilitário. Você também pode encontrar o executável **configmanager. exe** na pasta: **c:\arquivos de Programas\Microsoft gerenciamento de dados Gateway\2.0\Shared**
 
-    ![Gestor de configuração do gateway](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
-7. Confirme que vê `adftutorialgateway is connected to the cloud service` mensagem. O estado mostra a parte inferior da barra **ligado ao serviço cloud** juntamente com um **marca de verificação verde**.
+    ![Configuration Manager de gateway](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
+7. Confirme que você vê `adftutorialgateway is connected to the cloud service` mensagem. A barra de status a parte inferior é exibida **conectada ao serviço de nuvem** junto com uma **marca de seleção verde**.
 
-    Sobre o **home page** separador, também pode fazer as seguintes operações:
+    Na guia **início** , você também pode realizar as seguintes operações:
 
-   * **Registar** um gateway com uma chave a partir do portal do Azure através do botão Registre-se.
-   * **Parar** o serviço anfitrião do Data Management Gateway em execução no seu computador de gateway.
-   * **Agendar atualizações** para ser instalado num momento específico do dia.
-   * Ver quando o gateway foi **última atualização**.
+   * **Registre** um gateway com uma chave do portal do Azure usando o botão registrar.
+   * **Pare** o serviço de host gerenciamento de dados gateway em execução no computador do gateway.
+   * **Agendar atualizações** a serem instaladas em uma hora específica do dia.
+   * Exibir quando o gateway foi **atualizado pela última vez**.
    * Especifique a hora em que uma atualização para o gateway pode ser instalada.
-8. Mudar para o separador **Definições**. O certificado especificado no **certificado** seção é usada para as credenciais para o arquivo de dados no local que especificou no portal de encriptação/desencriptação. (opcional) Clique em **alteração** para utilizar o seu próprio certificado em vez disso. Por predefinição, o gateway utiliza o certificado que é gerado automaticamente pelo serviço Data Factory.
+8. Alterne para a guia **configurações** . O certificado especificado na seção **certificado** é usado para criptografar/descriptografar credenciais para o armazenamento de dados local que você especificar no Portal. adicional Clique em **alterar** para usar seu próprio certificado. Por padrão, o gateway usa o certificado que é gerado automaticamente pelo serviço de Data Factory.
 
-    ![Configuração de certificado do gateway](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
+    ![Configuração do certificado do gateway](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 
-    Também pode fazer as seguintes ações no **definições** separador:
+    Você também pode executar as seguintes ações na guia **configurações** :
 
-   * Ver ou exportar o certificado que está a ser utilizado pelo gateway.
-   * Altere o ponto de final HTTPS utilizado pelo gateway.    
-   * Defina um proxy de HTTP a ser utilizado pelo gateway.     
-9. (opcional) Mudar para o **diagnóstico** separador, verifique o **ativar o registo verboso** opção se pretender ativar o registo verboso que pode utilizar para resolver quaisquer problemas com o gateway. As informações de registo podem ser encontradas na **Visualizador de eventos** sob **Applications and Services Logs** -> **Data Management Gateway** nó.
+   * Exiba ou exporte o certificado que está sendo usado pelo Gateway.
+   * Altere o ponto de extremidade HTTPS usado pelo Gateway.    
+   * Defina um proxy HTTP a ser usado pelo Gateway.     
+9. adicional Alterne para a guia **diagnóstico** , marque a opção **habilitar log detalhado** se desejar habilitar o log detalhado que você pode usar para solucionar quaisquer problemas com o gateway. As informações de log podem ser encontradas em **Visualizador de eventos** em **logs de aplicativos e serviços** -> nó de **Gateway gerenciamento de dados** .
 
     ![Separador Diagnóstico](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
-    Também pode efetuar as seguintes ações na **diagnóstico** separador:
+    Você também pode executar as seguintes ações na guia **diagnóstico** :
 
-   * Uso **Testar ligação** secção para uma origem de dados no local com o gateway.
-   * Clique em **ver registos** para ver o registo do Gateway de gestão de dados numa janela de Visualizador de eventos.
-   * Clique em **enviar registos** para carregar um ficheiro zip com os registos dos últimos sete dias para a Microsoft para facilitar a resolução de problemas dos seus problemas.
-10. Sobre o **diagnóstico** separador a **Testar ligação** secção, selecione **SqlServer** para o tipo de arquivo de dados, introduza o nome do servidor de base de dados, o nome da base de dados, Especifique o tipo de autenticação, introduza o nome de utilizador e palavra-passe e clique em **testar** para testar se o gateway consiga estabelecer ligação à base de dados.
-11. Mude para o navegador da web e, no **portal do Azure**, clique em **OK** no **configurar** página e, em seguida, no **novo gateway de dados** página.
-12. Verá **adftutorialgateway** sob **Gateways de dados** na vista de árvore à esquerda.  Se clicar nele, deverá ver o JSON associado.
+   * Use a seção **testar conexão** para uma fonte de dados local usando o gateway.
+   * Clique em **Exibir logs** para ver o log do gerenciamento de dados gateway em uma janela Visualizador de eventos.
+   * Clique em **enviar logs** para carregar um arquivo zip com logs dos últimos sete dias para a Microsoft para facilitar a solução de problemas.
+10. Na guia **diagnóstico** , na seção **testar conexão** , selecione **SqlServer** para o tipo de armazenamento de dados, insira o nome do servidor de banco de dados, o nome do banco de dado, especifique o tipo de autenticação, insira o nome de usuário e a senha e clique em **Teste** para testar se o gateway pode se conectar ao banco de dados.
+11. Alterne para o navegador da Web e, na **portal do Azure**, clique em **OK** na página **Configurar** e, em seguida, na página **novo gateway de dados** .
+12. Você deve ver **adftutorialgateway** em **gateways de dados** no modo de exibição de árvore à esquerda.  Se você clicar nele, deverá ver o JSON associado.
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
-Neste passo, vai criar dois serviços ligados: **AzureStorageLinkedService** e **SqlServerLinkedService**. O **SqlServerLinkedService** liga uma base de dados do SQL Server no local e o **AzureStorageLinkedService** os serviços ligados ligam um armazenamento de Blobs do Azure à fábrica de dados. Irá criar um pipeline mais tarde nestas instruções, que copia dados da base de dados do SQL Server no local para o armazenamento de Blobs do Azure.
+Nesta etapa, você cria dois serviços vinculados: **AzureStorageLinkedService** e **SqlServerLinkedService**. O **SqlServerLinkedService** vincula um banco de dados local SQL Server e o serviço vinculado **AzureStorageLinkedService** vincula um repositório de blob do Azure ao data Factory. Você criará um pipeline mais adiante neste guia de explicação que copia dados do banco de SQL Server local para o repositório de blob do Azure.
 
-#### <a name="add-a-linked-service-to-an-on-premises-sql-server-database"></a>Adicionar um serviço ligado a uma base de dados do SQL Server no local
-1. Na **Editor do Data Factory**, clique em **novo arquivo de dados** na barra de ferramentas e selecione **do SQL Server**.
+#### <a name="add-a-linked-service-to-an-on-premises-sql-server-database"></a>Adicionar um serviço vinculado a um banco de dados SQL Server local
+1. No **Editor de data Factory**, clique em **novo armazenamento de dados** na barra de ferramentas e selecione **SQL Server**.
 
-   ![Novo serviço ligado do SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
-2. Na **editor de JSON** à direita, siga os passos abaixo:
+   ![Novo serviço vinculado SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
+2. No **Editor de JSON** à direita, execute as seguintes etapas:
 
-   1. Para o **gatewayName**, especifique **adftutorialgateway**.    
-   2. Na **connectionString**, siga os passos abaixo:    
+   1. Para o **GATEWAYNAME**, especifique **adftutorialgateway**.    
+   2. Em **ConnectionString**, execute as seguintes etapas:    
 
-      1. Para **servername**, introduza o nome do servidor que aloja a base de dados do SQL Server.
-      2. Para **databasename**, introduza o nome da base de dados.
-      3. Clique em **Encrypt** botão na barra de ferramentas. Verá a aplicação do Gestor de credenciais.
+      1. Para **ServerName**, insira o nome do servidor que hospeda o banco de dados SQL Server.
+      2. Para **DatabaseName**, insira o nome do banco de dados.
+      3. Clique no botão **criptografar** na barra de ferramentas. Você verá o aplicativo Gerenciador de credenciais.
 
-         ![Aplicação do Gestor de credenciais](./media/data-factory-move-data-between-onprem-and-cloud/credentials-manager-application.png)
-      4. Na **definição de credenciais** caixa de diálogo, especifique o tipo de autenticação, nome de utilizador e palavra-passe e clique em **OK**. Se a ligação for bem-sucedida, as credenciais encriptadas são armazenadas no JSON e fecha a caixa de diálogo.
-      5. Feche o separador do browser vazia que iniciou a caixa de diálogo se não estiver fechado automaticamente e voltar para o separador com o portal do Azure.
+         ![Aplicativo Gerenciador de credenciais](./media/data-factory-move-data-between-onprem-and-cloud/credentials-manager-application.png)
+      4. Na caixa de diálogo **configurações de credenciais** , especifique o tipo de autenticação, o nome de usuário e a senha e clique em **OK**. Se a conexão for bem-sucedida, as credenciais criptografadas serão armazenadas no JSON e a caixa de diálogo será fechada.
+      5. Feche a guia vazia do navegador que iniciou a caixa de diálogo se ela não for fechada automaticamente e volte para a guia com a portal do Azure.
 
-         No computador gateway, estas credenciais são **encriptados** utilizando um certificado que o serviço Data Factory é proprietário. Se pretender utilizar o certificado que estão associado com o Data Management Gateway em vez disso, consulte Definir credenciais de forma segura.    
-   3. Clique em **Deploy** na barra de comandos para implementar o SQL Server de serviço ligado. Deverá ver o serviço ligado na vista de árvore.
+         No computador do gateway, essas credenciais são **criptografadas** usando um certificado que o serviço data Factory possui. Se você quiser usar o certificado associado ao gateway de Gerenciamento de Dados em vez disso, consulte definir credenciais com segurança.    
+   3. Clique em **implantar** na barra de comandos para implantar o serviço vinculado SQL Server. Você deve ver o serviço vinculado no modo de exibição de árvore.
 
-      ![Serviço ligado do SQL Server na vista de árvore](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    
+      ![SQL Server serviço vinculado no modo de exibição de árvore](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    
 
-#### <a name="add-a-linked-service-for-an-azure-storage-account"></a>Adicionar um serviço ligado para uma conta de armazenamento do Azure
-1. Na **Editor do Data Factory**, clique em **novo arquivo de dados** barra de comandos e clique em **armazenamento do Azure**.
-2. Introduza o nome da sua conta de armazenamento do Azure para o **nome da conta**.
-3. Introduza a chave para a sua conta de armazenamento do Azure para o **chave de conta**.
-4. Clique em **Deploy** para implementar a **AzureStorageLinkedService**.
+#### <a name="add-a-linked-service-for-an-azure-storage-account"></a>Adicionar um serviço vinculado para uma conta de armazenamento do Azure
+1. No **Editor de data Factory**, clique em **novo armazenamento de dados** na barra de comandos e clique em **armazenamento do Azure**.
+2. Insira o nome da sua conta de armazenamento do Azure para o **nome da conta**.
+3. Insira a chave para sua conta de armazenamento do Azure para a **chave de conta**.
+4. Clique em **implantar** para implantar o **AzureStorageLinkedService**.
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 Neste passo, vai criar os conjuntos de dados de entrada e de saída que representam os dados de entrada e de saída da operação de cópia (base de dados do SQL Server no local => armazenamento de blobs do Azure). Antes de criar os conjuntos de dados, execute os seguintes passos (os passos detalhados são apresentados a seguir à lista):
@@ -189,7 +189,7 @@ Neste passo, vai criar os conjuntos de dados de entrada e de saída que represen
 * Crie uma tabela com o nome **emp** na Base de Dados do SQL Server que adicionou como um serviço ligado à fábrica de dados e insira algumas entradas de exemplo na tabela.
 * Crie um contentor de blobs com o nome **adftutorial** na conta de armazenamento de blobs do Azure que adicionou como um serviço ligado à fábrica de dados.
 
-### <a name="prepare-on-premises-sql-server-for-the-tutorial"></a>Preparar o SQL Server no local para o tutorial
+### <a name="prepare-on-premises-sql-server-for-the-tutorial"></a>Preparar SQL Server locais para o tutorial
 1. Na base de dados que especificou para o serviço ligado do SQL Server no local (**SqlServerLinkedService**), utilize o seguinte script SQL para criar a tabela **emp** na base de dados.
 
     ```SQL   
@@ -211,8 +211,8 @@ Neste passo, vai criar os conjuntos de dados de entrada e de saída que represen
 
 ### <a name="create-input-dataset"></a>Criar conjunto de dados de entrada
 
-1. No **Data Factory Editor**, clique em **... Obter mais**, clique em **novo conjunto de dados** na barra de comandos e clique em **tabela do SQL Server**.
-2. Substitua o JSON no painel da direita com o seguinte texto:
+1. No **Editor de data Factory**, clique em **... Mais**, clique em **novo conjunto** de informações na barra de comandos e clique em **SQL Server tabela**.
+2. Substitua o JSON no painel direito pelo seguinte texto:
 
     ```JSON   
     {        
@@ -240,18 +240,18 @@ Neste passo, vai criar os conjuntos de dados de entrada e de saída que represen
     ```     
    Tenha em atenção os seguintes pontos:
 
-   * **tipo** está definido como **SqlServerTable**.
-   * **tableName** está definido como **emp**.
-   * **linkedServiceName** está definido como **SqlServerLinkedService** (criou este serviço ligado anteriormente neste passo a passo.).
-   * Para um conjunto de dados entrado que não forem gerado pelo outro pipeline no Azure Data Factory, tem de definir **externo** ao **verdadeiro**. Ele denota que os dados de entrada são produzidos externos ao serviço Azure Data Factory. Opcionalmente, pode especificar todas as políticas de dados externos com o **externalData** elemento no **política** secção.    
+   * o **tipo** é definido como **sqlservertable**.
+   * **TableName** é definido como **EMP**.
+   * **linkedServiceName** é definido como **SqlServerLinkedService** (você criou esse serviço vinculado anteriormente neste passo a passo.).
+   * Para um conjunto de dados de entrada que não é gerado por outro pipeline no Azure Data Factory, você deve definir **external** como **true**. Ele denota que os dados de entrada são produzidos externos ao serviço de Azure Data Factory. Opcionalmente, você pode especificar qualquer política de dados externa usando o elemento **externalData** na seção de **política** .    
 
-   Ver [mover dados de/para o SQL Server](data-factory-sqlserver-connector.md) para obter detalhes sobre as propriedades JSON.
-3. Clique em **Deploy** na barra de comandos para implementar o conjunto de dados.  
+   Consulte [mover dados para/de SQL Server](data-factory-sqlserver-connector.md) para obter detalhes sobre as propriedades JSON.
+3. Clique em **implantar** na barra de comandos para implantar o conjunto de um.  
 
 ### <a name="create-output-dataset"></a>Criar conjunto de dados de saída
 
-1. Na **Editor do Data Factory**, clique em **novo conjunto de dados** na barra de comandos e clique em **armazenamento de Blobs do Azure**.
-2. Substitua o JSON no painel da direita com o seguinte texto:
+1. No **Editor de data Factory**, clique em **novo conjunto de novos** na barra de comandos e clique em armazenamento de **BLOBs do Azure**.
+2. Substitua o JSON no painel direito pelo seguinte texto:
 
     ```JSON   
     {
@@ -275,14 +275,14 @@ Neste passo, vai criar os conjuntos de dados de entrada e de saída que represen
     ```   
    Tenha em atenção os seguintes pontos:
 
-   * **tipo** está definido como **AzureBlob**.
-   * **linkedServiceName** está definido como **AzureStorageLinkedService** (criou este serviço ligado no passo 2).
-   * **folderPath** está definido como **adftutorial/outfromonpremdf** onde outfromonpremdf é a pasta no contentor adftutorial. Criar a **adftutorial** contentor se ainda não exista.
-   * A **disponibilidade** está definida como **de hora a hora** (**frequência** definida como **hora** e **intervalo** definido como **1**).  O serviço Data Factory gera um setor de dados de saída de cada hora na **emp** tabela na base de dados SQL do Azure.
+   * **Type** é definido como **AzureBlob**.
+   * **linkedServiceName** é definido como **AzureStorageLinkedService** (você criou esse serviço vinculado na etapa 2).
+   * **FolderPath** é definido como **adftutorial/outfromonpremdf** , em que outfromonpremdf é a pasta no contêiner adftutorial. Crie o contêiner **adftutorial** se ele ainda não existir.
+   * A **disponibilidade** está definida como **de hora a hora** (**frequência** definida como **hora** e **intervalo** definido como **1**).  O serviço de Data Factory gera uma fatia de dados de saída a cada hora na tabela **EMP** no banco de dado SQL do Azure.
 
-   Se não especificar um **fileName** para um **tabela de saída**, os ficheiros gerados no **folderPath** são denominados no seguinte formato: `Data.<Guid>.txt` (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   Se você não especificar um **nome de arquivo** para uma **tabela de saída**, os arquivos gerados no **FolderPath** serão nomeados no seguinte formato: `Data.<Guid>.txt` (por exemplo: Data. 0a405f8a-93ff-4c6f-b3be-f69616f1df7a. txt).
 
-   Para definir **folderPath** e **fileName** dinamicamente com base no **SliceStart** tempo, utilize a propriedade partitionedBy. No exemplo seguinte, o folderPath utiliza o Ano, o Mês e o Dia do SliceStart (hora de início do setor a ser processado) e o fileName utiliza a Hora do SliceStart. Por exemplo, se está a ser produzido um setor para 2014-10-20T08:00:00, folderName está definido como wikidatagateway/wikisampledataout/2014/10/20 e o fileName está definido como 08.csv.
+   Para definir **FolderPath** e **filename** dinamicamente com base no tempo de **SliceStart** , use a propriedade partitionedBy. No exemplo seguinte, o folderPath utiliza o Ano, o Mês e o Dia do SliceStart (hora de início do setor a ser processado) e o fileName utiliza a Hora do SliceStart. Por exemplo, se está a ser produzido um setor para 2014-10-20T08:00:00, folderName está definido como wikidatagateway/wikisampledataout/2014/10/20 e o fileName está definido como 08.csv.
 
     ```JSON
     "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
@@ -297,14 +297,14 @@ Neste passo, vai criar os conjuntos de dados de entrada e de saída que represen
     ],
     ```
 
-    Ver [mover dados de/para o armazenamento de Blobs do Azure](data-factory-azure-blob-connector.md) para obter detalhes sobre as propriedades JSON.
-3. Clique em **Deploy** na barra de comandos para implementar o conjunto de dados. Confirme que vê ambos os conjuntos de dados na vista de árvore.  
+    Consulte [mover dados de/para o armazenamento de BLOBs do Azure](data-factory-azure-blob-connector.md) para obter detalhes sobre as propriedades JSON.
+3. Clique em **implantar** na barra de comandos para implantar o conjunto de um. Confirme que você vê os dois conjuntos de valores no modo de exibição de árvore.  
 
 ## <a name="create-pipeline"></a>Criar pipeline
-Neste passo, vai criar um **pipeline** com um **atividade de cópia** que utiliza **EmpOnPremSQLTable** como entrada e **OutputBlobTable** como saída.
+Nesta etapa, você cria um **pipeline** com uma **atividade de cópia** que usa **EmpOnPremSQLTable** como entrada e **OutputBlobTable** como saída.
 
-1. No Editor do Data Factory, clique em **... Mais** e clique em **Novo pipeline**.
-2. Substitua o JSON no painel da direita com o seguinte texto:    
+1. No editor de Data Factory, clique em **... Mais**e clique em **novo pipeline**.
+2. Substitua o JSON no painel direito pelo seguinte texto:    
 
     ```JSON   
      {
@@ -357,60 +357,60 @@ Neste passo, vai criar um **pipeline** com um **atividade de cópia** que utiliz
 
    Tenha em atenção os seguintes pontos:
 
-   * Na secção Atividades, existe apenas atividade cuja **tipo** está definida como **cópia**.
-   * **Entrada** a atividade está definida como **EmpOnPremSQLTable** e **saída** a atividade está definida como **OutputBlobTable**.
-   * Na **typeProperties** secção, **SqlSource** está especificado como o **tipo de origem** e **BlobSink** é especificado como o **tipo de sink**.
-   * Consulta SQL `select * from emp` é especificado para o **sqlReaderQuery** propriedade **SqlSource**.
+   * Na seção atividades, há apenas a atividade cujo **tipo** está definido como **copiar**.
+   * A **entrada** para a atividade é definida como **EmpOnPremSQLTable** e a **saída** para a atividade é definida como **OutputBlobTable**.
+   * Na seção **typeproperties** , o **sqlsource** é especificado como o **tipo de origem** e **BlobSink** é especificado como o **tipo de coletor**.
+   * A `select * from emp` de consulta SQL é especificada para a propriedade **sqlReaderQuery** de **sqlsource**.
 
    Tanto o datetime de início como de fim têm de estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O tempo **end** é opcional, mas iremos utilizá-lo neste tutorial.
 
    Se não especificar valor da propriedade **end**, esta é calculada como “**início + 48 horas**”. Para executar o pipeline de forma indefinida, especifique **9/9/9999** como o valor da propriedade **end**.
 
-   Está a definir a duração de tempo em que os setores de dados são processados com base na **disponibilidade** propriedades que foram definidas para cada conjunto de dados do Azure Data Factory.
+   Você está definindo a duração da hora em que as fatias de dados são processadas com base nas propriedades de **disponibilidade** que foram definidas para cada conjunto de Azure data Factory.
 
    Existem 24 setores de dados no exemplo, uma vez que estes são produzidos de hora a hora.        
-3. Clique em **Deploy** na barra de comandos para implementar o conjunto de dados (tabela é um conjunto de dados retangular). Confirme que o pipeline que aparece na vista de árvore em **Pipelines** nó.  
-4. Agora, clique em **X** duas vezes para fechar a página para voltar para o **Data Factory** página para o **ADFTutorialOnPremDF**.
+3. Clique em **implantar** na barra de comandos para implantar o conjunto de os (tabela é um conjunto de um DataSet retangular). Confirme se o pipeline aparece no modo de exibição de árvore no nó **pipelines** .  
+4. Agora, clique em **X** duas vezes para fechar a página e voltar para a página de **Data Factory** para o **ADFTutorialOnPremDF**.
 
-**Parabéns!** Criar a uma fábrica de dados do Azure, serviços ligados, conjuntos de dados e um pipeline com êxito e agendou o pipeline.
+**Parabéns!** Você criou com êxito um data factory do Azure, serviços vinculados, conjuntos de valores e um pipeline e agendou o pipeline.
 
 #### <a name="view-the-data-factory-in-a-diagram-view"></a>Ver a fábrica de dados numa Vista de Diagrama
-1. Na **portal do Azure**, clique em **diagrama** mosaico na home page para o **ADFTutorialOnPremDF** fábrica de dados. :
+1. No **portal do Azure**, clique no bloco **diagrama** na home page para a data Factory **ADFTutorialOnPremDF** . :
 
-    ![Ligação de diagrama](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
+    ![Link de diagrama](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
 2. Deverá ver um diagrama semelhante à seguinte imagem:
 
     ![Vista de Diagrama](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramView.png)
 
-    Pode ampliar, reduzir, ampliar para 100%, zoom ajustar automaticamente posicionar os pipelines e conjuntos de dados e mostrar informações de linhagem (realça os itens a montante e a jusante dos itens selecionados).  Pode fazer duplo clique de um objeto (conjunto de dados de entrada/saída ou pipeline) para ver as propriedades do mesmo.
+    Você pode ampliar, reduzir, aplicar zoom a 100%, ajustar o zoom, posicionar pipelines e conjuntos de dados automaticamente e mostrar informações de linhagem (realça itens upstream e downstream dos itens selecionados).  Você pode clicar duas vezes em um objeto (conjunto de dados de entrada/saída ou Pipeline) para ver as propriedades dele.
 
 ## <a name="monitor-pipeline"></a>Monitorizar o pipeline
-Neste passo, irá utilizar o portal do Azure para monitorizar os acontecimentos de uma fábrica de dados do Azure. Também pode utilizar os cmdlets PowerShell para monitorizar os conjuntos de dados e pipelines. Para obter detalhes sobre a monitorização, consulte [monitorizar e gerir Pipelines](data-factory-monitor-manage-pipelines.md).
+Neste passo, irá utilizar o portal do Azure para monitorizar os acontecimentos de uma fábrica de dados do Azure. Também pode utilizar os cmdlets PowerShell para monitorizar os conjuntos de dados e pipelines. Para obter detalhes sobre o monitoramento, consulte [monitorar e gerenciar pipelines](data-factory-monitor-manage-pipelines.md).
 
-1. No diagrama, faça duplo clique em **EmpOnPremSQLTable**.  
+1. No diagrama, clique duas vezes em **EmpOnPremSQLTable**.  
 
-    ![Setores de EmpOnPremSQLTable](./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png)
-2. Tenha em atenção que todos os dados corta estão **pronto** porque a duração do pipeline (hora de início para a hora de fim) está no passado de estado. Também é uma vez que introduziu os dados na base de dados do SQL Server e lá está o tempo todo. Confirme que não existem setores na **setores do problema** seção na parte inferior. Para ver todos os setores, clique em **ver mais** na parte inferior da lista de setores.
-3. Agora, no **conjuntos de dados** página, clique em **OutputBlobTable**.
+    ![Fatias EmpOnPremSQLTable](./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png)
+2. Observe que todas as fatias de dados estão no estado **pronto** porque a duração do pipeline (hora de início até a hora de término) está no passado. Também é porque você inseriu os dados no banco de dado SQL Server e está lá o tempo todo. Confirme se nenhuma fatia aparece na seção **fatias com problema** na parte inferior. Para exibir todas as fatias, clique em **Ver mais** na parte inferior da lista de fatias.
+3. Agora, na página **conjuntos** de itens, clique em **OutputBlobTable**.
 
-    ![Setores de OputputBlobTable](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)
-4. Clique em qualquer setor de dados da lista e deverá ver o **setor de dados** página. Vai ver execuções de atividade para o setor. Pode ver apenas uma atividade executar normalmente.  
+    ![Fatias OputputBlobTable](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)
+4. Clique em qualquer fatia de dados da lista e você deverá ver a página **fatia de dados** . Você vê as execuções de atividade para a fatia. Você vê apenas uma execução de atividade normalmente.  
 
-    ![Painel de setor de dados](./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png)
+    ![Folha fatia de dados](./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png)
 
     Se o setor não estiver no estado **Pronto**, pode ver os setores a montante que não estão no estado Pronto e estão a impedir a execução do setor atual na lista **Setores a montante que não estão prontos**.
-5. Clique nas **execução da atividade** da lista na parte inferior para ver **detalhes da execução da atividade**.
+5. Clique na **atividade executar** da lista na parte inferior para ver os **detalhes da execução da atividade**.
 
-   ![Página de detalhes da execução de atividade](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)
+   ![Página detalhes da execução da atividade](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)
 
-   Irá ver informações como o débito, a duração e o gateway utilizado para transferir os dados.
-6. Clique em **X** para fechar todas as páginas até
-7. voltar à home page para o **ADFTutorialOnPremDF**.
-8. (opcional) Clique em **Pipelines**, clique em **ADFTutorialOnPremDF**e fazer uma busca tabelas de entrada (**consumida**) ou conjuntos de dados de saída (**produzido**).
-9. Utilize ferramentas como [Explorador de armazenamento do Microsoft](https://storageexplorer.com/) para verificar se um ficheiro/blob é criado para cada hora.
+   Você veria informações como taxa de transferência, duração e o gateway usado para transferir os dados.
+6. Clique no **X** para fechar todas as páginas até que você
+7. Volte para a home page para o **ADFTutorialOnPremDF**.
+8. adicional Clique em **pipelines**, clique em **ADFTutorialOnPremDF**e faça drill-through de tabelas de entrada (**consumidas**) ou conjuntos de dados de saída (**produzidos**).
+9. Use ferramentas como [o Microsoft Gerenciador de armazenamento](https://storageexplorer.com/) para verificar se um blob/arquivo é criado para cada hora.
 
    ![Explorador do Storage do Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
-## <a name="next-steps"></a>Passos Seguintes
-* Ver [Data Management Gateway](data-factory-data-management-gateway.md) artigo para todos os detalhes sobre o Data Management Gateway.
-* Ver [copiar dados de Blobs do Azure para o Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para saber mais sobre como utilizar a atividade de cópia para mover dados de um arquivo de dados de origem para um arquivo de dados de sink.
+## <a name="next-steps"></a>Passos seguintes
+* Consulte o artigo [Gerenciamento de dados gateway](data-factory-data-management-gateway.md) para obter todos os detalhes sobre o gateway de gerenciamento de dados.
+* Consulte [copiar dados do blob do Azure para o SQL do Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para saber mais sobre como usar a atividade de cópia para mover dados de um armazenamento de dados de origem para um armazenamento de dados de coletor.

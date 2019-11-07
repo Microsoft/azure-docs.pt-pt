@@ -1,5 +1,5 @@
 ---
-title: Práticas recomendadas para o Azure Sincronização de Dados SQL | Microsoft Docs
+title: 'Práticas recomendadas para o Azure Sincronização de Dados SQL '
 description: Saiba mais sobre as práticas recomendadas para configurar e executar Sincronização de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 01962770c011a0107abd4e035c25d6c0d45fa0a0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 728ac8ab42573e1cab30eaf12dd38a6d33b97aac
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569374"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691074"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Melhores práticas para a Sincronização de Dados SQL 
 
@@ -25,7 +25,7 @@ Este artigo descreve as práticas recomendadas para o Azure Sincronização de D
 Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> O Azure Sincronização de Dados SQL não **oferece suporte a** instância gerenciada do banco de dados SQL do Azure no momento.
+> O Azure Sincronização de Dados SQL **não oferece suporte a** instância gerenciada do banco de dados SQL do Azure no momento.
 
 ## <a name="security-and-reliability"></a>Segurança e confiabilidade
 
@@ -43,7 +43,7 @@ Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincroni
 
 -   **Para sincronização em andamento**. Selecionar/inserir/atualizar/excluir em tabelas selecionadas para sincronização e em metadados de sincronização e tabelas de acompanhamento; Permissão EXECUTE em procedimentos armazenados criados pelo serviço; Permissão EXECUTE em tipos de tabela definidos pelo usuário.
 
--   **Para**desprovisionamento. Alterar na parte das tabelas da sincronização; Selecionar/Excluir em tabelas de metadados de sincronização; Controle sobre tabelas de acompanhamento de sincronização, procedimentos armazenados e tipos definidos pelo usuário.
+-   **Para desprovisionamento**. Alterar na parte das tabelas da sincronização; Selecionar/Excluir em tabelas de metadados de sincronização; Controle sobre tabelas de acompanhamento de sincronização, procedimentos armazenados e tipos definidos pelo usuário.
 
 O banco de dados SQL do Azure dá suporte apenas a um único conjunto de credenciais. Para realizar essas tarefas nessa restrição, considere as seguintes opções:
 
@@ -56,7 +56,7 @@ O banco de dados SQL do Azure dá suporte apenas a um único conjunto de credenc
 
 #### <a name="sql-database-instance-size"></a>Tamanho da instância do banco de dados SQL
 
-Ao criar uma nova instância do banco de dados SQL, defina o tamanho máximo para que seja sempre maior do que o banco de dados implantado. Se você não definir o tamanho máximo para maior que o banco de dados implantado, a sincronização falhará. Embora sincronização de dados SQL não ofereça o crescimento automático, você pode executar `ALTER DATABASE` o comando para aumentar o tamanho do banco de dados depois que ele tiver sido criado. Certifique-se de permanecer dentro dos limites de tamanho da instância do banco de dados SQL.
+Ao criar uma nova instância do banco de dados SQL, defina o tamanho máximo para que seja sempre maior do que o banco de dados implantado. Se você não definir o tamanho máximo para maior que o banco de dados implantado, a sincronização falhará. Embora Sincronização de Dados SQL não ofereça o crescimento automático, você pode executar o comando `ALTER DATABASE` para aumentar o tamanho do banco de dados depois que ele tiver sido criado. Certifique-se de permanecer dentro dos limites de tamanho da instância do banco de dados SQL.
 
 > [!IMPORTANT]
 > Sincronização de Dados SQL armazena metadados adicionais com cada banco de dados. Certifique-se de que você conta esses metadados ao calcular o espaço necessário. A quantidade de sobrecarga adicionada está relacionada à largura das tabelas (por exemplo, tabelas estreitas exigem mais sobrecarga) e a quantidade de tráfego.
@@ -116,7 +116,7 @@ Para minimizar a latência, mantenha o banco de dados Hub próximo à maior conc
 
 Aplique as diretrizes anteriores a configurações de grupo de sincronização complexas, como aquelas que são uma combinação de cenários de empresa para nuvem e nuvem para nuvem.
 
-## <a name="sync"></a>Sincronizar
+## <a name="sync"></a>Sync
 
 ### <a name="avoid-a-slow-and-costly-initial-synchronization"></a>Evitar sincronização inicial lenta e dispendiosa
 
@@ -170,11 +170,11 @@ Um grupo de sincronização ou um banco de dados em um grupo de sincronização 
 
 #### <a name="avoid-out-of-date-databases"></a>Evitar bancos de dados desatualizados
 
-O status de um banco de dados é **definido como** desatualizado quando ele ficou offline por 45 dias ou mais. Para **evitar um status** desatualizado em um banco de dados, certifique-se de que nenhum deles esteja offline por 45 dias ou mais.
+O status de um banco de dados é **definido como desatualizado quando** ele ficou offline por 45 dias ou mais. Para evitar um status desatualizado em um **banco de dados** , certifique-se de que nenhum deles esteja offline por 45 dias ou mais.
 
 #### <a name="avoid-out-of-date-sync-groups"></a>Evitar grupos de sincronização desatualizados
 
-O status de um grupo de sincronização é definido como desatualizado **quando qualquer** alteração no grupo de sincronização não é propagada para o restante do grupo de sincronização por 45 dias ou mais. Para evitar um status desatualizado em um grupo **de** sincronização, verifique regularmente o log do histórico do grupo de sincronização. Verifique se todos os conflitos foram resolvidos e se as alterações foram propagadas com êxito em todos os bancos de dados do grupo de sincronização.
+O **status de um** grupo de sincronização é definido como desatualizado quando qualquer alteração no grupo de sincronização não é propagada para o restante do grupo de sincronização por 45 dias ou mais. Para evitar um status desatualizado em um grupo **de** sincronização, verifique regularmente o log do histórico do grupo de sincronização. Verifique se todos os conflitos foram resolvidos e se as alterações foram propagadas com êxito em todos os bancos de dados do grupo de sincronização.
 
 Um grupo de sincronização pode falhar ao aplicar uma alteração por um destes motivos:
 
@@ -198,7 +198,7 @@ Em algumas circunstâncias, o cancelamento do registro de um banco de dados com 
 1. O grupo de sincronização A foi criado usando uma instância do banco de dados SQL e um banco de dados SQL Server local, que está associado ao agente local 1.
 2. O mesmo banco de dados no local é registrado com o agente local 2 (esse agente não está associado a nenhum grupo de sincronização).
 3. O cancelamento do registro do banco de dados local do agente 2 remove as tabelas de acompanhamento e de meta do grupo de sincronização A para o banco de dados local.
-4. Falha nas operações do grupo de sincronização, com este erro: "A operação atual não pôde ser concluída porque o banco de dados não está provisionado para sincronização ou você não tem permissões para as tabelas de configuração de sincronização."
+4. Falha nas operações do grupo de sincronização A, com este erro: "a operação atual não pôde ser concluída porque o banco de dados não está provisionado para sincronização ou você não tem permissões para as tabelas de configuração de sincronização".
 
 #### <a name="solution"></a>Solução
 
@@ -218,16 +218,16 @@ Em vez disso, primeiro remova um banco de dados de um grupo de sincronização. 
 
 Se você tentar remover um banco de dados e editar um grupo de sincronização sem primeiro implantar uma das alterações, uma ou outra operação falhará. A interface do portal pode se tornar inconsistente. Se isso acontecer, atualize a página para restaurar o estado correto.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre Sincronização de Dados SQL, consulte:
 
 -   Visão geral – [sincronizar dados entre vários bancos de dados locais e de nuvem com o Azure sincronização de dados SQL](sql-database-sync-data.md)
 -   Configurar a sincronização de dados
-    - No portal- [tutorial: Configurar o Sincronização de Dados SQL para sincronizar dados entre o Azure SQL Database e o SQL Server local](sql-database-get-started-sql-data-sync.md)
+    - No portal- [tutorial: configurar sincronização de dados SQL para sincronizar os dados entre o Azure SQL Database e o SQL Server local](sql-database-get-started-sql-data-sync.md)
     - Com o PowerShell
         -  [Utilizar o PowerShell para sincronizar entre várias bases de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Utilizar o PowerShell para sincronizar entre uma Base de Dados SQL do Azure e uma base de dados do SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md)
--   Agente de - de sincronização de dados [agente de sincronização de dados SQL do Azure de sincronização de dados](sql-database-data-sync-agent.md)
+-   Agente de sincronização de dados- [agente de sincronização de dados para Azure sincronização de dados SQL](sql-database-data-sync-agent.md)
 -   Monitorar [sincronização de dados SQL monitorar com Azure monitor logs](sql-database-sync-monitor-oms.md)
 -   Solucionar problemas- [solucionar problema com o Azure sincronização de dados SQL](sql-database-troubleshoot-data-sync.md)
 -   Atualizar o esquema de sincronização

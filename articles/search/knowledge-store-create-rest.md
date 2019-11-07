@@ -1,21 +1,24 @@
 ---
-title: Criar uma loja de conhecimento usando REST
+title: Criar uma loja de conhecimento (versão prévia) usando REST
 titleSuffix: Azure Cognitive Search
-description: Use a API REST e o postmaster para criar um repositório de conhecimento de Pesquisa Cognitiva do Azure para persistir aprimoramentos de um pipeline de enriquecimento de ia.
-author: lobrien
+description: Use a API REST e o postmaster para criar um repositório de conhecimento de Pesquisa Cognitiva do Azure para persistir aprimoramentos de um pipeline de enriquecimento de ia. Este recurso está atualmente em visualização pública.
+author: HeidiSteen
 manager: nitinme
-ms.author: laobri
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 24b97374b032640afafde775e90f6db735d63c46
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 107dcfa9ea312774e679c301ea934255c7b836c0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790021"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720080"
 ---
 # <a name="create-an-azure-cognitive-search-knowledge-store-by-using-rest"></a>Criar uma loja de conhecimento do Azure Pesquisa Cognitiva usando REST
+
+> [!IMPORTANT] 
+> a loja de conhecimento está atualmente em visualização pública. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de visualização. Atualmente, há suporte ao portal limitado e não há suporte para o SDK do .NET.
 
 O recurso de armazenamento de conhecimento no Azure Pesquisa Cognitiva persiste a saída de um pipeline de enriquecimento de ia para análise posterior ou outro processamento de downstream. Um pipeline aprimorado de ia aceita arquivos de imagem ou arquivos de texto não estruturados, indexa-os usando o Azure Pesquisa Cognitiva, aplica aprimoramentos de ia dos serviços cognitivas do Azure (como análise de imagem e processamento de linguagem natural) e salva os resultados em um repositório de conhecimento no armazenamento do Azure. Você pode usar ferramentas como Power BI ou Gerenciador de Armazenamento no portal do Azure para explorar a loja de conhecimento.
 
@@ -96,19 +99,19 @@ Ao criar uma loja de conhecimento, você deve emitir quatro solicitações HTTP:
 - **PUT Solicitar para criar o**configurador de habilidades: o configurador especifica os aprimoramentos que são aplicados aos seus dados e a estrutura da loja de conhecimento.
 - **PUT Solicitar para criar o indexador**: a execução do indexador lê os dados, aplica o confirmador e armazena os resultados. Você deve executar esta solicitação por último.
 
-O [código-fonte](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) contém uma coleção de postmaster que tem quatro solicitações. Para emitir as solicitações, no postmaster, selecione a guia para a solicitação. Em seguida, adicione os cabeçalhos de solicitação `api-key` e `Content-Type`. Defina o valor de `api-key` como `{{admin-key}}`. Defina o valor `Content-type` como `application/json`. 
+O [código-fonte](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) contém uma coleção de postmaster que tem quatro solicitações. Para emitir as solicitações, no postmaster, selecione a guia para a solicitação. Em seguida, adicione `api-key` e `Content-Type` cabeçalhos de solicitação. Defina o valor de `api-key` como `{{admin-key}}`. Defina o valor `Content-type` como `application/json`. 
 
 ![Captura de tela mostrando a interface do postmaster para cabeçalhos](media/knowledge-store-create-rest/postman-headers-ui.png)
 
 > [!Note]
-> Você deve definir os cabeçalhos `api-key` e `Content-type` em todas as suas solicitações. Se o postmaster reconhecer uma variável, a variável aparecerá em texto laranja, assim como com `{{admin-key}}` na captura de tela anterior. Se a variável for digitada incorretamente, ela aparecerá em texto vermelho.
+> Você deve definir `api-key` e `Content-type` cabeçalhos em todas as suas solicitações. Se o postmaster reconhecer uma variável, a variável aparecerá em texto laranja, assim como ocorre com `{{admin-key}}` na captura de tela anterior. Se a variável for digitada incorretamente, ela aparecerá em texto vermelho.
 >
 
 ## <a name="create-an-azure-cognitive-search-index"></a>Criar um índice de Pesquisa Cognitiva do Azure
 
-Crie um índice de Pesquisa Cognitiva do Azure para representar os dados que você está interessado em Pesquisar, filtrar e aplicar aprimoramentos ao. Crie o índice emitindo uma solicitação PUT para `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}`. O postmaster substitui símbolos que são colocados em chaves duplas (como `{{search-service-name}}`, `{{index-name}}` e `{{api-version}}`) com os valores que você define em configurar o [postmaster](#configure-postman). Se você usar uma ferramenta diferente para emitir seus comandos REST, deverá substituir essas variáveis por conta própria.
+Crie um índice de Pesquisa Cognitiva do Azure para representar os dados que você está interessado em Pesquisar, filtrar e aplicar aprimoramentos ao. Crie o índice emitindo uma solicitação PUT para `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}`. O postmaster substitui símbolos que são colocados em chaves duplas (como `{{search-service-name}}`, `{{index-name}}`e `{{api-version}}`) com os valores que você define em configurar o [postmaster](#configure-postman). Se você usar uma ferramenta diferente para emitir seus comandos REST, deverá substituir essas variáveis por conta própria.
 
-Defina a estrutura do seu índice de Pesquisa Cognitiva do Azure no corpo da solicitação. No postmaster, depois de definir os cabeçalhos `api-key` e `Content-type`, vá para o painel **corpo** da solicitação. Você deverá ver o JSON a seguir. Se você não fizer isso, selecione **Raw** > **JSON (Application/JSON)** e cole o código a seguir como o corpo:
+Defina a estrutura do seu índice de Pesquisa Cognitiva do Azure no corpo da solicitação. No postmaster, depois de definir os cabeçalhos de `api-key` e de `Content-type`, vá para o painel **corpo** da solicitação. Você deverá ver o JSON a seguir. Se você não fizer isso, selecione **Raw** > **JSON (Application/JSON)** e cole o código a seguir como o corpo:
 
 ```JSON
 {
@@ -149,7 +152,7 @@ Selecione **Enviar** para emitir a solicitação Put. Você deve ver o status `2
 
 ## <a name="create-the-datasource"></a>Criar a fonte de fontes
 
-Em seguida, conecte o Azure Pesquisa Cognitiva aos dados do Hotel armazenados no [armazenamento dos dados](#store-the-data). Para criar a fonte de mensagens, envie uma solicitação POST para `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. Você deve definir os cabeçalhos `api-key` e `Content-Type`, conforme discutido anteriormente. 
+Em seguida, conecte o Azure Pesquisa Cognitiva aos dados do Hotel armazenados no [armazenamento dos dados](#store-the-data). Para criar a fonte de mensagens, envie uma solicitação POST para `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. Você deve definir os cabeçalhos `api-key` e `Content-Type` conforme discutido anteriormente. 
 
 No postmaster, vá para a solicitação **criar fonte** de mensagens e, em seguida, para o painel **corpo** . Você deve ver o código a seguir:
 
@@ -169,7 +172,7 @@ Selecione **Enviar** para emitir a solicitação post.
 
 A próxima etapa é especificar o skillset, que especifica os aprimoramentos a serem aplicados e a loja de conhecimento onde os resultados serão armazenados. No postmaster, selecione a guia **criar a habilidade** . Essa solicitação envia um PUT para `https://{{search-service-name}}.search.windows.net/skillsets/{{skillset-name}}?api-version={{api-version}}`. Defina os cabeçalhos `api-key` e `Content-type` como fazia anteriormente. 
 
-Há dois grandes objetos de alto nível: `skills` e `knowledgeStore`. Cada objeto dentro do objeto `skills` é um serviço de enriquecimento. Cada serviço de enriquecimento tem `inputs` e `outputs`. O `LanguageDetectionSkill` tem uma saída `targetName` de `Language`. O valor desse nó é usado pela maioria das outras habilidades como uma entrada. A origem é `document/Language`. A capacidade de usar a saída de um nó como a entrada para outro é ainda mais evidente no `ShaperSkill`, que especifica como os dados fluem para as tabelas da loja de conhecimento.
+Há dois grandes objetos de alto nível: `skills` e `knowledgeStore`. Cada objeto dentro do `skills` objeto é um serviço de enriquecimento. Cada serviço de enriquecimento tem `inputs` e `outputs`. O `LanguageDetectionSkill` tem uma `targetName` de saída de `Language`. O valor desse nó é usado pela maioria das outras habilidades como uma entrada. A origem é `document/Language`. A capacidade de usar a saída de um nó como a entrada para outro é ainda mais evidente em `ShaperSkill`, que especifica como os dados fluem para as tabelas da loja de conhecimento.
 
 O objeto `knowledge_store` se conecta à conta de armazenamento por meio da variável de postmaster `{{storage-connection-string}}`. `knowledge_store` contém um conjunto de mapeamentos entre o documento avançado e as tabelas e colunas na loja de conhecimento. 
 
@@ -305,7 +308,7 @@ Para gerar o qualificable, selecione o botão **Enviar** no postmaster para colo
 
 A etapa final é criar o indexador. O indexador lê os dados e ativa o qualificable. No postmaster, selecione a solicitação **criar indexador** e examine o corpo. A definição do indexador refere-se a vários outros recursos que você já criou: a fonte de recursos, o índice e o skillset. 
 
-O objeto `parameters/configuration` controla como o indexador ingeri os dados. Nesse caso, os dados de entrada estão em um único documento que tem uma linha de cabeçalho e valores separados por vírgulas. A chave do documento é um identificador exclusivo para o documento. Antes da codificação, a chave do documento é a URL do documento de origem. Por fim, os valores de saída de tipo de habilidade, como código de idioma, sentimentos e frases-chave, são mapeados para seus locais no documento. Embora haja um único valor para `Language`, `Sentiment` é aplicado a cada elemento na matriz de `pages`. `Keyphrases` é uma matriz que também é aplicada a cada elemento na matriz `pages`.
+O objeto `parameters/configuration` controla como o indexador ingeri os dados. Nesse caso, os dados de entrada estão em um único documento que tem uma linha de cabeçalho e valores separados por vírgulas. A chave do documento é um identificador exclusivo para o documento. Antes da codificação, a chave do documento é a URL do documento de origem. Por fim, os valores de saída de tipo de habilidade, como código de idioma, sentimentos e frases-chave, são mapeados para seus locais no documento. Embora haja um único valor para `Language`, `Sentiment` é aplicado a cada elemento na matriz de `pages`. `Keyphrases` é uma matriz que também é aplicada a cada elemento na matriz de `pages`.
 
 Depois de definir os cabeçalhos `api-key` e `Content-type` e confirmar que o corpo da solicitação é semelhante ao código-fonte a seguir, selecione **Enviar** no postmaster. O postmaster envia uma solicitação PUT para `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}`. O Azure Pesquisa Cognitiva cria e executa o indexador. 
 

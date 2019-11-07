@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: 7b9cbd4e84f60b42e8eb6cb250a9b25f398fd4a0
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 9e1fe0e5bae462715a8cb2950cca100f0f409325
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176459"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718723"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Integridade de back-end e logs de diagnóstico para o gateway de aplicativo
 
@@ -112,11 +112,11 @@ Tem três opções para armazenar os registos:
 
 O registo de atividades é ativado automaticamente para todos os recursos do Resource Manager. Você deve habilitar o log de desempenho e acesso para começar a coletar os dados disponíveis por meio desses logs. Para habilitar o registro em log, use as seguintes etapas:
 
-1. Anote o ID de recurso da conta de armazenamento, onde os dados de registo são armazenados. Esse valor está no formato:/subscriptions/\<subscriptionId \>/resourceGroups/\<resource nome do grupo \>/providers/Microsoft.Storage/storageAccounts/\<storage nome da conta \>. Pode utilizar qualquer conta de armazenamento na sua subscrição. Pode utilizar o portal do Azure para encontrar estas informações.
+1. Anote o ID de recurso da conta de armazenamento, onde os dados de registo são armazenados. Esse valor está no formato:/subscriptions/\<SubscriptionId\>/resourceGroups/\<nome do grupo de recursos\>/providers/Microsoft.Storage/storageAccounts/\<nome da conta de armazenamento\>. Pode utilizar qualquer conta de armazenamento na sua subscrição. Pode utilizar o portal do Azure para encontrar estas informações.
 
     ![Portal: ID de recurso da conta de armazenamento](./media/application-gateway-diagnostics/diagnostics1.png)
 
-2. Anote a ID de recurso do gateway de aplicativo para a qual o log está habilitado. Esse valor está no formato:/subscriptions/\<subscriptionId \>/resourceGroups/\<resource nome do grupo \>/providers/Microsoft.Network/applicationGateways/\<application nome do gateway \>. Pode utilizar o portal para encontrar estas informações.
+2. Anote a ID de recurso do gateway de aplicativo para a qual o log está habilitado. Esse valor está no formato:/subscriptions/\<SubscriptionId\>/resourceGroups/\<nome do grupo de recursos\>/providers/Microsoft.Network/applicationGateways/\<nome do gateway de aplicativo\>. Pode utilizar o portal para encontrar estas informações.
 
     ![Portal: ID de recurso para o gateway de aplicativo](./media/application-gateway-diagnostics/diagnostics2.png)
 
@@ -213,7 +213,7 @@ Para o gateway de aplicativo e o WAF v2, os logs mostram um pouco mais de inform
 |httpVersion     | Versão HTTP da solicitação.        |
 |receivedBytes     | Tamanho do pacote recebido, em bytes.        |
 |sentBytes| Tamanho do pacote enviado, em bytes.|
-|timeTaken| Período de tempo (em milissegundos) necessário para que uma solicitação seja processada e sua resposta seja enviada. Isso é calculado como o intervalo desde o momento em que o gateway de aplicativo recebe o primeiro byte de uma solicitação HTTP até a hora em que a operação de envio de resposta é concluída. É importante observar que o campo time-taken geralmente inclui a hora em que os pacotes de solicitação e resposta estão viajando pela rede. |
+|timeTaken| Período de tempo (em **segundos**) necessário para que uma solicitação seja processada e sua resposta seja enviada. Isso é calculado como o intervalo desde o momento em que o gateway de aplicativo recebe o primeiro byte de uma solicitação HTTP até a hora em que a operação de envio de resposta é concluída. É importante observar que o campo time-taken geralmente inclui a hora em que os pacotes de solicitação e resposta estão viajando pela rede. |
 |sslEnabled| Se a comunicação com os pools de back-end usava o SSL. Os valores válidos são on e off.|
 |sslCipher| Conjunto de codificação que está sendo usado para comunicação SSL (se o SSL estiver habilitado).|
 |sslProtocol| Protocolo SSL/TLS que está sendo usado (se o SSL estiver habilitado).|
@@ -263,7 +263,7 @@ O log de desempenho será gerado somente se você o tiver habilitado em cada ins
 |requestCount     | Número de solicitações atendidas.        |
 |MOLAP | Latência média (em milissegundos) de solicitações da instância para o back-end que atende às solicitações. |
 |failedRequestCount| Número de solicitações com falha.|
-|taxa| Taxa de transferência média desde o último log, medida em bytes por segundo.|
+|Taxa de transferência| Taxa de transferência média desde o último log, medida em bytes por segundo.|
 
 ```json
 {

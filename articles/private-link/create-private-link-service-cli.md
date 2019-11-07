@@ -7,19 +7,19 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: c67d2cd4e90b2fa61a4d95e89a68c888a6e1fe3f
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 57ab18c8dfffb6994983179f434491b97589ebda
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273640"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693245"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Criar um serviço de vínculo privado usando CLI do Azure
 Este artigo mostra como criar um serviço de vínculo privado no Azure usando CLI do Azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você decidir instalar e usar CLI do Azure localmente, este guia de início rápido exigirá que você use a versão mais recente do CLI do Azure. Para localizar a versão instalada, execute `az --version`. Consulte [instalar CLI do Azure](/cli/azure/install-azure-cli) para obter informações de instalação ou atualização.
+Se você decidir instalar e usar CLI do Azure localmente, este guia de início rápido exigirá que você use a versão mais recente do CLI do Azure. Para localizar sua versão instalada, execute `az --version`. Consulte [instalar CLI do Azure](/cli/azure/install-azure-cli) para obter informações de instalação ou atualização.
 ## <a name="create-a-private-link-service"></a>Criar um serviço de Ligação Privada
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -60,7 +60,7 @@ Uma sonda de estado de funcionamento verifica todas as instâncias de máquina v
     --port 80   
 ```
 
-### <a name="create-a-load-balancer-rule"></a>Crie uma regra de balanceador de carga
+### <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
 
 Uma regra de balanceador de carga define a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Crie uma regra de balanceador de carga *myHTTPRule* com [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) para escutar a porta 80 no conjunto de front-end *myFrontEnd* e enviar o tráfego de rede com balanceamento de carga para o conjunto de endereços back-end *myBackEndPool* também através da porta 80. 
 
@@ -104,11 +104,11 @@ az network private-link-service create \
 ```
 Depois de criado, anote a ID do serviço de link privado. Você precisará disso mais tarde para solicitar a conexão a esse serviço.  
  
-Neste estágio, o serviço de vínculo privado foi criado com êxito e está pronto para receber o tráfego. Observe que o exemplo acima é apenas para demonstrar a criação do serviço de vínculo privado usando CLI do Azure.  Não configuramos os pools de back-end do balanceador de carga ou qualquer aplicativo nos pools de back-end para escutar o tráfego. Se você quiser ver fluxos de tráfego de ponta a ponta, poderá configurar seu aplicativo por trás de seu Standard Load Balancer.  
+Neste estágio, o serviço de vínculo privado foi criado com êxito e está pronto para receber o tráfego. Observe que o exemplo acima é apenas para demonstrar a criação do serviço de vínculo privado usando CLI do Azure.  Não configuramos os pools de back-end do balanceador de carga ou qualquer aplicativo nos pools de back-end para escutar o tráfego. Se você quiser ver fluxos de tráfego de ponta a ponta, é altamente recomendável configurar seu aplicativo por trás de seu Standard Load Balancer.  
  
 Em seguida, demonstraremos como mapear esse serviço para um ponto de extremidade privado em uma rede virtual diferente usando CLI do Azure. Novamente, o exemplo é limitado à criação do ponto de extremidade privado e à conexão ao serviço de vínculo privado criado acima usando CLI do Azure. Além disso, você pode criar máquinas virtuais na rede virtual para enviar/receber tráfego para o ponto de extremidade privado.        
  
-## <a name="private-endpoints"></a>Pontos finais privados
+## <a name="private-endpoints"></a>Pontos de extremidade privados
 
 ### <a name="create-the-virtual-network"></a>Criar a rede virtual 
 Crie uma rede virtual com [AZ Network vnet Create](/cli/azure/network/vnet#az-network-vnet-create). Este exemplo cria uma rede virtual chamada *myPEVNet* no grupo de recursos chamado *MyResource*Group: 
@@ -151,7 +151,7 @@ az network private-endpoint create \
 --connection-name myPEConnectingPLS \
 --location westcentralus 
 ```
-Você pode obter o *Private-Connection-Resource-ID* com `az network private-link-service show` o serviço de link privado. A ID terá a seguinte aparência:   
+Você pode obter a *ID de recurso de conexão privada* com `az network private-link-service show` no serviço de link privado. A ID terá a seguinte aparência:   
 /subscriptions/subID/resourceGroups/*resourcegroupname*/Providers/Microsoft.Network/privateLinkServices/**privatelinkservicename** 
  
 ## <a name="show-private-link-service-connections"></a>Mostrar conexões do serviço de vínculo privado 

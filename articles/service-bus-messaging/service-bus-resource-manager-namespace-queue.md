@@ -1,6 +1,6 @@
 ---
-title: Criar fila e namespace do barramento de serviço do Azure usando o modelo de Azure Resource Manager | Microsoft Docs
-description: Criar um namespace do barramento de serviço e uma fila usando Azure Resource Manager modelo
+title: 'Início rápido: criar fila e namespace do barramento de serviço do Azure usando o modelo de Azure Resource Manager'
+description: 'Início rápido: criar um namespace e uma fila do barramento de serviço usando Azure Resource Manager modelo'
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: a6bfb5fd-7b98-4588-8aa1-9d5f91b599b6
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 1c6a4202b944b2eb95008964eb1040f176645334
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 40aeff225cfa6d499ebdfae6736e0684b2a27244
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482382"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718792"
 ---
-# <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Criar um namespace e uma fila do barramento de serviço usando um modelo de Azure Resource Manager
+# <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Início rápido: criar um namespace e uma fila do barramento de serviço usando um modelo de Azure Resource Manager
 
 Este artigo mostra como usar um modelo de Azure Resource Manager que cria um namespace do barramento de serviço e uma fila dentro desse namespace. O artigo explica como especificar quais recursos são implantados e como definir parâmetros que são especificados quando a implantação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades.
 

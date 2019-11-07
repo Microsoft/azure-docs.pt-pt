@@ -1,5 +1,5 @@
 ---
-title: Criando bancos de dados de nuvem escalonáveis | Microsoft Docs
+title: Criar bases de dados de nuvem escaláveis
 description: Crie aplicativos de banco de dados .NET escalonáveis com a biblioteca de cliente do banco de dados elástico
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/25/2018
-ms.openlocfilehash: 24b7f769be3f4db3c36412e162b5cda40e3ca959
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0b5b3c924a644c065327db36a6a8d64b4a552d40
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568709"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690525"
 ---
 # <a name="building-scalable-cloud-databases"></a>Criar bases de dados de nuvem escaláveis
 
@@ -48,18 +48,18 @@ Para baixar:
 
 ## <a name="client-capabilities"></a>Recursos do cliente
 
-Expandir os aplicativos usando a fragmentação apresenta desafios para o desenvolvedor, bem como para o administrador. A biblioteca de cliente simplifica as tarefas de gerenciamento fornecendo ferramentas que permitem que os desenvolvedores e administradores gerenciem bancos de dados escalados horizontalmente. Em um exemplo típico, há muitos bancos de dados, conhecidos como "fragmentos", a serem gerenciados. Os clientes estão colocalizados no mesmo banco de dados, e há um banco de dados por cliente (um esquema de locatário único). A biblioteca de cliente inclui estes recursos:
+Expandir os aplicativos usando a *fragmentação* apresenta desafios para o desenvolvedor, bem como para o administrador. A biblioteca de cliente simplifica as tarefas de gerenciamento fornecendo ferramentas que permitem que os desenvolvedores e administradores gerenciem bancos de dados escalados horizontalmente. Em um exemplo típico, há muitos bancos de dados, conhecidos como "fragmentos", a serem gerenciados. Os clientes estão colocalizados no mesmo banco de dados, e há um banco de dados por cliente (um esquema de locatário único). A biblioteca de cliente inclui estes recursos:
 
-- **Gerenciamento de mapa de fragmentos**: Um banco de dados especial chamado "Gerenciador de mapa de fragmentos" é criado. O gerenciamento de mapa de fragmentos é a capacidade de um aplicativo gerenciar metadados sobre seus fragmentos. Os desenvolvedores podem usar essa funcionalidade para registrar bancos de dados como fragmentos, descrever mapeamentos de chaves de fragmentação individuais ou intervalos de chaves para esses bancos de dados e manter esses metadados à medida que o número e a composição de bancos de dados evoluem para refletir as alterações de capacidade. Sem a biblioteca de cliente do banco de dados elástico, você precisaria gastar muito tempo escrevendo o código de gerenciamento ao implementar a fragmentação. Para obter detalhes, consulte [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md).
+- **Gerenciamento de mapa de fragmentos**: um banco de dados especial chamado "Gerenciador de mapa de fragmentos" é criado. O gerenciamento de mapa de fragmentos é a capacidade de um aplicativo gerenciar metadados sobre seus fragmentos. Os desenvolvedores podem usar essa funcionalidade para registrar bancos de dados como fragmentos, descrever mapeamentos de chaves de fragmentação individuais ou intervalos de chaves para esses bancos de dados e manter esses metadados à medida que o número e a composição de bancos de dados evoluem para refletir as alterações de capacidade. Sem a biblioteca de cliente do banco de dados elástico, você precisaria gastar muito tempo escrevendo o código de gerenciamento ao implementar a fragmentação. Para obter detalhes, consulte [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md).
 
-- **Roteamento Dependente de dados**: Imagine uma solicitação que chega ao aplicativo. Com base no valor da chave de fragmentação da solicitação, o aplicativo precisa determinar o banco de dados correto com base no valor da chave. Em seguida, ele abre uma conexão com o banco de dados para processar a solicitação. O roteamento dependente de dados fornece a capacidade de abrir conexões com uma única chamada fácil no mapa de fragmentos do aplicativo. O roteamento dependente de dados era outra área de código de infraestrutura que agora é abordada pela funcionalidade na biblioteca de cliente do banco de dados elástico. Para obter detalhes, consulte [Roteamento Dependente de dados](sql-database-elastic-scale-data-dependent-routing.md).
-- **Consultas de vários fragmentos (MSQ)** : A consulta de vários fragmentos funciona quando uma solicitação envolve vários fragmentos (ou todos). Uma consulta de vários fragmentos executa o mesmo código T-SQL em todos os fragmentos ou um conjunto de fragmentos. Os resultados dos fragmentos participantes são mesclados em um conjunto de resultados geral usando a semântica UNION ALL. A funcionalidade exposta por meio da biblioteca de cliente lida com muitas tarefas, incluindo: gerenciamento de conexão, gerenciamento de threads, tratamento de falhas e processamento de resultados intermediários. O MSQ pode consultar até centenas de fragmentos. Para obter detalhes, consulte [consulta de vários fragmentos](sql-database-elastic-scale-multishard-querying.md).
+- **Roteamento Dependente de dados**: Imagine uma solicitação que entra no aplicativo. Com base no valor da chave de fragmentação da solicitação, o aplicativo precisa determinar o banco de dados correto com base no valor da chave. Em seguida, ele abre uma conexão com o banco de dados para processar a solicitação. O roteamento dependente de dados fornece a capacidade de abrir conexões com uma única chamada fácil no mapa de fragmentos do aplicativo. O roteamento dependente de dados era outra área de código de infraestrutura que agora é abordada pela funcionalidade na biblioteca de cliente do banco de dados elástico. Para obter detalhes, consulte [Roteamento Dependente de dados](sql-database-elastic-scale-data-dependent-routing.md).
+- **Consultas de vários fragmentos (MSQ)** : a consulta de vários fragmentos funciona quando uma solicitação envolve vários fragmentos (ou todos). Uma consulta de vários fragmentos executa o mesmo código T-SQL em todos os fragmentos ou um conjunto de fragmentos. Os resultados dos fragmentos participantes são mesclados em um conjunto de resultados geral usando a semântica UNION ALL. A funcionalidade exposta por meio da biblioteca de cliente lida com muitas tarefas, incluindo: gerenciamento de conexão, gerenciamento de threads, tratamento de falhas e processamento de resultados intermediários. O MSQ pode consultar até centenas de fragmentos. Para obter detalhes, consulte [consulta de vários fragmentos](sql-database-elastic-scale-multishard-querying.md).
 
 Em geral, os clientes que usam as ferramentas de banco de dados elástico podem esperar obter a funcionalidade completa do T-SQL ao enviar operações de fragmento local em oposição a operações entre fragmentos que têm sua própria semântica.
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Biblioteca de cliente do banco de dados elástico ([Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22), [.net](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)) – para **baixar** a biblioteca.
 

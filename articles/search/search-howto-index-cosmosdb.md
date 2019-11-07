@@ -9,69 +9,72 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f0224905f8d3872aca9055a77c8182cb2cac67cb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 41da5b59c7d9429a068ecd483aa96edb1141b727
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793817"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719961"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Como indexar dados de Cosmos DB usando um indexador no Azure Pesquisa Cognitiva 
 
-> [!Note]
-> O suporte à API do MongoDB está em versão prévia e não se destina ao uso em produção. A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Não há suporte para Portal ou SDK do .NET no momento.
->
+> [!IMPORTANT] 
 > A API do SQL está geralmente disponível.
+> A API do MongoDB, a API Gremlin e o suporte a API do Cassandra estão atualmente em visualização pública. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Você pode solicitar acesso às visualizações preenchendo [este formulário](https://aka.ms/azure-cognitive-search/indexer-preview). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de visualização. Atualmente, há suporte ao portal limitado e não há suporte para o SDK do .NET.
 
 Este artigo mostra como configurar um [indexador](search-indexer-overview.md) Azure Cosmos DB para extrair conteúdo e torná-lo pesquisável no Azure pesquisa cognitiva. Este fluxo de trabalho cria um índice de Pesquisa Cognitiva do Azure e o carrega com o texto existente extraído do Azure Cosmos DB. 
 
 Como a terminologia pode ser confusa, vale a pena observar que [Azure Cosmos DB indexação](https://docs.microsoft.com/azure/cosmos-db/index-overview) e a [indexação do Azure pesquisa cognitiva](search-what-is-an-index.md) são operações distintas, exclusivas para cada serviço. Antes de iniciar a indexação de Pesquisa Cognitiva do Azure, seu banco de dados Azure Cosmos DB já deve existir e conter dados.
 
-Você pode usar o [portal](#cosmos-indexer-portal), as APIs REST ou o SDK do .net para indexar o conteúdo do cosmos. O indexador Cosmos DB no Azure Pesquisa Cognitiva pode rastrear [os itens do Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) acessados por meio desses protocolos:
+O indexador Cosmos DB no Azure Pesquisa Cognitiva pode rastrear [itens de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) acessados por meio de protocolos diferentes.
 
-* [API DO SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
-* [API do MongoDB (versão prévia)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)
++ Para a [API do SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference), que está em disponibilidade geral, você pode usar o [portal](#cosmos-indexer-portal), a [API REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)ou o [SDK do .net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet).
+
++ Para [a API do MongoDB (visualização)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) e a [API Gremlin (versão prévia)](https://docs.microsoft.com/azure/cosmos-db/graph-introduction), você pode usar o [portal](#cosmos-indexer-portal) ou a [API REST versão 2019-05-06-Preview](search-api-preview.md) em uma chamada [criar indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) para criar o indexador.
+
++ Para [API do Cassandra (visualização)](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction), você só pode usar a [API REST versão 2019-05-06-Preview](search-api-preview.md) em uma chamada [criar indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) .
+
 
 > [!Note]
-> A voz do usuário tem itens existentes para suporte adicional à API. Você pode transmitir um voto para as APIs do cosmos que você gostaria de ver com suporte no Azure Pesquisa Cognitiva: [API de tabela](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab), [API do Graph](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4) [API do Apache Cassandra](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu).
+> Você pode transmitir um voto na voz do usuário para o [API de tabela](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab) se quiser vê-lo com suporte no Azure pesquisa cognitiva.
 >
 
 <a name="cosmos-indexer-portal"></a>
 
 ## <a name="use-the-portal"></a>Utilizar o portal
 
-O método mais fácil para indexação de itens de Cosmos do Azure é usar um assistente no [portal do Azure](https://portal.azure.com/). Por amostragem de dados e leitura de metadados no contêiner, o assistente de [**importação de dados**](search-import-data-portal.md) no Azure pesquisa cognitiva pode criar um índice padrão, mapear campos de origem para campos de índice de destino e carregar o índice em uma única operação. Dependendo do tamanho e da complexidade dos dados de origem, você pode ter um índice operacional de pesquisa de texto completo em minutos.
+> [!Note]
+> Atualmente, o portal dá suporte à API do SQL e à API do MongoDB (versão prévia).
+
+O método mais fácil para indexação de Azure Cosmos DB itens é usar um assistente na [portal do Azure](https://portal.azure.com/). Por amostragem de dados e leitura de metadados no contêiner, o assistente de [**importação de dados**](search-import-data-portal.md) no Azure pesquisa cognitiva pode criar um índice padrão, mapear campos de origem para campos de índice de destino e carregar o índice em uma única operação. Dependendo do tamanho e da complexidade dos dados de origem, você pode ter um índice operacional de pesquisa de texto completo em minutos.
 
 É recomendável usar a mesma assinatura do Azure para o Azure Pesquisa Cognitiva e Azure Cosmos DB, preferencialmente na mesma região.
 
 ### <a name="1---prepare-source-data"></a>1-preparar dados de origem
 
-Você deve ter uma conta Cosmos, um banco de dados Cosmos do Azure mapeado para a API do SQL ou a API do MongoDB e um contêiner de documentos JSON. 
+Você deve ter uma conta de Cosmos DB, um banco de dados Azure Cosmos DB mapeado para a API do SQL, API do MongoDB (versão prévia) ou API Gremlin (versão prévia) e conteúdo no banco de dados.
 
 Certifique-se de que seu banco de dados do Cosmos DB contenha dado. O [Assistente de importação de dados](search-import-data-portal.md) lê metadados e executa a amostragem de dados para inferir um esquema de índice, mas também carrega dados de Cosmos DB. Se os dados estiverem ausentes, o assistente parará com esse erro "erro ao detectar o esquema de índice da fonte de dados: não foi possível compilar um índice de protótipo porque a fonte de dados ' emptycollection ' não retornou nenhum dado".
 
 ### <a name="2---start-import-data-wizard"></a>2-iniciar o assistente de importação de dados
 
-Você pode [iniciar o assistente](search-import-data-portal.md) na barra de comandos na página do serviço pesquisa cognitiva do Azure ou clicando em **Adicionar Azure pesquisa cognitiva** na seção **configurações** do painel de navegação esquerdo da sua conta de armazenamento.
+Você pode [iniciar o assistente](search-import-data-portal.md) na barra de comandos na página do serviço pesquisa cognitiva do Azure ou se estiver se conectando ao cosmos DB API do SQL, você pode clicar em **Adicionar Azure pesquisa cognitiva** na seção **configurações** da sua conta do cosmos DB à esquerda painel de navegação.
 
    ![Comando importar dados no portal](./media/search-import-data-portal/import-data-cmd2.png "Iniciar o assistente de importação de dados")
 
 ### <a name="3---set-the-data-source"></a>3-definir a fonte de dados
 
-> [!NOTE] 
-> No momento, não é possível criar ou editar fontes de dados do **MongoDB** usando portal do Azure ou o SDK do .net. No entanto, você **pode** monitorar o histórico de execução de indexadores do MongoDB no Portal.
-
 Na página **fonte de dados** , a origem deve ser **Cosmos DB**, com as seguintes especificações:
 
 + **Nome** é o nome do objeto de fonte de dados. Depois de criado, você pode escolher para outras cargas de trabalho.
 
-+ A **conta de Cosmos DB** deve ser a cadeia de conexão primária ou secundária do cosmos DB, com um `AccountEndpoint` e um `AccountKey`. A conta determina se os dados são convertidos como API do SQL ou API do Mongo DB
++ A **conta de Cosmos DB** deve ser a cadeia de conexão primária ou secundária do cosmos DB, com um `AccountEndpoint` e um `AccountKey`. Para coleções do MongoDB, adicione **ApiKind = MongoDB** ao final da cadeia de conexão e separe-a da cadeia de conexão com um ponto-e-vírgula. Para a API Gremlin e API do Cassandra, use as instruções para a [API REST](#cosmosdb-indexer-rest).
 
 + **Banco** de dados é um banco de dados existente da conta. 
 
 + A **coleção** é um contêiner de documentos. Os documentos devem existir para que a importação seja realizada com sucesso. 
 
-+ A **consulta** poderá ficar em branco se você quiser todos os documentos, caso contrário, poderá inserir uma consulta que selecione um subconjunto de documentos. 
++ A **consulta** poderá ficar em branco se você quiser todos os documentos, caso contrário, poderá inserir uma consulta que selecione um subconjunto de documentos. A **consulta** está disponível somente para a API do SQL.
 
    ![Cosmos DB definição de fonte de dados](media/search-howto-index-cosmosdb/cosmosdb-datasource.png "Cosmos DB definição de fonte de dados")
 
@@ -120,11 +123,12 @@ Quando a indexação estiver concluída, você poderá usar o [Search Explorer](
 
 ## <a name="use-rest-apis"></a>Utilizar APIs REST
 
-Você pode usar a API REST para indexar Azure Cosmos DB dados, seguindo um fluxo de trabalho de três partes comum a todos os indexadores no Azure Pesquisa Cognitiva: criar uma fonte de dados, criar um índice, criar um indexador. A extração de dados do armazenamento Cosmos ocorre quando você envia a solicitação criar indexador. Depois que essa solicitação for concluída, você terá um índice passível de consulta. 
+Você pode usar a API REST para indexar Azure Cosmos DB dados, seguindo um fluxo de trabalho de três partes comum a todos os indexadores no Azure Pesquisa Cognitiva: criar uma fonte de dados, criar um índice, criar um indexador. A extração de dados do Cosmos DB ocorre quando você envia a solicitação criar indexador. Depois que essa solicitação for concluída, você terá um índice passível de consulta. 
 
-Se você estiver avaliando o MongoDB, deverá usar o `api-version=2019-05-06-Preview` REST para criar a fonte de dados.
+> [!NOTE]
+> Para indexação de dados de Cosmos DB API Gremlin ou Cosmos DB API do Cassandra você deve primeiro solicitar acesso às visualizações controladas preenchendo [este formulário](https://aka.ms/azure-cognitive-search/indexer-preview). Depois que sua solicitação for processada, você receberá instruções sobre como usar a [API REST versão 2019-05-06-Preview](search-api-preview.md) para criar a fonte de dados.
 
-Em sua conta do Cosmos DB, você pode escolher se deseja que a coleção indexe automaticamente todos os documentos. Por padrão, todos os documentos são indexados automaticamente, mas você pode desativar a indexação automática. Quando a indexação está desativada, os documentos podem ser acessados somente por meio de seus links automáticos ou por consultas usando a ID do documento. O Pesquisa Cognitiva do Azure requer que Cosmos DB indexação automática seja ativada na coleção que será indexada pelo Azure Pesquisa Cognitiva. 
+No início deste artigo, é mencionado que [Azure Cosmos DB indexação](https://docs.microsoft.com/azure/cosmos-db/index-overview) e indexação de [indexação do Azure pesquisa cognitiva](search-what-is-an-index.md) são operações distintas. Para a indexação de Cosmos DB, por padrão, todos os documentos são indexados automaticamente, exceto pelo API do Cassandra. Se você desativar a indexação automática, os documentos poderão ser acessados somente por meio de seus links automáticos ou por consultas usando a ID do documento. A indexação de Pesquisa Cognitiva do Azure requer que Cosmos DB indexação automática seja ativada na coleção que será indexada pelo Azure Pesquisa Cognitiva. Ao se inscrever para a versão prévia do indexador Cosmos DB API do Cassandra, você receberá instruções sobre como configurar a indexação de Cosmos DB.
 
 > [!WARNING]
 > Azure Cosmos DB é a próxima geração do DocumentDB. Anteriormente, com a versão **2017-11-11** da API, você poderia usar a sintaxe `documentdb`. Isso significa que você pode especificar o tipo de fonte de dados como `cosmosdb` ou `documentdb`. A partir da versão de API **2019-05-06** , o portal e as APIs de pesquisa cognitiva do Azure só dão suporte à sintaxe de `cosmosdb` conforme instruído neste artigo. Isso significa que o tipo de fonte de dados deve `cosmosdb` se você deseja se conectar a um ponto de extremidade de Cosmos DB.
@@ -176,8 +180,8 @@ O corpo da solicitação contém a definição da fonte de dados, que deve inclu
 |---------|-------------|
 | **nomes** | Necessário. Escolha qualquer nome para representar o objeto de fonte de dados. |
 |**tipo**| Necessário. Deve ser `cosmosdb`. |
-|**fornecidas** | Necessário. Deve ser uma cadeia de conexão Cosmos DB.<br/>Para coleções SQL, as cadeias de conexão estão neste formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>Para coleções do MongoDB, adicione **ApiKind = MongoDB** à cadeia de conexão:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Evite números de porta na URL do ponto de extremidade. Se você incluir o número da porta, o Azure Pesquisa Cognitiva não poderá indexar o banco de dados Azure Cosmos DB.|
-| **Container** | Contém os seguintes elementos: <br/>**nome**: obrigatório. Especifique a ID da coleção de banco de dados a ser indexada.<br/>**consulta**: opcional. Você pode especificar uma consulta para mesclar um documento JSON arbitrário em um esquema simples que o Azure Pesquisa Cognitiva pode indexar.<br/>Para coleções do MongoDB, não há suporte para consultas. |
+|**fornecidas** | Necessário. Deve ser uma cadeia de conexão Cosmos DB.<br/>Para coleções SQL, as cadeias de conexão estão neste formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>Para coleções do MongoDB, adicione **ApiKind = MongoDB** à cadeia de conexão:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>Para gráficos Gremlin e tabelas Cassandra, Inscreva-se na [visualização do indexador restrito](https://aka.ms/azure-cognitive-search/indexer-preview) para obter acesso à visualização e informações sobre como formatar as credenciais.<br/><br/>Evite números de porta na URL do ponto de extremidade. Se você incluir o número da porta, o Azure Pesquisa Cognitiva não poderá indexar o banco de dados Azure Cosmos DB.|
+| **Container** | Contém os seguintes elementos: <br/>**nome**: obrigatório. Especifique a ID da coleção de banco de dados a ser indexada.<br/>**consulta**: opcional. Você pode especificar uma consulta para mesclar um documento JSON arbitrário em um esquema simples que o Azure Pesquisa Cognitiva pode indexar.<br/>Para a API do MongoDB, API Gremlin e API do Cassandra, não há suporte para consultas. |
 | **dataChangeDetectionPolicy** | Aconselhável. Consulte a seção [indexando documentos alterados](#DataChangeDetectionPolicy) .|
 |**dataDeletionDetectionPolicy** | Opcional. Consulte a seção [indexando documentos excluídos](#DataDeletionDetectionPolicy) .|
 
@@ -185,7 +189,7 @@ O corpo da solicitação contém a definição da fonte de dados, que deve inclu
 Você pode especificar uma consulta SQL para mesclar propriedades aninhadas ou matrizes, projetar Propriedades JSON e filtrar os dados a serem indexados. 
 
 > [!WARNING]
-> Não há suporte para consultas personalizadas para coleções do **MongoDB** : o parâmetro `container.query` deve ser definido como nulo ou omitido. Se você precisar usar uma consulta personalizada, informe-nos sobre o [User Voice](https://feedback.azure.com/forums/263029-azure-search).
+> Não há suporte para consultas personalizadas para **API do MongoDB**, **api Gremlin**e **API do Cassandra**: `container.query` parâmetro deve ser definido como nulo ou omitido. Se você precisar usar uma consulta personalizada, informe-nos sobre o [User Voice](https://feedback.azure.com/forums/263029-azure-search).
 
 Documento de exemplo:
 
@@ -246,7 +250,7 @@ Consulta de mesclagem de matriz:
 Verifique se o esquema do índice de destino é compatível com o esquema dos documentos JSON de origem ou a saída da projeção de consulta personalizada.
 
 > [!NOTE]
-> Para coleções particionadas, a chave de documento padrão é Azure Cosmos DB `_rid` Propriedade, que o Azure Pesquisa Cognitiva automaticamente renomear como `rid` porque os nomes de campo não podem começar com um caractere sublinhado. Além disso, Azure Cosmos DB valores de `_rid` contêm caracteres inválidos nas chaves de Pesquisa Cognitiva do Azure. Por esse motivo, os valores de `_rid` são codificados em base64.
+> Para coleções particionadas, a chave de documento padrão é Azure Cosmos DB `_rid` Propriedade, que o Azure Pesquisa Cognitiva automaticamente renomear como `rid` porque os nomes de campo não podem começar com um caractere de sublinhado. Além disso, Azure Cosmos DB valores de `_rid` contêm caracteres inválidos nas chaves de Pesquisa Cognitiva do Azure. Por esse motivo, os valores de `_rid` são codificados em base64.
 > 
 > Para coleções do MongoDB, o Azure Pesquisa Cognitiva renomeia automaticamente a propriedade `_id` como `doc_id`.  
 
@@ -260,7 +264,7 @@ Verifique se o esquema do índice de destino é compatível com o esquema dos do
 | Matrizes de tipos primitivos, por exemplo ["a", "b", "c"] |Coleção (Edm.String) |
 | Cadeias de caracteres parecidas com datas |EDM. DateTimeOffset, EDM. String |
 | Objetos geojson, por exemplo {"tipo": "ponto", "coordenadas": [Long, Lat]} |Edm.GeographyPoint |
-| Outros objetos JSON |N/A |
+| Outros objetos JSON |N/D |
 
 ### <a name="4---configure-and-run-the-indexer"></a>4-configurar e executar o indexador
 

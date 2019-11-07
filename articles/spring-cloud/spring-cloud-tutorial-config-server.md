@@ -1,19 +1,17 @@
 ---
 title: Configurar seu servidor de configuração no Azure Spring Cloud | Microsoft Docs
 description: Neste tutorial, você aprenderá a configurar um servidor de configuração do Spring Cloud para sua nuvem do Azure Spring na portal do Azure
-services: spring-cloud
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.reviewer: jeconnoc
-ms.author: v-vasuke
-author: v-vasuke
+ms.author: jeconnoc
+author: jpconnock
 ms.date: 10/18/2019
-ms.openlocfilehash: 3a091c22f49ec31029a1808c10e675a4d0960fb4
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 6cf7b4a52ba3a7dbda5fa3fa558c4b68d09f4eb2
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177880"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646712"
 ---
 # <a name="tutorial-set-up-a-spring-cloud-config-server-for-your-service"></a>Tutorial: configurar um servidor de configuração do Spring Cloud para seu serviço
 
@@ -49,12 +47,12 @@ Além disso, algumas propriedades configuráveis só estão disponíveis para al
 
 Ao usar um repositório público, suas propriedades configuráveis serão mais limitadas.
 
-Todas as propriedades configuráveis usadas para configurar o repositório de `Git` público estão listadas abaixo.
+Todas as propriedades configuráveis usadas para configurar o repositório público `Git` estão listadas abaixo.
 
 > [!NOTE]
 > Usar um hífen ("-") para separar palavras é a única Convenção de nomenclatura com suporte no momento. Por exemplo, você pode usar `default-label`, mas não `defaultLabel`.
 
-| Propriedade        | Obrigatório | Funcionalidade                                                      |
+| Propriedade        | Necessário | Funcionalidade                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | `yes`    | O `uri` do repositório de `Git` usado como back-end do servidor de configuração, deve ser iniciado com `http://`, `https://`, `git@`ou `ssh://`. |
 | `default-label` | `no`     | O rótulo padrão do repositório de `Git` deve ser o `branch name`, `tag name`ou `commit-id` do repositório. |
@@ -64,12 +62,12 @@ Todas as propriedades configuráveis usadas para configurar o repositório de `G
 
 ### <a name="private-repository-with-ssh-authentication"></a>Repositório privado com autenticação SSH
 
-Todas as propriedades configuráveis usadas para configurar o repositório `Git` particular com `Ssh` estão listadas abaixo.
+Todas as propriedades configuráveis usadas para configurar o repositório `Git` privado com `Ssh` estão listadas abaixo.
 
 > [!NOTE]
 > Usar um hífen ("-") para separar palavras é a única Convenção de nomenclatura com suporte no momento. Por exemplo, você pode usar `default-label`, mas não `defaultLabel`.
 
-| Propriedade                   | Obrigatório | Funcionalidade                                                      |
+| Propriedade                   | Necessário | Funcionalidade                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
 | `uri`                      | `yes`    | O `uri` do repositório de `Git` usado como back-end do servidor de configuração, deve ser iniciado com `http://`, `https://`, `git@`ou `ssh://`. |
 | `default-label`            | `no`     | O rótulo padrão do repositório de `Git` deve ser o `branch name`, `tag name`ou `commit-id` do repositório. |
@@ -88,7 +86,7 @@ Todas as propriedades configuráveis usadas para configurar o repositório git p
 > [!NOTE]
 > Usar um hífen ("-") para separar palavras é a única Convenção de nomenclatura com suporte no momento. Por exemplo, use `default-label` não `defaultLabel`.
 
-| Propriedade        | Obrigatório | Funcionalidade                                                      |
+| Propriedade        | Necessário | Funcionalidade                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | `yes`    | O `uri` do repositório de `Git` usado como back-end do servidor de configuração, deve ser iniciado com `http://`, `https://`, `git@`ou `ssh://`. |
 | `default-label` | `no`     | O rótulo padrão do repositório de `Git` deve ser o `branch name`, `tag name`ou `commit-id` do repositório. |
@@ -106,11 +104,11 @@ Todas as propriedades configuráveis usadas para configurar repositórios git co
 > [!NOTE]
 > Usar um hífen ("-") para separar palavras é a única Convenção de nomenclatura com suporte no momento. Por exemplo, use `default-label` não `defaultLabel`.
 
-| Propriedade                           | Obrigatório         | Funcionalidade                                                      |
+| Propriedade                           | Necessário         | Funcionalidade                                                      |
 | :--------------------------------- | ---------------- | ------------------------------------------------------------ |
 | `repos`                            | `no`             | Um mapa que consiste nas configurações de um repositório de `Git` com um determinado nome. |
 | `repos."uri"`                      | `yes` em `repos` | O `uri` do repositório de `Git` usado como back-end do servidor de configuração, deve ser iniciado com `http://`, `https://`, `git@`ou `ssh://`. |
-| `repos."name"`                     | `yes` em `repos` | Um nome para identificar um repositório de `Git`, __necessário__ somente se `repos` existir. Por exemplo, acima, `team-A``team-B`. |
+| `repos."name"`                     | `yes` em `repos` | Um nome para identificar um repositório de `Git`, __necessário__ somente se `repos` existir. Por exemplo, acima, `team-A`, `team-B`. |
 | `repos."pattern"`                  | `no`             | Uma matriz de cadeias de caracteres usada para corresponder a um nome de aplicativo. Para cada padrão, use o formato de `{application}/{profile}` com curingas. |
 | `repos."default-label"`            | `no`             | O rótulo padrão do repositório de `Git` deve ser o `branch name`, `tag name`ou `commit-id` do repositório. |
 | `repos."search-paths`"             | `no`             | Uma matriz de cadeias de caracteres usada para pesquisar subdiretórios do repositório de `Git`. |
@@ -137,7 +135,7 @@ Agora que os arquivos de configuração estão salvos em um repositório, você 
 
 #### <a name="default-repository"></a>Repositório padrão
 
-* Repositório público: na seção **repositório padrão** , Cole o URI do repositório na seção **URI** e verifique se a configuração de **autenticação** é **pública**. Em seguida, clique em **aplicar** para concluir. 
+* Repositório público: na seção **repositório padrão** , Cole o URI do repositório na seção **URI** .  Defina o **rótulo** como `config`. Verifique se a configuração de **autenticação** é **pública**e, em seguida, selecione **aplicar** ao concluir. 
 
 * Repositório privado: o Azure Spring Cloud dá suporte à autenticação básica baseada em token/senha e SSH.
 

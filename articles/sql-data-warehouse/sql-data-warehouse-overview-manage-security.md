@@ -1,50 +1,51 @@
 ---
-title: Proteger uma base de dados no SQL Data Warehouse | Documentos da Microsoft
-description: Sugestões para proteger uma base de dados no armazém de dados SQL do Azure para o desenvolvimento de soluções.
+title: Proteger um banco de dados
+description: Dicas para proteger um banco de dados no Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 04/17/2018
-ms.author: kavithaj
+ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: 179925fc7411a1ccf3de02d7b6298cc66f93bc66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: c51a945bae7cc0b03c219bc041d64f4703baef19
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61126945"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692573"
 ---
-# <a name="secure-a-database-in-sql-data-warehouse"></a>Proteger uma base de dados no SQL Data Warehouse
+# <a name="secure-a-database-in-sql-data-warehouse"></a>Proteger um banco de dados no SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Descrição geral da segurança](sql-data-warehouse-overview-manage-security.md)
+> * [Visão geral de segurança](sql-data-warehouse-overview-manage-security.md)
 > * [Autenticação](sql-data-warehouse-authentication.md)
-> * [Encriptação (Portal)](sql-data-warehouse-encryption-tde.md)
-> * [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+> * [Criptografia (Portal)](sql-data-warehouse-encryption-tde.md)
+> * [Criptografia (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 > 
 > 
 
-Este artigo explica as noções básicas de proteger a sua base de dados do Azure SQL Data Warehouse. Em particular, isso é de artigo começou com recursos para limitar o acesso, proteger os dados e monitorizar as atividades numa base de dados.
+Este artigo apresenta as noções básicas de como proteger seu banco de dados SQL Data Warehouse do Azure. Em particular, este artigo apresenta recursos para limitar o acesso, proteger dados e monitorar atividades em um banco de dado.
 
 ## <a name="connection-security"></a>Segurança da Ligação
 A Segurança da Ligação diz respeito à forma como restringe e protege as ligações à sua base de dados através de regras de firewall e de encriptação da ligação.
 
-As regras de firewall são utilizadas pelo servidor e pela base de dados para rejeitar as tentativas de ligação de endereços IP que não estejam explicitamente na lista de permissões. Para permitir ligações a partir de seu aplicativo ou o endereço IP público do computador do cliente, tem primeiro de criar uma regra de firewall ao nível do servidor com o portal do Azure, a REST API ou o PowerShell. Como melhor prática, deve restringir o máximo possível os intervalos de endereços IP permitidos na firewall do servidor.  Para aceder ao Azure SQL Data Warehouse do computador local, certifique-se de que a firewall na sua rede e o computador local permite comunicação de saída na porta TCP 1433.  
+As regras de firewall são utilizadas pelo servidor e pela base de dados para rejeitar as tentativas de ligação de endereços IP que não estejam explicitamente na lista de permissões. Para permitir conexões do endereço IP público do seu aplicativo ou computador cliente, você deve primeiro criar uma regra de firewall no nível de servidor usando o portal do Azure, a API REST ou o PowerShell. Como melhor prática, deve restringir o máximo possível os intervalos de endereços IP permitidos na firewall do servidor.  Para acessar o Azure SQL Data Warehouse do seu computador local, verifique se o firewall na rede e no computador local permite a comunicação de saída na porta TCP 1433.  
 
-SQL Data Warehouse utiliza regras de firewall ao nível do servidor. Não suporta regras de firewall ao nível da base de dados. Para obter mais informações, consulte [firewall de base de dados do Azure SQL][Azure SQL Database firewall], [sp_set_firewall_rule][sp_set_firewall_rule].
+SQL Data Warehouse usa regras de firewall no nível de servidor. Ele não dá suporte a regras de firewall no nível de banco de dados. Para obter mais informações, consulte [Firewall do banco de dados SQL do Azure][Azure SQL Database firewall], [sp_set_firewall_rule][sp_set_firewall_rule].
 
-Ligações para o SQL Data Warehouse são criptografadas por padrão.  Modificação de definições de ligação para desativar a encriptação são ignoradas.
+As conexões com seus SQL Data Warehouse são criptografadas por padrão.  A modificação das configurações de conexão para desabilitar a criptografia é ignorada.
 
 ## <a name="authentication"></a>Autenticação
-A autenticação diz respeito à forma como prova a sua identidade quando se liga à base de dados. Atualmente, o SQL Data Warehouse suporta autenticação do SQL Server com um nome de utilizador e palavra-passe e com o Azure Active Directory. 
+A autenticação diz respeito à forma como prova a sua identidade quando se liga à base de dados. O SQL Data Warehouse atualmente dá suporte à autenticação SQL Server com um nome de usuário e senha e com Azure Active Directory. 
 
-Quando criou o servidor lógico para a sua base de dados, especificou um início de sessão "administrador do servidor" com um nome de utilizador e palavra-passe. Com estas credenciais, pode autenticar qualquer base de dados nesse servidor como o proprietário da base de dados, ou "dbo" através da autenticação do SQL Server.
+Quando criou o servidor lógico para a sua base de dados, especificou um início de sessão "administrador do servidor" com um nome de utilizador e palavra-passe. Usando essas credenciais, você pode se autenticar em qualquer banco de dados desse servidor como o proprietário do banco de dados ou "dbo" por meio da autenticação SQL Server.
 
-No entanto, como melhor prática, os utilizadores da sua organização devem utilizar uma conta diferente para autenticar. Desta forma pode limitar as permissões concedidas à aplicação e reduzir os riscos de atividades maliciosas, caso o código da aplicação seja vulnerável a um ataque de injeção de SQL. 
+No entanto, como prática recomendada, os usuários da sua organização devem usar uma conta diferente para se autenticar. Dessa forma, você pode limitar as permissões concedidas ao aplicativo e reduzir os riscos de atividades mal-intencionadas caso o código do aplicativo seja vulnerável a um ataque de injeção de SQL. 
 
-Para criar um utilizador autenticado do SQL Server, ligue para o **mestre** no seu servidor com o início de sessão de administrador do servidor de base de dados e criar um novo início de sessão do servidor.  Além disso, é uma boa idéia para criar um utilizador na base de dados mestra para utilizadores do Azure SQL Data Warehouse. Criar um utilizador no ramo principal permite que um usuário fazer logon usando ferramentas como o SSMS sem especificar um nome de base de dados.  Ele também permite que utilize o object explorer para ver todas as bases de dados num SQL server.
+Para criar um SQL Server usuário autenticado, conecte-se ao banco de dados **mestre** no servidor com o logon de administrador do servidor e crie um novo logon de servidor.  Além disso, é uma boa ideia criar um usuário no banco de dados mestre do Azure SQL Data Warehouse usuários. A criação de um usuário no mestre permite que um usuário faça logon usando ferramentas como o SSMS sem especificar um nome de banco de dados.  Ele também permite que eles usem o pesquisador de objetos para exibir todos os bancos de dados em um SQL Server.
 
 ```sql
 -- Connect to master database and create a login
@@ -52,17 +53,17 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'Str0ng_password';
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-Em seguida, ligar a sua **base de dados do SQL Data Warehouse** com o seu início de sessão de administrador do servidor e crie um utilizador de base de dados com base no início de sessão do servidor que criou.
+Em seguida, conecte-se ao seu **banco de dados SQL data warehouse** com o logon de administrador do servidor e crie um usuário de banco de dados com base no logon do servidor que você criou.
 
 ```sql
 -- Connect to SQL DW database and create a database user
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-Para conceder uma permissão de utilizador para efetuar operações adicionais, tais como criar inícios de sessão ou criar novas bases de dados, atribua o utilizador para o `Loginmanager` e `dbmanager` funções na base de dados mestra. Para obter mais informações sobre estas funções adicionais e autenticar para a base de dados SQL, consulte [gestão de bases de dados e inícios de sessão na base de dados do Azure SQL][Managing databases and logins in Azure SQL Database].  Para obter mais informações, consulte [ligar ao SQL Data Warehouse por através do Azure autenticação do Active Directory][Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication].
+Para conceder a um usuário permissão para executar operações adicionais, como a criação de logons ou a criação de novos bancos de dados, atribua o usuário às funções `Loginmanager` e `dbmanager` no banco de dado mestre. Para obter mais informações sobre essas funções adicionais e a autenticação em um banco de dados SQL, consulte [Managing bancos de dados e logons in Azure SQL Database][Managing databases and logins in Azure SQL Database].  Para obter mais informações, consulte [conectando-se ao SQL data warehouse usando a autenticação Azure Active Directory][Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication].
 
 ## <a name="authorization"></a>Autorização
-A autorização diz respeito ao que pode fazer dentro de uma base de dados do Azure SQL Data Warehouse. Privilégios de autorização são determinados pelas permissões e associações das funções. Como melhor prática, deverá conceder aos utilizadores o mínimo de privilégios necessários. Para gerir funções, pode utilizar os seguintes procedimentos armazenados:
+A autorização refere-se ao que você pode fazer em um banco de dados SQL Data Warehouse do Azure. Os privilégios de autorização são determinados por associações de função e permissões. Como melhor prática, deverá conceder aos utilizadores o mínimo de privilégios necessários. Para gerenciar funções, você pode usar os seguintes procedimentos armazenados:
 
 ```sql
 EXEC sp_addrolemember 'db_datareader', 'ApplicationUser'; -- allows ApplicationUser to read data
@@ -71,29 +72,29 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 A conta de administrador do servidor que está a ligar é membro de db_owner, que tem autoridade para fazer todas as operações na base de dados. Guarde esta conta para a implementação de atualizações de esquema e outras operações de gestão. Utilize a conta "ApplicationUser" com permissões mais limitadas para se ligar da sua aplicação à base de dados com o mínimo de privilégios necessários para a sua aplicação.
 
-Existem formas de limitar ainda mais que um utilizador pode fazer com o Azure SQL Data Warehouse:
+Há maneiras de limitar ainda mais o que um usuário pode fazer com o Azure SQL Data Warehouse:
 
-* Granular [permissões] [ Permissions] permitem-lhe controlar as operações que pode em colunas individuais, tabelas, vistas, esquemas, procedimentos e outros objetos na base de dados. Utilize permissões granulares para ter mais controle e conceder as permissões mínimas necessárias. 
-* [Funções de base de dados] [ Database roles] diferente de db_datareader e db_datawriter podem ser utilizados para criar contas de utilizador de aplicação mais poderosas ou contas de gestão menos poderosas. As funções de base de dados fixa incorporadas fornecem uma forma fácil para conceder permissões, mas podem resultar em conceder mais permissões do que são necessários.
-* [Procedimentos armazenados] [ Stored procedures] pode ser utilizado para limitar as ações que podem ser efetuadas na base de dados.
+* [As permissões][Permissions] granulares permitem controlar quais operações você pode fazer em colunas individuais, tabelas, exibições, esquemas, procedimentos e outros objetos no banco de dados. Use permissões granulares para ter o máximo de controle e conceder as permissões mínimas necessárias. 
+* As [funções de banco de dados][Database roles] que não sejam db_datareader e db_datawriter podem ser usadas para criar contas de usuário de aplicativo mais poderosas ou contas de gerenciamento menos poderosas. As funções internas de banco de dados fixas fornecem uma maneira fácil de conceder permissões, mas podem resultar na concessão de mais permissões do que são necessárias.
+* Os [Procedimentos armazenados][Stored procedures] podem ser utilizados para limitar as ações que podem ser realizadas na base de dados.
 
-O exemplo a seguir concede acesso de leitura a um esquema definido pelo utilizador.
+O exemplo a seguir concede acesso de leitura a um esquema definido pelo usuário.
 ```sql
 --CREATE SCHEMA Test
 GRANT SELECT ON SCHEMA::Test to ApplicationUser
 ```
 
-Gerir bases de dados e servidores lógicos a partir do portal do Azure ou utilizando a API do Azure Resource Manager é controlada pelas atribuições de função da sua conta de utilizador do portal. Para obter mais informações, consulte [controlo de acesso baseado em funções no portal do Azure][Role-based access control in Azure portal].
+O gerenciamento de bancos de dados e servidores lógicos do portal do Azure ou do uso da API Azure Resource Manager é controlado pelas atribuições de função da sua conta de usuário do Portal. Para obter mais informações, consulte [controle de acesso baseado em função no portal do Azure][Role-based access control in Azure portal].
 
 ## <a name="encryption"></a>Encriptação
-O Azure SQL Data Warehouse dados encriptação transparente (TDE) ajuda a proteger contra ameaças de atividades maliciosas, ao encriptar e desencriptar os dados inativos.  Quando criptografa a sua base de dados, cópias de segurança associadas e ficheiros de registo de transação são criptografados sem exigir alterações às suas aplicações. TDE criptografa o armazenamento de uma base de dados completa com uma chave simétrica denominada a chave de encriptação da base de dados. 
+O Azure SQL Data Warehouse Transparent Data Encryption (TDE) ajuda a proteger contra a ameaça de atividades mal-intencionadas Criptografando e descriptografando seus dados em repouso.  Quando você criptografa seu banco de dados, os backups associados e os arquivos de log de transações são criptografados sem a necessidade de qualquer alteração em seus aplicativos. O TDE criptografa o armazenamento de um banco de dados inteiro usando uma chave simétrica chamada chave de criptografia do banco de dados. 
 
-Na base de dados SQL, a chave de encriptação da base de dados está protegida por um certificado de servidor interno. O certificado de servidor interno é exclusivo para cada servidor de base de dados SQL. Microsoft gira automaticamente estes certificados, pelo menos a cada 90 dias. O algoritmo de encriptação utilizado pelo SQL Data Warehouse é AES-256. Para obter uma descrição geral de TDE, consulte [encriptação de dados transparente][Transparent Data Encryption].
+No banco de dados SQL, a chave de criptografia de banco de dados é protegida por um certificado de servidor interno. O certificado de servidor interno é exclusivo para cada servidor de banco de dados SQL. A Microsoft gira automaticamente esses certificados pelo menos a cada 90 dias. O algoritmo de criptografia usado pelo SQL Data Warehouse é o AES-256. Para obter uma descrição geral do TDE, consulte [Transparent Data Encryption][Transparent Data Encryption].
 
-Pode criptografar a sua base de dados com o [portal do Azure] [ Encryption with Portal] ou [T-SQL][Encryption with TSQL].
+Você pode criptografar seu banco de dados usando o [portal do Azure][Encryption with Portal] ou o [T-SQL][Encryption with TSQL].
 
-## <a name="next-steps"></a>Passos Seguintes
-Para obter detalhes e exemplos sobre a ligação ao seu armazém de dados SQL com diferentes protocolos, consulte [ligar ao SQL Data Warehouse][Connect to SQL Data Warehouse].
+## <a name="next-steps"></a>Passos seguintes
+Para obter detalhes e exemplos sobre como se conectar ao seu SQL Data Warehouse com protocolos diferentes, consulte [conectar-se ao SQL data warehouse][Connect to SQL Data Warehouse].
 
 <!--Image references-->
 

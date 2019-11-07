@@ -1,24 +1,24 @@
 ---
-title: Enviar e receber eventos usando Python-hubs de eventos do Azure
-description: Este tutorial mostra como criar e executar scripts Python que enviam eventos ou recebem eventos dos hubs de eventos do Azure.
+title: 'Início rápido: enviar e receber eventos usando Python-hubs de eventos do Azure'
+description: 'Início rápido: este passo a passos mostra como criar e executar scripts Python que enviam eventos ou recebem eventos dos hubs de eventos do Azure.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
 ms.service: event-hubs
 ms.workload: core
-ms.topic: article
-ms.date: 10/11/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: 330a7f5dc325c707b5be7ce9f9b3242a1d4c9547
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 9b6c3fb03f696f4142721284a14001eb51153a77
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428891"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720542"
 ---
-# <a name="send-and-receive-events-with-event-hubs-using-python"></a>Enviar e receber eventos com hubs de eventos usando o Python
+# <a name="quickstart-send-and-receive-events-with-event-hubs-using-python"></a>Início rápido: enviar e receber eventos com hubs de eventos usando o Python
 
-Os hubs de eventos do Azure são uma plataforma de streaming de Big data e um serviço de ingestão de eventos que pode receber e processar milhões de eventos por segundo. Os hubs de eventos podem processar e armazenar eventos, dados ou telemetria de software e dispositivos distribuídos. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análises em tempo real ou adaptadores de armazenamento/criação de batches. Para obter mais informações sobre os hubs de eventos, consulte [hubs de eventos do Azure](event-hubs-about.md) e [recursos e terminologia nos hubs de eventos do Azure](event-hubs-features.md).
+Os hubs de eventos do Azure são uma plataforma de streaming de Big data e um serviço de ingestão de eventos que pode receber e processar milhões de eventos por segundo. Os hubs de eventos podem processar e armazenar eventos, dados ou telemetria de software e dispositivos distribuídos. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para obter mais informações sobre os hubs de eventos, consulte [hubs de eventos do Azure](event-hubs-about.md) e [recursos e terminologia nos hubs de eventos do Azure](event-hubs-features.md).
 
 Este guia de início rápido mostra como criar aplicativos Python que enviam eventos e recebem eventos de um hub de eventos. 
 
@@ -48,7 +48,7 @@ Para criar um aplicativo Python que envia eventos para um hub de eventos:
 
 1. Abra seu editor de Python favorito, como [Visual Studio Code](https://code.visualstudio.com/)
 2. Crie um novo arquivo chamado *Send.py*. Esse script envia eventos 100 para o Hub de eventos.
-3. Cole o código a seguir em *Send.py*, substituindo os hubs de eventos \<namespace >, \<eventhub >, \<AccessKeyName > e valor de chave \<primary > com seus valores: 
+3. Cole o código a seguir em *Send.py*, substituindo os hubs de eventos \<namespace >, \<> do eventhub, \<accesskeyname > e \<valor da chave primária > com seus valores: 
    
    ```python
    import sys
@@ -111,7 +111,7 @@ Parabéns! Enviou agora mensagens para um hub de eventos.
 Para criar um aplicativo Python que recebe eventos de um hub de eventos:
 
 1. No seu editor de Python, crie um arquivo chamado *recv.py*.
-2. Cole o código a seguir em *recv.py*, substituindo os hubs de eventos \<namespace >, \<eventhub >, \<AccessKeyName > e valor de chave \<primary > com seus valores: 
+2. Cole o código a seguir em *recv.py*, substituindo os hubs de eventos \<namespace >, \<> do eventhub, \<accesskeyname > e \<valor da chave primária > com seus valores: 
    
    ```python
    import os

@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Publicar a base de dados de conhecimento, REST, Python-QnA Maker'
+title: 'Início rápido: publicar a base de dados de conhecimento, REST, Python-QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Este guia de introdução baseada em REST de Python explica-lhe publicar a sua base de dados de conhecimento que envia a versão mais recente da base de dados de conhecimento testada para um índice da Azure Search dedicado que representa a base de dados de conhecimento publicada. Também cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
+description: Este guia de início rápido baseado em REST do Python publica sua base de dados de conhecimento e cria um ponto de extremidade que pode ser chamado em seu aplicativo ou bot de bate-papo.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,16 +11,16 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 09523bb6c9c8a58f5f7bd102d2ac30ad77f28d1c
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 6ca13f29d2201bd29bda934ed4be169bcddf58de
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840195"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720947"
 ---
-# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Início rápido: Publicar uma base de dados de conhecimento no QnA Maker usando o Python
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Início Rápido: publicar uma base de dados de conhecimento no Criador de FAQ com o Python
 
-Este guia de introdução baseada em REST orienta-o através de publicação por meio de programação de sua base de dados de conhecimento (KB). A publicação emite a versão mais recente da base de dados de conhecimento para um índice dedicado do Azure Search e cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
+Este guia de início rápido baseado em REST orienta você pela publicação programática da base de dados de conhecimento (KB). A publicação emite a versão mais recente da base de dados de conhecimento para um índice dedicado do Azure Search e cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
 
 Este início rápido chama QnA Maker APIs REST:
 * [Publicar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) - esta API não requer quaisquer informações no corpo do pedido.
@@ -33,7 +33,7 @@ Este início rápido chama QnA Maker APIs REST:
 
     ![ID da base de dados de conhecimento do Criador de FAQ](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-    Se você ainda não tiver uma base de dados de conhecimento, poderá criar uma amostra a ser usada para este guia de início rápido: [Crie uma nova base de dados de conhecimento](../how-to/create-knowledge-base.md).
+    Se ainda não tiver uma base de dados de conhecimento, pode criar uma de exemplo para utilizar neste guia de introdução: [Criar uma nova base de dados de conhecimento](../how-to/create-knowledge-base.md).
 
 > [!NOTE] 
 > Os arquivos de solução completos estão disponíveis no [repositório **Azure-Samples/cognitiva-Services-qnamaker-Python** GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
@@ -44,19 +44,19 @@ Crie um ficheiro com o nome `publish-kb-3x.py`.
 
 ## <a name="add-the-required-dependencies"></a>Adicionar as dependências necessárias
 
-Na parte superior de `publish-kb-3x.py`, adicione as linhas seguintes para adicionar as dependências necessárias ao projeto:
+Na parte superior do `publish-kb-3x.py`, adicione as seguintes linhas para adicionar as dependências necessárias ao projeto:
 
 [!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/publish-knowledge-base/publish-kb-3x.py?range=1-1 "Add the required dependencies")]
 
-## <a name="add-required-constants"></a>Adicionar constantes necessárias
+## <a name="add-required-constants"></a>Adicionar as constantes necessárias
 
 Depois das dependências necessárias anteriores, adicione as constantes necessárias para aceder ao Criador de FAQ. Substitua os valores pelos seus próprios.
 
 [!code-python[Add the required constants](~/samples-qnamaker-python/documentation-samples/quickstarts/publish-knowledge-base/publish-kb-3x.py?range=5-15 "Add the required constants")]
 
-## <a name="add-post-request-to-publish-knowledge-base"></a>Adicionar pedido POST para publicar a base de dados de conhecimento
+## <a name="add-post-request-to-publish-knowledge-base"></a>Adicionar solicitação POST para publicar base de dados de conhecimento
 
-Depois das constantes necessárias, adicione o seguinte código, o que faz um pedido HTTPS para a API do QnA Maker para publicar uma base de dados de conhecimento e recebe a resposta:
+Após as constantes necessárias, adicione o seguinte código, que faz uma solicitação HTTPS ao API de QnA Maker para publicar uma base de dados de conhecimento e recebe a resposta:
 
 [!code-python[Add a POST request to publish knowledge base](~/samples-qnamaker-python/documentation-samples/quickstarts/publish-knowledge-base/publish-kb-3x.py?range=17-26 "Add a POST request to publish knowledge base")]
 
@@ -64,9 +64,9 @@ A chamada à API devolve um estado 204 para uma publicação com êxito, sem qua
 
 Para qualquer outra resposta, a resposta é devolvida inalterada.
 
-## <a name="build-and-run-the-program"></a>Compilar e executar o programa
+## <a name="build-and-run-the-program"></a>Criar e executar o programa
 
-Introduza o comando seguinte numa linha de comandos para executar o programa. Irá enviar o pedido para a API do QnA Maker para publicar a base de dados de conhecimento, em seguida, imprimir 204 para êxito ou erros.
+Introduza o comando seguinte numa linha de comandos para executar o programa. Ele enviará a solicitação para o API de QnA Maker para publicar a base de dados de conhecimento e, em seguida, imprimirá 204 para obter êxito ou erros.
 
 ```bash
 python publish-kb-3x.py
@@ -74,11 +74,11 @@ python publish-kb-3x.py
 
 [!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Depois da base de dados de conhecimento é publicado, é necessário o [URL de ponto final para gerar uma resposta](../Tutorials/create-publish-answer.md#generating-an-answer). 
+Depois que a base de dados de conhecimento for publicada, você precisará da [URL do ponto de extremidade para gerar uma resposta](../Tutorials/create-publish-answer.md#generating-an-answer). 
 
 > [!div class="nextstepaction"]
-> [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)
+> [Referência da API REST para o Criador de FAQ (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)
 
 [Descrição geral do Criador de FAQ](../Overview/overview.md)

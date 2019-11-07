@@ -1,5 +1,5 @@
 ---
-title: Introdução às consultas entre bancos de dados (particionamento vertical) | Microsoft Docs
+title: Introdução às consultas entre bancos de dados (particionamento vertical)
 description: como usar a consulta de banco de dados elástico com bancos de dados particionados verticalmente
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: a6a87f90586dc4392dc1304a83349bc386590ee4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b6d9ba0c57850c61626d7b6d99fcb1fffc2d3c25
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568590"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690399"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Introdução às consultas entre bancos de dados (particionamento vertical) (visualização)
 
@@ -34,7 +34,7 @@ A permissão alterar qualquer fonte de dados externa é necessária. Essa permis
 
 Para começar, crie dois bancos de dados, **clientes** e **pedidos**, tanto no mesmo servidor quanto em servidores de banco de dados SQL diferentes.
 
-Execute as consultas a seguir no banco de dados Orders para criar a tabela **OrderInformation** e inserir os dados de exemplo.
+Execute as consultas a seguir no banco de dados **Orders** para criar a tabela **OrderInformation** e inserir os dados de exemplo.
 
     CREATE TABLE [dbo].[OrderInformation](
         [OrderID] [int] NOT NULL,
@@ -46,7 +46,7 @@ Execute as consultas a seguir no banco de dados Orders para criar a tabela **Ord
     INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1)
     INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8)
 
-Agora, execute a consulta a seguir no banco de dados Customers para criar a tabela **CustomerInformation** e inserir os dados de exemplo.
+Agora, execute a consulta a seguir no banco de dados **Customers** para criar a tabela **CustomerInformation** e inserir os dados de exemplo.
 
     CREATE TABLE [dbo].[CustomerInformation](
         [CustomerID] [int] NOT NULL,
@@ -73,7 +73,7 @@ Agora, execute a consulta a seguir no banco de dados Customers para criar a tabe
     O "nome de usuário" e a "senha" devem ser o nome de usuário e a senha usados para fazer logon no banco de dados de clientes.
     Atualmente, não há suporte para a autenticação usando Azure Active Directory com consultas elásticas.
 
-### <a name="external-data-sources"></a>Origens de dados externas
+### <a name="external-data-sources"></a>Fontes de dados externas
 
 Para criar uma fonte de dados externa, execute o seguinte comando no banco de dado pedidos:
 
@@ -116,4 +116,4 @@ Para obter informações sobre preços, consulte [preços do banco de dados SQL]
 * Para obter sintaxe e exemplos de consultas para dados particionados verticalmente, consulte [consultando dados particionados verticalmente)](sql-database-elastic-query-vertical-partitioning.md)
 * Para obter um tutorial horizontal de particionamento (fragmentação), consulte [introdução à consulta elástica para particionamento horizontal (fragmentação)](sql-database-elastic-query-getting-started.md).
 * Para obter sintaxe e exemplos de consultas para dados particionados horizontalmente, consulte [consultando dados particionados horizontalmente)](sql-database-elastic-query-horizontal-partitioning.md)
-* Confira [\_SP \_execute Remote](https://msdn.microsoft.com/library/mt703714) para um procedimento armazenado que execute uma instrução Transact-SQL em um único banco de dados SQL do Azure remoto ou em conjunto de dados que servem como fragmentos em um esquema de particionamento horizontal.
+* Consulte [sp\_execute \_Remote](https://msdn.microsoft.com/library/mt703714) para obter um procedimento armazenado que executa uma instrução TRANSACT-SQL em um único banco de dados SQL do Azure remoto ou conjunto de bancos de dados que serve como fragmentos em um esquema de particionamento horizontal.

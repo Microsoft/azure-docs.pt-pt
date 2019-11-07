@@ -3,6 +3,7 @@ title: Exportar dados e visualizar informações no Azure IoT Central | Microsof
 description: Neste tutorial, saiba como exportar dados do IoT Central e visualizar informações em um painel de Power BI.
 services: iot-central
 ms.service: iot-central
+ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.custom:
 - iot-storeAnalytics-checkout
@@ -10,12 +11,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 10/22/2019
-ms.openlocfilehash: 913a87df47121c18fcd4f83aa8d5a24b4041ce19
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0cf1c6e926b2406d960762a9d597b28a17f6c316
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495117"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615273"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutorial: exportar dados do Azure IoT Central e visualizar informações no Power BI
 
@@ -475,9 +476,9 @@ Adicione quatro blocos de cartão para mostrar o comprimento da fila e o tempo d
 | ------- | ------- | ------- | ------- | ------- |
 | Conjunto de dados | Sensor de ocupação | Sensor de ocupação | Sensor de ocupação | Sensor de ocupação |
 | Tipo de visualização | Gráfico de colunas clusterizado | Gráfico de colunas clusterizado | Indicadores | Indicadores |
-| Valores    | Carimbo de data/hora | Carimbo de data/hora | N/A | N/A |
+| Valores    | Carimbo de data/hora | Carimbo de data/hora | N/D | N/D |
 | Valor | Tempo de pesquisa 1 | Tempo de duração 2 | Comprimento da fila 1 | Comprimento da fila 2 |
-| Janela de tempo | 60 minutos | 60 minutos |  N/A | N/A |
+| Janela de tempo | 60 minutos | 60 minutos |  N/D | N/D |
 | Título | Tempo de duração da pesquisa | Tempo de duração da pesquisa | Comprimento da fila | Comprimento da fila |
 | Subtítulo | Check-out 1 | Check-out 2 | Check-out 1 | Check-out 2 |
 

@@ -1,6 +1,6 @@
 ---
-title: Visualizar anomalias de dados nos eventos em tempo real - Event Hubs do Azure | Documentos da Microsoft
-description: Tutorial - Visualizar anomalias de dados em eventos em tempo real enviados para os Hubs de Eventos do Microsoft Azure
+title: 'Tutorial: Visualizar anomalias de dados em eventos em tempo real – hubs de eventos do Azure'
+description: 'Tutorial: Visualizar anomalias de dados em eventos em tempo real enviados para Microsoft Azure hubs de eventos'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -8,17 +8,17 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 02/26/2019
-ms.openlocfilehash: d6786e4e3382c7c4d7a6a6a28c3cd3621df221c1
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.date: 11/05/2019
+ms.openlocfilehash: 0cfff0196ebc20b9b01bc966b3590470d349e86e
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867142"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718007"
 ---
-# <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados nos eventos em tempo real, enviados para os Hubs de eventos do Azure
+# <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados em eventos em tempo real enviados para os Hubs de Eventos do Azure
 
-Com os Hubs de Eventos do Azure, pode utilizar o Azure Stream Analytics para verificar os dados recebidos e extrair as anomalias, que, em seguida, pode visualizar no Power BI. Imaginemos que tem milhares de dispositivos constantemente a enviar dados em tempo real para um hub de eventos, adicionando até milhões de eventos por segundo. De que forma verifica a existência de anomalias ou erros nessa quantidade de dados? Por exemplo, e se os dispositivos estão a enviar transações de cartão de crédito, e precisa capturar em qualquer lugar que tem várias transações em vários países/regiões dentro de um intervalo de tempo de 5 segundos? Isto poderia acontecer se alguém roubar cartões de crédito e, em seguida, utilizá-los para comprar artigos em todo o mundo ao mesmo tempo. 
+Com os Hubs de Eventos do Azure, pode utilizar o Azure Stream Analytics para verificar os dados recebidos e extrair as anomalias, que, em seguida, pode visualizar no Power BI. Imaginemos que tem milhares de dispositivos constantemente a enviar dados em tempo real para um hub de eventos, adicionando até milhões de eventos por segundo. De que forma verifica a existência de anomalias ou erros nessa quantidade de dados? Por exemplo, e se os dispositivos estiverem enviando transações de cartão de crédito e você precisar capturar em qualquer lugar em que tenha várias transações em vários países/regiões dentro de um intervalo de 5 segundos? Isto poderia acontecer se alguém roubar cartões de crédito e, em seguida, utilizá-los para comprar artigos em todo o mundo ao mesmo tempo. 
 
 Neste tutorial, vai simular este exemplo. Vai executar uma aplicação que cria e envia transações de cartão de crédito para um hub de eventos. Em seguida, vai ler o fluxo de dados em tempo real com o Azure Stream Analytics, que separa as transações válidas das transações inválidas e, em seguida, vai utilizar o Power BI para identificar visualmente as transações que estão identificadas como inválidas.
 
@@ -41,13 +41,13 @@ Para concluir este tutorial, precisa de uma subscrição do Azure. Se não tiver
 - Instale o [Visual Studio](https://www.visualstudio.com/). 
 - Precisa de uma conta do Power BI para analisar a saída de uma tarefa do Stream Analytics. Pode [experimentar o Power BI gratuitamente](https://app.powerbi.com/signupredirect?pbi_source=web).
 
-## <a name="set-up-resources"></a>Configurar recursos
+## <a name="set-up-resources"></a>Configurar os recursos
 
 Para este tutorial, precisa de um espaço de nomes de Hubs de Eventos e de um hub de eventos. Pode criar estes recursos com a CLI do Azure ou com o Azure PowerShell. Utilize o mesmo grupo de recursos e a mesma localização para todos os recursos. Em seguida, no fim, pode remover tudo num único passo ao eliminar o grupo de recursos.
 
 As secções seguintes descrevem como executar estes passos obrigatórios. Siga as instruções da CLI *ou* do PowerShell para executar os seguintes passos:
 
-1. Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). 
+1. Criar um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). 
 
 2. Crie um espaço de nomes dos Hubs de Eventos. 
 
@@ -170,19 +170,19 @@ Os [exemplos no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/sa
 
 Agora, pode transmitir dados em fluxo para o seu hub de eventos. Para utilizar esses dados numa visualização do Power BI, comece por configurar uma tarefa do Stream Analytics para obter os dados que, em seguida, são fornecidos para a visualização do Power BI.
 
-### <a name="create-the-stream-analytics-job"></a>Criar a tarefa do Stream Analytics
+### <a name="create-the-stream-analytics-job"></a>Criar tarefa do Stream Analytics
 
 1. No portal do Azure, clique em **Criar um recurso**. Escreva **stream analytics** na caixa de pesquisa e prima **Enter**. Selecione **Tarefa do Stream Analytics**. Clique em **Criar** no painel de tarefas do Stream Analytics. 
 
 2. Introduza as seguintes informações para a tarefa:
 
-   **Nome da tarefa**: Uso **contosoEHjob**. Este campo é o nome da tarefa e tem de ser globalmente exclusivo.
+   **Nome da tarefa**: utilize **contosoEHjob**. Este campo é o nome da tarefa e tem de ser globalmente exclusivo.
 
-   **Subscrição**: Selecione a sua subscrição.
+   **Subscrição**: selecione a sua subscrição.
 
-   **Grupo de recursos**: Utilize o mesmo grupo de recursos utilizado pelo seu hub de eventos (**ContosoResourcesEH**).
+   **Grupo de recursos**: utilize o mesmo grupo de recursos utilizado pelo seu hub de eventos (**ContosoResourcesEH**).
 
-   **Localização**: Utilizar a mesma localização que utilizou no script de configuração (**E.U.A. oeste**).
+   **Localização**: utilize a mesma localização que utilizou no script de configuração (**E.U.A. Oeste**).
 
    ![Captura de ecrã que mostra como criar uma nova tarefa do Azure Stream Analytics.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 
@@ -201,17 +201,17 @@ As entradas para a tarefa do Stream Analytics são as transações de cartão de
 
 2. No painel **Entradas**, clique em **Adicionar entrada de fluxo** e selecione Hubs de Eventos. No ecrã apresentado, preencha os campos seguintes:
 
-   **O alias de entrada**: Uso **contosoinputs**. Este campo é o nome do fluxo de entrada, utilizado quando define a consulta para os dados.
+   **Alias de entrada**: utilize **contosoinputs**. Este campo é o nome do fluxo de entrada, utilizado quando define a consulta para os dados.
 
-   **Subscrição**: Selecione a sua subscrição.
+   **Subscrição**: selecione a sua subscrição.
 
-   **Espaço de nomes de Hubs de eventos**: Selecione o seu espaço de nomes do Hub de eventos ($**eventHubNamespace**). 
+   **Espaço de nomes dos Hubs de Eventos**: selecione o seu espaço de nomes do Hub de Eventos ($**eventHubNamespace**). 
 
-   **Nome do Hub de eventos**: Clique em **utilizar existente** e selecione o seu hub de eventos ($**eventHubName**).
+   **Nome do Hub de Eventos**: clique em **Utilizar existente** e selecione o seu hub de eventos ($**eventHubName**).
 
-   **Nome da política dos Hubs de eventos**: Selecione **RootManageSharedAccessKey**.
+   **Nome da política dos Hubs de Eventos**: selecione **RootManageSharedAccessKey**.
 
-   **Grupo de consumidores de Hubs de eventos**: Deixe este campo em branco para usar o grupo de consumidores predefinido.
+   **Grupo de consumidores de Hubs de Eventos**: deixe este campo em branco para utilizar o grupo de consumidores predefinido.
 
    Aceite as predefinições no resto dos campos.
 
@@ -223,13 +223,13 @@ As entradas para a tarefa do Stream Analytics são as transações de cartão de
 
 1. Em **Topologia da Tarefa**, clique em **Saídas**. Este campo é o nome do fluxo de saída, utilizado quando define a consulta para os dados.
 
-2. No painel **Saídas**, clique em **Adicionar** e selecione **Power BI**. No ecrã apresentado, preencha os campos seguintes:
+2. No painel **Saídas**, clique em **Adicionar**e selecione **Power BI**. No ecrã apresentado, preencha os campos seguintes:
 
-   **Alias de saída**: Uso **contosooutputs**. Este campo é o alias exclusivo para a saída. 
+   **Alias de saída**: utilize **contosooutputs**. Este campo é o alias exclusivo para a saída. 
 
-   **Nome do conjunto de dados**: Uso **contosoehdataset**. Este campo é nome do conjunto de dados a utilizar no Power BI. 
+   **Nome do conjunto de dados**: utilize **contosoehdataset**. Este campo é nome do conjunto de dados a utilizar no Power BI. 
 
-   **Nome da tabela**: Uso **contosoehtable**. Este campo é o nome da tabela a utilizar no Power BI. 
+   **Nome da tabela**: utilize **contosoehtable**. Este campo é o nome da tabela a utilizar no Power BI. 
 
    Aceite as predefinições no resto dos campos.
 
@@ -245,7 +245,7 @@ As entradas para a tarefa do Stream Analytics são as transações de cartão de
 
 Esta consulta serve para obter os dados que, por fim, são enviados para a visualização do Power BI. Utiliza **contosoinputs** e **contosooutputs**, que definiu anteriormente quando configurou a tarefa. Esta consulta obtém as transações de cartão de crédito que considera fraudulentas, que são transações nas quais o mesmo número de cartão de crédito tem várias transações em diferentes localizações no mesmo intervalo de cinco segundos.
 
-1. Em **Topologia da Tarefa**, clique em **Consulta**.
+1. Em **Topologia de Tarefas**, clique em **Consulta**.
 
 2. Substitua a consulta pela seguinte: 
 
@@ -290,7 +290,7 @@ Na tarefa do Stream Analytics, clique em **Iniciar**, **Agora** e **Iniciar**. A
 
 1. Execute a aplicação Deteção de Anomalias para enviar dados para o hub de eventos enquanto estiver a configurar a visualização do Power BI. Pode ser necessário executá-la várias vezes, uma vez que gera apenas 1000 transações de cada vez que é executada.
 
-2. Inicie sessão na sua conta do [Power BI](https://powerbi.microsoft.com/).
+2. Inicie sessão na sua conta do [Power BI](https://powerbi.microsoft.com/).
 
 3. Aceda a **A minha área de trabalho**.
 
@@ -325,7 +325,7 @@ Na tarefa do Stream Analytics, clique em **Iniciar**, **Agora** e **Iniciar**. A
     ![Captura de ecrã da especificação do título e subtítulo para o mosaico do dashboard.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-tile-details.png)
 
     > [!IMPORTANT]
-    > Quando executar o aplicativo de exemplo e transmitir dados para o hub de eventos, o número neste mosaico forem alterados rapidamente (a cada segundo). É porque a consulta do Stream Analytics, na verdade, atualiza o valor **cada segundo**. Atualize a consulta para um minuto 3 em cascata janela para ver a soma nos últimos minutos. 
+    > Quando você executa o aplicativo de exemplo e transmite dados para o Hub de eventos, o número nesse bloco é alterado rapidamente (a cada segundo). É porque a consulta Stream Analytics, na verdade, atualiza o valor a **cada segundo**. Atualize a consulta para uma janela em cascata de 3 minutos para ver a soma nos últimos minutos. 
 11. Adicione outra visualização. Repita os primeiros passos novamente:
 
     * Clique em **Adicionar Mosaico**.
@@ -351,7 +351,7 @@ Na tarefa do Stream Analytics, clique em **Iniciar**, **Agora** e **Iniciar**. A
 
 Se quiser remover todos os recursos que criou, remova os dados de visualização do Power BI e, em seguida, elimine o grupo de recursos. Eliminar o grupo de recursos elimina todos os recursos incluídos no grupo. Neste caso, remove o hub de eventos, o espaço de nomes do Hub de Eventos, tarefa do Stream Analytics e o próprio grupo de recursos. 
 
-### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Limpar os recursos na visualização do Power BI
+### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Limpar os recursos na visualização do Power BI
 
 Inicie sessão na sua conta do Power BI. Aceda a **A minha área de trabalho**. Na linha com o nome do dashboard, clique no ícone de lixo. Em seguida, aceda a **Conjuntos de Dados** e clique no ícone de lixo para eliminar o conjunto de dados (**contosoehdataset**).
 
@@ -365,13 +365,13 @@ az group delete --name $resourceGroup
 
 ### <a name="clean-up-resources-using-powershell"></a>Limpar os recursos com o PowerShell
 
-Para remover o grupo de recursos, utilize o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) comando.
+Para remover o grupo de recursos, use o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) .
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 > [!div class="checklist"]

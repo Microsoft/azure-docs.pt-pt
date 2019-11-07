@@ -4,17 +4,17 @@ description: Saiba mais sobre o Azure Digital Twins, uma solução do Azure IoT 
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
-ms.date: 09/17/2019
+ms.date: 11/05/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 ms.custom: mvc
-ms.openlocfilehash: 2194afe4784d1b59dc5fd5628e3a9223d13f92be
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 93adf946ac630d2839f761b01a02d02f6ca92b64
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949293"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718234"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Descrição geral do Azure Digital Twins
 
@@ -93,7 +93,7 @@ O gêmeos digital do Azure é útil para representar o mundo físico e suas dive
 
 O Azure Digital Twins utiliza o Hub IoT do Azure para ligar os dispositivos de IoT e os sensores que mantêm tudo atualizado com o mundo físico. O diagrama a seguir mostra como o Azure digital gêmeos está relacionado a outros serviços de IoT do Azure.
 
-[@no__t 1Azure digital gêmeos é um serviço criado com base no Hub IoT do Azure](media/overview/azure-digital-twins-in-iot-ecosystem.png)](media/overview/azure-digital-twins-in-iot-ecosystem.png#lightbox)
+[![o gêmeos digital do Azure é um serviço criado com base no Hub IoT do Azure](media/overview/azure-digital-twins-in-iot-ecosystem.png)](media/overview/azure-digital-twins-in-iot-ecosystem.png#lightbox)
 
 Para obter mais informações sobre IoT, consulte [tecnologias e soluções de IOT do Azure](../iot-fundamentals/iot-services-and-technologies.md).
 
@@ -102,12 +102,12 @@ Para obter mais informações sobre IoT, consulte [tecnologias e soluções de I
 Acesse uma breve demonstração sobre o Azure digital gêmeos:
 
 >[!div class="nextstepaction"]
->[Quickstart: Localizar salas disponíveis usando o Azure digital gêmeos @ no__t-0
+>[Início rápido: localizar salas disponíveis usando o gêmeos digital do Azure](./quickstart-view-occupancy-dotnet.md)
 
 Examine com mais detalhes um aplicativo de gerenciamento de instalações usando o Azure digital gêmeos:
 
 >[!div class="nextstepaction"]
->[Tutorial: Implantar o gêmeos digital do Azure e configurar um grafo espacial @ no__t-0
+>[Tutorial: Deploy Azure Digital Twins and configure a spatial graph](./tutorial-facilities-setup.md) (Tutorial: Implementar o Azure Digital Twins e configurar um gráfico espacial)
 
 Saiba mais sobre os principais conceitos do Azure Digital Twins:
 

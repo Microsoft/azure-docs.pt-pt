@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: 90111325677e1bdd12a03081ad7513a34f68fd40
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: b71048412f5715fd1b8ef3edf742716916672bd5
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044146"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718743"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade dos negócios e recuperação de desastres (BCDR): regiões emparelhadas do Azure
 
@@ -28,31 +28,31 @@ Figura 1 – pares regionais do Azure
 
 | Gráfico | Regiões emparelhadas |  |
 |:--- |:--- |:--- |
-| Ásia |Este Asiático |Sudeste Asiático |
+| Ásia |Ásia Oriental |Sudeste Asiático |
 | Austrália |Leste da Austrália |Sudeste da Austrália |
 | Austrália |Austrália Central |Austrália Central 2 |
-| Brasil |Sul do Brasil |E.U.A. Centro-Sul |
+| Brasil |Sul do Brasil |EUA Centro-Sul |
 | Canadá |Canadá Central |Leste do Canadá |
 | China |China Norte |Norte da China|
 | China |Norte da China 2 |Leste da China 2|
 | Europa |Europa do Norte (Irlanda) |Europa Ocidental (Países Baixos) |
 | França |França Central|Sul de França|
-| Alemanha |Nordeste da Alemanha |Alemanha Nordeste |
-| Índia |Centro da Índia |Sul da Índia |
+| Alemanha |Alemanha Central |Alemanha Nordeste |
+| Índia |Índia Central |Sul da Índia |
 | Índia |Oeste da Índia |Sul da Índia |
-| Japão |Este do Japão |Oeste do Japão |
-| Coreia |Coreia do Sul Central |Sul da Coreia do Sul |
-| América do Norte |Este dos E.U.A. |Oeste dos E.U.A. |
-| América do Norte |Este dos E.U.A. 2 |Centro dos E.U.A. |
-| América do Norte |E.U.A. Centro-Norte |E.U.A. Centro-Sul |
-| América do Norte |E.U.A. Oeste 2 |E.U.A. Centro-Oeste 
+| Japão |Leste do Japão |Oeste do Japão |
+| Coreia |Coreia do Sul Central |Coreia do Sul |
+| América do Norte |EUA Leste |Oeste dos E.U.A. |
+| América do Norte |EUA Leste 2 |EUA Central |
+| América do Norte |E.U.A. Centro-Norte |EUA Centro-Sul |
+| América do Norte |EUA Oeste 2 |EUA Centro-Oeste 
 | África do Sul | Norte da África do Sul | Oeste da África do Sul
-| RU |Oeste do Reino Unido |Sul do Reino Unido |
+| RU |Reino Unido Oeste |Sul do Reino Unido |
 | Emirados Árabes Unidos | Norte dos E.A.U. | E.A.U. Central
-| Departamento de defesa dos EUA |US Gov - Arizona |US DoD - Centro |
-| Governo dos Estados Unidos da América |US Gov - Texas |Gov (US) - Texas |
-| Governo dos Estados Unidos da América |US Gov - Virginia |Gov dos E.U.A. Virginia |
-| Governo dos Estados Unidos da América |Gov dos E.U.A. Virginia |Gov (US) - Texas |
+| Departamento de defesa dos EUA |US DoD Leste |US DoD Centro |
+| Governo dos Estados Unidos da América |Gov (US) - Arizona |Gov (US) - Texas |
+| Governo dos Estados Unidos da América |US Gov - Iowa |Gov (US) - Virginia |
+| Governo dos Estados Unidos da América |Gov (US) - Virginia |Gov (US) - Texas |
 
 Tabela 1-mapeamento de pares regionais do Azure
 
@@ -75,7 +75,7 @@ Figura 2 – par regional do Azure hipotético
 ## <a name="cross-region-activities"></a>Atividades entre regiões
 Conforme mencionado na Figura 2.
 
-![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **computação do Azure (IaaS)** – você deve provisionar recursos de computação adicionais com antecedência para garantir que os recursos estejam disponíveis em outra região durante um desastre. Para obter mais informações, consulte [orientação técnica de resiliência do Azure](resiliency/resiliency-technical-guidance.md).
+![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **computação do Azure (IaaS)** – você deve provisionar recursos de computação adicionais com antecedência para garantir que os recursos estejam disponíveis em outra região durante um desastre. Para obter mais informações, consulte [orientação técnica de resiliência do Azure](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md).
 
 ![armazenamento](./media/best-practices-availability-paired-regions/2Green.png) **armazenamento do Azure** – se você estiver usando discos gerenciados, saiba mais sobre [backups entre regiões](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) com o backup do Azure e [replicando VMs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) de uma região para outra com Azure site Recovery. Se você estiver usando contas de armazenamento, o armazenamento com redundância geográfica (GRS) será configurado por padrão quando uma conta de armazenamento do Azure for criada. Com o GRS, seus dados são replicados automaticamente três vezes na região primária e três vezes na região emparelhada. Para obter mais informações, consulte [Opções de redundância de armazenamento do Azure](storage/common/storage-redundancy.md).
 

@@ -7,16 +7,16 @@ ms.author: dacoulte
 ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 4858d803b4fccdc6ae4d5a790721bad60d218313
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 44e7bbde40dbd4b79a6ce3735ab5a1ac81421d3b
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274198"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622565"
 ---
 # <a name="get-resource-changes"></a>Obter alterações do recurso
 
-Os recursos são alterados com o curso de uso diário, reconfiguração e até mesmo a reimplantação.
+Os recursos sofrem alterações ao longo da sua utilização diária, da reconfiguração ou mesmo de uma reimplementação.
 A alteração pode vir de um indivíduo ou de um processo automatizado. A maioria das alterações é por design, mas, às vezes, não é. Com os últimos 14 dias do histórico de alterações, o grafo de recursos do Azure permite que você:
 
 - Localizar quando foram detectadas alterações em uma propriedade Azure Resource Manager
@@ -44,8 +44,8 @@ A primeira etapa para ver o que mudou em um recurso é localizar os eventos de a
 
 O ponto de extremidade **resourceChanges** aceita os seguintes parâmetros no corpo da solicitação:
 
-- **Resourceid** \[Required @ no__t-2: o recurso do Azure no qual procurar alterações.
-- **interval** \[Required @ no__t-2: uma propriedade com datas de _início_ e de _término_ para quando verificar se há um evento de alteração usando o **fuso horário Zulu (Z)** .
+- **Resourceid** \[necessário\]: o recurso do Azure no qual procurar alterações.
+- **interval** \[\]necessário: uma propriedade com datas de _início_ e de _término_ para quando verificar se há um evento de alteração usando o **Z (fuso horário) Zulu**.
 - **fetchPropertyChanges** (opcional): uma propriedade booliana que define se o objeto de resposta inclui alterações de propriedade.
 
 Corpo da solicitação de exemplo:
@@ -292,4 +292,4 @@ Para comparar os resultados, use a propriedade **Changes** em **resourceChanges*
 
 - Consulte o idioma em uso em [consultas de início](../samples/starter.md).
 - Consulte usos avançados em [consultas avançadas](../samples/advanced.md).
-- Aprenda a [explorar os recursos](../concepts/explore-resources.md).
+- Saiba mais sobre como [explorar recursos](../concepts/explore-resources.md).

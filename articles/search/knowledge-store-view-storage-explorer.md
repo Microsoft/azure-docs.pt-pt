@@ -1,30 +1,30 @@
 ---
-title: Exibir uma loja de conhecimento com Gerenciador de Armazenamento
+title: Exibir uma loja de conhecimento (versão prévia) com Gerenciador de Armazenamento
 titleSuffix: Azure Cognitive Search
-description: Exiba e analise uma loja de conhecimento do Azure Pesquisa Cognitiva com o Gerenciador de Armazenamento do portal do Azure.
+description: Exiba e analise uma loja de conhecimento do Azure Pesquisa Cognitiva com o Gerenciador de Armazenamento do portal do Azure. a loja de conhecimento está atualmente em visualização pública.
 manager: nitinme
 author: lisaleib
 ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9ba11b69a51a5bc563764a7e75189bed67cb2ac6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: e3ea879a419aa14d3a6693e23f4f120aca8d9d51
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485002"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720060"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Exibir uma loja de conhecimento com Gerenciador de Armazenamento
 
-> [!Note]
-> A loja de conhecimento está em versão prévia e não deve ser usada na produção. O portal e a [pesquisa REST API versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Não há suporte para o SDK do .NET no momento.
->
+> [!IMPORTANT] 
+> a loja de conhecimento está atualmente em visualização pública. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de visualização. Atualmente, há suporte ao portal limitado e não há suporte para o SDK do .NET.
+
 Neste artigo, você aprenderá, por exemplo, como se conectar e explorar uma loja de conhecimento usando Gerenciador de Armazenamento no portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Siga as etapas em [criar uma loja de conhecimento em portal do Azure](knowledge-store-create-portal.md) para criar o exemplo de armazenamento de conhecimento usado neste passo a passos.
++ Siga as etapas em [criar uma loja de conhecimento em portal do Azure](knowledge-store-create-portal.md) ou [crie uma loja de conhecimento do Azure pesquisa cognitiva usando o REST](knowledge-store-create-rest.md) para criar o exemplo de armazenamento de conhecimento usado neste passo a passos.
 
 + Você também precisará do nome da conta de armazenamento do Azure que usou para criar a loja de conhecimento, junto com sua chave de acesso do portal do Azure.
 

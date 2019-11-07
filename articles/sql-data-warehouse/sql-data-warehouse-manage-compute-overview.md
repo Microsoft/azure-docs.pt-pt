@@ -1,5 +1,5 @@
 ---
-title: Gerenciar recurso de computação no Azure SQL Data Warehouse | Microsoft Docs
+title: Gerenciar recurso de computação
 description: Saiba mais sobre os recursos de escala horizontal de desempenho no Azure SQL Data Warehouse. Escale horizontalmente ajustando DWUs ou reduza os custos ao pausar o data warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: f0935ccc4c4274bfab0c589ef158d4ea0bef455c
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f93996d834ab805f2228543a833c4ce601042dc4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575318"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692626"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gerenciar a computação no Azure SQL Data Warehouse
 Saiba mais sobre como gerenciar recursos de computação no Azure SQL Data Warehouse. Reduza os custos pausando o data warehouse ou dimensione o data warehouse para atender às demandas de desempenho. 
@@ -32,7 +33,7 @@ Para executar uma operação de dimensionamento, SQL Data Warehouse primeiro int
 
 A tabela a seguir mostra como o número de distribuições por nó de computação é alterado à medida que as unidades de data warehouse são alteradas.  O DWU6000 fornece 60 nós de computação e Obtém um desempenho de consulta muito maior do que o DWU100. 
 
-| Unidades do armazém de dados  | \#de nós de computação | \#de distribuições por nó |
+| Unidades do armazém de dados  | \# de nós de computação | \# de distribuições por nó |
 | ---- | ------------------ | ---------------------------- |
 | 100  | 1                  | 60                           |
 | 200  | 2                  | 30                           |
@@ -92,7 +93,7 @@ Ao retomar uma data warehouse:
 
 Se você sempre quiser que seu data warehouse acessível, considere dimensioná-lo para o menor tamanho, em vez de pausar. 
 
-Para ver as etapas de pausa e retomada, consulte os guias de início rápido do [portal do Azure](pause-and-resume-compute-portal.md)ou do [PowerShell](pause-and-resume-compute-powershell.md) . Você também pode usar a [API REST de pausa](sql-data-warehouse-manage-compute-rest-api.md#pause-compute) ou a [API REST](sql-data-warehouse-manage-compute-rest-api.md#resume-compute)de retomada.
+Para ver as etapas de pausa e retomada, consulte os guias de início rápido do [portal do Azure](pause-and-resume-compute-portal.md)ou do [PowerShell](pause-and-resume-compute-powershell.md) . Você também pode usar a [API REST de pausa](sql-data-warehouse-manage-compute-rest-api.md#pause-compute) ou a [API REST de retomada](sql-data-warehouse-manage-compute-rest-api.md#resume-compute).
 
 ## <a name="drain-transactions-before-pausing-or-scaling"></a>Drenar transações antes de colocar em pausa ou dimensionar
 É recomendável permitir que as transações existentes sejam concluídas antes de iniciar uma operação de pausa ou de escala.

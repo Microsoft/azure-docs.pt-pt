@@ -1,5 +1,5 @@
 ---
-title: Migrar bancos de dados existentes para escalar horizontalmente | Microsoft Docs
+title: Migrar bancos de dados existentes para escalar horizontalmente
 description: Converter bancos de dados fragmentados para usar ferramentas de banco de dados elástico criando um Gerenciador de mapa de fragmentos
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 2d6d5c51cb381c089633ba010a1d64c8486ddcd8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b88c56872408a7ffe127a4e96d2313301d44c892
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568735"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690542"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrar bancos de dados existentes para escalar horizontalmente
 Gerencie facilmente seus bancos de dados fragmentados existentes em escala horizontal usando as ferramentas de banco de dados do banco de dados SQL do Azure (como a [biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md)). Primeiro, converta um conjunto existente de bancos de dados para usar o [Gerenciador de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). 
@@ -97,10 +97,10 @@ Para utilizar esse padrão de mapeamento, os valores de ID de locatário precisa
     -RangeShardMapName 'RangeShardMap' 
     -ShardMapManager $ShardMapManager 
 
-### <a name="option-3-list-mappings-on-an-individual-database"></a>Opção 3: Listar mapeamentos em um banco de dados individual
+### <a name="option-3-list-mappings-on-an-individual-database"></a>Opção 3: listar mapeamentos em um banco de dados individual
 A configuração desse padrão também requer a criação de um mapa de lista, conforme mostrado na etapa 2, opção 1.
 
-## <a name="step-3-prepare-individual-shards"></a>Passo 3: Preparar fragmentos individuais
+## <a name="step-3-prepare-individual-shards"></a>Etapa 3: preparar fragmentos individuais
 Adicione cada fragmento (banco de dados) ao Gerenciador de mapa de fragmentos. Isso prepara os bancos de dados individuais para armazenar informações de mapeamento. Execute este método em cada fragmento.
 
     Add-Shard 
@@ -110,7 +110,7 @@ Adicione cada fragmento (banco de dados) ao Gerenciador de mapa de fragmentos. I
     # The $ShardMap is the shard map created in step 2.
 
 
-## <a name="step-4-add-mappings"></a>Passo 4: Adicionar mapeamentos
+## <a name="step-4-add-mappings"></a>Etapa 4: Adicionar mapeamentos
 A adição de mapeamentos depende do tipo de mapa de fragmentos que você criou. Se você criou um mapa de lista, você adiciona mapeamentos de lista. Se você criou um mapa de intervalo, você adiciona mapeamentos de intervalo.
 
 ### <a name="option-1-map-the-data-for-a-list-mapping"></a>Opção 1: mapear os dados para um mapeamento de lista
@@ -150,12 +150,12 @@ As informações sobre os fragmentos existentes e os mapeamentos associados a el
 ## <a name="summary"></a>Resumo
 Depois de concluir a instalação, você pode começar a usar a biblioteca de cliente do banco de dados elástico. Você também pode usar o [Roteamento Dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) e [a consulta de vários fragmentos](sql-database-elastic-scale-multishard-querying.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Obtenha os scripts do PowerShell do [banco de dados SQL do Azure-scripts de ferramentas de banco de dados elástico](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 As ferramentas também estão no GitHub: [Azure/elástico-DB-Tools](https://github.com/Azure/elastic-db-tools).
 
-Use a ferramenta de divisão/mesclagem para mover dados de ou para um modelo multilocatário para um único modelo de locatário. Consulte [ferramenta de divisão](sql-database-elastic-scale-get-started.md)e mesclagem.
+Use a ferramenta de divisão/mesclagem para mover dados de ou para um modelo multilocatário para um único modelo de locatário. Consulte [ferramenta de divisão e mesclagem](sql-database-elastic-scale-get-started.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 Para obter informações sobre os padrões da arquitetura de dados comuns de aplicações de base de dados de software como um serviço (Saas) de multi-inquilino, consulte [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database (Padrões de estrutura para Aplicações SaaS Multi-inquilino com a Base de Dados SQL do Azure)](sql-database-design-patterns-multi-tenancy-saas-applications.md).

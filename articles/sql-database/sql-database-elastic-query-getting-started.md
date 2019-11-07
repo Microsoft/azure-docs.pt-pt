@@ -1,5 +1,5 @@
 ---
-title: Relatório entre bancos de dados de nuvem expandidos (particionamento horizontal) | Microsoft Docs
+title: Relatório entre bancos de dados de nuvem expandidos (particionamento horizontal)
 description: Use consultas de banco de dados de banco de dados cruzado para relatar em vários bancos de dados.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
-ms.openlocfilehash: 4e896fae0d8459629c58dfd0bbdfbb32b90b1cac
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 1adc7757edc6d5abc50ed31ea2227711db60fcfe
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264228"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690408"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Relatório entre bancos de dados de nuvem expandidos (visualização)
 
@@ -134,7 +134,7 @@ Para obter informações sobre preços, consulte [detalhes de preços do banco d
 * Para obter um tutorial de particionamento vertical, consulte [introdução à consulta entre bancos de dados (particionamento vertical)](sql-database-elastic-query-getting-started-vertical.md).
 * Para obter sintaxe e exemplos de consultas para dados particionados verticalmente, consulte [consultando dados particionados verticalmente)](sql-database-elastic-query-vertical-partitioning.md)
 * Para obter sintaxe e exemplos de consultas para dados particionados horizontalmente, consulte [consultando dados particionados horizontalmente)](sql-database-elastic-query-horizontal-partitioning.md)
-* Consulte [SP @ no__t-1execute \_remote](https://msdn.microsoft.com/library/mt703714) para obter um procedimento armazenado que executa uma instrução TRANSACT-SQL em um único banco de dados SQL do Azure remoto ou em um conjunto de dados que serve como fragmentos em um esquema de particionamento horizontal.
+* Consulte [sp\_execute \_Remote](https://msdn.microsoft.com/library/mt703714) para obter um procedimento armazenado que executa uma instrução TRANSACT-SQL em um único banco de dados SQL do Azure remoto ou conjunto de bancos de dados que serve como fragmentos em um esquema de particionamento horizontal.
 
 
 <!--Image references-->

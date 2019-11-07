@@ -1,5 +1,5 @@
 ---
-title: Transformar dados com o Spark no Azure Data Factory | Microsoft Docs
+title: 'Transformar dados usando o Spark no Azure Data Factory '
 description: Este tutorial fornece instruções passo a passo para transformar dados através de uma atividade do Spark no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: d13e0b95d57e3063292319961d5e1138f994076e
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: b0df6264eb38cbbacd5f624b634eea5f742adbc7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812276"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683322"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformar dados na cloud através de uma atividade do Spark no Azure Data Factory
 Neste tutorial, irá utilizar o portal do Azure para criar um pipeline do Azure Data Factory. Este pipeline transforma dados através de uma atividade do Spark e de um serviço ligado do Azure HDInsight a pedido. 
@@ -104,7 +104,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 1. Em **Versão**, selecione **V2**.
 1. Em **Localização**, selecione a localização para a fábrica de dados. 
 
-   Para obter uma lista de regiões do Azure nas quais Data Factory está disponível no momento, selecione as regiões que lhe interessam na página a seguir e expanda **análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (como o Armazenamento do Azure e a Base de Dados SQL do Azure) e as computações (como o HDInsight) utilizados pelo Data Factory podem estar noutras regiões.
+   Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (como o Armazenamento do Azure e a Base de Dados SQL do Azure) e as computações (como o HDInsight) utilizados pelo Data Factory podem estar noutras regiões.
 
 1. Selecione **Criar**.
 
@@ -212,7 +212,7 @@ Selecione **Adicionar gatilho** na barra de ferramentas e, em seguida, selecione
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorizar a execução do pipeline.
 
-1. Mude para o separador **Monitorizar**. Confirme que vê uma execução de pipeline. Demora aproximadamente de 20 minutos para criar um cluster do Spark. 
+1. Alterne para a guia **Monitor** . Confirme se você vê uma execução de pipeline. Demora aproximadamente de 20 minutos para criar um cluster do Spark. 
    
 1. Selecione **Atualizar** periodicamente para verificar o estado da execução do pipeline. 
 
@@ -241,7 +241,7 @@ O ficheiro deve ter cada palavra do ficheiro de texto de entrada e o número de 
 (u'file', 1)
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 O pipeline, neste exemplo, transforma dados através de uma atividade do Spark e de um serviço ligado do HDInsight a pedido. Aprendeu a: 
 
 > [!div class="checklist"]
@@ -253,7 +253,7 @@ O pipeline, neste exemplo, transforma dados através de uma atividade do Spark e
 Para aprender a transformar dados ao executar o script Hive num cluster do Azure HDInsight numa rede virtual, avance para o tutorial seguinte: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Transforme dados usando o hive na rede](tutorial-transform-data-hive-virtual-network-portal.md)virtual do Azure.
+> [Tutorial: transformar dados com o Hive na Rede Virtual do Azure](tutorial-transform-data-hive-virtual-network-portal.md).
 
 
 

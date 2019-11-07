@@ -1,5 +1,5 @@
 ---
-title: Diretrizes de design para tabelas replicadas – Azure SQL Data Warehouse | Microsoft Docs
+title: Diretrizes de design para tabelas replicadas
 description: Recomendações para criar tabelas replicadas no seu esquema de SQL Data Warehouse do Azure. 
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c622edc6c3a37b2bc71323cf0e2c155f7aec6e33
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 18577cb729c9f17a112979cd1ebb763af38b9ca2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479317"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693058"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Diretrizes de design para usar tabelas replicadas no Azure SQL Data Warehouse
 Este artigo fornece recomendações para criar tabelas replicadas em seu esquema de SQL Data Warehouse. Use essas recomendações para melhorar o desempenho da consulta, reduzindo a movimentação de dados e a complexidade da consulta.
@@ -43,7 +44,7 @@ As tabelas replicadas funcionam bem para tabelas de dimensões em um esquema em 
 Considere usar uma tabela replicada quando:
 
 - O tamanho da tabela no disco é menor que 2 GB, independentemente do número de linhas. Para localizar o tamanho de uma tabela, você pode usar o comando [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) : `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
-- A tabela é usada em junções que, de outra forma, exigirão a movimentação de dados. Ao unir tabelas que não são distribuídas na mesma coluna, como uma tabela distribuída por hash a uma tabela Round Robin, a movimentação de dados é necessária para concluir a consulta.  Se uma das tabelas for pequena, considere uma tabela replicada. É recomendável usar tabelas replicadas em vez de tabelas Round Robin na maioria dos casos. Para exibir as operações de movimentação de dados em planos de consulta, use [Sys. dm _pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).  O BroadcastMoveOperation é a operação de movimentação de dados típica que pode ser eliminada usando uma tabela replicada.  
+- A tabela é usada em junções que, de outra forma, exigirão a movimentação de dados. Ao unir tabelas que não são distribuídas na mesma coluna, como uma tabela distribuída por hash a uma tabela Round Robin, a movimentação de dados é necessária para concluir a consulta.  Se uma das tabelas for pequena, considere uma tabela replicada. É recomendável usar tabelas replicadas em vez de tabelas Round Robin na maioria dos casos. Para exibir as operações de movimentação de dados em planos de consulta, use [Sys. dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).  O BroadcastMoveOperation é a operação de movimentação de dados típica que pode ser eliminada usando uma tabela replicada.  
  
 Tabelas replicadas podem não produzir o melhor desempenho de consulta quando:
 
@@ -93,9 +94,9 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 ### <a name="query-performance-example-for-round-robin-versus-replicated"></a>Exemplo de desempenho de consulta para Round-Robin versus replicado 
 
-Uma tabela replicada não requer nenhuma movimentação de dados para junções porque a tabela inteira já está presente em cada nó de computação. Se as tabelas de dimensões forem distribuídas em rodízio, uma junção copiará a tabela de dimensões Full para cada nó de computação. Para mover os dados, o plano de consulta contém uma operação chamada BroadcastMoveOperation. Esse tipo de operação de movimentação de dados reduz o desempenho da consulta e é eliminada usando tabelas replicadas. Para exibir as etapas do plano de consulta, use a exibição do catálogo do sistema [Sys. dm _pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) . 
+Uma tabela replicada não requer nenhuma movimentação de dados para junções porque a tabela inteira já está presente em cada nó de computação. Se as tabelas de dimensões forem distribuídas em rodízio, uma junção copiará a tabela de dimensões Full para cada nó de computação. Para mover os dados, o plano de consulta contém uma operação chamada BroadcastMoveOperation. Esse tipo de operação de movimentação de dados reduz o desempenho da consulta e é eliminada usando tabelas replicadas. Para exibir as etapas do plano de consulta, use a exibição de catálogo do sistema [Sys. dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) . 
 
-Por exemplo, na consulta a seguir em relação ao esquema AdventureWorks `FactInternetSales` , a tabela é distribuída por hash. As `DimDate` tabelas `DimSalesTerritory` e são tabelas de dimensões menores. Essa consulta retorna o total de vendas em América do Norte do ano fiscal 2004:
+Por exemplo, na consulta a seguir no esquema AdventureWorks, a tabela `FactInternetSales` é distribuída por hash. As tabelas `DimDate` e `DimSalesTerritory` são tabelas de dimensões menores. Essa consulta retorna o total de vendas em América do Norte do ano fiscal 2004:
 
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)
@@ -159,7 +160,7 @@ Por exemplo, esse padrão de carga carrega dados de quatro fontes, mas só invoc
 ### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>Recompilar uma tabela replicada após um carregamento em lote
 Para garantir tempos de execução de consulta consistentes, considere forçar a compilação das tabelas replicadas após um carregamento em lote. Caso contrário, a primeira consulta ainda usará a movimentação de dados para concluir a consulta. 
 
-Essa consulta usa a DMV [Sys. PDW _replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) para listar as tabelas replicadas que foram modificadas, mas não recriadas.
+Essa consulta usa o DMV [Sys. pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) para listar as tabelas replicadas que foram modificadas, mas não recriadas.
 
 ```sql 
 SELECT [ReplicatedTable] = t.[name]
@@ -178,7 +179,7 @@ Para disparar uma recompilação, execute a seguinte instrução em cada tabela 
 SELECT TOP 1 * FROM [ReplicatedTable]
 ``` 
  
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes 
 Para criar uma tabela replicada, use uma destas instruções:
 
 - [CREATE TABLE (SQL Data Warehouse do Azure)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)

@@ -1,5 +1,5 @@
 ---
-title: 'Aplicativo SaaS: Monitorar o desempenho de muitos bancos de dados SQL do Azure | Microsoft Docs'
+title: 'Aplicativo SaaS: monitorar o desempenho de muitos bancos de dados SQL do Azure '
 description: Monitorar e gerenciar o desempenho de pools e bancos de dados SQL do Azure em um aplicativo SaaS multilocatário
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 322cc2fd53972c7c084da76ac0c80b757d0d2297
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4860766ddb4214591dc2c77f2746f958cb101741
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570407"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692132"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorar e gerenciar o desempenho de pools e bancos de dados SQL do Azure em um aplicativo SaaS multilocatário
 
@@ -66,9 +66,9 @@ Os scripts de banco de dados multilocatário do Wingtip tickets SaaS e o código
 
 Apesar de os conjuntos poderem ser económicos com apenas duas bases de dados S3, quantas mais bases de dados estiverem no conjunto mais económico será o efeito em média. Para uma boa compreensão de como funciona a monitorização e a gestão do desempenho à escala, este tutorial requer que tenha, pelo menos, 20 bases de dados implementadas.
 
-Se você já provisionou um lote de locatários em um tutorial anterior, pule para a seção simular o [uso em todos os bancos de dados de locatário](#simulate-usage-on-all-tenant-databases) .
+Se você já provisionou um lote de locatários em um tutorial anterior, pule para a seção [simular o uso em todos os bancos de dados de locatário](#simulate-usage-on-all-tenant-databases) .
 
-1. No **ISE do PowerShell**, abra... Módulos de aprendizado monitoramento e gerenciamento\\de desempenho*demo-performancemonitoringandmanagement. ps1.* \\\\ Mantenha este script aberto, uma vez que vai executar vários cenários durante este tutorial.
+1. No **ISE do PowerShell**, abra...\\módulos de aprendizado\\monitoramento e gerenciamento de desempenho\\*demo-performancemonitoringandmanagement. ps1*. Mantenha este script aberto, uma vez que vai executar vários cenários durante este tutorial.
 1. Defina **$DemoScenario** = **1**, **Aprovisionar um lote de inquilinos**
 1. Prima **F5** para executar o script.
 
@@ -90,20 +90,20 @@ O script *demo-performancemonitoringandmanagement. ps1* é fornecido para simula
 
 O gerador de carga aplica uma carga *sintética* só na CPU para cada base de dados do inquilino. O gerador inicia uma tarefa para cada base de dados de inquilino, que chama um procedimento armazenado que periodicamente gera a carga. Os níveis de carga (em eDTUs), a duração e os intervalos são diversificados em todas as bases de dados, o que simula a atividade imprevisível do inquilino.
 
-1. No **ISE do PowerShell**, abra... Módulos de aprendizado monitoramento e gerenciamento\\de desempenho*demo-performancemonitoringandmanagement. ps1.* \\\\ Mantenha este script aberto, uma vez que vai executar vários cenários durante este tutorial.
+1. No **ISE do PowerShell**, abra...\\módulos de aprendizado\\monitoramento e gerenciamento de desempenho\\*demo-performancemonitoringandmanagement. ps1*. Mantenha este script aberto, uma vez que vai executar vários cenários durante este tutorial.
 1. Defina **$DemoScenario** = **2**, *gerar carga de intensidade normal*.
 1. Prima **F5** para aplicar uma carga a todas as bases de dados de inquilinos.
 
 O banco de dados por locatário SaaS Wingtip tickets é um aplicativo SaaS, e a carga real em um aplicativo SaaS normalmente é esporádica e imprevisível. Para simular isto, o gerador de carga produz uma carga aleatória distribuída por todos os inquilinos. São necessários vários minutos para que o padrão de carga surja, então execute o gerador de carga por 3-5 minutos antes de tentar monitorar a carga nas seções a seguir.
 
 > [!IMPORTANT]
-> O gerador de carga está em execução como uma série de tarefas na sessão local do PowerShell. Mantenha aberto o separador *Demo-PerformanceMonitoringAndManagement.ps1*! Se fechar o separador ou suspender o computador, o gerador de carga será interrompido. O gerador de carga permanece em um estado de invocação de *trabalho* onde ele gera carga em qualquer locatário novo provisionado depois que o gerador é iniciado. Use *Ctrl-C* para parar de invocar novos trabalhos e sair do script. O gerador de carga continuará a ser executado, mas somente em locatários existentes.
+> O gerador de carga está em execução como uma série de tarefas na sessão local do PowerShell. Mantenha aberto o separador *Demo-PerformanceMonitoringAndManagement.ps1*! Se fechar o separador ou suspender o computador, o gerador de carga será interrompido. O gerador de carga permanece em um estado de *invocação de trabalho* onde ele gera carga em qualquer locatário novo provisionado depois que o gerador é iniciado. Use *Ctrl-C* para parar de invocar novos trabalhos e sair do script. O gerador de carga continuará a ser executado, mas somente em locatários existentes.
 
 ## <a name="monitor-resource-usage-using-the-azure-portal"></a>Monitorar o uso de recursos usando o portal do Azure
 
 Para monitorar o uso de recursos que resulta da carga sendo aplicada, abra o portal para o pool que contém os bancos de dados de locatário:
 
-1. Abra o [portal do Azure](https://portal.azure.com) e navegue até o servidor *tenants1-DPT&lt;-&gt; User* .
+1. Abra o [portal do Azure](https://portal.azure.com) e navegue até o servidor de *&gt;de usuário tenants1-DPT-&lt;* .
 1. Desloque-se para baixo, localize os conjuntos elásticos e clique em **Pool1**. Este conjunto contém todas as bases de dados de inquilinos criadas até à data.
 
 Observe os gráficos **monitoramento de pool elástico** e **monitoramento de banco de dados elástico** .
@@ -119,9 +119,9 @@ Como há bancos de dados adicionais no pool além dos cinco principais, a utiliz
 
 ## <a name="set-performance-alerts-on-the-pool"></a>Definir alertas de desempenho no conjunto
 
-Defina um alerta no pool que dispara a utilização \>de 75% da seguinte maneira:
+Defina um alerta no pool que dispare na utilização \>de 75% da seguinte maneira:
 
-1. Abra *Pool1* (no servidor *tenants1-DPT-\<user\>*  ) no [portal do Azure](https://portal.azure.com).
+1. Abra *Pool1* (no servidor *tenants1-dpt-\<\>* Server) no [portal do Azure](https://portal.azure.com).
 1. Clique em **Regras de Alerta**e, em seguida, clique em **+ Adicionar alerta**:
 
    ![adicionar alerta](media/saas-dbpertenant-performance-monitoring/add-alert.png)
@@ -166,7 +166,7 @@ As bases de dados permanecem online e estão totalmente disponíveis durante o p
 
 Como alternativa ao aumento vertical do conjunto, crie um segundo conjunto e mova as bases de dados para o conjunto para balancear a carga entre os dois conjuntos. Para fazê-lo, o novo conjunto tem de ser criado no mesmo servidor do primeiro conjunto.
 
-1. No [portal do Azure](https://portal.azure.com), abra o servidor **tenants1-DPT-&lt;user&gt;**  .
+1. Na [portal do Azure](https://portal.azure.com), abra o servidor de **&gt;de usuário tenants1-DPT-&lt;** .
 1. Clique em **+ novo pool** para criar um pool no servidor atual.
 1. No modelo de **pool elástico** :
 
@@ -177,14 +177,14 @@ Como alternativa ao aumento vertical do conjunto, crie um segundo conjunto e mov
    1. Clique em **Adicionar bancos de dados** para ver uma lista de bancos de dados no servidor que podem ser adicionados ao *Pool2*.
    1. Selecione qualquer 10 bancos de dados para movê-los para o novo pool e, em seguida, clique em **selecionar**. Se você estiver executando o gerador de carga, o serviço já sabe que seu perfil de desempenho requer um pool maior do que o tamanho de eDTU 50 padrão e recomenda começar com uma configuração de eDTU de 100.
 
-      ![recomendação](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+      ![Recomendação](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
    1. Para este tutorial, deixe o padrão em 50 eDTUs e clique em **selecionar** novamente.
    1. Selecione **OK** para criar o novo pool e mover os bancos de dados selecionados para ele.
 
 A criação do pool e a movimentação dos bancos de dados leva alguns minutos. À medida que os bancos de dados são movidos, eles permanecem online e totalmente acessíveis até o último momento, ponto em que todas as conexões abertas são fechadas. Contanto que você tenha uma lógica de repetição, os clientes se conectarão ao banco de dados no novo pool.
 
-Navegue até **Pool2** (no servidor *tenants1-DPT-\<user\>*  ) para abrir o pool e monitorar seu desempenho. Se você não o vir, aguarde até que o provisionamento do novo pool seja concluído.
+Navegue até **Pool2** (em *tenants1-DPT-\<* servidor de\>de usuário) para abrir o pool e monitorar seu desempenho. Se você não o vir, aguarde até que o provisionamento do novo pool seja concluído.
 
 Agora você vê que o uso de recursos em *Pool1* foi descartado e que o *Pool2* agora é carregado de forma semelhante.
 
@@ -194,19 +194,19 @@ Se um banco de dados individual em um pool sofrer uma alta carga sustentada, dep
 
 Este exercício simula o efeito de uma carga elevada em Contoso Concert Hall, quando são colocados à venda os bilhetes para um concerto popular.
 
-1. No **ISE do PowerShell**, abra o... Script demo-performancemonitoringandmanagement *. ps1.* \\
+1. No **ISE do PowerShell**, abra o script...\\*demo-performancemonitoringandmanagement. ps1* .
 1. Defina **$DemoScenario = 5, gerar uma carga normal mais uma carga alta em um único locatário (aproximadamente 95 DTU).**
 1. Defina **$SingleTenantDatabaseName = contosoconcerthall**
 1. Execute o script com **F5**.
 
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até a lista de bancos de dados no servidor *tenants1-\<DPT-User.\>* 
+1. Na [portal do Azure](https://portal.azure.com), navegue até a lista de bancos de dados no servidor de *\>de\<usuário do tenants1-DPT* . 
 1. Clique no banco de dados **contosoconcerthall** .
 1. Clique no pool em que **contosoconcerthall** está. Localize o pool na seção **pool elástico** .
 
 1. Inspecione o gráfico de **monitoramento do pool elástico** e procure o maior uso de eDTU do pool. Depois de um minuto ou dois, o aumento de carga deve começar a surgir e deve poder ver rapidamente que o conjunto atinge os 100% de utilização.
 2. Inspecione a exibição de **monitoramento do banco de dados elástico** , que mostra os bancos mais interessantes na última hora. Em breve, o banco de dados *contosoconcerthall* deve aparecer como um dos cinco bancos de dados mais interessantes.
-3. **Clique no monitoramento de banco de dados elástico** **gráfico** e ele abre a página de **utilização de recursos do banco de dados** , na qual você pode monitorar qualquer um dos bancos. Isso permite isolar a exibição do banco de dados *contosoconcerthall* .
+3. **Clique no gráfico de monitoramento de banco de dados elástico** e ele abrirá a página de **utilização de recursos do banco de dados** , na qual você pode monitorar qualquer um dos bancos. Isso permite isolar a exibição do banco de dados *contosoconcerthall* .
 4. Na lista de bancos de dados, clique em **contosoconcerthall**.
 5. Clique em **tipo de preço (dimensionar DTUs)** para abrir a página **Configurar desempenho** , na qual você pode definir um tamanho de computação autônomo para o banco de dados.
 6. Clique no separador **Padrão** para abrir as opções de dimensionamento na camada Padrão.
@@ -228,7 +228,7 @@ Quando a utilização agregada de inquilinos segue padrões de utilização prev
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficará a saber como:
 

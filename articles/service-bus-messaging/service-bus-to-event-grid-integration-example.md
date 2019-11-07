@@ -1,6 +1,6 @@
 ---
-title: Exemplos de integração do Azure Service Bus para o Event Grid | Microsoft Docs
-description: Este artigo fornece exemplos de mensagens do Service Bus e da integração do Event Grid.
+title: 'Tutorial: exemplos de integração do barramento de serviço do Azure para a grade de eventos'
+description: 'Tutorial: Este artigo fornece exemplos de mensagens do barramento de serviço e integração da grade de eventos.'
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: f31e014cf242675577bedd29a3a79332ede32bf5
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: d3f523bbc0236536734f21870474492a61532ada
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304245"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719017"
 ---
-# <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Responder aos eventos do barramento de serviço do Azure recebidos por meio da grade de eventos do Azure usando Azure Functions e aplicativos lógicos do Azure
+# <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Tutorial: responder a eventos do barramento de serviço do Azure recebidos por meio da grade de eventos do Azure usando Azure Functions e aplicativos lógicos do Azure
 Neste tutorial, você aprenderá a responder aos eventos do barramento de serviço do Azure que são recebidos por meio da grade de eventos do Azure usando o Azure Functions e os aplicativos lógicos do Azure. Você executará as seguintes etapas:
  
 - Crie um teste do Azure function para depurar e exibir o fluxo inicial de eventos da grade de eventos.
@@ -35,7 +35,7 @@ Depois de criar os artefatos do barramento de serviço, da grade de eventos, do 
 3. Verifique se a função ou o aplicativo lógico que assinou o evento recebeu o evento. 
 
 ## <a name="create-a-service-bus-namespace"></a>Criar um espaço de nomes do Service Bus
-Siga as instruções neste tutorial: [Quickstart: Use o portal do Azure para criar um tópico e assinaturas do barramento de serviço para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para realizar as seguintes tarefas:
+Siga as instruções neste tutorial: [início rápido: Use o portal do Azure para criar um tópico e assinaturas do barramento de serviço para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para realizar as seguintes tarefas:
 
 - Crie um namespace do barramento de serviço **Premium** . 
 - Obter a cadeia de conexão. 
@@ -280,7 +280,7 @@ Conecte um aplicativo lógico com o barramento de serviço do Azure e a grade de
     3. Para **nome do recurso**, selecione o namespace do barramento de serviço. 
     4. Selecione **Adicionar novo parâmetro**e selecione **filtro de sufixo**. 
     5. Para **filtro de sufixo**, insira o nome da segunda assinatura de tópico do barramento de serviço. 
-        ![Designer de aplicativos lógicos – configurar evento](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
+        Designer de aplicativos lógicos ![-configurar](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png) de evento
 6. Selecione **+ nova etapa** no designer e execute as seguintes etapas:
     1. Pesquise pelo **barramento de serviço**.
     2. Selecione **barramento de serviço** na lista. 
@@ -288,7 +288,7 @@ Conecte um aplicativo lógico com o barramento de serviço do Azure e a grade de
     4. Selecione **obter mensagens de uma assinatura de tópico (Peek-Lock)** . 
 
         ![Designer de aplicativos lógicos – ação obter mensagens](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
-    5. Insira um **nome para a conexão**. Por exemplo: **Obtenha mensagens da assinatura do tópico**e selecione o namespace do barramento de serviço. 
+    5. Insira um **nome para a conexão**. Por exemplo: **obter mensagens da assinatura do tópico**e selecionar o namespace do barramento de serviço. 
 
         ![Designer de aplicativos lógicos – selecione o namespace do barramento de serviço](./media/service-bus-to-event-grid-integration-example/logic-apps-select-namespace.png) 
     6. Selecione **RootManageSharedAccessKey**.
@@ -308,11 +308,11 @@ Conecte um aplicativo lógico com o barramento de serviço do Azure e a grade de
         ![Designer de aplicativos lógicos-selecione o tópico e a assinatura do barramento de serviço](./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png)
 8. Selecione **salvar** na barra de ferramentas no designer de aplicativos lógicos para salvar o aplicativo lógico. 
 9. Siga a instrução na seção [enviar mensagens para o tópico do barramento de serviço](#send-messages-to-the-service-bus-topic) para enviar mensagens para o tópico. 
-10. Alterne para a página **visão geral** do seu aplicativo lógico. Você vê que o aplicativo lógico é executado no **histórico** de execuções das mensagens enviadas.
+10. Alterne para a página **visão geral** do seu aplicativo lógico. Você vê que o aplicativo lógico é executado no **histórico de execuções** das mensagens enviadas.
 
     ![Designer de aplicativos lógicos-execuções de aplicativo lógico](./media/service-bus-to-event-grid-integration-example/logic-app-runs.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre o [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/).
 * Saiba mais sobre as [Funções do Azure](https://docs.microsoft.com/azure/azure-functions/).

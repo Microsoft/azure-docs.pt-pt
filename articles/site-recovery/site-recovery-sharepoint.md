@@ -1,5 +1,5 @@
 ---
-title: Configurar a recuperação de desastre para um aplicativo do SharePoint de várias camadas usando Azure Site Recovery | Microsoft Docs
+title: Recuperação de desastre para um aplicativo do SharePoint de várias camadas usando o Azure Site Recovery
 description: Este artigo descreve como configurar a recuperação de desastres para um aplicativo do SharePoint de várias camadas usando Azure Site Recovery recursos.
 author: sujayt
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: e9b688d54049c21da3276a20e27dcc9ad3d4ceca
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: cc72cb4134e6492478805421e448df26a8dc4554
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231486"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622414"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurar a recuperação de desastre para um aplicativo do SharePoint de várias camadas para recuperação de desastre usando Azure Site Recovery
 
@@ -102,7 +102,7 @@ Siga [estas diretrizes](site-recovery-vmware-to-azure.md) para iniciar a replica
 Para sites voltados para a Internet, [crie um perfil do Gerenciador de tráfego do tipo ' prioridade '](../traffic-manager/traffic-manager-create-profile.md) na assinatura do Azure. Em seguida, configure seu perfil de DNS e do Gerenciador de tráfego da seguinte maneira.
 
 
-| **Posição** | **Origem** | **Target**|
+| **Posição** | **Origem** | **Destino**|
 | --- | --- | --- |
 | DNS público | DNS público para sites do SharePoint <br/><br/> Por exemplo: sharepoint.contoso.com | Gestor de Tráfego <br/><br/> contososharepoint.trafficmanager.net |
 | DNS local | sharepointonprem.contoso.com | IP público no farm local |
@@ -140,15 +140,15 @@ Você pode implantar os scripts de Azure Site Recovery usados com mais frequênc
 
 1. Adicione um script de pré-ação a ' grupo 1 ' para failover do grupo de disponibilidade do SQL. Use o script ' ASR-SQL-FailoverAG ' publicado nos scripts de exemplo. Certifique-se de seguir as diretrizes no script e faça as alterações necessárias no script adequadamente.
 
-    ![Add-AG-Script-Step-1](./media/site-recovery-sharepoint/add-ag-script-step1.png)
+    ![Add-AG-script-Step-1](./media/site-recovery-sharepoint/add-ag-script-step1.png)
 
-    ![Add-AG-Script-Step-2](./media/site-recovery-sharepoint/add-ag-script-step2.png)
+    ![Add-AG-script-Step-2](./media/site-recovery-sharepoint/add-ag-script-step2.png)
 
 2. Adicione um script de ação post para anexar um balanceador de carga nas máquinas virtuais com failover da camada da Web (grupo 2). Use o script ' ASR-AddSingleLoadBalancer ' publicado nos scripts de exemplo. Certifique-se de seguir as diretrizes no script e faça as alterações necessárias no script adequadamente.
 
     ![Add-LB-script – Step-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
 
-    ![Add-LB-Script-Step-2](./media/site-recovery-sharepoint/add-lb-script-step2.png)
+    ![Add-LB-script – Step-2](./media/site-recovery-sharepoint/add-lb-script-step2.png)
 
 3. Adicione uma etapa manual para atualizar os registros DNS para apontar para o novo farm no Azure.
 

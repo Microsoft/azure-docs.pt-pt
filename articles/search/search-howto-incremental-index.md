@@ -1,7 +1,7 @@
 ---
-title: Configurar a indexação incremental de controle de alterações com base em conteúdo aprimorado
+title: Configurar a indexação incremental (visualização) do controle de alterações baseado em conteúdo aprimorado
 titleSuffix: Azure Cognitive Search
-description: Habilite o controle de alterações e preserve o estado do conteúdo aprimorado para processamento controlado em um conjunto de qualificações cognitiva.
+description: Habilite o controle de alterações e preserve o estado do conteúdo aprimorado para processamento controlado em um conjunto de qualificações cognitiva. Este recurso está atualmente em visualização pública.
 author: vkurpad
 manager: eladz
 ms.author: vikurpad
@@ -9,24 +9,21 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ac082d6ecb6624dc0d5bc0ab927ff8b91ebdabce
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 74631ee3167c65e59fbd05f53fe5327d1b532dba
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512187"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719935"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>Como configurar a indexação incremental de documentos aprimorados no Azure Pesquisa Cognitiva
+
+> [!IMPORTANT] 
+> A indexação incremental está atualmente em visualização pública. Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Não há suporte para Portal ou SDK do .NET no momento.
 
 Este artigo mostra como adicionar o estado e o cache a documentos aprimorados que se movem por meio de um pipeline de enriquecimento de Pesquisa Cognitiva do Azure para que você possa indexar incrementalmente documentos de qualquer uma das fontes de dados com suporte. Por padrão, um qualificable é sem monitoração de estado e a alteração de qualquer parte de sua composição requer uma execução completa do indexador. Com a indexação incremental, o indexador pode determinar quais partes do pipeline foram alteradas, reutilizar os aprimoramentos existentes para partes inalteradas e revisar os aprimoramentos das etapas que são alteradas. O conteúdo armazenado em cache é colocado no armazenamento do Azure.
 
 Se você não estiver familiarizado com a configuração de indexadores, comece com a [visão geral do indexador](search-indexer-overview.md) e continue em [habilidades](cognitive-search-working-with-skillsets.md) para saber mais sobre pipelines de enriquecimento. Para obter mais informações sobre os principais conceitos, consulte [indexação incremental](cognitive-search-incremental-indexing-conceptual.md).
-
-A indexação incremental é configurada usando a [API REST da pesquisa-versão = 2019-05-06-Preview](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations).
-
-> [!NOTE]
-> Este recurso ainda não está disponível no portal e deve ser usado programaticamente.
->
 
 ## <a name="modify-an-existing-indexer"></a>Modificar um indexador existente
 

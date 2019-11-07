@@ -1,5 +1,5 @@
 ---
-title: Roteamento dependente de dados com o Azure SQL Database | Microsoft Docs
+title: Roteamento dependente de dados com o banco de dado SQL do Azure
 description: Como usar a classe ShardMapManager em aplicativos .NET para roteamento dependente de dados, um recurso de bancos de dados fragmentados no banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 3f0ce4f3bdf3159e991bfd72590882dfa7412ee3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 319f2744cd437aea51a05592cd7a26f8b58fe761
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568488"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690284"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Usar o roteamento dependente de dados para rotear uma consulta para o banco de dado apropriado
 
 O **Roteamento Dependente de dados** é a capacidade de usar os dados em uma consulta para rotear a solicitação para um banco de dados apropriado. O roteamento dependente de dados é um padrão fundamental ao trabalhar com bancos de dado fragmentados. O contexto da solicitação também pode ser usado para rotear a solicitação, especialmente se a chave de fragmentação não fizer parte da consulta. Cada consulta ou transação específica em um aplicativo que usa o roteamento dependente de dados é restrita ao acesso a um banco por solicitação. Para as ferramentas elásticas do banco de dados SQL do Azure, esse roteamento é realizado com a classe **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)).
 
-O aplicativo não precisa controlar várias cadeias de conexão ou locais de BD associados a diferentes fatias de dados no ambiente fragmentado. Em vez disso, o [Gerenciador de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md) abre conexões para os bancos de dados corretos quando necessário, com base nos dados no mapa de fragmentos e no valor da chave de fragmentação que é o destino da solicitação do aplicativo. Normalmente, a chave é *Customer_ID*, *tenant_id*, *date_key*ou algum outro identificador específico que é um parâmetro fundamental da solicitação de banco de dados.
+O aplicativo não precisa controlar várias cadeias de conexão ou locais de BD associados a diferentes fatias de dados no ambiente fragmentado. Em vez disso, o [Gerenciador de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md) abre conexões para os bancos de dados corretos quando necessário, com base nos dados no mapa de fragmentos e no valor da chave de fragmentação que é o destino da solicitação do aplicativo. Normalmente, a chave é a *Customer_ID*, *tenant_id*, *date_key*ou algum outro identificador específico que é um parâmetro fundamental da solicitação de banco de dados.
 
 Para obter mais informações, consulte [escalar horizontalmente SQL Server com roteamento dependente de dados](https://technet.microsoft.com/library/cc966448.aspx).
 
@@ -174,7 +174,7 @@ Os pacotes necessários para implementar o tratamento de falhas transitórias s�
 
 As propriedades transacionais são garantidas para todas as operações locais em um fragmento. Por exemplo, as transações enviadas por meio do roteamento dependente de dados são executadas dentro do escopo do fragmento de destino para a conexão. Neste momento, não há recursos fornecidos para inscrever várias conexões em uma transação e, portanto, não há nenhuma garantia transacional para operações executadas em fragmentos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para desanexar um fragmento ou anexar novamente um fragmento, consulte [usando a classe RecoveryManager para corrigir problemas de mapa de fragmentos](sql-database-elastic-database-recovery-manager.md)
 

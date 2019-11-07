@@ -1,5 +1,5 @@
 ---
-title: Visão geral da consulta elástica do banco de dados SQL do Azure | Microsoft Docs
+title: Visão geral da consulta elástica do banco de dados SQL do Azure
 description: A consulta elástica permite executar uma consulta Transact-SQL que abrange vários bancos de dados.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 07/01/2019
-ms.openlocfilehash: 313e8af0e42f5108a22261a475b5340208adb7bf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 08c191742425c448618db255491c709130df33a1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568556"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690358"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Visão geral da consulta elástica do banco de dados SQL do Azure (versão prévia)
 
@@ -38,7 +38,7 @@ As consultas elásticas agora podem enviar por push parâmetros SQL para os banc
 
 ### <a name="stored-procedure-execution"></a>Execução de procedimento armazenado
 
-Execute chamadas de procedimento armazenado remoto ou funções remotas usando [\_SP execute \_Remote](https://msdn.microsoft.com/library/mt703714).
+Execute chamadas de procedimento armazenado remoto ou funções remotas usando o [sp\_executar \_remoto](https://msdn.microsoft.com/library/mt703714).
 
 ### <a name="flexibility"></a>Flexibilidade
 
@@ -55,8 +55,8 @@ Uma consulta elástica permite acesso fácil a uma coleção inteira de bancos d
 
 Os cenários de cliente para consulta elástica são caracterizados pelas seguintes topologias:
 
-* **Particionamento vertical-consultas entre bancos de dados** (Topologia 1): Os dados são particionados verticalmente entre um número de bancos de dados em uma camada. Normalmente, diferentes conjuntos de tabelas residem em bancos de dados diferentes. Isso significa que o esquema é diferente em bancos de dados diferentes. Por exemplo, todas as tabelas para o inventário estão em um banco de dados enquanto todas as tabelas relacionadas à contabilidade estão em um segundo banco de dados. Casos de uso comuns com essa topologia exigem que uma consulta entre ou compile relatórios entre tabelas em vários bancos de dados.
-* **Particionamento horizontal-fragmentação** (Topologia 2): Os dados são particionados horizontalmente para distribuir linhas em uma camada de dados expandida. Com essa abordagem, o esquema é idêntico em todos os bancos de dados participantes. Essa abordagem também é chamada de "fragmentação". A fragmentação pode ser realizada e gerenciada usando (1) as bibliotecas de ferramentas de banco de dados elástico ou (2) autofragmentação. Uma consulta elástica é usada para consultar ou compilar relatórios em vários fragmentos.
+* **Particionamento vertical-consultas entre bancos** de dados (topologia 1): os dados são particionados verticalmente entre um número de databases em uma camada de dado. Normalmente, diferentes conjuntos de tabelas residem em bancos de dados diferentes. Isso significa que o esquema é diferente em bancos de dados diferentes. Por exemplo, todas as tabelas para o inventário estão em um banco de dados enquanto todas as tabelas relacionadas à contabilidade estão em um segundo banco de dados. Casos de uso comuns com essa topologia exigem que uma consulta entre ou compile relatórios entre tabelas em vários bancos de dados.
+* **Particionamento horizontal-fragmentação** (topologia 2): os dados são particionados horizontalmente para distribuir linhas em uma camada de dados expandida. Com essa abordagem, o esquema é idêntico em todos os bancos de dados participantes. Essa abordagem também é chamada de "fragmentação". A fragmentação pode ser realizada e gerenciada usando (1) as bibliotecas de ferramentas de banco de dados elástico ou (2) autofragmentação. Uma consulta elástica é usada para consultar ou compilar relatórios em vários fragmentos.
 
 > [!NOTE]
 > A consulta elástica funciona melhor para cenários de relatório em que a maior parte do processamento (filtragem, agregação) pode ser executada no lado da fonte externa. Ele não é adequado para operações de ETL em que uma grande quantidade de dados está sendo transferida de banco (es) remoto (s). Para obter cargas de trabalho de relatório pesadas ou cenários de data warehouse com consultas mais complexas, considere também o uso [do Azure SQL data warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
@@ -72,13 +72,13 @@ Uma consulta elástica pode ser usada para tornar os dados localizados em um ban
 > Você deve ter a permissão alterar qualquer fonte de dados externa. Essa permissão está incluída com a permissão ALTER DATABASE. As permissões alterar qualquer fonte de dados externa são necessárias para fazer referência à fonte de dados subjacente.
 >
 
-**Dados de referência**: A topologia é usada para o gerenciamento de dados de referência. Na figura abaixo, duas tabelas (T1 e T2) com dados de referência são mantidas em um banco de dado dedicado. Usando uma consulta elástica, agora você pode acessar as tabelas T1 e T2 remotamente de outros bancos de dados, conforme mostrado na figura. Use a topologia 1 se as tabelas de referência forem consultas pequenas ou remotas na tabela de referência têm predicados seletivos.
+**Dados de referência**: a topologia é usada para o gerenciamento de dados de referência. Na figura abaixo, duas tabelas (T1 e T2) com dados de referência são mantidas em um banco de dado dedicado. Usando uma consulta elástica, agora você pode acessar as tabelas T1 e T2 remotamente de outros bancos de dados, conforme mostrado na figura. Use a topologia 1 se as tabelas de referência forem consultas pequenas ou remotas na tabela de referência têm predicados seletivos.
 
 **Figura 2** Particionamento vertical-usando a consulta elástica para consultar dados de referência
 
 ![Particionamento vertical-usando a consulta elástica para consultar dados de referência][3]
 
-**Consulta entre bancos de dados**: As consultas elásticas permitem casos de uso que exigem consultas em vários bancos de dados SQL. A Figura 3 mostra quatro bancos de dados diferentes: CRM, inventário, RH e produtos. As consultas executadas em um dos bancos de dados também precisam de acesso a um ou todos os outros bancos de dados. Usando uma consulta elástica, você pode configurar seu banco de dados para esse caso executando algumas instruções DDL simples em cada um dos quatro bancos de dados. Após essa configuração única, o acesso a uma tabela remota é tão simples quanto fazer referência a uma tabela local de suas consultas T-SQL ou de suas ferramentas de BI. Essa abordagem é recomendada se as consultas remotas não retornarem resultados grandes.
+**Consulta entre bancos de dados**: consultas elásticas permitem casos de uso que exigem consultas em vários bancos de dados SQL. A Figura 3 mostra quatro bancos de dados diferentes: CRM, inventário, RH e produtos. As consultas executadas em um dos bancos de dados também precisam de acesso a um ou todos os outros bancos de dados. Usando uma consulta elástica, você pode configurar seu banco de dados para esse caso executando algumas instruções DDL simples em cada um dos quatro bancos de dados. Após essa configuração única, o acesso a uma tabela remota é tão simples quanto fazer referência a uma tabela local de suas consultas T-SQL ou de suas ferramentas de BI. Essa abordagem é recomendada se as consultas remotas não retornarem resultados grandes.
 
 **Figura 3** Particionamento vertical-usando a consulta elástica para consultar em vários bancos de dados
 
@@ -138,7 +138,7 @@ A consulta elástica está incluída no custo dos bancos de dados do banco de da
 * A execução da sua primeira consulta elástica pode levar alguns minutos na camada de serviço Standard. Esse tempo é necessário para carregar a funcionalidade de consulta elástica; o carregamento de desempenho melhora com as camadas de serviço e os tamanhos de computação mais altos.
 * Ainda não há suporte para scripts de fontes de dados externas ou tabelas externas do SSMS ou SSDT.
 * A importação/exportação para o BD SQL ainda não dá suporte a fontes de dados externas e tabelas externas. Se você precisar usar a importação/exportação, Remova esses objetos antes de exportá-los e recriá-los após a importação.
-* Atualmente, a consulta elástica só dá suporte ao acesso somente leitura a tabelas externas. No entanto, você pode usar a funcionalidade completa do T-SQL no banco de dados em que a tabela externa está definida. Isso pode ser útil para, por exemplo, persistir os resultados temporários usando, como SELECT < column_list > em < local_table > ou para definir procedimentos armazenados no banco de dados de consulta elástica que se referem a tabelas externas.
+* Atualmente, a consulta elástica só dá suporte ao acesso somente leitura a tabelas externas. No entanto, você pode usar a funcionalidade completa do T-SQL no banco de dados em que a tabela externa está definida. Isso pode ser útil para, por exemplo, manter os resultados temporários usando, como SELECT < column_list > em < local_table > ou para definir procedimentos armazenados no banco de dados de consulta elástica que se referem a tabelas externas.
 * Exceto nvarchar (max), os tipos LOB (incluindo tipos espaciais) não têm suporte em definições de tabela externa. Como alternativa, você pode criar uma exibição no banco de dados remoto que converte o tipo LOB em nvarchar (max), definir sua tabela externa na exibição em vez da tabela base e, em seguida, convertê-la novamente no tipo LOB original em suas consultas.
 * Colunas de tipo de dados nvarchar (max) no conjunto de resultados desabilite o envio em lote avançado técnicas usado na implementação de consulta elástica e pode afetar o desempenho da consulta para uma ordem de magnitude, ou até duas ordens de magnitude em casos de uso não canônicos em que grande quantidade de os dados não agregados estão sendo transferidos como resultado da consulta.
 * Atualmente, não há suporte para estatísticas de coluna em tabelas externas. As estatísticas de tabela têm suporte, mas precisam ser criadas manualmente.
@@ -148,13 +148,13 @@ A consulta elástica está incluída no custo dos bancos de dados do banco de da
 
 Compartilhe comentários sobre sua experiência com consultas elásticas com os EUA abaixo, nos fóruns do MSDN ou em Stack Overflow. Estamos interessados em todos os tipos de comentários sobre o serviço (defeitos, bordas aproximadas, lacunas de recursos).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter um tutorial de particionamento vertical, consulte [introdução à consulta entre bancos de dados (particionamento vertical)](sql-database-elastic-query-getting-started-vertical.md).
 * Para obter sintaxe e exemplos de consultas para dados particionados verticalmente, consulte [consultando dados particionados verticalmente)](sql-database-elastic-query-vertical-partitioning.md)
 * Para obter um tutorial horizontal de particionamento (fragmentação), consulte [introdução à consulta elástica para particionamento horizontal (fragmentação)](sql-database-elastic-query-getting-started.md).
 * Para obter sintaxe e exemplos de consultas para dados particionados horizontalmente, consulte [consultando dados particionados horizontalmente)](sql-database-elastic-query-horizontal-partitioning.md)
-* Confira [\_SP \_execute Remote](https://msdn.microsoft.com/library/mt703714) para um procedimento armazenado que execute uma instrução Transact-SQL em um único banco de dados SQL do Azure remoto ou em conjunto de dados que servem como fragmentos em um esquema de particionamento horizontal.
+* Consulte [sp\_execute \_Remote](https://msdn.microsoft.com/library/mt703714) para obter um procedimento armazenado que executa uma instrução TRANSACT-SQL em um único banco de dados SQL do Azure remoto ou conjunto de bancos de dados que serve como fragmentos em um esquema de particionamento horizontal.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-overview/overview.png

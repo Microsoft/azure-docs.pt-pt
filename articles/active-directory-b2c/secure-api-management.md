@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 531f6d86d57be550d0a1147e131d93ae6e298406
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 942c565c885d59a14d64e7ec06beee0354e7c4ca
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474749"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641627"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Proteger uma API de gerenciamento de API do Azure com Azure AD B2C
 
@@ -35,7 +35,7 @@ Você precisa dos seguintes recursos em vigor antes de continuar com as etapas n
 
 Quando você protege uma API no gerenciamento de API do Azure com Azure AD B2C, você precisa de vários valores para a [política de entrada](../api-management/api-management-howto-policies.md) que você cria em APIM. Primeiro, registre a ID do aplicativo de um aplicativo que você criou anteriormente em seu locatário Azure AD B2C. Se você estiver usando o aplicativo criado nos pré-requisitos, use a ID do aplicativo para *webbapp1*.
 
-Você pode usar a experiência de **aplicativos** atual ou nossa nova experiência unificada de **registros de aplicativo (versão prévia)** para obter a ID do aplicativo. [Saiba mais sobre a experiência de visualização](http://aka.ms/b2cappregintro).
+Você pode usar a experiência de **aplicativos** atual ou nossa nova experiência unificada de **registros de aplicativo (versão prévia)** para obter a ID do aplicativo. [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
 
 #### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
 
@@ -61,7 +61,7 @@ Em seguida, obtenha a URL de configuração conhecida para um dos seus Azure AD 
 
 1. Navegue até seu locatário do Azure AD B2C no [portal do Azure](https://portal.azure.com).
 1. Em **políticas**, selecione **fluxos de usuário (políticas)** .
-1. Selecione uma política existente, por exemplo, *B2C_1_signupsignin1*, em seguida, selecione **executar fluxo de usuário**.
+1. Selecione uma política existente, por exemplo *B2C_1_signupsignin1*, em seguida, selecione **executar fluxo de usuário**.
 1. Registre a URL no hiperlink exibido no cabeçalho **executar fluxo de usuário** próximo à parte superior da página. Essa URL é o ponto de extremidade de descoberta conhecido do OpenID Connect para o fluxo do usuário e você o usa na próxima seção ao configurar a política de entrada no gerenciamento de API do Azure.
 
     ![Hiperlink de URI conhecido na página executar agora do portal do Azure](media/secure-apim-with-b2c-token/portal-01-policy-link.png)
@@ -127,7 +127,7 @@ Primeiro, você precisa de um token emitido por Azure AD B2C para usar no cabeç
 
 1. Navegue até seu locatário do Azure AD B2C no [portal do Azure](https://portal.azure.com).
 1. Em **políticas**, selecione **fluxos de usuário (políticas)** .
-1. Selecione um fluxo de usuário de inscrição/entrada existente, por exemplo, *B2C_1_signupsignin1*.
+1. Selecione um fluxo de usuário de inscrição/entrada existente, por exemplo *B2C_1_signupsignin1*.
 1. Para **aplicativo**, selecione *webapp1*.
 1. Para **URL de resposta**, escolha `https://jwt.ms`.
 1. Selecione **executar fluxo de usuário**.

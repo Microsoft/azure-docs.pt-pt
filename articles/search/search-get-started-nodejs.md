@@ -2,19 +2,19 @@
 title: 'Início rápido: criar um índice de pesquisa no node. js usando APIs REST'
 titleSuffix: Azure Cognitive Search
 description: Exemplo de Node. js para o Azure Pesquisa Cognitiva, demonstrando como criar, carregar dados e consultar a partir do JavaScript.
-author: lobrien
+author: HeidiSteen
 manager: nitinme
-ms.author: laobri
+ms.author: heidist
 ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 20a5af5ac7163c182ea01a9a9442d3c99614442d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 8b7308b5289ba747dba90716b495ca1ba6afb209
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787433"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719981"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Início rápido: criar um índice de Pesquisa Cognitiva do Azure no node. js usando APIs REST
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Chamadas para o serviço exigem um ponto de extremidade de URL e uma chave de ac
 
 1. [Entre no portal do Azure](https://portal.azure.com/)e, em sua página de **visão geral** do serviço de pesquisa, obtenha o nome do serviço de pesquisa. Você pode confirmar o nome do serviço examinando a URL do ponto de extremidade. Se a URL do ponto de extremidade fosse `https://mydemo.search.windows.net`, o nome do serviço seria `mydemo`.
 
-2. Em **configurações**  > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+2. Em **configurações** > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
     Obtenha também a chave de consulta. É uma prática recomendada emitir solicitações de consulta com acesso somente leitura.
 
@@ -680,7 +680,7 @@ Execute o programa com `node index.js`. Agora, além das etapas anteriores, as c
 
 O exemplo usa uma pequena quantidade de dados de Hotel, suficiente para demonstrar as noções básicas de criação e consulta de um índice de Pesquisa Cognitiva do Azure.
 
-A classe **AzureSearchClient** encapsula a configuração, as URLs e as solicitações HTTP básicas para o serviço de pesquisa. O arquivo **index. js** carrega os dados de configuração para o serviço de pesquisa cognitiva do Azure, os dados do hotel que serão carregados para indexação e, em `run` função, Orders, e executa as várias operações.
+A classe **AzureSearchClient** encapsula a configuração, as URLs e as solicitações HTTP básicas para o serviço de pesquisa. O arquivo **index. js** carrega os dados de configuração para o serviço de pesquisa cognitiva do Azure, os dados do hotel que serão carregados para indexação e, em sua função `run`, Orders e executa as várias operações.
 
 O comportamento geral da função `run` é excluir o índice de Pesquisa Cognitiva do Azure, se ele existir, criar o índice, adicionar alguns dados e executar algumas consultas.  
 

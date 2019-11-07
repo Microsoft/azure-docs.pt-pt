@@ -1,5 +1,5 @@
 ---
-title: Otimizando transações para o Azure SQL Data Warehouse | Microsoft Docs
+title: Otimizando transações
 description: Saiba como otimizar o desempenho do seu código transacional no Azure SQL Data Warehouse, minimizando o risco de reversões longas.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2299c526dd63eb8e8772661ee8fae66153fc36c3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: b8b8be9467ade870e57355be91b0de329b0f6217
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479683"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692859"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Otimizando transações no Azure SQL Data Warehouse
 Saiba como otimizar o desempenho do seu código transacional no Azure SQL Data Warehouse, minimizando o risco de reversões longas.
@@ -42,8 +43,8 @@ Os limites de segurança da transação se aplicam somente a operações totalme
 ## <a name="minimally-logged-operations"></a>Operações minimamente registradas
 As seguintes operações podem ser minimamente registradas em log:
 
-* CREATE TABLE COMO SELECT ([CTAS](sql-data-warehouse-develop-ctas.md))
-* INSERT..SELECT
+* CREATE TABLE como SELECT ([CTAS](sql-data-warehouse-develop-ctas.md))
+* INSERIR.. Não
 * CREATE INDEX
 * ALTER INDEX REBUILD
 * DROP INDEX
@@ -67,7 +68,7 @@ CTAS e INSERT... SELECT são ambas operações de carregamento em massa. No enta
 
 | Índice primário | Cenário de carregamento | Modo de log |
 | --- | --- | --- |
-| Área dinâmica para dados |Any |**Muito** |
+| Área dinâmica para dados |Qualquer |**Muito** |
 | Índice clusterizado |Tabela de destino vazia |**Muito** |
 | Índice clusterizado |As linhas carregadas não se sobrepõem às páginas existentes no destino |**Muito** |
 | Índice clusterizado |Linhas carregadas sobrepõem-se às páginas existentes no destino |Completo |
@@ -84,7 +85,7 @@ Vale a pena observar que qualquer gravação para atualizar índices secundário
 Carregar dados em uma tabela não vazia com um índice clusterizado geralmente pode conter uma mistura de linhas totalmente registradas e registradas minimamente. Um índice clusterizado é uma árvore equilibrada (árvore b) de páginas. Se a página que está sendo gravada já contiver linhas de outra transação, essas gravações serão totalmente registradas. No entanto, se a página estiver vazia, a gravação nessa página será registrada minimamente.
 
 ## <a name="optimizing-deletes"></a>Otimizando exclusões
-DELETE é uma operação totalmente registrada em log.  Se você precisar excluir uma grande quantidade de dados em uma tabela ou em uma partição, isso geralmente faz mais sentido para `SELECT` os dados que você deseja manter, que podem ser executados como uma operação minimamente registrada em log.  Para selecionar os dados, crie uma nova tabela com [CTAS](sql-data-warehouse-develop-ctas.md).  Depois de criado, [](/sql/t-sql/statements/rename-transact-sql) use renomear para alternar a tabela antiga com a tabela recém-criada.
+DELETE é uma operação totalmente registrada em log.  Se você precisar excluir uma grande quantidade de dados em uma tabela ou em uma partição, geralmente faz mais sentido `SELECT` os dados que você deseja manter, que podem ser executados como uma operação minimamente registrada em log.  Para selecionar os dados, crie uma nova tabela com [CTAS](sql-data-warehouse-develop-ctas.md).  Depois de criado, use [renomear](/sql/t-sql/statements/rename-transact-sql) para alternar a tabela antiga com a tabela recém-criada.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -407,7 +408,7 @@ END
 O SQL Data Warehouse do Azure permite [pausar, retomar e dimensionar](sql-data-warehouse-manage-compute-overview.md) seu data warehouse sob demanda. Ao pausar ou dimensionar seu SQL Data Warehouse, é importante entender que todas as transações em andamento são encerradas imediatamente; fazendo com que todas as transações abertas sejam revertidas. Se sua carga de trabalho tiver emitido uma modificação de dados de execução longa e incompleta antes da operação de pausa ou escala, esse trabalho precisará ser desfeito. Isso pode afetar o tempo necessário para pausar ou dimensionar seu banco de dados SQL Data Warehouse do Azure. 
 
 > [!IMPORTANT]
-> `UPDATE` E`DELETE` são operações totalmente registradas em log e, portanto, essas operações de desfazer/refazer podem levar significativamente mais tempo do que as operações de log minimamente equivalentes. 
+> Tanto `UPDATE` quanto `DELETE` são operações totalmente registradas em log e, portanto, essas operações de desfazer/refazer podem levar significativamente mais tempo do que as operações de log minimamente equivalentes. 
 > 
 > 
 
