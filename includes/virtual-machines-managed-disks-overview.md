@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 11/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f041381534dfe59036ce1b9d91792f9e78d0dace
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7ceff623c6559ef5e929d6d5bff9e07cca9039d2
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73523567"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796291"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos Managed disks
 
@@ -55,7 +55,7 @@ O Managed disks oferece dois tipos diferentes de criptografia. A primeira é a S
 
 ### <a name="server-side-encryption"></a>Encriptação do lado do servidor
 
-A [criptografia do lado do servidor do Azure](../articles/storage/common/storage-service-encryption.md) fornece criptografia em repouso e protege seus dados para atender aos compromissos de conformidade e segurança organizacional. A criptografia do lado do servidor é habilitada por padrão para todos os discos gerenciados, instantâneos e imagens em todas as regiões em que os Managed disks estão disponíveis. Visite a [página de perguntas frequentes Managed disks](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para obter mais detalhes.
+A [criptografia do lado do servidor do Azure](../articles/virtual-machines/windows/disk-encryption.md) fornece criptografia em repouso e protege seus dados para atender aos compromissos de conformidade e segurança organizacional. A criptografia do lado do servidor é habilitada por padrão para todos os discos gerenciados, instantâneos e imagens em todas as regiões em que os Managed disks estão disponíveis. Você pode permitir que o Azure gerencie suas chaves para você, elas são chaves gerenciadas pela plataforma ou você pode gerenciar as chaves por conta própria, elas são chaves gerenciadas pelo cliente (versão prévia). Visite a [página de perguntas frequentes Managed disks](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para obter mais detalhes.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -85,7 +85,7 @@ Cada VM contém um disco temporário, que não é um disco gerenciado. O disco t
 
 Um instantâneo do disco gerenciado é uma cópia completa consistente com falha somente leitura de um disco gerenciado que é armazenado como um disco gerenciado padrão por padrão. Com os instantâneos, você pode fazer backup dos discos gerenciados em qualquer momento. Esses instantâneos existem independentemente do disco de origem e podem ser usados para criar novos discos gerenciados. 
 
-Os instantâneos são cobrados com base no tamanho usado. Por exemplo, se você criar um instantâneo de um disco gerenciado com capacidade provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, esse instantâneo será cobrado somente pelo tamanho dos dados usados de 10 GiB. Você pode ver o tamanho usado de seus instantâneos examinando o [relatório de uso do Azure](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). Por exemplo, se o tamanho dos dados usados de um instantâneo for 10 GiB, o relatório de uso **diário** mostrará 10 GIB/(31 dias) = 0,3226 como a quantidade consumida.
+Os instantâneos são cobrados com base no tamanho usado. Por exemplo, se você criar um instantâneo de um disco gerenciado com capacidade provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, esse instantâneo será cobrado somente pelo tamanho dos dados usados de 10 GiB. Você pode ver o tamanho usado de seus instantâneos examinando o [relatório de uso do Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). Por exemplo, se o tamanho dos dados usados de um instantâneo for 10 GiB, o relatório de uso **diário** mostrará 10 GIB/(31 dias) = 0,3226 como a quantidade consumida.
 
 Para saber mais sobre como criar instantâneos para discos gerenciados, consulte os seguintes recursos:
 
@@ -119,7 +119,7 @@ O provisionamento de primeiro nível define o IOPS por disco e a atribuição de
 
 Como um exemplo dessas limitações, uma VM Standard_DS1v1 é impedida de alcançar o potencial de 5.000 IOPS de um disco p30, seja em cache ou não, devido aos limites nos níveis SSD e de rede:
 
-![Standard_DS1v1 exemplo de alocação](media/virtual-machines-managed-disks-overview/example-vm-allocation.png)
+![Standard_DS1v1 alocação de exemplo](media/virtual-machines-managed-disks-overview/example-vm-allocation.png)
 
 O Azure usa o canal de rede priorizado para o tráfego de disco, que obtém a precedência sobre outra prioridade baixa do tráfego de rede. Isso ajuda os discos a manter o desempenho esperado no caso de contenções de rede. Da mesma forma, o armazenamento do Azure lida com contenções de recursos e outros problemas em segundo plano com balanceamento de carga automático. O armazenamento do Azure aloca os recursos necessários quando você cria um disco e aplica o balanceamento proativo e reativo de recursos para lidar com o nível de tráfego. Isso garante que os discos possam sustentar seus destinos de taxa de transferência e IOPS esperados. Você pode usar as métricas em nível de VM e de disco para controlar o desempenho e os alertas de configuração conforme necessário.
 
