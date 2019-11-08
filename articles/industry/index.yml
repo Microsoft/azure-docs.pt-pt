@@ -1,0 +1,53 @@
+### YamlMime:Hub
+title: Documentação da Indústria para o Azure
+summary: Saiba como utilizar o Azure para criar soluções para casos de utilização comuns da indústria.
+brand: azure
+metadata:
+  title: Documentação da Indústria para o Azure
+  description: Saiba como utilizar o Azure para criar soluções para casos de utilização comuns da indústria.
+  ms.service: azure-industry
+  ms.topic: hub-page
+  ms.collection: collection
+  author: DCtheGeek
+  ms.author: dacoulte
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 2777093db7486f17cf19b45db08bbd0168a4e2a8
+  ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 11/07/2019
+  ms.locfileid: "73797079"
+highlightedContent:
+  items:
+  - title: Azure FarmBeats
+    itemType: overview
+    url: ./agriculture/overview.md
+  - title: Fórum da Comunidade
+    itemType: concept
+    url: https://aka.ms/FarmBeatsMSDN
+  - title: UserVoice (Comentários)
+    itemType: get-started
+    url: https://aka.ms/FarmBeatsForum
+productDirectory:
+  title: Áreas de Soluções para Indústrias
+  items:
+  - title: Azure FarmBeats
+    imageSrc: ../media/index/industry-agriculture-farmbeats.svg
+    summary: Cria rapidamente soluções digitais para a indústria agrícola na cloud.
+    url: ./agriculture/overview.md
+  - title: Serviços Financeiros
+    imageSrc: ../media/index/industry-financial.png
+    summary: Soluções e casos de utilização para a indústria dos Serviços Financeiros.
+    url: /azure/industry-marketing/financial/
+  - title: Cuidados de Saúde e Ciências da Vida
+    imageSrc: ../media/index/industry-health.png
+    summary: Soluções e casos de utilização para a indústria dos Cuidados de Saúde e Ciências da Vida.
+    url: /azure/industry-marketing/health/
+  - title: Fabrico
+    imageSrc: ../media/index/industry-manufacturing.png
+    summary: Soluções e casos de utilização para a indústria da Manufatura.
+    url: /azure/industry-marketing/manufacturing/
+  - title: Retalho
+    imageSrc: ../media/index/industry-retail.png
+    summary: Soluções e casos de utilização para a indústria do Retalho.
+    url: /azure/industry-marketing/retail/

@@ -58,11 +58,13 @@
       href: tutorial-train-deploy-model-cli.md
 - name: Amostras
   items:
-    - name: Notebooks
+    - name: Jupyter Notebooks
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
     - name: Azure Open Datasets
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
+    - name: Exemplos de MLOps ponto a ponto
+      href: 'https://github.com/microsoft/MLOps'
 - name: Conceitos
   items:
     - name: Área de trabalho
@@ -109,14 +111,11 @@
               href: how-to-change-storage-access-key.md
         - name: Monitorizar o Azure Machine Learning
           href: monitor-azure-machine-learning.md
+        - name: Integração do Event Grid
+          href: concept-event-grid-integration.md
     - name: Aprendizagem aprofundada
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
-    - name: Integração do Event Grid
-      href: concept-event-grid-integration.md
-    - name: Integração no Git
-      displayName: git github gitlab
-      href: concept-train-model-git-integration.md
 - name: Guias de procedimentos
   items:
     - name: Criar e gerir áreas de trabalho
@@ -145,6 +144,9 @@
         - name: Utilizar a extensão do VS Code
           displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
           href: how-to-vscode-tools.md
+        - name: Integração no Git
+          displayName: github gitlab
+          href: concept-train-model-git-integration.md
     - name: Trabalhar com dados
       items:
         - name: Obter dados a partir de um arquivo de dados
@@ -330,21 +332,17 @@
       href: how-to-use-event-grid.md
 - name: Referência
   items:
-    - name: SDK de ML (Python)
+    - name: SDK Python
       displayName: 'api, core, package, python, class'
       href: 'https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py'
-    - name: SDK de ML (R)
+    - name: SDK para R
       displayName: 'api, core, package, R, class'
       href: 'https://azure.github.io/azureml-sdk-for-r/reference/index.html'
-    - name: CLI de Aprendizagem automática
+    - name: CLI
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
     - name: API REST
       href: 'https://docs.microsoft.com/rest/api/azureml/'
-    - name: Monitorizar referência de dados
-      href: monitor-resource-reference.md
-    - name: Referência YAML do pipeline de aprendizagem automática
-      href: reference-pipeline-yaml.md
     - name: Módulos do estruturador
       displayName: 'module, reference, algorithm, studio'
       items:
@@ -478,6 +476,12 @@
               href: ../algorithm-module-reference/summarize-data.md
         - name: Mensagens e códigos de erro
           href: ../algorithm-module-reference/machine-learning-module-error-codes.md
+    - name: ML à escala
+      href: /azure/architecture/data-guide/big-data/machine-learning-at-scale
+    - name: Monitorizar referência de dados
+      href: monitor-resource-reference.md
+    - name: Referência YAML do pipeline de aprendizagem automática
+      href: reference-pipeline-yaml.md
 - name: Recursos
   items:
     - name: Notas de versão

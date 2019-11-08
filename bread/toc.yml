@@ -516,6 +516,13 @@
     - name: API do Azure para FHIR
       tocHref: /azure/healthcare-apis
       topicHref: /azure/healthcare-apis
+    - name: Indústria para o Azure
+      tocHref: /azure/industry
+      topicHref: /azure/industry
+      items:
+        - name: Azure FarmBeats
+          tocHref: /azure/industry/agriculture
+          topicHref: /azure/industry/agriculture
     - name: Jenkins
       tocHref: /azure/jenkins/
       topicHref: /azure/jenkins/

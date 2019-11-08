@@ -119,7 +119,7 @@
           href: search-security-trimming-for-azure-search.md
         - name: Filtrar identidades do AAD
           href: search-security-trimming-for-azure-search-with-aad.md
-        - name: Gerir chaves de encriptação (pré-visualização)
+        - name: Gerir chaves de encriptação
           href: search-security-manage-encryption-keys.md
     - name: Desenvolvimento
       items:
@@ -253,7 +253,7 @@
           href: cognitive-search-concept-troubleshooting.md
         - name: Ligações de documentação
           href: cognitive-search-resources-documentation.md
-        - name: Arquivo de dados de conhecimento (pré-visualização)
+        - name: Arquivo de dados de conhecimento
           items:
             - name: Criar com REST e Postman
               href: knowledge-store-create-rest.md
@@ -277,7 +277,7 @@
           href: query-simple-syntax.md
         - name: Sintaxe de consulta Lucene completo
           href: query-lucene-syntax.md
-        - name: moreLikeThis (pré-visualização)
+        - name: Parâmetro de consulta moreLikeThis
           href: search-more-like-this.md
     - name: Aplicar filtros
       items:

@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 10/29/2019
-  ms.openlocfilehash: 3459782fc0cad6767889d7377fcbfeaf00e99b1e
-  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+  ms.openlocfilehash: 0b5e264cc7fd2e220e2d6b5b7c4e886f4c8a8d32
+  ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73580649"
+  ms.lasthandoff: 11/07/2019
+  ms.locfileid: "73748015"
 landingContent:
 - title: Introdução ao Azure ML
   linkLists:
@@ -97,7 +97,9 @@ landingContent:
       url: service/how-to-consume-web-service.md
     - text: Predição de lote
       url: service/how-to-run-batch-predictions.md
-- title: Explorar documentos de referência
+    - text: Exemplos ponto a ponto (GitHub)
+      url: https://github.com/microsoft/MLOps
+- title: Ir para documentos de referência
   linkLists:
   - linkListType: reference
     links:
@@ -109,3 +111,7 @@ landingContent:
       url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
     - text: Algoritmos e módulos do estruturador
       url: algorithm-module-reference/module-reference.md
+    - text: API REST
+      url: https://docs.microsoft.com/rest/api/azureml/
+    - text: Arquiteturas de referência de IA (GitHub)
+      url: https://github.com/Microsoft/AI
