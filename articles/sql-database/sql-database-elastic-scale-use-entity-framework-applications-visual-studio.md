@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
-ms.openlocfilehash: a6ed6eb2596663dd276fe580c9f2574163589b1d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4198b3a9213ed535c6649c50a20f2ff957d60c94
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690101"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823491"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca de cliente do banco de dados elástico com Entity Framework
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 97b954ee5e00c13211a3b2a2254b6d34bccb780c
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: e0e649045e3efe488804fd37c030fe01991ad232
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674947"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803615"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor do Azure Functions Python
 
@@ -30,7 +30,7 @@ Para projetos de exemplo de função autônoma no Python, consulte os [exemplos 
 
 Azure Functions espera que uma função seja um método sem estado em seu script Python que processa a entrada e produz a saída. Por padrão, o tempo de execução espera que o método seja implementado como um método global chamado `main()` no arquivo de `__init__.py`. Você também pode [especificar um ponto de entrada alternativo](#alternate-entry-point).
 
-Os dados de gatilhos e associações são associados à função por meio de atributos de método usando a propriedade `name` definida no arquivo *Function. JSON* . Por exemplo, a _Function. JSON_ abaixo descreve uma função simples disparada por uma solicitação HTTP denominada `req`:
+Os dados de gatilhos e associações são associados à função por meio de atributos de método usando a propriedade `name` definida no arquivo *Function. JSON* . Por exemplo, a _Function. JSON_ abaixo descreve uma função simples disparada por uma solicitação HTTP chamada `req`:
 
 ```json
 {
@@ -123,7 +123,7 @@ Ao implantar um projeto de função em seu aplicativo de funções no Azure, tod
 
 ## <a name="triggers-and-inputs"></a>Gatilhos e entradas
 
-As entradas são divididas em duas categorias no Azure Functions: disparar entrada e entrada adicional. Embora sejam diferentes no arquivo `function.json`, o uso é idêntico no código Python.  Cadeias de conexão ou segredos para fontes de entrada e gatilho são mapeados para valores no arquivo `local.settings.json` ao serem executados localmente e as configurações do aplicativo durante a execução no Azure. 
+As entradas são divididas em duas categorias no Azure Functions: disparar entrada e entrada adicional. Embora sejam diferentes no arquivo `function.json`, o uso é idêntico no código Python.  Cadeias de conexão ou segredos para fontes de entrada e gatilho são mapeados para valores no arquivo de `local.settings.json` ao serem executados localmente e as configurações do aplicativo durante a execução no Azure. 
 
 Por exemplo, o código a seguir demonstra a diferença entre os dois:
 
@@ -224,7 +224,7 @@ def main(req: func.HttpRequest,
 
 ## <a name="logging"></a>Registo
 
-O acesso ao agente de tempo de execução do Azure Functions está disponível por meio de um manipulador raiz [`logging`](https://docs.python.org/3/library/logging.html#module-logging) em seu aplicativo de funções. Esse agente está vinculado a Application Insights e permite sinalizar avisos e erros encontrados durante a execução da função.
+O acesso ao agente de tempo de execução do Azure Functions está disponível por meio de um manipulador de [`logging`](https://docs.python.org/3/library/logging.html#module-logging) raiz em seu aplicativo de funções. Esse agente está vinculado a Application Insights e permite sinalizar avisos e erros encontrados durante a execução da função.
 
 O exemplo a seguir registra uma mensagem de informação quando a função é invocada por meio de um gatilho HTTP.
 
@@ -294,7 +294,7 @@ Nessas situações, você pode melhorar o desempenho executando de forma assínc
 
 ### <a name="async"></a>Async
 
-Recomendamos que você use a instrução `async def` para fazer com que sua função seja executada como uma corrotina assíncrona.
+Recomendamos que você use a instrução `async def` para fazer sua função ser executada como uma corrotina assíncrona.
 
 ```python
 # Runs with asyncio directly
@@ -314,7 +314,7 @@ def main():
 
 ### <a name="use-multiple-language-worker-processes"></a>Usar vários processos de trabalho de idioma
 
-Por padrão, cada instância de host do Functions tem um processo de trabalho de idioma único. No entanto, há suporte para ter vários processos de trabalho de idioma por instância de host. As invocações de função podem ser distribuídas uniformemente entre esses processos de trabalho de linguagem. Use a configuração de aplicativo [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) para alterar esse valor. 
+Por padrão, cada instância de host do Functions tem um processo de trabalho de idioma único. No entanto, há suporte para ter vários processos de trabalho de idioma por instância de host. As invocações de função podem ser distribuídas uniformemente entre esses processos de trabalho de linguagem. Use a configuração [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) aplicativo para alterar esse valor. 
 
 ## <a name="context"></a>Contexto
 
@@ -382,9 +382,9 @@ Para o desenvolvimento local, as configurações do aplicativo são [mantidas no
 
 Atualmente, Azure Functions dá suporte apenas a Python 3.6. x (distribuição oficial do CPython).
 
-Ao desenvolver localmente usando o Azure Functions Core Tools ou o Visual Studio Code, adicione os nomes e as versões dos pacotes necessários ao arquivo `requirements.txt` e instale-os usando o `pip`.
+Ao desenvolver localmente usando o Azure Functions Core Tools ou Visual Studio Code, adicione os nomes e as versões dos pacotes necessários ao arquivo de `requirements.txt` e instale-os usando `pip`.
 
-Por exemplo, o arquivo de requisitos e o comando Pip a seguir podem ser usados para instalar o pacote `requests` de PyPI.
+Por exemplo, o arquivo de requisitos e o comando Pip a seguir podem ser usados para instalar o pacote de `requests` do PyPI.
 
 ```txt
 requests==2.19.1
@@ -418,7 +418,7 @@ Para criar suas dependências e publicar usando um sistema de entrega contínua 
 
 ## <a name="unit-testing"></a>Testes de unidade
 
-As funções escritas em Python podem ser testadas como outros códigos Python usando estruturas de teste padrão. Para a maioria das associações, é possível criar um objeto de entrada fictício criando uma instância de uma classe apropriada do pacote `azure.functions`. Como o pacote [`azure.functions`](https://pypi.org/project/azure-functions/) não está disponível imediatamente, certifique-se de instalá-lo por meio do arquivo `requirements.txt`, conforme descrito na seção [versão do Python e gerenciamento de pacotes](#python-version-and-package-management) acima.
+As funções escritas em Python podem ser testadas como outros códigos Python usando estruturas de teste padrão. Para a maioria das associações, é possível criar um objeto de entrada fictício criando uma instância de uma classe apropriada do pacote de `azure.functions`. Como o pacote de [`azure.functions`](https://pypi.org/project/azure-functions/) não está disponível imediatamente, certifique-se de instalá-lo por meio do arquivo `requirements.txt`, conforme descrito na seção [versão e gerenciamento de pacotes do Python](#python-version-and-package-management) acima.
 
 Por exemplo, a seguir está um teste fictício de uma função disparada por HTTP:
 
@@ -533,6 +533,27 @@ class TestFunction(unittest.TestCase):
             'msg body: test',
         )
 ```
+## <a name="temporary-files"></a>Arquivos temporários
+
+O método `tempfile.gettempdir()` retorna uma pasta temporária, que no Linux é `/tmp`. Seu aplicativo pode usar esse diretório para armazenar arquivos temporários gerados e usados por suas funções durante a execução. 
+
+> [!IMPORTANT]
+> Os arquivos gravados no diretório temporário não têm garantia de persistir entre invocações. Durante o scale out, os arquivos temporários não são compartilhados entre instâncias. 
+
+O exemplo a seguir cria um arquivo temporário nomeado no diretório temporário (`/tmp`):
+
+```python
+import logging
+import azure.functions as func
+import tempfile
+from os import listdir
+
+#---
+   tempFilePath = tempfile.gettempdir()   
+   fp = tempfile.NamedTemporaryFile()     
+   fp.write(b'Hello world!')              
+   filesDirListInTemp = listdir(tempFilePath)     
+```   
 
 ## <a name="known-issues-and-faq"></a>Problemas conhecidos e perguntas frequentes
 
@@ -542,7 +563,7 @@ Todos os problemas conhecidos e as solicitações de recursos são rastreados us
 
 O Azure Functions dá suporte ao compartilhamento de recursos entre origens (CORS). O CORS é configurado [no portal](functions-how-to-use-azure-function-app-settings.md#cors) e por meio do [CLI do Azure](/cli/azure/functionapp/cors). A lista de origens permitidas pelo CORS aplica-se ao nível do aplicativo de funções. Com o CORS habilitado, as respostas incluem o cabeçalho `Access-Control-Allow-Origin`. Para obter mais informações, consulte [Partilha de recursos de várias origens](functions-how-to-use-azure-function-app-settings.md#cors).
 
-Atualmente, a lista de origens permitidas [não tem suporte](https://github.com/Azure/azure-functions-python-worker/issues/444) para aplicativos de funções do Python. Devido a essa limitação, você deve definir expressamente o cabeçalho `Access-Control-Allow-Origin` em suas funções HTTP, conforme mostrado no exemplo a seguir:
+Atualmente, a lista de origens permitidas [não tem suporte](https://github.com/Azure/azure-functions-python-worker/issues/444) para aplicativos de funções do Python. Devido a essa limitação, você deve definir expressamente o cabeçalho de `Access-Control-Allow-Origin` em suas funções HTTP, conforme mostrado no exemplo a seguir:
 
 ```python
 def main(req: func.HttpRequest) -> func.HttpResponse:

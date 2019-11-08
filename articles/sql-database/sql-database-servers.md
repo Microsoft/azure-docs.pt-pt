@@ -1,5 +1,5 @@
 ---
-title: Servidores de banco de dados SQL do Azure
+title: Servidores
 description: Saiba mais sobre os servidores de banco de dados SQL do Azure e seu gerenciamento.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 8ebe08f37255743578cbc3dd44f7d84d79b9d17a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a3ad3314b8a18ec6a63b5d51bc7d8b3f9d7a6260
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687403"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818289"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Servidores de banco de dados SQL do Azure e seu gerenciamento
 

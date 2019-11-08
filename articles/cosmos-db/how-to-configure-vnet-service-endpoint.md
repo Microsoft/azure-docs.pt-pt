@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1c81045408a948820c8b9fef56e2c7d69cd39e08
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: c399bed803145659bae1863e9e0b919f33254627
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811923"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820207"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configurar o acesso de redes virtuais (VNet)
 
@@ -50,9 +50,9 @@ As seções a seguir descrevem como configurar um ponto de extremidade de servi�
 
 > [!NOTE]
 > Para habilitar pontos de extremidade de serviço de rede virtual, você precisa das seguintes permissões de assinatura:
->   * Assinatura com rede virtual: Colaborador de rede
->   * Assinatura com conta de Azure Cosmos DB: Colaborador de conta do DocumentDB
->   * Se sua rede virtual e Azure Cosmos DB conta estiverem em assinaturas diferentes, certifique-se de que a assinatura que tem a rede virtual também tenha o provedor de recursos `Microsoft.DocumentDB` registrado. Para registrar um provedor de recursos, consulte o artigo [provedores e tipos de recursos do Azure](../azure-resource-manager/resource-manager-supported-services.md) .
+>   * Assinatura com rede virtual: colaborador de rede
+>   * Assinatura com conta de Azure Cosmos DB: colaborador de conta do DocumentDB
+>   * Se sua rede virtual e Azure Cosmos DB conta estiverem em assinaturas diferentes, certifique-se de que a assinatura que tem a rede virtual também tenha `Microsoft.DocumentDB` provedor de recursos registrado. Para registrar um provedor de recursos, consulte o artigo [provedores e tipos de recursos do Azure](../azure-resource-manager/resource-manager-supported-services.md) .
 
 Aqui estão as instruções para registrar a assinatura com o provedor de recursos.
 
@@ -68,7 +68,7 @@ Aqui estão as instruções para registrar a assinatura com o provedor de recurs
 
    ![Selecionar uma rede virtual e uma sub-rede para uma nova rede virtual](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png)
 
-Se sua conta de Azure Cosmos DB for usada por outros serviços do Azure, como o Azure Search, ou for acessada do Stream Analytics ou Power BI, você permitirá o acesso selecionando **aceitar conexões de dentro de data centers globais do Azure**.
+Se sua conta de Azure Cosmos DB for usada por outros serviços do Azure, como o Pesquisa Cognitiva do Azure, ou for acessada do Stream Analytics ou Power BI, você permitirá o acesso selecionando **aceitar conexões de dentro de datacenters globais do Azure**.
 
 Para garantir que você tenha acesso a Azure Cosmos DB métricas no portal, você precisa habilitar o **acesso de permitir de portal do Azure** opções. Para saber mais sobre essas opções, consulte o artigo [configurar um firewall de IP](how-to-configure-firewall.md) . Depois de habilitar o acesso, selecione **salvar** para salvar as configurações.
 
@@ -310,7 +310,7 @@ Depois que um ponto de extremidade de serviço para uma conta de Azure Cosmos DB
      -Name $acctName
    ```
 
-1. Inicialize as variáveis para usá-las mais tarde. Configure todas as variáveis da definição de conta existente. Adicione a ACL de rede virtual a todas as contas de Azure Cosmos DB que estão sendo acessadas da sub-rede com o sinalizador `ignoreMissingVNetServiceEndpoint`.
+1. Inicialize as variáveis para usá-las mais tarde. Configure todas as variáveis da definição de conta existente. Adicione a ACL de rede virtual a todas as contas de Azure Cosmos DB que estão sendo acessadas da sub-rede com `ignoreMissingVNetServiceEndpoint` sinalizador.
 
    ```powershell
    $locations = @()

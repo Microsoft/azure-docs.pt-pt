@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: barclayn
-ms.openlocfilehash: fc72c59721a6f244806bf229ebded1e66341a04d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 7558ad2e5a4404db140daff89171af92c6072ef6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177687"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805982"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Melhores práticas de segurança para cargas de trabalho IaaS no Azure
 Este artigo descreve as práticas recomendadas de segurança para VMs e sistemas operacionais.
@@ -68,7 +68,7 @@ Se sua VM executar aplicativos críticos que precisam ter alta disponibilidade, 
 Um conjunto de disponibilidade é um agrupamento lógico que você pode usar no Azure para garantir que os recursos de VM colocados dentro dele sejam isolados uns dos outros quando forem implantados em um datacenter do Azure. O Azure garante que as VMs colocadas em um conjunto de disponibilidade sejam executadas em vários servidores físicos, racks de computação, unidades de armazenamento e comutadores de rede. Se ocorrer uma falha de hardware ou de software do Azure, apenas um subconjunto de suas VMs será afetado e seu aplicativo geral continuará disponível para seus clientes. Os conjuntos de disponibilidade são uma funcionalidade essencial quando você deseja criar soluções de nuvem confiáveis.
 
 ## <a name="protect-against-malware"></a>Proteja-se contra o software maligno
-Você deve instalar a proteção antimalware para ajudar a identificar e remover vírus, spyware e outros softwares mal-intencionados. Você pode instalar o [Microsoft Antimalware](antimalware.md) ou uma solução de proteção de ponto de extremidade do parceiro da Microsoft ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/en-us/search?q=Windows+defender+endpoint+protection&rtc=1)e [System Center Endpoint Protection](https://www.microsoft.com/en-us/search?q=System+Center+endpoint+protection&rtc=1)).
+Você deve instalar a proteção antimalware para ajudar a identificar e remover vírus, spyware e outros softwares mal-intencionados. Você pode instalar o [Microsoft Antimalware](antimalware.md) ou uma solução de proteção de ponto de extremidade do parceiro da Microsoft ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security)e [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 O Microsoft Antimalware inclui recursos como proteção em tempo real, verificação agendada, correção de malware, atualizações de assinatura, atualizações de mecanismo, relatórios de amostras e coleta de eventos de exclusão. Para ambientes hospedados separadamente do seu ambiente de produção, você pode usar uma extensão antimalware para ajudar a proteger suas VMs e serviços de nuvem.
 
@@ -86,9 +86,9 @@ As VMs do Azure, como todas as VMs locais, devem ser gerenciadas pelo usuário. 
 **Prática recomendada**: Mantenha suas VMs atuais.   
 **Detalhe**: Use a solução [Gerenciamento de atualizações](../../automation/automation-update-management.md) na automação do Azure para gerenciar atualizações do sistema operacional para seus computadores Windows e Linux implantados no Azure, em ambientes locais ou em outros provedores de nuvem. Pode rapidamente avaliar o estado das atualizações disponíveis em todos os computadores agente e gerir o processo de instalação de atualizações necessárias para os servidores.
 
-Os computadores que são geridos pela Gestão de Atualizações utilizam as seguintes configurações para realizar a avaliação e as implementações de atualização:
+Os computadores gerenciados pelo Gerenciamento de Atualizações usam as seguintes configurações para executar implantações de avaliação e atualização:
 
-- Agente de Monitorização da Microsoft (MMA) para Windows ou Linux
+- Microsoft Monitoring Agent (MMA) para Windows ou Linux
 - Configuração de Estado Pretendido do PowerShell (DSC) para Linux
 - Função de Trabalho de Runbook Híbrida da Automatização
 - Microsoft Update ou Windows Server Update Services (WSUS) para computadores Windows

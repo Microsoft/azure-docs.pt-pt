@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 744b4e4975c5d4cec5c705e639e9cc8d252a7dd6
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 4783d3ac8ef78929621179d87f9c8948f6dd079c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194276"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812004"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Contas corporativas corporativas e Partner Center
 
@@ -42,7 +43,7 @@ Para criar uma nova conta de trabalho para sua empresa, siga as etapas abaixo. T
 3. Selecione **novo usuário** e crie uma nova conta de trabalho do Azure inserindo um nome e endereço de email. Verifique se a **função de diretório** está definida como **usuário** e marque a caixa de seleção **Mostrar senha** na parte inferior para exibir e anotar a senha gerada automaticamente.
 4. Selecione **criar** para salvar o novo usuário.
 
-O endereço de email para a conta de usuário deve ser um nome de domínio verificado em seu diretório. Você pode listar todos os domínios verificados em seu diretório selecionando **Azure Active Directory** -> **nomes de domínio personalizados** no menu de navegação à esquerda.
+O endereço de email para a conta de usuário deve ser um nome de domínio verificado em seu diretório. Você pode listar todos os domínios verificados em seu diretório selecionando **Azure Active Directory** -> **nomes de domínio personalizados** no menu de navegação esquerdo.
 
 Para saber mais sobre como adicionar domínios personalizados no Azure Active Directory, consulte [Adicionar ou associar um domínio no Azure ad](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain).
 
@@ -52,6 +53,6 @@ Se você estiver tendo problemas para entrar em sua conta corporativa (também c
 
 ![Diagrama para solução de problemas de entrada de conta corporativa](./media/onboarding-aad-flow.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Gerenciar sua conta do Marketplace comercial no Partner Center](./manage-account.md) 

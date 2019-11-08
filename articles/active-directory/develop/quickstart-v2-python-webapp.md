@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 254a1fd8644015de33855e13f78ab122d28f1e35
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: d9349391ad9af1a4ec1c84b586f825f3f7632ff8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817122"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815758"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Início rápido: Adicionar entrada com a Microsoft a um aplicativo Web Python
 
@@ -66,7 +66,7 @@ Para executar este exemplo, será necessário:
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
 >      - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `python-webapp`.
 >      - Em **tipos de conta com suporte**, selecione **contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
->      - Na seção **URI de redirecionamento** , na lista suspensa, selecione a plataforma **da Web** e defina o valor como `http://localhost:5000/getAToken`.
+>      - Na seção **URI de redirecionamento** , na lista suspensa, selecione a plataforma **da Web** e, em seguida, defina o valor como `http://localhost:5000/getAToken`.
 >      - Selecione **Registar**. Na página **visão geral** do aplicativo, observe o valor da **ID do aplicativo (cliente)** para uso posterior.
 > 1. No menu à esquerda, escolha **certificados & segredos** e clique em **novo segredo do cliente** na seção **segredos do cliente** :
 >
@@ -74,6 +74,13 @@ Para executar este exemplo, será necessário:
 >      - Selecione uma duração de chave de **em 1 ano**.
 >      - Quando você clicar em **Adicionar**, o valor da chave será exibido.
 >      - Copie o valor da chave. Precisará dele mais tarde.
+> 1. Selecione a seção **permissões de API**
+>
+>      - Clique no botão **Adicionar uma permissão** e, em seguida,
+>      - Verifique se a guia **APIs da Microsoft** está selecionada
+>      - Na seção *APIs da Microsoft comumente usadas* , clique em **Microsoft Graph**
+>      - Na seção **permissões delegadas** , verifique se as permissões corretas estão marcadas: **User. ReadBasic. All**. Use a caixa de pesquisa, se necessário.
+>      - Selecione o botão **adicionar permissões**
 >
 > [!div class="sxs-lookup" renderon="portal"]
 >
@@ -83,9 +90,10 @@ Para executar este exemplo, será necessário:
 >
 > 1. Adicione uma URL de resposta como `http://localhost:5000/getAToken`.
 > 1. Crie um segredo do cliente.
+> 1. Adicione Microsoft Graph a permissão de usuário. ReadBasic. All delegada da API.
 >
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Fazer esta alteração por mim]()
+> > [Faça essas alterações para mim]()
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurada](media/quickstart-v2-aspnet-webapp/green-check.png) A sua aplicação está configurada com este atributo
 
@@ -106,7 +114,7 @@ AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
 ```
 
 > [!div renderon="docs"]
-> Onde:
+> Em que:
 >
 > - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
 > - `Enter_the_Client_Secret_Here`-é o **segredo do cliente** que você criou em **certificados & segredos** para o aplicativo registrado.
@@ -126,24 +134,24 @@ AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
    python app.py
    ```
    > [!IMPORTANT]
-   > Este aplicativo de início rápido usa um segredo do cliente para se identificar como cliente confidencial. Como o segredo do cliente é adicionado como um texto sem formatação aos arquivos do projeto, por motivos de segurança, é recomendável que você use um certificado em vez de um segredo do cliente antes de considerar o aplicativo como aplicativo de produção. Para obter mais informações sobre como usar um certificado, consulte [estas instruções](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials).
+   > Este aplicativo de início rápido usa um segredo do cliente para se identificar como cliente confidencial. Como o segredo do cliente é adicionado como um texto sem formatação aos arquivos do projeto, por motivos de segurança, é recomendável que você use um certificado em vez de um segredo do cliente antes de considerar o aplicativo como aplicativo de produção. Para obter mais informações sobre como usar um certificado, consulte [estas instruções](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
 
-   ## <a name="more-information"></a>Mais informações
+## <a name="more-information"></a>Mais informações
 
-   ### <a name="getting-msal"></a>Obtendo MSAL
-   MSAL é a biblioteca usada para conectar usuários e solicitar tokens usados para acessar uma API protegida pela plataforma de identidade da Microsoft.
-   Você pode adicionar MSAL Python ao seu aplicativo usando Pip.
+### <a name="getting-msal"></a>Obtendo MSAL
+MSAL é a biblioteca usada para conectar usuários e solicitar tokens usados para acessar uma API protegida pela plataforma de identidade da Microsoft.
+Você pode adicionar MSAL Python ao seu aplicativo usando Pip.
 
-   ```Shell
-   pip install msal
-   ```
+```Shell
+pip install msal
+```
 
-   ### <a name="msal-initialization"></a>Inicialização da MSAL
-   Você pode adicionar a referência ao MSAL Python adicionando o seguinte código à parte superior do arquivo em que você usará o MSAL:
+### <a name="msal-initialization"></a>Inicialização da MSAL
+Você pode adicionar a referência ao MSAL Python adicionando o seguinte código à parte superior do arquivo em que você usará o MSAL:
 
-   ```Python
-   import msal
-   ```
+```Python
+import msal
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

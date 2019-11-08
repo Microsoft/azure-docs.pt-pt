@@ -1,5 +1,5 @@
 ---
-title: Monitorar o desempenho do banco de dados com Intelligent Insights-banco de dados SQL do Azure
+title: Monitorar o desempenho do banco de dados com o Intelligent Insights
 description: O banco de dados SQL do Azure Intelligent Insights usa inteligência interna para monitorar continuamente o uso do banco de dados por meio de inteligência artificial e detectar eventos de interrupção que causam baixo desempenho.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: c073b535271ba8f9f11e17ba5203b13e257e211b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bd42117b384b9e384d59f9f4298c937135cafd34
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689690"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810172"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights usando o ia para monitorar e solucionar problemas de desempenho do banco de dados
 

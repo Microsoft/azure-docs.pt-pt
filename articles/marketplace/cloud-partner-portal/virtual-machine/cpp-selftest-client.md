@@ -4,15 +4,16 @@ description: Como criar um cliente de autoteste para validar previamente uma ima
 services: Azure, Marketplace, Cloud Partner Portal, Virtual Machine
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pabutler
-ms.openlocfilehash: 46923ecd33a054a36aa6900a415d0b563e5afff0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: fc62875873f38630e592c79aebd6a138665ed6e4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163251"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809216"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Criar um cliente de autoteste para validar previamente uma imagem de máquina virtual do Azure
 
@@ -99,7 +100,7 @@ $Body = @{
     "CompanyName" = "ABCD"
 
 } | ConvertTo-Json
-$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers;
+$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" -Headers $headers;
 $Content = $res | ConvertFrom-Json
 ```
 A captura de tela a seguir mostra um exemplo para chamar a API no PowerShell.
@@ -109,7 +110,7 @@ A captura de tela a seguir mostra um exemplo para chamar a API no PowerShell.
 Usando o exemplo anterior, você pode recuperar o JSON e analisá-lo para obter os seguintes detalhes:
 
 ```powershell
-$testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $res)
+$testresult = ConvertFrom-Json -InputObject (ConvertFrom-Json -InputObject $res)
 
   Write-Host "OSName: $($testresult.OSName)"
   Write-Host "OSVersion: $($testresult.OSVersion)"
@@ -144,7 +145,7 @@ Para chamar a API no PowerShell, siga estas etapas:
 O exemplo de código a seguir mostra uma chamada do PowerShell para a API.
 
 ```powershell
-$accesstoken = “Get token for your Client AAD App”
+$accesstoken = "Get token for your Client AAD App"
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Authorization", "Bearer $accesstoken")
 $Body = @{
@@ -156,7 +157,7 @@ $Body = @{
     "CompanyName" = "ABCD"
 
 } | ConvertTo-Json
-$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers;
+$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" -Headers $headers;
 $Content = $res | ConvertFrom-Json
 ```
 
@@ -167,7 +168,7 @@ A captura de tela a seguir mostra um exemplo para chamar a API no PowerShell.
 Usando o exemplo anterior, você pode recuperar o JSON e analisá-lo para obter os seguintes detalhes:
 
 ```powershell
-$testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $res)
+$testresult = ConvertFrom-Json -InputObject (ConvertFrom-Json -InputObject $res)
 
   Write-Host "OSName: $($testresult.OSName)"
   Write-Host "OSVersion: $($testresult.OSVersion)"
@@ -219,7 +220,7 @@ A captura de tela a seguir mostra os resultados JSON da chamada de ondulação.
 
 Use as etapas a seguir para escolher o locatário do Azure AD no qual você deseja criar seu aplicativo.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 2. Na barra de menus superior, selecione sua conta e, na lista diretório, escolha o Active Directory locatário no qual você deseja registrar seu aplicativo. Ou então, selecione o ícone **diretório + assinatura** para ver o filtro de assinatura global. A captura de tela a seguir mostra um exemplo desse filtro.
 
    ![Selecionar o filtro de assinatura](./media/stclient-subscription-filter.png)
@@ -247,7 +248,7 @@ Use as etapas a seguir para registrar o aplicativo cliente.
 
    - **Nome** – Insira um nome amigável para o aplicativo. Por exemplo, "SelfTestClient".
    - **Tipo de aplicativo** – selecione **aplicativo Web/API**
-   - **URL de logon** – digite "https:\//isvapp.azurewebsites.net/selftest-VM"
+   - **URL de entrada** -digite "https:\//isvapp.azurewebsites.net/selftest-VM"
 
 4. Selecione **Criar**.
 5. Em **registros de aplicativo** ou **aplicativo registrado**, copie a **ID do aplicativo**.
@@ -377,7 +378,7 @@ Para solicitar Auth0 tokens para qualquer um dos seus aplicativos autorizados, e
 
 ```powershell
 $clientId = "Application Id of AD Client APP";
-$clientSecret = "Secret Key of AD Client APP “
+$clientSecret = "Secret Key of AD Client APP "
 $audience = "https://management.core.windows.net";
 $authority = "https://login.microsoftonline.com/common/oauth2/token"
 $grantType = "client_credentials";
@@ -397,8 +398,8 @@ $token.AccessToken
 Passe o token para a API de teste automático usando o seguinte código no cabeçalho de autorização:
 
 ```powershell
-$redirectUri = ‘https://isvapp.azurewebsites.net/selftest-vm’
-$accesstoken = ‘place your token here’
+$redirectUri = 'https://isvapp.azurewebsites.net/selftest-vm'
+$accesstoken = 'place your token here'
 
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Authorization", "Bearer $accesstoken")

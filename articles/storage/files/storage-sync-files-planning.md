@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 698702e24f1f6dfc6b94b75de77c08156832e566
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e1f7aeb5615c1a22c1970f118c24c996ac936870
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177855"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826830"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
@@ -143,7 +143,7 @@ Para exibir os resultados em CSV:
 |-|-|
 | Desktop. ini | Arquivo específico para o sistema |
 | ethumbs. DB $ | Arquivo temporário para miniaturas |
-| ~$ \*. \* | Arquivo temporário do Office |
+| ~$\*.\* | Arquivo temporário do Office |
 | \*. tmp | Arquivo temporário |
 | \*. laccdb | Acessar arquivo de bloqueio do BD|
 | 635D02A9D91C401B97884B82B3BCDAEA.* | Arquivo de sincronização interno|
@@ -158,7 +158,7 @@ O Windows Server failover clustering tem suporte pelo Sincronização de Arquivo
 > O agente de Sincronização de Arquivos do Azure deve ser instalado em cada nó em um cluster de failover para que a sincronização funcione corretamente.
 
 ### <a name="data-deduplication"></a>Eliminação de duplicação de dados
-**Versão do agente 5.0.2.0 ou mais recente**   
+**Windows server 2016 e Windows server 2019**   
 A eliminação de duplicação de dados tem suporte em volumes com camadas de nuvem habilitadas no Windows Server 2016. Habilitar a eliminação de duplicação de dados em um volume com camada de nuvem habilitada permite que você armazene em cache mais arquivos localmente sem provisionar mais armazenamento. 
 
 Quando a eliminação de duplicação de dados está habilitada em um volume com disposição em camadas de nuvem habilitada, os arquivos otimizados para eliminação de duplicatas no local do ponto de extremidade do servidor serão em camadas semelhantes a um arquivo normal com base nas configurações de política de camadas de nuvem. Depois que os arquivos otimizados para eliminação de duplicação estiverem em camadas, o trabalho de coleta de lixo de eliminação de duplicatas de dados será executado automaticamente para recuperar espaço em disco removendo partes desnecessárias que não são mais referenciadas por outros arquivos no volume.
@@ -168,8 +168,8 @@ Observe que a economia de volume se aplica somente ao servidor; seus dados no co
 > [!Note]  
 > A eliminação de duplicação de dados e a camada de nuvem não têm suporte no mesmo volume no servidor 2019 devido a um bug que será corrigido em uma atualização futura.
 
-**Versões do agente do Windows Server 2012 R2 ou mais antigas**  
-Para volumes que não têm camadas de nuvem habilitadas, o Sincronização de Arquivos do Azure dá suporte à eliminação de duplicação de dados do Windows Server habilitada no volume.
+**Windows Server 2012 R2**  
+Sincronização de Arquivos do Azure não dá suporte à eliminação de duplicação de dados e à camada de nuvem no mesmo volume. Se a eliminação de duplicação de dados estiver habilitada em um volume, a camada de nuvem deverá ser desabilitada. 
 
 **Notas**
 - Se a eliminação de duplicação de dados for instalada antes da instalação do agente de Sincronização de Arquivos do Azure, uma reinicialização será necessária para dar suporte à eliminação de duplicação de dados e à camada de nuvem no mesmo volume.
@@ -211,7 +211,7 @@ O uso do Sysprep em um servidor que tem o agente de Sincronização de Arquivos 
 Se a disposição em camadas da nuvem estiver habilitada em um ponto de extremidade do servidor, os arquivos que estiverem em camadas serão ignorados e não indexados pelo Windows Search. Arquivos não em camadas são indexados corretamente.
 
 ### <a name="antivirus-solutions"></a>Soluções antivírus
-Como o antivírus funciona examinando arquivos em busca de código mal-intencionado conhecido, um produto antivírus pode causar a recall de arquivos em camadas. Nas versões 4,0 e superiores do agente de Sincronização de Arquivos do Azure, os arquivos em camadas têm o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS do Windows seguro definido. Recomendamos consultar seu fornecedor de software para saber como configurar sua solução para ignorar a leitura de arquivos com esse conjunto de atributos (muitos fazem isso automaticamente). 
+Como o antivírus funciona examinando arquivos em busca de código mal-intencionado conhecido, um produto antivírus pode causar a recall de arquivos em camadas. Nas versões 4,0 e superiores do agente de Sincronização de Arquivos do Azure, os arquivos em camadas têm o atributo seguro do Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definido. Recomendamos consultar seu fornecedor de software para saber como configurar sua solução para ignorar a leitura de arquivos com esse conjunto de atributos (muitos fazem isso automaticamente). 
 
 As soluções antivírus internas da Microsoft, o Windows Defender e o System Center Endpoint Protection (SCEP), ambos ignoram automaticamente a leitura de arquivos que têm esse atributo definido. Nós os testamos e identificamos um problema secundário: quando você adiciona um servidor a um grupo de sincronização existente, os arquivos com menos de 800 bytes são rechamados (baixados) no novo servidor. Esses arquivos permanecerão no novo servidor e não serão em camadas, pois não atendem ao requisito de tamanho de camadas (> 64 KB).
 
@@ -244,7 +244,7 @@ Em geral, Sincronização de Arquivos do Azure deve dar suporte à interoperabil
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Outras soluções de HSM (gerenciamento de armazenamento hierárquico)
 Nenhuma outra solução HSM deve ser usada com Sincronização de Arquivos do Azure.
 
-## <a name="region-availability"></a>Disponibilidade regional
+## <a name="region-availability"></a>Disponibilidade de região
 Sincronização de Arquivos do Azure está disponível somente nas seguintes regiões:
 
 | Região | Localização do datacenter |
@@ -254,35 +254,35 @@ Sincronização de Arquivos do Azure está disponível somente nas seguintes reg
 | Sul do Brasil | Estado de São Paulo |
 | Canadá Central | Toronto |
 | Leste do Canadá | Cidade do Quebeque |
-| Centro da Índia | Pune |
-| Centro dos E.U.A. | Iowa |
-| Este Asiático | RAE de Hong Kong |
-| Este dos E.U.A. | Virgínia |
+| Índia Central | Pune |
+| EUA Central | Iowa |
+| Ásia Oriental | RAE de Hong Kong |
+| EUA Leste | Virgínia |
 | E.U.A. Leste 2 | Virgínia |
 | França Central | Paris |
 | Sul da França * | Marselha |
 | Coreia do Sul Central | Seul |
-| Sul da Coreia do Sul | Busan |
-| Este do Japão | Tóquio, Saitama |
+| Coreia do Sul | Busan |
+| Leste do Japão | Tóquio, Saitama |
 | Oeste do Japão | Osaca |
-| E.U.A. Centro-Norte | Illinois |
+| EUA Centro-Norte | Illinois |
 | Europa do Norte | Irlanda |
 | Norte da África do Sul | Joanesburgo |
 | Oeste da África do Sul * | Cidade do Cabo |
-| E.U.A. Centro-Sul | Texas |
+| EUA Centro-Sul | Texas |
 | Sul da Índia | Chennai |
 | Sudeste Asiático | Singapura |
 | Sul do Reino Unido | Londres |
-| Oeste do Reino Unido | Cardiff |
-| US Gov - Texas | Arizona |
+| Reino Unido Oeste | Cardiff |
+| Gov (US) - Arizona | Arizona |
 | Gov (US) - Texas | Texas |
-| Gov dos E.U.A. Virginia | Virgínia |
+| Gov (US) - Virginia | Virgínia |
 | Norte dos E.A.U. | Dubai |
 | EAU Central * | Abu Dhabi |
 | Europa Ocidental | Países Baixos |
-| E.U.A. Centro-Oeste | Wyoming |
-| Oeste dos E.U.A. | Califórnia |
-| E.U.A. Oeste 2 | Washington |
+| EUA Centro-Oeste | Wyoming |
+| EUA Oeste | Califórnia |
+| EUA Oeste 2 | Washington |
 
 Sincronização de Arquivos do Azure dá suporte à sincronização somente com um compartilhamento de arquivos do Azure que está na mesma região que o serviço de sincronização de armazenamento.
 
@@ -300,36 +300,36 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 |---------------------|--------------------|
 | Leste da Austrália      | Sudeste da Austrália|
 | Sudeste da Austrália | Leste da Austrália     |
-| Sul do Brasil        | E.U.A. Centro-Sul   |
+| Sul do Brasil        | EUA Centro-Sul   |
 | Canadá Central      | Leste do Canadá        |
 | Leste do Canadá         | Canadá Central     |
-| Centro da Índia       | Sul da Índia        |
-| Centro dos E.U.A.          | Este dos E.U.A. 2          |
-| Este Asiático           | Sudeste Asiático     |
-| Este dos E.U.A.             | Oeste dos E.U.A.            |
-| Este dos E.U.A. 2           | Centro dos E.U.A.         |
+| Índia Central       | Sul da Índia        |
+| EUA Central          | EUA Leste 2          |
+| Ásia Oriental           | Sudeste Asiático     |
+| EUA Leste             | EUA Oeste            |
+| EUA Leste 2           | EUA Central         |
 | França Central      | Sul de França       |
 | Sul de França        | França Central     |
-| Este do Japão          | Oeste do Japão         |
-| Oeste do Japão          | Este do Japão         |
-| Coreia do Sul Central       | Sul da Coreia do Sul        |
-| Sul da Coreia do Sul         | Coreia do Sul Central      |
+| Leste do Japão          | Oeste do Japão         |
+| Oeste do Japão          | Leste do Japão         |
+| Coreia do Sul Central       | Coreia do Sul        |
+| Coreia do Sul         | Coreia do Sul Central      |
 | Europa do Norte        | Europa Ocidental        |
-| E.U.A. Centro-Norte    | E.U.A. Centro-Sul   |
+| EUA Centro-Norte    | EUA Centro-Sul   |
 | Norte da África do Sul  | Oeste da África do Sul  |
 | Oeste da África do Sul   | Norte da África do Sul |
-| E.U.A. Centro-Sul    | E.U.A. Centro-Norte   |
-| Sul da Índia         | Centro da Índia      |
-| Sudeste Asiático      | Este Asiático          |
-| Sul do Reino Unido            | Oeste do Reino Unido            |
-| Oeste do Reino Unido             | Sul do Reino Unido           |
-| US Gov - Texas      | Gov (US) - Texas       |
-| US Gov - Virginia         | Gov dos E.U.A. Virginia    |
-| Gov dos E.U.A. Virginia      | Gov (US) - Texas       |
+| EUA Centro-Sul    | EUA Centro-Norte   |
+| Sul da Índia         | Índia Central      |
+| Sudeste Asiático      | Ásia Oriental          |
+| Sul do Reino Unido            | Reino Unido Oeste            |
+| Reino Unido Oeste             | Sul do Reino Unido           |
+| Gov (US) - Arizona      | Gov (US) - Texas       |
+| US Gov - Iowa         | Gov (US) - Virginia    |
+| Gov (US) - Virginia      | Gov (US) - Texas       |
 | Europa Ocidental         | Europa do Norte       |
-| E.U.A. Centro-Oeste     | E.U.A. Oeste 2          |
-| Oeste dos E.U.A.             | Este dos E.U.A.            |
-| E.U.A. Oeste 2           | E.U.A. Centro-Oeste    |
+| EUA Centro-Oeste     | EUA Oeste 2          |
+| EUA Oeste             | EUA Leste            |
+| EUA Oeste 2           | EUA Centro-Oeste    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

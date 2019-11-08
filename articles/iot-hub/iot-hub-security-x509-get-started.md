@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 03ac9f878f0869ef33d22f50c6bdba4276bd4d3c
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 32219eeaee7980b685ac3453c6af3beff716abe2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70048275"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824091"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurar a segurança X. 509 no Hub IoT do Azure
 
@@ -37,13 +37,13 @@ Você pode escolher qualquer uma das seguintes maneiras para obter seus certific
 
 * Crie seus próprios certificados X. 509 usando uma ferramenta de terceiros, como o [OpenSSL](https://www.openssl.org/). Essa técnica é adequada para fins de teste e desenvolvimento. Consulte [gerenciando certificados de AC de teste para obter exemplos e tutoriais](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) para obter informações sobre como gerar certificados de CA de teste usando o PowerShell ou bash. O restante deste tutorial usa certificados de AC de teste gerados seguindo as instruções em [gerenciando certificados de AC de teste para exemplos e tutoriais](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
-* Gere um [certificado de AC intermediário X. 509](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust) assinado por um certificado de AC raiz existente e carregue-o no Hub. Depois que o certificado intermediário for carregado e verificado, conforme instruído abaixo, ele poderá ser usado no lugar de um certificado de autoridade de certificação raiz mencionado abaixo. Ferramentas como OpenSSL ([openssl req](https://www.openssl.org/docs/manmaster/man1/openssl-req.html) e [openssl ca](https://www.openssl.org/docs/manmaster/man1/openssl-ca.html)) podem ser usadas para gerar e assinar um certificado de autoridade de certificação intermediário.
+* Gere um [certificado de AC intermediário X. 509](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust) assinado por um certificado de AC raiz existente e carregue-o no Hub. Depois que o certificado intermediário for carregado e verificado, conforme instruído abaixo, ele poderá ser usado no lugar de um certificado de autoridade de certificação raiz mencionado abaixo. Ferramentas como OpenSSL ([openssl req](https://www.openssl.org/docs/man1.1.0/man1/req.html) e [openssl ca](https://www.openssl.org/docs/man1.1.0/man1/ca.html)) podem ser usadas para gerar e assinar um certificado de autoridade de certificação intermediário.
 
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>Registrar certificados de autoridade de certificação X. 509 em seu hub IoT
 
 Estas etapas mostram como adicionar uma nova autoridade de certificação ao seu hub IoT por meio do Portal.
 
-1. No portal do Azure, navegue até o Hub IOT e selecione **configurações** > **certificados** para o Hub.
+1. No portal do Azure, navegue até o Hub IoT e selecione **configurações** > **certificados** para o Hub.
 
 1. Selecione **Adicionar** para adicionar um novo certificado.
 
@@ -69,7 +69,7 @@ Estas etapas mostram como adicionar uma nova autoridade de certificação ao seu
 
 ## <a name="create-an-x509-device-for-your-iot-hub"></a>Criar um dispositivo X. 509 para o Hub IoT
 
-1. Na portal do Azure, navegue até o Hub IOT e selecione**dispositivos IOT**de **gerenciadores** > .
+1. No portal do Azure, navegue até o Hub IoT e selecione os **gerenciadores** > **dispositivos IOT**.
 
 1. Selecione **novo** para adicionar um novo dispositivo.
 
@@ -116,7 +116,7 @@ Em seguida, mostraremos como criar um C# aplicativo para simular o dispositivo X
         private static Random rnd = new Random();
     ```
 
-    Use o nome de dispositivo amigável que você usou na seção anterior em vez de _< your_device_id >_ .
+    Use o nome de dispositivo amigável que você usou na seção anterior no lugar de _< your_device_id >_ .
 
 1. Adicione a seguinte função para criar números aleatórios para temperatura e umidade e enviar esses valores para o Hub:
 
@@ -183,7 +183,7 @@ Em seguida, mostraremos como criar um C# aplicativo para simular o dispositivo X
 
    ![Executar aplicativo de dispositivo](./media/iot-hub-security-x509-get-started/device-app-success.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como proteger sua solução de IoT, confira:
 

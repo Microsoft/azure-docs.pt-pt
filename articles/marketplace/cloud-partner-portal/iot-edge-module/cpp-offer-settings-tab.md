@@ -1,41 +1,42 @@
 ---
-title: Definições de um módulo do Azure IoT Edge da oferta | O Azure Marketplace
-description: Configure definições de oferta de um módulo do IoT Edge.
+title: Configurações de oferta para um módulo Azure IoT Edge | Azure Marketplace
+description: Defina as configurações de oferta para um módulo IoT Edge.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: 75781f09f4ca1eb2c3dbd176508fb233036e6776
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1043f467a7363bc0e3eedba40fd2246015592276
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942261"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814130"
 ---
-# <a name="iot-edge-module-offer-settings-tab"></a>Separador de definições da oferta de módulo do IoT Edge
+# <a name="iot-edge-module-offer-settings-tab"></a>Guia Configurações da oferta do módulo IoT Edge
 
-O **módulos do IoT Edge > nova oferta** página abre-se com o foco no **oferecer definições** separador. 
+A página **IOT Edge módulos > nova oferta** é aberta com o foco na guia **configurações da oferta** . 
 
-![Nova página de oferta para módulos do IoT Edge](./media/iot-edge-module-offer-settings-tab.png)
+![Nova página de oferta para módulos de IoT Edge](./media/iot-edge-module-offer-settings-tab.png)
 
 
-## <a name="offer-identity-settings"></a>Definições de identidade da oferta
+## <a name="offer-identity-settings"></a>Configurações de identidade da oferta
 
-Sob **oferecer identidade**, tem de fornecer informações para os campos descrito na tabela seguinte. Um asterisco (*) acrescentado ao nome do campo indica que é obrigatório. 
+Em **identidade da oferta**, você deve fornecer informações para os campos descritos na tabela a seguir. Um asterisco (*) acrescentado ao nome do campo indica que ele é necessário. 
 
 |  **Campo**       |     **Descrição**                                                          |
 |  ---------       |     ---------------                                                          |
-| **ID de oferta\***       | Um identificador exclusivo (dentro de um perfil do publicador) para a oferta. Este identificador serão visível nos relatórios de URLs e as informações do produto. Ele tem um comprimento máximo de 50 carateres e pode utilizar carateres minúsculos de alfanuméricos e traços (-). (O identificador não pode terminar com um hífen.) **Nota:** Este campo não pode ser alterado depois de uma oferta entra no ar. <br> Por exemplo, se a Contoso publica uma oferta com o ID da oferta **exemplo---módulo do iot edge**, é atribuído a ela o URL do Azure Marketplace `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-iot-edge-module?tab=Overview`. |
-| **Publisher\***     | Identificador exclusivo da sua organização, no Azure Marketplace. Todas as suas ofertas devem ser associadas com o ID de publicador. Este valor não pode ser alterado depois da oferta guardadas. |
-| **Nome\***          | O nome a apresentar para a sua oferta. Este nome é apresentado no Azure Marketplace e no Portal de parceiros de nuvem. Pode ter um máximo de 50 carateres. Recomendamos que utilize um nome de marca reconhecível para seu produto. Não inclua o nome da sua organização, a menos que essa é a forma como o seu produto é comercializado. Se estiver de marketing esta oferta em outros Web sites e publicações, certifique-se de que o nome é exatamente o mesmo em todas as publicações. |
+| **ID da oferta\***       | Um identificador exclusivo (dentro de um perfil de editor) para a oferta. Esse identificador será visível em relatórios de informações e URLs de produtos. Ele tem um comprimento máximo de 50 caracteres e pode usar caracteres alfanuméricos minúsculos e traços (-). (O identificador não pode terminar com um traço.) **Observação:** Este campo não pode ser alterado depois que uma oferta é ativada. <br> Por exemplo, se a contoso publicar uma oferta com a ID **de oferta de exemplo-IOT-Edge-Module**, ela será atribuída à URL do Azure Marketplace `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-iot-edge-module?tab=Overview`. |
+| **\* do Publicador**     | O identificador exclusivo da sua organização no Azure Marketplace. Todas as suas ofertas devem ser associadas à sua ID do editor. Esse valor não pode ser alterado depois que a oferta é salva. |
+| **Nome\***          | O nome de exibição para sua oferta. Esse nome é exibido no Azure Marketplace e no Portal do Cloud Partner. Pode ter um máximo de 50 carateres. É recomendável usar um nome de marca reconhecível para seu produto. Não inclua o nome da sua organização, a menos que seja como o produto é comercializado. Se você estiver comercializando esta oferta em outros sites e publicações, verifique se o nome é exatamente o mesmo em todas as publicações. |
 |  |  |
 
 
-Selecione **guardar** para guardar as definições da oferta.
+Selecione **salvar** para salvar suas configurações de oferta.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Utilize o [SKUs](./cpp-skus-tab.md) separador para configurar os SKUs para a sua oferta.
+Use a guia [SKUs](./cpp-skus-tab.md) para configurar os SKUs para sua oferta.

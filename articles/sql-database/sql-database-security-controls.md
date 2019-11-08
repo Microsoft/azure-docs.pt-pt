@@ -1,5 +1,5 @@
 ---
-title: Controles de segurança para o banco de dados SQL do Azure
+title: Controlos de segurança
 description: Uma lista de verificação de controles de segurança para avaliar o banco de dados SQL do Azure
 services: sql-database
 author: msmbaldwin
@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 77ff55389bac53d8719d86b4ac77f281415af49f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 58070cab1221b9d9585784d82cf1a48afcedb8af
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886483"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802834"
 ---
 # <a name="security-controls-for-azure-sql-database"></a>Controles de segurança para o banco de dados SQL do Azure
 
@@ -40,24 +40,24 @@ O banco de dados SQL inclui [um único banco de dados e uma](sql-database-single
 | Log e auditoria do plano de controle e do plano de gerenciamento| Sim | Sim apenas para alguns eventos |
 | Log e auditoria do plano de dados | Sim | Por meio da [auditoria do SQL](sql-database-auditing.md) |
 
-## <a name="identity"></a>identidade
+## <a name="identity"></a>Identidade
 
 | Controle de segurança | Sim/Não | Notas|
 |---|---|--|
-| Authentication| Sim | Azure Active Directory (Azure AD) |
+| Autenticação| Sim | Azure Active Directory (Azure AD) |
 | Autorização| Sim | Nenhum |
 
 ## <a name="data-protection"></a>Proteção de dados
 
 | Controle de segurança | Sim/Não | Notas |
 |---|---|--|
-| Criptografia no lado do servidor em repouso: Chaves gerenciadas pela Microsoft | Sim | Chamado "criptografia em uso", conforme descrito no artigo [Always Encrypted](sql-database-always-encrypted.md). A criptografia do lado do servidor usa a Transparent [Data Encryption](transparent-data-encryption-azure-sql.md).|
+| Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim | Chamado "criptografia em uso", conforme descrito no artigo [Always Encrypted](sql-database-always-encrypted.md). A criptografia do lado do servidor usa a [Transparent Data Encryption](transparent-data-encryption-azure-sql.md).|
 | Criptografia em trânsito:<ul><li>Criptografia do Azure ExpressRoute</li><li>Criptografia em uma rede virtual</li><li>Criptografia entre redes virtuais</ul>| Sim | Usando HTTPS. |
 | Criptografia – manipulação de chaves, como CMK ou BYOK| Sim | O tratamento de chaves gerenciado pelo serviço e gerenciado pelo cliente é oferecido. O último é oferecido por meio de [Azure Key Vault](../key-vault/index.yml). |
 | Criptografia em nível de coluna fornecida pelos serviços de dados do Azure| Sim | Por meio de [Always Encrypted](sql-database-always-encrypted.md). |
 | Chamadas de API criptografadas| Sim | Usando HTTPS/SSL. |
 
-## <a name="configuration-management"></a>Gestão de configuração
+## <a name="configuration-management"></a>Gestão da configuração
 
 | Controle de segurança | Sim/Não | Notas|
 |---|---|--|
@@ -71,6 +71,6 @@ O banco de dados SQL inclui [um único banco de dados e uma](sql-database-single
 | Preventivo: descoberta e classificação de dados  | Sim | Consulte [classificação de & do banco de dados SQL do Azure e SQL data warehouse a descoberta de data](sql-database-data-discovery-and-classification.md). |
 | Detecção: detecção de ameaças | Sim | Consulte [proteção avançada contra ameaças para o banco de dados SQL do Azure](sql-database-threat-detection-overview.md). |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre os [controles de segurança internos nos serviços do Azure](../security/fundamentals/security-controls.md).

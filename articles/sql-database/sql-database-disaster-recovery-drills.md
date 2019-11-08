@@ -1,5 +1,5 @@
 ---
-title: Análises de recuperação de desastre do banco de dados SQL
+title: Análises de recuperação de desastre
 description: Conheça as diretrizes e as práticas recomendadas para usar o banco de dados SQL do Azure para realizar análises de recuperação de desastre.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: bf337b1312abc59048649aabe3e4f895d07a8d51
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3ca00a03976ae38b7956616b8287220a7bc5998c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690619"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825857"
 ---
 # <a name="performing-disaster-recovery-drill"></a>Executando a análise de recuperação de desastre
 

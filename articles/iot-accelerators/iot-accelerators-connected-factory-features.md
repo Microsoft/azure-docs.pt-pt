@@ -1,6 +1,6 @@
 ---
-title: Ligado a recursos de solução de fábrica - Azure | Documentos da Microsoft
-description: Uma visão geral dos recursos da solução pré-configurada de fábrica ligada.
+title: Recursos da solução de fábrica conectada – Azure | Microsoft Docs
+description: Este artigo descreve uma visão geral dos recursos da solução pré-configurada de fábrica conectada, como painel de nuvem, regras e alertas.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,28 +8,28 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dobett
-ms.openlocfilehash: 2a11640959a8c7fdd0d238aba92698eb47934969
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c868aa0f1c2449ccf163523c9ded25a31d1d84c4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080455"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820101"
 ---
-# <a name="what-is-connected-factory-iot-solution-accelerator"></a>O que é o acelerador de solução de IoT de fábrica ligada?
+# <a name="what-is-connected-factory-iot-solution-accelerator"></a>O que é o acelerador de solução IoT de fábrica conectada?
 
-Fábrica ligada é uma implementação de arquitetura de referência do Azure Industrial IoT da Microsoft, empacotada como na solução de código-fonte aberto. Pode utilizá-lo como um ponto de partida para um produto comercial. Pode implementar uma versão previamente criada da solução de fábrica ligada na sua subscrição do Azure partir [Aceleradores de solução de IoT do Azure](https://www.azureiotsolutions.com/#solutions/types/CF).
+A fábrica conectada é uma implementação da arquitetura de referência de IoT industrial do Azure da Microsoft, empacotada como uma solução de software livre. Você pode usá-lo como um ponto de partida para um produto comercial. Você pode implantar uma versão criada previamente da solução de fábrica conectada em sua assinatura do Azure por meio dos [aceleradores de solução do Azure IOT](https://www.azureiotsolutions.com/#solutions/types/CF).
 
-![Dashboard de solução de fábrica ligada](./media/iot-accelerators-connected-factory-features/dashboard.png)
+![Painel da solução de fábrica conectada](./media/iot-accelerators-connected-factory-features/dashboard.png)
 
-O acelerador de solução de fábrica ligada [código está disponível no GitHub](https://github.com/Azure/azure-iot-connected-factory).
+O código do Solution Accelerator da fábrica conectada [está disponível no GitHub](https://github.com/Azure/azure-iot-connected-factory).
 
-Fábrica ligada inclui as seguintes funcionalidades:
+A fábrica conectada inclui os seguintes recursos:
 
 ## <a name="industrial-device-interoperability"></a>Interoperabilidade de dispositivos industriais
 
 - Ligue a recursos industriais através de uma interface OPC UA.
-- Utilize as linhas de produção simuladas (em execução OPC UA servidores em contentores do Docker) para ver a telemetria em direto dos mesmos.
-- Procure o modelo de informações de OPC UA dos servidores OPC UA partir de um dashboard da cloud.
+- Use as linhas de produção simuladas (executando servidores OPC UA em contêineres do Docker) para ver a telemetria ao vivo.
+- Procure o modelo de informações do OPC UA dos servidores OPC UA de um painel de nuvem.
 
 ## <a name="remote-management"></a>Gestão remota
 
@@ -38,31 +38,31 @@ Fábrica ligada inclui as seguintes funcionalidades:
 
 ## <a name="cloud-dashboard"></a>Dashboard na cloud
 
-- Ver as pré-visualizações de telemetria diretamente no dashboard da cloud.
+- Exibir visualizações de telemetria diretamente em um painel de nuvem.
 - Veja as tendências nos dados telemétricos e crie correlações com o dashboard do Explorador do Time Series Insights.
-- Ver calculada eficiência geral de equipamentos (OEE) e indicadores chave de desempenho (KPIs) a partir de um dashboard do cloud.
-- Hierarquias de ativos industriais do modo de exibição numa topologia de árvore, bem como num mapa interativo.
-- Ver, reconhecer e fechar alertas a partir de um dashboard da cloud.
+- Consulte OEE (eficiência geral do equipamento) e KPIs (indicadores chave de desempenho) calculados em um painel de nuvem.
+- Exiba hierarquias de ativos industriais em uma topologia de árvore, bem como em um mapa interativo.
+- Exibir, reconhecer e fechar alertas de um painel de nuvem.
 
 ## <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
-- [O Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) baseia-se de armazenamento, visualizar e consultar grandes quantidades de dados de séries de tempo. Este serviço ligado tira partido de fábrica.
-- Fábrica ligada integra-se com este serviço, permitindo que executar uma análise profunda e em tempo real de dados do seu dispositivo.
+- [Azure Time Series insights](../time-series-insights/time-series-insights-overview.md) é criado para armazenar, Visualizar e consultar grandes quantidades de dados de série temporal. A fábrica conectada aproveita esse serviço.
+- A fábrica conectada integra-se com esse serviço, permitindo que você execute análises profundas e em tempo real dos dados do seu dispositivo.
 
 ## <a name="rules-and-alerts"></a>Regras e alertas
 
-[Configurar regras baseadas em limiares para alertas](iot-accelerators-connected-factory-configure.md).
+[Configure regras baseadas em limite para alertas](iot-accelerators-connected-factory-configure.md).
 
 ## <a name="end-to-end-security"></a>Segurança ponto a ponto
 
 - Configure permissões de segurança para utilizadores através do Controlo de Acesso Baseado em Funções (RBAC).
-- Encriptação de ponto-a-ponto é implementada utilizando a autenticação de OPC UA (usando certificados X.509), bem como os tokens de segurança.
+- A criptografia de ponta a ponta é implementada usando a autenticação OPC UA (usando certificados X. 509), bem como tokens de segurança.
 
-## <a name="customizability"></a>Capacidade de personalização
+## <a name="customizability"></a>Personalização
 
-- Personalize a solução para satisfazer as necessidades comerciais específicas.
-- Solução completa código-fonte disponível no GitHub. Consulte a [solução pré-configurada de fábrica ligada](https://github.com/Azure/azure-iot-connected-factory) repositório.
+- Personalize a solução para atender a requisitos específicos de negócios.
+- Fonte de solução completa-código disponível no GitHub. Consulte o repositório de [solução pré-configurada de fábrica conectada](https://github.com/Azure/azure-iot-connected-factory) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o acelerador de solução de fábrica ligada, consulte o guia de introdução [experimentar uma solução baseada na nuvem para gerir os meus dispositivos de IoT industriais](quickstart-connected-factory-deploy.md).
+Para saber mais sobre o Solution Accelerator da fábrica conectada, consulte o início rápido [Experimente uma solução baseada em nuvem para gerenciar meus dispositivos IOT industriais](quickstart-connected-factory-deploy.md).

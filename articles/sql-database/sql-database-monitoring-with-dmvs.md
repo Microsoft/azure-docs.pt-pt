@@ -1,5 +1,5 @@
 ---
-title: Monitorando o desempenho do banco de dados SQL do Azure usando DMVs
+title: Monitorar o desempenho usando DMVs
 description: Saiba como detectar e diagnosticar problemas comuns de desempenho usando exibições de gerenciamento dinâmico para monitorar Banco de Dados SQL do Microsoft Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: c7eed3fc8e9d0328a3e793e1ff4b3652ab86e2bc
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bea6a572e55f1a79515c385fd7b79881c54ae65e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687747"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802926"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Monitoramento de desempenho do banco de dados SQL do Azure usando exibições de gerenciamento dinâmico
 

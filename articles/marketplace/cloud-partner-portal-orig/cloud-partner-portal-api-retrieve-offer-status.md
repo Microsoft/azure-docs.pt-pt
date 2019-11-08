@@ -1,43 +1,44 @@
 ---
-title: Obter o estado da oferta | O Azure Marketplace
-description: API obtém o estado atual da oferta.
+title: Recuperar status da oferta | Azure Marketplace
+description: A API recupera o status atual da oferta.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 26ee8b5b1879c505f8200671558fe065ace068a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ce546d79497f462f6c262de738036d7e3a30226
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935461"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819670"
 ---
 <a name="retrieve-offer-status"></a>Obter estado da oferta 
 =====================
 
-Obtém o estado atual da oferta.
+Recupera o status atual da oferta.
 
   `GET  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/status?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>Parâmetros do URI
+<a name="uri-parameters"></a>Parâmetros de URI
 --------------
 
 |  **Nome**       |   **Descrição**                            |  **Tipo de dados** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identificador do publicador, por exemplo `Contoso`  |     String     |
-|  offerId        | GUID que identifica exclusivamente a oferta      |     String     |
-|  versão de API    | Versão mais recente da API                        |     Date       |
+|  publisherId    | Identificador de editor, por exemplo `Contoso`  |     String     |
+|  OfferId        | GUID que identifica exclusivamente a oferta      |     String     |
+|  versão da API    | Versão mais recente da API                        |     Date       |
 |  |  |
 
 
 <a name="header"></a>Cabeçalho
 ------
 
-|  Name           |  Value               |
+|  Nome           |  Valor               |
 |  -------------  | -------------------  |
-|  Content-Type   |  `application/json`  |
+|  Tipo de conteúdo   |  `application/json`  |
 |  Autorização  | `Bearer YOUR_TOKEN`  |
 |  |  |
 
@@ -120,60 +121,60 @@ Obtém o estado atual da oferta.
 ```
 
 
-### <a name="response-body-properties"></a>Propriedades do corpo de resposta
+### <a name="response-body-properties"></a>Propriedades do corpo da resposta
 
 |  **Nome**             |    **Descrição**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
-|  status               | O estado da oferta. Para obter a lista de valores possíveis, consulte [stav Nabídky](#offer-status) abaixo. |
+|  status               | O status da oferta. Para obter a lista de valores possíveis, consulte o [status da oferta](#offer-status) abaixo. |
 |  mensagens             | Matriz de mensagens associadas à oferta                                                    |
-|  passos                | Matriz dos passos que a oferta atravessa o limite de tempo durante a publicação de uma oferta                      |
-|  estimatedTimeFrame   | Estimativa de tempo que é necessário para concluir este passo, em formato amigável                       |
-|  id                   | Identificador do passo                                                                         |
-|  stepName             | Nome do passo                                                                               |
-|  description          | Descrição do passo                                                                        |
-|  status               | Estado do passo. Para obter a lista de valores possíveis, consulte [passo estado](#step-status) abaixo.    |
-|  mensagens             | Matriz de mensagens relacionadas para o passo                                                          |
-|  processPercentage    | Porcentagem de conclusão do passo                                                              |
-|  previewLinks         | *Atualmente não implementado*                                                                    |
-|  liveLinks            | *Atualmente não implementado*                                                                    |
-|  notificationEmails   | Lista separada por vírgulas de endereços de e-mail para ser notificado sobre o progresso da operação        |
+|  passos                | Matriz das etapas pelas quais a oferta passa durante uma publicação de oferta                      |
+|  estimatedTimeFrame   | Estimativa do tempo que levaria para concluir esta etapa, em formato amigável                       |
+|  ID                   | Identificador da etapa                                                                         |
+|  etapaname             | Nome da etapa                                                                               |
+|  descrição          | Descrição da etapa                                                                        |
+|  status               | Status da etapa. Para obter a lista de valores possíveis, consulte o [status da etapa](#step-status) abaixo.    |
+|  mensagens             | Matriz de mensagens relacionadas à etapa                                                          |
+|  processPercentage    | Porcentagem de conclusão da etapa                                                              |
+|  previewLinks         | *Não implementado atualmente*                                                                    |
+|  liveLinks            | *Não implementado atualmente*                                                                    |
+|  notificationEmails   | Lista separada por vírgulas de endereços de email a serem notificados do progresso da operação        |
 |  |  |
 
 
-### <a name="response-status-codes"></a>Códigos de estado de resposta
+### <a name="response-status-codes"></a>Códigos de status de resposta
 
-| **Código** |   **Descrição**                                                                                 |
+| **Auto-completar** |   **Descrição**                                                                                 |
 | -------  |   ----------------------------------------------------------------------------------------------- |
-|  200     |  `OK` -O pedido foi processado com êxito e o estado atual da oferta foi devolvido. |
-|  400     | `Bad/Malformed request` -O corpo da resposta de erro pode conter mais informações.                 |
-|  404     | `Not found` -A entidade especificada não existe.                                                |
+|  200     |  `OK`-a solicitação foi processada com êxito e o status atual da oferta foi retornado. |
+|  400     | `Bad/Malformed request`-o corpo da resposta de erro pode conter mais informações.                 |
+|  404     | `Not found`-a entidade especificada não existe.                                                |
 |  |  |
 
 
-### <a name="offer-status"></a>Stav nabídky
+### <a name="offer-status"></a>Status da oferta
 
 |  **Nome**                    |    **Descrição**                                       |
 |  --------------------------  |  ------------------------------------------------------  |
-|  NeverPublished              | Oferta nunca foi publicada.                          |
-|  NotStarted                  | A oferta é novo e não iniciado.                            |
-|  WaitingForPublisherReview   | Oferta está à espera de aprovação do publicador.                 |
-|  A executar                     | Submissão de oferta está a ser processado.                     |
-|  Bem-sucedido                   | Submissão de oferta terminou de processar.               |
-|  Cancelado                    | Submissão de oferta foi cancelada.                           |
-|  Com Falhas                      | Falha na submissão de oferta.                                 |
+|  NeverPublished              | A oferta nunca foi publicada.                          |
+|  NotStarted                  | A oferta é nova e não iniciada.                            |
+|  WaitingForPublisherReview   | A oferta está aguardando a aprovação do Publicador.                 |
+|  A executar                     | O envio da oferta está sendo processado.                     |
+|  Bem-sucedido                   | O envio da oferta concluiu o processamento.               |
+|  Cancelado                    | O envio da oferta foi cancelado.                           |
+|  Com Falhas                      | Falha no envio da oferta.                                 |
 |  |  |
 
 
-### <a name="step-status"></a>Estado de passo
+### <a name="step-status"></a>Status da etapa
 
 |  **Nome**                    |    **Descrição**                           |
 |  -------------------------   |  ------------------------------------------  |
-|  NotStarted                  | Passo não foi iniciado.                        |
-|  Em curso                  | Passo está em execução.                             |
-|  WaitingForPublisherReview   | Passo está à espera de aprovação do publicador.      |
-|  WaitingForApproval          | Passo está à espera de aprovação de processo.        |
-|  Bloqueado                     | Passo está bloqueado.                             |
-|  Rejeitado                    | Passo é rejeitado.                            |
-|  Concluir                    | Passo está concluído.                            |
-|  Cancelado                    | Passo foi cancelado.                           |
+|  NotStarted                  | A etapa não foi iniciada.                        |
+|  InProgress                  | A etapa está em execução.                             |
+|  WaitingForPublisherReview   | A etapa está aguardando a aprovação do Publicador.      |
+|  WaitingForApproval          | A etapa está aguardando a aprovação do processo.        |
+|  Obstruído                     | A etapa está bloqueada.                             |
+|  Recusa                    | A etapa foi rejeitada.                            |
+|  Concluir                    | Etapa concluída.                            |
+|  Cancelado                    | A etapa foi cancelada.                           |
 |  |  |

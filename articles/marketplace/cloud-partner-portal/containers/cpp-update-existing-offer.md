@@ -1,85 +1,86 @@
 ---
-title: Atualizar uma oferta de contentores do Azure existente | O Azure Marketplace
-description: Como atualizar uma oferta existente do contentor no Azure Marketplace.
+title: Atualizar uma oferta de contêineres do Azure existente | Azure Marketplace
+description: Como atualizar uma oferta de contêiner existente no Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: pabutler
-ms.openlocfilehash: 0e0db961dec69880eff6ef640e9210af6fcbc978
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 40cd375b11eb5b7ad5943fea9839b6339a7d002f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942599"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823074"
 ---
-# <a name="update-an-existing-container-offer"></a>Atualizar uma oferta existente do contentor
+# <a name="update-an-existing-container-offer"></a>Atualizar uma oferta de contêiner existente
 
-Este artigo percorre os diferentes aspectos da atualizar a sua oferta de contentor no [Cloud Partner Portal](https://cloudpartner.azure.com/).
+Este artigo percorre os diferentes aspectos da atualização de sua oferta de contêiner no [portal do Cloud Partner](https://cloudpartner.azure.com/).
 
-Há vários motivos por que razão poderá querer atualizar a sua oferta, tais como:
+Há várias razões pelas quais você talvez queira atualizar sua oferta, como:
 
--  Adicionar uma nova versão de imagem de contentor para SKUs existentes.
--  A adicionar os novos SKU.
--  A atualizar os metadados do marketplace para a oferta ou SKUs individuais.
+-  Adicionar uma nova versão de imagem de contêiner a SKUs existentes.
+-  Adicionando novas SKUs.
+-  Atualizando os metadados do Marketplace para a oferta ou SKUs individuais.
 
-Para ajudá-lo a essas modificações, o portal fornece o **Compare** e **histórico** funcionalidades.  
+Para ajudá-lo nessas modificações, o portal fornece os recursos de **comparação** e **histórico** .  
 
 
-## <a name="unpermitted-changes-to-a-container-offer-or-sku"></a>Unpermitted alterações a uma oferta de contentor ou SKU
+## <a name="unpermitted-changes-to-a-container-offer-or-sku"></a>Alterações não permitidas em uma oferta de contêiner ou SKU
 
-Existem atributos de uma oferta de contentor ou SKU que não pode ser alterado depois da oferta está em direto no Azure Marketplace. Não é possível alterar as seguintes definições:
+Há atributos de uma oferta de contêiner ou SKU que não podem ser alterados depois que a oferta está ativa no Azure Marketplace. Não é possível alterar as seguintes configurações:
 
--  **ID da oferta** e **ID de publicador** da oferta
--  **ID do SKU** dos SKUs existentes
--  Versão etiquetas, por exemplo: `1.0.1`
--  Modelo de faturação/licença é alterado para SKUs existentes
+-  ID da **oferta** e **ID do editor** da oferta
+-  **ID de SKU** de SKUs existentes
+-  Marcas de versão, por exemplo: `1.0.1`
+-  Alterações no modelo de cobrança/licença para SKUs existentes
 
-## <a name="common-update-operations"></a>Operações de atualização comuns
+## <a name="common-update-operations"></a>Operações comuns de atualização
 
 As seguintes operações de atualização são comuns.
 
-### <a name="update-container-image-version-for-a-sku"></a>Atualizar a versão de imagem de contentor para um SKU
+### <a name="update-container-image-version-for-a-sku"></a>Atualizar versão da imagem de contêiner para uma SKU
 
-É comum para uma imagem de contentor ser atualizado periodicamente com patches de segurança, funcionalidades adicionais e assim por diante. Neste cenário, que pretende atualizar a imagem de contentor que o SKU faz referência ao utilizar os seguintes passos:
+É comum que uma imagem de contêiner seja atualizada periodicamente com patches de segurança, recursos adicionais e assim por diante. Nesse cenário, você deseja atualizar a imagem de contêiner que seu SKU faz referência usando as seguintes etapas:
 
-1. Inicie sessão para o [Portal de parceiros da Cloud](https://cloudpartner.azure.com/).
-2. Sob **todas as ofertas**, localize a oferta que pretende atualizar.
-3. Na **SKUs** separador, selecione o SKU associado à imagem de contentor para atualizar.
-4. Sob **imagem de contentor**, selecione **+ nova versão da imagem** para adicionar uma nova imagem de contentor.
-5. Fornecer o novo contentor **versões de imagem**. A versão da imagem tem de cumprir as mesmas diretrizes de marcas como versões anteriores. Etiquetas de versão devem ter o formato x.y. z, em que X, Y e Z são números inteiros. Certifique-se de que a nova versão que fornece é maior do que as versões anteriores tudo.
-6. Selecione **publicar** para iniciar o fluxo de trabalho para publicar a nova versão de imagem de contentor no Azure Marketplace.
+1. Entre no [portal do Cloud Partner](https://cloudpartner.azure.com/).
+2. Em **todas as ofertas**, localize a oferta que você deseja atualizar.
+3. Na guia **SKUs** , selecione a SKU associada à imagem de contêiner a ser atualizada.
+4. Em **imagem de contêiner**, selecione **+ nova versão de imagem** para adicionar uma nova imagem de contêiner.
+5. Forneça as novas **versões de imagem**de contêiner. A versão da imagem precisa seguir as mesmas diretrizes de marcas que as versões anteriores. As marcas de versão devem estar no formato X. Y. Z, em que X, Y e Z são inteiros. Verifique se a nova versão que você fornece é maior do que todas as versões anteriores.
+6. Selecione **publicar** para iniciar o fluxo de trabalho para publicar sua nova versão de imagem de contêiner no Azure Marketplace.
 
-### <a name="add-a-new-sku"></a>Adicionar um novo SKU
+### <a name="add-a-new-sku"></a>Adicionar uma nova SKU
 
-Utilize os seguintes passos para disponibilizar um SKU de novo para a sua oferta:
+Use as etapas a seguir para disponibilizar uma nova SKU para sua oferta:
 
-1. Inicie sessão para o [Portal de parceiros da Cloud](https://cloudpartner.azure.com/).
-2. Sob **todas as ofertas**, localize a oferta que pretende atualizar.
-3. Sob o **SKUs** separador, selecione **adicionar novo SKU** e fornecer uma **ID de SKU** na janela de pop-up.
-4. Voltar a publicar o contentor utilizando os passos descritos em [publicar oferta de contentor](./cpp-publish-offer.md).
-5. Selecione **publicar** para iniciar o fluxo de trabalho para publicar o seu novo SKU.
+1. Entre no [portal do Cloud Partner](https://cloudpartner.azure.com/).
+2. Em **todas as ofertas**, localize a oferta que você deseja atualizar.
+3. Na guia **SKUs** , selecione **Adicionar nova SKU** e forneça uma **ID de SKU** na janela pop-up.
+4. Republique o contêiner usando as etapas descritas na [oferta publicar contêiner](./cpp-publish-offer.md).
+5. Selecione **publicar** para iniciar o fluxo de trabalho para publicar o novo SKU.
 
-### <a name="update-offer-marketplace-metadata"></a>Atualizar os metadados do marketplace de oferta
+### <a name="update-offer-marketplace-metadata"></a>Atualizar metadados do Marketplace da oferta
 
-Utilize os seguintes passos para atualizar os metadados de marketplace associados a sua oferta. (Por exemplo: da empresa, nome, logótipos e etc.)
+Use as etapas a seguir para atualizar os metadados do Marketplace associados à sua oferta. (Por exemplo: nome da empresa, logotipos e etc.)
 
-1. Inicie sessão para o [Portal de parceiros da Cloud](https://cloudpartner.azure.com/).
-2. Sob **todas as ofertas**, localize a oferta que pretende atualizar.
-3. Vá para o **Marketplace** separador. Utilize as instruções no [publicar oferta de contentor](./cpp-publish-offer.md) oferecem artigo para fazer alterações de metadados.
-4. Selecione **publicar** para iniciar o fluxo de trabalho para publicar as alterações.
+1. Entre no [portal do Cloud Partner](https://cloudpartner.azure.com/).
+2. Em **todas as ofertas**, encontre a oferta que você gostaria de atualizar.
+3. Vá para a guia **Marketplace** . Use as instruções no artigo [publicar oferta de contêiner](./cpp-publish-offer.md) da oferta para fazer alterações de metadados.
+4. Selecione **publicar** para iniciar o fluxo de trabalho para publicar suas alterações.
 
-## <a name="compare-feature"></a>Compare recursos
+## <a name="compare-feature"></a>Comparar recurso
 
-Quando fizer alterações a uma oferta publicada, pode utilizar o **comparar** funcionalidade para auditar as alterações que fez.
+Ao fazer alterações em uma oferta publicada, você pode usar o recurso **comparar** para auditar as alterações feitas.
 
-### <a name="to-use-the-compare-feature"></a>Para utilizar a funcionalidade de comparação:
+### <a name="to-use-the-compare-feature"></a>Para usar o recurso comparar:
 
-1. Em qualquer momento no processo de edição, selecione a comparação para a sua oferta.
-2. Ver versões lado a lado dos ativos de marketing e metadados.
+1. Em qualquer ponto do processo de edição, selecione comparar para sua oferta.
+2. Examine as versões lado a lado dos ativos de marketing e metadados.
 
 
 ## <a name="history-of-publishing-actions"></a>Histórico de ações de publicação
 
-Para ver a atividade do histórico publicação, selecione o **histórico** separador na navegação à esquerda menu barra de Cloud Portal de parceiros. Pode ver as ações de timestamped tomadas durante o tempo de vida das suas ofertas do Azure Marketplace.
+Para ver a atividade de publicação histórica, selecione a guia **histórico** na barra de menus de navegação à esquerda de portal do Cloud Partner. Você pode ver as ações de carimbo de data/hora executadas durante o tempo de vida de suas ofertas do Azure Marketplace.

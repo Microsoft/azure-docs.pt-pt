@@ -1,42 +1,43 @@
 ---
-title: Criar imagem de contentores do Azure ativos técnicos | O Azure Marketplace
-description: Crie os recursos técnicos para um contentor do Azure.
+title: Criar ativos técnicos de imagem de contêineres do Azure | Azure Marketplace
+description: Crie os ativos técnicos para um contêiner do Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
-ms.openlocfilehash: c639389fdd0d4624152fcdfa4432be09a18a97bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6aae1957a3dcc58339eb4f3c9e250513843ceb18
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65794331"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819056"
 ---
-# <a name="prepare-your-container-technical-assets"></a>Preparar o seu contentor ativos técnicos
+# <a name="prepare-your-container-technical-assets"></a>Preparar seus ativos técnicos do contêiner
 
-Este artigo descreve os passos e os requisitos para configurar uma oferta de contentor no Azure Marketplace.
+Este artigo descreve as etapas e os requisitos para configurar um contêiner que oferece o Azure Marketplace.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Reveja os [Azure Container Instances](https://docs.microsoft.com/azure/container-instances) documentação, que fornece inícios rápidos, tutoriais e amostras.
+Examine a documentação de [instâncias de contêiner do Azure](https://docs.microsoft.com/azure/container-instances) , que fornece guias de início rápido, tutoriais e exemplos.
 
-## <a name="fundamental-technical-knowledge"></a>Conhecimentos técnicos fundamentais
+## <a name="fundamental-technical-knowledge"></a>Conhecimento técnico fundamental
 
-Estruturar, criar e testar esses ativos demorar algum tempo e requer conhecimento técnico de plataforma do Azure e as tecnologias usadas para criar a oferta.
+Projetar, criar e testar esses ativos leva tempo e exige conhecimento técnico da plataforma Azure e das tecnologias usadas para criar a oferta.
  
-Além de seu domínio de solução, a sua equipa de engenharia deve ter conhecimento sobre as seguintes tecnologias da Microsoft:
+Além do seu domínio de solução, sua equipe de engenharia deve ter conhecimento das seguintes tecnologias da Microsoft:
 
--   Noções básicas sobre [dos serviços do Azure](https://azure.microsoft.com/services/) 
--   Como [de design e a arquitetura de aplicações do Azure](https://azure.microsoft.com/solutions/architecture/)
--   Conhecimento prático do [máquinas virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/), [armazenamento do Azure](https://azure.microsoft.com/services/?filter=storage) e [redes do Azure](https://azure.microsoft.com/services/?filter=networking)
--   Conhecimento prático do [do Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
--   Conhecimento prático do [JSON](https://www.json.org/)
+-   Noções básicas sobre os [Serviços do Azure](https://azure.microsoft.com/services/) 
+-   Como [projetar e arquitetar aplicativos do Azure](https://azure.microsoft.com/solutions/architecture/)
+-   Conhecimento de trabalho de [máquinas virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/), [armazenamento do Azure](https://azure.microsoft.com/services/?filter=storage) e [rede do Azure](https://azure.microsoft.com/services/?filter=networking)
+-   Conhecimento de trabalho do [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
+-   Conhecimento de trabalho do [JSON](https://www.json.org/)
 
-## <a name="suggested-tools"></a>Sugestões de ferramentas
+## <a name="suggested-tools"></a>Ferramentas sugeridas
 
-Escolha um ou ambos dos seguintes ambientes de criação de scripts para ajudar a gerir a sua imagem de contentor:
+Escolha um ou ambos os seguintes ambientes de script para ajudar a gerenciar sua imagem de contêiner:
 
 -   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 -   [CLI do Azure](https://docs.microsoft.com/cli/azure)
@@ -45,19 +46,19 @@ Além disso, é recomendável adicionar as seguintes ferramentas ao seu ambiente
 
 -   [Explorador do Armazenamento do Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
-    *   Extensão: [Ferramentas do Gestor de recursos do Azure](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *   Extensão: [ferramentas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     *   Extensão: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-    *   Extensão: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+    *   Extensão: [melhorar JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
-Sugerimos também a rever as ferramentas disponíveis no [ferramentas de programação do Azure](https://azure.microsoft.com/tools/) página e, se estiver a utilizar o Visual Studio, o [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
+Também sugerimos a revisão das ferramentas disponíveis na página [ferramentas para desenvolvedores do Azure](https://azure.microsoft.com/tools/) e, se você estiver usando o Visual Studio, a [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 
-## <a name="create-the-container-image"></a>Criar a imagem de contentor
+## <a name="create-the-container-image"></a>Criar a imagem de contêiner
 
-Veja o seguinte para obter mais informações:
+Consulte o seguinte para obter mais informações:
 
-* [Tutorial: Criar uma imagem de contentor para implementação no Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
-* [Tutorial: Criar e implementar imagens de contentor na cloud com tarefas de registo de contentor do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
+* [Tutorial: criar uma imagem de contêiner para implantação em instâncias de contêiner do Azure](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
+* [Tutorial: criar e implantar imagens de contêiner na nuvem com tarefas de registro de contêiner do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Criar a sua oferta de contentor](./cpp-create-offer.md)
+[Criar sua oferta de contêiner](./cpp-create-offer.md)

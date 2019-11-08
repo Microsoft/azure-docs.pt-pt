@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
-ms.openlocfilehash: 5c583270428a459f500ae0e220592805fd1bf454
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 0a2b48a6c046150f6e685ecda0c0d765342e0194
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718902"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818956"
 ---
 # <a name="how-to-move-your-limited-trial-project-to-azure"></a>Como mover seu projeto de avaliação limitada para o Azure
 
@@ -46,7 +46,7 @@ Vários projetos podem ser associados a um único recurso. Mais detalhes sobre [
 
 ## <a name="find-your-limited-trial-project-information"></a>Encontre suas informações limitadas do projeto de avaliação
 
-Para mover seu projeto, você precisará da _ID do projeto_ e da _chave de treinamento_ para o projeto que você está tentando migrar. Se você não tiver essas informações, visite [https://limitedtrial.customvision.ai/projects](https://limitedtrial.customvision.ai/projects) para obter a ID e a chave de cada um dos seus projetos. 
+Para mover seu projeto, você precisará da _ID do projeto_ e da _chave de treinamento_ para o projeto que você está tentando migrar. Se você não tiver essas informações, visite [https://www.customvision.ai/projects](https://www.customvision.ai/projects) para obter a ID e a chave de cada um dos seus projetos. 
 
 ## <a name="use-the-python-sample-code-to-copy-your-project-to-azure"></a>Use o código de exemplo do Python para copiar seu projeto para o Azure
 

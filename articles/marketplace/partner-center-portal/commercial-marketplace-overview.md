@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: b0900dbfee81952ed014d976cc8d7136ea65f8fc
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: f6ba5c240a9ad74d9a2fab41496ce519f25fc4dc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191715"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812064"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Visão geral do portal do Marketplace comercial no Partner Center
 
@@ -54,8 +55,8 @@ A análise do Partner Center fornece uma visão do desempenho de suas ofertas e 
 
 Saiba mais sobre versões recentes e futuras visitando o [roteiro do Marketplace](https://aka.ms/publicmarketplaceroadmap)ou participe da conversa na Comunidade de [parceiros da Microsoft](https://www.microsoftpartnercommunity.com/). 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para novos parceiros da Microsoft interessados em publicar uma oferta de SaaS para os Marketplaces, consulte [criar uma conta do Marketplace comercial no Partner Center](./create-account.md).
 - Para os parceiros existentes que já publicaram as ofertas no Portal do Cloud Partner, [Gerencie sua conta do Marketplace comercial no Partner Center](./manage-account.md). 
-- Saiba mais sobre o gerenciamento de Marketplace de nuvem migrando para o Partner Center nesta postagem no [blog da comunidade de parceiros](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293), incluindo um vídeo de demonstração.
+- Saiba mais sobre o gerenciamento de Marketplace de nuvem migrando para o Partner Center nesta [postagem no blog da comunidade de parceiros](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293), incluindo um vídeo de demonstração.

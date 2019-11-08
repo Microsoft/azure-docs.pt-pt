@@ -1,22 +1,23 @@
 ---
-title: Classificação & do banco de dados SQL do Azure e SQL Data Warehouse data Discovery
+title: Deteção e classificação de dados
 description: Classificação & do banco de dados SQL do Azure e data Discovery
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: ''
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.devlang: ''
 ms.topic: conceptual
 author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 53af1c3e1508cca5adade322348bc56fb74122b8
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
-ms.translationtype: HT
+ms.openlocfilehash: 2767b1b5603baa311d480109988d66dd136297ab
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795783"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808073"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Classificação & do banco de dados SQL do Azure e SQL Data Warehouse data Discovery
 

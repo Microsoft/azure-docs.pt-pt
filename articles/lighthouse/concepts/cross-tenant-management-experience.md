@@ -4,15 +4,15 @@ description: O gerenciamento de recursos delegado do Azure permite uma experiên
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 10/24/2019
+ms.date: 11/7/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: eb4ec10755b7ca2227623ba0842d2b1175635594
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 182970cc39d200c37264a93d5e1b70c8839e5ef7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901820"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825811"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -46,6 +46,11 @@ Também fornecemos APIs para executar tarefas de gerenciamento de recursos deleg
 ## <a name="enhanced-services-and-scenarios"></a>Cenários e serviços aprimorados
 
 A maioria das tarefas e serviços pode ser executado em recursos delegados entre locatários gerenciados. Abaixo estão alguns dos principais cenários em que o gerenciamento entre locatários pode ser eficaz.
+
+[Arco do Azure para servidores (visualização)](https://docs.microsoft.com/azure/azure-arc/servers/overview):
+
+- [Conectar computadores Windows Server ou Linux fora do Azure](https://docs.microsoft.com/azure/azure-arc/servers/quickstart-onboard-portal) a assinaturas delegadas e/ou grupos de recursos no Azure
+- Gerenciar computadores conectados usando construções do Azure, como Azure Policy e marcação
 
 [Automação do Azure](https://docs.microsoft.com/azure/automation/):
 

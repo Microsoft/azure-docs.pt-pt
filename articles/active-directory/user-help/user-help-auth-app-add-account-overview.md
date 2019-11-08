@@ -1,6 +1,6 @@
 ---
-title: Visão geral sobre como adicionar contas ao Microsoft Authenticator app-Azure Active Directory | Microsoft Docs
-description: Visão geral sobre como adicionar suas contas corporativas e pessoais ao aplicativo Microsoft Authenticator para verificação de dois fatores.
+title: Visão geral sobre como adicionar contas a um aplicativo autenticador-Azure AD
+description: Links para conteúdo sobre como adicionar suas contas corporativas e pessoais ao aplicativo Microsoft Authenticator para verificação de dois fatores.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d16699729e62953cb2369f39ecfe759aab663caf
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 16244be7dee9faaa15105f9dc0ac6c074230d243
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382642"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820285"
 ---
 # <a name="overview-about-adding-accounts-to-the-microsoft-authenticator-app"></a>Visão geral sobre como adicionar contas ao aplicativo Microsoft Authenticator
 
@@ -40,10 +40,10 @@ Você pode ativar a verificação de dois fatores para muitas contas que você u
 
 | Tipo de conta | Descrição |
 | ------------ | ----------- |
-| Contas escolares ou profissionais | A conta que sua organização corporativa ou de estudante forneceu, alain@contoso.compor exemplo. |
+| Contas escolares ou profissionais | A conta que sua organização corporativa ou de estudante forneceu, por exemplo alain@contoso.com. |
 | Contas pessoais | As contas da Microsoft e não Microsoft que você abriu pessoalmente, como para Outlook.com, Xbox LIVE, Google, Facebook e muito mais. |
 
-## <a name="in-this-section"></a>Nesta seção
+## <a name="articles-about-how-to-add-different-accounts"></a>Artigos sobre como adicionar contas diferentes
 
 | Artigo |Descrição |
 | ------|------------|

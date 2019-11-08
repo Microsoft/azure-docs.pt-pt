@@ -1,5 +1,5 @@
 ---
-title: Restaurar um banco de dados SQL do Azure de um backup
+title: Restaurar um banco de dados de um backup
 description: Saiba mais sobre a restauração pontual, que permite reverter um banco de dados SQL do Azure até 35 dias.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 799926eeb6a508ea04b879231625cf321e95d043
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ba961547bc46b0746997ea95ddd14f1a6d1d8a23
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687535"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821215"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Recuperar um banco de dados SQL do Azure usando backups de banco de dados automatizados
 

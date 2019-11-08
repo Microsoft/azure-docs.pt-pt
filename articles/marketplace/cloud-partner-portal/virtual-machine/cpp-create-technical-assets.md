@@ -4,22 +4,23 @@ description: Explica como criar os ativos técnicos para uma oferta de máquina 
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: pabutler
-ms.openlocfilehash: c1ef00f846dfad76629b0603ab79fba17249417c
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 45d0ff5b7b3fea1566b13b61bd01cc17da61e4b3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224533"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824516"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Criar ativos técnicos para uma oferta de máquina virtual
 
 Esta seção orienta você pela criação e configuração dos ativos técnicos para uma oferta de VM (máquina virtual) para o Azure Marketplace.  Uma VM contém dois componentes: o VHD (disco rígido virtual) da solução e os discos de dados associados opcionais.  
 
 - *VHDs (discos rígidos virtuais)* , contendo o sistema operacional e sua solução, que serão implantados com sua oferta do Azure Marketplace. O processo de preparação do VHD difere dependendo de se trata-se de uma VM baseada em Linux, baseada em Windows ou personalizada.
-- *Os discos de dados* representam o armazenamento persistente e dedicado para uma máquina virtual. *Não* use o VHD da solução (por exemplo, a `C:` unidade) para armazenar informações persistentes.
+- *Os discos de dados* representam o armazenamento persistente e dedicado para uma máquina virtual. *Não* use o VHD da solução (por exemplo, a unidade de `C:`) para armazenar informações persistentes.
 
 Uma imagem de VM contém um disco do sistema operacional e zero ou mais discos de dados. Um VHD é necessário por disco. Até mesmo discos de dados em branco exigem a criação de um VHD.
 Você deve configurar o sistema operacional da VM, o tamanho da VM, as portas a serem abertas e até 15 discos de dados anexados.
@@ -52,9 +53,9 @@ Além disso, é recomendável adicionar as seguintes ferramentas ao seu ambiente
 
 -   [Explorador do Armazenamento do Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
-    *   Extensão [Ferramentas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-    *   Extensão [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-    *   Extensão [Melhorar JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+    *   Extensão: [ferramentas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *   Extensão: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
+    *   Extensão: [melhorar JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
 Também sugerimos a revisão das ferramentas disponíveis na página [ferramentas para desenvolvedores do Azure](https://azure.microsoft.com/tools/) e, se você estiver usando o Visual Studio, a [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 

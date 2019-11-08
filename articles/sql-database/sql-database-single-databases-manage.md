@@ -1,5 +1,5 @@
 ---
-title: Criar, gerenciar servidores de banco de dados SQL do Azure e bancos de dados individuais
+title: Criar, gerenciar servidores e bancos de dados únicos
 description: Saiba mais sobre a criação e o gerenciamento de servidores de banco de dados SQL e bancos de dados individuais.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 91a5ca6ef842b364ada24aa4ede5768cf205c776
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 02c4d7ba545282e3654f3889dd8000af33c728c7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687123"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820927"
 ---
 # <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>Criar e gerenciar servidores de banco de dados SQL e bancos de dados individuais no banco de dados SQL do Azure
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 574b1591669cc32ce30677cad5158e13b944486f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0c263e1353a07ca388ea9a7fb48ebcf99be07fc1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750208"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820637"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desenvolvendo com APIs dos serviços de mídia v3
 
@@ -59,7 +59,7 @@ Na figura a seguir, os números representam o fluxo das solicitações em ordem 
 4. A camada intermediária envia a solicitação para a API REST de mídia do Azure com o token do Azure AD.
 5. A camada intermediária retorna os dados dos serviços de mídia.
 
-### <a name="samples"></a>Exemplos
+### <a name="samples"></a>Amostras
 
 Consulte os seguintes exemplos que mostram como se conectar à entidade de serviço do Azure AD:
 
@@ -75,7 +75,7 @@ Os nomes de recursos dos Serviços de Multimédia do Azure v3 (por exemplo, Ativ
 
 Os nomes de recursos dos Serviços de Multimédia não podem incluir: "<", ">", "%", "&", ":", "&#92;", "?", "/", "*", "+", ".", a plica ou qualquer caráter de controlo. Todos os outros carateres são permitidos. O comprimento máximo de um nome de recurso é superior a 260 carateres. 
 
-Para obter mais informações sobre a nomenclatura do Azure Resource Manager, veja: [Requisitos de nomenclatura](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) e [Convenções de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+Para obter mais informações sobre a nomenclatura do Azure Resource Manager, veja: [Requisitos de nomenclatura](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) e [Convenções de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 ### <a name="names-of-filesblobs-within-an-asset"></a>Nomes de Arquivos/blobs em um ativo
 
@@ -122,11 +122,11 @@ Somente uma operação de execução longa tem suporte para um determinado event
 |[SDK do .NET](https://aka.ms/ams-v3-dotnet-sdk)|[Referência a .NET](https://aka.ms/ams-v3-dotnet-ref)|
 |[SDK Java](https://aka.ms/ams-v3-java-sdk)|[Referência a Java](https://aka.ms/ams-v3-java-ref)|
 |[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Referência a Python](https://aka.ms/ams-v3-python-ref)|
-|[SDK Node.js](https://aka.ms/ams-v3-nodejs-sdk) |[Referência a Node.js](https://aka.ms/ams-v3-nodejs-ref)| 
+|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Referência a Node.js](https://aka.ms/ams-v3-nodejs-ref)| 
 |[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Referência a Go](https://aka.ms/ams-v3-go-ref)|
 |[SDK Ruby](https://aka.ms/ams-v3-ruby-sdk)||
 
-### <a name="see-also"></a>Ver também
+### <a name="see-also"></a>Consultar também
 
 - [SDK do .NET do EventGrid que inclui eventos do serviço de mídia](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definições dos eventos dos serviços de mídia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
@@ -135,7 +135,7 @@ Somente uma operação de execução longa tem suporte para um determinado event
 
 O [Gerenciador de serviços de mídia do Azure](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE) é uma ferramenta disponível para clientes do Windows que desejam aprender sobre os serviços de mídia. O AMSE é um aplicativo WinForms/C# que carrega, baixa, codifica, transmite conteúdo de VOD e ao vivo com os serviços de mídia. A ferramenta AMSE é para clientes que desejam testar os serviços de mídia sem escrever nenhum código. O código AMSE é fornecido como um recurso para os clientes que desejam desenvolver com os serviços de mídia.
 
-AMSE é um projeto de software livre, o suporte é fornecido pela Comunidade (os problemas podem ser relatados para https://github.com/Azure/Azure-Media-Services-Explorer/issues). Este projeto adotou o [Microsoft Open Source Code of Conduct (Código de Conduta do Microsoft Open Source)](https://opensource.microsoft.com/codeofconduct/). Para obter mais informações, consulte as [perguntas frequentes sobre o código de conduta](https://opensource.microsoft.com/codeofconduct/faq/) ou contate opencode@microsoft.com com perguntas ou comentários adicionais.
+AMSE é um projeto de software livre, o suporte é fornecido pela Comunidade (os problemas podem ser relatados para https://github.com/Azure/Azure-Media-Services-Explorer/issues). Este projeto adotou o [Código de Conduta de Fonte Aberta da Microsoft](https://opensource.microsoft.com/codeofconduct/). Para obter mais informações, consulte as [perguntas frequentes sobre o código de conduta](https://opensource.microsoft.com/codeofconduct/faq/) ou contate opencode@microsoft.com com perguntas ou comentários adicionais.
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtragem, ordenação, paginação de entidades de serviços de mídia
 
@@ -145,7 +145,7 @@ Consulte [filtragem, ordenação, paginação de entidades dos serviços de míd
 
 Confira o artigo [da Comunidade dos serviços de mídia do Azure](media-services-community.md) para ver diferentes maneiras que você pode fazer perguntas, fornecer comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consultar também
 
 [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 

@@ -4,24 +4,25 @@ description: Veja como carregar o Business Applications programa ISV Connect.
 services: Azure Marketplace, Cloud Partner Portal
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 7/12/2019
 ms.author: evansma
-ms.openlocfilehash: 349998b53378d00b6524f94578aa11642321d691
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 4a47886176b704cc3bc36cc9fa85d1d3faee4c58
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182555"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819154"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guia de integração do programa ISV (fornecedor independente de software) da Microsoft Business Applications
 
 O [programa Business Applications ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview) tem como objetivo acelerar o crescimento e o sucesso geral de fornecedores independentes de software (ISVs) que criam soluções modernas, baseadas em nuvem e de linha de negócios (LOB) com o compromisso com o *cliente do Dynamics 365 e PowerApps* ("Dynamics CE Offers") ou *Dynamics 365 Finance and Operations* ("Dynamics Ops Offers"). Aqui está como fazer parte dele.
 
 > [!IMPORTANT]
-> Parceiros ISV existentes com o engajamento do *cliente do dynamics 365*, o *Dynamics 365 para finanças e operações*e os aplicativos do *PowerApps* devem concluir todas as etapas de integração abaixo antes de **15 de outubro de 2019** para evitar que suas ofertas existentes removidas do [Microsoft AppSource](https://appsource.microsoft.com).
+> Parceiros ISV existentes com o *engajamento do cliente do dynamics 365*, o *Dynamics 365 para finanças e operações*e os aplicativos do *PowerApps* devem concluir todas as etapas de integração abaixo antes de **15 de outubro de 2019** para evitar que suas ofertas existentes removidas do [Microsoft AppSource](https://appsource.microsoft.com).
 
-Para se registrar e aproveitar todos os [benefícios técnicos, de marketing e](https://partner.microsoft.com/solutions/business-applications/isv-overview) de habilitação de vendas do Business Applications programa ISV Connect, estamos pedindo que os parceiros ISV existentes (com o *Dynamics CE* e o *Ops* ofereçam) para concluir o seguintes etapas:
+Para se registrar e aproveitar todos os [benefícios técnicos, de marketing e de habilitação de vendas](https://partner.microsoft.com/solutions/business-applications/isv-overview) do Business Applications programa ISV Connect, estamos pedindo que os parceiros ISV existentes (com o *Dynamics CE* e o *Ops* ofereçam) para concluir o seguintes etapas:
 
 - [Configure sua conta do Microsoft Partner Center](#set-up-your-microsoft-partner-center-account).
 - [Aceite o adendo de Business Applications](#accept-the-business-applications-isv-program-addendum).
@@ -40,7 +41,7 @@ O [Partner Center](https://partner.microsoft.com) é o local para gerenciar as c
 
 Se você já publicou as ofertas do Dynamics CE ou Dynamics Ops, provavelmente sua conta do Portal do Cloud Partner (CPP) já foi migrada e ativada no Partner Center. Caso contrário, você pode ativar manualmente sua conta do Partner Center do seu perfil do editor de CPP.
 
-1. Entre em sua página de **perfil** do Publicador no [portal do Cloud Partner](https://cloudpartner.azure.com/).
+1. Entre em sua página de **perfil do Publicador** no [portal do Cloud Partner](https://cloudpartner.azure.com/).
 2. Se você vir uma faixa mostrando que as configurações de sua conta foram migradas para o Partner Center, continue na próxima seção. Caso contrário, selecione a faixa solicitando que você ative sua conta do Partner Center.
 
 Para obter mais informações, consulte [migração de conta do portal do Cloud Partner para o Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc).
@@ -77,7 +78,7 @@ Em seguida, configure suas informações de cobrança para o Business Applicatio
 
 5. Configurações de imposto de fornecimento/ID de IVA, se aplicável.
 
-6. Selecione **guardar** para guardar as alterações.
+6. Selecione **salvar** para salvar as alterações.
 
 Você pode atualizar seu perfil de cobrança a qualquer momento, no entanto, o *nome da empresa* e o *país* do endereço de cobrança não podem ser alterados posteriormente.
 

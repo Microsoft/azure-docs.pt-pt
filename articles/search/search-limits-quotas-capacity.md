@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d70812779d392cc4555c91599fad37c2d2c68ba5
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d5d621ec9eccca56c4e4e9075b6e9cca75c05c98
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793567"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818571"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de serviço no Azure Pesquisa Cognitiva
 
@@ -51,13 +51,15 @@ Os limites máximos de armazenamento, cargas de trabalho e quantidades de índic
 | Índices máximos |3 |5 ou 15 |50 |200 |200 |1000 por partição ou 3000 por serviço |10 |10 |
 | Máximo de campos simples por índice |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
 | Máximo de campos de coleta complexos por índice |40 |40 |40 |40 |40 |40 |40 |40 |
-| Máximo de elementos em todas as coleções complexas por documento |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| Máximo de elementos em todas as coleções complexas por documento&nbsp;<sup>2</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Profundidade máxima de campos complexos |10 |10 |10 |10 |10 |10 |10 |10 |
 | [Sugestores](https://docs.microsoft.com/rest/api/searchservice/suggesters) máximos por índice |1 |1 |1 |1 |1 |1 |1 |1 |
 | Máximo de [perfis de Pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) por índice |100 |100 |100 |100 |100 |100 |100 |100 |
 | Máximo de funções por perfil |8 |8 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> os serviços básicos criados antes de dezembro de 2017 têm limites mais baixos (5 em vez de 15) em índices. A camada básica é a única SKU com um limite inferior de 100 campos por índice.
+
+<sup>2</sup> ter um número muito grande de elementos em coleções complexas por documento atualmente causa alta utilização do armazenamento. Este é um problema conhecido. Enquanto isso, um limite de 3000 é uma associação superior segura para todas as camadas de serviço. Esse limite é imposto somente para operações de indexação que utilizam a versão da API GA (geralmente disponível) que dá suporte a campos de tipo complexo (`2019-05-06`) em diante. Para não interromper os clientes que podem estar usando versões anteriores da API de visualização (que dão suporte a campos de tipo complexo), não iremos impor esse limite para operações de indexação que usam essas versões da API de visualização. Observe que as versões da API de visualização não devem ser usadas para cenários de produção e é altamente recomendável que os clientes migrem para a versão mais recente da API GA.
 
 <a name="document-limits"></a>
 
@@ -76,16 +78,16 @@ Para determinar se o serviço tem limites de documento, verifique o bloco uso na
 Se o portal indicar um limite de documento, o serviço foi criado antes de 2017 ou foi criado em um data center usando clusters de menor capacidade para hospedar os serviços de Pesquisa Cognitiva do Azure:
 
 + Leste da Austrália
-+ Este Asiático
-+ Centro da Índia
++ Ásia Oriental
++ Índia Central
 + Oeste do Japão
-+ E.U.A. Centro-Oeste
++ EUA Centro-Oeste
 
 Para serviços sujeitos a limites de documentos, os limites máximos a seguir se aplicam:
 
-|  Gratuito | Basic | S1 | S2 | S3 | S3&nbsp;HD |
+|  Gratuito | Básica | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
-|  10,000 |1 @ no__t_0_ milhão |15 milhões por partição ou 180 milhões por serviço |60 milhões por partição ou 720 milhões por serviço |120 milhões por partição ou 1,4 biliões por serviço |1 milhão por índice ou 200 milhões por partição |
+|  10,000 |1&nbsp;milhão |15 milhões por partição ou 180 milhões por serviço |60 milhões por partição ou 720 milhões por serviço |120 milhões por partição ou 1,4 biliões por serviço |1 milhão por índice ou 200 milhões por partição |
 
 Se o serviço tiver limites que estão bloqueando você, crie um novo serviço e Republique todo o conteúdo para esse serviço. Não há nenhum mecanismo para reprovisionar o serviço diretamente em um novo hardware nos bastidores.
 
@@ -108,15 +110,15 @@ Existem tempos de execução máximos para fornecer balanceamento e estabilidade
 
 | Recurso | Gratuito&nbsp;<sup>1</sup> | &nbsp;básica <sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |Cache |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
-| Indexadores máximos |3 |5 ou 15|50 |200 |200 |N/A |10 |10 |
-| Origens de dados máximas |3 |5 ou 15 |50 |200 |200 |N/A |10 |10 |
-| Máximo de habilidades <sup>4</sup> |3 |5 ou 15 |50 |200 |200 |N/A |10 |10 |
-| Carga de indexação máxima por invocação |10.000 documentos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |N/A |Sem limite |Sem limite |
+| Indexadores máximos |3 |5 ou 15|50 |200 |200 |N/D |10 |10 |
+| Origens de dados máximas |3 |5 ou 15 |50 |200 |200 |N/D |10 |10 |
+| Máximo de habilidades <sup>4</sup> |3 |5 ou 15 |50 |200 |200 |N/D |10 |10 |
+| Carga de indexação máxima por invocação |10.000 documentos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |N/D |Sem limite |Sem limite |
 | Agenda mínima | 5 minutos |5 minutos |5 minutos |5 minutos |5 minutos |5 minutos |5 minutos | 5 minutos |
-| Tempo máximo de execução <sup>5</sup> | 1-3 minutos |24 horas |24 horas |24 horas |24 horas |N/A  |24 horas |24 horas |
-| Tempo máximo de execução para habilidades de pesquisa cognitiva ou indexação de blob com análise de imagem <sup>5</sup> | 3-10 minutos |2 horas |2 horas |2 horas |2 horas |N/A  |2 horas |2 horas |
-| Indexador de blob: tamanho máximo do blob, MB |16 |16 |128 |256 |256 |N/A  |256 |256 |
-| Indexador de blob: máximo de caracteres de conteúdo extraídos de um blob |32.000 |64.000 |4 @ no__t_0_ milhões |4 @ no__t_0_ milhões |4 @ no__t_0_ milhões |N/A |4 @ no__t_0_ milhões |4 @ no__t_0_ milhões |
+| Tempo máximo de execução <sup>5</sup> | 1-3 minutos |24 horas |24 horas |24 horas |24 horas |N/D  |24 horas |24 horas |
+| Tempo máximo de execução para habilidades de pesquisa cognitiva ou indexação de blob com análise de imagem <sup>5</sup> | 3-10 minutos |2 horas |2 horas |2 horas |2 horas |N/D  |2 horas |2 horas |
+| Indexador de blob: tamanho máximo do blob, MB |16 |16 |128 |256 |256 |N/D  |256 |256 |
+| Indexador de blob: máximo de caracteres de conteúdo extraídos de um blob |32.000 |64.000 |4&nbsp;milhão |4&nbsp;milhão |4&nbsp;milhão |N/D |4&nbsp;milhão |4&nbsp;milhão |
 
 <sup>1</sup> os serviços gratuitos têm o tempo máximo de execução do indexador de 3 minutos para fontes de BLOB e 1 minuto para todas as outras fontes de dados. Para a indexação de ia que chama serviços cognitivas, os serviços gratuitos são limitados a 20 transações gratuitas por dia, em que uma transação é definida como um documento que passa com êxito pelo pipeline de enriquecimento.
 
@@ -128,11 +130,14 @@ Existem tempos de execução máximos para fornecer balanceamento e estabilidade
 
 <sup>5</sup> as cargas de trabalho de pesquisa cognitiva e a análise de imagem na indexação de blob do Azure têm tempos de execução menores do que a indexação de texto regular. A análise de imagem e o processamento de linguagem natural são computacionalmente intensivas e consomem quantidades desproporcionais de capacidade de processamento disponível. O tempo de execução foi reduzido para fornecer a outros trabalhos na fila uma oportunidade de execução.  
 
+> [!NOTE]
+> Conforme indicado nos [limites de índice](#index-limits), os indexadores também impõem o limite superior de 3000 elementos em todas as coleções complexas por documento, começando com a versão mais recente da API GA que dá suporte a tipos complexos (`2019-05-06`) em diante. Isso significa que, se você criou o indexador com uma versão de API anterior, não estará sujeito a esse limite. Para preservar a compatibilidade máxima, um indexador criado com uma versão de API anterior e, em seguida, atualizado com uma versão de API `2019-05-06` ou posterior, ainda será **excluído** dos limites. Os clientes devem estar cientes do impacto adverso de ter coleções complexas muito grandes (como indicado anteriormente) e é altamente recomendável criar novos indexadores com a versão mais recente da API GA.
+
 ## <a name="synonym-limits"></a>Limites de sinônimo
 
 O número máximo de mapas de sinônimos permitido varia de acordo com o tipo de preço. Cada regra pode ter até 20 expansões, em que uma expansão é um termo equivalvent. Por exemplo, dado "gato", associação com "Kitty", "felinos" e "Felis" (o genus para gatos) contaria como 3 expansões.
 
-| Recurso | Gratuito | Basic | S1 | S2 | S3 | S3-HD |L1 | Cache |
+| Recurso | Gratuito | Básica | S1 | S2 | S3 | S3-HD |L1 | Cache |
 | -------- | -----|------ |----|----|----|-------|---|----|
 | Máximo de mapas de sinônimo |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Número máximo de regras por mapa |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |

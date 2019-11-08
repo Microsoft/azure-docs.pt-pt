@@ -1,30 +1,31 @@
 ---
-title: Pedido para publicar a aplicação
+title: Solicitação para publicar o aplicativo
 description: .
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: e272d051af6070007bcebc0f697d2854cd721497
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9558e7684fa8ab742319890940800da85daa1706
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943573"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814757"
 ---
-# <a name="request-to-publish-the-app"></a>Pedido para publicar a aplicação
+# <a name="request-to-publish-the-app"></a>Solicitação para publicar o aplicativo
 
 ![Clique para publicar](./media/CRMScreenShot18.png)
 
-1. Clique no botão Publish para submeter a sua oferta para a nossa equipa de certificação. Será capaz de ver o estado da sua oferta no separador de estado.
+1. Clique no botão Publicar para enviar sua oferta à nossa equipe de certificação. Você poderá exibir o status da sua oferta na guia status.
 
-![Reveja o estado de publicação](./media/CRMScreenShot19.png)
+![Examinar o status da publicação](./media/CRMScreenShot19.png)
 
 ## <a name="republish-the-app"></a>Voltar a publicar a aplicação
 
- Se precisar de fazer um pedido para voltar a publicar uma aplicação, primeiro clique no botão Cancelar publicar no separador Estado (se o pedido já não estiver ativo, ignore este passo). Fazer as alterações à aplicação, atualizar a oferta da mesma forma, em seguida, clique no botão publicar para submeter novamente. # Considerações especiais para o Microsoft Dynamics 365 Business Edition observação que soluções criadas para as edições do Microsoft Dynamics 365 Business vão sofrer verificações adicionais durante a certificação para garantir que os limites de Business Edition sejam seguidas. Os limites de Business Edition estão documentados aqui. # Obter ajuda. Caso se depare com problemas, pode iniciar um pedido de suporte ao clicar no canto superior direito e vai.
+ Se você precisar fazer uma solicitação para republicar um aplicativo, primeiro clique no botão Cancelar publicação na guia status (se a solicitação não estiver mais ativa, ignore esta etapa). Faça suas alterações no aplicativo, atualize a oferta de acordo e, em seguida, clique no botão Publicar para reenviar. N º de considerações especiais para o Microsoft Dynamics 365 Business Edition Observe que as soluções criadas para o Microsoft Dynamics 365 com as edições de negócios passarão por verificações adicionais durante a certificação para garantir que os limites de edição de negócios estejam em conformidade. Os limites do Business Edition estão documentados aqui. # Obtendo ajuda. Se você encontrar problemas, poderá registrar um tíquete de suporte clicando no no canto superior direito e acessando.
 
-![Voltar a publicar a aplicação](./media/CRMScreenShot20.png)
+![Publicando novamente o aplicativo](./media/CRMScreenShot20.png)

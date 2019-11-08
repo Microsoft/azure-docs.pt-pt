@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 9b2203b7fb9e168b251eda16a9505ae2004b0460
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 00f579017ce4dd79e913565ee27698398b5feb38
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690189"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823591"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Mover dados entre bases de dados de nuvem aumentadas horizontalmente
 
@@ -26,7 +26,7 @@ A ferramenta de divisão/mesclagem é executada como um serviço Web do Azure. U
 
 ![Descrição geral][1]
 
-## <a name="download"></a>Transferir
+## <a name="download"></a>Transferência
 
 [Microsoft. Azure. SQLDatabase. ElasticScale. Service. SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 

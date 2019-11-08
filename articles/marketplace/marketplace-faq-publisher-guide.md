@@ -4,15 +4,16 @@ description: Respostas para perguntas comuns sobre o Azure Marketplace e Microso
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/4/2019
 ms.author: ellacroi
-ms.openlocfilehash: c24f956a7aeb68fe6b0325705a9e7dab8e70b063
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 300f1783c1c514a6cc49d700c2741be85e69c3e8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330246"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822986"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Perguntas frequentes do Microsoft Commercial Marketplace
 
@@ -35,8 +36,8 @@ O Azure Marketplace foi projetado para profissionais de ti e desenvolvedores de 
 O Azure Marketplace oferece soluções técnicas e serviços da Microsoft e de parceiros criados para aumentar os produtos e serviços do Azure. O catálogo de soluções abrange várias categorias, incluindo:
 
 * sistemas operacionais de base
-* databases
-* avançada
+* bases de dados
+* security
 * identidade
 * redes
 * blockchain
@@ -127,7 +128,7 @@ A assinatura do Azure está incluída no preço da solução ISV (fornecedores i
 
 + *Por usuário:* As assinaturas de SaaS podem ser cobradas por usuário com base em uma cobrança mensal ou anual. 
 
-Os detalhes de preços específicos da oferta podem ser encontrados na página de detalhes da solução no [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) ou no [portal do Azure].
+Os detalhes de preços específicos da oferta podem ser encontrados na página de detalhes da solução em [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) ou na [portal do Azure].
 
 > [!Note]
 > Com exceção de tarifas mensais, os encargos de uso do Azure são aplicáveis a todos os modelos de preços, salvo indicação em contrário.
@@ -224,7 +225,7 @@ Entre em contato com o provedor do editor para obter o suporte técnico do produ
 
 **Quem devo contatar para obter suporte/perguntas de cobrança sobre uma solução de terceiros comprada do Marketplace?**
 
-Contate a Suporte da Microsoft no [suporte do Azure](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
+Contacte o Suporte da Microsoft em [Suporte do Azure](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
 
 **Quem devo contatar se tiver dúvidas sobre preços ou termos para soluções de parceiros vendidas no Azure Marketplace?**
 
@@ -246,7 +247,7 @@ As licenças canceladas estarão sujeitas à política de reembolso encontrada n
 
 **Os reembolsos têm suporte para ofertas baseadas em consumo?**
 
-Quaisquer encargos com base no consumo – sejam as VMs por hora ou os medidores personalizados – não são refundable por meio do cancelamento. Depois que o consumo ocorre, os encargos são processados pela plataforma comercial da Microsoft e qualquer qualidade de disputas de serviço em que um reembolso é solicitado seria manipulado fora dos sistemas da Microsoft entre o Publicador e o cliente diretamente. Ofertas que dão suporte a uma taxa fixa mais a cobrança limitada segue a política de reembolso padrão para os encargos de taxa fixa.
+Quaisquer encargos com base no consumo – sejam as VMs por hora ou os medidores personalizados-não são refundable por meio do cancelamento. Depois que o consumo ocorre, os encargos são processados pela plataforma comercial da Microsoft e qualquer qualidade de disputas de serviço em que um reembolso é solicitado seria manipulado fora dos sistemas da Microsoft entre o Publicador e o cliente diretamente. Ofertas que dão suporte a uma taxa fixa mais a cobrança limitada segue a política de reembolso padrão para os encargos de taxa fixa.
 
 **É possível alterar os planos de médio prazo?**
 
@@ -267,7 +268,7 @@ Não, as políticas de negócios são consistentes no Azure Marketplace e Micros
 
 **O que é o Azure Marketplace?**
 
-O [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) é um Marketplace de aplicativos e serviços online. Os clientes (principalmente os profissionais de ti e desenvolvedores) podem descobrir e comprar soluções de software de nuvem criadas com o ou para o Azure. Seu catálogo tem mais de 8.000 listagens, como blocos de construção do Azure, como VMs (máquinas virtuais), APIs, modelos de solução, aplicativos SaaS e ofertas de serviços de consultoria.
+O [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) é um mercado online de aplicações e serviços. Os clientes (principalmente os profissionais de ti e desenvolvedores) podem descobrir e comprar soluções de software de nuvem criadas com o ou para o Azure. Seu catálogo tem mais de 8.000 listagens, como blocos de construção do Azure, como VMs (máquinas virtuais), APIs, modelos de solução, aplicativos SaaS e ofertas de serviços de consultoria.
 
 O Azure Marketplace é o ponto de partida para todas as atividades conjuntas do Microsoft go-to-Market.  Nós nos concentramos em ajudar os parceiros a alcançar mais clientes. Você pode publicar novas listagens e também usar o Azure Marketplace para realizar campanhas de geração promocional e de demanda, executar atividades conjuntas de vendas/marketing com a Microsoft.
 
@@ -335,7 +336,7 @@ Os leads são clientes que estão implantando seus produtos do Marketplace. Se s
 
 **Onde posso obter ajuda para configurar meu destino de Lead?**
 
-Saiba mais no [Partner Center-obtenha](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md) a documentação de clientes potenciais ou envie um tíquete de suporte por meio do [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) , selecionando seu tipo de oferta e gerenciamento de leads.
+Saiba mais no [Partner Center-obtenha](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md) a documentação de clientes potenciais ou envie um tíquete de suporte por meio de [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) selecionando seu tipo de oferta e gerenciamento de leads.
 
 **Eu preciso configurar um destino de Lead para publicar uma oferta no Marketplace?**
 
@@ -372,7 +373,7 @@ Para obter mais informações, consulte [excluindo uma oferta](./cloud-partner-p
 
 *Aplicativos do O365:*
 
-1.  Entre no <https://sellerdashboard.microsoft.com> com sua conta de desenvolvedor.
+1.  Entre no <https://sellerdashboard.microsoft.com> com sua conta de desenvolvimento.
 1.  Retire o suplemento.
 
     > [!NOTE]

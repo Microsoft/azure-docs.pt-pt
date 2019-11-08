@@ -1,5 +1,5 @@
 ---
-title: Modelos de Azure Resource Manager para o banco de dados SQL | Microsoft Docs
+title: Modelos do Azure Resource Manager
 description: Use modelos de Azure Resource Manager para criar e configurar o banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: c501bed9220c08013d44836066e46df92cf69eaa
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 16091286aecc6dfdbcfa833a76920ff4bc9c64de
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037439"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821135"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Modelos de Azure Resource Manager para o banco de dados SQL do Azure
 
@@ -34,7 +34,7 @@ A tabela a seguir inclui links para modelos de Azure Resource Manager para o ban
 | [Grupos de failover](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | Este modelo cria dois servidores lógicos do SQL Azure, um banco de dados SQL e um grupo de failover.|
 | [Detecção de ameaças](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | Este modelo permite que você implante um servidor lógico do SQL Azure e um conjunto de bancos de dados SQL do Azure com a detecção de ameaças habilitada, com um endereço de email para alertas para cada banco de dados. A detecção de ameaças faz parte da oferta de proteção de ameaças avançadas do SQL (ATP) e fornece uma camada de segurança que responde a ameaças potenciais em servidores e bancos de dados SQL.|
 | [Auditoria para o armazenamento de BLOBs do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) | Este modelo permite que você implante um servidor lógico do SQL Azure com a auditoria habilitada para gravar logs de auditoria em um armazenamento de BLOBs. A auditoria do banco de dados SQL do Azure rastreia eventos de banco de dados e os grava em um log de auditoria que pode ser colocado em sua conta de armazenamento do Azure, espaço de trabalho do OMS ou hubs de eventos.|
-| [Auditoria para o Hub de eventos do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | Este modelo permite que você implante um SQL Server do Azure com a auditoria habilitada para gravar logs de auditoria em um hub de eventos existente. Para enviar eventos de auditoria para o Hub de eventos, defina configurações de auditoria `Enabled` com `State` e `IsAzureMonitorTargetEnabled` defina `true`como. Além disso, defina as configurações `SQLSecurityAuditEvents` de diagnóstico com a categoria `master` logs de diagnóstico no banco de dados (para atender à auditoria no nível). A auditoria do banco de dados SQL do Azure e SQL Data Warehouse rastreia eventos de banco de dados e os grava em um log de auditoria que pode ser colocado em sua conta de armazenamento do Azure, espaço de trabalho do OMS ou hubs de eventos.|
+| [Auditoria para o Hub de eventos do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | Este modelo permite que você implante um SQL Server do Azure com a auditoria habilitada para gravar logs de auditoria em um hub de eventos existente. Para enviar eventos de auditoria para o Hub de eventos, defina as configurações de auditoria com `Enabled` `State` e defina `IsAzureMonitorTargetEnabled` como `true`. Além disso, defina as configurações de diagnóstico com `SQLSecurityAuditEvents` categoria de logs de diagnóstico no banco de dados `master` (para a auditoria de nível de serviço). A auditoria do banco de dados SQL do Azure e SQL Data Warehouse rastreia eventos de banco de dados e os grava em um log de auditoria que pode ser colocado em sua conta de armazenamento do Azure, espaço de trabalho do OMS ou hubs de eventos.|
 | [Aplicativo Web do Azure com Banco de dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database) | Este exemplo cria um aplicativo Web do Azure gratuito e um banco de dados SQL no nível de serviço "básico".|
 | [Aplicativo Web do Azure e cache Redis com o banco de dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) | Este modelo cria um aplicativo Web, o cache Redis e o banco de dados SQL no mesmo grupo de recursos e cria duas cadeias de conexão no aplicativo Web para o banco de dados SQL e o cache Redis.|
 | [Importar dados do armazenamento de BLOBs usando o ADF v2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-v2-blob-to-sql-copy) | Este modelo de Azure Resource Manager cria Azure Data Factory v2 que copia dados do armazenamento de BLOBs do Azure para o banco de dados SQL.|
@@ -49,7 +49,7 @@ A tabela a seguir inclui links para modelos de Azure Resource Manager para o ban
 |---|---|
 | [Instância Gerenciada em uma nova VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet) | Este modelo de Azure Resource Manager cria uma nova VNet do Azure configurada e Instância Gerenciada na VNet. |
 | [Ambiente de rede para Instância Gerenciada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | Essa implantação criará uma rede virtual do Azure configurada com duas sub-redes – uma que será dedicada às instâncias gerenciadas e outra em que você pode posicionar outros recursos (por exemplo, VMs, ambientes de serviço de aplicativo, etc.). Este modelo criará um ambiente de rede configurado corretamente onde você pode implantar instâncias gerenciadas. |
-| [Instância Gerenciada com conexão P2S](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-point-to-site-vpn) | Essa implantação criará uma rede virtual do Azure com duas sub-redes `ManagedInstance` e `GatewaySubnet`. Instância Gerenciada serão implantadas na sub-rede ManagedInstance. O gateway de rede virtual será criado `GatewaySubnet` na sub-rede e configurado para a conexão VPN ponto a site. |
-| [Instância Gerenciada com a máquina virtual](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | Essa implantação criará uma rede virtual do Azure com duas sub-redes `ManagedInstance` e `Management`. Instância gerenciada serão implantados `ManagedInstance` na sub-rede. A máquina virtual com a versão mais recente do SQL Server Management Studio (SSMS) será implantada na `Management` sub-rede. |
+| [Instância Gerenciada com conexão P2S](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-point-to-site-vpn) | Essa implantação criará uma rede virtual do Azure com duas sub-redes `ManagedInstance` e `GatewaySubnet`. Instância Gerenciada serão implantadas na sub-rede ManagedInstance. O gateway de rede virtual será criado em `GatewaySubnet` sub-rede e configurado para a conexão VPN ponto a site. |
+| [Instância Gerenciada com a máquina virtual](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | Essa implantação criará uma rede virtual do Azure com duas sub-redes `ManagedInstance` e `Management`. Instância Gerenciada serão implantadas na sub-rede `ManagedInstance`. A máquina virtual com a versão mais recente do SQL Server Management Studio (SSMS) será implantada na sub-rede `Management`. |
 
 ---

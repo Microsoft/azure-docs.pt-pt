@@ -5,15 +5,16 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: v-chjen
-ms.openlocfilehash: 072e06527c7744891db163c637734f4878fe312c
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 729693b4f887f41140b2df852e70a744edbc060d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034914"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819956"
 ---
 # <a name="data-entities"></a>Entidades de dados
 

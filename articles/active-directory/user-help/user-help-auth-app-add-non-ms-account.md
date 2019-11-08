@@ -1,5 +1,5 @@
 ---
-title: Adicione suas contas que não sejam da Microsoft ao Microsoft Authenticator app-Azure Active Directory | Microsoft Docs
+title: Adicionar um não conta Microsoft a um aplicativo autenticador-Azure AD
 description: Como adicionar suas contas que não são da Microsoft, como para o Google, Facebook ou GitHub, ao aplicativo Microsoft Authenticator para verificação de dois fatores.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1521d2b3d47667466636a1ac15f107826e40942
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 62d866e9bf543577887ee99173a52202fcfec632
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942936"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803668"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Adicionar suas contas que não são da Microsoft
 
@@ -187,14 +187,14 @@ Adicione sua conta do Amazon ativando a verificação de dois fatores e, em segu
 
 10. Na página **Adicionar um método de verificação de backup** em seu computador, digite o código de verificação de seis dígitos fornecido pelo método de verificação de backup para sua conta do Amazon e, em seguida, selecione **verificar código e continuar**.
 
-11. Na página **quase pronto** , decida se deseja tornar seu computador um dispositivo confiável e, em seguida, **selecione o obteve. Ative a verificação**em duas etapas.
+11. Na página **quase pronto** , decida se deseja tornar seu computador um dispositivo confiável e, em seguida, selecione o **obteve. Ative a verificação em duas etapas**.
 
     A página **configurações de segurança avançadas** é exibida, mostrando os detalhes de verificação de dois fatores atualizados.
 
     >[!NOTE]
     >Para obter mais informações sobre a verificação de dois fatores e sua conta do Amazon, consulte [sobre a verificação em duas etapas e como](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) [entrar com a verificação em duas etapas](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Depois de adicionar suas contas ao aplicativo, você pode entrar usando o aplicativo autenticador em seu dispositivo. Para obter mais informações, consulte [entrar usando o aplicativo](user-help-auth-app-sign-in.md).
 

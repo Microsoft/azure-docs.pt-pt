@@ -4,15 +4,16 @@ description: Configure o gerenciamento de leads do Dynamics 365 para o compromis
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 181a3f3a8d3cabb2fdf6caf79cef16201fab0c68
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 37cf613b6e0bd2ec9910dd3e7431c0feaa02431c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177813"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812297"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>Configurar o gerenciamento de Lead para o Dynamics 365 for Customer Engagement
 
@@ -93,7 +94,7 @@ Use as etapas a seguir para configurar o Azure Active Directory do Dynamics 365 
 10. Assim que o segredo do cliente for criado com êxito, **Copie o valor do segredo do cliente**. Você não poderá recuperar o valor depois de sair da página. Salve esse valor, pois é o valor do *segredo do cliente* que você precisa fornecer no portal de publicação para receber clientes potenciais para sua oferta do Marketplace. 
 11. Selecione **permissões de API** na navegação à esquerda dos aplicativos e, em seguida, selecione **Adicionar uma permissão**.
 12. Selecione APIs da Microsoft e, em seguida, selecione **Dynamics CRM** como a API.
-13. Em *que tipo de permissões seu aplicativo exige*, verifique se **permissões delegadas** está selecionada. Verifique a permissão para acesso ao **user_impersonation** *Common Data Service como usuários da organização*. Selecione **adicionar permissões**.
+13. Em *que tipo de permissões seu aplicativo exige*, verifique se **permissões delegadas** está selecionada. Verifique a permissão para **user_impersonation** *Common Data Service de acesso como usuários da organização*. Selecione **adicionar permissões**.
 
     ![Adicionar permissões](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 

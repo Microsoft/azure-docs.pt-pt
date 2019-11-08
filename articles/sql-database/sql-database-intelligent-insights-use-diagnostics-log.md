@@ -1,5 +1,5 @@
 ---
-title: Log de diagnóstico de desempenho do Intelligent Insights-banco de dados SQL do Azure
+title: Log de diagnóstico de desempenho Intelligent Insights
 description: Intelligent Insights fornece um log de diagnóstico de problemas de desempenho do banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 86381f5670f09b5e6a215793dc1ea4eab7ecbb8e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9ed2cc8bfb10d916218417a7dd27010638d2a927
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689695"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810275"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Usar o Intelligent Insights log de diagnóstico de desempenho do banco de dados SQL do Azure
 

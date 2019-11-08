@@ -9,12 +9,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 27c21171c2a53cb739215dcae070b94c8610a490
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 9331f13bd85d9df0d47f8fa9d0964974764691f7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880862"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815107"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicionar Key Vault ao seu aplicativo Web usando os serviços conectados do Visual Studio
 
@@ -33,7 +33,7 @@ Para obter detalhes sobre as alterações que os serviços conectados fazem em s
 
 Antes de começar, verifique se você está conectado ao Visual Studio. Entre com a mesma conta que você usa para sua assinatura do Azure. Em seguida, abra um ASP.NET 4.7.1 ou posterior, ou ASP.NET Core projeto Web 2,0, e execute as seguintes etapas:
 
-1. No **Solution Explorer** (Explorador de Soluções), selecione **Add** (Adicionar)  > **Connected Service** (Serviço Ligado).
+1. No **Gerenciador de soluções**, clique com o botão direito do mouse no projeto ao qual você deseja adicionar o suporte do cofre de chaves e escolha **Adicionar** > **serviço conectado**.
    É apresentada a página de Connected Service (Serviço Ligado) com os serviços que pode adicionar ao seu projeto.
 1. No menu de serviços disponíveis, escolha **proteger segredos com Azure Key Vault**.
 
@@ -67,7 +67,7 @@ Agora, você pode acessar seus segredos no código. As próximas etapas são dif
 
 1. Em Gerenciador de Soluções, clique com o botão direito do mouse em seu projeto e selecione **gerenciar pacotes NuGet**. Na guia **procurar** , localize e instale esses dois pacotes NuGet: [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e [Microsoft. Azure. keyvault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
-1. Selecione a `Program.cs` guia e substitua a classe programa pelo seguinte código:
+1. Selecione a guia `Program.cs` e substitua a classe programa pelo código a seguir:
 
    ```csharp
     public class Program
@@ -99,8 +99,8 @@ Agora, você pode acessar seus segredos no código. As próximas etapas são dif
     }
    ```
 
-1. Em seguida `About.cshtml.cs` , abra o arquivo e escreva o seguinte código:
-   1. Inclua uma referência para `Microsoft.Extensions.Configuration` isso usando a instrução:
+1. Em seguida, abra o arquivo `About.cshtml.cs` e escreva o código a seguir:
+   1. Inclua uma referência a `Microsoft.Extensions.Configuration` desta instrução Using:
 
        ```csharp
        using Microsoft.Extensions.Configuration
@@ -115,7 +115,7 @@ Agora, você pode acessar seus segredos no código. As próximas etapas são dif
        }
        ```
 
-   1. Atualize o `OnGet` método. Atualize o valor do espaço reservado mostrado aqui com o nome do segredo que você criou nos comandos acima.
+   1. Atualize o método `OnGet`. Atualize o valor do espaço reservado mostrado aqui com o nome do segredo que você criou nos comandos acima.
 
        ```csharp
        public void OnGet()
@@ -143,17 +143,17 @@ Esta seção identifica as alterações exatas feitas em um projeto ASP.NET ao a
 
 Afeta as referências de .NET do arquivo de projeto e as referências de pacote NuGet.
 
-| Type | Referência |
+| Tipo | Referência |
 | --- | --- |
-| NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
+| NuGet | Microsoft. AspNetCore. AzureKeyVault. HostingStartup |
 
 ### <a name="added-files-for-aspnet-core"></a>Arquivos adicionados para ASP.NET Core
 
-- `ConnectedService.json`adicionado, que registra algumas informações sobre o provedor de serviços conectado, a versão e um link da documentação.
+- `ConnectedService.json` adicionado, que registra algumas informações sobre o provedor de serviços conectado, a versão e um link da documentação.
 
 ### <a name="project-file-changes-for-aspnet-core"></a>Alterações de arquivo de projeto para ASP.NET Core
 
-- Adicionado o grupo e `ConnectedServices.json` o arquivo dos serviços conectados.
+- Adicionado o grupo de grupos de serviços conectados e `ConnectedServices.json` arquivo.
 
 ### <a name="launchsettingsjson-changes-for-aspnet-core"></a>alterações de launchsettings. JSON para ASP.NET Core
 
@@ -177,18 +177,18 @@ Esta seção identifica as alterações exatas feitas em um projeto ASP.NET ao a
 
 ### <a name="added-references-for-aspnet-framework"></a>Referências adicionadas para a estrutura ASP.NET
 
-Afeta o arquivo de projeto referências do `packages.config` .net e (referências do NuGet).
+Afeta o arquivo de projeto referências do .NET e `packages.config` (referências do NuGet).
 
-| Type | Referência |
+| Tipo | Referência |
 | --- | --- |
-| .NET; NuGet | Microsoft.Azure.KeyVault |
-| .NET; NuGet | Microsoft.Azure.KeyVault.WebKey |
-| .NET; NuGet | Microsoft.Rest.ClientRuntime |
-| .NET; NuGet | Microsoft.Rest.ClientRuntime.Azure |
+| Virtual NuGet | Microsoft. Azure. keyvault |
+| Virtual NuGet | Microsoft. Azure. keyvault. WebKey |
+| Virtual NuGet | Microsoft.Rest.ClientRuntime |
+| Virtual NuGet | Microsoft.Rest.ClientRuntime.Azure |
 
 ### <a name="added-files-for-aspnet-framework"></a>Arquivos adicionados para a estrutura ASP.NET
 
-- `ConnectedService.json`adicionado, que registra algumas informações sobre o provedor de serviços conectado, a versão e um link para a documentação.
+- `ConnectedService.json` adicionado, que registra algumas informações sobre o provedor de serviços conectado, a versão e um link para a documentação.
 
 ### <a name="project-file-changes-for-aspnet-framework"></a>Alterações de arquivo de projeto para a estrutura ASP.NET
 

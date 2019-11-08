@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 593d43339961ab4576081aaa18a8d68716e40e9b
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2b1d3167828f2c2c49bb22580222fbd0e54d31d8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332110"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813195"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Análise para o mercado comercial no Partner Center
 
@@ -23,7 +24,7 @@ Para acessar as ferramentas de análise do Partner Center, abra o painel **[anal
 |**Dashboard**|**Conteúdo exibido**|
 |:---|:---|
 |[Resumo](#summary-dashboard)|Grafos, tendências e valores de dados agregados que resumem a atividade do Marketplace para suas ofertas|
-|[Solicitar](#orders-dashboard)|Informações sobre seus pedidos em um formato gráfico e baixável|
+|[Encomendas](#orders-dashboard)|Informações sobre seus pedidos em um formato gráfico e baixável|
 |[Utilizam](#customer-dashboard)|Informações sobre seus clientes, incluindo tendências de crescimento, apresentadas em um formato gráfico e baixável|
 |[Downloads](#downloads-dashboard)|Uma lista de suas solicitações de download nos últimos 30 dias|
 |[Classificações e análises](#ratings-and-reviews)| Informações sobre classificações e análises que seus clientes deixam para as ofertas adquiridas.

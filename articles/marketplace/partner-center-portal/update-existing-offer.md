@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9cefdc9354560ac5b7f3789cde2408a4c255c186
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: f2cb1907557c2440a5a94c0f4799eac95a8cf507
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191773"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827864"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Atualizar uma oferta existente no Marketplace comercial
 
@@ -26,16 +27,16 @@ Para atualizar uma oferta existente que está atualmente ativa no Marketplace:
 
 ## <a name="review-and-publish-an-updated-offer"></a>Examinar e publicar uma oferta atualizada
 
-Quando estiver pronto para publicar sua oferta atualizada, selecione **publicar** em qualquer página. A página revisar **e publicar** será aberta. Nesta página, você pode:
+Quando estiver pronto para publicar sua oferta atualizada, selecione **publicar** em qualquer página. A página **revisar e publicar** será aberta. Nesta página, você pode:
 
 
 - Consulte o status de conclusão das seções da oferta que você atualizou: 
-    - **Alterações**não publicadas: A seção foi atualizada e está concluída. Todos os dados necessários foram fornecidos e não houve erros introduzidos nas atualizações.
-    - **Incompleto**: As atualizações feitas na seção introduziram erros que precisam ser corrigidos ou exigem mais informações a serem fornecidas.
+    - **Alterações não publicadas**: a seção foi atualizada e está concluída. Todos os dados necessários foram fornecidos e não houve erros introduzidos nas atualizações.
+    - **Incompleto**: as atualizações feitas na seção introduziram erros que precisam ser corrigidos ou exigem mais informações a serem fornecidas.
 - Forneça informações adicionais à equipe de testes de certificação para garantir que os testes sejam tranqüilamente.
 - Envie a oferta atualizada para publicação selecionando **Enviar**.  Enviaremos um email para você quando uma versão de visualização da oferta atualizada estiver disponível para revisão e aprovação.
 
-**IMPORTANTE**: Você deve examinar a versão prévia da oferta, uma vez que ela esteja disponível e selecionar **Go-Live** para publicar sua oferta atualizada em seu público-alvo (público ou privado).
+**Importante**: você deve revisar a versão prévia da oferta, uma vez que ela esteja disponível e selecionar **Go-Live** para publicar sua oferta atualizada em seu público-alvo (público ou privado).
 
 ## <a name="update-a-plan-within-an-existing-offer"></a>Atualizar um plano em uma oferta existente
 
@@ -44,7 +45,7 @@ Para fazer alterações em um plano dentro de uma oferta existente que você já
 - Com a página **visão geral da oferta** aberta para sua oferta existente, escolha o plano que você deseja alterar. Se o plano não estiver acessível na lista **visão geral do plano** , selecione **Ver todos os planos**.
 - Você pode optar por selecionar o **nome**do plano, o **modelo de preços**ou a **disponibilidade**. *Atualmente, os planos estão disponíveis em inglês (Estados Unidos)* .
 - Selecione **salvar** depois de fazer as alterações necessárias no nome do plano, na descrição, no preço ou na disponibilidade do público. 
-- Selecione **publicar** quando estiver pronto para publicar suas atualizações. A página revisar **[e publicar](#review-and-publish-an-updated-offer)** será aberta e fornecerá um status de conclusão para as atualizações. 
+- Selecione **publicar** quando estiver pronto para publicar suas atualizações. A página **[revisar e publicar](#review-and-publish-an-updated-offer)** será aberta e fornecerá um status de conclusão para as atualizações. 
 
 ## <a name="delete-a-draft-offer"></a>Excluir uma oferta de rascunho
 
@@ -98,6 +99,6 @@ Para atualizar e sincronizar o público privado para seus planos:
 
 **Sincronizar público privado** publicará somente as alterações em seus públicos privados, sem publicar outras atualizações que você tenha feito na oferta de rascunho.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Verificar o status de publicação da sua oferta do Marketplace comercial](./publishing-status.md)

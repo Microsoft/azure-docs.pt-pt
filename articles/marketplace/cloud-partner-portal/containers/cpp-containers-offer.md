@@ -1,45 +1,46 @@
 ---
-title: Oferta de imagem de contentores do Azure | O Azure Marketplace
-description: Descrição geral do processo de publicação de uma oferta de contentor no Azure Marketplace.
+title: Oferta de imagem de contêineres do Azure | Azure Marketplace
+description: Visão geral do processo de publicação de uma oferta de contêiner no Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: pabutler
-ms.openlocfilehash: 9617380822f5814d1cbd2bd2b69eac72722fe813
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0e71d8135a5dd691dc1f746ec54cfb6170e281d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942741"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823238"
 ---
 # <a name="containers"></a>Contentores
 
-<table> <tr> <td>Esta secção explica como publicar uma imagem de contentor para o <a href="https://azuremarketplace.microsoft.com">do Azure Marketplace</a>.  
-O suporte de tipo de oferta de contentor imagens de contentor do Docker aprovisionadas como <a href="https://docs.microsoft.com/azure/aks/index">serviço Kubernetes do Azure</a> instâncias ou <a href="https://docs.microsoft.com/azure/container-instances/container-instances-overview">Azure Container Instances</a> e alojada num <a href="https://docs.microsoft.com/azure/container-registry">Azure Container Registry </a> repositório. </td> <td><img src="./media/container-icon.png"  alt="Azure container icon" /></td> </tr> </table>
+<table> <tr> <td>Esta seção explica como publicar uma imagem de contêiner no <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>.  
+O tipo de oferta de contêiner oferece suporte a imagens de contêiner do Docker provisionadas como instâncias do <a href="https://docs.microsoft.com/azure/aks/index">serviço kubernetes do Azure</a> ou <a href="https://docs.microsoft.com/azure/container-instances/container-instances-overview">instâncias de contêiner do Azure</a> e hospedadas em um repositório <a href="https://docs.microsoft.com/azure/container-registry">do registro de contêiner do Azure</a> . </td> <td><img src="./media/container-icon.png"  alt="Azure container icon" /></td> </tr> </table>
 
-## <a name="offer-components"></a>Componentes de oferta
+## <a name="offer-components"></a>Componentes da oferta
 
-Esta secção descreve os elementos de publicação de um contentor e destina-se como um guia para o publicador para o Azure Marketplace. A publicação dividido nas seguintes partes principais:
+Esta seção descreve os elementos de publicação de um contêiner e destina-se a ser um guia para o Publicador para o Azure Marketplace. A publicação é dividida nas seguintes partes principais:
 
-- [Pré-requisitos](./cpp-prerequisites.md) -lista os requisitos técnicos e empresariais antes de criar ou publicar uma oferta de contentor.
-- [Criar a oferta](./cpp-create-offer.md) -lista os passos necessários para criar uma nova entrada de oferta de contentor com o Portal de parceiro de Cloud.
-- [Preparar os recursos técnicos](./cpp-create-technical-assets.md) -como criar os recursos técnicos para uma solução de contentores como uma oferta no Azure Marketplace.
-- [Publicar a oferta](./cpp-publish-offer.md) -como submeter a oferta para publicação no Azure Marketplace.
+- [Pré](./cpp-prerequisites.md) -requisitos – lista os requisitos técnicos e de negócios antes de criar ou publicar uma oferta de contêiner.
+- [Criar a oferta](./cpp-create-offer.md) -lista as etapas necessárias para criar uma nova entrada de oferta de contêiner usando o portal do Cloud Partner.
+- [Preparar os ativos técnicos](./cpp-create-technical-assets.md) -como criar os ativos técnicos para uma solução de contêiner como uma oferta no Azure Marketplace.
+- [Publicar a oferta](./cpp-publish-offer.md) -como enviar a oferta para publicação no Azure Marketplace.
 
-## <a name="container-publishing-process"></a>Processo de publicação do contentor
+## <a name="container-publishing-process"></a>Processo de publicação de contêiner
 
-O diagrama seguinte ilustra as etapas de alto nível em publicar uma oferta VM.
-![Passos para publicar uma oferta](./media/containers-offer-process.png)
+O diagrama a seguir ilustra as etapas de alto nível na publicação de uma oferta de VM.
+![etapas para publicar uma oferta](./media/containers-offer-process.png)
 
-Os passos de alto nível para publicar uma oferta de contentor são:
+As etapas de alto nível para a publicação de uma oferta de contêiner são:
 
-1. Criar a oferta - fornecem informações detalhadas sobre a oferta. Estas informações incluem: a descrição da oferta, as especificações dos ativos, informações de suporte e materiais de marketing.
-2. Criar os recursos técnicos e comerciais - criar os ativos empresariais (documentos legais e materiais de marketing) e ativos técnicos para a solução associada (as imagens de contentores alojados no Azure Container Registry.
-3. Criar o SKU - criar o SKU (s) associado com a oferta. Um SKU exclusivo é necessário para cada imagem que pretende publicar.
-4. Certificar e publicar a oferta - depois da oferta e os ativos técnicos são concluídos, pode enviar a oferta. Esta submissão inicia o processo de publicação. Durante este processo, a solução é testada, validado, certified, em seguida, "entrar no ar" no Azure Marketplace.
+1. Criar a oferta-forneça informações detalhadas sobre a oferta. Essas informações incluem: a descrição da oferta, materiais de marketing, informações de suporte e especificações de ativos.
+2. Crie os ativos comerciais e técnicos – crie os ativos de negócios (documentos legais e materiais de marketing) e ativos técnicos para a solução associada (as imagens de contêineres hospedadas em um registro de contêiner do Azure.
+3. Criar a SKU-crie as SKU associadas à oferta. Um SKU exclusivo é necessário para cada imagem que você pretende publicar.
+4. Certificar e publicar a oferta-após a oferta e os ativos técnicos serem concluídos, você pode enviar a oferta. Esse envio inicia o processo de publicação. Durante esse processo, a solução é testada, validada, certificada e, em seguida, "fica ativa" no Azure Marketplace.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Antes de considerar estes passos, tem de cumprir os [requisitos técnicos e empresariais](./cpp-prerequisites.md) para a publicação de um contentor para o Microsoft Azure Marketplace.
+Antes de considerar essas etapas, você deve atender aos [requisitos técnicos e de negócios](./cpp-prerequisites.md) para publicar um contêiner no Microsoft Azure Marketplace.

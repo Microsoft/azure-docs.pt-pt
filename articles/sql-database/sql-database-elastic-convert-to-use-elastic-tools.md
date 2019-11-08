@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: b88c56872408a7ffe127a4e96d2313301d44c892
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7d4eab7546a488bf2d4ede8f7c71143e823ba493
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690542"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823938"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrar bancos de dados existentes para escalar horizontalmente
 Gerencie facilmente seus bancos de dados fragmentados existentes em escala horizontal usando as ferramentas de banco de dados do banco de dados SQL do Azure (como a [biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md)). Primeiro, converta um conjunto existente de bancos de dados para usar o [Gerenciador de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). 

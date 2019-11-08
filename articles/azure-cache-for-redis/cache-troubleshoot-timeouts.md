@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: d6bf0f788f7c71a55a4c3667023d8b1d9f571baf
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 4f577e6497e853d9b75f81b5da4f7121064a9d07
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820977"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826340"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Solucionar problemas de cache do Azure para tempos limite do Redis
 
@@ -34,7 +34,7 @@ Esta seção aborda a solução de problemas de tempo limite que ocorrem durante
 
 ## <a name="redis-server-patching"></a>Aplicação de patch do servidor Redis
 
-O cache do Azure para Redis atualiza regularmente seu software de servidor como parte da funcionalidade de serviço gerenciado que ele fornece. Essa atividade de [aplicação de patch](cache-failover.md) ocorre em grande parte por trás da cena. Durante os failovers quando os nós de servidor Redis estão sendo corrigidos, os clientes Redis conectados a esses nós podem experimentar tempos limite temporários conforme as conexões são alternadas entre esses nós. Veja [como um failover afeta meu aplicativo cliente](cache-failover.md#how-does-a-failover-impact-my-client-application) para obter mais informações sobre quais patches de efeitos colaterais podem ter em seu aplicativo e como você pode melhorar sua manipulação de eventos de aplicação de patches.
+O cache do Azure para Redis atualiza regularmente seu software de servidor como parte da funcionalidade de serviço gerenciado que ele fornece. Essa atividade de [aplicação de patch](cache-failover.md) ocorre em grande parte por trás da cena. Durante os failovers quando os nós de servidor Redis estão sendo corrigidos, os clientes Redis conectados a esses nós podem experimentar tempos limite temporários conforme as conexões são alternadas entre esses nós. Veja [como um failover afeta meu aplicativo cliente](cache-failover.md#how-does-a-failover-affect-my-client-application) para obter mais informações sobre quais patches de efeitos colaterais podem ter em seu aplicativo e como você pode melhorar sua manipulação de eventos de aplicação de patches.
 
 ## <a name="stackexchangeredis-timeout-exceptions"></a>Exceções de tempo limite de StackExchange. Redis
 
@@ -119,7 +119,7 @@ Você pode usar as etapas a seguir para investigar possíveis causas raiz.
 
    Para obter mais informações, consulte [pressão de memória no servidor Redis](cache-troubleshoot-server.md#memory-pressure-on-redis-server).
 
-## <a name="additional-information"></a>Informação adicional
+## <a name="additional-information"></a>Informações adicionais
 
 - [Solucionar problemas do lado do cliente do cache do Azure para Redis](cache-troubleshoot-client.md)
 - [Solucionar problemas do servidor de cache do Azure para Redis](cache-troubleshoot-server.md)

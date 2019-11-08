@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 6887430cad06ad33434f0f01e741979014b4558b
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: f8644a2aa989b7013cbbd64e8a8194bc08f40251
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219567"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813109"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migração de conta do Portal do Cloud Partner para o Partner Center
 
@@ -35,9 +36,9 @@ Clique na faixa para iniciar o processo de migração de sua conta. Você deve i
 
 1. Endereço de email de trabalho: <br> <br> Na maioria dos casos, entre com o endereço de email que você usa para entrar em CPP. Em determinados casos, um endereço de email diferente deve ser usado:
 
-    * Conta Microsoft: Se a conta de CPP for uma conta Microsoft, insira um email de trabalho válido associado ao locatário para o qual a ID de Microsoft Partner Network (MPN) está registrada. Para obter mais informações, consulte [inscrever-se para Microsoft Partner Network programa](#sign-up-for-microsoft-partner-network-program).
+    * Conta Microsoft: se a conta de CPP for uma conta Microsoft, insira um email de trabalho válido associado ao locatário para o qual a ID de Microsoft Partner Network (MPN) está registrada. Para obter mais informações, consulte [inscrever-se para Microsoft Partner Network programa](#sign-up-for-microsoft-partner-network-program).
 
-    * Incompatibilidade de locatário: Se seu endereço de email de trabalho não pertencer ao locatário associado à ID de Microsoft Partner Network presente na sua conta de CPP, você verá um erro. Para mover após esse erro, insira um endereço de email associado ao locatário. Uma mensagem de erro fornecerá o nome do locatário.
+    * Incompatibilidade de locatário: se seu endereço de email de trabalho não pertencer ao locatário associado à ID de Microsoft Partner Network presente na sua conta de CPP, você verá um erro. Para mover após esse erro, insira um endereço de email associado ao locatário. Uma mensagem de erro fornecerá o nome do locatário.
 
 2. Inscrever-se no programa Microsoft Partner Network
 

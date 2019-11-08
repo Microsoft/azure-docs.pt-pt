@@ -1,6 +1,6 @@
 ---
-title: Cópia de segurança periódica e restauro no Azure Service Fabric | Documentos da Microsoft
-description: Utilize a cópia de segurança periódica do Service Fabric e restaurar a funcionalidade para ativar a cópia de segurança de dados periódica de dados da sua aplicação.
+title: Backup e restauração periódicos no Azure Service Fabric | Microsoft Docs
+description: Use o recurso de backup e restauração periódicos do Service Fabric para habilitar o backup de dados periódicos dos dados do seu aplicativo.
 services: service-fabric
 documentationcenter: .net
 author: hrushib
@@ -14,58 +14,58 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 7078a1a5edc310c799690f0f7236dd0947e3290b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9aeffa8b756340851ca4c82ebaed2453d4ac03bc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059193"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819514"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Cópia de segurança periódica e restauro no Azure Service Fabric 
+# <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Backup e restauração periódicos no Azure Service Fabric 
 > [!div class="op_single_selector"]
 > * [Clusters no Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
-> * [Clusters autónomos](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
+> * [Clusters autônomos](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
 > 
 
-Service Fabric é uma plataforma de sistemas distribuídos que facilita a desenvolver e gerir aplicações de cloud fiável e distribuída, microsserviços, com base. Ele permite que a execução de microsserviços com e sem monitoração de estado. Serviços com estado podem manter um Estado mutável e autoritativo para além do pedido e resposta ou uma transação completa. Se um serviço com estado fica inativo por um longo tempo ou perde informações devido a um desastre, ele poderá ter de ser restauradas para alguns recente cópia de segurança do seu estado para poder continuar a fornecer serviço depois que ele é reativado.
+O Service Fabric é uma plataforma de sistemas distribuídos que facilita o desenvolvimento e o gerenciamento de aplicativos de nuvem baseados em microserviços confiáveis e distribuídos. Ele permite a execução de micro Services com e sem estado. Os serviços com estado podem manter o estado autoritativo e imutável além da solicitação e da resposta ou de uma transação completa. Se um serviço com estado ficar inativo por um longo tempo ou perder informações devido a um desastre, talvez seja necessário restaurá-lo para um backup recente de seu estado a fim de continuar a fornecer o serviço após o retorno do backup.
 
-Service Fabric replica o estado em vários nós para garantir que o serviço está altamente disponível. Mesmo que um nó no cluster falhar, o serviço continua a estar disponível. No entanto, em certos casos, é ainda desejável para os dados de serviço ser confiável contra falhas mais amplas.
+Service Fabric Replica o estado em vários nós para garantir que o serviço esteja altamente disponível. Mesmo se um nó do cluster falhar, o serviço continuará disponível. Em alguns casos, no entanto, ainda é desejável que os dados do serviço sejam confiáveis contra falhas mais amplas.
  
-Por exemplo, o serviço pode querer fazer uma cópia dos respetivos dados para proteger contra os seguintes cenários:
-- Em caso de perda permanente de um cluster do Service Fabric inteiro.
-- Perda permanente de a maioria das réplicas de uma partição de serviço
-- Erros administrativos no qual o estado acidentalmente obtém excluído ou danificado. Por exemplo, um administrador com privilégios suficientes erroneamente elimina o serviço.
-- Bugs no serviço que danificar os dados. Por exemplo, isto pode acontecer quando uma atualização do código de serviço é iniciado a escrita de dados com falhas para uma coleção fiável. Nesse caso, o código e os dados podem ter a ser revertida para um estado anterior.
-- Processamento de dados offline. Pode ser conveniente ter um processamento offline de dados para business intelligence que acontece em separado do serviço que gera os dados.
+Por exemplo, o serviço pode querer fazer backup de seus dados para proteger os seguintes cenários:
+- No caso de perda permanente de um cluster de Service Fabric inteiro.
+- Perda permanente de uma maioria das réplicas de uma partição de serviço
+- Erros administrativos nos quais o estado é acidentalmente excluído ou corrompido. Por exemplo, um administrador com privilégios suficientes exclui erroneamente o serviço.
+- Bugs no serviço que causam corrupção de dados. Por exemplo, isso pode acontecer quando uma atualização de código de serviço começa a gravar dados com falha em uma coleção confiável. Nesse caso, o código e os dados podem precisar ser revertidos para um estado anterior.
+- Processamento de dados offline. Pode ser conveniente ter o processamento offline de dados para business intelligence que aconteça separadamente do serviço que gera os dados.
 
-O Service Fabric fornece uma API incorporada para um ponto anterior no tempo [backup e restauração](service-fabric-reliable-services-backup-restore.md). Os desenvolvedores de aplicativos podem usar essas APIs para criar cópias de segurança do Estado do serviço periodicamente. Além disso, se quiser que os administradores de serviço acionar uma cópia de segurança a partir de fora o serviço a uma hora específica, como antes de atualizar a aplicação, os desenvolvedores precisam para expor a cópia de segurança (e restaurar) como uma API do serviço. Manter as cópias de segurança é um custo adicional acima isso. Por exemplo, poderá demorar cinco cópias de segurança incrementais cada meia hora, seguido de uma cópia de segurança completa. Após a cópia de segurança completa, pode eliminar as cópias de segurança incrementais anteriores. Essa abordagem exige código adicional que leva a custos adicionais durante o desenvolvimento de aplicativo.
+O Service Fabric fornece uma API embutida para fazer [backup e restauração](service-fabric-reliable-services-backup-restore.md)point-in-time. Os desenvolvedores de aplicativos podem usar essas APIs para fazer backup do estado do serviço periodicamente. Além disso, se os administradores de serviço desejarem disparar um backup de fora do serviço em um momento específico, como antes de atualizar o aplicativo, os desenvolvedores precisam expor backup (e restauração) como uma API do serviço. Manter os backups é um custo adicional acima disso. Por exemplo, talvez você queira fazer cinco backups incrementais a cada meia hora, seguido por um backup completo. Após o backup completo, você pode excluir os backups incrementais anteriores. Essa abordagem requer código adicional que leva a custo adicional durante o desenvolvimento de aplicativos.
 
-O serviço de cópia de segurança e restauro no Service Fabric permite que a cópia de segurança fácil e automática de informações armazenadas nos serviços de monitorização de estado. Backup de dados de aplicação numa base periódica é fundamental para proteção contra indisponibilidade de serviço e perda de dados. O Service Fabric fornece uma cópia de segurança opcional e o serviço de restauro, que permite-lhe configurar a cópia de segurança periódica dos Reliable Services com monitorização de estado e (incluindo os serviços de Atores) sem ter de escrever código adicional. Ele também facilita a restaurar anteriormente efetuadas cópias de segurança. 
+O serviço de backup e restauração no Service Fabric permite um backup fácil e automático de informações armazenadas em serviços com estado. Fazer backup de dados de aplicativos periodicamente é fundamental para proteger contra perda de dados e indisponibilidade de serviço. O Service Fabric fornece um serviço opcional de backup e restauração, que permite configurar o backup periódico de Reliable Services com estado (incluindo serviços de ator) sem precisar escrever nenhum código adicional. Ele também facilita a restauração de backups feitos anteriormente. 
 
 
-O Service Fabric fornece um conjunto de APIs para alcançar a seguinte funcionalidade relacionados periódica para cópia de segurança e restaurar a funcionalidade:
+Service Fabric fornece um conjunto de APIs para obter a seguinte funcionalidade relacionada ao recurso de backup e restauração periódicos:
 
-- Agendar periódica cópia de segurança de Reliable Stateful services e Reliable Actors com suporte para carregar as localizações de armazenamento de cópia de segurança para (externo). Localizações de armazenamento suportadas
+- Agendar backup periódico de serviços confiáveis com estado e Reliable Actors com suporte para upload de backup para locais de armazenamento (externos). Locais de armazenamento com suporte
     - Storage do Azure
-    - Partilha de ficheiros (local)
-- Enumerar as cópias de segurança
-- Acione uma cópia de segurança ad hoc de uma partição
-- Restaurar uma partição com a cópia de segurança anterior
-- Suspender temporariamente as cópias de segurança
-- Gestão de retenção de cópias de segurança (breve)
+    - Compartilhamento de arquivos (local)
+- Enumerar backups
+- Disparar um backup ad hoc de uma partição
+- Restaurar uma partição usando o backup anterior
+- Suspender backups temporariamente
+- Gerenciamento de retenção de backups (futuro)
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Cluster do Service Fabric com recursos de infraestrutura versão 6.4 ou superior. Consulte este [artigo](service-fabric-cluster-creation-via-arm.md) para obter os passos criar recursos de infraestrutura do serviço de cluster com o modelo de recursos do Azure.
-* Certificado X.509 para a encriptação dos segredos necessárias para se ligar ao armazenamento para armazenar cópias de segurança. Consultar [artigo](service-fabric-cluster-creation-via-arm.md) saber como obter ou criar um certificado X.509.
-* Aplicação de Service Fabric Reliable com monitoração de estado criada com o SDK do Service Fabric versão 3.0 ou superior. Para aplicativos visando o .NET Core 2.0, a aplicação deve ser criada usando o Service Fabric SDK versão 3.1 ou posterior.
-* Crie conta de armazenamento do Azure para armazenar cópias de segurança do aplicativo.
-* Instale o módulo de Microsoft.ServiceFabric.Powershell.Http [na pré-visualização] para fazer chamadas de configuração.
+* Service Fabric cluster com a versão 6,4 ou superior do fabric. Consulte este [artigo](service-fabric-cluster-creation-via-arm.md) para obter as etapas para criar Service Fabric cluster usando o modelo de recurso do Azure.
+* Certificado X. 509 para criptografia de segredos necessários para se conectar ao armazenamento para armazenar backups. Consulte o [artigo](service-fabric-cluster-creation-via-arm.md) para saber como obter ou criar um certificado X. 509.
+* Service Fabric aplicativo com estado confiável criado usando o SDK do Service Fabric versão 3,0 ou superior. Para aplicativos destinados ao .NET Core 2,0, o aplicativo deve ser criado usando Service Fabric SDK versão 3,1 ou superior.
+* Crie uma conta de armazenamento do Azure para armazenar backups de aplicativos.
+* Instale o módulo Microsoft. perfabric. PowerShell. http [em versão prévia] para fazer chamadas de configuração.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-* Certifique-se de que o Cluster está ligado a utilizar o `Connect-SFCluster` comando antes de efetuar qualquer pedido de configuração através do módulo Microsoft.ServiceFabric.Powershell.Http.
+* Verifique se o cluster está conectado usando o comando `Connect-SFCluster` antes de fazer qualquer solicitação de configuração usando o módulo Microsoft. onfabric. PowerShell. http.
 
 ```powershell
 
@@ -73,19 +73,19 @@ O Service Fabric fornece um conjunto de APIs para alcançar a seguinte funcional
 
 ```
 
-## <a name="enabling-backup-and-restore-service"></a>Ativar o serviço de cópia de segurança e restauro
+## <a name="enabling-backup-and-restore-service"></a>Habilitando o serviço de backup e restauração
 
 ### <a name="using-azure-portal"></a>Com o Portal do Azure
 
-Ativar `Include backup restore service` caixa de verificação sob `+ Show optional settings` no `Cluster Configuration` separador.
+Habilitar `Include backup restore service` caixa de seleção em `+ Show optional settings` na guia `Cluster Configuration`.
 
-![Ativar o serviço de cópia de segurança de restauro com o Portal][1]
+![Habilitar serviço de restauração de backup com o portal][1]
 
 
-### <a name="using-azure-resource-manager-template"></a>Usando o modelo Azure Resource Manager
-Primeiro tem de ativar a _cópia de segurança e restaurar o serviço_ no seu cluster. Obter o modelo para o cluster que pretende implementar. Pode utilizar o [modelos de exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) ou criar um modelo do Resource Manager. Ativar a _cópia de segurança e restaurar o serviço_ com os seguintes passos:
+### <a name="using-azure-resource-manager-template"></a>Usando o modelo de Azure Resource Manager
+Primeiro, você precisa habilitar o _serviço de backup e restauração_ no cluster. Obtenha o modelo para o cluster que você deseja implantar. Você pode usar os [modelos de exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) ou criar um modelo do Resource Manager. Habilite o _serviço de backup e restauração_ com as seguintes etapas:
 
-1. Verifique se o `apiversion` está definido como **`2018-02-01`** para o `Microsoft.ServiceFabric/clusters` recurso e se não, atualize-a conforme mostrado no seguinte fragmento:
+1. Verifique se o `apiversion` está definido como **`2018-02-01`** para o recurso de `Microsoft.ServiceFabric/clusters` e, se não estiver, atualize-o conforme mostrado no trecho a seguir:
 
     ```json
     {
@@ -97,7 +97,7 @@ Primeiro tem de ativar a _cópia de segurança e restaurar o serviço_ no seu cl
     }
     ```
 
-2. Agora ativar a _cópia de segurança e restaurar o serviço_ adicionando o seguinte procedimento `addonFeatures` secção em `properties` secção conforme mostrado no seguinte fragmento: 
+2. Agora, habilite o _serviço de backup e restauração_ adicionando a seção `addonFeatures` a seguir na seção `properties`, conforme mostrado no trecho a seguir: 
 
     ```json
         "properties": {
@@ -108,7 +108,7 @@ Primeiro tem de ativar a _cópia de segurança e restaurar o serviço_ no seu cl
         }
 
     ```
-3. Configure certificado X.509 para a encriptação de credenciais. Isso é importante certificar-se de que as credenciais fornecidas para ligar ao armazenamento são encriptadas antes de continuar. Configurar o certificado de encriptação ao adicionar o seguinte `BackupRestoreService` secção em `fabricSettings` secção conforme mostrado no seguinte fragmento: 
+3. Configure o certificado X. 509 para criptografia de credenciais. Isso é importante para garantir que as credenciais fornecidas para se conectar ao armazenamento sejam criptografadas antes de persistirem. Configure o certificado de criptografia adicionando a seção `BackupRestoreService` a seguir na seção `fabricSettings`, conforme mostrado no trecho a seguir: 
 
     ```json
     "properties": {
@@ -125,23 +125,38 @@ Primeiro tem de ativar a _cópia de segurança e restaurar o serviço_ no seu cl
     }
     ```
 
-4. Depois de ter atualizado o seu modelo de cluster com as alterações anteriores, aplicá-las e permitir que concluir a implementação/atualização. Depois de concluído, o _cópia de segurança e restaurar o serviço_ começa a ser executado no seu cluster. O Uri deste serviço é `fabric:/System/BackupRestoreService` e o serviço pode ser localizado na secção de serviço de sistema no Explorador do Service Fabric. 
+4. Depois de atualizar o modelo de cluster com as alterações anteriores, aplique-as e permita que a implantação/atualização seja concluída. Depois de concluído, o _serviço de backup e restauração_ inicia a execução em seu cluster. O URI desse serviço é `fabric:/System/BackupRestoreService` e o serviço pode estar localizado na seção serviço do sistema no Gerenciador de Service Fabric. 
 
-## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Ativar a cópia de segurança periódica para serviço com estado fiável e Reliable Actors
-Vamos guiá-lo pelos passos para ativar cópia de segurança periódica para serviço com estado fiável e Reliable Actors. Estes passos partem do princípio
-- Se o cluster está configurada com segurança X.509 com o _cópia de segurança e restaurar o serviço_.
-- Um serviço com estado fiável é implementado no cluster. Para efeitos deste manual de início rápido, o Uri da aplicação é `fabric:/SampleApp` e o Uri de serviço com estado fiável que pertencem a esta aplicação é `fabric:/SampleApp/MyStatefulService`. Este serviço é implementado com a partição única e o ID de partição é `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
-- O certificado de cliente com a função de administrador é instalado no _minha_ (_pessoais_) armazenar o nome do _CurrentUser_ localização de armazenamento na máquina local abaixo do certificado scripts serão invocados. Este exemplo utiliza `1b7ebe2174649c45474a4819dafae956712c31d3` como thumbprint deste certificado. Para obter mais informações sobre certificados de cliente, consulte [controlo de acesso baseado em funções para clientes do Service Fabric](service-fabric-cluster-security-roles.md).
+### <a name="using-service-fabric-explorer"></a>Usando Service Fabric Explorer
 
-### <a name="create-backup-policy"></a>Criar política de cópia de segurança
+1. Verifique se o modo avançado está habilitado.
 
-Primeira etapa é criar a política de cópia de segurança que descreve a agenda de cópia de segurança, armazenamento de dados de cópia de segurança, o nome da política, cópias de segurança incrementais máximas permitido antes de acionar a cópia de segurança completa e a política de retenção para o armazenamento de cópia de segurança de destino. 
+    ![Habilitar o modo avançado][2]
 
-Armazenamento de cópias de segurança, utilize o armazenamento do Azure conta criada acima. Contentor `backup-container` está configurado para armazenar cópias de segurança. Um contentor com este nome é criado, se ainda não exista, durante o carregamento de cópia de segurança. Preencher `ConnectionString` com uma cadeia de ligação válida para a conta de armazenamento do Azure, substituindo `account-name` com o nome da conta de armazenamento, e `account-key` pela chave da conta de armazenamento.
+2. Selecione um aplicativo e vá para a ação. Clique em Habilitar/atualizar backup do aplicativo.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell com o módulo de Microsoft.ServiceFabric.Powershell.Http
+    ![Habilitar o backup do aplicativo][3] 
 
-Execute a seguinte cmdlets do PowerShell para criar nova política de cópia de segurança. Substitua `account-name` com o nome da conta de armazenamento, e `account-key` pela chave da conta de armazenamento.
+3. Por fim, selecione a política desejada e clique em Habilitar backup.
+
+    ![Selecionar política][4]
+
+
+## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Habilitando backup periódico para serviço confiável com estado e Reliable Actors
+Vamos percorrer as etapas para habilitar o backup periódico para serviço confiável com estado e Reliable Actors. Estas etapas pressupõem que
+- Se o cluster está configurado usando a segurança X. 509 com o _serviço de backup e restauração_.
+- Um serviço confiável com estado é implantado no cluster. Para fins deste guia de início rápido, o URI do aplicativo é `fabric:/SampleApp` e o URI para o serviço confiável com estado pertencente a esse aplicativo é `fabric:/SampleApp/MyStatefulService`. Esse serviço é implantado com uma única partição e a ID da partição é `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
+- O certificado do cliente com a função de administrador é instalado no _meu_ nome de repositório (_pessoal_) do local do repositório de certificados _CurrentUser_ no computador do qual os scripts abaixo serão invocados. Este exemplo usa `1b7ebe2174649c45474a4819dafae956712c31d3` como impressão digital desse certificado. Para obter mais informações sobre certificados de cliente, consulte [controle de acesso baseado em função para clientes Service Fabric](service-fabric-cluster-security-roles.md).
+
+### <a name="create-backup-policy"></a>Criar política de backup
+
+A primeira etapa é criar a política de backup que descreve o agendamento de backup, armazenamento de destino para dados de backup, nome da política, backups incrementais máximos a serem permitidos antes de disparar a política de backup e retenção completa para o armazenamento de backup. 
+
+Para o armazenamento de backup, use a conta de armazenamento do Azure criada acima. O `backup-container` de contêiner está configurado para armazenar backups. Um contêiner com esse nome será criado, se ainda não existir, durante o upload de backup. Preencha `ConnectionString` com uma cadeia de conexão válida para a conta de armazenamento do Azure, substituindo `account-name` pelo nome da conta de armazenamento e `account-key` pela sua chave de conta de armazenamento.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usando o módulo Microsoft. infabric. PowerShell. http
+
+Execute os cmdlets do PowerShell a seguir para criar uma nova política de backup. Substitua `account-name` pelo nome da conta de armazenamento e `account-key` pela sua chave de conta de armazenamento.
 
 ```powershell
 
@@ -149,9 +164,9 @@ New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrem
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Chamada de REST com o PowerShell
+#### <a name="rest-call-using-powershell"></a>Chamada REST usando o PowerShell
 
-Execute a seguinte script do PowerShell para invocar a API de REST necessárias para criar nova política. Substitua `account-name` com o nome da conta de armazenamento, e `account-key` pela chave da conta de armazenamento.
+Execute o seguinte script do PowerShell para invocar a API REST necessária para criar uma nova política. Substitua `account-name` pelo nome da conta de armazenamento e `account-key` pela sua chave de conta de armazenamento.
 
 ```powershell
 $StorageInfo = @{
@@ -185,19 +200,19 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 ```
 
-### <a name="enable-periodic-backup"></a>Ativar cópia de segurança periódica
-Depois de definir a política de cópia de segurança para atender a requisitos de proteção de dados do aplicativo, a política de cópia de segurança deve ser associada à aplicação. Dependendo do requisito, a política de cópia de segurança pode ser associada a uma aplicação, serviço ou uma partição.
+### <a name="enable-periodic-backup"></a>Habilitar backup periódico
+Depois de definir a política de backup para atender aos requisitos de proteção de dados do aplicativo, a política de backup deve ser associada ao aplicativo. Dependendo do requisito, a política de backup pode ser associada a um aplicativo, serviço ou uma partição.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell com o módulo de Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usando o módulo Microsoft. infabric. PowerShell. http
 
 ```powershell
 
 Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
 
 ```
-#### <a name="rest-call-using-powershell"></a>Chamada de REST com o PowerShell
+#### <a name="rest-call-using-powershell"></a>Chamada REST usando o PowerShell
 
-Execute a seguinte script do PowerShell para invocar a API de REST necessárias para associar a política de cópia de segurança com o nome `BackupPolicy1` criada na acima passo com a aplicação `SampleApp`.
+Execute o seguinte script do PowerShell para invocar a API REST necessária para associar a política de backup com o nome `BackupPolicy1` criado na etapa anterior com `SampleApp`de aplicativos.
 
 ```powershell
 $BackupPolicyReference = @{
@@ -210,26 +225,26 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ``` 
 
-### <a name="verify-that-periodic-backups-are-working"></a>Certifique-se de que as cópias de segurança periódicas estão a funcionar
+### <a name="verify-that-periodic-backups-are-working"></a>Verificar se os backups periódicos estão funcionando
 
-Depois de ativar a cópia de segurança ao nível da aplicação, todas as partições que pertencem a Reliable Stateful services e Reliable Actors sob o aplicativo iniciará a obter uma cópia de segurança periodicamente acordo com a política de cópia de segurança associada. 
+Depois de habilitar o backup no nível do aplicativo, todas as partições que pertencem a serviços confiáveis com estado e Reliable Actors sob o aplicativo começarão a ser submetidas a backup periodicamente de acordo com a política de backup associada. 
 
-![Evento de estado de funcionamento do restaurados de partição][0]
+![Evento de integridade de backup de partição][0]
 
-### <a name="list-backups"></a>Lista as cópias de segurança
+### <a name="list-backups"></a>Listar backups
 
-Cópias de segurança associadas a todas as partições que pertencem a Reliable Stateful services e Reliable Actors do aplicativo podem ser enumeradas usando _GetBackups_ API. As cópias de segurança podem ser enumeradas para uma aplicação, serviço ou uma partição.
+Os backups associados a todas as partições que pertencem a serviços confiáveis com estado e Reliable Actors do aplicativo podem ser enumerados usando a API _Getbackups_ . Os backups podem ser enumerados para um aplicativo, serviço ou uma partição.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell com o módulo de Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usando o módulo Microsoft. infabric. PowerShell. http
 
 ```powershell
     
 Get-SFApplicationBackupList -ApplicationId WordCount
 ```
 
-#### <a name="rest-call-using-powershell"></a>Chamada de REST com o PowerShell
+#### <a name="rest-call-using-powershell"></a>Chamada REST usando o PowerShell
 
-Execute a seguinte script do PowerShell para invocar a API de HTTP para enumerar as cópias de segurança criadas para todas as partições dentro do `SampleApp` aplicação.
+Execute o seguinte script do PowerShell para invocar a API HTTP para enumerar os backups criados para todas as partições dentro do aplicativo `SampleApp`.
 
 ```powershell
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/GetBackups?api-version=6.4"
@@ -240,7 +255,7 @@ $BackupPoints = (ConvertFrom-Json $response.Content)
 $BackupPoints.Items
 ```
 
-Execute a saída de exemplo acima:
+Exemplo de saída para a execução acima:
 
 ```
 BackupId                : b9577400-1131-4f88-b309-2bb1e943322c
@@ -280,14 +295,23 @@ CreationTimeUtc         : 2018-04-06T21:25:36Z
 FailureError            : 
 ```
 
-## <a name="limitation-caveats"></a>Limitação / advertências
-- Cmdlets do PowerShell do Service Fabric está no modo de pré-visualização.
-- Não há suporte para o Service Fabric clusters no Linux.
+#### <a name="using-service-fabric-explorer"></a>Usando Service Fabric Explorer
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Configuração de cópia de segurança periódica compreensão](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
-- [Referência da REST API de restauro de cópia de segurança](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+Para exibir os backups em Service Fabric Explorer, navegue até uma partição e selecione a guia backups.
 
-[0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png
+![Enumerar backups][5]
+
+## <a name="limitation-caveats"></a>Limitação/advertências
+- Service Fabric cmdlets do PowerShell estão no modo de visualização.
+- Não há suporte para clusters de Service Fabric no Linux.
+
+## <a name="next-steps"></a>Passos seguintes
+- [Compreendendo a configuração de backup periódico](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
+- [Referência da API REST de restauração de backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+
+[0]: ./media/service-fabric-backuprestoreservice/partition-backedup-health-event-azure.png
 [1]: ./media/service-fabric-backuprestoreservice/enable-backup-restore-service-with-portal.png
-
+[2]: ./media/service-fabric-backuprestoreservice/advanced-mode.png
+[3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png
+[4]: ./media/service-fabric-backuprestoreservice/enable-application-backup.png
+[5]: ./media/service-fabric-backuprestoreservice/backup-enumeration.png

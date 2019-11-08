@@ -1,57 +1,58 @@
 ---
-title: Líder de ativar a partilha no Azure Marketplace | Azure
-description: Saiba como ativar a partilha de oportunidades potenciais para o Azure Marketplace e AppSource, os publicadores de aplicações e serviços.
+title: Habilitar o compartilhamento de leads no Azure Marketplace | Azure
+description: Saiba como habilitar o compartilhamento de clientes potenciais para o Azure Marketplace e o AppSource, para Publicadores de aplicativos e serviços.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 9aecef81547131e6f843fdd55db259d2c4299c9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4475f6aecb0fe80cd20138eb885b79b6e7e82208
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938683"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818674"
 ---
-# <a name="enable-lead-sharing"></a>Ativar a partilha de oportunidades potenciais
-Garantir que a gestão de oportunidades potenciais está ativado para a listagem na [do Azure Marketplace](https://azuremarketplace.microsoft.com) ou [Microsoft AppSource](https://appsource.microsoft.com) podem ajudar a receber informações de contacto para o seguinte público:
+# <a name="enable-lead-sharing"></a>Habilitar o compartilhamento de leads
+Garantir que o gerenciamento de leads esteja habilitado para sua listagem no [Azure Marketplace](https://azuremarketplace.microsoft.com) ou [Microsoft AppSource](https://appsource.microsoft.com) pode ajudá-lo a receber informações de contato para os seguintes públicos:
 
 | Loja | Audiência |
 |:--- |:--- |
-| AppSource | Clientes empresariais |
+| AppSource | Clientes de negócios |
 | Azure Marketplace | Todos os clientes |
 
-Suas oportunidades potenciais fornecem a base de alcance para campanhas listadas na tabela a seguir, para propostas de vendas relacionadas pela sua equipa de vendas de campo, e para informações sobre como a sua aplicação ou a oferta é efetuar:
+Seus clientes potenciais fornecem a base de alcance para as campanhas listadas na tabela a seguir, para movimentações de vendas relacionadas por sua equipe de vendas de campo e para obter informações sobre como seu aplicativo ou oferta está executando:
 
-| Loja | Campanha |
+| Loja | Atividade |
 |:--- |:--- |
-| AppSource | Nono |
-| Azure Marketplace | Geração em demanda |
+| AppSource | Incentivá |
+| Azure Marketplace | Geração sob demanda |
 
-Utilize as seguintes práticas para suas oportunidades potenciais:
-*   Qualificar suas oportunidades potenciais e classificar as oportunidades potenciais como oportunidades de venda.
-*   Cuidar suas oportunidades potenciais para introduzir um pipeline de vendas.
+Use as seguintes práticas para seus clientes potenciais:
+*   Qualificar seus clientes potenciais e pontuar os leads como oportunidades de vendas.
+*   Incentivá seus clientes potenciais para entrar em um pipeline de vendas.
 *   Alinhe seus esforços com sua estratégia geral de campanha de marketing.
 
-Suas oportunidades potenciais demonstram interesse dos clientes em listagens de seguintes:
+Seus clientes potenciais demonstram o interesse do cliente nas seguintes listagens:
 
 | Loja | Listagem |
 |:--- |:--- |
 | AppSource | <table> <tr><td>Aplicação</td></tr> <tr><td>Serviços de consultoria</td></tr> </table> |
 | Azure Marketplace | <table> <tr><td>Oferta</td></tr> <tr><td>Tecnologia</td></tr> </table> |
 
-Deve ter um processo no local para dar seguimento às suas oportunidades potenciais, conforme descrito na tabela a seguir:
+Você deve ter um processo em vigor para acompanhar seus leads, conforme descrito na tabela a seguir:
 
-| Loja | Oportunidades potenciais |
+| Loja | Orienta |
 |:--- |:--- |
-| AppSource | <table> <tr><td>Seu sistema de CRM</td></tr> <tr><td>Vendedor de campo da Microsoft CRM</td></tr> </table> |
-| Azure Marketplace | <table> <tr><td>Azure Marketplace</td></tr> <tr><td>Vendedor de campo da Microsoft CRM</td></tr> </table> |
+| AppSource | <table> <tr><td>Seu CRM</td></tr> <tr><td>CRM do vendedor de campo da Microsoft</td></tr> </table> |
+| Azure Marketplace | <table> <tr><td>Azure Marketplace</td></tr> <tr><td>CRM do vendedor de campo da Microsoft</td></tr> </table> |
 
-Suas oportunidades potenciais em lojas no Marketplace são diferentes das Microsoft qualificado vendedor oportunidades potenciais que são uma funcionalidade do programa de venda conjunta.
+Seus clientes potenciais em vitrines no Marketplace são diferentes dos clientes potenciais qualificados pelo vendedor da Microsoft que são um recurso do programa de venda conjunta.
 
-Para obter mais informações sobre como acessar o programa de venda conjunta, consulte [promover o seu negócio com a Microsoft](./promote-your-business-with-microsoft.md).
+Para obter mais informações sobre como acessar o programa de venda conjunta, consulte [promover seus negócios com a Microsoft](./promote-your-business-with-microsoft.md).
 
-## <a name="next-steps"></a>Passos Seguintes
-Reveja os [guia de publicação do Azure Marketplace e AppSource](./marketplace-publishers-guide.md).
+## <a name="next-steps"></a>Passos seguintes
+Examine o [Guia de publicação do Azure Marketplace e do AppSource](./marketplace-publishers-guide.md).

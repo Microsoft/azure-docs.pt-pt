@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2019
 ms.author: atsenthi
-ms.openlocfilehash: 3618339349d618b371a40d3b37ebc30192c067ca
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 25aaad02cf8c90c67e87d49553a02cacf033281f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764830"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819482"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Alterar o cluster da impressão digital do certificado para o nome comum
 Dois certificados não podem ter a mesma impressão digital, o que torna difícil a substituição ou o gerenciamento do certificado do cluster. No entanto, vários certificados podem ter o mesmo nome ou assunto comum.  Alternar um cluster implantado do uso de impressões digitais de certificado para usar nomes comuns de certificado torna o gerenciamento de certificados muito mais simples. Este artigo descreve como atualizar um Cluster Service Fabric em execução para usar o nome comum do certificado em vez da impressão digital do certificado.
@@ -128,7 +128,7 @@ Em seguida, abra o arquivo de modelo em um editor de texto e faça três atualiz
 
     Além disso, considere remover o *certificateThumbprint*, ele não poderá mais ser referenciado no modelo do Resource Manager.
 
-2. No recurso **Microsoft. Compute/virtualMachineScaleSets** , atualize a extensão da máquina virtual para usar o nome comum nas configurações de certificado em vez da impressão digital.  Em->**Propriedades**->**de extensões do virtualMachineProfile**extensionProfileconfiguraçõesdo->**certificado**, adicionar->-> `"commonNames": ["[parameters('certificateCommonName')]"],` e remova `"thumbprint": "[parameters('certificateThumbprint')]",`.
+2. No recurso **Microsoft. Compute/virtualMachineScaleSets** , atualize a extensão da máquina virtual para usar o nome comum nas configurações de certificado em vez da impressão digital.  Em **virtualMachineProfile**->**extensionProfile**->**extensões**->**propriedades**->**configurações**->**certificado**, adicione `"commonNames": ["[parameters('certificateCommonName')]"],` e remova `"thumbprint": "[parameters('certificateThumbprint')]",`.
     ```json
         "virtualMachineProfile": {
         "extensionProfile": {
@@ -189,6 +189,8 @@ Em seguida, abra o arquivo de modelo em um editor de texto e faça três atualiz
         ...
     ```
 
+Para obter informações adicionais, consulte [alterar cluster da impressão digital do certificado para nome comum.](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn)
+
 ## <a name="deploy-the-updated-template"></a>Implantar o modelo atualizado
 Reimplante o modelo atualizado depois de fazer as alterações.
 
@@ -199,7 +201,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
     -TemplateParameterFile "C:\temp\cluster\parameters.json" -TemplateFile "C:\temp\cluster\template.json" 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre a [segurança do cluster](service-fabric-cluster-security.md).
 * Saiba como [sobrepor um certificado de cluster](service-fabric-cluster-rollover-cert-cn.md)
 * [Atualizar e gerenciar certificados de cluster](service-fabric-cluster-security-update-certs-azure.md)

@@ -1,6 +1,6 @@
 ---
 title: Usar serviços cognitivas do NLP para enriquecer conversas
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Os serviços cognitivas fornecem dois serviços de processamento de idioma natural, Reconhecimento vocal e QnA Maker, cada um com uma finalidade diferente. Entenda quando usar cada serviço e como eles se complementam.
 author: diberry
 ms.author: diberry
@@ -8,12 +8,12 @@ manager: nitinme
 ms.topic: conceptual
 ms.service: cognitive-services
 ms.date: 08/01/2019
-ms.openlocfilehash: f293f57f4a98e822aa1c3950614ba5a186f9751d
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 32159b37d3d1a8609181d81dc1a73f27177adb85
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816927"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818203"
 ---
 # <a name="use-cognitive-services-with-natural-language-processing-nlp-to-enrich-bot-conversations"></a>Use serviços cognitivas com NLP (processamento de idioma natural) para enriquecer conversas de bot
 
@@ -31,17 +31,17 @@ Reconhecimento vocal (LUIS) e QnA Maker resolver problemas diferentes. LUIS dete
 
 Para escolher o serviço correto, você precisa entender o texto do usuário proveniente do aplicativo cliente e as informações que o aplicativo cliente precisa obter do serviço cognitiva.
 
-Se o seu bot de chat receber `How do I get to the Human Resources building on the Seattle North campus?`o texto, use o gráfico abaixo para entender como cada serviço funciona com o texto.
+Se o seu bot de bate-papo receber o texto `How do I get to the Human Resources building on the Seattle North campus?`, use o gráfico abaixo para entender como cada serviço funciona com o texto.
 
 |Serviço|O aplicativo cliente determina|
 |--|--|
-|LUIS|**Determina a intenção** de texto do usuário-o serviço não retorna a resposta para a pergunta. Por exemplo, esse texto é classificado como correspondente à `FindLocation` intenção.<br>|
-|Criador de FAQ|**Retorna a resposta para a pergunta** de uma base de dados de conhecimento personalizada. Por exemplo, esse texto é determinado como uma pergunta com a resposta de texto estático `Get on the #9 bus and get off at Franklin street`de.|
+|LUIS|**Determina a intenção** de texto do usuário-o serviço não retorna a resposta para a pergunta. Por exemplo, esse texto é classificado como correspondente à intenção de `FindLocation`.<br>|
+|QnA Maker|**Retorna a resposta para a pergunta** de uma base de dados de conhecimento personalizada. Por exemplo, esse texto é determinado como uma pergunta com a resposta de texto estático de `Get on the #9 bus and get off at Franklin street`.|
 |||
 
 ## <a name="when-do-you-use-luis"></a>Quando você usa o LUIS? 
 
-Use LUIS quando precisar saber a intenção do expressão como parte de um processo no bot de bate-papo. Continuando com o texto de `How do I get to the Human Resources building on the Seattle North campus?`exemplo,, quando você sabe que a intenção do usuário é encontrar um local, você pode passar detalhes sobre o expressão (extraído com entidades) para outro serviço, como um servidor de transporte, para obter a resposta. 
+Use LUIS quando precisar saber a intenção do expressão como parte de um processo no bot de bate-papo. Continuando com o texto de exemplo, `How do I get to the Human Resources building on the Seattle North campus?`, depois que você sabe que a intenção do usuário é encontrar um local, você pode passar detalhes sobre o expressão (extraído com entidades) para outro serviço, como um servidor de transporte, para obter a resposta. 
 
 Você não precisa combinar LUIS e QnA Maker para determinar a intenção. 
 
@@ -51,7 +51,7 @@ Você pode combinar os dois serviços para esse expressão, se o bot de chat pre
 
 Use QnA Maker quando você tiver uma base de dados de conhecimento estática de respostas. Essa base de dados de conhecimento é personalizada para suas necessidades, que você criou com documentos como PDFs e URLs. 
 
-Continuando com o exemplo expressão `How do I get to the Human Resources building on the Seattle North campus?`,, envie o texto, como uma consulta, para o serviço de QnA Maker publicado e receba a melhor resposta. 
+Continuando com o exemplo expressão, `How do I get to the Human Resources building on the Seattle North campus?`, envie o texto, como uma consulta, para o serviço publicado QnA Maker e receba a melhor resposta. 
 
 Você não precisa combinar LUIS e QnA Maker para determinar a resposta para a pergunta.
 
@@ -63,7 +63,7 @@ Se você estiver criando sua base de dados de conhecimento QnA Maker, mas souber
 
 O aplicativo cliente precisaria monitorar as respostas LUIS e QnA Maker para pontuações. Se a pontuação de QnA Maker estiver abaixo de um limite arbitrário, use as informações de intenção e entidade retornadas de LUIS para passar as informações para um serviço de terceiros.
 
-Continuando com o texto de `How do I get to the Human Resources building on the Seattle North campus?`exemplo,, suponha que QnA Maker retorna uma pontuação de confiança baixa. Use a intenção retornada de Luis `FindLocation` e todas as entidades extraídas, `Human Resources building` como e `Seattle North campus`, para enviar essas informações a um serviço de mapeamento ou de pesquisa para outra resposta. 
+Continuando com o texto de exemplo, `How do I get to the Human Resources building on the Seattle North campus?`, suponha que QnA Maker retorna uma pontuação de confiança baixa. Use a intenção retornada de LUIS, `FindLocation` e quaisquer entidades extraídas, como `Human Resources building` e `Seattle North campus`, para enviar essas informações a um serviço de mapeamento ou de pesquisa para outra resposta. 
 
 Você pode apresentar essa resposta de terceiros ao usuário para validação. Depois de ter a aprovação do usuário, você pode voltar para QnA Maker para adicionar as informações para aumentar seu conhecimento. 
 
@@ -82,7 +82,7 @@ Implemente as práticas recomendadas para cada serviço:
 * Práticas recomendadas do [Luis](luis-concept-best-practices.md)
 * Práticas recomendadas de [QnA Maker](../qnamaker/concepts/best-practices.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consultar também
 
 * [Language Understanding (LUIS)](what-is-luis.md)
 * [Criador de FAQ](../qnamaker/overview/overview.md)

@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 12e9367ca9e330806af4c7cc5db626edddff5c25
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
-ms.translationtype: HT
+ms.openlocfilehash: f9fe540611b1b773867e1f92439e13df91ad4bd3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795281"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818362"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento lista alguns dos limites de Microsoft Azure mais comuns, que também são chamados de cotas. Este documento não abrange atualmente todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para abranger mais serviços.
@@ -44,7 +44,7 @@ Na lista de limites a seguir, uma nova tabela reflete as diferenças em limites 
 * [Active Directory](#active-directory-limits)
 * [Gestão de API](#api-management-limits)
 * [Serviço de Aplicações](#app-service-limits)
-* [Gateway da Aplicação](#application-gateway-limits)
+* [Gateway de Aplicação](#application-gateway-limits)
 * [Automatização](#automation-limits)
 * [Cache do Azure para Redis](#azure-cache-for-redis-limits)
 * [Serviços Cloud do Azure](#azure-cloud-services-limits)
@@ -83,7 +83,7 @@ Na lista de limites a seguir, uma nova tabela reflete as diferenças em limites 
 * [Serviços Móveis](#mobile-services-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [Redes](#networking-limits)
-  * [Gateway da Aplicação](#application-gateway-limits)
+  * [Gateway de Aplicação](#application-gateway-limits)
   * [Bastiões do Azure](#azure-bastion-limits)
   * [DNS do Azure](#azure-dns-limits)
   * [Azure Front Door Service](#azure-front-door-service-limits)
@@ -130,7 +130,7 @@ Para obter informações sobre os limites de leitura e gravação da API do Reso
 [!INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 #### <a name="virtual-machines-limits---azure-resource-manager"></a>Limites de máquinas virtuais-Azure Resource Manager
-Os limites a seguir se aplicam quando você usa Azure Resource Manager e grupos de recursos do Azure. Os limites que não foram alterados com Azure Resource Manager não estão listados. Consulte a tabela anterior para esses limites.
+Os limites a seguir se aplicam quando você usa Azure Resource Manager e grupos de recursos do Azure.
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 

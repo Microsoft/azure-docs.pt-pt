@@ -1,5 +1,5 @@
 ---
-title: Executar uma revisão de acesso no portal meus aplicativos-Azure Active Directory | Microsoft Docs
+title: Executar uma revisão de acesso no portal meus aplicativos – Azure AD
 description: Saiba como exibir e gerenciar o acesso de segurança para os aplicativos e grupos da sua organização.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6681720fc7c0fe04c99bf7957be14865c663dd67
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bf803027aac7c62ea500d1af104ae3234fadf8b5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383163"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73804035"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Executar uma revisão de acesso no portal meus aplicativos
 
@@ -40,7 +40,7 @@ Se o administrador tiver concedido permissão para realizar suas próprias revis
 
 1. Entre em sua conta corporativa ou de estudante.
 
-2. Abra o navegador da Web e vá https://myapps.microsoft.com para ou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
+2. Abra o navegador da Web e vá para https://myapps.microsoft.comou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
 
     A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
 
@@ -65,7 +65,7 @@ Se o administrador tiver concedido permissão para realizar suas próprias revis
 
     ![Página de revisão de acesso, mostrando a caixa de motivo com texto de exemplo](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
 
-7. Selecione **submeter**.
+7. Selecione **Enviar**.
 
     Sua análise de acesso foi concluída e você retorna para o portal **meus aplicativos** .
 

@@ -1,5 +1,5 @@
 ---
-title: Exemplo de aplicativo multilocatário do banco de dados SQL do Azure – Wingtip SaaS
+title: Exemplo de aplicativo multilocatário – Wingtip SaaS
 description: Aprenda usando um aplicativo multilocatário de exemplo que usa o banco de dados SQL do Azure, o exemplo de SaaS Wingtip
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 1a4931a24802290e0e7e207f32528a1192fd880f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 46cdcd5f768278dbc729f48e450c68a63be604be
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692071"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822171"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introdução a um aplicativo SaaS multilocatário que usa o padrão de banco de dados por locatário com o banco de dados SQL
 

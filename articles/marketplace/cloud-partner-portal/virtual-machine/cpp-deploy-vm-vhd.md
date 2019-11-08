@@ -4,15 +4,16 @@ description: Explica como registrar uma VM por meio de um VHD implantado pelo Az
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: evansma
-ms.openlocfilehash: 1aa946c813de41423d4fb2ba5b3aa5274db90f39
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 797c258c963d0daec32a8f9ac7c4e0665dc465d3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934972"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813404"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Implantar uma VM de seus VHDs
 
@@ -46,26 +47,26 @@ Você usará as seguintes etapas para criar e implantar uma imagem de VM do usu�
 Depois que a VM for implantada, você estará pronto para [certificar sua imagem de VM](./cpp-certify-vm.md).
 
 1. Clique em **novo** e procure **implantação de modelo**e, em seguida, selecione **criar seu próprio modelo no editor**.  <br/>
-   ![Criar modelo de implantação VHD no portal do Azure](./media/publishvm_021.png)
+   ![compilar o modelo de implantação VHD no portal do Azure](./media/publishvm_021.png)
 
 1. Copie e cole esse [modelo JSON](./cpp-deploy-json-template.md) no editor e clique em **salvar**. <br/>
-   ![Salvar modelo de implantação VHD no portal do Azure](./media/publishvm_022.png)
+   ![salvar o modelo de implantação VHD no portal do Azure](./media/publishvm_022.png)
 
 1. Forneça os valores de parâmetro para as páginas de propriedades de **implantação personalizadas** exibidas.
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
-   |  **Parâmetro**              |   **Descrição**                                                            |
+   |  **Meter**              |   **Descrição**                                                            |
    |  -------------              |   ---------------                                                            |
    | Nome da conta de armazenamento do usuário   | Nome da conta de armazenamento em que o VHD generalizado está localizado                    |
    | Nome do contêiner de armazenamento do usuário | Nome do contêiner em que o VHD generalizado está localizado                          |
    | Nome DNS para IP público      | Nome DNS do IP público. O nome DNS é da VM, você irá defini-lo no portal do Azure, depois que a oferta for implantada.  |
-   | Nome de utilizador administrador             | Nome de usuário da conta de administrador para Nova VM                                  |
-   | Palavra-passe de Administrador              | Senha da conta de administrador para Nova VM                                  |
-   | Tipo de SO                     | Sistema operacional da VM `Windows` : \|`Linux`                                    |
+   | Nome de usuário do administrador             | Nome de usuário da conta de administrador para Nova VM                                  |
+   | Senha do administrador              | Senha da conta de administrador para Nova VM                                  |
+   | Tipo de SO                     | Sistema operacional da VM: `Windows` \| `Linux`                                    |
    | ID da subscrição             | Identificador da assinatura selecionada                                      |
-   | Location                    | Localização geográfica da implantação                                        |
-   | Tamanho da VM                     | [Tamanho da VM do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), por exemplo`Standard_A2` |
+   | Localização                    | Localização geográfica da implantação                                        |
+   | Tamanho da VM                     | [Tamanho da VM do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), por exemplo `Standard_A2` |
    | Nome do endereço IP público      | Nome do seu endereço IP público                                               |
    | Nome da VM                     | Nome da nova VM                                                           |
    | Nome da rede virtual        | Nome da rede virtual usada pela VM                                   |

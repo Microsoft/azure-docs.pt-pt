@@ -1,5 +1,5 @@
 ---
-title: SQL Server migração de banco de dados para um banco de dados individual/em pool no banco de dados SQL do Azure
+title: SQL Server migração de banco de dados para um banco de dados único/em pool
 description: Saiba mais sobre como SQL Server a migração de banco de dados para um único banco de dados ou um pool elástico no banco de dados SQL do Azure.
 keywords: migração de base de dados, migração de base de dados do sql server, ferramentas de migração de base de dados, migrar base de dados, migrar base de dados sql
 services: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 67030d14670ccc51c89a04863f8b39ab6a9bb183
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: df1ef21da43bc74809bd9fd71b5dde3906cdb343
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687177"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820979"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>SQL Server migração de banco de dados para o banco de dados SQL do Azure
 

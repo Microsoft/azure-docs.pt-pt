@@ -1,5 +1,5 @@
 ---
-title: Como configurar uma instância gerenciada do banco de dados SQL do Azure
+title: Como configurar uma instância gerenciada
 description: Saiba como configurar e gerenciar a instância gerenciada do banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
-ms.openlocfilehash: 22bad381a59a74237a5539cd4294a08797c017b1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 906ae2a970ce1d5b82302d0277ca45bd93c23011
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689920"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811207"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Como usar uma instância gerenciada no banco de dados SQL do Azure
 

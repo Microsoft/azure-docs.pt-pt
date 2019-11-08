@@ -10,14 +10,14 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: ed50e6adbcca7cbb4935400c7850c37dc2ed389f
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 92735d8982fb1364d5ebfe0494f5ee51f4302469
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803534"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794011"
 ---
-# <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Início rápido: Adicionar perguntas e respostas com o portal de QnA Maker
+# <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Início rápido: Adicionar perguntas e respostas com o QnA Maker Portal
 
 Depois que uma base de dados de conhecimento é criada, adicione conjuntos de perguntas e respostas com metadados para que os usuários possam encontrar a resposta certa para sua pergunta.
 
@@ -28,10 +28,10 @@ Por exemplo, as perguntas na tabela a seguir são sobre os limites de serviço d
 <a name="qna-table"></a>
 
 
-|Conjunto|Perguntas|Resposta|Metadados|
+|Definir|Dúvidas|Resposta|Metadados|
 |--|--|--|--|
 |N.º 1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
-|N.º 2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Search tier supports.`|`service=search`<br>`link_in_answer=false`|
+|N.º 2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Cognitive Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Cognitive Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Cognitive Search tier supports.`|`service=search`<br>`link_in_answer=false`|
 
 Depois que os metadados são adicionados a um conjunto de perguntas e respostas, o aplicativo cliente pode:
 
@@ -92,11 +92,11 @@ A adição de metadados a um conjunto de perguntas e respostas permite que o apl
 
 1. Selecione **Opções de exibição**e, em seguida, selecione **Mostrar metadados**. 
 
-1. Para o conjunto de perguntas e respostas que você acabou de adicionar, selecione **Adicionar marcas de metadados**e, em seguida, adicione o nome `service` e o valor de `search`, `service:search`.
+1. Para o conjunto de perguntas e respostas que você acabou de adicionar, selecione **Adicionar marcas de metadados**e, em seguida, adicione o nome de `service` e o valor de `search``service:search`.
 
-1. Adicione outras marcas de metadados com o nome de `link_in_answer` e o valor de `false`, `link_in_answer:false`.
+1. Adicione outras marcas de metadados com o nome de `link_in_answer` e o valor de `false``link_in_answer:false`.
 
-1. Procure a primeira resposta na tabela, `How large a knowledge base can I create?`. 
+1. Procure a primeira resposta na tabela `How large a knowledge base can I create?`. 
 1. Adicione pares de metadados para as mesmas duas marcas de metadados:
 
     `link_in_answer`: `true`<br>
@@ -121,7 +121,7 @@ A adição de metadados a um conjunto de perguntas e respostas permite que o apl
     curl -X POST https://your-resource-name.azurewebsites.net/qnamaker/knowledgebases/your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
 
-    Observe que a pergunta é apenas uma única palavra, `size`, que pode retornar o conjunto de perguntas e respostas. A matriz `strictFilters` informa à resposta para reduzir apenas as respostas `qna_maker`. 
+    Observe que a pergunta é apenas uma única palavra, `size`, que pode retornar o conjunto de perguntas e respostas. A matriz de `strictFilters` informa a resposta para reduzir apenas as respostas `qna_maker`. 
 
     [!INCLUDE [Tip for debug property to JSON request](../includes/tip-debug-json.md)]
 

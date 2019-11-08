@@ -1,6 +1,6 @@
 ---
 title: Como implantar o módulo OPC Mypara Azure do zero | Microsoft Docs
-description: Como implantar o OPC "myscratch" do zero.
+description: Este artigo descreve como implantar o OPC "s" no zero usando a folha de IoT Edge do portal do Azure e também usando AZ CLI.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: df1dd45d58baf82710b5e362afaf055aad140b98
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 96a4afff3e58bfa1ebf661909f380aa525fea76e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302646"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820142"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Implantar o módulo OPC e as dependências do zero
 
@@ -111,23 +111,23 @@ A maneira mais fácil de implantar os módulos em um dispositivo Azure IoT Edge 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. Implante as dependências [](howto-opc-twin-deploy-dependencies.md) do OPC entrelaçado e `.env` obteve o arquivo resultante. Observe a implantação `hub name` `PCS_IOTHUBREACT_HUB_NAME` da variável no arquivo resultante `.env` .
+1. Implante as [dependências](howto-opc-twin-deploy-dependencies.md) do OPC bivisor e obteve o arquivo de `.env` resultante. Observe o `hub name` implantado da variável `PCS_IOTHUBREACT_HUB_NAME` no arquivo de `.env` resultante.
 
-2. Registre e inicie um gateway de IoT Edge do [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) ou [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) e `device id`Anote seu.
+2. Registre e inicie um gateway de IoT Edge do [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) ou [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) e anote seu `device id`.
 
 ### <a name="deploy-to-an-edge-device"></a>Implantar em um dispositivo de borda
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) e navegue até ao seu hub IoT.
+1. Entre no [portal do Azure](https://portal.azure.com/) e navegue até o Hub IOT.
 
 2. Selecione **IOT Edge** no menu à esquerda.
 
-3. Clique no ID de dispositivo de destino na lista de dispositivos.
+3. Clique na ID do dispositivo de destino na lista de dispositivos.
 
 4. Selecione **Definir Módulos**.
 
 5. Na seção **módulos de implantação** da página, selecione **Adicionar** e **IOT Edge módulo.**
 
-6. Na caixa de diálogo **IOT Edge módulo personalizado** , use `opctwin` como nome para o módulo e, em seguida, especifique o *URI da imagem* de contêiner como
+6. Na caixa de diálogo **IOT Edge módulo personalizado** , use `opctwin` como nome para o módulo e, em seguida, ESPECIFIQUE o *URI da imagem* de contêiner como
 
    ```bash
    mcr.microsoft.com/iotedge/opc-twin:latest
@@ -139,11 +139,11 @@ A maneira mais fácil de implantar os módulos em um dispositivo Azure IoT Edge 
    {"NetworkingConfig": {"EndpointsConfig": {"host": {}}}, "HostConfig": {"NetworkMode": "host" }}
    ```
 
-   Preencha os campos opcionais, se necessário. Para obter mais informações sobre o contentor criar uma política de reinício de opções e ver o estado pretendido [propriedades pretendidas do EdgeAgent](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub#edgeagent-desired-properties). Para obter mais informações sobre o duplo do módulo, consulte [definir ou atualizar propriedades pretendidas](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties).
+   Preencha os campos opcionais, se necessário. Para obter mais informações sobre opções de criação de contêiner, política de reinicialização e status desejado, consulte [EdgeAgent Desired Properties](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub#edgeagent-desired-properties). Para obter mais informações sobre o módulo número de atualizações, consulte [definir ou atualizar as propriedades desejadas](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties).
 
 7. Selecione **salvar** e repita a etapa **5**.  
 
-8. Na caixa de diálogo IOT Edge módulo personalizado, `opcpublisher` use como nome para o módulo e o *URI da imagem* de contêiner como 
+8. Na caixa de diálogo IoT Edge módulo personalizado, use `opcpublisher` como nome para o módulo e o *URI da imagem* de contêiner como 
 
    ```bash
    mcr.microsoft.com/iotedge/opc-publisher:latest
@@ -170,9 +170,9 @@ A maneira mais fácil de implantar os módulos em um dispositivo Azure IoT Edge 
 
     e selecione **Avançar**
 
-11. Examine as informações de implantação e o manifesto.  Ele deve ser semelhante ao manifesto de implantação acima.  Selecione **submeter**.
+11. Examine as informações de implantação e o manifesto.  Ele deve ser semelhante ao manifesto de implantação acima.  Selecione **Enviar**.
 
-12. Após a implantação de módulos para o seu dispositivo, pode ver todos eles do **detalhes do dispositivo** página do portal. Esta página apresenta o nome de cada módulo implementado, bem como informações úteis, como o código de estado e de saída de implementação.
+12. Depois de implantar módulos no seu dispositivo, você pode exibir todos eles na página de **detalhes do dispositivo** do Portal. Esta página exibe o nome de cada módulo implantado, bem como informações úteis, como o status da implantação e o código de saída.
 
 ## <a name="deploying-using-azure-cli"></a>Implantando usando o CLI do Azure
 
@@ -182,26 +182,26 @@ A maneira mais fácil de implantar os módulos em um dispositivo Azure IoT Edge 
 
 ### <a name="quickstart"></a>Início Rápido
 
-1. Salve o manifesto de implantação acima em `deployment.json` um arquivo.  
+1. Salve o manifesto de implantação acima em um arquivo `deployment.json`.  
 
-2. Utilize o seguinte comando para aplicar a configuração para um dispositivo IoT Edge:
+2. Use o seguinte comando para aplicar a configuração a um dispositivo IoT Edge:
 
    ```bash
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content ./deployment.json
    ```
 
-   O `device id` parâmetro diferencia maiúsculas de minúsculas. Os pontos de parâmetro de conteúdo para a implementação do manifestam do ficheiro que guardou. 
-    ![AZ IoT Edge conjunto-saída de módulos](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
+   O parâmetro `device id` diferencia maiúsculas de minúsculas. O parâmetro de conteúdo aponta para o arquivo de manifesto de implantação que você salvou. 
+    ![AZ IoT Edge Set-modules output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
 
-3. Após a implantação de módulos para o seu dispositivo, pode ver todos eles com o seguinte comando:
+3. Depois de implantar módulos no seu dispositivo, você pode exibir todos eles com o seguinte comando:
 
    ```bash
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-   O parâmetro de ID do dispositivo diferencia maiúsculas de minúsculas. ![saída da lista de identidade do módulo AZ iot hub](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
+   O parâmetro de ID do dispositivo diferencia maiúsculas de minúsculas. ![módulo AZ IOT Hub-saída da lista de identidades](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você aprendeu a implantar o OPC mydo zero, aqui está a próxima etapa sugerida:
 

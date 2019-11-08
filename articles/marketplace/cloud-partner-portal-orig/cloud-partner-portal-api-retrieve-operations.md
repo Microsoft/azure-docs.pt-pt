@@ -1,23 +1,24 @@
 ---
-title: Obter operações de API | O Azure Marketplace
-description: Obtém todas as operações na oferta de ou para obter uma determinada operação para o operationId especificado.
+title: Recuperar API de operações | Azure Marketplace
+description: Recupera todas as operações na oferta ou para obter uma operação específica para a operationId especificada.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 1fbcc1d50dbc4488c4123be64e85de612233ccc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3eb77744d61322ca0aed20bb2b3f486cc02ac70
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935783"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819600"
 ---
 <a name="retrieve-operations"></a>Obter operações
 ===================
 
-Obtém todas as operações na oferta de ou para obter uma determinada operação para o operationId especificado. O cliente pode usar parâmetros de consulta para filtrar sobre a execução de operações.
+Recupera todas as operações na oferta ou para obter uma operação específica para a operationId especificada. O cliente pode usar parâmetros de consulta para filtrar as operações em execução.
 
 ``` https
 
@@ -28,16 +29,16 @@ Obtém todas as operações na oferta de ou para obter uma determinada operaçã
 ```
 
 
-<a name="uri-parameters"></a>Parâmetros do URI
+<a name="uri-parameters"></a>Parâmetros de URI
 --------------
 
 |  **Nome**          |      **Descrição**                                                                                           | **Tipo de dados** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identificador do publicador, por exemplo `Contoso`                                                                   |  String       |
-|  offerId           |  Identificador da oferta                                                                                              |  String       |
-|  operationId       |  GUID que identifica exclusivamente a operação sobre a oferta. OperationId poderá ser recuperada por meio desta API e também é devolvido no cabeçalho de HTTP de resposta para qualquer operação de longa execução, tais como o [publicar oferta](./cloud-partner-portal-api-publish-offer.md) API.  |   Guid   |
-|  filteredStatus    | Parâmetro de consulta opcional utilizado para filtrar por Estado (por exemplo `running`) na coleção devolvida por esta API.  |   String |
-|  versão de API       | Versão mais recente da API                                                                                           |    Date      |
+|  publisherId       |  Identificador de editor, por exemplo `Contoso`                                                                   |  String       |
+|  OfferId           |  Identificador da oferta                                                                                              |  String       |
+|  operationId       |  GUID que identifica exclusivamente a operação na oferta. O operationId pode ser recuperado usando essa API e também é retornado no cabeçalho HTTP da resposta para qualquer operação de longa execução, como a API da oferta de [publicação](./cloud-partner-portal-api-publish-offer.md) .  |   GUID   |
+|  filteredStatus    | Parâmetro de consulta opcional usado para filtrar por status (por exemplo `running`) na coleção retornada por essa API.  |   String |
+|  versão da API       | Versão mais recente da API                                                                                           |    Date      |
 |  |  |  |
 
 
@@ -46,7 +47,7 @@ Obtém todas as operações na oferta de ou para obter uma determinada operaçã
 
 |  **Nome**          |  **Valor**           |
 |  ---------------   | -------------------- |
-|  Content-Type      | `application/json`   |
+|  Tipo de conteúdo      | `application/json`   |
 |  Autorização     | `Bearer YOUR_TOKEN`  |
 |  |  |
 
@@ -174,25 +175,25 @@ Obtém todas as operações na oferta de ou para obter uma determinada operaçã
 ```
 
 
-### <a name="response-body-properties"></a>Propriedades do corpo de resposta
+### <a name="response-body-properties"></a>Propriedades do corpo da resposta
 
 |  **Nome**                    |  **Descrição**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
-|  id                          | GUID que identifica exclusivamente a operação                                                       |
-|  submissionType              | Identifica o tipo de operação a ser comunicado para a oferta, por exemplo `Publish/GGoLive`      |
-|  createdDateTime             | Datetime UTC em que a operação foi criada                                                       |
-|  lastActionDateTime          | Datetime UTC quando a última atualização foi realizada na operação                                       |
-|  status                      | Estado da operação, qualquer um dos `not started` \| `running` \| `failed` \| `completed`. Apenas uma operação pode ter estado `running` cada vez. |
-|  error                       | Mensagem de erro para operações com falhas                                                               |
+|  ID                          | GUID que identifica exclusivamente a operação                                                       |
+|  submissão              | Identifica o tipo de operação que está sendo relatado para a oferta, por exemplo `Publish/GGoLive`      |
+|  createdDateTime             | DateTime UTC quando a operação foi criada                                                       |
+|  lastActionDateTime          | DateTime UTC quando a última atualização foi feita na operação                                       |
+|  status                      | Status da operação `not started` \| `running` \| `failed` \| `completed`. Somente uma operação pode ter o status `running` de cada vez. |
+|  erro                       | Mensagem de erro para operações com falha                                                               |
 |  |  |
 
 
-### <a name="response-status-codes"></a>Códigos de estado de resposta
+### <a name="response-status-codes"></a>Códigos de status de resposta
 
-| **Código**  |   **Descrição**                                                                                  |
+| **Auto-completar**  |   **Descrição**                                                                                  |
 |  -------- |   -------------------------------------------------------------------------------------------------|
-|  200      | `OK` -O pedido foi processado com êxito e as operações pedidas foram devolvidas.        |
-|  400      | `Bad/Malformed request` -O corpo da resposta de erro pode conter mais informações.                    |
-|  403      | `Forbidden` -O cliente não tem acesso ao espaço de nomes especificado.                          |
-|  404      | `Not found` -A entidade especificada não existe.                                                 |
+|  200      | `OK`-a solicitação foi processada com êxito e as operações solicitadas foram retornadas.        |
+|  400      | `Bad/Malformed request`-o corpo da resposta de erro pode conter mais informações.                    |
+|  403      | `Forbidden`-o cliente não tem acesso ao namespace especificado.                          |
+|  404      | `Not found`-a entidade especificada não existe.                                                 |
 |  |  |

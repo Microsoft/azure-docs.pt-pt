@@ -7,6 +7,7 @@ author: qianw211
 manager: evansma
 editor: ''
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
@@ -14,16 +15,16 @@ ms.workload: identity
 ms.date: 08/16/2019
 ms.author: v-qiwe
 ms.custom: include file
-ms.openlocfilehash: 43b551639fface699b1c0ec95500de8ea2089b26
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 059a2691c8e7905295a65daf262338ece65247d1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900109"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812653"
 ---
 Ao publicar sua oferta no Marketplace por meio do Partner Center, você precisará conectar sua oferta ao seu sistema de gerenciamento de relacionamento com o cliente (CRM) para que possa receber informações de contato do cliente imediatamente depois que um cliente expressar interesse ou implanta seu produto.
 
-1. **Selecione um destino de cliente potencial no qual você deseja**que enviemos leads do cliente. Há suporte para os seguintes sistemas CRM:
+1. **Selecione um destino de cliente potencial no qual você deseja que enviemos leads do cliente**. Há suporte para os seguintes sistemas CRM:
 
     * [Dynamics 365](../commercial-marketplace-lead-management-instructions-dynamics.md) para compromisso com o cliente
     * [Marketo](../commercial-marketplace-lead-management-instructions-marketo.md)

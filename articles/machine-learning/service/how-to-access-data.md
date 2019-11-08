@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 08094469da87a6aae31acac599f8422487c10d28
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2b76d8f25cfb8bd1dfda43c8383a538f8cf9769b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580737"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818464"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Acessar dados nos serviços de armazenamento do Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -183,7 +183,7 @@ O parâmetro `target_path` é o local do diretório local para o qual baixar os 
 ## <a name="access-your-data-during-training"></a>Acesse seus dados durante o treinamento
 
 > [!IMPORTANT]
-> Usar [Azure Machine Learning conjuntos de dados (versão prévia)](how-to-create-register-datasets.md) é a nova maneira recomendada de acessar os seus dados no treinamento. Os conjuntos de dados fornecem funções que carregam dados tabulares em pandas ou Spark dataframe e a capacidade de baixar ou montar arquivos de qualquer formato do blob do Azure, arquivo do Azure, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, PostgreSQL do Azure. Saiba mais sobre [como treinar com conjuntos de](how-to-train-with-datasets.md)os.
+> O uso de conjuntos de dados [Azure Machine Learning](how-to-create-register-datasets.md) é a nova maneira recomendada para o acesso aos seus dados no treinamento. Os conjuntos de dados fornecem funções que carregam dados tabulares em pandas ou Spark dataframe e a capacidade de baixar ou montar arquivos de qualquer formato do blob do Azure, arquivo do Azure, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, PostgreSQL do Azure. Saiba mais sobre [como treinar com conjuntos de](how-to-train-with-datasets.md)os.
 
 A tabela a seguir lista os métodos que dizem ao destino de computação como usar os repositórios de armazenamento durante as execuções. 
 

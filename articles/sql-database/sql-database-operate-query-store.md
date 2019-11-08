@@ -1,5 +1,5 @@
 ---
-title: Repositório de Consultas operacional no banco de dados SQL do Azure
+title: Operar Repositório de Consultas
 description: Saiba como operar o Repositório de Consultas no banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: b4f999818fe3b3517ee3fb48c22e616ee50f2d88
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fa60992c85e69143bfd65cc1a1f420ed85c8fd93
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567146"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802759"
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Operando o Repositório de Consultas no banco de dados SQL do Azure
 
@@ -29,15 +29,15 @@ O Repositório de Consultas foi [disponibilizado globalmente](https://azure.micr
 
 ## <a name="optimal-query-store-configuration"></a>Configuração de Repositório de Consultas ideal
 
-Esta seção descreve os padrões de configuração ideais que são criados para garantir uma operação confiável do Repositório de Consultas e dos recursos dependentes, como o [painel de assistente do banco de dados SQL e de desempenho](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). A configuração padrão é otimizada para coleta de dados contínua, que é o tempo mínimo gasto em Estados OFF/READ_ONLY.
+Esta seção descreve os padrões de configuração ideais que são criados para garantir uma operação confiável do Repositório de Consultas e dos recursos dependentes, como o [painel de assistente do banco de dados SQL e de desempenho](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). A configuração padrão é otimizada para coleta de dados contínua, que é o tempo mínimo gasto nos Estados desligado/READ_ONLY.
 
 | Configuração | Descrição | Predefinição | Comentário |
 | --- | --- | --- | --- |
 | MAX_STORAGE_SIZE_MB |Especifica o limite para o espaço de dados que Repositório de Consultas pode assumir dentro do banco de dado do cliente |100 |Imposto para novos bancos de dados |
 | INTERVAL_LENGTH_MINUTES |Define o tamanho da janela de tempo durante o qual as estatísticas de tempo de execução coletadas para planos de consulta são agregadas e mantidas. Cada plano de consulta ativo tem no máximo uma linha por um período de tempo definido com essa configuração |60 |Imposto para novos bancos de dados |
 | STALE_QUERY_THRESHOLD_DAYS |Política de limpeza baseada em tempo que controla o período de retenção de estatísticas de tempo de execução persistentes e consultas inativas |30 |Imposto para novos bancos de dados e bancos de dados com o padrão anterior (367) |
-| SIZE_BASED_CLEANUP_MODE |Especifica se a limpeza automática de dados ocorre quando Repositório de Consultas o tamanho dos dados se aproxima do limite |AUTOMÁTICO |Imposto para todos os bancos de dados |
-| QUERY_CAPTURE_MODE |Especifica se todas as consultas ou apenas um subconjunto de consultas são controladas |AUTOMÁTICO |Imposto para todos os bancos de dados |
+| SIZE_BASED_CLEANUP_MODE |Especifica se a limpeza automática de dados ocorre quando Repositório de Consultas o tamanho dos dados se aproxima do limite |Automático |Imposto para todos os bancos de dados |
+| QUERY_CAPTURE_MODE |Especifica se todas as consultas ou apenas um subconjunto de consultas são controladas |Automático |Imposto para todos os bancos de dados |
 | FLUSH_INTERVAL_SECONDS |Especifica o período máximo durante o qual as estatísticas de tempo de execução capturadas são mantidas na memória, antes da liberação para o disco |900 |Imposto para novos bancos de dados |
 |  | | | |
 
@@ -46,7 +46,7 @@ Esta seção descreve os padrões de configuração ideais que são criados para
 
 Se você quiser manter suas configurações personalizadas, use [ALTER DATABASE com repositório de consultas opções](https://msdn.microsoft.com/library/bb522682.aspx) para reverter a configuração para o estado anterior. Confira [as práticas recomendadas com o repositório de consultas](https://msdn.microsoft.com/library/mt604821.aspx) para saber como o topo escolheu os parâmetros de configuração ideais.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Insight de desempenho do banco de dados SQL](sql-database-performance.md)
 

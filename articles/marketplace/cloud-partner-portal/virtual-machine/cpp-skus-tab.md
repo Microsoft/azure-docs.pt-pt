@@ -4,15 +4,16 @@ description: Descreve a guia SKUs usada na criação de uma oferta de máquina v
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: dceb82af73061b91676ffb7061c7495995e76667
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 101f928e296d0b48b4e077676393772829aa76ab
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868712"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808973"
 ---
 # <a name="virtual-machine-skus-tab"></a>Guia SKUs da máquina virtual
 
@@ -40,23 +41,23 @@ A tabela a seguir descreve a finalidade, o conteúdo e a formatação desses cam
 |  **Campo**       |     **Descrição**                                                          |
 |  ---------       |     ---------------                                                          |
 |  *Configurações de SKU*   |    |
-| **ID DO SKU\***       | Identificador para este SKU.  Esse nome tem um máximo de 50 caracteres, que consistem em caracteres alfanuméricos minúsculos ou traços (-), mas não podem terminar com um traço.  Ele não pode ser modificado depois que a oferta é publicada.  |
+| **ID do SKU\***       | Identificador para este SKU.  Esse nome tem um máximo de 50 caracteres, que consistem em caracteres alfanuméricos minúsculos ou traços (-), mas não podem terminar com um traço.  Ele não pode ser modificado depois que a oferta é publicada.  |
 |  *Detalhes do SKU*   |  |
 | **Título\***        | Nome amigável da oferta para exibição no Marketplace. Comprimento máximo de 50 caracteres. |
-| **Resumo\***      | Descrição sucinta da oferta para exibição no Marketplace. Comprimento máximo de 100 caracteres. |
-| **Ndescrição\***  | Texto de descrição que fornece uma explicação mais detalhada da oferta.  <!-- TD: max len/guidance? 3k characters -->  |
-| **Ocultar esta SKU\*** | Indica se o SKU deve estar visível no Marketplace para os clientes.  Talvez você queira ocultar a SKU se quiser apenas ela disponível por meio de modelos de solução e não para compra individualmente.  Ele também pode ser útil para testes iniciais ou para ofertas temporárias ou sazonais. |
-| **Disponibilidade na nuvem\*** | Determina em quais nuvens o SKU deve estar disponível.  O padrão é a versão pública do Azure.  Microsoft Azure Governamental é uma nuvem de comunidade governamental com acesso controlado para os governos federal, estadual, local ou tribal dos EUA e seus parceiros certificados.  Para obter mais informações sobre a nuvem governamental, consulte [Bem-vindo ao Azure governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). |
+| **\* de resumo**      | Descrição sucinta da oferta para exibição no Marketplace. Comprimento máximo de 100 caracteres. |
+| **Descrição\***  | Texto de descrição que fornece uma explicação mais detalhada da oferta.  <!-- TD: max len/guidance? 3k characters -->  |
+| **Ocultar este\* de SKU** | Indica se o SKU deve estar visível no Marketplace para os clientes.  Talvez você queira ocultar a SKU se quiser apenas ela disponível por meio de modelos de solução e não para compra individualmente.  Ele também pode ser útil para testes iniciais ou para ofertas temporárias ou sazonais. |
+| **\* de disponibilidade na nuvem** | Determina em quais nuvens o SKU deve estar disponível.  O padrão é a versão pública do Azure.  Microsoft Azure Governamental é uma nuvem de comunidade governamental com acesso controlado para os governos federal, estadual, local ou tribal dos EUA e seus parceiros certificados.  Para obter mais informações sobre a nuvem governamental, consulte [Bem-vindo ao Azure governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). |
 | **Este é um SKU privado?\*** | Indica se a SKU é privada ou pública. O padrão é **não** (público).  Para obter mais informações, consulte [SKUs públicas e privadas](../../cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md). |
 | **Disponibilidade de país/região\*** | Determina quais países ou regiões do mundo seu SKU estará disponível para compra. Selecione pelo menos uma região/país. <!-- TD: Is this parameter an AMP visibility control or a contractual one, or both? --> |  
 |  *Preços*   |  |
-| **Modelo de licença\***| Modelo de cobrança padronizado a ser usado.  Se você selecionar **SKU faturado mensal com base no uso**, uma seção de acordeão será aberta para permitir que você especifique detalhes de preços por núcleo e se deseja oferecer um período de avaliação gratuita.  Esta seção também permite que você exporte e importe essa agenda de preços para o Excel. Para obter mais informações, consulte [Opções de cobrança no Azure Marketplace](../../billing-options-azure-marketplace.md). | 
+| **\* do modelo de licença**| Modelo de cobrança padronizado a ser usado.  Se você selecionar **SKU faturado mensal com base no uso**, uma seção de acordeão será aberta para permitir que você especifique detalhes de preços por núcleo e se deseja oferecer um período de avaliação gratuita.  Esta seção também permite que você exporte e importe essa agenda de preços para o Excel. Para obter mais informações, consulte [Opções de cobrança no Azure Marketplace](../../billing-options-azure-marketplace.md). | 
 |  *Imagens de VM*   |  |
-| **Família do sistema operacional\*** | Indica se a VM da solução é baseada no Windows ou no Linux. |
+| **\* da família do sistema operacional** | Indica se a VM da solução é baseada no Windows ou no Linux. |
 | **Selecionar tipo de sistema operacional** | Fornecedor específico ou versão do sistema operacional especificado. |
 | **Nome amigável do sistema operacional\*** | Nome do sistema operacional a ser exibido aos clientes.  |
 | **Tamanhos de VM recomendados\*** | Permite a seleção de até seis tamanhos de VM recomendados de uma lista padronizada.  Essa lista é passada para o portal do Azure e o Microsoft Marketplaces.  O primeiro tamanho de VM nessa lista que é válido (para essa assinatura de cliente, região, zona etc.) é definido como o padrão para esse cliente potencial.  O usuário pode alterar esse tamanho para qualquer compatível com a imagem da solução. | 
-| **Abrir portas**| Portas a abrir e protocolo para dar suporte à SKU.  Essas configurações devem corresponder à rede virtual que você configurou para a rede da VM da solução. Essas configurações entram em vigor durante a implantação da VM. No entanto, as configurações de porta podem ser modificadas depois que você publicar uma SKU. Para obter mais informações, consulte [como abrir portas em uma máquina virtual com o portal do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal). <br/>Os mapeamentos de rede padrão a seguir são adicionados a todas as VMs. &emsp; Windows: 3389 -> 3389 TCP, 5986 -> 5986 TCP; &emsp; Linux: 22 -> 22, TCP (SSH). |
+| **Abrir portas**| Portas a abrir e protocolo para dar suporte à SKU.  Essas configurações devem corresponder à rede virtual que você configurou para a rede da VM da solução. Essas configurações entram em vigor durante a implantação da VM. No entanto, as configurações de porta podem ser modificadas depois que você publicar uma SKU. Para obter mais informações, consulte [como abrir portas em uma máquina virtual com o portal do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal). <br/>Os mapeamentos de rede padrão a seguir são adicionados a todas as VMs. &emsp; Windows: 3389-> 3389 TCP, 5986-> 5986 TCP; &emsp; Linux: 22-> 22, TCP (SSH). |
 | **Versão do disco**  | VM de solução associada, especificada pelo número de versão do disco e URL do disco. A versão do disco deve estar no formato de [versão semântica](https://semver.org/) : `<major>.<minor>.<patch>`.  A URL é o URI de assinatura de acesso compartilhado criado para o VHD do sistema operacional.  Embora você possa adicionar até oito versões de disco por SKU, somente o número de versão de disco mais alto para um SKU será exibido no Azure Marketplace. As outras versões só serão visíveis por meio de APIs.  <!--TD: Add more specific link to API --> <br/> A seção novo acordede de **disco de dados** permite que você anexe até 15 discos de dados à sua VM.  Depois de publicar uma SKU com uma determinada versão de VM e discos de dados associados, essa configuração não pode ser modificada.  Se versões adicionais de VM forem adicionadas à SKU, elas também deverão oferecer suporte ao mesmo número de discos de dados. <br/> Se você não tiver criado suas imagens de VM baseadas no Azure, poderá adicionar atualizar esse campo posteriormente.  Para obter informações sobre como criar o recurso de VM associado, consulte a seção [criar ativos técnicos de VM](./cpp-create-technical-assets.md).  
 |  |  |
 
@@ -81,13 +82,13 @@ A partir de setembro de 1 2018, uma nova seção chamada **preço de moeda simpl
 
 ### <a name="additional-information-on-taxes-and-prices"></a>Informações adicionais sobre impostos e preços
 
-* A Microsoft classifica alguns países/regiões como países remetidos pelo *imposto*.  Em tais países/regiões, a Microsoft coleta impostos de clientes, em seguida, paga (remete) impostos para o governo.  Em outros países/regiões, os parceiros são normalmente responsáveis por coletar impostos de seus clientes e pagar impostos para o governo. Se você optar por vender nos últimos países/regiões, deverá ter a capacidade de calcular e pagar impostos locais.  <!-- TD: Find a good reference on taxing policies. The best I found was in the UWP section: https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps -->
+* A Microsoft classifica alguns países/regiões como *países remetidos pelo imposto*.  Em tais países/regiões, a Microsoft coleta impostos de clientes, em seguida, paga (remete) impostos para o governo.  Em outros países/regiões, os parceiros são normalmente responsáveis por coletar impostos de seus clientes e pagar impostos para o governo. Se você optar por vender nos últimos países/regiões, deverá ter a capacidade de calcular e pagar impostos locais.  <!-- TD: Find a good reference on taxing policies. The best I found was in the UWP section: https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps -->
 * Os preços não são alteráveis depois que uma oferta é ativada. No entanto, você ainda pode adicionar ou remover regiões com suporte. 
 * A Microsoft cobra as tarifas de uso de VM do Azure padrão do cliente, além de suas taxas de SKU agendadas.
 * Os preços são definidos para todas as regiões na moeda local em taxas de moeda disponíveis no momento da definição de preços.  <!-- TD: Meaning? - Offer created, published, other? -->
 * Para definir o preço de cada região individualmente, exporte a planilha de preços, aplique preços personalizados e importe. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Opcionalmente, você especificará informações de [unidade de teste](./cpp-test-drive-tab.md) se estiver dando suporte a esse recurso; caso contrário, você fornecerá dados do [Marketplace](./cpp-marketplace-tab.md) para sua oferta.

@@ -4,15 +4,16 @@ description: Configure o gerenciamento de leads para a tabela do Azure.
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 7151be3ac9f55825fd2e9dde35c9afda6a30726a
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 9b24e6eb714c531b49ba08591bf4ed33d0f10101
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902640"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812346"
 ---
 # <a name="configure-lead-management-using-an-azure-table"></a>Configurar o gerenciamento de leads usando uma tabela do Azure
 
@@ -96,7 +97,7 @@ No próximo conjunto de etapas, você se conectará à tabela do Azure e configu
 
     * *Nome da conexão* – forneça um nome significativo para a conexão que você está estabelecendo entre esse fluxo e a tabela do Azure.
     * *Nome da conta de armazenamento* – forneça o nome da conta de armazenamento para sua tabela do Azure. Você pode encontrá-la na página chaves de **acesso** da conta de armazenamento.
-    * *Chave de armazenamento compartilhado* – forneça o valor de chave para sua conta de armazenamento para sua tabela do Azure. Você pode encontrá-la na página chaves de **acesso** da conta de armazenamento.
+    * *Chave de armazenamento compartilhado* -forneça o valor de chave para sua conta de armazenamento para sua tabela do Azure. Você pode encontrá-la na página chaves de **acesso** da conta de armazenamento.
 
         ![Armazenamento de tabelas do Azure.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
@@ -106,7 +107,7 @@ No próximo conjunto de etapas, você se conectará à tabela do Azure e configu
 
             ![Entidades Get de tabela do Azure.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-        * *Consulta de filtro* – Selecione este campo e cole essa função no campo:`Timestamp gt datetime'@{body('Get_past_time')}'`
+        * *Consulta de filtro* – Selecione este campo e cole essa função no campo: `Timestamp gt datetime'@{body('Get_past_time')}'`
 
             ![Tabela do Azure obter entidades-filtrar querry.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
@@ -145,7 +146,7 @@ Nas próximas etapas, você configurará a ação a ser tomada com base no resul
 19. Na janela do **Outlook do Office 365** , forneça informações para os seguintes campos:
 
     1. **Para** -Insira um endereço de email para todos que receberão essa notificação.
-    1. **Assunto** – forneça um assunto para o email. Por exemplo: Novos leads!
+    1. **Assunto** -forneça um assunto para o email. Por exemplo: novos leads!
     1. **Corpo** – adicione o texto que você deseja incluir em cada email (opcional) e cole no corpo `body('Get_entities')?['value']`.
 
     >[!Note]

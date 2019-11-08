@@ -1,5 +1,5 @@
 ---
-title: 'Serviço do banco de dados SQL do Azure-visão geral do modelo vCore '
+title: Visão geral do modelo vCore
 description: O modelo de compra vCore permite que você dimensione independentemente os recursos de computação e armazenamento, correspondam ao desempenho local e otimize o preço.
 services: sql-database
 ms.service: sql-database
@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/04/2019
-ms.openlocfilehash: 4795e709e1f43ebd952e37e36e2dc81a428dd539
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b9de02bf0836727ac88b78194641238621e87a79
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687250"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821063"
 ---
 # <a name="vcore-model-overview"></a>Visão geral do modelo vCore
 

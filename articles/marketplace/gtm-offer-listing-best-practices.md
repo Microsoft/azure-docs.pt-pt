@@ -4,15 +4,16 @@ description: Serviços de entrada no mercado – esta seção descreve as práti
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: 9f55abf85803adf0f52bbfa445b9f3e489c9448b
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 439617c07b8059860c6d412cc60d56d4ac8c36a5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821067"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818654"
 ---
 # <a name="offer-listing-best-practices"></a>Melhores práticas de listagem de ofertas
 
@@ -43,9 +44,9 @@ Você pode selecionar até duas categorias e duas subcategorias para uma oferta.
 | \* Automotivo     | \* Automotivo |
 | Agricultura     | \* Outros-não segmentados |
 | Distribuição    | \* Atacado <br> \* Envio de pacote de & de remessa |
-| Educação     | \* Ensino superior <br> \* Principal & educação secundária/K-12 <br> \* Bibliotecas & museus |
+| Education     | \* Ensino superior <br> \* Principal & educação secundária/K-12 <br> \* Bibliotecas & museus |
 | Serviços Financeiros     | \* Mercados de capital & bancários <br> \* Seguro |
-| Administração pública    | \* Defense & Intelligence (usado para ser chamado de segurança nacional e pública) <br> \* Segurança pública & Justiça <br> \* Governo civis |
+| Governo    | \* Defense & Intelligence (usado para ser chamado de segurança nacional e pública) <br> \* Segurança pública & Justiça <br> \* Governo civis |
 | Saúde (costumava ser chamada de integridade)   | \* Pagador de integridade <br> \* Provedor de integridade <br> \* Produtos farmacêuticos |
 | Recursos de fabricação & (usados para ser chamado de fabricação)   | \* Agrochemical química & <br> \* Fabricação discreta <br> \* Energia |
 | Bens de consumo de & de varejo (usados para serem chamados de varejo)  | \* Bens de consumo <br> \* Varejistas |

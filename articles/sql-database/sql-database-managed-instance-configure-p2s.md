@@ -1,5 +1,5 @@
 ---
-title: 'Configurar P2S-Instância Gerenciada do Banco de Dados SQL do Azure '
+title: Configurar instância gerenciada pelo P2S
 description: Conecte-se a um Instância Gerenciada do Banco de Dados SQL do Azure usando SQL Server Management Studio usando uma conexão ponto a site de um computador cliente local.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: 3b3a0ce28c4a936e185ac5f07ba3810c93f4c866
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 30b2ba92174996ea2bae34e7553a3258d8ebee27
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689411"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818920"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Início rápido: configurar uma conexão ponto a site com um Instância Gerenciada do Banco de Dados SQL do Azure local
 
@@ -63,7 +63,7 @@ Este guia de início rápido:
 
 ## <a name="create-a-vpn-connection-to-your-managed-instance"></a>Criar uma conexão VPN com seu Instância Gerenciada
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 2. Abra o grupo de recursos no qual você criou o gateway de rede virtual e, em seguida, abra o recurso de gateway de rede virtual.
 3. Selecione **configuração ponto a site** e, em seguida, selecione **baixar cliente VPN**.
 

@@ -10,16 +10,16 @@ ms.reviewer: divswa, klam, LADocs
 ms.topic: article
 ms.date: 06/18/2019
 tags: connectors
-ms.openlocfilehash: 33c6007ebc429bb0d95d702ae9b90f9ac411a88c
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: a48ba0d2d691314a1ca7c91ac7ae27b62fbb379b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695196"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825246"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorar, criar e gerenciar arquivos SFTP usando SSH e aplicativos lógicos do Azure
 
-Para automatizar tarefas que monitoram, criem, enviem e recebam arquivos em um servidor de [protocolo FTP seguro (SFTP)](https://www.ssh.com/ssh/sftp/) usando o protocolo [SSH (Secure Shell)](https://www.ssh.com/ssh/protocol/) , você pode criar e automatizar fluxos de trabalho de integração usando o aplicativo lógico do Azure e o SFTP-SSH conector. O SFTP é um protocolo de rede que fornece acesso a arquivos, transferência de arquivos e gerenciamento de arquivos em qualquer fluxo de dados confiável. Aqui estão algumas tarefas de exemplo que você pode automatizar:
+Para automatizar tarefas que monitoram, criem, enviem e recebam arquivos em um servidor de [protocolo FTP seguro (SFTP)](https://www.ssh.com/ssh/sftp/) usando o protocolo [SSH (Secure Shell)](https://www.ssh.com/ssh/protocol/) , você pode criar e automatizar fluxos de trabalho de integração usando o aplicativo lógico do Azure e o SFTP-SSH conector. O SFTP é um protocolo de rede que fornece acesso a ficheiros, transferência de ficheiros e gestão de ficheiros através de qualquer fluxo de dados fiável. Aqui estão algumas tarefas de exemplo que você pode automatizar:
 
 * Monitorar quando os arquivos são adicionados ou alterados.
 * Obter, criar, copiar, renomear, atualizar, listar e excluir arquivos.
@@ -49,7 +49,7 @@ Aqui estão outras diferenças principais entre o conector SFTP-SSH e o conector
 
 * Usa a [biblioteca SSH.net](https://github.com/sshnet/SSH.NET), que é uma biblioteca de Secure Shell de código aberto (SSH) que dá suporte ao .net.
 
-* Por padrão, as ações de SFTP-SSH podem ler ou gravar arquivos que são de *1 GB ou menores* , mas apenas em partes de *15 MB* por vez. Para lidar com arquivos com mais de 15 MB, as ações do SFTP-SSH podem usar o [agrupamento de mensagens](../logic-apps/logic-apps-handle-large-messages.md). No entanto, a ação copiar arquivo dá suporte a apenas 15 arquivos, pois essa ação não dá suporte ao agrupamento de mensagens. Os gatilhos SFTP-SSH não dão suporte ao agrupamento.
+* Por padrão, as ações de SFTP-SSH podem ler ou gravar arquivos que são de *1 GB ou menores* , mas apenas em partes de *15 MB* por vez. Para lidar com arquivos com mais de 15 MB, as ações do SFTP-SSH podem usar o [agrupamento de mensagens](../logic-apps/logic-apps-handle-large-messages.md). Para carregar arquivos grandes, você também precisa de permissões de leitura e gravação. No entanto, a ação copiar arquivo dá suporte a apenas 15 arquivos, pois essa ação não dá suporte ao agrupamento de mensagens. Os gatilhos SFTP-SSH não dão suporte ao agrupamento.
 
 * Fornece a ação **criar pasta** , que cria uma pasta no caminho especificado no servidor SFTP.
 
@@ -61,15 +61,15 @@ Aqui estão outras diferenças principais entre o conector SFTP-SSH e o conector
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* Seu endereço de servidor SFTP e as credenciais de conta, que permitem que seu aplicativo lógico acesse sua conta SFTP. Você também precisa de acesso a uma chave privada SSH e à senha de chave privada SSH.
+* Seu endereço de servidor SFTP e as credenciais de conta, que permitem que seu aplicativo lógico acesse sua conta SFTP. Você também precisa de acesso a uma chave privada SSH e à senha de chave privada SSH. Para usar o Agrupamento ao carregar arquivos grandes, você precisa de permissões de leitura e gravação.
 
   > [!IMPORTANT]
   >
   > O conector SFTP-SSH dá suporte *apenas* a esses formatos de chave privada, algoritmos e impressões digitais:
   >
-  > * **Formatos de chave privada**: Chaves RSA (Rivest Shamir Adleman) e DSA (algoritmo de assinatura digital) nos formatos OpenSSH e ssh.com. Se sua chave privada estiver no formato de arquivo de reversões (. PPK), primeiro [converta a chave para o formato de arquivo OpenSSH (. pem)](#convert-to-openssh).
+  > * **Formatos de chave privada**: chaves RSA (Rivest Shamir Adleman) e DSA (algoritmo de assinatura digital) nos formatos OpenSSH e SSH.com. Se sua chave privada estiver no formato de arquivo de reversões (. PPK), primeiro [converta a chave para o formato de arquivo OpenSSH (. pem)](#convert-to-openssh).
   >
-  > * **Algoritmos de criptografia**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
+  > * **Algoritmos de criptografia**: des-EDE3-CBC, des-EDE3-CFB, DES-CBC, AES-128-CBC, aes-192-CBC e AES-256-CBC
   >
   > * **Impressão digital**: MD5
   >
@@ -84,10 +84,10 @@ Aqui estão outras diferenças principais entre o conector SFTP-SSH e o conector
 
 SFTP-os gatilhos SSH funcionam sondando o sistema de arquivos SFTP e procurando por qualquer arquivo que tenha sido alterado desde a última sondagem. Algumas ferramentas permitem preservar o carimbo de data/hora quando os arquivos são alterados. Nesses casos, você precisa desabilitar esse recurso para que o gatilho possa funcionar. Aqui estão algumas configurações comuns:
 
-| Cliente SFTP | Action |
+| Cliente SFTP | Ação |
 |-------------|--------|
-| Winscp | Vá para **opções** > **preferências** > **transferência** > **Editar** > **preservar carimbo de data/hora** > **desabilitar** |
-| FileZilla | Vá para **transferência** > **preservar carimbos de data/hora dos arquivos transferidos** > **desabilitar** |
+| WinSCP | Acesse **opções** > **preferências** > **transferir** > **Editar** > **preservar carimbo de data/hora** > **desabilitar** |
+| FileZilla | Vá para **transferir** > **preservar carimbos de data/hora dos arquivos transferidos** > **desabilitar** |
 |||
 
 Quando um gatilho encontra um novo arquivo, o gatilho verifica se o novo arquivo está concluído e não parcialmente gravado. Por exemplo, um arquivo pode ter alterações em andamento quando o gatilho verifica o servidor de arquivos. Para evitar o retorno de um arquivo parcialmente gravado, o gatilho nota o carimbo de data/hora do arquivo que tem alterações recentes, mas não retorna imediatamente esse arquivo. O gatilho retorna o arquivo somente ao sondar o servidor novamente. Às vezes, esse comportamento pode causar um atraso que é até duas vezes o intervalo de sondagem do gatilho.
@@ -168,15 +168,15 @@ Se sua chave privada estiver no formato de reversões, que usa a extensão de no
 
 <a name="file-added-modified"></a>
 
-### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP-gatilho SSH: Quando um arquivo é adicionado ou modificado
+### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP-gatilho SSH: quando um arquivo é adicionado ou modificado
 
 Esse gatilho inicia um fluxo de trabalho do aplicativo lógico quando um arquivo é adicionado ou alterado em um servidor SFTP. Por exemplo, você pode adicionar uma condição que verifica o conteúdo do arquivo e Obtém o conteúdo com base em se o conteúdo atende a uma condição especificada. Em seguida, você pode adicionar uma ação que obtém o conteúdo do arquivo e coloca esse conteúdo em uma pasta no servidor SFTP.
 
-**Exemplo da empresa**: Você pode usar esse gatilho para monitorar uma pasta SFTP para novos arquivos que representam pedidos de clientes. Você pode usar uma ação SFTP, como **obter conteúdo do arquivo** , para obter o conteúdo da ordem para processamento adicional e armazenar esse pedido em um banco de dados de pedidos.
+**Exemplo empresarial**: você pode usar esse gatilho para monitorar uma pasta SFTP para novos arquivos que representam pedidos de clientes. Você pode usar uma ação SFTP, como **obter conteúdo do arquivo** , para obter o conteúdo da ordem para processamento adicional e armazenar esse pedido em um banco de dados de pedidos.
 
 <a name="get-content"></a>
 
-### <a name="sftp---ssh-action-get-content-using-path"></a>SFTP-ação SSH: Obter conteúdo usando o caminho
+### <a name="sftp---ssh-action-get-content-using-path"></a>SFTP-ação SSH: obter conteúdo usando o caminho
 
 Essa ação Obtém o conteúdo de um arquivo em um servidor SFTP. Por exemplo, você pode adicionar o gatilho do exemplo anterior e uma condição que o conteúdo do arquivo deve atender. Se a condição for verdadeira, a ação que obtém o conteúdo poderá ser executada.
 
@@ -186,4 +186,4 @@ Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descri
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md)
+* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)

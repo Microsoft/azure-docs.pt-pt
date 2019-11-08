@@ -1,5 +1,5 @@
 ---
-title: Projetar serviços disponíveis globalmente usando o banco de dados SQL do Azure
+title: Projetar serviços disponíveis globalmente
 description: Saiba mais sobre o design de aplicativos para serviços altamente disponíveis usando o banco de dados SQL do Azure.
 keywords: recuperação de desastre na nuvem, soluções de recuperação de desastre, backup de dados de aplicativo, replicação geográfica, planejamento de continuidade de negócios
 services: sql-database
@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: 034d696fd8c9aae826d0bbc7e4d028cefad09840
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8eb115497427338599db08e8c7bbdd55c5a158fc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690718"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807956"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Projetando serviços disponíveis globalmente usando o banco de dados SQL do Azure
 

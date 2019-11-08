@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: bade2e7ac53277b2e23e8cf6847cc30940cd4819
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b72be7026b0b8077cf5bf9f775d10fd03edd9118
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666820"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815628"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Referência de script Azure Data Factory-JSON
 > [!NOTE]
@@ -299,7 +299,7 @@ Cada coluna na seção **estrutura** contém as seguintes propriedades:
 | nome |Nome da coluna. |Sim |
 | tipo |Tipo de dados da coluna.  |Não |
 | UICulture |Cultura baseada em .NET a ser usada quando o tipo é especificado e é o tipo .NET `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. |Não |
-| ao |Cadeia de caracteres de formato a ser usada quando o tipo é especificado e é o tipo .NET `Datetime` ou `Datetimeoffset`. |Não |
+| ao |Cadeia de caracteres de formato a ser usada quando o tipo é especificado e é do tipo .NET `Datetime` ou `Datetimeoffset`. |Não |
 
 No exemplo a seguir, o conjunto de caracteres tem três colunas `slicetimestamp`, `projectname`e `pageviews` e são do tipo: cadeia de caracteres, Cadeia de caracteres e decimal, respectivamente.
 
@@ -356,7 +356,7 @@ A menos que um conjunto de um DataSet esteja sendo produzido por Azure Data Fact
 
 | Nome | Descrição | Necessário | Valor padrão |
 | --- | --- | --- | --- |
-| dataDelay |Tempo para atrasar a verificação na disponibilidade dos dados externos para a fatia determinada. Por exemplo, se os dados estiverem disponíveis por hora, a verificação para ver os dados externos está disponível e a fatia correspondente está pronta pode ser atrasada com o uso de datadelay.<br/><br/>Aplica-se somente ao momento atual.  Por exemplo, se for 1:00 PM no momento e esse valor for de 10 minutos, a validação começará às 1:10 PM.<br/><br/>Essa configuração não afeta fatias no passado (fatias com hora de término da fatia + data Delay < agora) são processadas sem nenhum atraso.<br/><br/>Um tempo maior que 23:59 horas precisa ser especificado usando o formato `day.hours:minutes:seconds`. Por exemplo, para especificar 24 horas, não use 24:00:00; em vez disso, use 1,00:00:00. Se você usar o 24:00:00, ele será tratado como 24 dias (24.00:00:00). Por 1 dia e 4 horas, especifique 1:04:00:00. |Não |0 |
+| dataDelay |Tempo para atrasar a verificação na disponibilidade dos dados externos para a fatia determinada. Por exemplo, se os dados estiverem disponíveis por hora, a verificação para ver os dados externos está disponível e a fatia correspondente está pronta pode ser atrasada com o uso de datadelay.<br/><br/>Aplica-se somente ao momento atual.  Por exemplo, se for 1:00 PM no momento e esse valor for de 10 minutos, a validação começará às 1:10 PM.<br/><br/>Essa configuração não afeta fatias no passado (fatias com hora de término da fatia + data Delay < agora) são processadas sem nenhum atraso.<br/><br/>É necessário especificar uma hora maior que 23:59 horas usando o formato `day.hours:minutes:seconds`. Por exemplo, para especificar 24 horas, não use 24:00:00; em vez disso, use 1,00:00:00. Se você usar o 24:00:00, ele será tratado como 24 dias (24.00:00:00). Por 1 dia e 4 horas, especifique 1:04:00:00. |Não |0 |
 | retryInterval |O tempo de espera entre uma falha e a próxima tentativa de repetição. Se uma tentativa falhar, a próxima tentativa será após retryInterval. <br/><br/>Se for 1:00 PM no momento, começaremos a primeira tentativa. Se a duração para concluir a primeira verificação de validação for de 1 minuto e a operação falhar, a próxima tentativa será de 1:00 + 1 min (duração) + 1 min (intervalo de repetição) = 1:02 PM. <br/><br/>Para fatias no passado, não há nenhum atraso. A repetição ocorre imediatamente. |Não |00:01:00 (1 minuto) |
 | retryTimeout |O tempo limite para cada tentativa de repetição.<br/><br/>Se essa propriedade for definida como 10 minutos, a validação precisará ser concluída dentro de 10 minutos. Se demorar mais de 10 minutos para executar a validação, a nova tentativa atingirá o tempo limite.<br/><br/>Se todas as tentativas para a validação atingirem o tempo limite, a fatia será marcada como TimedOut. |Não |00:10:00 (10 minutos) |
 | maximumRetry |Número de vezes para verificar a disponibilidade dos dados externos. O valor máximo permitido é 10. |Não |3 |
@@ -378,7 +378,7 @@ Clique no link da loja em que você está interessado para ver os esquemas JSON 
 | &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Base de Dados SQL do Azure](#azure-sql-database) |
 | &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
-| &nbsp; |[Azure Search](#azure-search) |
+| &nbsp; |[Pesquisa Cognitiva do Azure](#azure-cognitive-search) |
 | &nbsp; |[Armazenamento de tabelas do Azure](#azure-table-storage) |
 | **Bases de dados** |[Amazon Redshift](#amazon-redshift) |
 | &nbsp; |[IBM DB2](#ibm-db2) |
@@ -884,7 +884,7 @@ Se você estiver copiando dados para Azure Cosmos DB, defina o **tipo de coletor
 | **Propriedade** | **Descrição** | **Valores permitidos** | **Necessário** |
 | --- | --- | --- | --- |
 | nestingSeparator |Um caractere especial no nome da coluna de origem para indicar que o documento aninhado é necessário. <br/><br/>Por exemplo acima: `Name.First` na tabela de saída produz a seguinte estrutura JSON no documento Cosmos DB:<br/><br/>"Name": {<br/>    "Primeiro": "João"<br/>}, |Caráter utilizado para separar níveis de aninhamento.<br/><br/>O valor padrão é `.` (ponto). |Caráter utilizado para separar níveis de aninhamento. <br/><br/>O valor padrão é `.` (ponto). |
-| writeBatchSize |Número de solicitações paralelas para Azure Cosmos DB serviço para criar documentos.<br/><br/>Você pode ajustar o desempenho ao copiar dados de/para Azure Cosmos DB usando essa propriedade. Você pode esperar um melhor desempenho ao aumentar o writeBatchSize porque mais solicitações paralelas para Azure Cosmos DB são enviadas. No entanto, você precisará evitar a limitação que pode gerar a mensagem de erro: "a taxa de solicitação é grande".<br/><br/>A limitação é decidida por vários fatores, incluindo o tamanho dos documentos, o número de termos em documentos, a política de indexação da coleção de destino, etc. Para operações de cópia, você pode usar uma coleção melhor (por exemplo, S3) para ter a maior taxa de transferência disponível (2.500 unidades de solicitação/segundo). |Número inteiro |Não (padrão: 5) |
+| WriteBatchSize |Número de solicitações paralelas para Azure Cosmos DB serviço para criar documentos.<br/><br/>Você pode ajustar o desempenho ao copiar dados de/para Azure Cosmos DB usando essa propriedade. Você pode esperar um melhor desempenho ao aumentar o writeBatchSize porque mais solicitações paralelas para Azure Cosmos DB são enviadas. No entanto, você precisará evitar a limitação que pode gerar a mensagem de erro: "a taxa de solicitação é grande".<br/><br/>A limitação é decidida por vários fatores, incluindo o tamanho dos documentos, o número de termos em documentos, a política de indexação da coleção de destino, etc. Para operações de cópia, você pode usar uma coleção melhor (por exemplo, S3) para ter a maior taxa de transferência disponível (2.500 unidades de solicitação/segundo). |Número inteiro |Não (padrão: 5) |
 | writeBatchTimeout |Tempo de espera para a operação ser concluída antes de atingir o tempo limite. |período<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
 
 #### <a name="example"></a>Exemplo
@@ -1048,7 +1048,7 @@ Se você estiver copiando os dados para o Azure SQL Database, defina o **tipo de
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Tempo de espera para que a operação de inserção em lote seja concluída antes de atingir o tempo limite. |período<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
-| writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
+| WriteBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
 | sqlWriterCleanupScript |Especifique uma consulta para a atividade de cópia a ser executada, de modo que os dados de uma fatia específica sejam limpos. |Uma instrução de consulta. |Não |
 | sliceIdentifierColumnName |Especifique um nome de coluna para a atividade de cópia preencher com o identificador de fatia gerado automaticamente, que é usado para limpar os dados de uma fatia específica quando executado novamente. |Nome da coluna de uma coluna com tipo de dados binary (32). |Não |
 | sqlWriterStoredProcedureName |Nome do procedimento armazenado que upserts (atualiza/insere) dados na tabela de destino. |Nome do procedimento armazenado. |Não |
@@ -1230,7 +1230,7 @@ Se você estiver copiando dados para o Azure SQL Data Warehouse, defina o **tipo
 | rejectType |Especifica se a opção rejeiçãovalue é especificada como um valor literal ou uma porcentagem. |Valor (padrão), percentual |Não |
 | rejectSampleValue |Determina o número de linhas a serem recuperadas antes que o polybase recalcule a porcentagem de linhas rejeitadas. |1, 2,... |Sim, se **rejeitátype** for **percentual** |
 | useTypeDefault |Especifica como tratar valores ausentes em arquivos de texto delimitados quando o polybase recupera dados do arquivo de texto.<br/><br/>Saiba mais sobre essa propriedade na seção argumentos em [criar formato de arquivo externo (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |True, false (padrão) |Não |
-| writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize |Inteiro (número de linhas) |Não (padrão: 10000) |
+| WriteBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize |Inteiro (número de linhas) |Não (padrão: 10000) |
 | writeBatchTimeout |Tempo de espera para que a operação de inserção em lote seja concluída antes de atingir o tempo limite. |período<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
 
 #### <a name="example"></a>Exemplo
@@ -1279,15 +1279,15 @@ Se você estiver copiando dados para o Azure SQL Data Warehouse, defina o **tipo
 
 Para obter mais informações, consulte o artigo [conector de SQL data warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) .
 
-## <a name="azure-search"></a>Azure Search
+## <a name="azure-cognitive-search"></a>Pesquisa Cognitiva do Azure
 
 ### <a name="linked-service"></a>Serviço ligado
-Para definir um Azure Search serviço vinculado, defina o **tipo** do serviço vinculado para **AzureSearch**e especifique as propriedades a seguir na seção **typeproperties** :
+Para definir um serviço vinculado do Azure Pesquisa Cognitiva, defina o **tipo** do serviço vinculado para **AzureSearch**e especifique as propriedades a seguir na seção **typeproperties** :
 
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
-| url | URL para o serviço de Azure Search. | Sim |
-| key | Chave de administração para o serviço de Azure Search. | Sim |
+| url | URL para o serviço de pesquisa. | Sim |
+| key | Chave de administração para o serviço de pesquisa. | Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -1304,15 +1304,15 @@ Para definir um Azure Search serviço vinculado, defina o **tipo** do serviço v
 }
 ```
 
-Para obter mais informações, consulte o artigo [conector Azure Search](data-factory-azure-search-connector.md#linked-service-properties) .
+Para obter mais informações, consulte o artigo [conector de pesquisa cognitiva do Azure](data-factory-azure-search-connector.md#linked-service-properties) .
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de Azure Search, defina o **tipo** do conjunto de um como **AzureSearchIndex**e especifique as propriedades a seguir na seção **typeproperties** :
+Para definir um conjunto de Pesquisa Cognitiva do Azure, defina o **tipo** do conjunto de um como **AzureSearchIndex**e especifique as propriedades a seguir na seção **typeproperties** :
 
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
 | tipo | A propriedade Type deve ser definida como **AzureSearchIndex**.| Sim |
-| indexName | Nome do índice de Azure Search. Data Factory não cria o índice. O índice deve existir no Azure Search. | Sim |
+| indexName | Nome do índice de pesquisa. Data Factory não cria o índice. O índice deve existir no Pesquisa Cognitiva do Azure. | Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -1333,15 +1333,15 @@ Para definir um conjunto de Azure Search, defina o **tipo** do conjunto de um co
 }
 ```
 
-Para obter mais informações, consulte o artigo [conector Azure Search](data-factory-azure-search-connector.md#dataset-properties) .
+Para obter mais informações, consulte o artigo [conector de pesquisa cognitiva do Azure](data-factory-azure-search-connector.md#dataset-properties) .
 
-### <a name="azure-search-index-sink-in-copy-activity"></a>Azure Search coletor de índice na atividade de cópia
-Se você estiver copiando dados para um Azure Search índice, defina o **tipo de coletor** da atividade de cópia como **AzureSearchIndexSink**e especifique as propriedades a seguir na seção **Sink** :
+### <a name="azure-cognitive-search-index-sink-in-copy-activity"></a>Coletor de índice de Pesquisa Cognitiva do Azure na atividade de cópia
+Se você estiver copiando dados para um índice de pesquisa, defina o **tipo de coletor** da atividade de cópia como **AzureSearchIndexSink**e especifique as propriedades a seguir na seção **Sink** :
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Especifica se é para mesclar ou substituir quando um documento já existe no índice. | Mesclar (padrão)<br/>Carregar| Não |
-| writeBatchSize | Carrega dados no índice de Azure Search quando o tamanho do buffer atinge writeBatchSize. | 1 a 1.000. O valor padrão é 1000. | Não |
+| writeBehavior | Especifica se é para mesclar ou substituir quando um documento já existe no índice. | Mesclar (padrão)<br/>Carregar| Não |
+| WriteBatchSize | Carrega dados no índice de pesquisa quando o tamanho do buffer atinge writeBatchSize. | 1 a 1.000. O valor padrão é 1000. | Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -1386,7 +1386,7 @@ Se você estiver copiando dados para um Azure Search índice, defina o **tipo de
 }
 ```
 
-Para obter mais informações, consulte o artigo [conector Azure Search](data-factory-azure-search-connector.md#copy-activity-properties) .
+Para obter mais informações, consulte o artigo [conector de pesquisa cognitiva do Azure](data-factory-azure-search-connector.md#copy-activity-properties) .
 
 ## <a name="azure-table-storage"></a>Table Storage do Azure
 
@@ -1537,7 +1537,7 @@ Se você estiver copiando dados para o armazenamento de tabelas do Azure, defina
 | azureTablePartitionKeyName |Especifique o nome da coluna cujos valores são usados como chaves de partição. Se não for especificado, AzureTableDefaultPartitionKeyValue será usado como a chave de partição. |Um nome de coluna. |Não |
 | azureTableRowKeyName |Especifique o nome da coluna cujos valores de coluna são usados como chave de linha. Se não for especificado, use um GUID para cada linha. |Um nome de coluna. |Não |
 | azureTableInsertType |O modo para inserir dados na tabela do Azure.<br/><br/>Essa propriedade controla se as linhas existentes na tabela de saída com as chaves de partição e de linha correspondentes têm seus valores substituídos ou mesclados. <br/><br/>Para saber mais sobre como essas configurações (Mesclar e substituir) funcionam, confira os tópicos [Inserir ou mesclar entidade](https://msdn.microsoft.com/library/azure/hh452241.aspx) e [Inserir ou substituir entidade](https://msdn.microsoft.com/library/azure/hh452242.aspx) . <br/><br> Essa configuração se aplica ao nível de linha, não ao nível de tabela e nenhuma das opções exclui as linhas na tabela de saída que não existem na entrada. |Mesclar (padrão)<br/>Substitua |Não |
-| writeBatchSize |Insere dados na tabela do Azure quando writeBatchSize ou writeBatchTimeout é atingido. |Inteiro (número de linhas) |Não (padrão: 10000) |
+| WriteBatchSize |Insere dados na tabela do Azure quando writeBatchSize ou writeBatchTimeout é atingido. |Inteiro (número de linhas) |Não (padrão: 10000) |
 | writeBatchTimeout |Insere dados na tabela do Azure quando writeBatchSize ou writeBatchTimeout é atingido |período<br/><br/>Exemplo: "00:20:00" (20 minutos) |Não (padrão para o valor de tempo limite padrão do cliente de armazenamento 90 s) |
 
 #### <a name="example"></a>Exemplo
@@ -2058,7 +2058,7 @@ Se você estiver copiando dados para o Oracle Database, defina o **tipo de colet
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Tempo de espera para que a operação de inserção em lote seja concluída antes de atingir o tempo limite. |período<br/><br/> Exemplo: 00:30:00 (30 minutos). |Não |
-| writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 100) |
+| WriteBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 100) |
 | sqlWriterCleanupScript |Especifique uma consulta para a atividade de cópia a ser executada, de modo que os dados de uma fatia específica sejam limpos. |Uma instrução de consulta. |Não |
 | sliceIdentifierColumnName |Especifique o nome da coluna para a atividade de cópia a ser preenchida com o identificador de fatia gerado automaticamente, que é usado para limpar os dados de uma fatia específica quando executado novamente. |Nome da coluna de uma coluna com tipo de dados binary (32). |Não |
 
@@ -2609,7 +2609,7 @@ Se você estiver copiando dados para um banco de SQL Server, defina o **tipo de 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Tempo de espera para que a operação de inserção em lote seja concluída antes de atingir o tempo limite. |período<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
-| writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
+| WriteBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
 | sqlWriterCleanupScript |Especifique a consulta para a atividade de cópia a ser executada, de modo que os dados de uma fatia específica sejam limpos. Para obter mais informações, consulte a seção de repetição. |Uma instrução de consulta. |Não |
 | sliceIdentifierColumnName |Especifique o nome da coluna para a atividade de cópia a ser preenchida com o identificador de fatia gerado automaticamente, que é usado para limpar os dados de uma fatia específica quando executado novamente. Para obter mais informações, consulte a seção de repetição. |Nome da coluna de uma coluna com tipo de dados binary (32). |Não |
 | sqlWriterStoredProcedureName |Nome do procedimento armazenado que upserts (atualiza/insere) dados na tabela de destino. |Nome do procedimento armazenado. |Não |
@@ -3874,7 +3874,7 @@ Para definir um serviço vinculado do SFTP, defina o **tipo** do serviço vincul
 
 #### <a name="example-using-basic-authentication"></a>Exemplo: usando a autenticação básica
 
-Para usar a autenticação básica, defina `authenticationType` como `Basic` e especifique as propriedades a seguir, além das genéricas do conector SFTP introduzidas na última seção:
+Para usar a autenticação básica, defina `authenticationType` como `Basic`e especifique as propriedades a seguir, além das genéricas do conector SFTP introduzidas na última seção:
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
@@ -3923,13 +3923,13 @@ Para usar a autenticação básica, defina `authenticationType` como `Basic` e e
 
 #### <a name="using-ssh-public-key-authentication"></a>**Usando a autenticação de chave pública SSH:**
 
-Para usar a autenticação básica, defina `authenticationType` como `SshPublicKey` e especifique as propriedades a seguir, além das genéricas do conector SFTP introduzidas na última seção:
+Para usar a autenticação básica, defina `authenticationType` como `SshPublicKey`e especifique as propriedades a seguir, além das genéricas do conector SFTP introduzidas na última seção:
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | o nome de utilizador |Usuário que tem acesso ao servidor SFTP |Sim |
-| privateKeyPath | Especifique o caminho absoluto para o arquivo de chave privada que o gateway pode acessar. | Especifique o `privateKeyPath` ou o `privateKeyContent`. <br><br> Aplica-se somente ao copiar dados de um servidor SFTP local. |
-| privateKeyContent | Uma cadeia de caracteres serializada do conteúdo da chave privada. O assistente de cópia pode ler o arquivo de chave privada e extrair automaticamente o conteúdo da chave privada. Se você estiver usando qualquer outra ferramenta/SDK, use a propriedade privateKeyPath em vez disso. | Especifique o `privateKeyPath` ou o `privateKeyContent`. |
+| privateKeyPath | Especifique o caminho absoluto para o arquivo de chave privada que o gateway pode acessar. | Especifique o `privateKeyPath` ou `privateKeyContent`. <br><br> Aplica-se somente ao copiar dados de um servidor SFTP local. |
+| privateKeyContent | Uma cadeia de caracteres serializada do conteúdo da chave privada. O assistente de cópia pode ler o arquivo de chave privada e extrair automaticamente o conteúdo da chave privada. Se você estiver usando qualquer outra ferramenta/SDK, use a propriedade privateKeyPath em vez disso. | Especifique o `privateKeyPath` ou `privateKeyContent`. |
 | passPhrase | Especifique a frase secreta/senha para descriptografar a chave privada se o arquivo de chave estiver protegido por uma frase secreta. | Sim se o arquivo de chave privada for protegido por uma frase secreta. |
 
 ```json
@@ -4078,7 +4078,7 @@ Para definir um serviço vinculado de HTTP, defina o **tipo** do serviço vincul
 | encryptedCredential | Credencial criptografada para acessar o ponto de extremidade HTTP. Gerado automaticamente quando você configura as informações de autenticação no assistente de cópia ou na caixa de diálogo pop-up do ClickOnce. | Não. Aplique somente ao copiar dados de um servidor HTTP local. |
 
 #### <a name="example-using-basic-digest-or-windows-authentication"></a>Exemplo: usando a autenticação básica, Digest ou Windows
-Defina `authenticationType` como `Basic`, `Digest` ou `Windows` e especifique as propriedades a seguir, além das genéricas do conector HTTP introduzidas acima:
+Defina `authenticationType` como `Basic`, `Digest`ou `Windows`e especifique as propriedades a seguir, além das genéricas do conector HTTP introduzidas acima:
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
@@ -4102,12 +4102,12 @@ Defina `authenticationType` como `Basic`, `Digest` ou `Windows` e especifique as
 
 #### <a name="example-using-clientcertificate-authentication"></a>Exemplo: usando a autenticação ClientCertificate
 
-Para usar a autenticação básica, defina `authenticationType` como `ClientCertificate` e especifique as propriedades a seguir, além das genéricas do conector HTTP introduzidas acima:
+Para usar a autenticação básica, defina `authenticationType` como `ClientCertificate`e especifique as propriedades a seguir, além das genéricas do conector HTTP introduzidas acima:
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| embeddedCertData | O conteúdo codificado na Base64 de dados binários do arquivo de troca de informações pessoais (PFX). | Especifique o `embeddedCertData` ou o `certThumbprint`. |
-| certThumbprint | A impressão digital do certificado que foi instalado no repositório de certificados do computador do gateway. Aplicar somente ao copiar dados de uma origem HTTP local. | Especifique o `embeddedCertData` ou o `certThumbprint`. |
+| embeddedCertData | O conteúdo codificado na Base64 de dados binários do arquivo de troca de informações pessoais (PFX). | Especifique o `embeddedCertData` ou `certThumbprint`. |
+| certThumbprint | A impressão digital do certificado que foi instalado no repositório de certificados do computador do gateway. Aplicar somente ao copiar dados de uma origem HTTP local. | Especifique o `embeddedCertData` ou `certThumbprint`. |
 | palavra-passe | Senha associada ao certificado. | Não |
 
 Se você usar `certThumbprint` para autenticação e o certificado estiver instalado no repositório pessoal do computador local, será necessário conceder a permissão de leitura para o serviço do gateway:
@@ -5642,7 +5642,7 @@ Você pode especificar as propriedades a seguir em uma definição de JSON de at
 
 Para obter informações detalhadas, consulte [usar atividades personalizadas no artigo data Factory](data-factory-use-custom-activities.md) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Veja os tutoriais seguintes:
 
 - [Tutorial: criar um pipeline com uma atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

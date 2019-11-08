@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 09/16/2019
-ms.openlocfilehash: d645eebefde473e404f7760d2bc8a67c7e3e9087
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7f4371bea467d6d4c99a776e03cdf13070d77ac6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609037"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818384"
 ---
 # <a name="custom-role-definition-artifact-in-azure-managed-applications"></a>Artefato de definição de função personalizada em aplicativos gerenciados do Azure
 
@@ -22,11 +22,11 @@ Este artigo fornece uma visão geral do artefato de definição de função pers
 
 ## <a name="custom-role-definition-artifact"></a>Artefato de definição de função personalizada
 
-O artefato de definição de função personalizada deve ser nomeado **customRoleDefinition. JSON** e colocado no mesmo nível que **createUiDefinition. JSON** e **MainTemplate. JSON** no pacote. zip que cria uma definição de aplicativo gerenciado. Para saber como criar o pacote. zip e publicar uma definição de aplicativo gerenciado, consulte [publicar uma definição de aplicativo gerenciado.](publish-managed-app-definition-quickstart.md)
+Você precisa nomear o artefato de definição de função personalizada customRoleDefinition. JSON. Coloque-o no mesmo nível que createUiDefinition. JSON e MainTemplate. JSON no pacote. zip que cria uma definição de aplicativo gerenciado. Para saber como criar o pacote. zip e publicar uma definição de aplicativo gerenciado, consulte [publicar uma definição de aplicativo gerenciado.](publish-managed-app-definition-quickstart.md)
 
 ## <a name="custom-role-definition-schema"></a>Esquema de definição de função personalizada
 
-O arquivo **customRoleDefinition. JSON** tem uma propriedade de nível superior `roles`, que é uma matriz de funções. Cada uma dessas funções são as permissões que o aplicativo gerenciado precisa para funcionar. Atualmente, somente funções internas são permitidas, mas várias funções podem ser especificadas. A função pode ser referenciada pela ID da definição de função ou pelo nome da função.
+O arquivo customRoleDefinition. JSON tem uma propriedade de `roles` de nível superior que é uma matriz de funções. Essas funções são as permissões que o aplicativo gerenciado precisa para funcionar. Atualmente, somente funções internas são permitidas, mas você pode especificar várias funções. Uma função pode ser referenciada pela ID da definição de função ou pelo nome da função.
 
 Exemplo de JSON para definição de função personalizada:
 
@@ -49,9 +49,9 @@ Exemplo de JSON para definição de função personalizada:
 }
 ```
 
-## <a name="role"></a>Função
+## <a name="roles"></a>Funções
 
-Uma função é composta por um `$.properties.roleName` ou `id`.
+Uma função é composta por um `$.properties.roleName` ou um `id`:
 
 ```json
 {
@@ -62,10 +62,10 @@ Uma função é composta por um `$.properties.roleName` ou `id`.
 }
 ```
 
-> [!Note]
-> Somente um dos campos `id` ou `roleName` é necessário. Esses campos são usados para pesquisar a definição de função a ser aplicada. Se ambos forem fornecidos, o campo `id` será usado.
+> [!NOTE]
+> Você pode usar o campo `id` ou `roleName`. Apenas uma é necessária. Esses campos são usados para pesquisar a definição de função que deve ser aplicada. Se ambos forem fornecidos, o campo `id` será usado.
 
-|Propriedade|Necessário|Descrição|
+|Propriedade|Necessário?|Descrição|
 |---------|---------|---------|
-|ID|*Ok*|A ID da função interna. Essa propriedade pode ser a ID completa ou apenas o GUID.|
-|RoleName|*Ok*|O nome da função interna.|
+|ID|Sim|A ID da função interna. Você pode usar a ID completa ou apenas o GUID.|
+|RoleName|Sim|O nome da função interna.|

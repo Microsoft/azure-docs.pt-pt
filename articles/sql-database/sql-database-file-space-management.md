@@ -1,5 +1,5 @@
 ---
-title: Gerenciamento de espaço de arquivo de bancos de dados SQL do Azure/pool Microsoft Docs
+title: Gerenciamento de espaço de arquivo de bancos de dados individuais/em pool
 description: Esta página descreve como gerenciar o espaço de arquivo com bancos de dados individuais e em pool no banco de dados SQL do Azure e fornece exemplos de código para determinar se você precisa reduzir um banco de dados único ou em pool, além de como executar uma operação de redução de banco de dados.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: c92ffb6aa6db9c77a859661115d54ff63ea02401
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a8fe58313bce6e9a21b07aa095672ec35ce572d2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568200"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803062"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gerenciar o espaço de arquivo para bancos de dados individuais e em pool no banco de dados SQL do Azure
 
@@ -44,12 +44,12 @@ Nos cenários abaixo, monitorizar a utilização do espaço de ficheiros e encol
 A maioria das métricas de espaço de armazenamento exibidas no portal do Azure e as seguintes APIs medem apenas o tamanho das páginas de dados usadas:
 
 - APIs de métricas baseadas em Azure Resource Manager, incluindo o PowerShell [Get-métricas](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric)
-- T-SQL: [Sys. dm _db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+- T-SQL: [Sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 No entanto, as seguintes APIs também medem o tamanho do espaço alocado para bancos de dados e pools elásticos:
 
 - T-SQL: [Sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
-- T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
+- T-SQL: [Sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
 ### <a name="shrinking-data-files"></a>Reduzindo arquivos de dados
 
@@ -234,7 +234,7 @@ Para obter mais informações sobre esse comando, consulte [SHRINKDATABASE](http
 
 ### <a name="auto-shrink"></a>Redução automática
 
-Como alternativa, a redução automática pode ser habilitada para um banco de dados.  A redução automática reduz a complexidade do gerenciamento de arquivos e é menos impactante `SHRINKDATABASE` no `SHRINKFILE`desempenho do banco de dados do que ou.  A redução automática pode ser particularmente útil para gerenciar pools elásticos com muitos bancos de dados.  No entanto, a redução automática pode ser menos eficaz na recuperação do espaço `SHRINKDATABASE` de `SHRINKFILE`arquivo do que e.
+Como alternativa, a redução automática pode ser habilitada para um banco de dados.  A redução automática reduz a complexidade do gerenciamento de arquivos e tem menos impacto no desempenho do banco de dados do que `SHRINKDATABASE` ou `SHRINKFILE`.  A redução automática pode ser particularmente útil para gerenciar pools elásticos com muitos bancos de dados.  No entanto, a redução automática pode ser menos eficaz na recuperação do espaço de arquivo do que `SHRINKDATABASE` e `SHRINKFILE`.
 Para habilitar a redução automática, modifique o nome do banco de dados no comando a seguir.
 
 
@@ -256,5 +256,5 @@ Depois que os arquivos de dados do banco são reduzidos, os índices podem se to
   - [Limites de recursos para bancos de dados individuais usando o modelo de compra baseado em DTU](sql-database-dtu-resource-limits-single-databases.md)
   - [Limites do modelo de compra baseado em vCore do banco de dados SQL do Azure para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md)
   - [Recursos limites para pools elásticos usando o modelo de compra baseado em DTU](sql-database-dtu-resource-limits-elastic-pools.md)
-- Para obter mais informações sobre `SHRINKDATABASE` o comando, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
+- Para obter mais informações sobre o comando `SHRINKDATABASE`, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 - Para obter mais informações sobre fragmentação e recriação de índices, consulte [reorganizar e recompilar índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

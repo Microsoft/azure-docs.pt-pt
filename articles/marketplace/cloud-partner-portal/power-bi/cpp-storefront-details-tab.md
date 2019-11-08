@@ -1,126 +1,127 @@
 ---
-title: Vitrine detalhes de uma aplicação do Power BI oferecem | O Azure Marketplace
-description: Configure os campos de detalhes de loja para uma oferta de aplicação do Power BI para o Microsoft AppSource Marketplace.
+title: Detalhes da vitrine para uma oferta de aplicativo Power BI | Azure Marketplace
+description: Configure os campos de detalhes da vitrine para uma oferta de aplicativo Power BI para o Microsoft AppSource Marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: 0816e7a7add430a65af9b3948aa8626f9567053a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 309b2eb33c594b5233c547e3bf45a49aa3a25678
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942630"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73817668"
 ---
-# <a name="power-bi-app-storefront-details-tab"></a>Separador de detalhes de loja de aplicações do Power BI
+# <a name="power-bi-app-storefront-details-tab"></a>Guia detalhes da vitrine do aplicativo Power BI
 
-Na **nova oferta** página, utilize o **Vitrine detalhes** separador para fornecer informações de marketing, vendas e legais para os seus clientes potenciais. Neste separador pode também de configurar a gestão de oportunidades potenciais que gera o Azure Marketplace. Esta forma longa é dividida em seis seções: **Detalhes da oferta**, **detalhes da lista**, **artefactos de Marketing**, **legais**, **suporte ao cliente**e **Numa gestão**.  Um asterisco (*) no final de uma etiqueta de campo significa que o campo é obrigatório.
+Na página **nova oferta** , use a guia **detalhes da vitrine** para fornecer marketing, vendas e informações legais para seus clientes potenciais. Nessa guia, você também pode configurar o gerenciamento de clientes potenciais que o Azure Marketplace gera. Essa forma longa é dividida em seis seções: **detalhes da oferta**, **detalhes da lista**, **artefatos de marketing**, **ofício**, **suporte ao cliente**e **Gerenciamento de leads**.  Um asterisco (*) no final de um rótulo de campo significa que o campo é obrigatório.
 
 
-## <a name="offer-details-section"></a>Secção de detalhes da oferta
+## <a name="offer-details-section"></a>Seção detalhes da oferta
 
-Na **detalhes sobre ofertas** , digite as informações gerais sobre a oferta do AppSource.
+Na seção **detalhes da oferta** , insira informações gerais sobre sua oferta do AppSource.
 
-![Secção de detalhes de oferta da guia detalhes de loja](./media/offer-details-section.png)
+![Seção detalhes da oferta da guia detalhes da vitrine](./media/offer-details-section.png)
 
-A tabela seguinte fornece mais informações sobre estes campos. Campos obrigatórios são indicted por um asterisco (*).  
+A tabela a seguir fornece mais informações sobre esses campos. Os campos obrigatórios são indicted por um asterisco (*).  
 
 |   Campo               |   Descrição                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------|
-| **Resumo da oferta\***     | Uma breve finalidade da aplicação, com até 100 carateres.                             |
-| **Descrição da oferta\*** | Uma descrição da aplicação, com até 3.000 carateres. Este campo suporta a formatação de HTML simples. |
+| **\* de resumo da oferta**     | Uma breve finalidade do aplicativo, usando até 100 caracteres.                             |
+| **Descrição da oferta\*** | Uma descrição do aplicativo, usando até 3.000 caracteres. Este campo dá suporte à formatação HTML simples. |
 |   |    |
 
 
-## <a name="listing-details-section"></a>Secção de detalhes de listagem
+## <a name="listing-details-section"></a>Seção de detalhes da listagem
 
-O **detalhes de listagem** secção reúne informações sobre o contexto da sua aplicação: setores em que é normalmente utilizado, a categoria de aplicação, produtos compatíveis e termos de pesquisa associados.
+A seção de **detalhes de listagem** reúne informações sobre o contexto do seu aplicativo: indústrias em que ele é normalmente usado, a categoria do aplicativo, produtos compatíveis e termos de pesquisa associados.
 
-![Secção de detalhes de listagem da guia detalhes de loja](./media/listing-details-section.png)
+![Seção detalhes da listagem da guia detalhes da vitrine](./media/listing-details-section.png)
 
-Para concluir os campos nesta secção, utilize a tabela seguinte.  Campos obrigatórios são indicted por um asterisco (*).
+Para concluir os campos nesta seção, use a tabela a seguir.  Os campos obrigatórios são indicted por um asterisco (*).
  
 |   Campo                                  |   Descrição                                                        |
 | --------------                           | ---------------------                                                |
-| **Setores**                           | Selecione o setor em que a aplicação mais adequado. Se o aplicativo se relaciona para vários setores, deixe este campo em branco.      |
-| **Categorias\***                           | Selecione até três categorias que se relacionam com a sua aplicação.     |
-| **Ligação de ajuda para a sua aplicação\***               | Forneça um URL para uma página que oferece ajuda online para a sua aplicação.           |
-| **Produtos a que sua aplicação funciona com (máx. 3)** | Selecione o **New** sinal de adição para criar um campo de texto. No campo, introduza o nome de um produto que a sua aplicação funciona com. Liste até três produtos.       |
-| **Palavras a procurar (máx. 3)**              | Introduza até três palavras-chave que os usuários provavelmente usarão a pesquisa para a sua aplicação no AppSource. Por exemplo, se o aplicativo é chamado "A minha aplicação Emailing", as palavras-chave podem ser **e-mails**, **correspondência**, e **aplicação de correio**. |
+| **Setores**                           | Selecione o setor no qual seu aplicativo se adapta melhor. Se seu aplicativo estiver relacionado a vários setores, deixe esse campo em branco.      |
+| **Categorias\***                           | Selecione até três categorias relacionadas ao seu aplicativo.     |
+| **Link de ajuda para seu aplicativo\***               | Forneça uma URL para uma página que ofereça ajuda online para seu aplicativo.           |
+| **Produtos com os quais seu aplicativo trabalha (máx. 3)** | Selecione o **novo** sinal de adição para criar um campo de texto. No campo, insira o nome de um produto com o qual seu aplicativo funciona. Liste até três produtos.       |
+| **Pesquisar palavras-chave (máx. 3)**              | Insira até três palavras-chave que os usuários provavelmente usarão para pesquisar seu aplicativo no AppSource. Por exemplo, se o aplicativo for chamado "meu aplicativo de email", suas palavras-chave poderão ser **emails**, **mala direta**e **aplicativo de email**. |
 |  |  |
 
 
-## <a name="marketing-artifacts-section"></a>Secção de artefactos de marketing
+## <a name="marketing-artifacts-section"></a>Seção artefatos de marketing
 
-Na **artefactos Marketing** seção imagem corporativa do carregamento de marketing e materiais para apresentar no AppSource.  Esta secção é dividida em quatro subsecções: **Logótipos**, **vídeos**, **documentos**, e **capturas de ecrã**. Logótipos e capturas de ecrã são o único necessário artefactos de marketing. Mas, para melhor apelo do cliente, recomendamos que adicione vídeos e documentos também.
+Na seção **artefatos de marketing** , carregue a identidade visual e os materiais de marketing para exibir no AppSource.  Esta seção é dividida em quatro subseções: **logotipos**, **vídeos**, **documentos**e **capturas de tela**. Logotipos e capturas de tela são os únicos artefatos de marketing necessários. Mas, para o melhor apelo do cliente, é recomendável adicionar vídeos e documentos também.
 
-![Secção de artefactos de marketing da guia detalhes de loja](./media/marketing-artifacts-section.png)
+![Seção artefatos de marketing da guia detalhes da vitrine](./media/marketing-artifacts-section.png)
 
-Para concluir os campos nesta secção, utilize a tabela seguinte. Campos obrigatórios são indicted por um asterisco (*).
+Para concluir os campos nesta seção, use a tabela a seguir. Os campos obrigatórios são indicted por um asterisco (*).
  
 |    Campo                             |    Descrição                                                    |
 |   -----------                        |    -------------                                                  |
-| *Logótipos*                              |                                                                   |
-| **Logótipo da oferta (formato png, 48 x 48)\***   | Carregue um logótipo a apresentar na descrição geral da aplicação ou nos resultados de pesquisa da aplicação. AppSource suporta apenas, formato PNG, com uma resolução de 48 x 48 px.  |
-| **Logótipo da oferta (formato png, 216 x 216)\*** | Carregue um logótipo a apresentar na página de detalhes da sua aplicação.  AppSource suporta apenas, formato PNG, com uma resolução de 216 x 216 px.  |
+| *Logotipos*                              |                                                                   |
+| **Logotipo da oferta (formato PNG, 48x48)\***   | Carregue um logotipo para exibir na visão geral do aplicativo ou nos resultados da pesquisa de aplicativo. AppSource dá suporte apenas ao formato PNG, com uma resolução de 48 x 48 px.  |
+| **Logotipo da oferta (formato PNG, 216x216)\*** | Carregue um logotipo para ser exibido na página de detalhes do aplicativo.  AppSource dá suporte apenas ao formato PNG, com uma resolução de 216 x 216 px.  |
 | *Vídeos*                             |                                                                   |
-| **Nome**                             | Introduza o nome ou o título da sua aplicação.                                          |
-| **URL**                              | Introduza o URL de um vídeo alojado no YouTube ou Vimeo.                              |
-| **Miniatura**                        | Adicione uma imagem em miniatura da aplicação.  AppSource suporta apenas, formato PNG, com uma resolução de 1280 x 720 px.   |
-| *Documentos*                          | Adicione até três documentos para apresentar no AppSource, no **Saiba mais** cabeçalho.  |
-| **Nome**                             | Introduza o nome ou o título de um documento de suporte.                              |
-| **Ficheiro**                             | Carregue um ficheiro PDF.                             |
-| *Capturas de ecrã\**                      | Adicione até cinco capturas de ecrã.                        |
-| **Nome**                             | Introduza um nome ou o título de uma captura de ecrã.                                       |
-| **Imagem**                            | Carregar uma captura de ecrã do PNG. Sua resolução tem de ser px de 1280 x 720.  | 
+| **Nome**                             | Insira o nome ou o título do seu aplicativo.                                          |
+| **URL**                              | Insira a URL de um vídeo hospedado no YouTube ou Vimeo.                              |
+| **Miniatura**                        | Adicione uma imagem em miniatura do aplicativo.  AppSource dá suporte apenas ao formato PNG, com uma resolução de 1280 x 720 px.   |
+| *Documento*                          | Adicione até três documentos para exibir no AppSource, no título **saiba mais** .  |
+| **Nome**                             | Insira o nome ou o título de um documento de suporte.                              |
+| **Ficheiro**                             | Carregar um arquivo PDF.                             |
+| *Capturas de tela\**                      | Adicione até cinco capturas de tela.                        |
+| **Nome**                             | Insira um nome ou título de uma captura de tela.                                       |
+| **Imagem**                            | Carregue uma captura de tela PNG. Sua resolução deve ser 1280 x 720 px.  | 
 |   |   |
 
-Logótipos carregar para [Cloud Partner Portal](https://cloudpartner.azure.com) deve *não*:
+Os logotipos que você carrega para [portal do Cloud Partner](https://cloudpartner.azure.com) *não*devem:
 
-- Utilize um gradiente. O aspeto e funcionalidade do seu logótipo deve ser simples.
-- Inclua o nome da empresa, o nome da marca ou outros tipos de texto. 
-- Dar uma olhada Stretch.
+- Use um gradiente. A aparência do seu logotipo deve ser simples.
+- Inclua o nome da sua empresa, o nome da marca ou outro texto. 
+- Aparência ampliada.
 
-## <a name="legal-section"></a>Secção legal
+## <a name="legal-section"></a>Seção legal
 
-Na **legais** secção, fornecer os dois documentos legais necessários para cada oferta: a política de privacidade e os termos de utilização.
+Na seção **legal** , forneça os dois documentos legais necessários para cada oferta: sua política de privacidade e seus termos de uso.
 
-![Secção legal da guia detalhes de loja](./media/legal-section.png)
+![Seção legal da guia detalhes da vitrine](./media/legal-section.png)
 
-Para concluir os campos nesta secção, utilize a tabela seguinte:
+Para concluir os campos nesta seção, use a tabela a seguir:
 
 |   Campo                |   Descrição                           |
 |------------------------|--------------------------------------   |
-| **URL de política de privacidade\*** | URL para a sua política de privacidade postado       |
-| **Termos de utilização\***       | Sua política de uso, formatados como texto sem formatação ou simple HTML     |
+| **URL da política de privacidade\*** | URL para a política de privacidade postada       |
+| **Termos de utilização\***       | Sua política de uso, formatada como texto sem formatação ou HTML simples     |
 |  |  |
 
 
-## <a name="customer-support-section"></a>Secção de suporte de cliente
+## <a name="customer-support-section"></a>Seção de atendimento ao cliente
 
-Na **suporte ao cliente** secção, forneça o **URL de suporte** para a sua página de suporte do cliente online.  Esta página deve fornecer várias opções de contactos, como o telefone, e-mail e ao vivo via chat. 
+Na seção Atendimento ao **cliente** , forneça a **URL de suporte** para sua página de suporte ao cliente online.  Esta página deve fornecer várias opções de contato, como telefone, email e chat ao vivo. 
 
 
-## <a name="lead-management-section"></a>Levar a secção sobre gestão
+## <a name="lead-management-section"></a>Seção Gerenciamento de leads
 
-Na **levar gestão** secção, configurar o sistema para coletar as oportunidades potenciais que geram suas ofertas do AppSource. Para escolher as opções de armazenamento para as oportunidades potenciais, utilize a tabela seguinte:
+Na seção **Gerenciamento de leads** , configure seu sistema para coletar os leads do cliente que seus AppSource oferecem gerar. Para escolher as opções de armazenamento para os clientes potenciais, use a seguinte tabela:
 
-|    Campo               |   Líder de destino                               |
+|    Campo               |   Destino do cliente potencial                               |
 |------------------------|--------------------------------------            |
-|  **Nenhum**              | Recolha não oportunidades potenciais. Esta é a opção predefinida.  |
-| **BLOBs do Azure (preterido)** | Especifique [armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) utilizando um nome de contentor e uma cadeia de ligação.  Esta opção foi preterida. Uso **tabelas do Azure** em vez disso.  |
-| **Tabela do Azure**        | Especifique [armazenamento de tabelas do Azure](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview) através de uma cadeia de ligação.  |
-| **Dynamics CRM Online** | Especifique [Dynamics 365](https://dynamics.microsoft.com/) com credenciais de autenticação e de URL. |
-| **Ponto final de HTTPS**     | Especifique o ponto final HTTPS com um payload JSON.   |
-| **Marketo**            | Especifique um [Marketo](https://www.marketo.com/) instância ao utilizar um servidor de ID, o ID de munchkin e o ID do formulário.   |
-| **Salesforce**         | Especifique [Salesforce](https://www.salesforce.com/) utilizando um identificador de objeto. |
+|  **None**              | Não coletar clientes potenciais. Essa é a opção padrão.  |
+| **Blob do Azure (preterido)** | Especifique o [armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) usando um nome de contêiner e uma cadeia de conexão.  Essa opção foi preterida. Use a **tabela do Azure** em vez disso.  |
+| **Tabela do Azure**        | Especifique o [armazenamento de tabelas do Azure](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview) usando uma cadeia de conexão.  |
+| **Dynamics CRM Online** | Especifique o [Dynamics 365](https://dynamics.microsoft.com/) usando uma URL e credenciais de autenticação. |
+| **Ponto de extremidade HTTPS**     | Especifique o ponto de extremidade HTTPS usando uma carga JSON.   |
+| **Marketo**            | Especifique uma instância do [marketo](https://www.marketo.com/) usando uma ID de servidor, ID de MUNCHKIN e ID de formulário.   |
+| **Salesforce**         | Especifique [Salesforce](https://www.salesforce.com/) usando um identificador de objeto. |
 |  |  |
 
-Depois de publicar a sua oferta, a ligação da oportunidade potencial é validada e um líder de teste é enviado automaticamente para o destino especificado. Continuamente gerir informações de oportunidades potenciais e, imediatamente, Atualize as definições para refletir a sua arquitetura de gestão atual do cliente.
+Depois de publicar sua oferta, a conexão de cliente potencial é validada e um líder de teste é enviado automaticamente para o destino especificado. Gerencie continuamente as informações do cliente potencial e atualize suas configurações imediatamente para refletir sua atual arquitetura de gerenciamento de clientes.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Sobre o [contactos](./cpp-contacts-tab.md) separador, forneça técnicas e de utilizador recursos de suporte para a sua oferta.
+Na guia [contatos](./cpp-contacts-tab.md) , forneça recursos técnicos e de suporte ao usuário para sua oferta.

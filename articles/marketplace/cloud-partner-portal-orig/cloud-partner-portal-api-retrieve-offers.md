@@ -1,34 +1,35 @@
 ---
-title: Obter oferece API | O Azure Marketplace
-description: API obtém uma lista resumida dos ofertas num espaço de nomes do publicador.
+title: Recuperar API de ofertas | Azure Marketplace
+description: A API recupera uma lista resumida de ofertas em um namespace do Publicador.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 67109c3605ea96123ff41cb88d5ac328a09991e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c94c03a63936be2b086085a1e52064dedf214b0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935334"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819634"
 ---
 <a name="retrieve-offers"></a>Obter ofertas
 ===============
 
-Obtém uma lista resumida dos ofertas num espaço de nomes do publicador.
+Recupera uma lista resumida de ofertas em um namespace do Publicador.
 
  `GET https://cloudpartner.azure.com/api/publishers/<publisherId>/offers?api-version=2017-10-31`
 
 
-<a name="uri-parameters"></a>Parâmetros do URI
+<a name="uri-parameters"></a>Parâmetros de URI
 --------------
 
 | **Nome**         |  **Descrição**                         |  **Tipo de dados** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Identificador do publicador, por exemplo `contoso` |   String    |
-|  versão de API     | Versão mais recente da API                    |    Date        |
+|  publisherId     | Identificador de editor, por exemplo `contoso` |   String    |
+|  versão da API     | Versão mais recente da API                    |    Date        |
 |  |  |
 
 
@@ -37,7 +38,7 @@ Obtém uma lista resumida dos ofertas num espaço de nomes do publicador.
 
 |  **Nome**        |         **Valor**       |
 |  --------------- |       ----------------  |
-|  Content-Type    | `application/json`      |
+|  Tipo de conteúdo    | `application/json`      |
 |  Autorização   | `Bearer YOUR_TOKEN`     |
 |  |  |
 
@@ -64,40 +65,40 @@ Obtém uma lista resumida dos ofertas num espaço de nomes do publicador.
   ]
 ```
 
-### <a name="response-body-properties"></a>Propriedades do corpo de resposta
+### <a name="response-body-properties"></a>Propriedades do corpo da resposta
 
 |  **Nome**       |       **Descrição**                                                                                                  |
 |  -------------  |      --------------------------------------------------------------------------------------------------------------    |
 |  offerTypeId    | Identifica o tipo de oferta                                                                                           |
-|  publisherId    | Identificador que identifica exclusivamente o publicador                                                                      |
-|  status         | Estado da oferta. Para obter a lista de valores possíveis, consulte [stav Nabídky](#offer-status) abaixo.                         |
-|  id             | GUID que identifica exclusivamente a oferta no espaço de nomes do publicador.                                                    |
-|  version        | Versão atual da oferta. A propriedade de versão não pode ser modificada pelo cliente. Ele é incrementado após cada publicação. |
-|  Definição     | Contém uma exibição resumida da definição real da carga de trabalho. Para obter uma definição detalhada, utilize o [oferta específica de obter](./cloud-partner-portal-api-retrieve-specific-offer.md) API. |
-|  changedTime    | Hora UTC, que a oferta foi modificado pela última vez                                                                              |
+|  publisherId    | Identificador que identifica exclusivamente o Publicador                                                                      |
+|  status         | Status da oferta. Para obter a lista de valores possíveis, consulte o [status da oferta](#offer-status) abaixo.                         |
+|  ID             | GUID que identifica exclusivamente a oferta no namespace do Publicador.                                                    |
+|  versão        | Versão atual da oferta. A Propriedade Version não pode ser modificada pelo cliente. Ele é incrementado após cada publicação. |
+|  Defini     | Contém uma exibição resumida da definição real da carga de trabalho. Para obter uma definição detalhada, use a API da [oferta específica de recuperação](./cloud-partner-portal-api-retrieve-specific-offer.md) . |
+|  alteradotime    | Hora UTC em que a oferta foi modificada pela última vez                                                                              |
 |  |  |
 
 
-### <a name="response-status-codes"></a>Códigos de estado de resposta
+### <a name="response-status-codes"></a>Códigos de status de resposta
 
-| **Código**  |  **Descrição**                                                                                                   |
+| **Auto-completar**  |  **Descrição**                                                                                                   |
 | -------   |  ----------------------------------------------------------------------------------------------------------------- |
-|  200      | `OK` -O pedido foi processado com êxito e todas as ofertas sob o publicador foram devolvidas ao cliente.  |
-|  400      | `Bad/Malformed request` -O corpo da resposta de erro pode conter mais informações.                                    |
-|  403      | `Forbidden` -O cliente não tem acesso ao espaço de nomes especificado.                                          |
-|  404      | `Not found` -A entidade especificada não existe.                                                                 |
+|  200      | `OK`-a solicitação foi processada com êxito e todas as ofertas no Publicador foram retornadas ao cliente.  |
+|  400      | `Bad/Malformed request`-o corpo da resposta de erro pode conter mais informações.                                    |
+|  403      | `Forbidden`-o cliente não tem acesso ao namespace especificado.                                          |
+|  404      | `Not found`-a entidade especificada não existe.                                                                 |
 |  |  |
 
 
-### <a name="offer-status"></a>Stav nabídky
+### <a name="offer-status"></a>Status da oferta
 
 |  **Nome**                    | **Descrição**                                  |
 |  ------------------------    | -----------------------------------------------  |
-|  NeverPublished              | Oferta nunca foi publicada.                  |
-|  NotStarted                  | Oferta é nova, mas não foi iniciada.                 |
-|  WaitingForPublisherReview   | Oferta está à espera de aprovação do publicador.         |
-|  A executar                     | Submissão de oferta está a ser processado.             |
-|  Bem-sucedido                   | Submissão de oferta terminou de processar.       |
-|  Cancelado                    | Submissão de oferta foi cancelada.                   |
-|  Com Falhas                      | Falha na submissão de oferta.                         |
+|  NeverPublished              | A oferta nunca foi publicada.                  |
+|  NotStarted                  | A oferta é nova, mas não iniciada.                 |
+|  WaitingForPublisherReview   | A oferta está aguardando a aprovação do Publicador.         |
+|  A executar                     | O envio da oferta está sendo processado.             |
+|  Bem-sucedido                   | O envio da oferta concluiu o processamento.       |
+|  Cancelado                    | O envio da oferta foi cancelado.                   |
+|  Com Falhas                      | Falha no envio da oferta.                         |
 |  |  |

@@ -1,71 +1,72 @@
 ---
-title: Pré-requisitos de API | O Azure Marketplace
-description: Pré-requisitos para utilizar as APIs de Portal de parceiro de Cloud.
+title: Pré-requisitos de API | Azure Marketplace
+description: Pré-requisitos partir usando as APIs de Portal do Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: a973ab0a406168756af61900fd35947c8be6d03b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d3c2d89d3c3561e86047529e5b284e4481fc1652
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935389"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819692"
 ---
 <a name="api-prerequisites"></a>Pré-requisitos de API
 ================
 
-Existem dois recursos programáticos necessários que tem de utilizar as APIs de Portal de parceiro de Cloud: token de acesso de um principal de serviço e um Azure Active Directory (Azure AD).
+Há dois ativos programáticos exigidos que você precisa para usar as APIs de Portal do Cloud Partner: uma entidade de serviço e um token de acesso do Azure Active Directory (Azure AD).
 
 
-<a name="create-a-service-principal-in-your-azure-active-directory-tenant"></a>Criar um principal de serviço no seu inquilino do Azure Active Directory
+<a name="create-a-service-principal-in-your-azure-active-directory-tenant"></a>Criar uma entidade de serviço em seu locatário de Azure Active Directory
 ----------------------------------------------------------------
 
-Em primeiro lugar, terá de criar um principal de serviço no inquilino do Azure AD. Este inquilino será atribuído a seu próprio conjunto de permissões no Portal de parceiros de nuvem. Seu código chamará o uso de APIs como este inquilino em vez de utilizar as suas credenciais pessoais.  Para obter uma explicação completa de criação de um principal de serviço, consulte [utilize o portal para criar um Azure Active Directory principal de aplicações e serviço que pode aceder a recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+Primeiro, você precisa criar uma entidade de serviço em seu locatário do Azure AD. Esse locatário será atribuído a seu próprio conjunto de permissões no Portal do Cloud Partner. Seu código chamará APIs usando como esse locatário em vez de usar suas credenciais pessoais.  Para obter uma explicação completa da criação de uma entidade de serviço, consulte [usar o portal para criar um aplicativo Azure Active Directory e uma entidade de serviço que possa acessar recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 
 
-<a name="add-the-service-principal-to-your-account"></a>Adicionar o principal de serviço à sua conta
+<a name="add-the-service-principal-to-your-account"></a>Adicionar a entidade de serviço à sua conta
 -----------------------------------------
 
-Agora que criou o serviço principal no seu inquilino, pode adicioná-lo como um utilizador à sua conta do Portal de parceiros da Cloud. Tal como um utilizador, o principal de serviço pode ser um proprietário ou Contribuidor para o portal.
+Agora que você criou a entidade de serviço em seu locatário, você pode adicioná-la como um usuário à sua conta de Portal do Cloud Partner. Assim como um usuário, a entidade de serviço pode ser um proprietário ou um colaborador para o Portal.
 
-Utilize os seguintes passos para adicionar o principal de serviço:
+Use as etapas a seguir para adicionar a entidade de serviço:
 
-1. Início de sessão para o Portal de parceiros da Cloud. 
-2. Clique em **usuários** na barra de menu à esquerda e escolha **adicionar utilizador**.
+1. Faça logon no Portal do Cloud Partner. 
+2. Clique em **usuários** na barra de menus à esquerda e escolha **Adicionar usuário**.
 
-   ![Adicionar um utilizador para o portal](./media/cloud-partner-portal-api-prerequisites/add-user.jpg)
+   ![Adicionar um usuário ao portal](./media/cloud-partner-portal-api-prerequisites/add-user.jpg)
 
-3. Partir do **tipo** menu pendente, selecione **Principal de serviço** e adicione os seguintes detalhes:
+3. Na lista suspensa **tipo** , selecione **entidade de serviço** e adicione os seguintes detalhes:
 
--   R **nome amigável** principal de serviço, por exemplo `spAccount`.
--   O **ID da aplicação**. Para localizar este identificador, vá para o [Portal do Azure](https://portal.azure.com), clique em **Azure Active Directory**, escolha **registos das aplicações**e clique na sua aplicação.
--   O **ID do inquilino**, também conhecida como a **ID do diretório**, para o seu inquilino do Azure AD. Pode encontrar este identificador na página do Azure Active Directory no [portal do Azure](https://portal.azure.com), em **propriedades**.
--   O **ID de objeto** para o objeto principal de serviço. Pode obter este identificador no portal do Azure. Aceda a **do Azure Active Directory**, escolha **registos das aplicações**, clique na sua aplicação e clique no nome da aplicação em **aplicação gerida no diretório local**. Em seguida, vá para o **propriedades** página, para encontrar o ID de objeto. Certifique-se de que não é Pegando o ID de objeto inicial que está na sua aplicação, mas em vez disso, o ID de objeto do aplicativo gerenciado.
--   O **função** associado à conta, que será utilizada para o AZURE.
+-   Um **nome amigável** para a entidade de serviço, por exemplo `spAccount`.
+-   A **ID do aplicativo**. Para localizar esse identificador, vá para o [portal do Azure](https://portal.azure.com), clique em **Azure Active Directory**, escolha **registros de aplicativo**e clique em seu aplicativo.
+-   A **ID do locatário**, também conhecida como a **ID do diretório**, para seu locatário do Azure AD. Você pode encontrar esse identificador na página Azure Active Directory no [portal do Azure](https://portal.azure.com), em **Propriedades**.
+-   A **ID de objeto** para o objeto de entidade de serviço. Você pode obter esse identificador no portal do Azure. Vá para **Azure Active Directory**, escolha **registros de aplicativo**, clique em seu aplicativo e clique no nome do aplicativo em **aplicativo gerenciado no diretório local**. Em seguida, vá para a página **Propriedades** para localizar a ID do objeto. Verifique se você não está pegando a ID de objeto inicial que está em seu aplicativo, mas em vez disso, a ID de objeto no aplicativo gerenciado.
+-   A **função** associada à conta, que será usada para o RBAC.
 
-     ![Adicionar uma aplicação gerida no portal](./media/cloud-partner-portal-api-prerequisites/managedapp.png)
+     ![Adicionar um aplicativo gerenciado ao portal](./media/cloud-partner-portal-api-prerequisites/managedapp.png)
 
-1. Clique em **adicionar** para adicionar o principal de serviço à sua conta.
+1. Clique em **Adicionar** para adicionar a entidade de serviço à sua conta.
 
-   ![Adicionar um principal de serviço](./media/cloud-partner-portal-api-prerequisites/add-service-principal.jpg)
+   ![Adicionar uma entidade de serviço](./media/cloud-partner-portal-api-prerequisites/add-service-principal.jpg)
 
 
-<a name="get-an-azure-ad-access-token"></a>Obtenha o token de um acesso do Azure AD
+<a name="get-an-azure-ad-access-token"></a>Obter um token de acesso do AD do Azure
 ----------------------------
 
-As APIs do Cloud Partner Portal utilize os seguintes recursos e protocolos durante a autenticação:
+As APIs de Portal do Cloud Partner usam os seguintes ativos e protocolos durante a autenticação:
 
-- Um token de portador do JSON Web Token (JWT) para pedir acesso aos recursos
-- O [OpenID Connect](https://openid.net/connect/) protocol (OIDC) para verificar a identidade
-- [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) como a autoridade de identidade
+- Um token de portador JWT (token Web JSON) para solicitar acesso aos recursos
+- O protocolo [OpenID Connect](https://openid.net/connect/) (OIDC) para verificar a identidade
+- [Azure Active Directory (AD do Azure)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) como a autoridade de identidade
 
-Existem duas abordagens de princípio para aquisição por meio de programação de um token JWT:
+Há duas abordagens principais para adquirir programaticamente um token JWT:
 
-- Utilizar a biblioteca de autenticação da Microsoft para .NET ([MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)).  Essa abordagem de nível superior é recomendada para os desenvolvedores do .NET. 
-- Efetuar uma **HTTP POST** pedido para o oauth do Azure AD **token** ponto final, que assume a forma:
+- Use a[MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)(biblioteca de autenticação da Microsoft para .net).  Essa abordagem de nível superior é recomendada para desenvolvedores do .NET. 
+- Faça uma solicitação **http post** para o ponto de extremidade do **token** OAuth do Azure AD, que assume o formato:
 
 ``` HTTP
 POST https://login.microsoftonline.com/<tenant-id>/oauth2/token
@@ -75,7 +76,7 @@ POST https://login.microsoftonline.com/<tenant-id>/oauth2/token
     resource: https://cloudpartner.azure.com
 ```
 
-Agora, pode transmitir este token como parte do cabeçalho de autorização para pedidos de API.
+Agora, você pode passar esse token como parte do cabeçalho de autorização para solicitações de API.
 
 ``` HTTP
 GET https://cloudpartner.azure.com/api/offerTypes?api-version=2016-08-01-preview 
@@ -83,6 +84,6 @@ GET https://cloudpartner.azure.com/api/offerTypes?api-version=2016-08-01-preview
     Authorization: Bearer <access-token>
 ```
 > [!NOTE]
-> Para todas as APIs nesta referência, o cabeçalho authorization é sempre pressuposto transmitido, para que não tenham sido explicitamente falar dele.
+> Para todas as APIs nessa referência, o cabeçalho de autorização sempre é passado, portanto, não mencionado explicitamente.
 
-Caso se depare com erros de autenticação no seu pedido, consulte [resolução de problemas de erros de autenticação](./cloud-partner-portal-api-troubleshooting-authentication-errors.md).
+Se você encontrar erros de autenticação em sua solicitação, consulte [Solucionando problemas de erros de autenticação](./cloud-partner-portal-api-troubleshooting-authentication-errors.md).

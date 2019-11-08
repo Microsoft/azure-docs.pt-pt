@@ -1,6 +1,6 @@
 ---
-title: A estrutura dos Dashboards do Azure | Documentos da Microsoft
-description: Este artigo explica a estrutura JSON de um Dashboard do Azure
+title: A estrutura dos painéis do Azure | Microsoft Docs
+description: Este artigo explica a estrutura JSON de um painel do Azure
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
-ms.openlocfilehash: a7e9acbe78ffdca2e615873cc4c33f86b250a429
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dccf1550052910269efe156b999882234669d7dc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551519"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815712"
 ---
-# <a name="the-structure-of-azure-dashboards"></a>A estrutura dos Dashboards do Azure
-Este documento aborda a estrutura de um dashboard do Azure, utilizando o dashboard seguinte como exemplo:
+# <a name="the-structure-of-azure-dashboards"></a>A estrutura dos painéis do Azure
+Este documento percorre a estrutura de um painel do Azure, usando o painel a seguir como exemplo:
 
-![dashboard de exemplo](./media/azure-portal-dashboards-structure/sample-dashboard.png)
+![painel de exemplo](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Uma vez que partilhou [dashboards do Azure são recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), este dashboard pode ser representado como JSON.  O JSON seguinte representa o dashboard visualizado acima.
+Como os [painéis do Azure compartilhados são recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), esse painel pode ser representado como JSON.  O JSON a seguir representa o painel visualizado acima.
 
 ```json
 
@@ -291,60 +291,60 @@ Uma vez que partilhou [dashboards do Azure são recursos](https://docs.microsoft
 
 ## <a name="common-resource-properties"></a>Propriedades de recursos comuns
 
-Vamos dividir as secções relevantes do JSON.  As propriedades de nível superior, __id__, __nome__, __tipo__, __localização__, e __etiquetas__ propriedades são partilhado em todos os tipos de recursos do Azure. Ou seja, não têm muito o que fazer com o conteúdo do dashboard.
+Vamos dividir as seções relevantes do JSON.  As propriedades de nível superior, __ID__, __nome__, __tipo__, __local__e __marcas__ são compartilhadas entre todos os tipos de recursos do Azure. Ou seja, eles não têm muito a ver com o conteúdo do painel.
 
-### <a name="the-id-property"></a>A propriedade de id
+### <a name="the-id-property"></a>A propriedade ID
 
-O id de recurso do Azure, sujeita-se para o [convenções de nomenclatura do recursos do Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Quando o portal cria um dashboard que ele geralmente escolhe um id na forma de um guid, mas tem liberdade para utilizar qualquer nome válido quando criá-los por meio de programação. 
+A ID de recurso do Azure, sujeita às [convenções de nomenclatura dos recursos do Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). Quando o portal cria um painel, ele geralmente escolhe uma ID na forma de um GUID, mas você é livre para usar qualquer nome válido ao criá-los programaticamente. 
 
-### <a name="the-name-property"></a>A propriedade de nome
-O nome é o segmento do recurso Id que não inclui a subscrição, tipo de recurso ou informações de grupo de recursos. Essencialmente, é o último segmento do id do recurso.
+### <a name="the-name-property"></a>A propriedade Name
+O nome é o segmento da ID do recurso que não inclui a assinatura, o tipo de recurso ou as informações do grupo de recursos. Basicamente, é o último segmento da ID do recurso.
 
-### <a name="the-type-property"></a>A propriedade de tipo
-Todos os dashboards são do tipo __Microsoft.Portal/dashboards__.
+### <a name="the-type-property"></a>A propriedade Type
+Todos os painéis são do tipo __Microsoft. Portal/dashboards__.
 
-### <a name="the-location-property"></a>A propriedade de localização
-Ao contrário de outros recursos, os dashboards não tem um componente de tempo de execução.  Para dashboards, a localização indica a localização geográfica principal que armazena a representação de JSON do dashboard. O valor deve ser um dos códigos de localização que podem ser obtidos com o [localizações API no recurso subscrições](https://docs.microsoft.com/rest/api/resources/subscriptions).
+### <a name="the-location-property"></a>A propriedade Location
+Ao contrário de outros recursos, os painéis não têm um componente de tempo de execução.  Para painéis, o local indica a localização geográfica primária que armazena a representação JSON do painel. O valor deve ser um dos códigos de localização que podem ser buscados usando a [API Locations no recurso de assinaturas](https://docs.microsoft.com/rest/api/resources/subscriptions).
 
-### <a name="the-tags-property"></a>A propriedade de etiquetas
-As etiquetas são uma funcionalidade comum de recursos do Azure que lhe permite organizar seu recurso por pares de valor de nome arbitrário. Para dashboards, existe uma etiqueta especial chamada __title oculto__. Se o dashboard tiver esta propriedade preenchida, em seguida, é utilizado como o nome a apresentar para o seu dashboard no portal. Não não possível mudar o nome de Ids de recurso do Azure, mas podem de etiquetas. Esta etiqueta dá-lhe uma forma de ter um nome a apresentar renamable para o seu dashboard.
+### <a name="the-tags-property"></a>A propriedade Tags
+As marcas são um recurso comum dos recursos do Azure que permitem organizar seu recurso por pares de valor de nome arbitrário. Para painéis, há uma marca especial denominada __Hidden-título__. Se o seu painel tiver essa propriedade populada, ela será usada como o nome de exibição do seu painel no Portal. As IDs de recursos do Azure não podem ser renomeadas, mas as marcas podem. Essa marca fornece uma maneira de ter um nome de exibição de renomeável para seu painel.
 
 `"tags": { "hidden-title": "Created via API" }`
 
-### <a name="the-properties-object"></a>O objecto de propriedades
-O objecto de propriedades contém duas propriedades, __lentes__ e __metadados__. O __lentes__ propriedade contém informações sobre os mosaicos (também conhecido como partes) no dashboard.  O __metadados__ propriedade existe para potenciais futuras funcionalidades.
+### <a name="the-properties-object"></a>O objeto Properties
+O objeto Properties contém duas propriedades, __lentes__ e __metadados__. A propriedade __lentes__ contém informações sobre os blocos (também conhecido como partes) no painel.  A propriedade __Metadata__ está lá para possíveis recursos futuros.
 
-### <a name="the-lenses-property"></a>A propriedade de lentes
-O __lentes__ propriedade contém o dashboard. Tenha em atenção que os pontos de vista certos objeto neste exemplo contém uma única propriedade chamada "0". Lentes são um conceito de agrupamento que não está atualmente implementado nos dashboards. Por agora, todos os seus dashboards têm esta única propriedade no objeto de lente, novamente, chamada "0".
+### <a name="the-lenses-property"></a>A propriedade lentes
+A propriedade __lentes__ contém o painel. Observe que o objeto de lentes neste exemplo contém uma única propriedade chamada "0". As lentes são um conceito de agrupamento que não está implementado atualmente em painéis. Por enquanto, todos os seus painéis têm essa propriedade única no objeto Lens, novamente, chamado "0".
 
 ### <a name="the-lens-object"></a>O objeto de lente
-O objeto por baixo do "0" contém duas propriedades, __ordem__ e __partes__.  Na versão atual de dashboards, __ordem__ é sempre 0. O __partes__ propriedade contém um objeto que define as partes individuais (também conhecido como mosaicos) no dashboard.
+O objeto sob o "0" contém duas propriedades, __Order__ e __Parts__.  Na versão atual dos painéis, o __pedido__ é sempre 0. A propriedade __Parts__ contém um objeto que define as partes individuais (também conhecido como blocos) no painel.
 
-O __partes__ objeto contém uma propriedade para cada parte, em que o nome da propriedade é um número. Este número não é significativo. 
+O objeto __Parts__ contém uma propriedade para cada parte, em que o nome da propriedade é um número. Esse número não é significativo. 
 
-### <a name="the-part-object"></a>O objeto de parte
-Cada objeto de parte individual tem um __posição__, e __metadados__.
+### <a name="the-part-object"></a>O objeto da parte
+Cada objeto da parte individual tem uma __posição__e __metadados__.
 
-### <a name="the-position-object"></a>O objeto de posição
-O __posição__ propriedade contém as informações de tamanho e localização para a parte expressa __x__, __y__, __rowSpan__e o __colSpan__. Os valores são em termos de unidades de grade. Estas unidades de grelha estão visíveis quando o dashboard está no modo de personalizar, conforme mostrado aqui. Se pretender que um mosaico para ter uma largura de duas unidades de grade, uma altura de unidade de uma grade e uma localização no canto superior esquerdo do dashboard, em seguida, o objeto de posição tem o seguinte aspeto:
+### <a name="the-position-object"></a>O objeto Position
+A propriedade __Position__ contém as informações de tamanho e local da parte expressa como __x__, __y__, __RowSpan__e __ColSpan__. Os valores estão em termos de unidades de grade. Essas unidades de grade ficam visíveis quando o painel está no modo de personalização, como mostrado aqui. Se você quiser que um bloco tenha uma largura de duas unidades de grade, uma altura de uma unidade de grade e um local no canto superior esquerdo do painel, o objeto de posição terá esta aparência:
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
-![unidades de grelha](./media/azure-portal-dashboards-structure/grid-units.png)
+![unidades de grade](./media/azure-portal-dashboards-structure/grid-units.png)
 
 ### <a name="the-metadata-object"></a>O objeto de metadados
-Cada parte tem uma propriedade de metadados, um objeto tem apenas uma propriedade necessária chamada __tipo__. Esta cadeia informa ao portal do mosaico para mostrar. Nosso dashboard de exemplo usa esses tipos de mosaicos:
+Cada parte tem uma propriedade de metadados, um objeto tem apenas uma propriedade necessária chamada __Type__. Essa cadeia de caracteres informa ao Portal qual bloco mostrar. Nosso painel de exemplo usa estes tipos de blocos:
 
 
-1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – Utilizada para mostrar métricas de monitorização
-1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – Utilizada para mostrar com texto ou imagens com formatação básicos para listas, ligações, etc.
-1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Utilizado para mostrar o vídeos do YouTube, do Channel 9 e qualquer outro tipo de vídeo que funciona numa etiqueta de vídeo de HTML.
-1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – Utilizado para mostrar o nome e o estado de uma máquina virtual do Azure.
+1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – usado para mostrar as métricas de monitoramento
+1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – usado para mostrar com texto ou imagens com formatação básica para listas, links, etc.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart` – usado para mostrar vídeos do YouTube, channel9 e qualquer outro tipo de vídeo que funcione em uma marca de vídeo HTML.
+1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – usado para mostrar o nome e o status de uma máquina virtual do Azure.
 
-Cada tipo de parte tem sua própria configuração. As propriedades de configuração possíveis são chamadas __entradas__, __definições__, e __asset__. 
+Cada tipo de parte tem sua própria configuração. As propriedades de configuração possíveis são chamadas de __entradas__, __configurações__e __ativos__. 
 
 ### <a name="the-inputs-object"></a>O objeto de entradas
-O objeto de entradas geralmente contém informações que vincula um mosaico para uma instância de recurso.  A parte de máquina virtual no nosso dashboard de exemplo contém uma entrada única que utiliza o id de recurso do Azure para expressar o enlace.  Este formato de id de recurso é consistente em todos os recursos do Azure.
+O objeto de entradas geralmente contém informações que associam um bloco a uma instância de recurso.  A parte da máquina virtual em nosso painel de exemplo contém uma única entrada que usa a ID de recurso do Azure para expressar a associação.  Esse formato de ID de recurso é consistente em todos os recursos do Azure.
 
 ```json
 "inputs":
@@ -356,7 +356,7 @@ O objeto de entradas geralmente contém informações que vincula um mosaico par
 ]
 
 ```
-A parte do gráfico de métricas tem uma entrada única que expresse o recurso para vincular a, assim como informações sobre o metric(s) sendo exibida. Segue-se a entrada para o mosaico que mostra as métricas de rede na rede e saída.
+A parte do gráfico de métricas tem uma única entrada que expressa o recurso para associar, bem como informações sobre as métricas que estão sendo exibidas. Aqui está a entrada para o bloco que mostra as métricas de rede e saída de rede.
 
 ```json
 “inputs”:
@@ -390,8 +390,8 @@ A parte do gráfico de métricas tem uma entrada única que expresse o recurso p
 
 ```
 
-### <a name="the-settings-object"></a>O objeto de definições
-O objeto settings contém os elementos configuráveis de uma parte.  No nosso dashboard de exemplo, a parte de Markdown utiliza definições para armazenar a conteúdo, bem como um configurável título e subtítulo personalizada de markdown.
+### <a name="the-settings-object"></a>O objeto de configurações
+O objeto Settings contém os elementos configuráveis de uma parte.  Em nosso painel de exemplo, a parte de redução usa as configurações para armazenar o conteúdo de redução personalizada, bem como um título e subtítulo configuráveis.
 
 ```json
 "settings": 
@@ -409,7 +409,7 @@ O objeto settings contém os elementos configuráveis de uma parte.  No nosso da
 
 ```
 
-Da mesma forma, o mosaico de vídeo tem suas próprias definições que contêm um ponteiro para o vídeo seja reproduzido, uma definição de reprodução automática e informações de título opcional.
+Da mesma forma, o bloco de vídeo tem suas próprias configurações que contêm um ponteiro para o vídeo a ser reproduzido, uma configuração de reprodução automática e informações de título opcionais.
 
 ```json
 "settings": 
@@ -428,7 +428,7 @@ Da mesma forma, o mosaico de vídeo tem suas próprias definições que contêm 
 
 ```
 
-### <a name="the-asset-object"></a>O objeto de ativo
-Mosaicos ligados a primeira categoria gerenciáveis objetos portais (chamados de ativos) tem esta relação expressa via o objeto de ativo.  No nosso dashboard de exemplo, o mosaico de máquina virtual contém essa descrição do recurso.  O __idInputName__ propriedade informa ao portal do que o id de entrada contém o identificador exclusivo para o elemento, nesse caso, o id de recurso. Tipos de recursos Azure mais tem recursos definidos no portal.
+### <a name="the-asset-object"></a>O objeto Asset
+Blocos que são associados a objetos de portal gerenciáveis de primeira classe (chamados ativos) têm essa relação expressa por meio do objeto de ativo.  Em nosso painel de exemplo, o bloco da máquina virtual contém essa descrição do ativo.  A propriedade __idInputName__ informa ao portal que a entrada de ID contém o identificador exclusivo para o ativo, nesse caso, a ID do recurso. A maioria dos tipos de recursos do Azure tem ativos definidos no Portal.
 
 `"asset": {    "idInputName": "id",    "type": "VirtualMachine"    }`

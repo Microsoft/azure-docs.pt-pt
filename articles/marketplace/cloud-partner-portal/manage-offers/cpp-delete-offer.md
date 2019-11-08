@@ -1,76 +1,77 @@
 ---
-title: Eliminar as ofertas do marketplace | O Azure Marketplace
-description: Eliminar ofertas no Azure e mercados de AppSource com o Portal de parceiro de Cloud
+title: Excluir ofertas do Marketplace | Azure Marketplace
+description: Excluir ofertas nos Marketplaces do Azure e do AppSource usando o Portal do Cloud Partner
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pabutler
-ms.openlocfilehash: 542bc611ac8820385c3f749aa151afc1dcdf6db5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a75fbb0c4b9c364342a406a8076128346943101
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942110"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826769"
 ---
-# <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Eliminar ofertas do Azure Marketplace e AppSource ou SKUs
+# <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Excluir ofertas ou SKUs do Azure Marketplace e AppSource
 
-Por vários motivos, pode decidir retirar a oferta do seu Microsoft marketplace, que pode assumir duas formas:
+Por vários motivos, você pode optar por retirar sua oferta de seu Microsoft Marketplace, que pode ter duas formas:
 
-- *Remoção da oferta* garante que os novos clientes já não podem comprar ou implementar a sua oferta, mas não afeta os clientes existentes, quem tem de suportar, de acordo com seu contrato de licença e leis pertinentes. 
-- *Cessação da oferta* é o processo de extinção do serviço e/ou contrato de licenciamento entre e seus clientes existentes. 
+- A *remoção da oferta* garante que novos clientes não possam mais comprar ou implantar sua oferta, mas não têm impacto sobre os clientes existentes, com os quais você deve dar suporte de acordo com seu contrato de licença e com as leis pertinentes. 
+- O *encerramento da oferta* é o processo de encerrar o serviço e/ou o contrato de licenciamento entre você e os clientes existentes. 
 
-Documentação de orientação e as políticas relacionadas com a remoção e extinção da oferta são regidas pelos [contrato de publicador do Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) e o [políticas de participação](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (secção [oferta remoção e suspensão](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
+Diretrizes e políticas relacionadas à remoção e ao encerramento da oferta são regidas por [Microsoft Marketplace contrato de editor](https://go.microsoft.com/fwlink/?LinkID=699560) e as [políticas de participação](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (seção [oferecendo suspensão e remoção](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
 
-Fala este artigo sobre os diferentes suportadas cenários de exclusão e os passos necessários para executar cada um deles.  
-
-> [!NOTE]
-> Pode eliminar uma oferta que não tenha sido publicada ao selecionar o **elimine** botão na barra de ferramentas a **Editor** separador.
-
-
-## <a name="delete-a-published-sku-from-the-azure-marketplace"></a>Eliminar um SKU publicado no Azure Marketplace
-
-Pode eliminar um SKU publicado no Azure Marketplace através dos seguintes passos:
-
-1.  Inicie sessão para o [Portal de parceiros da Cloud](https://cloudpartner.azure.com/).
-2.  Na **todas as ofertas** , selecione a sua oferta.  A oferta deve ser exibida no **Editor** separador.
-3.  Na barra de ferramentas da lado esquerda, selecione o **SKUs** separador. 
-4.  Selecione o SKU que pretende eliminar e clique nas **eliminar** botão.
-5.  [Voltar a publicar](./cpp-publish-offer.md) a oferta no Azure Marketplace.
-
-Depois da oferta modificada é publicada no Azure Marketplace, o SKU selecionado já não será apresentado no Azure Marketplace e do portal do Azure.
-
-
-## <a name="roll-back-to-a-previous-sku-version"></a>Reverter para uma versão anterior de SKU
-
-Pode eliminar a versão atual de um SKU publicada no Azure Marketplace através dos passos aqui. Quando o processo estiver concluído, o SKU é revertido para a versão anterior.
-
-1. Inicie sessão para o [Portal de parceiros da Cloud](https://cloudpartner.azure.com/).
-2. Na **todas as ofertas** , selecione a sua oferta.  A oferta deve ser exibida no **Editor** separador.
-3. Na barra de ferramentas da lado esquerda, selecione o **SKUs** separador. 
-4. Elimine a versão mais recente do recurso de solução associados da lista de versões de disco.  Consoante o tipo de oferta, este campo pode ser **versão de disco**, **versões de pacotes**, ou recurso semelhante. 
-5. [Voltar a publicar](./cpp-publish-offer.md) a oferta no Azure Marketplace.
-
-Depois da oferta modificada é publicada no theAzure Marketplace, a versão atual do SKU listado já não será listada. no Azure Marketplace e o portal do Azure.  O SKU é revertido para a versão anterior.
-
-
-## <a name="delete-a-live-offer"></a>Eliminar uma oferta em direto
-
-Existem vários procedimentos, empresa e os aspectos legais para remover uma oferta em direto. Siga os passos seguintes para obter documentação de orientação da Equipe do suporte para remover uma oferta em direto no Azure Marketplace:
-
-1.  Emitir um pedido de suporte através do [criar um incidente](https://go.microsoft.com/fwlink/?linkid=844975) página ou ao clicar em **suportar** no canto superior direito do [Cloud Partner Portal](https://cloudpartner.azure.com/).
-
-2.  Selecione o tipo de oferta específico no **tipo de problema** lista e selecione **remover uma oferta publicada** no **categoria** lista.
-
-3.  Submeta o pedido.
-
-A equipa de suporte orienta-o ao longo do processo de eliminação de oferta.
+Este artigo fala sobre os diferentes cenários de exclusão com suporte e as etapas necessárias para executar cada um.  
 
 > [!NOTE]
-> A eliminar uma oferta (ou SKU) não irá afetar a compra atual dessa oferta (ou SKU). Estas compras irão continuar a trabalhar como antes. No entanto, ofertas eliminadas ou SKUs não estarão disponíveis para quaisquer compras futuras.
+> Você pode excluir uma oferta que não foi publicada simplesmente selecionando o botão **excluir** na barra de ferramentas da guia **Editor** .
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="delete-a-published-sku-from-the-azure-marketplace"></a>Excluir uma SKU publicada do Azure Marketplace
 
-Depois de se familiarizar com as operações básicas, utilizadas para gerir ofertas, está pronto para criar uma instância de um Microsoft [oferta do marketplace](../cpp-marketplace-offers.md).
+Você pode excluir uma SKU publicada do Azure Marketplace usando as seguintes etapas:
+
+1.  Entre no [portal do Cloud Partner](https://cloudpartner.azure.com/).
+2.  Na página **todas as ofertas** , selecione sua oferta.  Sua oferta deve ser exibida na guia **Editor** .
+3.  Na barra de ferramentas à esquerda, selecione a guia **SKUs** . 
+4.  Selecione a SKU que você deseja excluir e clique no botão **excluir** .
+5.  [Republique](./cpp-publish-offer.md) a oferta no Azure Marketplace.
+
+Depois que a oferta modificada for publicada no Azure Marketplace, o SKU selecionado não será mais listado no Azure Marketplace e portal do Azure.
+
+
+## <a name="roll-back-to-a-previous-sku-version"></a>Reverter para uma versão anterior do SKU
+
+Você pode excluir a versão atual de uma SKU publicada do Azure Marketplace usando as etapas aqui. Quando o processo for concluído, a SKU será revertida para a versão anterior.
+
+1. Entre no [portal do Cloud Partner](https://cloudpartner.azure.com/).
+2. Na página **todas as ofertas** , selecione sua oferta.  Sua oferta deve ser exibida na guia **Editor** .
+3. Na barra de ferramentas à esquerda, selecione a guia **SKUs** . 
+4. Exclua a versão mais recente do ativo de solução associado da lista de versões de disco.  Dependendo do tipo de oferta, esse campo pode ser **versão do disco**, **versões do pacote**ou ativo semelhante. 
+5. [Republique](./cpp-publish-offer.md) a oferta no Azure Marketplace.
+
+Depois que a oferta modificada for publicada no Azure Marketplace, a versão atual da SKU listada não será mais listada. no Azure Marketplace e no portal do Azure.  A SKU é revertida para a versão anterior.
+
+
+## <a name="delete-a-live-offer"></a>Excluir uma oferta ao vivo
+
+Há vários aspectos legais, de negócios e de procedimentos para remover uma oferta dinâmica. Siga as etapas a seguir para obter diretrizes da equipe de suporte para remover uma oferta dinâmica do Azure Marketplace:
+
+1.  Gere um tíquete de suporte usando a página [criar um incidente](https://go.microsoft.com/fwlink/?linkid=844975) ou clicando em **suporte** no canto superior direito do [portal do Cloud Partner](https://cloudpartner.azure.com/).
+
+2.  Selecione o tipo de oferta específico na lista **tipo de problema** e selecione **remover uma oferta publicada** na lista **categoria** .
+
+3.  Envie a solicitação.
+
+A equipe de suporte orienta você pelo processo de exclusão da oferta.
+
+> [!NOTE]
+> A exclusão de uma oferta (ou SKU) não afetará as compras atuais dessa oferta (ou SKU). Essas compras continuarão a funcionar como antes. No entanto, ofertas ou SKUs excluídos não estarão disponíveis para compras futuras.
+
+
+## <a name="next-steps"></a>Passos seguintes
+
+Depois de se familiarizar com as operações básicas usadas para gerenciar ofertas, você estará pronto para criar uma instância de uma [oferta](../cpp-marketplace-offers.md)do Microsoft Marketplace.

@@ -4,15 +4,16 @@ description: Defina as configurações de oferta em uma oferta de serviço de co
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 8a89c1c548469b568a34521b240683af285c2342
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e505f9aa1ec08708b85176d5b05fc5b40ceb295e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485189"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818133"
 ---
 # <a name="offer-settings-tab"></a>Separador Definições de Oferta
 

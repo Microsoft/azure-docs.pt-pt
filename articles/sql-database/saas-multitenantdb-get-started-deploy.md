@@ -1,5 +1,5 @@
 ---
-title: 'Implantar um aplicativo SaaS fragmentado de banco de dados multilocatário que usa o banco de dados SQL do Azure '
+title: Implantar um aplicativo SaaS de banco de dados multilocatário fragmentado
 description: Implante e explore o aplicativo de banco de dados multilocatário SaaS da Wingtip tickets, que demonstra os padrões de SaaS usando o banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
 ms.date: 10/16/2018
-ms.openlocfilehash: aa61c9af2e8fbfbe1caeaffb6231afe5b8be6f3c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3277318e01362df8fc21ff7ca769aaeb8006abc6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692040"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827999"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implantar e explorar um aplicativo multilocatário fragmentado
 

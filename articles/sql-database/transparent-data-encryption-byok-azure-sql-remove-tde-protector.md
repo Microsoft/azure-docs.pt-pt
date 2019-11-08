@@ -1,22 +1,22 @@
 ---
-title: PowerShell-remover um protetor de TDE-banco de dados SQL do Azure | Microsoft Docs
+title: Remover o protetor de TDE – PowerShell
 description: Guia de instruções para responder a um protetor de TDE potencialmente comprometido para um banco de dados SQL do Azure ou data warehouse usando TDE com suporte a BYOK (traga sua própria chave).
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: dc117dd844a3a47cafa1b37170c95fe852bb82ef
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: df1bf5a53cd5c49465acbe363c71a4a316cd2cc9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566062"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820782"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remover um protetor de Transparent Data Encryption (TDE) usando o PowerShell
 
@@ -40,16 +40,16 @@ Se uma chave já suspeita de comprometimento, de modo que um serviço ou usuári
 
 Tenha em mente que, depois que o protetor de TDE for excluído no Key Vault, **todas as conexões com os bancos de dados criptografados no servidor serão bloqueadas e esses bancos de dados ficarão offline e serão descartados dentro de 24 horas**. Os backups antigos criptografados com a chave comprometida não são mais acessíveis.
 
-As etapas a seguir descrevem como verificar as impressões digitais do protetor de TDE que ainda estão em uso por VLF (arquivos de log virtuais) de um determinado banco de dados. A impressão digital do protetor de TDE atual do banco de dados e a ID do banco de dados podem ser encontradas executando: SELECT [database_id],       [encryption_state], [encryptor_type],/*Key assimétrica significa akv, certificado significa chaves gerenciadas pelo serviço*/[encryptor_thumbprint], de [sys]. [ dm_database_encryption_keys] 
+As etapas a seguir descrevem como verificar as impressões digitais do protetor de TDE que ainda estão em uso por VLF (arquivos de log virtuais) de um determinado banco de dados. A impressão digital do protetor de TDE atual do banco de dados e a ID do banco de dados podem ser encontradas executando: SELECT [database_id],       [encryption_state], [encryptor_type],/*Key assimétrica significa akv, certificado significa chaves gerenciadas pelo serviço*/[ encryptor_thumbprint], de [sys]. [dm_database_encryption_keys] 
  
-A consulta a seguir retorna o VLFs e o criptografador respectivas impressões digitais em uso. Cada impressão digital diferente refere-se a uma chave diferente em Azure Key Vault (AKV): Selecione * de sys. dm _db_log_info (database_id) 
+A consulta a seguir retorna o VLFs e o criptografador respectivas impressões digitais em uso. Cada impressão digital diferente refere-se a uma chave diferente em Azure Key Vault (AKV): SELECT * FROM sys. dm_db_log_info (database_id) 
 
 O comando Get-AzureRmSqlServerKeyVaultKey do PowerShell fornece a impressão digital do protetor de TDE usado na consulta, para que você possa ver quais chaves manter e quais chaves serão excluídas em AKV. Somente as chaves que não são mais usadas pelo banco de dados podem ser excluídas com segurança do Azure Key Vault.
 
 Este guia de instruções passa por duas abordagens dependendo do resultado desejado após a resposta a incidentes:
 
 - Para manter os bancos de dados SQL/data warehouses do Azure **acessíveis**
-- Para tornar os bancos de dados SQL/data warehouses do Azure inacessíveis
+- Para tornar os bancos de dados SQL/data warehouses do Azure **inacessíveis**
 
 ## <a name="to-keep-the-encrypted-resources-accessible"></a>Para manter os recursos criptografados acessíveis
 
@@ -115,7 +115,7 @@ Este guia de instruções passa por duas abordagens dependendo do resultado dese
 2. Faça backup do material da chave do protetor de TDE no Key Vault.
 3. Remover a chave potencialmente comprometida de Key Vault
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como girar o protetor de TDE de um servidor para atender aos requisitos de segurança: [Girar o protetor de Transparent Data Encryption usando o PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md)
-- Introdução ao suporte do Bring Your Own Key para TDE: [Ativar o TDE usando sua própria chave de Key Vault usando o PowerShell](transparent-data-encryption-byok-azure-sql-configure.md)
+- Saiba como girar o protetor de TDE de um servidor para atender aos requisitos de segurança: [girar o protetor de Transparent Data Encryption usando o PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md)
+- Introdução ao suporte de Bring Your Own Key para TDE: [ative o TDE usando sua própria chave de Key Vault usando o PowerShell](transparent-data-encryption-byok-azure-sql-configure.md)

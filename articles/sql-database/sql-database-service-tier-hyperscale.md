@@ -1,5 +1,5 @@
 ---
-title: Visão geral do hiperescala do banco de dados SQL do Azure
+title: Visão geral do hiperescala
 description: Este artigo descreve a camada de serviço de hiperescala no modelo de compra baseado em vCore no banco de dados SQL do Azure e explica como ele é diferente das camadas de serviço Uso Geral e Comercialmente Crítico.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 38402d6ccf5c5582fff878ad60bf1c9fd4a07118
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3a448147390ff2dd6a8049e8338a4cbf2bd94ce3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687321"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821108"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
 
@@ -181,7 +181,7 @@ No momento, a camada de hiperescala do banco de dados SQL do Azure está dispon�
 - Oeste do Japão
 - Coreia do Sul Central
 - Coreia do Sul
-- E.U.A. Centro-Norte
+- EUA Centro-Norte
 - Europa do Norte
 - Norte da África do Sul
 - EUA Centro-Sul
@@ -189,7 +189,7 @@ No momento, a camada de hiperescala do banco de dados SQL do Azure está dispon�
 - Sul do Reino Unido
 - Reino Unido Oeste
 - Europa Ocidental
-- Oeste dos E.U.A.
+- EUA Oeste
 - EUA Oeste 2
 
 Se desejar criar um banco de dados de hiperescala em uma região que não esteja listada como com suporte, você poderá enviar uma solicitação de integração via portal do Azure. Estamos trabalhando para expandir a lista de regiões com suporte; portanto, verifique novamente a lista de regiões mais recente.

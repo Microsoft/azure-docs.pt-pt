@@ -4,15 +4,16 @@ description: Configure o gerenciamento de leads para clientes do Marketo para o 
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: evansma
-ms.openlocfilehash: 9470a593f5db564689a0b26601a201874c215aa2
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 8d13e8c3aeabf6d3fdea80ffddbae47b80adc139
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902094"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812127"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Configurar gerenciamento de leads no Marketo
 
@@ -22,16 +23,16 @@ Este artigo descreve como configurar seu sistema CRM do Marketo para processar o
 
 1. Entre no Marketo.
 2. Selecione **Design Studio**.
-    ![Estúdio de design do marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-1.png)
+    ![Studio de design do Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-1.png)
 
 3.  Selecione **novo formulário**.
-    ![Novo formulário do marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-2.png)
+    novo formulário do ![Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-2.png)
 
 4.  Preencha os campos obrigatórios no novo formulário e, em seguida, selecione **criar**.
-    ![Criar novo formulário do marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png)
+    ![Marketo criar novo formulário](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png)
 
 5.  Em detalhes do campo, selecione **concluir**.
-    ![Formulário de conclusão do marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-4.png)
+    ](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-4.png) formulário de conclusão ![Marketo
 
 6.  Aprove e feche.
 
@@ -54,8 +55,8 @@ Este artigo descreve como configurar seu sistema CRM do Marketo para processar o
 
     **Outra maneira de descobrir esses valores**
 
-    - A ID do servidor é encontrada na URL da sua instância do Marketo, por exemplo`serverID.marketo.com`, "".
-    - Obtenha a ID do munching da sua assinatura acessando o menu do administrador > Munchkin no campo "ID da conta do Munchkin" ou na primeira parte do subdomínio do host da API REST `https://{Munchkin ID}.mktorest.com`do marketo:.
+    - A ID do servidor é encontrada na URL da sua instância do Marketo, por exemplo, "`serverID.marketo.com`".
+    - Obtenha a ID do munching da sua assinatura acessando o menu do administrador > Munchkin no campo "ID da conta do Munchkin" ou na primeira parte do subdomínio do host da API REST do Marketo: `https://{Munchkin ID}.mktorest.com`.
     - ID de formulário é a ID do formulário de código de inserção criado na etapa 7 para rotear clientes potenciais de nosso Marketplace.
 
 ## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Configurar sua oferta para enviar clientes potenciais ao Marketo

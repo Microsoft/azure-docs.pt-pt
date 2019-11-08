@@ -1,5 +1,5 @@
 ---
-title: Segurança de instância gerenciada do banco de dados SQL do Azure usando entidades do Azure AD Server (logons)
+title: Segurança de instância gerenciada com entidades do servidor do Azure AD (logons)
 description: Saiba mais sobre técnicas e recursos para proteger uma instância gerenciada no banco de dados SQL do Azure e usar entidades de segurança do servidor do Azure AD (logons)
 services: sql-database
 ms.service: sql-database
@@ -9,12 +9,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 4816b59c56f10a20f74777ad1badc11b59a599d1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bd65a21c2aa21643c76966410931949db7d17ad6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689469"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822794"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutorial: segurança de instância gerenciada no banco de dados SQL do Azure usando entidades do Azure AD Server (logons)
 

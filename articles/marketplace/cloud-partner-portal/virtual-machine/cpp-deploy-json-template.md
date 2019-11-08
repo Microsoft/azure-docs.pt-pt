@@ -1,22 +1,23 @@
 ---
-title: Modelo de implementação de VHD do Azure | O Azure Marketplace
-description: Lista o modelo de Gestor de recursos do Azure necessário para implementar uma nova máquina virtual do Azure a partir de um disco rígido virtual do utilizador.
+title: Modelo de implantação do VHD do Azure | Azure Marketplace
+description: Lista o modelo de Azure Resource Manager necessário para implantar uma nova máquina virtual do Azure de um disco rígido virtual do usuário.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 73f53f72d4db88bc0487999165d25fc952cf4a20
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddaf9213980e666ea69c700ad26b9db52886c9cb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938278"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821415"
 ---
-# <a name="virtual-hard-disk-deployment-template"></a>Modelo de implementação de disco rígido virtual 
+# <a name="virtual-hard-disk-deployment-template"></a>Modelo de implantação de disco rígido virtual 
 
-O modelo Azure Resource Manager seguinte define uma nova instância de máquina virtual do Azure (VM), criada a partir de disco rígido virtual (VHD) local.  Este modelo é utilizado no artigo [implementar uma VM do Azure de um usuário VHD](./cpp-deploy-vm-user-image.md). 
+O modelo de Azure Resource Manager a seguir define uma nova instância de VM (máquina virtual) do Azure, criada a partir do VHD (disco rígido virtual) local.  Este modelo é usado no artigo [implantar uma VM do Azure de um VHD de usuário](./cpp-deploy-vm-user-image.md). 
 
 ```json
 {

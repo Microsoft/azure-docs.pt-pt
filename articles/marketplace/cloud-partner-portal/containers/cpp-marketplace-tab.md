@@ -1,42 +1,43 @@
 ---
-title: Definições de Marketplace para uma imagem de contentores do Azure | O Azure Marketplace
-description: Configure definições de mercado para um contentor do Azure.
+title: Configurações do Marketplace para uma imagem de contêineres do Azure | Azure Marketplace
+description: Defina as configurações do Marketplace para um contêiner do Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: f2d735662fcd177f64d1ebc71a25b7d7629db3ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d7c930f3adcfb4b4d092cc909bf4468ced3271f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942638"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823195"
 ---
-# <a name="container-marketplace-tab"></a>Separador de Marketplace do contentor
+# <a name="container-marketplace-tab"></a>Guia Marketplace do contêiner
 
-O **Marketplace** separador da **nova oferta** página permite-lhe fornecer os seus clientes potenciais informações de marketing, vendas e legais e contratos e gerir as oportunidades potenciais geradas a partir do Marketplace. Adicionar o seu conteúdo de marketing específico para o **descrição geral** secção.
+A guia **Marketplace** da página **nova oferta** permite que você forneça a seus clientes potenciais com marketing, vendas e informações legais e contratos e gerencie clientes potenciais gerados no Marketplace. Adicione seu conteúdo específico de marketing à seção **visão geral** .
 
 ## <a name="overview"></a>Descrição geral
 
-Nesta secção, é possível inserir as informações gerais sobre a sua oferta do Azure Marketplace.  Um asterisco (*) acrescentado ao nome do campo indica que é obrigatório.
+Nesta seção, você insere as informações gerais sobre sua oferta do Azure Marketplace.  Um asterisco (*) acrescentado ao nome do campo indica que ele é necessário.
 
-![Informação do Marketplace](./media/containers-marketplace-tab.png)
+![Informações do Marketplace](./media/containers-marketplace-tab.png)
 
-A tabela seguinte descreve a finalidade e o conteúdo desses campos. Campos obrigatórios são indicted por um asterisco (*).
+A tabela a seguir descreve a finalidade e o conteúdo desses campos. Os campos obrigatórios são indicted por um asterisco (*).
 
 |    Campo                  |       Descrição                                                            |
 |  ---------                |     ---------------                                                          |
-| **Título\***                 | Título da oferta. Será apresentado forma destacada no marketplace.  Comprimento máximo é de 50 carateres. |
-| **Resumo\***               | Breve resumo da oferta. Comprimento máximo é 100 carateres. |
-| **Resumo completo\***          | Já resumo da oferta (embora pode ser igual a **resumo**).  Comprimento máximo é de 256 carateres. |
-| **Descrição\***           | Descrição da oferta.  Comprimento máximo é 3000 carateres, oferece suporte a formatação de HTML simples.
-| **Identificador de marketing**  | Uma URL exclusiva para associar a esta oferta, que normalmente inclui o nome da sua organização e a solução. Comprimento máximo é de 50 carateres.   |
-| **Ids de subscrição de pré-visualização\*** | Adicione um e 100 identificadores de subscrição dos visualizadores. Estas subscrições listadas em branco têm acesso para a oferta assim que for publicado, antes de entrar no ar. |
+| **Título\***                 | Título da oferta. Ele será exibido em destaque no Marketplace.  O comprimento máximo é de 50 caracteres. |
+| **\* de resumo**               | Breve resumo da oferta. O comprimento máximo é de 100 caracteres. |
+| **Resumo longo\***          | Resumo mais longo da oferta (embora possa ser o mesmo que o **Resumo**).  O comprimento máximo é de 256 caracteres. |
+| **Descrição\***           | Descrição da oferta.  O comprimento máximo é de 3000 caracteres, dá suporte à formatação HTML simples.
+| **Identificador de marketing**  | Uma URL exclusiva para associar a esta oferta, que normalmente inclui o nome da sua organização e da solução. O comprimento máximo é de 50 caracteres.   |
+| **Visualizar IDs de assinatura\*** | Adicione um a 100 identificadores de assinatura de visualizações. Essas assinaturas listadas em branco terão acesso à oferta depois de publicadas, antes de entrar em tempo real. |
 |  |  |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Utilize o [suportar](./cpp-support-tab.md) separador para fornecer os técnicos e o utilizador recursos de suporte para a sua oferta.
+Use a guia [suporte](./cpp-support-tab.md) para fornecer os recursos técnicos e de suporte ao usuário para sua oferta.

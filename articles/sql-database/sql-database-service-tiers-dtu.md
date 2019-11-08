@@ -1,5 +1,5 @@
 ---
-title: 'Camadas de serviço do banco de dados SQL do Azure-modelo de compra baseado em DTU '
+title: Camadas de serviço-modelo de compra baseado em DTU
 description: Saiba mais sobre as camadas de serviço no modelo de compra baseado em DTU para bancos de dados individuais e em pool para fornecer tamanhos de computação e armazenamento.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 43f4f9e0d1e5f33dde32e5274dddf9d17776db21
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6d4c9dd08f2d00bc12f041748cc78363c9abecbd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687298"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822528"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Camadas de serviço no modelo de compra baseado em DTU
 

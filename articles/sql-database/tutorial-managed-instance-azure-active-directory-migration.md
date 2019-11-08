@@ -1,20 +1,21 @@
 ---
-title: Migrar SQL Server usuários e grupos locais do Windows para a instância gerenciada do banco de dados SQL do Azure usando a sintaxe DDL T-SQL
+title: Migrar usuários e grupos do SQL ServerWindows para a instância gerenciada usando o T-SQL
 description: Saiba mais sobre como migrar SQL Server usuários e grupos locais do Windows para a instância gerenciada
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+ms.custom: seo-lt-2019
 ms.topic: tutorial
 author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/30/2019
-ms.openlocfilehash: 079d684b56625b8327a94a1bfef222cb93572bd3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3ed4e4b1d37a9705378281ca74b53a6b60713d97
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686740"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807162"
 ---
 # <a name="tutorial-migrate-sql-server-on-premises-windows-users-and-groups-to-azure-sql-database-managed-instance-using-t-sql-ddl-syntax"></a>Tutorial: migrar SQL Server usuários e grupos locais do Windows para a instância gerenciada do banco de dados SQL do Azure usando a sintaxe DDL T-SQL
 

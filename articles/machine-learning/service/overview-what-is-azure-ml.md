@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: 9399353cb676ef4525e81229cf3920fd9d7e3aaf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7e07419115a6e9709879c71dfac1234408bda0ee
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684920"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824068"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -44,7 +44,7 @@ Azure Machine Learning fornece todos os desenvolvedores de ferramentas e cientis
 
 + Jupyter notebooks: Use nossos [notebooks de exemplo](https://aka.ms/aml-notebooks) ou crie seus próprios blocos de anotações para aproveitar nosso <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK para</a> exemplos de Python para o aprendizado de máquina. 
 
-+ Scripts r ou notebooks nos quais você usa o <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html on" target="_blank">SDK para R</a> para escrever seu próprio código ou usar os módulos do R no designer.
++ Scripts r ou notebooks nos quais você usa o <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK para R</a> para escrever seu próprio código ou usar os módulos do R no designer.
 
 + [Extensão de Visual Studio Code](how-to-vscode-tools.md)
 

@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 931f2fbe5798966c41378d9b401dcd59cafc5cca
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 9bb7114611ce5c7eabb8124ad11db64d50e12946
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820868"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809828"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade de entrada 
 
@@ -127,6 +127,7 @@ Você também pode acessar os dados de entrada programaticamente usando a [API d
 |50177|O desafio externo não tem suporte para usuários de passagem.|
 |50178|O controle de sessão não tem suporte para usuários de passagem.|
 |50180|É necessária a Autenticação Integrada do Windows Ativar o inquilino para SSO Totalmente Integrado.|
+|50181|Falha relacionada à OTP durante a entrada. |
 |50201|Essa interrupção de prompt de mensagem será mostrada ao usuário durante o logon quando informações adicionais devem ser fornecidas ao usuário.|
 |51001|A dica de domínio não está presente no identificador de segurança local-UPN local.|
 |51004|A conta de utilizador não existe no diretório.|

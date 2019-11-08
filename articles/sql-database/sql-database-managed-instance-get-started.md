@@ -1,5 +1,5 @@
 ---
-title: 'Portal do Azure: criar uma instância gerenciada do banco de dados SQL '
+title: 'Portal do Azure: criar uma instância gerenciada'
 description: Crie uma instância gerenciada do banco de dados SQL, um ambiente de rede e uma VM cliente para acesso.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: a1d5873d826f513d92a421f84e3b66a55262d906
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 578ab250d0759aa7216327124417019f2e5f1fc7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688079"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825470"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Início rápido: criar uma instância gerenciada do banco de dados SQL do Azure
 
@@ -54,10 +54,10 @@ As etapas a seguir mostram como criar uma instância gerenciada:
    | Definição| Valor sugerido | Descrição |
    | ------ | --------------- | ----------- |
    | **Subscrição** | Sua assinatura. | Uma assinatura que lhe dá permissão para criar novos recursos. |
-   | **Grupo de recursos** | Um grupo de recursos novo ou existente.|Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições).|
-   | **Nome da instância gerida** | Qualquer nome válido.|Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   | **Grupo de recursos** | Um grupo de recursos novo ou existente.|Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) (Atribuição de nomes de regras e restrições).|
+   | **Nome da instância gerida** | Qualquer nome válido.|Para nomes válidos, veja [Regras e restrições de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).|
    | **Região** |A região na qual você deseja criar a instância gerenciada.|Para obter informações sobre regiões, consulte [regiões do Azure](https://azure.microsoft.com/regions/).|
-   | **Início de sessão de administração da instância gerida** | Qualquer nome de usuário válido. | Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Não use "ServerAdmin" porque essa é uma função de nível de servidor reservada.|
+   | **Início de sessão de administração da instância gerida** | Qualquer nome de usuário válido. | Para nomes válidos, veja [Regras e restrições de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). Não use "ServerAdmin" porque essa é uma função de nível de servidor reservada.|
    | **Palavra-passe** | Qualquer senha válida.| A palavra-passe tem de ter, pelo menos, 16 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 
 - Selecione **configurar instância gerenciada** para dimensionar os recursos de computação e armazenamento e para examinar os tipos de preço. Utilize os controlos de deslize ou as caixas de texto para especificar a quantidade de armazenamento e o número de núcleos virtuais. Quando tiver terminado, selecione **aplicar** para salvar sua seleção. 

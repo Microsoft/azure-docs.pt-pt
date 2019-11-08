@@ -7,12 +7,12 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: 8ce032a6ad10b22bed5d266bb23fe81846e8a072
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 6349f90eeacaedb03db4d6e91902fea69a8d0dae
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72795851"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818023"
 ---
 # <a name="different-stages-in-mobile-application-development"></a>Diferentes estágios no desenvolvimento de aplicativos móveis
 A criação de um aplicativo móvel envolve vários estágios e os desenvolvedores podem aproveitar facilmente os serviços, as ferramentas e as tecnologias da Microsoft para criar aplicativos móveis de alta classe.
@@ -35,6 +35,6 @@ Os desenvolvedores que criam aplicativos móveis e voltados para a nuvem podem a
 
 ## <a name="additional-services"></a>Serviços adicionais
 Há muitos serviços do Azure que podem ser consumidos dependendo do tipo e da natureza do aplicativo que está sendo compilado.
-  - Azure Search para pesquisar todos os tipos de dados internos, com consulta rápida.
+  - Pesquisa Cognitiva do Azure para pesquisar todos os tipos de dados internos, com consulta rápida.
   - Serviços cognitivas do Azure para usar inteligência artificial em seu aplicativo.
   - O Azure Signalr para habilitar a comunicação em tempo real em seu aplicativo.

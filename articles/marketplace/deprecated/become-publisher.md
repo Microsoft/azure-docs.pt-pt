@@ -5,22 +5,23 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
 manager: nunoc
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 11ab9f6bb4ab61a669c9c898ee9f5668b7cd568f
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b306c4e8f0362d714e9c5ae076f18e161f1dab53
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598655"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826009"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Torne-se um Publicador do Cloud Marketplace
 
 Este artigo aborda o registro como um editor de Marketplace de nuvem. Dependendo da opção de publicação selecionada, e sua associação atual em Microsoft Partner Network algumas das etapas a seguir podem não ser necessárias. Depois de registrado, você poderá criar ofertas do Marketplace para o Azure Marketplace ou AppSource.
 
 
-|  | Etapa de registro | Duration | Detalhes |  
+|  | Etapa de registro | Duração | Detalhes |  
 |:--- |:--- |:--- |:--- |  
 | 1 | Registrar no Microsoft Partner Network | 15 min | [Registrar no Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) |  
 | 2 | Criar uma conta da Microsoft <ul>(necessário para ofertas do Azure Marketplace Transact; recomendado para outros)</ul> | 15 min | [Criar uma ID da Microsoft](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) |  
@@ -29,7 +30,7 @@ Este artigo aborda o registro como um editor de Marketplace de nuvem. Dependendo
 | 5 | Registrar-se no centro de desenvolvedores da Microsoft (centro de desenvolvimento) (para ofertas do Azure Marketplace Transact) | 5-10 dias | [Registar no Dev Center](/azure/marketplace/deprecated/register-dev-center) |  
 
 
-## <a name="1-register-in-microsoft-partner-network"></a>1. Registrar no Microsoft Partner Network  
+## <a name="1-register-in-microsoft-partner-network"></a>1. Registre-se no Microsoft Partner Network  
 | 15 min |  
 A participação no Marketplace de nuvem da Microsoft requer a participação no Microsoft Partner Network (MPN), que também fornece os principais benefícios, programas e o controle de desempenho de parceiros. Se sua organização ainda não é um membro, junte-se ao Microsoft Partner Network (MPN) para se tornar um parceiro oficial da Microsoft e receba benefícios adicionais e suporte para publicação no Marketplace. 
 
@@ -43,9 +44,9 @@ Abra um tíquete com o [suporte ao parceiro](https://partner.microsoft.com/suppo
 
 ---
 
-## <a name="2-create-a-microsoft-account"></a>2. Criar uma conta da Microsoft  
+## <a name="2-create-a-microsoft-account"></a>2. criar uma conta da Microsoft  
 | 15 min |  
-Um conta Microsoft, por exemplo  *\@, Outlook.com \@ou Live.com*, é usado para acessar muitos dispositivos e serviços da Microsoft. Ele é necessário para as ofertas do Azure Marketplace Transact e recomendamos seu uso para todos os Publicadores de nuvem. Para obter mais informações sobre os benefícios e usos de um conta Microsoft, [visite esta página](https://account.microsoft.com/account/). Você usará um conta Microsoft pessoal para acessar o Portal do Cloud Partner, a plataforma de publicação que será usada para criar e gerenciar suas ofertas do Marketplace. 
+Um conta Microsoft, por exemplo, *\@Outlook.com ou \@Live.com*, é usado para acessar muitos dispositivos e serviços da Microsoft. Ele é necessário para as ofertas do Azure Marketplace Transact e recomendamos seu uso para todos os Publicadores de nuvem. Para obter mais informações sobre os benefícios e usos de um conta Microsoft, [visite esta página](https://account.microsoft.com/account/). Você usará um conta Microsoft pessoal para acessar o Portal do Cloud Partner, a plataforma de publicação que será usada para criar e gerenciar suas ofertas do Marketplace. 
 
 [! IMPORTANTE] Observe que um conta Microsoft associado ao seu email de trabalho não permitirá que você acesse o Portal.
 
@@ -59,7 +60,7 @@ Um conta Microsoft, por exemplo  *\@, Outlook.com \@ou Live.com*, é usado para 
 
 ---
 
-## <a name="3-create-a-partner-center-account"></a>3. Criar uma conta do Partner Center  
+## <a name="3-create-a-partner-center-account"></a>3. criar uma conta do Partner Center  
 | 15 min |  
 
 Depois de [enviar sua solução](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) para o Marketplace, nossa equipe de integração entrará em contato com você para dar suporte à sua experiência de publicação. Consulte como [criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) para obter mais informações.
@@ -74,21 +75,21 @@ You will be asked to include the following information:
 -->
 
 ---
-## <a name="4-sign-into-cloud-partner-portal"></a>4. Entrar Portal do Cloud Partner
+## <a name="4-sign-into-cloud-partner-portal"></a>4. entrar no Portal do Cloud Partner
 | 1-3 dias | <br>
 Nossa equipe de integração do Marketplace validará os detalhes de registro do Marketplace fornecidos na etapa 3. Depois de aprovado, você receberá um email de boas-vindas com credenciais de conta e orientação sobre como entrar no [portal do Cloud Partner](https://cloudpartner.azure.com).
 
 Você usará o [portal do Cloud Partner](https://cloudpartner.azure.com) para criar, publicar e gerenciar ofertas do Marketplace. Depois de receber o email de boas-vindas de aprovação, você pode fazer logon imediatamente no [portal do Cloud Partner](https://cloudpartner.azure.com) com seu conta Microsoft para acessar informações técnicas adicionais sobre como publicar no Marketplace e criar sua oferta. 
 *   Para obter mais informações sobre como usar Portal do Cloud Partner, [visite o artigo introdução na seção de aprendizado](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal). Você deve estar conectado ao Portal do Cloud Partner para acessar esses detalhes.
 *   Se você tiver dúvidas ou desejar agendar uma chamada de visão geral de integração, leia outros artigos neste guia do editor ou abra uma solicitação de suporte em tipo de problema > integração do Marketplace de dentro do Portal do Cloud Partner.
-*   Se você não recebeu o email de boas-vindas, verifique sua pasta de spam para obter um email com a linha de assunto "bem-vindo ao Microsoft Marketplace!." Se não houver email em sua pasta de spam, [entre em contato com o suporte da Microsoft](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). Na página de suporte, selecione: Tipo de problema > integração do Marketplace.  Nossa equipe de integração do editor do Marketplace ficará feliz em ajudá-lo em suas consultas. 
+*   Se você não recebeu o email de boas-vindas, verifique sua pasta de spam para obter um email com a linha de assunto "bem-vindo ao Microsoft Marketplace!." Se não houver email em sua pasta de spam, [entre em contato com o suporte da Microsoft](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). Na página de suporte, selecione: tipo de problema > integração do Marketplace.  Nossa equipe de integração do editor do Marketplace ficará feliz em ajudá-lo em suas consultas. 
 
 
-## <a name="5-register-in-dev-center-for-transact-publishing-option-only"></a>5. Registrar no centro de desenvolvimento (somente para a opção de publicação Transact) 
+## <a name="5-register-in-dev-center-for-transact-publishing-option-only"></a>5. registrar no centro de desenvolvimento (somente para a opção de publicação Transact) 
 | 5-10 dias |  
 Uma conta do [centro de desenvolvimento](https://developer.microsoft.com/store/register) é necessária para ofertas que usam a opção Transact Publishing: inclui máquinas virtuais, aplicativos do Azure e aplicativos SaaS configurados para venda por meio do Azure. Os detalhes da conta do [centro de desenvolvimento](https://developer.microsoft.com/store/register) são usados pela Microsoft para validar as informações legais, de impostos e bancárias para sua organização que serão usadas para fins de pagamento quando você vender e cobrar suas tarifas de licenciamento de software por meio do Azure Marketplace. 
 
-O processo de registro do [centro de desenvolvimento](https://developer.microsoft.com/store/register) pode ser iniciado antes de criar sua oferta no portal do Cloud Partner, mas deve ser concluído antes de publicar sua oferta do Marketplace. Dada a duração normal de 5 a 10 dias desta etapa, é recomendável iniciar esse processo o mais rápido possível se você pretende usar a opção Transact Publishing. 
+O processo de registro do [centro de desenvolvimento](https://developer.microsoft.com/store/register) pode ser iniciado antes de criar sua oferta no portal do Cloud Partner, mas deve ser concluído antes de publicar sua oferta do Marketplace. Dada a duração normal de 5-10 dias desta etapa, é recomendável iniciar esse processo o mais rápido possível se você pretende usar a opção Transact Publishing. 
 
 O registro individual no [centro de desenvolvimento](https://developer.microsoft.com/store/register) deve ser um representante válido da sua organização e deve fornecer informações pessoais para validar sua identidade. Registre-se com seu conta Microsoft, criado na etapa 2, e use o mesmo conta Microsoft que você usou para acessar o Portal do Cloud Partner.
 
@@ -105,7 +106,7 @@ Depois de concluir o registro do [centro de desenvolvimento](https://developer.m
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre as vitrines do Marketplace: [Comparando o AppSource e o Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+* Saiba mais sobre as vitrines do Marketplace: [comparando o AppSource e o Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
 *   [Determine o tipo de listagem para sua solução](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: criar seu primeiro banco de dados relacional no banco de dados SQL do Azure usando o SSMS '
+title: 'Tutorial: criar seu primeiro banco de dados relacional usando o SSMS'
 description: Aprenda a projetar seu primeiro banco de dados relacional em um único banco de dados no banco de dados SQL do Azure usando SQL Server Management Studio.
 services: sql-database
 ms.service: sql-database
@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
-ms.openlocfilehash: 1ea8bcd353311d0e6f666a0086f8f2f3b24b55d2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 97e603e6daa64bb70edefe06b52a7c45f90787f3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690735"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818308"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Tutorial: criar um banco de dados relacional em um banco de dados individual no banco de dados SQL do Azure usando o SSMS
 

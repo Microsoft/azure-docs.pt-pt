@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 7c60fdfd4d8e579c24da3c43501e4437806becc6
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: f7a6ab954aff1bcc2e3dae3fc035db4b136ccbbe
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241712"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818172"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Usar o cluster HDInsight Spark para analisar dados no Data Lake Storage Gen1
 
@@ -30,7 +30,7 @@ Neste artigo, você usa [Jupyter Notebook](https://jupyter.org/) disponíveis co
 > [!NOTE]  
 > Você não precisará executar esta etapa se tiver criado o cluster HDInsight com Data Lake Storage como armazenamento padrão. O processo de criação de cluster adiciona alguns dados de exemplo na conta de Data Lake Storage que você especifica ao criar o cluster. Pule para a seção usar o cluster HDInsight Spark com Data Lake Storage.
 
-Se você criou um cluster HDInsight com Data Lake Storage como armazenamento adicional e Azure Storage Blob como armazenamento padrão, primeiro copie em alguns dados de exemplo para a conta de Data Lake Storage. Você pode usar os dados de exemplo do Azure Storage Blob associado ao cluster HDInsight. Você pode usar a [ferramenta ADLCopy](https://aka.ms/downloadadlcopy) para fazer isso. Baixe e instale a ferramenta por meio do link.
+Se você criou um cluster HDInsight com Data Lake Storage como armazenamento adicional e Azure Storage Blob como armazenamento padrão, primeiro copie em alguns dados de exemplo para a conta de Data Lake Storage. Você pode usar os dados de exemplo do Azure Storage Blob associado ao cluster HDInsight. Você pode usar a [ferramenta ADLCopy](https://www.microsoft.com/download/details.aspx?id=50358) para fazer isso. Baixe e instale a ferramenta por meio do link.
 
 1. Abra um prompt de comando e navegue até o diretório em que o AdlCopy está instalado, normalmente `%HOMEPATH%\Documents\adlcopy`.
 

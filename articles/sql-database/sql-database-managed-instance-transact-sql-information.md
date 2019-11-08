@@ -1,5 +1,5 @@
 ---
-title: Diferenças de T-SQL da instância gerenciada do banco de dados SQL do Azure
+title: Diferenças de T-SQL de instância gerenciada
 description: Este artigo discute as diferenças de T-SQL entre uma instância gerenciada no banco de dados SQL do Azure e SQL Server
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 5efa52da0005d0b98820c648dfe7c8489bc39076
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3518404b76625e2557aaefdc6ab5ad7353683984
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687857"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823328"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferenças de T-SQL de instância gerenciada, limitações e problemas conhecidos
 
@@ -50,16 +50,16 @@ A [alta disponibilidade](sql-database-high-availability.md) é incorporada à in
 
 ### <a name="backup"></a>Cópia de segurança
 
-As instâncias gerenciadas têm backups automáticos, para que os usuários possam criar backups completos do banco de dados `COPY_ONLY`. Não há suporte para backups diferenciais, de log e de instantâneo de arquivo.
+As instâncias gerenciadas têm backups automáticos, para que os usuários possam criar bancos de dados `COPY_ONLY` backups completos. Não há suporte para backups diferenciais, de log e de instantâneo de arquivo.
 
 - Com uma instância gerenciada, você pode fazer backup de um banco de dados de instância somente para uma conta de armazenamento de BLOBs do Azure:
   - Há suporte apenas para `BACKUP TO URL`.
-  - Não há suporte para os dispositivos `FILE`, `TAPE` e backup.
-- Há suporte para a maioria das opções gerais de `WITH`.
+  - Não há suporte para dispositivos `FILE`, `TAPE`e backup.
+- Há suporte para a maioria das opções de `WITH` geral.
   - `COPY_ONLY` é obrigatório.
   - Não há suporte para `FILE_SNAPSHOT`.
-  - Opções de fita: `REWIND`, `NOREWIND`, `UNLOAD` e `NOUNLOAD` não têm suporte.
-  - Opções específicas de log: `NORECOVERY`, `STANDBY` e `NO_TRUNCATE` não têm suporte.
+  - Opções de fita: `REWIND`, `NOREWIND`, `UNLOAD`e `NOUNLOAD` não têm suporte.
+  - Opções específicas de log: não há suporte para `NORECOVERY`, `STANDBY`e `NO_TRUNCATE`.
 
 Limitações 
 
@@ -84,15 +84,15 @@ Para obter informações sobre backups usando o T-SQL, consulte [backup](/sql/t-
 
 As principais diferenças entre a auditoria em bancos de dados no banco de dados SQL do Azure e nos dados no SQL Server são:
 
-- Com a opção de implantação de instância gerenciada no banco de dados SQL do Azure, a auditoria funciona no nível do servidor. Os arquivos de log `.xel` são armazenados no armazenamento de BLOBs do Azure.
+- Com a opção de implantação de instância gerenciada no banco de dados SQL do Azure, a auditoria funciona no nível do servidor. Os arquivos de log do `.xel` são armazenados no armazenamento de BLOBs do Azure.
 - Com as opções de implantação de banco de dados individual e pool elástico no banco de dados SQL do Azure, a auditoria funciona no nível do banco de dados.
 - Em SQL Server máquinas virtuais ou locais, a auditoria funciona no nível do servidor. Os eventos são armazenados no sistema de arquivos ou nos logs de eventos do Windows.
  
 A auditoria de XEvent na instância gerenciada dá suporte a destinos do armazenamento de BLOBs do Azure. Não há suporte para logs de arquivo e do Windows.
 
-As principais diferenças na sintaxe `CREATE AUDIT` para a auditoria para o armazenamento de BLOBs do Azure são:
+As principais diferenças na sintaxe de `CREATE AUDIT` para a auditoria para o armazenamento de BLOBs do Azure são:
 
-- Uma nova sintaxe `TO URL` é fornecida para que você possa especificar a URL do contêiner de armazenamento de BLOBs do Azure em que os arquivos `.xel` são colocados.
+- É fornecida uma nova sintaxe `TO URL` que você pode usar para especificar a URL do contêiner de armazenamento de BLOBs do Azure em que os arquivos de `.xel` são colocados.
 - Não há suporte para a sintaxe `TO FILE` porque uma instância gerenciada não pode acessar compartilhamentos de arquivos do Windows.
 
 Para obter mais informações, consulte: 
@@ -120,7 +120,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ### <a name="credential"></a>Credencial
 
-Somente as identidades Azure Key Vault e `SHARED ACCESS SIGNATURE` têm suporte. Não há suporte para usuários do Windows.
+Há suporte apenas para Azure Key Vault e `SHARED ACCESS SIGNATURE` identidades. Não há suporte para usuários do Windows.
 
 Consulte [criar credencial](/sql/t-sql/statements/create-credential-transact-sql) e [alterar credencial](/sql/t-sql/statements/alter-credential-transact-sql).
 
@@ -133,14 +133,14 @@ Uma instância gerenciada não pode acessar arquivos, portanto, os provedores cr
 
 ### <a name="logins-and-users"></a>Inícios de sessão e utilizadores
 
-- Há suporte para logons SQL criados usando `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY` e `FROM SID`. Consulte [criar logon](/sql/t-sql/statements/create-login-transact-sql).
+- Há suporte para logons SQL criados usando `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`e `FROM SID`. Consulte [criar logon](/sql/t-sql/statements/create-login-transact-sql).
 - As entidades de segurança (logons) do servidor do Azure Active Directory (Azure AD) criadas com a sintaxe [Create login](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) ou [Create User from login [Azure ad login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) têm suporte. Esses logons são criados no nível do servidor.
 
     A instância gerenciada dá suporte a entidades de banco de dados do Azure AD com a sintaxe `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Esse recurso também é conhecido como usuários de banco de dados independente do Azure AD.
 
 - Não há suporte para logons do Windows criados com a sintaxe `CREATE LOGIN ... FROM WINDOWS`. Use Azure Active Directory logons e usuários.
 - O usuário do Azure AD que criou a instância tem [privilégios de administrador irrestrito](sql-database-manage-logins.md#unrestricted-administrative-accounts).
-- Os usuários de nível de banco de dados não administrador do Azure AD podem ser criados usando a sintaxe `CREATE USER ... FROM EXTERNAL PROVIDER`. Consulte [criar usuário... DO provedor externo](sql-database-manage-logins.md#non-administrator-users).
+- Usuários de nível de banco de dados não administrador do Azure AD podem ser criados usando a sintaxe `CREATE USER ... FROM EXTERNAL PROVIDER`. Consulte [criar usuário... DO provedor externo](sql-database-manage-logins.md#non-administrator-users).
 - As entidades de segurança do servidor do Azure AD (logons) dão suporte a recursos SQL somente em uma instância gerenciada. Recursos que exigem interação entre instâncias, independentemente de estarem dentro do mesmo locatário do Azure AD ou locatários diferentes, não têm suporte para usuários do Azure AD. Exemplos desses recursos são:
 
   - Replicação transacional do SQL.
@@ -163,7 +163,7 @@ Uma instância gerenciada não pode acessar arquivos, portanto, os provedores cr
     - Exporte um banco de dados da instância gerenciada e importe para SQL Server (versão 2012 ou posterior).
       - Nessa configuração, todos os usuários do Azure AD são criados como entidades de segurança do banco de dados SQL (usuários) sem logons. O tipo de usuário é listado como SQL (visível como SQL_USER em sys. database_principals). Suas permissões e funções permanecem no SQL Server metadados do banco de dados e podem ser usadas para representação. No entanto, eles não podem ser usados para acessar e fazer logon no SQL Server usando suas credenciais.
 
-- Somente o logon da entidade de segurança no nível do servidor, que é criado pelo processo de provisionamento de instância gerenciada, os membros das funções de servidor, como `securityadmin` ou `sysadmin`, ou outros logons com a permissão ALTER ANY LOGIN no nível do servidor, podem criar entidades de segurança do Azure AD Server (logons) no banco de dados mestre para instância gerenciada.
+- Somente o logon da entidade de segurança no nível do servidor, que é criado pelo processo de provisionamento de instância gerenciada, os membros das funções de servidor, como `securityadmin` ou `sysadmin`ou outros logons com a permissão ALTER ANY LOGIN no nível do servidor podem criar um servidor do Azure AD entidades (logons) no banco de dados mestre para instância gerenciada.
 - Se o logon for uma entidade de segurança SQL, somente os logons que fizerem parte da função `sysadmin` poderão usar o comando Create para criar logons para uma conta do Azure AD.
 - O logon do Azure AD deve ser um membro de um Azure AD no mesmo diretório usado para a instância gerenciada do banco de dados SQL do Azure.
 - As entidades de segurança do servidor do Azure AD (logons) são visíveis no Pesquisador de objetos, começando com SQL Server Management Studio 18,0 Preview 5.
@@ -217,7 +217,7 @@ Para obter mais informações, consulte [ALTER DATABASE SET Partner e Set testem
 - Não há suporte para vários arquivos de log.
 - Não há suporte para objetos na memória na camada de serviço Uso Geral. 
 - Há um limite de 280 arquivos por Uso Geral instância, o que implica um máximo de 280 arquivos por banco de dados. Os arquivos de dados e de log na camada de Uso Geral são contados em direção a esse limite. [A camada de comercialmente crítico dá suporte a 32.767 arquivos por banco de dados](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
-- O banco de dados não pode conter grupos de fileque contenham dado FileStream. A restauração falhará se. bak contiver dados `FILESTREAM`. 
+- O banco de dados não pode conter grupos de fileque contenham dado FileStream. A restauração falhará se. bak contiver dados de `FILESTREAM`. 
 - Cada arquivo é colocado no armazenamento de BLOBs do Azure. E/s e taxa de transferência por arquivo dependem do tamanho de cada arquivo individual.
 
 #### <a name="create-database-statement"></a>Instrução CREATE DATABASE
@@ -226,9 +226,9 @@ As seguintes limitações se aplicam a `CREATE DATABASE`:
 
 - Arquivos e grupos de arquivo não podem ser definidos. 
 - Não há suporte para a opção `CONTAINMENT`. 
-- Não há suporte para as opções `WITH`. 
+- Não há suporte para opções de `WITH`. 
    > [!TIP]
-   > Como alternativa, use `ALTER DATABASE` após `CREATE DATABASE` para definir opções de banco de dados para adicionar arquivos ou para definir a contenção. 
+   > Como alternativa, use `ALTER DATABASE` depois de `CREATE DATABASE` para definir opções de banco de dados para adicionar arquivos ou para definir a contenção. 
 
 - Não há suporte para a opção `FOR ATTACH`.
 - Não há suporte para a opção `AS SNAPSHOT OF`.
@@ -239,7 +239,7 @@ Para obter mais informações, consulte [criar banco de dados](/sql/t-sql/statem
 
 Algumas propriedades de arquivo não podem ser definidas ou alteradas:
 
-- Um caminho de arquivo não pode ser especificado na instrução `ALTER DATABASE ADD FILE (FILENAME='path')` T-SQL. Remova `FILENAME` do script porque uma instância gerenciada coloca os arquivos automaticamente. 
+- Não é possível especificar um caminho de arquivo na instrução `ALTER DATABASE ADD FILE (FILENAME='path')` T-SQL. Remova `FILENAME` do script porque uma instância gerenciada coloca os arquivos automaticamente. 
 - Um nome de arquivo não pode ser alterado usando a instrução `ALTER DATABASE`.
 
 As opções a seguir são definidas por padrão e não podem ser alteradas:
@@ -323,7 +323,7 @@ Para obter informações sobre como criar e alterar tabelas, consulte [CREATE TA
 
 Uma instância gerenciada não pode acessar compartilhamentos de arquivos e pastas do Windows, portanto, os arquivos devem ser importados do armazenamento de BLOBs do Azure:
 
-- `DATASOURCE` é necessário no comando `BULK INSERT` enquanto você importa arquivos do armazenamento de BLOBs do Azure. Consulte [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql).
+- `DATASOURCE` é necessário no comando `BULK INSERT` enquanto importa arquivos do armazenamento de BLOBs do Azure. Consulte [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql).
 - `DATASOURCE` é necessário na função `OPENROWSET` quando você lê o conteúdo de um arquivo do armazenamento de BLOBs do Azure. Consulte [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - `OPENROWSET` pode ser usado para ler dados de outros bancos de dado SQL do Azure, instâncias gerenciadas ou instâncias de SQL Server. Não há suporte para outras fontes, como bancos de dados Oracle ou arquivos do Excel.
 
@@ -336,7 +336,7 @@ Uma instância gerenciada não pode acessar compartilhamentos de arquivos e past
 - `ALTER ASSEMBLY` não pode fazer referência a arquivos. Consulte [ALTER assembly](/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### <a name="database-mail-db_mail"></a>Database Mail (db_mail)
- - `sp_send_dbmail` não pode enviar anexos usando o parâmetro @file_attachments. O sistema de arquivos local e os compartilhamentos externos ou o armazenamento de BLOBs do Azure não são acessíveis a partir desse procedimento.
+ - `sp_send_dbmail` não pode enviar anexos usando @file_attachments parâmetro. O sistema de arquivos local e os compartilhamentos externos ou o armazenamento de BLOBs do Azure não são acessíveis a partir desse procedimento.
  - Consulte os problemas conhecidos relacionados ao parâmetro `@query` e à autenticação.
  
 ### <a name="dbcc"></a>DBCC
@@ -355,8 +355,8 @@ Atualmente, não há suporte para transações de MSDTC e [elástico](sql-databa
 
 Não há suporte para alguns destinos específicos do Windows para eventos estendidos (XEvents):
 
-- Não há suporte para o destino `etw_classic_sync`. Armazene arquivos `.xel` no armazenamento de BLOBs do Azure. Consulte [etw_classic_sync Target](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target).
-- Não há suporte para o destino `event_file`. Armazene arquivos `.xel` no armazenamento de BLOBs do Azure. Consulte [event_file Target](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
+- Não há suporte para o destino de `etw_classic_sync`. Armazene `.xel` arquivos no armazenamento de BLOBs do Azure. Consulte [etw_classic_sync Target](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target).
+- Não há suporte para o destino de `event_file`. Armazene `.xel` arquivos no armazenamento de BLOBs do Azure. Consulte [event_file Target](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Bibliotecas externas
 
@@ -365,9 +365,9 @@ R e Python no banco de dados, ainda não há suporte para bibliotecas externas. 
 ### <a name="filestream-and-filetable"></a>FileStream e Filetable
 
 - Não há suporte para dados FILESTREAM.
-- O banco de dados não pode conter grupos de File`FILESTREAM`.
+- O banco de dados não pode conter grupos de File`FILESTREAM`dos.
 - Não há suporte para `FILETABLE`.
-- As tabelas não podem ter tipos `FILESTREAM`.
+- As tabelas não podem ter tipos de `FILESTREAM`.
 - As funções a seguir não têm suporte:
   - `GetPathLocator()`
   - `GET_FILESTREAM_TRANSACTION_CONTEXT()`
@@ -392,9 +392,9 @@ Os servidores vinculados em instâncias gerenciadas dão suporte a um número li
 Operações
 
 - Não há suporte para transações de gravação entre instâncias.
-- `sp_dropserver` tem suporte para descartar um servidor vinculado. Consulte [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
+- `sp_dropserver` tem suporte para remover um servidor vinculado. Consulte [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - A função `OPENROWSET` pode ser usada para executar consultas somente em instâncias SQL Server. Eles podem ser gerenciados, localmente ou em máquinas virtuais. Consulte [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
-- A função `OPENDATASOURCE` pode ser usada para executar consultas somente em instâncias SQL Server. Eles podem ser gerenciados, localmente ou em máquinas virtuais. Somente os valores `SQLNCLI`, `SQLNCLI11` e `SQLOLEDB` são suportados como um provedor. Um exemplo é `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consulte [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
+- A função `OPENDATASOURCE` pode ser usada para executar consultas somente em instâncias SQL Server. Eles podem ser gerenciados, localmente ou em máquinas virtuais. Somente os valores `SQLNCLI`, `SQLNCLI11`e `SQLOLEDB` têm suporte como um provedor. Um exemplo é `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consulte [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
 - Os servidores vinculados não podem ser usados para ler arquivos (Excel, CSV) dos compartilhamentos de rede. Tente usar [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) ou [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) que leia arquivos CSV do armazenamento de BLOBs do Azure. Acompanhar essas solicitações no [item de comentário da instância gerenciada](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
 
 ### <a name="polybase"></a>PolyBase
@@ -457,25 +457,25 @@ Se a replicação estiver habilitada em um banco de dados em um [grupo de failov
   - `FROM URL` (armazenamento de BLOBs do Azure) é a única opção com suporte.
   - Não há suporte para `FROM DISK`/dispositivo `TAPE`/backup.
   - Não há suporte para conjuntos de backup.
-- Não há suporte para as opções `WITH`, como no `DIFFERENTIAL` ou `STATS`.
-- `ASYNC RESTORE`: a restauração continua mesmo que a conexão do cliente seja interrompida. Se a conexão for descartada, você poderá verificar a exibição `sys.dm_operation_status` para o status de uma operação de restauração e para um banco de dados criar e soltar. Consulte [Sys. dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
+- Não há suporte para `WITH` opções, como nenhuma `DIFFERENTIAL` ou `STATS`.
+- `ASYNC RESTORE`: a restauração continua mesmo que a conexão do cliente seja interrompida. Se a conexão for descartada, você poderá verificar a `sys.dm_operation_status` exibição do status de uma operação de restauração e para criar e remover um banco de dados. Consulte [Sys. dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
 
 As opções de banco de dados a seguir são definidas ou substituídas e não podem ser alteradas posteriormente: 
 
 - `NEW_BROKER` se o agente não estiver habilitado no arquivo. bak. 
 - `ENABLE_BROKER` se o agente não estiver habilitado no arquivo. bak. 
 - `AUTO_CLOSE=OFF` se um banco de dados no arquivo. bak tiver `AUTO_CLOSE=ON`. 
-- `RECOVERY FULL` se um banco de dados no arquivo. bak tiver o modo de recuperação `SIMPLE` ou `BULK_LOGGED`.
+- `RECOVERY FULL` se um banco de dados no arquivo. bak tiver `SIMPLE` ou `BULK_LOGGED` modo de recuperação.
 - Um grupo de arquivos com otimização de memória é adicionado e chamado de XTP se ele não estava no arquivo Source. bak. 
 - Qualquer grupo de arquivos com otimização de memória existente é renomeado para XTP. 
 - as opções `SINGLE_USER` e `RESTRICTED_USER` são convertidas em `MULTI_USER`.
 
 Limitações 
 
-- Os backups dos bancos de dados corrompidos podem ser restaurados dependendo do tipo de corrupção, mas os backups automatizados não serão feitos até que a corrupção seja corrigida. Certifique-se de executar `DBCC CHECKDB` na instância de origem e use o backup `WITH CHECKSUM` para evitar esse problema.
-- A restauração do arquivo `.BAK` de um banco de dados que contém qualquer limitação descrita neste documento (por exemplo, objetos `FILESTREAM` ou `FILETABLE`) não pode ser restaurada em Instância Gerenciada.
-- os arquivos `.BAK` que contêm vários conjuntos de backup não podem ser restaurados. 
-- arquivos `.BAK` que contêm vários arquivos de log não podem ser restaurados.
+- Os backups dos bancos de dados corrompidos podem ser restaurados dependendo do tipo de corrupção, mas os backups automatizados não serão feitos até que a corrupção seja corrigida. Certifique-se de executar `DBCC CHECKDB` na instância de origem e usar `WITH CHECKSUM` de backup para evitar esse problema.
+- A restauração do arquivo de `.BAK` de um banco de dados que contém qualquer limitação descrita neste documento (por exemplo, `FILESTREAM` ou `FILETABLE` objetos) não pode ser restaurada em Instância Gerenciada.
+- `.BAK` arquivos que contêm vários conjuntos de backup não podem ser restaurados. 
+- `.BAK` arquivos que contêm vários arquivos de log não podem ser restaurados.
 - Os backups que contêm bancos de dados maiores que 8 TB, objetos OLTP na memória ativas ou o número de arquivos que excedem 280 arquivos por instância não podem ser restaurados em uma instância de Uso Geral. 
 - Os backups que contêm bancos de dados maiores que 4 TB ou objetos OLTP na memória com o tamanho total maior do que o tamanho descrito nos [limites de recursos](sql-database-managed-instance-resource-limits.md) não podem ser restaurados na instância comercialmente crítico.
 Para obter informações sobre instruções RESTORE, consulte [instruções RESTORE](/sql/t-sql/statements/restore-statements-transact-sql).
@@ -503,7 +503,7 @@ Não há suporte para o Service Broker de instância cruzada:
 - Não há suporte para `sp_execute_external_scripts`. Consulte [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - Não há suporte para `xp_cmdshell`. Consulte [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
 - Não há suporte para `Extended stored procedures`, que inclui `sp_addextendedproc` e `sp_dropextendedproc`. Consulte [procedimentos armazenados estendidos](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
-- Não há suporte para `sp_attach_db`, `sp_attach_single_file_db` e `sp_detach_db`. Consulte [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql)e [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
+- Não há suporte para `sp_attach_db`, `sp_attach_single_file_db`e `sp_detach_db`. Consulte [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql)e [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
 ### <a name="system-functions-and-variables"></a>Funções e variáveis do sistema
 
@@ -514,7 +514,7 @@ As seguintes variáveis, funções e exibições retornam resultados diferentes:
 - `@@SERVERNAME` retorna um nome de DNS "conectável" completo, por exemplo, my-managed-instance.wcus17662feb9ce98.database.windows.net. Consulte [@@SERVERNAME](/sql/t-sql/functions/servername-transact-sql). 
 - `SYS.SERVERS` retorna um nome de DNS "conectável" completo, como `myinstance.domain.database.windows.net` para as propriedades "Name" e "data_source". Consulte [Sys. SERVIDORES](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
 - `@@SERVICENAME` retorna NULL porque o conceito de serviço existente para SQL Server não se aplica a uma instância gerenciada. Consulte [@@SERVICENAME](/sql/t-sql/functions/servicename-transact-sql).
-- Há suporte para `SUSER_ID`. Retornará NULL se o logon do Azure AD não estiver em sys. syslogins. Consulte [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql). 
+- `SUSER_ID` tem suporte. Retornará NULL se o logon do Azure AD não estiver em sys. syslogins. Consulte [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql). 
 - Não há suporte para `SUSER_SID`. Os dados errados são retornados, o que é um problema temporário conhecido. Consulte [SUSER_SID](/sql/t-sql/functions/suser-sid-transact-sql). 
 
 ## <a name="Environment"></a>Restrições de ambiente
@@ -533,7 +533,7 @@ As seguintes variáveis, funções e exibições retornam resultados diferentes:
 
 ### <a name="tempdb"></a>TEMPDB
 
-O tamanho máximo de arquivo de `tempdb` não pode ser maior que 24 GB por núcleo em uma camada de Uso Geral. O tamanho máximo de `tempdb` em uma camada de Comercialmente Crítico é limitado pelo tamanho do armazenamento da instância. `Tempdb` tamanho do arquivo de log é limitado a 120 GB na camada Uso Geral. Algumas consultas podem retornar um erro se precisarem de mais de 24 GB por núcleo em `tempdb` ou se produzirem mais de 120 GB de dados de log.
+O tamanho máximo do arquivo de `tempdb` não pode ser maior que 24 GB por núcleo em uma camada de Uso Geral. O tamanho máximo de `tempdb` em uma camada de Comercialmente Crítico é limitado pelo tamanho do armazenamento da instância. `Tempdb` tamanho do arquivo de log é limitado a 120 GB na camada Uso Geral. Algumas consultas podem retornar um erro se precisarem de mais de 24 GB por núcleo em `tempdb` ou se produzirem mais de 120 GB de dados de log.
 
 ### <a name="error-logs"></a>Registos de erros
 
@@ -553,7 +553,7 @@ Comercialmente Crítico camada de serviço não aplicará corretamente [os limit
 
 **Data:** Outubro de 2019
 
-SQL Server/Instância Gerenciada [não permitir que o usuário descarte um arquivo que não esteja vazio](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Se você tentar remover um arquivo de dados não vazio usando a instrução `ALTER DATABASE REMOVE FILE`, o erro `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` não será retornado imediatamente. Instância Gerenciada continuará tentando descartar o arquivo e a operação falhará após 30 min com `Internal server error`.
+SQL Server/Instância Gerenciada [não permitir que o usuário descarte um arquivo que não esteja vazio](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Se você tentar remover um arquivo de dados não vazio usando a instrução `ALTER DATABASE REMOVE FILE`, o erro `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` não será retornado imediatamente. Instância Gerenciada continuará tentando descartar o arquivo, e a operação falhará após 30 min com `Internal server error`.
 
 **Solução alternativa**: Remova o conteúdo do arquivo usando `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` comando. Se esse for o único arquivo no grupo de arquivos, você precisará excluir dados da tabela ou da partição associada a esse grupo de arquivos antes de reduzir o arquivo e, opcionalmente, carregar esses dados em outra tabela/partição.
 
@@ -561,7 +561,7 @@ SQL Server/Instância Gerenciada [não permitir que o usuário descarte um arqui
 
 **Data:** Setembro de 2019
 
-A instrução `RESTORE` contínua, o processo de migração do serviço de migração de dados e a restauração pontual interna bloquearão a atualização da camada de serviço ou o redimensionamento da instância existente e a criação de novas instâncias, até que o processo de restauração seja concluído. O processo de restauração bloqueará essas operações nas instâncias gerenciadas e nos pools de instância na mesma sub-rede em que o processo de restauração está em execução. As instâncias em pools de instâncias não são afetadas. Criar ou alterar as operações da camada de serviço não falharão ou tempo limite-eles continuarão quando o processo de restauração for concluído ou cancelado.
+A instrução de `RESTORE` contínua, o processo de migração do serviço de migração de dados e a restauração pontual interna bloquearão a atualização da camada de serviço ou o redimensionamento da instância existente e a criação de novas instâncias até que o processo de restauração seja concluído. O processo de restauração bloqueará essas operações nas instâncias gerenciadas e nos pools de instância na mesma sub-rede em que o processo de restauração está em execução. As instâncias em pools de instâncias não são afetadas. Criar ou alterar as operações da camada de serviço não falharão ou tempo limite-eles continuarão quando o processo de restauração for concluído ou cancelado.
 
 **Solução alternativa**: Aguarde até que o processo de restauração seja concluído ou cancele o processo de restauração se a operação de criação ou atualização da camada de serviço tiver prioridade mais alta.
 
@@ -603,8 +603,8 @@ As caixas de diálogo de Service Broker de banco de dados cruzado deixarão de e
 
 **Data:** Julho de 2019
 
-Não há suporte para representação usando `EXECUTE AS USER` ou `EXECUTE AS LOGIN` das entidades de segurança do AAD a seguir:
--   Usuários com alias do AAD. O erro a seguir é retornado nesse caso `15517`.
+Não há suporte para a representação usando `EXECUTE AS USER` ou `EXECUTE AS LOGIN` das seguintes entidades do AAD:
+-   Usuários com alias do AAD. O erro a seguir é retornado neste caso `15517`.
 - Logons e usuários do AAD com base em aplicativos do AAD ou entidades de serviço. Os erros a seguir são retornados nesse caso `15517` e `15406`.
 
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@query parâmetro sem suporte no sp_send_db_mail
@@ -633,11 +633,11 @@ Quando um banco de dados estiver restaurando em Instância Gerenciada, o serviç
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>A estrutura TEMPDB e o conteúdo são recriados
 
-O banco de dados do `tempdb` sempre é dividido em 12 arquivos e a estrutura do arquivo não pode ser alterada. O tamanho máximo por arquivo não pode ser alterado e novos arquivos não podem ser adicionados a `tempdb`. `Tempdb` é sempre recriado como um banco de dados vazio quando a instância inicia ou faz failover, e quaisquer alterações feitas em `tempdb` não serão preservadas.
+O banco de dados do `tempdb` sempre é dividido em 12 arquivos e a estrutura do arquivo não pode ser alterada. O tamanho máximo por arquivo não pode ser alterado e novos arquivos não podem ser adicionados a `tempdb`. `Tempdb` é sempre recriado como um banco de dados vazio quando a instância inicia ou faz failover, e quaisquer alterações feitas no `tempdb` não serão preservadas.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Excedendo o espaço de armazenamento com arquivos de banco de dados pequenos
 
-as instruções `CREATE DATABASE`, `ALTER DATABASE ADD FILE` e `RESTORE DATABASE` podem falhar porque a instância pode alcançar o limite de armazenamento do Azure.
+as instruções `CREATE DATABASE`, `ALTER DATABASE ADD FILE`e `RESTORE DATABASE` podem falhar porque a instância pode alcançar o limite de armazenamento do Azure.
 
 Cada instância gerenciada Uso Geral tem até 35 TB de armazenamento reservado para o espaço em disco Premium do Azure. Cada arquivo de banco de dados é colocado em um disco físico separado. Os tamanhos de disco podem ser 128 GB, 256 GB, 512 GB, 1 TB ou 4 TB. O espaço não utilizado no disco não é cobrado, mas a soma total dos tamanhos de disco Premium do Azure não pode exceder 35 TB. Em alguns casos, uma instância gerenciada que não precisa de 8 TB no total pode exceder o limite de 35 TB do Azure no tamanho do armazenamento devido à fragmentação interna.
 

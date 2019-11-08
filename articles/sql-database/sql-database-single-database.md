@@ -1,5 +1,5 @@
 ---
-title: O que é um banco de dados individual do banco de dados SQL do Azure
+title: O que é um banco de dados individual
 description: Saiba mais sobre o banco de dados individual no banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: add0288cb87fd41c8c6ebae982c999db2ea07d0f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7b084954cb53d19739a0f633661e0c76fa82dd13
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687127"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820947"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>O que é um banco de dados individual no banco de dados SQL do Azure
 

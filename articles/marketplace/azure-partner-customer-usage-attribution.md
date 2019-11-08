@@ -4,15 +4,16 @@ description: Visão geral de como controlar o uso do cliente para soluções do 
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 9/23/2019
 ms.author: pabutler
-ms.openlocfilehash: c077b93b887482dda5ae127bb3dbaec71b2ea11b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c84f5538d2f553a713b52aa795a10acddac9aff8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260092"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819894"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição da utilização do cliente de parceiro do Azure
 
@@ -22,9 +23,9 @@ A Microsoft agora oferece um método para ajudar os parceiros a acompanharem mel
 
 Como um parceiro da Microsoft, você pode associar o uso do Azure a qualquer recurso do Azure que você provisionar em nome de um cliente. Você pode formar a associação por meio do Azure Marketplace, do repositório de início rápido, dos repositórios GitHub privados e do compromisso de um cliente único. A atribuição de uso do cliente dá suporte a três opções de implantação:
 
-- Modelos de Azure Resource Manager: Os parceiros podem usar modelos do Resource Manager para implantar os serviços do Azure para executar o software do parceiro. Os parceiros podem criar um modelo do Resource Manager para definir a infraestrutura e a configuração de sua solução do Azure. Um modelo do Resource Manager permite que você e seus clientes implantem sua solução durante todo o ciclo de vida. Você pode ter certeza de que seus recursos são implantados em um estado consistente.
-- APIs de Azure Resource Manager: Os parceiros podem chamar as APIs do Gerenciador de recursos diretamente para implantar um modelo do Resource Manager ou para gerar as chamadas de API para provisionar diretamente os serviços do Azure.
-- Terraform Os parceiros podem usar o Orchestrator de nuvem como o Terraform para implantar um modelo do Resource Manager ou implantar diretamente os serviços do Azure.
+- Modelos de Azure Resource Manager: os parceiros podem usar modelos do Resource Manager para implantar os serviços do Azure para executar o software do parceiro. Os parceiros podem criar um modelo do Resource Manager para definir a infraestrutura e a configuração de sua solução do Azure. Um modelo do Resource Manager permite que você e seus clientes implantem sua solução durante todo o ciclo de vida. Você pode ter certeza de que seus recursos são implantados em um estado consistente.
+- Azure Resource Manager APIs: os parceiros podem chamar as APIs do Gerenciador de recursos diretamente para implantar um modelo do Resource Manager ou para gerar as chamadas de API para provisionar diretamente os serviços do Azure.
+- Terraform: os parceiros podem usar o Orchestrator de nuvem como o Terraform para implantar um modelo do Resource Manager ou implantar diretamente os serviços do Azure.
 
 A atribuição de uso do cliente destina-se à nova implantação e não dá suporte à marcação de recursos existentes que já foram implantados.
 
@@ -33,14 +34,14 @@ A atribuição de uso do cliente é necessária na [aplicativo Azure](https://do
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="use-resource-manager-templates"></a>Utilizar os modelos do Resource Manager
+## <a name="use-resource-manager-templates"></a>Utilizar os modelos do Gestor de Recursos
 Muitas soluções de parceiros são implantadas na assinatura de um cliente usando modelos do Resource Manager. Se você tiver um modelo do Resource Manager que está disponível no Azure Marketplace, no GitHub ou como um guia de início rápido, o processo para modificar o modelo para habilitar a atribuição de uso do cliente deve ser direto para frente.
 
 Para obter mais informações sobre como criar e publicar modelos de solução, consulte
 
 * [Crie e implante seu primeiro modelo do Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 * [Oferta de aplicativo Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
-* Vídeo: [Criação de modelos de solução e aplicativos gerenciados para o Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
+* Vídeo: [criando modelos de solução e aplicativos gerenciados para o Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 
 ## <a name="add-a-guid-to-your-template"></a>Adicionar um GUID ao seu modelo
@@ -99,7 +100,7 @@ Para habilitar a atribuição de uso do cliente, quando você cria suas chamadas
 > [!Note]
 > O formato da cadeia de caracteres é importante. Se o prefixo **pid** não estiver incluído, não será possível consultar os dados. SDKs diferentes acompanham diferentemente. Para implementar esse método, examine a abordagem de suporte e acompanhamento para seu SDK do Azure preferido.
 
-#### <a name="example-the-python-sdk"></a>Exemplo: O SDK do Python
+#### <a name="example-the-python-sdk"></a>Exemplo: o SDK do Python
 
 Para Python, use o atributo **config** . Você só pode adicionar o atributo a um UserAgent. Segue-se um exemplo:
 
@@ -127,7 +128,7 @@ Para obter mais informações, consulte [SDK do Azure para linguagem go](https:/
 
 ## <a name="use-terraform"></a>Usar Terraform
 
-O suporte para Terraform está disponível por meio da versão 1.21.0 do provedor [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019)do Azure:.  Esse suporte se aplica a todos os parceiros que implantam sua solução via Terraform e todos os recursos implantados e medidos pelo provedor do Azure (versão 1.21.0 ou posterior).
+O suporte para Terraform está disponível por meio da versão 1.21.0 do provedor do Azure: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  Esse suporte se aplica a todos os parceiros que implantam sua solução via Terraform e todos os recursos implantados e medidos pelo provedor do Azure (versão 1.21.0 ou posterior).
 
 O provedor do Azure para Terraform adicionou um novo campo opcional chamado [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id) , que é onde você especifica o GUID de rastreamento que você usa para sua solução. O valor desse campo também pode ser originado da variável de ambiente *ARM_PARTNER_ID* .
 
@@ -137,7 +138,7 @@ provider "azurerm" {
           client_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           ……
           # new stuff for ISV attribution
-          partner_id = “xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
+          partner_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
 ```
 Os parceiros que desejam fazer sua implantação por meio do Terraform acompanhado pela atribuição de uso do cliente precisam fazer o seguinte:
 
@@ -240,21 +241,21 @@ Escolha modelo controlado na lista suspensa do tipo de associação de parceiro 
 
 ## <a name="notify-your-customers"></a>Notifique seus clientes
 
-Os parceiros devem informar seus clientes sobre implantações que usam a atribuição de uso do cliente. A Microsoft informa o uso do Azure associado a essas implantações ao parceiro. Os exemplos a seguir incluem o conteúdo que você pode usar para notificar seus clientes sobre essas implantações. Nos exemplos, substitua \<parceiro > pelo nome da sua empresa. Os parceiros devem garantir que a notificação se alinhe às políticas de privacidade e de coleta de dados, incluindo opções para que os clientes sejam excluídos do rastreamento.
+Os parceiros devem informar seus clientes sobre implantações que usam a atribuição de uso do cliente. A Microsoft informa o uso do Azure associado a essas implantações ao parceiro. Os exemplos a seguir incluem o conteúdo que você pode usar para notificar seus clientes sobre essas implantações. Nos exemplos, substitua \<> de parceiro pelo nome da sua empresa. Os parceiros devem garantir que a notificação se alinhe às políticas de privacidade e de coleta de dados, incluindo opções para que os clientes sejam excluídos do rastreamento.
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Notificação para implantações de modelo do Resource Manager
 
-Quando você implanta esse modelo, a Microsoft é capaz de identificar a instalação \<do parceiro > software com os recursos do Azure que são implantados. A Microsoft é capaz de correlacionar os recursos do Azure que são usados para dar suporte ao software. A Microsoft coleta essas informações para fornecer as melhores experiências com seus produtos e para operar seus negócios. Os dados são coletados e governados pelas políticas de privacidade da Microsoft, que podem ser https://www.microsoft.com/trustcenter encontradas em.
+Quando você implanta esse modelo, a Microsoft é capaz de identificar a instalação do \<parceiro > software com os recursos do Azure que são implantados. A Microsoft é capaz de correlacionar os recursos do Azure que são usados para dar suporte ao software. A Microsoft coleta essas informações para fornecer as melhores experiências com seus produtos e para operar seus negócios. Os dados são coletados e governados pelas políticas de privacidade da Microsoft, que podem ser encontradas em https://www.microsoft.com/trustcenter.
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>Notificação para implantações de SDK ou API
 
-Ao implantar \<o parceiro > software, a Microsoft é capaz de identificar a instalação \<do parceiro > software com os recursos do Azure que são implantados. A Microsoft é capaz de correlacionar os recursos do Azure que são usados para dar suporte ao software. A Microsoft coleta essas informações para fornecer as melhores experiências com seus produtos e para operar seus negócios. Os dados são coletados e governados pelas políticas de privacidade da Microsoft, que podem ser https://www.microsoft.com/trustcenter encontradas em.
+Quando você implanta \<software de parceiro >, a Microsoft é capaz de identificar a instalação do \<parceiro > software com os recursos do Azure que são implantados. A Microsoft é capaz de correlacionar os recursos do Azure que são usados para dar suporte ao software. A Microsoft coleta essas informações para fornecer as melhores experiências com seus produtos e para operar seus negócios. Os dados são coletados e governados pelas políticas de privacidade da Microsoft, que podem ser encontradas em https://www.microsoft.com/trustcenter.
 
 ## <a name="get-support"></a>Obter suporte
 
 Há dois canais de suporte, dependendo dos problemas que você está enfrentando.
 
-Se você encontrar problemas no Partner Center, como ver o relatório de atribuição de uso do cliente ou entrar, crie uma solicitação de suporte com a equipe de suporte do Partner Center aqui:[https://partner.microsoft.com/support](https://partner.microsoft.com/support)
+Se você encontrar problemas no Partner Center, como ver o relatório de atribuição de uso do cliente ou entrar, crie uma solicitação de suporte com a equipe de suporte do Partner Center aqui: [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
@@ -297,9 +298,9 @@ Você também pode receber orientações técnicas de um consultor técnico de p
     * Insira um título e a descrição do problema (forneça o máximo de detalhes possível).
 1. Clique em enviar
 
-Veja as instruções passo a passo com capturas de tela [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions)em.
+Veja as instruções passo a passo com capturas de tela em [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions).
 
-### <a name="whats-next"></a>O que vem a seguir
+### <a name="whats-next"></a>Passos seguintes
 
 Você será contatado por um consultor técnico de parceiros da Microsoft para configurar uma chamada para definir o escopo de suas necessidades.
 
