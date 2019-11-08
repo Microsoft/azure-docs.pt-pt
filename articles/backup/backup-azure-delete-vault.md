@@ -1,23 +1,22 @@
 ---
 title: Excluir um cofre de serviços de recuperação Backup do Microsoft Azure
-description: Este artigo descreve como excluir um cofre de serviços de recuperação Backup do Microsoft Azure.
+description: Neste artigo, saiba como remover dependências e, em seguida, excluir um cofre MARS (serviços de recuperação de Backup do Microsoft Azure).
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: ae8421ca9e3705d697e9638e80fc61f853ff9d28
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 469d6532449df8327389b8117904b078d9340e5b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72028271"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747585"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Excluir um cofre dos serviços de recuperação de backup do Azure
 
 Este artigo descreve como excluir um cofre MARS (serviços de recuperação de [backup) do Microsoft Azure](backup-overview.md) . Ele contém instruções para remover dependências e, em seguida, excluir um cofre.
-
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -33,7 +32,7 @@ Você não pode excluir um cofre dos serviços de recuperação que tem dependê
 
   ![Exclua o erro do servidor protegido.](./media/backup-azure-delete-vault/error-message.jpg)
 
-- Se itens de backup estiverem em estado de exclusão reversível abaixo, a mensagem de aviso será exibida e você precisará aguardar até que eles sejam excluídos permanentemente. Para obter mais informações, veja este [artigo](https://aka.ms/SoftDeleteCloudWorkloads).
+- Se itens de backup estiverem em estado de exclusão reversível abaixo, a mensagem de aviso será exibida e você precisará aguardar até que eles sejam excluídos permanentemente. Para obter mais informações, veja [este](https://aka.ms/SoftDeleteCloudWorkloads) artigo.
 
    ![Exclua o erro do cofre.](./media/backup-azure-delete-vault/error-message-soft-delete.png)
   
@@ -46,7 +45,6 @@ Tenho computadores locais protegidos usando o MABS (Backup do Microsoft Azure Se
 Eu protegi itens na nuvem (por exemplo, uma máquina virtual laaS ou um compartilhamento de arquivos do Azure)  | Execute as etapas em [excluir itens protegidos na nuvem](#delete-protected-items-in-the-cloud)
 Eu protegi itens no local e na nuvem | Execute as etapas em todas as seções a seguir, na seguinte ordem: <br> 1. [excluir itens protegidos na nuvem](#delete-protected-items-in-the-cloud)<br> 2. [excluir itens de backup do console de gerenciamento do Mars](#delete-backup-items-from-the-mars-management-console) <br> 3. [excluir itens de backup do console de gerenciamento do mAbs](#delete-backup-items-from-the-mabs-management-console)
 Não tenho itens protegidos no local ou na nuvem; no entanto, ainda estou recebendo o erro de exclusão do cofre | Execute as etapas em [excluir o cofre dos serviços de recuperação usando Azure Resource Manager](#delete-the-recovery-services-vault-by-using-azure-resource-manager)
-
 
 ## <a name="delete-protected-items-in-the-cloud"></a>Excluir itens protegidos na nuvem
 
@@ -64,12 +62,12 @@ Para interromper a proteção e excluir os dados de backup, execute as seguintes
 
         ![O painel parar backup.](./media/backup-azure-delete-vault/stop-backup-item.png)
 
-    - Se o painel **excluir dados de backup** for exibido, insira o nome do item de backup (esse campo diferencia maiúsculas de minúsculas) e, em seguida, selecione um motivo no menu suspenso. Insira seus comentários, se houver. Em seguida, selecione **excluir**. 
+    - Se o painel **excluir dados de backup** for exibido, insira o nome do item de backup (esse campo diferencia maiúsculas de minúsculas) e, em seguida, selecione um motivo no menu suspenso. Insira seus comentários, se houver. Em seguida, selecione **excluir**.
 
          ![O painel excluir dados de backup.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-5. Verifique o ícone de **notificação** : ![The ícone de notificação. ](./media/backup-azure-delete-vault/messages.png) Depois que o processo for concluído, o serviço exibirá a seguinte mensagem: *parando backup e excluindo dados de backup para "* item de backup *"* . *Operação concluída com êxito*.
-6. Selecione **Atualizar** no menu **itens de backup** para verificar se o item de backup foi excluído.
+3. Verifique o ícone de **notificação** : ![o ícone de notificação.](./media/backup-azure-delete-vault/messages.png) Depois que o processo for concluído, o serviço exibirá a seguinte mensagem: *parando backup e excluindo dados de backup para "* item de backup *"* . *Operação concluída com êxito*.
+4. Selecione **Atualizar** no menu **itens de backup** para verificar se o item de backup foi excluído.
 
       ![A página excluir itens de backup.](./media/backup-azure-delete-vault/empty-items-list.png)
 
@@ -80,12 +78,11 @@ Primeiro, leia a seção **[antes de começar](#before-you-start)** para entende
 1. No menu do painel do cofre, selecione **infraestrutura de backup**.
 2. Dependendo do seu cenário local, escolha uma das seguintes opções:
 
-      - Para MARS, selecione **servidores protegidos** e o **agente de backup do Azure**. Em seguida, selecione o servidor que você deseja excluir. 
+      - Para MARS, selecione **servidores protegidos** e o **agente de backup do Azure**. Em seguida, selecione o servidor que você deseja excluir.
 
         ![Para MARS, selecione seu cofre para abrir seu painel.](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
-      - Para MABS ou DPM, selecione **backup servidores de gerenciamento**. Em seguida, selecione o servidor que você deseja excluir. 
-
+      - Para MABS ou DPM, selecione **backup servidores de gerenciamento**. Em seguida, selecione o servidor que você deseja excluir.
 
           ![Para MABS, selecione seu cofre para abrir seu painel.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
@@ -101,15 +98,13 @@ Primeiro, leia a seção **[antes de começar](#before-you-start)** para entende
 
 4. Marque a caixa de seleção consentimento e, em seguida, selecione **excluir**.
 
-
-5. Verifique o ícone de **notificação** ![delete ](./media/backup-azure-delete-vault/messages.png) de dados de backup. Depois que a operação for concluída, o serviço exibirá a mensagem: *parando o backup e excluindo os dados de backup de "item de backup".* *Operação concluída com êxito*.
+5. Verifique o ícone de **notificação** ![excluir dados de backup](./media/backup-azure-delete-vault/messages.png). Depois que a operação for concluída, o serviço exibirá a mensagem: *parando o backup e excluindo os dados de backup de "item de backup".* *Operação concluída com êxito*.
 6. Selecione **Atualizar** no menu **itens de backup** para verificar se o item de backup foi excluído.
 
 Após a conclusão desse processo, você pode excluir os itens de backup do console de gerenciamento:
-    
-   - [Excluir itens de backup do console de gerenciamento do MARS](#delete-backup-items-from-the-mars-management-console)
-    - [Excluir itens de backup do console de gerenciamento do MABS](#delete-backup-items-from-the-mabs-management-console)
 
+- [Excluir itens de backup do console de gerenciamento do MARS](#delete-backup-items-from-the-mars-management-console)
+- [Excluir itens de backup do console de gerenciamento do MABS](#delete-backup-items-from-the-mabs-management-console)
 
 ### <a name="delete-backup-items-from-the-mars-management-console"></a>Excluir itens de backup do console de gerenciamento do MARS
 
@@ -122,7 +117,7 @@ Após a conclusão desse processo, você pode excluir os itens de backup do cons
 
     ![Interromper um backup agendado.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Você será solicitado a inserir um PIN de segurança (número de identificação pessoal), que deve ser gerado manualmente. Para fazer isso, primeiro entre no portal do Azure.
-5. Vá para **cofre dos serviços de recuperação**  > **configurações**  > **Propriedades**.
+5. Vá para **cofre dos serviços de recuperação** > **configurações** > **Propriedades**.
 6. Em **PIN de segurança**, selecione **gerar**. Copie este PIN. O PIN é válido por apenas cinco minutos.
 7. No console de gerenciamento, Cole o PIN e selecione **OK**.
 
@@ -139,11 +134,12 @@ Depois de excluir os itens de backup locais, siga as próximas etapas do Portal.
 Há dois métodos que você pode usar para excluir itens de backup do console de gerenciamento do MABS.
 
 #### <a name="method-1"></a>Método 1
+
 Para interromper a proteção e excluir os dados de backup, execute as seguintes etapas:
 
-1.  Abra o Console do Administrador do DPM e, em seguida, selecione **proteção** na barra de navegação.
-2.  No painel de exibição, selecione o membro do grupo de proteção que você deseja remover. Clique com o botão direito do mouse para selecionar a opção **parar proteção de membros do grupo** .
-3.  Na caixa de diálogo **parar proteção** , selecione **excluir dados protegidos**e marque a caixa de seleção **Excluir armazenamento online** . Em seguida, selecione **parar proteção**.
+1. Abra o Console do Administrador do DPM e, em seguida, selecione **proteção** na barra de navegação.
+2. No painel de exibição, selecione o membro do grupo de proteção que você deseja remover. Clique com o botão direito do mouse para selecionar a opção **parar proteção de membros do grupo** .
+3. Na caixa de diálogo **parar proteção** , selecione **excluir dados protegidos**e marque a caixa de seleção **Excluir armazenamento online** . Em seguida, selecione **parar proteção**.
 
     ![Selecione excluir dados protegidos no painel parar proteção.](./media/backup-azure-delete-vault/delete-storage-online.png)
 
@@ -158,12 +154,12 @@ Para interromper a proteção e excluir os dados de backup, execute as seguintes
     ![Exclua o armazenamento online.](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
 
 #### <a name="method-2"></a>Método 2
+
 Abra o console de **Gerenciamento do mAbs** . Em **selecionar método de proteção de dados**, desmarque a caixa de seleção **desejo proteção online** .
 
   ![Selecione o método de proteção de dados.](./media/backup-azure-delete-vault/data-protection-method.png)
 
 Depois de excluir os itens de backup locais, siga as próximas etapas do Portal.
-
 
 ## <a name="delete-the-recovery-services-vault"></a>Eliminar o cofre dos Serviços de Recuperação
 
@@ -185,71 +181,73 @@ Para interromper a proteção e excluir os dados de backup:
 - Se você estiver usando o SQL no backup de VMs do Azure e tiver habilitado a proteção automática para instâncias do SQL, primeiro desabilite a proteção automática.
 
     ```PowerShell
-        Disable-AzRecoveryServicesBackupAutoProtection 
-           [-InputItem] <ProtectableItemBase> 
-           [-BackupManagementType] <BackupManagementType> 
-           [-WorkloadType] <WorkloadType> 
-           [-PassThru] 
-           [-VaultId <String>] 
-           [-DefaultProfile <IAzureContextContainer>] 
-           [-WhatIf] 
-           [-Confirm] 
-           [<CommonParameters>] 
+        Disable-AzRecoveryServicesBackupAutoProtection
+           [-InputItem] <ProtectableItemBase>
+           [-BackupManagementType] <BackupManagementType>
+           [-WorkloadType] <WorkloadType>
+           [-PassThru]
+           [-VaultId <String>]
+           [-DefaultProfile <IAzureContextContainer>]
+           [-WhatIf]
+           [-Confirm]
+           [<CommonParameters>]
     ```
 
-  [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0) sobre como desabilitar a proteção para um item protegido pelo backup do Azure 
+  [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0) sobre como desabilitar a proteção para um item protegido pelo backup do Azure.
 
 - Interromper a proteção e excluir dados de todos os itens protegidos por backup na nuvem (por exemplo, VM laaS, compartilhamento de arquivos do Azure, etc.):
 
     ```PowerShell
-       Disable-AzRecoveryServicesBackupProtection 
-       [-Item] <ItemBase> 
-       [-RemoveRecoveryPoints] 
-       [-Force] 
-       [-VaultId <String>] 
-       [-DefaultProfile <IAzureContextContainer>] 
-       [-WhatIf] 
-       [-Confirm] 
-       [<CommonParameters>] 
+       Disable-AzRecoveryServicesBackupProtection
+       [-Item] <ItemBase>
+       [-RemoveRecoveryPoints]
+       [-Force]
+       [-VaultId <String>]
+       [-DefaultProfile <IAzureContextContainer>]
+       [-WhatIf]
+       [-Confirm]
+       [<CommonParameters>]
     ```
-    [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0)  about desabilita a proteção para um item protegido por backup. 
+
+    [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0) sobre desabilita a proteção para um item protegido por backup.
 
 - Para arquivos e pastas locais protegidos usando o agente de backup do Azure (MARS) fazendo backup no Azure, use o seguinte comando do PowerShell para excluir os dados de backup de cada módulo MARS PowerShell:
 
-    ```
+    ```powershell
     Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
-    Poste o seguinte prompt apareceria:
-     
-    *Backup do Microsoft Azure tem certeza de que deseja remover esta política de backup? Os dados de backup excluídos serão mantidos por 14 dias. Após esse período, os dados de backup serão excluídos permanentemente.  <br/> [Y] Sim [A] Sim para todos [N] não [L] não para todos [S] suspender [?] Ajuda (o padrão é "Y"):*
+    Poste onde o prompt a seguir seria exibido:
 
+    *Backup do Microsoft Azure tem certeza de que deseja remover esta política de backup? Os dados de backup excluídos serão mantidos por 14 dias. Após esse período, os dados de backup serão excluídos permanentemente. <br/> [Y] Sim [A] Sim para todos [N] não [L] não para todos [S] suspender [?] Ajuda (o padrão é "Y"):*
 
 - Para computadores locais protegidos usando o MABS (Backup do Microsoft Azure Server) ou o DPM no Azure (System Center Data Protection Manager), use o comando a seguir para excluir os dados de backup no Azure.
 
-    ```
-    Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin> 
+    ```powershell
+    Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
-    Poste o seguinte prompt apareceria: 
-         
-   *Backup do Microsoft Azure tem certeza de que deseja remover esta política de backup? Os dados de backup excluídos serão mantidos por 14 dias. Após esse período, os dados de backup serão excluídos permanentemente.  <br/> [Y] Sim [A] Sim para todos [N] não [L] não para todos [S] suspender [?] Ajuda (o padrão é "Y"):*
+    Poste onde o prompt a seguir seria exibido:
 
-Depois de excluir os dados de backup, cancele o registro de todos os contêineres locais e servidores de gerenciamento. 
+   *Backup do Microsoft Azure* Tem certeza de que deseja remover esta política de backup? Os dados de backup excluídos serão mantidos por 14 dias. Após esse período, os dados de backup serão excluídos permanentemente. <br/>
+   [Y] Sim [A] Sim para todos [N] não [L] não para todos [S] suspender [?] Ajuda (o padrão é "Y"):*
+
+Depois de excluir os dados de backup, cancele o registro de todos os contêineres locais e servidores de gerenciamento.
 
 - Para arquivos e pastas locais protegidos usando o MARS (agente de backup do Azure) fazendo backup no Azure:
 
     ```PowerShell
-    Unregister-AzRecoveryServicesBackupContainer 
-              [-Container] <ContainerBase> 
-              [-PassThru] 
-              [-VaultId <String>] 
-              [-DefaultProfile <IAzureContextContainer>] 
-              [-WhatIf] 
-              [-Confirm] 
-              [<CommonParameters>] 
+    Unregister-AzRecoveryServicesBackupContainer
+              [-Container] <ContainerBase>
+              [-PassThru]
+              [-VaultId <String>]
+              [-DefaultProfile <IAzureContextContainer>]
+              [-WhatIf]
+              [-Confirm]
+              [<CommonParameters>]
     ```
-    [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) sobre o cancelamento do registro de um Windows Server ou outro contêiner do cofre. 
+
+    [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) sobre o cancelamento do registro de um Windows Server ou outro contêiner do cofre.
 
 - Para computadores locais protegidos usando o MABS (servidor de Backup do Microsoft Azure) ou o DPM para o Azure (proteção de dados do System Center, gerencie:
 
@@ -266,57 +264,57 @@ Depois de excluir os dados de backup, cancele o registro de todos os contêinere
 
     [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) sobre o cancelamento do registro de um contêiner de gerenciamento de backup do cofre.
 
-Depois de excluir permanentemente os dados de backup e cancelar o registro de todos os contêineres, continue para excluir o cofre. 
+Depois de excluir permanentemente os dados de backup e cancelar o registro de todos os contêineres, continue para excluir o cofre.
 
-Para excluir um cofre dos serviços de recuperação: 
+Para excluir um cofre dos serviços de recuperação:
 
    ```PowerShell
-       Remove-AzRecoveryServicesVault 
-      -Vault <ARSVault> 
-      [-DefaultProfile <IAzureContextContainer>] 
-      [-WhatIf] 
-      [-Confirm] 
-      [<CommonParameters>]        
+       Remove-AzRecoveryServicesVault
+      -Vault <ARSVault>
+      [-DefaultProfile <IAzureContextContainer>]
+      [-WhatIf]
+      [-Confirm]
+      [<CommonParameters>]
    ```
 
-[Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) sobre como excluir um cofre dos serviços de recuperação. 
+[Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) sobre como excluir um cofre dos serviços de recuperação.
 
 ## <a name="delete-the-recovery-services-vault-by-using-cli"></a>Excluir o cofre dos serviços de recuperação usando a CLI
 
 Primeiro, leia a seção **[antes de começar](#before-you-start)** para entender as dependências e o processo de exclusão de cofre.
 
 > [!NOTE]
-> Atualmente, a CLI do backup do Azure dá suporte ao gerenciamento apenas de backups de VM do Azure, portanto, o seguinte comando para excluir o cofre funciona apenas se o cofre contiver backups de VM do Azure. Você não poderá excluir um cofre usando a CLI de backup do Azure, se o cofre contiver qualquer item de backup do tipo diferente de VMs do Azure. 
+> Atualmente, a CLI do backup do Azure dá suporte ao gerenciamento apenas de backups de VM do Azure, portanto, o seguinte comando para excluir o cofre funciona apenas se o cofre contiver backups de VM do Azure. Você não poderá excluir um cofre usando a CLI de backup do Azure, se o cofre contiver qualquer item de backup do tipo diferente de VMs do Azure.
 
-Para excluir o cofre de serviços de recuperação existente, execute o seguinte: 
+Para excluir o cofre de serviços de recuperação existente, execute o seguinte:
 
-- Para interromper a proteção e excluir os dados de backup 
-
-    ```CLI
-    az backup protection disable --container-name 
-                             --item-name 
-                             [--delete-backup-data {false, true}] 
-                             [--ids] 
-                             [--resource-group] 
-                             [--subscription] 
-                             [--vault-name] 
-                             [--yes] 
-    ```
-
-    Para obter mais informações, consulte este [artigo](/cli/azure/backup/protection#az-backup-protection-disable). 
-
-- Excluir um cofre de serviços de recuperação existente: 
+- Para interromper a proteção e excluir os dados de backup
 
     ```CLI
-    az backup vault delete [--force] 
-                       [--ids] 
-                       [--name] 
-                       [--resource-group] 
-                       [--subscription] 
-                       [--yes] 
+    az backup protection disable --container-name
+                             --item-name
+                             [--delete-backup-data {false, true}]
+                             [--ids]
+                             [--resource-group]
+                             [--subscription]
+                             [--vault-name]
+                             [--yes]
     ```
 
-    Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest) 
+    Para obter mais informações, consulte este [artigo](/cli/azure/backup/protection#az-backup-protection-disable).
+
+- Excluir um cofre de serviços de recuperação existente:
+
+    ```CLI
+    az backup vault delete [--force]
+                       [--ids]
+                       [--name]
+                       [--resource-group]
+                       [--subscription]
+                       [--yes]
+    ```
+
+    Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest)
 
 ## <a name="delete-the-recovery-services-vault-by-using-azure-resource-manager"></a>Excluir o cofre dos serviços de recuperação usando Azure Resource Manager
 
@@ -344,6 +342,7 @@ Para obter mais informações sobre o comando ARMClient, consulte [ARMCLIENT REA
    ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
+
 2. Se o cofre não estiver vazio, você receberá a seguinte mensagem de erro: o *cofre não pode ser excluído, pois há recursos existentes nesse cofre.* Para remover um contêiner ou item protegido em um cofre, execute o seguinte comando:
 
    ```azurepowershell
@@ -351,7 +350,6 @@ Para obter mais informações sobre o comando ARMClient, consulte [ARMCLIENT REA
    ```
 
 3. No portal do Azure, verifique se o cofre foi excluído.
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

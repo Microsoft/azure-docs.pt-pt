@@ -9,15 +9,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: development
-ms.date: 10/17/2019
+ms.date: 11/06/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: caf4a3efbfafcdb10a8834c213b2469e30296501
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 96d66e6190732d88ba9a33094b6c27bbadfd4aae
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692669"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747799"
 ---
 # <a name="getting-started-with-visual-studio-2019-for-sql-data-warehouse"></a>Introdução ao Visual Studio 2019 para SQL Data Warehouse
 O SSDT (Visual Studio **2019** SQL Server Data Tools) é uma única ferramenta que permite que você faça o seguinte:
@@ -29,14 +29,8 @@ O SSDT (Visual Studio **2019** SQL Server Data Tools) é uma única ferramenta q
 - Integre seu projeto de banco de dados com sistemas de controle do código-fonte, como git com Azure Repos
 - Configurar pipelines de implantação e integração contínua com servidores de automação, como o Azure DevOps
 
-> [!NOTE]
-> Atualmente, os projetos de banco de dados SSDT do Visual Studio estão em versão prévia. Para receber atualizações periódicas sobre esse recurso, vote no [UserVoice].
-
-## <a name="install-visual-studio-2019-preview"></a>Instalar o Visual Studio 2019 Preview
+## <a name="install-visual-studio-2019"></a>Instalar o Visual Studio 2019
 Consulte [Baixe o Visual Studio 2019][] para baixar e instalar o visual Studio **16,3 e superior**. Durante a instalação, selecione a carga de trabalho de armazenamento e processamento de dados. A instalação autônoma do SSDT não é mais necessária no Visual Studio 2019.
-
-## <a name="reporting-issues-with-ssdt-visual-studio-2019-preview"></a>Relatando problemas com o SSDT Visual Studio 2019 (visualização)
-Para relatar problemas ao usar o SSDT com o SQL Data Warehouse, envie um email para a seguinte lista de distribuição de email: <sqldwssdtpreview@service.microsoft.com>
 
 ## <a name="next-steps"></a>Passos seguintes
 Agora que você tem a versão mais recente do SSDT, você está pronto para [se conectar][connect] ao seu SQL data warehouse.

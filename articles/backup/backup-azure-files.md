@@ -7,18 +7,20 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 44a2b0feab19d042de58359a7ea13814415e6c9e
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 5fc9463d5f5ea15f08378d4a0245174a366fa2b9
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129555"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747475"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Criar cópias de segurança e restaurar partilhas de ficheiros do Azure
+
 Este artigo explica como utilizar o Portal do Azure para fazer a cópia de segurança e restauro das [partilhas de ficheiros do Azure](../storage/files/storage-files-introduction.md).
 
 Neste guia, ficará a saber como:
 > [!div class="checklist"]
+>
 > * Configurar um cofre dos Serviços de Recuperação para fazer cópias de segurança de Ficheiros do Azure
 > * Executar uma tarefa de cópia de segurança a pedido para criar um ponto de restauro
 > * Restaurar um ficheiro ou ficheiros a partir de um ponto de restauro
@@ -27,22 +29,24 @@ Neste guia, ficará a saber como:
 > * Eliminar os dados de cópia de segurança
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Antes de fazer uma cópia de segurança de uma partilha de ficheiros do Azure, garanta que está presente num dos [tipos de Conta de Armazenamento suportados](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). Depois de verificar esta situação, pode proteger as suas partilhas de ficheiros.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitações da cópia de segurança da partilha de ficheiros do Azure durante a Pré-visualização
+
 O backup para compartilhamentos de arquivos do Azure está em versão prévia. Há suporte para compartilhamentos de arquivos do Azure em contas de armazenamento de uso geral v1 e de finalidade geral v2. Os seguintes cenários de cópia de segurança não são suportados nas partilhas de ficheiros do Azure:
-- O suporte para backup de compartilhamentos de arquivos do Azure em contas de armazenamento com replicação ZRS ( [armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md) ) está atualmente limitado a [essas regiões](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares-).
-- Não há uma CLI disponível para proteger os arquivos do Azure usando o backup do Azure.
-- O backup do Azure atualmente dá suporte à configuração de backups agendados uma vez por dia de compartilhamentos de arquivos
-- O número máximo de cópias de segurança agendadas por dia é de um.
-- O número máximo de cópias de segurança a pedido por dia é de quatro.
-- Utilize os [bloqueios de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) da conta de armazenamento para impedir a eliminação acidental de cópias de segurança do seu cofre dos Serviços de Recuperação.
-- Não elimine os instantâneos criados pelo Azure Backup. A eliminação de instantâneos pode resultar na perda de pontos de recuperação e/ou falhas de restauro.
-- Não exclua compartilhamentos de arquivos protegidos pelo backup do Azure. A solução atual excluirá todos os instantâneos feitos pelo backup do Azure quando o compartilhamento de arquivos for excluído e, portanto, perderá todos os pontos de restauração.
 
-
+* O suporte para backup de compartilhamentos de arquivos do Azure em contas de armazenamento com replicação ZRS ( [armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md) ) está atualmente limitado a [essas regiões](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares).
+* Não há uma CLI disponível para proteger os arquivos do Azure usando o backup do Azure.
+* O backup do Azure atualmente dá suporte à configuração de backups agendados uma vez por dia de compartilhamentos de arquivos
+* O número máximo de cópias de segurança agendadas por dia é de um.
+* O número máximo de cópias de segurança a pedido por dia é de quatro.
+* Utilize os [bloqueios de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) da conta de armazenamento para impedir a eliminação acidental de cópias de segurança do seu cofre dos Serviços de Recuperação.
+* Não elimine os instantâneos criados pelo Azure Backup. A eliminação de instantâneos pode resultar na perda de pontos de recuperação e/ou falhas de restauro.
+* Não exclua compartilhamentos de arquivos protegidos pelo backup do Azure. A solução atual excluirá todos os instantâneos feitos pelo backup do Azure quando o compartilhamento de arquivos for excluído e, portanto, perderá todos os pontos de restauração.
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Configurar cópia de segurança de uma partilha de ficheiros do Azure
+
 Este tutorial parte do princípio que já estabeleceu uma partilha de ficheiros do Azure. Para criar cópias de segurança da partilha de ficheiros do Azure:
 
 1. Crie um cofre dos Serviços de Recuperação na mesma região que a partilha de ficheiros. Se já tiver um cofre, abra a página de Descrição geral do cofre e clique em **Cópia de segurança**.
@@ -74,6 +78,7 @@ Este tutorial parte do princípio que já estabeleceu uma partilha de ficheiros 
     Depois de estabelecer uma política de cópia de segurança, será captado um instantâneo das Partilhas de Ficheiros à hora agendada e o ponto de recuperação é retido para o período de escolhido.
 
 ## <a name="create-an-on-demand-backup"></a>Criar uma cópia de segurança a pedido
+
 Ocasionalmente, poderá gerar um instantâneo de cópia de segurança ou um ponto de recuperação fora das horas agendadas na política de cópia de segurança. Uma hora comum para gerar uma cópia de segurança a pedido é logo depois de configurar a política de cópia de segurança. Com base na agenda na política de cópia de segurança, poderá demorar horas ou dias até tirar um instantâneo. Para proteger os dados até que a política de cópia de segurança seja aplicada, inicie uma cópia de segurança a pedido. Muitas vezes, é necessário criar um backup sob demanda antes de fazer alterações planejadas em seus compartilhamentos de arquivos.
 
 ### <a name="to-create-an-on-demand-backup"></a>Para criar uma cópia de segurança a pedido
@@ -97,11 +102,13 @@ Ocasionalmente, poderá gerar um instantâneo de cópia de segurança ou um pont
 5. Clique em **OK** para confirmar o trabalho de backup sob demanda.
 
 ## <a name="restore-from-backup-of-azure-file-share"></a>Restaurar a partir da cópia de segurança da partilha de ficheiros do Azure
+
 Se precisar de restaurar uma partilha de ficheiros completa ou ficheiros ou pastas individuais a partir de um Ponto de Restauro, aceda ao Item de Cópia de Segurança conforme detalhado na secção anterior. Escolha **Restaurar Partilha** para restaurar uma partilha de ficheiros completa para um ponto anterior no tempo desejado. Na lista de Pontos de Restauro apresentada, selecione um que consiga Substituir a partilha de ficheiros atual ou Restaurar para uma partilha de ficheiros alternativa na mesma região.
 
    ![clique em Cópia de segurança para associar a partilha de ficheiros do Azure com o cofre](./media/backup-file-shares/select-restore-location.png)
 
 ## <a name="restore-individual-files-or-folders-from-backup-of-azure-file-shares"></a>Restaurar ficheiros ou pastas individuais a partir da cópia de segurança de partilhas de ficheiros do Azure
+
 A Cópia de Segurança do Azure proporciona a capacidade de procurar um Ponto de Restauro no portal do Azure. Para restaurar um ficheiro ou pasta à sua escolha, clique em Recuperação de Ficheiros na página de Item de Cópia de Segurança e escolha um na lista de Pontos de Restauro. Selecione o Destino de Recuperação e, em seguida, clique em **Selecionar Ficheiro** para procurar o ponto de restauro. Selecione o ficheiro ou pasta à sua escolha e **Restaurar**.
 
    ![clique em Cópia de segurança para associar a partilha de ficheiros do Azure com o cofre](./media/backup-file-shares/restore-individual-files-folders.png)
@@ -109,11 +116,12 @@ A Cópia de Segurança do Azure proporciona a capacidade de procurar um Ponto de
 ## <a name="manage-azure-file-share-backups"></a>Gerir cópias de segurança de partilha de ficheiros do Azure
 
 Pode executar várias tarefas de gestão para Cópias de segurança de partilhas de Ficheiros na página **Tarefas de Cópia de Segurança**, incluindo:
-- [Monitorizar trabalhos](backup-azure-files.md#monitor-jobs)
-- [Criar uma nova política](backup-azure-files.md#create-a-new-policy)
-- [Parar a proteção numa partilha de ficheiros](backup-azure-files.md#stop-protecting-an-azure-file-share)
-- [Retomar a proteção numa partilha de ficheiros](backup-azure-files.md#resume-protection-for-azure-file-share)
-- [Eliminar dados de cópia de segurança](backup-azure-files.md#delete-backup-data)
+
+* [Monitorizar trabalhos](backup-azure-files.md#monitor-jobs)
+* [Criar uma nova política](backup-azure-files.md#create-a-new-policy)
+* [Parar a proteção numa partilha de ficheiros](backup-azure-files.md#stop-protecting-an-azure-file-share)
+* [Retomar a proteção numa partilha de ficheiros](backup-azure-files.md#resume-protection-for-azure-file-share)
+* [Eliminar dados de cópia de segurança](backup-azure-files.md#delete-backup-data)
 
 ### <a name="monitor-jobs"></a>Monitorizar trabalhos
 
@@ -121,7 +129,7 @@ Pode monitorizar o progresso de todas as tarefas na página **Tarefas de Cópia 
 
 Para abrir a página **Tarefas de Cópia de Segurança**:
 
-- Abra o cofre dos Serviços de Recuperação que quer monitorizar e no menu do cofre dos Serviços de Recuperação, clique em **Tarefas** e, em seguida, clique em **Tarefas de Cópia de Segurança**.
+* Abra o cofre dos Serviços de Recuperação que quer monitorizar e no menu do cofre dos Serviços de Recuperação, clique em **Tarefas** e, em seguida, clique em **Tarefas de Cópia de Segurança**.
 
    ![Selecionar a tarefa que quer monitorizar](./media/backup-file-shares/open-backup-jobs.png)
 
@@ -135,7 +143,7 @@ Pode criar uma nova política para fazer cópias de segurança de partilhas de f
 
 Para ver as Políticas de cópia de segurança existentes:
 
-- Abra o cofre dos Serviços de Recuperação que quer e no menu do cofre dos Serviços de Recuperação, clique em **Políticas de cópia de segurança**. Todas as Políticas de cópia de segurança são listadas.
+* Abra o cofre dos Serviços de Recuperação que quer e no menu do cofre dos Serviços de Recuperação, clique em **Políticas de cópia de segurança**. Todas as Políticas de cópia de segurança são listadas.
 
    ![Selecionar a tarefa que quer monitorizar](./media/backup-file-shares/list-of-backup-policies.png)
 
@@ -154,8 +162,8 @@ Para criar uma nova Política de cópia de segurança:
 
 Se optar por parar de proteger uma partilha de ficheiros do Azure, é-lhe perguntado se quer reter os pontos de recuperação. Existem duas formas de parar a proteção de partilhas de ficheiros do Azure:
 
-- Parar todas as tarefas de cópia de segurança futuras e eliminar todos os pontos de recuperação ou
-- Parar todas as tarefas de cópia de segurança futuras, mas manter os pontos de recuperação
+* Parar todas as tarefas de cópia de segurança futuras e eliminar todos os pontos de recuperação ou
+* Parar todas as tarefas de cópia de segurança futuras, mas manter os pontos de recuperação
 
 Pode haver um custo associado a deixar os pontos de recuperação no armazenamento, uma vez que os instantâneos subjacentes criados pelo Azure Backup serão retidos. No entanto, a vantagem de deixar os pontos de recuperação é que pode restaurar a Partilha de ficheiros mais tarde, se assim o desejar. Para obter mais informações sobre o custo de deixar os pontos de recuperação, veja os detalhes dos preços. Se optar por eliminar todos os pontos de recuperação, não pode restaurar a Partilha de ficheiros.
 
@@ -193,7 +201,9 @@ Você pode excluir o backup de um compartilhamento de arquivos durante o trabalh
 
 O procedimento seguinte assume que a tarefa de Cópia de segurança para a máquina virtual foi parada. Depois de parar a Tarefa de cópia de segurança, as opções Retomar a cópia de segurança e Eliminar Dados da Cópia de Segurança estão disponíveis no dashboard do item de Cópia de segurança. Clique em Eliminar Dados de Cópia de Segurança e escreva o nome da Partilha de ficheiros para confirmar a eliminação. Opcionalmente, indique um Motivo para eliminar ou um Comentário.
 
-## <a name="see-also"></a>Consultar Também
+## <a name="see-also"></a>Veja também
+
 Para obter mais informações sobre compartilhamentos de arquivos do Azure, consulte
-- [FAQ sobre a cópia de segurança da partilha de ficheiros do Azure](backup-azure-files-faq.md)
-- [Resolver problemas com a cópia de segurança das partilhas de ficheiros do Azure](troubleshoot-azure-files.md)
+
+* [FAQ sobre a cópia de segurança da partilha de ficheiros do Azure](backup-azure-files-faq.md)
+* [Resolver problemas com a cópia de segurança das partilhas de ficheiros do Azure](troubleshoot-azure-files.md)

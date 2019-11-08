@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: d835eda044c2a6d1e0e7c678073711e45fde7395
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: a70400a1d0c710b939b4dd6d157cb06e729f53cb
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972149"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747814"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Sobre componentes de Site Recovery (configuração, processo, destino mestre)
 
@@ -27,12 +27,12 @@ Para a recuperação de desastre de VMs VMware locais e servidores físicos, voc
 **QC**  | O computador do servidor de configuração executa todos os componentes de Site Recovery locais, que incluem o servidor de configuração, o servidor de processo e o servidor de destino mestre.<br/><br/> Quando você configura o servidor de configuração, todos os componentes são instalados automaticamente. | [Leia](vmware-azure-common-questions.md#configuration-server) as perguntas frequentes do servidor de configuração.
 **Função** | O servidor de configuração coordena as comunicações entre o local e o Azure, e gere a replicação de dados. | Saiba mais sobre a arquitetura de recuperação de desastre do [VMware](vmware-azure-architecture.md) e do [servidor físico](physical-azure-architecture.md) para o Azure.
 **Requisitos do VMware** | Para a recuperação de desastre de VMs VMware locais, você deve instalar e executar o servidor de configuração como uma VM VMware de alta disponibilidade e local. | [Saiba mais sobre](vmware-azure-deploy-configuration-server.md#prerequisites) os pré-requisitos.
-**Implantação do VMware** | Recomendamos que você implante o servidor de configuração usando um modelo OVA baixado. Esse método fornece uma maneira simples de configurar um servidor de configuração que esteja de acordo com todos os requisitos e pré-requisitos.<br/><br/> Se, por alguma razão, você não conseguir implantar uma VM VMware usando um modelo OVA, poderá configurar manualmente os computadores do servidor de configuração, conforme descrito abaixo para recuperação de desastres do computador físico. | [Implante](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) com um modelo ova.
+**Implantação do VMware** | Recomendamos que você implante o servidor de configuração usando um modelo OVA baixado. Esse método fornece uma maneira simples de configurar um servidor de configuração que esteja de acordo com todos os requisitos e pré-requisitos.<br/><br/> Se, por alguma razão, você não conseguir implantar uma VM VMware usando um modelo OVA, poderá configurar manualmente os computadores do servidor de configuração, conforme descrito abaixo para recuperação de desastres do computador físico. | [Implante](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template) com um modelo ova.
 **Requisitos do servidor físico** | Para a recuperação de desastres em servidores físicos locais, você implanta o servidor de configuração manualmente. | [Saiba mais sobre](physical-azure-set-up-source.md#prerequisites) os pré-requisitos.
 **Implantação de servidor físico** | Se ele não puder ser instalado como uma VM VMware, você poderá instalá-lo em um servidor físico. | [Implante](physical-azure-set-up-source.md#set-up-the-source-environment) o servidor de configuração manualmente.
 
 
-## <a name="process-server"></a>Servidor de processos
+## <a name="process-server"></a>Servidor de processo
 
 **Definição** | **Detalhes** | **Vincule**
 --- | --- | ---

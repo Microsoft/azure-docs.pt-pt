@@ -7,18 +7,18 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6874372d64fdbb667a23f2ded37a68cd68e32993
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 50addbec1717c7bb76a248053dd889b09441f6f6
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72245087"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749458"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Azure Disk Encryption scripts de exemplo 
 
 Este artigo fornece scripts de exemplo para a preparação de VHDs e outras tarefas criptografados previamente.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="list-vms-and-secrets"></a>Listar VMs e segredos
 
@@ -50,7 +50,7 @@ A tabela a seguir mostra quais parâmetros podem ser usados no script do PowerSh
 |$aadClientSecret|Segredo do cliente do aplicativo do Azure AD que foi criado anteriormente.|Falso|
 |$keyEncryptionKeyName|Nome da chave de criptografia de chave opcional no keyvault. Uma nova chave com esse nome será criada se não existir uma.|Falso|
 
-## <a name="resource-manager-templates"></a>Modelos do Gestor de Recursos
+## <a name="resource-manager-templates"></a>Modelos do Resource Manager
 
 ### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Criptografar ou descriptografar VMs sem um aplicativo do Azure AD
 

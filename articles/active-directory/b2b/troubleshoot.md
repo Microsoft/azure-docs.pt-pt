@@ -4,20 +4,23 @@ description: Soluções para problemas comuns com a colaboração Azure Active D
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/25/2017
+tags: active-directory
 ms.author: mimart
 author: v-miegge
-manager: celestedg
+manager: dcscontentpm
 ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom:
+- it-pro
+- seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f91ddee8668316df69c98ed14fbcabcb06b6da82
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 6449644f98280d75363f737be11f8e8b824cab36
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983403"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795184"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Solução de problemas Azure Active Directory colaboração B2B
 
@@ -43,7 +46,7 @@ Se você modificou recentemente essas configurações ou atribuiu a função de 
 
 ## <a name="the-user-that-i-invited-is-receiving-an-error-during-redemption"></a>O usuário que convidou está recebendo um erro durante o resgate
 
-Erros comuns incluem:
+Os erros comuns incluem:
 
 ### <a name="invitees-admin-has-disallowed-emailverified-users-from-being-created-in-their-tenant"></a>O administrador do convidado não permitiu a criação de usuários verificados em seu locatário
 
@@ -59,7 +62,7 @@ Para resolver esse problema, o administrador do usuário externo deve sincroniza
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Como o '\#', que normalmente não é um caractere válido, é sincronizado com o Azure AD?
 
-"\#" é um caractere reservado em UPNs para colaboração B2B do Azure ad ou usuários externos, pois a conta user@contoso.com convidada se torna user_contoso.@fabrikam.onmicrosoft.comcom # ext #. Portanto, \# em UPNs provenientes do local não têm permissão para entrar no portal do Azure. 
+"\#" é um caractere reservado em UPNs para colaboração B2B do Azure AD ou usuários externos, pois a conta convidada user@contoso.com se torna user_contoso. com # EXT #@fabrikam.onmicrosoft.com. Portanto, \# em UPNs provenientes do local não têm permissão para entrar no portal do Azure. 
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Recebo um erro ao adicionar usuários externos a um grupo sincronizado
 
@@ -67,7 +70,7 @@ Os usuários externos podem ser adicionados somente a grupos "atribuídos" ou "s
 
 ## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>Meu usuário externo não recebeu um email para resgatar
 
-O convidado deve verificar com seu ISP ou filtro de spam para garantir que o seguinte endereço seja permitido:Invites@microsoft.com
+O convidado deve verificar com seu ISP ou filtro de spam para garantir que o seguinte endereço seja permitido: Invites@microsoft.com
 
 ## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Observei que a mensagem personalizada não é incluída com mensagens de convite às vezes
 
@@ -92,6 +95,6 @@ Para resolver esse problema, você deve assumir o locatário abandonado. Consult
 
 Se o locatário de identidade for um locatário JIT (just-in-time) ou viral (ou seja, um locatário do Azure separado e não gerenciado), somente o usuário convidado poderá redefinir sua senha. Às vezes, uma organização [assumirá o gerenciamento de locatários viral](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) que são criados quando os funcionários usam seus endereços de email de trabalho para se inscreverem nos serviços. Depois que a organização assume um locatário viral, somente um administrador na organização pode redefinir a senha do usuário ou habilitar o SSPR. Se necessário, como a organização que convida, você pode remover a conta de usuário convidado do seu diretório e reenviar um convite.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Obter suporte para colaboração B2B](get-support.md)

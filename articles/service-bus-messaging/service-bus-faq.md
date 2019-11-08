@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 80809afc9f2a8e8da2f6adecfe916141c4cd3e45
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 8a2a704f39aa678be819a7297b30f8926e414e56
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278346"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748442"
 ---
 # <a name="service-bus-faq"></a>Perguntas Frequentes do Service Bus
 
@@ -51,7 +51,7 @@ Você pode usar os seguintes protocolos com o barramento de serviço do Azure pa
 
 Consulte a tabela a seguir para as portas de saída que você precisa abrir para usar esses protocolos para se comunicar com os hubs de eventos do Azure. 
 
-| Protocol | Portas | Detalhes | 
+| Protocolo | Portas | Detalhes | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 e 5672 | Consulte o [Guia do protocolo AMQP](service-bus-amqp-protocol-guide.md) | 
 | SBMP | 9350 a 9354 | Consulte [modo de conectividade](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
@@ -112,9 +112,16 @@ Qualquer transferência de dados dentro de uma determinada região do Azure é f
 ### <a name="does-service-bus-charge-for-storage"></a>O barramento de serviço cobra pelo armazenamento?
 Não, o barramento de serviço não cobra pelo armazenamento. No entanto, há uma cota que limita a quantidade máxima de dados que podem persistir por fila/tópico. Consulte as próximas perguntas frequentes.
 
+### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Tenho um namespace standard do barramento de serviço. Por que vejo encargos no grupo de recursos ' $system '?
+O barramento de serviço do Azure atualizou os componentes de cobrança recentemente. Devido a isso, se você tiver um namespace padrão do barramento de serviço, poderá ver itens de linha para o recurso '/subscriptions/< azure_subscription_id >/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system ' no grupo de recursos ' $ sistema '.
+
+Esses encargos representam o encargo base por assinatura do Azure que provisionou um namespace padrão do barramento de serviço. 
+
+É importante observar que esses não são novos encargos, ou seja, eles já existiam no modelo de cobrança anterior. A única alteração é que agora eles estão listados em ' $system '. Isso é feito devido a restrições no novo sistema de cobrança que agrupa encargos de nível de assinatura, não vinculado a um recurso específico, sob a ID de recurso ' $system '.
+
 ## <a name="quotas"></a>Quotas
 
-Para obter uma lista de cotas e limites do barramento de serviço, consulte [visão geral][Quotas overview]das cotas do barramento de serviço.
+Para obter uma lista de cotas e limites do barramento de serviço, consulte [visão geral das cotas do barramento de serviço][Quotas overview].
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>O barramento de serviço tem cotas de uso?
 Por padrão, para qualquer serviço de nuvem, a Microsoft define uma cota de uso mensal agregada que é calculada em todas as assinaturas de um cliente. Se precisar de mais do que esses limites, você poderá entrar em contato com o atendimento ao cliente a qualquer momento para entender suas necessidades e ajustar esses limites adequadamente. Para o barramento de serviço, a cota de uso agregado é 5.000.000.000 mensagens por mês.
@@ -124,11 +131,11 @@ Enquanto a Microsoft se reserva o direito de desabilitar uma conta de cliente qu
 Assim como ocorre com outros serviços no Azure, o barramento de serviço impõe um conjunto de cotas específicas para garantir que haja um uso justo de recursos. Você pode encontrar mais detalhes sobre essas cotas na [visão geral cotas do barramento de serviço][Quotas overview].
 
 ### <a name="how-to-handle-messages-of-size--1-mb"></a>Como lidar com mensagens de tamanho > 1 MB?
-Os serviços de mensagens do barramento de serviço (filas e tópicos/assinaturas) permitem que o aplicativo envie mensagens de tamanho até 256 KB (camada Standard) ou 1 MB (camada Premium). Se você estiver lidando com mensagens de tamanho maior que 1 MB, use o padrão de verificação de declaração descrito nesta postagem no [blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
+Os serviços de mensagens do barramento de serviço (filas e tópicos/assinaturas) permitem que o aplicativo envie mensagens de tamanho até 256 KB (camada Standard) ou 1 MB (camada Premium). Se você estiver lidando com mensagens de tamanho maior que 1 MB, use o padrão de verificação de declaração descrito nesta [postagem no blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Por que não consigo criar um namespace depois de excluí-lo de outra assinatura? 
-Quando você exclui um namespace de uma assinatura, aguarde 4 horas antes de recriá-lo com o mesmo nome em outra assinatura. Caso contrário, você pode receber a seguinte mensagem de `Namespace already exists`erro:. 
+Quando você exclui um namespace de uma assinatura, aguarde 4 horas antes de recriá-lo com o mesmo nome em outra assinatura. Caso contrário, você pode receber a seguinte mensagem de erro: `Namespace already exists`. 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Quais são algumas das exceções geradas pelas APIs do barramento de serviço do Azure e suas ações sugeridas?
 Para obter uma lista de possíveis exceções do barramento de serviço, consulte [visão geral de exceções][Exceptions overview].
@@ -160,7 +167,7 @@ $res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsof
 Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre o barramento de serviço, confira os seguintes artigos:
 
 * [Apresentando o barramento de serviço Premium do Azure (postagem de blog)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)

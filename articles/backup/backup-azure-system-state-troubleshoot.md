@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de backup de estado do sistema com o backup do Azure
-description: Solucionar problemas no backup do estado do sistema.
+description: Neste artigo, saiba como solucionar problemas no backup de estado do sistema para servidores Windows locais.
 ms.reviewer: srinathv
 author: dcurwin
 manager: carmonm
@@ -9,18 +9,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 26ba811eba1a25dacddd04814f8e0d2805360920
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 71a2b73ab3570539a566f708ea8b1a41963d4e81
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018785"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747302"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Solucionar problemas de backup do estado do sistema
 
 Este artigo descreve soluções para problemas que você pode encontrar ao usar o backup de estado do sistema.
 
 ## <a name="basic-troubleshooting"></a>Resolução de problemas básicos
+
 Recomendamos que você execute a validação abaixo antes de iniciar a solução de problemas de backup do estado do sistema:
 
 - [Verifique se o agente de Serviços de Recuperação do Microsoft Azure (MARS) está atualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
@@ -40,6 +41,7 @@ Recomendamos que você execute a validação abaixo antes de iniciar a solução
 - [Consideração quando o agente de backup estiver em execução em uma máquina virtual do Azure](https://aka.ms/AB-AA4dwtr)
 
 ### <a name="limitation"></a>Limitação
+
 - A Microsoft não recomenda recuperar para um hardware diferente com a recuperação do Estado do Sistema.
 - O backup de estado do sistema atualmente dá suporte a servidores Windows "locais", essa funcionalidade não está disponível para VMs do Azure.
 
@@ -54,9 +56,10 @@ Verifique se Backup do Windows Server está instalado e habilitado no servidor. 
  ```powershell
 Get-WindowsFeature Windows-Server-Backup
  ```
+
 Se a saída exibir o **estado de instalação** como **disponível**, significa que o recurso de backup do Windows Server está disponível para a instalação, mas não instalado no servidor. No entanto, se Backup do Windows Server não estiver instalado, use um dos métodos abaixo para instalá-lo.
 
-**Método 1: Instalar Backup do Windows Server usando o PowerShell**
+#### <a name="method-1-install-windows-server-backup-using-powershell"></a>Método 1: instalar Backup do Windows Server usando o PowerShell
 
 Para instalar Backup do Windows Server usando o PowerShell, execute o comando abaixo:
 
@@ -64,7 +67,7 @@ Para instalar Backup do Windows Server usando o PowerShell, execute o comando ab
   Install-WindowsFeature -Name Windows-Server-Backup
   ```
 
-**Método 2: Instalar Backup do Windows Server usando Gerenciador do Servidor**
+#### <a name="method-2-install-windows-server-backup-using-server-manager"></a>Método 2: instalar Backup do Windows Server usando Gerenciador do Servidor
 
 Para instalar Backup do Windows Server usando Gerenciador do Servidor, execute as etapas abaixo:
 
@@ -84,8 +87,7 @@ Para instalar Backup do Windows Server usando Gerenciador do Servidor, execute a
 5. Na guia **confirmação** , clique em **instalar** para iniciar o processo de instalação.
 6. Na guia **resultados** , ele exibirá a backup do Windows Server recurso foi instalado com êxito no Windows Server.
 
-    ![Resultado](./media/backup-azure-system-state-troubleshoot/results.jpg)
-
+    ![disso](./media/backup-azure-system-state-troubleshoot/results.jpg)
 
 ### <a name="system-volume-information-permission"></a>Permissão de informações de volume do sistema
 
@@ -105,26 +107,26 @@ Provedor de cópia de sombra de software da Microsoft (SWPRV) | Manual
 
 ### <a name="validate-windows-server-backup-status"></a>Validar Backup do Windows Server status
 
-Para validar Backup do Windows Server status, execute o seguinte:
+Para validar Backup do Windows Server status, execute as etapas abaixo:
 
-  * Verificar se o PowerShell do WSB está em execução
+- Verificar se o PowerShell do WSB está em execução
 
-    -   Execute `Get-WBJob` de um PowerShell elevado e verifique se ele não retorna o seguinte erro:
+  - Execute `Get-WBJob` de um PowerShell elevado e certifique-se de que ele não retorna o seguinte erro:
 
     > [!WARNING]
-    > Get-WBJob: O termo ' Get-WBJob ' não é reconhecido como o nome de um cmdlet, função, arquivo de script ou programa operável. Verifique a ortografia do nome ou, se um caminho foi incluído, verifique se o caminho está correto e tente novamente.
+    > Get-WBJob: o termo ' Get-WBJob ' não é reconhecido como o nome de um cmdlet, função, arquivo de script ou programa operável. Verifique a ortografia do nome ou, se um caminho foi incluído, verifique se o caminho está correto e tente novamente.
 
-    -   Se ele falhar com esse erro, reinstale o recurso Backup do Windows Server no computador servidor, conforme mencionado na etapa 1 pré-requisitos.
+    - Se ele falhar com esse erro, reinstale o recurso Backup do Windows Server no computador servidor, conforme mencionado na etapa 1 pré-requisitos.
 
-  * Verifique se o backup do WSB está funcionando corretamente, executando o comando abaixo no prompt de comando elevado:
+  - Verifique se o backup do WSB está funcionando corretamente, executando o comando abaixo no prompt de comando elevado:
 
       `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 
       > [!NOTE]
       >Substitua X pela letra da unidade do volume em que você deseja armazenar a imagem de backup do estado do sistema.
 
-    - Verificar periodicamente o status do trabalho executando `Get-WBJob` o comando do PowerShell com privilégios elevados        
-    - Após a conclusão do trabalho de backup, verifique o status final do trabalho `Get-WBJob -Previous 1` executando o comando
+    - Verificar periodicamente o status do trabalho executando `Get-WBJob` comando do PowerShell elevado
+    - Após a conclusão do trabalho de backup, verifique o status final do trabalho executando `Get-WBJob -Previous 1` comando
 
 Se o trabalho falhar, ele indica um problema WSB que resultaria em falha nos backups de estado do sistema do agente MARS.
 
@@ -134,23 +136,20 @@ Se o trabalho falhar, ele indica um problema WSB que resultaria em falha nos bac
 
 | Sintoma | Causa | Resolução
 | -- | -- | --
-| -O agente MARS falha com a mensagem de erro: "O trabalho WSB falhou com erros VSS. Verificar os logs de eventos do VSS para resolver a falha "<br/><br/> -O seguinte log de erros está presente nos logs de eventos do aplicativo VSS: "Um gravador VSS rejeitou um evento com o erro 0x800423f2, o tempo limite do gravador expirou entre congelar e descongelar eventos".| O gravador VSS não pode ser concluído no tempo devido à falta de recursos de CPU e memória no computador <br/><br/> Outro software de backup já está usando o gravador VSS, pois uma operação de instantâneo de resultado não pôde ser concluída para este backup | Aguarde a liberação da CPU/memória nos processos do sistema ou da anulação usando muita memória/CPU e repita a operação <br/><br/>  Aguarde a conclusão do backup em andamento e repita a operação em um ponto posterior quando não houver backups em execução no computador
-
+| -O agente MARS falha com a mensagem de erro: "falha no trabalho WSB com erros VSS. Verificar os logs de eventos do VSS para resolver a falha "<br/><br/> -O seguinte log de erros está presente nos logs de eventos do aplicativo VSS: "um gravador VSS rejeitou um evento com o erro 0x800423f2, o tempo limite do gravador expirou entre os eventos Freeze e descongelar."| O gravador VSS não pode ser concluído no tempo devido à falta de recursos de CPU e memória no computador <br/><br/> Outro software de backup já está usando o gravador VSS, pois uma operação de instantâneo de resultado não pôde ser concluída para este backup | Aguarde a liberação da CPU/memória nos processos do sistema ou da anulação usando muita memória/CPU e repita a operação <br/><br/>  Aguarde a conclusão do backup em andamento e repita a operação em um ponto posterior quando não houver backups em execução no computador
 
 ### <a name="insufficient-disk-space-to-grow-shadow-copies"></a>Espaço em disco insuficiente para aumentar as cópias de sombra
 
 | Sintoma | Resolução
 | -- | --
-| -O agente MARS falha com a mensagem de erro: O backup falhou porque o volume da cópia de sombra não pôde crescer devido a espaço em disco insuficiente nos volumes que contêm arquivos do sistema <br/><br/> -O seguinte log de erro/aviso está presente nos logs de eventos do sistema VolSnap: "Espaço em disco insuficiente no volume C: para aumentar o armazenamento de cópia de sombra para cópias de sombra de C: devido a essa falha, todas as cópias de sombra do volume C: correm o risco de serem excluídas" | -Libere espaço no volume realçado no log de eventos para que haja espaço suficiente para que as cópias de sombra cresçam enquanto o backup está em andamento <br/><br/> -Ao configurar o espaço de cópia de sombra, podemos restringir a quantidade de espaço usado para cópia de sombra. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
-
+| -O agente MARS falha com a mensagem de erro: falha no backup porque o volume da cópia de sombra não pôde crescer devido a espaço em disco insuficiente nos volumes que contêm arquivos do sistema <br/><br/> -O seguinte log de erros/avisos está presente nos logs de eventos do sistema VolSnap: "não havia espaço em disco suficiente no volume C: para aumentar o armazenamento de cópia de sombra para cópias de sombra de C: devido a essa falha, todas as cópias de sombra do volume C: estão em risco de serem excluídas" | -Libere espaço no volume realçado no log de eventos para que haja espaço suficiente para que as cópias de sombra cresçam enquanto o backup está em andamento <br/><br/> -Ao configurar o espaço de cópia de sombra, podemos restringir a quantidade de espaço usado para cópia de sombra. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
 
 ### <a name="efi-partition-locked"></a>Partição EFI bloqueada
 
 | Sintoma | Resolução
 | -- | --
-| O agente MARS falha com a mensagem de erro: "Falha no backup do estado do sistema porque a partição do sistema EFI está bloqueada. Isso pode ser devido ao acesso à partição do sistema por uma segurança de terceiros ou backup de software " | -Se o problema for devido a um software de segurança de terceiros, você precisará entrar em contato com o fornecedor de antivírus para que ele possa permitir o agente MARS <br/><br/> -Se um software de backup de terceiros estiver em execução, aguarde sua conclusão e repita o backup
+| O agente MARS falha com a mensagem de erro: "falha no backup do estado do sistema porque a partição do sistema EFI está bloqueada. Isso pode ser devido ao acesso à partição do sistema por uma segurança de terceiros ou backup de software " | -Se o problema for devido a um software de segurança de terceiros, você precisará entrar em contato com o fornecedor de antivírus para que ele possa permitir o agente MARS <br/><br/> -Se um software de backup de terceiros estiver em execução, aguarde sua conclusão e repita o backup
 
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre o estado do sistema do Windows na implantação do Gerenciador de recursos, consulte [fazer backup do estado do sistema do Windows Server](backup-azure-system-state.md)

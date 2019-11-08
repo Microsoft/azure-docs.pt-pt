@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 026b5d219bee34dd846990d54e691039d1c6e458
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 0d4e76f4d02b0287770243bfddf995a19f90d232
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72245074"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749443"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de solução de problemas Azure Disk Encryption
 
@@ -24,7 +24,7 @@ Antes de executar qualquer uma das etapas a seguir, primeiro verifique se as VMs
 - [Requisitos de política de grupo](disk-encryption-overview.md#group-policy-requirements)
 - [Requisitos de armazenamento de chave de criptografia](disk-encryption-overview.md#encryption-key-storage-requirements)
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="troubleshooting-azure-disk-encryption-behind-a-firewall"></a>Solução de problemas Azure Disk Encryption por trás de um firewall
 
@@ -38,7 +38,7 @@ Qualquer configuração de grupo de segurança de rede aplicada ainda deve permi
 Quando a criptografia está sendo habilitada com [as credenciais do Azure ad](disk-encryption-windows-aad.md#), a VM de destino deve permitir a conectividade com os pontos de extremidade Azure Active Directory e Key Vault pontos de extremidade. Os pontos de extremidade de autenticação Azure Active Directory atuais são mantidos nas seções 56 e 59 da documentação de [intervalos de endereços IP e URLs do Office 365](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) . Key Vault instruções são fornecidas na documentação sobre como [acessar Azure Key Vault atrás de um firewall](../../key-vault/key-vault-access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure 
-A VM deve ser capaz de acessar o ponto de extremidade do [serviço de metadados de instância do Azure](../windows/instance-metadata-service.md) que usa um endereço IP não roteável conhecido (`169.254.169.254`) que pode ser acessado somente de dentro da VM.  Não há suporte para as configurações de proxy que alteram o tráfego HTTP local para esse endereço (por exemplo, a adição de um cabeçalho X-Forwardd-for).
+A VM deve ser capaz de acessar o ponto de extremidade do [serviço de metadados de instância do Azure](../windows/instance-metadata-service.md) , que usa um endereço IP não roteável conhecido (`169.254.169.254`) que pode ser acessado somente de dentro da VM.  Não há suporte para as configurações de proxy que alteram o tráfego HTTP local para esse endereço (por exemplo, a adição de um cabeçalho X-Forwardd-for).
 
 ## <a name="troubleshooting-windows-server-2016-server-core"></a>Solução de problemas do Windows Server 2016 Server Core
 

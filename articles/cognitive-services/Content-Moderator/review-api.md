@@ -1,7 +1,7 @@
 ---
 title: Conceitos de análises, fluxos de trabalho e trabalhos – Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Saiba mais sobre análises, fluxos de trabalho e trabalhos
+description: Neste artigo, você aprenderá sobre os principais conceitos da ferramenta de revisão; análises, fluxos de trabalho e trabalhos.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 917636c8ae339e06321c169979611f74276ca523
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 1aba86efb9ea76fbf060e80b47f9f2f6cdf8ee71
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044008"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744418"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Análises, fluxos de trabalho e trabalhos de moderação de conteúdo
 
@@ -35,7 +35,7 @@ Um fluxo de trabalho é um filtro personalizado baseado em nuvem para conteúdo.
 
 ### <a name="view-workflows"></a>Exibir fluxos de trabalho
 
-Para exibir os fluxos de trabalho existentes, vá para a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) e selecione **configurações**  >  fluxos de**trabalho**.
+Para exibir os fluxos de trabalho existentes, vá para a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) e selecione **configurações** > fluxos de **trabalho**.
 
 ![Fluxo de trabalho padrão](images/default-workflow-listed.PNG)
 

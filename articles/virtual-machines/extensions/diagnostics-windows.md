@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 771064774371e71c0664918790b296c156ed1c1f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 547de4862081b56bf627c3a00564ce6564f2ad09
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084780"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750097"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Utilizar o PowerShell para ativar o Diagnóstico do Azure numa máquina virtual com o Windows
 
 Diagnóstico do Azure é o recurso no Azure que habilita a coleta de dados de diagnóstico em um aplicativo implantado. Você pode usar a extensão de diagnóstico para coletar dados de diagnóstico como logs de aplicativo ou contadores de desempenho de uma VM (máquina virtual) do Azure que esteja executando o Windows. 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-resource-manager-deployment-model"></a>Habilitar a extensão de diagnóstico se você usar o modelo de implantação do Resource Manager
 Você pode habilitar a extensão de diagnóstico enquanto cria uma VM do Windows por meio do modelo de implantação Azure Resource Manager adicionando a configuração de extensão ao modelo do Resource Manager. Consulte [criar uma máquina virtual do Windows com monitoramento e diagnóstico usando o modelo de Azure Resource Manager](diagnostics-template.md).
@@ -80,10 +80,10 @@ O XML a seguir pode ser usado para a configuração pública de diagnóstico com
 
 A configuração precisa ser atualizada para incluir o seguinte:
 
-* O atributo ResourceId do elemento de **métricas** precisa ser atualizado com a ID de recurso para a VM.
+* O atributo *ResourceId* do elemento de **métricas** precisa ser atualizado com a ID de recurso para a VM.
   
   * A ID do recurso pode ser construída usando o seguinte padrão: "*ID da assinatura/subscriptions/{para a assinatura com a VM*}/resourceGroups/{*o nome do RESOURCEGROUP para a VM*}/Providers/Microsoft.Compute/virtualMachines/{ *O nome da VM*} ".
-  * Por exemplo, se a ID da assinatura para a assinatura em que a VM está em execução for **11111111-1111-1111-1111-111111111111**, o nome do grupo de recursos para o grupo de recursos é myresource Group e o nome da VM for **MyWindowsVM**, então o o valor de ResourceId seria:
+  * Por exemplo, se a ID da assinatura para a assinatura em que a VM está em execução for **11111111-1111-1111-1111-111111111111**, o nome do grupo de recursos para o grupo de recursos é **MyResource**Group e o nome da VM for **MyWindowsVM**, então o o valor de *ResourceId* seria:
     
       ```xml
       <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
@@ -196,6 +196,6 @@ A configuração precisa ser atualizada para incluir o seguinte:
     ```
 
 ## <a name="next-steps"></a>Passos seguintes
-* Para obter orientações adicionais sobre como usar o recurso de Diagnóstico do Azure e outras técnicas para solucionar problemas, consulte Habilitando o [diagnóstico nos serviços de nuvem do Azure e máquinas virtuais](../../cloud-services/cloud-services-dotnet-diagnostics.md).
+* Para obter orientações adicionais sobre como usar o recurso de Diagnóstico do Azure e outras técnicas para solucionar problemas, consulte [habilitando o diagnóstico nos serviços de nuvem do Azure e máquinas virtuais](../../cloud-services/cloud-services-dotnet-diagnostics.md).
 * O [esquema de configurações de diagnóstico](https://msdn.microsoft.com/library/azure/mt634524.aspx) explica as várias opções de configurações de XML para a extensão de diagnóstico.
 

@@ -1,7 +1,7 @@
 ---
 title: Detectar rostos em uma imagem-API de Detecção Facial
 titleSuffix: Azure Cognitive Services
-description: Saiba como usar os vários dados retornados pelo recurso de detecção facial.
+description: Este guia demonstra como usar a detecção facial para extrair atributos como gênero, idade ou pose de uma determinada imagem.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
-ms.openlocfilehash: 07089def3290d6d64919ad2551de7584646cc681
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9b66231d995ffb6980ce36852115c571cd102681
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306623"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744278"
 ---
 # <a name="get-face-detection-data"></a>Obter dados de detecção facial
 
@@ -140,12 +140,12 @@ foreach (var face in faces)
 
 Para saber mais sobre cada um dos atributos, consulte o guia conceitual de [detecção e atributos de rosto](../concepts/face-detection.md) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia, você aprendeu a usar as várias funcionalidades de detecção facial. Em seguida, integre esses recursos ao seu aplicativo seguindo um tutorial detalhado.
 
-- [Tutorial: Criar um aplicativo WPF para exibir dados de face em uma imagem](../Tutorials/FaceAPIinCSharpTutorial.md)
-- [Tutorial: Criar um aplicativo Android para detectar e estruturar rostos em uma imagem](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+- [Tutorial: criar um aplicativo WPF para exibir dados de face em uma imagem](../Tutorials/FaceAPIinCSharpTutorial.md)
+- [Tutorial: criar um aplicativo Android para detectar e estruturar rostos em uma imagem](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
 
 ## <a name="related-topics"></a>Tópicos relacionados
 

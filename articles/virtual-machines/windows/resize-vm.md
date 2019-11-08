@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 9537744787df7fc6c470bc1ee6862ad3f2991ae9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1f5f8f3a315b894ab8bc972d36008b5bce85d8e7
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088733"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749238"
 ---
 # <a name="resize-a-windows-vm"></a>Redimensionar uma VM do Windows
 
@@ -29,7 +29,7 @@ Depois de criar uma VM (máquina virtual), você pode escalar ou reduzir vertica
 
 Se sua VM usar o armazenamento Premium, certifique-se de escolher uma versão de **s** do tamanho para obter suporte de armazenamento Premium. Por exemplo, escolha Standard_E4**s**_v3 em vez de Standard_E4_v3.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>Redimensionar uma VM do Windows que não está em um conjunto de disponibilidade
 
@@ -54,7 +54,7 @@ $vm.HardwareProfile.VmSize = "<newVMsize>"
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
-Se o tamanho desejado não estiver listado, execute os comandos a seguir para desalocar a VM, redimensioná-la e reiniciar a VM. **Substitua\<newVMsize >** pelo tamanho desejado.
+Se o tamanho desejado não estiver listado, execute os comandos a seguir para desalocar a VM, redimensioná-la e reiniciar a VM. Substitua **\<newVMsize >** pelo tamanho desejado.
    
 ```powershell
 Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Force

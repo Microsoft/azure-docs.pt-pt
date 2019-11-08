@@ -7,22 +7,22 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 088ca5c20b0681cdd36da1b8a187873399aa32c6
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b034bad8661e93cbf5797c93739f1db3a64626f0
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828465"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748907"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Azure Disk Encryption scripts de exemplo 
 
 Este artigo fornece scripts de exemplo para a preparação de VHDs e outras tarefas criptografados previamente.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
-## <a name="sample-powershell-scripts-for-azure-disk-encryption"></a>Scripts do PowerShell de exemplo para o Azure Disk Encryption 
+## <a name="sample-powershell-scripts-for-azure-disk-encryption"></a>Scripts do PowerShell de exemplo para Azure Disk Encryption 
 
-- **Lista todas as VMs encriptadas na sua subscrição**
+- **Listar todas as VMs criptografadas em sua assinatura**
 
      ```azurepowershell-interactive
      $osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
@@ -30,46 +30,46 @@ Este artigo fornece scripts de exemplo para a preparação de VHDs e outras tare
      Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
      ```
 
-- **Lista de todos os segredos de encriptação de disco utilizados para encriptar as VMs num cofre de chaves** 
+- **Listar todos os segredos de criptografia de disco usados para criptografar VMs em um cofre de chaves** 
 
      ```azurepowershell-interactive
      Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
      ```
 
 ### <a name="using-the-azure-disk-encryption-prerequisites-powershell-script"></a>Usando o script do PowerShell Azure Disk Encryption pré-requisitos
-Se já estiver familiarizado com os pré-requisitos para a encriptação de disco do Azure, pode utilizar o [script do PowerShell de pré-requisitos de Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para obter um exemplo de usar este script do PowerShell, consulte a [encriptar um início rápido de VM](disk-encryption-powershell-quickstart.md). Pode remover os comentários de uma seção do script, começando na linha 211, para encriptar todos os discos de VMs existentes no grupo de recursos existente. 
+Se você já estiver familiarizado com os pré-requisitos para Azure Disk Encryption, poderá usar o script do [PowerShell Azure Disk Encryption pré-requisitos](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para obter um exemplo de como usar esse script do PowerShell, consulte o guia de [início rápido criptografar uma VM](disk-encryption-powershell-quickstart.md). Você pode remover os comentários de uma seção do script, começando na linha 211, para criptografar todos os discos para VMs existentes em um grupo de recursos existente. 
 
-A tabela seguinte mostra quais parâmetros podem ser utilizados no script do PowerShell: 
+A tabela a seguir mostra quais parâmetros podem ser usados no script do PowerShell: 
 
 
 |Parâmetro|Descrição|Obrigatório?|
 |------|------|------|
-|$resourceGroupName| Nome do grupo de recursos a que o Cofre de chaves pertence.  Será criado um novo grupo de recursos com este nome, caso não exista.| Verdadeiro|
-|$keyVaultName|Nome do Cofre de chaves na encriptação de que as chaves devem ser colocados. Será criado um novo cofre com este nome, caso não exista.| Verdadeiro|
-|$location|Localização do Cofre de chaves. Certificar-se de que o Cofre de chaves e as VMs a encriptar estão na mesma localização. Obtenha uma lista de localizações com `Get-AzLocation`.|Verdadeiro|
-|$subscriptionId|Identificador da subscrição do Azure a ser utilizado.  Pode obter o seu ID de subscrição com `Get-AzSubscription`.|Verdadeiro|
-|$aadAppName|Nome da aplicação do Azure AD que será utilizada para escrever segredos no Cofre de chaves. Será criada uma nova aplicação com este nome, caso ainda não exista. Se esta aplicação já existir, transmita o parâmetro de aadClientSecret ao script.|Falso|
-|$aadClientSecret|Segredo do cliente de aplicação do Azure AD criado anteriormente.|Falso|
-|$keyEncryptionKeyName|Nome da chave de encriptação de chave opcional no Cofre de chaves. Será criada uma nova chave com este nome, caso não exista.|False|
+|$resourceGroupName| Nome do grupo de recursos ao qual o keyvault pertence.  Um novo grupo de recursos com esse nome será criado se um não existir.| Verdadeiro|
+|$keyVaultName|Nome do keyvault no qual as chaves de criptografia devem ser colocadas. Um novo cofre com esse nome será criado se um não existir.| Verdadeiro|
+|$location|Local do keyvault. Verifique se o keyvault e as VMs a serem criptografadas estão no mesmo local. Obtenha uma lista de localizações com `Get-AzLocation`.|Verdadeiro|
+|$subscriptionId|Identificador da assinatura do Azure a ser usado.  Pode obter o seu ID de subscrição com `Get-AzSubscription`.|Verdadeiro|
+|$aadAppName|Nome do aplicativo do Azure AD que será usado para gravar segredos no keyvault. Será criada uma nova aplicação com este nome, caso ainda não exista. Se esse aplicativo já existir, passe o parâmetro aadClientSecret para o script.|Falso|
+|$aadClientSecret|Segredo do cliente do aplicativo do Azure AD que foi criado anteriormente.|Falso|
+|$keyEncryptionKeyName|Nome da chave de criptografia de chave opcional no keyvault. Uma nova chave com esse nome será criada se não existir uma.|Falso|
 
 
-### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Encriptar ou desencriptar VMs sem uma aplicação do Azure AD
+### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Criptografar ou descriptografar VMs sem um aplicativo do Azure AD
 
 - [Habilitar a criptografia de disco em uma VM Linux existente ou em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
-- [Desativar a encriptação numa VM do Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
-    - A desativação da encriptação só é permitida em volumes de dados para VMs do Linux.  
+- [Desabilitar a criptografia em uma VM Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
+    - A desabilitação da criptografia só é permitida em volumes de dados para VMs do Linux.  
 
-### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Encriptar ou desencriptar VMs com uma aplicação do Azure AD (versão anterior) 
+### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Criptografar ou descriptografar VMs com um aplicativo do Azure AD (versão anterior) 
  
 - [Habilitar a criptografia de disco em uma VM Linux existente ou em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
 
 
--  [Desativar a encriptação numa VM do Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm) 
-    - A desativação da encriptação só é permitida em volumes de dados para VMs do Linux. 
+-  [Desabilitar a criptografia em uma VM Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm) 
+    - A desabilitação da criptografia só é permitida em volumes de dados para VMs do Linux. 
 
 
-- [Criar um novo disco gerido encriptado a partir de um blob VHD/armazenamento encriptado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
-    - Cria um novo disco gerido encriptado fornecido de um VHD previamente encriptado e as definições de encriptação correspondente
+- [Criar um novo disco gerenciado criptografado de um blob de armazenamento/VHD previamente criptografado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
+    - Cria um novo disco gerenciado criptografado que fornecia um VHD previamente criptografado e suas configurações de criptografia correspondentes
 
 
 
@@ -77,35 +77,35 @@ A tabela seguinte mostra quais parâmetros podem ser utilizados no script do Pow
 
 ## <a name="encrypting-an-os-drive-on-a-running-linux-vm"></a>Criptografando uma unidade do sistema operacional em uma VM Linux em execução
 
-### <a name="prerequisites-for-os-disk-encryption"></a>Pré-requisitos para a encriptação de disco do SO
+### <a name="prerequisites-for-os-disk-encryption"></a>Pré-requisitos para a criptografia de disco do so
 
 * A VM deve usar uma distribuição compatível com a criptografia de disco do sistema operacional, conforme listado no [Azure Disk Encryption sistemas operacionais com suporte](disk-encryption-overview.md#supported-vm-sizes) 
-* A VM tem de ser criada a partir da imagem do Marketplace no Azure Resource Manager.
-* VM do Azure com, pelo menos, 4 GB de RAM (recomendado tamanho é de 7 GB).
-* (Para RHEL e CentOS) Desative SELinux. Para desativar SELinux, consulte "4.4.2 criação. Desativar o SELinux"a [Guia do administrador e usuário SELinux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) na VM.
-* Depois de desativar SELinux, reinicie a VM, pelo menos, uma vez.
+* A VM deve ser criada a partir da imagem do Marketplace no Azure Resource Manager.
+* A VM do Azure com pelo menos 4 GB de RAM (o tamanho recomendado é de 7 GB).
+* (Para RHEL e CentOS) Desabilite o SELinux. Para desabilitar o SELinux, consulte "4.4.2. Desabilitando o SELinux "no [Guia do usuário e do administrador do SELinux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) na VM.
+* Depois de desabilitar o SELinux, reinicialize a VM pelo menos uma vez.
 
 ### <a name="steps"></a>Passos
-1. Crie uma VM ao utilizar uma das distribuições especificadas anteriormente.
+1. Crie uma VM usando uma das distribuições especificadas anteriormente.
 
-   CentOS 7.2, encriptação de disco do SO é suportada por meio de uma imagem especial. Para utilizar esta imagem, especifica "7.2n" como o SKU ao criar a VM:
+   Para o CentOS 7,2, a criptografia de disco do so tem suporte por meio de uma imagem especial. Para usar essa imagem, especifique "7.2 n" como a SKU ao criar a VM:
 
    ```powershell
     Set-AzVMSourceImage -VM $VirtualMachine -PublisherName "OpenLogic" -Offer "CentOS" -Skus "7.2n" -Version "latest"
    ```
-2. Configure a VM, de acordo com suas necessidades. Se vai encriptar todos os (SO + dados), unidades, as unidades de dados tem de ser especificado e montável de /etc/fstab.
+2. Configure a VM de acordo com suas necessidades. Se você for criptografar todas as unidades (sistema operacional + dados), as unidades de dados precisarão ser especificadas e poderão ser montadas em/etc/fstab.
 
    > [!NOTE]
-   > Utilize o UUID =... para especificar a unidades de dados no/etc/fstab em vez de especificar o nome do dispositivo de blocos (por exemplo, / desenvolvimento/sdb1). Durante a encriptação, a ordem das alterações de unidades na VM. Se a VM se baseia numa ordem específica de dispositivos de bloco, ele falhará montá-los depois da encriptação.
+   > Usar UUID =... para especificar unidades de dados em/etc/fstab em vez de especificar o nome do dispositivo de bloqueio (por exemplo,/dev/sdb1). Durante a criptografia, a ordem das unidades é alterada na VM. Se sua VM depender de uma ordem específica de dispositivos de bloco, ela não conseguirá montá-los após a criptografia.
 
-3. Termine as sessões SSH.
+3. Saia das sessões SSH.
 
-4. Para encriptar o sistema operacional, especifique volumeType como **todos os** ou **SO** quando ativar a encriptação.
+4. Para criptografar o sistema operacional, especifique o volumetype como **todos** ou o **sistema operacional** ao habilitar a criptografia.
 
    > [!NOTE]
-   > Todos os processos de espaço do utilizador que não estiverem executando `systemd` serviços devem ser eliminados com um `SIGKILL`. Reinicie a VM. Quando ativa a encriptação de disco de SO numa VM em execução, planeje-se no período de indisponibilidade da VM.
+   > Todos os processos de espaço de usuário que não estão sendo executados como `systemd` serviços devem ser encerrados com um `SIGKILL`. Reinicialize a VM. Ao habilitar a criptografia de disco do sistema operacional em uma VM em execução, planeje o tempo de inatividade da VM.
 
-5. Periodicamente, monitorizar o progresso de criptografia utilizando as instruções no [próxima seção](#monitoring-os-encryption-progress).
+5. Monitore periodicamente o progresso da criptografia usando as instruções na [próxima seção](#monitoring-os-encryption-progress).
 
 6. Depois que o Get-AzVmDiskEncryptionStatus Mostrar "VMRestartPending", reinicie a VM conectando-se a ela ou usando o portal, o PowerShell ou a CLI.
     ```powershell
@@ -117,23 +117,23 @@ A tabela seguinte mostra quais parâmetros podem ser utilizados no script do Pow
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk successfully encrypted, reboot the VM
     ```
-   Antes de reiniciar, recomendamos que guarde [diagnósticos de arranque](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) da VM.
+   Antes de reinicializar, recomendamos que você salve o [diagnóstico de inicialização](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) da VM.
 
-## <a name="monitoring-os-encryption-progress"></a>Monitorizar o progresso de criptografia do sistema operacional
-Pode monitorizar o progresso de criptografia do sistema operacional de três formas:
+## <a name="monitoring-os-encryption-progress"></a>Progresso da criptografia do sistema operacional de monitoramento
+Você pode monitorar o progresso de criptografia do sistema operacional de três maneiras:
 
-* Utilize o `Get-AzVmDiskEncryptionStatus` cmdlet e inspecionar o campo de ProgressMessage:
+* Use o cmdlet `Get-AzVmDiskEncryptionStatus` e inspecione o campo ProgressMessage:
     ```powershell
     OsVolumeEncrypted          : EncryptionInProgress
     DataVolumesEncrypted       : NotMounted
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk encryption started
     ```
-  Depois que a VM atinge "Iniciada de encriptação de disco de SO", demora cerca de 40 a 50 minutos num armazenamento Premium de segurança VM.
+  Depois que a VM atingir "criptografia de disco do so iniciada", levará cerca de 40 a 50 minutos em uma VM com suporte do armazenamento Premium.
 
-  Devido [emitir #388](https://github.com/Azure/WALinuxAgent/issues/388) no WALinuxAgent, `OsVolumeEncrypted` e `DataVolumesEncrypted` aparecem como `Unknown` em algumas distribuições. Com WALinuxAgent versão 2.1.5 e mais tarde, este problema é resolvido automaticamente. Se vir `Unknown` na saída, pode verificar o estado de encriptação de disco utilizando o Explorador de recursos do Azure.
+  Devido ao [problema #388](https://github.com/Azure/WALinuxAgent/issues/388) em WALinuxAgent, `OsVolumeEncrypted` e `DataVolumesEncrypted` aparecem como `Unknown` em algumas distribuições. Com o WALinuxAgent versão 2.1.5 e posterior, esse problema é corrigido automaticamente. Se você vir `Unknown` na saída, poderá verificar o status da criptografia de disco usando o Azure Resource Explorer.
 
-  Aceda a [Explorador de recursos do Azure](https://resources.azure.com/)e, em seguida, expanda esta hierarquia no painel de seleção no lado esquerdo:
+  Vá para [Azure Resource Explorer](https://resources.azure.com/)e, em seguida, expanda essa hierarquia no painel de seleção à esquerda:
 
   ~~~~
   |-- subscriptions
@@ -147,49 +147,49 @@ Pode monitorizar o progresso de criptografia do sistema operacional de três for
                                         |-- InstanceView
   ~~~~                
 
-  No InstanceView, role para baixo para ver o estado de encriptação das suas unidades.
+  No InstanceView, role para baixo para ver o status de criptografia de suas unidades.
 
-  ![Vista de instância VM](./media/disk-encryption/vm-instanceview.png)
+  ![Exibição de instância de VM](./media/disk-encryption/vm-instanceview.png)
 
-* Examinar [diagnósticos de arranque](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Mensagens a partir da extensão de ADE devem ter o prefixo `[AzureDiskEncryption]`.
+* Examine o [diagnóstico de inicialização](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). As mensagens da extensão ADE devem ser prefixadas com `[AzureDiskEncryption]`.
 
-* Inicie sessão para a VM através de SSH e obter o registo da extensão de:
+* Entre na VM via SSH e obtenha o log de extensão de:
 
     /var/log/azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
 
-  Recomendamos que não início de sessão para a VM enquanto a encriptação de sistema operacional está em curso. Copie os registos apenas quando os outros dois métodos falharam.
+  Recomendamos que você não entre na VM enquanto a criptografia do sistema operacional estiver em andamento. Copie os logs somente quando os outros dois métodos falharem.
 
 ## <a name="prepare-a-pre-encrypted-linux-vhd"></a>Preparar um VHD do Linux previamente criptografado
-A preparação para VHDs encriptadas pode variar consoante a distribuição. Exemplos de preparação do Ubuntu 16, openSUSE 13,2 e CentOS 7 estão disponíveis. 
+A preparação para VHDs previamente criptografados pode variar dependendo da distribuição. Exemplos de preparação do Ubuntu 16, openSUSE 13,2 e CentOS 7 estão disponíveis. 
 
 ### <a name="ubuntu-16"></a>Ubuntu 16
-Configure a encriptação durante a instalação de distribuição, efetuando os seguintes passos:
+Configure a criptografia durante a instalação da distribuição executando as seguintes etapas:
 
-1. Selecione **configurar volumes criptografados** quando dividir os discos.
+1. Selecione **configurar volumes criptografados** ao particionar os discos.
 
-   ![Ubuntu 16.04 configurar - configurar volumes encriptados](./media/disk-encryption/ubuntu-1604-preencrypted-fig1.png)
+   ![Instalação do Ubuntu 16, 4 – configurar volumes criptografados](./media/disk-encryption/ubuntu-1604-preencrypted-fig1.png)
 
-2. Crie uma unidade de inicialização separado, que não tem de estar encriptada. Criptografe sua unidade de raiz.
+2. Crie uma unidade de inicialização separada, que não deve ser criptografada. Criptografe a unidade raiz.
 
-   ![Configuração do Ubuntu 16.04 - selecione os dispositivos para encriptar](./media/disk-encryption/ubuntu-1604-preencrypted-fig2.png)
+   ![Instalação do Ubuntu 16, 4 – selecionar dispositivos para criptografar](./media/disk-encryption/ubuntu-1604-preencrypted-fig2.png)
 
-3. Forneça uma frase de acesso. Esta é a frase de acesso que carregou para o Cofre de chaves.
+3. Forneça uma frase secreta. Essa é a frase secreta que você carregou no cofre de chaves.
 
-   ![Ubuntu 16.04 configurar - fornecer a frase de acesso](./media/disk-encryption/ubuntu-1604-preencrypted-fig3.png)
+   ![Instalação do Ubuntu 16, 4 – fornecer senha](./media/disk-encryption/ubuntu-1604-preencrypted-fig3.png)
 
-4. Conclua a criação de partições.
+4. Conclua o particionamento.
 
-   ![Ubuntu 16.04 configurar - concluir a criação de partições](./media/disk-encryption/ubuntu-1604-preencrypted-fig4.png)
+   ![Instalação do Ubuntu 16, 4 – concluir o particionamento](./media/disk-encryption/ubuntu-1604-preencrypted-fig4.png)
 
-5. Quando iniciar a VM e são-lhe pedido para uma frase de acesso, utilize a frase de acesso que indicou no passo 3.
+5. Quando você inicializar a VM e for solicitado uma frase secreta, use a frase secreta que você forneceu na etapa 3.
 
-   ![Ubuntu 16.04 configurar - forneça a frase de acesso no arranque](./media/disk-encryption/ubuntu-1604-preencrypted-fig5.png)
+   ![Instalação do Ubuntu 16, 4 – fornecer senha na inicialização](./media/disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
-6. Preparar a VM para carregando-a no Azure com [estas instruções](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Não execute o último passo (desaprovisionar a VM) ainda.
+6. Prepare a VM para carregar no Azure usando [estas instruções](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Não execute a última etapa (Desprovisionando a VM) ainda.
 
-Configure a encriptação funcione com o Azure, efetuando os seguintes passos:
+Configure a criptografia para trabalhar com o Azure executando as seguintes etapas:
 
-1. Crie um ficheiro em /usr/local/sbin/azure_crypt_key.sh, com o conteúdo no seguinte script. Preste atenção às KeyFileName, porque é o nome de ficheiro da frase de acesso utilizado pelo Azure.
+1. Crie um arquivo em/usr/local/sbin/azure_crypt_key. sh, com o conteúdo no script a seguir. Preste atenção ao DefaultFilename, pois ele é o nome do arquivo de senha usado pelo Azure.
 
     ```bash
     #!/bin/sh
@@ -226,16 +226,16 @@ Configure a encriptação funcione com o Azure, efetuando os seguintes passos:
     fi
    ```
 
-2. Alterar a configuração dos crypt no *nomedeanfitrião crypttab*. Deve ter o seguinte aspeto:
+2. Altere a configuração cript em */etc/crypttab*. Deve ter o seguinte aspeto:
    ```
     xxx_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
     ```
 
-4. Adicione permissões executáveis para o script:
+4. Adicione permissões executáveis ao script:
    ```
     chmod +x /usr/local/sbin/azure_crypt_key.sh
    ```
-5. Editar */etc/initramfs-tools/modules* ao acrescentar linhas:
+5. Edite */etc/initramfs-tools/modules* acrescentando linhas:
    ```
     vfat
     ntfs
@@ -243,32 +243,32 @@ Configure a encriptação funcione com o Azure, efetuando os seguintes passos:
     nls_utf8
     nls_iso8859-1
    ```
-6. Execute `update-initramfs -u -k all` para atualizar o initramfs para tornar o `keyscript` entrem em vigor.
+6. Execute `update-initramfs -u -k all` para atualizar o initramfs para fazer com que os `keyscript` entrem em vigor.
 
-7. Agora pode desaprovisionar a VM.
+7. Agora você pode desprovisionar a VM.
 
-   ![Configuração do Ubuntu 16.04 - update-initramfs](./media/disk-encryption/ubuntu-1604-preencrypted-fig6.png)
+   ![Instalação do Ubuntu 16, 4 – update-initramfs](./media/disk-encryption/ubuntu-1604-preencrypted-fig6.png)
 
-8. Continuar para o passo seguinte e carregar o seu VHD para o Azure.
+8. Continue na próxima etapa e carregue o VHD no Azure.
 
-### <a name="opensuse-132"></a>openSUSE 13.2
-Para configurar a encriptação durante a instalação de distribuição, siga os passos abaixo:
-1. Quando a partição dos discos, selecione **criptografar o Volume grupo**e, em seguida, introduza uma palavra-passe. Esta é a palavra-passe que irá carregar para o seu Cofre de chaves.
+### <a name="opensuse-132"></a>openSUSE 13,2
+Para configurar a criptografia durante a instalação da distribuição, execute as seguintes etapas:
+1. Ao particionar os discos, selecione **criptografar grupo de volumes**e, em seguida, insira uma senha. Essa é a senha que você carregará em seu cofre de chaves.
 
-   ![openSUSE 13.2 configuração - criptografar o Volume de grupo](./media/disk-encryption/opensuse-encrypt-fig1.png)
+   ![Instalação do openSUSE 13,2 – criptografar grupo de volumes](./media/disk-encryption/opensuse-encrypt-fig1.png)
 
-2. A VM com a sua palavra-passe de arranque.
+2. Inicialize a VM usando sua senha.
 
-   ![openSUSE 13.2 configurar - forneça a frase de acesso no arranque](./media/disk-encryption/opensuse-encrypt-fig2.png)
+   ![Instalação do openSUSE 13,2 – fornecer senha na inicialização](./media/disk-encryption/opensuse-encrypt-fig2.png)
 
-3. Preparar a VM para carregar para o Azure ao seguir as instruções em [preparar uma máquina virtual SLES ou openSUSE para o Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Não execute o último passo (desaprovisionar a VM) ainda.
+3. Prepare a VM para carregar no Azure seguindo as instruções em [preparar uma máquina virtual SLES ou openSUSE para o Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Não execute a última etapa (Desprovisionando a VM) ainda.
 
-Para configurar a encriptação funcione com o Azure, siga os passos abaixo:
-1. Edite o /etc/dracut.conf e adicione a seguinte linha:
+Para configurar a criptografia para funcionar com o Azure, execute as seguintes etapas:
+1. Edite o/etc/Dracut.conf e adicione a seguinte linha:
     ```
     add_drivers+=" vfat ntfs nls_cp437 nls_iso8859-1"
     ```
-2. Comente estas linhas ao final do /usr/lib/dracut/modules.d/90crypt/module-setup.sh ficheiro:
+2. Comente essas linhas até o final do arquivo/usr/lib/Dracut/modules.d/90crypt/Module-setup.sh:
    ```bash
     #        inst_multiple -o \
     #        $systemdutildir/system-generators/systemd-cryptsetup-generator \
@@ -281,11 +281,11 @@ Para configurar a encriptação funcione com o Azure, siga os passos abaixo:
     #        inst_script "$moddir"/crypt-run-generator.sh /sbin/crypt-run-generator
    ```
 
-3. Acrescente a seguinte linha no início do /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh ficheiro:
+3. Acrescente a seguinte linha no início do arquivo/usr/lib/Dracut/modules.d/90crypt/Parse-Crypt.sh:
    ```bash
     DRACUT_SYSTEMD=0
    ```
-   E altere todas as ocorrências de:
+   E alterar todas as ocorrências de:
    ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
    ```
@@ -293,7 +293,7 @@ Para configurar a encriptação funcione com o Azure, siga os passos abaixo:
    ```bash
     if [ 1 ]; then
    ```
-4. Editar /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh e acrescentá-lo a "# LUKS aberto a dispositivo":
+4. Edite/usr/lib/Dracut/modules.d/90crypt/cryptroot-Ask.sh e acrescente-o a "# Open LUKS Device":
 
     ```bash
     MountPoint=/tmp-keydisk-mount
@@ -315,40 +315,40 @@ Para configurar a encriptação funcione com o Azure, siga os passos abaixo:
     fi
     done
     ```
-5. Executar `/usr/sbin/dracut -f -v` para atualizar o initrd.
+5. Execute `/usr/sbin/dracut -f -v` para atualizar a initrd.
 
-6. Agora pode desaprovisionar a VM e carregar o seu VHD para o Azure.
+6. Agora você pode desprovisionar a VM e carregar seu VHD no Azure.
 
 ### <a name="centos-7"></a>CentOS 7
-Para configurar a encriptação durante a instalação de distribuição, siga os passos abaixo:
-1. Selecione **criptografar meus dados** quando dividir os discos.
+Para configurar a criptografia durante a instalação da distribuição, execute as seguintes etapas:
+1. Selecione **criptografar meus dados** ao particionar discos.
 
-   ![Configurar o centOS 7 - destino de instalação](./media/disk-encryption/centos-encrypt-fig1.png)
+   ![Instalação do CentOS 7-destino da instalação](./media/disk-encryption/centos-encrypt-fig1.png)
 
-2. Certifique-se **Encrypt** está selecionada para a partição de raiz.
+2. Verifique se a **criptografia** está selecionada para a partição raiz.
 
-   ![Configurar o centOS 7 - selecione criptografar para a partição de raiz](./media/disk-encryption/centos-encrypt-fig2.png)
+   ![Instalação do CentOS 7 – Selecione criptografar para a partição raiz](./media/disk-encryption/centos-encrypt-fig2.png)
 
-3. Forneça uma frase de acesso. Esta é a frase de acesso que deverá carregar para o seu Cofre de chaves.
+3. Forneça uma frase secreta. Essa é a frase secreta que você carregará em seu cofre de chaves.
 
-   ![Configuração do centOS 7 - fornecer a frase de acesso](./media/disk-encryption/centos-encrypt-fig3.png)
+   ![Instalação do CentOS 7 – fornecer senha](./media/disk-encryption/centos-encrypt-fig3.png)
 
-4. Quando iniciar a VM e são-lhe pedido para uma frase de acesso, utilize a frase de acesso que indicou no passo 3.
+4. Quando você inicializar a VM e for solicitado uma frase secreta, use a frase secreta que você forneceu na etapa 3.
 
-   ![CentOS 7 configurar - introduza a frase de acesso na inicialização](./media/disk-encryption/centos-encrypt-fig4.png)
+   ![Instalação do CentOS 7 – Insira a senha na inicialização](./media/disk-encryption/centos-encrypt-fig4.png)
 
-5. Preparar a VM para carregar para o Azure ao utilizar as instruções de "CentOS 7.0 +" na [preparar uma máquina de virtual baseada em CentOS para o Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Não execute o último passo (desaprovisionar a VM) ainda.
+5. Prepare a VM para carregar no Azure usando as instruções "CentOS 7.0 +" em [preparar uma máquina virtual baseada em CentOS para o Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Não execute a última etapa (Desprovisionando a VM) ainda.
 
-6. Agora pode desaprovisionar a VM e carregar o seu VHD para o Azure.
+6. Agora você pode desprovisionar a VM e carregar seu VHD no Azure.
 
-Para configurar a encriptação funcione com o Azure, siga os passos abaixo:
+Para configurar a criptografia para funcionar com o Azure, execute as seguintes etapas:
 
-1. Edite o /etc/dracut.conf e adicione a seguinte linha:
+1. Edite o/etc/Dracut.conf e adicione a seguinte linha:
     ```
     add_drivers+=" vfat ntfs nls_cp437 nls_iso8859-1"
     ```
 
-2. Comente estas linhas ao final do /usr/lib/dracut/modules.d/90crypt/module-setup.sh ficheiro:
+2. Comente essas linhas até o final do arquivo/usr/lib/Dracut/modules.d/90crypt/Module-setup.sh:
    ```bash
     #        inst_multiple -o \
     #        $systemdutildir/system-generators/systemd-cryptsetup-generator \
@@ -361,11 +361,11 @@ Para configurar a encriptação funcione com o Azure, siga os passos abaixo:
     #        inst_script "$moddir"/crypt-run-generator.sh /sbin/crypt-run-generator
    ```
 
-3. Acrescente a seguinte linha no início do /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh ficheiro:
+3. Acrescente a seguinte linha no início do arquivo/usr/lib/Dracut/modules.d/90crypt/Parse-Crypt.sh:
    ```bash
     DRACUT_SYSTEMD=0
    ```
-   E altere todas as ocorrências de:
+   E alterar todas as ocorrências de:
    ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
    ```
@@ -373,7 +373,7 @@ Para configurar a encriptação funcione com o Azure, siga os passos abaixo:
    ```bash
     if [ 1 ]; then
    ```
-4. Editar /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh e anexe o seguinte depois de dispositivo"LUKS aberto de #":
+4. Edite/usr/lib/Dracut/modules.d/90crypt/cryptroot-Ask.sh e acrescente o seguinte após o "# Open LUKS Device":
     ```bash
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
@@ -394,9 +394,9 @@ Para configurar a encriptação funcione com o Azure, siga os passos abaixo:
     fi
     done
     ```    
-5. Executar o "/ usr/sbin/dracut - f - v" para atualizar o initrd.
+5. Execute o "/usr/sbin/Dracut-f-v" para atualizar o initrd.
 
-    ![Configuração de centOS 7 - executar /usr/sbin/dracut -f - v](./media/disk-encryption/centos-encrypt-fig5.png)
+    ![Instalação do CentOS 7 – executar/usr/sbin/Dracut-f-v](./media/disk-encryption/centos-encrypt-fig5.png)
 
 ## <a name="upload-encrypted-vhd-to-an-azure-storage-account"></a>Carregar o VHD criptografado em uma conta de armazenamento do Azure
 Depois que a criptografia DM-cript estiver habilitada, o VHD criptografado local precisará ser carregado em sua conta de armazenamento.
@@ -404,7 +404,7 @@ Depois que a criptografia DM-cript estiver habilitada, o VHD criptografado local
     Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
 ## <a name="upload-the-secret-for-the-pre-encrypted-vm-to-your-key-vault"></a>Carregar o segredo para a VM previamente criptografada para o cofre de chaves
-Ao encriptar a utilizar uma aplicação do Azure AD (versão anterior), o segredo de encriptação de disco que obteve anteriormente tem de ser carregado como um segredo no Cofre de chaves. O Cofre de chaves tem de ter a encriptação de disco e permissões ativadas para o cliente do Azure AD.
+Ao criptografar usando um aplicativo do Azure AD (versão anterior), o segredo de criptografia de disco que você obteve anteriormente deve ser carregado como um segredo no cofre de chaves. O cofre de chaves precisa ter a criptografia de disco e permissões habilitadas para o cliente do Azure AD.
 
 ```powershell 
  $AadClientId = "My-AAD-Client-Id"
@@ -417,7 +417,7 @@ Ao encriptar a utilizar uma aplicação do Azure AD (versão anterior), o segred
 ``` 
 
 ### <a name="disk-encryption-secret-not-encrypted-with-a-kek"></a>Segredo de criptografia de disco não criptografado com um KEK
-Para configurar o segredo em seu cofre de chaves, use [set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). A frase secreta é codificada como uma cadeia de caracteres Base64 e, em seguida, carregada no cofre de chaves. Além disso, certifique-se de que as etiquetas seguintes estão definidas quando cria o segredo no Cofre de chaves.
+Para configurar o segredo em seu cofre de chaves, use [set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). A frase secreta é codificada como uma cadeia de caracteres Base64 e, em seguida, carregada no cofre de chaves. Além disso, certifique-se de que as seguintes marcas sejam definidas quando você criar o segredo no cofre de chaves.
 
 ```powershell
 
@@ -434,10 +434,10 @@ Para configurar o segredo em seu cofre de chaves, use [set-AzKeyVaultSecret](/po
 ```
 
 
-Utilize o `$secretUrl` no próximo passo para [anexar o disco do SO sem utilizar KEK](#without-using-a-kek).
+Use o `$secretUrl` na próxima etapa para [anexar o disco do sistema operacional sem usar o Kek](#without-using-a-kek).
 
 ### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Segredo de criptografia de disco criptografado com um KEK
-Antes de carregar o segredo ao Cofre de chaves, opcionalmente, poderá criptografá-los com uma chave de encriptação de chave. Utilizar a moldagem [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) primeiro criptografar o segredo usando a chave de encriptação de chave. O resultado desta operação de moldagem é uma cadeia de URL codificado em base64 que, em seguida, pode carregar como um segredo ao utilizar o [ `Set-AzKeyVaultSecret` ](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
+Antes de carregar o segredo para o cofre de chaves, você pode, opcionalmente, criptografá-lo usando uma chave de criptografia de chave. Use a [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) de encapsulamento para primeiro criptografar o segredo usando a chave de criptografia de chave. A saída dessa operação de encapsulamento é uma cadeia de caracteres codificada de URL base64, que você pode carregar como um segredo usando o cmdlet [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) .
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation
@@ -527,12 +527,12 @@ Antes de carregar o segredo ao Cofre de chaves, opcionalmente, poderá criptogra
     $secretUrl = $response.id
 ```
 
-Uso `$KeyEncryptionKey` e `$secretUrl` no passo seguinte para [anexar o disco do SO usando KEK](#using-a-kek).
+Use `$KeyEncryptionKey` e `$secretUrl` na próxima etapa para [anexar o disco do sistema operacional usando Kek](#using-a-kek).
 
 ##  <a name="specify-a-secret-url-when-you-attach-an-os-disk"></a>Especificar uma URL secreta ao anexar um disco do sistema operacional
 
 ###  <a name="without-using-a-kek"></a>Sem usar um KEK
-Enquanto está anexando o disco do SO, precisa passar `$secretUrl`. O URL foi gerado na secção "segredo de encriptação de disco não criptografado com uma KEK".
+Enquanto estiver anexando o disco do sistema operacional, você precisa passar `$secretUrl`. A URL foi gerada na seção "segredo de criptografia de disco não criptografado com um KEK".
 ```powershell
     Set-AzVMOSDisk `
             -VM $VirtualMachine `
@@ -545,7 +545,7 @@ Enquanto está anexando o disco do SO, precisa passar `$secretUrl`. O URL foi ge
             -DiskEncryptionKeyUrl $SecretUrl
 ```
 ### <a name="using-a-kek"></a>Usando um KEK
-Ao anexar o disco do SO, passa `$KeyEncryptionKey` e `$secretUrl`. O URL foi gerado na secção "Segredo de encriptação de disco encriptado com uma KEK".
+Ao anexar o disco do sistema operacional, passe `$KeyEncryptionKey` e `$secretUrl`. A URL foi gerada na seção "segredo de criptografia de disco criptografado com um KEK".
 ```powershell
     Set-AzVMOSDisk `
             -VM $VirtualMachine `

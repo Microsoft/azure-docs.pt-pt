@@ -1,94 +1,94 @@
 ---
-title: Resolver problemas com o servidor de configuração durante a recuperação após desastre de VMs de VMware e servidores físicos para o Azure com o Azure Site Recovery | Documentos da Microsoft
-description: Este artigo fornece informações de resolução de problemas para implementar o servidor de configuração para recuperação após desastre de VMs de VMware e servidores físicos para o Azure ao utilizar o Azure Site Recovery.
+title: Solucionar problemas com o servidor de configuração durante a recuperação de desastre de VMs VMware e servidores físicos para o Azure usando Azure Site Recovery | Microsoft Docs
+description: Este artigo fornece informações de solução de problemas para implantar o servidor de configuração para recuperação de desastre de VMs VMware e servidores físicos no Azure usando Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: f08d7bb2087ef4f30b325b3796a13e387ccdea22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25e2b488d3b6e7e5cabd1a71d1489efaf01231b3
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725572"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748546"
 ---
-# <a name="troubleshoot-configuration-server-issues"></a>Resolver problemas do servidor de configuração
+# <a name="troubleshoot-configuration-server-issues"></a>Solucionar problemas do servidor de configuração
 
-Este artigo ajuda-o a resolver problemas ao implementar e gerir o [do Azure Site Recovery](site-recovery-overview.md) servidor de configuração. O servidor de configuração atua como um servidor de gestão. Utilize o servidor de configuração para configurar a recuperação após desastre de VMs de VMware no local e servidores físicos no Azure utilizando a recuperação de Site. As secções seguintes abordam as falhas mais comuns que podem ocorrer quando adiciona um novo servidor de configuração e na gestão de um servidor de configuração.
+Este artigo ajuda você a solucionar problemas ao implantar e gerenciar o servidor de configuração do [Azure site Recovery](site-recovery-overview.md) . O servidor de configuração age como um servidor de gerenciamento. Use o servidor de configuração para configurar a recuperação de desastre de VMs VMware locais e servidores físicos no Azure usando Site Recovery. As seções a seguir discutem as falhas mais comuns que podem ocorrer quando você adiciona um novo servidor de configuração e quando gerencia um servidor de configuração.
 
 ## <a name="registration-failures"></a>Falhas de registo
 
-A máquina de origem regista com o servidor de configuração quando instalar o agente de mobilidade. Pode depurar quaisquer falhas durante este passo ao seguir estas diretrizes:
+O computador de origem é registrado no servidor de configuração quando você instala o agente de mobilidade. Você pode depurar quaisquer falhas durante esta etapa seguindo estas diretrizes:
 
-1. Abra o ficheiro de C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log. (A pasta ProgramData pode ser uma pasta oculta. Se não vir a pasta ProgramData, no Explorador de ficheiros, no **View** separador a **Mostrar/ocultar** secção, selecione o **oculto itens** caixa de verificação.) Falhas podem ser causadas por vários problemas.
+1. Abra o arquivo C:\ProgramData\ASR\home\svsystems\var\ configurator_register_host_static_info. log. (A pasta ProgramData pode ser uma pasta oculta. Se você não vir a pasta ProgramData, no explorador de arquivos, na guia **Exibir** , na seção **Mostrar/ocultar** , marque a caixa de seleção **itens ocultos** .) As falhas podem ser causadas por vários problemas.
 
-2. Procure a cadeia de caracteres **endereço IP válido não foram encontrados**. Se for encontrada a cadeia de caracteres:
-   1. Certifique-se de que o ID de anfitrião pedido é o mesmo que o ID do anfitrião da máquina de origem.
-   2. Certifique-se de que a máquina de origem tem, pelo menos, um endereço IP atribuído para o NIC físico. Para o registo do agente com o servidor de configuração com êxito, a máquina de origem tem de ter pelo menos um endereço de v4 IP válido atribuído para o NIC físico.
-   3. Execute um dos seguintes comandos no computador de origem para obter todos os endereços IP da máquina de origem:
+2. Procure a cadeia de caracteres **nenhum endereço IP válido encontrado**. Se a cadeia de caracteres for encontrada:
+   1. Verifique se a ID de host solicitada é igual à ID do host do computador de origem.
+   2. Verifique se o computador de origem tem pelo menos um endereço IP atribuído à NIC física. Para que o registro do agente com o servidor de configuração tenha sucesso, o computador de origem deve ter pelo menos um endereço IP V4 válido atribuído à NIC física.
+   3. Execute um dos seguintes comandos no computador de origem para obter todos os endereços IP do computador de origem:
       - Para Windows: `> ipconfig /all`
       - Para Linux: `# ifconfig -a`
 
-3. Se a cadeia de caracteres **endereço IP válido não encontrado** não for encontrada, procure a cadeia **motivo = > nulo**. Este erro ocorre se o computador de origem utilizar um anfitrião está vazio para registar com o servidor de configuração. Se for encontrada a cadeia de caracteres:
-    - Depois de resolver os problemas, siga as diretrizes [registar a máquina de origem com o servidor de configuração](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) para repetir o registo manualmente.
+3. Se a cadeia de caracteres **nenhum endereço IP válido encontrado** não for encontrada, procure o motivo da cadeia de caracteres **= > nulo**. Esse erro ocorrerá se o computador de origem usar um host vazio para se registrar no servidor de configuração. Se a cadeia de caracteres for encontrada:
+    - Depois de resolver os problemas, siga as diretrizes em [registrar o computador de origem com o servidor de configuração](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) para repetir o registro manualmente.
 
-4. Se a cadeia de caracteres **motivo = > nulo** não for encontrada, na máquina de origem, abra o ficheiro de C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log. (A pasta ProgramData pode ser uma pasta oculta. Se não vir a pasta ProgramData, no Explorador de ficheiros, no **View** separador a **Mostrar/ocultar** secção, selecione o **oculto itens** caixa de verificação.) Falhas podem ser causadas por vários problemas. 
+4. Se o motivo da cadeia de caracteres **= > NULL** não for encontrado, no computador de origem, abra o arquivo C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log. (A pasta ProgramData pode ser uma pasta oculta. Se você não vir a pasta ProgramData, no explorador de arquivos, na guia **Exibir** , na seção **Mostrar/ocultar** , marque a caixa de seleção **itens ocultos** .) As falhas podem ser causadas por vários problemas. 
 
-5. Procure a cadeia **publicar pedido: (7) – não foi possível ligar ao servidor**. Se for encontrada a cadeia de caracteres:
-    1. Resolva os problemas de rede entre o computador de origem e o servidor de configuração. Certifique-se de que o servidor de configuração está acessível a partir do computador de origem, utilizando ferramentas de rede, como o ping, traceroute ou um navegador da web. Certifique-se de que a máquina de origem pode contactar o servidor de configuração através da porta 443.
-    2. Verifique se qualquer de regras de firewall no bloco de máquina de origem a ligação entre a máquina de origem e o servidor de configuração. Trabalhar com os administradores de rede para desbloquear os problemas de ligação.
-    3. Certifique-se de que as pastas listadas na [exclusões de pastas de recuperação de sites de programas de antivírus](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) não inclui o software antivírus.
-    4. Quando resolver problemas de rede, repita o registo ao seguir as diretrizes [registar a máquina de origem com o servidor de configuração](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
+5. Pesquisar a solicitação post da cadeia de caracteres **: (7)-não foi possível conectar-se ao servidor**. Se a cadeia de caracteres for encontrada:
+    1. Resolva os problemas de rede entre o computador de origem e o servidor de configuração. Verifique se o servidor de configuração pode ser acessado da máquina de origem usando ferramentas de rede como ping, traceroute ou navegador da Web. Verifique se o computador de origem pode acessar o servidor de configuração por meio da porta 443.
+    2. Verifique se as regras de firewall no computador de origem bloqueiam a conexão entre o computador de origem e o servidor de configuração. Trabalhe com seus administradores de rede para desbloquear problemas de conexão.
+    3. Certifique-se de que as pastas listadas em [site Recovery exclusões de pastas de programas antivírus](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) sejam excluídas do software antivírus.
+    4. Quando os problemas de rede forem resolvidos, tente o registro novamente seguindo as diretrizes em [registrar o computador de origem com o servidor de configuração](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-6. Se a cadeia de caracteres **publicar pedido: (7) – não foi possível ligar ao servidor** não for encontrada, no mesmo ficheiro de registo, procure a cadeia **pedido: (60) - certificado de ponto a ponto não pode ser autenticado com fornecido certificados de AC**. Este erro pode ocorrer porque o certificado de servidor de configuração expirou ou a máquina de origem não suporta o TLS 1.0 ou posteriores protocolos SSL. Também poderá ocorrer se um firewall bloquear a comunicação SSL entre o computador de origem e o servidor de configuração. Se for encontrada a cadeia de caracteres: 
-    1. Para resolver, ligue ao servidor de configuração endereço IP com um navegador da web na máquina de origem. Utilizar o URI https:\/\/< endereço IP do servidor de configuração\>: 443 /. Certifique-se de que a máquina de origem pode contactar o servidor de configuração através da porta 443.
-    2. Verifique se quaisquer regras de firewall no computador de origem tem de ser adicionado ou removido máquina de origem comunicar com o servidor de configuração. Devido à variedade de software de firewall que poderá estar em utilização, nós não é possível listar todas as configurações de firewall necessárias. Trabalhar com os administradores de rede para desbloquear os problemas de ligação.
-    3. Certifique-se de que as pastas listadas na [exclusões de pastas de recuperação de sites de programas de antivírus](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) não inclui o software antivírus.  
-    4. Depois de resolver os problemas, e repita o registo seguintes diretrizes [registar a máquina de origem com o servidor de configuração](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
+6. Se a solicitação post da cadeia de caracteres **: (7)-não foi possível se conectar ao servidor** não for encontrada, no mesmo arquivo de log, procure a solicitação de cadeia de caracteres **: (60)-o certificado de mesmo nível não pode ser autenticado com determinados certificados de autoridade de certificação**. Esse erro pode ocorrer porque o certificado do servidor de configuração expirou ou o computador de origem não dá suporte a protocolos SSL TLS 1,0 ou posteriores. Também poderá ocorrer se um firewall bloquear a comunicação SSL entre o computador de origem e o servidor de configuração. Se a cadeia de caracteres for encontrada: 
+    1. Para resolver, conecte-se ao endereço IP do servidor de configuração usando um navegador da Web no computador de origem. Use o URI https:\/\/< endereço IP do servidor de configuração\>: 443/. Verifique se o computador de origem pode acessar o servidor de configuração por meio da porta 443.
+    2. Verifique se as regras de firewall na máquina de origem precisam ser adicionadas ou removidas para que o computador de origem se comunique com o servidor de configuração. Devido à variedade de softwares de firewall que podem estar em uso, não podemos listar todas as configurações de firewall necessárias. Trabalhe com seus administradores de rede para desbloquear problemas de conexão.
+    3. Certifique-se de que as pastas listadas em [site Recovery exclusões de pastas de programas antivírus](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) sejam excluídas do software antivírus.  
+    4. Depois de resolver os problemas, repita o registro seguindo as diretrizes em [registrar o computador de origem com o servidor de configuração](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-7. No Linux, se o valor da plataforma no < INSTALLATION_DIR\>/etc/drscout.conf está danificado, registo falha. Para identificar este problema, abra o ficheiro de /var/log/ua_install.log. Procure a cadeia de caracteres **abortar a configuração como valor VM_PLATFORM é nulo ou não é o VmWare/Azure**. A plataforma deve ser definida para o **VmWare** ou **Azure**. Se o ficheiro drscout está danificado, recomendamos que [desinstalar o agente de mobilidade](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) e, em seguida, reinstale o agente de mobilidade. Se a desinstalação falhar, conclua os seguintes passos: um. Abra o ficheiro de Installation_Directory/uninstall.sh e comente a chamada para o **StopServices** função.
-    b. Abra o ficheiro de Installation_Directory/Vx/bin/uninstall.sh e comente a chamada para o **stop_services** função.
-    c. Abra o ficheiro de Installation_Directory/Fx/uninstall.sh e comente a secção de inteira que está a tentar parar o serviço de Fx.
-    d. [Desinstalar](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) o agente de mobilidade. Após a desinstalação com êxito, reinicialize o sistema e, em seguida, tente reinstalar o agente de mobilidade.
+7. No Linux, se o valor da plataforma no < INSTALLATION_DIR\>/etc/drscout.conf estiver corrompido, o registro falhará. Para identificar esse problema, abra o arquivo/var/log/ua_install. log. Procure a configuração de anulação da cadeia de caracteres **, pois VM_PLATFORM valor é nulo ou não é o VMware/Azure**. A plataforma deve ser definida para o **VMware** ou o **Azure**. Se o arquivo drscout. conf estiver corrompido, recomendamos que você [desinstale o agente de mobilidade](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) e reinstale o agente de mobilidade. Se a desinstalação falhar, conclua as seguintes etapas: a. Abra o arquivo Installation_Directory/Uninstall.sh e comente a chamada para a função **StopServices** .
+    b. Abra o arquivo Installation_Directory/VX/bin/Uninstall.sh e comente a chamada para a função **stop_services** .
+    c. Abra o arquivo Installation_Directory/FX/Uninstall.sh e comente a seção inteira que está tentando parar o serviço FX.
+    d. [Desinstale](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) o agente de mobilidade. Após a desinstalação bem-sucedida, reinicialize o sistema e Tente reinstalar o agente de mobilidade.
 
-## <a name="installation-failure-failed-to-load-accounts"></a>Falha na instalação: Falha ao carregar contas
+## <a name="installation-failure-failed-to-load-accounts"></a>Falha na instalação: falha ao carregar as contas
 
-Este erro ocorre quando o serviço não é possível ler dados a partir da ligação de transporte, quando está a instalar o agente de mobilidade e registar com o servidor de configuração. Para resolver o problema, certifique-se de que o TLS 1.0 está ativado no seu computador de origem.
+Esse erro ocorre quando o serviço não pode ler dados da conexão de transporte quando está instalando o agente de mobilidade e registrando-se com o servidor de configuração. Para resolver o problema, verifique se o TLS 1,0 está habilitado no computador de origem.
 
-## <a name="vcenter-discovery-failures"></a>falhas de deteção do vCenter
+## <a name="vcenter-discovery-failures"></a>falhas de descoberta do vCenter
 
-Para resolver falhas de deteção do vCenter, adicione o servidor de vCenter para as definições de proxy de lista de omissão. 
+Para resolver as falhas de descoberta do vCenter, adicione o servidor do vCenter às configurações de proxy da lista de byPass. 
 
-- Transferir a ferramenta PsExec da [aqui](https://aka.ms/PsExec) para aceder a conteúdo de utilizador do sistema.
-- Abra o Internet Explorer no conteúdo de utilizador do sistema, executando a seguinte linha de comandos psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
-- Adicionar definições de proxy no IE e reinicie o serviço de tmanssvc.
-- Para configurar as definições de proxy do DRA, execute cd C:\Program Files\Microsoft Azure Site Recovery Provider
-- Em seguida, execute DRCONFIGURATOR. EXE / configurar /AddBypassUrls [adicionar o endereço de IP/FQDN do vCenter Server fornecido durante **configurar servidor vCenter Server/vSphere ESXi** passo [implementação de servidor de configuração](vmware-azure-deploy-configuration-server.md#configure-settings)]
+- Baixe a ferramenta PsExec [aqui](https://aka.ms/PsExec) para acessar o conteúdo do usuário do sistema.
+- Abra o Internet Explorer no conteúdo do usuário do sistema executando a seguinte linha de comando PsExec-s-i "%programfiles%\Internet Explorer\iexplore.exe"
+- Adicione configurações de proxy no IE e reinicie o serviço tmanssvc.
+- Para definir as configurações de proxy DRA, execute o CD C:\Program Files\Microsoft Azure Site Recovery Provider
+- Em seguida, execute DRCONFIGURATOR. EXE/configure/AddBypassUrls [Adicionar endereço IP/FQDN do vCenter Server fornecido durante a etapa **configurar vCenter Server/vSphere ESXi Server** da [implantação do servidor de configuração](vmware-azure-deploy-configuration-server.md#configure-settings)]
 
 ## <a name="change-the-ip-address-of-the-configuration-server"></a>Alterar o endereço IP do servidor de configuração
 
-Recomendamos vivamente que não altere o endereço IP de um servidor de configuração. Certifique-se de que todos os endereços IP que estão atribuídos ao servidor de configuração são endereços IP estáticos. Não utilize endereços IP de DHCP.
+É altamente recomendável que você não altere o endereço IP de um servidor de configuração. Verifique se todos os endereços IP atribuídos ao servidor de configuração são endereços IP estáticos. Não use endereços IP de DHCP.
 
-## <a name="acs50008-saml-token-is-invalid"></a>ACS50008: SAML token é inválido
+## <a name="acs50008-saml-token-is-invalid"></a>ACS50008: token SAML inválido
 
-Para evitar este erro, certifique-se de que a hora no relógio do sistema não é diferente de na hora local em mais de 15 minutos. Volte a executar o instalador para concluir o registo.
+Para evitar esse erro, verifique se a hora no relógio do sistema não é diferente da hora local em mais de 15 minutos. Volte a executar o instalador para concluir o registo.
 
 ## <a name="failed-to-create-a-certificate"></a>Falha ao criar um certificado
 
-Não é possível criar um certificado necessário para autenticar o Site Recovery. Execute novamente a configuração depois de assegurar que está a executar o programa de configuração como administrador local.
+Não é possível criar um certificado necessário para autenticar Site Recovery. Execute a instalação novamente depois de garantir que você está executando a instalação como um administrador local.
 
-## <a name="failure-to-activate-windows-license-from-server-standard-evaluation-to-server-standard"></a>Falha ao ativar a licença do Windows da versão de avaliação padrão do servidor para servidor padrão
+## <a name="failure-to-activate-windows-license-from-server-standard-evaluation-to-server-standard"></a>Falha ao ativar a licença do Windows da avaliação standard do servidor para o servidor Standard
 
-1. Como parte da implementação de servidor de configuração através do OVF, é utilizada uma licença de avaliação, que é válido por 180 dias. Tem de ativar esta licença antes de este obtém a expirou. Caso contrário, isso pode resultar em frequente encerramento do servidor de configuração e, portanto, fazer com que o empecilho para atividades de replicação.
-2. Se é possível ativar a licença do Windows, contacte [equipa de suporte do Windows](https://aka.ms/Windows_Support) para resolver o problema.
+1. Como parte da implantação do servidor de configuração por meio do OVF, é usada uma licença de avaliação, que é válida por 180 dias. Você precisa ativar esta licença antes de expirar. Ou seja, isso pode resultar em um desligamento frequente do servidor de configuração e, portanto, causar empecilho às atividades de replicação.
+2. Se não for possível ativar a licença do Windows, entre em contato com a [equipe de suporte do Windows](https://aka.ms/Windows_Support) para resolver o problema.
 
-## <a name="register-source-machine-with-configuration-server"></a>Registar a máquina de origem com o servidor de configuração
+## <a name="register-source-machine-with-configuration-server"></a>Registrar computador de origem com o servidor de configuração
 
-### <a name="if-the-source-machine-runs-windows"></a>Se a máquina de origem executar o Windows
+### <a name="if-the-source-machine-runs-windows"></a>Se o computador de origem executar o Windows
 
-Execute o seguinte comando na máquina de origem:
+Execute o seguinte comando no computador de origem:
 
 ```
   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
@@ -97,14 +97,14 @@ Execute o seguinte comando na máquina de origem:
 
 Definição | Detalhes
 --- | ---
-Utilização | UnifiedAgentConfigurator.exe /CSEndPoint < endereço IP do servidor de configuração\> /PassphraseFilePath < caminho de ficheiro da frase de acesso\>
-Registos de configuração do agente | Localizado em % ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
-/CSEndPoint | Parâmetro obrigatório. Especifica o endereço IP do servidor de configuração. Utilize qualquer endereço IP válido.
-/PassphraseFilePath |  Obrigatório. A localização da frase de acesso. Utilize qualquer válido UNC ou caminho de ficheiro local.
+Utilização | UnifiedAgentConfigurator. exe/CSEndPoint < endereço IP do servidor de configuração\>/PassphraseFilePath < caminho do arquivo de senha\>
+Logs de configuração do agente | Localizado em%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
+/CSEndPoint | Parâmetro obrigatório. Especifica o endereço IP do servidor de configuração. Use qualquer endereço IP válido.
+/PassphraseFilePath |  Obrigatório. O local da frase secreta. Use qualquer caminho de arquivo UNC ou local válido.
 
-### <a name="if-the-source-machine-runs-linux"></a>Se a máquina de origem executar o Linux
+### <a name="if-the-source-machine-runs-linux"></a>Se o computador de origem executar o Linux
 
-Execute o seguinte comando na máquina de origem:
+Execute o seguinte comando no computador de origem:
 
 ```
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <configuration server IP address> -P /var/passphrase.txt
@@ -112,53 +112,53 @@ Execute o seguinte comando na máquina de origem:
 
 Definição | Detalhes
 --- | ---
-Utilização | CD /usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh -i < endereço IP do servidor de configuração\> - P < caminho de ficheiro da frase de acesso\>
--i | Parâmetro obrigatório. Especifica o endereço IP do servidor de configuração. Utilize qualquer endereço IP válido.
--P |  Obrigatório. O caminho completo do ficheiro em que a frase de acesso é guardado. Utilize qualquer pasta válido.
+Utilização | CD/usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh-i < endereço IP do servidor de configuração\>-P < caminho do arquivo de frase secreta\>
+-i | Parâmetro obrigatório. Especifica o endereço IP do servidor de configuração. Use qualquer endereço IP válido.
+-P |  Obrigatório. O caminho de arquivo completo do arquivo no qual a frase secreta é salva. Use qualquer pasta válida.
 
 ## <a name="unable-to-configure-the-configuration-server"></a>Não é possível configurar o servidor de configuração
 
-Se instalar aplicações que não o servidor de configuração na máquina virtual, poderá estar não é possível configurar o destino principal. 
+Se você instalar aplicativos diferentes do servidor de configuração na máquina virtual, talvez não seja possível configurar o destino mestre. 
 
-O servidor de configuração tem de ser um servidor de objetivo único e usá-lo como um servidor compartilhado não é suportado. 
+O servidor de configuração deve ser um servidor de finalidade única e usá-lo como um servidor compartilhado não é suportado. 
 
-Para obter mais informações, veja a FAQ de configuração no [implementar um servidor de configuração](vmware-azure-deploy-configuration-server.md#faq). 
+Para obter mais informações, consulte as perguntas frequentes de configuração em [implantar um servidor de configuração](vmware-azure-deploy-configuration-server.md#faqs). 
 
-## <a name="remove-the-stale-entries-for-protected-items-from-the-configuration-server-database"></a>Remover as entradas obsoletas dos itens protegidos a partir do banco de dados do servidor de configuração 
+## <a name="remove-the-stale-entries-for-protected-items-from-the-configuration-server-database"></a>Remover as entradas obsoletas de itens protegidos do banco de dados do servidor de configuração 
 
-Para remover a máquina protegida obsoleta no servidor de configuração, utilize os seguintes passos. 
+Para remover o computador protegido obsoleto no servidor de configuração, use as etapas a seguir. 
  
-1. Para determinar a máquina de origem e o endereço IP da entrada obsoleta: 
+1. Para determinar o computador de origem e o endereço IP da entrada obsoleta: 
 
-    1. Abra o cmdline MYSQL no modo de administrador. 
-    2. Execute os seguintes comandos. 
+    1. Abra o MYSQL cmdline no modo de administrador. 
+    2. Execute os comandos a seguir. 
    
         ```
         mysql> use svsdb1;
         mysql> select id as hostid, name, ipaddress, ostype as operatingsystem, from_unixtime(lasthostupdatetime) as heartbeat from hosts where name!='InMageProfiler'\G;
         ```
 
-        Esta ação devolve a lista de máquinas registadas, juntamente com seus endereços IP e o último heartbeat. Localize o anfitrião que tenha de pares de replicação obsoletos.
+        Isso retorna a lista de computadores registrados junto com seus endereços IP e a última pulsação. Localize o host que tem pares de replicação obsoletos.
 
-2. Abra uma linha de comandos elevada e navegue para C:\ProgramData\ASR\home\svsystems\bin. 
-4. Para remover os detalhes de anfitriões registados e as informações de entrada obsoleta do servidor de configuração, execute o seguinte comando com a máquina de origem e o endereço IP da entrada obsoleta. 
+2. Abra um prompt de comando com privilégios elevados e navegue até C:\ProgramData\ASR\home\svsystems\bin. 
+4. Para remover os detalhes de hosts registrados e as informações de entrada obsoletas do servidor de configuração, execute o comando a seguir usando o computador de origem e o endereço IP da entrada obsoleta. 
    
     `Syntax: Unregister-ASRComponent.pl -IPAddress <IP_ADDRESS_OF_MACHINE_TO_UNREGISTER> -Component <Source/ PS / MT>`
  
-    Se tiver uma entrada de servidor de origem de "OnPrem VM01" com um endereço ip de 10.0.0.4 em seguida, utilize o seguinte comando em vez disso.
+    Se você tiver uma entrada do servidor de origem "onlocal-VM01" com um endereço IP de 10.0.0.4, em vez disso, use o comando a seguir.
  
     `perl Unregister-ASRComponent.pl -IPAddress 10.0.0.4 -Component Source`
  
-5. Reinicie os serviços seguintes no computador de origem para voltar a registar com o servidor de configuração. 
+5. Reinicie os seguintes serviços no computador de origem para se registrar novamente no servidor de configuração. 
  
-    - Serviço InMage Scout Application
-    - InMage Scout VX Agent - Sentinel/Outpost
+    - Serviço de Aplicação InMage Scout
+    - Agente do InMage Scout VX-sentinela/posto avançado
 
-## <a name="upgrade-fails-when-the-services-fail-to-stop"></a>Falha de atualização quando os serviços não se parar
+## <a name="upgrade-fails-when-the-services-fail-to-stop"></a>A atualização falha quando os serviços falham ao parar
 
-A atualização de servidor de configuração falha quando determinados serviços não parar. 
+A atualização do servidor de configuração falha quando determinados serviços não param. 
 
-Para identificar o problema, navegue até ao C:\ProgramData\ASRSetupLogs\CX_TP_InstallLogFile no servidor de configuração. Se encontrar seguintes erros, utilize os passos abaixo para resolver o problema: 
+Para identificar o problema, navegue até C:\ProgramData\ASRSetupLogs\ CX_TP_InstallLogFile no servidor de configuração. Se você encontrar os seguintes erros, use as etapas abaixo para resolver o problema: 
 
     2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
     2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
@@ -173,83 +173,83 @@ Para identificar o problema, navegue até ao C:\ProgramData\ASRSetupLogs\CX_TP_I
 
 Para resolver o problema:
 
-Pare manualmente os seguintes serviços:
+Interrompa manualmente os seguintes serviços:
 
 - cxprocessserver
-- InMage Scout VX Agent – Sentinel/Outpost, 
-- Agente de serviços de recuperação do Microsoft Azure, 
-- Serviço do Microsoft Azure Site Recovery, 
+- Agente do InMage Scout VX – sentinela/posto avançado, 
+- Agente de Serviços de Recuperação do Microsoft Azure, 
+- Serviço de Site Recovery Microsoft Azure, 
 - tmansvc
   
-Para atualizar o servidor de configuração, execute o [a configuração unificada](service-updates-how-to.md#links-to-currently-supported-update-rollups) novamente.
+Para atualizar o servidor de configuração, execute a [instalação unificada](service-updates-how-to.md#links-to-currently-supported-update-rollups) novamente.
 
-## <a name="azure-active-directory-application-creation-failure"></a>Falha de criação de aplicações do Azure Active Directory
+## <a name="azure-active-directory-application-creation-failure"></a>Falha na criação do aplicativo Azure Active Directory
 
-Não tem permissões suficientes para criar uma aplicação no Azure Active Directory (AAD) com o [aplicação de Virtualização aberto (OVA)](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template
-) modelo.
+Você não tem permissões suficientes para criar um aplicativo no Azure Active Directory (AAD) usando o modelo [OVA (aplicativo de virtualização aberta)](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template
+) .
 
-Para resolver o problema, inicie sessão no portal do Azure e faça o seguinte:
+Para resolver o problema, entre no portal do Azure e siga um destes procedimentos:
 
-- Solicite a função de programador da aplicação no AAD. Para obter mais informações sobre a função de programador da aplicação, consulte [permissões da função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
-- Certifique-se de que o **utilizador pode criar o aplicativo** sinalizador é definido como *verdadeiro* no AAD. Para obter mais informações, consulte [como: Utilizar o portal para criar um Azure AD principal de aplicações e serviço que pode aceder a recursos](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Solicite a função de desenvolvedor do aplicativo no AAD. Para obter mais informações sobre a função de desenvolvedor de aplicativos, consulte [permissões de função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+- Verifique se o sinalizador o **usuário pode criar aplicativo** está definido como *true* no AAD. Para obter mais informações, consulte [como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
-## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>Servidor/principal de processo destino não conseguem comunicar com o servidor de configuração 
+## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>Servidor de processo/destino mestre não é possível se comunicar com o servidor de configuração 
 
-O servidor de processos (PS) e módulos de destino mestre (TA) não conseguem comunicar com o servidor de configuração (CS) e o respetivo estado é mostrado como não ligado no portal do Azure.
+Os módulos do servidor de processo (PS) e de destino mestre (MT) não podem se comunicar com o servidor de configuração (CS) e seu status é mostrado como não conectado no portal do Azure.
 
-Normalmente, isso é devido a um erro com a porta 443. Utilize os seguintes passos para desbloquear a porta e volte a ativar a comunicação com o CS.
+Normalmente, isso se deve a um erro com a porta 443. Use as etapas a seguir para desbloquear a porta e reabilitar a comunicação com o CS.
 
-**Certifique-se de que o agente MARS está sendo solicitado pelo agente de destino principal**
+**Verifique se o agente MARS está sendo invocado pelo agente de destino mestre**
 
-Para verificar que o agente de destino mestre pode criar uma sessão TCP para o IP do servidor de configuração, procure um rastreio semelhante ao seguinte nos registos do agente de destino principal:
+Para verificar se o agente de destino mestre pode criar uma sessão TCP para o IP do servidor de configuração, procure um rastreamento semelhante ao seguinte nos logs do agente de destino mestre:
 
-TCP \<IP substitua com o IP de CS aqui >: 52739 \<IP substitua com o IP de CS aqui >: 443 SYN_SENT 
+TCP \<substituir IP por IP CS aqui >: 52739 \<substituir IP por IP CS aqui >: 443 SYN_SENT 
 
-TCP 192.168.1.40:52739 192.168.1.40:443 SYN_SENT / / IP substitua com o IP de CS aqui
+TCP 192.168.1.40:52739 192.168.1.40:443 SYN_SENT//substituir IP por IP de CS aqui
 
-Se encontrar rastreios semelhante ao seguinte nos registos do agente de MT, o agente de MT está a comunicar erros na porta 443:
+Se você encontrar rastreamentos semelhantes aos seguintes nos logs do agente MT, o agente MT está relatando erros na porta 443:
 
     #~> (11-20-2018 20:31:51):   ERROR  2508 8408 313 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
     #~> (11-20-2018 20:31:54):   ERROR  2508 8408 314 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
  
-Este erro pode ser encontrado durante a outros aplicativos também são através da porta 443 ou devido a uma definição de firewall a bloquear a porta.
+Esse erro pode ser encontrado quando outros aplicativos também usam a porta 443 ou devido a uma configuração de firewall bloqueando a porta.
 
 Para resolver o problema:
 
-- Certifique-se de que a porta 443 não está bloqueada pela firewall.
-- Se a porta está inacessível devido a outro aplicativo usando essa porta, pare e desinstalar a aplicação.
-  - Se não for possível parar o aplicativo, configure um novo CS limpo.
+- Verifique se a porta 443 não está bloqueada pelo firewall.
+- Se a porta estiver inacessível devido a outro aplicativo usando essa porta, pare e desinstale o aplicativo.
+  - Se parar o aplicativo não for viável, configure um novo CS limpo.
 - Reinicie o servidor de configuração.
 - Reinicie o serviço IIS.
 
-### <a name="configuration-server-is-not-connected-due-to-incorrect-uuid-entries"></a>Servidor de configuração não está ligado devido a entradas UUID incorretas
+### <a name="configuration-server-is-not-connected-due-to-incorrect-uuid-entries"></a>O servidor de configuração não está conectado devido a entradas incorretas do UUID
 
-Este erro pode ocorrer quando existem várias entradas de UUID de instância a (CS) do servidor de configuração na base de dados. O erro ocorre normalmente quando clona a VM do servidor de configuração.
+Esse erro pode ocorrer quando há várias entradas de UUID de instância do servidor de configuração (CS) no banco de dados. O problema geralmente ocorre quando você clona a VM do servidor de configuração.
 
 Para resolver o problema:
 
-1. Remova obsoleta/antigo CS VM do vCenter. Para obter mais informações, consulte [remover servidores e desativar proteção](site-recovery-manage-registration-and-protection.md).
-2. Inicie sessão na VM do servidor de configuração e ligue à base de dados MySQL svsdb1. 
+1. Remova a VM do CS obsoleta/antiga do vCenter. Para obter mais informações, consulte [remover servidores e desabilitar a proteção](site-recovery-manage-registration-and-protection.md).
+2. Entre na VM do servidor de configuração e conecte-se ao banco de dados MySQL svsdb1. 
 3. Execute a seguinte consulta:
 
     > [!IMPORTANT]
     >
-    > Certifique-se de que se está a indicar os detalhes do UUID do servidor de configuração clonados ou a entrada obsoleta do servidor de configuração que já não é utilizado para proteger máquinas virtuais. Introduzir um UUID incorreto resultará na perda de informações para todos os itens protegidos existentes.
+    > Verifique se você está inserindo os detalhes do UUID do servidor de configuração clonado ou a entrada obsoleta do servidor de configuração que não é mais usado para proteger as máquinas virtuais. Inserir um UUID incorreto resultará na perda das informações de todos os itens protegidos existentes.
    
     ```
         MySQL> use svsdb1;
         MySQL> delete from infrastructurevms where infrastructurevmid='<Stale CS VM UUID>';
         MySQL> commit; 
     ```
-4. Atualize a página de portal.
+4. Atualize a página do Portal.
 
-## <a name="an-infinite-sign-in-loop-occurs-when-entering-your-credentials"></a>Um sinal de infinito em loop ocorre quando introduzir as suas credenciais
+## <a name="an-infinite-sign-in-loop-occurs-when-entering-your-credentials"></a>Ocorre um loop de entrada infinito ao inserir suas credenciais
 
-Depois de introduzir o nome de utilizador correto e a palavra-passe no servidor de configuração OVF, Azure, iniciar sessão continua solicitar as credenciais corretas.
+Depois de inserir o nome de usuário e a senha corretos no servidor de configuração OVF, a entrada do Azure continuará solicitando as credenciais corretas.
 
-Este problema pode ocorrer quando a hora do sistema está incorrecta.
+Esse problema pode ocorrer quando a hora do sistema está incorreta.
 
 Para resolver o problema:
 
-Defina a hora correta no computador e repita o início de sessão. 
+Defina a hora correta no computador e tente entrar novamente. 
  

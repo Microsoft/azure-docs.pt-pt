@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 3f2c768fe7998cc166e3102619e7183c96d1ccbb
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 813263442bc82254d0cb5ea9e9f7e8a265de5b4a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965352"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748213"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Criar e modificar o emparelhamento para um circuito do ExpressRoute usando o PowerShell
 
@@ -46,7 +46,7 @@ Pode configurar um, dois ou todos os três peerings (Azure privado, Azure públi
 
 ### <a name="working-with-azure-powershell"></a>Trabalhando com Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
@@ -61,7 +61,7 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
 
 ### <a name="to-create-microsoft-peering"></a>Para criar peering da Microsoft
 
-1. Entre e selecione sua assinatura.
+1. Inicie sessão e selecione a sua subscrição.
 
    Se você instalou o PowerShell localmente, entre. Se você estiver usando Azure Cloud Shell, poderá ignorar esta etapa.
 

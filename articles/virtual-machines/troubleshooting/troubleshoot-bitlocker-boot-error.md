@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
-ms.openlocfilehash: b0b8528a8eaf5cab22bb2482bd60e760d8bf5e3d
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 80fd91106530c0150a85d508b24041b2263da925
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058111"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749664"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erros de inicialização do BitLocker em uma VM do Azure
 
  Este artigo descreve os erros do BitLocker que você pode enfrentar ao iniciar uma VM (máquina virtual) do Windows no Microsoft Azure.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="symptom"></a>Sintoma
 
@@ -31,7 +31,7 @@ ms.locfileid: "71058111"
 
 - Conecte o driver USB que tem a chave do BitLocker
 
-- Você está bloqueado! Insira a chave de recuperação para começar novamente (layout do teclado: EUA) as informações de entrada erradas foram inseridas muitas vezes, portanto, seu PC foi bloqueado para proteger sua privacidade. Para recuperar a chave de recuperação, vá https://windows.microsoft.com/recoverykeyfaq para de outro PC ou dispositivo móvel. Caso você precise dela, a ID da chave é XXXXXXX. Ou então, você pode redefinir seu computador.
+- Você está bloqueado! Insira a chave de recuperação para começar novamente (layout do teclado: EUA) as informações de entrada erradas foram inseridas muitas vezes, portanto, o computador foi bloqueado para proteger sua privacidade. Para recuperar a chave de recuperação, acesse https://windows.microsoft.com/recoverykeyfaq de outro PC ou dispositivo móvel. Caso você precise dela, a ID da chave é XXXXXXX. Ou então, você pode redefinir seu computador.
 
 - Digite a senha para desbloquear esta unidade [] Pressione a tecla Insert para ver a senha ao digitar.
 - Insira sua chave de recuperação carregue sua chave de recuperação de um dispositivo USB.
@@ -46,8 +46,8 @@ Para resolver esse problema, pare e desaloque a VM e, em seguida, reinicie-a. Es
 
 Se esse método não resolver o problema, siga estas etapas para restaurar o arquivo BEK manualmente:
 
-1. Tire um instantâneo do disco do sistema da VM afetada como um backup. Para obter mais informações, consulte [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
-2. [Anexar o disco do sistema para uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md). Para executar o comando [Manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) na etapa 7, o recurso **criptografia de unidade de disco BitLocker** deve ser habilitado na VM de recuperação.
+1. Tire um instantâneo do disco do sistema da VM afetada como um backup. Para obter mais informações, consulte [snapshot a Disk](../windows/snapshot-copy-managed-disk.md).
+2. [Anexe o disco do sistema a uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md). Para executar o comando [Manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) na etapa 7, o recurso **criptografia de unidade de disco BitLocker** deve ser habilitado na VM de recuperação.
 
     Ao anexar um disco gerenciado, você pode receber uma mensagem de erro "contém configurações de criptografia e, portanto, não pode ser usada como um disco de dados". Nessa situação, execute o seguinte script para tentar anexar o disco novamente:
 
@@ -107,7 +107,7 @@ Se esse método não resolver o problema, siga estas etapas para restaurar o arq
 
     Agora que você tem o nome do arquivo BEK para a unidade, você precisa criar o nome de arquivo-segredo. Arquivo BEK para desbloquear a unidade.
 
-6.  Baixe o arquivo BEK no disco de recuperação. O exemplo a seguir salva o arquivo BEK na pasta C:\BEK. Verifique se o `C:\BEK\` caminho existe antes de executar os scripts.
+6.  Baixe o arquivo BEK no disco de recuperação. O exemplo a seguir salva o arquivo BEK na pasta C:\BEK. Verifique se o caminho de `C:\BEK\` existe antes de executar os scripts.
 
     ```powershell
     $vault = "myKeyVault"
@@ -271,15 +271,15 @@ Para um cenário de chave de criptografia de chave, siga estas etapas:
                     manage-bde -off F:
 ## <a name="script-troubleshooting"></a>Solução de problemas de script
 
-**Erro: Não foi possível carregar o arquivo ou o assembly**
+**Erro: não foi possível carregar o arquivo ou o assembly**
 
 Esse erro ocorre porque os caminhos dos assemblies da ADAL estão errados. Se o módulo AZ for instalado apenas para o usuário atual, os assemblies de ADAL estarão localizados em `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`.
 
-Você também pode procurar `Az.Accounts` pasta para localizar o caminho correto.
+Você também pode pesquisar `Az.Accounts` pasta para localizar o caminho correto.
 
 **Erro: Get-AzKeyVaultSecret ou Get-AzKeyVaultSecret não é reconhecido como o nome de um cmdlet**
 
-Se você estiver usando o módulo atual AZ PowerShell, deverá alterar os dois comandos para `Get-AzureKeyVaultSecret` e. `Get-AzureKeyVaultSecret`
+Se você estiver usando o módulo atual AZ PowerShell, deverá alterar os dois comandos para `Get-AzureKeyVaultSecret` e `Get-AzureKeyVaultSecret`.
 
 **Exemplos de parâmetros**
 

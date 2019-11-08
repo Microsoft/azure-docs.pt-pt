@@ -1,6 +1,6 @@
 ---
 title: Exemplo de script Azure PowerShell – fazer backup de uma VM do Azure
-description: Exemplo de script Azure PowerShell – fazer backup de uma máquina virtual do Azure
+description: Neste artigo, saiba como usar um exemplo de script Azure PowerShell para fazer backup de uma máquina virtual do Azure.
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 03/05/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 1e5e705d7e9ca6587c9836603db05978d7f04d4d
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: fe2fa6d77f7ec59ef73ac0e8779dcfbd660c0680
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968819"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747116"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>Fazer backup de uma máquina virtual do Azure criptografada com o PowerShell
 

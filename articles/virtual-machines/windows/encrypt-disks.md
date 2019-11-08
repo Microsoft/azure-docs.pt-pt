@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 87777d3a6abfeaeac74fd69126cc3e71e11be825
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 73f38760153a6e1db5621801282c71216b3e8560
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597843"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749431"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Criptografar discos virtuais em uma VM do Windows
 Para segurança e conformidade aprimoradas da VM (máquina virtual), os discos virtuais no Azure podem ser criptografados. Os discos são criptografados usando chaves de criptografia que são protegidas em um Azure Key Vault. Você controla essas chaves de criptografia e pode auditar seu uso. Este artigo descreve como criptografar discos virtuais em uma VM do Windows usando Azure PowerShell. Você também pode [criptografar máquinas virtuais do Linux](../linux/disk-encryption-overview.md).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="overview-of-disk-encryption"></a>Visão geral da criptografia de disco
 Os discos virtuais em VMs do Windows são criptografados em repouso usando o BitLocker. Não há nenhuma cobrança pela criptografia de discos virtuais no Azure. As chaves de criptografia são armazenadas em um Azure Key Vault usando a proteção de software ou você pode importar ou gerar suas chaves em HSMs (módulos de segurança de hardware) certificados para os padrões FIPS 140-2 nível 2. As chaves de criptografia são usadas para criptografar e descriptografar discos virtuais anexados à sua VM. Você mantém o controle dessas chaves de criptografia e pode auditar seu uso. 
@@ -94,7 +94,7 @@ Add-AzKeyVaultKey -VaultName $keyVaultName `
     -Destination "Software"
 ```
 
-## <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
+## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 Para testar o processo de criptografia, crie uma VM com [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). O exemplo a seguir cria uma VM chamada *myVM* usando uma imagem *do Windows Server 2016 datacenter* . Quando solicitado a fornecer credenciais, insira o nome de usuário e a senha a serem usados para sua VM:
 
 ```azurepowershell-interactive

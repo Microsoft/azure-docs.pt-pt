@@ -1,6 +1,6 @@
 ---
 title: 'Backup do Azure: recuperar arquivos e pastas do backup de VM do Azure'
-description: Recuperar arquivos de um ponto de recuperação de máquina virtual do Azure
+description: Neste artigo, saiba como recuperar arquivos e pastas de um ponto de recuperação de máquina virtual do Azure.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: df8e309ecb2a81205684c60076015f79ac8c4c8f
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: c6b49e794011d915f8cd7b29e6317e80391f2675
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968491"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747380"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos do backup de máquina virtual do Azure
 
@@ -222,7 +222,7 @@ O script também requer componentes Python e bash para executar e conectar-se co
 
 Esta seção explica como executar a recuperação de arquivos de backups de máquinas virtuais do Azure cujo número de discos está > 16 e cada tamanho de disco é > 4 TB.
 
-Como o processo de recuperação de arquivo anexa todos os discos do backup, no caso de um grande número de discos (> 16) ou discos grandes (> 4 TB cada), recomenda-se os seguintes pontos de ação.
+Como o processo de recuperação de arquivo anexa todos os discos do backup, quando um grande número de discos (> 16) ou discos grandes (> 4 TB cada) são usados, os seguintes pontos de ação são recomendados:
 
 - Mantenha um servidor de restauração separado (VMs de D2v3 de VM do Azure) para recuperação de arquivos. Você pode usar essa recuperação de arquivo somente e desligar quando não for necessário. Não é recomendável restaurar no computador original, pois ele terá um impacto significativo na própria VM.
 - Em seguida, execute o script uma vez para verificar se a operação de recuperação de arquivo foi concluída com sucesso.
@@ -244,7 +244,7 @@ Como o processo de recuperação de arquivo anexa todos os discos do backup, no 
   - No arquivo/etc/iSCSI/iscsid.conf, altere a configuração de
     - node. conn [0]. time. noop_out_timeout = 5 para node. conn [0]. time. noop_out_timeout = 30
 - Depois de executar o seguinte, agora execute o script novamente. Com essas alterações, é altamente provável que a recuperação do arquivo seja realizada com sucesso.
-- Cada vez que o usuário baixa um script, o backup do Azure inicia o processo de preparação do ponto de recuperação para download. No caso de discos grandes, isso levará um tempo considerável. Se houver picos de solicitações sucessivas, a preparação de destino entrará em uma espiral de download. Portanto, é recomendável baixar um script do portal/PowerShell/CLI, aguardar 20-30 minutos (um heurístico) e, em seguida, executá-lo. Neste momento, espera-se que o destino esteja pronto para a conexão do script.
+- Cada vez que o usuário baixa um script, o backup do Azure inicia o processo de preparação do ponto de recuperação para download. Com discos grandes, isso levará um tempo considerável. Se houver picos de solicitações sucessivas, a preparação de destino entrará em uma espiral de download. Portanto, é recomendável baixar um script do portal/PowerShell/CLI, aguardar 20-30 minutos (um heurístico) e, em seguida, executá-lo. Neste momento, espera-se que o destino esteja pronto para a conexão do script.
 - Após a recuperação de arquivos, certifique-se de voltar ao portal para clicar em "desmontar discos" para pontos de recuperação em que você não conseguiu montar volumes. Essencialmente, essa etapa limpará todos os processos/sessões existentes e aumentará a chance de recuperação.
 
 ## <a name="troubleshooting"></a>Resolução de problemas

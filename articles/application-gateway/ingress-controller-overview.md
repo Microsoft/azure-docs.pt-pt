@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 79ddfe6b536dcdd7e930960c51854849b94df1bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9635798720667e38a767f26fc2e5f5374e420059
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513357"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795535"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>O que é o controlador de entrada do gateway de aplicativo?
 O AGIC (controlador de entrada do gateway de aplicativo) é um aplicativo kubernetes, que possibilita aos clientes [do AKS (Azure kubernetes Service)](https://azure.microsoft.com/services/kubernetes-service/) aproveitar o balanceador de carga L7 do [Gateway de aplicativo](https://azure.microsoft.com/services/application-gateway/) nativo do Azure para expor o software de nuvem para a Internet. O AGIC monitora o cluster kubernetes em que ele está hospedado e atualiza continuamente um gateway de aplicativo, para que os serviços selecionados sejam expostos à Internet.
@@ -22,7 +22,7 @@ O controlador de entrada é executado em seu próprio pod no AKS do cliente. O A
 ## <a name="benefits-of-application-gateway-ingress-controller"></a>Benefícios do controlador de entrada do gateway de aplicativo
 O AGIC permite que sua implantação controle vários clusters do AKS com um único controlador de entrada do gateway de aplicativo. O AGIC também ajuda a eliminar a necessidade de ter outro IP de balanceador de carga/público na frente do cluster AKS e evita vários saltos no caminho de seu DataPath antes que as solicitações alcancem o cluster AKS. O gateway de aplicativo conversa com pods usando seu IP privado diretamente e não requer serviços NodePort ou KubeProxy. Isso também traz um melhor desempenho para suas implantações.
 
-O controlador de entrada tem suporte exclusivamente por SKUs Standard_v2 e WAF_v2, o que também traz os benefícios de dimensionamento automático. O gateway de aplicativo pode reagir em resposta a um aumento ou redução na carga de tráfego e no dimensionamento de acordo, sem consumir nenhum recurso do cluster AKS.
+O controlador de entrada tem suporte exclusivo por Standard_v2 e WAF_v2 SKUs, o que também traz os benefícios de dimensionamento automático. O gateway de aplicativo pode reagir em resposta a um aumento ou redução na carga de tráfego e no dimensionamento de acordo, sem consumir nenhum recurso do cluster AKS.
 
 O uso do gateway de aplicativo além do AGIC também ajuda a proteger o cluster do AKS fornecendo a funcionalidade de política TLS e de firewall do aplicativo Web (WAF).
 

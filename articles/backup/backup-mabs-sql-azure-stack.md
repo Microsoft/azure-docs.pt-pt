@@ -1,6 +1,6 @@
 ---
 title: Fazer backup de cargas de trabalho SQL Server em Azure Stack
-description: Use Servidor de Backup do Azure para proteger SQL Server carga de trabalho no Azure Stack.
+description: Neste artigo, saiba como configurar o servidor de Backup do Microsoft Azure (MABS) para proteger SQL Server bancos de dados no Azure Stack.
 ms.reviewer: adigan
 author: dcurwin
 manager: carmonm
@@ -8,14 +8,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: dacurwin
-ms.openlocfilehash: ab65a1bf371ff8581f347403b49fafed6697374c
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 28d4ad1a94cea6f21d1fe75483357d8788524b88
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210226"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747217"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Fazer backup de SQL Server em Azure Stack
+
 Use este artigo para configurar o servidor de Backup do Microsoft Azure (MABS) para proteger SQL Server bancos de dados no Azure Stack.
 
 O gerenciamento do backup de SQL Server banco de dados no Azure e na recuperação do Azure envolve três etapas:
@@ -29,6 +30,7 @@ O gerenciamento do backup de SQL Server banco de dados no Azure e na recuperaç�
 [Instale e prepare servidor de backup do Azure](backup-mabs-install-azure-stack.md).
 
 ## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>Criar uma política de backup para proteger SQL Server bancos de dados no Azure
+
 1. Na interface do usuário do Servidor de Backup do Azure, clique no espaço de trabalho **proteção** .
 
 2. Na faixa de ferramentas da ferramenta, clique em **novo** para criar um novo grupo de proteção.
@@ -41,7 +43,7 @@ O gerenciamento do backup de SQL Server banco de dados no Azure e na recuperaç�
 
     ![Selecionar tipo de grupo de proteção-' servidores '](./media/backup-azure-backup-sql/pg-servers.png)
 
-4. Na tela **selecionar membros do grupo** , a lista Membros disponíveis exibe as várias fontes de dados. Clique **+** para expandir uma pasta e revelar as subpastas. Clique na caixa de seleção para selecionar um item.
+4. Na tela **selecionar membros do grupo** , a lista Membros disponíveis exibe as várias fontes de dados. Clique em **+** para expandir uma pasta e revelar as subpastas. Clique na caixa de seleção para selecionar um item.
 
     ![Selecionar Banco de BD SQL](./media/backup-azure-backup-sql/pg-databases.png)
 
@@ -68,7 +70,7 @@ O gerenciamento do backup de SQL Server banco de dados no Azure e na recuperaç�
 
     ![Método de replicação inicial](./media/backup-azure-backup-sql/pg-manual.png)
 
-    A cópia de backup inicial requer a transferência de toda a fonte de dados (SQL Server banco de dado) do servidor de produção (SQL Server máquina) para Servidor de Backup do Azure. Esses dados podem ser grandes e a transferência dos dados pela rede pode exceder a largura de banda. Por esse motivo, você pode optar por transferir o backup inicial: **Manualmente** (usando mídia removível) para evitar o congestionamento da largura de banda ou **automaticamente pela rede** (em um horário especificado).
+    A cópia de backup inicial requer a transferência de toda a fonte de dados (SQL Server banco de dado) do servidor de produção (SQL Server máquina) para Servidor de Backup do Azure. Esses dados podem ser grandes e a transferência dos dados pela rede pode exceder a largura de banda. Por esse motivo, você pode optar por transferir o backup inicial: **manualmente** (usando mídia removível) para evitar o congestionamento da largura de banda ou **automaticamente pela rede** (em um horário especificado).
 
     Depois que o backup inicial for concluído, o restante dos backups será backups incrementais na cópia de backup inicial. Os backups incrementais tendem a ser pequenos e são facilmente transferidos pela rede.
 
@@ -93,11 +95,11 @@ O gerenciamento do backup de SQL Server banco de dados no Azure e na recuperaç�
     >
     >
 
-    **Prática recomendada**: Se você agendar backups para o Azure para iniciar após a conclusão dos backups de disco local, os backups de disco mais recentes sempre serão copiados para o Azure.
+    **Prática recomendada**: se você agendar backups para o Azure para iniciar depois que os backups do disco local forem concluídos, os backups de disco mais recentes sempre serão copiados para o Azure.
 
 12. Escolha o agendamento da política de retenção. Os detalhes sobre como a política de retenção funciona são fornecidos em [usar o backup do Azure para substituir o artigo de infraestrutura de fita](backup-azure-backup-cloud-as-tape.md).
 
-    ![Política de retenção](./media/backup-azure-backup-sql/pg-retentionschedule.png)
+    ![Política de Retenção](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
     Neste exemplo:
 
@@ -112,6 +114,7 @@ O gerenciamento do backup de SQL Server banco de dados no Azure e na recuperaç�
     ![Criação de grupo de proteção em andamento](./media/backup-azure-backup-sql/pg-summary.png)
 
 ## <a name="on-demand-backup-of-a-sql-server-database"></a>Backup sob demanda de um banco de dados SQL Server
+
 Embora as etapas anteriores tenham criado uma política de backup, um "ponto de recuperação" é criado somente quando ocorre o primeiro backup. Em vez de aguardar o início do Agendador, as etapas abaixo disparam a criação de um ponto de recuperação manualmente.
 
 1. Aguarde até que o status do grupo de proteção mostre **OK** para o banco de dados antes de criar o ponto de recuperação.
@@ -128,6 +131,7 @@ Embora as etapas anteriores tenham criado uma política de backup, um "ponto de 
     ![Console de monitoramento](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
 ## <a name="recover-a-sql-server-database-from-azure"></a>Recuperar um banco de dados SQL Server do Azure
+
 As etapas a seguir são necessárias para recuperar uma entidade protegida (SQL Server banco de dados) do Azure.
 
 1. Abra o console de gerenciamento do Servidor de Backup do Azure. Navegue até o espaço de trabalho de **recuperação** , no qual você pode ver os servidores protegidos. Procure o banco de dados necessário (neste caso, ReportServer $ MSDPM2012). Selecione uma **recuperação de** hora especificada como um ponto **online** .

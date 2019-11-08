@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: 4263afe33caa4d6471848c8e7dbf9bc1eeec4bee
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: da45e24898bc3b5aead250077af69a61bdb33bab
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332542"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749634"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>A inicialização da VM está presa em "preparando o Windows. Não desligar o computador "no Azure
 
 Este artigo descreve as telas "preparando-se" e "preparando o Windows" que você pode encontrar ao inicializar uma VM (máquina virtual) do Windows no Microsoft Azure. Ele fornece etapas para ajudá-lo a coletar dados para um tíquete de suporte.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -100,7 +100,7 @@ Para habilitar o log de despejo e o console serial, execute o script a seguir.
 3. [Desanexe o disco do sistema operacional e, em seguida, anexe novamente o disco do sistema operacional à VM afetada](../windows/troubleshoot-recovery-disks-portal.md).
 4. Inicie a VM e acesse o console serial.
 5. Selecione **Enviar NMI (interrupção não mascarada)** para disparar o despejo de memória.
-    imagem ![the sobre onde enviar interrupção não mascarável @ no__t-1
+    ![a imagem sobre onde enviar uma interrupção não mascarável](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
 6. Anexe o disco do sistema operacional a uma VM de recuperação novamente, colete o arquivo de despejo.
 
 ## <a name="contact-microsoft-support"></a>Contate o suporte da Microsoft

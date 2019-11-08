@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 5d807f185a8cdb181093d37dac35ee2e467fdba9
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 8ce35156cd772487c4787f2f5fb99feb1225826f
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72328096"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794194"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Início rápido: criar, treinar e publicar sua base de dados de conhecimento QnA Maker
 
@@ -67,7 +67,7 @@ Inclua uma personalidade Chit para tornar seu conhecimento mais atraente com seu
 
 1. Adicione a resposta formatada com _redução_:
 
-    ` * Azure QnA Maker service\n* Azure Search\n* Azure web app\n* Azure app plan`
+    ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
     ![ Adicione a pergunta como texto e a resposta formatada com redução.](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
 
@@ -94,7 +94,7 @@ No canto superior direito, selecione **Guardar e preparar** para guardar as edi�
 
 ## <a name="publish-the-knowledge-base"></a>Publicar a base de dados de conhecimento
 
-Quando você publica uma base de dados de conhecimento, o conteúdo da sua base de dados de conhecimento passa do índice `test` para um índice `prod` no Azure Search.
+Quando você publica uma base de dados de conhecimento, o conteúdo da sua base de dados de conhecimento passa do índice de `test` para um índice de `prod` no Azure Search.
 
 ![Captura de tela da movimentação do conteúdo da sua base de dados de conhecimento](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
 
@@ -140,7 +140,7 @@ Limpe os recursos do QnA Maker e do bot Framework no portal do Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para mais informações:
+Para obter mais informações:
 
 * [Formato de redução nas respostas](../concepts/data-sources-supported.md)
 * [Testando sua redução](../concepts/data-sources-supported.md#testing-your-markdown)

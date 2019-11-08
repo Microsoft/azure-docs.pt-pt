@@ -1,6 +1,6 @@
 ---
-title: 'Backup do Azure: Restaurar VMs do Azure usando a API REST'
-description: gerenciar operações de restauração do backup de VM do Azure usando a API REST
+title: 'Backup do Azure: restaurar VMs do Azure usando a API REST'
+description: Neste artigo, saiba como gerenciar operações de restauração do backup de máquina virtual do Azure usando a API REST.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: dacurwin
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: bdbceec2f1d0a900ffdb392d8a0505ce11419036
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 364b6ab589cc0fa50953a71d55adeccc79462eed
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954897"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747529"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurar máquinas virtuais do Azure usando a API REST
 
@@ -31,11 +31,11 @@ Os pontos de recuperação disponíveis de um item de backup podem ser listados 
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2016-12-01
 ```
 
-Os `{containerName}` e`{protectedItemName}` são tão construídos [aqui](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}`é "Azure".
+Os `{containerName}` e `{protectedItemName}` são construídos [aqui](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` é "Azure".
 
 O URI *Get* tem todos os parâmetros necessários. Não é necessário um corpo de solicitação adicional
 
-### <a name="responses"></a>Responses
+### <a name="responses"></a>Respostas
 
 |Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
@@ -119,7 +119,7 @@ X-Powered-By: ASP.NET
 ......
 ```
 
-O ponto de recuperação é identificado com `{name}` o campo na resposta acima.
+O ponto de recuperação é identificado com o campo `{name}` na resposta acima.
 
 ## <a name="restore-disks"></a>Restaurar discos
 
@@ -131,7 +131,7 @@ O disparo de discos de restauração é uma solicitação *post* . Para saber ma
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2016-12-01
 ```
 
-Os `{containerName}` e`{protectedItemName}` são tão construídos [aqui](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}`é "Azure" e `{recoveryPointId}` é o `{name}` campo do ponto de recuperação mencionado [acima](#example-response).
+Os `{containerName}` e `{protectedItemName}` são construídos [aqui](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` é "Azure" e o `{recoveryPointId}` é o campo `{name}` do ponto de recuperação mencionado [acima](#example-response).
 
 ### <a name="create-request-body"></a>Criar corpo da solicitação
 
@@ -139,7 +139,7 @@ Para disparar uma restauração de disco de um backup de VM do Azure, estes são
 
 |Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
-|properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
+|propriedades     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
 Para obter a lista completa de definições do corpo da solicitação e outros detalhes, consulte [disparar restaurar restauração do documento da API REST](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
 
@@ -169,15 +169,15 @@ O corpo da solicitação a seguir define as propriedades necessárias para dispa
 
 O disparo de um disco de restauração é uma [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que essa operação cria outra operação que precisa ser controlada separadamente.
 
-Ele retorna duas respostas: 202 (aceito) quando outra operação é criada e 200 (OK) quando essa operação é concluída.
+Ele retorna duas respostas: 202 (aceito) quando outra operação é criada e, em seguida, 200 (OK) quando essa operação é concluída.
 
 |Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
-|202 aceito     |         |     Aceite    |
+|202 aceito     |         |     Aceitar    |
 
 #### <a name="example-responses"></a>Respostas de exemplo
 
-Depois de enviar o URI de postagem para disparar discos de restauração, a resposta inicial é 202 (aceita) com um cabeçalho de local ou Azure-Async-header.
+Depois de enviar o URI de *postagem* para disparar discos de restauração, a resposta inicial é 202 (aceita) com um cabeçalho de local ou Azure-Async-header.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -279,7 +279,7 @@ O corpo da solicitação a seguir define as propriedades necessárias para dispa
 
 A resposta deve ser tratada da mesma maneira como [explicado acima para restaurar discos](#response).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as APIs REST do backup do Azure, consulte os seguintes documentos:
 
