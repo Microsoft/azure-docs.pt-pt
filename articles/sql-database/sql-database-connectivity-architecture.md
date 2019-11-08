@@ -1,22 +1,23 @@
 ---
-title: Arquitetura de conectividade de SQL Data Warehouse e banco de dados SQL do Azure
+title: Arquitetura de conectividade
 description: Este documento explica a arquitetura de conectividade do SQL do Azure para conexões de banco de dados de dentro do Azure ou de fora do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: fasttrack-edit
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.devlang: ''
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: d414276e081407af8ea21ebcbd96909d34455a22
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2140216a27d9c903495da4f7b43f6fdfda62591e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690863"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826912"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -88,7 +89,7 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Oeste do Japão           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
 | Coreia do Sul Central        | 52.231.32.42       |
 | Coreia do Sul          | 52.231.200.86      |
-| E.U.A. Centro-Norte     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
+| EUA Centro-Norte     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | Europa do Norte         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
 | Norte da África do Sul   | 102.133.152.0      |
 | Oeste da África do Sul    | 102.133.24.0       |
@@ -100,7 +101,7 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Reino Unido Oeste              | 51.141.8.11        |
 | EUA Centro-Oeste      | 13.78.145.25       |
 | Europa Ocidental          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
-| Oeste dos E.U.A.              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
+| EUA Oeste              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
 | EUA Oeste 2            | 13.66.226.202      |
 |                      |                    |
 

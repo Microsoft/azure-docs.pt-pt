@@ -1,5 +1,5 @@
 ---
-title: Descrição Geral da Programação de Aplicações de Base de Dados SQL
+title: Visão geral do desenvolvimento de aplicativos
 description: Aprenda sobre as bibliotecas de conetividade disponíveis e as melhores práticas para as aplicações ligarem à Base de Dados SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 02/07/2019
-ms.openlocfilehash: 58f823aad157657de5445b1010a405af01c70171
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: af657d28bc3052ebefe25ea54891b8d3555692c9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690637"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825844"
 ---
 # <a name="sql-database-application-development-overview"></a>Visão geral do desenvolvimento de aplicativos do banco de dados SQL
 

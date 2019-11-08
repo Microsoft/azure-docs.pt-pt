@@ -1,5 +1,5 @@
 ---
-title: Aplicar recomendações de desempenho-banco de dados SQL do Azure
+title: Aplicar recomendações de desempenho
 description: Use o portal do Azure para encontrar recomendações de desempenho que podem otimizar o desempenho do seu banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 24a590a80e768bba2e9b102bdf200e0cd96858f8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5462a03accb3420b3f0fcec4624734c8f6d68859
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691282"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811584"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
 
@@ -28,7 +28,7 @@ Para exibir e aplicar recomendações de desempenho, você precisa das permissõ
 
 Use as etapas a seguir para encontrar recomendações de desempenho no portal do Azure:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 2. Vá para **todos os serviços** > bancos de dados **SQL**e selecione seu banco de dados.
 3. Navegue até **recomendação de desempenho** para exibir as recomendações disponíveis para o banco de dados selecionado.
 

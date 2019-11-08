@@ -4,15 +4,16 @@ description: Artigo de CPP preterido e vinculado ao artigo do PC; was "explica c
 services: Azure Marketplace, Cloud Partner Portal,
 author: ChJenk
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: v-chjen
-ms.openlocfilehash: 6d5777bedd35a25963aec9055a6072222b922e29
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 2b6308a29a2feb112dbd67060c6fc7d31ce162e3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034919"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819243"
 ---
 # <a name="dynamics-365-for-finance-and-operations-offer"></a>Dynamics 365 para oferta de finanças e operações
 

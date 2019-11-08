@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: da6fee7158344d331c6c2a68f0fab1b13cc3a291
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9eb283f538759f9591add4b04462de151f2cb014
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934105"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825556"
 ---
 # <a name="create-a-new-saas-offer"></a>Criar uma nova oferta de SaaS
 
@@ -57,10 +58,10 @@ A página **visão geral da oferta** inclui:
 - O **status de publicação** exibe uma representação visual das etapas necessárias para publicar essa oferta e quanto tempo cada etapa levará para ser concluída. Os ícones de etapa de publicação incompletos ficarão esmaecidos. 
 
 - O menu **visão geral da oferta** contém uma lista de links para executar operações nessa oferta. Essa lista de operações será alterada com base na seleção feita para sua oferta.  
-    - Se a oferta for um rascunho – excluir rascunho 
-    - Se a oferta for dinâmica, interrompa a oferta de venda 
-    - Se a oferta estiver em visualização – Go-Live 
-    - Se você ainda não concluiu a saída do Publicador – cancelar publicação
+    - Se a oferta for um rascunho de exclusão de rascunho 
+    - Se a oferta for Live-Stop Reseller offer 
+    - Se a oferta estiver em visualização-Go-Live 
+    - Se você ainda não concluiu a saída do Publicador, cancelar publicação
 
 ## <a name="offer-setup"></a>Instalação da oferta
 
@@ -241,15 +242,15 @@ Para tornar sua descrição de oferta mais atraente, você pode usar marcas HTML
 
     **Exemplo**: 
 
-    `<p>` Este é o primeiro parágrafo. `</p>` <br>
-    `<p>` é o meu segundo parágrafo. `</p>` <br>
+    `<p>` este é o primeiro parágrafo. `</p>` <br>
+    `<p>` este é o meu segundo parágrafo. `</p>` <br>
 
     O anterior ficaria assim:
 
     <p> Este é o primeiro parágrafo. </p>
     <p> Este é o meu segundo parágrafo. </p>
 
-1. Se você quiser adicionar uma **lista de itens com marcadores**, coloque o texto dentro das marcas `<li>` abaixo. Você pode copiar e colar mais itens com marcadores (itens entre as marcas `<li>` e `</li>`) nas marcas `<ul>` e `</ul>`. Certifique-se de adicionar o `<ul></ul>`. 
+1. Se você quiser adicionar uma **lista de itens com marcadores**, coloque o texto dentro das marcas de `<li>` abaixo. Você pode copiar e colar mais itens com marcadores (itens entre as marcas de `<li>` e de `</li>`) dentro das marcas `<ul>` e `</ul>`. Certifique-se de adicionar o `<ul></ul>`. 
 
     **Exemplo**:
 
@@ -280,13 +281,13 @@ Para tornar sua descrição de oferta mais atraente, você pode usar marcas HTML
 
     **Exemplo**:
 
-    Esta é uma linha de texto. `<br>` é uma linha de texto que será iniciada em uma nova linha. `<br><br>` é uma linha que iniciará duas linhas abaixo. 
+    Esta é uma linha de texto. `<br>` esta é uma linha de texto que será iniciada em uma nova linha. `<br><br>` esta é uma linha que iniciará duas linhas abaixo. 
 
     O anterior ficaria assim:
 
     Esta é uma linha de texto. <br> Esta é uma linha de texto que será iniciada em uma nova linha. <br><br> Esta é uma linha que iniciará duas linhas abaixo. 
 
-1. Se você quiser **aumentar o tamanho do texto**, primeiro escolha a quantidade desejada para o texto. Use os exemplos a seguir. Depois de selecionar o tamanho do texto, adicione as marcações `<H*></H*>` correspondentes ao início e ao final do texto. 
+1. Se você quiser **aumentar o tamanho do texto**, primeiro escolha a quantidade desejada para o texto. Use os exemplos a seguir. Depois de selecionar o tamanho do texto, adicione as marcas de `<H*></H*>` correspondentes ao início e ao final do texto. 
 
     **Exemplo**:
 
@@ -351,7 +352,7 @@ A guia **configuração técnica** define os detalhes técnicos (caminho da URL,
 
 - **URL da página de aterrissagem** (obrigatório): defina a URL do site na qual os clientes serão acessados depois de adquirir sua oferta do Marketplace. Essa URL será o ponto de extremidade que recebe um token quando um cliente é roteado para a página. Esse token pode ser trocado para detalhes de provisionamento usando a resolução nas APIs de preenchimento. Esses detalhes e quaisquer outros que você coletar podem ser usados como parte de uma página da Web interativa pelo cliente, criada em sua experiência para concluir o registro e ativar sua compra.
 
-- **Webhook de conexão** (obrigatório): para todos os eventos assíncronos que a Microsoft precisa enviar para você em nome do cliente (exemplo: a assinatura de SaaS deixou inválida), exigimos que você forneça um webhook de conexão. Se você ainda não tiver um sistema de webhook em vigor, a configuração mais simples é ter um aplicativo lógico de ponto de extremidade HTTP que escutará todos os eventos postados nele e, em seguida, tratá-los adequadamente (por exemplo, https: \//prod-1westus. Logic. Azure. com: 443/Work ). Para obter mais informações, consulte [chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade http em aplicativos lógicos](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Webhook de conexão** (obrigatório): para todos os eventos assíncronos que a Microsoft precisa enviar para você em nome do cliente (exemplo: a assinatura de SaaS deixou inválida), exigimos que você forneça um webhook de conexão. Se você ainda não tiver um sistema de webhook em vigor, a configuração mais simples é ter um aplicativo lógico de ponto de extremidade HTTP que escutará todos os eventos postados nele e, em seguida, tratá-los adequadamente (por exemplo, https:\//prod-1westus.logic.azure.com:443/work). Para obter mais informações, consulte [chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade http em aplicativos lógicos](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
 - **ID de locatário do Azure ad** (obrigatório): dentro de portal do Azure, exigimos que você [crie um aplicativo de Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para que possamos validar a conexão entre nossos dois serviços está por trás de uma comunicação autenticada. Para localizar a [ID do locatário](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), vá para o Azure Active Directory e selecione **Propriedades**, em seguida, procure o número de **ID de diretório** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e).
 
@@ -367,8 +368,8 @@ Depois de criado, você verá os nomes do plano, as IDs, os modelos de preços, 
 
 As **ações** disponíveis na **visão geral do plano** variam de acordo com o status atual do seu plano e podem incluir:
 
-- Se o status do plano for **rascunho** – excluir rascunho
-- Se o status do plano for **Live** – parar vender plano ou sincronizar público privado
+- Se o status do plano for **rascunho** -excluir rascunho
+- Se o status do plano for **Live** -parar o plano de venda ou sincronizar público privado
 
 **Criar novo plano** (mínimo de um plano para aqueles que selecionam vender pela Microsoft)
 
@@ -406,7 +407,7 @@ A capacidade de configurar uma avaliação gratuita está disponível para cada 
 >[!Note]
 >Depois que sua oferta de transação for publicada com uma avaliação gratuita, ela não poderá ser desabilitada para esse plano. Verifique se essa configuração está correta para a primeira publicação para evitar ter que recriar o plano.
 
-Para obter informações sobre assinaturas de clientes que participam atualmente de uma avaliação gratuita, use a nova propriedade de API `isFreeTrial`, que será marcada como true ou false. Consulte a [API obter assinatura de SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) para obter mais informações.
+Para obter informações sobre as assinaturas de cliente que estão participando de uma avaliação gratuita, use a nova propriedade de API `isFreeTrial`, que será marcada como verdadeira ou falsa. Consulte a [API obter assinatura de SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) para obter mais informações.
 
 >[!Note]
 >Não há suporte para avaliações gratuitas para planos que aproveitam o serviço de medição do Marketplace.
@@ -483,9 +484,9 @@ Depois de concluir todas as seções necessárias da oferta, selecione **publica
 Se esta for a primeira vez que você publica essa oferta, você pode:
 
 - Consulte o status de conclusão de cada seção da oferta.
-    - *Não iniciado* – significa que a seção não foi tocada e precisa ser concluída.
-    - *Incompleto* – significa que a seção tem erros que precisam ser corrigidos ou que requer mais informações a serem fornecidas. Volte para a (s) seção (ões) e atualize-a.
-    - *Concluído* – significa que a seção está concluída, todos os dados necessários foram fornecidos e não há erros. Todas as seções da oferta devem estar em um estado completo antes que você possa enviar a oferta.
+    - *Não iniciado* -significa que a seção não foi tocada e precisa ser concluída.
+    - *Incompleto* -significa que a seção tem erros que precisam ser corrigidos ou que requer mais informações a serem fornecidas. Volte para a (s) seção (ões) e atualize-a.
+    - *Concluir* -significa que a seção está concluída, todos os dados necessários foram fornecidos e não há erros. Todas as seções da oferta devem estar em um estado completo antes que você possa enviar a oferta.
 - Forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de qualquer nota suplementar útil para entender seu aplicativo.
 - Envie a oferta para publicação selecionando **Enviar**. Enviaremos um email para que você saiba quando uma versão prévia da oferta está disponível para revisão e aprovação. Você deve retornar ao Partner Center e selecionar **Go-Live** para a oferta para publicar sua oferta no público (ou se uma oferta privada, para o público privado).
 

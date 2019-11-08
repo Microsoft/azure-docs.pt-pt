@@ -1,147 +1,148 @@
 ---
-title: Unidade de teste da aplicação lógica | O Azure Marketplace
-description: Explica como criar a unidade de teste que se liga com uma instância do Dynamics AX/CRM ou qualquer outro recurso além do Azure apenas.
+title: Unidade de teste do aplicativo lógico | Azure Marketplace
+description: Explica como criar seu Test Drive que se conecta a uma instância do Dynamics AX/CRM ou a qualquer outro recurso além do Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 3dc5642541f411acc93301f6bb9828e901aba449
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87170344f7467770829cbd8ba7d8936a9e39c0cc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64940014"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824589"
 ---
-<a name="logic-app-test-drive"></a>Unidade de teste da aplicação lógica
+<a name="logic-app-test-drive"></a>Unidade de teste do aplicativo lógico
 ====================
 
-Este artigo é para os publicadores que tem suas ofertas no AppSource e pretendem criar a unidade de teste que se liga com uma instância do Dynamics AX/CRM ou qualquer outro recurso além do Azure apenas.
+Este artigo destina-se a editores que têm sua oferta no AppSource e desejam criar seu Test Drive que se conecta a uma instância do Dynamics AX/CRM ou a qualquer outro recurso além do Azure.
 
-<a name="how-to-build-a-logic-app-test-drive"></a>Como criar uma unidade de teste da aplicação lógica
+<a name="how-to-build-a-logic-app-test-drive"></a>Como criar uma unidade de teste de aplicativo lógico
 -----------------------------------
 
-Testar a unidade de documentação para versões de teste de aplicação lógica é, atualmente, ainda no GitHub para [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) e [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app), aceda aqui para ler mais.
+A documentação do Test Drive para unidades de teste de aplicativo lógico atualmente ainda está no GitHub para [operações](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) e envolvimento com o [cliente](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app), vá lá para ler mais.
 
-<a name="how-to-publish-a-test-drive"></a>Como publicar um Test Drive
+<a name="how-to-publish-a-test-drive"></a>Como publicar um test drive
 ---------------------------
 
-Agora que tem a sua versão de teste criada, esta secção descreve cada um dos campos necessários para a publicação com êxito a sua versão de teste.
+Agora que o seu test drive foi criado, esta seção percorre cada um dos campos necessários para que você publique com êxito a unidade de teste.
 
-![Ativar a funcionalidade de Test-Drive](./media/azure-resource-manager-test-drive/howtopub1.png)
+![Habilitar o recurso Test Drive](./media/azure-resource-manager-test-drive/howtopub1.png)
 
-O campo de primeiro e mais importante é ativar/desativar se pretende que o teste do formulário com todos os campos obrigatórios são apresentadas para que possa preencher. Quando seleciona **não,** o formulário torna-se desativado e se voltar a publicar com o Test-Drive desativada, a sua versão de teste é removido da produção.
+O primeiro campo e mais importante é alternar se você deseja que o teste do formulário com todos os campos obrigatórios seja apresentado para você preencher. Quando você seleciona **não,** o formulário fica desabilitado e, se você republicar com a unidade de teste desabilitada, sua unidade de teste será removida da produção.
 
-*Nota*: Se houver quaisquer versões de teste ativamente utilizadas por utilizadores, essas versões de teste irá continuar a ser executado até a sessão expira.
+*Observação*: se houver qualquer unidade de teste usada ativamente pelos usuários, essas unidades de teste continuarão a ser executadas até que sua sessão expire.
 
 ### <a name="details"></a>Detalhes
 
-A secção seguinte para preencher é que oferecem os detalhes sobre a sua versão de teste.
+A próxima seção a ser preenchida é os detalhes sobre a oferta do Test Drive.
 
-![Detalhes do controlador de teste](./media/azure-resource-manager-test-drive/howtopub2.png)
+![Detalhes do driver de teste](./media/azure-resource-manager-test-drive/howtopub2.png)
 
-**Descrição -** *[necessário campo]* é onde escrever a descrição principal sobre o que há em sua versão de teste. O cliente virá aqui para ler quais cenários sua versão de teste irá abordar sobre seu produto. 
+**Descrição-** *[campo obrigatório]* é aqui que você escreve a descrição principal sobre o que está em seu Test Drive. O cliente chegará aqui para ler quais cenários o seu test drive estará abordando sobre seu produto. 
 
-**Manual do usuário -** *[necessário campo]* este é o passo a passo detalhada de sua experiência de versão de teste. O cliente abrirá isso e pode percorrer exatamente o que deseja fazer em toda a unidade de teste. É importante que este conteúdo é fácil de compreender e siga! (Tem de ser um ficheiro. pdf)
+**Manual do usuário-** *[campo obrigatório]* este é o passo a passo detalhado de sua experiência de teste de unidade. O cliente abrirá isso e poderá percorrer exatamente o que você deseja que eles façam em todo o seu Test Drive. É importante que esse conteúdo seja fácil de entender e seguir! (Deve ser um arquivo. pdf)
 
-**Testar o vídeo de demonstração de unidade -** \[recomendado\] é semelhante para o Manual do utilizador, é melhor incluir um tutorial em vídeo de sua experiência de versão de teste. O cliente irá observar neste anterior ou durante a sua versão de teste e pode percorrer exatamente o que deseja fazer em toda a unidade de teste. É importante que este conteúdo é fácil de compreender e siga!
+**Vídeo de demonstração do Test Drive-** \[recomendado\] semelhante ao manual do usuário, é melhor incluir um tutorial em vídeo de sua experiência de teste de unidade. O cliente observará isso antes ou durante o Test Drive e poderá percorrer exatamente o que você deseja que eles façam em seu Test Drive. É importante que esse conteúdo seja fácil de entender e seguir!
 
 - **Nome** -título do seu vídeo
-- **Ligação** -tem de ser um URL incorporado do YouTube ou Vimeo. Exemplo sobre como obter o url do embedded está ilustrado abaixo:
-- **Miniatura** -tem de ser uma imagem de alta qualidade pixels (533 x 324). Recomenda-se para tirar uma captura de ecrã de certa parte de sua experiência de Test-Drive aqui.
+- **Link** -deve ser uma URL inserida do YouTube ou Vimeo. O exemplo de como obter a URL inserida está abaixo:
+- **Miniatura** -deve ser uma imagem de alta qualidade (533x324) pixels. É recomendável tirar uma captura de tela de alguma parte da experiência do Test Drive aqui.
 
-Segue-se como estes campos aparecem para o seu cliente durante a sua experiência de versão de teste.
+Veja abaixo como esses campos são mostrados para o cliente durante a experiência do Test Drive.
 
-![Teste de unidade campos aspeto e funcionalidade](./media/azure-resource-manager-test-drive/howtopub4.png)
+![Aparência dos campos do Test Drive](./media/azure-resource-manager-test-drive/howtopub4.png)
 
 ### <a name="technical-configuration"></a>Configuração técnica
 
-A secção seguinte para preencher é onde configurar a aplicação de lógica de unidade de teste e define especificamente como sua versão de teste instâncias de trabalho.
+A próxima seção a ser preenchida é onde você configura o aplicativo lógico do Test Drive e define de que maneira especificamente suas instâncias de unidade de teste funcionam.
 
-![Configuração de técnica de unidade de teste](./media/azure-resource-manager-test-drive/howtopub5_logicapp.png)
+![Testar a configuração técnica](./media/azure-resource-manager-test-drive/howtopub5_logicapp.png)
 
-- **Região** -  *[Field necessário]* a região que selecionou é onde escolhe em que os recursos de teste de unidade lógica aplicação são implementados no.
+- **Região** -  *[campo obrigatório]* a região selecionada é onde você escolhe onde os recursos do aplicativo lógico da unidade de teste são implantados.
 
-    *Nota:* Se a sua aplicação lógica tiver todos os recursos personalizados que estão armazenados numa região, certificar-se de que essa região está selecionada aqui. É a melhor forma de fazer isso **totalmente implementar a sua aplicação lógica localmente na sua subscrição do Azure no portal e certifique-se de que ele funciona** antes de os escrever aqui.
+    *Observação:* Se seu aplicativo lógico tiver recursos personalizados que são armazenados em uma região, verifique se a região está selecionada aqui. A melhor maneira de fazer isso é **implantar totalmente seu aplicativo lógico localmente em sua assinatura do Azure no portal e verificar se ele funciona** antes de escrevê-lo aqui.
 
-- **Máximo versões de teste de simultâneas** -  *[Field necessário]* aceder a instâncias de número de teste de unidade de mensagens em fila que já estão implementados e espera por região selecionada. Os clientes podem aceder de forma instantânea este versões de teste, em vez de ter de esperar por uma implementação.
+- **Máximo de unidades de teste simultâneas** -  *[campo obrigatório]* número de instâncias de unidade de teste que já estão implantadas e aguardando acesso por região selecionada. Os clientes podem acessar instantaneamente essas unidades de teste em vez de ter que esperar por uma implantação.
 
-    *Nota:* Se estiver a executar uma webinar/classe onde pretende que todos os seu número de N de estudantes para fazer um Test Drive, recomenda-se para publicar com N diversas instâncias de acesso frequente e uma vez, em seguida, a classe está a terminar, voltar a publicar novamente para o seu número normal de instâncias de acesso frequente.
+    *Observação:* Se você estiver executando uma webinar/classe em que deseja que todo o número de alunos de um deles faça um Test Drive, é recomendável publicar com N número de instâncias quentes e, depois, quando a classe estiver prestes a ser republicada para o seu número normal de instâncias ativas.
 
-- **Teste de unidade de duração (horas) -** *[necessário Field]* duração para o tempo que o Test-Drive permanecerá ativo, em \# de horas. O Test-Drive automaticamente termina após o final deste período de tempo.
+- **Duração da unidade de teste (horas) –** *[campo obrigatório]* duração por quanto tempo a unidade de teste permanecerá ativa, em \# de horas. O Test Drive é encerrado automaticamente após o término desse período de tempo.
 
-- **Nome do grupo de recursos do Azure -** *[necessário campo]* escrita no nome do grupo de recursos em que as versões de teste de lógica de aplicação são guardadas.
+- **Nome do grupo de recursos do Azure-** *[campo obrigatório]* escreva no nome do grupo de recursos em que as unidades de teste do aplicativo lógico são salvas.
 
-- **Atribuir o nome da aplicação lógica -** *[necessário campo]* escrita na lógica de aplicação que é utilizada para atribuir um utilizador na unidade de teste antes do cliente recebe, escrever no nome da aplicação lógica aqui. Certifique-se de que o ficheiro é guardado no grupo de recursos acima.
+- **Atribuir nome do aplicativo lógico-** *[campo obrigatório]* gravar no aplicativo lógico que é usado para atribuir um usuário na unidade de teste antes que o cliente o obtenha, grave o nome desse aplicativo lógico aqui. Verifique se esse arquivo foi salvo no grupo de recursos acima.
 
-- **Desaprovisionar o nome da aplicação lógica -** *[necessário campo]* escrever o nome de aplicação lógica para o desaprovisionamento de todos os recursos criados na unidade de teste. Certifique-se de que o ficheiro é guardado no grupo de recursos acima.
+- **Desprovisionar nome do aplicativo lógico-** *[campo obrigatório]* escreva no nome do aplicativo lógico para o desprovisionamento de todos os recursos criados na unidade de teste. Verifique se esse arquivo foi salvo no grupo de recursos acima.
 
-- **Aceder a informações -** *[necessário campo]* depois de um cliente recebe a unidade de teste, as informações de acesso são apresentadas aos mesmos. Estas instruções destinam-se para partilhar os parâmetros de saída útil do seu teste de unidade modelo do Resource Manager. Para incluir parâmetros de saída, de utilizar chavetas aspas (por exemplo, **{{outputname}}** ), e eles serão inseridos corretamente na localização. (Formatação da cadeia de caracteres HTML é recomendado aqui para renderizar no front-end).
+- **Informações de acesso-** *[campo obrigatório]* depois que um cliente obtém seu Test Drive, as informações de acesso são apresentadas a eles. Estas instruções destinam-se a compartilhar os parâmetros de saída úteis do modelo do Gerenciador de recursos de teste de unidade. Para incluir parâmetros de saída, use chaves duplas (por exemplo, **{{OutputType}}** ) e elas serão inseridas corretamente no local. (A formatação de cadeia de caracteres HTML é recomendada aqui para renderizar no front-end).
 
-### <a name="test-drive-deployment-subscription-details"></a>Detalhes de subscrição de implementação de unidade de teste
+### <a name="test-drive-deployment-subscription-details"></a>Detalhes da assinatura de implantação do Test Drive
 
-A seção final para preencher é ser capaz de implantar as versões de teste automaticamente ao ligar-se a sua subscrição do Azure e o Azure Active Directory (AD).
+A seção final a ser preenchida é poder implantar as unidades de teste automaticamente conectando sua assinatura do Azure e Azure Active Directory (AD).
 
-![Detalhes da subscrição de unidade de implementação de teste](./media/azure-resource-manager-test-drive/subdetails1.png)
+![Detalhes da assinatura de implantação do Test Drive](./media/azure-resource-manager-test-drive/subdetails1.png)
 
-**ID de subscrição do Azure** *[necessário Field]* isso concede acesso a serviços do Azure e o portal do Azure. A subscrição está em que é comunicada a utilização de recursos e serviços são cobrados. Se ainda não tiver uma **separado** subscrição do Azure para versões de teste apenas,. Vá em frente e criar uma. Pode encontrar os Ids de subscrição do Azure iniciando sessão no portal do Azure e navegando para as subscrições no menu da esquerda.
+**ID de assinatura do Azure** *[campo obrigatório]* isso concede acesso aos serviços do Azure e ao portal do Azure. A assinatura é onde o uso de recursos é relatado e os serviços são cobrados. Se você ainda não tiver uma assinatura **separada** do Azure para unidades de teste, vá em frente e crie uma. Você pode encontrar as IDs de assinatura do Azure fazendo logon no portal do Azure e navegando para as assinaturas no menu do lado esquerdo.
 (Exemplo: "a83645ac-1234-5ab6-6789-1h234g764ghty")
 
 ![Subscrições do Azure](./media/azure-resource-manager-test-drive/subdetails2.png)
 
-**ID de inquilino do Azure AD** *[necessário Field]* se tiver um ID de inquilino já disponível que pode encontrá-lo abaixo nas propriedades -\> ID do diretório.
+**ID de locatário do Azure ad** *[campo obrigatório]* se você já tiver uma ID de locatário disponível, poderá encontrá-la abaixo na ID de diretório de\> de propriedades.
 
 ![Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails3.png)
 
-Caso contrário, crie um novo inquilino no Azure Active Directory.
+Caso contrário, crie um novo locatário no Azure Active Directory.
 
-![Ecrã de propriedades do Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails4.png)
+![Tela de propriedades de Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-! Directory](./media/azure-resource-manager-test-drive/subdetails5.png) Active Directory do Azure
+! Azure Active Directory] (./Media/Azure-Resource-Manager-Test-Drive/subdetails5.png)
 
-![Inquilinos do Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails6.png)
+![Azure Active Directory locatários](./media/azure-resource-manager-test-drive/subdetails6.png)
 
-**ID de aplicação do Azure AD** *[necessário Field]* próxima etapa é criar e registar uma nova aplicação. Utilizaremos esta aplicação para realizar operações na sua instância de teste de unidade.
+**Aplicativo Azure Ad ID** *[campo obrigatório]* a próxima etapa é criar e registrar um novo aplicativo. Usaremos esse aplicativo para executar operações em sua instância de unidade de teste.
 
-1. Navegue para o diretório recentemente criado ou já existente diretório e selecione o Azure Active directory no painel de filtro.
-2. Procure "Registos de aplicações" e clique em "Adicionar"
-3. Forneça um nome de aplicação.
-4. Selecione o tipo de como "aplicação Web / API"
-5. Forneça qualquer valor no URL de início de sessão, ganhamos\'t estar a utilizar esse campo.
+1. Navegue até o diretório recém-criado ou o diretório já existente e selecione Azure Active Directory no painel de filtro.
+2. Pesquise "Registros de aplicativo" e clique em "Adicionar"
+3. Forneça um nome de aplicativo.
+4. Selecione o tipo de "aplicativo Web/API"
+5. Forneça qualquer valor na URL de logon, conquistamos\'t usando esse campo.
 6. Clique em criar.
-7. Depois do aplicativo tiver sido criado, vá para propriedades -\> definir a aplicação como multi-inquilino e clique em Save.
+7. Depois que o aplicativo tiver sido criado, vá para propriedades-\> defina o aplicativo como multilocatário e clique em salvar.
 
-Clique em Guardar. A última etapa é obter o ID da aplicação para esta aplicação registada e cole-o no campo da versão de teste aqui.
+Clique em Guardar. A última etapa é pegar a ID do aplicativo para esse aplicativo registrado e colá-lo no campo Test Drive aqui.
 
-![ID da aplicação do Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails7.png)
+![ID do aplicativo Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails7.png)
 
-Tendo em conta que estiver a utilizar a aplicação para implementar para a subscrição, precisamos de adicionar a aplicação como um contribuinte da subscrição. As instruções para estas são como abaixo:
+Considerando que estamos usando o aplicativo para implantar na assinatura, precisamos adicionar o aplicativo como um colaborador na assinatura. As instruções para eles são as seguintes:
 
-1. Navegue para o painel de subscrições e selecione a subscrição adequada, que está a utilizar para a versão de teste apenas.
-1. Clique em **controlo de acesso (IAM)** .
-1. Clique nas **atribuições de funções** separador.  ![O Azure Active Directory, adicionar um novo principal de controlo de acesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
-1. Clique em **adicionar atribuição de função**.
-1. Definir a função como **contribuinte**.
-1. Escreva o nome de aplicação do Azure AD e selecione a aplicação para atribuir a função.
-    ![Permissões do Active Directory do Azure](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Navegue até a folha assinaturas e selecione a assinatura apropriada que você está usando somente para a unidade de teste.
+1. Clique em **Controlo de acesso (IAM)** .
+1. Clique na guia **atribuições de função** .  ![Azure Active Directory, adicionando uma nova entidade de segurança de controle de acesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Clique em **Adicionar atribuição de função**.
+1. Defina a função como **colaborador**.
+1. Digite o nome do aplicativo do Azure AD e selecione o aplicativo para atribuir a função.
+    ![Azure Active Directory permissões](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
 1. Clique em **Guardar**.
 
-**Chave da aplicação do Azure AD -** *[necessário campo]* o campo final é gerar uma chave de autenticação. Em chaves, adicione uma descrição de chave, defina a duração para nunca expirar, em seguida, selecione guardar. É **importante** para evitar que um expiradas chave, que irá interromper a sua versão de teste em produção. Copie este valor e cole-o no seu campo obrigatório da versão de teste.
+**Chave de aplicativo Azure ad-** *[campo obrigatório]* o campo final é gerar uma chave de autenticação. Em chaves, adicione uma descrição da chave, defina a duração como nunca expirar e, em seguida, selecione salvar. É **importante** evitar ter uma chave expirada, o que interromperá sua Test Drive em produção. Copie esse valor e cole-o em seu campo Test Drive necessário.
 
-![Secção de chaves de diretório Active Directory do Azure](./media/azure-resource-manager-test-drive/subdetails8.png)
+![Azure Active Directory seção chaves](./media/azure-resource-manager-test-drive/subdetails8.png)
 
 > [!CAUTION]
-> Não é possível utilizar a pré-visualização de registo de aplicação do Azure, porque atualmente não gerar uma chave de codificada em base64.
+> Não é possível usar a visualização de registro Azure App porque ela não gera uma chave codificada em base64 no momento.
 
 
-<a name="next-steps"></a>Passos Seguintes
+<a name="next-steps"></a>Passos seguintes
 ----------
 
-Agora que tem todos os campos de Test-Drive preenchidos, passar por e **voltar a publicar** sua oferta. Assim que a sua versão de teste tiver passado o processo de certificação, deve passar um extensivamente testar a experiência do cliente no **pré-visualização** da sua oferta. Iniciar uma versão de teste na interface de Usuário e certifique-se de que as versões de teste estão a ser totalmente implementados corretamente.
+Agora que você tem todos os campos de unidade de teste preenchidos, passe e **Republique** sua oferta. Depois que o test drive tiver passado o processo de certificação, você deverá seguir um teste extensivo da experiência do cliente na versão **prévia** da sua oferta. Inicie um test drive na interface do usuário e verifique se as unidades de teste estão sendo totalmente implantadas corretamente.
 
-É importante observar que não excluir qualquer parte da unidade de teste como terem sido aprovisionados para os seus clientes para que o serviço de versão de teste irá limpar automaticamente estes grupos de recursos depois de um cliente tenha terminado com ele.
+É importante observar que você não exclui nenhuma parte da unidade de teste à medida que elas são provisionadas para seus clientes, de modo que o serviço Test Drive limpará automaticamente esses grupos de recursos após a conclusão de um cliente.
 
-Assim que se sentir à vontade com a sua oferta de pré-visualização, agora é hora de **implemente**! Há um processo de revisão final da Microsoft, assim que a oferta foi publicada duplique verificação toda a experiência de ponta a ponta. Se por algum motivo, a oferta é rejeitada, enviaremos uma notificação para o contacto de engenharia da sua oferta explicando o que será necessário obter corrigidos.
+Depois de se sentir confortável com sua oferta de visualização, agora é hora de **entrar em funcionamento**! Há um processo de revisão final da Microsoft depois que a oferta é publicada para verificar novamente a experiência completa de ponta a ponta. Se, por algum motivo, a oferta for rejeitada, enviaremos uma notificação para o contato de engenharia de sua oferta explicando o que será necessário para ser corrigido.
 
-Se tiver mais perguntas, estiver à procura de conselhos de resolução de problemas ou pretende tornar a sua versão de teste mais bem-sucedida, vá até [FAQ, resolução de problemas e melhores práticas](./marketing-and-best-practices.md).
+Se você tiver mais dúvidas, está procurando conselhos de solução de problemas ou deseja que seu teste seja mais bem-sucedido, acesse [perguntas frequentes, solução de problemas & práticas recomendadas](./marketing-and-best-practices.md).

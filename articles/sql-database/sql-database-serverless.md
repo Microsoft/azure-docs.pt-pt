@@ -1,5 +1,5 @@
 ---
-title: Base de Dados SQL do Azure sem servidor
+title: Sem servidor
 description: Este artigo descreve a nova camada de computação sem servidor e a compara com a camada de computação provisionada existente
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 11/04/2019
-ms.openlocfilehash: fcd79182e046d94f9e67acecebd5cf6a45f2706f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fecc394080f54f023529ed2da8c9690c38c1da08
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687396"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818263"
 ---
 # <a name="azure-sql-database-serverless"></a>Base de Dados SQL do Azure sem servidor
 
@@ -126,7 +126,7 @@ A retomada será disparada se qualquer uma das seguintes condições for verdade
 
 |Funcionalidade|Gatilho de retomada|
 |---|---|
-|Autenticação e autorização|Início de Sessão|
+|Autenticação e autorização|Iniciar sessão|
 |Deteção de ameaças|Habilitação/desabilitação das configurações de detecção de ameaças no nível do banco de dados ou do servidor.<br>Modificar as configurações de detecção de ameaças no nível do banco de dados ou do servidor.|
 |Deteção e classificação de dados|Adicionando, modificando, excluindo ou exibindo rótulos de sensibilidade|
 |Auditoria|Exibindo registros de auditoria.<br>Atualizando ou exibindo a política de auditoria.|
@@ -141,7 +141,7 @@ A retomada será disparada se qualquer uma das seguintes condições for verdade
 
 O reinício retomado também é disparado durante a implantação de algumas atualizações de serviço que exigem que o banco de dados esteja online.
 
-### <a name="connectivity"></a>Ligação
+### <a name="connectivity"></a>Conectividade
 
 Se um banco de dados sem servidor for pausado, o primeiro logon retomará o banco de dados e retornará um erro informando que o banco de dados está indisponível com o código de erro 40613. Depois que o banco de dados for retomado, o logon deverá ser repetido para estabelecer a conectividade. Os clientes de banco de dados com lógica de repetição de conexão não precisam ser modificados.
 

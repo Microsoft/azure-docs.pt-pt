@@ -1,46 +1,47 @@
 ---
-title: Conformidade do GDPR | O Azure Marketplace
-description: Portal de parceiros da cloud e com o GDPR.
+title: Conformidade do GDPR | Azure Marketplace
+description: Portal do Cloud Partner e GDPR.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 91db369f9a2a0439bdbaf8600d1b329f0da00aa0
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: bc43a6cb3c30638d8c3904d7ca5b004e0905f1d2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786478"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824313"
 ---
-<a name="cloud-partner-portal-gdpr-compliance"></a>Conformidade do GDPR do Portal de parceiro de cloud
+<a name="cloud-partner-portal-gdpr-compliance"></a>Portal do Cloud Partner conformidade do GDPR
 ====================================
 
-[Regulamento geral de proteção de dados (GDPR)](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en/) é uma lei de proteção e privacidade de dados da União Europeia (UE). O GDPR impõe regras nas empresas, organismos públicos, sem fins lucrativos e outras organizações que oferecem bens e serviços a pessoas na UE ou que recolhem e analisam dados associados a residentes da UE.
+[Regulamento geral sobre a proteção de dados (GDPR)](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en/) é uma lei de privacidade e proteção de dados da União Europeia (UE). O GDPR impõe regras em empresas, agências governamentais, sem fins lucrativos e em outras organizações que oferecem bens e serviços a pessoas da UE ou que coletam e analisam dados vinculados a residentes da UE.
 
-Portal de parceiros da cloud fornece informações detalhadas sobre o processamento de cliente, dados e as medidas de segurança utilizadas para proteger os dados. Estas informações são acessíveis através de suas experiências no produto.
+Portal do Cloud Partner fornece informações detalhadas sobre o processamento dos dados do cliente e as medidas de segurança usadas para proteger esses dados. Essas informações podem ser acessadas por meio de suas experiências no produto.
 
 <a name="discover"></a>Descobrir
 --------
 
-Portal do cloud Partner dá acesso a todos os seus dados no separador utilizadores. Pode identificar os seus dados pessoais lá. Para saber como adicionar/remover utilizadores, consulte nosso [documentação](./cloud-partner-portal-manage-users.md).
+Portal do Cloud Partner fornece acesso a todos os seus dados na guia usuários. Você pode identificar seus dados pessoais lá. Para saber como adicionar ou remover usuários, consulte nossa [documentação](./cloud-partner-portal-manage-users.md).
 
 <a name="manage"></a>Gerir
 ------
 
-Pode gerir os seus dados pessoais ao pressionar delete na sua conta de utilizador no separador utilizadores. Temos de funções de um **proprietário** e uma **contribuinte** que podem ser atribuídos a cada utilizador específico, e ambos podem ser atribuída/copiados/atualizados/eliminados.
+Você pode gerenciar seus dados pessoais pressionando excluir na sua conta de usuário na guia usuários. Temos funções de um **proprietário** e um **colaborador** que podem ser atribuídos a cada usuário específico, e ambos podem ser atribuídos/copiados/atualizados/excluídos.
 
 <a name="consent"></a>Consentimento
 -------
 
-Para o gerenciamento de consentimento no Portal do Cloud Partner, sempre inicialmente são mostrados um fabricante de contrato de contrato, para que precisa aceitar a para que seja um fabricante com a Microsoft. Caso não aceite o contrato de contrato de publicador, em seguida, podemos restringir o publicador para não ser capaz de vender com a Microsoft.
+Para gerenciar o consentimento no Portal do Cloud Partner, você sempre é exibido inicialmente como um contrato de contrato do editor, ao qual você precisa concordar para ser um Publicador com a Microsoft. Se você não concordar com o contrato do contrato do Publicador, restringe o Publicador para não poder vender com a Microsoft.
 
 <a name="related-links"></a>Ligações relacionadas
 -------------
 
--   [Como e onde a Microsoft envia os clientes\' dados, incluindo localizações de geo](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
--   [Secundárias prestadores de serviços que têm acesso aos clientes\' dados](https://aka.ms/Online_Serv_Subcontractor_List)
--   [Obter detalhes sobre medidas de segurança do Azure administradas pela Microsoft](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
--   [Obter detalhes sobre a Microsoft\'privacidade s revisões de processo, efetuado para todos os produtos, incluindo todos os serviços do Azure](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards)
--   [O que a Microsoft recolhe dados e processos de sistemas de clientes e usuários finais](https://www.microsoft.com/trustcenter/privacy/you-own-your-data)
+-   [Como e onde a Microsoft envia aos clientes\' dados, incluindo locais geográficos](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
+-   [Subcontratados que têm acesso aos clientes\' dados](https://aka.ms/Online_Serv_Subcontractor_List)
+-   [Detalhes sobre as medidas de segurança do Azure administradas pela Microsoft](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
+-   [Detalhes sobre o processo de revisões de privacidade do Microsoft\'s, conduzido para todos os produtos, incluindo todos os serviços do Azure](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards)
+-   [Quais dados a Microsoft coleta e processa de sistemas clientes e usuários finais](https://www.microsoft.com/trustcenter/privacy/you-own-your-data)

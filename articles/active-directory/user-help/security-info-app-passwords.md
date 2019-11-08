@@ -1,5 +1,5 @@
 ---
-title: Configurar senhas de aplicativo da página informações de segurança (versão prévia)-Azure Active Directory | Microsoft Docs
+title: Criar senhas de aplicativo em informações de segurança (versão prévia) – Azure AD
 description: Configure senhas geradas automaticamente (senhas de aplicativo) para usar com qualquer aplicativo sem navegador ou qualquer aplicativo que não ofereça suporte à verificação de dois fatores em sua organização. Essa senha de aplicativo é separada de uma senha normal e pode ser configurada na página informações de segurança.
 services: active-directory
 author: eross-msft
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9638893c707757cb520acdf18e8e89a6cdf13f08
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: eb26d90772fc9e3e3e506946363c76cf02e6b2ef
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915986"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820329"
 ---
-# <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Gerenciar senhas de aplicativo de sua página de informações de segurança (versão prévia)
+# <a name="create-app-passwords-from-your-security-info-preview-page"></a>Criar senhas de aplicativo de sua página de informações de segurança (versão prévia)
 
 Determinados aplicativos, como o Outlook 2010, não dão suporte à verificação em duas etapas. Essa falta de suporte significa que, se você estiver usando a verificação em duas etapas em sua organização, o aplicativo não funcionará. Para contornar esse problema, você pode criar uma senha gerada automaticamente para usar com cada aplicativo sem navegador, separado da sua senha normal.
 
@@ -46,7 +46,7 @@ Se você usar a verificação em duas etapas com sua conta corporativa ou de est
 
 ### <a name="to-create-a-new-app-password"></a>Para criar uma nova senha de aplicativo
 
-1. Entre em sua conta corporativa ou de estudante e, em seguida, https://myprofile.microsoft.com/ vá para a página.
+1. Entre em sua conta corporativa ou de estudante e, em seguida, vá para a página https://myprofile.microsoft.com/.
 
     ![Minha página de perfil, mostrando links de informações de segurança realçadas](media/security-info/securityinfo-myprofile-page.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas comuns de verificação de dois fatores-Azure Active Directory | Microsoft Docs
+title: Solucionar problemas comuns de verificação de dois fatores – Azure AD
 description: Saiba mais sobre as possíveis soluções para alguns dos problemas mais comuns de verificação de dois fatores.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.date: 10/28/2019
 ms.author: lizross
 ms.reviewer: kexia
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb510755e7cc163af8ff0cb2c8699e1d2dd04d7f
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: f8d226d61f4b67541a6991fef3a435b4cfff500f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043228"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805308"
 ---
 # <a name="troubleshoot-common-two-factor-verification-problems"></a>Solucionar problemas comuns de verificação de dois fatores
 

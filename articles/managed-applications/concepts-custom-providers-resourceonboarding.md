@@ -1,21 +1,21 @@
 ---
 title: Integração de recursos de provedores personalizados do Azure
-description: Saiba mais sobre a integração de recursos usando os provedores personalizados do Azure para aplicar o gerenciamento ou a configuração a outros tipos de recursos do Azure.
+description: Saiba mais sobre como executar a integração de recursos usando os provedores personalizados do Azure para aplicar o gerenciamento ou a configuração a outros tipos de recursos do Azure.
 author: jjbfour
 ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: jobreen
-ms.openlocfilehash: 6f9dcf4118dd2167f4cef35408d5ead79bf33877
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 65e0f795a2b0efa327aec02c01cdb3706bf91d29
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609154"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818789"
 ---
 # <a name="azure-custom-providers-resource-onboarding-overview"></a>Visão geral da integração de recursos de provedores personalizados do Azure
 
-A integração de recursos de provedores personalizados do Azure é um modelo de extensibilidade para tipos de recursos do Azure. Ele permite que você aplique operações ou gerenciamento entre recursos existentes do Azure em escala. Para obter mais informações, consulte [como os provedores personalizados do Azure podem estender o Azure](./custom-providers-overview.md). Esta documentação descreve:
+A integração de recursos de provedores personalizados do Azure é um modelo de extensibilidade para tipos de recursos do Azure. Ele permite que você aplique operações ou gerenciamento entre recursos existentes do Azure em escala. Para obter mais informações, consulte [como os provedores personalizados do Azure podem estender o Azure](./custom-providers-overview.md). Este artigo descreve:
 
 - O que a integração de recursos pode fazer.
 - Noções básicas de integração de recursos e como usá-lo.
@@ -23,22 +23,22 @@ A integração de recursos de provedores personalizados do Azure é um modelo de
 
 > [!IMPORTANT]
 > Os provedores personalizados estão atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter recursos restritos.
 > Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="what-can-resource-onboarding-do"></a>O que a integração de recursos pode fazer
+## <a name="what-can-resource-onboarding-do"></a>O que a integração de recursos pode fazer?
 
-Semelhante aos [recursos personalizados do provedor personalizado do Azure](./custom-providers-resources-endpoint-how-to.md), a integração de recursos define um contrato, que fará o proxy de solicitações de "integração" a um ponto de extremidade. Ao contrário dos recursos personalizados, a integração de recursos não cria um novo tipo de recurso, mas, em vez disso, permite a extensão de tipos de recursos existentes. Além disso, a integração de recursos funciona com o Azure Policy, portanto, o gerenciamento e a configuração de recursos podem ser feitos em escala. Alguns exemplos de fluxos de trabalho de integração de recursos:
+Semelhante aos [recursos personalizados dos provedores personalizados do Azure](./custom-providers-resources-endpoint-how-to.md), a integração de recursos define um contrato que fará o proxy de solicitações de "integração" a um ponto de extremidade. Ao contrário dos recursos personalizados, a integração de recursos não cria um novo tipo de recurso. Em vez disso, ele permite a extensão de tipos de recursos existentes. E a integração de recursos funciona com o Azure Policy, portanto, o gerenciamento e a configuração de recursos podem ser feitos em escala. Alguns exemplos de fluxos de trabalho de integração de recursos:
 
-- Instale e gerencie em extensões de máquinas virtuais.
+- Instale e gerencie em extensões de máquina virtual.
 - Carregar e configurar padrões em contas de armazenamento do Azure.
 - Habilite as configurações de diagnóstico de linha de base em escala.
 
 ## <a name="resource-onboarding-basics"></a>Noções básicas de integração de recursos
 
-A integração de recursos é configurada por meio de provedores personalizados do Azure usando os tipos de recursos "Microsoft. CustomProviders/resourceProviders" e "Microsoft. CustomProviders/Associations". Para habilitar a integração de recursos para um provedor personalizado, durante o processo de configuração, crie um **ResourceType** chamado "associações" com um **RoutingType** que inclua "extensão". Além disso, o "Microsoft. CustomProviders/Associations" e o "Microsoft. CustomProviders/resourceProviders" não precisam pertencer ao mesmo grupo de recursos.
+Você configura a integração de recursos por meio de provedores personalizados do Azure usando os tipos de recursos Microsoft. CustomProviders/resourceProviders e Microsoft. CustomProviders/Associations. Para habilitar a integração de recursos para um provedor personalizado, durante o processo de configuração, crie um **ResourceType** chamado "associações" com um **RoutingType** que inclua "extensão". O Microsoft. CustomProviders/Associations e o Microsoft. CustomProviders/resourceProviders não precisam pertencer ao mesmo grupo de recursos.
 
-Provedor personalizado de exemplo do Azure:
+Veja um exemplo de provedor personalizado do Azure:
 
 ```JSON
 {
@@ -55,18 +55,18 @@ Provedor personalizado de exemplo do Azure:
 }
 ```
 
-Propriedade | Necessário | Descrição
+Propriedade | Necessário? | Descrição
 ---|---|---
-nome | *Ok* | O nome da definição do ponto de extremidade. Para a integração de recursos, o nome deve ser "associações".
-roteamentotype | *Ok* | Determina o tipo de contrato com o **ponto de extremidade**. Para integração de recursos, os **routingTypes** válidos são "proxy, cache, extensão" e "webhook, cache, extensão".
-endpoint | *Ok* | O ponto de extremidade para o qual rotear as solicitações. Isso tratará a resposta, bem como quaisquer efeitos colaterais da solicitação.
+nome | Sim | O nome da definição do ponto de extremidade. Para integração de recursos, o nome deve ser "associações".
+roteamentotype | Sim | Determina o tipo de contrato com o ponto de extremidade. Para integração de recursos, os **routingTypes** válidos são "proxy, cache, extensão" e "webhook, cache, extensão".
+endpoint | Sim | O ponto de extremidade para o qual rotear as solicitações. Isso tratará a resposta e os efeitos colaterais da solicitação.
 
-Depois que o provedor personalizado com o tipo de recurso "associações" for criado, você poderá direcionar usando "Microsoft. CustomProviders/Associations". "Microsoft. CustomProviders/Associations" é um recurso de extensão que pode estender qualquer outro recurso do Azure. Quando uma instância de "Microsoft. CustomProviders/Associations" for criada, ela usará uma propriedade **targetResourceId**, que deve ser uma ID de recurso válida de "Microsoft. CustomProviders/resourceProviders" ou "Microsoft. Solutions/Applications". Nesses casos, a solicitação será encaminhada para o tipo de recurso "associações" na instância "Microsoft. CustomProviders/resourceProviders" que criamos.
+Depois de criar o provedor personalizado com o tipo de recurso de associações, você pode direcionar usando Microsoft. CustomProviders/Associations. Microsoft. CustomProviders/Associations é um recurso de extensão que pode estender qualquer outro recurso do Azure. Quando uma instância de Microsoft. CustomProviders/Associations for criada, ela usará uma propriedade **targetResourceId**, que deve ser uma ID de recurso válida Microsoft. CustomProviders/ResourceProviders ou Microsoft. Solutions/Applications. Nesses casos, a solicitação será encaminhada para o tipo de recurso de associações na instância Microsoft. CustomProviders/resourceProviders que você criou.
 
-> [!Note]
-> Se uma ID de recurso "Microsoft. Solutions/Applications" for fornecida como o **targetResourceId**, deverá haver um "Microsoft. CustomProviders/resourceProviders" implantado no grupo de recursos gerenciados com o nome "Public".
+> [!NOTE]
+> Se uma ID de recurso Microsoft. Solutions/Applications for fornecida como o **targetResourceId**, deverá haver um Microsoft. CustomProviders/resourceProviders implantado no grupo de recursos gerenciados com o nome "Public".
 
-Exemplo de associação de provedor personalizado do Azure:
+Exemplo de associação de provedores personalizados do Azure:
 
 ```JSON
 {
@@ -77,17 +77,17 @@ Exemplo de associação de provedor personalizado do Azure:
 }
 ```
 
-Propriedade | Necessário | Descrição
+Propriedade | Necessário? | Descrição
 ---|---|---
-TargetResourceId | *Ok* | A ID de recurso do "Microsoft. CustomProviders/resourceProviders" ou "Microsoft. Solutions/Applications".
+TargetResourceId | Sim | A ID de recurso do Microsoft. CustomProviders/resourceProviders ou Microsoft. Solutions/Applications.
 
 ## <a name="how-to-use-resource-onboarding"></a>Como usar a integração de recursos
 
-A integração de recursos funciona estendendo outros recursos com o recurso de extensão "Microsoft. CustomProviders/Associations". No exemplo a seguir, a solicitação será feita para uma máquina virtual, mas qualquer recurso poderá ser estendido.
+A integração de recursos funciona estendendo outros recursos com o recurso de extensão Microsoft. CustomProviders/Associations. No exemplo a seguir, a solicitação é feita para uma máquina virtual, mas qualquer recurso pode ser estendido.
 
-Primeiro, um recurso de provedor personalizado com um tipo de recurso de "associações" deve ser criado. Isso irá declarar a URL de retorno de chamada que será usada quando um recurso "Microsoft. CustomProviders/Associations" correspondente for criado, o qual se destina ao provedor personalizado.
+Primeiro, você precisa criar um recurso de provedor personalizado com um tipo de recurso de associações. Isso irá declarar a URL de retorno de chamada que será usada quando um recurso Microsoft. CustomProviders/Associations correspondente for criado, o qual se destina ao provedor personalizado.
 
-Solicitação de criação de "Microsoft. CustomProviders/resourceProviders" de exemplo:
+Exemplo de solicitação de criação de Microsoft. CustomProviders/resourceProviders:
 
 ``` HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}?api-version=2018-09-01-preview
@@ -108,9 +108,9 @@ Content-Type: application/json
 }
 ```
 
-Depois que o provedor personalizado é criado, agora podemos direcionar outros recursos e aplicar os efeitos colaterais do provedor personalizado a eles.
+Depois de criar o provedor personalizado, você pode direcionar outros recursos e aplicar os efeitos colaterais do provedor personalizado a eles.
 
-Solicitação de criação de "Microsoft. CustomProviders/Associations":
+Exemplo de solicitação de criação de Microsoft. CustomProviders/Associations:
 
 ``` HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}/providers/Microsoft.CustomProviders/associations/{associationName}?api-version=2018-09-01-preview
@@ -128,7 +128,7 @@ Content-Type: application/json
 }
 ```
 
-Essa solicitação será então encaminhada para o ponto de extremidade especificado no provedor personalizado criado inicial, que é referenciado pelo "targetResourceId" no formato:
+Essa solicitação será então encaminhada para o ponto de extremidade especificado no provedor personalizado que você criou, que é referenciado pelo **targetResourceId** neste formulário:
 
 ``` HTTP
 PUT https://{endpointURL}/?api-version=2018-09-01-preview
@@ -147,18 +147,18 @@ X-MS-CustomProviders-ExtendedResource: /subscriptions/{subscriptionId}/resourceG
 }
 ```
 
-O ponto de extremidade deve responder com "Application/JSON" `Content-Type` e um corpo de resposta JSON válido. Os campos que são retornados no objeto "Properties" do JSON serão adicionados à resposta de retorno da associação.
+O ponto de extremidade deve responder com um `Content-Type` de aplicativo/JSON e um corpo de resposta JSON válido. Os campos retornados no objeto de **Propriedades** do JSON serão adicionados à resposta de retorno da associação.
 
-## <a name="looking-for-help"></a>Procurando ajuda
+## <a name="getting-help"></a>Obter ajuda
 
-Se você tiver dúvidas sobre o desenvolvimento do provedor de recursos personalizado do Azure, tente solicitar [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). Uma pergunta semelhante pode já ter sido solicitada e respondida, portanto, verifique primeiro antes de lançar. Adicione a marca ```azure-custom-providers``` para obter uma resposta rápida!
+Se você tiver dúvidas sobre o desenvolvimento de provedores de recursos personalizados do Azure, tente solicitá-los em [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). Uma pergunta semelhante pode já ter sido respondida, portanto, verifique primeiro antes de postar. Adicione a marca ```azure-custom-providers``` para obter uma resposta rápida!
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu sobre provedores personalizados. Vá para o próximo artigo para criar um provedor personalizado.
+Neste artigo, você aprendeu sobre provedores personalizados. Consulte estes artigos para saber mais:
 
 - [Tutorial: integração de recursos com provedores personalizados](./tutorial-custom-providers-resource-onboarding.md)
 - [Tutorial: criar ações e recursos personalizados no Azure](./tutorial-custom-providers-101.md)
-- [Início rápido: criar um provedor de recursos personalizado do Azure e implantar recursos personalizados](./create-custom-provider.md)
-- [Como adicionar ações personalizadas à API REST do Azure](./custom-providers-action-endpoint-how-to.md)
-- [Como adicionar recursos personalizados à API REST do Azure](./custom-providers-resources-endpoint-how-to.md)
+- [Início rápido: criar um provedor de recursos personalizado e implantar recursos personalizados](./create-custom-provider.md)
+- [Como adicionar ações personalizadas a uma API REST do Azure](./custom-providers-action-endpoint-how-to.md)
+- [Como adicionar recursos personalizados a uma API REST do Azure](./custom-providers-resources-endpoint-how-to.md)

@@ -1,5 +1,5 @@
 ---
-title: Escalar horizontalmente um banco de dados SQL do Azure
+title: Escalar horizontalmente um banco de dados
 description: Como usar o ShardMapManager, a biblioteca de cliente do banco de dados elástico
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: d704e22dcd9ce4442ed16ae901c9c447fc025ebd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8175563d8c1c2ec59b4195b2ede06f6e1dbf8556
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690168"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823566"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Expandir bancos de dados com o Gerenciador de mapa de fragmentos
 
@@ -222,7 +222,7 @@ Consulte [as credenciais usadas para acessar a biblioteca de cliente do banco de
 
 Os métodos usados para popular ou alterar os dados do **ShardMapManager** não alteram os dados do usuário armazenados nos próprios fragmentos. Por exemplo, **métodos como createfragment,** **DeleteShard**, **UpdateMapping**, etc. afetam apenas os metadados do mapa do fragmento. Eles não removem, adicionam ou alteram os dados do usuário contidos nos fragmentos. Em vez disso, esses métodos são projetados para serem usados em conjunto com operações separadas que você executa para criar ou Remover bancos de dados reais ou que movem linhas de um fragmento para outro para reequilibrar um ambiente fragmentado.  (A ferramenta de **divisão/mesclagem** incluída com ferramentas de banco de dados elástico usa essas APIs juntamente com a movimentação de movimentações reais entre os fragmentos.) Consulte [dimensionamento usando a ferramenta de divisão/mesclagem do banco de dados elástico](sql-database-elastic-scale-overview-split-and-merge.md).
 
-## <a name="data-dependent-routing"></a>Data Dependent Routing
+## <a name="data-dependent-routing"></a>Encaminhamento dependente de dados
 
 O Gerenciador de mapa de fragmentos é usado em aplicativos que exigem conexões de banco de dados para executar as operações específicas do aplicativo. Essas conexões devem ser associadas ao banco de dados correto. Isso é conhecido como **Roteamento Dependente de dados**. Para esses aplicativos, crie uma instância de um objeto do Gerenciador de mapa de fragmentos da fábrica usando as credenciais que têm acesso somente leitura no banco de dados GSM. Solicitações individuais para conexões posteriores fornecem credenciais necessárias para se conectar ao banco de dados de fragmento apropriado.
 

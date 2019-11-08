@@ -1,22 +1,22 @@
 ---
-title: O recurso DTU do banco de dados SQL do Azure limita os bancos de dados individuais | Microsoft Docs
+title: O recurso de DTU limita bancos de dados individuais
 description: Esta página descreve alguns limites comuns de recursos de DTU para bancos de dados individuais no banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 37cda6dec3f98a195e704808244656f3182b4c2a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3fb021c06369d1f37dad83b3f9b27e039ddf8b5e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520996"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811291"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra de DTU
 
@@ -38,7 +38,7 @@ As tabelas a seguir mostram os recursos disponíveis para um único banco de dad
 | Máximo de DTUs | 5 |
 | Armazenamento incluído (GB) | 2 |
 | Opções de armazenamento máximo (GB) | 2 |
-| Armazenamento em OLTP na memória máx. (GB) |N/A |
+| Armazenamento em OLTP na memória máx. (GB) |N/D |
 | Máximo de trabalhos simultâneos (solicitações) | 30 |
 | Sessões simultâneas máx. | 300 |
 |||
@@ -50,7 +50,7 @@ As tabelas a seguir mostram os recursos disponíveis para um único banco de dad
 | Máximo de DTUs | 10 | 20 | 50 | 100 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 |
 | Opções de armazenamento máximo (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
-| Armazenamento em OLTP na memória máx. (GB) | N/A | N/A | N/A | N/A |
+| Armazenamento em OLTP na memória máx. (GB) | N/D | N/D | N/D | N/D |
 | Máximo de trabalhos simultâneos (solicitações)| 60 | 90 | 120 | 200 |
 | Sessões simultâneas máx. |600 | 900 | 1200 | 2400 |
 ||||||
@@ -62,7 +62,7 @@ As tabelas a seguir mostram os recursos disponíveis para um único banco de dad
 | Máximo de DTUs | 200 | 400 | 800 | 1600 | 3000 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 | 250 |
 | Opções de armazenamento máximo (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
-| Armazenamento em OLTP na memória máx. (GB) | N/A | N/A | N/A | N/A |N/A |
+| Armazenamento em OLTP na memória máx. (GB) | N/D | N/D | N/D | N/D |N/D |
 | Máximo de trabalhos simultâneos (solicitações)| 400 | 800 | 1600 | 3200 |6000 |
 | Sessões simultâneas máx. |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||

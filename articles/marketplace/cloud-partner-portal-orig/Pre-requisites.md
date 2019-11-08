@@ -5,15 +5,16 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: v-chjen
-ms.openlocfilehash: a92d32084dd36433fdc872db66f0f375a770bfda
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 98a50481612d93a9a2d9d7d5bfb04bfa22db6e00
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034426"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819793"
 ---
 # <a name="prerequisites-for-application-curation"></a>Pré-requisitos para a organização do aplicativo
 

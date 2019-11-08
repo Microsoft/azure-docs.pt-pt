@@ -5,15 +5,16 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: v-chjen
-ms.openlocfilehash: cf21f0aa42eef089d02632ba9323574768459054
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 27680824a4586a8bd3174eb28ce2ddb3604c014b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034413"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824227"
 ---
 # <a name="dynamics-365-for-operations-help-wiki"></a>Wiki da ajuda do Dynamics 365 for Operations
 

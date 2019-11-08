@@ -1,19 +1,20 @@
 ---
 title: Determinar sua opção de publicação no Azure Marketplace | Azure Marketplace
-description: Este artigo descreve os critérios de qualificação e, de publicação de requisitos de parceiros, que tentar entender como publicar aplicações no Azure Marketplace.
+description: Este artigo descreve os critérios de qualificação e os parceiros de requisitos de publicação que estão tentando entender como publicar aplicativos no Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 8a06573e6bcb2d5a6c6c97ad19e168f9c71aaa13
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 43ca74faadf7890f1274afc4905af79237918f4a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308226"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827811"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guia de publicação por tipo de oferta
 
@@ -46,6 +47,6 @@ Por fim, consulte [**requisitos do Azure ad**](https://docs.microsoft.com/azure/
 
 ## <a name="next-steps"></a>Passos seguintes
 
-*   Reveja os requisitos de elegibilidade nas opções de publicação pela secção de tipo de oferta para finalizar a seleção e a configuração da sua oferta.
-*   Consulte os padrões de publicação, a loja para obter exemplos sobre como sua solução é mapeada para um tipo de oferta e a configuração.
+*   Examine os requisitos de qualificação na seção Opções de publicação por tipo de oferta para finalizar a seleção e a configuração de sua oferta.
+*   Examine os padrões de publicação por vitrine para obter exemplos de como sua solução é mapeada para um tipo de oferta e configuração.
 

@@ -1,5 +1,5 @@
 ---
-title: Guias de início rápido de conexão e consulta do banco de dados SQL do Azure
+title: Início rápido de conexão e consulta
 description: Inícios rápidos da Base de Dados SQL do Azure que mostram como ligar e consultar uma base de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: e7ddd5449b7a12b8586b0c1675690a9cebab57b8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 647bdcf5c8c49b5c942419c78155ed4f61c848bb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690834"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826878"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>Início rápido: conexão e consulta do banco de dados SQL do Azure
 
@@ -59,7 +59,7 @@ Você pode usar várias bibliotecas e estruturas para se conectar ao banco de da
 
 A tabela a seguir lista as bibliotecas de conectividade ou os *drivers* que os aplicativos cliente podem usar de uma variedade de idiomas para se conectar e usar SQL Server em execução no local ou na nuvem. Você pode usá-los no Linux, Windows ou Docker e usá-los para se conectar ao banco de dados SQL do Azure e ao Azure SQL Data Warehouse. 
 
-| Idioma | Plataforma | Recursos adicionais | Transferir | Introdução |
+| Idioma | Plataforma | Recursos adicionais | Transferência | Introdução |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Microsoft ADO.NET para SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Transferência](https://www.microsoft.com/net/download/) | [Introdução](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
 | Java | Windows, Linux, macOS | [Microsoft JDBC Driver para SQL Server](https://msdn.microsoft.com/library/mt484311.aspx) | [Transferência](https://go.microsoft.com/fwlink/?linkid=852460) |  [Introdução](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)

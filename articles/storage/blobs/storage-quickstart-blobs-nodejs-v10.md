@@ -1,20 +1,20 @@
 ---
-title: Carregar, baixar, listar e excluir BLOBs usando o SDK do V10 de armazenamento do Azure para JavaScript
-description: Criar, carregar e eliminar blobs e contentores em Node.js com o Armazenamento do Azure
+title: 'Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure V10 para JavaScript'
+description: Criar, carregar e excluir BLOBs e contêineres no node. js com a biblioteca de cliente de armazenamento do Azure V10 para JavaScript
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 09/24/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: f8c7de63f2bd4b7329e8ae6a53123c9c1ea035af
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: b909da5da0d7352d4086222fe0411ac37668bd92
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240431"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825330"
 ---
-# <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>Início rápido: Carregar, baixar, listar e excluir BLOBs usando o SDK do V10 de armazenamento do Azure para JavaScript
+# <a name="quickstart-azure-blob-storage-client-library-v10-for-javascript"></a>Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure V10 para JavaScript
 
 Neste início rápido, vai aprender a utilizar o [SDK do Armazenamento do Azure v10 para JavaScript](https://github.com/Azure/azure-sdk-for-js) em Node.js para carregar, transferir, listar e eliminar blobs, e gerir contentores.
 
@@ -203,7 +203,7 @@ Tal como acontece com o contentor, o blob de blocos ainda não existe. A variáv
 
 ### <a name="using-the-aborter-class"></a>Utilizar a classe Aborter
 
-Os pedidos feitos pela API podem ser definidos para excederem o tempo limite após um determinado intervalo. A classe *Aborter* é responsável por gerir a forma como o tempo limite dos pedidos é excedido. O código seguinte cria um contexto em que um conjunto de pedidos dispõe de 30 minutos para ser executado.
+Os pedidos feitos pela API podem ser definidos para excederem o tempo limite após um determinado intervalo. A classe de *anulador* é responsável por gerenciar como as solicitações expiraram. O código a seguir cria um contexto em que um conjunto de solicitações recebe 30 minutos para ser executado.
 
 ```javascript
 const aborter = Aborter.timeout(30 * ONE_MINUTE);

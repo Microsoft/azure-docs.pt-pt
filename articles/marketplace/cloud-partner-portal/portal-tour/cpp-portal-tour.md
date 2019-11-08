@@ -1,39 +1,40 @@
 ---
-title: Tour de Portal de parceiro de Cloud do Azure | O Azure Marketplace
-description: Descrição geral da experiência do usuário do Portal de parceiro de Cloud para o Azure Marketplace.
+title: Tour de Portal do Cloud Partner do Azure | Azure Marketplace
+description: Visão geral da experiência do usuário do Portal do Cloud Partner para o Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: pabutler
-ms.openlocfilehash: b0bf7af9b81025202c2fffa2a264982c9986e10b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85ddf2e2141ad77321710ad03e4d7f67572f3688
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943419"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821471"
 ---
-# <a name="cloud-partner-portal-tour"></a>Tour de Portal de parceiro de cloud
+# <a name="cloud-partner-portal-tour"></a>Tour Portal do Cloud Partner
 
-Este artigo fornece uma introdução para o [Cloud Partner Portal](https://cloudpartner.azure.com): seu conteúdo, mecanismos de navegação e sua funcionalidade.   Este portal, os parceiros registados para novas ofertas de criar e gerir ofertas existentes para o [do Azure Marketplace](https://azuremarketplace.microsoft.com) e [Marketplace do AppSource](https://azuremarketplace.microsoft.com).  O Portal de parceiros da Cloud só está acessível para parceiros registados; Para obter mais informações, consulte [se tornar um publicador de Marketplace da Cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).
+Este artigo fornece uma introdução ao [portal do Cloud Partner](https://cloudpartner.azure.com): seu conteúdo, mecanismos de navegação e funcionalidade.   Este portal permite que os parceiros registrados criem novas ofertas e gerenciem ofertas existentes para o [Azure Marketplace](https://azuremarketplace.microsoft.com) e o [AppSource Marketplace](https://azuremarketplace.microsoft.com).  O Portal do Cloud Partner só é acessível para parceiros registrados; para obter mais informações, consulte [tornar-se um Publicador do Cloud Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
-[![Página de perfil de apresentação do cloud Partner Portal](./media/portal-window_001a.png)](./media/portal-window_001b.png#lightbox)
-<br/>   (*Clique na imagem para ampliá-la.* )
+[![Portal do Cloud Partner exibir a página de perfil](./media/portal-window_001a.png)](./media/portal-window_001b.png#lightbox)
+<br/>   (*Clique na imagem para ampliar.* )
 
 
 ## <a name="section-contents"></a>Conteúdo da seção
 
-Depois de explicar o [navegação](./cpp-portal-navigation.md) mecanismos do portal, examinaremos as principais entradas no painel de navegação esquerdo no artigo correspondente na: 
-- [Nova oferta](./cpp-new-offer-menu.md) menu permite aos utilizadores criarem novas ofertas do tipo especificado.
-- [Todas as ofertas](./cpp-all-offers-page.md) página, os parceiros a vista todos submetido oferece e algumas das suas características primárias. 
-- [Aprovações](./cpp-approvals-page.md) página, os parceiros ver todas as suas ofertas atualmente aprovadas.
-- [Todos os editores](./cpp-all-publishers-page.md) página apresenta uma lista de todos os atuais cloud registada parceiro editores.
-- [Os utilizadores](./cpp-users-page.md) página lista todas as atual contas de utilizador associadas com parceiros da cloud registada.
-- [Histórico de](./cpp-history-page.md) página lista os eventos de publicação e modificação de oferta para todos os Publicadores. 
-- [Insights](./cpp-insights-page.md) página contém os vários dashboards que compõem o *vendedor Insights* funcionalidade deste portal.
+Depois de explicar os mecanismos de [navegação](./cpp-portal-navigation.md) do portal, examinaremos as entradas primárias no painel de navegação esquerdo em seu artigo correspondente: 
+- O menu [nova oferta](./cpp-new-offer-menu.md) permite que os usuários criem novas ofertas do tipo especificado.
+- A página [todas as ofertas](./cpp-all-offers-page.md) permite que os parceiros exibam todas as ofertas enviadas e algumas de suas características principais. 
+- A página [aprovações](./cpp-approvals-page.md) permite que os parceiros exibam todas as ofertas aprovadas no momento.
+- Página [todos os Publicadores](./cpp-all-publishers-page.md) lista todos os Publicadores de parceiros de nuvem registrados atualmente.
+- Página [usuários](./cpp-users-page.md) lista todas as contas de usuário atuais associadas a parceiros de nuvem registrados.
+- Página [histórico](./cpp-history-page.md) lista os eventos de publicação e modificação da oferta para todos os Publicadores. 
+- A página de [informações](./cpp-insights-page.md) contém os vários dashboards que compõem o recurso de *informações do vendedor* deste portal.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-O próximo artigo, [Cloud Partner Portal navegação](./cpp-portal-navigation.md), examina os vários navegação mecanismos disponíveis no site.
+O próximo artigo, [portal do Cloud Partner navegação](./cpp-portal-navigation.md), examina os vários mecanismos de navegação disponíveis no site.

@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: f0fa86cc3de9f8c183d7b7a24fb03d02204adc17
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 38dcfe04473e8d2fbd81614908adef9636c44b19
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076150"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812863"
 ---
 # <a name="co-sell-state-codes"></a>Códigos de estado de venda conjunta
 
@@ -23,16 +24,16 @@ Se aplicável, use esses códigos para fornecer informações de estado/provínc
 |   Nome do estado/província               |   Código    |
 |-------------------------------------|-----------|
 | Alabama                             | US-AL     |
-| Alaska                              | US-AK     |
+| Alasca                              | US-AK     |
 | Arizona                             | EUA-AZ     |
 | Arkansas                            | US-AR     |
-| California                          | US-CA     |
+| Califórnia                          | US-CA     |
 | Colorado                            | US-CO     |
 | Connecticut                         | US-CT     |
-| Delaware                            | US-DE     |
-| Florida                             | US-FL     |
+| Corpora                            | US-DE     |
+| Flórida                             | US-FL     |
 | Geórgia                             | EUA-GA     |
-| Havai                              | US-HI     |
+| Havaí                              | US-HI     |
 | Idaho                               | ID DOS EUA     |
 | Illinois                            | US-IL     |
 | Indiana                             | EUA-EM     |
@@ -45,41 +46,41 @@ Se aplicável, use esses códigos para fornecer informações de estado/provínc
 | Massachusetts                       | US-MA     |
 | Michigan                            | US-MI     |
 | Minnesota                           | US-MN     |
-| Mississippi                         | EUA-MS     |
+| Mississipi                         | EUA-MS     |
 | Missouri                            | EUA-MO     |
 | Montana                             | US-MT     |
 | Nebraska                            | US-NE     |
 | Nevada                              | US-NV     |
-| New Hampshire                       | US-NH     |
-| New Jersey                          | EUA-NJ     |
-| New Mexico                          | US-NM     |
+| Novo Hampshire                       | US-NH     |
+| Nova Jersey                          | EUA-NJ     |
+| Novo México                          | US-NM     |
 | Nova Iorque                            | US-NY     |
-| North Carolina                      | US-NC     |
-| North Dakota                        | US-ND     |
+| Carolina do Norte                      | US-NC     |
+| Dakota do Norte                        | US-ND     |
 | Ohio                                | EUA-OH     |
 | Oklahoma                            | EUA-OK     |
 | Oregon                              | EUA-OU     |
-| Pennsylvania                        | EUA-PA     |
-| Rhode Island                        | EUA-RI     |
-| South Carolina                      | US-SC     |
-| South Dakota                        | US-SD     |
+| Pensilvânia                        | EUA-PA     |
+| Ilha Rhode                        | EUA-RI     |
+| Carolina do Sul                      | US-SC     |
+| Dakota do Sul                        | US-SD     |
 | Tennessee                           | US-TN     |
 | Texas                               | EUA-TX     |
 | Utah                                | US-UT     |
 | Vermont                             | US-VT     |
-| Virginia                            | US-VA     |
+| Virgínia                            | US-VA     |
 | Washington                          | EUA-WA     |
-| West Virginia                       | US-WV     |
+| Virgínia Ocidental                       | US-WV     |
 | Wisconsin                           | US-WI     |
 | Wyoming                             | US-WY     |
-| District of Columbia                | US-DC     |
+| Distrito de Colúmbia                | US-DC     |
 | Samoa Americana                      | EUA-COMO     |
 | Guam                                | US-GU     |
 | Ilhas Marianas do Norte            | EUA-MP     |
 | Porto Rico                         | US-PR     |
-| Ilhas Menores Distantes dos Estados Unidos | US-UM    |
+| Ilhas Menores Afastadas dos Estados Unidos | US-UM    |
 |Ilhas Virgens, E.U.A.                 | US-VI     |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [opção de venda conjunta no Partner Center](./commercial-marketplace-co-sell.md).

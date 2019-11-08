@@ -1,6 +1,6 @@
 ---
-title: Arquitetura de OPC duplo - Azure | Documentos da Microsoft
-description: Arquitetura de OPC duplo
+title: Arquitetura de "OPC" – Azure | Microsoft Docs
+description: Este artigo fornece uma visão geral da arquitetura do OPC. Ele descreve a descoberta, a ativação, a navegação e o monitoramento do servidor.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,33 +8,33 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 6ce9394f3d454bda5ead51f2c77a47db137a5136
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b8d4424c92ff24c36650e34a5d050bdc5f0f9091
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606183"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819844"
 ---
-# <a name="opc-twin-architecture"></a>Arquitetura de OPC duplo
+# <a name="opc-twin-architecture"></a>Arquitetura de "OPC"
 
-Os diagramas seguintes mostram a arquitetura de OPC duplo.
+Os diagramas a seguir ilustram a arquitetura do OPC.
 
-## <a name="discover-and-activate"></a>Detectar e ativar
+## <a name="discover-and-activate"></a>Descobrir e ativar
 
-1. O operador ativa de análise no módulo de rede ou faz com que uma deteção única através de um URL de deteção. Os pontos de extremidade detetados e as informações de aplicativo são enviadas através de telemetria para o agente de integração para processamento.  O agente de integração de dispositivo OPC UA processa os eventos de deteção de servidores OPC UA enviados pelo módulo do IoT Edge do OPC duplo no modo de deteção ou análise. O resultado de eventos de deteção no registo de aplicação e as atualizações do registo do dispositivo de OPC UA.
+1. O operador habilita a verificação de rede no módulo ou faz uma única descoberta usando uma URL de descoberta. Os pontos de extremidade descobertos e as informações do aplicativo são enviados por telemetria para o agente de integração para processamento.  O agente de integração do dispositivo OPC UA processa eventos de descoberta de servidor do OPC UA enviados pelo módulo de IoT Edge do OPC "quando estiver no modo de descoberta ou de verificação. Os eventos de descoberta resultam no registro do aplicativo e nas atualizações no registro do dispositivo OPC UA.
 
-   ![Como funciona o OPC duplo](media/overview-opc-twin-architecture/opc-twin1.png)
+   ![Como o OPC myworks funciona](media/overview-opc-twin-architecture/opc-twin1.png)
 
-1. O operador inspeciona o certificado do ponto de extremidade detetado e ativa o duplo de ponto de extremidade registrados para o acesso. 
+1. O operador inspeciona o certificado do ponto de extremidade descoberto e ativa o ponto de extremidade registrado para acesso. 
 
-   ![Como funciona o OPC duplo](media/overview-opc-twin-architecture/opc-twin2.png)
+   ![Como o OPC myworks funciona](media/overview-opc-twin-architecture/opc-twin2.png)
 
-## <a name="browse-and-monitor"></a>Procurar e monitor
+## <a name="browse-and-monitor"></a>Procurar e monitorar
 
-1. Depois de ativado, o operador pode utilizar o REST API do serviço de duplo para procurar ou inspecionar o modelo de informações do servidor, variáveis de objeto de leitura/escrita e chamar métodos.  O utilizador utiliza uma API simplificada de UA de OPC totalmente expresso em HTTP e JSON.
+1. Depois de ativado, o operador pode usar a API REST do serviço de entrelaçamento para navegar ou inspecionar o modelo de informações do servidor, as variáveis de objeto de leitura/gravação e os métodos de chamada.  O usuário usa uma API do OPC UA simplificada expressa totalmente em HTTP e JSON.
 
-   ![Como funciona o OPC duplo](media/overview-opc-twin-architecture/opc-twin3.png)
+   ![Como o OPC myworks funciona](media/overview-opc-twin-architecture/opc-twin3.png)
 
-1. A interface REST do serviço de duplo também pode ser utilizada para criar itens monitorizados e subscrições no publicador OPC. O publicador de OPC permite que a telemetria ser enviados a partir de sistemas de servidor OPC UA para o IoT Hub. Para obter mais informações sobre o publicador OPC, consulte [o que é o publicador OPC](overview-opc-publisher.md).
+1. A interface REST do serviço de entrelaçamento também pode ser usada para criar itens monitorados e assinaturas no editor OPC. O editor OPC permite que a telemetria seja enviada de sistemas de servidor OPC UA para o Hub IoT. Para obter mais informações sobre o editor OPC, consulte [o que é o editor OPC](overview-opc-publisher.md).
 
-   ![Como funciona o OPC duplo](media/overview-opc-twin-architecture/opc-twin4.png)
+   ![Como o OPC myworks funciona](media/overview-opc-twin-architecture/opc-twin4.png)

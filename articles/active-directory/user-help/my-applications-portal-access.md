@@ -1,5 +1,5 @@
 ---
-title: Acessar e iniciar aplicativos do portal meus aplicativos (versão prévia)-Azure Active Directory | Microsoft Docs
+title: Acessar e iniciar aplicativos do portal meus aplicativos (versão prévia)-Azure AD
 description: Saiba como acessar e iniciar os aplicativos baseados em nuvem da sua organização no portal meus aplicativos (versão prévia).
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7eb3dbe3ce82b794a5ed530107781b634ceb32f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ed450f67b152bef4eb68ac8252b586b62992aa0d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573844"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820400"
 ---
 # <a name="access-and-start-apps-from-the-my-apps-preview-portal"></a>Acessar e iniciar aplicativos do portal meus aplicativos (versão prévia)
 

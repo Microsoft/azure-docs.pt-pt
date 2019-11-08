@@ -1,5 +1,5 @@
 ---
-title: Gerenciar bancos de dados SQL do Azure usando a automação do Azure
+title: Gerenciar bancos de dados com a automação do Azure
 description: Saiba mais sobre como o serviço de automação do Azure pode ser usado para gerenciar bancos de dados SQL do Azure em escala.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 0e29cd85c63bb2f6e083f9cda9abd48fa6d9975a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9d826a75f05cf2031565f89e21d7f3667ecc8f17
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689447"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822812"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Gerenciando bancos de dados SQL do Azure usando a automação do Azure
 

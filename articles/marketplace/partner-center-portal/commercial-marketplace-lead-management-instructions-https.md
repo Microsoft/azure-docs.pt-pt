@@ -4,15 +4,16 @@ description: Configure o gerenciamento de Lead para um ponto de extremidade HTTP
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: evansma
-ms.openlocfilehash: 6a34bdcab5a13af682515bbae96e9a1800ccc37f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 83efb9cfd1ee7464a334ebc4064dbfaa20ab30de
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902198"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812292"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configurar o gerenciamento de leads usando um ponto de extremidade HTTPS
 
@@ -24,7 +25,7 @@ Se o seu sistema de gerenciamento de relacionamento com o cliente (CRM) não tiv
 
 2. Entre e selecione **meus fluxos** na barra de menus.
 
-3. Selecione **+ automatizado – de em branco**.
+3. Selecione **+ automatizado de em branco**.
 
     ![Meus fluxos + automatizados de em branco](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
@@ -108,7 +109,7 @@ Se o seu sistema de gerenciamento de relacionamento com o cliente (CRM) não tiv
 1. Selecione **+ nova etapa**.
 2. Escolha o sistema CRM de sua escolha pesquisando-o onde ele diz *conectores de pesquisa e ações*e selecione-o na seção *ações* com a ação para criar um novo registro. A captura de tela a seguir mostra o **Dynamics 365 – criar** um novo registro como um exemplo.
 
-    ![Criar uma nova palavra-passe](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
+    ![Criar um novo registro](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
 
 3. Forneça o **nome da organização** associada ao sistema CRM. Selecione **clientes potenciais** na lista suspensa **nome da entidade** .
 
@@ -118,7 +119,7 @@ Se o seu sistema de gerenciamento de relacionamento com o cliente (CRM) não tiv
 
     ![Adicionar conteúdo dinâmico](./media/commercial-marketplace-lead-management-instructions-https/add-dynamic-content.png)
 
-5. Mapeie os campos desejados e, em seguida, selecione **salvar** para salvar o fluxo. Uma URL HTTP POST é criada e pode ser acessada na janela *quando uma solicitação HTTP é recebida* . Copie essa URL usando o controle de cópia que está localizado à direita da URL POST HTTP – isso é importante para que você não perca erroneamente nenhuma parte da URL inteira. Salve essa URL, pois será necessária quando você estiver configurando o gerenciamento de Lead no portal de publicação.
+5. Mapeie os campos desejados e, em seguida, selecione **salvar** para salvar o fluxo. Uma URL HTTP POST é criada e pode ser acessada na janela *quando uma solicitação HTTP é recebida* . Copie essa URL usando o controle de cópia que está localizado à direita da URL POST HTTP-isso é importante para que você não perca erroneamente nenhuma parte da URL inteira. Salve essa URL, pois será necessária quando você estiver configurando o gerenciamento de Lead no portal de publicação.
 
     ![Quando uma solicitação HTTP é recebida.](./media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png)
 
@@ -136,7 +137,7 @@ Se o seu sistema de gerenciamento de relacionamento com o cliente (CRM) não tiv
 4. Na janela **enviar um email** , configure os seguintes campos obrigatórios:
 
    - **Para** inserir pelo menos um endereço de email válido, no qual os clientes potenciais serão enviados.
-   - O fluxo de **assunto** oferece a opção de adicionar conteúdo dinâmico, como o leadname na captura de tela a seguir. Comece digitando um nome de campo seguido clicando na lista de seleção de conteúdo dinâmico na janela pop-up. 
+   - O fluxo de **assunto** oferece a opção de adicionar conteúdo dinâmico, como o **leadname** na captura de tela a seguir. Comece digitando um nome de campo seguido clicando na lista de seleção de conteúdo dinâmico na janela pop-up. 
 
         >[!Note] 
         > Ao adicionar nomes de campo, você pode seguir cada um com um ":" e, em seguida, inserir para criar uma nova linha. Depois de adicionar os nomes de campo, você poderá adicionar cada parâmetro associado da lista de seleção dinâmica.
@@ -148,15 +149,15 @@ Se o seu sistema de gerenciamento de relacionamento com o cliente (CRM) não tiv
 
        ![Adicionar uma ação de email](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
 
-5. Selecione **salvar** para concluir o fluxo. Uma URL HTTP POST é criada e pode ser acessada na janela *quando uma solicitação HTTP é recebida* . Copie essa URL usando o controle de cópia que está localizado à direita da URL POST HTTP – isso é importante para que você não perca erroneamente nenhuma parte da URL inteira. Salve essa URL, pois será necessária quando você estiver configurando o gerenciamento de Lead no portal de publicação.
+5. Selecione **salvar** para concluir o fluxo. Uma URL HTTP POST é criada e pode ser acessada na janela *quando uma solicitação HTTP é recebida* . Copie essa URL usando o controle de cópia que está localizado à direita da URL POST HTTP-isso é importante para que você não perca erroneamente nenhuma parte da URL inteira. Salve essa URL, pois será necessária quando você estiver configurando o gerenciamento de Lead no portal de publicação.
 
-   ![URL do HTTP POST ](./media/commercial-marketplace-lead-management-instructions-https/http-post-url.png)
+   ![URL HTTP POST ](./media/commercial-marketplace-lead-management-instructions-https/http-post-url.png)
 
-### <a name="testing"></a>Testes
+### <a name="testing"></a>Testar
 
 Você pode testar se tudo funciona conforme o esperado usando as etapas a seguir usando uma ferramenta chamada [postmaster](https://app.getpostman.com/app/download/win64), que pode ser baixada online. Isso está disponível para o Windows. 
 
-1. Inicie o postmaster e selecione **nova** > **solicitação** para configurar sua ferramenta de teste. 
+1. Inicie o postmaster e selecione **nova** **solicitação** de > para configurar sua ferramenta de teste. 
 
    ![Solicitação para configurar sua ferramenta de teste](./media/commercial-marketplace-lead-management-instructions-https/postman-request.png)
 

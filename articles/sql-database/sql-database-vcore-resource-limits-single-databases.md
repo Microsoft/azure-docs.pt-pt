@@ -1,5 +1,5 @@
 ---
-title: Limites de recursos vCore do banco de dados SQL do Azure-banco de dados individual
+title: limites de recursos vCore-banco de dados individual
 description: Esta página descreve alguns limites de recursos vCore comuns para um único banco de dados no banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/04/2019
-ms.openlocfilehash: b3b55b3542eb0dd8c3c61d7a82c8ce2e9d271113
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 11d9115893f8d0632110d86a671a6590ca48e220
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686859"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822336"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra vCore
 

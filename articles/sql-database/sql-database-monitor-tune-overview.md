@@ -1,5 +1,5 @@
 ---
-title: Monitoramento e ajuste de desempenho – banco de dados SQL do Azure
+title: Ajuste de monitorização e desempenho
 description: Dicas para ajuste de desempenho no banco de dados SQL do Azure por meio de avaliação e aperfeiçoamento.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: c11112963ec82a0e53df156048495e7b5141bcb7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e77af00dc3352af3265da90685e58b34c96bee81
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687761"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825148"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Ajuste de monitorização e desempenho
 

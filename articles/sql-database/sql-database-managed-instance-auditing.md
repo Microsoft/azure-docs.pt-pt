@@ -1,5 +1,5 @@
 ---
-title: Auditoria de instância gerenciada do banco de dados SQL do Azure
+title: Auditoria de instância gerida
 description: Saiba como começar a usar a auditoria de instância gerenciada do banco de dados SQL do Azure usando o T-SQL
 services: sql-database
 ms.service: sql-database
@@ -13,12 +13,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 04/08/2019
-ms.openlocfilehash: 915d804cd3ae67848b4b9aa2f50fb5f1b4f1f092
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 41d632b145a7187dd0aeaab740cd8546a3955e7f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689437"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819001"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução à auditoria de instância gerenciada do banco de dados SQL do Azure
 
@@ -229,7 +229,7 @@ As principais diferenças entre a auditoria em bancos de dados no banco de dados
 
 A auditoria de XEvent na instância gerenciada dá suporte a destinos do armazenamento de BLOBs do Azure. **Não há suporte para**logs de arquivo e do Windows.
 
-As principais diferenças na sintaxe `CREATE AUDIT` para a auditoria para o armazenamento de BLOBs do Azure são:
+As principais diferenças na sintaxe de `CREATE AUDIT` para a auditoria para o armazenamento de BLOBs do Azure são:
 
 - Uma nova sintaxe `TO URL` é fornecida e permite que você especifique a URL do contêiner de armazenamento de BLOBs do Azure onde os arquivos de `.xel` são colocados.
 - Uma nova sintaxe `TO EXTERNAL MONITOR` é fornecida para habilitar o Hub par e Azure Monitor destinos de logs.

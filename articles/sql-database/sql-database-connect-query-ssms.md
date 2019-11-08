@@ -1,5 +1,5 @@
 ---
-title: 'SSMS: conectar e consultar dados em um banco de dado SQL do Azure '
+title: 'SSMS: conectar e consultar dados'
 description: Saiba como ligar à Base de Dados SQL no Azure, utilizando o SQL Server Management Studio (SSMS). Em seguida, execute declarações do Transact-SQL (T-SQL) para consultar e editar dados.
 keywords: ligar à base de dados sql, sql server management studio
 services: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 0744b8bc8e3582a23802d87424bba9f92bf43073
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 69a6939cdbcc9b2c4e496c8d47aa20c9f6e85d57
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690899"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826943"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Início rápido: usar SQL Server Management Studio para se conectar e consultar um banco de dados SQL do Azure
 

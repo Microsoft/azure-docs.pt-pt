@@ -1,43 +1,43 @@
 ---
-title: 'Padrão de design do Azure Cosmos DB: Aplicações de redes sociais'
-description: Saiba mais sobre um padrão de design de redes sociais ao tirar partido da flexibilidade de armazenamento do Azure Cosmos DB e outros serviços do Azure.
+title: 'Padrão de design de Azure Cosmos DB: aplicativos de mídia social'
+description: Saiba mais sobre um padrão de design para redes sociais aproveitando a flexibilidade de armazenamento de Azure Cosmos DB e outros serviços do Azure.
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: 45e27b37ca7a1718674914fbe9203b7dc64475b1
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 8428e417f5f86edca77edae6ca4b7ef84e5ff425
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342111"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827304"
 ---
-# <a name="going-social-with-azure-cosmos-db"></a>Socializar com o Azure Cosmos DB
+# <a name="going-social-with-azure-cosmos-db"></a>Tornando-se social com Azure Cosmos DB
 
-Vivendo numa sociedade em massa interconectada significa que, em algum momento na vida, se parte de um **rede social**. Utilizar redes sociais para manter-se em contacto com amigos, colegas, família, ou, às vezes, para partilhar a sua paixão com pessoas com interesses comuns.
+Viver em uma sociedade imensamente interconectada significa que, em algum ponto na vida, você se torna parte de uma **rede social**. Você usa redes sociais para manter contato com amigos, colegas, família ou, às vezes, para compartilhar sua paixão com pessoas com interesses comuns.
 
-Como engenheiros ou desenvolvedores, talvez tenha se perguntado como estas redes armazenar e interligar os seus dados. Ou pode ter até mesmo foi a tarefa de criar ou arquitetar uma nova rede social para um mercado de nicho específico. Que é quando surge a questão significativa: Como são armazenados todos esses dados?
+Como engenheiros ou desenvolvedores, você pode ter se perguntou como essas redes armazenam e interconectam seus dados. Ou talvez você tenha recebido uma tarefa para criar ou arquitetar uma nova rede social para um mercado de nicho específico. É assim que surge a pergunta significativa: como todos esses dados são armazenados?
 
-Suponha que está criando uma nova e brilhante rede social, onde os utilizadores podem postar artigos com suporte de dados relacionados, como imagens, vídeos ou músicas até mesmo. Os utilizadores podem comentar postagens e entregar pontos para classificações. Haverá um feed de postagens que os utilizadores irão ver e interagir com na página de aterrissagem do site principal. Este método não parece complexo, primeiro, mas para simplificar, vamos pare por aí. (Me aprofundar em feeds do usuário personalizada afetados por relações, mas ele faz mais do que o objetivo deste artigo.)
+Suponha que você esteja criando uma rede social nova e brilhante na qual os usuários podem postar artigos com mídia relacionada, como imagens, vídeos ou até mesmo música. Os usuários podem comentar sobre postagens e dar pontos para classificações. Haverá um feed de postagens que os usuários verão e interagem na página de aterrissagem do site principal. Esse método não parece ser complexo a princípio, mas, para simplificar, vamos parar lá. (Você pode se aprofundar em feeds de usuários personalizados afetados por relações, mas vai além do objetivo deste artigo.)
 
-Então, como armazenar esses dados e onde?
+Então, como você armazena esses dados e onde?
 
-Poderá ter experiência em bases de dados SQL ou ter uma noção de [modelagem de dados relacional](https://en.wikipedia.org/wiki/Relational_model). Pode começar a desenhar algo da seguinte forma:
+Você pode ter experiência em bancos de dados SQL ou ter uma noção de [modelagem relacional de data](https://en.wikipedia.org/wiki/Relational_model). Você pode começar a desenhar algo da seguinte maneira:
 
-![Diagrama que ilustra um modelo relacional relativo](./media/social-media-apps/social-media-apps-sql.png)
+![Diagrama ilustrando um modelo relacional relativo](./media/social-media-apps/social-media-apps-sql.png)
 
-Uma perfeitamente normalizado e boa estrutura de dados... não pode ser escalonada.
+Uma estrutura de dados perfeitamente normalizada e bonita... Isso não dimensiona.
 
-Não me entenda mal, eu já trabalhou com bases de dados SQL, de todos os minha vida. São ótimos, mas, como cada plataforma padrão, prática e software, não é perfeito para cada cenário.
+Não me deixe errado, trabalhei com bancos de dados SQL toda minha vida. Eles são ótimos, mas, como todos os padrões, práticas e plataformas de software, não são perfeitos para todos os cenários.
 
-Por que não é SQL neste cenário, a melhor opção? Vamos examinar a estrutura de uma única mensagem. Se eu quisesse Mostrar a postagem num site ou aplicativo, eu teria de fazer uma consulta com... ao associar tables(!) oito apenas para mostrar um único post. Agora, Imagine um fluxo de mensagens que carregar e apresentada no ecrã dinamicamente e poderá ver onde vou.
+Por que o SQL não é a melhor opção nesse cenário? Vamos examinar a estrutura de uma única postagem. Se eu quisesse mostrar a postagem em um site ou aplicativo, teria que fazer uma consulta com... unindo oito tabelas (!) apenas para mostrar uma única postagem. Agora, veja um fluxo de postagens que carregam e aparecem na tela de forma dinâmica, e você pode ver onde estou indo.
 
-Poderia usar uma instância SQL enorme com energia suficiente para resolver a milhares de consultas com muitas associações para servir o seu conteúdo. Mas por que faria isso, quando existe uma solução mais simples?
+Você pode usar uma enorme instância do SQL com energia suficiente para resolver milhares de consultas com muitas junções para fornecer seu conteúdo. Mas por que você faria isso, quando existe uma solução mais simples?
 
-## <a name="the-nosql-road"></a>Ao longo do processo NoSQL
+## <a name="the-nosql-road"></a>A estrada NoSQL
 
-Este artigo orienta-o para a modelação de dados de sua plataforma de redes sociais com a base de dados do Azure NoSQL [do Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) económica. Ele também informa como usar outros recursos do Azure Cosmos DB, como o [API do Gremlin](../cosmos-db/graph-introduction.md). Utilizar um [NoSQL](https://en.wikipedia.org/wiki/NoSQL) abordagem, armazenamento de dados, no formato JSON e aplicando [desnormalização](https://en.wikipedia.org/wiki/Denormalization), a postagem complicada anteriormente pode ser transformada num único [documento](https://en.wikipedia.org/wiki/Document-oriented_database):
+Este artigo orienta você a modelar os dados da sua plataforma social com o Azure NoSQL [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) de forma econômica. Ele também informa como usar outros recursos de Azure Cosmos DB como a [API Gremlin](../cosmos-db/graph-introduction.md). Usando uma abordagem [NoSQL](https://en.wikipedia.org/wiki/NoSQL) , armazenando dados, no formato JSON e aplicando a [desnormalização](https://en.wikipedia.org/wiki/Denormalization), a postagem anteriormente complicada pode ser transformada em um único [documento](https://en.wikipedia.org/wiki/Document-oriented_database):
 
     {
         "id":"ew12-res2-234e-544f",
@@ -56,11 +56,11 @@ Este artigo orienta-o para a modelação de dados de sua plataforma de redes soc
         ]
     }
 
-E pode ser obtido com uma única consulta e com nenhuma junções. Esta consulta é muito simples e direto, e, budget-wise, requer menos recursos para obter um resultado melhor.
+E isso pode ser obtido com uma única consulta e sem junções. Essa consulta é muito simples e direta e, em termos de orçamento, requer menos recursos para obter um resultado melhor.
 
-O Azure Cosmos DB torna-se de que todas as propriedades são indexadas com indexação automática. A indexação automática pode até mesmo ser [personalizada](index-policy.md). A abordagem sem esquema nos permite armazenar documentos com estruturas diferentes e dinâmicas. Talvez amanhã queira postagens ter uma lista de categorias ou hashtags associadas a eles? O cosmos DB irá processar os novos documentos com os atributos adicionados sem exigir trabalho por nós.
+Azure Cosmos DB garante que todas as propriedades sejam indexadas com sua indexação automática. A indexação automática pode até mesmo ser [personalizada](index-policy.md). A abordagem sem esquemas nos permite armazenar documentos com estruturas diferentes e dinâmicas. Talvez amanhã você queira que as postagens tenham uma lista de categorias ou hashtags associadas a elas? Cosmos DB manipulará os novos documentos com os atributos adicionados sem que o trabalho extra seja exigido por nós.
 
-Comentários numa postagem podem ser tratados como outras postagens com uma propriedade principal. (Esta prática simplifica o mapeamento de objeto.)
+Os comentários em uma postagem podem ser tratados como outras postagens com uma propriedade pai. (Essa prática simplifica o mapeamento de objetos.)
 
     {
         "id":"1234-asd3-54ts-199a",
@@ -78,7 +78,7 @@ Comentários numa postagem podem ser tratados como outras postagens com uma prop
         "parent":"ew12-res2-234e-544f"
     }
 
-E todas as interações de redes sociais podem ser armazenadas num objeto separado, como contadores:
+E todas as interações sociais podem ser armazenadas em um objeto separado como contadores:
 
     {
         "id":"dfe3-thf5-232s-dse4",
@@ -88,7 +88,7 @@ E todas as interações de redes sociais podem ser armazenadas num objeto separa
         "points":200
     }
 
-A criação de feeds é apenas uma questão de criação de documentos que podem conter uma lista de IDs de mensagem com uma ordem de relevância determinado:
+A criação de feeds é apenas uma questão de criar documentos que podem conter uma lista de IDs de postagem com uma determinada ordem de relevância:
 
     [
         {"relevance":9, "post":"ew12-res2-234e-544f"},
@@ -96,13 +96,13 @@ A criação de feeds é apenas uma questão de criação de documentos que podem
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Poderia ter um fluxo de "mais recente" com postagens ordenadas por data de criação. Ou poderia ter um fluxo "mais interessantes" com esses posts com gostos mais nas últimas 24 horas. Ainda pode implementar um fluxo personalizado para cada utilizador com base numa lógica como seguidores e interesses. Ainda seria uma lista de publicações. É uma questão de como criar estas listas, mas o desempenho de leitura permanece unhindered. Depois de adquirir uma destas listas, emite uma consulta única para o Cosmos DB utilizando a [palavra-chave](sql-query-keywords.md#in) para obter páginas de postagens por vez.
+Você pode ter um fluxo "mais recente" com postagens ordenadas por data de criação. Ou você pode ter um fluxo "mais preciso" com essas postagens com mais curtidas nas últimas 24 horas. Você poderia até mesmo implementar um fluxo personalizado para cada usuário com base em lógica como seguidores e interesses. Ainda seria uma lista de postagens. É uma questão de como criar essas listas, mas o desempenho de leitura permanece desprejudicado. Depois de adquirir uma dessas listas, você emite uma única consulta para Cosmos DB usando a [palavra-chave in](sql-query-keywords.md#in) para obter páginas de postagens por vez.
 
-Os fluxos de feeds podem ser criados usando [dos serviços de aplicações do Azure](https://azure.microsoft.com/services/app-service/) processos de fundo: [Webjobs](../app-service/webjobs-create.md). Quando é criada uma publicação, o processamento em segundo plano pode ser acionado, utilizando [armazenamento do Azure](https://azure.microsoft.com/services/storage/) [filas](../storage/queues/storage-dotnet-how-to-use-queues.md) e Webjobs acionados com o [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementando o após a propagação dentro de fluxos com base na sua própria lógica personalizada.
+Os fluxos de feeds podem ser criados usando os processos em segundo plano do [Azure app Services](https://azure.microsoft.com/services/app-service/) : [webjobs](../app-service/webjobs-create.md). Depois que uma postagem é criada, o processamento em segundo plano pode ser disparado usando as [filas](../storage/queues/storage-dotnet-how-to-use-queues.md) do [armazenamento do Azure](https://azure.microsoft.com/services/storage/) e os trabalhos Web disparados usando o [SDK de trabalhos Web do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki), implementando a propagação posterior dentro de fluxos com base em sua própria lógica personalizada.
 
-Pontos e gostos ao longo de uma postagem podem ser processados de forma diferida usando essa mesma técnica para criar um ambiente eventualmente consistente.
+Pontos e curtidos em uma postagem podem ser processados de forma adiada usando essa mesma técnica para criar um ambiente eventualmente consistente.
 
-Seguidores são mais complicados. O cosmos DB tem um limite de tamanho do documento e documentos grandes de leitura/gravação pode afetar a escalabilidade do seu aplicativo. Por isso, pode pensar a respeito armazenar seguidores como um documento com esta estrutura:
+Os seguidores são mais complicados. Cosmos DB tem um limite de tamanho de documento e a leitura/gravação de documentos grandes pode afetar a escalabilidade do seu aplicativo. Você pode pensar em armazenar seguidores como um documento com esta estrutura:
 
     {
         "id":"234d-sd23-rrf2-552d",
@@ -115,9 +115,9 @@ Seguidores são mais complicados. O cosmos DB tem um limite de tamanho do docume
         ]
     }
 
-Essa estrutura pode funcionar para um utilizador com milhares de alguns seguidores. Se algum celebridade associa as classificações, no entanto, essa abordagem levará para um tamanho de documentos grandes e, eventualmente, ele poderá apresentar o limite de tamanho do documento.
+Essa estrutura pode funcionar para um usuário com alguns milhares de seguidores. No entanto, se algumas celebridade unirem as classificações, essa abordagem levará a um grande tamanho de documento e poderá eventualmente atingir o limite de tamanho do documento.
 
-Para resolver este problema, pode usar uma abordagem mista. Como parte do documento de estatísticas do utilizador, pode armazenar o número de seguidores:
+Para resolver esse problema, você pode usar uma abordagem mista. Como parte do documento de estatísticas de usuário, você pode armazenar o número de seguidores:
 
     {
         "id":"234d-sd23-rrf2-552d",
@@ -127,19 +127,19 @@ Para resolver este problema, pode usar uma abordagem mista. Como parte do docume
         "totalPoints":11342
     }
 
-Pode armazenar o gráfico real de seguidores com o Azure Cosmos DB [API do Gremlin](../cosmos-db/graph-introduction.md) criem [vértices](http://mathworld.wolfram.com/GraphVertex.html) para cada utilizador e [margens](http://mathworld.wolfram.com/GraphEdge.html) que manter o "A-forma-B" relações. Com a API do Gremlin, pode obter seguidores de um determinado usuário e criar consultas mais complexas para sugerir as pessoas em comum. Se adicionar ao gráfico as categorias de conteúdo que as pessoas como ou aproveite, pode começar combinando as experiências que incluem a deteção de conteúdos inteligente, sugerindo a conteúdo que essas pessoas siga como ou a localizar as pessoas que pode ter muito common com.
+Você pode armazenar o grafo real de seguidores usando Azure Cosmos DB [API Gremlin](../cosmos-db/graph-introduction.md) para criar [vértices](http://mathworld.wolfram.com/GraphVertex.html) para cada usuário e [bordas](http://mathworld.wolfram.com/GraphEdge.html) que mantêm as relações "A segue-B". Com a API do Gremlin, você pode obter os seguidores de um determinado usuário e criar consultas mais complexas para sugerir pessoas em comum. Se você adicionar ao grafo as categorias de conteúdo que as pessoas gostam ou gostam, poderá iniciar as experiências de combinando que incluem a descoberta de conteúdo inteligente, sugerindo o conteúdo que essas pessoas seguem ou localizando pessoas que você possa ter muito em comum com o.
 
-O documento de estatísticas de utilizadores ainda pode ser utilizado para criar cartões na interface do Usuário ou pré-visualizações de perfil rápida.
+O documento de estatísticas de usuário ainda pode ser usado para criar cartões na interface do usuário ou em visualizações de perfil rápido.
 
-## <a name="the-ladder-pattern-and-data-duplication"></a>A duplicação de dados e padrão de "Escada"
+## <a name="the-ladder-pattern-and-data-duplication"></a>O padrão de "escada" e a duplicação de dados
 
-Como deve ter notado no documento JSON que faz referência a uma postagem, existem várias ocorrências de um utilizador. E deve ter adivinhado certo, que estes duplicados significam que as informações que descrevem um utilizador, tendo em conta esta desnormalização, poderão ser presentes em mais de um único lugar.
+Como você deve ter notado no documento JSON que faz referência a uma postagem, há muitas ocorrências de um usuário. E você teria adivinhado o direito, essas duplicatas significam que as informações que descrevem um usuário, dada essa desnormalização, podem estar presentes em mais de um lugar.
 
-Para permitir consultas mais rápidas, pode incorrer duplicação de dados. O problema com este efeito é que, se por alguma ação, as alterações de dados de um usuário, precisa localizar todas as atividades o usuário nunca fez e atualizá-los todos os. Não parece prático, certo?
+Para permitir consultas mais rápidas, você incorre em duplicação de dados. O problema com esse efeito colateral é que, se, por alguma ação, os dados de um usuário forem alterados, você precisará encontrar todas as atividades que o usuário já fez e atualizá-las. Não parece prático, certo?
 
-Vai para resolvê-lo ao identificar os principais atributos de um utilizador que mostram em seu aplicativo para cada atividade. Se visualmente mostra uma postagem em seu aplicativo e mostra do apenas o criador nome e imagem, por que armazenar todos os dados do utilizador no atributo "createdBy"? Se, para cada comentário que apenas mostrar a imagem do usuário, não precisa realmente o restante das informações do utilizador. Que é onde se envolve algo que chamo o padrão"escada".
+Você vai solucioná-lo identificando os principais atributos de um usuário que você mostra em seu aplicativo para cada atividade. Se você mostrar visualmente uma postagem em seu aplicativo e mostrar apenas o nome e a imagem do criador, por que armazenar todos os dados do usuário no atributo "createdBy"? Se, para cada comentário, você apenas mostrar a imagem do usuário, não precisará realmente do restante das informações do usuário. É aí que algo que chamo de "padrão de escada" se torna envolvido.
 
-Vamos dar informações de utilizador como um exemplo:
+Vamos pegar as informações do usuário como um exemplo:
 
     {
         "id":"dse4-qwe2-ert4-aad2",
@@ -155,17 +155,17 @@ Vamos dar informações de utilizador como um exemplo:
         "totalPosts":24
     }
 
-Ao examinar essas informações, pode detetar rapidamente o que é a informações críticas e que não estiver, criando assim uma "escada":
+Ao examinar essas informações, você pode detectar rapidamente quais são as informações críticas e qual não é, criando, portanto, uma "escada":
 
-![Diagrama de um padrão de escala de bits](./media/social-media-apps/social-media-apps-ladder.png)
+![Diagrama de um padrão de escada](./media/social-media-apps/social-media-apps-ladder.png)
 
-O passo de menor é chamado um UserChunk, a parte de um mínimo de informações que identificam um utilizador e é utilizado para duplicação de dados. Ao reduzir o tamanho de dados duplicados para apenas as informações que "Mostrar", reduzir a possibilidade de atualizações em massa.
+A menor etapa é chamada de userchunk, a informação mínima que identifica um usuário e é usada para duplicação de dados. Ao reduzir o tamanho dos dados duplicados para apenas as informações que você "Mostrar", você reduz a possibilidade de atualizações maciças.
 
-A etapa intermediária denomina-se o utilizador. São os dados completos, que serão usados na maioria das consultas de dependente do desempenho no Cosmos DB, a mais acedidos e críticas. Ele inclui as informações representadas por um UserChunk.
+A etapa intermediária é chamada de usuário. São os dados completos que serão usados na maioria das consultas dependentes de desempenho em Cosmos DB, o mais acessado e crítico. Ele inclui as informações representadas por um userchunk.
 
-O maior é o utilizador expandido. Ele inclui as informações de utilizadores críticos e outros dados que não precisam ser lida rapidamente ou tem eventual utilização, como o processo de início de sessão. Estes dados podem ser armazenados fora do Cosmos DB, na base de dados do Azure SQL ou tabelas de armazenamento do Azure.
+O maior é o usuário estendido. Ele inclui as informações críticas do usuário e outros dados que não precisam ser lidos rapidamente ou que têm uso eventual, como o processo de entrada. Esses dados podem ser armazenados fora do Cosmos DB, no banco de dados SQL do Azure ou em tabelas de armazenamento do Azure.
 
-Por que seria é dividir o usuário e até mesmo armazenar essas informações em locais diferentes? Uma vez que um ponto de vista do desempenho, quanto maiores os documentos, o costlier das consultas. Manter os documentos reduzido, com as informações certas para fazer todas as suas consultas de dependente de desempenho para a sua rede social. Store outras informações extras para cenários eventual como as edições de perfil completo, inícios de sessão e extração de dados para análise de utilização e iniciativas de grandes volumes de dados. Realmente não importa se a recolha de dados para extração de dados são mais lentos, uma vez que está a ser executado na base de dados do Azure SQL. Tem se entretanto que os utilizadores têm uma experiência rápida e reduzida. Um utilizador armazenado no Cosmos DB teria o aspeto semelhante a este código:
+Por que você dividiria o usuário e até mesmo armazenaria essas informações em locais diferentes? Devido a um ponto de vista de desempenho, quanto maior os documentos, mais caras as consultas. Mantenha documentos finos, com as informações corretas para fazer todas as suas consultas dependentes de desempenho para sua rede social. Armazene as outras informações extras para cenários eventuales, como edições de perfil completas, logons e Data Mining para análise de uso e iniciativas de Big Data. Na verdade, você não se importa se a coleta de dados para Data Mining é mais lenta, pois está em execução no Azure SQL Database. Você tem dúvidas para que os usuários tenham uma experiência rápida e reduzida. Um usuário armazenado em Cosmos DB seria semelhante a este código:
 
     {
         "id":"dse4-qwe2-ert4-aad2",
@@ -176,7 +176,7 @@ Por que seria é dividir o usuário e até mesmo armazenar essas informações e
         "twitterHandle":"\@john"
     }
 
-E uma postagem teria o seguinte aspeto:
+E uma postagem teria a seguinte aparência:
 
     {
         "id":"1234-asd3-54ts-199a",
@@ -188,68 +188,68 @@ E uma postagem teria o seguinte aspeto:
         }
     }
 
-Quando uma edição surge em que um atributo de segmentos é afetado, pode encontrar facilmente os documentos afetados. Basta usar consultas que apontam para os atributos indexados, tais como `SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id"`e, em seguida, atualize os segmentos.
+Quando surge uma edição em que um atributo de bloco é afetado, você pode encontrar facilmente os documentos afetados. Basta usar consultas que apontem para os atributos indexados, como `SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id"`e, em seguida, atualizar as partes.
 
-## <a name="the-search-box"></a>Caixa de pesquisa
+## <a name="the-search-box"></a>A caixa de pesquisa
 
-Os utilizadores irão gerar, Felizmente, há conteúdo. E deve ser capaz de fornecer a capacidade de pesquisar e localizar conteúdo que poderá não estar diretamente em seus fluxos de conteúdo, talvez porque não seguir os criadores ou, talvez está tentando encontrar que post antigo fez seis meses atrás.
+Os usuários irão gerar, felizmente, muito conteúdo. E você deve ser capaz de fornecer a capacidade de Pesquisar e localizar conteúdo que pode não estar diretamente em seus fluxos de conteúdo, talvez porque você não segue os criadores, ou talvez esteja apenas tentando descobrir essa postagem antiga que você fez seis meses atrás.
 
-Uma vez que estiver a utilizar o Azure Cosmos DB, pode implementar facilmente um mecanismo de pesquisa com [Azure Search](https://azure.microsoft.com/services/search/) em poucos minutos sem escrever qualquer código, que não seja o processo de pesquisa e a interface do Usuário.
+Como você está usando Azure Cosmos DB, é possível implementar facilmente um mecanismo de pesquisa usando o [pesquisa cognitiva do Azure](https://azure.microsoft.com/services/search/) em alguns minutos sem digitar nenhum código, além do processo de pesquisa e da interface do usuário.
 
 Por que esse processo é tão fácil?
 
-O Azure Search implementa o que eles chamam [indexadores](https://msdn.microsoft.com/library/azure/dn946891.aspx), em segundo plano processa esse gancho em seus repositórios de dados e automagicamente adicionar, atualizar ou remover os objetos nos índices. Eles oferecem suporte a uma [indexadores do Azure SQL Database](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [indexadores de Blobs do Azure](../search/search-howto-indexing-azure-blob-storage.md) e, Felizmente, [indexadores do Azure Cosmos DB](../search/search-howto-index-documentdb.md). A transição de informações do Cosmos DB para o Azure Search é muito simples. As duas tecnologias armazenam informações no formato JSON, para que só precisa [criar o seu índice](../search/search-create-index-portal.md) e mapear os atributos dos seus documentos desejar indexada. Já está! Dependendo do tamanho dos seus dados, todos os seus conteúdos estará disponível para ser pesquisada após dentro de minutos, a melhor solução de pesquisa-como-serviço na infraestrutura de nuvem.
+O Azure Pesquisa Cognitiva implementa o que eles chamam de [indexadores](https://msdn.microsoft.com/library/azure/dn946891.aspx), processos em segundo plano que conectam seus repositórios de dados e adicionam, atualizam ou removem de forma automática os objetos nos índices. Eles dão suporte a indexadores de [banco de dados SQL do Azure](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [indexadores de BLOBs do Azure](../search/search-howto-indexing-azure-blob-storage.md) e, felizmente, [Azure Cosmos DB indexadores](../search/search-howto-index-documentdb.md). A transição de informações de Cosmos DB para Pesquisa Cognitiva do Azure é simples. Ambas as tecnologias armazenam informações no formato JSON, portanto, você só precisa [criar o índice](../search/search-create-index-portal.md) e mapear os atributos dos documentos que deseja indexar. Já está! Dependendo do tamanho dos dados, todo o conteúdo estará disponível para ser pesquisado em minutos pela melhor solução de pesquisa como serviço na infraestrutura de nuvem.
 
-Para obter mais informações sobre o Azure Search, pode visitar o [guia para pesquisa](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
+Para obter mais informações sobre o Azure Pesquisa Cognitiva, você pode visitar o [Guia do Hitchhiker ' s para pesquisar](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
 
 ## <a name="the-underlying-knowledge"></a>O conhecimento subjacente
 
-Depois de armazenar esse conteúdo que aumenta e que cresce todos os dias, pode achar pensamento: O que posso fazer com todos esse fluxo de informações dos meus utilizadores?
+Depois de armazenar todo o conteúdo que cresce e cresce todos os dias, você pode pensar: o que posso fazer com todo esse fluxo de informações de meus usuários?
 
-A resposta é simples: Colocá-lo a funcionar e aprender com ele.
+A resposta é simples: colocá-la para trabalhar e aprender com ela.
 
-Mas o que aprender? Alguns exemplos de fácil incluem [a análise de sentimentos](https://en.wikipedia.org/wiki/Sentiment_analysis), o conteúdo recomendações com base nas preferências de um utilizador, ou até mesmo um automatizada o content moderator que certifica-se de que o conteúdo publicado pela rede social é seguro para a família.
+Mas o que você pode aprender? Alguns exemplos fáceis incluem [análise de sentimentos](https://en.wikipedia.org/wiki/Sentiment_analysis), recomendações de conteúdo com base nas preferências de um usuário ou até mesmo um moderador de conteúdo automatizado que garante que o conteúdo publicado pela sua rede social seja seguro para a família.
 
-Agora que tenho é conectado, provavelmente o achará terá algumas doutorado em ciência matemáticas para extrair estes padrões e informações das bases de dados simples e de ficheiros, mas não seria certo.
+Agora que fui conectado, você provavelmente achará que precisa de um PhD em ciência matemática para extrair esses padrões e informações dos arquivos e bancos de dados simples, mas você estaria errado.
 
-[O Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), que faz parte do [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), é um serviço cloud totalmente gerido que permite-lhe criar fluxos de trabalho usando algoritmos numa interface de arrastar e largar simple, código de seus próprios algoritmos no [ R](https://en.wikipedia.org/wiki/R_\(programming_language\)), ou usar alguns dos já incorporado e pronto a utilizar APIs como: [Análise de texto](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [do Content Moderator, ou [recomendações](https://gallery.azure.ai/Solution/Recommendations-Solution).
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), parte do [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), é um serviço de nuvem totalmente gerenciado que permite criar fluxos de trabalho usando algoritmos em uma interface simples do tipo "arrastar e soltar", codificar seus próprios algoritmos em [R](https://en.wikipedia.org/wiki/R_\(programming_language\))ou usar alguns dos Você já criou e está pronto para usar APIs como: [análise de texto](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [content moderator ou [recomendações](https://gallery.azure.ai/Solution/Recommendations-Solution).
 
-Para obter qualquer um desses cenários de Machine Learning, pode usar [do Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) ingerir as informações de diferentes origens. Também pode utilizar [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) para processar as informações e gerar uma saída que pode ser processada por Azure Machine Learning.
+Para obter qualquer um desses cenários de Machine Learning, você pode usar [Azure data Lake](https://azure.microsoft.com/services/data-lake-store/) para ingerir as informações de fontes diferentes. Você também pode usar o [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) para processar as informações e gerar uma saída que pode ser processada pelo Azure Machine Learning.
 
-Outra opção disponível é usar [serviços cognitivos do Azure](https://www.microsoft.com/cognitive-services) para analisar os seus utilizadores conteúdos; não só pode compreendê-los melhor (através de análise que escrevem com [API de análise de texto](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), mas Também pode detetar conteúdo indesejado ou maduro e aja em conformidade com [API de imagem digitalizada](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Os serviços cognitivos inclui muitas soluções de out-of-the-box que não necessitam de qualquer tipo de dados de conhecimento do Machine Learning a utilizar.
+Outra opção disponível é usar os [Serviços cognitivas do Azure](https://www.microsoft.com/cognitive-services) para analisar o conteúdo dos usuários; Você não só pode entender melhor isso (por meio da análise do que eles escrevem com [API de análise de texto](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), mas também pode detectar conteúdo indesejado ou maduro e agir de acordo com [API da pesquisa Visual computacional](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Os serviços cognitivas incluem muitas soluções prontas para uso que não exigem qualquer tipo de conhecimento Machine Learning para usar o.
 
-## <a name="a-planet-scale-social-experience"></a>Uma experiência de redes sociais de escala planetária
+## <a name="a-planet-scale-social-experience"></a>Uma experiência social de dimensionamento de planeta
 
-Existe um último, mas não menos importante, artigo importante devem ser resolvidos: **escalabilidade**. Ao conceber uma arquitetura, cada componente deve aumentar por conta própria. Eventualmente, terá de processar os dados mais ou, deverá ter uma maior cobertura geográfica. Felizmente, a obtenção de ambas as tarefas é uma **experiência de chave na mão** com o Cosmos DB.
+Há um artigo, mas não menos importante, que preciso abordar: **escalabilidade**. Quando você cria uma arquitetura, cada componente deve ser dimensionado por conta própria. Eventualmente, você precisará processar mais dados ou terá uma cobertura geográfica maior. Felizmente, a obtenção de ambas as tarefas é uma **experiência pronta para uso** com o cosmos DB.
 
-O cosmos DB suporta dinâmica particionamento-de-pronta. Ele automaticamente cria partições com base num determinado **chave de partição**, que é definida como um atributo em seus documentos. Definir a chave de partição correta deve ser feita em tempo de design. Para obter mais informações, consulte [criação de partições no Azure Cosmos DB](partitioning-overview.md).
+O Cosmos DB dá suporte ao particionamento dinâmico pronto para uso. Ele cria partições automaticamente com base em uma determinada **chave de partição**, que é definida como um atributo em seus documentos. A definição da chave de partição correta deve ser feita em tempo de design. Para obter mais informações, consulte [particionamento no Azure Cosmos DB](partitioning-overview.md).
 
-Para uma experiência de redes sociais, devem estar alinhadas sua estratégia de criação de partições com a forma de consulta e escrita. (Por exemplo, leituras dentro da mesma partição desejáveis e evitar "pontos de acesso" ao propagar escritas em várias partições.) Algumas opções são: partições com base numa chave temporal (dia/mês/semana), por categoria de conteúdo, por região geográfica ou por utilizador. Tudo isso realmente depende de como consultar os dados e mostrar os dados na sua experiência de redes sociais.
+Para uma experiência social, você deve alinhar sua estratégia de particionamento com a maneira como você consulta e escreve. (Por exemplo, as leituras na mesma partição são desejáveis e evitam "pontos de acesso" espalhando gravações em várias partições.) Algumas opções são: partições baseadas em uma chave temporal (dia/mês/semana), por categoria de conteúdo, por região geográfica ou por usuário. Tudo isso realmente depende de como você consultará os dados e mostrará os dados em sua experiência social.
 
-O cosmos DB irá executar as suas consultas (incluindo [agregações](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) em todas as suas partições de forma transparente, por isso, não precisa de adicionar qualquer lógica à medida que aumenta a seus dados.
+Cosmos DB executará suas consultas (incluindo [agregações](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) em todas as partições de forma transparente, para que você não precise adicionar nenhuma lógica à medida que seus dados crescem.
 
-Com o tempo, eventualmente crescerá no tráfego e o consumo de recursos (medido em [RUs](request-units.md), ou unidades de pedido) irá aumentar. Irá ler e escrever mais frequentemente à medida que aumenta a sua base de usuários. A base de usuários irá começar a criar e ler mais conteúdo. Portanto, a capacidade de **dimensionar o débito** é vital. Aumentar os RUs é fácil. Pode fazer isso com alguns cliques no portal do Azure ou pelo [emissão de comandos por meio da API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
+Com o tempo, você acabará crescendo no tráfego e o consumo de recursos (medido em [RUs](request-units.md)ou unidades de solicitação) aumentará. Você lerá e gravará com mais frequência à medida que sua base de usuários cresce. A base de usuários começará a criar e a ler mais conteúdo. Portanto, a capacidade de **dimensionar sua taxa de transferência** é vital. É fácil aumentar seu RUs. Você pode fazer isso com alguns cliques na portal do Azure ou [emitindo comandos por meio da API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
 
-![Aumentar verticalmente e definir uma chave de partição](./media/social-media-apps/social-media-apps-scaling.png)
+![Dimensionamento e definição de uma chave de partição](./media/social-media-apps/social-media-apps-scaling.png)
 
-O que acontece se as coisas estão a melhorar? Suponha que os utilizadores de outra região, país ou continente tenha em atenção a plataforma e começar a utilizar. Que surpresa excelente!
+O que acontecerá se as coisas continuarem melhorando? Suponha que os usuários de outra região, país ou continente observem sua plataforma e comecem a usá-la. O que é uma grande surpresa!
 
-Mas espere! Logo perceberá a que sua experiência com a plataforma não é ideal. Eles são até agora para fora da sua região operacional que a latência é terrível. É claro que não pretende que sair. Se houvesse uma forma fácil de **estender o alcance global**? Há!
+Mas espere! Em breve, você percebe que sua experiência com a plataforma não é ideal. Estão longe da sua região operacional que a latência é terrível. Obviamente, você não deseja que eles sejam encerrados. Se houvesse uma maneira fácil de **estender seu alcance global**? Há!
 
-O cosmos DB permite-lhe [replicar globalmente os seus dados](../cosmos-db/tutorial-global-distribution-sql-api.md) e de forma transparente em apenas alguns cliques e automaticamente, selecione entre as regiões disponíveis a partir do seu [código de cliente](../cosmos-db/tutorial-global-distribution-sql-api.md). Este processo também significa que pode ter [várias regiões de ativação pós-falha](high-availability.md).
+Cosmos DB permite [replicar os dados globalmente](../cosmos-db/tutorial-global-distribution-sql-api.md) e de forma transparente com alguns cliques e selecionar automaticamente entre as regiões disponíveis do seu [código de cliente](../cosmos-db/tutorial-global-distribution-sql-api.md). Esse processo também significa que você pode ter [várias regiões de failover](high-availability.md).
 
-Quando replica globalmente os seus dados, terá de certificar-se de que os clientes podem se aproveitar dele. Se estiver a utilizar um front-end da web ou a aceder a APIs de clientes móveis, pode implantar [Gestor de tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/) e clone o App Service do Azure em todas as regiões desejadas, através de uma configuração de desempenho para suportar o expandida global cobertura. Quando os clientes acessam o front-end ou APIs, vai ser encaminhados para o serviço de aplicações mais próximo, que por sua vez, irá ligar para a réplica local do Cosmos DB.
+Ao replicar seus dados globalmente, você precisa certificar-se de que seus clientes possam tirar proveito dele. Se você estiver usando um front-end da Web ou acessando APIs de clientes móveis, poderá implantar o [Gerenciador de tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/) e clonar seu serviço de Azure app em todas as regiões desejadas, usando uma configuração de desempenho para dar suporte à cobertura global estendida. Quando os clientes acessarem seu front-end ou APIs, eles serão roteados para o serviço de aplicativo mais próximo, que, por sua vez, se conectará à réplica de Cosmos DB local.
 
-![Adicionar cobertura global na sua plataforma de redes sociais](./media/social-media-apps/social-media-apps-global-replicate.png)
+![Adicionando cobertura global à sua plataforma social](./media/social-media-apps/social-media-apps-global-replicate.png)
 
 ## <a name="conclusion"></a>Conclusão
 
-Este artigo esclarece sobre as alternativas de criação de redes sociais completamente no Azure com os serviços de baixo custo. ele entrega resultados por incentivando a utilização de uma distribuição de dados e solução de armazenamento em várias camadas chamada "Escada".
+Este artigo esclarece algumas luzes sobre as alternativas de criação completa de redes sociais no Azure com serviços de baixo custo. Ele fornece resultados, incentivando o uso de uma solução de armazenamento em várias camadas e da distribuição de dados chamada "escada".
 
-![Diagrama de interação entre os serviços do Azure para redes sociais](./media/social-media-apps/social-media-apps-azure-solution.png)
+![Diagrama de interação entre os serviços do Azure para rede social](./media/social-media-apps/social-media-apps-azure-solution.png)
 
-A verdade é que não existe nenhuma solução mágica para este tipo de cenários. Ele está sinergia criada pela combinação de serviços excelentes que permitem-nos criar excelentes experiências: a velocidade e a liberdade do Azure Cosmos DB para fornecer um ótimo aplicativo social, a inteligência por trás de uma solução de pesquisa de primeira classe, como o Azure Search, o flexibilidade de serviços de aplicações do Azure para alojar aplicações não até mesmo idioma agnóstico mas processos em segundo plano poderosas e o expansível armazenamento do Azure e SQL Database do Azure para armazenar grandes quantidades de dados e a capacidade de análise do Azure Machine Learning para criar dados de conhecimento e inteligência que pode fornecer seus comentários para seus processos e ajude-nos fornece o conteúdo certo para os utilizadores certos.
+A verdade é que não há nenhum marcador prata para esse tipo de cenário. É a sinergia criada pela combinação de ótimos serviços que nos permitem criar excelentes experiências: a velocidade e a liberdade de Azure Cosmos DB para fornecer um excelente aplicativo social, a inteligência por trás de uma solução de pesquisa de primeira classe como o Pesquisa Cognitiva do Azure, a flexibilidade dos serviços de Azure App para hospedar aplicativos não independentes de linguagem, mas processos em segundo plano avançados e o armazenamento expansível do Azure e o banco de dados SQL do Azure para armazenar grandes quantidades de data e a capacidade analítica de Azure Machine Learning para Crie conhecimento e inteligência que possam fornecer comentários aos seus processos e nos ajudar a fornecer o conteúdo correto aos usuários certos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre casos de utilização para o Cosmos DB, veja [casos de utilização comuns do Cosmos DB](use-cases.md).
+Para saber mais sobre os casos de uso para Cosmos DB, consulte [casos de uso comuns de Cosmos DB](use-cases.md).

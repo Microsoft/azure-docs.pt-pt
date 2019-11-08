@@ -4,20 +4,21 @@ description: Configurar gerenciamento de Lead para blob do Azure
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 7/30/2019
 ms.author: evansma
-ms.openlocfilehash: c67855422808f5ec4c81242edcece4e447f2f44f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 5da4e0ab315b3f66a477b816f6fc5d27de7aa339
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902367"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812373"
 ---
 # <a name="lead-management-instructions-for-azure-blob"></a>Instruções de gerenciamento de Lead para blob do Azure
 
 >[!Caution]
->A opção de blob do Azure para processar os leads da oferta do Marketplace foi preterida. Se, no momento, você tiver uma oferta publicada com a configuração de gerenciamento de leads para o blob do Azure, você não estará mais recebendo leads do cliente. Atualize sua configuração de gerenciamento de leads para qualquer uma das outras opções de gerenciamento de Lead. Saiba mais sobre as outras opções na [página inicial de gerenciamento](./commercial-marketplace-get-customer-leads.md)de leads.
+>A opção de blob do Azure para processar os leads da oferta do Marketplace foi preterida. Se, no momento, você tiver uma oferta publicada com a configuração de gerenciamento de leads para o blob do Azure, você não estará mais recebendo leads do cliente. Atualize sua configuração de gerenciamento de leads para qualquer uma das outras opções de gerenciamento de Lead. Saiba mais sobre as outras opções na [página inicial de gerenciamento de leads](./commercial-marketplace-get-customer-leads.md).
 
 Se o seu sistema de gerenciamento de relacionamento com o cliente (CRM) não tiver suporte explícito no Partner Center para receber leads do Azure Marketplace e do AppSource, você poderá usar um blob do Azure para lidar com esses leads. Você pode optar por exportar os dados e importá-los para o sistema CRM. As instruções neste artigo fornecerão o processo de criação de uma conta de armazenamento do Azure e um blob do Azure nessa conta. Além disso, você pode criar um novo fluxo usando Microsoft Flow para enviar uma notificação por email quando sua oferta receber um cliente potencial.
 
@@ -49,7 +50,7 @@ Se o seu sistema de gerenciamento de relacionamento com o cliente (CRM) não tiv
 
     ![Chave de armazenamento do Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
 
-6. Na página da sua conta de armazenamento, selecione BLOBs.
+6. Na página da sua conta de armazenamento, selecione **BLOBs**.
 
    ![Chave de armazenamento do Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
@@ -80,8 +81,8 @@ Quando você estiver pronto para configurar as informações de gerenciamento de
 
 4. Forneça o **nome do contêiner** e a **cadeia de conexão da conta de armazenamento** obtida seguindo estas instruções.
 
-    * Exemplo de nome do contêiner:`marketplaceleadcontainer`
-    * Exemplo de cadeia de conexão da conta de armazenamento: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net`![Detalhes da conexão](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
+    * Exemplo de nome do contêiner: `marketplaceleadcontainer`
+    * Exemplo de cadeia de conexão da conta de armazenamento: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![detalhes da conexão](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
 
 5. Selecione **Guardar**.
 

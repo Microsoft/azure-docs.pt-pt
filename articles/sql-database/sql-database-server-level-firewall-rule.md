@@ -1,5 +1,5 @@
 ---
-title: Criar uma regra de firewall no nível de servidor-banco de dados SQL do Azure | Microsoft Docs
+title: Criar uma regra de firewall ao nível do servidor
 description: Criar uma regra de firewall no nível de servidor do banco de dados SQL para bancos de dados individuais e em pool
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 27b554159fca2043fbd0c853e260a66294c10387
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: ff2508952b75bad88ff8ff92388c20ba52f50f42
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162300"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818247"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Início rápido: Criar uma regra de firewall no nível de servidor para bancos de dados individuais e em pool usando o portal do Azure
+# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Início rápido: criar uma regra de firewall no nível de servidor para bancos de dados individuais e em pool usando o portal do Azure
 
 Este guia de início rápido explica como criar uma [regra de firewall no nível de servidor](sql-database-firewall-configure.md) para bancos de dados individuais e em pool no banco de dados SQL do Azure usando o portal do Azure para permitir que você se conecte a servidores de banco de dados, bancos de dados individuais e pools elásticos e seus bancos de dados. Uma regra de firewall é necessária para se conectar de outros recursos do Azure e de recursos locais.
 
@@ -28,14 +28,14 @@ Este guia de início rápido usa os recursos criados em [criar um banco de dados
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Criar uma regra de firewall de IP no nível de servidor
 
 O serviço do banco de dados SQL cria um firewall no nível do servidor de banco de dados para bancos únicos e em pool. Esse Firewall impede que os aplicativos cliente se conectem ao servidor ou a qualquer um de seus bancos de dados únicos ou em pools, a menos que você crie uma regra de firewall IP para abrir o firewall. Para uma conexão de um endereço IP fora do Azure, crie uma regra de firewall para um endereço IP específico ou um intervalo de endereços que você deseja poder conectar. Para obter mais informações sobre regras de firewall de IP no nível de servidor e de banco de dados, consulte [regras de firewall de IP](sql-database-firewall-configure.md)no nível de servidor e de banco de dados SQL.
 
 > [!NOTE]
-> A Base de Dados SQL comunica através da porta 1433. Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 pode não ser permitido pelo firewall da sua rede. Nesse caso, você não pode se conectar ao servidor do banco de dados SQL do Azure, a menos que o departamento de ti Abra a porta 1433.
+> A Base de Dados SQL comunica através da porta 1433. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Nesse caso, você não pode se conectar ao servidor do banco de dados SQL do Azure, a menos que o departamento de ti Abra a porta 1433.
 > [!IMPORTANT]
 > Uma regra de firewall de 0.0.0.0 permite que todos os serviços do Azure passem pela regra de firewall no nível de servidor e tentam se conectar a um banco de dados único ou em pool por meio do servidor. 
 

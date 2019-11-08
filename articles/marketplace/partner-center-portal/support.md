@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: jamwall
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/17/2019
-ms.openlocfilehash: c0f3fba389f9cb6f55ac5bf7bb81475fa8244cbf
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 53d6b5b43a028d552c95c58aebf7268353621759
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195244"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827891"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Suporte para o programa do Marketplace comercial no Partner Center
 
@@ -42,11 +43,11 @@ A Microsoft oferece suporte a uma ampla variedade de produtos e serviços. Encon
 
 ## <a name="how-to-open-a-support-ticket"></a>Como abrir um tíquete de suporte
 
-A seleção de **ajuda adicional** no menu de suporte do Marketplace comercial no Partner Center o direcionará para a página suporte da Microsoft for Business. Você verá vários menus suspensos. Os primeiros menus suspensos são preenchidos automaticamente para você. Para obter suporte ao Marketplace, identifique a família de produtos como **serviços de nuvem e online**, o produto como Publicador do **Marketplace**e a versão do produto como **publicação no Marketplace**. Não altere essas seleções de menu suspenso preenchidas previamente. 
+A seleção de **ajuda adicional** no menu de suporte do Marketplace comercial no Partner Center o direcionará para a página suporte da Microsoft for Business. Você verá vários menus suspensos. Os primeiros menus suspensos são preenchidos automaticamente para você. Para obter suporte ao Marketplace, identifique a família de produtos como **serviços de nuvem e online**, o produto como **Publicador do Marketplace**e a versão do produto como **publicação no Marketplace**. Não altere essas seleções de menu suspenso preenchidas previamente. 
 
-- **Selecione uma categoria que melhor descreva o problema**: Escolha a categoria que melhor se alinha com sua pergunta ou problema. A seleção de uma categoria fará com que um menu suspenso adicional seja exibido, solicitando que você selecione o problema que melhor descreva seu problema.
+- **Selecione uma categoria que melhor descreva o problema**: escolha a categoria que melhor se alinha com sua pergunta ou problema. A seleção de uma categoria fará com que um menu suspenso adicional seja exibido, solicitando que você selecione o problema que melhor descreva seu problema.
 
-- **Selecione um problema que melhor descreva o problema**: Escolha o problema nas opções listadas que melhor se alinham com o problema. Dependendo do problema, uma nova seção pode parecer dizendo "aqui estão algumas informações que podem ajudar" com os links relevantes para o seu problema. Examine esses links antes de selecionar o botão **Avançar** para ver se sua pergunta ou problema foi resolvido.
+- **Selecione um problema que melhor descreva o problema**: escolha o problema nas opções listadas que melhor se alinham com o problema. Dependendo do problema, uma nova seção pode parecer dizendo "aqui estão algumas informações que podem ajudar" com os links relevantes para o seu problema. Examine esses links antes de selecionar o botão **Avançar** para ver se sua pergunta ou problema foi resolvido.
 
 Ao selecionar o botão **Avançar** , você será direcionado para a página **detalhes do problema** . 
 
@@ -89,6 +90,6 @@ Na barra de menus azul superior, ao lado de "suporte para negócios", selecione 
 
 Examine todas as solicitações de suporte abertas e fechadas na seção de **suporte profissional da Microsoft** . 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atualizar uma oferta existente no Marketplace comercial](./update-existing-offer.md)

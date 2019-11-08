@@ -1,43 +1,44 @@
 ---
-title: Página de informações para o Azure Marketplace
-description: Descrição geral da página de informações no Portal de parceiros da Cloud para o Azure Marketplace.
+title: Página de informações do Azure Marketplace
+description: Visão geral da página de informações no Portal do Cloud Partner para o Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 2cbe3b790197c3f71305e4cb21d0f37fe0404511
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1b8d716beec17b7da82968ede8d24ced348e04a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943492"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821510"
 ---
 # <a name="insights-page"></a>Página de informações
 
-O [ **Insights** ](https://cloudpartner.azure.com/#insights) página fornece os seguintes conjuntos de dashboards para ajudá-lo a compreender e maximizar o impacto nas vendas das suas ofertas do marketplace.  Cada dashboard é acedido através de um separador na parte superior da página, o mesmo nome.
+A página de [**informações**](https://cloudpartner.azure.com/#insights) fornece os seguintes conjuntos de painéis para ajudá-lo a compreender e maximizar as vendas das ofertas do Marketplace.  Cada painel é acessado por meio de uma guia com o mesmo nome na parte superior da página.
 
 
-|  **Dashboard**    |  **Conteúdo apresentado**               |
+|  **Dashboard**    |  **Conteúdo exibido**               |
 |  -------------    |  ---------------------               |
-| **Resumo**       | gráficos de tendências e valores de dados de agregação que resume a atividade do marketplace para as ofertas do Editor |
-| **Dividendos**        | dividendos e transações relacionadas em formatos de gráficos e disponível para download |
-| **Pedidos e utilização** | pedidos e informações de utilização em formatos de gráficos e disponível para download |
-| **Cliente**      | informações do cliente, incluindo o respetivo perfil de compra |
-| **Implementação**    | informações de êxito e falha de implementação em formatos de gráficos e ao nível do evento |
-| **Downloads**     | lista de pedidos de transferência para os últimos 30 dias |
-| **Análise**     | Resumo da análise da web e de análise de desempenho da campanha |
+| **Resumo**       | grafos, tendências e valores de dados agregados que resumem a atividade do Marketplace para as ofertas do Publicador |
+| **Máximo**        | pagamentos e transações relacionadas em formatos gráficos e baixáveis |
+| **Uso de & de pedidos** | informações de pedidos e uso em formatos gráficos e baixáveis |
+| **Cliente**      | informações do cliente, incluindo seu perfil de compra |
+| **Implementação**    | informações de êxito e falha da implantação em formatos gráficos e de nível de evento |
+| **Downloads**     | lista de solicitações de download dos últimos 30 dias |
+| **Análise**     | Resumo do análise da Web e do desempenho da campanha |
 |  |  |
 
 
-## <a name="summary-dashboard"></a>Dashboard de resumo
-O dashboard de resumo é a primeira guia e a guia padrão é apresentada ao navegar para a página de informações.  Esse design intencional reflete a que este dashboard fornece aos editores a visão mais ampla da atividade de vendas das suas ofertas.  Ele fornece representações gráficas da tendência de utilização normalizado; utilização mensal; mais populares de utilização ao mercado geográfico, oferta e dos clientes; e a tendência de dividendos.  A saída pode ser personalizada ao especificar datas de início e fim para a análise.  A imagem seguinte mostra um dashboard de resumo de exemplo da Contoso para Junho até Agosto de 2018.
+## <a name="summary-dashboard"></a>Painel de resumo
+O painel de resumo é a primeira guia e é a guia padrão exibida quando você navega até a página de informações.  Esse design intencional reflete que esse painel oferece aos editores a visão mais ampla da atividade de vendas de suas ofertas.  Ele fornece representações gráficas da tendência de uso normalizado; uso mensal; uso de tendências por mercado geográfico, oferta e cliente; e a tendência de pagamento.  A saída pode ser personalizada especificando datas de início e de término para a análise.  A imagem a seguir mostra um painel de Resumo de exemplo para contoso de junho a agosto de 2018.
 
-![Dashboard de resumo da página de informações do vendedor](./media/insights-page1.png)
+![Painel de resumo da página de informações do vendedor](./media/insights-page1.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a utilização de informações do vendedor para otimizar a vendas, consulte a secção [guia de introdução vendedor Insights](./../../cloud-partner-portal-orig/si-getting-started.md).
+Para obter mais informações sobre como usar o vendedor insights para otimizar as vendas, consulte a seção [introdução com informações do vendedor](./../../cloud-partner-portal-orig/si-getting-started.md).
 

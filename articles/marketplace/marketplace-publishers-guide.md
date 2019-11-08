@@ -4,15 +4,16 @@ description: Uma visão geral do Azure Marketplace e Microsoft AppSource para ed
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: cd6b09a1130e50fae7bd83579a0f176af0b5b9cd
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: fba9c481ad9b3da1eb0dd5d8a4ff2499240a8cfa
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962611"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826487"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guia de publicação do Azure Marketplace e do AppSource
 
@@ -30,7 +31,7 @@ Este guia aborda os seguintes tópicos:
 
 Este guia contém informações técnicas e comerciais sobre as etapas que você precisa executar antes de listar seus aplicativos e serviços. Use o Sumário para ir para seções diferentes do guia e ir diretamente para tópicos principais.
 
-Para perguntas sobre o Azure Marketplace e o AppSource, envie-nos uma mensagem sob **problema digite** > **integração do Marketplace**.  Nossa equipe de integração do editor do Marketplace ficará feliz em ajudar! 
+Para perguntas sobre o Azure Marketplace e o AppSource, envie-nos uma mensagem em **tipo de problema** > **integração do Marketplace**.  Nossa equipe de integração do editor do Marketplace ficará feliz em ajudar! 
 
 ## <a name="benefits-of-participating-in-the-marketplace"></a>Benefícios de participar do Marketplace 
 
@@ -56,16 +57,16 @@ Obtenha informações sobre o desempenho de suas listagens por meio de informaç
 
 Novas listagens no Marketplace são elegíveis para um conjunto diversificado de benefícios gratuitos para ajudar os parceiros a aumentarem seus negócios no Marketplace. Esses benefícios se enquadram nas seguintes categorias: 
 
-*   Technical Tudo o que você precisa para preparar o aplicativo para o lançamento. Do suporte técnico, do design de aplicativos e do design de arquitetura, aos créditos do Azure para desenvolvimento e teste. 
+*   Técnico: tudo o que você precisa para preparar seu aplicativo para o lançamento. Do suporte técnico, do design de aplicativos e do design de arquitetura, aos créditos do Azure para desenvolvimento e teste. 
 
-*   Co-marketing: Tudo o que você precisa para iniciar sua oferta. Acesse os conceitos básicos de lançamento gratuitos do Microsoft go-to-Market para ajudá-lo a iniciar e promover sua solução. Você também pode estar qualificado para inclusão e oportunidades adicionais de campanha de marketing da Microsoft em destaque no Marketplace.
+*   Co-marketing: tudo o que você precisa para iniciar sua oferta. Acesse os conceitos básicos de lançamento gratuitos do Microsoft go-to-Market para ajudá-lo a iniciar e promover sua solução. Você também pode estar qualificado para inclusão e oportunidades adicionais de campanha de marketing da Microsoft em destaque no Marketplace.
 
-*   Venda conjunta: Comece ou Acelere sua jornada para vender com a Microsoft por meio do Marketplace. Acesse programas e suporte para impulsionar as vendas em conjunto com as equipes da Microsoft.
+*   Venda em conjunto: Comece ou Acelere sua jornada para vender com a Microsoft por meio do Marketplace. Acesse programas e suporte para impulsionar as vendas em conjunto com as equipes da Microsoft.
 
 Depois de [enviar sua solução](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) para o Marketplace, nossa equipe de integração entrará em contato com você para dar suporte à sua experiência de publicação.  Consulte [como criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) para obter mais informações.
 
 Saiba mais sobre os [benefícios do seu Marketplace comercial](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Examine informações detalhadas sobre tópicos do Marketplace de nuvem explorando o Sumário à esquerda. 

@@ -1,5 +1,5 @@
 ---
-title: Adicionar um pacote do R ao Serviços de Machine Learning do banco de dados SQL do Azure (versão prévia)
+title: Adicionar um pacote R ao Serviços de Machine Learning (versão prévia)
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: Este artigo explica como instalar um pacote R que ainda não está instalado no banco de dados SQL do Azure Serviços de Machine Learning (versão prévia).
 services: sql-database
@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
-ms.openlocfilehash: f82408a6aaa7cf3a492f3036a6db5d8666b6f160
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: ce85f45d823df42e70af53824e175968439621d3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598045"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819867"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Adicionar um pacote do R ao Serviços de Machine Learning do banco de dados SQL do Azure (versão prévia)
 
@@ -70,7 +70,7 @@ No exemplo a seguir, você instalará o pacote de **[União](https://cran.r-proj
 
 ### <a name="install-sqlmlutils"></a>Instalar o **sqlmlutils**
 
-1. Baixe o arquivo zip **sqlmlutils** mais recente https://github.com/Microsoft/sqlmlutils/tree/master/R/dist de em seu computador local. Você não precisa descompactar o arquivo.
+1. Baixe o arquivo zip **sqlmlutils** mais recente de https://github.com/Microsoft/sqlmlutils/tree/master/R/dist em seu computador local. Você não precisa descompactar o arquivo.
 
 1. Abra um **prompt de comando** e execute os comandos a seguir para instalar o **RODBCext** e o **sqlmlutils** no computador local. Substitua o caminho completo para o arquivo zip **sqlmlutils** que você baixou (o exemplo supõe que o arquivo está em sua pasta documentos).
     
@@ -88,7 +88,7 @@ No exemplo a seguir, você instalará o pacote de **[União](https://cran.r-proj
     ```
 
     > [!TIP]
-    > Se você receber o erro "o" R "não é reconhecido como um comando interno ou externo, um programa ou arquivo em lotes operável, provavelmente significa que o caminho para o R. exe não está incluído em sua variável de ambiente **Path** no Windows. Você pode adicionar o caminho à variável de ambiente ou navegar até a pasta no prompt de comando (por exemplo `cd C:\Program Files\R\R-3.5.3\bin`) e, em seguida, repetir o comando.
+    > Se você receber o erro "o" R "não é reconhecido como um comando interno ou externo, um programa ou arquivo em lotes operável, provavelmente significa que o caminho para o R. exe não está incluído em sua variável de ambiente **Path** no Windows. Você pode adicionar o caminho para a variável de ambiente ou navegar até a pasta no prompt de comando (por exemplo `cd C:\Program Files\R\R-3.5.3\bin`) e, em seguida, repetir o comando.
 
 ### <a name="add-the-package"></a>Adicionar o pacote
 
@@ -166,7 +166,7 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 > [!TIP]
 > Outra maneira de instalar um pacote do R em seu banco de dados SQL do Azure é carregar o pacote R de um fluxo de bytes usando a instrução T-SQL **criar biblioteca externa** . Consulte [criar uma biblioteca de um fluxo de bytes](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) na documentação criar referência de [biblioteca externa](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Serviços de Machine Learning do banco de dados SQL do Azure com R (versão prévia), consulte os artigos a seguir.
 

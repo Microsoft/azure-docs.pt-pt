@@ -7,16 +7,16 @@ ms.date: 07/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 0433f3faf0a62a4cf4fb103aaad1b810c623e9d8
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ee95ccd30d0f2eddcca7327dc4e5b60a3efe7e64
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608758"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825410"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-for-net"></a>Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure para .NET
+# <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure v11 para .NET
 
-Introdução à biblioteca de cliente de armazenamento de BLOBs do Azure para .NET. O armazenamento de BLOBs do Azure é a solução de armazenamento de objetos da Microsoft para a nuvem. Siga as etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. O Armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados.
+Introdução à biblioteca de cliente do armazenamento de BLOBs do Azure v11 para .NET. O armazenamento de BLOBs do Azure é a solução de armazenamento de objetos da Microsoft para a nuvem. Siga as etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. O Armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados.
 
 Use a biblioteca de cliente do armazenamento de BLOBs do Azure para .NET para:
 

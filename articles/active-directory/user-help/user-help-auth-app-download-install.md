@@ -1,5 +1,5 @@
 ---
-title: Baixar e instalar o Microsoft Authenticator app-Azure Active Directory | Microsoft Docs
+title: Baixar e instalar o aplicativo Microsoft Authenticator-Azure AD
 description: Como baixar, instalar e usar o aplicativo Microsoft Authenticator para verificação de dois fatores.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15ecdf0feb0d8e5307eac9916748e0bacdf51620
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: ebe80d44d52ffa348413e51cd5e82e8468537479
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616052"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820229"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Baixar e instalar o aplicativo Microsoft Authenticator
 
@@ -52,8 +52,8 @@ Instale a versão mais recente do aplicativo Microsoft Authenticator, com base n
 - **Apple iOS.** No seu dispositivo iOS da Apple, vá para a loja de aplicativos para [baixar e instalar o aplicativo Microsoft Authenticator](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
 >[!Important]
->Se você não estiver no seu dispositivo móvel no momento, ainda poderá obter o aplicativo Microsoft Authenticator enviando a você mesmo um link de download da [página Microsoft Authenticator](https://www.microsoft.com/account/authenticator).
+>Se você não estiver no seu dispositivo móvel no momento, ainda poderá obter o aplicativo Microsoft Authenticator enviando a você mesmo um link de download da [página Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Depois de baixar e instalar o aplicativo, você deve adicionar suas várias contas. Para obter mais informações, consulte [adicionar suas contas](user-help-auth-app-add-account-overview.md).

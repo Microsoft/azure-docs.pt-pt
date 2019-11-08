@@ -1,64 +1,65 @@
 ---
-title: Fornecedores de soluções da cloud | O Azure Marketplace
-description: Os publicadores agora podem vender as suas ofertas através do canal de qualidade de parceiro CSP de Microsoft
+title: Provedores de soluções de nuvem | Azure Marketplace
+description: Os editores agora podem vender suas ofertas por meio do Microsoft CSP Partner Channel
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 0b47e5af0b0656cac4962c1007e999508f58a9e5
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 80f871301bbb67def3635b8beb3705ac99b88bda
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150948"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826055"
 ---
 # <a name="cloud-solution-providers"></a>Fornecedores de Soluções Cloud
 
-Ofertas de software podem alcançar milhões de clientes qualificados do Microsoft fornecidos pelos parceiros do programa de fornecedor de soluções Cloud (CSP), além de disponibilidade pública de ofertas através de [vitrines na web da Microsoft](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+As ofertas de software podem alcançar milhões de clientes qualificados da Microsoft atendidos por parceiros no programa CSP (provedor de soluções na nuvem), além da disponibilidade pública de ofertas por meio de [vitrines da Web da Microsoft](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
 
-Os publicadores configurar ofertas de disponibilidade no programa CSP de forma participação ativa (o padrão é excluído), para uma nova oferta ou um já existente, permitir que os parceiros vende seus produtos e criar agrupado soluções para os clientes.
+Os editores configuram ofertas de disponibilidade no programa CSP em uma base opcional (o padrão é excluído), para uma nova oferta ou uma existente, permitindo que os parceiros vendam seus produtos e criem soluções agrupadas para os clientes.
 
-Os publicadores são responsáveis por fornecer suporte break-fix para consumidores finais e para fornecer um mecanismo para os parceiros CSP e/ou os clientes entrar em contacto consigo para o suporte. É melhores práticas para fornecer os parceiros CSP com a documentação do utilizador, treinamento e as notificações de estado de funcionamento/falha (conforme aplicável) do serviço para que os parceiros CSP são equipados para lidar com solicitações de 1 de suporte de camada de clientes.
+Os Publicadores são responsáveis por fornecer suporte à correção de consertos para clientes finais e para fornecer um mecanismo para parceiros CSP e/ou clientes entrar em contato com você para obter suporte. São práticas recomendadas para fornecer aos parceiros CSP a documentação do usuário, treinamento e notificações de manutenção/interrupção do serviço (conforme aplicável) para que os parceiros do CSP sejam equipados para lidar com solicitações de suporte da camada 1 de clientes.
 
-A tabela seguinte mostra os tipos de oferta e modelos de preços que podem optar ativamente por participar no programa CSP:
+A tabela a seguir mostra os tipos de oferta e os modelos de preços que podem aceitar o programa CSP:
 
 | **Tipo de oferta**    | **BYOL**  |  **Gratuito** | **PAYG**   |
 | :---------------- | :---------|:----------|:-----------|
 | VMs  | Sim | Sim | Sim |
-| Contentores | N/A | Sim | N/A |
-| Modelos de soluções | N/A | Sim | N/A |
-| Aplicações Geridas | N/A | Sim | Sim |
-| Software-como-serviço (SaaS) | N/A | Sim | Sim |
+| Contentores | N/D | Sim | N/D |
+| Modelos de solução | N/D | Sim | N/D |
+| Aplicações Geridas | N/D | Sim | Sim |
+| SaaS (software como serviço) | N/D | Sim | Sim |
 |   |   |   |
 
 ## <a name="how-to-configure-an-offering"></a>Como configurar uma oferta
 
-O CSP programa participar estiver configurada na experiência de criação de oferta de centro de parceiros ou o Portal de parceiros da Cloud. ([Saiba mais sobre a experiência de publicador de alteração. ](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293))
+A configuração de aceitação do programa CSP está configurada no Partner Center ou na experiência de criação da oferta de Portal do Cloud Partner. ([Saiba mais sobre a experiência de alteração do editor.](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293))
 
-No Portal do Cloud Partner, ela é definida na guia Marketplace ou da loja. No Centro de parceiros, ele é definido no guia de configuração de oferta em detalhes do programa de configuração.
+No Portal do Cloud Partner, ele é definido na guia Marketplace ou vitrine. No Partner Center, ele é definido na guia instalação da oferta em detalhes da instalação.
 
-![Inscreva-se no experiência CSP no CPP](media/marketplace-publishers-guide/csp-opt-in.png)
+![Experiência de aceitação do CSP em CPP](media/marketplace-publishers-guide/csp-opt-in.png)
 
-Como mostrado abaixo, no Centro de parceiros, os publicadores podem optar por disponibilizar suas ofertas no programa CSP marcando a caixa **fazer minha oferta disponível no programa CSP**.
+Como visto abaixo, no Partner Center, os editores podem optar por disponibilizar suas ofertas no programa CSP marcando a caixa, **disponibilizar minha oferta no programa CSP**.
 
-![Inscreva-se no experiência CSP no Centro de parceiros](media/marketplace-publishers-guide/pc-csp-opt-in.png)
+![Experiência de aceitação do CSP no Partner Center](media/marketplace-publishers-guide/pc-csp-opt-in.png)
 
-## <a name="sharing-sales-and-support-materials-with-csp-partners"></a>Compartilhamento de vendas e materiais de suporte com os parceiros CSP
+## <a name="sharing-sales-and-support-materials-with-csp-partners"></a>Compartilhando materiais de vendas e de suporte com parceiros CSP
 
-Para que os parceiros do programa de fornecedor de soluções Cloud com mais eficiência a representar a sua oferta e interaja com a sua organização, a submeter vendas e suporte materiais que estarão disponíveis para os revendedores. Estes recursos não serão expostos a clientes em lojas do marketplace.
+Para permitir que os parceiros no programa do provedor de soluções na nuvem representem com mais eficiência sua oferta e entrem em contato com sua organização, envie materiais de vendas e de suporte que estarão disponíveis para os revendedores. Esses recursos não serão expostos aos clientes nas vitrines do Marketplace.
 
-Como mostrado abaixo, no Portal de parceiros da Cloud, os publicadores podem introduzir um URL que hospeda os materiais de marketing relevantes e informações de contacto do canal para o canal CSP:
+Como mostrado abaixo, em Portal do Cloud Partner, os editores podem inserir uma URL que hospede materiais de marketing relevantes e informações de contato do canal para o canal CSP:
 
-![Informações de colaterais de CSP](media/marketplace-publishers-guide/cpp-csp-information.png)
+![Informações adicionais do CSP](media/marketplace-publishers-guide/cpp-csp-information.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Visite o [Azure Marketplace e guia de publicador do AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) página.
+Visite a página do [Guia do Azure Marketplace e do AppSource Publisher](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) .
 
-Para saber mais sobre os serviços GTM do marketplace, aceda à [serviços Go-to-market](https://partner.microsoft.com/reach-customers/gtm).
+Para saber mais sobre os serviços GTM do Marketplace, acesse [serviços de entrada no mercado](https://partner.microsoft.com/reach-customers/gtm).
 
-Inicie sessão para o [Cloud Partner Portal](https://cloudpartner.azure.com/), ou o [Centro de parceiros](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) para as ofertas de SaaS, para criar e configurar a sua oferta.
+Entre no [portal do Cloud Partner](https://cloudpartner.azure.com/), ou no [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) para ofertas de SaaS, para criar e configurar sua oferta.
 
 ---

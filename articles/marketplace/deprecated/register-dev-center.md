@@ -5,26 +5,27 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0dd53689f7528e73845ab47a9791f062e0f2cb0c
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: a7abb73f229c444f88626ef03c90f62e138023c6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962790"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825914"
 ---
 # <a name="register-in-dev-center"></a>Registar no Dev Center  
 Para ajudar a verificar se você não está conectado a uma conta de navegador pessoal, abra uma nova sessão de navegação do Internet Explorer InPrivate ou Chrome Incognito.  
 1.  Registre-se como um vendedor no centro de desenvolvimento.  
     *   Para entrar e registrar-se como um vendedor, visite a página do centro de desenvolvimento do Azure localizada em [dev.Windows.com/registration?accountprogram=Azure](https://dev.windows.com/registration?accountprogram=azure).  
-2.  Conclua `Help us protect your account` o assistente, que verifica sua identidade usando seu número de telefone ou endereço de email.  
+2.  Conclua o assistente de `Help us protect your account`, que verifica sua identidade usando seu número de telefone ou endereço de email.  
 
 <!--
     ![Boxes for phone info in the Help us protect your account wizard](./media/marketplace-publishers-guide/registerdevcenteremail.png)  
 -->
-3.  Na seção, selecione o país ou a região da conta no menu suspenso *país/região da conta.* `Registration - Account Info`  
+3.  Na seção `Registration - Account Info`, selecione o país ou a região da conta no menu suspenso *país/região da conta* .  
 <!--
     ![Account info with box for country/region](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)  
 -->
@@ -32,7 +33,7 @@ Para ajudar a verificar se você não está conectado a uma conta de navegador p
     >To sell your services in Azure Marketplace, verify that your registered entity is from one of the approved *sell-from* countries/regions. The location restriction is required for payout and taxation reasons. 
     >*   For more information, visit the Azure Marketplace Participation Policies page located at [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).  
 
-4.  Para *tipo de conta*, selecione `Company` o botão de opção.  
+4.  Para *tipo de conta*, selecione o botão de opção `Company`.  
     *   Para obter mais informações sobre tipos de conta e ajudar a determinar qual é o melhor para você, visite a página tipos de conta, locais e taxa localizada em [docs.Microsoft.com/Windows/UWP/Publish/Account-Types-Locations-and-fees](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).  
 
     Clique no botão Avançar.  
@@ -53,7 +54,7 @@ Para ajudar a verificar se você não está conectado a uma conta de navegador p
 <!--
     !["Account info" page with sections highlighted](./media/marketplace-publishers-guide/devcenterregistrationpayment.png)  
 -->
-8.  `Registration - Payment` Na seção, você deve inserir suas informações de pagamento para pagar pela sua conta do centro de desenvolvimento.  
+8.  Na seção `Registration - Payment`, você deve inserir suas informações de pagamento para pagar pela sua conta do centro de desenvolvimento.  
     *   Para o *código promocional*, insira um código promocional que cubra o custo do registro.  
     *   Para *cobrança*, forneça suas informações de cartão de crédito. As informações de PayPal podem ser usadas no lugar de um cartão de crédito em mercados com suporte.  
 
@@ -61,7 +62,7 @@ Para ajudar a verificar se você não está conectado a uma conta de navegador p
 <!--
     ![Dev Center payment information](./media/marketplace-publishers-guide/devcenterregistrationpayment2.png)  
 -->
-9.  `Registration - Review` Na seção, examine as informações da conta e confirme se tudo está correto.  
+9.  Na seção `Registration - Review`, examine as informações da conta e confirme se tudo está correto.  
 
     Leia os termos e condições do contrato de Microsoft Azure Marketplace [Editor](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf).  
 
@@ -70,9 +71,9 @@ Para ajudar a verificar se você não está conectado a uma conta de navegador p
     Clique no botão Concluir para receber uma mensagem de email de confirmação.  
 11. Escolha as próximas etapas usando o modelo de cobrança para sua oferta.  
 
-    | Modelo de faturação | Passos Seguintes |  
+    | Modelo de faturação | Passos seguintes |  
     |:--- |:--- |  
-    | Livre | Vá para Portal do Cloud Partner.<ul> <li>Para publicar no Azure Marketplace, visite a página Portal do Cloud Partner localizada em [cloudpartner.Azure.com](https://cloudpartner.azure.com).</li> </ul> |  
+    | Gratuito | Vá para Portal do Cloud Partner.<ul> <li>Para publicar no Azure Marketplace, visite a página Portal do Cloud Partner localizada em [cloudpartner.Azure.com](https://cloudpartner.azure.com).</li> </ul> |  
     | Comercial (Transact) | Atualize as informações da sua conta.<ul> <li>Para obter mais informações sobre como adicionar informações de conta, visite a seção [como adicionar informações bancárias e de impostos](#add-bank-information) .</li> </ul> |  
 
     *   Um exemplo de uma oferta comercial é uma oferta de VM com um modelo de cobrança por hora.  
@@ -98,7 +99,7 @@ Se você tiver problemas com o registro do centro de desenvolvimento, siga estas
 3.  Para enviar o tíquete, clique no botão enviar. 
 
 
-## <a name="issue-add-bank-and-tax-information-for-publisher-payouts"></a>Problema: Adicionar informações bancárias e de impostos para pagamentos de Publicador  
+## <a name="issue-add-bank-and-tax-information-for-publisher-payouts"></a>Problema: adicionar informações bancárias e de impostos para pagamentos de Publicador  
 As informações bancárias e de impostos são necessárias para todas as ofertas comerciais usando o tipo de listagem do Transact.  
 *   Se você estiver publicando ofertas comerciais para compra, deverá adicionar informações de pagamento e impostos e a validação de solicitação no centro de desenvolvimento.  
     >[!IMPORTANT]
@@ -110,7 +111,7 @@ As informações bancárias e de impostos são necessárias para todas as oferta
 1.  Entre no centro de desenvolvimento usando sua ID da Microsoft.  
     *   Para entrar no dev Center, visite a página do centro de desenvolvimento do Windows localizada em [dev.Windows.com](https://dev.windows.com).  
 2.  Selecione conta de pagamento no menu à esquerda.
-3.  Na página, selecione `Bank account` ou `PayPal`. `Choose payment method`  
+3.  Na página `Choose payment method`, selecione `Bank account` ou `PayPal`.  
     >[!IMPORTANT]
     >Se você tiver ofertas comerciais que os clientes compram no Marketplace, sua conta de pagamento será onde você receberá o pagamento pelas compras.  
 
@@ -126,7 +127,7 @@ As informações bancárias e de impostos são necessárias para todas as oferta
 1.  Entre no centro de desenvolvimento usando sua ID da Microsoft.  
     *   Para entrar no dev Center, visite a página do centro de desenvolvimento do Windows localizada em [dev.Windows.com](https://dev.windows.com).  
 2.  Selecione perfil de impostos no menu à esquerda. 
-3.  `Set up your tax form` Na página, selecione o país ou a região em que você tem residência permanente.  
+3.  Na página `Set up your tax form`, selecione o país ou a região em que você tem residência permanente.  
     
     Selecione o país ou região onde você mantém a cidadania primária.  
     
@@ -144,7 +145,7 @@ As informações bancárias e de impostos são necessárias para todas as oferta
   > A conta do centro de desenvolvimento é necessária para habilitar a Microsoft a cobrar o cliente sobre o tipo de listagem de Transact do editor. O registro da conta do centro de desenvolvimento permite que a Microsoft valide as informações legais, de impostos e bancárias para sua empresa. Para saber mais, clique [aqui.](https://docs.microsoft.com/azure/marketplace/become-publisher)
 
 * **Como fazer introdução ao registro do centro de desenvolvimento?**
-  > Para evitar a duplicação, verifique se sua empresa ainda não tem uma conta do centro de desenvolvimento registrada. Você deve estar conectado com o conta Microsoft que deseja associar à sua conta de desenvolvedor. Se ainda não tiver uma conta Microsoft, você poderá criar uma nova conta [aqui.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (exemplo: contoso_marketplace@live.com) para entrar e registrar-se, vá para https://dev.windows.com/registration?accountProgram=Azure
+  > Para evitar a duplicação, verifique se sua empresa ainda não tem uma conta do centro de desenvolvimento registrada. Você deve estar conectado com o conta Microsoft que deseja associar à sua conta de desenvolvedor. Se ainda não tiver uma conta Microsoft, você poderá criar uma nova conta [aqui.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (exemplo: contoso_marketplace@live.com) Para entrar e registrar-se, acesse https://dev.windows.com/registration?accountProgram=Azure
   > <br>Para saber mais sobre o processo de registro, clique [aqui.](https://docs.microsoft.com/azure/marketplace/register-dev-center)</br>
 
 * **Devo escolher o tipo de conta ' individual ' ou ' empresa '?**
@@ -160,7 +161,7 @@ As informações bancárias e de impostos são necessárias para todas as oferta
   > Preencha o formulário de [registro do Marketplace](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) para receber um código promocional do centro de desenvolvimento. Consulte como [criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) para obter mais informações.
  
 * **O que devo esperar depois de concluir o registro?**
-  > Procure um email de com verify@microsoft.com a linha de assunto "ação necessária: Verifique sua conta de email com a Microsoft ". Clique no link verificação sensível à hora para concluir o registro. *Se você não recebeu um email em 24 horas, verifique a pasta de spam.*
+  > Procure um email de verify@microsoft.com com a linha de assunto "ação necessária: Verifique sua conta de email com a Microsoft". Clique no link verificação sensível à hora para concluir o registro. *Se você não recebeu um email em 24 horas, verifique a pasta de spam.*
 
 * **Quais são as próximas etapas após a verificação do centro de desenvolvimento?**
   > Vá para "seus programas" (https://developer.microsoft.com/dashboard/Account/Programs) e faça logon na conta do centro de desenvolvimento. Se você não vir o Azure como um programa registrado, procure "programas recomendados para você" e procure o Azure para selecionar "introdução".
@@ -187,7 +188,7 @@ As informações bancárias e de impostos são necessárias para todas as oferta
 * **Onde contatar o suporte com problemas relacionados ao registro do centro de desenvolvimento?**
   Para acessar o suporte, visite a página de suporte do desenvolvedor do Windows localizada em [Developer.Microsoft.com/Windows/support](https://developer.microsoft.com/windows/support). 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 *   Visite a página do [Guia do Azure Marketplace e do AppSource Publisher](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) .  
 
 ---

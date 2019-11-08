@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: sintetizando o serviço de fala-fala'
+title: 'Início rápido: sintetizar a fala em um serviço de fala do palestrante'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você usará o SDK de fala para converter texto em fala sintetizada.
+description: Neste guia de início rápido, você usará o SDK de fala para converter texto em fala sintetizada e reproduzir a saída em um palestrante.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: c080723c30b05e0fe8f3818b684fd47131223601
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 960e87860f004d8f9f2002b8125ecf26ee55237d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681974"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826864"
 ---
-# <a name="quickstart-synthesize-speech-by-using-the-speech-sdk"></a>Início rápido: sintetizar a fala usando o SDK de fala
+# <a name="quickstart-synthesize-speech-to-a-speaker"></a>Início rápido: sintetizar a fala para um palestrante
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/tts/header.md)]

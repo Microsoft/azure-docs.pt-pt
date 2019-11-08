@@ -1,59 +1,60 @@
 ---
-title: Store seu pacote de AppSource para o armazenamento do Azure e gerar um URL com a chave SAS
-description: Fornece detalhes sobre os passos necessários para carregar e proteger um pacote do AppSource.
+title: Armazenar o pacote AppSource no armazenamento do Azure e gerar uma URL com a chave SAS
+description: Detalha as etapas necessárias para carregar e proteger um pacote AppSource.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pabutler
-ms.openlocfilehash: ac77767aee2dcde33f4266e1d2d09c49dcf5f8a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f1a09244697a6771ad1b499f3d7c36eb7297067
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943289"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827655"
 ---
-<a name="store-your-appsource-package-to-azure-storage-and-generate-a-url-with-sas-key"></a>Store seu pacote de AppSource para o armazenamento do Azure e gerar um URL com a chave SAS
+<a name="store-your-appsource-package-to-azure-storage-and-generate-a-url-with-sas-key"></a>Armazenar o pacote AppSource no armazenamento do Azure e gerar uma URL com a chave SAS
 =============================================================================
 
-Para manter a segurança dos seus ficheiros, todos os parceiros tem de armazenar seu arquivo de pacote do AppSource numa conta de armazenamento de Blobs do Azure e utilizar uma chave SAS para partilhá-lo. Podemos irá obter o ficheiro de pacote do seu local de armazenamento do Azure para obter uma certificação e utilizá-lo para versões de avaliação do AppSource.
+Para manter a segurança de seus arquivos, todos os parceiros devem armazenar o arquivo de pacote AppSource em uma conta de armazenamento de BLOBs do Azure e usar uma chave SAS para compartilhá-lo. Recuperaremos o arquivo de pacote do seu local de armazenamento do Azure para certificação e o usarei para avaliações do AppSource.
 
-Utilize os seguintes passos para carregar o seu pacote para o armazenamento de BLOBs:
+Use as seguintes etapas para carregar seu pacote no armazenamento de BLOBs:
 
-1. Aceda a <https://azure.microsoft.com> e crie uma conta de avaliação ou de faturação gratuita.
+1. Vá para <https://azure.microsoft.com> e crie uma conta de avaliação gratuita ou cobrada.
 
 2. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-3. Criar uma nova conta de armazenamento ao clicar em **+ novo** e o **dados + armazenamento** conta.
+3. Crie uma nova conta de armazenamento clicando em **+ novo** e indo para a conta **dados + armazenamento** .
 
-   ![Dados + painel de armazenamento no Portal do Microsoft Azure](media/CRMScreenShot7.png)
+   ![Folha de dados + armazenamento no portal Microsoft Azure](media/CRMScreenShot7.png)
 
-4. Introduza um **Name** e **grupo de recursos** nome e clique em **criar** botão.
+4. Insira um **nome** e um nome de **grupo de recursos** e clique no botão **criar** .
 
-   ![Criar conta de armazenamento no Portal do Microsoft Azure](media/CRMScreenShot8.png)
+   ![Criar conta de armazenamento no portal Microsoft Azure](media/CRMScreenShot8.png)
 
-5. Navegue para o grupo de recursos recém-criado e criar um novo contentor de Blobs.
+5. Navegue até o grupo de recursos criado recentemente e crie um novo contêiner de BLOBs.
 
-   ![Carregar o pacote como blob através do Portal do Microsoft Azure](media/CRMScreenShot9.png)
+   ![Carregar pacote como BLOB usando o portal Microsoft Azure](media/CRMScreenShot9.png)
 
-6. Se ainda não o fez, transfira e instale o Microsoft [Explorador de armazenamento do Azure](https://storageexplorer.com/).
+6. Se você ainda não tiver feito isso, baixe e instale o Microsoft [Gerenciador de armazenamento do Azure](https://storageexplorer.com/).
 
-7. Abra o Explorador de armazenamento e utilizar o ícone para ligar à sua conta de armazenamento do Azure.
+7. Abra Gerenciador de Armazenamento e use o ícone para se conectar à sua conta de armazenamento do Azure.
 
-8. Navegue para o contentor de BLOBs que criou e clique em **carregar** ao adicionar o ficheiro zip do pacote.
+8. Navegue até o contêiner de BLOB que você criou e clique em **carregar** para adicionar o arquivo zip do pacote.
 
-   ![Carregar o pacote com o Explorador de armazenamento da Microsoft](media/CRMScreenShot10.png)
+   ![Carregar o pacote usando o Microsoft Gerenciador de Armazenamento](media/CRMScreenShot10.png)
 
-9. Clique com o botão direito do rato no seu arquivo e selecione **obter assinatura de acesso partilhado**.
+9. Clique com o botão direito do mouse no arquivo e selecione **obter assinatura de acesso compartilhado**.
 
-   ![Obter assinatura de acesso partilhado de um arquivo do Azure](media/CRMScreenShot11.png)
+   ![Obter assinatura de acesso compartilhado de um arquivo do Azure](media/CRMScreenShot11.png)
 
-10. Modificar a **tempo de expiração** para tornar a SAS ativa durante um mês, em seguida, clique em **criar**.
+10. Modifique o **tempo de expiração** para tornar a SAS ativa por um mês e clique em **criar**.
 
-    ![Modificar a data de expiração de SAS de um arquivo do Azure](media/CRMScreenShot12.png)
+    ![Modificar a data de validade da SAS de um arquivo do Azure](media/CRMScreenShot12.png)
 
-11. Copie o campo de URL e guarde-o para utilizar mais tarde. Terá de introduzir este URL quando criar a oferta associada. 
+11. Copie o campo URL e salve-o para mais tarde. Você precisará inserir essa URL ao criar a oferta associada. 
 
-    ![Copie o URL de SAS de um arquivo do Azure](media/CRMScreenShot13.png)
+    ![Copiar a URL SAS de um arquivo do Azure](media/CRMScreenShot13.png)
 

@@ -5,15 +5,16 @@ services: Azure, AppSource, Marketplace, Compute, Storage, Networking, Blockchai
 author: qianw211
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: pabutler
-ms.openlocfilehash: 0b68687a2bbaa817f2776757ccab9571638c0fd5
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 9423263270313659017b16a5e34511e7ef385af5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876002"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825891"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Ativar uma listagem do AppSource e do Marketplace com o Azure Active Directory
 
@@ -35,12 +36,12 @@ As várias [Opções de listagem e tipos de oferta](https://docs.microsoft.com/a
 | **Tipo de oferta**    | **O SSO do Azure AD é necessário?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
 |  | Entre em contato comigo | Avaliação | Versão de Teste | Transact |
-| Máquina virtual | N/A | Não | Não | Não |
-| Aplicativos do Azure (modelo de solução)  | N/A | N/D | N/D | N/A |
-| Aplicativos gerenciados  | N/A | N/D | N/A | Não |
+| Máquina Virtual | N/D | Não | Não | Não |
+| Aplicativos do Azure (modelo de solução)  | N/D | N/D | N/D | N/D |
+| Aplicativos gerenciados  | N/D | N/D | N/D | Não |
 | SaaS  | Não | Sim | Sim | Sim |
-| Contentores  | N/A | N/D | N/A | Não |
-| Serviços de consultoria  | Não | N/A | N/D | N/A |
+| Contentores  | N/D | N/D | N/D | Não |
+| Serviços de consultoria  | Não | N/D | N/D | N/D |
 
 Para obter mais informações sobre os requisitos técnicos de SaaS, consulte [Guia de publicação de aplicativos SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
@@ -53,7 +54,7 @@ Para obter mais informações sobre os requisitos técnicos de SaaS, consulte [G
 
 A configuração automatizada do cliente pode aumentar a probabilidade de conversão. Quando o cliente seleciona sua listagem de avaliação e é redirecionado para seu ambiente de avaliação, você pode configurar o cliente diretamente sem a necessidade de etapas de entrada adicionais.
 
-Durante a autenticação, o Azure AD envia um token para seu aplicativo ou oferta. As informações de usuário fornecidas pelo token permitem a criação de uma conta de usuário em seu aplicativo ou oferta. Para saber mais, confira tokens de [exemplo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Durante a autenticação, o Azure AD envia um token para seu aplicativo ou oferta. As informações de usuário fornecidas pelo token permitem a criação de uma conta de usuário em seu aplicativo ou oferta. Para saber mais, confira [tokens de exemplo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 Ao usar o Azure AD para habilitar a autenticação com um clique no aplicativo ou na listagem de avaliação, você:
 
@@ -86,7 +87,7 @@ Use o Azure AD para dar suporte a uma das seguintes ações:
 - Desenvolva um test drive por cliente.
 - Crie um aplicativo de demonstração de exemplo multilocatário que usa o SSO.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Certifique-se de que você se [registrou no Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 - Consulte [como criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) para obter mais informações sobre como criar ou concluir sua oferta.

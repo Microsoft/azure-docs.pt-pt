@@ -1,5 +1,5 @@
 ---
-title: Recuperação de banco de dados acelerada-banco de dados SQL do Azure
+title: Recuperação de base de dados acelerada
 description: O banco de dados SQL do Azure tem um novo recurso que fornece recuperação rápida e consistente de banco de dados, reversão instantânea de transação e truncamento agressivo de log para bancos de dados individuais e bancos de dado em pool no banco de dados SQL do Azure e bancos de dados em SQL data do Azure Armazén.
 ms.service: sql-database
 ms.subservice: high-availability
@@ -10,12 +10,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: cff481c7c2e09da1dc8c8e2f971d9adb164d54da
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
-ms.translationtype: HT
+ms.openlocfilehash: eff81693ff4c34dc00f66e9e5ea22e56d3ff9d77
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796128"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808094"
 ---
 # <a name="accelerated-database-recovery"></a>Recuperação de banco de dados acelerada
 

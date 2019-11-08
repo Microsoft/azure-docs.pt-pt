@@ -1,6 +1,6 @@
 ---
-title: Tutorial para criar uma aplicação Web com Cache do Azure para Redis que utilize o padrão Cache-Aside | Documentos da Microsoft
-description: Saiba como criar uma aplicação Web com Cache do Azure para Redis que utiliza o padrão Cache-Aside
+title: Tutorial para criar um aplicativo Web com o cache do Azure para Redis que usa o padrão de reserva de cache | Microsoft Docs
+description: Saiba como criar um aplicativo Web com o cache do Azure para Redis que usa o padrão de reserva de cache
 services: cache
 documentationcenter: ''
 author: yegu-ms
@@ -15,21 +15,21 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: bf4eb817bb1705c6af6d4e7e9e28e5789f49a906
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 8ca24e8556ee53e9d12eaea8fd9eddb07ebed490
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873036"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826401"
 ---
-# <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Criar uma classificação de cache-aside no ASP.NET
+# <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Criar uma classificação cache-aside no ASP.NET
 
-Neste tutorial irá atualizar o *ContosoTeamStats* aplicação web ASP.NET, criada no [início rápido do ASP.NET para a Cache de Redis do Azure](cache-web-app-howto.md), para incluir uma classificação que utiliza o [cache-aside padrão de](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) com a Cache de Redis do Azure. O aplicativo de exemplo mostra uma lista de estatísticas da equipa a partir de uma base de dados e demonstra as diferentes formas de utilizar a Cache de Redis do Azure para armazenar e recuperar dados a partir da cache para melhorar o desempenho. Quando concluir o tutorial terá uma aplicação web em execução que de leituras e escritas numa base de dados, otimizada com a Cache do Azure para Redis e alojada no Azure.
+Neste tutorial, você atualizará o aplicativo Web *ContosoTeamStats* ASP.net, criado no guia de [início rápido do ASP.net para o cache do Azure para Redis](cache-web-app-howto.md), para incluir um placar que usa o [padrão de reserva de cache](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) com o cache do Azure para Redis. O aplicativo de exemplo exibe uma lista de estatísticas de equipe de um banco de dados e demonstra maneiras diferentes de usar o cache do Azure para Redis para armazenar e recuperar dados do cache para melhorar o desempenho. Quando você concluir o tutorial, terá um aplicativo Web em execução que lê e grava em um banco de dados, otimizado com o cache do Azure para Redis e hospedado no Azure.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Melhorar o débito de dados e reduzir a carga de base de dados ao armazenar e obter dados com a Cache do Azure para Redis.
+> * Melhore a taxa de transferência de dados e reduza a carga do banco de dados, armazenando e recuperando o cache do Azure para Redis.
 > * Utilizar um conjunto ordenado de Redis para obter as cinco melhores equipas.
 > * Aprovisionar os recursos do Azure para a aplicação com um modelo do Resource Manager.
 > * Publicar a aplicação no Azure com o Visual Studio.
@@ -40,8 +40,8 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial, deve ter os seguintes pré-requisitos:
 
-* Este tutorial continua onde ficou [início rápido do ASP.NET para a Cache de Redis do Azure](cache-web-app-howto.md). Se ainda não o fez, siga este início rápido primeiro.
-* Instale [Visual Studio 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
+* Este tutorial continua de onde você parou no guia [de início rápido do ASP.net para o cache do Azure para Redis](cache-web-app-howto.md). Se ainda não o fez, siga este início rápido primeiro.
+* Instale o [Visual Studio 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
     * Desenvolvimento ASP.NET e Web
     * Desenvolvimento do Azure
     * Desenvolvimento do ambiente de trabalho em .NET, com o SQL Server Express LocalDB ou o [SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express).
@@ -52,7 +52,7 @@ Nesta secção do tutorial, vai configurar o projeto *ContosoTeamStats* com uma 
 
 ### <a name="add-the-entity-framework-to-the-project"></a>Adicionar o Entity Framework ao projeto
 
-1. No Visual Studio, abra a *ContosoTeamStats* solução que criou no [início rápido do ASP.NET para a Cache de Redis do Azure](cache-web-app-howto.md).
+1. No Visual Studio, abra a solução *ContosoTeamStats* que você criou no guia de [início rápido do ASP.net para o cache do Azure para Redis](cache-web-app-howto.md).
 2. Clique em **Ferramentas > Gestor de Pacotes NuGet >Consola do Gestor de Pacotes**.
 3. Emita o comando seguinte na janela da **Consola do Gestor de Pacotes** para instalar o EntityFramework:
 
@@ -156,7 +156,7 @@ Para mais informações sobre este pacote, consulte a página NuGet [EntityFrame
 
 1. Adicione a seguinte secção `connectionStrings` dentro da secção `configuration`. O nome da cadeia de ligação tem de corresponder ao nome da classe de contexto da base de dados do Entity Framework, que é `TeamContext`.
 
-    Esta cadeia de ligação parte do princípio de que cumpriu os [pré-requisitos](#prerequisites) e instalado o SQL Server Express LocalDB, que faz parte do *desenvolvimento de área de trabalho .NET* instalada com o Visual Studio 2019 da carga de trabalho.
+    Essa cadeia de conexão pressupõe que você atendeu aos [pré-requisitos](#prerequisites) e instalou o SQL Server Express LocalDB, que faz parte da carga de *trabalho de desenvolvimento de desktop .net* instalada com o Visual Studio 2019.
 
     ```xml
     <connectionStrings>
@@ -234,7 +234,7 @@ Para mais informações sobre este pacote, consulte a página NuGet [EntityFrame
     <title>@ViewBag.Title - Contoso Team Stats</title>
     ```
 
-1. Na `body` secção, adicione as seguintes novas `Html.ActionLink` instrução para *estatísticas da equipa a Contoso* apenas a ligação abaixo para obter *Cache do Azure para teste de Redis*.
+1. Na seção `body`, adicione a seguinte nova instrução `Html.ActionLink` para *Estatísticas da equipe contoso* logo abaixo do link para o *cache do Azure para teste Redis*.
 
     ```csharp
     @Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
@@ -242,13 +242,13 @@ Para mais informações sobre este pacote, consulte a página NuGet [EntityFrame
 
     ![Alterações do código](./media/cache-web-app-cache-aside-leaderboard/cache-layout-cshtml-code.png)
 
-1. Prima **Ctrl+F5** para criar e executar a aplicação. Esta versão da aplicação lê os resultados diretamente na base de dados. Tenha em atenção que as ações **Criar Nova**, **Editar**, **Detalhes** e **Eliminar** foram automaticamente adicionadas à aplicação pela estrutura do **Controlador 5 MVC com vistas através do Entity Framework**. Na secção seguinte do tutorial, irá adicionar a Cache de Redis otimizar o acesso a dados e fornecer funcionalidades adicionais à aplicação do Azure.
+1. Prima **Ctrl+F5** para criar e executar a aplicação. Esta versão da aplicação lê os resultados diretamente na base de dados. Tenha em atenção que as ações **Criar Nova**, **Editar**, **Detalhes** e **Eliminar** foram automaticamente adicionadas à aplicação pela estrutura do **Controlador 5 MVC com vistas através do Entity Framework**. Na próxima seção do tutorial, você adicionará o cache do Azure para Redis para otimizar o acesso a dados e fornecer recursos adicionais para o aplicativo.
 
     ![Aplicação de arranque](./media/cache-web-app-cache-aside-leaderboard/cache-starter-application.png)
 
-## <a name="configure-the-app-for-azure-cache-for-redis"></a>Configurar a aplicação para a Cache do Azure para Redis
+## <a name="configure-the-app-for-azure-cache-for-redis"></a>Configurar o aplicativo para o cache do Azure para Redis
 
-Nesta secção do tutorial, configurou a aplicação de exemplo para armazenar e obter as estatísticas da equipa de Contoso a partir de uma Cache do Azure para a instância de Redis, utilizando o [stackexchange. redis](https://github.com/StackExchange/StackExchange.Redis) cliente de cache.
+Nesta seção do tutorial, você configura o aplicativo de exemplo para armazenar e recuperar estatísticas da equipe da Contoso de um cache do Azure para a instância Redis usando o cliente de cache [stackexchange. Redis](https://github.com/StackExchange/StackExchange.Redis) .
 
 ### <a name="add-a-cache-connection-to-the-teams-controller"></a>Adicionar uma ligação de cache ao Controlador de Equipas
 
@@ -288,7 +288,7 @@ Já instalou o pacote da biblioteca de cliente *StackExchange.Redis* no início 
 
 Neste exemplo, as estatísticas da equipa podem ser obtidas a partir da base de dados ou da cache. As estatísticas da equipa são armazenadas na cache como uma `List<Team>` serializada e também como um conjunto ordenado que utiliza tipos de dados de Redis. Ao obter itens de um conjunto ordenado, poderá obter alguns, todos ou consultar determinados itens. Neste exemplo, vai consultar o conjunto ordenado para obter as cinco melhores equipas classificadas por número de vitórias.
 
-Não é necessário para armazenar as estatísticas da equipa em vários formatos na cache para poder utilizar o Azure Cache de Redis. Este tutorial utiliza vários formatos para demonstrar as diferentes formas e os diferentes tipos de dados que pode utilizar para colocar dados em cache.
+Não é necessário armazenar as estatísticas de equipe em vários formatos no cache para usar o cache do Azure para Redis. Este tutorial utiliza vários formatos para demonstrar as diferentes formas e os diferentes tipos de dados que pode utilizar para colocar dados em cache.
 
 1. Adicione as seguintes instruções `using` na parte superior do ficheiro `TeamsController.cs`, juntamente com as outras instruções `using`:
 
@@ -416,7 +416,7 @@ Não é necessário para armazenar as estatísticas da equipa em vários formato
     }
     ```
 
-    O método `GetFromList` lê as estatísticas da equipa a partir da cache, como uma `List<Team>` serializada. Se as estatísticas não estiverem presentes na cache, ocorrerá uma falha de acerto na cache. Se existir uma falha de acerto na cache, as estatísticas da equipa serão lidas a partir da base de dados e, em seguida, armazenadas para o próximo pedido. Neste exemplo, a serialização JSON.NET é utilizada para serializar os objetos .NET de/para a cache. Para obter mais informações, consulte [objetos de como trabalhar com o .NET na Cache do Azure para Redis](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
+    O método `GetFromList` lê as estatísticas da equipa a partir da cache, como uma `List<Team>` serializada. Se as estatísticas não estiverem presentes na cache, ocorrerá uma falha de acerto na cache. Se existir uma falha de acerto na cache, as estatísticas da equipa serão lidas a partir da base de dados e, em seguida, armazenadas para o próximo pedido. Neste exemplo, a serialização JSON.NET é utilizada para serializar os objetos .NET de/para a cache. Para obter mais informações, consulte [como trabalhar com objetos .net no cache do Azure para Redis](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 
     ```csharp
     List<Team> GetFromList()
@@ -638,7 +638,7 @@ O código da estrtura gerado como parte deste exemplo inclui métodos para adici
 
 Execute a aplicação localmente no computador para verificar a funcionalidade que foi adicionada para suportar as equipas.
 
-Neste teste, tanto a aplicação como a base de dados estão a ser executadas localmente. No entanto, a Cache do Azure para Redis está alojada remotamente no Azure. Por conseguinte, a cache pode provavelmente apresentar um desempenho ligeiramente inferior da base de dados. Para obter melhor desempenho, a aplicação cliente e o Cache do Azure para a instância de Redis devem ser na mesma localização. Na secção seguinte, vai implementar todos os recursos no Azure para ver o desempenho melhorado resultante da utilização de uma cache.
+Neste teste, tanto a aplicação como a base de dados estão a ser executadas localmente. No entanto, o cache do Azure para Redis é hospedado remotamente no Azure. Por conseguinte, a cache pode provavelmente apresentar um desempenho ligeiramente inferior da base de dados. Para obter o melhor desempenho, o aplicativo cliente e o cache do Azure para a instância Redis devem estar no mesmo local. Na secção seguinte, vai implementar todos os recursos no Azure para ver o desempenho melhorado resultante da utilização de uma cache.
 
 Para executar a aplicação localmente:
 
@@ -671,7 +671,7 @@ Nesta secção, vai aprovisionar uma nova base de dados SQL Azure para a aplica�
 
    | Definição       | Valor sugerido | Descrição |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nome do servidor** | Qualquer nome globalmente exclusivo | Para nomes de servidores válidos, veja [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições). |
+   | **Nome do servidor** | Qualquer nome globalmente exclusivo | Para nomes de servidores válidos, veja [Naming rules and restrictions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) (Atribuição de nomes de regras e restrições). |
    | **Início de sessão de administrador do servidor** | Qualquer nome válido | Para nomes de início de sessão válidos, veja [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de Bases de Dados). |
    | **Palavra-passe** | Qualquer palavra-passe válida | A sua palavra-passe deve ter, pelo menos, oito carateres e deve conter carateres de três das seguintes categorias: carateres maiúsculos, carateres minúsculos, números e carateres não alfanuméricos. |
    | **Localização** | *EUA Leste* | Selecione a mesma região onde criou a cache e o Serviço de Aplicações. |
@@ -709,7 +709,7 @@ Neste passo do tutorial, vai publicar as atualizações da aplicação no Azure 
 
     A tabela seguinte descreve cada ligação de ação da aplicação de exemplo:
 
-    | Acção | Descrição |
+    | Ação | Descrição |
     | --- | --- |
     | Criar Nova |Crie uma nova Equipa. |
     | Reproduzir Época |Reproduza uma época de jogos, atualize as estatísticas da equipa e limpe quaisquer dados da equipa desatualizados da cache. |
@@ -733,7 +733,7 @@ Quando tiver terminado o tutorial da aplicação de exemplo, poderá eliminar os
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
 2. Escreva o nome do seu grupo de recursos na caixa de texto **Filtrar itens…**
-3. Clique em **...**, à direita do grupo de recursos, e em **Eliminar grupo de recursos**.
+3. Clique em **...** , à direita do grupo de recursos, e em **Eliminar grupo de recursos**.
 
     ![Eliminar](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
 
@@ -741,7 +741,7 @@ Quando tiver terminado o tutorial da aplicação de exemplo, poderá eliminar os
 
     Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Como dimensionar a Cache do Azure para Redis](./cache-how-to-scale.md)
+> [Como dimensionar o cache do Azure para Redis](./cache-how-to-scale.md)

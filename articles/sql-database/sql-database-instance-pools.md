@@ -1,5 +1,5 @@
 ---
-title: Pools de instâncias do banco de dados SQL do Azure (visualização)
+title: Pools de instâncias (visualização)
 description: Este artigo descreve os pools da instância do banco de dados SQL do Azure (versão prévia).
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 7d8c316d5c78cfe09bcf134b5a5c513e1c007d74
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8738d1ad54d3ab63d8d2efc939aa9daacbe91c13
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689761"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810398"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>O que são os pools de instâncias do banco de dados SQL (versão prévia)?
 

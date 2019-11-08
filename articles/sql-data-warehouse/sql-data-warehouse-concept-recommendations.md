@@ -11,12 +11,12 @@ ms.date: 11/05/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 09dff2c8ddf5b9038aa715cef02e099ccbc68f8a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1a93339b99c6591ee9ed615c032d0eac58a372fe
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685919"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827510"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>Recomendações de SQL Data Warehouse
 

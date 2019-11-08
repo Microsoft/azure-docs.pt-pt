@@ -1,22 +1,22 @@
 ---
-title: Instância Gerenciada do Banco de Dados SQL do Azure determinar o tamanho da VNet/sub-rede
+title: Instância gerenciada determinar o tamanho da VNet/sub-rede
 description: Este tópico descreve como calcular o tamanho da sub-rede em que as instâncias gerenciadas do banco de dados SQL do Azure serão implantadas.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 02/22/2019
-ms.openlocfilehash: fb0d79a82553349d5dad547a2d78a460301cbd6d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7f0ef26343284b7b668e71676114586f4bec8b9e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688128"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825743"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Determinar o tamanho da sub-rede VNet para Instância Gerenciada do Banco de Dados SQL do Azure
 

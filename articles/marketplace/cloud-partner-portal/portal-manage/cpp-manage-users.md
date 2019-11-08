@@ -1,68 +1,69 @@
 ---
-title: Gestão de utilizadores no Portal do Cloud Partner | O Azure Marketplace
-description: Gestão de utilizadores no portal de parceiros da cloud
+title: Gerenciando usuários em Portal do Cloud Partner | Azure Marketplace
+description: Gerenciando usuários no portal de parceiros de nuvem
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 manager: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: 21c49ad0d73721dd204a7a3899d11cf10d43521b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4dc9fdf94ba6311f1b59c61ec686628a728e2510
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942084"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826641"
 ---
-# <a name="managing-users-on-the-cloud-partner-portal"></a>Gestão de utilizadores no Portal de parceiros de nuvem
+# <a name="managing-users-on-the-cloud-partner-portal"></a>Gerenciando usuários no Portal do Cloud Partner
 
-O [Cloud Partner Portal](https://cloudpartner.azure.com) permite-lhe adicionar utilizadores com acesso baseado em funções para ofertas de máquina virtual. Ele ajuda a gerir o acesso e permissões enquanto estiver a trabalhar nas ofertas de várias pessoas.
+O [portal do Cloud Partner](https://cloudpartner.azure.com) permite que você adicione usuários com acesso baseado em função a ofertas de máquina virtual. Ele ajuda a gerenciar o acesso e as permissões enquanto várias pessoas estão trabalhando em ofertas.
 
-## <a name="add-users-and-assign-roles"></a>Adicionar utilizadores e atribuir funções 
+## <a name="add-users-and-assign-roles"></a>Adicionar usuários e atribuir funções 
 
-Utilize os seguintes passos para adicionar utilizadores e atribuir funções para a publicação da oferta.
+Use as etapas a seguir para adicionar usuários e atribuir funções para publicação de oferta.
 
-1. Clique nas **utilizadores** separador no painel de navegação do lado esquerdo.
+1. Clique na guia **usuários** no painel de navegação do lado esquerdo.
 
-    ![Separador utilizadores](./media/userstab.png)
-
-
-2. Clique em **adicionar utilizador**.
-
-    ![Selecione adicionar utilizador](./media/adduser.png)
+    ![Guia usuários](./media/userstab.png)
 
 
-3. Escreva o endereço de e-mail do utilizador e selecione uma atribuição de função.  É possível adicionar o novo utilizador como "proprietário" ou "contribuinte".
+2. Clique em **Adicionar usuário**.
 
-    **e-mail**: Adicione os endereços de e-mail de colegas de equipe que trabalhar sobre a publicação da oferta. São suportadas as contas Microsoft (Outlook, Hotmail e em direto) e os IDs de organização.
+    ![Selecione Adicionar usuário](./media/adduser.png)
 
-    - Adicionar um "grupo da equipa/e-mail alias/grupo de segurança" para proteger contra o indivíduo abandonar a organização.
-    - Certifique-se esse e-mail IDs fornecidos no Portal do parceiro de Cloud são monitorizados para qualquer comunicação da Microsoft.
+
+3. Digite o endereço de email do usuário e selecione uma atribuição de função.  Você pode adicionar o novo usuário como um "proprietário" ou "colaborador".
+
+    **Email**: Adicione os endereços de email dos colegas de equipe que estarão trabalhando na publicação da oferta. Há suporte para contas da Microsoft (Outlook, hotmail e Live) e IDs da organização.
+
+    - Adicione um "grupo de segurança/alias de email de grupo/equipe" para se proteger contra o indivíduo que sai da organização.
+    - Verifique se as IDs de email fornecidas no Portal do Cloud Partner são monitoradas para qualquer comunicação da Microsoft.
     
     ![Atribuir função](./media/assignrole.png)
 
-    **Função**: Consulte a tabela abaixo para identificar o tipo de função de utilizador adequada.
+    **Função**: consulte a tabela abaixo para identificar o tipo de função de usuário apropriado.
 
     ![Nível de funções](./media/roleaccesslevel.png)
 
-    Apenas os proprietários podem aceder os separadores dividendos do Azure e de cliente do Azure no [vendedor Insights](../../cloud-partner-portal-orig/si-getting-started.md).
+    Somente os proprietários podem acessar as guias pagamento do Azure e cliente do Azure no [vendedor insights](../../cloud-partner-portal-orig/si-getting-started.md).
 
 
-4. Selecione o nome do publicador que pretende adicionar ao novo utilizador e, em seguida, clique em Adicionar para concluir a adição de utilizador.
+4. Selecione o nome do editor que você deseja adicionar ao novo usuário e clique em Adicionar para concluir a adição do usuário.
 
     > [!NOTE]
-    > Os "nomes de fabricantes" para o qual o seu e-mail é adicionado como um proprietário ou contribuinte irão aparecer na lista pendente de **publicador** para seleção.
+    > Os "nomes de Publicador" para os quais seu email é adicionado como proprietário ou colaborador serão exibidos na lista suspensa do **Publicador** para seleção.
 
 
-    ![Atribuir função - selecione Editor](./media/assignselectpublisher.png)
+    ![Atribuir função-selecionar Publicador](./media/assignselectpublisher.png)
 
 
-## <a name="delete-an-existing-user"></a>Eliminar um utilizador existente
+## <a name="delete-an-existing-user"></a>Excluir um usuário existente
 
-Para remover um utilizador existente, procure o respetivo e-mail na **usuários** separador e, em seguida, prima a **eliminar** botão à direita.
+Para remover um usuário existente, pesquise por seu email na guia **usuários** e, em seguida, pressione o botão **excluir** no lado direito.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Também pode utilizar o portal para [gerir perfis de publicador](./cpp-manage-publisher-profile.md).
+Você também pode usar o portal para [gerenciar perfis de Publicador](./cpp-manage-publisher-profile.md).

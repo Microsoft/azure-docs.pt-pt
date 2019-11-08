@@ -4,15 +4,16 @@ description: Pré-requisitos para gerenciar contas do Azure Marketplace no Porta
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: 09bf8479921c9bd55b98e835a19ea995fa37e20b
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: b0a9f312ba78e148a573064b81ff1f52fbd85c03
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720073"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826674"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Pré-requisitos para gerenciar contas no Portal do Cloud Partner 
 
@@ -33,14 +34,14 @@ A tabela a seguir lista as etapas necessárias para o registro completo como um 
 
 |                   Passo                   |  Registro ou recurso resultante                     |
 |                  ------                  |  -----------------------------------                    |
-| 1. Registrar no Microsoft Partner Network |  Uma ID de Microsoft Partner Network para sua organização |
-| 2. Criar um conta Microsoft *           |  Uma conta Microsoft verificada, terminando @live.comem @outlook.com, etc. |
-| 3. Enviar o formulário de registro do Marketplace | Uma conta de editor no Portal do Cloud Partner      |
-| 4. Entrar Portal do Cloud Partner        | Autoridade para criar e publicar ofertas, gerenciar usuários, coletar métricas do Marketplace, etc. |
-| 5. Registrar-se no centro de desenvolvimento da Microsoft * | Uma conta verificada do centro de desenvolvimento; autoridade para realizar transações do Marketplace  |
+| 1. Registre-se no Microsoft Partner Network |  Uma ID de Microsoft Partner Network para sua organização |
+| 2. criar um conta Microsoft *           |  Uma conta Microsoft verificada, terminando em @outlook.com, @live.com, etc. |
+| 3. enviar o formulário de registro do Marketplace | Uma conta de editor no Portal do Cloud Partner      |
+| 4. entrar no Portal do Cloud Partner        | Autoridade para criar e publicar ofertas, gerenciar usuários, coletar métricas do Marketplace, etc. |
+| 5. registrar-se no centro de desenvolvimento da Microsoft * | Uma conta verificada do centro de desenvolvimento; autoridade para realizar transações do Marketplace  |
 |   |   |
 
-\*Essas etapas são necessárias para as ofertas do Azure Marketplace Transact, mas são altamente recomendadas para todas as ofertas.  Depois de estabelecer um conta Microsoft e registrá-lo como desenvolvedor da Microsoft, você pode acessar outros recursos de clientes e desenvolvedores da Microsoft, bem como ofertas de parceiros opcionais.  
+\* essas etapas são necessárias para as ofertas do Azure Marketplace Transact, mas são altamente recomendadas para todas as ofertas.  Depois de estabelecer um conta Microsoft e registrá-lo como desenvolvedor da Microsoft, você pode acessar outros recursos de clientes e desenvolvedores da Microsoft, bem como ofertas de parceiros opcionais.  
 
 
 ## <a name="next-steps"></a>Passos seguintes

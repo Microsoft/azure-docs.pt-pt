@@ -1,5 +1,5 @@
 ---
-title: Gerenciar configurações de verificação de dois fatores-Azure Active Directory | Microsoft Docs
+title: Gerenciar suas configurações de verificação de dois fatores-Azure AD
 description: Saiba como alterar os detalhes do método de verificação de segurança, pois ele se relaciona com a verificação de dois fatores.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ed7d812a9c1cba356277a4454234531ce8d41ef
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4c402e0992a3a04d674477bc9dd19e0181fd6775
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616150"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805269"
 ---
 # <a name="manage-your-two-factor-verification-method-settings"></a>Gerenciar as configurações do método de verificação de dois fatores
 
@@ -133,7 +133,7 @@ Dependendo das configurações da sua organização, você poderá ver uma caixa
 
     Na próxima vez que você entrar em qualquer dispositivo, será solicitado que você execute a verificação de dois fatores.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de adicionar ou atualizar suas configurações de verificação de dois fatores, você pode gerenciar suas senhas de aplicativo, entrar ou obter ajuda com alguns problemas comuns relacionados à verificação de dois fatores.
 

@@ -1,5 +1,5 @@
 ---
-title: Código do buffer de anéis do XEvent para o banco de dados SQL
+title: Código do buffer de anéis do XEvent
 description: Fornece um exemplo de código Transact-SQL que é facilitado e rápido pelo uso do destino do buffer de anéis, no banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 8fd04cac394f05a9db18e84117a8647c1a17ba30
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7adffac045ddb2ba369993b1b805e3ce2304fb38
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686803"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822319"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Código de destino do buffer de anéis para eventos estendidos no banco de dados SQL
 

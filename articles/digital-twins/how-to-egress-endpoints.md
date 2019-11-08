@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: e7516fffb4aa8806062655e39c591e4691e779b1
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 9a5e060d6248d3144720930fe960e0a371a73d6e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959105"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822260"
 ---
 # <a name="egress-and-endpoints"></a>Saída e pontos de extremidade
 
@@ -23,7 +23,7 @@ Os eventos são roteados para pontos de extremidade de acordo com as preferênci
 
 Para saber mais sobre eventos, roteamento e tipos de evento, consulte [roteando eventos e mensagens no Azure digital gêmeos](./concepts-events-routing.md).
 
-## <a name="events"></a>Events
+## <a name="events"></a>Eventos
 
 Os eventos são enviados por objetos IoT (como dispositivos e sensores) para processamento por mensagens do Azure e agentes de evento. Os eventos são definidos pela seguinte [referência do esquema de eventos da grade de eventos do Azure](../event-grid/event-schema.md).
 
@@ -47,23 +47,23 @@ Os eventos são enviados por objetos IoT (como dispositivos e sensores) para pro
 }
 ```
 
-| Atributo | Type | Descrição |
+| Atributo | Tipo | Descrição |
 | --- | --- | --- |
-| id | string | Identificador exclusivo do evento. |
-| subject | string | Caminho definido pelo Publicador para a entidade do evento. |
-| data | object | Dados de evento específicos para o provedor de recursos. |
-| eventType | string | Um dos tipos de evento registrados para essa origem do evento. |
+| ID | string | Identificador exclusivo do evento. |
+| Assunto | string | Caminho definido pelo Publicador para a entidade do evento. |
+| dado | objeto | Dados de evento específicos para o provedor de recursos. |
+| EventType | string | Um dos tipos de evento registrados para essa origem do evento. |
 | eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| dataVersion | string | A versão do esquema do objeto de dados. O Publicador define a versão do esquema. |
+| versão de | string | A versão do esquema do objeto de dados. O Publicador define a versão do esquema. |
 | metadataVersion | string | A versão do esquema dos metadados do evento. A grade de eventos define o esquema das propriedades de nível superior. A grade de eventos fornece esse valor. |
-| topic | string | Caminho completo do recurso para a origem do evento. Este campo não é gravável. A grade de eventos fornece esse valor. |
+| tópico | string | Caminho completo do recurso para a origem do evento. Este campo não é gravável. A grade de eventos fornece esse valor. |
 
 Para obter mais informações sobre o esquema de evento da grade de eventos:
 
 - Examine a [referência do esquema de eventos da grade de eventos do Azure](../event-grid/event-schema.md).
-- Leia a [referência EventGridEvent do SDK do node. js do Azure EventGrid](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
+- Leia a [referência EventGridEvent do SDK do node. js do Azure EventGrid](https://docs.microsoft.com/javascript/api/@azure/eventgrid/eventgridevent?view=azure-node-latest).
 
-## <a name="event-types"></a>Tipos de eventos
+## <a name="event-types"></a>Tipos de evento
 
 Os tipos de eventos classificam a natureza do evento e são definidos no campo **EventType** . Os tipos de evento disponíveis são fornecidos pela lista a seguir:
 
@@ -87,7 +87,7 @@ Os formatos de evento para cada tipo de evento são descritos mais detalhadament
 - Repositório
 - Relatório
 - RoleDefinition
-- Sensor
+- Sensores
 - SensorBlobMetadata
 - SensorExtendedProperty
 - Espaço
@@ -122,7 +122,7 @@ Os formatos de evento para cada tipo de evento são descritos mais detalhadament
 }
 ```
 
-| Value | Substituir |
+| Valor | Substituir |
 | --- | --- |
 | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
@@ -153,7 +153,7 @@ Os formatos de evento para cada tipo de evento são descritos mais detalhadament
 }
 ```
 
-| Value | Substituir |
+| Valor | Substituir |
 | --- | --- |
 | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
@@ -188,7 +188,7 @@ Os formatos de evento para cada tipo de evento são descritos mais detalhadament
 }
 ```
 
-| Value | Substituir |
+| Valor | Substituir |
 | --- | --- |
 | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
@@ -223,7 +223,7 @@ Os formatos de evento para cada tipo de evento são descritos mais detalhadament
 }
 ```
 
-| Value | Substituir |
+| Valor | Substituir |
 | --- | --- |
 | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
@@ -268,7 +268,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Value | Substituir |
+    | Valor | Substituir |
     | --- | --- |
     | YOUR_NAMESPACE | O namespace do seu ponto de extremidade |
     | YOUR_PRIMARY_KEY | A cadeia de conexão primária usada para autenticar |
@@ -291,7 +291,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Value | Substituir |
+    | Valor | Substituir |
     | --- | --- |
     | YOUR_PRIMARY_KEY | A cadeia de conexão primária usada para autenticar|
     | YOUR_SECONDARY_KEY | A cadeia de conexão secundária usada para autenticar |
@@ -313,7 +313,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Value | Substituir |
+    | Valor | Substituir |
     | --- | --- |
     | YOUR_NAMESPACE | O namespace do seu ponto de extremidade |
     | YOUR_PRIMARY_KEY | A cadeia de conexão primária usada para autenticar |
@@ -334,7 +334,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Value | Substituir |
+    | Valor | Substituir |
     | --- | --- |
     | YOUR_NAMESPACE | O namespace do seu ponto de extremidade |
     | YOUR_PRIMARY_KEY | A cadeia de conexão primária usada para autenticar |

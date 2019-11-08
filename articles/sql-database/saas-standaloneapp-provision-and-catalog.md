@@ -1,5 +1,5 @@
 ---
-title: Tutorial de SaaS de vários locatários-banco de dados SQL do Azure
+title: Tutorial de SaaS de vários locatários
 description: Provisionar e catalogar novos locatários usando o padrão de aplicativo autônomo
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/24/2018
-ms.openlocfilehash: de1007aac3988f2ea78b9d1b7b1de19b862f196a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c4859554f361b262366bc2442d3819e2a029aa85
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691947"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822100"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Provisionar e catalogar novos locatários usando o aplicativo por padrão de SaaS de locatário
 

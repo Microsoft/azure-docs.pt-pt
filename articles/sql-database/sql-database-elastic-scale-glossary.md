@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 3a06bb65c4f836d2c0fb049946ab62c395ec81e1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ab972db78cd213497fb96486b3e16b01f2c4c6eb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690291"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823620"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossário de ferramentas de banco de dados elástico
 

@@ -1,5 +1,5 @@
 ---
-title: Gerenciar dados históricos em tabelas temporais com política de retenção
+title: Gerenciar dados históricos em tabelas temporais
 description: Saiba como usar a política de retenção temporal para manter os dados históricos sob seu controle.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 09/25/2018
-ms.openlocfilehash: 2568f3be96604856d5353f7f5f94926162880bfd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3c2460c6f5e0905f45106148ecc3e8a949cf221f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686990"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820691"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gerenciar dados históricos em tabelas temporais com política de retenção
 

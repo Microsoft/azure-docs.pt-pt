@@ -1,49 +1,50 @@
 ---
-title: Implementar uma VM no Azure Marketplace
-description: Explica como implementar uma máquina virtual a partir de uma máquina virtual pré-configurada do Azure Marketplace.
+title: Implantar uma VM do Azure Marketplace
+description: Explica como implantar uma máquina virtual de uma máquina virtual pré-configurada do Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 482840f5e611bc2d8092add2822a0ed5b2c8f883
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2888d7643fd4f624634dc2ec520bec6e753382f1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938702"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816830"
 ---
-# <a name="deploy-a-virtual-machine-from-the-azure-marketplace"></a>Implementar uma máquina virtual do Azure Marketplace
+# <a name="deploy-a-virtual-machine-from-the-azure-marketplace"></a>Implantar uma máquina virtual do Azure Marketplace
 
-Este artigo explica como implementar uma máquina de virtual (VM) pré-configurada de um Azure Marketplace, com o script do Azure PowerShell fornecido.  Este script também expõe os pontos de extremidade do WinRM HTTP e HTTPS na VM.  O script exige que já tenha um certificado carregado para o Azure Key Vault, conforme descrito em [criar certificados para o Azure Key Vault](./cpp-create-key-vault-cert.md). 
+Este artigo explica como implantar uma VM (máquina virtual) pré-configurada de um Azure Marketplace, usando o script de Azure PowerShell fornecido.  Esse script também expõe os pontos de extremidade HTTP e HTTPS do WinRM na VM.  O script requer que você já tenha um certificado carregado para Azure Key Vault, conforme descrito em [criar certificados para Azure Key Vault](./cpp-create-key-vault-cert.md). 
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="vm-deployment-template"></a>Modelo de implementação de VM
+## <a name="vm-deployment-template"></a>Modelo de implantação de VM
 
-O modelo de implementação de VM do Azure de início rápido, está disponível como o ficheiro online [azuredeploy. JSON](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-vm-winrm-keyvault-windows/azuredeploy.json).  Contém os seguintes parâmetros:
+O modelo de implantação de VM do Azure QuickStart, está disponível como o arquivo online [azuredeploy. JSON](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-vm-winrm-keyvault-windows/azuredeploy.json).  Ele contém os seguintes parâmetros:
 
-|  **Parâmetro**        |   **Descrição**                                 |
+|  **Meter**        |   **Descrição**                                 |
 |  -------------        |   ---------------                                 |
 | newStorageAccountName | Nome da conta de armazenamento                       |
-| dnsNameForPublicIP    | Nome de DNS para o IP público. Tem de estar em minúsculas.    |
-| adminUserName         | Nome de utilizador do administrador                          |
-| adminPassword         | Palavra-passe do administrador                          |
-| imagePublisher        | Publicador de imagens                                   |
+| dnsNameForPublicIP    | Nome DNS para o IP público. Deve estar em minúsculas.    |
+| adminUserName         | Nome de usuário do administrador                          |
+| adminPassword         | Senha do administrador                          |
+| imagePublisher        | Publicador de imagem                                   |
 | imageOffer            | Oferta de imagem                                       |
-| imageSKU              | SKU de imagem                                         |
+| imageSKU              | SKU da imagem                                         |
 | vmSize                | Tamanho da VM                                    |
 | vmName                | Nome da VM                                    |
-| vaultName             | Nome do Cofre de chaves                             |
-| vaultResourceGroup    | Grupo de recursos do Cofre de chaves                   |
-| certificateUrl        | URL para o certificado, incluindo a versão no Cofre de chaves, por exemplo  `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
+| vaultName             | Nome do cofre de chaves                             |
+| vaultResourceGroup    | Grupo de recursos do cofre de chaves                   |
+| certificateUrl        | URL do certificado, incluindo a versão no keyvault, por exemplo `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 |  |  |
 
 
-## <a name="deployment-script"></a>Script de implementação
+## <a name="deployment-script"></a>Script de implantação
 
-Edite o seguinte script do PowerShell do Azure e executá-lo para implementar a VM do Azure Marketplace especificado.
+Edite o script Azure PowerShell a seguir e execute-o para implantar a VM do Azure Marketplace especificada.
 
 ```powershell
 
@@ -52,6 +53,6 @@ New-AzResourceGroupDeployment -Name "dplvm$postfix" -ResourceGroupName "$rgName"
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Assim que tiver implementado uma VM pré-configurada, pode configurar e acessar as soluções e serviços que contém ou utilizá-lo para o desenvolvimento ainda mais. 
+Depois de implantar uma VM pré-configurada, você pode configurar e acessar as soluções e os serviços que ele contém, ou usá-lo para desenvolvimento adicional. 

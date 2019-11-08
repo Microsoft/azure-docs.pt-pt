@@ -1,5 +1,5 @@
 ---
-title: Visão geral da consulta elástica do banco de dados SQL do Azure
+title: Visão geral da consulta elástica
 description: A consulta elástica permite executar uma consulta Transact-SQL que abrange vários bancos de dados.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 07/01/2019
-ms.openlocfilehash: 08c191742425c448618db255491c709130df33a1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9566ac7169144d984f9200734c99eb10368b3142
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690358"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823745"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Visão geral da consulta elástica do banco de dados SQL do Azure (versão prévia)
 

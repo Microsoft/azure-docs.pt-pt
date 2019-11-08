@@ -1,5 +1,5 @@
 ---
-title: Implementar uma solução de banco de dados SQL do Azure distribuída geograficamente | Microsoft Docs
+title: Implementar uma solução distribuída geograficamente
 description: Saiba como configurar seu banco de dados SQL do Azure e o aplicativo para failover para um banco de dados replicado e failover de teste.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 4a21fe3ed15d1dc2550f6863611b27d2b36c5c51
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 51380d312c778380602c64cac766b050511cf994
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568091"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810931"
 ---
-# <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: Implementar uma base de dados distribuída geograficamente
+# <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: implementar um banco de dados distribuído geograficamente
 
 Configure um banco de dados SQL do Azure e um aplicativo para failover para uma região remota e teste um plano de failover. Saiba como:
 
@@ -101,7 +101,7 @@ Para criar um grupo de failover, execute o seguinte script:
        -FailoverGroupName $myfailovergroupname
    ```
 
-As configurações de replicação geográfica também podem ser alteradas no portal do Azure, selecionando seu banco de dados e, em seguida, **configurações** > de**replicação geográfica**.
+As configurações de replicação geográfica também podem ser alteradas no portal do Azure, selecionando seu banco de dados e, em seguida, **configurações** > **replicação geográfica**.
 
 ![Configurações de replicação geográfica](./media/sql-database-implement-geo-distributed-database/geo-replication.png)
 
@@ -123,7 +123,7 @@ As configurações de replicação geográfica também podem ser alteradas no po
 
 1. Usando seu editor favorito, abra o arquivo *pom. xml* na pasta do projeto.
 
-1. Adicione a dependência do Microsoft JDBC Driver para SQL Server adicionando a seção `dependency` a seguir. A dependência deve ser colada na seção maior `dependencies` .
+1. Adicione o Microsoft JDBC Driver para SQL Server dependência adicionando a seção `dependency` a seguir. A dependência deve ser colada na seção `dependencies` maior.
 
    ```xml
    <dependency>
@@ -133,7 +133,7 @@ As configurações de replicação geográfica também podem ser alteradas no po
    </dependency>
    ```
 
-1. Especifique a versão do Java adicionando a `properties` seção após a `dependencies` seção:
+1. Especifique a versão do Java adicionando a seção `properties` após a `dependencies` seção:
 
    ```xml
    <properties>
@@ -142,7 +142,7 @@ As configurações de replicação geográfica também podem ser alteradas no po
    </properties>
    ```
 
-1. Dê suporte a arquivos de manifesto `build` adicionando a seção `properties` após a seção:
+1. Dê suporte a arquivos de manifesto adicionando a seção `build` após a `properties` seção:
 
    ```xml
    <build>
@@ -329,7 +329,7 @@ Para testar um failover:
       -FailoverGroupName $myfailovergroupname
    ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você configurou um banco de dados SQL do Azure e um aplicativo para failover para uma região remota e testou um plano de failover. Aprendeu a:
 

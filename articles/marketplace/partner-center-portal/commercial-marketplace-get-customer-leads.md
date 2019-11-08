@@ -4,15 +4,16 @@ description: Configurar leads do cliente no Marketplace comercial.
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: evansma
-ms.openlocfilehash: 31dcc8c1e35b627b231dbe2a62998c8514d05a20
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 7ead8dee12d4376e6e1058b84a25b91c021a937c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902653"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812661"
 ---
 # <a name="customer-leads-from-your-marketplace-offer"></a>Clientes potenciais de sua oferta do Marketplace
 
@@ -48,11 +49,11 @@ Aqui estão os locais onde um cliente potencial é gerado:
 
 ## <a name="understand-lead-data"></a>Entender os dados do cliente potencial
 
-Cada cliente potencial que você recebe durante o processo de aquisição do cliente tem dados em campos específicos. O primeiro campo a ser examinado é o `LeadSource` campo, que segue este formato: **Oferta de ação** | de origem.
+Cada cliente potencial que você recebe durante o processo de aquisição do cliente tem dados em campos específicos. O primeiro campo a ser pesquisado é o campo `LeadSource`, que segue este formato: **origem-ação** | **oferta**.
 
-**Fontes**: O valor desse campo é populado com base no Marketplace que gerou o cliente potencial. Os valores possíveis `"AzureMarketplace"`são `"AzurePortal"`, e `"AppSource (SPZA)"`.
+**Fontes**: o valor desse campo é preenchido com base no Marketplace que gerou o cliente potencial. Os valores possíveis são `"AzureMarketplace"`, `"AzurePortal"`e `"AppSource (SPZA)"`.
 
-**Ações**: O valor desse campo é populado com base na ação que o cliente realizou no Marketplace, que gerou o cliente potencial. 
+**Ações**: o valor desse campo é preenchido com base na ação que o cliente realizou no Marketplace, que gerou o cliente potencial. 
 
 Os valores possíveis são:
 
@@ -62,9 +63,9 @@ Os valores possíveis são:
 - "Criar"--essa ação está apenas dentro do portal do Azure e é gerada quando um cliente compra sua oferta para sua conta.
 - "StartTestDrive"--essa ação destina-se apenas a unidades de teste e é gerada quando um cliente inicia sua test drive.
 
-**Oferece**: Você pode ter várias ofertas no Marketplace. O valor desse campo é preenchido com base na oferta que gerou o cliente potencial. A ID do Publicador e a ID da oferta são enviadas neste campo e são os valores que você forneceu quando publicou a oferta no Marketplace.
+**Ofertas**: você pode ter várias ofertas no Marketplace. O valor desse campo é preenchido com base na oferta que gerou o cliente potencial. A ID do Publicador e a ID da oferta são enviadas neste campo e são os valores que você forneceu quando publicou a oferta no Marketplace.
 
-Os exemplos a seguir mostram valores de exemplo no formato `publisherid.offerid`esperado: 
+Os exemplos a seguir mostram valores de exemplo no formato esperado `publisherid.offerid`: 
 
 1. `checkpoint.check-point-r77-10sg-byol`
 1. `bitnami.openedxcypress`
@@ -74,13 +75,13 @@ Os exemplos a seguir mostram valores de exemplo no formato `publisherid.offerid`
 
 As informações do cliente são enviadas por vários campos. O exemplo a seguir mostra as informações do cliente contidas em um cliente potencial.
 
-- FirstName João
-- LastName Smith
-- Email: jsmith\@Microsoft.com
-- Telemóvel 1234567890
+- Nome: João
+- Sobrenome: Smith
+- Email: jsmith\@microsoft.com
+- Telefone: 1234567890
 - País: EUA
-- Corporativa Microsoft
-- Título CTO
+- Empresa: Microsoft
+- Título: CTO
 
 >[!Note]
 >Nem todos os dados no exemplo anterior estão sempre disponíveis para cada cliente potencial. Como você obterá clientes potenciais de várias etapas, conforme mencionado na seção leads do cliente, a melhor maneira de lidar com os Leads é eliminar a duplicação dos registros e personalizar os acompanhamentos. Dessa forma, cada cliente está recebendo uma mensagem apropriada e você está criando uma relação exclusiva.
@@ -104,7 +105,7 @@ A resposta depende do tipo de oferta que você está publicando. O SaaS e o Dyna
 
 ### <a name="how-can-i-find-the-test-lead"></a>Como posso encontrar o Lead de teste?
 
-`“MSFT_TEST”` Procure em seu destino de Lead, aqui está um líder de teste de exemplo da Microsoft:
+Pesquise `"MSFT_TEST"` em seu destino de Lead, aqui está um líder de teste de exemplo da Microsoft:
 
 ```
 company = MSFT_TEST_636573304831318844

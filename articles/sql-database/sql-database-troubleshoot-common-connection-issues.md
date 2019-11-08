@@ -1,5 +1,5 @@
 ---
-title: Resolver problemas comuns de ligação para a Base de Dados SQL do Azure
+title: Solucionar problemas comuns de conexão
 description: Etapas para identificar e resolver erros comuns de conexão para o banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ manager: dcscontentpm
 ms.author: daleche
 ms.reviewer: jrasnik
 ms.date: 01/25/2019
-ms.openlocfilehash: cd0ab6d89d88c594d283dc0718c0f58ebb98bf43
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: dc58e495256bff9521eb6567736700f5ffcd6e4f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090803"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822462"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Solucionar problemas de conexão com o banco de dados SQL do Azure
 
@@ -81,7 +81,7 @@ Se o aplicativo falhar de forma persistente ao se conectar ao banco de dados SQL
 3. Verifique a cadeia de conexão e outras configurações de conexão. Consulte a seção cadeia de conexão no [tópico problemas de conectividade](sql-database-connectivity-issues.md#connections-to-sql-database).
 4. Verifique a integridade do serviço no painel. Se você considerar que há uma interrupção regional, consulte [recuperação de uma interrupção](sql-database-disaster-recovery.md) para obter as etapas para recuperar em uma nova região.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Pesquise a documentação em Microsoft Azure](https://azure.microsoft.com/search/documentation/)
 * [Exibir as atualizações mais recentes para o serviço de banco de dados SQL do Azure](https://azure.microsoft.com/updates/?service=sql-database)
 

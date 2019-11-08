@@ -1,83 +1,84 @@
 ---
-title: Criar ativos técnicos da aplicação do Azure | O Azure Marketplace
-description: Crie os recursos técnicos para uma oferta de aplicação do Azure.
+title: Criar ativos técnicos de aplicativo do Azure | Azure Marketplace
+description: Crie os ativos técnicos para uma oferta de aplicativo do Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: pabutler
-ms.openlocfilehash: cbe1b8c8f1159d90fbf97eeae272c1c50ec9b9bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c9abaab4597e9fea43a2f0dcabc0e4a527ed5a6a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942990"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827609"
 ---
-# <a name="prepare-your-azure-application-technical-assets"></a>Preparar os recursos técnicos de aplicação do Azure
+# <a name="prepare-your-azure-application-technical-assets"></a>Preparar seus ativos técnicos de aplicativo do Azure
 
-Este artigo descreve os recursos para preparar os recursos técnicos para a sua oferta de aplicação do Azure.
+Este artigo descreve os recursos para preparar os ativos técnicos para sua oferta de aplicativo do Azure.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Reveja o seguinte vídeo [criando modelos de soluções e aplicações geridas para o Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603), uma descrição geral sobre como criar um modelo do Azure Resource Manager para definir uma solução de aplicação do Azure e, em seguida, como em seguida, publicar a oferta da aplicação no Azure Marketplace.
+Examine o vídeo a seguir, [criando modelos de solução e aplicativos gerenciados para o Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603), uma visão geral sobre como criar um modelo de Azure Resource Manager para definir uma solução de aplicativo do Azure e como publicar subseqüentemente o oferta de aplicativo para o Azure Marketplace.
 
 >[!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK3603/player]
 
 
-Reveja a seguinte documentação de aplicações do Azure, que fornece inícios rápidos, tutoriais e amostras.
+Examine a seguinte documentação do aplicativo do Azure, que fornece guias de início rápido, tutoriais e exemplos.
 
-- [Compreender os modelos Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
-- Inícios rápidos:
+- [Entender modelos de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
+- Guias
 
   - [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/)
-  - [Modelos de início rápido do Azure do GitHub](https://github.com/azure/azure-quickstart-templates)
-  - [Publicar a definição da aplicação](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
-  - [Implementar o serviço catálogo de aplicações](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
+  - [Modelos de início rápido do Azure para GitHub](https://github.com/azure/azure-quickstart-templates)
+  - [Publicar definição de aplicativo](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
+  - [Implantar aplicativo do catálogo de serviços](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
   
 - Tutoriais:
 
-  - [Criar ficheiros de definição](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
+  - [Criar arquivos de definição](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
   - [Publicar a aplicação do mercado](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
 
-  - Exemplos:
+  - Amostras
 
     - [CLI do Azure](https://docs.microsoft.com/azure/managed-applications/cli-samples)
     - [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
-    - [Soluções de aplicação gerida](https://docs.microsoft.com/azure/managed-applications/sample-projects)
+    - [Soluções de aplicativos gerenciados](https://docs.microsoft.com/azure/managed-applications/sample-projects)
 
-## <a name="fundamental-technical-knowledge"></a>Conhecimentos técnicos fundamentais
+## <a name="fundamental-technical-knowledge"></a>Conhecimento técnico fundamental
 
-Estruturar, criar e testar esses ativos demorar algum tempo e requer conhecimento técnico de plataforma do Azure e as tecnologias usadas para criar a oferta.
+Projetar, criar e testar esses ativos leva tempo e exige conhecimento técnico da plataforma Azure e das tecnologias usadas para criar a oferta.
 
-A equipa de engenharia deve ter conhecimento sobre as tecnologias da Microsoft seguintes:
+Sua equipe de engenharia deve ter conhecimento sobre as seguintes tecnologias da Microsoft:
 
-- Noções básicas sobre [dos serviços do Azure](https://azure.microsoft.com/services/)
-- Como [de design e a arquitetura de aplicações do Azure](https://azure.microsoft.com/solutions/architecture/)
-- Conhecimento prático do [máquinas virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/), [armazenamento do Azure](https://azure.microsoft.com/services/?filter=storage), e [redes do Azure](https://azure.microsoft.com/services/?filter=networking)
-- Conhecimento prático do [do Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
-- Conhecimento prático do [JSON](https://www.json.org/)
+- Noções básicas sobre os [Serviços do Azure](https://azure.microsoft.com/services/)
+- Como [projetar e arquitetar aplicativos do Azure](https://azure.microsoft.com/solutions/architecture/)
+- Conhecimento de trabalho de [máquinas virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/), [armazenamento do Azure](https://azure.microsoft.com/services/?filter=storage)e [rede do Azure](https://azure.microsoft.com/services/?filter=networking)
+- Conhecimento de trabalho do [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
+- Conhecimento de trabalho do [JSON](https://www.json.org/)
 
-## <a name="suggested-tools"></a>Sugestões de ferramentas
+## <a name="suggested-tools"></a>Ferramentas sugeridas
 
-Escolha um ou ambos dos seguintes ambientes de criação de scripts para o ajudar a gerir a sua aplicação do Azure:
+Escolha um ou ambos os seguintes ambientes de script para ajudar a gerenciar seu aplicativo do Azure:
 
 - [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 - [CLI do Azure](https://docs.microsoft.com/cli/azure)
 
-Recomendamos que adicione as seguintes ferramentas ao seu ambiente de desenvolvimento:
+É recomendável adicionar as seguintes ferramentas ao seu ambiente de desenvolvimento:
 
 - [Explorador do Armazenamento do Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 - [Visual Studio Code](https://code.visualstudio.com/) com as seguintes extensões:
 
-  - Extensão: [Ferramentas do Gestor de recursos do Azure](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+  - Extensão: [ferramentas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   - Extensão: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-  - Extensão: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+  - Extensão: [melhorar JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
-Sugerimos também a rever as ferramentas disponíveis no [ferramentas de programação do Azure](https://azure.microsoft.com/tools/) página e, se estiver a utilizar o Visual Studio, o [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
+Também sugerimos a revisão das ferramentas disponíveis na página [ferramentas para desenvolvedores do Azure](https://azure.microsoft.com/tools/) e, se você estiver usando o Visual Studio, a [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar oferta de aplicação do Azure](./cpp-create-offer.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Visão geral de como alterar seus métodos de informações de segurança (versão prévia) e informações-Azure Active Directory | Microsoft Docs
-description: Visão geral sobre como adicionar, atualizar e excluir seus métodos de informações de segurança para verificação de dois fatores e redefinição de senha de autoatendimento.
+title: Visão geral sobre como alterar suas informações de segurança (versão prévia) – Azure AD
+description: Links para artigos sobre como adicionar, atualizar e excluir seus métodos de informações de segurança para verificação de dois fatores e redefinição de senha de autoatendimento.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bcef64c8bf8c2b52e5cc5d954de933d830ba4c1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 3b781cd30bc5f63199ef9bff45670fa618e2ca17
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382884"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803828"
 ---
 # <a name="overview-about-changing-your-security-info-preview-methods-and-information"></a>Visão geral sobre como alterar suas informações e métodos de informações de segurança (versão prévia)
 
@@ -29,7 +29,7 @@ Os métodos de informações de segurança são usados para verificação de doi
 
 | Método | Utilizado para |
 | ------ | -------- |
-| Aplicação de autenticação | Verificação de dois fatores e autenticação de redefinição de senha. |
+| Aplicativo autenticador | Verificação de dois fatores e autenticação de redefinição de senha. |
 | Mensagens de texto | Verificação de dois fatores e autenticação de redefinição de senha. |
 | Chamadas telefônicas | Verificação de dois fatores e autenticação de redefinição de senha. |
 | Conta de email | Somente autenticação de redefinição de senha. Você precisará escolher outro método para verificação de dois fatores. |

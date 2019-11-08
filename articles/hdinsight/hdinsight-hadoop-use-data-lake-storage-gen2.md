@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: f6bee53268ea99e99d79e218eaf7a5ae9fcb1d05
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: d8e23188aa07b1b271c3adc7c5550b18c0c60977
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104469"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827692"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usar Azure Data Lake Storage Gen2 com clusters do Azure HDInsight
 
@@ -36,7 +36,7 @@ Para criar um cluster HDInsight que usa Data Lake Storage Gen2 para armazenament
 
 Crie uma identidade gerenciada atribuída pelo usuário, se você ainda não tiver uma. 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. No canto superior esquerdo, **crie um recurso**.
 1. Na caixa de pesquisa, digite **usuário atribuído** e clique em **identidade gerenciada atribuída pelo usuário**.
 1. Clique em **Criar**.
@@ -51,19 +51,19 @@ Para obter mais informações sobre como as identidades gerenciadas funcionam no
 
 Crie uma conta de armazenamento Azure Data Lake Storage Gen2. 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. No canto superior esquerdo, **crie um recurso**.
 1. Na caixa de pesquisa, digite **armazenamento** e clique em **conta de armazenamento**.
 1. Clique em **Criar**.
 1. Na tela **criar conta de armazenamento** :
     1. Selecione a assinatura e o grupo de recursos corretos.
-    1. Insira um nome para sua conta de Data Lake Storage Gen2. Para obter mais informações sobre as convenções de nomenclatura da conta de armazenamento, consulte [convenções de nomenclatura para recursos do Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#storage).
+    1. Insira um nome para sua conta de Data Lake Storage Gen2. Para obter mais informações sobre as convenções de nomenclatura da conta de armazenamento, consulte [convenções de nomenclatura para recursos do Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#storage).
     1. Clique na guia **avançado** .
     1. Clique em **habilitado** ao lado de **namespace hierárquico** em **Data Lake Storage Gen2**.
     1. Clique em **Rever + criar**.
-    1. Clique em **Criar**
+    1. Clique em **Criar**.
 
-Para obter mais informações sobre outras opções durante a criação da conta [de armazenamento, consulte início rápido: Crie uma conta](../storage/blobs/data-lake-storage-quickstart-create-account.md)de armazenamento Azure data Lake Storage Gen2.
+Para obter mais informações sobre outras opções durante a criação da conta de armazenamento, consulte [início rápido: criar uma conta de armazenamento Azure data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
 ![Captura de tela mostrando a criação da conta de armazenamento no portal do Azure](./media/hdinsight-hadoop-use-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
 
@@ -116,7 +116,7 @@ O trecho de código abaixo faz as seguintes etapas iniciais:
 1. Cria um novo grupo de recursos para as novas atividades de implantação. 
 1. Cria uma identidade gerenciada atribuída pelo usuário.
 1. Adiciona uma extensão ao CLI do Azure para usar recursos para Data Lake Storage Gen2.
-1. Cria uma nova conta de data Lake Storage Gen2 usando o `--hierarchical-namespace true` sinalizador. 
+1. Cria uma nova conta de Data Lake Storage Gen2 usando o sinalizador `--hierarchical-namespace true`. 
 
 ```azurecli
 az login
@@ -171,7 +171,7 @@ O ciclo de vida das identidades atribuídas pelo utilizador é gerido separadame
 
 Para definir permissões para os usuários consultarem dados, use os grupos de segurança do Azure AD como a entidade atribuída em ACLs. Não atribua permissões de acesso de arquivo diretamente a usuários individuais ou a entidades de serviço. Ao usar grupos de segurança do Azure AD para controlar o fluxo de permissões, você pode adicionar e remover usuários ou entidades de serviço sem reaplicar ACLs a uma estrutura de diretório inteira. Você só precisa adicionar ou remover os usuários do grupo de segurança apropriado do Azure AD. As ACLs não são herdadas, portanto, reaplicar ACLs requer a atualização da ACL em todos os arquivos e subdiretórios.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Integração do Azure HDInsight com Data Lake Storage Gen2 Preview-ACL e atualização de segurança](https://azure.microsoft.com/blog/azure-hdinsight-integration-with-data-lake-storage-gen-2-preview-acl-and-security-update/)
 * [Introdução ao Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)

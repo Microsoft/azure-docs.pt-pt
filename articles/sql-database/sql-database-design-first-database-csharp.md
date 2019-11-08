@@ -1,22 +1,23 @@
 ---
-title: Criar seu primeiro banco de dados relacional- C# -banco de dados SQL do Azure | Microsoft Docs
+title: Criar seu primeiro banco de dados relacionalC#
 description: Aprenda a projetar seu primeiro banco de dados relacional em um único banco de dados no C# banco de dados SQL do Azure com o uso de ADO.net.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
+ms.custom: seo-lt-2019
 ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 ms.date: 07/29/2019
-ms.openlocfilehash: 3359c39b21edad72ce0b9d7feb35d442c842f002
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 201f90ae1ee7309f0271d046f341729c79749421
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640107"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825190"
 ---
-# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Tutorial: Criar um banco de dados relacional em um único banco de dados no&#x23; banco de dados SQL do Azure C e ADO.net
+# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Tutorial: criar um banco de dados relacional em um banco de dados individual dentro&#x23; do banco de dados SQL do Azure C e ADO.net
 
 O banco de dados SQL do Azure é um DBaaS (banco de dados como serviço) relacional no Microsoft Cloud (Azure). Neste tutorial, vai aprender a utilizar o portal do Azure e o ADO.NET com o Visual Studio para:
 
@@ -52,9 +53,9 @@ Siga estas etapas para criar um banco de dados individual em branco.
 
     | Definição       | Valor sugerido | Descrição |
     | ------------ | ------------------ | ------------------------------------------------- |
-    | **Nome da base de dados** | *yourDatabase* | Para obter nomes de banco de dados válidos, consulte identificadores de [banco de dados](/sql/relational-databases/databases/database-identifiers). |
+    | **Nome da base de dados** | *yourDatabase* | Para obter nomes de banco de dados válidos, consulte [identificadores de banco de dados](/sql/relational-databases/databases/database-identifiers). |
     | **Subscrição** | *yourSubscription*  | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
-    | **Grupo de recursos** | *yourResourceGroup* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições). |
+    | **Grupo de recursos** | *Seugruporecursos* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições). |
     | **Selecionar origem** | Base de dados vazia | Especifica que deve ser criada uma base de dados vazia. |
 
 4. Clique em **servidor** para usar um servidor de banco de dados existente ou criar e configurar um novo servidor de banco de dados. Selecione um servidor existente ou clique em **criar um novo servidor** e preencha o formulário **novo servidor** com as seguintes informações:
@@ -62,9 +63,9 @@ Siga estas etapas para criar um banco de dados individual em branco.
     | Definição       | Valor sugerido | Descrição |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nome do servidor** | Qualquer nome globalmente exclusivo | Para nomes de servidores válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições). |
-    | **Início de sessão de administrador do servidor** | Qualquer nome válido | Para obter nomes de logon válidos, consulte identificadores de [banco de dados](/sql/relational-databases/databases/database-identifiers). |
+    | **Início de sessão de administrador do servidor** | Qualquer nome válido | Para obter nomes de logon válidos, consulte [identificadores de banco de dados](/sql/relational-databases/databases/database-identifiers). |
     | **Palavra-passe** | Qualquer palavra-passe válida | Sua senha deve ter pelo menos oito caracteres e deve usar caracteres de três das seguintes categorias: caracteres maiúsculos, caracteres minúsculos, números e caracteres não alfanuméricos. |
-    | **Location** | Nenhuma localização válida | Para obter mais informações sobre regiões, veja [Azure Regions](https://azure.microsoft.com/regions/) (Regiões do Azure). |
+    | **Localização** | Nenhuma localização válida | Para obter mais informações sobre regiões, veja [Azure Regions](https://azure.microsoft.com/regions/) (Regiões do Azure). |
 
     ![criar servidor de base de dados](./media/sql-database-design-first-database/create-database-server.png)
 
@@ -111,7 +112,7 @@ Seu endereço IP agora pode passar pelo firewall de IP. Agora você pode se cone
 
 [!INCLUDE [sql-database-csharp-adonet-create-query-2](../../includes/sql-database-csharp-adonet-create-query-2.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu tarefas básicas de banco de dados, como criar um banco de dados e tabelas, conectar-se ao banco de dados, carregar e executar consultas. Aprendeu a:
 

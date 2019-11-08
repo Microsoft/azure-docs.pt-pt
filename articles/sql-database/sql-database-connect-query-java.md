@@ -1,5 +1,5 @@
 ---
-title: Usar o Java para consultar um banco de dados SQL do Azure
+title: Usar Java para consultar
 description: Mostra como usar o Java para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-lo usando instruções T-SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ ms.author: andrela
 ms.reviewer: v-masebo
 ms.date: 03/25/2019
 ms.custom: seo-java-july2019. seo-java-august2019
-ms.openlocfilehash: 8940e13dcc6d6287984ba1cc7c7510768b4e232f
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 6d4d9353e29a29b0cd6db7575e49a00a213355d3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624088"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827050"
 ---
-# <a name="quickstart-use-java-to-connect-to-and-query-an-azure-sql-database"></a>Início rápido: Usar o Java para se conectar e consultar um banco de dados SQL do Azure
+# <a name="quickstart-use-java-to-connect-to-and-query-an-azure-sql-database"></a>Início rápido: usar Java para se conectar e consultar um banco de dados SQL do Azure
 
 Este artigo demonstra como usar o [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) para se conectar a um banco de dados SQL do Azure. Você pode usar instruções T-SQL para consultar dados.
 
@@ -53,7 +53,7 @@ Para concluir este exemplo, verifique se você tem os seguintes pré-requisitos:
 
 Obtenha as informações de conexão necessárias para se conectar ao banco de dados SQL do Azure. Você precisará do nome do servidor totalmente qualificado ou nome do host, nome do banco de dados e informações de logon para os próximos procedimentos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione **bancos de dados SQL** ou abra a página **instâncias gerenciadas do SQL** .
 
@@ -92,7 +92,7 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 1. Você já deve ter um arquivo chamado *app. java* em seu projeto Maven localizado em:
 
-   *..\sqltest\src\main\java\com\sqldbsamples\App.java*
+   *.. \sqltest\src\main\java\com\sqldbsamples\App.java*
 
 1. Abra o ficheiro e substitua o conteúdo pelo seguinte código. Em seguida, adicione os valores apropriados para seu servidor, banco de dados, usuário e senha.
 
@@ -165,10 +165,10 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 1. Verifique se as 20 primeiras linhas são retornadas e feche a janela do aplicativo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar a sua primeira base de dados SQL do Azure](sql-database-design-first-database.md)  
 
 - [Controlador Microsoft JDBC para SQL Server](https://github.com/microsoft/mssql-jdbc)  
 
-- [Comunicar problemas/fazer perguntas](https://github.com/microsoft/mssql-jdbc/issues)  
+- [Relatório de problemas/perguntas](https://github.com/microsoft/mssql-jdbc/issues)  

@@ -4,19 +4,20 @@ description: Use a guia Marketplace para identificar ativos de marketing para um
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: b5d54e4c6744675da0dea5b095590b71df6d2641
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 967b66a67d51b3a79bcf930ce977af48acc3dd63
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962864"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827570"
 ---
 # <a name="azure-application-marketplace-tab"></a>Guia Marketplace de aplicativos do Azure
 
-Use a guia Marketplace para descrever seu aplicativo do Azure e fornecer ativos de marketing. Essa guia inclui os seguintes formulários: Visão geral, artefatos de marketing, gerenciamento de leads e ofício.
+Use a guia Marketplace para descrever seu aplicativo do Azure e fornecer ativos de marketing. Essa guia inclui as seguintes formas: visão geral, artefatos de marketing, gerenciamento de leads e ofício.
 
 ## <a name="overview-form"></a>Formulário de visão geral
 
@@ -29,9 +30,9 @@ A tabela a seguir descreve as configurações a serem usadas para criar uma vitr
 |      Campo         |    Descrição    |
 |  ---------------   |  ---------------  |
 | **Título\***        | Título da oferta. Ele será exibido em destaque no Marketplace. O comprimento máximo é de 50 caracteres. |
-| **Resumo\***      | Breve resumo da oferta. O comprimento máximo é de 100 caracteres.           |
+| **\* de resumo**      | Breve resumo da oferta. O comprimento máximo é de 100 caracteres.           |
 | **Resumo longo\*** | Resumo mais longo da oferta (embora possa ser o mesmo que o resumo). O comprimento máximo é de 256 caracteres.           |
-| **Ndescrição\***  | Descrição da oferta. O comprimento máximo é de 3000 caracteres. A formatação HTML simples é permitida, &lt;incluindo&gt;marcas &lt;p&gt;, &lt;em&gt;, &lt;UL&gt;, &lt;li,ol&gt; e header.  |
+| **Descrição\***  | Descrição da oferta. O comprimento máximo é de 3000 caracteres. É permitida formatação HTML simples, incluindo &lt;p&gt;, &lt;em&gt;, &lt;UL&gt;, &lt;li&gt;, &lt;ol&gt; e marcas de cabeçalho.  |
 | **Identificador de marketing\*** | Uma URL exclusiva para associar a esta oferta, normalmente inclui o nome da sua organização e da solução, o comprimento máximo de 50 caracteres. Escolha um identificador de marketing curto e amigável para seu serviço. Isso será usado em URLs do Marketplace para esta oferta. Por exemplo, se sua ID de editor for "contoso" e seu identificador de marketing for "sampleApp", a URL para sua oferta no Azure Marketplace será https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp  
 | **Visualizar IDs de assinatura\*** | Adicione de um a 100 identificadores de assinatura de visualizações. Essas assinaturas listadas em branco terão acesso à sua oferta, enquanto estiverem disponíveis na visualização depois de publicadas, antes de entrar em tempo real.          |
 | **Links úteis**    | Opcionalmente, você pode fornecer links para vários recursos para os usuários de sua oferta, como suporte, documentação, fóruns, etc.  É recomendável que você adicione pelo menos um link à sua documentação.            |
@@ -49,13 +50,13 @@ A tabela a seguir descreve os artefatos de marketing.
 
 |      Campo         |    Descrição    |
 |  ---------------   |  ---------------  |
-| **Menores\***        | Logotipo pequeno: 40x40 pixels no formato PNG     |
-| **Médio\***       | Logotipo médio: 90x90 pixels no formato PNG    |
-| **Vários\***        | Logotipo grande: 115x115 pixels no formato PNG   |
-| **Amplia\***         | Logotipo amplo: 255x115 pixels no formato PNG    |
-| **'**           | Logotipo opcional do Hero: 815x290 pixels no formato PNG. **Nota:** O ícone Hero não pode ser excluído após ser carregado. |
+| **\* pequeno**        | Logotipo pequeno: 40x40 pixels no formato PNG     |
+| **\* médio**       | Logotipo médio: 90x90 pixels no formato PNG    |
+| **\* grandes**        | Logotipo grande: 115x115 pixels no formato PNG   |
+| **\* largo**         | Logotipo amplo: 255x115 pixels no formato PNG    |
+| **'**           | Logotipo opcional do Hero: 815x290 pixels no formato PNG. **Observação:** O ícone Hero não pode ser excluído após ser carregado. |
 | **Capturas de tela (máx. 5)** |        Capturas de tela são exibidas na página de detalhes do produto. Eles são uma boa maneira de comunicar visualmente o que seu aplicativo faz e como ele funciona. Por exemplo, você pode mostrar diagramas de arquitetura ou ilustrações de caso de uso. Capturas de tela são opcionais e você se limita a 5 por SKU. Para adicionar uma captura de tela:<ul><li>Selecione **+ Adicionar captura de tela** para abrir a janela de captura de tela</li><li>**Nome** – Insira um nome/título (comprimento máximo de 100 caracteres).</li><li>**Carregar** – carregue a imagem. Ele deve estar no formato PNG e o tamanho é 533 x 324 pixels.</li></ul>           |
-| **Adicionar vídeo**      | Opcional, os vídeos são exibidos na página de detalhes do produto. Eles são uma boa maneira de comunicar visualmente o que seu aplicativo faz e como ele funciona. Para adicionar um vídeo: <ul><li>Selecione **+ Adicionar vídeo** para abrir a janela de vídeo</li><li>**Nome** – Insira um nome/título (comprimento máximo de 100 caracteres).</li><li>**Link** – Insira a URL para o site que está hospedando o vídeo (YouTube ou Vimeo)</li><li>**Miniatura** – carregar uma miniatura. Ele deve estar no formato PNG e o tamanho é 533 x 324 pixels.</li></ul>          |
+| **Adicionar vídeo**      | Opcional, os vídeos são exibidos na página de detalhes do produto. Eles são uma boa maneira de comunicar visualmente o que seu aplicativo faz e como ele funciona. Para adicionar um vídeo: <ul><li>Selecione **+ Adicionar vídeo** para abrir a janela de vídeo</li><li>**Nome** – Insira um nome/título (comprimento máximo de 100 caracteres).</li><li>**Link** -Insira a URL para o site que está hospedando o vídeo (YouTube ou Vimeo)</li><li>**Miniatura** – carregar uma miniatura. Ele deve estar no formato PNG e o tamanho é 533 x 324 pixels.</li></ul>          |
 |  |  |
 
 
@@ -125,12 +126,12 @@ Use o formulário legal para fornecer a documentação legal necessária para ca
 
 Forneça as seguintes informações:
 
-- URL da política de privacidade – Insira um link para a política de privacidade do aplicativo. **\***
-- **Termosdeuso\***  – Insira os termos de uso para seu aplicativo. Os clientes precisam aceitar esses termos antes de tentarem seu aplicativo.
+- **URL da política de privacidade\*** -Insira um link para a política de privacidade do aplicativo.
+- **Termos de uso\*** -Insira os termos de uso do seu aplicativo. Os clientes precisam aceitar esses termos antes de tentarem seu aplicativo.
 
 ![Formulário legal](./media/azureapp-marketplace-legal.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Separador Suporte](./cpp-support-tab.md)

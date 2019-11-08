@@ -1,60 +1,61 @@
 ---
-title: Publicar oferta de aplicação do Azure | O Azure Marketplace
-description: Descreve o processo e os passos para publicar uma oferta de aplicação do Azure no Azure Marketplace.
+title: Publicar a oferta de aplicativo do Azure | Azure Marketplace
+description: Descreve o processo e as etapas para publicar uma oferta de aplicativo do Azure no Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: pabutler
-ms.openlocfilehash: 2326ce1a591d1276dbaf9c7f3238f7214e5134ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0005760a16f5109ca3555df5c5c5137facc84c40
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942894"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826151"
 ---
 # <a name="publish-azure-application-offer"></a>Publicar oferta de aplicação do Azure
 
-Depois de criar uma oferta, fornecendo as informações sobre o **nova oferta** página, pode publicar a oferta. Selecione **publicar** para iniciar o processo de publicação.
+Depois de criar uma oferta fornecendo as informações na nova página de **oferta** , você pode publicar a oferta. Selecione **publicar** para iniciar o processo de publicação.
 
-O diagrama seguinte mostra os passos principais no processo de publicação de uma oferta para a "ativação online".
+O diagrama a seguir mostra as etapas principais no processo de publicação para uma oferta para "entrar ao vivo".
 
-![Passos de publicação de oferta](./media/offer-publishing-steps.png)
+![Etapas de publicação da oferta](./media/offer-publishing-steps.png)
 
 
-## <a name="detailed-description-of-publishing-steps"></a>Descrição detalhada dos passos de publicação
+## <a name="detailed-description-of-publishing-steps"></a>Descrição detalhada das etapas de publicação
 
-A tabela seguinte apresenta uma lista e descreve cada etapa de publicação e fornece uma estimativa de tempo para concluir cada passo.  Vezes estimativas em "dias" são definidos como dias úteis, que exclui fins de semana e feriados.
+A tabela a seguir lista e descreve cada etapa de publicação e fornece uma estimativa de tempo para concluir cada etapa.  As estimativas de horários em "dias" são definidas como dias úteis, o que exclui os fins de semana e feriados.
 
-|  **Etapa de publicação**           | **tempo**    | **Descrição**                                                            |
+|  **Etapa de publicação**           | **Momento**    | **Descrição**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
-| Validar a pré-requisitos         | < 15 min    | Oferecer informações e oferecer definições são validadas.                        |
-| Validar as definições de receita influenciada | < 15 min  | Atribuição de utilização de recursos do Azure para a oferta é verificada.             |
-| Certificação                  | < 1 dia     | Oferta é analisada pela equipe de certificação do Azure. A oferta é procurada vírus, malware, conformidade de segurança e problemas de segurança. A oferta é verificada para ver de que cumpre todos os critérios de elegibilidade. Para obter mais informações, consulte [pré-requisitos](./cpp-prerequisites.md). Comentários é fornecido se não for encontrado um problema. |
-| Validação de unidade de teste          | < a 2 horas   | (Opcional) Se uma versão de teste estiver presente, a Microsoft valida que pode ser implantado e replicada.  |
-| Empacotamento e registo de geração de oportunidades potenciais | < 1 hora  | Ativos de técnicos da oferta são empacotados para uso do cliente e os sistemas de oportunidades potenciais são configurados e implementados. |
-|  Aprovação do publicador             |  manual    | Revisão do publicador final e a confirmação antes da oferta entra no ar. A oferta está agora disponível para pré-visualização.  Pode implementar a sua oferta nas subscrições selecionadas (nos passos de informações oferta) para verificar que cumpre todos os seus requisitos.  Depois de verificar a oferta, selecione **Go Live** para que a sua oferta pode mover para o passo seguinte. |
-| Revisão da Microsoft                | 7 - 14 dias | A Microsoft holística analisa a sua aplicação do Azure e envia um e-mail se são descobertos problemas.  O comprimento deste passo depende da complexidade do aplicativo, os problemas descobertos e imediatamente como responder a elas.  |
-| Em direto                           | < 1 dia | Oferta é lançada, replicada para as regiões especificadas e disponibilizada ao público. |
+| Validar pré-requisitos         | < 15 min    | As informações da oferta e as configurações da oferta são validadas.                        |
+| Validar configurações de receita influenciadas | < 15 min  | A atribuição de uso de recursos do Azure para a oferta está marcada.             |
+| Certificação                  | < 1 dia     | A oferta é analisada pela equipe de certificação do Azure. A oferta é verificada em busca de vírus, malware, conformidade de segurança e problemas de segurança. A oferta é verificada para ver se ela atende a todos os critérios de qualificação. Para obter mais informações, consulte [pré-requisitos](./cpp-prerequisites.md). Os comentários serão fornecidos se um problema for encontrado. |
+| Validação da unidade de teste          | < 2 horas   | Adicional Se um test drive estiver presente, a Microsoft validará que ele pode ser implantado e replicado.  |
+| Empacotamento e registro de geração de cliente potencial | < 1 hora  | Os ativos técnicos da oferta são empacotados para uso do cliente e os sistemas de Lead são configurados e implantados. |
+|  Aprovação do Publicador             |  Manual    | Revisão final do Publicador e confirmação antes que a oferta fique ativa. A oferta agora está disponível para visualização.  Você pode implantar sua oferta nas assinaturas selecionadas (nas etapas de informações da oferta) para verificar se ela atende a todos os seus requisitos.  Depois de verificar a oferta, selecione **Go Live** para que sua oferta possa passar para a próxima etapa. |
+| Análise da Microsoft                | 7-14 dias | A Microsoft revisará seu aplicativo do Azure e enviará um email para você se os problemas forem descobertos.  O comprimento dessa etapa depende da complexidade do aplicativo, dos problemas descobertos e de como você responde a eles imediatamente.  |
+| Em direto                           | < 1 dia | A oferta é liberada, replicada para as regiões especificadas e disponibilizada para o público. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
 
-Pode monitorizar o processo de publicação na **estado** separador para a sua oferta no Portal de parceiros de nuvem.
+Você pode monitorar o processo de publicação na guia **status** para sua oferta no portal do Cloud Partner.
 
-![Separador de estado para uma oferta de aplicação do Azure](./media/offer-status-tab.png)
+![Guia status de uma oferta de aplicativo do Azure](./media/offer-status-tab.png)
 
-Depois de concluir o processo de publicação, a sua oferta será listada na [categoria de aplicação do Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/).
+Depois de concluir o processo de publicação, sua oferta será listada na [categoria Microsoft Azure Marketplace aplicativo](https://azuremarketplace.microsoft.com/marketplace/apps/).
 
 >[!Note]
->Fornecedores de soluções (CSP) parceiro canal optar ativamente por participar na cloud agora está disponível.  Veja [fornecedores de soluções Cloud](../../cloud-solution-providers.md) para obter mais informações sobre a sua oferta através do CSP da Microsoft de marketing de parceiros canais.
+>A aceitação do canal de parceiros do CSP (provedores de soluções na nuvem) já está disponível.  Consulte os [provedores de soluções de nuvem](../../cloud-solution-providers.md) para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP.
 
-## <a name="errors-and-review-feedback"></a>Erros e os comentários da revisão
+## <a name="errors-and-review-feedback"></a>Erros e comentários de revisão
 
-Além de exibir o estado de publicação da sua oferta, o **estado** guia também exibe mensagens de erro e comentários a partir de quaisquer passos de publicação em que for encontrado um problema.  Se o problema é essencial, em seguida, publicando é cancelada.  Em seguida, tem de corrigir os problemas reportados e voltar a publicar a oferta.  Uma vez que o **revisão Microsoft** passo representa uma revisão extensiva da sua oferta e os seus ativos técnicos associados (especialmente o modelo Azure Resource Manager), problemas, normalmente, são apresentados como ligações de pedido (PR) de solicitação.  Obter uma explicação de como visualizar e responder a estes pedidos pull, consulte [comentários da revisão de manipulação de](./cpp-handling-review-feedback.md).
+Além de exibir o status de publicação da sua oferta, a guia **status** também exibe mensagens de erro e comentários de quaisquer etapas de publicação nas quais um problema é encontrado.  Se o problema for crítico, a publicação será cancelada.  Em seguida, você deve corrigir os problemas relatados e republicar a oferta.  Como a etapa de **revisão da Microsoft** representa uma análise extensiva de sua oferta e seus ativos técnicos associados (especialmente o modelo de Azure Resource Manager), os problemas normalmente são apresentados como links de solicitação de pull (PR).  Uma explicação de como exibir e responder a esses PRs, consulte [lidando com comentários de revisão](./cpp-handling-review-feedback.md).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Se encontrou erros em uma ou mais dos passos de publicação, tem de corrigi-los e voltar a publicar a oferta.  Se a problemas críticos são encontrados no **revisão do Microsoft** passo, deve [lidar com os comentários da revisão](./cpp-handling-review-feedback.md) acessando o Microsoft rever o repositório de Azure DevOps da equipa.
+Se você encontrou erros em uma ou mais das etapas de publicação, você deve corrigi-los e republicar sua oferta.  Se forem encontrados problemas críticos na etapa de **revisão da Microsoft** , você deverá [lidar com os comentários de revisão](./cpp-handling-review-feedback.md) acessando o repositório do Azure DevOps da equipe de revisão da Microsoft.
 
-Depois de uma aplicação do Azure é publicada com êxito, pode [atualizar a oferta existente](./cpp-update-existing-offer.md) para refletir a alteração de requisitos comerciais ou técnicos. 
+Depois que um aplicativo do Azure for publicado com êxito, você poderá [atualizar a oferta existente](./cpp-update-existing-offer.md) para refletir a alteração dos requisitos técnicos ou de negócios. 

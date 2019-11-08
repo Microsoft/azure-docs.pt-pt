@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: usar o Python para consultar o banco de dados SQL do Azure'
+title: 'Início rápido: usar o Python para consultar'
 description: Este tópico mostra como usar o Python para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-lo usando instruções Transact-SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 32861fa8f8756c4e8d30c055582789d41a92fe7c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 42d5b500a48e427aad2372710597e0266b2e80aa
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331859"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826985"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Início Rápido: Utilizar o Python para consultar uma base de dados SQL do Azure
 
@@ -28,9 +28,9 @@ Para concluir este início rápido, certifique-se de que tem o seguinte:
 
 - Uma base de dados SQL do Azure. Você pode usar um desses guias de início rápido para criar e, em seguida, configurar um banco de dados no banco de dados SQL do Azure:
 
-  || Base de dados única | Instância gerida |
+  || Base de dados individual | Instância gerida |
   |:--- |:--- |:---|
-  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  | Criar| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Configurar | [Regra de firewall de IP de nível de servidor](sql-database-server-level-firewall-rule.md)| [Conectividade de uma VM](sql-database-managed-instance-configure-vm.md)|
@@ -54,7 +54,7 @@ Para concluir este início rápido, certifique-se de que tem o seguinte:
 
 Obtenha as informações de conexão necessárias para se conectar ao banco de dados SQL do Azure. Você precisará do nome do servidor totalmente qualificado ou nome do host, nome do banco de dados e informações de logon para os próximos procedimentos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Vá para a página **bancos de dados SQL** ou **instâncias gerenciadas do SQL** .
 
@@ -64,7 +64,7 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 1. Em um editor de texto, crie um novo arquivo chamado *sqltest.py*.  
    
-1. Adicione o seguinte código. Substitua seus próprios valores por \<server >, \<database >, \<username > e \<password >.
+1. Adicione o seguinte código. Substitua seus próprios valores por > do \<Server, \<> do banco de dados, \<> de nome de usuário e \<de senha.
    
    >[!IMPORTANT]
    >O código neste exemplo usa os dados AdventureWorksLT de exemplo, que você pode escolher como fonte ao criar o banco de dado. Se o seu banco de dados tiver um dado diferente, use tabelas do seu próprio banco na consulta SELECT. 

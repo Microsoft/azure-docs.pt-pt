@@ -1,5 +1,5 @@
 ---
-title: 'Migrar certificado TDE-Instância Gerenciada do Banco de Dados SQL do Azure '
+title: Migrar instância gerenciada do certificado TDE
 description: Migrar certificado protegendo a chave de criptografia do banco de dados com Transparent Data Encryption para Instância Gerenciada do Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 ms.date: 04/25/2019
-ms.openlocfilehash: 4d931a927888cb96116043a72006ac77cfa7dded
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f0bc66260a0eaa66e71241148591146fa38d4120
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688061"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821796"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migrar o certificado do banco de dados protegido TDE para Instância Gerenciada do Banco de Dados SQL do Azure
 

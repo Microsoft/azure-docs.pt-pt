@@ -1,5 +1,5 @@
 ---
-title: 'Always Encrypted: banco de dados SQL-Azure Key Vault '
+title: Always Encrypted-Azure Key Vault
 description: Este artigo mostra como proteger os dados confidenciais em um banco de dados SQL com a criptografia de dado usando o assistente de Always Encrypted no SQL Server Management Studio.
 keywords: criptografia de dados, chave de criptografia, criptografia de nuvem
 services: sql-database
@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 7ba19f3f3e03c414d651082898976c5bd17e89c9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4fa4c461a3bcf5921be74eab9259fd07cc6b5f61
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691264"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826453"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: proteger dados confidenciais e armazenar chaves de criptografia no Azure Key Vault
 
@@ -83,7 +83,7 @@ Você pode criar rapidamente um cofre de chaves executando o script a seguir. Pa
 
 
 ## <a name="create-a-blank-sql-database"></a>Criar uma base de dados SQL vazia
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 2. Vá para **criar um recurso** > **bancos** de dados > **banco de dados SQL**.
 3. Crie um banco de dados **em branco** chamado **clínica** em um servidor novo ou existente. Para obter instruções detalhadas sobre como criar um banco de dados no portal do Azure, consulte [seu primeiro banco de dados SQL do Azure](sql-database-single-database-get-started.md).
    

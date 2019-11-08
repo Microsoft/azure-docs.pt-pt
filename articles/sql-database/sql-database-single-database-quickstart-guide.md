@@ -1,5 +1,5 @@
 ---
-title: Início rápido-bancos de dados únicos no Azure SQL Database
+title: Início rápido-bancos de dados únicos
 description: Saiba como começar rapidamente com bancos de dados individuais no banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 07/29/2019
-ms.openlocfilehash: 279d0a2016bc3323632651db256c43121d388412
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4332d57c8d5587a34ba3a593deb9bd635132b03d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687148"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820957"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Introdução a bancos de dados individuais no banco de dados SQL do Azure
 

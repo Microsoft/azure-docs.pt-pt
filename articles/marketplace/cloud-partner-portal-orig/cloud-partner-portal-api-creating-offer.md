@@ -1,35 +1,36 @@
 ---
-title: Criar ou modificar uma oferta | O Azure Marketplace
-description: API para criar um novo ou atualizar e oferta existente.
+title: Criar ou modificar uma oferta | Azure Marketplace
+description: API para criar uma oferta nova ou atualizada e existente.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 55f6aa60c836d55333e1c5b02a44114b91df822d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bfb9cfbe2c63caafef8487015f42a05b98afa29c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935530"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819722"
 ---
 <a name="create-or-modify-an-offer"></a>Criar ou modificar uma oferta
 =========================
 
-Esta chamada de atualizações de uma oferta específica dentro do espaço de nomes do publicador ou cria uma nova oferta.
+Essa chamada atualiza uma oferta específica dentro do namespace do Publicador ou cria uma nova oferta.
 
   `PUT https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>?api-version=2017-10-31`
 
 
-<a name="uri-parameters"></a>Parâmetros do URI
+<a name="uri-parameters"></a>Parâmetros de URI
 --------------
 
 |  **Nome**         |  **Descrição**                      |  **Tipo de dados**  |
 |  --------         |  ----------------                     |  -------------  |
-| publisherId       |  Identificador do publicador, por exemplo `contoso` |   String |
-| offerId           |  Identificador da oferta                     |   String        |
-| versão de API       |  Versão mais recente da API            |   Date           |
+| publisherId       |  Identificador de editor, por exemplo `contoso` |   String |
+| OfferId           |  Identificador da oferta                     |   String        |
+| versão da API       |  Versão mais recente da API            |   Date           |
 |  |  |  |
 
 <a name="header"></a>Cabeçalho
@@ -37,7 +38,7 @@ Esta chamada de atualizações de uma oferta específica dentro do espaço de no
 
 |  **Nome**        |  **Valor**               |
 |  ---------       |  ----------              | 
-| Content-Type     | `application/json`       |
+| Tipo de conteúdo     | `application/json`       |
 | Autorização    | `Bearer YOUR_TOKEN`      |
 |  |  |
 
@@ -45,7 +46,7 @@ Esta chamada de atualizações de uma oferta específica dentro do espaço de no
 <a name="body-example"></a>Exemplo de corpo
 ------------
 
-O exemplo seguinte cria uma oferta com offerID de `contosovirtualmachine`.
+O exemplo a seguir cria uma oferta com OfferId de `contosovirtualmachine`.
 
 ### <a name="request"></a>Pedir
 
@@ -239,23 +240,23 @@ O exemplo seguinte cria uma oferta com offerID de `contosovirtualmachine`.
 ```
 
 > [!NOTE]
-> Para modificar esta oferta, adicione uma **If-Match** cabeçalho definido como * para o pedido acima. Utilizar o mesmo corpo do pedido como acima, mas a modificar os valores conforme pretendido. 
+> Para modificar essa oferta, adicione um cabeçalho **If-Match** definido como * à solicitação acima. Use o mesmo corpo de solicitação acima, mas modifique os valores conforme desejado. 
 
 
-### <a name="response-status-codes"></a>Códigos de estado de resposta
+### <a name="response-status-codes"></a>Códigos de status de resposta
 
-| **Código**  |  **Descrição**                                                                            |
+| **Auto-completar**  |  **Descrição**                                                                            |
 | --------  |  ---------------                                                                            |
-|  200      | `OK`. O pedido foi processado com êxito e a oferta foi modificada com êxito.           |
-|  201      | `Created`. O pedido foi processado com êxito e a oferta foi criada com êxito.   |
+|  200      | `OK`. A solicitação foi processada com êxito e a oferta foi modificada com êxito.           |
+|  201      | `Created`. A solicitação foi processada com êxito e a oferta foi criada com êxito.   |
 |  400      | `Bad/Malformed request`. O corpo da resposta de erro pode fornecer mais informações.            |
-|  403      | `Forbidden`. O cliente não tem acesso ao espaço de nomes pedido.                     |
-|  404      | `Not found`. A entidade referenciada pelo cliente não existe.                           |
-|  412      | O servidor não corresponde a uma das pré-condições que o autor do pedido especificado no pedido. O cliente deve verificar o ETAG enviada com o pedido. |
+|  403      | `Forbidden`. O cliente não tem acesso ao namespace solicitado.                     |
+|  404      | `Not found`. A entidade referida pelo cliente não existe.                           |
+|  412      | O servidor não atende a uma das pré-condições que o solicitante especificou na solicitação. O cliente deve verificar a ETAG enviada com a solicitação. |
 |  |  |
 
 
-<a name="uploading-artifacts"></a>Carregamento de artefactos
+<a name="uploading-artifacts"></a>Carregando artefatos
 -------------------
 
-Artefatos, como imagens e logotipos, devem ser partilhados por carregá-los para uma localização acessível na web, em seguida, incluindo cada um como um URI no pedido PUT, como no exemplo acima. O sistema irá detetar que estes ficheiros não estão presentes no armazenamento do Azure marketplace e transferir estes ficheiros para o armazenamento.  Como resultado, encontrará-se que os futuros pedidos GET retornará um URL do serviço do Azure marketplace para esses ficheiros.
+Os artefatos, como imagens e logotipos, devem ser compartilhados carregando-os para um local acessível na Web e, em seguida, incluindo cada um como URI na solicitação PUT, como no exemplo acima. O sistema detectará que esses arquivos não estão presentes no armazenamento do Azure Marketplace e baixará esses arquivos no armazenamento.  Como resultado, você verá que futuras solicitações GET retornarão uma URL de serviço do Azure Marketplace para esses arquivos.

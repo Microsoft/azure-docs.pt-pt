@@ -1,5 +1,5 @@
 ---
-title: 'VS Code: conectar-se e consultar dados no Azure SQL Database '
+title: Usar VS Code para se conectar e consultar
 description: Saiba como ligar à Base de Dados SQL no Azure com o Visual Studio Code. Em seguida, execute declarações do Transact-SQL (T-SQL) para consultar e editar dados.
 keywords: ligar à base de dados SQL
 services: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 20de97e9da7fc70e6712aedb76352db1b5748192
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 28b35f273783b2e4d0b8f59c5bc5be384b933ba2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690873"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826884"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Início rápido: usar Visual Studio Code para se conectar e consultar um banco de dados SQL do Azure
 

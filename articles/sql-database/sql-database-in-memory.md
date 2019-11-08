@@ -1,5 +1,5 @@
 ---
-title: Tecnologias em memória do banco de dados SQL do Azure
+title: Tecnologias na memória
 description: As tecnologias na memória do banco de dados SQL do Azure melhoram muito o desempenho de cargas de trabalho transacionais e de análise.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: 7ee643c10c61368ee91692cbddf326ba488f81e6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: de60712451d4c2e8a7d931f7a09352f55be05694
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689783"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810270"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho usando tecnologias na memória no banco de dados SQL
 

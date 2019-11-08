@@ -1,5 +1,5 @@
 ---
-title: 'Always Encrypted: banco de dados SQL do Azure-repositório de certificados do Windows '
+title: Always Encrypted-repositório de certificados do Windows
 description: Este artigo mostra como proteger dados confidenciais em um banco de dados SQL com criptografia de banco de dado usando o assistente de Always Encrypted no SQL Server Management Studio (SSMS). Ele também mostra como armazenar suas chaves de criptografia no repositório de certificados do Windows.
 keywords: criptografar dados, criptografia do SQL, criptografia de banco de dados, informações confidenciais Always Encrypted
 services: sql-database
@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 03/08/2019
-ms.openlocfilehash: e19055f83ef9b943d5ac0068d38b4f58a2b3b17c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 82c3c3274a8a9d66019ce906ee7be47cedac7470
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691239"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822049"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: proteger dados confidenciais e armazenar chaves de criptografia no repositório de certificados do Windows
 
@@ -46,7 +46,7 @@ Para este tutorial, você precisará de:
 
 ## <a name="create-a-blank-sql-database"></a>Criar uma base de dados SQL vazia
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique em **criar um recurso** > **Data + armazenamento** > banco de dados **SQL**.
 3. Crie um banco de dados **em branco** chamado **clínica** em um servidor novo ou existente. Para obter instruções detalhadas sobre como criar um banco de dados no portal do Azure, consulte [seu primeiro banco de dados SQL do Azure](sql-database-single-database-get-started.md).
 

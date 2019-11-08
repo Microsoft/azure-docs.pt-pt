@@ -1,22 +1,23 @@
 ---
-title: Publicar uma solução de gestão do Azure no Azure Marketplace
-description: Publicar uma solução de gestão do Azure no Azure Marketplace
+title: Publicar uma solução de gerenciamento do Azure no Azure Marketplace
+description: Publicar uma solução de gerenciamento do Azure no Azure Marketplace
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 manager: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: e8ed19d9e90aa0551d8996ddc9a4cba3bc338056
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0d1ba2c95a4f7babe0aca2bda82658e8ada1d983
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935088"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819557"
 ---
-<a name="publish-an-azure-management-solution-to-azure-marketplace"></a>Publicar uma solução de gestão do Azure no Azure Marketplace 
+<a name="publish-an-azure-management-solution-to-azure-marketplace"></a>Publicar uma solução de gerenciamento do Azure no Azure Marketplace 
 ========================================================
 
 > [!IMPORTANT]
-> Esta opção de SKU está atualmente em pré-visualização e ainda não está disponível para utilização geral. Não utilize a menos que tenha sido direcionado para pela Microsoft.
+> Esta opção de SKU está atualmente em visualização e ainda não está disponível para uso geral. Não use a menos que você tenha sido direcionado pela Microsoft.

@@ -1,47 +1,48 @@
 ---
-title: Referência da API do Portal de parceiros da cloud | O Azure Marketplace
-description: Descrição da pré-requisitos para utilizar e lista de operações de API do marketplace.
+title: Referência de API de Portal do Cloud Partner | Azure Marketplace
+description: Descrição de, pré-requisitos para usar e lista de operações de API do Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 9626fdb5dbdf720a65217421565fc559a0cee684
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6591e1780d03cbfaff70fbd19ec3dfd274fae79
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935465"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819635"
 ---
-<a name="cloud-partner-portal-api-reference"></a>Referência de API de Portal de parceiro de cloud
+<a name="cloud-partner-portal-api-reference"></a>Referência de API de Portal do Cloud Partner
 ==================================
 
-As APIs de REST de Portal de parceiro de Cloud permitem a obtenção de programática e a manipulação de cargas de trabalho, ofertas e os perfis de publicador. As APIs de utilizam o controlo de acesso baseado em funções (RBAC) para impor permissões corretas no tempo de processamento.
+As APIs REST Portal do Cloud Partner permitem a recuperação programática e a manipulação de cargas de trabalho, ofertas e perfis de Publicador. As APIs usam o RBAC (controle de acesso baseado em função) para impor as permissões corretas no momento do processamento.
 
-Esta referência disponibiliza os detalhes técnicos para as APIs de REST de Portal de parceiro de Cloud. Os exemplos de payload neste documento são apenas para referência e estão sujeitos a alterações à medida que novas funcionalidades adicionadas.
+Esta referência fornece os detalhes técnicos para as APIs REST do Portal do Cloud Partner. Os exemplos de carga neste documento são apenas para referência e estão sujeitos a alterações à medida que a nova funcionalidade é adicionada.
 
 
 <a name="prerequisites-and-considerations"></a>Pré-requisitos e considerações
 -------------------------------
 
-Antes de utilizar as APIs, deve rever:
+Antes de usar as APIs, você deve examinar:
 
-- O [pré-requisitos](./cloud-partner-portal-api-prerequisites.md) artigo para saber como adicionar um principal de serviço à sua conta e obter token de acesso um Azure Active Directory (Azure AD), para autenticação. 
-- Os dois [controlo de simultaneidade](./cloud-partner-portal-api-concurrency-control.md).
+- O artigo [pré-requisitos](./cloud-partner-portal-api-prerequisites.md) para saber como adicionar uma entidade de serviço à sua conta e obter um token de acesso Azure Active Directory (AD do Azure) para autenticação. 
+- O dois [controles de simultaneidade](./cloud-partner-portal-api-concurrency-control.md).
 estratégias disponíveis para chamar essas APIs.
-- API adicionais [considerações](./cloud-partner-portal-api-considerations.md), como controle de versão e o tratamento de erros.
+- Considerações adicionais [sobre](./cloud-partner-portal-api-considerations.md)API, como controle de versão e tratamento de erros.
 
 
 <a name="common-tasks"></a>Tarefas comuns
 ------------
-Esta referência fornece detalhes sobre as APIs para realizar as seguintes tarefas comuns.
+Esta referência detalha as APIs para executar as seguintes tarefas comuns.
 
 
 ### <a name="offers"></a>Ofertas
 
--   [Obter todas as ofertas](./cloud-partner-portal-api-retrieve-offers.md)
--   [Obter uma oferta específica](./cloud-partner-portal-api-retrieve-specific-offer.md)
+-   [Recuperar todas as ofertas](./cloud-partner-portal-api-retrieve-offers.md)
+-   [Recuperar uma oferta específica](./cloud-partner-portal-api-retrieve-specific-offer.md)
 -   [Obter estado da oferta](./cloud-partner-portal-api-retrieve-offer-status.md)
 -   [Criar uma oferta](./cloud-partner-portal-api-creating-offer.md)
 -   [Publicar uma oferta](./cloud-partner-portal-api-publish-offer.md)
@@ -51,13 +52,13 @@ Esta referência fornece detalhes sobre as APIs para realizar as seguintes taref
 -   [Obter operações](./cloud-partner-portal-api-retrieve-operations.md)
 -   [Cancelar operações](./cloud-partner-portal-api-cancel-operations.md)
 
-### <a name="publish-an-app"></a>Publicar uma aplicação
+### <a name="publish-an-app"></a>Publicar um aplicativo
 
 -   [Entrar em direto](./cloud-partner-portal-api-go-live.md)
 
 ### <a name="other-tasks"></a>Outras tarefas
 
--   [Definir preços de ofertas de máquina virtual](./cloud-partner-portal-api-setting-price.md)
+-   [Definir preços para ofertas de máquina virtual](./cloud-partner-portal-api-setting-price.md)
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 

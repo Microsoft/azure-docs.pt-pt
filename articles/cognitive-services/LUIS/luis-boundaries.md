@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/07/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 5a65ee27d5175887b7bf0d9146afa025e665657c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0654916b344cf47cf9942b883d62d392c0552979
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488414"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818940"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites para o modelo e as chaves do LUIS
 LUIS tem várias áreas de limite. O primeiro é o [limite do modelo](#model-boundaries), que controla as intenções, as entidades e os recursos no Luis. A segunda área é [os limites de cota](#key-limits) com base no tipo de chave. Uma terceira área de limites é a [combinação de teclado](#keyboard-controls) para controlar o site Luis. Uma quarta área é o [mapeamento de região do mundo](luis-reference-regions.md) entre o site de criação do Luis e as APIs de [ponto de extremidade](luis-glossary.md#endpoint) do Luis. 
@@ -35,7 +35,7 @@ Se o seu aplicativo exceder os limites e limites do modelo LUIS, considere o uso
 | Entidades externas | sem limites |
 | [Tentativas][intents]|500 por aplicativo: 499 tentativas personalizadas e a intenção _nenhuma_ necessária.<br>O aplicativo [baseado em expedição](https://aka.ms/dispatch-tool) tem fontes de expedição 500 correspondentes.|
 | [Listar entidades](./luis-concept-entity-types.md) | Pai: 50, filho: 20.000 itens. Nome canônico é * caractere padrão máx. Os valores de sinônimo não têm restrição de comprimento. |
-| [Entidades e funções aprendidas por computador](./luis-concept-entity-types.md):<br> Spot<br>único<br>função de entidade|Um limite de entidades pai 100 ou de 330 entidades, o que limitará o usuário primeiro. Uma função conta como uma entidade para a finalidade desse limite. Um exemplo é uma composição com uma entidade simples, que tem duas funções: 1 composição + 1 simples + 2 funções = 4 das entidades 330.|
+| [Entidades e funções aprendidas por computador](./luis-concept-entity-types.md):<br> Spot<br>único<br>função de entidade|Um limite de entidades pai 100 ou de 330 entidades, o que limitará o usuário primeiro. Uma função conta como uma entidade para a finalidade desse limite. Um exemplo é uma composição com uma entidade simples, que tem duas funções: 1 composição + 1 simples + 2 funções = 4 das entidades 330.<br>Os subcomponentes podem ser aninhados em até 5 níveis.|
 |Modelo como um recurso| Número máximo de modelos que podem ser usados como um descritor (recurso) para um modelo específico para ter 10 modelos. O número máximo de listas de frases usadas como um descritor (recurso) para um modelo específico ter 10 listas de frases.|
 | [Visualização-entidades de lista dinâmica](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listas de ~ 1K por solicitação de ponto de extremidade de previsão de consulta|
 | [Padrões](luis-concept-patterns.md)|500 padrões por aplicativo.<br>O comprimento máximo do padrão é de 400 caracteres.<br>3 padrão. qualquer entidade por padrão<br>Máximo de 2 textos opcionais aninhados em padrão|
@@ -61,7 +61,7 @@ O seguinte deve ser exclusivo em um aplicativo LUIS:
 
 * Nome da versão
 * tentativa
-* Entidade
+* entidade
 * funções
 
 O seguinte deve ser exclusivo dentro do escopo aplicado:
@@ -74,7 +74,7 @@ Não use os seguintes caracteres nos nomes a seguir.
 
 |Object|Excluir caracteres|
 |--|--|
-|Nomes de intenção, entidade e função|`:`<br>`$`|
+|Nomes de intenção, entidade e função|`:`<br>`$` <br> `&`|
 |Nome da versão|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
 ## <a name="key-usage"></a>Uso da chave

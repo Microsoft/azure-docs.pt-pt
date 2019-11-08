@@ -1,6 +1,6 @@
 ---
 title: Como implantar um módulo OPC Myem um projeto existente do Azure | Microsoft Docs
-description: Como implantar OPC maquerer em um projeto existente.
+description: Este artigo descreve como implantar o OPC maquery em um projeto existente. Você também pode aprender a solucionar problemas de falhas de implantação.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 74b502a37081c729c5e33a0db7dc7f26cb44774b
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: b971ec13c71ccfd7d28ae6987593d09201b9b764
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972287"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824122"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Implantar o OPC "an" em um projeto existente
 
@@ -52,7 +52,7 @@ cd azure-iiot-components
 
    A saída inclui a URL do ponto de extremidade público. 
 
-3. Quando o script for concluído com êxito, selecione se deseja salvar o `.env` arquivo.  Você precisará `.env` do arquivo de ambiente se quiser se conectar ao ponto de extremidade de nuvem usando ferramentas como o console ou implantar módulos para desenvolvimento e depuração.
+3. Quando o script for concluído com êxito, selecione se deseja salvar o arquivo de `.env`.  Você precisará do arquivo de ambiente `.env` se quiser se conectar ao ponto de extremidade de nuvem usando ferramentas como o console ou implantar módulos para desenvolvimento e depuração.
 
 ## <a name="troubleshooting-deployment-failures"></a>Solucionando problemas de falhas de implantação
 

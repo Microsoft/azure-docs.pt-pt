@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 98d645fc76010d96bc016a63b4882979f3489698
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a916645f153f73a98e7fc5d4046bdf557e8acf2b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690138"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823518"
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança de divisão/mesclagem
 

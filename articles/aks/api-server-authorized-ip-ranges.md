@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: mlearned
-ms.openlocfilehash: 558c04be77f911f40be9e8880950d1670a3c169e
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
-ms.translationtype: HT
+ms.openlocfilehash: aa0cf1ef3f758d7aba4639d779bde90249d039cb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747746"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815676"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Proteger o acesso ao servidor de API usando intervalos de endereços IP autorizados no serviço de kubernetes do Azure (AKS)
 
@@ -25,17 +25,9 @@ Este artigo mostra como usar intervalos de endereços IP autorizados do servidor
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo pressupõe que você está trabalhando com clusters que usam [kubenet][kubenet].  Com os clusters baseados em [CNI (interface de rede de contêiner do Azure)][cni-networking] , você não terá a tabela de rotas necessária para proteger o acesso.  Você precisará criar a tabela de rotas manualmente.  Para obter mais informações sobre como gerenciar tabelas de rotas, consulte [criar, alterar ou excluir uma tabela de rotas][route-tables].
-
 Os intervalos de IP autorizados do servidor de API só funcionam para novos clusters AKS que você criar. Este artigo mostra como criar um cluster AKS usando o CLI do Azure.
 
 Você precisa do CLI do Azure versão 2.0.76 ou posterior instalado e configurado. Execute `az --version` para localizar a versão. Se você precisar instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
-
-## <a name="limitations"></a>Limitações
-
-As seguintes limitações se aplicam quando você configura intervalos de IP autorizados do servidor de API:
-
-* No momento, não é possível usar Azure Dev Spaces porque a comunicação com o servidor de API também está bloqueada.
 
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>Visão geral dos intervalos de IP autorizados do servidor de API
 
@@ -69,6 +61,7 @@ az aks create \
 > Você deve adicionar esses intervalos a uma lista de permissões:
 > - O endereço IP público do firewall
 > - Qualquer intervalo que represente as redes das quais você administrará o cluster
+> - Se estiver usando Azure Dev Spaces em seu cluster AKS, você precisará permitir [intervalos adicionais com base em sua região][dev-spaces-ranges].
 
 ### <a name="specify-the-outbound-ips-for-the-standard-sku-load-balancer"></a>Especificar os IPs de saída para o balanceador de carga SKU padrão
 
@@ -141,6 +134,7 @@ Para obter mais informações, consulte [conceitos de segurança para aplicativo
 
 <!-- LINKS - external -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
+[dev-spaces-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
 [kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 
 <!-- LINKS - internal -->

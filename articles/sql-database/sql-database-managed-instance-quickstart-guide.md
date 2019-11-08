@@ -1,5 +1,5 @@
 ---
-title: Início rápido-instância gerenciada do banco de dados SQL do Azure
+title: Início rápido-instância gerenciada do SQL
 description: Saiba como começar rapidamente com a instância gerenciada do banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 07/11/2019
-ms.openlocfilehash: ef15f164b707d5f762191547326c120663a78350
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 602de3e23eb5419958f84b071e2220550d1d04d0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687934"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821725"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Introdução à instância gerenciada do banco de dados SQL do Azure
 

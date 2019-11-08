@@ -1,57 +1,58 @@
 ---
-title: Guia de publicação de oferta de AppSource para vitrine de AppsSource | O Azure Marketplace
-description: Guia passo a passo e listas de verificação de publicação para a publicação de aplicações para a loja de AppSource para Office 365, Dynamics 365, Power BI e Power Apps
+title: Guia de publicação da oferta do AppSource para a vitrine do aplicativo | Azure Marketplace
+description: Guia passo a passo e publicação de listas de verificação para publicar aplicativos na vitrine de AppSource para Office 365, Dynamics 365, Power BI e Power apps
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 author: ellacroi
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 38175bd2365ee9ab7246f0d967c364912efda37d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4a5d61d9434a73556d81010da7c7b3e96139a9e4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935693"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824329"
 ---
-# <a name="office-365-dynamics-365-power-apps-and-power-bi-offer-publishing-guide"></a>Guia do Office 365, Dynamics 365, Powerapps e a publicação do Power BI oferta
+# <a name="office-365-dynamics-365-power-apps-and-power-bi-offer-publishing-guide"></a>Guia de publicação do Office 365, Dynamics 365, Power apps e Power BI offer
 
-A loja de AppSource inclui ofertas que criam no ou expandem Dynamics 365, Office 365, Power BI e Power Apps. Cada um desses produtos tem documentação específica para orientá-lo no processo de publicação. Veja abaixo para obter ligações para mais detalhes para cada tipo de oferta. 
+A vitrine de AppSource inclui ofertas que criam ou estendem o Dynamics 365, o Office 365, o Power BI e o Power apps. Cada um desses produtos tem documentação específica para orientá-lo no processo de publicação. Veja abaixo os links para obter mais detalhes para cada tipo de oferta. 
 
-AppSource tem lista e ofertas de avaliação, com a chamada para a ação "Contactar-Me" ou "Experimentar agora." Não existe atualmente nenhuma funcionalidade de transação no AppSource.
+O AppSource tem ofertas de lista e avaliação, com o plano de ação "entre em contato comigo" ou "Experimente agora". No momento, não há nenhuma funcionalidade de transação no AppSource.
 
-## <a name="product-specific-guides"></a>Guias específicos de produtos
+## <a name="product-specific-guides"></a>Guias específicos do produto
 
 ### <a name="office-365"></a>Office 365
 
-Reveja o [processo e diretrizes de publicação](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store)
+Examinar o [processo e as diretrizes de publicação](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store)
 
-### <a name="power-apps"></a>Aplicações de energia
+### <a name="power-apps"></a>Power Apps
 
-Saiba mais sobre como os clientes podem [testar a aplicação no AppSource.](https://powerapps.microsoft.com/blog/appsource-test-drive/)
+Saiba mais sobre como os clientes podem [Test Drive seu aplicativo no AppSource.](https://powerapps.microsoft.com/blog/appsource-test-drive/)
 
 ### <a name="power-bi"></a>Power BI
 
-Reveja o [processo e diretrizes de publicação.](https://docs.microsoft.com/power-bi/developer/office-store)
+Examine o [processo e as diretrizes de publicação.](https://docs.microsoft.com/power-bi/developer/office-store)
 
 ### <a name="dynamics-365"></a>Dynamics 365
 
-#### <a name="dynamics-365-for-finance-and-operations"></a>Dynamics 365 para operações e finanças
-Ao criar para Enterprise Edition, reveja o [processo e diretrizes de publicação](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)
+#### <a name="dynamics-365-for-finance-and-operations"></a>Dynamics 365 para finanças e operações
+Ao compilar para o Enterprise Edition, examine o [processo e as diretrizes de publicação](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
-Ver [Dynamics 365 para a oferta de finanças e operações](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer) para saber como publicar a oferta no Portal de parceiros da Cloud.
+Consulte a [oferta do Dynamics 365 for Finance and Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer) para saber como publicar a oferta no portal do Cloud Partner.
 
 ### <a name="dynamics-365-for-customer-engagement"></a>Dynamics 365 for Customer Engagement
-Reveja os [processo e diretrizes de publicação](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource).
+Examine o [processo e as diretrizes de publicação](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource).
 
-Ver [Dynamics 365 para a oferta de Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-customer-engagement-offer) para saber como publicar a oferta no Portal de parceiros da Cloud.
+Consulte o [Dynamics 365 para obter a oferta de envolvimento do cliente](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-customer-engagement-offer) para saber como publicar a oferta no portal do Cloud Partner.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Se ainda não fez isso, 
+Se você ainda não fez isso, 
 
-- [Registar](https://azuremarketplace.microsoft.com/sell) no marketplace.
+- [Registre-se](https://azuremarketplace.microsoft.com/sell) no Marketplace.
 
-Se está registado e trabalhar no Portal de parceiros da Cloud, 
+Se você estiver registrado e trabalhando no Portal do Cloud Partner, 
 
-- [Inicie sessão no Portal de parceiro de Cloud](https://cloudpartner.azure.com) para criar ou concluir sua oferta.
+- [Faça logon no portal do Cloud Partner](https://cloudpartner.azure.com) para criar ou concluir sua oferta.

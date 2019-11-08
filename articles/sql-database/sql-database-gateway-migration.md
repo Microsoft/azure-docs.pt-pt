@@ -1,5 +1,5 @@
 ---
-title: Aviso de migração de tráfego do gateway para o banco de dados SQL do Azure
+title: Aviso de migração de tráfego de gateway
 description: O artigo fornece um aviso aos usuários sobre a migração de endereços IP de gateways do banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 37c6c8e0f26d0281c3f6e76cb891fe14eb2ef04e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fe35dc4c22f3852934cde0d6f33084b56266d514
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690004"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807692"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migração de tráfego do banco de dados SQL do Azure para gateways mais recentes
 
@@ -27,14 +27,14 @@ Os clientes serão notificados por email e na portal do Azure bem antes de qualq
 
 A primeira rodada de migração de tráfego para gateways mais recentes está agendada para **14 de outubro de 2019** nas seguintes regiões:
 - Sul do Brasil
-- Oeste dos E.U.A.
+- EUA Oeste
 - Europa Ocidental
 - EUA Leste
 - EUA Central
 - Sudeste Asiático
 - EUA Centro-Sul
 - Europa do Norte
-- E.U.A. Centro-Norte
+- EUA Centro-Norte
 - Oeste do Japão
 - Leste do Japão
 - EUA Leste 2

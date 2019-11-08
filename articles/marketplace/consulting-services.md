@@ -4,20 +4,21 @@ description: Este artigo descreve os critérios de qualificação e os requisito
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: e23a83ab3a5b110f74ab4ac203dfc020e8920c24
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: d56b83c8bd9a71ac30112f9e77a97ed8ab61a137
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285978"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825978"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Serviços de consultoria para o Azure Marketplace e o AppSource
 Os serviços de consultoria no Azure Marketplace e o AppSource fornecem aos parceiros da Microsoft o objetivo de conectar clientes com serviços para dar suporte e estender o uso de metas de negócios e do Azure. 
 
-O Azure Marketplace e o AppSource dão suporte à listagem de ofertas de serviços de consultoria dos parceiros do SI (integrador de sistemas) da Microsoft – o objetivo é oferecer serviços de consultoria de qualidade para permitir que os clientes se conectem com os serviços especializados de que precisam. Ajudar os clientes a avaliar, avaliar e implantar as soluções e implementação certas que ajudarão com seus objetivos de negócios e metas.  
+O Azure Marketplace e o AppSource dão suporte à listagem de ofertas de serviços de consultoria dos parceiros do SI (integrador de sistemas) da Microsoft-o objetivo é oferecer serviços de consultoria de qualidade para permitir que os clientes se conectem com os serviços especializados de que precisam. Ajudar os clientes a avaliar, avaliar e implantar as soluções e implementação certas que ajudarão com seus objetivos de negócios e metas.  
 
 Essas ofertas de serviço de consultoria são compromissos específicos do cliente. Os editores têm a opção de determinar o tipo de listagem e com escopo e duração fixos, com preço fixo ou gratuito, e ter uma agenda definida com resultados finais para o cliente. Os clientes potenciais são recebidos por meio de uma notificação no sistema CRM do parceiro e visam responder aos clientes dentro de 48 horas. 
 
@@ -150,7 +151,7 @@ Exemplos:
 
 Ao revisar descrições da oferta e resumos da oferta, a equipe aplicará os seguintes critérios:
 
-|Tipo de Oferta  |Obrigatório |Recomendado  |
+|Tipo de Oferta  |Necessário |Recomendado  |
 |---------|---------|---------|
 |**Avaliação**    |   Inclua uma agenda detalhada para avaliações de vários dias ou de várias semanas e articule o que o cliente pode esperar      |    Otimize seu resumo de ofertas com as principais palavras-chave de otimização do mecanismo de pesquisa     |
 |**Resumo**    |   Articular o resultado que o cliente pode esperar. Lembre-se de que o resumo deve ser oferecido pessoalmente. Se você estiver fornecendo um serviço virtual, escolha um tipo de oferta diferente    |  Otimize seu resumo de ofertas com as principais palavras-chave de otimização do mecanismo de pesquisa       |

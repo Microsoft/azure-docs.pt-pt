@@ -1,70 +1,71 @@
 ---
 title: O que é a Versão de Teste? | Azure Marketplace
-description: Explicação da funcionalidade de Marketplace Test-Drive
+description: Explicação do recurso de unidade de teste do Marketplace
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 5b23a5e93dcbb9c13243240bda760a16d108d731
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a6826657a4af74276e363acd585e80d101cc1459
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938464"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73828148"
 ---
 <a name="what-is-test-drive"></a>O que é a Versão de Teste?
 ===================
 
-Versão de teste é uma ótima maneira de demonstrar sua oferta aos clientes potenciais, conferindo-lhes a opção para \'tente antes de o comprar\', o que resulta em maior de conversão e a geração de oportunidades potenciais altamente qualificados.
+O Test Drive é uma ótima maneira de demonstrar sua oferta a clientes potenciais, fornecendo a eles a opção de \'tentar antes de comprar\', resultando em uma maior conversão e na geração de clientes potenciais altamente qualificados.
 
-Depois de fornecer informações de contacto dele, os clientes podem aceder a sua experiência de Test-Drive previamente criada: um prático autoguiada versão de avaliação do seu produto\'Step-by-s principais recursos e benefícios que está a ser demonstrados num cenário de implementação do mundo real.
+Depois de fornecer suas informações de contato, os clientes podem acessar sua experiência de teste pré-criados: uma avaliação prática e interativa de seu produto\'os principais recursos e os benefícios sendo demonstrados em um cenário de implementação do mundo real.
 
-Versão de teste permite-lhe dê vida aos seus produtos e gerar oportunidades potenciais altamente qualificados no processo.
+O Test Drive permite que você traga a vida do seu produto e gere clientes potenciais altamente qualificados no processo.
 
-<a name="how-does-a-test-drive-work"></a>Como funciona um Test Drive?
+<a name="how-does-a-test-drive-work"></a>Como funciona um test drive?
 ---------------------------
 
-Um cliente potencial Deteta a sua aplicação no Marketplace, inicia sessão e aceita os termos de utilização. Neste momento, o cliente recebe o seu ambiente previamente configurada para experimentar para um número fixo de horas, enquanto recebe uma oportunidade potencial altamente qualificada para dar seguimento com.
+Um cliente potencial descobre seu aplicativo no Marketplace, entra e concorda com os termos de uso. Neste ponto, o cliente recebe seu ambiente pré-configurado para tentar um número fixo de horas, enquanto você recebe um Lead altamente qualificado para acompanhar.
 
-![Passo um. Oferta do Marketplace apresentada](./media/what-is-test-drive/step1.png)
+![Etapa 1. Oferta do Marketplace exibida](./media/what-is-test-drive/step1.png)
 
-![Passo dois. Ecrã de início de sessão da oferta de Marketplace](./media/what-is-test-drive/step1andahalf.png)
+![Etapa dois. Tela de entrada da oferta do Marketplace](./media/what-is-test-drive/step1andahalf.png)
 
-![Etapa três. Ecrã de contrato de publicador do Marketplace oferta](./media/what-is-test-drive/step2.png)
+![Etapa três. Tela do contrato de oferta do Marketplace](./media/what-is-test-drive/step2.png)
 
-![Etapa quatro. Ecrã de configuração de unidade de teste](./media/what-is-test-drive/step3.png)
+![Etapa quatro. Tela de configuração do Test Drive](./media/what-is-test-drive/step3.png)
 
-E aqui está um exemplo do aspeto de uma oferta quando tem de hora de implantar abaixo:
+Aqui está um exemplo de como uma oferta se parece quando precisa de tempo para implantar:
 
-![Oferta do Marketplace que estão sendo implementada](./media/what-is-test-drive/step4.png)
+![Oferta do Marketplace sendo implantada](./media/what-is-test-drive/step4.png)
 
-![Ecrã de pronto de Test-Drive do Marketplace](./media/what-is-test-drive/step5.png)
+![Tela pronta do test drive do Marketplace](./media/what-is-test-drive/step5.png)
 
-![Ecrã de conclusão do Marketplace Test-Drive](./media/what-is-test-drive/step6.png)
+![Tela de conclusão da unidade de teste do Marketplace](./media/what-is-test-drive/step6.png)
 
-Independentemente da complexidade do aplicativo, sua versão de teste da Microsoft ajuda-o a traga o seu produto para a vida do cliente. Hoje em dia, podemos oferecer três tipos diferentes de versões de teste com base no tipo de produto, o cenário e o marketplace que estiver a utilizar.
+Não importa a complexidade de seu aplicativo, sua unidade de teste da Microsoft ajuda você a dar vida ao seu produto para o cliente. Hoje, oferecemos três tipos diferentes de unidades de teste com base no tipo de produto, cenário e Marketplace em que você está.
 
-- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)** : Uma versão de teste de Gestor de recursos do Azure é um modelo de implementação que contém todos os recursos do Azure que compõem uma solução que está a ser criada pelo editor. Produtos que se enquadram neste cenário são aqueles que utilizam apenas os recursos do Azure.
-- **[Aplicação lógica](./logic-app-test-drive.md)** : Uma unidade de teste da aplicação lógica é um modelo de implementação que se destina a abranger todas as arquiteturas de solução complexas. Todas as aplicações do Dynamics ou produtos personalizados, devem utilizar este tipo de versão de teste.
-- **Power BI**: Uma unidade de teste de BI Power é simplesmente uma ligação incorporada a um dashboard personalizado criado. Qualquer produto que quer apenas demonstrar que uma interactive visual do Power BI deve utilizar este tipo de versão de teste.
-    Tudo o que precisa para carregar aqui é o URL de BI de energia incorporados.
+- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)** : um Azure Resource Manager Test Drive é um modelo de implantação que contém todos os recursos do Azure que compõem uma solução que está sendo criada pelo Publicador. Os produtos que se adaptam a esse cenário são aqueles que usam apenas recursos do Azure.
+- **[Aplicativo lógico](./logic-app-test-drive.md)** : uma unidade de teste do aplicativo lógico é um modelo de implantação destinado a abranger todas as arquiteturas de solução complexas. Todos os aplicativos Dynamics ou produtos personalizados devem usar esse tipo de unidade de teste.
+- **Power bi**: uma unidade de teste Power bi é simplesmente um link inserido para um painel criado personalizado. Qualquer produto que deseje apenas demonstrar um visual interativo Power BI deve usar esse tipo de unidade de teste.
+    Tudo o que você precisa carregar aqui é a URL de Power BI inserida.
 
 <a name="what-goes-on-in-the-background"></a>O que acontece em segundo plano?
 -------------------------------
 
-O serviço de Test-Drive baseia-se para continuamente suportar e servem a seus clientes sem a necessidade de qualquer esforço manual do utilizador. Como um publicador, a tarefa é gerir e configurar as definições de Test-Drive do theCloud Portal de parceiros, e, em seguida, essa definição diretamente estarão disponível para os seus clientes.
+O serviço Test Drive é criado para oferecer suporte contínuo e atender aos seus clientes sem a necessidade de nenhum esforço manual. Como Publicador, seu trabalho é gerenciar e definir as configurações do Test Drive no portal de parceiros de nuvem e, em seguida, essa configuração estará disponível diretamente para seus clientes.
 
-Isso ocorre porque depois de definir as configurações para a sua versão de teste, cada versão de teste torna-se uma instância gerida, que será implementada a pedido para o cliente pedir. Assim que for atribuída uma instância de teste de unidade, a versão de teste está disponível para utilização durante o período de conjunto de tempo e, em seguida, é eliminado para criar espaço para outro cliente.
+Isso ocorre porque, depois de definir suas configurações para o Test Drive, cada drive de teste torna-se uma instância gerenciada que será implantada sob demanda para o cliente que o solicita. Depois que uma instância do Test Drive é atribuída, a unidade de teste está disponível para uso durante o período definido e, em seguida, é excluída para criar espaço para outro cliente.
 
-<a name="next-steps"></a>Passos Seguintes
+<a name="next-steps"></a>Passos seguintes
 ----------
 
-Agora que sabe que uma versão de teste é tudo sobre, aceda visita o tipo específico de versão de teste que quer chegar a publicar para saber tudo sobre os campos obrigatórios necessários.
+Agora que você sabe o que é um Test Drive, acesse o tipo de unidade de teste específico que deseja publicar para saber tudo sobre os campos necessários necessários.
 
-- **[Azure Resource   Manager](./azure-resource-manager-test-drive.md)**
-- **[Aplicação lógica](./logic-app-test-drive.md)**
+- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)**
+- **[Aplicativo lógico](./logic-app-test-drive.md)**
 
-Se tiver mais perguntas, estiver à procura de conselhos de resolução de problemas ou pretende tornar a sua versão de teste mais bem-sucedida, vá até [FAQ, resolução de problemas e melhores práticas](./marketing-and-best-practices.md).
+Se você tiver mais dúvidas, está procurando conselhos de solução de problemas ou deseja que seu teste seja mais bem-sucedido, acesse [perguntas frequentes, solução de problemas & práticas recomendadas](./marketing-and-best-practices.md).

@@ -4,15 +4,16 @@ description: Este artigo da CPP foi preterido e apontado para o artigo do PC; fo
 services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
 author: ChJenk
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: v-chjen
-ms.openlocfilehash: 1682abd3983d3e090b59e6452c4761913e29da3d
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 6ff89830f59bfb114714bafb049d25224a16adfc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034343"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818733"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement-application-offer"></a>Criar uma oferta de aplicativo do Dynamics 365 for Customer Engagement
 

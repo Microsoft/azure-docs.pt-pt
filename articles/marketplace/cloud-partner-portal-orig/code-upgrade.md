@@ -5,15 +5,16 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: v-chjen
-ms.openlocfilehash: ea3aff527f6dbd6e6da2010529ad575440504d6a
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 2647e59ddd08e0051afc97415c79c20c431b1e3e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034934"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819063"
 ---
 # <a name="upgrading-code-to-the-latest-platform"></a>Atualizando o código para a plataforma mais recente
 

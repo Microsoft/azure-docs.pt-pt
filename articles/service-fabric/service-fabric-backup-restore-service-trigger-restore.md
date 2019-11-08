@@ -1,6 +1,6 @@
 ---
-title: Restaurar cópia de segurança no Azure Service Fabric | Documentos da Microsoft
-description: Utilize a cópia de segurança periódica e restaurar a funcionalidade do Service Fabric para restaurar dados a partir de uma cópia de segurança de dados da sua aplicação.
+title: Restaurando backup no Azure Service Fabric | Microsoft Docs
+description: Use o recurso backup e restauração periódicos no Service Fabric para restaurar dados de um backup dos dados do aplicativo.
 services: service-fabric
 documentationcenter: .net
 author: aagup
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: e4ada412547360f97e869d3312b65d869fa3df48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff705eabde111b5ebac1e2d714e3ece221c36e90
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413719"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819288"
 ---
-# <a name="restoring-backup-in-azure-service-fabric"></a>Restaurar cópia de segurança no Azure Service Fabric
+# <a name="restoring-backup-in-azure-service-fabric"></a>Restaurando o backup no Azure Service Fabric
 
-No Azure Service Fabric, com monitoração de estado de Reliable services e Reliable Actors podem manter um Estado mutável e autoritativo após a conclusão de uma transação de solicitação e resposta. Um serviço com estado pode descer durante muito tempo ou perderá informações devido a um desastre. Se isto acontecer, o serviço tem de ser restaurado a partir da mais recente aceitável cópia de segurança para que ele pode continuar a trabalhar.
+No Azure Service Fabric, serviços confiáveis com estado e Reliable Actors podem manter um estado mutável e autoritativo após a conclusão de uma transação de solicitação e resposta. Um serviço com estado pode ficar inativo por um longo tempo ou perder informações devido a um desastre. Se isso acontecer, o serviço precisará ser restaurado do backup mais recente aceitável para que possa continuar funcionando.
 
-Por exemplo, pode configurar um serviço para fazer backup de seus dados para proteção contra os seguintes cenários:
+Por exemplo, você pode configurar um serviço para fazer backup de seus dados para proteger contra os seguintes cenários:
 
-- **Caso de recuperação após desastre**: Perda permanente de um cluster do Service Fabric inteiro.
-- **Caso de perda de dados**: Perda permanente de a maioria das réplicas de uma partição de serviço.
-- **Caso de perda de dados**: Eliminação ou corrupção acidental do serviço. Por exemplo, um administrador elimina incorretamente o serviço.
-- **Caso de danos nos dados**: Bugs no serviço danificar os dados. Por exemplo, danos nos dados podem ocorrer quando uma atualização de código do serviço escreve dados com falhas para uma coleção fiável. Nesse caso, poderá ter de restaurar o código e os dados para um estado anterior.
+- **Caso de recuperação de desastre**: perda permanente de um cluster de Service Fabric inteiro.
+- **Caso de perda de dados**: perda permanente de uma maioria das réplicas de uma partição de serviço.
+- **Caso de perda de dados**: exclusão acidental ou corrupção do serviço. Por exemplo, um administrador exclui erroneamente o serviço.
+- **Caso de dados corrompidos**: bugs no serviço causam corrupção de dados. Por exemplo, pode ocorrer corrupção de dados quando uma atualização de código de serviço grava dados com falha em uma coleção confiável. Nesse caso, talvez seja necessário restaurar o código e os dados para um estado anterior.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Para acionar uma restauração, o _serviço de análise de falhas (FAS)_ tem de estar ativada para o cluster.
-- O _serviço de restaurar a cópia de segurança (BRS)_ criada a cópia de segurança.
-- Só é possível acionar o restauro numa partição.
-- Instale o módulo de Microsoft.ServiceFabric.Powershell.Http [na pré-visualização] para fazer chamadas de configuração.
+- Para disparar uma restauração, o _FAS (serviço de análise de falha)_ deve ser habilitado para o cluster.
+- O _serviço de restauração de backup (BRS)_ criou o backup.
+- A restauração só pode ser disparada em uma partição.
+- Instale o módulo Microsoft. perfabric. PowerShell. http [em versão prévia] para fazer chamadas de configuração.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-- Certifique-se de que o Cluster está ligado a utilizar o `Connect-SFCluster` comando antes de efetuar qualquer pedido de configuração através do módulo Microsoft.ServiceFabric.Powershell.Http.
+- Verifique se o cluster está conectado usando o comando `Connect-SFCluster` antes de fazer qualquer solicitação de configuração usando o módulo Microsoft. onfabric. PowerShell. http.
 
 ```powershell
 
@@ -52,29 +52,29 @@ Por exemplo, pode configurar um serviço para fazer backup de seus dados para pr
 ```
 
 
-## <a name="triggered-restore"></a>Restauro acionado
+## <a name="triggered-restore"></a>Restauração disparada
 
-Um restauro pode ser acionado por qualquer um dos seguintes cenários:
+Uma restauração pode ser disparada para qualquer um dos seguintes cenários:
 
-- Restauro de dados para _recuperação após desastre_.
-- Restauro de dados para _perda de dados/Corrupção de dados_.
+- Restauração de dados para _recuperação de desastre_.
+- Restauração de dados para corrupção de dados _/perda_de dados.
 
-### <a name="data-restore-in-the-case-of-disaster-recovery"></a>Restauro de dados no caso de recuperação após desastre
+### <a name="data-restore-in-the-case-of-disaster-recovery"></a>Restauração de dados no caso de recuperação de desastre
 
-Se um cluster do Service Fabric completo é perdido, pode recuperar os dados para as partições do serviço com estado fiável e Reliable Actors. A cópia de segurança pretendida pode ser selecionada na lista quando usa [GetBackupAPI com detalhes de armazenamento de cópia de segurança](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). A enumeração de cópia de segurança pode ser para uma aplicação, serviço ou partição.
+Se um Cluster Service Fabric inteiro for perdido, você poderá recuperar os dados das partições do serviço confiável com estado e Reliable Actors. O backup desejado pode ser selecionado na lista quando você usa o [GetBackupAPI com detalhes de armazenamento de backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). A enumeração de backup pode ser para um aplicativo, serviço ou partição.
 
-No exemplo seguinte, vamos supor que o cluster perder-se é o mesmo cluster que é mencionado nos [cópia de segurança periódica do ativação de serviço com estado fiável e Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). Neste caso, `SampleApp` é implementado com a política de cópia de segurança ativada, e as cópias de segurança estão configuradas para o armazenamento do Azure.
+Para o exemplo a seguir, suponha que o cluster perdido é o mesmo cluster que é conhecido como [habilitar backup periódico para serviço confiável com estado e Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). Nesse caso, `SampleApp` é implantada com a política de backup habilitada e os backups são configurados para o armazenamento do Azure.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell com o módulo de Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usando o módulo Microsoft. infabric. PowerShell. http
 
 ```powershell
 Get-SFBackupsFromBackupLocation -Application -ApplicationName 'fabric:/SampleApp' -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Chamada de REST com o Powershell
+#### <a name="rest-call-using-powershell"></a>Chamada REST usando o PowerShell
 
-Executar um script do PowerShell para utilizar a API REST para devolver uma lista das cópias de segurança criados para todas as partições dentro do `SampleApp` aplicação. A API requer que as informações de armazenamento de cópia de segurança para listar as cópias de segurança disponíveis.
+Execute um script do PowerShell para usar a API REST para retornar uma lista dos backups criados para todas as partições dentro do aplicativo `SampleApp`. A API requer as informações de armazenamento de backup para listar os backups disponíveis.
 
 ```powershell
 $StorageInfo = @{
@@ -101,7 +101,7 @@ $BackupPoints = (ConvertFrom-Json $response.Content)
 $BackupPoints.Items
 ```
 
-Execute a saída de exemplo acima:
+Exemplo de saída para a execução acima:
 
 ```
 BackupId                : b9577400-1131-4f88-b309-2bb1e943322c
@@ -141,7 +141,7 @@ CreationTimeUtc         : 2018-04-06T21:25:36Z
 FailureError            :
 ```
 
-Para acionar o restauro, escolha uma das cópias de segurança. Por exemplo, a cópia de segurança atual para recuperação após desastre pode ser a cópia de segurança seguinte:
+Para disparar a restauração, escolha um dos backups. Por exemplo, o backup atual para recuperação de desastre pode ser o seguinte backup:
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -157,15 +157,15 @@ CreationTimeUtc         : 2018-04-06T21:10:27Z
 FailureError            :
 ```
 
-Para a API de restauro, tem de fornecer a _BackupId_ e _BackupLocation_ detalhes.
+Para a API de restauração, você precisa fornecer os detalhes de _BackupId_ e _BackupLocation_ .
 
-Também tem de escolher uma partição de destino no cluster conforme detalhado no alternativo a [esquema de partição](service-fabric-concepts-partitioning.md#get-started-with-partitioning). A cópia de segurança do cluster alternativo é restaurada para a partição especificada no esquema de partição do cluster original perdido.
+Você também precisa escolher uma partição de destino no cluster alternativo, conforme detalhado no [esquema de partição](service-fabric-concepts-partitioning.md#get-started-with-partitioning). O backup de cluster alternativo é restaurado para a partição especificada no esquema de partição do cluster perdido original.
 
-Se o ID de partição no cluster alternativo for `1c42c47f-439e-4e09-98b9-88b8f60800c6`, pode mapeá-lo para o ID de partição de cluster original `974bd92a-b395-4631-8a7f-53bd4ae9cf22` comparando a chave de alta e baixa chave para _Ranged (UniformInt64Partition) de criação de partições_.
+Se a ID de partição no cluster alternativo for `1c42c47f-439e-4e09-98b9-88b8f60800c6`, você poderá mapeá-la para a ID de partição de cluster original `974bd92a-b395-4631-8a7f-53bd4ae9cf22` comparando a chave alta e a chave baixa para _UniformInt64Partition (particionamento de intervalo)_ .
 
-Para _com o nome de criação de partições_, o valor de nome é comparado para identificar a partição de destino em cluster alternativo.
+Para o _particionamento nomeado_, o valor do nome é comparado com a identificação da partição de destino no cluster alternativo.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell com o módulo de Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usando o módulo Microsoft. infabric. PowerShell. http
 
 ```powershell
 
@@ -173,9 +173,9 @@ Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -Backup
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Chamada de REST com o Powershell
+#### <a name="rest-call-using-powershell"></a>Chamada REST usando o PowerShell
 
-Pedir o restauro em relação a partição de cluster de cópia de segurança através do seguinte [restaurar API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition):
+Você solicita a restauração na partição de cluster de backup usando a seguinte [API de restauração](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition):
 
 ```powershell
 
@@ -197,17 +197,28 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/1
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-Pode controlar o progresso de um restauro com TrackRestoreProgress.
+Você pode acompanhar o progresso de uma restauração com TrackRestoreProgress.
 
-### <a name="data-restore-for-data-corruptiondata-loss"></a>Restauro de dados para _Corrupção de dados_/_perda de dados_
+### <a name="using-service-fabric-explorer"></a>Usando Service Fabric Explorer
+Você pode disparar uma restauração de Service Fabric Explorer. Verifique se o modo avançado foi habilitado nas configurações de Service Fabric Explorer.
+1. Selecione as partições desejadas e clique em ações. 
+2. Selecione disparar a restauração da partição e preencha as informações para o Azure:
 
-Para _perda de dados_ ou _danos nos dados_, partições de cópia de segurança para serviço com estado fiável e partições de Reliable Actors podem ser restauradas a qualquer uma das cópias de segurança escolhidas.
+    ![Disparar restauração de partição][2]
 
-O exemplo seguinte é uma continuação de [cópia de segurança periódica do ativação de serviço com estado fiável e Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). Neste exemplo, uma política de cópia de segurança está ativada para a partição e o serviço está a efetuar cópias de segurança a uma frequência pretendida no armazenamento do Azure.
+    ou FileShare:
 
-Selecione uma cópia de segurança a partir da saída [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). Neste cenário, a cópia de segurança é gerada a partir do mesmo cluster como antes.
+    ![Disparar restauração de partição do FileShare][3]
 
-Para acionar o restauro, escolha uma cópia de segurança da lista. Para a atual _perda de dados_/_danos nos dados_, selecione a cópia de segurança seguinte:
+### <a name="data-restore-for-_data-corruption__data-loss_"></a>Restauração de dados para _corrupção_ de dados/_perda de dados_
+
+Para _perda de dados_ ou _corrupção de dados_, partições de backup para serviço confiável com estado e partições de Reliable Actors podem ser restauradas para qualquer um dos backups escolhidos.
+
+O exemplo a seguir é uma continuação da [habilitação de backup periódico para serviço confiável com estado e Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). Neste exemplo, uma política de backup está habilitada para a partição e o serviço está fazendo backups em uma frequência desejada no armazenamento do Azure.
+
+Selecione um backup na saída de [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). Nesse cenário, o backup é gerado do mesmo cluster que antes.
+
+Para disparar a restauração, escolha um backup na lista. Para a _perda de dados_ atual/_dados corrompidos_, selecione o seguinte backup:
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -223,17 +234,17 @@ CreationTimeUtc         : 2018-04-06T21:10:27Z
 FailureError            :
 ```
 
-Para a API de restauro, forneça o _BackupId_ e _BackupLocation_ detalhes. O cluster tem de cópia de segurança ativada por isso, o Service Fabric _serviço de restaurar a cópia de segurança (BRS)_ identifica a localização de armazenamento correta da política de cópia de segurança associada.
+Para a API de restauração, forneça os detalhes de _BackupId_ e _BackupLocation_ . O cluster tem o backup habilitado para que o _serviço de restauração de backup Service Fabric (BRS)_ identifique o local de armazenamento correto da política de backup associada.
 
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell com o módulo de Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usando o módulo Microsoft. infabric. PowerShell. http
 
 ```powershell
 Restore-SFPartition  -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -BackupId 'b0035075-b327-41a5-a58f-3ea94b68faa4' -BackupLocation 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Chamada de REST com o Powershell
+#### <a name="rest-call-using-powershell"></a>Chamada REST usando o PowerShell
 
 ```powershell
 $RestorePartitionReference = @{
@@ -247,19 +258,19 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/9
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-Pode acompanhar o progresso de restauro utilizando TrackRestoreProgress.
+Você pode acompanhar o progresso da restauração usando o TrackRestoreProgress.
 
-## <a name="track-restore-progress"></a>Controlar o progresso de restauro
+## <a name="track-restore-progress"></a>Acompanhar o progresso da restauração
 
-Uma partição de um serviço com estado fiável ou Reliable Actor aceita apenas um pedido de restauro por vez. Uma partição só aceita a outro pedido depois de concluído o pedido de restauro atual. Vários pedidos de restauro podem ser acionados em partições diferentes ao mesmo tempo.
+Uma partição de um serviço confiável com estado ou um ator confiável aceita apenas uma solicitação de restauração por vez. Uma partição só aceita outra solicitação depois que a solicitação de restauração atual é concluída. Várias solicitações de restauração podem ser disparadas em partições diferentes ao mesmo tempo.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell com o módulo de Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usando o módulo Microsoft. infabric. PowerShell. http
 
 ```powershell
     Get-SFPartitionRestoreProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 ```
 
-#### <a name="rest-call-using-powershell"></a>Chamada de REST com o Powershell
+#### <a name="rest-call-using-powershell"></a>Chamada REST usando o PowerShell
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4"
@@ -270,16 +281,16 @@ $restoreResponse = (ConvertFrom-Json $response.Content)
 $restoreResponse | Format-List
 ```
 
-O andamento de pedido de restauro na seguinte ordem:
+A solicitação de restauração progride na seguinte ordem:
 
-1. **Aceite**: Uma _aceite_ restaurar estado indica que a partição pedida foi acionada com parâmetros de pedido correto.
+1. **Aceito**: um estado de restauração _aceito_ indica que a partição solicitada foi disparada com os parâmetros de solicitação corretos.
     ```
     RestoreState  : Accepted
     TimeStampUtc  : 0001-01-01T00:00:00Z
     RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
     RestoredLsn   : 3552
     ```
-2. **InProgress**: Uma _InProgress_ restaurar estado indica que um restauro está a ocorrer na partição com a cópia de segurança mencionada no pedido. Os relatórios de partição a _correção de perda_ estado.
+2. **InProgress**: um estado de restauração _InProgress_ indica que uma restauração está ocorrendo na partição com o backup mencionado na solicitação. A partição relata o estado de _perda_ de espaço.
     ```
     RestoreState  : RestoreInProgress
     TimeStampUtc  : 0001-01-01T00:00:00Z
@@ -287,8 +298,8 @@ O andamento de pedido de restauro na seguinte ordem:
     RestoredLsn   : 3552
     ```
     
-3. **Sucesso**, **falha**, ou **tempo limite**: Um pedido de restauro pode ser concluído em qualquer um dos seguintes Estados. Cada Estado possui os seguintes detalhes de significado e a resposta:
-    - **Êxito**: R _êxito_ restaurar estado indica um Estado de partição voltou a ter. Os relatórios de partição _RestoredEpoch_ e _RestoredLSN_ Estados juntamente com a hora em UTC.
+3. **Êxito**, **falha**ou **tempo limite**: uma restauração solicitada pode ser concluída em qualquer um dos Estados a seguir. Cada Estado tem os seguintes detalhes de significância e resposta:
+    - **Êxito**: um estado de restauração com _êxito_ indica um estado de partição reobtido. A partição relata os Estados _RestoredEpoch_ e _RestoredLSN_ junto com o tempo em UTC.
 
         ```
         RestoreState  : Success
@@ -296,7 +307,7 @@ O andamento de pedido de restauro na seguinte ordem:
         RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
         RestoredLsn   : 3552
         ```        
-    - **Falha de**: R _falha_ restaurar estado indica a falha do pedido de restauro. A causa da falha é comunicada.
+    - **Falha**: um estado de restauração de _falha_ indica a falha da solicitação de restauração. A causa da falha é relatada.
 
         ```
         RestoreState  : Failure
@@ -304,7 +315,7 @@ O andamento de pedido de restauro na seguinte ordem:
         RestoredEpoch : 
         RestoredLsn   : 0
         ```
-    - **Tempo limite**: R _tempo limite_ restaurar estado indica que o pedido tem o tempo limite. Criar um novo pedido de restauro com maior [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). O tempo limite predefinido é 10 minutos. Certifique-se de que a partição não está num Estado de perda de dados antes de solicitar novamente o restauro.
+    - **Tempo limite**: um estado de restauração de _tempo limite_ indica que a solicitação tem tempo limite. Crie uma nova solicitação de restauração com mais [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). O tempo limite padrão é de 10 minutos. Verifique se a partição não está em um estado de perda de dados antes de solicitar novamente a restauração.
      
         ```
         RestoreState  : Timeout
@@ -313,14 +324,17 @@ O andamento de pedido de restauro na seguinte ordem:
         RestoredLsn   : 0
         ```
 
-## <a name="automatic-restore"></a>Restauro automático
+## <a name="automatic-restore"></a>Restauração automática
 
-Pode configurar o serviço com estado fiável e partições de Reliable Actors em recursos de infraestrutura do serviço de cluster para _auto restauro_. Na política de cópia de segurança definido `AutoRestore` para _true_. Habilitando _auto restauro_ restaura automaticamente os dados da cópia de segurança mais recente do partição quando é reportada perda de dados. Para obter mais informações, consulte:
+Você pode configurar o serviço de estado confiável e Reliable Actors partições no Cluster Service Fabric para _restauração automática_. Na política de backup, defina `AutoRestore` como _true_. Habilitar a _restauração automática_ restaura automaticamente os dados do backup de partição mais recente quando a perda de dados é relatada. Para obter mais informações, consulte:
 
-- [Ativação de restauro automático na política de cópia de segurança](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
-- [Referência da API de RestorePartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
-- [Referência da API de GetPartitionRestoreProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
+- [Habilitação da restauração automática na política de backup](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
+- [Referência da API do RestorePartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
+- [Referência da API do GetPartitionRestoreProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Configuração de cópia de segurança periódica compreensão](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
-- [Referência da REST API de restauro de cópia de segurança](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+## <a name="next-steps"></a>Passos seguintes
+- [Compreendendo a configuração de backup periódico](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
+- [Referência da API REST de restauração de backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+
+[2]: ./media/service-fabric-backuprestoreservice/restore-partition-backup.png
+[3]: ./media/service-fabric-backuprestoreservice/restore-partition-fileshare.png

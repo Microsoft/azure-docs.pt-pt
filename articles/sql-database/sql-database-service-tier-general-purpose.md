@@ -1,5 +1,5 @@
 ---
-title: Camada de serviço de uso geral-banco de dados SQL do Azure
+title: Camada de serviço de uso geral
 description: Saiba mais sobre a camada de uso geral do banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/07/2019
-ms.openlocfilehash: 8223e4061f842e42335777bbd613be2c43fe0857
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7c57755ae63f8af5a2a4faa4764bc6a9597e8c2d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687347"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819215"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>Camada de serviço de uso geral-banco de dados SQL do Azure
 

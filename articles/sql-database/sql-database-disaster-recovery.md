@@ -1,5 +1,5 @@
 ---
-title: Recuperação de desastre do banco de dados SQL
+title: Recuperação após desastre
 description: Saiba como recuperar um banco de dados de uma interrupção regional do Datacenter ou uma falha com a replicação geográfica ativa do banco de dados SQL do Azure e recursos de restauração geográfica.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/21/2019
-ms.openlocfilehash: bc4968541c29e3bf18eb4caca2abe648d17342a4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d28edd28dcbe31bfe63c2d0a9c3e975967efef04
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690599"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826591"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar um banco de dados SQL do Azure ou fazer failover para um secundário
 

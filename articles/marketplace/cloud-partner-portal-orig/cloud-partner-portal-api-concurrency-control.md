@@ -1,37 +1,38 @@
 ---
-title: Controlo de simultaneidade | O Azure Marketplace
-description: Estratégias de controle de simultaneidade para o Portal do Cloud Partner publicar APIs.
+title: Controle de simultaneidade | Azure Marketplace
+description: Estratégias de controle de simultaneidade para as APIs de publicação de Portal do Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 8cdcfd84a2f3bd4f920b97392255237db173cbf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e2f8922d42e40d14338f06be983d3913b20859d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935607"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819753"
 ---
-# <a name="concurrency-control"></a>Controlo de simultaneidade
+# <a name="concurrency-control"></a>Controle de simultaneidade
 
-Todas as chamadas para o Portal de parceiro de Cloud publicar APIs tem de especificar explicitamente que estratégia de controlo de simultaneidade a utilizar. Falha ao fornecer o **If-Match** cabeçalho resultará numa resposta de erro de HTTP 400. Oferecemos duas estratégias para controlo de simultaneidade.
+Cada chamada para as APIs de publicação de Portal do Cloud Partner deve especificar explicitamente a estratégia de controle de simultaneidade a ser usada. A falha em fornecer o cabeçalho **If-Match** resultará em uma resposta de erro http 400. Oferecemos duas estratégias para o controle de simultaneidade.
 
--   **Otimista** -o executando a atualização de cliente verifica se os dados foram alterados, uma vez que ele pela última vez, ler os dados.
--   **Uma última wins** -o cliente atualizar diretamente os dados, independentemente se outra aplicação modificou-lo uma vez que o último tempo de leitura.
+-   **Otimista** – o cliente que executa a atualização verifica se os dados foram alterados desde a última leitura dos dados.
+-   **Último WINS** -o cliente atualiza diretamente os dados, independentemente de outro aplicativo ter sido modificado desde o último tempo de leitura.
 
 <a name="optimistic-concurrency-workflow"></a>Fluxo de trabalho de simultaneidade otimista
 -------------------------------
 
-Recomendamos que utilize a estratégia de simultaneidade otimista, com o seguinte fluxo de trabalho, para garantir que nenhum inesperadas edições são feitas aos seus recursos.
+É recomendável usar a estratégia de simultaneidade otimista, com o fluxo de trabalho a seguir, para garantir que nenhuma edição inesperada seja feita em seus recursos.
 
-1.  Obter uma entidade com as APIs. A resposta inclui um valor de ETag que identifica a versão atualmente armazenada da entidade (no momento da resposta).
-2.  Durante a atualização, inclua este valor de ETag mesmo nos obrigatórias **If-Match** cabeçalho do pedido.
-3.  A API compara o valor de ETag recebido no pedido com o valor de ETag atual da entidade numa transação atômica.
-    *   Se os valores de ETag forem diferentes, a API devolve uma `412 Precondition Failed` resposta HTTP. Este erro indica que qualquer outro processo tenha atualizado a entidade, uma vez que o cliente o obtida pela última vez, ou que o valor de ETag especificado no pedido está incorreto.
-    *  Se os valores de ETag são os mesmos, ou o **If-Match** cabeçalho contém o caráter de asterisco de caráter universal (`*`), a API realiza a operação pedida. A operação de API também atualiza o valor de ETag armazenado da entidade.
+1.  Recupere uma entidade usando as APIs. A resposta inclui um valor de ETag que identifica a versão atualmente armazenada da entidade (no momento da resposta).
+2.  No momento da atualização, inclua esse mesmo valor de ETag no cabeçalho de solicitação obrigatório **If-Match** .
+3.  A API compara o valor de ETag recebido na solicitação com o valor de ETag atual da entidade em uma transação atômica.
+    *   Se os valores de ETag forem diferentes, a API retornará uma `412 Precondition Failed` resposta HTTP. Esse erro indica que outro processo atualizou a entidade desde que o cliente a recuperou pela última vez ou que o valor de ETag especificado na solicitação está incorreto.
+    *  Se os valores de ETag forem iguais ou o cabeçalho **If-Match** contiver o caractere curinga asterisco (`*`), a API executará a operação solicitada. A operação de API também atualiza o valor de ETag armazenado da entidade.
 
 
 > [!NOTE]
-> Especificar o caráter universal (*) na **If-Match** cabeçalho resulta na API usando a estratégia de simultaneidade de última-um-wins. Neste caso, a comparação de ETag não ocorre e o recurso será atualizado sem nenhuma verificação. 
+> A especificação do caractere curinga (*) no cabeçalho **If-Match** resulta na API usando a estratégia de simultaneidade Last-One-WINS. Nesse caso, a comparação de ETag não ocorre e o recurso é atualizado sem nenhuma verificação. 
