@@ -2,7 +2,7 @@
 title: Documentação do Azure Machine Learning
 summary: O Azure Machine Learning oferece interfaces Web e SDKs para que possa preparar e implementar rapidamente pipelines e modelos de machine learning à escala. Utilize estas capacidades com arquiteturas Python de código aberto como o PyTorch, TensorFlow e Scikit-learn.
 metadata:
-  title: Documentação do Machine Learning – Azure
+  title: Documentação do Azure Machine Learning
   description: O Azure Machine Learning oferece interfaces Web e SDKs para preparar e implementar rapidamente pipelines e modelos de machine learning à escala. Utilize estas capacidades com arquiteturas Python de código aberto como o PyTorch, TensorFlow e Scikit-learn.
   services: machine-learning
   ms.service: machine-learning
@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 10/29/2019
-  ms.openlocfilehash: 0b5e264cc7fd2e220e2d6b5b7c4e886f4c8a8d32
-  ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+  ms.openlocfilehash: c6b0b67f206ec335a5e30098dd75b7e71db5770f
+  ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/07/2019
-  ms.locfileid: "73748015"
+  ms.lasthandoff: 11/08/2019
+  ms.locfileid: "73828122"
 landingContent:
 - title: Introdução ao Azure ML
   linkLists:
