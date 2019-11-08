@@ -1,22 +1,21 @@
 ---
 title: Início Rápido do Azure – Criar um blob no armazenamento de objetos com a CLI do Azure | Microsoft Docs
-description: Neste início rápido, irá utilizar a CLI do Azure no armazenamento de objetos (Blobs). Em seguida, utilize a CLI para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor.
+description: Neste guia de início rápido, você aprende a usar o CLI do Azure carregar um blob no armazenamento do Azure, baixar um blob e listar os BLOBs em um contêiner.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 11/06/2019
 ms.author: tamram
-ms.reviewer: seguler
-ms.openlocfilehash: 6a0aef9b2fc7a99183ebd6991691245731e00200
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1f3143eced90f97c090c0005375ef50fe48c5f5f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565957"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747941"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Início rápido: Carregar, baixar e listar BLOBs usando o CLI do Azure
+# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Início Rápido: carregar, transferir e listar blobs através da CLI do Azure
 
 A CLI do Azure é a experiência da linha de comandos do Azure para a gestão de recursos do Azure. Pode utilizá-la no seu browser com o Azure Cloud Shell. Também pode instalá-la no macOS, Linux ou Windows e executá-la a partir da linha de comandos. Neste início rápido, vai aprender a utilizar a CLI do Azure para carregar e transferir dados de e para o armazenamento de Blobs do Azure.
 
@@ -39,30 +38,26 @@ Os Blobs são sempre carregados para um contentor. Pode organizar grupos de blob
 Crie um contentor para armazenar blobs com o comando [az storage container create](/cli/azure/storage/container).
 
 ```azurecli-interactive
-az storage container create --name mystoragecontainer
+az storage container create --name sample-container
 ```
 
 ## <a name="upload-a-blob"></a>Carregar um blob
 
-O armazenamento de blobs suporta blobs de blocos, blobs de acréscimo e blobs de páginas. A maioria dos ficheiros guardados no armazenamento de Blobs é armazenada como blobs de blocos. Os blobs de acréscimo são utilizados quando é preciso adicionar dados a um blob existente sem modificar o conteúdo existente, como é o caso das operações de registo. Os blobs de páginas dão suporte aos ficheiros VHD de máquinas virtuais IaaS.
+O armazenamento de blobs suporta blobs de blocos, blobs de acréscimo e blobs de páginas. Os exemplos neste guia de início rápido mostram como trabalhar com blobs de bloco.
 
-Primeiro, crie um ficheiro para carregar para um blob.
-Se estiver a utilizar o Azure Cloud Shell, utilize o seguinte para criar um ficheiro: `vi helloworld` quando o ficheiro abrir, prima **insert**, escreva "Hello world" e, em seguida, prima **Esc** e introduza `:x` e prima **Enter**.
+Primeiro, crie um arquivo para carregar em um blob de blocos. Se você estiver usando Azure Cloud Shell, use o seguinte comando para criar um arquivo:
 
-Neste exemplo, carregue um blob para o contentor criado no último passo com o comando [az storage blob upload](/cli/azure/storage/blob).
-
-```azurecli-interactive
-az storage blob upload \
-    --container-name mystoragecontainer \
-    --name blobName \
-    --file ~/path/to/local/file
+```bash
+vi helloworld
 ```
 
-Se utilizou o método descrito anteriormente para criar um ficheiro no seu Azure Cloud Shell, pode utilizar antes este comando CLI (note que não precisa de especificar um caminho, uma vez que o ficheiro foi criado no diretório base; normalmente, teria de especificar um caminho):
+Quando o arquivo for aberto, pressione **Insert**. Digite *Olá, mundo*e pressione **ESC**. Em seguida, digite *: x*e pressione **Enter**.
+
+Neste exemplo, carregue um blob para o contentor criado no último passo com o comando [az storage blob upload](/cli/azure/storage/blob). Não é necessário especificar um caminho de arquivo, pois o arquivo foi criado no diretório raiz:
 
 ```azurecli-interactive
 az storage blob upload \
-    --container-name mystoragecontainer \
+    --container-name sample-container \
     --name helloworld \
     --file helloworld
 ```
@@ -77,7 +72,7 @@ Liste os blobs no contentor com o comando [az storage blob list](/cli/azure/stor
 
 ```azurecli-interactive
 az storage blob list \
-    --container-name mystoragecontainer \
+    --container-name sample-container \
     --output table
 ```
 
@@ -87,8 +82,8 @@ Utilize o comando [az storage blob download](/cli/azure/storage/blob) para trans
 
 ```azurecli-interactive
 az storage blob download \
-    --container-name mystoragecontainer \
-    --name blobName \
+    --container-name sample-container \
+    --name helloworld \
     --file ~/destination/path/for/file
 ```
 
@@ -96,27 +91,27 @@ az storage blob download \
 
 O utilitário [AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) é outra opção para a transferência de dados de scripts de elevado desempenho para o Armazenamento do Azure. Pode utilizar o AzCopy para transferir dados de e para o armazenamento de Blobs, Ficheiros e Tabelas.
 
-Como exemplo rápido, eis o comando do AzCopy para carregar um ficheiro denominado *myfile.txt* para o contentor *mystoragecontainer*.
+O exemplo a seguir usa AzCopy para carregar um arquivo chamado *MyFile. txt* para o contêiner de *contêiner de exemplo* . Lembre-se de substituir valores de espaço reservado entre colchetes angulares por seus próprios valores:
 
 ```bash
 azcopy \
     --source /mnt/myfiles \
-    --destination https://mystorageaccount.blob.core.windows.net/mystoragecontainer \
-    --dest-key <storage-account-access-key> \
+    --destination https://<account-name>.blob.core.windows.net/sample-container \
+    --dest-key <account-key> \
     --include "myfile.txt"
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não precisa de nenhum dos recursos presentes no seu grupo de recursos, incluindo a conta de armazenamento que criou neste Início Rápido, elimine o grupo de recursos com o comando [az group delete](/cli/azure/group).
+Se você não precisar mais de nenhum dos recursos em seu grupo de recursos, incluindo a conta de armazenamento criada neste guia de início rápido, exclua o grupo de recursos com o comando [AZ Group Delete](/cli/azure/group) . Lembre-se de substituir valores de espaço reservado entre colchetes angulares por seus próprios valores:
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name <resource-group-name>
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste Início Rápido, aprendeu a transferir ficheiros entre o disco local e um contentor no armazenamento de Blobs do Azure. Para saber mais sobre a utilização de blobs no Armazenamento do Azure, avance para o tutorial para utilizar o armazenamento de Blobs do Azure.
+Neste guia de início rápido, você aprendeu a transferir arquivos entre um sistema de arquivos local e um contêiner no armazenamento de BLOBs do Azure. Para saber mais sobre a utilização de blobs no Armazenamento do Azure, avance para o tutorial para utilizar o armazenamento de Blobs do Azure.
 
 > [!div class="nextstepaction"]
-> [How to: Operações de armazenamento de BLOBs com o CLI do Azure](storage-how-to-use-blobs-cli.md)
+> [Procedimentos de operações de armazenamento de Blobs com a CLI do Azure](storage-how-to-use-blobs-cli.md)
