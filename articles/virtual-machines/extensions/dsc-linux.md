@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: e2faf444aa411f0e60f1b5c7b1f811abc2f6b63a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 1825f9f0f5d525c0129341d800ca5949136ae633
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176675"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750084"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensão de DSC para Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -35,7 +35,7 @@ A extensão DSCForLinux é publicada e tem suporte da Microsoft. A extensão ins
 - Instalar módulos DSC personalizados para a VM do Linux (instalar Extensionaction)
 - Remover módulos DSC personalizados para a VM do Linux (remover Extensionaction)
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -286,7 +286,7 @@ Para obter mais detalhes sobre Azure Resource Manager modelo, visite [criação 
 ## <a name="azure-cli-deployment"></a>Implantação de CLI do Azure
 
 ### <a name="21-using-azure-cliazure-cli"></a>2,1. Usando [**CLI do Azure**] [Azure-CLI]
-Antes de implantar a extensão DSCForLinux, você deve configurar o `public.json` e o `protected.json`, de acordo com os diferentes cenários na seção 3.
+Antes de implantar a extensão DSCForLinux, você deve configurar seu `public.json` e `protected.json`, de acordo com os diferentes cenários na seção 3.
 
 #### <a name="211-classic"></a>2.1.1. Clássico
 O modo clássico também é chamado de modo de gerenciamento de serviços do Azure. Você pode alternar para ele executando:

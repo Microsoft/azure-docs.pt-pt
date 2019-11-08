@@ -4,17 +4,18 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/23/2019
-ms.openlocfilehash: 3a6807cc204a5f8a6957bb03cf4dcbaf3611c17c
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: b9f84385e49fcf5f101b7ce642b0a82e3a4b9388
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71148474"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73800069"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Autenticar com o Azure Active Directory
 
 > [!IMPORTANT]
-> Atualmente, **somente** o API da Pesquisa Visual Computacional, API de Detecção Facial, API de análise de texto e o leitor de imersão dão suporte à autenticação usando o Azure Active Directory (AAD).
+> 1. Atualmente, **somente** o API da Pesquisa Visual Computacional, API de Detecção Facial, API de análise de texto, leitor de imersão, reconhecedor de formulário, detector de anomalias e todos os serviços do Bing, exceto pesquisa personalizada do Bing dar suporte à autenticação usando o Azure Active Directory (AAD).
+> 2. A autenticação do AAD precisa ser sempre usada junto com o nome de subdomínio personalizado do recurso do Azure. Os [pontos de extremidade regionais](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-custom-subdomains#is-there-a-list-of-regional-endpoints) não dão suporte à autenticação do AAD.
 
 Nas seções anteriores, mostramos como se autenticar nos serviços cognitivas do Azure usando uma chave de assinatura de serviço único ou de vários serviços. Embora essas chaves forneçam um caminho rápido e fácil para iniciar o desenvolvimento, elas ficam curtas em cenários mais complexos que exigem controles de acesso baseados em função. Vamos dar uma olhada no que é necessário para autenticar usando o Azure Active Directory (AAD).
 
@@ -22,7 +23,7 @@ Nas seções a seguir, você usará o ambiente de Azure Cloud Shell ou o CLI do 
 
 ### <a name="create-a-resource-with-a-custom-subdomain"></a>Criar um recurso com um subdomínio personalizado
 
-A primeira etapa é criar um subdomínio personalizado.
+A primeira etapa é criar um subdomínio personalizado. Se você quiser usar um recurso de serviços cognitivas existente que não tem um nome de subdomínio personalizado, siga as instruções em [subdomínios personalizados de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#how-does-this-impact-existing-resources) para habilitar o subdomínio personalizado para seu recurso.
 
 1. Comece abrindo a Azure Cloud Shell. em seguida, [Selecione uma assinatura](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0#description):
 
@@ -74,7 +75,7 @@ Agora que você tem um subdomínio personalizado associado ao recurso, será nec
    New-AzRoleAssignment -ObjectId <SERVICE_PRINCIPAL_OBJECTID> -Scope <ACCOUNT_ID> -RoleDefinitionName "Cognitive Services User"
    ```
 
-### <a name="sample-request"></a>Pedido de exemplo
+### <a name="sample-request"></a>Exemplo de solicitação
 
 Neste exemplo, uma senha é usada para autenticar a entidade de serviço. O token fornecido é usado para chamar o API da Pesquisa Visual Computacional.
 

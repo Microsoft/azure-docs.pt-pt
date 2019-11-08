@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 23519edb61df23c97dfd2162d6cabea6b7fa5d38
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: afbf77014ece981568d4123db7820a2fa0a8f60d
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101778"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749103"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais em um modelo de Azure Resource Manager
 
@@ -27,7 +27,7 @@ Este artigo descreve os aspectos de um modelo de Azure Resource Manager que se a
 
 Há muitos [modelos na Galeria](https://azure.microsoft.com/documentation/templates/?term=VM) que incluem o recurso de VM. Nem todos os elementos que podem ser incluídos em um modelo são descritos aqui.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 Este exemplo mostra uma seção de recursos típico de um modelo para criar um número especificado de VMs:
 
@@ -254,7 +254,7 @@ Tenha em mente que a criação de um loop para um recurso no modelo pode exigir 
 
 ## <a name="dependencies"></a>Dependências
 
-A maioria dos recursos depende de outros recursos para funcionar corretamente. As máquinas virtuais devem ser associadas a uma rede virtual e, para isso, precisam de uma interface de rede. O [](../../resource-group-define-dependencies.md) elemento depending é usado para garantir que a interface de rede esteja pronta para ser usada antes que as VMs sejam criadas:
+A maioria dos recursos depende de outros recursos para funcionar corretamente. As máquinas virtuais devem ser associadas a uma rede virtual e, para isso, precisam de uma interface de rede. O elemento [depending](../../resource-group-define-dependencies.md) é usado para garantir que a interface de rede esteja pronta para ser usada antes que as VMs sejam criadas:
 
 ```
 "dependsOn": [
@@ -281,7 +281,7 @@ Para definir essa propriedade, a interface de rede deve existir. Portanto, você
 
 Vários elementos de perfil são usados ao definir um recurso de máquina virtual. Alguns são necessários e alguns são opcionais. Por exemplo, os elementos hardwareProfile, osProfile, storageProfile e networkProfile são necessários, mas o diagnosticsProfile é opcional. Esses perfis definem configurações como:
    
-- [size](sizes.md)
+- [tamanho](sizes.md)
 - [nome](/azure/architecture/best-practices/naming-conventions) e credenciais
 - configurações do [sistema operacional](cli-ps-findimage.md) e do disco
 - [interface de rede](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 7bb4e507df24f50238197b738fd54e6b5c1d05ee
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 6ce5a93cdd44af7f199d59d459daa46b4adb0719
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571162"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748032"
 ---
-# <a name="use-azure-iot-tools-for-visual-studio-code"></a>Usar as ferramentas de IoT do Azure para Visual Studio Code
+# <a name="use-visual-studio-and-visual-studio-code-to-build-iot-plug-and-play-devices"></a>Usar o Visual Studio e Visual Studio Code para criar dispositivos de Plug and Play IoT
 
 As ferramentas do Azure IoT para Visual Studio Code fornecem um ambiente integrado para criar modelos de recursos de dispositivo (DCM) e interfaces, publicar em repositórios de modelo e gerar código de esqueleto C para implementar o aplicativo do dispositivo.
 

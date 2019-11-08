@@ -2,21 +2,21 @@
 author: larryfr
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/19/2019
+ms.date: 11/06/2019
 ms.author: larryfr
-ms.openlocfilehash: 055909d51fcd1228e8eb26189ba682e09aee6a1a
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: ab31d45808a8c77c53b895643eec63952201d9e4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390586"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73800047"
 ---
-As entradas no `inferenceconfig.json` documento são mapeadas para os parâmetros da classe [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) . A tabela a seguir descreve o mapeamento entre entidades no documento JSON e os parâmetros para o método:
+As entradas no documento `inferenceconfig.json` são mapeadas para os parâmetros da classe [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) . A tabela a seguir descreve o mapeamento entre entidades no documento JSON e os parâmetros para o método:
 
 | Entidade JSON | Parâmetro do método | Descrição |
 | ----- | ----- | ----- |
 | `entryScript` | `entry_script` | Caminho para um arquivo local que contém o código a ser executado para a imagem. |
-| `runtime` | `runtime` | Qual tempo de execução usar para a imagem. Os tempos de execução com `spark-py` suporte `python`atuais são e. |
+| `runtime` | `runtime` | Qual tempo de execução usar para a imagem. Os tempos de execução com suporte atuais são `spark-py` e `python`. |
 | `condaFile` | `conda_file` | Opcional. Caminho para um arquivo local que contém uma definição de ambiente Conda a ser usada para a imagem. |
 | `extraDockerFileSteps` | `extra_docker_file_steps` | Opcional. Caminho para um arquivo local que contém etapas adicionais do Docker para executar ao configurar a imagem. |
 | `sourceDirectory` | `source_directory` | Opcional. Caminho para pastas que contêm todos os arquivos para criar a imagem. |

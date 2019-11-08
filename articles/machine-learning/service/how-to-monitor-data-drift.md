@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: eddfddc994482bcb6e60604703e7f306fee9c32b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
-ms.translationtype: MT
+ms.openlocfilehash: 24b1c22d9badc58360b0355bb4ef89017db27f06
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574345"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796724"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Detectar descompasso de dados (versão prévia) em modelos implantados no serviço kubernetes do Azure (AKS)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -189,6 +189,8 @@ Quando a descompasso de dados afeta negativamente o desempenho do modelo implant
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter um exemplo completo de como usar a descompasso de dados, consulte o [notebook de descompasso de dados do Azure ml](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb). Este Jupyter Notebook demonstra como usar um conjunto de dados [aberto do Azure](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) para treinar um modelo para prever o clima, implantá-lo no AKs e monitorar a descompasso de dados. 
+* Para obter um exemplo completo de como usar a descompasso de dados, consulte o [notebook de descompasso de dados do Azure ml](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/drift-on-aks.ipynb). Este Jupyter Notebook demonstra como usar um conjunto de dados [aberto do Azure](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) para treinar um modelo para prever o clima, implantá-lo no AKs e monitorar a descompasso de dados. 
+
+* Detectar descompasso de dados com [monitores de DataSet](how-to-monitor-datasets.md).
 
 * Agradecemos suas dúvidas, seus comentários ou suas sugestões, pois a descompasso de dados se move para a disponibilidade geral. Use o botão comentários do produto abaixo! 

@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: 0a88c1e4d357f2919635e36a223e79b0407c0b8b
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: d3ad0e6d88ed849074989dc36698c01209921449
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168745"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749695"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Solucionar problemas de conexões Área de Trabalho Remota a uma máquina virtual do Azure
 A ligação RDP (Remote Desktop Protocol) à sua máquina virtual (VM) do Azure baseada em Windows pode falhar por várias razões, impedindo o seu acesso à VM. O problema poderá estar no serviço Ambiente de Trabalho Remoto na VM, na ligação de rede ou no cliente do Ambiente de Trabalho Remoto no computador anfitrião. Este artigo orienta você por alguns dos métodos mais comuns para resolver problemas de conexão de RDP. 
 
-Se precisar de mais ajuda a qualquer momento neste artigo, você poderá entrar em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow do MSDN](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
+Se precisar de mais ajuda a qualquer momento neste artigo, você poderá entrar em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow do MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode arquivar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 <a id="quickfixrdp"></a>
 
@@ -115,7 +115,7 @@ Após cada etapa de solução de problemas, tente se conectar à VM novamente. S
 
 1. **Redefina a conexão RDP**. Essa etapa de solução de problemas redefine a configuração de RDP quando conexões remotas são desabilitadas ou as regras de firewall do Windows estão bloqueando o RDP, por exemplo.
    
-    O exemplo a seguir redefine a conexão RDP em uma VM `myVM` chamada `WestUS` no local e no grupo de recursos denominado `myResourceGroup`:
+    O exemplo a seguir redefine a conexão RDP em uma VM denominada `myVM` no local `WestUS` e no grupo de recursos chamado `myResourceGroup`:
    
     ```powershell
     Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
@@ -123,7 +123,7 @@ Após cada etapa de solução de problemas, tente se conectar à VM novamente. S
     ```
 2. **Verifique as regras do grupo de segurança de rede**. Esta etapa de solução de problemas verifica se você tem uma regra em seu grupo de segurança de rede para permitir o tráfego RDP. A porta padrão para RDP é a porta TCP 3389. Uma regra para permitir o tráfego RDP pode não ser criada automaticamente quando você cria sua VM.
    
-    Primeiro, atribua todos os dados de configuração do seu grupo de segurança de `$rules` rede à variável. O exemplo a seguir obtém informações sobre o grupo de segurança de `myNetworkSecurityGroup` rede chamado no grupo de `myResourceGroup`recursos denominado:
+    Primeiro, atribua todos os dados de configuração do grupo de segurança de rede à variável `$rules`. O exemplo a seguir obtém informações sobre o grupo de segurança de rede chamado `myNetworkSecurityGroup` no grupo de recursos chamado `myResourceGroup`:
    
     ```powershell
     $rules = Get-AzNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
@@ -157,13 +157,13 @@ Após cada etapa de solução de problemas, tente se conectar à VM novamente. S
     Se você não tiver uma regra que permita o tráfego RDP, [crie uma regra de grupo de segurança de rede](../windows/nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Permitir porta TCP 3389.
 3. **Redefinir as credenciais do usuário**. Essa etapa de solução de problemas redefine a senha na conta de administrador local que você especifica quando não tem certeza ou se esqueceu das credenciais.
    
-    Primeiro, especifique o nome de usuário e uma nova senha atribuindo credenciais à variável `$cred` da seguinte maneira:
+    Primeiro, especifique o nome de usuário e uma nova senha atribuindo credenciais à variável de `$cred` da seguinte maneira:
    
     ```powershell
     $cred=Get-Credential
     ```
    
-    Agora, atualize as credenciais em sua VM. O exemplo a seguir atualiza as credenciais em uma VM `myVM` chamada `WestUS` no local e no grupo de recursos denominado `myResourceGroup`:
+    Agora, atualize as credenciais em sua VM. O exemplo a seguir atualiza as credenciais em uma VM denominada `myVM` no local `WestUS` e no grupo de recursos denominado `myResourceGroup`:
    
     ```powershell
     Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
@@ -180,7 +180,7 @@ Após cada etapa de solução de problemas, tente se conectar à VM novamente. S
     ```
 5. **Reimplante sua VM**. Esta etapa de solução de problemas reimplanta sua VM em outro host no Azure para corrigir qualquer problema de plataforma ou rede subjacente.
    
-    O exemplo a seguir reimplanta a VM chamada `myVM` `WestUS` no local e no grupo de recursos denominado `myResourceGroup`:
+    O exemplo a seguir reimplanta a VM chamada `myVM` no local `WestUS` e no grupo de recursos chamado `myResourceGroup`:
    
     ```powershell
     Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -237,8 +237,8 @@ Você pode encontrar uma mensagem de erro específica ao tentar se conectar à V
 
 * [A sessão remota foi desconectada porque não há servidores de licença área de trabalho remota disponíveis para fornecer uma licença](troubleshoot-specific-rdp-errors.md#rdplicense).
 * [Área de trabalho remota não pode localizar o computador "nome"](troubleshoot-specific-rdp-errors.md#rdpname).
-* [Ocorreu um erro de autenticação. Não é possível contatar](troubleshoot-specific-rdp-errors.md#rdpauth)a autoridade de segurança local.
-* [Erro de segurança do Windows: Suas credenciais não funcionaram](troubleshoot-specific-rdp-errors.md#wincred).
+* [Ocorreu um erro de autenticação. Não é possível contatar a autoridade de segurança local](troubleshoot-specific-rdp-errors.md#rdpauth).
+* [Erro de segurança do Windows: suas credenciais não funcionaram](troubleshoot-specific-rdp-errors.md#wincred).
 * [Este computador não pode se conectar ao computador remoto](troubleshoot-specific-rdp-errors.md#rdpconnect).
 
 ## <a name="additional-resources"></a>Recursos adicionais

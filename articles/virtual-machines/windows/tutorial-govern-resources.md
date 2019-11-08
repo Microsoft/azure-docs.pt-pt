@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: cb0050f79f2f6a38b9cd58ee87aa88899f0f5a15
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3a0821885361fa4781c75b0ed4caa71f9fda37a1
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674990"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749121"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Tutorial: Saiba mais sobre o gerenciamento de máquinas virtuais do Windows com o Azure PowerShell
 
@@ -26,7 +26,7 @@ ms.locfileid: "71674990"
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
 
@@ -70,11 +70,11 @@ New-AzRoleAssignment -ObjectId $adgroup.id `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-Se você receber um erro informando que a **entidade de \<guid > não existe no diretório**, o novo grupo não será propagado durante o Azure Active Directory. Tente executar o comando novamente.
+Se você receber um erro informando que o **GUID de \<Principal > não existe no diretório**, o novo grupo não será propagado durante o Azure Active Directory. Tente executar o comando novamente.
 
 Normalmente, pode repetir o processo para o *Contribuidor de Rede* e o *Contribuidor de Conta de Armazenamento* para confirmar que os utilizadores estão atribuídos para gerir os recursos implementados. Neste artigo, pode ignorar esses passos.
 
-## <a name="azure-policy"></a>Política do Azure
+## <a name="azure-policy"></a>Azure Policy
 
 O [Azure Policy](../../governance/policy/overview.md) ajuda-o a certificar-se de que todos os recursos na subscrição cumprem os padrões empresariais. A subscrição já tem várias definições de política. Para ver as definições de política disponíveis, use o comando [Get-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/Get-AzPolicyDefinition) :
 

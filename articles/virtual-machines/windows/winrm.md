@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: f7f57a43697a9376062bdd3baa2d5f7333bf4a7f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 25091e8e58fbdba908fb00ece3cd2d3d296c5ab1
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100162"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749066"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configurando o acesso do WinRM para máquinas virtuais no Azure Resource Manager
 
@@ -31,16 +31,16 @@ Aqui estão as etapas que você precisa executar para configurar uma VM com cone
 4. Obtenha a URL para seu certificado autoassinado no Key Vault
 5. Referenciar a URL de certificados autoassinados ao criar uma VM
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
-## <a name="step-1-create-a-key-vault"></a>Passo 1: Criar um Key Vault
+## <a name="step-1-create-a-key-vault"></a>Etapa 1: criar um Key Vault
 Você pode usar o comando abaixo para criar o Key Vault
 
 ```
 New-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<rg-name>" -Location "<vault-location>" -EnabledForDeployment -EnabledForTemplateDeployment
 ```
 
-## <a name="step-2-create-a-self-signed-certificate"></a>Passo 2: Criar um certificado autoassinado
+## <a name="step-2-create-a-self-signed-certificate"></a>Etapa 2: criar um certificado autoassinado
 Você pode criar um certificado autoassinado usando este script do PowerShell
 
 ```
@@ -55,7 +55,7 @@ $password = Read-Host -Prompt "Please enter the certificate password." -AsSecure
 Export-PfxCertificate -Cert $cert -FilePath ".\$certificateName.pfx" -Password $password
 ```
 
-## <a name="step-3-upload-your-self-signed-certificate-to-the-key-vault"></a>Passo 3: Carregue seu certificado autoassinado no Key Vault
+## <a name="step-3-upload-your-self-signed-certificate-to-the-key-vault"></a>Etapa 3: carregar seu certificado autoassinado no Key Vault
 Antes de carregar o certificado para o Key Vault criado na etapa 1, ele precisa ser convertido em um formato que o provedor de recursos Microsoft. Compute entenderá. O script do PowerShell abaixo permitirá que você faça isso
 
 ```
@@ -78,11 +78,11 @@ $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
 Set-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
 ```
 
-## <a name="step-4-get-the-url-for-your-self-signed-certificate-in-the-key-vault"></a>Passo 4: Obtenha a URL para seu certificado autoassinado no Key Vault
+## <a name="step-4-get-the-url-for-your-self-signed-certificate-in-the-key-vault"></a>Etapa 4: obter a URL para o certificado autoassinado no Key Vault
 O provedor de recursos Microsoft. Compute precisa de uma URL para o segredo dentro do Key Vault ao provisionar a VM. Isso permite que o provedor de recursos Microsoft. Compute Baixe o segredo e crie o certificado equivalente na VM.
 
 > [!NOTE]
-> A URL do segredo precisa incluir a versão também. Uma URL de exemplo é semelhante a https\/:/contosovault.Vault.Azure.net:443/Secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
+> A URL do segredo precisa incluir a versão também. Uma URL de exemplo é parecida com https:\//contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
 
 #### <a name="templates"></a>Modelos
 Você pode obter o link para a URL no modelo usando o código abaixo
@@ -94,7 +94,7 @@ Você pode obter essa URL usando o comando do PowerShell abaixo
 
     $secretURL = (Get-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
 
-## <a name="step-5-reference-your-self-signed-certificates-url-while-creating-a-vm"></a>Passo 5: Referenciar a URL de certificados autoassinados ao criar uma VM
+## <a name="step-5-reference-your-self-signed-certificates-url-while-creating-a-vm"></a>Etapa 5: referenciar sua URL de certificados autoassinados ao criar uma VM
 #### <a name="azure-resource-manager-templates"></a>Modelos de Azure Resource Manager
 Ao criar uma VM por meio de modelos, o certificado é referenciado na seção segredos e na seção winRM, como a seguir:
 
@@ -143,13 +143,13 @@ O código-fonte para este modelo pode ser encontrado no [GitHub](https://github.
     $CertificateStore = "My"
     $vm = Add-AzVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
 
-## <a name="step-6-connecting-to-the-vm"></a>Passo 6: Conectando-se à VM
+## <a name="step-6-connecting-to-the-vm"></a>Etapa 6: conectando-se à VM
 Antes de se conectar à VM, você precisará certificar-se de que seu computador está configurado para gerenciamento remoto do WinRM. Inicie o PowerShell como administrador e execute o comando abaixo para certificar-se de que você está configurado.
 
     Enable-PSRemoting -Force
 
 > [!NOTE]
-> Talvez seja necessário verificar se o serviço WinRM está em execução se o anterior não funcionar. Você pode fazer isso usando`Get-Service WinRM`
+> Talvez seja necessário verificar se o serviço WinRM está em execução se o anterior não funcionar. Você pode fazer isso usando `Get-Service WinRM`
 > 
 > 
 

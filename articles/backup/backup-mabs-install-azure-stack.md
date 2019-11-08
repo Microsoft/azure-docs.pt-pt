@@ -1,6 +1,6 @@
 ---
 title: Instalar Servidor de Backup do Azure em Azure Stack | Microsoft Docs
-description: Use Servidor de Backup do Azure para proteger ou fazer backup de cargas de trabalho no Azure Stack.
+description: Neste artigo, saiba como usar Servidor de Backup do Azure para proteger ou fazer backup de cargas de trabalho no Azure Stack.
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: da941d0234fe78791f9a1c2f2a7d01122247534c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: bdcd7cbd24ca7023070585df46aa8cea7bdc70eb
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639852"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747282"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Azure Backup Server no Azure Stack
 
@@ -25,6 +25,7 @@ Este artigo explica como instalar o Servidor de Backup do Azure no Azure Stack. 
 >
 
 ## <a name="azure-backup-server-protection-matrix"></a>Matriz de proteção do Azure Backup Server
+
 O Servidor de Backup do Azure protege as seguintes cargas de trabalho Azure Stack máquina virtual.
 
 | Fonte de dados protegida | Proteção e recuperação |
@@ -46,20 +47,26 @@ O Servidor de Backup do Azure protege as seguintes cargas de trabalho Azure Stac
 Considere as recomendações nesta seção ao instalar Servidor de Backup do Azure em seu ambiente de Azure Stack. O instalador do Servidor de Backup do Azure verifica se o seu ambiente tem os pré-requisitos necessários, mas você economizará tempo preparando-se antes de instalar o.
 
 ### <a name="determining-size-of-virtual-machine"></a>Determinando o tamanho da máquina virtual
+
 Para executar Servidor de Backup do Azure em uma máquina virtual Azure Stack, use o tamanho a2 ou maior. Para obter ajuda na escolha de um tamanho de máquina virtual, baixe o [Azure Stack calculadora de tamanho de VM](https://www.microsoft.com/download/details.aspx?id=56832).
 
 ### <a name="virtual-networks-on-azure-stack-virtual-machines"></a>Redes virtuais em máquinas virtuais Azure Stack
+
 Todas as máquinas virtuais usadas em uma carga de trabalho de Azure Stack devem pertencer à mesma rede virtual do Azure e à assinatura do Azure.
 
 ### <a name="azure-backup-server-vm-performance"></a>Desempenho de VM Servidor de Backup do Azure
+
 Se compartilhado com outras máquinas virtuais, o tamanho da conta de armazenamento e os limites de IOPS afetarão Servidor de Backup do Azure desempenho da VM. Por esse motivo, você deve usar uma conta de armazenamento separada para a máquina virtual Servidor de Backup do Azure. O agente de backup do Azure em execução na Servidor de Backup do Azure precisa de armazenamento temporário para:
+
 - seu próprio uso (um local de cache),
 - dados restaurados da nuvem (área de preparo local)
 
 ### <a name="configuring-azure-backup-temporary-disk-storage"></a>Configurando o armazenamento em disco temporário do backup do Azure
-Cada máquina virtual Azure Stack vem com armazenamento temporário em disco, que está disponível para o usuário como `D:\`volume. A área de preparação local necessária para o backup do Azure pode ser configurada `D:\`para residir no e o local do cache `C:\`pode ser colocado. Dessa forma, nenhum armazenamento precisa ser retirado dos discos de dados anexados à máquina virtual Servidor de Backup do Azure.
+
+Cada máquina virtual Azure Stack vem com armazenamento temporário em disco, que está disponível para o usuário como `D:\`de volume. A área de preparação local necessária para o backup do Azure pode ser configurada para residir no `D:\`, e o local do cache pode ser colocado em `C:\`. Dessa forma, nenhum armazenamento precisa ser retirado dos discos de dados anexados à máquina virtual Servidor de Backup do Azure.
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>Armazenando dados de backup no disco local e no Azure
+
 O Servidor de Backup do Azure armazena dados de backup em discos do Azure anexados à máquina virtual, para recuperação operacional. Depois que os discos e o espaço de armazenamento são anexados à máquina virtual, Servidor de Backup do Azure gerencia o armazenamento para você. A quantidade de armazenamento de dados de backup depende do número e do tamanho dos discos anexados a cada [máquina virtual Azure Stack](/azure-stack/user/azure-stack-storage-overview). Cada tamanho de Azure Stack VM tem um número máximo de discos que podem ser anexados à máquina virtual. Por exemplo, a2 é de quatro discos. A3 é de oito discos. A4 é 16 discos. Novamente, o tamanho e o número de discos determinam o pool de armazenamento de backup total.
 
 > [!IMPORTANT]
@@ -69,12 +76,14 @@ O Servidor de Backup do Azure armazena dados de backup em discos do Azure anexad
 O armazenamento de dados de backup no Azure reduz a infraestrutura de backup no Azure Stack. Se os dados tiverem mais de cinco dias, eles deverão ser armazenados no Azure.
 
 Para armazenar dados de backup no Azure, crie ou use um cofre dos serviços de recuperação. Ao se preparar para fazer backup da carga de trabalho do Servidor de Backup do Azure, você [configura o cofre dos serviços de recuperação](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). Uma vez configurado, cada vez que um trabalho de backup é executado, um ponto de recuperação é criado no cofre. Cada cofre dos serviços de recuperação contém até 9999 pontos de recuperação. Dependendo do número de pontos de recuperação criados e por quanto tempo eles são mantidos, você pode reter os dados de backup por muitos anos. Por exemplo, você pode criar pontos de recuperação mensais e remantê-los por cinco anos.
- 
+
 ### <a name="scaling-deployment"></a>Implantação em escala
+
 Se você quiser dimensionar sua implantação, terá as seguintes opções:
-  - Escalar verticalmente – aumente o tamanho da máquina virtual Servidor de Backup do Azure de uma série para a D Series e aumente o armazenamento local de [acordo com as instruções da máquina virtual Azure Stack](/azure-stack/user/azure-stack-manage-vm-disks).
-  - Descarregar dados – enviar dados mais antigos para o Azure e manter somente os dados mais recentes no armazenamento anexado ao Servidor de Backup do Azure.
-  - Escalar horizontalmente-adicione mais servidores de backup do Azure para proteger as cargas de trabalho.
+
+- Escalar verticalmente – aumente o tamanho da máquina virtual Servidor de Backup do Azure de uma série para a D Series e aumente o armazenamento local de [acordo com as instruções da máquina virtual Azure Stack](/azure-stack/user/azure-stack-manage-vm-disks).
+- Descarregar dados – enviar dados mais antigos para o Azure e manter somente os dados mais recentes no armazenamento anexado ao Servidor de Backup do Azure.
+- Escalar horizontalmente-adicione mais servidores de backup do Azure para proteger as cargas de trabalho.
 
 ### <a name="net-framework"></a>.NET Framework
 
@@ -86,12 +95,13 @@ O Servidor de Backup do Azure máquina virtual deve ser ingressado em um domíni
 
 ## <a name="using-an-iaas-vm-in-azure-stack"></a>Usando uma VM IaaS no Azure Stack
 
-Ao escolher um servidor para Servidor de Backup do Azure, comece com uma imagem da galeria do Windows Server 2012 R2 Datacenter ou do Windows Server 2016 datacenter. O artigo [criar sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), fornece um tutorial para introdução à máquina virtual recomendada. Os requisitos mínimos recomendados para a VM (máquina virtual) do servidor devem ser: A2 padrão com dois núcleos e 3,5 GB de RAM.
+Ao escolher um servidor para Servidor de Backup do Azure, comece com uma imagem da galeria do Windows Server 2012 R2 Datacenter ou do Windows Server 2016 datacenter. O artigo [criar sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), fornece um tutorial para introdução à máquina virtual recomendada. Os requisitos mínimos recomendados para a VM (máquina virtual) do servidor devem ser: a2 padrão com dois núcleos e 3,5 GB de RAM.
 
 A proteção de cargas de trabalho com Servidor de Backup do Azure tem muitas nuances. O artigo [instalar o DPM como uma máquina virtual do Azure](https://technet.microsoft.com/library/jj852163.aspx), ajuda a explicar essas nuances. Antes de implantar o computador, leia este artigo completamente.
 
 > [!NOTE]
 > O Servidor de Backup do Azure foi projetado para ser executado em uma máquina virtual dedicada de finalidade única. Não é possível instalar o Servidor de Backup do Azure em:
+>
 > - Um computador em execução como um controlador de domínio
 > - Um computador no qual a função de Servidor de Aplicações está instalada
 > - Um computador no qual o Exchange Server está em execução
@@ -108,7 +118,7 @@ A opção de replicação de armazenamento do cofre dos serviços de recuperaç�
 Para editar a definição de replicação de armazenamento:
 
 1. Selecione seu cofre para abrir o painel do cofre e o menu configurações. Se o menu **configurações** não abrir, clique em **todas as configurações** no painel do cofre.
-2. No menu **configurações** , clique em **infraestrutura** > de backup**configuração de backup** para abrir o menu **configuração de backup** . No menu **configuração de backup** , escolha a opção de replicação de armazenamento para seu cofre.
+2. No menu **configurações** , clique em **infraestrutura de backup** > **configuração de backup** para abrir o menu **configuração de backup** . No menu **configuração de backup** , escolha a opção de replicação de armazenamento para seu cofre.
 
     ![Lista de cofres de cópia de segurança](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -314,7 +324,7 @@ A primeira cópia de backup é mantida no armazenamento anexado à máquina Serv
 
 ## <a name="network-connectivity"></a>Conectividade de rede
 
-Servidor de Backup do Azure requer conectividade com o serviço de backup do Azure para que o produto funcione com êxito. Para validar se o computador tem a conectividade com o Azure, use ```Get-DPMCloudConnection``` o cmdlet no console do servidor de backup do Azure PowerShell. Se a saída do cmdlet for TRUE, a conectividade existirá, caso contrário, não haverá conectividade.
+Servidor de Backup do Azure requer conectividade com o serviço de backup do Azure para que o produto funcione com êxito. Para validar se o computador tem a conectividade com o Azure, use o cmdlet ```Get-DPMCloudConnection``` no console do Servidor de Backup do Azure PowerShell. Se a saída do cmdlet for TRUE, a conectividade existirá, caso contrário, não haverá conectividade.
 
 Ao mesmo tempo, a assinatura do Azure precisa estar em um estado íntegro. Para descobrir o estado da sua assinatura e gerenciá-la, faça logon no [portal de assinatura](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
@@ -322,16 +332,16 @@ Depois de saber o estado da conectividade do Azure e da assinatura do Azure, voc
 
 | Estado de conectividade | Subscrição do Azure | Fazer backup no Azure | Fazer backup em disco | Restaurar do Azure | Restaurar a partir do disco |
 | --- | --- | --- | --- | --- | --- |
-| Ligado |Active |Permitido |Permitido |Permitido |Permitido |
-| Ligado |Fora do prazo |Parada |Parada |Permitido |Permitido |
-| Ligado |Desprovisionada |Parada |Parada |Parado e pontos de recuperação do Azure excluídos |Parada |
-| Perda de conectividade > 15 dias |Active |Parada |Parada |Permitido |Permitido |
-| Perda de conectividade > 15 dias |Fora do prazo |Parada |Parada |Permitido |Permitido |
+| Ligada |Ativa |Permitidos |Permitidos |Permitidos |Permitidos |
+| Ligada |Fora do prazo |Parada |Parada |Permitidos |Permitidos |
+| Ligada |Desprovisionada |Parada |Parada |Parado e pontos de recuperação do Azure excluídos |Parada |
+| Perda de conectividade > 15 dias |Ativa |Parada |Parada |Permitidos |Permitidos |
+| Perda de conectividade > 15 dias |Fora do prazo |Parada |Parada |Permitidos |Permitidos |
 | Perda de conectividade > 15 dias |Desprovisionada |Parada |Parada |Parado e pontos de recuperação do Azure excluídos |Parada |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperando da perda de conectividade
 
-Se um firewall ou um proxy estiver impedindo o acesso ao Azure, adicione à lista de permissões os seguintes endereços de domínio no perfil de firewall/proxy:
+Se um firewall ou um proxy estiver impedindo o acesso ao Azure, adicione os seguintes endereços de domínio na lista de permissões do perfil de firewall/proxy:
 
 - `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com
@@ -343,9 +353,9 @@ Quando a conectividade com o Azure é restaurada para o Servidor de Backup do Az
 
 ### <a name="handling-subscription-states"></a>Manipulando Estados de assinatura
 
-É possível alterar uma assinatura do Azure do estado expirado ou desprovisionado para o estado *ativo* . Enquanto o estado da assinatura não estiver *ativo*:
+É possível alterar uma assinatura do Azure do estado *expirado* ou *desprovisionado* para o estado *ativo* . Enquanto o estado da assinatura não estiver *ativo*:
 
-- Embora uma assinatura sejadesprovisionada, ela perde a funcionalidade. A restauração da assinatura no *Active, ativa*a funcionalidade de backup/restauração. Se os dados de backup no disco local tiverem sido retidos com um período de retenção suficientemente grande, os dados de backup poderão ser recuperados. No entanto, os dados de backup no Azure ficam irrecuperáveis quando a assinatura entra no estado desprovisionado.
+- Embora uma assinatura seja *desprovisionada*, ela perde a funcionalidade. A restauração da assinatura no *Active, ativa*a funcionalidade de backup/restauração. Se os dados de backup no disco local tiverem sido retidos com um período de retenção suficientemente grande, os dados de backup poderão ser recuperados. No entanto, os dados de backup no Azure ficam irrecuperáveis quando a assinatura entra no estado *desprovisionado* .
 - Enquanto uma assinatura *expira*, ela perde a funcionalidade. Os backups agendados não são executados enquanto uma assinatura *expira*.
 
 ## <a name="troubleshooting"></a>Resolução de problemas

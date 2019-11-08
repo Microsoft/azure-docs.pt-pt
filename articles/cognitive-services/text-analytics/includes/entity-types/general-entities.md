@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/18/2019
 ms.author: aahi
-ms.openlocfilehash: e81a1de02c112abd5c52f0f83404a615d738e01c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 693a81cfb15407541311d7ab053bb2ab6a267b29
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73508069"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73800068"
 ---
 ## <a name="general-entity-types"></a>Tipos de entidade geral:
 
@@ -24,7 +24,7 @@ Idiomas:
 
 | Nome do subtipo | Descrição             |
 |--------------|-------------------------|
-| N/A          | Nomes reconhecidos, por exemplo `Bill Gates`, `Marie Curie` |
+| N/D          | Nomes reconhecidos, por exemplo `Bill Gates`, `Marie Curie` |
 
 ### <a name="location"></a>Localização
 
@@ -37,7 +37,7 @@ Idiomas:
 
 | Nome do subtipo | Descrição                                                                                      |
 |--------------|--------------------------------------------------------------------------------------------------|
-| N/A          | locais, por exemplo `Atlantic Ocean`, `library`, `Eiffel Tower``Statue of Liberty` |
+| N/D          | locais, por exemplo `Atlantic Ocean`, `library`, `Eiffel Tower``Statue of Liberty` |
 
 ### <a name="organization"></a>Organização  
 
@@ -47,7 +47,7 @@ Organizações reconhecidas, corporações, agências e outros grupos de pessoas
 
 | Nome do subtipo | Descrição                                                                                      |
 |--------------|--------------------------------------------------------------------------------------------------|
-| N/A          | organizações, por exemplo `Microsoft`, `NASA` `National Oceanic and Atmospheric Administration` |
+| N/D          | organizações, por exemplo `Microsoft`, `NASA` `National Oceanic and Atmospheric Administration` |
 
 ### <a name="phone-number"></a>Número de Telefone
 
@@ -60,7 +60,20 @@ Idiomas:
 
 | Nome do subtipo | Descrição                                  |
 |----------|----------------------------------------------|
-| N/A         | Números de telefone, por exemplo `+1 123-123-123`. |
+| N/D         | Números de telefone, por exemplo `+1 123-123-123`. |
+
+### <a name="email"></a>Email
+
+Endereço de e-mail. 
+
+Idiomas:
+
+
+* Visualização pública: `English`
+
+| Nome do subtipo | Descrição                                  |
+|----------|----------------------------------------------|
+| N/D         | Endereço de email, por exemplo `support@contoso.com` |
 
 ### <a name="url"></a>do IdP
 
@@ -73,9 +86,9 @@ Idiomas:
 
 | Nome do subtipo | Descrição                                           |
 |----------|-------------------------------------------------------|
-| N/A         | URLs para sites, por exemplo `https://www.bing.com`. |
+| N/D         | URLs para sites, por exemplo `https://www.bing.com`. |
 
-###  <a name="number"></a>Número
+###  <a name="number"></a>Number
 
 Números e quantidades numéricas. 
 
@@ -86,7 +99,7 @@ Idiomas:
 
 | Nome do subtipo    | Exemplos                     |
 |-------------|------------------------------|
-| N/A         | `6`, `six`                   |
+| N/D         | `6`, `six`                   |
 | Percentagem  | `50%`, `fifty percent`       |
 | Ordinal     | `2nd`, `second`              |
 | Moeda    | `$10.99`, `€30.00`           |

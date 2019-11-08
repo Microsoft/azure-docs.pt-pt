@@ -1,6 +1,6 @@
 ---
-title: Extensão de diagnóstico do Azure para Windows | Documentos da Microsoft
-description: Monitorizar VMs do Windows Azure utilizando a extensão de diagnóstico do Azure
+title: Extensão de Diagnóstico do Azure para Windows | Microsoft Docs
+description: Monitorar VMs do Windows do Azure usando a extensão Diagnóstico do Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: johnkemnetz
@@ -12,40 +12,40 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: 58c520ecbaf764140748167e458c301ab56de375
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4230e2aac8d386c759a403b9008029d68049569c
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708058"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749406"
 ---
-# <a name="azure-diagnostics-extension-for-windows-vms"></a>Extensão de diagnóstico do Azure para VMs do Windows
+# <a name="azure-diagnostics-extension-for-windows-vms"></a>Extensão de Diagnóstico do Azure para VMs do Windows
 
 ## <a name="overview"></a>Descrição geral
 
-A extensão de VM de diagnóstico do Azure permite-lhe recolher dados de monitorização, como contadores de desempenho e registos de eventos, de sua VM do Windows. Forma granular, pode especificar quais os dados que pretende recolher e onde pretende que os dados adequada, como uma conta de armazenamento do Azure ou de um Hub de eventos do Azure. Também pode utilizar estes dados para criar gráficos no portal do Azure ou criar alertas de métricas.
+A extensão de VM Diagnóstico do Azure permite coletar dados de monitoramento, como contadores de desempenho e logs de eventos, da sua VM do Windows. Você pode especificar detalhadamente quais dados deseja coletar e onde deseja que os dados sejam acessados, como uma conta de armazenamento do Azure ou um hub de eventos do Azure. Você também pode usar esses dados para criar gráficos no portal do Azure ou criar alertas de métrica.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A extensão de diagnóstico do Azure podem ser executada para o cliente do Windows 10, Windows Server 2008 R2, 2012 e 2012 R2 e 2016.
+A extensão de Diagnóstico do Azure pode ser executada em relação ao cliente Windows 10, Windows Server 2008 R2, 2012, 2012 R2 e 2016.
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
-A extensão de diagnóstico do Azure requer que a máquina virtual de destino está ligada à internet. 
+A extensão Diagnóstico do Azure requer que a máquina virtual de destino esteja conectada à Internet. 
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-[Os valores de esquema e a propriedade de extensão de diagnóstico do Azure são descritos neste documento.](../../azure-monitor/platform/diagnostics-extension-schema-1dot3.md)
+[O esquema de extensão Diagnóstico do Azure e os valores de propriedade são descritos neste documento.](../../azure-monitor/platform/diagnostics-extension-schema-1dot3.md)
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. O esquema JSON detalhado na secção anterior pode ser utilizado num modelo do Azure Resource Manager para executar a extensão de diagnóstico do Azure durante uma implementação de modelo do Azure Resource Manager. Ver [monitorização de utilização e diagnóstico com modelos de VM do Windows e do Azure Resource Manager](extensions-diagnostics-template.md).
+As extensões de VM do Azure podem ser implantadas com modelos de Azure Resource Manager. O esquema JSON detalhado na seção anterior pode ser usado em um modelo de Azure Resource Manager para executar a extensão de Diagnóstico do Azure durante uma implantação de modelo de Azure Resource Manager. Consulte [usar monitoramento e diagnóstico com uma VM do Windows e modelos de Azure Resource Manager](extensions-diagnostics-template.md).
 
-## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure
+## <a name="azure-cli-deployment"></a>Implantação de CLI do Azure
 
-A CLI do Azure pode ser utilizada para implementar a extensão de diagnóstico do Azure para uma máquina virtual existente. Substitua as definições protegidas e propriedades de definições JSON válido do esquema de extensão acima. 
+O CLI do Azure pode ser usado para implantar a extensão de Diagnóstico do Azure em uma máquina virtual existente. Substitua as configurações protegidas e as propriedades de configurações por JSON válido do esquema de extensão acima. 
 
 ```azurecli
 az vm extension set \
@@ -57,11 +57,11 @@ az vm extension set \
   --settings public-settings.json 
 ```
 
-## <a name="powershell-deployment"></a>Implementação do PowerShell
+## <a name="powershell-deployment"></a>Implantação do PowerShell
 
-O `Set-AzVMDiagnosticsExtension` comando pode ser utilizado para adicionar a extensão de diagnóstico do Azure para uma máquina virtual existente. Consulte também [utilize o PowerShell para ativar o diagnóstico do Azure numa máquina virtual a executar o Windows](ps-extensions-diagnostics.md).
+O comando `Set-AzVMDiagnosticsExtension` pode ser usado para adicionar a extensão de Diagnóstico do Azure a uma máquina virtual existente. Consulte também [usar o PowerShell para habilitar diagnóstico do Azure em uma máquina virtual que executa o Windows](ps-extensions-diagnostics.md).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 
 ```powershell
@@ -74,22 +74,22 @@ Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
   -DiagnosticsConfigurationPath $diagnosticsconfig_path
 ```
 
-## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
+## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
 ### <a name="troubleshoot"></a>Resolução de problemas
 
-Podem ser obtidos dados sobre o estado das implementações de extensão do portal do Azure e com a CLI do Azure. Para ver o estado de implementação de extensões para uma determinada VM, execute o seguinte comando com a CLI do Azure.
+Os dados sobre o estado das implantações de extensão podem ser recuperados do portal do Azure e usando o CLI do Azure. Para ver o estado de implantação das extensões de uma determinada VM, execute o comando a seguir usando o CLI do Azure.
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-[Veja este artigo](../../azure-monitor/platform/diagnostics-extension-troubleshooting.md) para obter um guia de resolução de problemas mais abrangente para a extensão de diagnóstico do Azure.
+[Consulte este artigo](../../azure-monitor/platform/diagnostics-extension-troubleshooting.md) para obter um guia de solução de problemas mais abrangente para a extensão de diagnóstico do Azure.
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda a qualquer momento neste artigo, você poderá entrar em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow do MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode arquivar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione obter suporte. Para obter informações sobre como usar o suporte do Azure, leia as [perguntas frequentes sobre suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Próximos Passos
-* [Saiba mais sobre a extensão de diagnóstico do Azure](../../azure-monitor/platform/diagnostics-extension-overview.md)
-* [Reveja o esquema da extensão e as versões](../../azure-monitor/platform/diagnostics-extension-schema.md)
+* [Saiba mais sobre a extensão de Diagnóstico do Azure](../../azure-monitor/platform/diagnostics-extension-overview.md)
+* [Examinar o esquema de extensão e as versões](../../azure-monitor/platform/diagnostics-extension-schema.md)

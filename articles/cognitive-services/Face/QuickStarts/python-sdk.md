@@ -1,6 +1,6 @@
 ---
 title: 'Início rápido: biblioteca de cliente facial para Python | Microsoft Docs'
-description: Introdução à biblioteca de cliente facial para Python...
+description: Este artigo o ajudará a começar a usar a biblioteca de cliente facial para Python a fim de detectar, localizar semelhante, identificar, verificar e muito mais.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: b265ec68039f03c09d45c9605965de8ce0baba99
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9728ff86de8561c463886847494ecc4c1c007851
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935878"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73743190"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Início rápido: biblioteca de cliente facial para Python
 
@@ -29,7 +29,7 @@ Use a biblioteca de cliente facial para Python para:
 * Verificar faces
 * Tirar um instantâneo para a migração de dados
 
-[Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)  |   | [(PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/)  | [amostras](https://docs.microsoft.com/samples/browse/?products=azure&term=face) do[código-fonte de biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face)
+[Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) |  | [(PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [amostras](https://docs.microsoft.com/samples/browse/?products=azure&term=face) do [código-fonte de biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -147,7 +147,7 @@ O código a seguir cria um **Person** com três objetos **Person** diferentes. E
 
 Para percorrer esse cenário, você precisa salvar as seguintes imagens no diretório raiz do seu projeto: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
-Esse grupo de imagens contém três conjuntos de imagens de face correspondentes a três pessoas diferentes. O código definirá três objetos **Person** e os associará a arquivos de imagem que começam com `woman`, `man` e `child`.
+Esse grupo de imagens contém três conjuntos de imagens de face correspondentes a três pessoas diferentes. O código definirá três objetos **Person** e os associará a arquivos de imagem que começam com `woman`, `man`e `child`.
 
 Depois de configurar suas imagens, defina um rótulo na parte superior do script para o objeto **Person** que você criará.
 

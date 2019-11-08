@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2019
 ms.author: memildin
-ms.openlocfilehash: dad8c6173495d11abd6c9f5babb4ef8bc789e4ce
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 140361b7ba3a6a618d4c416447525f8a73690b81
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686426"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748425"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Avaliação e recomendações do Endpoint Protection na central de segurança do Azure
 
@@ -84,7 +84,7 @@ A central de segurança do Azure fornece avaliações de integridade de versões
 * A central de segurança recomenda que você **"Instale soluções do Endpoint Protection na máquina virtual"** quando qualquer uma das seguintes verificações não for atendida:
     * **HKLM: \ SOFTWARE\TrendMicro\Deep Security Agent** existe
     * **HKLM: \ SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** existe
-    * O arquivo **dsq_query. cmd** é encontrado na pasta de instalação
+    * O arquivo **dsa_query. cmd** é encontrado na pasta de instalação
     * Executando os resultados de **dsa_query. cmd** com o **componente. am. Mode: o agente de segurança em Trend Micro Deep Security detectado**
 
 ## <a name="symantec-endpoint-protection"></a>Symantec Endpoint Protection

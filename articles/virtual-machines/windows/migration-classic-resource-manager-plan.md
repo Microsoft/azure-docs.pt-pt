@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: aa36051f65936f25e4f2cc3bf03619b0f66ce5a6
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 840d7b9534124a4fcc93962e8329dc6ce2bdf1a4
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165308"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749342"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planejando a migração de recursos de IaaS do clássico para o Azure Resource Manager
 Embora Azure Resource Manager ofereça muitos recursos incríveis, é essencial planejar sua jornada de migração para garantir que as coisas fiquem sem problemas. Gastar tempo no planejamento garantirá que você não encontre problemas durante a execução de atividades de migração.
@@ -87,14 +87,14 @@ Clientes bem-sucedidos têm planos detalhados em que as perguntas anteriores sã
 
 Os problemas a seguir foram descobertos em muitas das migrações maiores. Essa não é uma lista completa e você deve consultar os [recursos e as configurações sem suporte](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations) para obter mais detalhes.  Você pode ou não encontrar esses problemas técnicos, mas se você solucioná-los antes de tentar a migração, o garantirá uma experiência mais tranqüila.
 
-- **Faça uma simulação de validação/preparação/anulação** -essa é talvez a etapa mais importante para garantir o sucesso da migração de Azure Resource Manager clássico. A API de migração tem três etapas principais: Validar, preparar e confirmar. Validar lerá o estado do seu ambiente clássico e retornará um resultado de todos os problemas. No entanto, como alguns problemas podem existir na pilha de Azure Resource Manager, Validate não detectará tudo. A próxima etapa no processo de migração, preparar ajudará a expor esses problemas. A preparação moverá os metadados do clássico para o Azure Resource Manager, mas não confirmará a movimentação e não removerá nem alterará nada no lado clássico. A simulação envolve a preparação da migração e a anulação (**não confirmação**) da preparação da migração. O objetivo de validar/preparar/anular a execução seca é ver todos os metadados na pilha Azure Resource Manager, examiná-los (*programaticamente ou no portal*) e verificar se tudo está migrado corretamente e trabalhar com problemas técnicos.  Ele também dará uma noção da duração da migração para que você possa planejar o tempo de inatividade de acordo.  Uma validação/preparação/anulação não causa nenhum tempo de inatividade do usuário; Portanto, ele não causa interrupções no uso do aplicativo.
+- **Faça uma simulação de validação/preparação/anulação** -essa é talvez a etapa mais importante para garantir o sucesso da migração de Azure Resource Manager clássico. A API de migração tem três etapas principais: validar, preparar e confirmar. Validar lerá o estado do seu ambiente clássico e retornará um resultado de todos os problemas. No entanto, como alguns problemas podem existir na pilha de Azure Resource Manager, Validate não detectará tudo. A próxima etapa no processo de migração, preparar ajudará a expor esses problemas. A preparação moverá os metadados do clássico para o Azure Resource Manager, mas não confirmará a movimentação e não removerá nem alterará nada no lado clássico. A simulação envolve a preparação da migração e a anulação (**não confirmação**) da preparação da migração. O objetivo de validar/preparar/anular a execução seca é ver todos os metadados na pilha Azure Resource Manager, examiná-los (*programaticamente ou no portal*) e verificar se tudo está migrado corretamente e trabalhar com problemas técnicos.  Ele também dará uma noção da duração da migração para que você possa planejar o tempo de inatividade de acordo.  Uma validação/preparação/anulação não causa nenhum tempo de inatividade do usuário; Portanto, ele não causa interrupções no uso do aplicativo.
   - Os itens a seguir precisarão ser resolvidos antes do seca ser executado, mas um teste de simulação também eliminará com segurança essas etapas de preparação se elas forem perdidas. Durante a migração para a empresa, descobrimos que a simulação é uma maneira segura e inestimável de garantir a prontidão da migração.
   - Quando a preparação estiver em execução, o plano de controle (operações de gerenciamento do Azure) será bloqueado para toda a rede virtual e, portanto, nenhuma alteração poderá ser feita nos metadados da VM durante a validação/preparação/anulação.  Caso contrário, qualquer função de aplicativo (RD, uso de VM, etc.) não será afetada.  Os usuários das VMs não saberão que a execução seca está sendo executada.
 
 - **Circuitos de rota expressa e VPN**. Atualmente, os gateways de rota expressa com links de autorização não podem ser migrados sem tempo de inatividade. Para obter a solução alternativa, consulte [migrar circuitos de ExpressRoute e redes virtuais associadas do modelo de implantação clássico para o Gerenciador de recursos](../../expressroute/expressroute-migration-classic-resource-manager.md).
 
 - **Extensões de VM** -as extensões de máquina virtual são potencialmente um dos maiores obstáculos para migrar VMs em execução. A correção de extensões de VM pode levar mais de 1-2 dias, portanto, planeje adequadamente.  Um agente do Azure em funcionamento é necessário para reportar o status de extensão da VM de VMs em execução. Se o status retornar como inadequado para uma VM em execução, isso interromperá a migração. O agente em si não precisa estar em ordem de funcionamento para habilitar a migração, mas se existirem extensões na VM, tanto o agente funcional quanto a conectividade de Internet de saída (com DNS) serão necessários para que a migração avance.
-  - Se a conectividade com um servidor DNS for perdida durante a migração, todas as extensões de VM, exceto BGInfo versão 1. \* precisa ser removido primeiro de cada VM antes da preparação da migração e, subsequentemente, adicionado novamente à VM após a migração Azure Resource Manager.  **Isso é apenas para VMs que estão em execução.**  Se as VMs forem interrompidas desalocadas, as extensões de VM não precisarão ser removidas.
+  - Se a conectividade com um servidor DNS for perdida durante a migração, todas as extensões de VM, exceto BGInfo versão 1.\* precisa primeiro ser removido de todas as VMs antes da preparação da migração e subsequentemente adicionada novamente à VM após a migração Azure Resource Manager.  **Isso é apenas para VMs que estão em execução.**  Se as VMs forem interrompidas desalocadas, as extensões de VM não precisarão ser removidas.
 
   > [!NOTE]
   > Muitas extensões como o diagnóstico do Azure e o monitoramento da central de segurança serão reinstalados após a migração, portanto, removê-las não é um problema.
@@ -113,7 +113,7 @@ Os problemas a seguir foram descobertos em muitas das migrações maiores. Essa 
 
 - **Conjuntos de disponibilidade** -para que uma vNet (rede virtual) seja migrada para o Azure Resource Manager, a implantação clássica (ou seja, o serviço de nuvem) continha máquinas virtuais deve estar em um conjunto de disponibilidade ou as VMs não devem estar em nenhum conjunto de disponibilidade. Ter mais de um conjunto de disponibilidade no serviço de nuvem não é compatível com Azure Resource Manager e interromperá a migração.  Além disso, não pode haver algumas VMs em um conjunto de disponibilidade e algumas VMs que não estão em um conjunto de disponibilidade. Para resolver isso, será necessário corrigir ou reembaralhar seu serviço de nuvem.  Planeje de forma adequada, pois isso pode ser demorado.
 
-- Implantações de **função Web/de trabalho** – serviços de nuvem que contêm funções Web e de trabalho não podem migrar para Azure Resource Manager. Para migrar o conteúdo de suas funções Web e de trabalho, você precisará migrar o próprio código para serviços de aplicativo PaaS mais recentes (essa discussão está além do escopo deste documento). Se você quiser deixar as funções Web/de trabalho como estão, mas migrar VMs clássicas para o modelo de implantação do Gerenciador de recursos, as funções Web/de trabalho devem primeiro ser removidas da rede virtual antes que a migração possa ser iniciada.  Uma solução típica é apenas mover instâncias de função Web/de trabalho para uma rede virtual clássica separada que também esteja vinculada a um circuito de ExpressRoute. No primeiro caso de reimplantação, crie uma nova rede virtual clássica, mova/reimplante as funções Web/de trabalho para essa nova rede virtual e, em seguida, exclua as implantações da rede virtual que está sendo movida. Nenhuma alteração de código necessária. O novo recurso de [emparelhamento de rede virtual](../../virtual-network/virtual-network-peering-overview.md) pode ser usado para emparelhar a rede virtual clássica que contém as funções Web/de trabalho e outras redes virtuais na mesma região do Azure, como a rede virtual que está sendo migrada (**após a rede virtual a migração é concluída, pois as redes virtuais emparelhadas não podem ser migradas**), fornecendo, portanto, os mesmos recursos sem perda de desempenho e sem penalidades de latência/largura de banda. Devido à adição de [emparelhamento de rede virtual](../../virtual-network/virtual-network-peering-overview.md), as implantações de função Web/de trabalho agora podem ser facilmente atenuadas e não bloquear a migração para Azure Resource Manager.
+- **Implantações de função Web/de trabalho** – serviços de nuvem que contêm funções Web e de trabalho não podem migrar para Azure Resource Manager. Para migrar o conteúdo de suas funções Web e de trabalho, você precisará migrar o próprio código para serviços de aplicativo PaaS mais recentes (essa discussão está além do escopo deste documento). Se você quiser deixar as funções Web/de trabalho como estão, mas migrar VMs clássicas para o modelo de implantação do Gerenciador de recursos, as funções Web/de trabalho devem primeiro ser removidas da rede virtual antes que a migração possa ser iniciada.  Uma solução típica é apenas mover instâncias de função Web/de trabalho para uma rede virtual clássica separada que também esteja vinculada a um circuito de ExpressRoute. No primeiro caso de reimplantação, crie uma nova rede virtual clássica, mova/reimplante as funções Web/de trabalho para essa nova rede virtual e, em seguida, exclua as implantações da rede virtual que está sendo movida. Nenhuma alteração de código necessária. O novo recurso de [emparelhamento de rede virtual](../../virtual-network/virtual-network-peering-overview.md) pode ser usado para emparelhar a rede virtual clássica que contém as funções Web/de trabalho e outras redes virtuais na mesma região do Azure, como a rede virtual que está sendo migrada (**após a rede virtual a migração é concluída, pois as redes virtuais emparelhadas não podem ser migradas**), fornecendo, portanto, os mesmos recursos sem perda de desempenho e sem penalidades de latência/largura de banda. Devido à adição de [emparelhamento de rede virtual](../../virtual-network/virtual-network-peering-overview.md), as implantações de função Web/de trabalho agora podem ser facilmente atenuadas e não bloquear a migração para Azure Resource Manager.
 
 - **Cotas de Azure Resource Manager** -as regiões do Azure têm cotas/limites separados para o clássico e o Azure Resource Manager. Embora, em um cenário de migração, um novo hardware não esteja sendo consumido *(estamos trocando VMs existentes do clássico para o Azure Resource Manager)* , Azure Resource Manager cotas ainda precisam estar em vigor com capacidade suficiente antes que a migração possa ser iniciada. Abaixo estão listados os principais limites que vimos causam problemas.  Abra um tíquete de suporte de cota para aumentar os limites.
 
@@ -122,7 +122,7 @@ Os problemas a seguir foram descobertos em muitas das migrações maiores. Essa 
     >
 
   - Interfaces de Rede
-  - Balanceador de Carga
+  - Balanceadores de Carga
   - IPs públicos
   - IPs públicos estáticos
   - Núcleos
@@ -131,34 +131,34 @@ Os problemas a seguir foram descobertos em muitas das migrações maiores. Essa 
 
     Você pode verificar suas cotas de Azure Resource Manager atuais usando os comandos a seguir com a versão mais recente do Azure PowerShell.
     
-    [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+     
 
-    **Computação** *(Núcleos, conjuntos de disponibilidade)*
+    **Computação** *(núcleos, conjuntos de disponibilidade)*
 
     ```powershell
     Get-AzVMUsage -Location <azure-region>
     ```
 
-    **Rede** *(Redes virtuais, IPS públicos estáticos, IPS públicos, grupos de segurança de rede, interfaces de rede, balanceadores de carga, tabelas de rotas)*
+    **Rede** *(redes virtuais, IPS públicos estáticos, IPS públicos, grupos de segurança de rede, interfaces de rede, balanceadores de carga, tabelas de rotas)*
 
     ```powershell
     Get-AzUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
     ```
 
-    **Armazenamento** do *(Conta de armazenamento)*
+    **Armazenamento** *(conta de armazenamento)*
 
     ```powershell
     Get-AzStorageUsage
     ```
 
-- **Limites de limitação de API Azure Resource Manager** -se você tiver um ambiente grande o suficiente (por exemplo, > VMs 400 em uma VNET), você pode atingir os limites de limitação de API padrão para gravações `1200 writes/hour`(atualmente) em Azure Resource Manager. Antes de iniciar a migração, você deve gerar um tíquete de suporte para aumentar esse limite para sua assinatura.
+- **Limites de limitação de API Azure Resource Manager** -se você tiver um ambiente grande o suficiente (por exemplo, > VMs 400 em uma VNET), você pode atingir os limites de limitação de API padrão para gravações (atualmente `1200 writes/hour`) em Azure Resource Manager. Antes de iniciar a migração, você deve gerar um tíquete de suporte para aumentar esse limite para sua assinatura.
 
 
-- **Status de VM tempo limite de provisionamento** -se alguma VM tiver o status de, `provisioning timed out`isso precisará ser resolvido antes da migração. A única maneira de fazer isso é com o tempo de inatividade ao desprovisionar/reprovisionar a VM (excluí-la, manter o disco e recriar a VM).
+- **Status de VM tempo limite de provisionamento** -se alguma VM tiver o status de `provisioning timed out`, isso precisará ser resolvido antes da migração. A única maneira de fazer isso é com o tempo de inatividade ao desprovisionar/reprovisionar a VM (excluí-la, manter o disco e recriar a VM).
 
-- **Status da VM RoleStateUnknown** – se a migração for interrompida `role state unknown` devido a uma mensagem de erro, inspecione a VM usando o portal e verifique se ela está em execução. Esse erro normalmente desaparecerá por si só (sem necessidade de correção) após alguns minutos e, muitas vezes, um tipo transitório é visto durante uma `start`máquina `stop`virtual `restart` , operações. **Prática recomendada:** tente novamente a migração após alguns minutos.
+- **Status da VM RoleStateUnknown** – se a migração for interrompida devido a uma mensagem de erro `role state unknown`, INSPECIONE a VM usando o portal e verifique se ela está em execução. Esse erro normalmente desaparecerá por si só (sem necessidade de correção) depois de alguns minutos e geralmente é um tipo transitório, geralmente visto durante uma máquina virtual `start`, `stop``restart` operações. **Prática recomendada:** tente novamente a migração após alguns minutos.
 
-- **O cluster de malha não existe** -em alguns casos, determinadas VMs não podem ser migradas por vários motivos estranhos. Um desses casos conhecidos é se a VM foi criada recentemente (na última semana ou assim) e ocorreu um cluster do Azure que ainda não está equipado para cargas de trabalho de Azure Resource Manager.  Você receberá um erro que diz `fabric cluster does not exist` e que a VM não pode ser migrada. Esperar alguns dias geralmente resolverá esse problema específico, pois o cluster será Azure Resource Manager habilitado em breve. No entanto, uma solução alternativa `stop-deallocate` imediata é para a VM, em seguida, continue com a migração e inicie o backup da VM em Azure Resource Manager após a migração.
+- **O cluster de malha não existe** -em alguns casos, determinadas VMs não podem ser migradas por vários motivos estranhos. Um desses casos conhecidos é se a VM foi criada recentemente (na última semana ou assim) e ocorreu um cluster do Azure que ainda não está equipado para cargas de trabalho de Azure Resource Manager.  Você receberá um erro que diz `fabric cluster does not exist` e a VM não pode ser migrada. Esperar alguns dias geralmente resolverá esse problema específico, pois o cluster será Azure Resource Manager habilitado em breve. No entanto, uma solução alternativa imediata é `stop-deallocate` a VM, continuar com a migração e iniciar o backup da VM em Azure Resource Manager após a migração.
 
 ### <a name="pitfalls-to-avoid"></a>Armadilhas a serem evitadas
 
@@ -213,7 +213,7 @@ Não se esqueça de quais serviços você agora deseja habilitar no Azure Resour
 Lembre-se do motivo pelo qual você começou este clássico para Azure Resource Manager a jornada de migração.  Quais foram os motivos comerciais originais? Você obteve o motivo comercial?
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral da migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Análise detalhada técnica sobre a migração suportada por plataforma da clássica para Azure Resource Manager)

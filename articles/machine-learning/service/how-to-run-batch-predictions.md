@@ -11,12 +11,12 @@ ms.author: tracych
 author: tracych
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 4390fab3d59706bf692de46d17923dad4f9a8f21
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 615536fbba38279a23516352c69461c19f9972ed
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489623"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796720"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Executar a inferência de lote em grandes quantidades de dados usando Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -184,13 +184,13 @@ model = Model.register(model_path="models/",
 ## <a name="write-your-inference-script"></a>Escreva seu script de inferência
 
 >[!Warning]
->O código a seguir é apenas uma amostra usada pelo [bloco de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/notebooks/contrib/batch_inferencing/file-dataset-image-inference-mnist.ipynb) . Você precisará criar seu próprio script para seu cenário.
+>O código a seguir é apenas uma amostra usada pelo [bloco de anotações de exemplo](https://aka.ms/batch-inference-notebooks) . Você precisará criar seu próprio script para seu cenário.
 
 O script *deve conter* duas funções:
 - `init()`: Use essa função para qualquer preparação dispendiosa ou comum para a inferência posterior. Por exemplo, use-o para carregar o modelo em um objeto global.
 -  `run(mini_batch)`: a função será executada para cada instância de `mini_batch`.
     -  `mini_batch`: a inferência de lote invocará o método Run e passará uma List ou pandas dataframe como um argumento para o método. Cada entrada em min_batch será um FilePath se a entrada for um filedataset, um dataframe do pandas se a entrada for um TabularDataset.
-    -  `response`: o método Run () deve retornar um dataframe do pandas ou uma matriz. Para append_row output_action, esses elementos retornados são acrescentados ao arquivo de saída comum. Para summary_only, o conteúdo dos elementos é ignorado. Para todas as ações de saída, cada elemento de saída retornado indica uma inferência bem-sucedida do elemento input no mini-lote de entrada. O usuário deve garantir que dados suficientes sejam incluídos no resultado da inferência para mapear a entrada para a inferência. A saída de inferência será gravada no arquivo de saída e não haverá garantia de que esteja em ordem, o usuário deverá usar alguma chave na saída para mapeá-la para entrada.
+    -  `response`: o método Run () deve retornar um dataframe do pandas ou uma matriz. Para append_row output_action, esses elementos retornados são acrescentados ao arquivo de saída comum. Por summary_only, o conteúdo dos elementos é ignorado. Para todas as ações de saída, cada elemento de saída retornado indica uma inferência bem-sucedida do elemento input no mini-lote de entrada. O usuário deve garantir que dados suficientes sejam incluídos no resultado da inferência para mapear a entrada para a inferência. A saída de inferência será gravada no arquivo de saída e não haverá garantia de que esteja em ordem, o usuário deverá usar alguma chave na saída para mapeá-la para entrada.
 
 ```python
 # Snippets from a sample script.
@@ -347,7 +347,7 @@ pipeline_run.wait_for_completion(show_output=True)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para ver esse processo funcionando de ponta a ponta, experimente o bloco de notas de [inferência em lote](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/). 
+Para ver esse processo funcionando de ponta a ponta, experimente o bloco de notas de [inferência em lote](https://aka.ms/batch-inference-notebooks). 
 
 Para obter diretrizes de depuração e solução de problemas para pipelines, consulte o [Guia de instruções](how-to-debug-pipelines.md).
 

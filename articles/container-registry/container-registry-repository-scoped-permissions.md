@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: danlep
-ms.openlocfilehash: dbfadea9bc05614108333ef5a046e11b5280cc68
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 7b9d220ac7e507513458eab6b55276b3aa434739
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73588437"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742757"
 ---
 # <a name="repository-scoped-permissions-in-azure-container-registry"></a>Permissões no escopo do repositório no registro de contêiner do Azure 
 
@@ -28,9 +28,8 @@ Consulte [sobre permissões no escopo do repositório](#about-repository-scoped-
 
 ## <a name="preview-limitations"></a>Limitações de visualização
 
-* Esse recurso só está disponível em um registro de contêiner **Premium** . Para obter informações sobre as camadas de serviço do registro, consulte [SKUs do registro de contêiner do Azure](container-registry-skus.md).
+* Esse recurso só está disponível em um registro de contêiner **Premium** . Para obter informações sobre limites e camadas de serviço do registro, consulte [SKUs do registro de contêiner do Azure](container-registry-skus.md).
 * Atualmente, não é possível atribuir permissões no escopo do repositório a um objeto Azure Active Directory, como uma entidade de serviço ou uma identidade gerenciada.
-* Um registro permite um máximo de 20.000 mapas de escopo e tokens de 20.000.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

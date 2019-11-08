@@ -6,19 +6,19 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3e2d9b892ad42563b481a0b1fe6a468daefad672
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: e0c3c88119c3d064326442881854920b411f5ed4
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606438"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748386"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Criar contêineres e bancos de dados do Azure Cosmos no modo de piloto automático (versão prévia)
 
 Azure Cosmos DB permite provisionar a taxa de transferência em seus contêineres no modo manual ou automático. Este artigo descreve os benefícios e casos de uso do modo AutoPilot.
 
 > [!NOTE]
-> O modo AutoPilot está disponível atualmente na visualização pública.
+> O modo AutoPilot está disponível atualmente na visualização pública. Para habilitar o recurso de piloto automático para sua conta do Azure Cosmos, consulte a seção [habilitar AutoPilot](#enable-autopilot) deste artigo. Você pode habilitar o AutoPilot somente para novos bancos de dados e contêineres, ele não está disponível para contêineres e bancos de dados existentes.
 
 Além do provisionamento manual da taxa de transferência, agora você pode configurar contêineres do cosmos do Azure no modo AutoPilot. Os contêineres de Cosmos do Azure e os bancos de dados configurados no modo de piloto automático irão **dimensionar automaticamente e de forma instantânea a taxa de transferência provisionada com base nas necessidades do seu aplicativo sem comprometer os SLAs.**
 
@@ -68,7 +68,7 @@ As soluções para os problemas anteriores não só exigem uma enorme quantidade
 | **Preços** | O provisionamento manual de RU/s por hora. | Para contas de região de gravação única, você paga pela taxa de transferência usada por hora, usando o AutoPilot RU/s por hora. <br/><br/>Para contas com várias regiões de gravação, não há nenhum custo adicional para o piloto automático. Você paga pela taxa de transferência usada por hora usando a mesma tarifa de RU/s de vários mestres por hora. |
 | **Mais adequado para tipos de carga de trabalho** |  Cargas de trabalho previsíveis e estáveis|   Cargas de trabalho imprevisíveis e variáveis  |
 
-## <a name="enable-autopilot-from-azure-portal"></a>Habilitar o AutoPilot de portal do Azure
+## <a name="a-idenable-autopilot-enable-autopilot-from-azure-portal"></a><a id="enable-autopilot"> habilitar o AutoPilot de portal do Azure
 
 Você pode experimentar o AutoPilot em suas contas do Azure Cosmos habilitando o no portal do Azure. Use as etapas a seguir para habilitar a opção AutoPilot:
 

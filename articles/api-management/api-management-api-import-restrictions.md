@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 11/06/2019
 ms.author: apimpm
-ms.openlocfilehash: 0bf52b45bc315874c58be50bccbffa49090d554d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 88ef235d47a548ce426eaa2e8a8a56fb9dcb01d2
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294352"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796040"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de API e problemas conhecidos
 
@@ -33,13 +33,15 @@ Se você estiver recebendo erros ao importar o documento do OpenAPI, verifique s
 ### <a name="open-api-general"> </a>Geral
 
 -   Os parâmetros necessários no caminho e na consulta devem ter nomes exclusivos. (No OpenAPI, um nome de parâmetro só precisa ser exclusivo dentro de um local, por exemplo, caminho, consulta, cabeçalho. No entanto, no gerenciamento de API, permitimos que as operações sejam discriminadas por parâmetros de caminho e de consulta (que OpenAPI não dá suporte). É por isso que exigimos que os nomes de parâmetro sejam exclusivos no modelo de URL inteiro.)
--   os ponteiros **\$ref** não podem fazer referência a arquivos externos.
+-   **\$** ponteiros de referência não podem fazer referência a arquivos externos.
 -   **x-MS-Paths** e **x-Servers** são as únicas extensões com suporte.
 -   As extensões personalizadas são ignoradas na importação e não são salvas ou preservadas para exportação.
 -   **Recursão** -o gerenciamento de API não dá suporte a definições definidas recursivamente (por exemplo, esquemas que se referim a si mesmos).
 -   A URL do arquivo de origem (se disponível) é aplicada a URLs de servidor relativas.
 -   As definições de segurança são ignoradas.
 -   Não há suporte para definições de esquema embutidas para operações de API. As definições de esquema são definidas no escopo da API e podem ser referenciadas em escopos de resposta ou solicitação de operações de API.
+-   Um parâmetro de URL definido precisa fazer parte do modelo de URL.
+-   **Produz** palavra-chave, que descreve os tipos MIME retornados por uma API, não tem suporte. 
 
 ### <a name="open-api-v2"> </a>Openapi versão 2
 

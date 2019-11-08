@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a1515144f340938cddfd5ca9f2ac4803bcb3f77
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 2e7646d2f84696d0b04183d8d06b96405909de87
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174723"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750052"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários de Azure Disk Encryption em VMs Linux
 
@@ -42,7 +42,7 @@ Azure Disk Encryption pode ser habilitado e gerenciado por meio do [CLI do Azure
 
 O [CLI do Azure 2,0](/cli/azure) é uma ferramenta de linha de comando para gerenciar recursos do Azure. A CLI foi projetada para consultar dados de maneira flexível, dar suporte a operações de longa execução como processos sem bloqueio e facilitar o script. Você pode instalá-lo localmente seguindo as etapas em [instalar o CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 Para [entrar em sua conta do Azure com o CLI do Azure](/cli/azure/authenticate-azure-cli), use o comando [AZ login](/cli/azure/reference-index?view=azure-cli-latest#az-login) .
 

@@ -8,33 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/21/2019
 ms.author: aahi
-ms.openlocfilehash: 6e46d58b3f1ef33902ab44043e954d9718d865af
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3aa4da9a9cf3d1d4b664e81f1fd18f2b225d731d
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73508047"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73800067"
 ---
 ## <a name="personal-information-entity-types"></a>Tipos de entidade de informações pessoais:
-
-### <a name="person"></a>Pessoa
-Nomes reconhecidos e outras pessoas em texto.
-Idiomas:
-* Visualização pública: `English`
-
-| Nome do subtipo | Descrição             |
-|--------------|-------------------------|
-| N/A          | Nomes reconhecidos, por exemplo `Bill Gates`, `Marie Curie` |
-
-### <a name="organization"></a>Organização  
-
-Organizações reconhecidas, corporações, agências e outros grupos de pessoas. Por exemplo: empresas, grupos políticos, faixas musicais, clubes esporte, órgãos governamentais e organizações públicas. As nacionalidades e Religions não são incluídas nesse tipo de entidade. Idiomas: 
-
-* Visualização pública: `English`
-
-| Nome do subtipo | Descrição                                                                                      |
-|--------------|--------------------------------------------------------------------------------------------------|
-| N/A          | organizações, por exemplo `Microsoft`, `NASA` `National Oceanic and Atmospheric Administration` |
 
 ### <a name="phone-number"></a>Número de Telefone
 
@@ -46,7 +27,7 @@ Idiomas:
 
 | Nome do subtipo           | Descrição                                           |
 |------------------------|-------------------------------------------------------|
-| N/A                    | Números de telefone, por exemplo `+1 123-123-123`.          |
+| N/D                    | Números de telefone, por exemplo `+1 123-123-123`.          |
 | Número de telefone da UE        | Números de telefone específicos da União Europeia.         |
 | Número de celular da UE | Números de telefone celular específicos à União Europeia. |
 
@@ -60,7 +41,7 @@ Idiomas:
 
 | Nome do subtipo | Descrição                               |
 |--------------|-------------------------------------------|
-| N/A          | Coordenadas de GPS na União Europeia |
+| N/D          | Coordenadas de GPS na União Europeia |
 
 ### <a name="azure-information"></a>Informações do Azure
 

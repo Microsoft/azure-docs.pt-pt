@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 6ee6239f9b1fbb66bac5d3920a888fb5a288a300
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a64a9ce5e080308674893273e90a0e83686e339e
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513331"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795503"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Solucionar problemas ou perguntas comuns com controlador de entrada
 

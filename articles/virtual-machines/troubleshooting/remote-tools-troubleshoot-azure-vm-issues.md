@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 70d777fe2e939c1871bc318eed439214fd3e3f60
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: fab1e0b6f3b01446baed974b4be9b7295af4f837
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155739"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749716"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Usar ferramentas remotas para solucionar problemas de VM do Azure
 
@@ -39,11 +39,11 @@ psexec \\<computer>-u user -s cmd
 
 >[!Note]
 >* O comando deve ser executado em um computador que esteja na mesma VNET.
->* O DIP ou o nome do host pode \<ser usado para substituir > do computador.
+>* O DIP ou o nome do host pode ser usado para substituir \<computador >.
 >* O parâmetro-s garante que o comando seja invocado usando a conta do sistema (permissão de administrador).
 >* O PsExec usa as portas TCP 135 e 445. Portanto, as duas portas precisam estar abertas no firewall.
 
-## <a name="run-commands"></a>Comandos Executar
+## <a name="run-commands"></a>Executar comandos
 
 Consulte [executar scripts do PowerShell em sua VM do Windows com o comando executar](../windows/run-command.md) para obter mais informações sobre como usar o recurso executar comandos para executar scripts na VM.
 
@@ -91,7 +91,7 @@ Set-AzureVMCustomScriptExtension "CustomScriptExtension" -VM $vm -StorageAccount
 
 ### <a name="for-v2-vms"></a>Para VMs v2
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ```powershell
 #Setup the basic variables

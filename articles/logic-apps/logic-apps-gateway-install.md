@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 10/18/2019
-ms.openlocfilehash: d515982dc2937b660de75ee723cebe39b33bec7d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/06/2019
+ms.openlocfilehash: a8deb7933bb19745bbe4c3b3a209c19c9cc712bd
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580883"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796315"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados local para aplicativos lógicos do Azure
 
@@ -33,9 +33,9 @@ Este artigo mostra como baixar, instalar e configurar seu gateway de dados local
 
 * Uma conta e subscrição do Azure. Se você não tiver uma conta do Azure com uma assinatura, [Inscreva-se para obter uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-  * Você precisa usar a mesma conta do Azure para instalar e administrar o gateway no computador local.
+  * Sua conta do Azure deve pertencer a um único [locatário ou diretório do Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Você deve usar a mesma conta do Azure para instalar e administrar o gateway no computador local.
 
-    Durante a instalação do gateway, você entra com sua conta do Azure, que vincula a instalação do seu gateway à sua conta do Azure e somente essa conta. Posteriormente, no portal do Azure, você precisa usar a mesma conta do Azure para criar um recurso de gateway do Azure que registra e declara a instalação do seu gateway. Em aplicativos lógicos do Azure, gatilhos e ações locais usam o recurso de gateway para se conectar a fontes de dados locais.
+  * Durante a instalação do gateway, você entra com sua conta do Azure, que vincula a instalação do seu gateway à sua conta do Azure e somente essa conta. Posteriormente, no portal do Azure, você deve usar a mesma conta do Azure e o locatário do Azure AD ao criar um recurso de gateway do Azure que registra e declara a instalação do seu gateway. Em aplicativos lógicos do Azure, gatilhos e ações locais usam o recurso de gateway para se conectar a fontes de dados locais.
 
     > [!NOTE]
     > Você pode vincular apenas uma instalação de gateway e um recurso de gateway do Azure entre si. Não é possível vincular a mesma instalação de gateway a várias contas do Azure ou recursos de gateway do Azure. No entanto, uma conta do Azure pode ser vinculada a várias instalações de gateway e recursos de gateway do Azure. Em um gatilho ou ação local, você pode selecionar entre suas várias assinaturas do Azure e, em seguida, selecionar um recurso de gateway associado.

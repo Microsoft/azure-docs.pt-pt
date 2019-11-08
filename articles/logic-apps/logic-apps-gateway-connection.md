@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 10/18/2019
-ms.openlocfilehash: 49ed6eedf55a8a3c0faa2fa1ff60b9894af78285
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/06/2019
+ms.openlocfilehash: e0354f96036cce968e6b6909a18f97ff48347eda
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580859"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796259"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conectar-se a fontes de dados locais de aplicativos lógicos do Azure
 
@@ -57,7 +57,7 @@ O aplicativo lógico do Azure dá suporte a operações de leitura e gravação 
 
 * Você já [instalou o gateway de dados local em um computador local](../logic-apps/logic-apps-gateway-install.md).
 
-* Você tem a [mesma conta e assinatura do Azure](../logic-apps/logic-apps-gateway-install.md#requirements) que foi usada ao instalar o gateway de dados.
+* Você está usando a [mesma conta e assinatura do Azure](../logic-apps/logic-apps-gateway-install.md#requirements) que foi usada ao instalar o gateway de dados. Essa conta do Azure deve pertencer a um único [locatário ou diretório do Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology).
 
 * A instalação do gateway ainda não está registrada e reivindicada por outro recurso de gateway do Azure.
 
@@ -87,7 +87,7 @@ Depois de instalar o gateway em um computador local, crie o recurso do Azure par
    | **Subscrição** | Selecione a assinatura do Azure para a conta do Azure que foi usada para a instalação do gateway. A assinatura padrão é baseada na conta do Azure que você usou para entrar. |
    | **Grupo de recursos** | O [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) que você deseja usar |
    | **Localização** | A mesma região ou local que foi selecionado para o serviço de nuvem do gateway durante a [instalação do gateway](../logic-apps/logic-apps-gateway-install.md). Caso contrário, a instalação do gateway não aparecerá na lista **nome da instalação** . O local do aplicativo lógico pode ser diferente do local do recurso do gateway. |
-   | **Nome da instalação** | Selecione uma instalação de gateway, que aparece na lista somente quando essas condições são atendidas: <p><p>-Existe na mesma região que o recurso de gateway que você deseja criar <br>-Desvinculado a outro recurso de gateway do Azure <br>-Vinculado à mesma conta do Azure que você está usando para criar o recurso de gateway <p><p>Para obter mais informações, consulte a seção [perguntas](#faq) frequentes. |
+   | **Nome da instalação** | Selecione uma instalação de gateway, que aparece na lista somente quando essas condições são atendidas: <p><p>-A instalação do gateway usa a mesma região que o recurso de gateway que você deseja criar. <br>-A instalação do gateway não está vinculada a outro recurso de gateway do Azure. <br>-A instalação do gateway está vinculada à mesma conta do Azure que você está usando para criar o recurso de gateway. <br>-Sua conta do Azure pertence a um único [locatário ou diretório do Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology) e é a mesma conta que foi usada para a instalação do gateway. <p><p>Para obter mais informações, consulte a seção [perguntas](#faq) frequentes. |
    |||
 
    Aqui está um exemplo que mostra uma instalação de gateway que está na mesma região que o recurso de gateway e está vinculado à mesma conta do Azure:
@@ -164,7 +164,7 @@ Para criar um recurso de gateway diferente, vincule a instalação do gateway a 
 **P**: por que minha instalação de gateway não aparece quando crio meu recurso de gateway no Azure? <br/>
 **R**: esse problema pode ocorrer por esses motivos:
 
-* Sua conta do Azure deve ser a mesma conta vinculada à instalação do gateway no computador local. Verifique se você está conectado ao portal do Azure com a mesma identidade vinculada à instalação do gateway.
+* Sua conta do Azure deve ser a mesma conta vinculada à instalação do gateway no computador local. Verifique se você está conectado ao portal do Azure com a mesma identidade vinculada à instalação do gateway. Além disso, verifique se sua conta do Azure pertence a um único [locatário ou diretório do Azure ad](../active-directory/fundamentals/active-directory-whatis.md#terminology) e está definida para o mesmo diretório ou locatário do Azure AD que foi usado durante a instalação do gateway.
 
 * O recurso de gateway e a instalação do gateway precisam usar a mesma região. No entanto, o local do aplicativo lógico pode ser diferente do local do recurso do gateway.
 

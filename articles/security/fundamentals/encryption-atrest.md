@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2019
 ms.author: barclayn
-ms.openlocfilehash: 0fddabc7973fbea147de9f3b6e6da5556407030c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc3c7ea2f0060fc6ab20fa821c9e45d6e5173d4f
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498457"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795789"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Criptografia de dados do Azure em repouso
 
@@ -262,7 +262,7 @@ A criptografia do lado do cliente de dados do Azure SQL Database é suportada po
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Lado do servidor usando chave gerenciada pelo serviço**     | **Lado do servidor usando chave gerenciada pelo cliente**             | **Lado do cliente usando chave gerenciada pelo cliente**      |
 | **IA e Machine Learning**      |                    |                    |                    |
-| Azure Search                     | Sim                | Pré-visualização            | -                  |
+| Pesquisa Cognitiva do Azure                     | Sim                | Pré-visualização            | -                  |
 | Azure Machine Learning   | Sim                | -                  | -                  |
 | Azure Machine Learning Studio    | Sim                | Versão prévia, RSA 2048 bits | -               |
 | Power BI                         | Sim                | Versão prévia, RSA 2048 bits | -                  |
