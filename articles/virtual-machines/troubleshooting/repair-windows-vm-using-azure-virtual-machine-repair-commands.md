@@ -6,7 +6,7 @@ documentationcenter: ''
 author: v-miegge
 manager: dcscontentpm
 editor: ''
-tags: ''
+tags: virtual-machines
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: d942f3861eb2fcc4e096248d495b2db2d8119ea1
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 6bda8cb831e84a56c889ed40109954551a34c113
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71132107"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796165"
 ---
-# <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparar uma VM do Windows usando os comandos de reparo da máquina virtual do Azure
+# <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparar uma VM do Windows com os comandos de reparação da Máquina Virtual do Azure
 
 Se sua VM (máquina virtual) do Windows no Azure encontrar um erro de disco ou de inicialização, talvez seja necessário executar a mitigação no próprio disco. Um exemplo comum seria uma atualização de aplicativo com falha que impede que a VM seja capaz de inicializar com êxito. Este artigo fornece detalhes sobre como usar os comandos de reparo da VM do Azure para conectar o disco a outra VM do Windows para corrigir erros e, em seguida, recriar sua VM original.
 
@@ -60,13 +60,13 @@ Para obter mais informações e documentação, consulte [AZ VM Repair](https://
 
    Se preferir instalar e utilizar a CLI localmente, este início rápido requer a versão 2.0.30 ou posterior da CLI do Azure. Executar ``az --version`` para localizar a versão. Se você precisar instalar ou atualizar seu CLI do Azure, consulte [instalar CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-2. Se esta for a primeira vez que você usou os `az vm repair` comandos, adicione a extensão da CLI de reparo de VM.
+2. Se esta for a primeira vez que você usou os comandos de `az vm repair`, adicione a extensão da CLI de reparo de VM.
 
    ```azurepowershell-interactive
    az extension add -n vm-repair
    ```
 
-   Se você tiver usado os `az vm repair` comandos anteriormente, aplique todas as atualizações à extensão de reparo de VM.
+   Se você tiver usado anteriormente os comandos de `az vm repair`, aplique todas as atualizações à extensão de reparo de VM.
 
    ```azurepowershell-interactive
    az extension update -n vm-repair
@@ -92,7 +92,7 @@ Para obter mais informações e documentação, consulte [AZ VM Repair](https://
 
 ## <a name="verify-and-enable-boot-diagnostics"></a>Verificar e habilitar o diagnóstico de inicialização
 
-O exemplo a seguir habilita a extensão de diagnóstico na VM ``myVMDeployed`` chamada no grupo de recursos ``myResourceGroup``chamado:
+O exemplo a seguir habilita a extensão de diagnóstico na VM chamada ``myVMDeployed`` no grupo de recursos chamado ``myResourceGroup``:
 
 CLI do Azure
 
