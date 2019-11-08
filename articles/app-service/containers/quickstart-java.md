@@ -16,14 +16,14 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 2d486a5e181e9131ef7a1e91f52018fb2be82dc1
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 3b011d3d7dc881d44fdcafb29efacf9548866d7a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105222"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747724"
 ---
-# <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Início rápido: Criar um aplicativo Java no serviço de Azure App no Linux
+# <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Início rápido: criar um aplicativo Java no serviço de Azure App no Linux
 
 O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com aplicação de patches automática através do sistema operativo Linux. Este guia de início rápido mostra como usar o [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) com o [plug-in do Maven para Azure app Service](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) para implantar um arquivo War (Java Web Archive) no sistema operacional Linux.
 
@@ -39,7 +39,7 @@ O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um ser
 
 ## <a name="create-a-java-app"></a>Criar uma aplicação em Java
 
-Execute o seguinte comando do Maven no prompt de Cloud Shell para criar um novo aplicativo `helloworld`chamado:
+Execute o seguinte comando do Maven no prompt de Cloud Shell para criar um novo aplicativo chamado `helloworld`:
 
 ```bash
 mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp
@@ -47,44 +47,23 @@ mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -Darchetyp
 
 ## <a name="configure-the-maven-plugin"></a>Configurar o plug-in do Maven
 
-Para implementar a partir do Maven, utilize o editor de código no Cloud Shell para abrir o ficheiro do projeto `pom.xml` no diretório `helloworld`. 
-
-```bash
-code pom.xml
-```
-
-Em seguida, adicione a seguinte definição de plug-in dentro do elemento `<build>` do ficheiro `pom.xml`.
-
-```xml
-<plugins>
-    <!--*************************************************-->
-    <!-- Deploy to Tomcat in App Service Linux           -->
-    <!--*************************************************-->
-    <plugin>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.7.0</version>       
-    </plugin>
-</plugins>
-```
-
 O processo de implantação para Azure App serviço usa credenciais de conta do CLI do Azure. [Entre com o CLI do Azure antes de](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) continuar.
 
 ```azurecli
 az login
 ```
 
-Em seguida, você pode configurar a implantação, executar o `mvn azure-webapp:config` comando Maven no prompt de comando e usar as configurações padrão pressionando **Enter** até obter o prompt **confirmar (Y/N)** e pressionar **' Y '** e a configuração for concluída .
+Em seguida, você pode configurar a implantação, executar o comando do Maven `mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config` no prompt de comando e usar as configurações padrão pressionando **Enter** até obter o prompt **Confirm (Y/N)** e, em seguida, pressionar **' Y '** e a configuração for concluída.
 
 ```cmd
-~@Azure:~/helloworld$ mvn azure-webapp:config
+~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config
 [INFO] Scanning for projects...
 [INFO]
 [INFO] ----------------------< example.demo:helloworld >-----------------------
 [INFO] Building helloworld Maven Webapp 1.0-SNAPSHOT
 [INFO] --------------------------------[ war ]---------------------------------
 [INFO]
-[INFO] --- azure-webapp-maven-plugin:1.7.0:config (default-cli) @ helloworld ---
+[INFO] --- azure-webapp-maven-plugin:1.8.0:config (default-cli) @ helloworld ---
 [WARNING] The plugin may not work if you change the os of an existing webapp.
 Define value for OS(Default: Linux):
 1. linux [*]
@@ -92,14 +71,13 @@ Define value for OS(Default: Linux):
 3. docker
 Enter index to use:
 Define value for javaVersion(Default: jre8):
-1. jre8 [*]
-2. java11
+1. Java 11
+2. Java 8 [*]
 Enter index to use:
 Define value for runtimeStack(Default: TOMCAT 8.5):
 1. TOMCAT 9.0
-2. jre8
-3. TOMCAT 8.5 [*]
-4. WILDFLY 14
+2. TOMCAT 8.5 [*]
+3. WILDFLY 14
 Enter index to use:
 Please confirm webapp properties
 AppName : helloworld-1558400876966
@@ -115,14 +93,14 @@ Confirm (Y/N)? : Y
 > [!NOTE]
 > Neste artigo, estamos a trabalhar apenas com aplicações Java em pacotes de ficheiros WAR. O plug-in também suporta aplicações Web JAR, visite [Implementar um ficheiro JAR do Java SE no Serviço de Aplicações no Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para experimentar.
 
-Navegue para `pom.xml` novamente para ver se a configuração do plug-in está atualizada, você pode modificar outras configurações do serviço de aplicativo diretamente em seu arquivo POM, se necessário, algumas comuns estão listadas abaixo:
+Navegue até `pom.xml` novamente para ver se a configuração do plug-in está atualizada, você pode modificar outras configurações do serviço de aplicativo diretamente em seu arquivo POM, se necessário, algumas comuns estão listadas abaixo:
 
- Propriedade | Requerido | Descrição | Version
+ Propriedade | Necessário | Descrição | Versão
 ---|---|---|---
-`<schemaVersion>` | false | Especifique a versão do esquema de configuração. Os valores com suporte `v1`são `v2`:,. | 1.5.2
+`<schemaVersion>` | false | Especifique a versão do esquema de configuração. Os valores com suporte são: `v1`, `v2`. | 1.5.2
 `<resourceGroup>` | true | Grupo de recursos do Azure para seu aplicativo Web. | 0.1.0 +
 `<appName>` | true | O nome do seu aplicativo Web. | 0.1.0 +
-[`<region>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region) | true | Especifica a região em que seu aplicativo Web será hospedado; o valor padrão é **westus**. Todas as regiões válidas na seção de [regiões com suporte](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region) . | 0.1.0 +
+[`<region>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region) | true | Especifica a região em que seu aplicativo Web será hospedado; o valor padrão é **westeurope**. Todas as regiões válidas na seção de [regiões com suporte](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region) . | 0.1.0 +
 [`<pricingTier>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme##pricingtier) | false | O tipo de preço para seu aplicativo Web. O valor padrão é **P1V2**.| 0.1.0 +
 [`<runtime>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting) | true | A configuração do ambiente de tempo de execução, você pode ver os detalhes [aqui](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting). | 0.1.0 +
 [`<deployment>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting) | true | A configuração de implantação, você pode ver os detalhes [aqui](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting). | 0.1.0 +
@@ -154,7 +132,7 @@ Este comando pode demorar alguns minutos a ser executado.
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Aplicativo empresarial Java com PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
+> [Tutorial: aplicativo empresarial Java com PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
 
 > [!div class="nextstepaction"]
 > [Configurar aplicativo Java](configure-custom-container.md)

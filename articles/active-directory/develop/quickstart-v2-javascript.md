@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad79ee0fd1d421c7e869424ccb8daa595e51a970
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5ca9a8b87713508a581a833f60fbe863fd93919a
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149419"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795618"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Início rápido: conectar usuários e obter um token de acesso em um JavaScript SPA
 
@@ -80,12 +80,11 @@ Selecione a opção adequada ao seu ambiente de desenvolvimento:
 
 * Adicional Para executar o projeto com o servidor IIS, [Baixe o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip). Extraia o arquivo zip para uma pasta local (por exemplo, *C:\Azure-Samples*).
 
-#### <a name="step-3-configure-your-javascript-app"></a>Etapa 3: configurar seu aplicativo JavaScript
-
 > [!div renderon="docs"]
+> #### <a name="step-3-configure-your-javascript-app"></a>Etapa 3: configurar seu aplicativo JavaScript
 > Na pasta *JavaScriptSPA* , edite *index. html*e defina os valores `clientID` e `authority` em `msalConfig`.
 
-> [!div class="sxs-lookup" renderon="portal"]
+> [!div renderon="docs"]
 > Na pasta *JavaScriptSPA* , edite *index. html*e substitua `msalConfig` pelo código a seguir:
 
 ```javascript
@@ -102,16 +101,12 @@ var msalConfig = {
 };
 
 ```
-> [!div renderon="portal"]
-> > [!NOTE]
-> > Este guia de início rápido dá suporte a Enter_the_Supported_Account_Info_Here.
-
 
 > [!div renderon="docs"]
 >
-> Onde:
+> Em que:
 > - *\<Enter_the_Application_Id_here >* é a **ID do aplicativo (cliente)** para o aplicativo que você registrou.
-> - *\<Enter_the_Tenant_info_here >* está definido como uma das seguintes opções:
+> - *\<Enter_the_Tenant_info_here >* é definido como uma das seguintes opções:
 >    - Se seu aplicativo der suporte a *contas nesse diretório organizacional*, substitua esse valor pela **ID do locatário** ou pelo **nome do locatário** (por exemplo, *contoso.Microsoft.com*).
 >    - Se seu aplicativo oferecer suporte a *contas em qualquer diretório organizacional*, substitua esse valor pelas **organizações**.
 >    - Se seu aplicativo oferecer suporte a *contas em qualquer diretório organizacional e contas pessoais da Microsoft*, substitua esse valor por **comum**. Para restringir o suporte *somente a contas pessoais da Microsoft*, substitua esse valor por **consumidores**.
@@ -120,7 +115,12 @@ var msalConfig = {
 > > Para encontrar os valores do **ID da Aplicação (cliente)** , o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
 >
 
-#### <a name="step-4-run-the-project"></a>Etapa 4: executar o projeto
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Etapa 3: seu aplicativo está configurado e pronto para ser executado
+> Configuramos seu projeto com os valores das propriedades do seu aplicativo. 
+
+> [!div renderon="docs"]
+> #### <a name="step-4-run-the-project"></a>Etapa 4: executar o projeto
 
 * Se você estiver usando o [node. js](https://nodejs.org/en/download/):
 
@@ -188,7 +188,7 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 > |`authority`    | Adicional A URL de autoridade que dá suporte a tipos de conta, conforme descrito anteriormente na seção de configuração. A autoridade padrão é `https://login.microsoftonline.com/common`. |
 > |`redirectURI`     | O URI de resposta/redirecionamento configurado do registro do aplicativo. Nesse caso, `http://localhost:30662/`. |
 > |`cacheLocation`  | Adicional Define o armazenamento do navegador para o estado de autenticação. O padrão é sessionStorage.   |
-> |`storeAuthStateInCookie`  | Adicional A biblioteca que armazena o estado de solicitação de autenticação necessário para a validação dos fluxos de autenticação nos cookies do navegador. Esse cookie é definido para navegadores do IE e do Edge para atenuar determinados [problemas conhecidos](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
+> |`storeAuthStateInCookie`  | Adicional A biblioteca que armazena o estado de solicitação de autenticação necessário para a validação dos fluxos de autenticação nos cookies do navegador. Esse cookie é definido para navegadores do IE e do Microsoft Edge para atenuar determinados [problemas conhecidos](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
 
 Para obter mais informações sobre as opções configuráveis disponíveis, consulte [inicializar aplicativos cliente](msal-js-initializing-client-applications.md).
 

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: c927ef071dec6e87e82a9634ccfc7097f2f187e6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 362662cb6ac9b0535a0e762e5c484b31dcc009a6
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502066"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796103"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Início rápido: Crie um aplicativo de console usando o SDK do .net v4 para gerenciar Azure Cosmos DB recursos de conta da API do SQL.
 
@@ -33,6 +33,8 @@ O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distr
 * Adicionar dados de exemplo ao contêiner
 * Consultar os dados 
 * Excluir o banco de dados
+
+Pacote de | do [código-fonte da biblioteca](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/v4) [(NuGet)](https://www.nuget.org/packages/Azure.Cosmos)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

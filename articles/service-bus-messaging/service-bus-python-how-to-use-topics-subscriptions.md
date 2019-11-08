@@ -1,5 +1,5 @@
 ---
-title: Como usar os tópicos do barramento de serviço do Azure com Python | Microsoft Docs
+title: 'Início rápido: usar os tópicos e as assinaturas do barramento de serviço do Azure com o Python'
 description: Saiba como usar os tópicos e as assinaturas do barramento de serviço do Azure do Python.
 services: service-bus-messaging
 documentationcenter: python
@@ -11,60 +11,59 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: ef0237b38c8f640c0fc4b1b1788215c8804a5cd4
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 94a49b31139947c6323ab391b78ecd03ee911e0a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141889"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748498"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Como usar os tópicos e as assinaturas do barramento de serviço com o Python
+# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Início rápido: usar as assinaturas e os tópicos do barramento de serviço com o Python
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Este artigo descreve como utilizar os tópicos e as subscrições do Service Bus. Os exemplos são escritos em Python e usam o [pacote do SDK do Python do Azure][Azure Python package]. Os cenários abordados incluem:
+Este artigo descreve como usar o Python com tópicos e assinaturas do barramento de serviço do Azure. Os exemplos usam o pacote do [SDK do Python do Azure][Azure Python package] para: 
 
-- Criando tópicos e assinaturas 
-- Criando filtros de assinatura 
-- Enviando mensagens para um tópico 
-- Recebendo mensagens de uma assinatura
-- Excluindo tópicos e assinaturas
+- Criar tópicos e assinaturas para tópicos
+- Criar regras e filtros de assinatura
+- Enviar mensagens para tópicos 
+- Receber mensagens de assinaturas
+- Eliminar tópicos e subscrições
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Você pode ativar os [benefícios do assinante do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Siga as etapas no [início rápido: Use o portal do Azure para criar um tópico e assinaturas do barramento de serviço para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para criar um **namespace** do barramento de serviço e obter a **cadeia de conexão**.
+- Uma subscrição do Azure. Você pode ativar os [benefícios do assinante do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Um namespace do barramento de serviço, criado seguindo as etapas em [início rápido: Use a Portal do Azure para criar um tópico e assinaturas do barramento de serviço](service-bus-quickstart-topics-subscriptions-portal.md). Copie o nome do namespace, o nome da chave de acesso compartilhado e o valor da chave primária da tela **políticas de acesso compartilhado** para usar posteriormente neste guia de início rápido. 
+- Python 3.4 x ou superior, com o pacote do [SDK do Python do Azure][Azure Python package] instalado. Para obter mais informações, consulte o [Guia de instalação do Python](/azure/python/python-sdk-azure-install).
 
-    > [!NOTE]
-    > Você criará um **tópico** e uma **assinatura** para o tópico usando o **python** neste guia de início rápido. 
-3. Instale o [pacote do Azure Python][Azure Python package]. Consulte o [Guia de instalação do Python](/azure/python/python-sdk-azure-install).
+## <a name="create-a-servicebusservice-object"></a>Criar um objeto ServiceBusService
 
-## <a name="create-a-topic"></a>Criar um tópico
-
-O objeto **ServiceBusService** permite que você trabalhe com tópicos. Adicione o código a seguir próximo à parte superior de qualquer arquivo Python no qual você deseja acessar o barramento de serviço programaticamente:
+Um objeto **ServiceBusService** permite que você trabalhe com tópicos e assinaturas para tópicos. Para acessar programaticamente o barramento de serviço, adicione a seguinte linha próxima à parte superior do seu arquivo Python:
 
 ```python
 from azure.servicebus.control_client import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
-O código a seguir cria um objeto **ServiceBusService** . Substitua `mynamespace`, `sharedaccesskeyname` e`sharedaccesskey` por seu namespace real, nome da chave SAS (assinatura de acesso compartilhado) e valor de chave.
+Adicione o código a seguir para criar um objeto **ServiceBusService** . Substitua `<namespace>`, `<sharedaccesskeyname>`e `<sharedaccesskeyvalue>` pelo nome do namespace do barramento de serviço, nome da chave da assinatura de acesso compartilhado (SAS) e valor da chave primária. Você pode encontrar esses valores em **políticas de acesso compartilhado** no namespace do barramento de serviço no [portal do Azure][Azure portal].
 
 ```python
 bus_service = ServiceBusService(
-    service_namespace='mynamespace',
-    shared_access_key_name='sharedaccesskeyname',
-    shared_access_key_value='sharedaccesskey')
+    service_namespace='<namespace>',
+    shared_access_key_name='<sharedaccesskeyname>',
+    shared_access_key_value='<sharedaccesskeyvalue>')
 ```
 
-Você pode obter os valores para o nome da chave SAS e o valor da [portal do Azure][Azure portal].
+## <a name="create-a-topic"></a>Criar um tópico
+
+O código a seguir usa o método `create_topic` para criar um tópico do barramento de serviço chamado `mytopic`, com as configurações padrão:
 
 ```python
 bus_service.create_topic('mytopic')
 ```
 
-O `create_topic` método também dá suporte a opções adicionais, que permitem que você substitua as configurações de tópico padrão, como a vida útil da mensagem ou o tamanho máximo do tópico. O exemplo a seguir define o tamanho máximo do tópico como 5 GB e um valor TTL (vida útil) de um minuto:
+Você pode usar as opções de tópico para substituir as configurações de tópico padrão, como TTL (vida útil da mensagem) ou tamanho máximo do tópico. O exemplo a seguir cria um tópico chamado `mytopic` com um tamanho máximo de tópico de 5 GB e TTL de mensagem padrão de um minuto:
 
 ```python
 topic_options = Topic()
@@ -76,134 +75,127 @@ bus_service.create_topic('mytopic', topic_options)
 
 ## <a name="create-subscriptions"></a>Criar assinaturas
 
-As assinaturas para tópicos também são criadas com o objeto **ServiceBusService** . As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens entregues à fila virtual da assinatura.
-
-> [!NOTE]
-> Por padrão, as assinaturas são persistentes e continuarão existindo até que elas, ou o tópico no qual elas são assinadas, sejam excluídas.
-> 
-> Você pode fazer com que as assinaturas sejam excluídas automaticamente definindo a [Propriedade auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python).
-
-### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma subscrição com o filtro (MatchAll) predefinido
-
-Se nenhum filtro for especificado quando uma nova assinatura for criada, o filtro **filtro matchall** (padrão) será usado. Quando o filtro **filtro matchall** é usado, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura `AllMessages` chamada e usa o filtro **filtro matchall** padrão.
+Você também usa o objeto **ServiceBusService** para criar assinaturas para tópicos. Uma assinatura pode ter um filtro para restringir o conjunto de mensagens entregue à sua fila virtual. Se você não especificar um filtro, as novas assinaturas usarão o filtro **filtro matchall** padrão, que coloca todas as mensagens publicadas no tópico na fila virtual da assinatura. O exemplo a seguir cria uma assinatura para `mytopic` `AllMessages` nomeado que usa o filtro **filtro matchall** :
 
 ```python
 bus_service.create_subscription('mytopic', 'AllMessages')
 ```
 
-### <a name="create-subscriptions-with-filters"></a>Criar subscrições com filtros
+### <a name="use-filters-with-subscriptions"></a>Usar filtros com assinaturas
 
-Você também pode definir filtros que permitem especificar quais mensagens enviadas a um tópico devem aparecer em uma assinatura de tópico específica.
+Use o método `create_rule` do objeto **ServiceBusService** para filtrar as mensagens que aparecem em uma assinatura. Você pode especificar regras ao criar a assinatura ou adicionar regras a assinaturas existentes.
 
-O tipo de filtro mais flexível com suporte das assinaturas é um **sqlfilter**, que implementa um subconjunto de SQL92. Os filtros do SQL operam nas propriedades das mensagens publicadas para o tópico. Para obter mais informações sobre as expressões que podem ser utilizadas com um filtro do SQL, veja a sintaxe [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
+O tipo de filtro mais flexível é um **sqlfilter**, que usa um subconjunto de SQL-92. Os filtros SQL operam com base nas propriedades de mensagens publicadas no tópico. Para obter mais informações sobre as expressões que você pode usar com um filtro SQL, consulte a sintaxe [sqlfilter. Sqlexpression][SqlFilter.SqlExpression] .
 
-Você pode adicionar filtros a uma assinatura usando o método **Create\_Rule** do objeto **ServiceBusService** . Esse método permite que você adicione novos filtros a uma assinatura existente.
+Como o filtro padrão **filtro matchall** aplica-se automaticamente a todas as novas assinaturas, você deve removê-lo das assinaturas que deseja filtrar, ou **filtro matchall** substituirá os outros filtros que você especificar. Você pode remover a regra padrão usando o método `delete_rule` do objeto **ServiceBusService** .
 
-> [!NOTE]
-> Como o filtro padrão é aplicado automaticamente a todas as novas assinaturas, primeiro você deve remover o filtro padrão ou o **filtro matchall** substituirá quaisquer outros filtros que você possa especificar. Você pode remover a regra padrão usando o `delete_rule` método do objeto **ServiceBusService** .
-> 
-> 
-
-O exemplo a seguir cria uma assinatura `HighMessages` chamada com um sqlfilter que seleciona apenas as mensagens que têm `messagenumber` uma propriedade personalizada maior que 3:
+O exemplo a seguir cria uma assinatura para `mytopic` chamada `HighMessages`, com uma regra **sqlfilter** denominada `HighMessageFilter`. A regra de `HighMessageFilter` seleciona apenas as mensagens com uma propriedade de `messageposition` personalizada maior que 3:
 
 ```python
 bus_service.create_subscription('mytopic', 'HighMessages')
 
 rule = Rule()
 rule.filter_type = 'SqlFilter'
-rule.filter_expression = 'messagenumber > 3'
+rule.filter_expression = 'messageposition > 3'
 
 bus_service.create_rule('mytopic', 'HighMessages', 'HighMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'HighMessages', DEFAULT_RULE_NAME)
 ```
 
-Da mesma forma, o exemplo a seguir cria `LowMessages` uma assinatura chamada com um sqlfilter que seleciona apenas as `messagenumber` mensagens que têm uma propriedade menor ou igual a 3:
+O exemplo a seguir cria uma assinatura para `mytopic` chamada `LowMessages`, com uma regra **sqlfilter** denominada `LowMessageFilter`. A regra `LowMessageFilter` seleciona apenas as mensagens com uma propriedade `messageposition` menor ou igual a 3:
 
 ```python
 bus_service.create_subscription('mytopic', 'LowMessages')
 
 rule = Rule()
 rule.filter_type = 'SqlFilter'
-rule.filter_expression = 'messagenumber <= 3'
+rule.filter_expression = 'messageposition <= 3'
 
 bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
 ```
 
-Agora, quando uma mensagem é enviada a `mytopic` ela sempre é entregue aos destinatários inscritos na assinatura do tópico de todas as **mensagens** e entregue seletivamente aos destinatários inscritos no tópico **HighMessages** e **LowMessages** assinaturas (dependendo do conteúdo da mensagem).
+Com `AllMessages`, `HighMessages`e `LowMessages` tudo em vigor, as mensagens enviadas para `mytopic` são sempre entregues aos destinatários da assinatura do `AllMessages`. As mensagens também são fornecidas seletivamente para a assinatura `HighMessages` ou `LowMessages`, dependendo do valor da propriedade `messageposition` da mensagem. 
 
 ## <a name="send-messages-to-a-topic"></a>Enviar mensagens para um tópico
 
-Para enviar uma mensagem para um tópico do barramento de serviço, seu aplicativo deve `send_topic_message` usar o método do objeto **ServiceBusService** .
+Os aplicativos usam o método `send_topic_message` do objeto **ServiceBusService** para enviar mensagens a um tópico do barramento de serviço.
 
-O exemplo a seguir demonstra como enviar cinco mensagens de teste `mytopic`para. O `messagenumber` valor da propriedade de cada mensagem varia de acordo com a iteração do loop (isso determina quais assinaturas o receberão):
+O exemplo a seguir envia cinco mensagens de teste para o tópico `mytopic`. O valor da propriedade de `messageposition` personalizado depende da iteração do loop e determina quais assinaturas recebem as mensagens. 
 
 ```python
 for i in range(5):
     msg = Message('Msg {0}'.format(i).encode('utf-8'),
-                  custom_properties={'messagenumber': i})
+                  custom_properties={'messageposition': i})
     bus_service.send_topic_message('mytopic', msg)
 ```
 
-Os tópicos do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não existe qualquer limite no número de mensagens contidas num tópico, contudo, existe um limite do tamanho total das mensagens contidas num tópico. O tamanho do tópico é definido no momento de criação, com um limite superior de 5 GB. Para obter mais informações sobre cotas, consulte cotas do [barramento de serviço][Service Bus quotas].
+### <a name="message-size-limits-and-quotas"></a>Cotas e limites de tamanho de mensagem
+
+Os tópicos do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há limite para o número de mensagens que um tópico pode conter, mas há uma limitação no tamanho total das mensagens que o tópico mantém. Você pode definir o tamanho do tópico no momento da criação, com um limite superior de 5 GB. 
+
+Para obter mais informações sobre cotas, consulte [cotas do barramento de serviço][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma assinatura
 
-As mensagens são recebidas de uma assinatura `receive_subscription_message` usando o método no objeto **ServiceBusService** :
+Os aplicativos usam o método `receive_subscription_message` no objeto **ServiceBusService** para receber mensagens de uma assinatura. O exemplo a seguir recebe mensagens da assinatura `LowMessages` e as exclui à medida que elas são lidas:
 
 ```python
-msg = bus_service.receive_subscription_message(
-    'mytopic', 'LowMessages', peek_lock=False)
+msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
 print(msg.body)
 ```
 
-As mensagens são excluídas da assinatura à medida que são lidas `peek_lock` quando o parâmetro é definido como **false**. Você pode ler (espiar) e bloquear a mensagem sem excluí-la da fila definindo o parâmetro `peek_lock` como **true**.
+O parâmetro opcional `peek_lock` de `receive_subscription_message` determina se o barramento de serviço exclui as mensagens da assinatura à medida que elas são lidas. O modo padrão para recebimento de mensagens é *Peeklock*, ou `peek_lock` definido como **true**, que lê (exibe) e bloqueia mensagens sem excluí-las da assinatura. Cada mensagem deve ser explicitamente concluída para removê-la da assinatura.
 
-O comportamento de ler e excluir a mensagem como parte da operação de recebimento é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo pode tolerar o não processamento de uma mensagem quando há uma falha. Para entender esse comportamento, considere um cenário no qual o consumidor emite a solicitação de recebimento e depois falha antes de processá-la. Como o barramento de serviço marcou a mensagem como sendo consumida, quando o aplicativo é reiniciado e começa a consumir mensagens novamente, ele perdeu a mensagem que foi consumida antes da falha.
+Para excluir mensagens da assinatura conforme elas são lidas, você pode definir o parâmetro `peek_lock` como **false**, como no exemplo anterior. A exclusão de mensagens como parte da operação de recebimento é o modelo mais simples e funcionará bem se o aplicativo puder tolerar mensagens ausentes se houver uma falha. Para entender esse comportamento, considere um cenário no qual o aplicativo emite uma solicitação de recebimento e depois falha antes de processá-lo. Se a mensagem foi excluída quando recebida, quando o aplicativo é reiniciado e começa a consumir mensagens novamente, ele perdeu a mensagem recebida antes da falha.
 
-Se o `peek_lock` parâmetro for definido como **true**, o Receive se tornará uma operação de duas etapas, o que possibilitará o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma confiável para processamento futuro), ele conclui o segundo estágio do processo de `delete` recebimento chamando o método no objeto de **mensagem** . O `delete` método marca a mensagem como sendo consumida e a remove da assinatura.
+Se seu aplicativo não puder tolerar mensagens perdidas, o recebimento se tornará uma operação de duas etapas. O PeekLock localiza a próxima mensagem a ser consumida, a bloqueia para impedir que outros consumidores a recebam e a retorna ao aplicativo. Depois de processar ou armazenar a mensagem, o aplicativo conclui o segundo estágio do processo de recebimento chamando o método `complete` no objeto **Message** .  O método `complete` marca a mensagem como sendo consumida e a remove da assinatura.
+
+O exemplo a seguir demonstra um cenário de bloqueio de inspeção:
 
 ```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
 if msg.body is not None:
-print(msg.body)
-msg.delete()
+    print(msg.body)
+    msg.complete()
 ```
 
-## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como processar falhas da aplicação e mensagens ilegíveis
+## <a name="handle-application-crashes-and-unreadable-messages"></a>Lidar com falhas do aplicativo e mensagens ilegível
 
-O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se um aplicativo receptor não puder processar a mensagem por algum motivo, ele poderá chamar o `unlock` método no objeto **Message** . Esse método faz com que o barramento de serviço desbloqueie a mensagem na assinatura e disponibilize-a para ser recebida novamente, seja pelo mesmo aplicativo de consumo ou por outro aplicativo de consumo.
+O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se um aplicativo receptor não puder processar uma mensagem por algum motivo, ele poderá chamar o método `unlock` no objeto **Message** . O barramento de serviço desbloqueia a mensagem na assinatura e a disponibiliza para ser recebida novamente, seja pelo mesmo aplicativo de consumo ou outro.
 
-Também há um tempo limite associado a uma mensagem bloqueada na assinatura e, se o aplicativo não processar a mensagem antes de expirar o tempo limite de bloqueio (por exemplo, se o aplicativo falhar), o barramento de serviço desbloqueará a mensagem automaticamente e torna-o disponível para ser recebido novamente.
+Também há um tempo limite para mensagens bloqueadas na assinatura. Se um aplicativo não processar uma mensagem antes de o tempo limite de bloqueio expirar, por exemplo, se o aplicativo falhar, o barramento de serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
 
-Caso o aplicativo falhe após o processamento da mensagem, mas antes de o `delete` método ser chamado, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Esse comportamento é geralmente chamado. Pelo menos uma vez\*processada; ou seja, cada mensagem é processada pelo menos uma vez, mas em determinadas situações a mesma mensagem pode ser entregue novamente. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Para fazer isso, você pode usar a propriedade **MessageId** da mensagem, que permanece constante nas tentativas de entrega.
+Se um aplicativo falhar após o processamento de uma mensagem, mas antes de chamar o método `complete`, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Esse comportamento é geralmente chamado de *processamento de pelo menos uma vez*. Cada mensagem é processada pelo menos uma vez, mas, em determinadas situações, a mesma mensagem pode ser entregue novamente. Se seu cenário não puder tolerar o processamento duplicado, você poderá usar a propriedade **MessageId** da mensagem, que permanece constante nas tentativas de entrega, para lidar com a entrega de mensagens duplicada. 
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminar tópicos e subscrições
 
-Os tópicos e as assinaturas são persistentes, a menos que a [Propriedade auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) esteja definida. Eles podem ser excluídos por meio do [portal do Azure][Azure portal] ou de forma programática. O exemplo a seguir mostra como excluir o tópico chamado `mytopic`:
+Para excluir tópicos e assinaturas, use o [portal do Azure][Azure portal] ou o método `delete_topic`. O código a seguir exclui o tópico chamado `mytopic`:
 
 ```python
 bus_service.delete_topic('mytopic')
 ```
 
-A eliminação de um tópico elimina também quaisquer subscrições registadas com o tópico. As subscrições também podem ser eliminadas de modo independente. O código a seguir mostra como excluir uma assinatura denominada `HighMessages` `mytopic` do tópico:
+A exclusão de um tópico exclui todas as assinaturas para o tópico. Você também pode excluir assinaturas de forma independente. O código a seguir exclui a assinatura chamada `HighMessages` do tópico `mytopic`:
 
 ```python
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
-> [!NOTE]
-> Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem a um namespace do barramento de serviço e administrem entidades de mensagens de maneira fácil. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
+Por padrão, os tópicos e as assinaturas são persistentes e existem até você excluí-los. Para excluir automaticamente as assinaturas após um determinado período de tempo decorrido, você pode definir o parâmetro [auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) na assinatura. 
+
+> [!TIP]
+> Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que você se conecte a um namespace do barramento de serviço e administre facilmente as entidades de mensagens. A ferramenta fornece recursos avançados, como a funcionalidade de importação/exportação e a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu os conceitos básicos dos tópicos do barramento de serviço, siga estes links para saber mais.
+Agora que você aprendeu os conceitos básicos dos tópicos do barramento de serviço, siga estes links para saber mais:
 
-* Consulte [filas, tópicos e assinaturas][Queues, topics, and subscriptions].
-* Referência para [sqlfilter.][SqlFilter.SqlExpression]sqlexpression.
+* [Filas, tópicos e subscrições][Queues, topics, and subscriptions]
+* Referência de [sqlfiltro. Sqlexpression][SqlFilter.SqlExpression]
 
 [Azure portal]: https://portal.azure.com
-[Azure Python package]: https://pypi.python.org/pypi/azure  
+[Azure Python package]: https://pypi.python.org/pypi/azure
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
 [Service Bus quotas]: service-bus-quotas.md 

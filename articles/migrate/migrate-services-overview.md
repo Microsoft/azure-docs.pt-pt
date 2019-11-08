@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: eadfc4e302f4445e8e0d5105aeac4361328cb259
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 8b1e716e482c49ceba0c600aaba30fe276bdb74d
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715466"
+ms.locfileid: "73747996"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -44,16 +44,16 @@ Além das ferramentas nativas do Azure, as migrações para Azure integram-se co
 
 **ISV** | **Funcionalidade**
 --- | ---
-[Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrar
-[Cloudamize](https://www.cloudamize.com/platform) | Avaliar 
-[Tecnologia de coaluguel](https://www.corenttech.com/AzureMigrate/) | Avaliar e migrar
-[Dispositivo 42](https://docs.device42.com/) | Avaliar
-[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Avaliar
-[Rack](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrar
-[O turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Avaliar
-[UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Avaliar
+[Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrar servidores
+[Cloudamize](https://www.cloudamize.com/platform) | Avaliar servidores
+[Tecnologia de coaluguel](https://www.corenttech.com/AzureMigrate/) | Avaliar e migrar servidores
+[Dispositivo 42](https://docs.device42.com/) | Avaliar servidores
+[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Avaliar o VDI
+[Rack](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrar servidores
+[O turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Avaliar servidores
+[UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Avaliar servidores e bancos de dados
 
-## <a name="tool-integration"></a>Integração de ferramentas
+## <a name="azure-tool-integration"></a>Integração de ferramentas do Azure
 
 A tabela resume outras ferramentas que são integradas em migrações para Azure.
 
@@ -112,7 +112,7 @@ As migrações para Azure integram-se ao serviço de migração de banco de dado
 ## <a name="movere"></a>Movere
 
  
-O mover é uma plataforma SaaS que aumenta a business intelligence com a apresentação precisa de ambientes de ti inteiros em um único dia. À medida que as organizações crescem, mudam e otimizam digitalmente, a solução fornece às empresas a confiança de que eles precisam para ter visibilidade e controle de seus ambientes, independentemente da plataforma, do aplicativo ou da geografia. O mover foi [adquirido](https:/azure.microsoft.com/blog/microsoft-acquires-movere-to-help-customers-unlock-cloud-innovation-with-seamless-migration-tools) pela Microsoft e não é mais vendido como uma oferta autônoma.  O mover está disponível por meio dos programas avaliação de solução da Microsoft e economia na nuvem. [Saiba mais](https://www.movere.io) sobre o mover. Se você tiver dúvidas, envie-as para: movereq@microsoft.com ou entre em contato com seu representante da Microsoft.
+O mover é uma plataforma SaaS que aumenta a business intelligence com a apresentação precisa de ambientes de ti inteiros em um único dia. À medida que as organizações crescem, mudam e otimizam digitalmente, a solução fornece às empresas a confiança de que eles precisam para ter visibilidade e controle de seus ambientes, independentemente da plataforma, do aplicativo ou da geografia. O mover foi [adquirido](https://azure.microsoft.com/blog/microsoft-acquires-movere-to-help-customers-unlock-cloud-innovation-with-seamless-migration-tools/) pela Microsoft e não é mais vendido como uma oferta autônoma.  O mover está disponível por meio dos programas avaliação de solução da Microsoft e economia na nuvem. [Saiba mais](https://www.movere.io) sobre o mover. Se você tiver dúvidas, envie-as para: movereq@microsoft.com ou entre em contato com seu representante da Microsoft.
 
 Incentivamos você a examinar também as migrações para Azure, nosso serviço de migração interno. As migrações para Azure fornecem um hub central para simplificar a migração para a nuvem. O Hub apresenta suporte abrangente para cargas de trabalho diferentes, incluindo servidores físicos e virtuais, bancos de dados e aplicativos. A visibilidade de ponta a ponta facilita o acompanhamento do progresso durante a descoberta, avaliação e migração. Com as ferramentas do Azure e do Partner ISV internas, as migrações para Azure também têm uma ampla gama de recursos, incluindo a descoberta de servidores físicos e virtuais, o dimensionamento correto baseado em desempenho, o planejamento de custos, as avaliações baseadas em importação e o aplicativo sem agente análise de dependência. Se você estiver procurando ajuda especializada para começar, a Microsoft tem especialista no [provedor de serviços gerenciados de especialistas do Azure](https://azure.microsoft.com/partners) para orientá-lo durante a jornada. Confira o [site migrações para Azure](https://azure.microsoft.com/services/azure-migrate/). 
  
