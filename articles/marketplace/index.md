@@ -5,15 +5,16 @@ services: Azure, marketplace
 author: jm-aditi-ms
 layout: LandingPage
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: landing-page
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8f42fd627a5d5ae0d18cf75d0c2758e8e09b5bf6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4aa47aefcf27779db351f5bf1e0d92d0a2024a53
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800328"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818629"
 ---
 # <a name="azure-marketplace-documentation"></a>Documentação do Azure Marketplace
 
