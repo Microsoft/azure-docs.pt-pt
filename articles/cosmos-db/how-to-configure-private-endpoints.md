@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: thweiss
-ms.openlocfilehash: 254c2645d842a6f6a2eaaeca2369b93a81e1a8cd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: MT
+ms.openlocfilehash: 6602a47a9d1d34b04f37c6b65a3c3f84cd60c845
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681686"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796092"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account-preview"></a>Configurar o link privado do Azure para uma conta do Azure Cosmos (versão prévia)
 
@@ -127,6 +127,41 @@ $virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  $ResourceGroupName -N
 $subnet = $virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq $SubnetName}  
  
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $ResourceGroupName -Name $PrivateEndpointName -Location "westcentralus" -Subnet  $subnet -PrivateLinkServiceConnection $privateEndpointConnection
+```
+
+### <a name="integrate-the-private-endpoint-with-private-dns-zone"></a>Integrar o ponto de extremidade privado com a zona DNS privada
+
+Depois de criar o ponto de extremidade privado, você pode integrá-lo a uma zona DNS privada usando o seguinte script PowerSehll:
+
+```azurepowershell-interactive
+Import-Module Az.PrivateDns
+$zoneName = "privatelink.documents.azure.com"
+$zone = New-AzPrivateDnsZone -ResourceGroupName $ResourceGroupName `
+  -Name $zoneName
+
+$link  = New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $ResourceGroupName `
+  -ZoneName $zoneName `
+  -Name "myzonelink" `
+  -VirtualNetworkId $virtualNetwork.Id  
+ 
+$pe = Get-AzPrivateEndpoint -Name $PrivateEndpointName `
+  -ResourceGroupName $ResourceGroupName
+
+$networkInterface = Get-AzResource -ResourceId $pe.NetworkInterfaces[0].Id `
+  -ApiVersion "2019-04-01"
+ 
+foreach ($ipconfig in $networkInterface.properties.ipConfigurations) { 
+foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) { 
+Write-Host "$($ipconfig.properties.privateIPAddress) $($fqdn)"  
+$recordName = $fqdn.split('.',2)[0] 
+$dnsZone = $fqdn.split('.',2)[1] 
+New-AzPrivateDnsRecordSet -Name $recordName `
+  -RecordType A -ZoneName $zoneName  `
+  -ResourceGroupName $ResourceGroupName -Ttl 600 `
+  -PrivateDnsRecords (New-AzPrivateDnsRecordConfig `
+  -IPv4Address $ipconfig.properties.privateIPAddress)  
+}
+}
 ```
 
 ### <a name="fetch-the-private-ip-addresses"></a>Buscar os endereços IP privados

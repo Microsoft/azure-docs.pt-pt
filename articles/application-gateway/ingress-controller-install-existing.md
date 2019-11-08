@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/22/2019
+ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 045fb54956e78e826b06dc1c56c29e1c7bd430bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dec43a4d7eb5a9546fcd77cce972b93542ea3b10
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513422"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795943"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Instalar um controlador de entrada do gateway de aplicativo (AGIC) usando um gateway de aplicativo existente
 
@@ -72,7 +72,7 @@ O AGIC se comunica com o servidor de API do kubernetes e o Azure Resource Manage
 
 ## <a name="set-up-aad-pod-identity"></a>Configurar a identidade do Pod do AAD
 
-A [identidade do Pod do AAD](https://github.com/Azure/aad-pod-identity) é um controlador, semelhante a AGIC, que também é executado em seu AKs. Ele associa Azure Active Directory identidades ao seu pods kubernetes. A identidade é necessária para que um aplicativo em um pod kubernetes seja capaz de se comunicar com outros componentes do Azure. No caso específico, precisamos de autorização para que o Pod AGIC faça solicitações HTTP para o [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+A [identidade do Pod do AAD](https://github.com/Azure/aad-pod-identity) é um controlador, semelhante a AGIC, que também é executado em seu AKs. Ele associa Azure Active Directory identidades ao seu pods kubernetes. A identidade é necessária para que um aplicativo em um pod kubernetes seja capaz de se comunicar com outros componentes do Azure. No caso específico aqui, precisamos de autorização para que o Pod AGIC faça solicitações HTTP para o [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 Siga as [instruções de instalação de identidade do Pod do AAD](https://github.com/Azure/aad-pod-identity#deploy-the-azure-aad-identity-infra) para adicionar esse componente ao seu AKs.
 
@@ -128,7 +128,7 @@ armAuth:
 ```
 
 ## <a name="install-ingress-controller-as-a-helm-chart"></a>Instalar controlador de entrada como um gráfico do Helm
-Nas primeiras etapas, instalamos o gaveta do Helm em seu cluster kubernetes. Use [Cloud Shell](https://shell.azure.com/) para instalar o pacote AGIC Helm:
+Nas primeiras etapas, instalamos o gaveta do Helm no cluster do kubernetes. Use [Cloud Shell](https://shell.azure.com/) para instalar o pacote AGIC Helm:
 
 1. Adicionar o repositório do `application-gateway-kubernetes-ingress` Helm e executar uma atualização do Helm
 
@@ -323,7 +323,7 @@ Amplie as permissões de AGIC com:
     ```
 
 ### <a name="enable-for-an-existing-agic-installation"></a>Habilitar para uma instalação existente do AGIC
-Vamos supor que já temos um AKS de trabalho, um gateway de aplicativo e um AGIC configurado em nosso cluster. Temos uma entrada para `prod.contosor.com` e estão servindo com êxito o tráfego para ele de AKS. Queremos adicionar `staging.contoso.com` ao nosso gateway de aplicativo existente, mas é necessário hospedá-lo em uma [VM](https://azure.microsoft.com/services/virtual-machines/). Vamos usar novamente o gateway de aplicativo existente e configurar manualmente um ouvinte e pools de back-end para `staging.contoso.com`. Mas ajustar manualmente a configuração do gateway de aplicativo (por meio do [portal](https://portal.azure.com), [APIs ARM](https://docs.microsoft.com/rest/api/resources/) ou [Terraform](https://www.terraform.io/)) estaria em conflito com as suposições de AGIC de propriedade total. Logo após aplicarmos as alterações, AGIC irá substituí-las ou excluí-las.
+Vamos supor que já temos um AKS de trabalho, um gateway de aplicativo e um AGIC configurado em nosso cluster. Temos uma entrada para `prod.contosor.com` e estão servindo com êxito o tráfego para ele de AKS. Queremos adicionar `staging.contoso.com` ao nosso gateway de aplicativo existente, mas é necessário hospedá-lo em uma [VM](https://azure.microsoft.com/services/virtual-machines/). Vamos reutilizar o gateway de aplicativo existente e configurar manualmente um ouvinte e pools de back-end para `staging.contoso.com`. Mas ajustar manualmente a configuração do gateway de aplicativo (por meio do [portal](https://portal.azure.com), [APIs ARM](https://docs.microsoft.com/rest/api/resources/) ou [Terraform](https://www.terraform.io/)) estaria em conflito com as suposições de AGIC de propriedade total. Logo após aplicarmos as alterações, AGIC irá substituí-las ou excluí-las.
 
 Podemos proibir o AGIC de fazer alterações em um subconjunto da configuração.
 

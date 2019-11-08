@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: 849c919950c57a1df3b0fb76021de6e10254c7b4
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: a818d84bf3df712190ccc6c1721c26933a9fbcdb
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286417"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73793927"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Suporte de idioma do conteúdo da base de dados de conhecimento para QnA Maker
 
@@ -38,9 +38,9 @@ A seleção de idioma faz parte das etapas para criar a primeira base de dados d
 ![Captura de tela do portal do QnA Maker de seleção da linguagem para a primeira base de conhecimento](../media/language-support/select-language-when-creating-knowledge-base.png)
 
 ## <a name="query-matching-and-relevance"></a>Correspondência de consulta e relevância
-QnA Maker depende [Azure Search analisadores de linguagem](https://docs.microsoft.com/rest/api/searchservice/language-support) para fornecer resultados. 
+QnA Maker depende dos [analisadores de linguagem do Azure pesquisa cognitiva](https://docs.microsoft.com/rest/api/searchservice/language-support) para fornecer resultados. 
 
-Embora os recursos de Azure Search estejam em par para os idiomas com suporte, QnA Maker tem um classificador adicional que fica acima dos resultados da pesquisa do Azure. Neste modelo de classificação, usamos alguns recursos semânticos e baseados em palavras especiais nos idiomas a seguir. 
+Embora os recursos de Pesquisa Cognitiva do Azure estejam em par para os idiomas com suporte, QnA Maker tem um classificador adicional que fica acima dos resultados do Azure Search. Neste modelo de classificação, usamos alguns recursos semânticos e baseados em palavras especiais nos idiomas a seguir. 
 
 |Idiomas com classificação adicional|
 |--|

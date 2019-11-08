@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a34fdb24573df3287b72991454963c67e9689b9f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 703e750c0d2515484cd9f1d2cb046096dfd1800d
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604548"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794969"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
@@ -26,7 +26,7 @@ Você pode usar Pesquisa Visual Computacional em seu aplicativo por meio de um S
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Pesquisa Visual Computacional para o gerenciamento de ativos digitais
 
-Pesquisa Visual Computacional pode alimentar muitos cenários de DAM (gerenciamento de ativos digitais). DAM é o processo comercial de organizar, armazenar e recuperar ativos de mídia avançados e gerenciar direitos e permissões digitais. Por exemplo, uma empresa pode querer agrupar e identificar imagens com base em logotipos, rostos, objetos, cores visíveis e assim por diante. Ou, talvez você queira gerar automaticamente [legendas para imagens](./Tutorials/storage-lab-tutorial.md) e anexar palavras-chave para que elas sejam pesquisáveis. Para uma solução de DAM All-in-One usando serviços cognitivas, Azure Search e relatórios inteligentes, consulte o [Guia do Solution Accelerator do Knowledge Mining](https://github.com/Azure-Samples/azure-search-knowledge-mining) no github. Para outros exemplos de DAM, consulte o Pesquisa Visual Computacional repositório de [modelos de solução](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) .
+Pesquisa Visual Computacional pode alimentar muitos cenários de DAM (gerenciamento de ativos digitais). DAM é o processo comercial de organizar, armazenar e recuperar ativos de mídia avançados e gerenciar direitos e permissões digitais. Por exemplo, uma empresa pode querer agrupar e identificar imagens com base em logotipos, rostos, objetos, cores visíveis e assim por diante. Ou, talvez você queira gerar automaticamente [legendas para imagens](./Tutorials/storage-lab-tutorial.md) e anexar palavras-chave para que elas sejam pesquisáveis. Para uma solução de DAM All-in-One usando serviços cognitivas, Pesquisa Cognitiva do Azure e relatórios inteligentes, consulte o [Guia do Solution Accelerator do Knowledge Mining](https://github.com/Azure-Samples/azure-search-knowledge-mining) no github. Para outros exemplos de DAM, consulte o Pesquisa Visual Computacional repositório de [modelos de solução](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) .
 
 ## <a name="analyze-images-for-insight"></a>Analisar imagens para Insight
 

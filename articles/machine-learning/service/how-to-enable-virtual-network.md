@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/25/2019
-ms.openlocfilehash: 2559a3cbd786c737b316a860e9c75434c6c719a4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e5dee838df2a60bf2038f2c7d2b1cc5958354d29
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576580"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796774"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteger trabalhos de experimentação e de inferência do Azure ML em uma rede virtual do Azure
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -63,7 +63,7 @@ Para usar uma conta de armazenamento do Azure para o espaço de trabalho em uma 
     - Em __redes virtuais__, selecione o link __Adicionar rede virtual existente__ . Essa ação adiciona a rede virtual onde sua computação reside (consulte a etapa 1).
 
         > [!IMPORTANT]
-        > A conta de armazenamento deve estar na mesma rede virtual que as VMs do bloco de anotações ou clusters usados para treinamento ou inferência.
+        > A conta de armazenamento deve estar na mesma rede virtual que os clusters usados para treinamento ou inferência.
 
     - Marque a caixa de seleção __permitir que os serviços confiáveis da Microsoft acessem esta conta de armazenamento__ .
 
@@ -108,7 +108,7 @@ Para usar Azure Machine Learning recursos de experimentação com Azure Key Vaul
 
 ## <a name="use-a-machine-learning-compute"></a>Usar um Computação do Machine Learning
 
-Para usar uma VM do Azure Machine Learning notebook ou um cluster de computação em uma rede virtual, os seguintes requisitos de rede devem ser atendidos:
+Para usar um cluster de computação Azure Machine Learning em uma rede virtual, os requisitos de rede a seguir devem ser atendidos:
 
 > [!div class="checklist"]
 > * A rede virtual deve estar na mesma assinatura e região que o espaço de trabalho Azure Machine Learning.
@@ -246,27 +246,6 @@ Quando o processo de criação for concluído, você treinará seu modelo usando
 
 <a id="vmorhdi"></a>
 
-### <a name="create-a-compute-instance-in-a-virtual-network"></a>Criar uma instância de computação em uma rede virtual
-
-Crie uma instância de computação Azure Machine Learning em uma rede virtual. Para criar uma instância de computação, faça o seguinte:
-
-1. No Workspace Studio, selecione **computação** no painel esquerdo.
-
-1. Na guia instâncias de computação, selecione **novo** para começar a criar uma nova instância de computação.
-
-1. Defina os campos nome de computação e tamanho da máquina virtual e habilite/desabilite o acesso SSH.
-
-1. Para configurar essa instância de computação para usar uma rede virtual, faça o seguinte:
-
-    a. Selecione **Configurações avançadas**.
-
-    b. Na lista suspensa **grupo de recursos** , selecione o grupo de recursos que contém a rede virtual.
-
-    c. Na lista suspensa de **rede virtual** , selecione a rede virtual que contém a sub-rede.
-
-    d. Na lista suspensa **sub-rede** , selecione a sub-rede a ser usada.
-
-1. Selecione **criar** para provisionar uma instância de computação dentro de uma rede virtual.
 
 ## <a name="use-a-virtual-machine-or-hdinsight-cluster"></a>Usar uma máquina virtual ou um cluster HDInsight
 

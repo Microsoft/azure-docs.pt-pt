@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e8543f1f6ef2cdf1695340b07dcbc51365a01a5
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 8d73a2dcd0aab3b972a3e0a9237e53d05d4a9a53
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72438148"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750032"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões de máquina virtual para Windows
 
@@ -28,7 +28,7 @@ As extensões de VM (máquina virtual) do Azure são aplicativos pequenos que fo
 
 Este artigo fornece uma visão geral das extensões de VM, pré-requisitos para usar extensões de VM do Azure e orientação sobre como detectar, gerenciar e remover extensões de VM. Este artigo fornece informações generalizadas porque muitas extensões de VM estão disponíveis, cada uma com uma configuração potencialmente exclusiva. Detalhes específicos da extensão podem ser encontrados em cada documento específico para a extensão individual.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="use-cases-and-samples"></a>Casos de uso e amostras
 
@@ -262,7 +262,7 @@ Quando uma atualização está disponível, ela só é instalada na VM quando h�
 - Extensões
 - Contêiner de diagnóstico de inicialização
 - Segredos do SO convidado
-- Tamanhos de VM
+- Tamanho da VM
 - Perfil de rede
 
 Os Publicadores disponibilizam atualizações para regiões em momentos diferentes, para que seja possível ter VMs em diferentes regiões em diferentes versões.
@@ -351,7 +351,7 @@ As etapas de solução de problemas a seguir se aplicam a todas as extensões de
 
 1. Para verificar o log do agente convidado do Windows, examine a atividade quando sua extensão estava sendo provisionada no *C:\WindowsAzure\Logs\WaAppAgent.txt*
 
-2. Verifique os logs de extensão reais para obter mais detalhes em *C:\WindowsAzure\Logs\Plugins @ no__t-1extensionName >*
+2. Verifique os logs de extensão reais para obter mais detalhes em *C:\WindowsAzure\Logs\Plugins\<extensionname >*
 
 3. Verifique as seções específicas de solução de problemas de extensão para códigos de erro, problemas conhecidos etc.
 

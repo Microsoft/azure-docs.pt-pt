@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3b94e3e352f4d6b5cd7da41feb9660be2ffed2bd
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 69b18cdd4d0bb8e3d13bbacd5d21764004308786
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786490"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795647"
 ---
 # <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-cognitive-search-index"></a>C#Tutorial: combinar dados de várias fontes de dados em um índice de Pesquisa Cognitiva do Azure
 
@@ -36,7 +36,7 @@ Os serviços, as ferramentas e os dados a seguir são usados neste guia de iníc
 
 - [Crie um serviço de pesquisa cognitiva do Azure](search-create-service-portal.md) ou [Localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) em sua assinatura atual. Você pode usar um serviço gratuito para este tutorial.
 
-- [Crie uma conta de Azure Cosmos DB](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para armazenar os dados de Hotel de exemplo.
+- [Crie uma conta de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) para armazenar os dados de Hotel de exemplo.
 
 - [Crie uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para armazenar os dados de blob JSON de exemplo.
 
@@ -58,7 +58,7 @@ Para interagir com o serviço de Pesquisa Cognitiva do Azure, você precisa da U
 
 1. [Entre no portal do Azure](https://portal.azure.com/)e, em sua página de **visão geral** do serviço de pesquisa, obtenha a URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-1. Em **configurações**  > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+1. Em **configurações** > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
 ![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-get-started-postman/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
 

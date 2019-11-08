@@ -10,12 +10,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: e66b3e6563d796cc7b59e82233bd1b22bc906c6e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: MT
+ms.openlocfilehash: cff481c7c2e09da1dc8c8e2f971d9adb164d54da
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691349"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796128"
 ---
 # <a name="accelerated-database-recovery"></a>Recuperação de banco de dados acelerada
 
@@ -99,11 +99,11 @@ Os quatro principais componentes de ADR são:
 
 - **Reverter lógica**
 
-  A reversão lógica é o processo assíncrono responsável por executar desfazer baseado em versão de linha, fornecendo reversão de transação instantânea e desfazer para todas as operações com controle de versão.
+  A reversão lógica é o processo assíncrono responsável por executar desfazer baseado em versão de linha, fornecendo reversão de transação instantânea e desfazer para todas as operações com controle de versão. A reversão lógica é realizada por:
 
-  - Mantém o controle de todas as transações anuladas
-  - Executa a reversão usando PVS para todas as transações de usuário
-  - Libera todos os bloqueios imediatamente após a anulação da transação
+  - Manter o controle de todas as transações anuladas e marcá-las invisíveis para outras transações. 
+  - Executar Rollback usando PVS para todas as transações de usuário, em vez de verificar fisicamente o log de transações e desfazer as alterações uma de cada vez.
+  - Liberando todos os bloqueios imediatamente após a anulação da transação. Como Abort envolve simplesmente marcar alterações na memória, o processo é muito eficiente e, portanto, os bloqueios não precisam ser mantidos por muito tempo.
 
 - **sLog**
 

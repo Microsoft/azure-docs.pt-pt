@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/23/2019
+ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 073babf407509c9bbf05340edd828c895fa376e9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5d0543a3a43d53e462a6406312faddf37d2653c6
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513630"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795596"
 ---
 # <a name="add-health-probes-to-your-service"></a>Adicionar investigações de integridade ao seu serviço
 Por padrão, o controlador de entrada provisionará uma investigação HTTP GET para o pods exposto.

@@ -6,7 +6,7 @@ documentationcenter: ''
 author: v-miegge
 manager: dcscontentpm
 editor: ''
-tags: ''
+tags: virtual-machines
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 56e420f9641638bfa79ff077be73132b00b934ab
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 49fdfde402938ce8d0ee1b141a47e68c99c502e7
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "71132094"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796208"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparar uma VM do Linux com os comandos de reparação da Máquina Virtual do Azure
 
@@ -54,13 +54,13 @@ Para obter mais informações e documentação, consulte [AZ VM Repair](https://
 
    Se preferir instalar e utilizar a CLI localmente, este início rápido requer a versão 2.0.30 ou posterior da CLI do Azure. Executar ``az --version`` para localizar a versão. Se você precisar instalar ou atualizar seu CLI do Azure, consulte [instalar CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-2. Se esta for a primeira vez que você usou os comandos `az vm repair`, adicione a extensão da CLI de reparo de VM.
+2. Se esta for a primeira vez que você usou os comandos de `az vm repair`, adicione a extensão da CLI de reparo de VM.
 
    ```azurecli-interactive
    az extension add -n vm-repair
    ```
 
-   Se você usou anteriormente os comandos `az vm repair`, aplique todas as atualizações à extensão de reparo de VM.
+   Se você tiver usado anteriormente os comandos de `az vm repair`, aplique todas as atualizações à extensão de reparo de VM.
 
    ```azurecli-interactive
    az extension update -n vm-repair
@@ -82,7 +82,7 @@ Para obter mais informações e documentação, consulte [AZ VM Repair](https://
 
 ## <a name="verify-and-enable-boot-diagnostics"></a>Verificar e habilitar o diagnóstico de inicialização
 
-O exemplo a seguir habilita a extensão de diagnóstico na VM denominada ``myVMDeployed`` no grupo de recursos denominado ``myResourceGroup``:
+O exemplo a seguir habilita a extensão de diagnóstico na VM chamada ``myVMDeployed`` no grupo de recursos chamado ``myResourceGroup``:
 
 CLI do Azure
 

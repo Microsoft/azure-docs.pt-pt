@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2148d6ea869a87571008c1f84c5b1000d4030bbb
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 845ffda22cae9464870786cc5997b9f5521c03e1
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175943"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795633"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Habilitar o acesso remoto para Power BI Mobile com o Azure Proxy de Aplicativo do AD
 
@@ -82,7 +82,7 @@ Para obter mais informações, consulte [delegação restrita de Kerberos para l
 Agora você está pronto para configurar o Azure Proxy de Aplicativo do AD.
 
 1. Publique os serviços de relatório por meio do proxy de aplicativo com as configurações a seguir. Para obter instruções detalhadas sobre como publicar um aplicativo por meio do proxy de aplicativo, consulte [Publicando aplicativos usando o Azure proxy de aplicativo do AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
-   - **URL interna**: Insira a URL para o servidor de relatório que o conector pode acessar na rede corporativa. Verifique se essa URL está acessível no servidor em que o conector está instalado. Uma prática recomendada é usar um domínio de nível superior, como `https://servername/` para evitar problemas com subcaminhos (por exemplo, `https://servername/reports/` e `https://servername/reportserver/`) não publicados por meio do proxy de aplicativo.
+   - **URL interna**: Insira a URL para o servidor de relatório que o conector pode acessar na rede corporativa. Verifique se essa URL está acessível no servidor em que o conector está instalado. Uma prática recomendada é usar um domínio de nível superior, como `https://servername/` para evitar problemas com subcaminhos publicados por meio do proxy de aplicativo. Por exemplo, use `https://servername/` e não `https://servername/reports/` ou `https://servername/reportserver/`.
      > [!NOTE]
      > É recomendável usar uma conexão HTTPS segura para o servidor de relatório. Consulte [Configurar conexões SSL em um servidor de relatório no modo nativo](https://docs.microsoft.com/sql/reporting-services/security/configure-ssl-connections-on-a-native-mode-report-server?view=sql-server-2017) para obter informações sobre como.
    - **URL externa**: Insira a URL pública à qual o aplicativo móvel Power bi se conectará. Por exemplo, pode parecer `https://reports.contoso.com` se um domínio personalizado for usado. Para usar um domínio personalizado, carregue um certificado para o domínio e aponte um registro DNS para o domínio padrão do msappproxy.net para seu aplicativo. Para obter etapas detalhadas, consulte [trabalhando com domínios personalizados no Azure proxy de aplicativo do AD](application-proxy-configure-custom-domain.md).

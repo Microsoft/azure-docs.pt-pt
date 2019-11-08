@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: b0345773956a0adc5c7f403195c496a3ea5e6fd6
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 48bac68b518706cf3a23d2283da7cda49846e0a7
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982332"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795839"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Serviços Cognitivos e aprendizagem automática
 
@@ -25,10 +25,10 @@ Os [Serviços cognitivas](welcome.md) são um grupo de serviços, cada um oferec
 |Categoria de serviço|Objetivo|
 |--|--|
 |[Tomada](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Crie aplicações que mostrem recomendações para uma tomada de decisões informada e eficiente.|
-|[Language](https://azure.microsoft.com/services/cognitive-services/directory/lang/) (Idioma)|Permita que seus aplicativos processem linguagem natural com scripts predefinidos, avaliem sentimentos e aprendam a reconhecer o que os usuários desejam.|
-|[Pesquisa](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Adicione APIs de Pesquisa do Bing aos seus aplicativos e aproveite a capacidade de combinar bilhões de páginas da Web, imagens, vídeos e notícias com uma única chamada à API.|
-|[Reconhecimento de voz](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Converta voz em texto e texto em voz natural. Traduza de um idioma para outro e ative o reconhecimento e a verificação de orador.|
-|[Visão](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Reconheça, identifique, legende, indexe e modere as suas imagens, vídeos e conteúdo com tinta digital.|
+|[Language](https://azure.microsoft.com/services/cognitive-services/directory/lang/) (Idioma)|Permita às suas aplicações processar linguagem natural com scripts pré-criados, avaliar sentimentos e aprender a reconhecer o que os utilizadores pretendem.|
+|[Pesquisa](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Adicione APIs da Pesquisa do Bing às suas aplicações e tire partida da capacidade de lidar com milhares de milhões de páginas Web, imagens, vídeos e notícias com uma única chamada à API.|
+|[Palestra](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Converta voz em texto e texto em voz natural. Traduza de um idioma para outro e ative o reconhecimento e a verificação de orador.|
+|[Fornecimento](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Reconheça, identifique, legende, indexe e modere as suas imagens, vídeos e conteúdo com tinta digital.|
 ||||
 
 Use serviços cognitivas quando você:
@@ -40,7 +40,7 @@ Use outra solução de aprendizado de máquina quando você:
 
 * É necessário escolher o algoritmo e precisar treinar dados muito específicos.
 
-## <a name="what-is-machine-learning"></a>O que é o Machine Learning?
+## <a name="what-is-machine-learning"></a>O que é a aprendizagem automática?
 
 O aprendizado de máquina é um conceito em que você reúne dados e um algoritmo para resolver uma necessidade específica. Depois que os dados e o algoritmo são treinados, a saída é um modelo que você pode usar novamente com dados diferentes. O modelo treinado fornece informações com base nos novos dados. 
 
@@ -89,19 +89,19 @@ Um serviço pode precisar de dados em tempo real ou quase em tempo real para cri
 
 Os dados a seguir categorizam cada serviço de acordo com o tipo de dados que ele permite ou requer.
 
-|Serviço Cognitivo|Nenhum dado de treinamento necessário|Você fornece alguns ou todos os dados de treinamento|Coleta de dados em tempo real ou quase em tempo real|
+|Serviço cognitiva|Nenhum dado de treinamento necessário|Você fornece alguns ou todos os dados de treinamento|Coleta de dados em tempo real ou quase em tempo real|
 |--|--|--|--|
 |[Detector de anomalias](./Anomaly-Detector/overview.md)|x|x|x|
 |Pesquisa do Bing |x|||
 |[Imagem Digitalizada](./Computer-vision/Home.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
 |[Visão Personalizada](./Custom-Vision-Service/home.md)||x||
-|[Face](./Face/Overview.md)|x|x||
+|[Sorridente](./Face/Overview.md)|x|x||
 |[Reconhecedor de formulário](./form-recognizer/overview.md)||x||
 |[Leitor de imersão](./immersive-reader/overview.md)|x|||
 |[Reconhecedor de tinta](./Ink-recognizer/overview.md)|x|x||
 |[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
-|[Personalizador](./personalizer/what-is-personalizer.md)|x*|x*|x|
+|[Personalizador](./personalizer/what-is-personalizer.md)|w.x.y.|w.x.y.|x|
 |[Criador de FAQ](./QnAMaker/Overview/overview.md)||x||
 |[Reconhecedor do palestrante](./speaker-recognition/home.md)||x||
 |[Conversão de texto em fala (TTS)](speech-service/text-to-speech.md)|x|x||
@@ -117,9 +117,9 @@ Os dados a seguir categorizam cada serviço de acordo com o tipo de dados que el
  
 Os serviços são usados em qualquer aplicativo que possa tornar as APIs REST ou as chamadas do SDK. Exemplos de aplicativos incluem sites da Web, bots, realidade virtual ou mista, aplicativos móveis e de desktop. 
 
-## <a name="how-is-cognitive-search-related-to-cognitive-services"></a>Como a pesquisa cognitiva está relacionada aos serviços cognitivas?
+## <a name="how-is-azure-cognitive-search-related-to-cognitive-services"></a>Como o Azure Pesquisa Cognitiva está relacionado aos serviços cognitivas?
 
-[Azure Search](../search/search-what-is-azure-search.md) usa serviços cognitivas para fornecer esse recurso. Os serviços cognitivas são expostos em Azure Search por meio [de habilidades internas](../search/cognitive-search-predefined-skills.md) que encapsulam APIs individuais. Você pode usar um recurso gratuito para passo a passos, mas planeje criar e anexar um [recurso Faturável](../search/cognitive-search-attach-cognitive-services.md) para volumes maiores.
+O [Azure pesquisa cognitiva](../search/search-what-is-azure-search.md) é um serviço de pesquisa de nuvem separado que, opcionalmente, usa serviços cognitivas para adicionar a imagem e o processamento de linguagem natural à indexação de cargas de trabalho. Os serviços cognitivas são expostos no Azure Pesquisa Cognitiva por meio de [habilidades internas](../search/cognitive-search-predefined-skills.md) que encapsulam APIs individuais. Você pode usar um recurso gratuito para passo a passos, mas planeje criar e anexar um [recurso Faturável](../search/cognitive-search-attach-cognitive-services.md) para volumes maiores.
 
 ## <a name="how-can-you-use-cognitive-services"></a>Como você pode usar serviços cognitivas?
 
@@ -127,7 +127,7 @@ Cada serviço fornece informações sobre seus dados. Você pode combinar servi�
 
 Serviços cognitivas que fornecem modelos exportados para outras ferramentas de aprendizado de máquina:
 
-|Serviço Cognitivo|Informações do modelo|
+|Serviço cognitiva|Informações do modelo|
 |--|--|
 |[Visão Personalizada](./custom-vision-service/home.md)|[Exportar](./Custom-Vision-Service/export-model-python.md) para Tensorflow para Android, do coreml para IOS11, ONNX para Windows ml|
 
@@ -136,7 +136,7 @@ Serviços cognitivas que fornecem modelos exportados para outras ferramentas de 
 * [Guia de arquitetura – quais são os produtos de Machine Learning da Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 * [Machine Learning-introdução ao aprendizado profundo versus aprendizado de máquina](../machine-learning/service/concept-deep-learning-vs-machine-learning.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Crie sua conta de serviço cognitiva no [portal do Azure](cognitive-services-apis-create-account.md) ou com [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli).
 * Saiba como [autenticar](authentication.md) para um serviço cognitiva.

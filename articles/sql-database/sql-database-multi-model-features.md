@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: 7156b9923c9cb98ae3dde143c98eb32a6eb11a9c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: MT
+ms.openlocfilehash: 0d59db65e940cab12dccaeeacc9083eb7fbba20e
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687726"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795770"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Funcionalidades de vários modelos do banco de dados SQL do Azure
 
@@ -29,7 +29,7 @@ Você deve considerar o uso de recursos de vários modelos do banco de dados SQL
 - Você tem algumas informações ou estruturas que são mais adequadas para modelos NoSQL e não deseja usar um banco de dados NoSQL separado.
 - A maioria dos seus dados é adequada para o modelo relacional e você precisa modelar algumas partes de seus dados no estilo NoSQL.
 - Você deseja aproveitar a rica linguagem Transact-SQL para consultar e analisar dados relacionais e NoSQL e integrá-los a uma variedade de ferramentas e aplicativos que podem usar a linguagem SQL.
-- Você deseja aplicar recursos de banco de dados, como [tecnologias na memória](sql-database-in-memory.md) , para melhorar o desempenho de seu processo analítico ou de processamento de seus data strucutress NoSQL, usar a [replicação transacional](sql-database-managed-instance-transactional-replication.md) ou [réplicas legíveis](sql-database-read-scale-out.md) para criar uma cópia dos dados em o outro local e descarregar algumas cargas de trabalho analíticas do banco de dados primário.
+- Você deseja aplicar recursos de banco de dados, como [tecnologias na memória](sql-database-in-memory.md) , para melhorar o desempenho de sua análise ou processamento de suas estruturas de dado NoSQL, usar a [replicação transacional](sql-database-managed-instance-transactional-replication.md) ou [réplicas legíveis](sql-database-read-scale-out.md) para criar uma cópia dos dados em o outro local e descarregar algumas cargas de trabalho analíticas do banco de dados primário.
 
 ## <a name="overview"></a>Descrição geral
 
@@ -38,7 +38,7 @@ O SQL do Azure fornece os seguintes recursos de vários modelos:
 - Os [recursos JSON](#json-features) permitem que você coloque documentos JSON em tabelas, transforme dados relacionais em documentos JSON e vice-versa. Você pode usar a linguagem Transact-SQL padrão aprimorada com funções JSON para analisar documentos e usar índices não clusterizados, índices columnstore ou tabelas com otimização de memória, para otimizar suas consultas.
 - Os [recursos espaciais](#spatial-features) permitem armazenar dados geométricos e geométricas, indexá-los usando os índices espaciais e recuperar os dados usando consultas espaciais.
 - Os [recursos XML](#xml-features) permitem que você armazene e indexe dados XML em seu banco de dado e use operações XQuery/XPath nativas para trabalhar com dados XML. O banco de dados SQL do Azure tem um mecanismo de consulta XML interno especializado que processa os dados XML.
-- Os [pares chave-valor](#key-value-pairs) não têm suporte explícito como recursos especiais, uma vez que o valor de chave Paris pode ser modelado nativamente como tabelas de duas colunas.
+- Os [pares chave-valor](#key-value-pairs) não têm suporte explícito como recursos especiais, uma vez que os pares chave-valor podem ser modelados nativamente como tabelas de duas colunas.
 
   > [!Note]
   > Você pode usar a expressão de caminho JSON, expressões XQuery/XPath, funções espaciais e expressões de consulta de grafo na mesma consulta Transact-SQL para acessar os dados que você armazenou no banco de dado. Além disso, qualquer ferramenta ou linguagem de programação que possa executar consultas Transact-SQL também pode usar essa interface de consulta para acessar dados de vários modelos. Essa é a principal diferença em comparação com os bancos de dados de vários modelos, como [Azure Cosmos DB](/azure/cosmos-db/) que fornece uma API especializada para modelos de data diferentes.
@@ -68,7 +68,7 @@ Não há nada que um banco de dados de grafo possa obter, o que não pode ser ob
 
 O banco de dados SQL do Azure permite que você analise e consulte as consultas representadas no formato JavaScript Object Notation [(JSON)](https://www.json.org/) e exporte os dados relacionais como texto JSON.
 
-JSON é um formato de dados popular usado para trocar dados em aplicativos Web e móveis modernos. O JSON também é usado para armazenar dados semiestruturados em arquivos de log ou em dados NoSQL, como [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Muitos serviços Web REST retornam resultados formatados como texto JSON ou aceitam dados formatados como JSON. A maioria dos serviços do Azure, como [Azure Search](https://azure.microsoft.com/services/search/), [armazenamento do Azure](https://azure.microsoft.com/services/storage/)e [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) têm pontos de extremidade REST que retornam ou consomem JSON.
+JSON é um formato de dados popular usado para trocar dados em aplicativos Web e móveis modernos. O JSON também é usado para armazenar dados semiestruturados em arquivos de log ou em dados NoSQL, como [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Muitos serviços Web REST retornam resultados formatados como texto JSON ou aceitam dados formatados como JSON. A maioria dos serviços do Azure, como o [azure pesquisa cognitiva](https://azure.microsoft.com/services/search/), o [armazenamento do Azure](https://azure.microsoft.com/services/storage/)e [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) têm pontos de extremidade REST que retornam ou consomem JSON.
 
 O banco de dados SQL do Azure permite que você trabalhe facilmente com o JSON e integre seu banco de dado aos serviços modernos. O banco de dados SQL do Azure fornece as seguintes funções para trabalhar com o JSON Data:
 

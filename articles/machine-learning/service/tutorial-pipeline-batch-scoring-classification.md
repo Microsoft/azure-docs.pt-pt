@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: d5a8ada7be99cfbd541b9ac58db2eba094536fc0
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ccd29952693ecbc1db5927d5deabae874b6e9933
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580523"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796700"
 ---
 # <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Criar & usar um pipeline de Azure Machine Learning para Pontuação de lote
 
@@ -480,7 +480,7 @@ Para executar o pipeline do ponto de extremidade REST, você precisa de um cabe�
 
 A autenticação da entidade de serviço envolve a criação de um *registro de aplicativo* no *Azure Active Directory*. Primeiro, você gera um segredo do cliente e, em seguida, concede *acesso à função* da entidade de serviço ao seu espaço de trabalho do Machine Learning. Use a classe [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) para gerenciar seu fluxo de autenticação. 
 
-`InteractiveLoginAuthentication` e `ServicePrincipalAuthentication` herdam de `AbstractAuthentication`. Em ambos os casos, use a função `get_authentication_header()` da mesma maneira de buscar o cabeçalho:
+[`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py) e `ServicePrincipalAuthentication` herdam de `AbstractAuthentication`. Em ambos os casos, use a função [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py#get-authentication-header--) da mesma maneira de buscar o cabeçalho:
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication

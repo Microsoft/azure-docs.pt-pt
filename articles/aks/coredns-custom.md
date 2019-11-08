@@ -7,23 +7,23 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
-ms.openlocfilehash: b4c771b406d635410c22db5c1c4687a34a2e6eb0
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 4f2e1a6f18a83d1e6c691f3fbcb0d85c7afd1575
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130023"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795097"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Personalizar o CoreDNS com o serviço kubernetes do Azure
 
 O AKS (serviço kubernetes do Azure) usa o projeto [CoreDNS][coredns] para a resolução e o gerenciamento de DNS do cluster com todos os clusters *1.12. x* e superior. Anteriormente, o projeto Kube-DNS foi usado. Este projeto Kube-DNS agora está preterido. Para obter mais informações sobre personalização e kubernetes do CoreDNS, consulte a [documentação do upstream oficial][corednsk8s].
 
-Como o AKS é um serviço gerenciado, você não pode modificar a configuração principal para CoreDNS (um *corefile*). Em vez disso, você usa um kubernetes *ConfigMap* para substituir as configurações padrão. Para ver o padrão AKs CoreDNS ConfigMaps, use o `kubectl get configmaps --namespace=kube-system coredns -o yaml` comando.
+Como o AKS é um serviço gerenciado, você não pode modificar a configuração principal para CoreDNS (um *corefile*). Em vez disso, você usa um kubernetes *ConfigMap* para substituir as configurações padrão. Para ver o padrão AKS CoreDNS ConfigMaps, use o comando `kubectl get configmaps --namespace=kube-system coredns -o yaml`.
 
 Este artigo mostra como usar o ConfigMaps para as opções básicas de personalização do CoreDNS no AKS. Essa abordagem difere da configuração do CoreDNS em outros contextos, como o uso do corefile. Verifique a versão do CoreDNS que você está executando, pois os valores de configuração podem ser alterados entre as versões.
 
 > [!NOTE]
-> `kube-dns`ofereciam diferentes [Opções de personalização][kubednsblog] por meio de um mapa de configuração do kubernetes. CoreDNS **não** é compatível com versões anteriores com Kube-DNS. Todas as personalizações que você usou anteriormente devem ser atualizadas para uso com CoreDNS.
+> `kube-dns` ofereceu diferentes [Opções de personalização][kubednsblog] por meio de um mapa de configuração do kubernetes. CoreDNS **não** é compatível com versões anteriores com Kube-DNS. Todas as personalizações que você usou anteriormente devem ser atualizadas para uso com CoreDNS.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -49,7 +49,7 @@ data:
         errors
         cache 30
         rewrite name substring <domain to be rewritten>.com default.svc.cluster.local
-        proxy .  /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10
+        forward .  /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10
     }
 ```
 
@@ -65,7 +65,7 @@ Para verificar se as personalizações foram aplicadas, use [kubectl Get configm
 kubectl get configmaps --namespace=kube-system coredns-custom -o yaml
 ```
 
-Agora Force CoreDNS a recarregar o ConfigMap. O comando de [Pod kubectl Delete][kubectl delete] não é destrutivo e não causa tempo de inatividade. Os `kube-dns` pods são excluídos e o Agendador kubernetes os recria. Esses novos pods contêm a alteração no valor TTL.
+Agora Force CoreDNS a recarregar o ConfigMap. O comando de [Pod kubectl Delete][kubectl delete] não é destrutivo e não causa tempo de inatividade. Os pods de `kube-dns` são excluídos e o Agendador kubernetes os recria. Esses novos pods contêm a alteração no valor TTL.
 
 ```console
 kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
@@ -74,9 +74,9 @@ kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
 > [!Note]
 > O comando acima está correto. Enquanto estamos alterando `coredns`, a implantação está sob o nome **DNS Kube** .
 
-## <a name="custom-proxy-server"></a>Servidor proxy personalizado
+## <a name="custom-forward-server"></a>Servidor de encaminhamento personalizado
 
-Se você precisar especificar um servidor proxy para o tráfego de rede, poderá criar um ConfigMap para personalizar o DNS. No exemplo a seguir, atualize o `proxy` nome e o endereço com os valores para seu próprio ambiente. Crie um arquivo chamado `corednsms.yaml` e cole a seguinte configuração de exemplo:
+Se você precisar especificar um servidor de encaminhamento para o tráfego de rede, poderá criar um ConfigMap para personalizar o DNS. No exemplo a seguir, atualize o nome do `forward` e o endereço com os valores para seu próprio ambiente. Crie um arquivo chamado `corednsms.yaml` e cole a seguinte configuração de exemplo:
 
 ```yaml
 apiVersion: v1
@@ -87,7 +87,7 @@ metadata:
 data:
   test.server: | # you may select any name here, but it must end with the .server file extension
     <domain to be rewritten>.com:53 {
-        proxy foo.com 1.1.1.1
+        forward foo.com 1.1.1.1
     }
 ```
 
@@ -95,7 +95,7 @@ Como nos exemplos anteriores, crie o ConfigMap usando o comando [kubectl Apply C
 
 ```console
 kubectl apply -f corednsms.yaml
-kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
+kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 ```
 
 ## <a name="use-custom-domains"></a>Usar domínios personalizados
@@ -115,7 +115,7 @@ data:
     puglife.local:53 {
         errors
         cache 30
-        proxy . 192.11.0.1  # this is my test/dev DNS server
+        forward . 192.11.0.1  # this is my test/dev DNS server
     }
 ```
 
@@ -123,7 +123,7 @@ Como nos exemplos anteriores, crie o ConfigMap usando o comando [kubectl Apply C
 
 ```console
 kubectl apply -f corednsms.yaml
-kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
+kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 ```
 
 ## <a name="stub-domains"></a>Domínios de stub
@@ -141,12 +141,12 @@ data:
     abc.com:53 {
         errors
         cache 30
-        proxy . 1.2.3.4
+        forward . 1.2.3.4
     }
     my.cluster.local:53 {
         errors
         cache 30
-        proxy . 2.3.4.5
+        forward . 2.3.4.5
     }
 
 ```
@@ -155,7 +155,7 @@ Como nos exemplos anteriores, crie o ConfigMap usando o comando [kubectl Apply C
 
 ```console
 kubectl apply -f corednsms.yaml
-kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
+kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 ```
 
 ## <a name="hosts-plugin"></a>Hospeda plug-in
@@ -187,8 +187,6 @@ Para saber mais sobre os principais conceitos de rede, consulte [conceitos de re
 [coredns]: https://coredns.io/
 [corednsk8s]: https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/#coredns
 [dnscache]: https://coredns.io/plugins/cache/
-[aks-quickstart-cli]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough
-[aks-quickstart-portal]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
