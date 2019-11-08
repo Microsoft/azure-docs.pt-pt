@@ -1,7 +1,7 @@
 ---
-title: Conceitos de reconhecimento de rostos
+title: Conceitos de reconhecimento facial
 titleSuffix: Azure Cognitive Services
-description: Aprenda conceitos sobre reconhecimento de rostos.
+description: Este artigo explica os conceitos de verificar, localizar semelhantes, agrupar e identificar as operações de reconhecimento facial e as estruturas de dados subjacentes.
 services: cognitive-services
 author: PatrickFarley
 manager: nitime
@@ -10,65 +10,65 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
-ms.openlocfilehash: fa38c492530cb8938e49bc15e13fdd39ed5b6f1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 164e5a8c107f445b376d26f9be7db92a7983b0d3
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65890875"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73743071"
 ---
-# <a name="face-recognition-concepts"></a>Conceitos de reconhecimento de rostos
+# <a name="face-recognition-concepts"></a>Conceitos de reconhecimento facial
 
-Este artigo explica os conceitos das operações de reconhecimento de rostos verificar, encontrar semelhante, grupo e identificar e as estruturas de dados subjacente. De forma ampla, reconhecimento descreve o trabalho de comparar dois rostos diferentes para determinar se são semelhantes ou pertencem à mesma pessoa.
+Este artigo explica os conceitos de verificar, localizar semelhantes, agrupar e identificar as operações de reconhecimento facial e as estruturas de dados subjacentes. Em grande parte, o reconhecimento descreve o trabalho de comparação de duas faces diferentes para determinar se elas são semelhantes ou pertencem à mesma pessoa.
 
-## <a name="recognition-related-data-structures"></a>Estruturas de dados relacionados com o reconhecimento
+## <a name="recognition-related-data-structures"></a>Estruturas de dados relacionadas a reconhecimento
 
-As operações de reconhecimento utilizam principalmente as seguinte estruturas de dados. Esses objetos são armazenados na cloud e podem ser referenciados por suas cadeias de caracteres de ID. Cadeias de caracteres de ID são sempre exclusivas numa subscrição. Campos de nome podem estar duplicados.
+As operações de reconhecimento usam principalmente as seguintes estruturas de dados. Esses objetos são armazenados na nuvem e podem ser referenciados por suas cadeias de caracteres de ID. As cadeias de caracteres de ID são sempre exclusivas em uma assinatura. Os campos de nome podem ser duplicados.
 
-|Name|Descrição|
+|Nome|Descrição|
 |:--|:--|
-|DetectedFace| Essa representação face único é obtida pelos [deteção facial](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md) operação. O ID de expira 24 horas depois de criado.|
-|PersistedFace| Quando os objetos de DetectedFace são adicionados a um grupo, tal como FaceList ou pessoa, eles tornam-se PersistedFace objetos. Eles podem ser [obtidos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c) a qualquer hora e não expiram.|
-|[FaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) ou [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc)| Essa estrutura de dados é uma lista variada de objetos de PersistedFace. Um FaceList tem um ID exclusivo, uma cadeia de caracteres de nome e, opcionalmente, uma cadeia de caracteres de dados do utilizador.|
-|[Pessoa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)| Essa estrutura de dados é uma lista de objetos de PersistedFace que pertencem à mesma pessoa. Ele tem um ID exclusivo, uma cadeia de caracteres de nome e, opcionalmente, uma cadeia de caracteres de dados do utilizador.|
-|[PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) ou [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)| Essa estrutura de dados é uma lista variada de objetos de pessoa. Ele tem um ID exclusivo, uma cadeia de caracteres de nome e, opcionalmente, uma cadeia de caracteres de dados do utilizador. Tem de ser um PersonGroup [treinado](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) antes de poder ser utilizada em operações de reconhecimento.|
+|DetectedFace| Essa única representação facial é recuperada pela operação de [detecção facial](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md) . Sua ID expira 24 horas após sua criação.|
+|PersistedFace| Quando objetos DetectedFace são adicionados a um grupo, como Facelist ou Person, eles se tornam objetos PersistedFace. Eles podem ser [recuperados](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c) a qualquer momento e não expiram.|
+|[Facelist](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) ou [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc)| Essa estrutura de dados é uma lista asclassificada de objetos PersistedFace. Uma Facelist tem uma ID exclusiva, uma cadeia de caracteres de nome e, opcionalmente, uma cadeia de caracteres de dados de usuário.|
+|[Pessoa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)| Essa estrutura de dados é uma lista de objetos PersistedFace que pertencem à mesma pessoa. Ele tem uma ID exclusiva, uma cadeia de caracteres de nome e, opcionalmente, uma cadeia de caracteres de dados de usuário.|
+|[Person](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) ou [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)| Essa estrutura de dados é uma lista asclassificada de objetos Person. Ele tem uma ID exclusiva, uma cadeia de caracteres de nome e, opcionalmente, uma cadeia de caracteres de dados de usuário. Um Person deve ser [treinado](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) antes que possa ser usado em operações de reconhecimento.|
 
 ## <a name="recognition-operations"></a>Operações de reconhecimento
 
-Esta secção fornece detalhes sobre como as quatro operações de reconhecimento usam as estruturas de dados descritas anteriormente. Para obter uma descrição geral de cada operação de reconhecimento, consulte [descrição geral](../Overview.md).
+Esta seção detalha como as quatro operações de reconhecimento usam as estruturas de dados descritas anteriormente. Para obter uma descrição ampla de cada operação de reconhecimento, consulte [visão geral](../Overview.md).
 
 ### <a name="verify"></a>Verificar
 
-O [Verifique se](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) operação utiliza uma identificação de face de DetectedFace ou PersistedFace e outro face ID ou um objeto Person e determina se a que pertencem à mesma pessoa. Se passar um objeto Person, pode, opcionalmente, passar um PersonGroup a que essa pessoa pertence, para melhorar o desempenho.
+A operação de [verificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) usa uma ID de face de DetectedFace ou PersistedFace e outra ID de face ou um objeto Person e determina se elas pertencem à mesma pessoa. Se você passar um objeto Person, poderá, opcionalmente, passar um Person para o qual essa pessoa pertença para melhorar o desempenho.
 
-### <a name="find-similar"></a>Encontrar semelhantes
+### <a name="find-similar"></a>Localizar semelhante
 
-O [encontrar semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) operação utiliza uma identificação de face de DetectedFace ou PersistedFace e um FaceList ou uma matriz de outros IDs de rostos. Com um FaceList, ele retorna um FaceList menor de faces semelhantes para o rosto. Com uma matriz de IDs de rosto, da mesma forma devolve uma matriz de menor.
+A operação [Localizar semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) usa uma ID de face de DetectedFace ou PersistedFace e uma facelist ou uma matriz de outras IDs de face. Com uma Facelist, ele retorna uma face de rostos menor que é semelhante à face fornecida. Com uma matriz de IDs de face, ela retorna, de forma semelhante, uma matriz menor.
 
 ### <a name="group"></a>Grupo
 
-O [grupo](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) operação pega uma matriz de IDs de face variado de DetectedFace ou PersistedFace e retorna os mesmos IDs agrupadas em várias matrizes menores. Cada matriz de "grupos" contém face IDs que ter um aspeto semelhante. Uma matriz de "messyGroup" única contém IDs de rostos para que não existem semelhanças foram encontradas.
+A operação de [grupo](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) usa uma matriz de IDs de face asclassificadas de DetectedFace ou PersistedFace e retorna as mesmas IDs agrupadas em várias matrizes menores. Cada matriz de "grupos" contém IDs de face que parecem semelhantes. Uma única matriz "bagunça" contém IDs de face para as quais nenhuma semelhança foi encontrada.
 
 ### <a name="identify"></a>Identificar
 
-O [identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) operação usa face um ou vários IDs do DetectedFace ou PersistedFace e um PersonGroup e retorna uma lista de objetos de pessoa que cada rosto poderá pertencer ao. Devolveu pessoa objetos são encapsulados como objetos de Release Candidate, que tem um valor de confiança da previsão.
+A operação de [identificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) usa uma ou várias IDs de face de DetectedFace ou PersistedFace e um Person e retorna uma lista de objetos Person a que cada face pode pertencer. Os objetos Person retornados são encapsulados como objetos candidatos, que têm um valor de confiança de previsão.
 
 ## <a name="input-data"></a>Dados de entrada
 
-Utilize as sugestões seguintes para se certificar de que as imagens de entrada dê os resultados mais precisos do reconhecimento:
+Use as seguintes dicas para garantir que suas imagens de entrada forneçam os resultados de reconhecimento mais precisos:
 
-* Os formatos de entrada de imagem suportados são PNG, JPEG, BMP e GIF (o primeiro quadro).
-* Tamanho do ficheiro de imagem deve ser não maior do que 4 MB.
-* Ao criar objetos Person, utilize fotografias que apresentam diferentes tipos de ângulos e de iluminação.
-* Alguns rostos poderão não reconhecidos por causa de desafios técnicos, como:
-  * Imagens extreme iluminação, por exemplo, grave backlighting.
-  * Obstructions bloquear um ou ambos os olhos.
-  * Diferenças de cabelo de tipo ou facial cabelos.
-  * Alterações na aparência facial devido a idade.
-  * Expressões faciais extremas.
+* Os formatos de imagem de entrada com suporte são JPEG, PNG, GIF (o primeiro quadro), BMP.
+* O tamanho do arquivo de imagem não deve ser maior que 4 MB.
+* Quando você cria objetos Person, use fotos que apresentam diferentes tipos de ângulos e iluminação.
+* Algumas faces podem não ser reconhecidas devido a desafios técnicos, como:
+  * Imagens com iluminação extrema, por exemplo, baixa iluminação excessiva.
+  * Obstruções que bloqueiam um ou ambos os olhos.
+  * Diferenças no tipo de cabelo ou cabelo facial.
+  * Alterações na aparência facial devido à idade.
+  * Expressões de faciais Extreme.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que está familiarizado com conceitos de reconhecimento de rostos, saiba como escrever um script que identifique rostos em relação a um PersonGroup treinado.
+Agora que você está familiarizado com os conceitos de reconhecimento facial, saiba como escrever um script que identifica rostos em relação a um funcionário treinado.
 
-* [Identificar rostos em imagens](../Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md)
+* [Identificar faces em imagens](../Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md)

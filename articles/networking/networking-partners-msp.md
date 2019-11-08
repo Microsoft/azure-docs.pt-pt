@@ -5,74 +5,56 @@ services: networking
 author: skishen525
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 680d4c90078131b44e39e3f2b3d526ca53b34a95
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 83c3c72ad189720b8f0aa554b7804b55f3488b83
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496758"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747947"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Sobre os parceiros MSP de rede do Azure
 
-O programa de parceiro MSP (provedor de serviços gerenciados) de rede do Azure permite que serviços de rede focados em MSPs, telcos e SIs (integradores de sistemas) ofereçam serviços de rede híbrida e de nuvem centrados no portfólio do Azure de produtos de rede e serviços.
+O [programa de parceiro MSP (provedor de serviços gerenciados) de rede do Azure](https://azure.microsoft.com/blog/enhancing-the-customer-experience-with-the-azure-networking-msp-partner-program/) permite que serviços de rede focados em MSPs, telcos e SIS (integradores de sistemas) ofereçam serviços de rede híbrida e de nuvem centrados no portfólio do Azure de produtos de rede e serviços.
 
 As MSPs de rede do Azure são um conjunto especializado de provedores de serviços gerenciados que abordam as necessidades e os desafios da rede em nuvem empresarial em todos os aspectos da nuvem e da rede híbrida. Os serviços de rede gerenciados incluem um ou mais dos seguintes serviços: arquitetura de rede, planejamento, implantação, operações, manutenção e otimização.
 
-![CONSTANTES][0]
+![MSP][0]
 
-Os clientes podem comprar ofertas de serviços gerenciados por MSP no Azure Marketplace ou diretamente do MSP. O MSPs pode implantar e gerenciar recursos de rede do Azure nas assinaturas e nos grupos de recursos dos clientes usando o Azure Lighthouse.
+Os clientes podem comprar ofertas de serviços gerenciados por MSP no Azure Marketplace ou diretamente do MSP. O MSPs pode implantar e gerenciar recursos de rede do Azure nas assinaturas e nos grupos de recursos dos clientes usando o [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/).
 
 ## <a name="msp"></a>Parceiros MSP de rede do Azure
 
 Use os links nesta seção para obter mais informações sobre os serviços de rede em nuvem gerenciados oferecidos pelos parceiros MSP de rede do Azure. Se o seu parceiro de serviços de rede de nuvem não estiver listado na seção abaixo, peça ao provedor entre em contato conosco. Eles podem entrar em contato conosco enviando um email para ManagedVirtualWAN@microsoft.com. 
 
-[Grupo ANS no Reino Unido](https://www.ans.co.uk/)
-
-[Redes aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)
-
-[BT](https://www.globalservices.bt.com/en/aboutus/news-press/bt-named-one-of-the-first-global-managed-service-providers-for-a-new-microsoft-azure-networking-virtual-wan-services/)
-
-[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)
-
-[Dados de dimensão](https://www.dimensiondata.com/)
-
-[Equinix](https://www.equinix.com/)
-
-[InterCloud](https://intercloud.com/partners/microsoft-azure/)
-
-[IIJ](https://www.iij.ad.jp/biz/cloudex/)
-
-Interxion (https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/
-
-[ixreach](https://www.ixreach.com/)
-
-[KINX](https://www.kinx.net/service/cloud/?lang=en)
-
-[Telecomunicações líquidas](https://www.liquidtelecom.com/products-and-services/microsoft-azure.html)
-
-[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)
-
-[Megaport](https://www.megaport.com/services/microsoft-expressroute/)
-
-[OmniClouds](https://omniclouds.com/services/)
-
-[Serviços de nuvem Oncore]( https://www.oncore.cloud/services/ue-for-expressroute/)
-
-[Orixcom]( https://www.orixcom.com/cloud-solutions/)
-
-[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)
-
-[Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)
-
-[TCTS](https://www.tatacommunications-ts.com/index.php)
-
-[Mahindra de tecnologia](https://networkservices.techmahindra.com/pages/default.aspx)
-
-[Vandis](https://www.vandis.com/microsoft-azure-practice/)
-
-[Vigilante](https://vigilant.it/manage-cloud-service/)
+| **MSP** | **Serviços de transformação de rede em nuvem** | **ExpressRoute gerenciado** | **WAN virtual gerenciada** | **Serviços de segurança de rede gerenciados** |**Computação de borda de rede gerenciada** |
+| ---| ---| ---| ---| ---| ---|
+|[Amdocs](https://www.amdocs.com/)|||||Sim|
+|[Grupo ANS no Reino Unido](https://www.ans.co.uk/)|Sim|Sim||||
+|[Redes aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)|Sim |Sim |Sim | | |
+|[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|Sim|Sim|Sim|||
+|[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|Sim|||||
+|[Dados de dimensão](https://www.dimensiondata.com/)|Sim|||||
+|[Equinix](https://www.equinix.com/)|Sim|Sim||||
+|[IIJ](https://www.iij.ad.jp/biz/cloudex/)|Sim|Sim||||
+|[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|Sim||||Sim|
+|[InterCloud](https://intercloud.com/partners/microsoft-azure/)|Sim|Sim||||
+|[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|Sim|Sim||||
+|[IX Reach](https://www.ixreach.com/services/sdn-cloud-connect/)|Sim|Sim||||
+|[KINX](https://www.kinx.net/service/cloud/?lang=en)|Sim|||||
+|[Telecomunicações líquidas](https://liquidcloud.africa/azure-networking)|Sim|Sim||||
+|[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)|Sim|Sim|Sim|||
+|[Megaport](https://www.megaport.com/services/microsoft-expressroute/)|Sim|Sim||||
+|[OmniClouds](https://omniclouds.com/services/)|Sim|Sim||||
+|[Serviços de nuvem Oncore]( https://www.oncore.cloud/services/ue-for-expressroute/)|Sim|Sim||||
+|[Orixcom]( https://www.orixcom.com/cloud-solutions/)|Sim|Sim||||
+|[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)|Sim|Sim||||
+|[Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)|Sim|Sim||||
+|[TCTS](https://www.tatacommunications-ts.com/index.php)|Sim|Sim|Sim|||
+|[Mahindra de tecnologia](https://networkservices.techmahindra.com/pages/default.aspx)|Sim||||Sim|
+|[Vandis](https://www.vandis.com/microsoft-azure-practice/)|Sim|Sim|Sim|||
+|[Vigilante](https://vigilant.it/manage-cloud-service/)|Sim|Sim||||
 
 ## <a name="expressroute"></a>Parceiros do ExpressRoute
 

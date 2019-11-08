@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 45c59ccdd45a0c00635c3e0a3919248f33e2919a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b0277e07f67b3f9124dc0e27b20e3d49e0d2f6e9
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102456"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749211"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Como criar uma imagem de VM não gerenciada de uma VM do Azure
 
@@ -28,10 +28,10 @@ Este artigo aborda o uso de contas de armazenamento. Recomendamos que você use 
 
 Este artigo mostra como usar Azure PowerShell para criar uma imagem de uma VM do Azure generalizada usando uma conta de armazenamento. Em seguida, você pode usar a imagem para criar outra VM. A imagem inclui o disco do sistema operacional e os discos de dados que estão anexados à máquina virtual. A imagem não inclui os recursos de rede virtual, portanto, você precisa configurar esses recursos ao criar a nova VM. 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="generalize-the-vm"></a>Generalizar a VM 
-Esta seção mostra como generalizar sua máquina virtual do Windows para uso como uma imagem. Generalizar uma VM remove todas as informações pessoais da sua conta, entre outras coisas, e prepara a máquina para ser usada como uma imagem. Para obter detalhes sobre o Sysprep, veja [How to Use Sysprep: Uma introdução](https://technet.microsoft.com/library/bb457073.aspx).
+Esta seção mostra como generalizar sua máquina virtual do Windows para uso como uma imagem. Generalizar uma VM remove todas as informações pessoais da sua conta, entre outras coisas, e prepara a máquina para ser usada como uma imagem. Para mais detalhes sobre o Sysprep, veja [Como utilizar o Sysprep: uma Introdução](https://technet.microsoft.com/library/bb457073.aspx).
 
 Verifique se as funções de servidor em execução no computador têm suporte pelo Sysprep. Para obter mais informações, consulte [suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
@@ -40,13 +40,13 @@ Verifique se as funções de servidor em execução no computador têm suporte p
 > 
 > 
 
-Você também pode generalizar uma VM do Linux `sudo waagent -deprovision+user` usando o e, em seguida, usar o PowerShell para capturar a VM. Para obter informações sobre como usar a CLI para capturar uma VM, consulte [como generalizar e capturar uma máquina virtual Linux usando o CLI do Azure](../linux/capture-image.md).
+Você também pode generalizar uma VM do Linux usando `sudo waagent -deprovision+user` e, em seguida, usar o PowerShell para capturar a VM. Para obter informações sobre como usar a CLI para capturar uma VM, consulte [como generalizar e capturar uma máquina virtual Linux usando o CLI do Azure](../linux/capture-image.md).
 
 
 1. Entre na máquina virtual do Windows.
 2. Abra a janela da Linha de Comandos como administrador. Altere o diretório para **%windir%\system32\sysprep**e execute `sysprep.exe`.
 3. Na caixa de diálogo **Ferramenta de Preparação do Sistema**, selecione **Entrar na Experiência 1ª Execução (OOBE) do Sistema** e certifique-se de que a caixa de verificação **Generalizar** está selecionada.
-4. Em **Opções**de desligamento, selecione **desligar**.
+4. Em **Opções de desligamento**, selecione **desligar**.
 5. Clique em **OK**.
    
     ![Iniciar Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
@@ -103,7 +103,7 @@ Você também pode generalizar uma VM do Linux `sudo waagent -deprovision+user` 
 
 ## <a name="create-the-image"></a>Criar a imagem
 
-Crie uma imagem de máquina virtual não gerenciada no contêiner de armazenamento de destino usando este comando. A imagem é criada na mesma conta de armazenamento que a máquina virtual original. O `-Path` parâmetro salva uma cópia do modelo JSON para a VM de origem em seu computador local. O `-DestinationContainerName` parâmetro é o nome do contêiner para o qual você deseja armazenar suas imagens. Se o contêiner não existir, ele será criado para você.
+Crie uma imagem de máquina virtual não gerenciada no contêiner de armazenamento de destino usando este comando. A imagem é criada na mesma conta de armazenamento que a máquina virtual original. O parâmetro `-Path` salva uma cópia do modelo JSON para a VM de origem em seu computador local. O parâmetro `-DestinationContainerName` é o nome do contêiner para o qual você deseja armazenar suas imagens. Se o contêiner não existir, ele será criado para você.
    
 ```powershell
 Save-AzVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
@@ -111,7 +111,7 @@ Save-AzVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
     -Path <C:\local\Filepath\Filename.json>
 ```
    
-Você pode obter a URL da imagem do modelo de arquivo JSON. Vá para a > seção Resources**storageProfile** > **osDisk** > **Image** > **URI** para obter o caminho completo da imagem. A URL da imagem é semelhante a: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
+Você pode obter a URL da imagem do modelo de arquivo JSON. Vá para a seção **recursos** > **storageProfile** > **osDisk** > **imagem** > **URI** para o caminho completo da imagem. A URL da imagem é semelhante a: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
    
 Você também pode verificar o URI no Portal. A imagem é copiada para um contêiner chamado **System** em sua conta de armazenamento. 
 
@@ -121,7 +121,7 @@ Agora você pode criar uma ou mais VMs a partir da imagem não gerenciada.
 
 ### <a name="set-the-uri-of-the-vhd"></a>Definir o URI do VHD
 
-O URI para o VHD a ser usado está no formato: https://**mystorageaccount**. blob.Core.Windows.NET//MyContainer**MyVhdName**. vhd. Neste exemplo, o VHD chamado **myVHD** está na conta de armazenamento **mystorageaccount** no contêiner MyContainer.
+O URI para o VHD a ser usado está no formato: https://**mystorageaccount**. blob.Core.Windows.NET/**MyContainer**/**MyVhdName**. vhd. Neste exemplo, o VHD chamado **myVHD** está na conta de armazenamento **mystorageaccount** **no contêiner MyContainer.**
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vhd"
@@ -131,7 +131,7 @@ $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vh
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 Crie a vNet e a sub-rede da [rede virtual](../../virtual-network/virtual-networks-overview.md).
 
-1. Crie a sub-rede. O exemplo a seguir cria uma sub-rede chamada mysubnet no grupo de recursos MyResource Group com o prefixo de endereço **10.0.0.0/24**.  
+1. Crie a sub-rede. O exemplo a seguir cria uma sub-rede chamada **mysubnet** no grupo de recursos **MyResource** Group com o prefixo de endereço **10.0.0.0/24**.  
    
     ```powershell
     $rgName = "myResourceGroup"
@@ -256,7 +256,7 @@ Ao concluir, você deverá ver a VM recém-criada no [portal do Azure](https://p
     $vmList.Name
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para gerenciar sua nova máquina virtual com Azure PowerShell, consulte [gerenciar máquinas virtuais usando o Azure Resource Manager e o PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

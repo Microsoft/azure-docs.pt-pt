@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 30e5a7e5953c56ff452b992370e8225ca103abba
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 016b53660499b86de13855cfa994c84d6d9bc702
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079703"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749499"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Criar uma VM com base em uma imagem gerenciada
 
@@ -43,11 +43,11 @@ Antes de criar uma nova VM, você precisará [criar uma imagem de VM gerenciada]
 
 Você pode usar o PowerShell para criar uma VM de uma imagem usando o parâmetro simplificado definido para o cmdlet [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) . A imagem precisa estar no mesmo grupo de recursos em que você criará a VM.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 O parâmetro simplificado definido para [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) requer apenas que você forneça um nome, um grupo de recursos e um nome de imagem para criar uma VM a partir de uma imagem. New-AzVm usará o valor do parâmetro **-Name** como o nome de todos os recursos que ele cria automaticamente. Neste exemplo, fornecemos nomes mais detalhados para cada um dos recursos, mas permitem que o cmdlet os crie automaticamente. Você também pode criar recursos com antecedência, como a rede virtual, e passar o nome do recurso para o cmdlet. New-AzVm usará os recursos existentes se puder encontrá-los por seu nome.
 
-O exemplo a seguir cria uma VM chamada *myVMFromImage*, no grupo de recursos MyResource Group, da imagem chamada *MyImage*. 
+O exemplo a seguir cria uma VM chamada *myVMFromImage*, no grupo de recursos *MyResource* Group, da imagem chamada *MyImage*. 
 
 
 ```azurepowershell-interactive
@@ -65,6 +65,6 @@ New-AzVm `
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Criar e gerenciar VMs do Windows com o módulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

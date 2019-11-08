@@ -1,6 +1,6 @@
 ---
 title: 'Backup do Azure: fazer backup de VMs do Azure usando a API REST'
-description: Gerenciar operações de backup do backup de VM do Azure usando a API REST
+description: Neste artigo, saiba como configurar, iniciar e gerenciar operações de backup do backup de VM do Azure usando a API REST.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 837401256aa264a527e2323b055713f4bd8e8d1c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 901ae66281e1d68474304a4f5456a0163fcb6f2a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671675"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747608"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Fazer backup de uma VM do Azure usando o backup do Azure via API REST
 
@@ -108,13 +108,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 O URI *Get* tem todos os parâmetros necessários. Nenhum corpo de solicitação adicional é necessário.
 
-##### <a name="responses-1"></a>Response
+#### <a name="responses-1"></a>Response
 
 |Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
-##### <a name="example-responses-1"></a>Respostas de exemplo
+#### <a name="example-responses-1"></a>Respostas de exemplo
 
 Depois que a solicitação *Get* é enviada, uma resposta 200 (OK) é retornada.
 
@@ -329,7 +329,7 @@ Ele retorna duas respostas: 202 (aceito) quando outra operação é criada e, em
 |---------|---------|---------|
 |202 aceito     |         |     Aceitar    |
 
-##### <a name="example-responses-3"></a>Respostas de exemplo
+#### <a name="example-responses-3"></a>Respostas de exemplo
 
 Depois de enviar a solicitação *post* para um backup sob demanda, a resposta inicial é 202 (aceito) com um cabeçalho de local ou Azure-Async-header.
 

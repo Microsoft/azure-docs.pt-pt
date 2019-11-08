@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 11/06/2019
 ms.author: tamram
-ms.openlocfilehash: 60104496006e790887dd9c4b3e4c3196e0ef6444
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 3c01cc870b20c8256b215eb700548e6cd69ad0d5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671361"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749014"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Gerenciar configurações de conta de armazenamento no portal do Azure
 
@@ -24,7 +24,7 @@ O armazenamento do Azure dá suporte à autorização com Azure Active Directory
 
 As configurações de **controle de acesso** na portal do Azure oferecem uma maneira simples de atribuir funções RBAC a usuários, grupos, entidades de serviço e identidades gerenciadas. Para obter mais informações sobre como atribuir funções RBAC, consulte [gerenciar direitos de acesso a BLOB e dados de fila com o RBAC](storage-auth-aad-rbac.md).
 
-## <a name="tags"></a>Tags
+## <a name="tags"></a>Etiquetas
 
 O armazenamento do Azure dá suporte a marcas de Azure Resource Manager para organizar os recursos do Azure com uma taxonomia personalizada. Você pode aplicar marcas às suas contas de armazenamento para poder agrupá-las em sua assinatura de uma maneira lógica.
 
@@ -58,7 +58,7 @@ Siga este processo para girar suas chaves de conta de armazenamento:
 3. Atualize as cadeias de ligação no código para fazer referência à nova chave de acesso primária.
 4. Volte a gerar a chave de acesso secundária da mesma forma.
 
-## <a name="account-configuration"></a>Configuração de conta
+## <a name="account-configuration"></a>Configuração da conta
 
 Depois de criar uma conta de armazenamento, você pode modificar sua configuração. Por exemplo, você pode alterar a forma como os dados são replicados ou alterar a camada de acesso da conta de quente para fria. Na [portal do Azure](https://portal.azure.com), navegue até sua conta de armazenamento e, em seguida, localize e clique em **configuração** em **configurações** para exibir e/ou alterar a configuração da conta.
 
